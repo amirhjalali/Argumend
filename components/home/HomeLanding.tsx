@@ -6,32 +6,35 @@ import { ChevronRight } from "lucide-react";
 import { HeroAnalyze } from "@/components/HeroAnalyze";
 import { FeaturedTopicHero } from "@/components/FeaturedTopicHero";
 import { Footer } from "@/components/Footer";
-import { BalanceWeightChip } from "@/components/BalanceWeightChip";
-import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
+import {
+  topicSummaries,
+  CATEGORY_LABELS,
+  CATEGORY_ORDER,
+} from "@/data/topicIndex";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 
 /**
  * The home page's landing content (everything inside <main> before a topic
  * is chosen). Lives apart from HomeClient so the canvas shell and the landing
  * design can change independently.
+ *
+ * One scroll, four beats, all on the same left edge and separated by the same
+ * hairline: the three flagship maps (the promise), one crux worked through
+ * (the method), the library (the breadth), and the paste box (your own
+ * argument). No section sits on its own tinted band, so the rhythm comes
+ * from type and space rather than from alternating backgrounds.
  */
 
-const GRID_TOPICS_COUNT = 6;
+const LIBRARY_TOPICS_PER_CATEGORY = 3;
 
 function FlagshipDebateMaps() {
   return (
     <section
       aria-labelledby="flagship-debate-maps-heading"
-      className="px-4 pb-10 pt-8 md:px-8 md:pb-14 md:pt-14"
+      className="px-4 pb-14 pt-10 md:px-8 md:pb-20 md:pt-16"
     >
-      {/* The page's one hero. It used to be a rust-tinted card with a small
-          h1, followed by a second, larger "hero" headline further down, so
-          the page opened twice (2026-09-22 design audit, finding 10). Now the
-          h1 sets the promise at display size on bare parchment and the three
-          maps sit under it as quiet columns. */}
       <div className="mx-auto max-w-5xl">
-        <p className="label-caps">Start here</p>
-        <div className="mt-3 grid gap-5 md:grid-cols-[minmax(0,1.25fr)_minmax(16rem,0.75fr)] md:items-end md:gap-12">
+        <div className="grid gap-5 md:grid-cols-[minmax(0,1.25fr)_minmax(16rem,0.75fr)] md:items-end md:gap-12">
           <h1
             id="flagship-debate-maps-heading"
             className="text-balance font-serif text-[2.5rem] font-normal leading-[1.04] tracking-[-0.02em] text-primary dark:text-stone-200 sm:text-[3.25rem] lg:text-[3.75rem]"
@@ -45,7 +48,7 @@ function FlagshipDebateMaps() {
           </p>
         </div>
 
-        <div className="mt-9 grid gap-x-8 md:grid-cols-3">
+        <div className="mt-10 grid gap-x-8 md:grid-cols-3">
           {argumentTopicIndex.map((topic) => (
             <Link
               key={topic.id}
@@ -58,7 +61,7 @@ function FlagshipDebateMaps() {
               <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-secondary dark:text-stone-400">
                 {topic.tagline}
               </p>
-              <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium text-deep dark:text-[#8bb5b1]">
+              <span className="mt-auto inline-flex min-h-11 items-center gap-1 pt-3 text-sm font-medium text-deep dark:text-[#8bb5b1]">
                 Open the debate map
                 <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
               </span>
@@ -70,72 +73,101 @@ function FlagshipDebateMaps() {
   );
 }
 
+/**
+ * A typographic index of the library: each category's first few topics as
+ * plain serif links. It replaces a row of five narrow tiles whose titles
+ * truncated at two lines and whose only other content was a crimson
+ * balance-and-weight glyph, which made the library read as a scoreboard.
+ */
+function LibraryIndex() {
+  const shelves = CATEGORY_ORDER.map((category) => {
+    const inCategory = topicSummaries.filter((t) => t.category === category);
+    return {
+      category,
+      count: inCategory.length,
+      topics: inCategory.slice(0, LIBRARY_TOPICS_PER_CATEGORY),
+    };
+  }).filter((shelf) => shelf.count > 0);
+
+  return (
+    <section aria-labelledby="home-library-heading" className="px-4 md:px-8">
+      <div className="mx-auto max-w-5xl border-t border-stone-300/70 py-14 dark:border-divider md:py-20">
+        <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-12">
+          <h2
+            id="home-library-heading"
+            className="text-balance font-serif text-[2rem] leading-[1.08] tracking-[-0.01em] text-primary dark:text-stone-200 md:text-[2.5rem]"
+          >
+            {topicSummaries.length} questions, mapped the same way
+          </h2>
+          <p className="max-w-md text-base leading-relaxed text-secondary dark:text-stone-400 md:pt-2">
+            Each one sets out the strongest case on every side, the evidence
+            and how much it weighs, and the cruxes that would settle it.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
+          {shelves.map((shelf) => (
+            <div key={shelf.category}>
+              <h3 className="border-b border-stone-300/70 pb-2 dark:border-divider">
+                <Link
+                  href={`/topics?category=${shelf.category}`}
+                  className="flex min-h-11 items-end justify-between gap-2 text-primary transition-colors hover:text-deep dark:text-stone-200 dark:hover:text-[#8bb5b1]"
+                >
+                  <span className="label-caps text-current">
+                    {CATEGORY_LABELS[shelf.category]}
+                  </span>
+                  <span className="pb-px text-xs tabular-nums text-muted dark:text-stone-500">
+                    {shelf.count}
+                  </span>
+                </Link>
+              </h3>
+              <ul className="mt-1">
+                {shelf.topics.map((topic, index) => (
+                  // Two per shelf on phones keeps the section to one screen.
+                  <li key={topic.id} className={index >= 2 ? "hidden sm:block" : undefined}>
+                    <Link
+                      href={`/topics/${topic.id}`}
+                      className="block min-h-11 py-2 font-serif text-[1.0625rem] leading-snug text-secondary transition-colors hover:text-deep dark:text-stone-300 dark:hover:text-[#8bb5b1]"
+                    >
+                      {topic.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <Link
+          href="/topics"
+          className="mt-8 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-deep transition-colors hover:text-deep-dark dark:text-[#8bb5b1] dark:hover:text-[#a9cbc8] group"
+        >
+          Browse all {topicSummaries.length} topics
+          <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 interface HomeLandingProps {
   onTopicSelect: (id: string) => void;
-  /** Optional live mini-map, built by the caller (it owns the React Flow import). */
+  /**
+   * The live mini-map HomeClient builds for desktop. The landing no longer
+   * shows it: the worked crux says more than a four-box sketch, and leaving
+   * it unmounted keeps React Flow off the home page. Kept on the interface so
+   * HomeClient's canvas code stays untouched; remove both together.
+   */
   preview?: ReactNode;
 }
 
-export function HomeLanding({ onTopicSelect, preview }: HomeLandingProps) {
-  const gridTopics = CATEGORY_ORDER
-    .map((cat) => topicSummaries.find((t) => t.category === cat))
-    .filter(Boolean)
-    .slice(0, GRID_TOPICS_COUNT) as typeof topicSummaries;
-
+export function HomeLanding({ onTopicSelect }: HomeLandingProps) {
   return (
     <>
-      {/* Section 1: primary discovery path for the flagship maps. */}
       <FlagshipDebateMaps />
-
-      {/* Section 2: legacy featured-topic experience. */}
-      <FeaturedTopicHero
-        onTopicSelect={onTopicSelect}
-        headingLevel="h2"
-        preview={preview}
-      />
-
-      {/* Section 3: Topic Grid */}
-      <div className="px-4 md:px-8 py-10">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-xl font-semibold text-primary dark:text-stone-200 mb-5">
-            {topicSummaries.length} topics analyzed
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {gridTopics.map((topic) => (
-              <button
-                key={topic.id}
-                onClick={() => onTopicSelect(topic.id)}
-                className="group text-left p-4 bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-divider)] rounded-xl hover:border-deep/30 hover:shadow-md hover:scale-[1.01] hover:-translate-y-0.5 transition-all"
-              >
-                <h3 className="font-serif text-sm font-medium text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug line-clamp-2">
-                  {topic.title}
-                </h3>
-                {/* Glyph only: the quadrant word overflowed these
-                    narrow cards at desktop widths. */}
-                <BalanceWeightChip
-                  balance={topic.balance}
-                  weight={topic.weight}
-                  verdict={topic.verdict}
-                  className="mt-2"
-                />
-              </button>
-            ))}
-          </div>
-          <div className="mt-5 text-center">
-            <Link
-              href="/topics"
-              className="inline-flex items-center gap-1 text-sm font-serif font-medium text-deep hover:text-deep-dark transition-colors group"
-            >
-              Browse all topics
-              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Section 4: Demoted Analyze CTA */}
+      <FeaturedTopicHero onTopicSelect={onTopicSelect} />
+      <LibraryIndex />
       <HeroAnalyze onTopicSelect={onTopicSelect} />
-
       <Footer />
     </>
   );

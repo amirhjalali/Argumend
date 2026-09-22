@@ -22,7 +22,7 @@ describe("HeroAnalyze", () => {
     const view = render(<HeroAnalyze onTopicSelect={vi.fn()} />);
 
     expect(
-      view.getByRole("button", { name: "Try an Example" }).className,
+      view.getByRole("button", { name: "Try an example" }).className,
     ).toContain("min-h-11");
     expect(view.getByRole("button", { name: "Analyze" }).className).toContain(
       "min-h-11",
