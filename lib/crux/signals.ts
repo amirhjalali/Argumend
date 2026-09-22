@@ -43,6 +43,12 @@ export interface CruxSignal {
    * the graph, so the removal is carried through to the explanation.
    */
   gatesRemovedByProbeIds: string[];
+  /**
+   * Claims this one gates that a `resolved` crux-ledger entry removed from
+   * candidacy (spec §1.3 rule 1). Same reasoning as the probe list: the edge
+   * is still in the graph, so the card names the removal instead of hiding it.
+   */
+  gatesResolvedByLedgerIds: string[];
   cycleWarnings: string[];
 }
 
@@ -55,6 +61,13 @@ export interface CruxSignalResult {
    * candidate set, so the change is reported rather than silent.
    */
   droppedByFloorIds: string[];
+  /**
+   * Claim ids out of candidacy because their current public crux-ledger entry
+   * is `resolved`, sorted: removed here, or already out through the graph
+   * status edit the ledger validator requires alongside a `resolved` entry.
+   * Pinned claims are never listed. Empty unless a ledger was supplied.
+   */
+  droppedByLedgerIds: string[];
 }
 
 export interface CruxSignalOptions {
@@ -72,6 +85,13 @@ export interface CruxSignalOptions {
    * `DEFAULT_CANDIDACY_FLOOR` (0.25).
    */
   candidacyFloor?: number;
+  /**
+   * Claim ids whose current public crux-ledger entry is `resolved` (spec §1.3
+   * rule 1). They leave candidacy exactly as a floor removal does: no slot, no
+   * scoping reach passed to a gate, no redundancy comparison. Pinned claims
+   * are exempt — the curator's override wins over the ledger.
+   */
+  ledgerResolvedIds?: ReadonlySet<string>;
 }
 
 const TRACTABILITY: Record<ResolutionKind | "missing", number> = {
@@ -95,13 +115,25 @@ export function computeCruxSignals(
       node.type === "claim" && !influenceGraph.excludedNodeIds.has(node.id)
   );
   const editorialCandidates = activeClaims.filter((claim) => isCandidate(claim));
+  const droppedIds = new Set(
+    editorialCandidates
+      .filter((claim) => belowCandidacyFloor(claim, overrides, candidacyFloor))
+      .map((claim) => claim.id)
+  );
+  // Every active claim the ledger records resolved, not only the editorial
+  // candidates: the ledger validator requires the matching graph edit (status
+  // off contested/unresolved), which usually takes the claim out of candidacy
+  // before the ledger gets to. Reporting only the candidates would leave that
+  // drop silent, which is what rule 1 exists to prevent.
+  const resolvedIds = new Set(
+    activeClaims
+      .filter((claim) => resolvedByLedger(claim, options.ledgerResolvedIds))
+      .map((claim) => claim.id)
+  );
   const candidates = editorialCandidates.filter(
-    (claim) => !belowCandidacyFloor(claim, overrides, candidacyFloor)
+    (claim) => !droppedIds.has(claim.id) && !resolvedIds.has(claim.id)
   );
   const candidateIds = new Set(candidates.map((claim) => claim.id));
-  const droppedIds = new Set(
-    editorialCandidates.filter((claim) => !candidateIds.has(claim.id)).map((claim) => claim.id)
-  );
   const claimCount = activeClaims.length;
   const positionIds = graph.nodes
     .filter((node) => node.type === "position" && !influenceGraph.excludedNodeIds.has(node.id))
@@ -149,10 +181,16 @@ export function computeCruxSignals(
       baseScore: directScoreMass + 0.15 * scopingBonus,
       gatesClaimIds: gatedIds,
       gatesRemovedByProbeIds: gatedCandidateIds(graph.edges, signal.claim.id, droppedIds),
+      gatesResolvedByLedgerIds: gatedCandidateIds(graph.edges, signal.claim.id, resolvedIds),
     };
   });
 
-  return { influenceGraph, signals, droppedByFloorIds: [...droppedIds].sort() };
+  return {
+    influenceGraph,
+    signals,
+    droppedByFloorIds: [...droppedIds].sort(),
+    droppedByLedgerIds: [...resolvedIds].sort(),
+  };
 }
 
 function isCandidate(claim: Claim): boolean {
@@ -179,6 +217,14 @@ function belowCandidacyFloor(
   if (claim.cruxOverride === "pin") return false;
   const override = overrides.get(claim.id);
   return override !== undefined && override < floor;
+}
+
+/**
+ * Crux-ledger rule 1: a claim whose current public entry is `resolved` is no
+ * longer a live question. A pin outranks the ledger, as it outranks the probe.
+ */
+function resolvedByLedger(claim: Claim, resolvedIds: ReadonlySet<string> | undefined): boolean {
+  return claim.cruxOverride !== "pin" && resolvedIds?.has(claim.id) === true;
 }
 
 function directSignal(
@@ -262,6 +308,7 @@ function directSignal(
     affectedSet,
     gatesClaimIds: [],
     gatesRemovedByProbeIds: [],
+    gatesResolvedByLedgerIds: [],
     cycleWarnings: [...new Set([...plus.cycleWarnings, ...minus.cycleWarnings])],
   };
 }

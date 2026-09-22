@@ -13,8 +13,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { argumentTopicIds, loadArgumentTopic } from "@/lib/argument/draftTopics";
-import { ledgerStatus } from "@/lib/argument/ledger";
-import { identifyCruxes } from "./rank";
+import { currentLedgerEntries, ledgerStatus } from "@/lib/argument/ledger";
+import { identifyCruxes, type CruxResult } from "./rank";
 
 const BASELINE_PATH = path.join(__dirname, "__fixtures__", "flagship-cruxes.baseline.json");
 
@@ -51,14 +51,23 @@ describe("empty crux ledger reproduces today's ranking byte-for-byte", () => {
     });
   }
 
-  it("week 1: a published ledger on disk does not feed the ranking yet", () => {
+  it("the ledger on disk feeds the ranking only through its current public entries", () => {
     for (const topicId of argumentTopicIds) {
       const topic = loadArgumentTopic(topicId);
-      expect(JSON.stringify(topic!.cruxes)).toBe(JSON.stringify(baseline[topicId]));
+      expect(topic).not.toBeNull();
+      const current = currentLedgerEntries(topic!.ledger);
+      // The loader ranks with exactly the engine's view of that ledger...
+      expect(JSON.stringify(topic!.cruxes)).toBe(
+        JSON.stringify(identifyCruxes(topic!.graph, { ledgerStatus: current })),
+      );
+      // ...and a ledger with no public entry still ranks as the frozen baseline.
+      if (Object.keys(current).length === 0) {
+        expect(JSON.stringify(topic!.cruxes)).toBe(JSON.stringify(baseline[topicId]));
+      }
     }
   });
 
-  it("week 1: a non-empty ledger does not feed the ranking yet", () => {
+  it("a narrowed entry moves no claim and no score, only the annotation", () => {
     for (const topicId of argumentTopicIds) {
       const topClaim = (baseline[topicId] as Array<{ claimId: string }>)[0].claimId;
       const file = {
@@ -80,7 +89,20 @@ describe("empty crux ledger reproduces today's ranking byte-for-byte", () => {
       };
       const topic = loadArgumentTopic(topicId, { readLedger: () => JSON.stringify(file) });
       expect(ledgerStatus(topic!.ledger)).toEqual({ [topClaim]: "narrowed" });
-      expect(JSON.stringify(topic!.cruxes)).toBe(JSON.stringify(baseline[topicId]));
+      // Week 2 (spec §1.3 rule 3): the entry reaches the ranking, but only as
+      // the status, the cleared evidence-starved flag and the cited note.
+      const [top, ...rest] = topic!.cruxes;
+      const [baselineTop, ...baselineRest] = baseline[topicId] as CruxResult[];
+      expect(JSON.stringify(rest)).toBe(JSON.stringify(baselineRest));
+      expect(top).toEqual({
+        ...baselineTop,
+        evidenceStarved: false,
+        ledgerStatus: "narrowed",
+        explanationFacts: [
+          ...baselineTop.explanationFacts,
+          "Ledger: narrowed on 2025-06-01 — A scope limit was accepted by both sides.",
+        ],
+      });
     }
   });
 });
