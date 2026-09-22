@@ -91,38 +91,36 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
             height={1066}
             priority
             sizes="(max-width: 672px) calc(100vw - 2rem), 640px"
-            className="mb-6 w-full rounded-lg"
+            className="mb-6 w-full rounded-lg ring-1 ring-stone-900/5 dark:brightness-[0.85] dark:ring-white/5"
           />
         )}
-        <p className="text-[11px] font-medium uppercase tracking-wider text-muted dark:text-stone-400">
-          Argumend · debate map ·{" "}
+        <p className="label-caps">
+          Debate map,{" "}
           <time dateTime={ARGUMENT_TOPICS_LAST_UPDATED}>
             Reviewed {formatIsoDate(ARGUMENT_TOPICS_LAST_UPDATED)}
           </time>
         </p>
-        <h1 className="mt-2 font-serif text-3xl sm:text-4xl leading-tight text-stone-900 dark:text-stone-100">
+        <h1 className="mt-2 text-balance font-serif text-[2.25rem] sm:text-5xl leading-[1.08] tracking-[-0.02em] text-stone-900 dark:text-stone-100">
           {meta.title}
         </h1>
         {scopedQuestion && scopedQuestion !== meta.title && (
-          <p className="mt-2 text-xs leading-relaxed text-muted dark:text-stone-400">
+          <p className="mt-3 text-sm leading-relaxed text-muted dark:text-stone-400">
             <span className="font-medium text-stone-700 dark:text-stone-300">
               Scope:
             </span>{" "}
             {scopedQuestion}
           </p>
         )}
-        <p className="mt-4 text-[15px] leading-relaxed text-stone-800 dark:text-stone-200">
+        <p className="mt-5 font-serif text-[1.3125rem] leading-[1.5] text-stone-800 dark:text-stone-200">
           {meta.hook}
         </p>
         {meta.contextNote && (
-          <p className="mt-1.5 text-xs text-muted dark:text-stone-400">
+          <p className="mt-2 text-sm text-muted dark:text-stone-400">
             {meta.contextNote}
           </p>
         )}
-        <div className="mt-5 surface-paper rounded-lg border-l-4 border-[#C4613C] p-4">
-          <p className="text-[11px] font-medium uppercase tracking-wider text-rust-700 dark:text-rust-300">
-            What this map shows
-          </p>
+        <div className="mt-6 surface-paper rounded-lg border-l-[3px] border-l-deep/70 p-4 sm:p-5 dark:border-l-[#8bb5b1]/60">
+          <p className="label-caps">What this map shows</p>
           <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
             {meta.tldr}
           </p>
@@ -352,12 +350,10 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
               </li>
             ))}
           </ul>
-          <blockquote className="mt-5 border-l-4 border-[#C4613C] surface-paper rounded-r-lg p-4">
-            <p className="text-[15px] leading-relaxed text-stone-900 dark:text-stone-100">
+          <blockquote className="mt-5 border-l-[3px] border-l-deep/70 surface-paper rounded-r-lg p-4 sm:p-5 dark:border-l-[#8bb5b1]/60">
+            <p className="label-caps">If you only remember one thing</p>
+            <p className="mt-1.5 font-serif text-[1.1875rem] leading-[1.55] text-stone-900 dark:text-stone-100">
               {meta.closer.take}
-            </p>
-            <p className="mt-2 text-[11px] uppercase tracking-wider text-muted dark:text-stone-400">
-              The take, if you only remember one thing
             </p>
           </blockquote>
         </section>
