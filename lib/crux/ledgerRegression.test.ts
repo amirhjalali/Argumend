@@ -14,7 +14,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { argumentTopicIds, loadArgumentTopic } from "@/lib/argument/draftTopics";
 import { currentLedgerEntries, ledgerStatus } from "@/lib/argument/ledger";
-import { identifyCruxes } from "./rank";
+import { identifyCruxes, type CruxResult } from "./rank";
 
 const BASELINE_PATH = path.join(__dirname, "__fixtures__", "flagship-cruxes.baseline.json");
 
@@ -67,7 +67,7 @@ describe("empty crux ledger reproduces today's ranking byte-for-byte", () => {
     }
   });
 
-  it("week 1: a non-empty ledger does not feed the ranking yet", () => {
+  it("a narrowed entry moves no claim and no score, only the annotation", () => {
     for (const topicId of argumentTopicIds) {
       const topClaim = (baseline[topicId] as Array<{ claimId: string }>)[0].claimId;
       const file = {
@@ -89,7 +89,20 @@ describe("empty crux ledger reproduces today's ranking byte-for-byte", () => {
       };
       const topic = loadArgumentTopic(topicId, { readLedger: () => JSON.stringify(file) });
       expect(ledgerStatus(topic!.ledger)).toEqual({ [topClaim]: "narrowed" });
-      expect(JSON.stringify(topic!.cruxes)).toBe(JSON.stringify(baseline[topicId]));
+      // Week 2 (spec §1.3 rule 3): the entry reaches the ranking, but only as
+      // the status, the cleared evidence-starved flag and the cited note.
+      const [top, ...rest] = topic!.cruxes;
+      const [baselineTop, ...baselineRest] = baseline[topicId] as CruxResult[];
+      expect(JSON.stringify(rest)).toBe(JSON.stringify(baselineRest));
+      expect(top).toEqual({
+        ...baselineTop,
+        evidenceStarved: false,
+        ledgerStatus: "narrowed",
+        explanationFacts: [
+          ...baselineTop.explanationFacts,
+          "Ledger: narrowed on 2025-06-01 — A scope limit was accepted by both sides.",
+        ],
+      });
     }
   });
 });

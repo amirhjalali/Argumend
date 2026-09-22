@@ -365,7 +365,8 @@ describe("identifyCruxes with crux-ledger status (v1.3, spec §1.3)", () => {
 
   it("unreviewed judgment entries can never move the ranking", () => {
     const topicId = "ai-mass-unemployment";
-    const claimId = "c-firms-cut-hiring-not-output";
+    // Evidence-starved in the unledgered ranking, so a narrowing is visible.
+    const claimId = "c-credential-pathway-narrows";
     const proposal: CruxLedgerEntry = {
       id: `${topicId}:${claimId}:2026-05-01:1`,
       topicId,
@@ -373,8 +374,8 @@ describe("identifyCruxes with crux-ledger status (v1.3, spec §1.3)", () => {
       date: "2026-05-01",
       status: "narrowed",
       resolutionKind: "existing-evidence",
-      evidenceNodeIds: ["e-stanford-adp-16pct"],
-      note: "A model proposal that new cohort data narrows the hiring-versus-output question.",
+      evidenceNodeIds: ["e-dallas-fed-wage-growth"],
+      note: "A model proposal that new wage-growth data narrows the credential-pathway question.",
       author: {
         kind: "judgment",
         modelId: "fixture-model",
