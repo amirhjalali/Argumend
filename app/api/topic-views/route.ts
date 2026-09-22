@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { auth } from "@/lib/auth";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { recordTopicView, getTrendingTopics } from "@/lib/db/queries";
 import { isDatabaseConfigured } from "@/lib/db";
@@ -16,7 +17,7 @@ const TopicViewRequestSchema = z.object({
  */
 export async function POST(req: NextRequest) {
   // Rate limit: 60 views per minute per IP to prevent view inflation
-  const ip = req.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(req);
   const limit = rateLimit(`topic-views:${ip}`, { maxRequests: 60, windowMs: 60 * 1000 });
   if (!limit.success) {
     // Silently accept but don't record — don't leak rate limit info to scrapers
@@ -68,7 +69,7 @@ export async function POST(req: NextRequest) {
  */
 export async function GET(req: NextRequest) {
   // Rate limit: 30 requests per minute per IP
-  const ip = req.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(req);
   const limit = rateLimit(`topic-views-list:${ip}`, { maxRequests: 30, windowMs: 60 * 1000 });
   if (!limit.success) {
     return NextResponse.json(

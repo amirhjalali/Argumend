@@ -4,6 +4,7 @@ import { getAnalysis } from "@/lib/db/queries";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 import { getDb, isDatabaseConfigured } from "@/lib/db";
 import { judgments } from "@/lib/db/schema";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { toPublicAnalysis } from "@/lib/analyze/publicAnalysis";
 
@@ -13,11 +14,11 @@ import { toPublicAnalysis } from "@/lib/analyze/publicAnalysis";
  * Fetch a single analysis by ID along with its associated judgment.
  */
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   // Rate limit: 30 requests per minute per IP
-  const ip = _request.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(request);
   const limit = rateLimit(`analysis:${ip}`, { maxRequests: 30, windowMs: 60 * 1000 });
   if (!limit.success) {
     return NextResponse.json(

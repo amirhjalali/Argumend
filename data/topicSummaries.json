@@ -193,12 +193,12 @@
     "id": "scott-cost-disease",
     "title": "The Cost Disease",
     "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
-    "confidence_score": 67,
-    "balance": 67,
+    "confidence_score": 85,
+    "balance": 85,
     "weight": 81,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
-      "quadrant": "contested"
+      "label": "Settled — evidence strongly favors the claim",
+      "quadrant": "settled"
     },
     "status": "contested",
     "category": "economics",
@@ -254,8 +254,9 @@
     "balance": 73,
     "weight": 77,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
@@ -292,8 +293,9 @@
     "balance": 71,
     "weight": 76,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -349,8 +351,9 @@
     "balance": 75,
     "weight": 65,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -364,8 +367,8 @@
     "id": "death-penalty-deterrence",
     "title": "The Death Penalty",
     "meta_claim": "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
-    "confidence_score": 22,
-    "balance": 22,
+    "confidence_score": 17,
+    "balance": 17,
     "weight": 56,
     "verdict": {
       "label": "Leans toward the counterclaim — moderately evidenced",
@@ -402,8 +405,8 @@
     "id": "mandatory-voting",
     "title": "Mandatory Voting",
     "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
-    "confidence_score": 76,
-    "balance": 76,
+    "confidence_score": 86,
+    "balance": 86,
     "weight": 53,
     "verdict": {
       "label": "Leans toward the claim — moderately evidenced",
@@ -444,8 +447,9 @@
     "balance": 21,
     "weight": 65,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -482,8 +486,9 @@
     "balance": 70,
     "weight": 73,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -573,12 +578,13 @@
     "id": "us-iran-conflict",
     "title": "The US-Iran Conflict",
     "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 48,
-    "balance": 48,
+    "confidence_score": 23,
+    "balance": 23,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
-      "quadrant": "contested"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -672,8 +678,9 @@
     "balance": 30,
     "weight": 70,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -706,8 +713,8 @@
     "id": "pandemic-preparedness",
     "title": "Pandemic Preparedness Investment",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
-    "confidence_score": 57,
-    "balance": 57,
+    "confidence_score": 65,
+    "balance": 65,
     "weight": 75,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -858,8 +865,8 @@
     "id": "ai-content-labeling",
     "title": "Mandatory AI Content Labeling",
     "meta_claim": "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
-    "confidence_score": 63,
-    "balance": 63,
+    "confidence_score": 74,
+    "balance": 74,
     "weight": 56,
     "verdict": {
       "label": "Leans toward the claim — moderately evidenced",
@@ -991,11 +998,11 @@
     "id": "ai-in-education",
     "title": "AI in Education: Revolution or Risk?",
     "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
-    "confidence_score": 45,
-    "balance": 45,
+    "confidence_score": 39,
+    "balance": 39,
     "weight": 64,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1010,8 +1017,8 @@
     "id": "ai-regulation",
     "title": "Should AI Be Regulated Like Drugs or Nuclear Energy?",
     "meta_claim": "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
-    "confidence_score": 59,
-    "balance": 59,
+    "confidence_score": 51,
+    "balance": 51,
     "weight": 75,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -1466,8 +1473,8 @@
     "id": "seed-oils-health",
     "title": "Are Seed Oils Harmful to Human Health?",
     "meta_claim": "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
-    "confidence_score": 46,
-    "balance": 46,
+    "confidence_score": 40,
+    "balance": 40,
     "weight": 66,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -1485,12 +1492,12 @@
     "id": "obesity-personal-responsibility",
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
-    "confidence_score": 31,
-    "balance": 31,
+    "confidence_score": 18,
+    "balance": 18,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
-      "quadrant": "contested"
+      "label": "Settled — evidence strongly favors the counterclaim",
+      "quadrant": "settled"
     },
     "status": "contested",
     "category": "science",
@@ -1523,8 +1530,8 @@
     "id": "remote-work-permanence",
     "title": "The Future of Remote Work",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 58,
-    "balance": 58,
+    "confidence_score": 74,
+    "balance": 74,
     "weight": 57,
     "verdict": {
       "label": "Leans toward the claim — moderately evidenced",
@@ -1580,8 +1587,8 @@
     "id": "billionaire-wealth",
     "title": "Should Billionaires Exist?",
     "meta_claim": "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
-    "confidence_score": 68,
-    "balance": 68,
+    "confidence_score": 66,
+    "balance": 66,
     "weight": 59,
     "verdict": {
       "label": "Leans toward the claim — moderately evidenced",
@@ -1717,8 +1724,9 @@
     "balance": 70,
     "weight": 71,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
@@ -1789,8 +1797,8 @@
     "id": "return-to-office-productivity",
     "title": "Does Return-to-Office Actually Improve Productivity?",
     "meta_claim": "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
-    "confidence_score": 36,
-    "balance": 36,
+    "confidence_score": 27,
+    "balance": 27,
     "weight": 64,
     "verdict": {
       "label": "Leans toward the counterclaim — moderately evidenced",
@@ -1808,8 +1816,8 @@
     "id": "lab-diamonds-ethics",
     "title": "Are Lab-Grown Diamonds More Ethical Than Mined Diamonds?",
     "meta_claim": "Lab-grown diamonds are the ethical choice — they avoid the human rights abuses and environmental destruction of diamond mining.",
-    "confidence_score": 60,
-    "balance": 60,
+    "confidence_score": 52,
+    "balance": 52,
     "weight": 69,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -1908,7 +1916,9 @@
     "weight": 82,
     "verdict": {
       "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "quadrant": "settled",
+      "fragile": true,
+      "pinnedByStatus": true
     },
     "status": "settled",
     "category": "philosophy",
@@ -1983,8 +1993,9 @@
     "balance": 70,
     "weight": 76,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Clearly favors the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "philosophy",
@@ -2207,11 +2218,11 @@
     "id": "longevity-anti-aging",
     "title": "Anti-Aging & Radical Life Extension",
     "meta_claim": "Recent advances in longevity science — including rapamycin, senolytics, epigenetic reprogramming, and caloric restriction mimetics — suggest that meaningful human lifespan extension beyond 120 years is achievable within our lifetimes.",
-    "confidence_score": 61,
-    "balance": 61,
+    "confidence_score": 52,
+    "balance": 52,
     "weight": 62,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2363,8 +2374,9 @@
     "balance": 29,
     "weight": 78,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
@@ -2378,8 +2390,8 @@
     "id": "rfk-health-policy",
     "title": "RFK Jr's Health Policy Agenda (MAHA)",
     "meta_claim": "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
-    "confidence_score": 44,
-    "balance": 44,
+    "confidence_score": 39,
+    "balance": 39,
     "weight": 72,
     "verdict": {
       "label": "Well-mapped, genuinely contested",
@@ -2397,12 +2409,13 @@
     "id": "doge-federal-cuts",
     "title": "DOGE & Federal Spending Cuts",
     "meta_claim": "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
-    "confidence_score": 31,
-    "balance": 31,
+    "confidence_score": 25,
+    "balance": 25,
     "weight": 78,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
-      "quadrant": "contested"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",

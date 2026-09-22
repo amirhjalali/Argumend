@@ -179,7 +179,7 @@ export const aiContentLabelingData = {
           title: "China Mandated AI Content Labeling From 2023",
           description:
             "China's Provisions on the Administration of Deep Synthesis of Internet Information Services (issued by the CAC, MIIT and MPS on Nov 25, 2022; effective Jan 10, 2023) require providers to add conspicuous labels to deep-synthesis (AI-generated/manipulated) content — text, images, audio, video — that could confuse the public. This establishes that a major jurisdiction has imposed mandatory labeling, offering a real-world precedent, though its enforcement record and effects on creators are not well documented in independent sources.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 5,

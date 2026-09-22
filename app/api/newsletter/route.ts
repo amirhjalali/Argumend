@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { getDb } from "@/lib/db/index";
 import { newsletters } from "@/lib/db/schema";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
@@ -22,7 +23,7 @@ const NewsletterRequestSchema = z.object({
  */
 export async function POST(request: NextRequest) {
   // Rate limit: 5 signups per hour per IP
-  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(request);
   const limit = rateLimit(`newsletter:${ip}`, {
     maxRequests: 5,
     windowMs: 60 * 60 * 1000,

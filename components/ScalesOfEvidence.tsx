@@ -7,6 +7,7 @@ import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
 import type { Evidence, Topic, Verdict } from "@/types/logic";
 import { calculateEvidenceScore } from "@/types/logic";
 import { QUADRANT_STYLE } from "@/components/BalanceWeightChip";
+import { FragileVerdictNote } from "@/components/FragileVerdictNote";
 
 interface EvidenceCardProps {
   evidence: Evidence;
@@ -280,6 +281,7 @@ function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: 
           <div className="font-serif text-2xl font-bold" style={{ color: s.color }}>
             {verdictLabel}
           </div>
+          <FragileVerdictNote fragile={verdict.fragile} className="mt-1.5" />
         </div>
 
         {/* Visual Weight Bar */}

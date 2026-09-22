@@ -64,8 +64,10 @@ function makeRoomForNewKey(): void {
  *
  * @example
  * ```ts
- * const ip = request.headers.get("x-forwarded-for") || "unknown";
- * const limit = rateLimit(ip, { maxRequests: 10, windowMs: 60 * 60 * 1000 });
+ * // Always derive the address with clientIp(). Reading the first
+ * // `x-forwarded-for` entry keys the limit on a value the caller writes.
+ * const ip = clientIp(request);
+ * const limit = rateLimit(`my-route:${ip}`, { maxRequests: 10, windowMs: 60 * 60 * 1000 });
  * if (!limit.success) {
  *   return NextResponse.json(
  *     { error: "Rate limited" },

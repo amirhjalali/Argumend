@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import topicSummaryData from "@/data/topicSummaries.json";
 import type { TopicSummary } from "@/data/topicIndex";
+import { FRAGILE_VERDICT_NOTE } from "@/components/FragileVerdictNote";
 import type { VerdictQuadrant } from "@/lib/schemas/topic";
 import {
   OG_HEIGHT,
@@ -171,6 +172,21 @@ export async function GET(
             >
               {verdict}
             </div>
+
+            {/* Fragility — a reading one evidence relabel could change says so */}
+            {topic.verdict.fragile && (
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: "17px",
+                  color: "#a8a29e",
+                  fontStyle: "italic",
+                  lineHeight: 1.3,
+                }}
+              >
+                {FRAGILE_VERDICT_NOTE}
+              </div>
+            )}
 
             {/* Stats row */}
             <div

@@ -130,3 +130,18 @@ export const VERDICT = {
   /** d = |balance − 50| ≥ this (with high weight) → "Settled" */
   SETTLED_D: 20,
 } as const;
+
+/**
+ * Robustness guard on the *displayed* "settled" verdict.
+ * Rationale + before/after table: docs/reviews/2026-09-21-verdict-robustness.md.
+ * Only "settled" is guarded, and only ever downward — balance and weight are
+ * never touched. Raise MIN_FLIPS_TO_CHANGE to demand a wider safety margin.
+ */
+export const VERDICT_ROBUSTNESS = {
+  /** A map keeps "settled" only if this many side flips are needed to lose it. */
+  MIN_FLIPS_TO_CHANGE: 2,
+  /** …and only if it has at least this many evidence cards. */
+  MIN_CARDS: 8,
+  /** Exhaustive depth of the flip search. Beyond this, flipsToChange is null. */
+  MAX_FLIP_SEARCH: 4,
+} as const;

@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { topics } from "./topics";
+import { topicSummaries } from "./topicIndex";
 import { TopicSchema } from "@/lib/schemas/topic";
+import { topicVerdictSensitivity, VERDICT_ROBUSTNESS } from "@/lib/verdictSensitivity";
 import { validateSourceUrl } from "@/scripts/source-url-health";
 
 describe("topics data integrity", () => {
@@ -223,7 +225,30 @@ describe("weight calibration anchors (spec §2.2)", () => {
 
   it("moon-landing (settled) has high weight", () => {
     expect(moonLanding?.weight).toBeGreaterThan(80);
+  });
+
+  // The map is 8 cards (3 for + 1 steelmanned against per pillar), which puts
+  // balance at 76 — six points from the settled line. Relabelling either
+  // "against" card drops it to 61, so on its own evidence the map cannot carry
+  // "settled". It keeps the word on the authored `status: "settled"` pin, and
+  // says so: fragile stays set and the page shows the one-card line. The real
+  // fix is a deeper map.
+  // See docs/reviews/2026-09-21-verdict-robustness.md.
+  it("moon-landing keeps settled on the editorial pin, and admits it", () => {
+    expect(moonLanding?.status).toBe("settled");
     expect(moonLanding?.verdict.quadrant).toBe("settled");
+    expect(moonLanding?.verdict.pinnedByStatus).toBe(true);
+    expect(moonLanding?.verdict.fragile).toBe(true);
+    expect(topicVerdictSensitivity(moonLanding!).flipsToChange).toBe(1);
+  });
+
+  it("climate-change earns settled without the pin", () => {
+    const climate = topics.find((t) => t.id === "climate-change");
+    expect(climate?.status).toBe("settled");
+    expect(climate?.verdict.quadrant).toBe("settled");
+    expect(climate?.verdict.pinnedByStatus).toBeUndefined();
+    expect(climate?.verdict.fragile).toBeUndefined();
+    expect(topicVerdictSensitivity(climate!).flipsToChange).toBe(2);
   });
 
   it("moloch is well-mapped and genuinely contested — never 'insufficient'", () => {
@@ -232,6 +257,53 @@ describe("weight calibration anchors (spec §2.2)", () => {
     expect(moloch!.weight).toBeGreaterThanOrEqual(60);
     expect(moloch!.verdict.quadrant).toBe("contested");
     expect(moloch!.verdict.label).toBe("Well-mapped, genuinely contested");
+  });
+
+  it("a fragile verdict is either demoted or pinned, never quietly settled", () => {
+    for (const topic of topics) {
+      if (!topic.verdict.fragile) continue;
+      if (topic.verdict.pinnedByStatus) {
+        // Pinned: keeps the word, but only on an editor's authored assertion.
+        expect(topic.verdict.quadrant, `${topic.id} is pinned`).toBe("settled");
+        expect(topic.status, `${topic.id} is pinned`).toBe("settled");
+      } else {
+        expect(topic.verdict.quadrant, `${topic.id} is fragile`).toBe("moderate");
+        expect(topic.verdict.label, `${topic.id} is fragile`).not.toMatch(/settled/i);
+      }
+    }
+  });
+
+  it("a pin is always declared fragile — it never hides the measurement", () => {
+    for (const topic of topics.filter((t) => t.verdict.pinnedByStatus)) {
+      expect(topic.verdict.fragile, `${topic.id} is pinned`).toBe(true);
+    }
+  });
+
+  it("every unpinned settled verdict survives any single evidence relabel", () => {
+    const earned = topics.filter(
+      (t) => t.verdict.quadrant === "settled" && !t.verdict.pinnedByStatus
+    );
+    expect(earned.length).toBeGreaterThan(0);
+    for (const topic of earned) {
+      const sensitivity = topicVerdictSensitivity(topic);
+      expect(sensitivity.cardCount, `${topic.id} card count`).toBeGreaterThanOrEqual(
+        VERDICT_ROBUSTNESS.MIN_CARDS
+      );
+      expect(sensitivity.flipsToChange, `${topic.id} flipsToChange`).not.toBe(1);
+      expect(topic.verdict.fragile, `${topic.id} earned settled`).toBeUndefined();
+    }
+  });
+
+  it("topicSummaries.json carries the verdicts the topics actually compute", () => {
+    // The OG route and every list page read the summaries, not the topics. A
+    // stale file publishes a verdict the map no longer supports.
+    // Fix: bun --bun tsx scripts/regen-summaries.ts
+    const summaryById = new Map(topicSummaries.map((s) => [s.id, s] as const));
+    for (const topic of topics) {
+      expect(summaryById.get(topic.id)?.verdict, `${topic.id} summary verdict`).toEqual(
+        topic.verdict
+      );
+    }
   });
 
   it("the corpus weight distribution is legible (not clustered)", () => {

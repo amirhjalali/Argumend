@@ -111,3 +111,23 @@ export const footerColumns: FooterColumn[] = FOOTER_COLUMN_HREFS.map(({ title, h
     .map((href) => byHref.get(href))
     .filter((item): item is NavItem => item !== undefined),
 }));
+
+/**
+ * Legal destinations, deliberately kept out of `navItems`.
+ *
+ * `navItems` is the pruned product navigation — the places we actively send
+ * people. /privacy and /terms are neither pruned nor promoted: they have to be
+ * reachable from every page, but they do not belong in the sidebar or in a
+ * footer discovery column. Declaring them here keeps the footer free of a
+ * local link array of its own while leaving the pruned-column contract tests
+ * meaning exactly what they say.
+ */
+export interface LegalLink {
+  label: string;
+  href: string;
+}
+
+export const legalLinks: LegalLink[] = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+];
