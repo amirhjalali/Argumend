@@ -25,6 +25,14 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Legal pages underline their links permanently. The site's `.link-underline`
+ * reveals the rule on hover, which is right for editorial prose and wrong
+ * here: on a policy page a visitor has to be able to see, at a glance, which
+ * words lead to the provider that will receive their text.
+ */
+const LINK = "text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200";
+
 function Section({
   id,
   heading,
@@ -162,7 +170,7 @@ export default function TermsPage() {
           <p>
             By submitting text you confirm you are entitled to do so: that it is yours, or public,
             or that you have permission from the people whose words it contains.{" "}
-            <Link className="link-underline" href="/privacy">
+            <Link className={LINK} href="/privacy">
               Our privacy policy
             </Link>{" "}
             explains exactly where the text goes.
@@ -186,7 +194,7 @@ export default function TermsPage() {
           <p>
             Accounts are optional. If you create one, keep your Google sign-in secure and tell us if
             you think someone else has used it. You may stop using an account at any time; ask us at{" "}
-            <a className="link-underline" href={`mailto:${LEGAL_CONTACT_EMAIL}`}>
+            <a className={LINK} href={`mailto:${LEGAL_CONTACT_EMAIL}`}>
               {LEGAL_CONTACT_EMAIL}
             </a>{" "}
             to delete it. We may suspend or close an account that is being used to break these
@@ -261,7 +269,7 @@ export default function TermsPage() {
         <Section id="contact" heading="Contact">
           <p>
             Questions about these terms go to{" "}
-            <a className="link-underline" href={`mailto:${LEGAL_CONTACT_EMAIL}`}>
+            <a className={LINK} href={`mailto:${LEGAL_CONTACT_EMAIL}`}>
               {LEGAL_CONTACT_EMAIL}
             </a>
             .
@@ -274,8 +282,8 @@ export default function TermsPage() {
         </Section>
 
         <p className="border-t border-stone-200 pt-8 text-sm text-muted dark:border-[var(--border-divider)] dark:text-stone-500">
-          See also our <Link className="link-underline" href="/privacy">Privacy Policy</Link> and{" "}
-          <Link className="link-underline" href="/about">what Argumend is for</Link>.
+          See also our <Link className={LINK} href="/privacy">Privacy Policy</Link> and{" "}
+          <Link className={LINK} href="/about">what Argumend is for</Link>.
         </p>
       </div>
     </AppShell>

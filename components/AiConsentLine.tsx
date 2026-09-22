@@ -39,7 +39,7 @@ export function AiConsentLine({
       {line.before}
       <Link
         href="/privacy"
-        className="text-[#3a6965] underline underline-offset-2 hover:text-[#2d524f]"
+        className="text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200"
       >
         {line.linkText}
       </Link>

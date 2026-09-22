@@ -43,6 +43,14 @@ const PROVIDER_ROLES: Record<string, string> = {
   xai: "Judge council, only when a request explicitly asks for it",
 };
 
+/**
+ * Legal pages underline their links permanently. The site's `.link-underline`
+ * reveals the rule on hover, which is right for editorial prose and wrong
+ * here: on a policy page a visitor has to be able to see, at a glance, which
+ * words lead to the provider that will receive their text.
+ */
+const LINK = "text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200";
+
 function Section({
   id,
   heading,
@@ -146,7 +154,7 @@ export default function PrivacyPage() {
             the <em>result</em> of the extraction — the topic, a summary, the positions with their
             claims and evidence, the cruxes, any flagged fallacies, and the confidence and strength
             scores. Those fields can contain wording close to your original. Recent results are
-            listed publicly at <Link className="link-underline" href="/analyses">/analyses</Link>,
+            listed publicly at <Link className={LINK} href="/analyses">/analyses</Link>,
             without any link to who submitted them.
           </p>
           <p>
@@ -235,7 +243,7 @@ export default function PrivacyPage() {
                   >
                     <th scope="row" className="px-4 py-3 font-medium text-primary dark:text-stone-200">
                       <a
-                        className="link-underline"
+                        className={LINK}
                         href={provider.privacyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -255,9 +263,9 @@ export default function PrivacyPage() {
             </table>
           </div>
           <p>
-            {AI_PROVIDERS.typesafe.name} is TypeSafe AI, Inc. Which provider a given deployment
-            actually calls is a configuration choice; the disclosure shown next to the submit button
-            is the one that applies to the run you are about to start.
+            In full, {AI_PROVIDERS.typesafe.name} is TypeSafe AI, Inc. Which provider a given
+            deployment actually calls is a configuration choice; the disclosure shown next to the
+            submit button is the one that applies to the run you are about to start.
           </p>
           <p>
             Beyond the AI providers, Argumend is hosted on infrastructure operated by our hosting
@@ -384,7 +392,7 @@ export default function PrivacyPage() {
             </li>
             <li className="list-disc">
               Ask us for a copy of, or the deletion of, any account or newsletter data we hold, at{" "}
-              <a className="link-underline" href={`mailto:${LEGAL_CONTACT_EMAIL}`}>
+              <a className={LINK} href={`mailto:${LEGAL_CONTACT_EMAIL}`}>
                 {LEGAL_CONTACT_EMAIL}
               </a>
               .
@@ -405,7 +413,7 @@ export default function PrivacyPage() {
           <p>
             Argumend is not directed at children and we do not knowingly collect personal
             information from them. If you believe a child has sent us information, write to{" "}
-            <a className="link-underline" href={`mailto:${LEGAL_CONTACT_EMAIL}`}>
+            <a className={LINK} href={`mailto:${LEGAL_CONTACT_EMAIL}`}>
               {LEGAL_CONTACT_EMAIL}
             </a>{" "}
             and we will remove it.
@@ -423,8 +431,8 @@ export default function PrivacyPage() {
         </Section>
 
         <p className="border-t border-stone-200 pt-8 text-sm text-muted dark:border-[var(--border-divider)] dark:text-stone-500">
-          See also our <Link className="link-underline" href="/terms">Terms of Service</Link> and{" "}
-          <Link className="link-underline" href="/about">what Argumend is for</Link>.
+          See also our <Link className={LINK} href="/terms">Terms of Service</Link> and{" "}
+          <Link className={LINK} href="/about">what Argumend is for</Link>.
         </p>
       </div>
     </AppShell>
