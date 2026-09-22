@@ -335,33 +335,65 @@ html {
    Blog / Long-form Prose Styling
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* Long-form reading text: EB Garamond, as CLAUDE.md assigns body prose to the
+   serif. Garamond has a small x-height, so it sets a step larger than the sans
+   (19–20px) with generous leading, and the measure is held near 70 characters.
+   `.reading-body` is the same treatment for blocks outside `.prose-custom`. */
+.prose-custom,
+.reading-body {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.1875rem, 1.1rem + 0.25vw, 1.25rem);
+  line-height: 1.68;
+  letter-spacing: 0;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  hanging-punctuation: first;
+}
+
 .prose-custom {
-  font-size: 1.0625rem; /* 17px */
-  line-height: 1.8;
   color: var(--text-heading);
+  max-width: 31em;
+}
+
+.prose-custom p,
+.prose-custom li,
+.reading-body {
+  font-size: inherit;
+  line-height: 1.68;
+  color: rgb(var(--text-primary-rgb));
 }
 
 .prose-custom p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
+  margin-bottom: 1.15em;
+}
+
+.prose-custom strong {
+  font-weight: 600;
 }
 
 .prose-custom h2 {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.6em;
+  font-weight: 500;
   color: var(--text-heading);
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  margin-top: 2.2em;
+  margin-bottom: 0.55em;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
 .prose-custom h3 {
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.2em;
+  font-weight: 600;
   color: var(--text-heading);
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin-top: 1.8em;
+  margin-bottom: 0.4em;
   line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.reading-body {
+  font-size: clamp(1.1875rem, 1.1rem + 0.25vw, 1.25rem);
 }
 
 .prose-custom strong {

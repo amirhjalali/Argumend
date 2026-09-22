@@ -269,7 +269,7 @@ export default async function GuidePage({ params }: PageProps) {
 
                 {/* Main section content (inline markdown: bold/italic/links) */}
                 <div
-                  className="mb-6 whitespace-pre-line text-[15px] leading-[1.8] text-primary dark:text-stone-200 md:text-base"
+                  className="reading-body mb-6 whitespace-pre-line text-primary dark:text-stone-200"
                   dangerouslySetInnerHTML={{
                     __html: renderInlineMarkdown(section.content),
                   }}
@@ -290,7 +290,7 @@ export default async function GuidePage({ params }: PageProps) {
                           {subsection.title}
                         </h3>
                         <div
-                          className="whitespace-pre-line text-[15px] leading-[1.75] text-primary dark:text-stone-200"
+                          className="reading-body whitespace-pre-line text-primary dark:text-stone-200"
                           dangerouslySetInnerHTML={{
                             __html: renderInlineMarkdown(subsection.content),
                           }}
