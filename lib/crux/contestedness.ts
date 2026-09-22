@@ -128,6 +128,15 @@ export function overriddenContestedness(statusWeight: number, override: number):
   return statusWeight * clamp01(override);
 }
 
+/**
+ * The projection's reason line, in the same shape as the report's other
+ * skip reasons: a clause that completes "Projection skipped engine crux
+ * "c-1" (statement): ...".
+ */
+export function describeProbeSkip(probe: number, floor: number): string {
+  return `the contestedness probe scored it ${probe.toFixed(2)}, below the ${floor.toFixed(2)} floor`;
+}
+
 export const CRUX_PROJECTION_JEV_GATE_ENV = "CRUX_PROJECTION_JEV_GATE";
 
 type Env = Record<string, string | undefined>;
