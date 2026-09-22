@@ -46,20 +46,60 @@ const RESOLVED_GRAPH_STATUSES: readonly ClaimStatus[] = [
 ];
 
 /**
+ * Who a verdict is usually about: a side of the fight, named generically.
+ * Topic-specific position names are not caught; that is an accepted gap.
+ */
+const SIDE =
+  "(?:sides?|camps?|skeptics?|sceptics?|optimists?|pessimists?|proponents?|opponents?|critics?|doomers?|boosters?|alarmists?|believers?|deniers?)";
+
+/** The whole fight, as opposed to one sub-claim or one crux question. */
+const FIGHT = "(?:debate|argument|dispute|controversy|science|matter)";
+
+/**
  * The "no verdict language" check on public notes. Deliberately small and
- * defensible rather than clever: each pattern is a word whose job is to
- * declare a side the winner or a question closed, which is the one thing the
- * ledger must not do (it records movement; the reader judges). Words like
- * "settled" or "resolved" alone are NOT on the list: the ledger's own
- * vocabulary needs them ("a sub-claim settled"), and banning them would push
- * authors toward vaguer prose. Heuristic by design: false negatives are
+ * defensible rather than clever: each pattern is a phrase whose job is to
+ * declare a side the winner or the fight closed, which is the one thing the
+ * ledger must not do (it records movement; the reader judges).
+ *
+ * "Settled", "resolved", and "wins" alone are NOT on the list: the ledger's
+ * own vocabulary needs them ("a sub-claim settled", "the timing question is
+ * resolved"), and "productivity wins" is ordinary prose. What is on it is
+ * those words aimed at a side ("skeptics win", "a victory for the
+ * optimists") or at the whole fight ("the debate is settled", "settles the
+ * argument", "settled science"). Heuristic by design: false negatives are
  * accepted; false positives on ordinary descriptive prose are not.
  */
 export const VERDICT_LANGUAGE_PATTERNS: ReadonlyArray<{ label: string; pattern: RegExp }> = [
   { label: "proven / disproven", pattern: /\b(dis)?prov(en|es|ed)\b/i },
   { label: "debunked", pattern: /\bdebunk(ed|s|ing)?\b/i },
-  // Bare "wins" is left out on purpose: "productivity wins" is ordinary prose.
-  { label: "winner / won the argument", pattern: /\b(winners?|(wins|won) the (debate|argument))\b/i },
+  {
+    label: "winner / won the argument",
+    pattern: new RegExp(
+      `\\b(winners?|(win|wins|won|winning) (the|this) ${FIGHT}|winning (side|camp|argument|position|case)|(wins|won|carries|carried) the day)\\b`,
+      "i",
+    ),
+  },
+  {
+    label: "a side won or was right",
+    pattern: new RegExp(
+      `\\b${SIDE} (win|wins|won|prevail|prevails|prevailed|(is|are|was|were|have been|had been) (right|wrong|correct|mistaken))\\b`,
+      "i",
+    ),
+  },
+  { label: "victory for a side", pattern: new RegExp(`\\b(win|victory) for (the )?${SIDE}\\b`, "i") },
+  { label: "vindicated", pattern: /\bvindicat(e|es|ed|ing|ion)\b/i },
+  { label: "right / wrong all along", pattern: /\b(right|wrong) all along\b/i },
+  {
+    label: "the fight is settled",
+    pattern: new RegExp(
+      `\\b(${FIGHT} (is|was|has been|are|were) (now )?(settled|resolved|over|closed)|settle[sd]? (the|this) ${FIGHT}|settled (science|fact))\\b`,
+      "i",
+    ),
+  },
+  {
+    label: "indisputable",
+    pattern: /\b(irrefutabl[ey]|indisputabl[ey]|incontrovertibl[ey]|undeniabl[ey]|definitively)\b/i,
+  },
   { label: "loser", pattern: /\blosers?\b/i },
   { label: "settled once and for all", pattern: /\bonce and for all\b/i },
   { label: "case closed", pattern: /\bcase (is )?closed\b/i },

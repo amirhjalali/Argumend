@@ -336,6 +336,25 @@ describe("crux ledger: no verdict language", () => {
     "Shown beyond reasonable doubt.",
     "The data conclusively favor the pessimists.",
     "The retraining myth persists.",
+    // A side named as the winner, or as right all along.
+    "The skeptics win this round.",
+    "Optimists won on the timing question.",
+    "The pessimists were right about entry-level roles.",
+    "Critics were wrong about the wage data.",
+    "A clear victory for the skeptics.",
+    "A win for the optimists' case.",
+    "The payroll series vindicates the displacement camp.",
+    "Economists who warned early were right all along.",
+    "The winning side here is the adoption-lag camp.",
+    "The firm panel carries the day.",
+    // The whole fight declared closed.
+    "The debate is settled by the 2025 panel.",
+    "With this panel the argument is now over.",
+    "The Census data settles the debate.",
+    "This is settled science.",
+    "The science is settled on timing.",
+    "The panel is indisputable on attribution.",
+    "It definitively rules out the lag story.",
   ])("rejects %j", (note) => {
     expect(findVerdictLanguage(note).length).toBeGreaterThan(0);
     expect(rules(ledger(entry({ note })))).toEqual(["note-no-verdict-language"]);
@@ -346,6 +365,14 @@ describe("crux ledger: no verdict language", () => {
     "The timing question is resolved; attribution is not.",
     "Firms report productivity wins without cutting headcount.",
     "Wage data improved; the approved retraining budget did not change.",
+    // The ledger's own vocabulary, aimed at a sub-claim, stays usable.
+    "Productivity wins at two firms did not change their hiring plans.",
+    "The prevailing wage series was revised in March.",
+    "Critics note the panel covers only large firms.",
+    "Skeptics point to the 2025 panel; optimists point to the lag.",
+    "Once the timing sub-claim settled, attribution became the live question.",
+    "The sampling dispute over one survey was resolved by a re-weighting.",
+    "The Census data settles when the decline began, not why.",
   ])("allows ordinary descriptive prose %j", (note) => {
     expect(findVerdictLanguage(note)).toEqual([]);
     expect(rules(ledger(entry({ note })))).toEqual([]);
