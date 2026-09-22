@@ -11,6 +11,7 @@ import {
   loadArgumentTopic,
 } from "@/lib/argument/draftTopics";
 import { DebateView } from "@/components/argument/DebateView";
+import { publicLedgerEntries } from "@/lib/argument/ledger";
 import {
   ARGUMENT_TOPICS_FIRST_PUBLISHED,
   ARGUMENT_TOPICS_LAST_UPDATED,
@@ -171,6 +172,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           meta={argumentTopic.meta}
           graph={argumentTopic.graph}
           cruxes={argumentTopic.cruxes}
+          ledger={publicLedgerEntries(argumentTopic.ledger)}
         />
       </>
     );

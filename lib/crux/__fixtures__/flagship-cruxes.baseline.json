@@ -1,0 +1,627 @@
+{
+  "ai-mass-unemployment": [
+    {
+      "claimId": "c-firms-cut-hiring-not-output",
+      "score": 0.782,
+      "contestedness": 0.606,
+      "reach": 0.096,
+      "directReach": 0.096,
+      "discrimination": 1,
+      "directDiscrimination": 0.2,
+      "tractability": 1,
+      "implicitBoost": 1.15,
+      "scopingBonus": 0.607,
+      "evidenceCoverage": 0.667,
+      "affectedPositions": [
+        {
+          "id": "p-displacement-now",
+          "delta": 0.171
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-decline-caused-by-ai",
+          "delta": 0.559
+        }
+      ],
+      "gatesClaimIds": [
+        "c-decline-caused-by-ai"
+      ],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-firms-cut-hiring-not-output: Firms facing improved AI capability respond primarily by reducing hiring and headcount growth rather than by expanding output or redesigning jobs to use the freed-up capacity.",
+        "Status is contested because This is an unstated mechanism assumption underlying the causal-attribution case: the observable data (hiring rates, headcount) cannot by itself distinguish 'AI reduced labor demand' from 'AI raised output per worker and firms chose to expand.' The corpus's own firm-level bridge evidence (Hampole et al.-style reallocation) is not decisive either way..",
+        "Component scores: score 0.782, contestedness 0.606, reach 0.096, discrimination 1.000, tractability 1.000, implicit boost 1.150, scoping bonus 0.607.",
+        "Position deltas: p-displacement-now +0.171.",
+        "Resolution: existing-evidence: firm-level panels linking AI adoption to headcount, output, and pricing decisions over multiple years.",
+        "Gates: c-decline-caused-by-ai."
+      ]
+    },
+    {
+      "claimId": "c-targeted-programs-can-help",
+      "score": 0.77,
+      "contestedness": 0.5,
+      "reach": 0.512,
+      "directReach": 0.197,
+      "discrimination": 1,
+      "directDiscrimination": 0.2,
+      "tractability": 1,
+      "implicitBoost": 1,
+      "scopingBonus": 0.783,
+      "evidenceCoverage": 0,
+      "affectedPositions": [
+        {
+          "id": "p-institutional-who-decides",
+          "delta": 0.442
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-ai-firms-owe-transition-costs",
+          "delta": 0.664
+        },
+        {
+          "id": "c-market-process-no-special-obligation",
+          "delta": -0.486
+        }
+      ],
+      "gatesClaimIds": [
+        "c-displaced-workers-can-retrain-costlessly"
+      ],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-targeted-programs-can-help: Better-designed, targeted, employer-linked, long-horizon workforce programs can meaningfully improve displaced workers' earnings and employment, even though generic short retraining programs mostly do not.",
+        "Status is contested because The WIA Gold Standard randomized evaluation found that staff-assisted intensive services increased earnings 7%-20%, while evidence on training itself was inconclusive within 30 months. That supports targeted case management, not generic retraining or effectiveness at the scale a national AI-displacement emergency would require..",
+        "Component scores: score 0.770, contestedness 0.500, reach 0.512, discrimination 1.000, tractability 1.000, implicit boost 1.000, scoping bonus 0.783.",
+        "Position deltas: p-institutional-who-decides +0.442.",
+        "Resolution: existing-evidence: evaluation of a well-funded, AI-displacement-specific workforce program at national scale.",
+        "Gates: c-displaced-workers-can-retrain-costlessly."
+      ]
+    },
+    {
+      "claimId": "c-displaced-workers-can-retrain-costlessly",
+      "score": 0.75,
+      "contestedness": 0.5,
+      "reach": 0.512,
+      "directReach": 0.512,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 1,
+      "implicitBoost": 1.15,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0.333,
+      "affectedPositions": [
+        {
+          "id": "p-automation-panic-redux",
+          "delta": -0.877
+        },
+        {
+          "id": "p-wage-collapse-not-unemployment",
+          "delta": 0.73
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-reinstatement-will-continue",
+          "delta": -0.933
+        },
+        {
+          "id": "c-no-remaining-comparative-advantage",
+          "delta": 0.633
+        },
+        {
+          "id": "c-credential-pathway-narrows",
+          "delta": 0.56
+        },
+        {
+          "id": "c-cushioned-by-credentials",
+          "delta": -0.413
+        }
+      ],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-displaced-workers-can-retrain-costlessly: Workers displaced from automated tasks can retrain and relocate into newly created tasks at a cost and delay small relative to the productivity gains.",
+        "Status is contested because This is the steelman assumption behind reinstatement-based optimism about AI: adjustment can be costly in absolute terms but still small relative to productivity gains if new tasks and targeted programs work well. The corpus's retraining evidence challenges this assumption by showing weak outcomes for ordinary programs, without proving that better-funded, employer-linked, AI-specific programs could not perform better..",
+        "Component scores: score 0.750, contestedness 0.500, reach 0.512, discrimination 1.000, tractability 1.000, implicit boost 1.150, scoping bonus 0.000.",
+        "Position deltas: p-automation-panic-redux -0.877, p-wage-collapse-not-unemployment +0.730.",
+        "Resolution: existing-evidence: well-funded, targeted retraining programs evaluated at national AI-displacement scale show earnings and reemployment outcomes comparable to pre-displacement work.",
+        "Gates: none."
+      ]
+    },
+    {
+      "claimId": "c-mass-unemployment-definition-strict",
+      "score": 0.664,
+      "contestedness": 0.5,
+      "reach": 0.078,
+      "directReach": 0.069,
+      "discrimination": 1,
+      "directDiscrimination": 0.2,
+      "tractability": 0.8,
+      "implicitBoost": 1,
+      "scopingBonus": 1,
+      "evidenceCoverage": 0,
+      "affectedPositions": [
+        {
+          "id": "p-wage-collapse-not-unemployment",
+          "delta": 0.555
+        }
+      ],
+      "affectedClaims": [],
+      "gatesClaimIds": [
+        "c-clerical-workers-face-displacement-risk",
+        "c-decline-caused-by-ai"
+      ],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-mass-unemployment-definition-strict: 'Mass unemployment' should be defined as sustained U-3 unemployment above 10% for multiple quarters, rather than by wage collapse, labor-force participation decline, or underemployment.",
+        "Status is contested because The corpus's definitional-crux section lays out at least three live candidate definitions (strict U-3 above 10%, a stronger 15-20% Amodei-style crisis threshold, and a broader participation/wage/underemployment definition) with no consensus among the sides on which one settles the parent question..",
+        "Component scores: score 0.664, contestedness 0.500, reach 0.078, discrimination 1.000, tractability 0.800, implicit boost 1.000, scoping bonus 1.000.",
+        "Position deltas: p-wage-collapse-not-unemployment +0.555.",
+        "Resolution: definitional-choice: sides agree on a metric before forecasting: U-3 threshold and duration, employment-population ratio, U-6, prime-age participation, or entry-level career access.",
+        "Gates: c-clerical-workers-face-displacement-risk, c-decline-caused-by-ai."
+      ]
+    },
+    {
+      "claimId": "c-credential-pathway-narrows",
+      "score": 0.565,
+      "contestedness": 0.833,
+      "reach": 0.202,
+      "directReach": 0.202,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 0.9,
+      "implicitBoost": 1,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0,
+      "affectedPositions": [
+        {
+          "id": "p-wage-collapse-not-unemployment",
+          "delta": 0.861
+        },
+        {
+          "id": "p-automation-panic-redux",
+          "delta": -0.111
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-cushioned-by-credentials",
+          "delta": -0.664
+        }
+      ],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-credential-pathway-narrows: If routine junior-analyst, coding, paralegal, and administrative tasks become automatable, the credential-to-experience pathway that converts education into a wage premium narrows, even for otherwise well-cushioned educated workers.",
+        "Status is contested because This is the direct rebuttal to the credential-cushioning claim; it is reinforced by Dallas Fed evidence that a one-standard-deviation increase in AI exposure is associated with a measurable reduction in wage growth specifically in occupations with zero experience premium, where credentials do not otherwise protect workers..",
+        "Component scores: score 0.565, contestedness 0.833, reach 0.202, discrimination 1.000, tractability 0.900, implicit boost 1.000, scoping bonus 0.000.",
+        "Position deltas: p-wage-collapse-not-unemployment +0.861, p-automation-panic-redux -0.111.",
+        "Resolution: future-observable: the same reemployment earnings and duration data; this claim and its rival reading resolve together.",
+        "Gates: none."
+      ]
+    }
+  ],
+  "capitalism-after-ai": [
+    {
+      "claimId": "c-ai-ownership-stays-concentrated",
+      "score": 0.828,
+      "contestedness": 0.688,
+      "reach": 0.592,
+      "directReach": 0.592,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 0.9,
+      "implicitBoost": 1.15,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0.333,
+      "affectedPositions": [
+        {
+          "id": "p-breaks-fundamentally",
+          "delta": 0.739
+        },
+        {
+          "id": "p-adapts-as-always",
+          "delta": -0.643
+        },
+        {
+          "id": "p-definitional-skeptic",
+          "delta": -0.162
+        },
+        {
+          "id": "p-requires-restructuring",
+          "delta": 0.151
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-open-models-lower-entry-barriers",
+          "delta": -0.664
+        },
+        {
+          "id": "c-wage-channel-loses-primacy",
+          "delta": 0.508
+        },
+        {
+          "id": "c-ai-markets-tip-into-durable-oligopoly",
+          "delta": 0.43
+        },
+        {
+          "id": "c-demand-collapse-without-recycling",
+          "delta": 0.256
+        }
+      ],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-ai-ownership-stays-concentrated: Ownership and control of frontier AI models, compute, and the data that trains them will remain concentrated in a small number of firms and individuals rather than diffusing broadly over the next decade.",
+        "Status is contested because Not argued explicitly as a standalone premise anywhere in the corpus, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than diffusing; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions..",
+        "Component scores: score 0.828, contestedness 0.688, reach 0.592, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
+        "Position deltas: p-breaks-fundamentally +0.739, p-adapts-as-always -0.643, p-definitional-skeptic -0.162, p-requires-restructuring +0.151.",
+        "Resolution: future-observable: a decade of repeated market-share, entry, switching-cost, and beneficial-ownership measurements showing whether control remains concentrated or diffuses separately across frontier models, cloud compute, AI chips, and equity ownership.",
+        "Gates: none."
+      ]
+    },
+    {
+      "claimId": "c-reallocation-keeps-pace",
+      "score": 0.75,
+      "contestedness": 0.734,
+      "reach": 0.431,
+      "directReach": 0.431,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 0.9,
+      "implicitBoost": 1.15,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0.667,
+      "affectedPositions": [
+        {
+          "id": "p-adapts-as-always",
+          "delta": 0.811
+        },
+        {
+          "id": "p-breaks-fundamentally",
+          "delta": -0.697
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-ai-task-generality-breaks-analogy",
+          "delta": -0.664
+        },
+        {
+          "id": "c-reinstatement-will-recur",
+          "delta": 0.414
+        }
+      ],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-reallocation-keeps-pace: Workers displaced from AI-exposed tasks will be able to re-enter higher-productivity complementary jobs at a pace that avoids sustained aggregate underemployment, as occurred in prior automation waves.",
+        "Status is contested because Not stated explicitly by the market-optimist case, but its conclusion that adaptation equals survival presupposes reallocation keeps pace with displacement; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions..",
+        "Component scores: score 0.750, contestedness 0.734, reach 0.431, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
+        "Position deltas: p-adapts-as-always +0.811, p-breaks-fundamentally -0.697.",
+        "Resolution: future-observable: longitudinal evidence tracking displaced workers' re-employment time, earnings recovery, and movement into complementary jobs alongside the duration and scale of aggregate underemployment after broad AI adoption.",
+        "Gates: none."
+      ]
+    },
+    {
+      "claimId": "c-survival-definition-contested",
+      "score": 0.715,
+      "contestedness": 0.5,
+      "reach": 0.289,
+      "directReach": 0.077,
+      "discrimination": 1,
+      "directDiscrimination": 0.2,
+      "tractability": 0.8,
+      "implicitBoost": 1,
+      "scopingBonus": 1,
+      "evidenceCoverage": 0,
+      "affectedPositions": [
+        {
+          "id": "p-definitional-skeptic",
+          "delta": 0.464
+        }
+      ],
+      "affectedClaims": [],
+      "gatesClaimIds": [
+        "c-ai-markets-tip-into-durable-oligopoly",
+        "c-demand-collapse-without-recycling",
+        "c-wage-channel-loses-primacy"
+      ],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-survival-definition-contested: Whether capitalism has 'survived' AI depends on which criterion is used: private ownership and market allocation persisting, or labor remaining the primary channel through which households obtain purchasing power.",
+        "Status is contested because The two readings genuinely diverge in what they predict counts as survival, and the research corpus explicitly frames much of the wider dispute as downstream of this unresolved choice rather than of any further evidence..",
+        "Component scores: score 0.715, contestedness 0.500, reach 0.289, discrimination 1.000, tractability 0.800, implicit boost 1.000, scoping bonus 1.000.",
+        "Position deltas: p-definitional-skeptic +0.464.",
+        "Resolution: definitional-choice: the field converges on a stipulated threshold definition of 'capitalism' before further empirical work is treated as dispositive.",
+        "Gates: c-ai-markets-tip-into-durable-oligopoly, c-demand-collapse-without-recycling, c-wage-channel-loses-primacy."
+      ]
+    },
+    {
+      "claimId": "c-demand-collapse-without-recycling",
+      "score": 0.606,
+      "contestedness": 0.875,
+      "reach": 0.235,
+      "directReach": 0.235,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 0.9,
+      "implicitBoost": 1,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0,
+      "affectedPositions": [
+        {
+          "id": "p-definitional-skeptic",
+          "delta": -0.637
+        },
+        {
+          "id": "p-adapts-as-always",
+          "delta": -0.485
+        },
+        {
+          "id": "p-requires-restructuring",
+          "delta": 0.286
+        }
+      ],
+      "affectedClaims": [],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-demand-collapse-without-recycling: If labor income falls faster than transfers, capital-income diffusion, new work, or falling prices recycle purchasing power to non-owners, aggregate consumer demand will fall short of what AI-augmented output capacity could otherwise support.",
+        "Status is contested because This is the modern formalization (Korinek's AGI scenario) of a demand-collapse argument that predates AI (Keynes, Hobson); it is a coherent mechanism but its empirical trigger conditions have not yet been observed at AI-relevant scale..",
+        "Component scores: score 0.606, contestedness 0.875, reach 0.235, discrimination 1.000, tractability 0.900, implicit boost 1.000, scoping bonus 0.000.",
+        "Position deltas: p-definitional-skeptic -0.637, p-adapts-as-always -0.485, p-requires-restructuring +0.286.",
+        "Resolution: future-observable: observing whether transfers, capital income, price declines, new goods, and investment demand offset a falling wage bill without chronic underemployment.",
+        "Gates: none."
+      ]
+    },
+    {
+      "claimId": "c-wage-channel-loses-primacy",
+      "score": 0.59,
+      "contestedness": 0.875,
+      "reach": 0.289,
+      "directReach": 0.289,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 0.9,
+      "implicitBoost": 1,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0,
+      "affectedPositions": [
+        {
+          "id": "p-breaks-fundamentally",
+          "delta": 0.573
+        },
+        {
+          "id": "p-definitional-skeptic",
+          "delta": -0.311
+        },
+        {
+          "id": "p-adapts-as-always",
+          "delta": -0.277
+        },
+        {
+          "id": "p-requires-restructuring",
+          "delta": 0.091
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-demand-collapse-without-recycling",
+          "delta": 0.479
+        }
+      ],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-wage-channel-loses-primacy: Wages will cease to be the primary mechanism by which non-owners of capital gain access to the social product, forcing any surviving system to route purchasing power through some other channel.",
+        "Status is contested because The strongest theoretical lineage for this claim (the Marxian 'Fragment on Machines' argument) is disputed even by scholars sympathetic to it as to whether it implies collapse of the wage channel or merely its diminished centrality..",
+        "Component scores: score 0.590, contestedness 0.875, reach 0.289, discrimination 1.000, tractability 0.900, implicit boost 1.000, scoping bonus 0.000.",
+        "Position deltas: p-breaks-fundamentally +0.573, p-definitional-skeptic -0.311, p-adapts-as-always -0.277, p-requires-restructuring +0.091.",
+        "Resolution: future-observable: longitudinal household-income data showing whether wages cease to be the largest income source for non-owners, paired with an explicit preregistered threshold for what counts as losing primacy.",
+        "Gates: none."
+      ]
+    }
+  ],
+  "us-israel-support": [
+    {
+      "claimId": "c-regional-stability-depends-on-alliance",
+      "score": 0.807,
+      "contestedness": 0.857,
+      "reach": 0.246,
+      "directReach": 0.246,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 0.9,
+      "implicitBoost": 1.15,
+      "scopingBonus": 0,
+      "evidenceCoverage": 1,
+      "affectedPositions": [
+        {
+          "id": "p-conditional-leverage",
+          "delta": -0.612
+        },
+        {
+          "id": "p-enforce-existing-law",
+          "delta": -0.486
+        },
+        {
+          "id": "p-substantially-reduce",
+          "delta": -0.254
+        },
+        {
+          "id": "p-maintain-support",
+          "delta": 0.199
+        }
+      ],
+      "affectedClaims": [],
+      "gatesClaimIds": [],
+      "evidenceStarved": false,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-regional-stability-depends-on-alliance: Regional stability against Iran-aligned threats depends on maintaining the current structure of U.S.-Israel military alliance and support.",
+        "Status is contested because This is the unstated premise underlying most of the maintain-support case: that the current alliance structure, rather than each state's independent interests, is what holds the regional deterrence balance together. It is asserted rather than demonstrated by a controlled comparison, and the entanglement argument disputes the causal direction..",
+        "Component scores: score 0.807, contestedness 0.857, reach 0.246, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
+        "Position deltas: p-conditional-leverage -0.612, p-enforce-existing-law -0.486, p-substantially-reduce -0.254, p-maintain-support +0.199.",
+        "Resolution: future-observable: observed regional stability or instability following a substantial, sustained change in the alliance structure.",
+        "Gates: none."
+      ]
+    },
+    {
+      "claimId": "c-gaza-death-toll-uncertain",
+      "score": 0.77,
+      "contestedness": 0.5,
+      "reach": 0.349,
+      "directReach": 0,
+      "discrimination": 1,
+      "directDiscrimination": 0,
+      "tractability": 1,
+      "implicitBoost": 1,
+      "scopingBonus": 1,
+      "evidenceCoverage": 0.667,
+      "affectedPositions": [],
+      "affectedClaims": [],
+      "gatesClaimIds": [
+        "c-casualty-figures-mostly-civilian",
+        "c-casualty-figures-mostly-combatants"
+      ],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-gaza-death-toll-uncertain: The reported direct-death total in Gaza had converged near 71,000–73,000 by mid-2026, but the true scale and composition of Palestinian deaths remain uncertain because identification, undercount, indirect mortality, and combatant-versus-civilian classification are unresolved.",
+        "Status is unresolved because OCHA relayed 73,016 reported fatalities by June 2026, with 71,444 identified by the end of 2025; a January 2026 report attributed an estimate of roughly 71,000 to a senior Israeli military official. That topline convergence narrows one dispute but does not settle missing or unidentified deaths, traumatic-death undercount suggested by capture-recapture work, indirect deaths, or the sharply contested civilian/combatant breakdown..",
+        "Component scores: score 0.770, contestedness 0.500, reach 0.349, discrimination 1.000, tractability 1.000, implicit boost 1.000, scoping bonus 1.000.",
+        "Position deltas: none.",
+        "Resolution: existing-evidence: independent access to death registries, cemetery records, missing-persons lists, and household mortality surveys.",
+        "Gates: c-casualty-figures-mostly-civilian, c-casualty-figures-mostly-combatants."
+      ]
+    },
+    {
+      "claimId": "c-casualty-figures-mostly-combatants",
+      "score": 0.614,
+      "contestedness": 0.813,
+      "reach": 0.349,
+      "directReach": 0.349,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 1,
+      "implicitBoost": 1,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0.333,
+      "affectedPositions": [
+        {
+          "id": "p-maintain-support",
+          "delta": 0.784
+        },
+        {
+          "id": "p-substantially-reduce",
+          "delta": -0.755
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-casualty-figures-mostly-civilian",
+          "delta": -0.66
+        }
+      ],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-casualty-figures-mostly-combatants: A substantial share, potentially close to half, of Palestinians killed in the Gaza war have been Hamas or allied combatants.",
+        "Status is contested because Israeli officials have claimed combatant counts in this range, but a news outlet noted neither Israel nor Hamas has provided evidence sufficient to independently verify their respective estimates, and a conflict-data organization's own codeable, sourced reports account for roughly half the combatant total Israeli officials have claimed..",
+        "Component scores: score 0.614, contestedness 0.813, reach 0.349, discrimination 1.000, tractability 1.000, implicit boost 1.000, scoping bonus 0.000.",
+        "Position deltas: p-maintain-support +0.784, p-substantially-reduce -0.755.",
+        "Resolution: existing-evidence: an independently verified breakdown of combatant versus civilian status for a representative sample of recorded deaths.",
+        "Gates: none."
+      ]
+    },
+    {
+      "claimId": "c-alliance-obligations-override-complicity",
+      "score": 0.56,
+      "contestedness": 0.8,
+      "reach": 0.284,
+      "directReach": 0.284,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 0.65,
+      "implicitBoost": 1,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0,
+      "affectedPositions": [
+        {
+          "id": "p-maintain-support",
+          "delta": 0.623
+        },
+        {
+          "id": "p-substantially-reduce",
+          "delta": -0.503
+        }
+      ],
+      "affectedClaims": [
+        {
+          "id": "c-complicity-overrides-alliance",
+          "delta": -0.664
+        }
+      ],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-alliance-obligations-override-complicity: Alliance obligations to a partner facing a terrorist enemy embedded among civilians should override complicity concerns arising from that partner's conduct in the resulting war.",
+        "Status is contested because This is a values dispute about how to weigh alliance loyalty against complicity in a partner's conduct; no evidence resolves it, since both sides can agree on the underlying facts of the war and still weigh the obligation differently..",
+        "Component scores: score 0.560, contestedness 0.800, reach 0.284, discrimination 1.000, tractability 0.650, implicit boost 1.000, scoping bonus 0.000.",
+        "Position deltas: p-maintain-support +0.623, p-substantially-reduce -0.503.",
+        "Resolution: Nothing resolves this - standing value disagreement.",
+        "Gates: none."
+      ]
+    },
+    {
+      "claimId": "c-aid-buys-leverage",
+      "score": 0.556,
+      "contestedness": 0.5,
+      "reach": 0.181,
+      "directReach": 0.181,
+      "discrimination": 1,
+      "directDiscrimination": 1,
+      "tractability": 1,
+      "implicitBoost": 1.15,
+      "scopingBonus": 0,
+      "evidenceCoverage": 0,
+      "affectedPositions": [
+        {
+          "id": "p-enforce-existing-law",
+          "delta": -0.576
+        },
+        {
+          "id": "p-conditional-leverage",
+          "delta": 0.564
+        }
+      ],
+      "affectedClaims": [],
+      "gatesClaimIds": [],
+      "evidenceStarved": true,
+      "cycleWarnings": [],
+      "explanationFacts": [
+        "Claim c-aid-buys-leverage: U.S. military aid gives Washington meaningful, usable leverage over Israeli government policy decisions.",
+        "Status is contested because This is the load-bearing but rarely stated assumption behind the conditional-leverage case: conditioning aid is only a coherent strategy if the aid itself is a real lever. The only clean natural experiment on record — the 2024 bomb pause — produced a temporary, narrow effect rather than a durable one, which leaves the assumption's strength genuinely unresolved rather than confirmed..",
+        "Component scores: score 0.556, contestedness 0.500, reach 0.181, discrimination 1.000, tractability 1.000, implicit boost 1.150, scoping bonus 0.000.",
+        "Position deltas: p-enforce-existing-law -0.576, p-conditional-leverage +0.564.",
+        "Resolution: existing-evidence: a case where a stated, enforced condition on aid produced a verifiable, durable change in Israeli policy.",
+        "Gates: none."
+      ]
+    }
+  ]
+}
