@@ -311,6 +311,20 @@ html {
     background-color: var(--bg-panel);
   }
 
+  /* Section label. Garamond true small caps rather than tracked sans capitals:
+     the label belongs to the text face, reads as scholarship rather than
+     template chrome, and stays quieter than the heading it sits above.
+     Colour defaults to muted ink; a text-* utility overrides it. */
+  .label-caps {
+    font-family: var(--font-serif), Georgia, serif;
+    font-variant-caps: all-small-caps;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    letter-spacing: 0.045em;
+    line-height: 1.25;
+    color: rgb(var(--text-muted-rgb));
+  }
+
   .surface-paper {
     @apply rounded-lg border border-stone-200/60 dark:border-[#3d3a36];
     background-color: var(--bg-paper);
