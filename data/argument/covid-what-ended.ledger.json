@@ -1,0 +1,680 @@
+{
+  "topicId": "covid-what-ended",
+  "entries": [
+    {
+      "id": "covid-what-ended:c-airborne-room-scale:2020-05-15:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-airborne-room-scale",
+      "date": "2020-05-15",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-skagit-choir-outbreak"
+      ],
+      "note": "Choir outbreak: 53 of 61 attendees ill after one 2.5-hour practice. Investigators list droplet, surface and aerosol routes; the same data are read both ways.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 1, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-airborne-room-scale:2020-07-09:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-airborne-room-scale",
+      "date": "2020-07-09",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-who-brief-july-2020"
+      ],
+      "note": "WHO brief: short-range aerosol spread in crowded, poorly ventilated rooms 'cannot be ruled out', but droplets and surfaces could also explain the clusters.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 1, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-airborne-room-scale:2021-05-07:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-airborne-room-scale",
+      "date": "2021-05-07",
+      "noticedAt": "2026-09-22",
+      "status": "resolved",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-cdc-transmission-brief-2021",
+        "e-skagit-choir-outbreak"
+      ],
+      "note": "CDC lists inhaling very fine droplets and aerosol particles as a principal route of infection and says inhalation beyond six feet can occur. The stated condition is met.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 1, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-airborne-room-scale:2024-04-18:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-airborne-room-scale",
+      "date": "2024-04-18",
+      "noticedAt": "2026-09-22",
+      "status": "resolved",
+      "resolutionKind": "definitional-choice",
+      "evidenceNodeIds": [
+        "e-airborne-terminology-2024"
+      ],
+      "note": "Agencies retire the droplet/aerosol split for 'infectious respiratory particles' and 'transmission through the air'. The vocabulary the 2020 dispute used is gone.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 1, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-vaccines-cut-severe-disease:2020-12-10:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-vaccines-cut-severe-disease",
+      "date": "2020-12-10",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-bnt162b2-phase3"
+      ],
+      "note": "Phase III trial: 95% efficacy against symptomatic Covid; severe cases after dose 1 were 9 on placebo, 1 on vaccine. Powered for symptomatic disease, so severe counts were small.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 2, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-vaccines-cut-severe-disease:2021-02-24:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-vaccines-cut-severe-disease",
+      "date": "2021-02-24",
+      "noticedAt": "2026-09-22",
+      "status": "resolved",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-israel-matched-cohort",
+        "e-bnt162b2-phase3"
+      ],
+      "note": "Nationwide matched cohort of 596,618 pairs: 92% effectiveness against severe disease after dose 2. Severe-outcome evidence now matches the trial.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 2, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-transmission-justifies-coercion:2022-01-05:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-transmission-justifies-coercion",
+      "date": "2022-01-05",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-alpha-delta-onward-transmission"
+      ],
+      "note": "Two doses cut onward transmission of Alpha (rate ratio 0.32) and Delta (0.50), the Delta effect fading within about 12 weeks. Real and time-limited; the threshold for compulsion is untouched.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 3, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-transmission-justifies-coercion:2023-01-02:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-transmission-justifies-coercion",
+      "date": "2023-01-02",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-omicron-prison-infectiousness"
+      ],
+      "note": "Omicron, 35 prisons: vaccination cut an infected person's risk of infecting contacts by 22%, both vaccine and prior infection by 40%. Empirical half settled; how much is enough stays a value fork.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 3, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-mandates-raise-uptake:2021-12-13:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-mandates-raise-uptake",
+      "date": "2021-12-13",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-certificates-six-countries"
+      ],
+      "note": "Six-country synthetic control: certificates raised uptake from 20 days before to 40 days after, more where uptake was low; no effect in Germany. Covers access certificates, not general mandates.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 4, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-mandates-raise-uptake:2022-03-09:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-mandates-raise-uptake",
+      "date": "2022-03-09",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-austria-mandate-suspended"
+      ],
+      "note": "Austria suspends its general adult mandate before any fine. The one test of a general duty to vaccinate never runs; that half of the question stopped mattering.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 4, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-mandates-raise-uptake:2022-06-02:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-mandates-raise-uptake",
+      "date": "2022-06-02",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-certificates-canada-europe"
+      ],
+      "note": "Staggered Canadian timing: announcing proof-of-vaccination rules raised weekly first doses 60%+. Estimates of 4.7 to 12 points in Germany, France, Italy; the two studies differ on Germany.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 4, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-school-closures-net-cost:2021-07-08:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-school-closures-net-cost",
+      "date": "2021-07-08",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-ecdc-schools-2021"
+      ],
+      "note": "ECDC: closures can reduce transmission but are insufficient alone, and their harms would likely outweigh the benefits. A weighing, made before the cost side was measured.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 5, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-school-closures-net-cost:2023-01-30:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-school-closures-net-cost",
+      "date": "2023-01-30",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-learning-deficit-meta",
+        "e-naep-2022-age9"
+      ],
+      "note": "Meta-analysis of 42 studies in 15 countries: learning deficit of about 0.14 SD, larger for poorer children. With US test-score falls, the cost side is measured; the net needs a weighting.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 5, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-lockdowns-reduced-total-deaths:2023-08-23:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-lockdowns-reduced-total-deaths",
+      "date": "2023-08-23",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-royal-society-npi-2023",
+        "e-lockdown-mortality-working-paper"
+      ],
+      "note": "Royal Society: packages of measures reduced infections, mostly on observational evidence, costs not assessed. Infections, not total deaths against a lighter alternative.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 6, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-lockdowns-reduced-total-deaths:2025-11-20:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-lockdowns-reduced-total-deaths",
+      "date": "2025-11-20",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-uk-inquiry-module2"
+      ],
+      "note": "UK inquiry, on modelling: lockdown on 16 rather than 23 March 2020 means about 23,000 fewer first-wave deaths in England. A timing counterfactual, not total deaths against a lighter policy.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 6, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-community-masking-reduced-transmission:2022-01-14:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-community-masking-reduced-transmission",
+      "date": "2022-01-14",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-bangladesh-mask-rct"
+      ],
+      "note": "Bangladesh cluster trial: promotion lifted proper mask wearing from 13% to 42% and cut symptomatic seroprevalence slightly (ratio 0.91). It measured promotion, not wearing.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 7, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-community-masking-reduced-transmission:2023-01-30:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-community-masking-reduced-transmission",
+      "date": "2023-01-30",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-cochrane-physical-interventions-2023"
+      ],
+      "note": "Cochrane pools community trials: masking probably makes little or no difference (RR 0.95 and 1.01), with low adherence and high or unclear risk of bias.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 7, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-community-masking-reduced-transmission:2023-03-10:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-community-masking-reduced-transmission",
+      "date": "2023-03-10",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-cochrane-editor-statement"
+      ],
+      "note": "Cochrane's editor-in-chief: the review tested interventions to promote masks, results were inconclusive, and it cannot say whether wearing masks cuts spread. Measurement-blocked.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 7, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-community-masking-reduced-transmission:2023-08-23:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-community-masking-reduced-transmission",
+      "date": "2023-08-23",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-royal-society-npi-2023"
+      ],
+      "note": "Royal Society: observational studies consistently, though not universally, found masks and mandates effective. Randomised and observational evidence still point different ways.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 7, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-origin-natural-spillover:2025-01-25:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-origin-natural-spillover",
+      "date": "2025-01-25",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-cia-low-confidence-2025",
+        "e-huanan-market-genetics"
+      ],
+      "note": "CIA assesses a research-related origin as more likely, with low confidence. Official bodies stay split, and no progenitor virus or infected animal has been identified.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 8, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-origin-natural-spillover:2025-06-27:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-origin-natural-spillover",
+      "date": "2025-06-27",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-who-sago-origins-2025"
+      ],
+      "note": "WHO advisory group: weight of evidence suggests spillover, but all hypotheses stay open while early sequences, animal data and lab records are unshared. Access-blocked.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 8, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-early-dismissals-reputational:2023-07-11:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-early-dismissals-reputational",
+      "date": "2023-07-11",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-select-subcommittee-minority-2023"
+      ],
+      "note": "House hearing: the committee minority says records show Fauci and Collins played no role in drafting Proximal Origin. The motive question divides along committee lines.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 9, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-early-dismissals-reputational:2026-07-22:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-early-dismissals-reputational",
+      "date": "2026-07-22",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-proximal-origin-slack-release"
+      ],
+      "note": "Released Slack messages: authors privately put a lab origin at 30% and 20%, later 10%. The gap between private and public confidence is now on record; its cause is still argued.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 9, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-prior-infection-comparable:2021-11-05:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-prior-infection-comparable",
+      "date": "2021-11-05",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-osha-ets-prior-infection"
+      ],
+      "note": "OSHA's employer rule declines a prior-infection exception, calling the question one of ongoing scientific inquiry and citing uncertainty and testing limits.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 10, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-prior-infection-comparable:2022-01-28:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-prior-infection-comparable",
+      "date": "2022-01-28",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-cdc-prior-infection-cohorts"
+      ],
+      "note": "California and New York, Delta: case rates 29.0- and 14.7-fold lower after prior infection vs 6.2- and 4.5-fold after vaccination. OSHA's rule was withdrawn two days earlier.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 10, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-prior-infection-comparable:2023-02-16:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-prior-infection-comparable",
+      "date": "2023-02-16",
+      "noticedAt": "2026-09-22",
+      "status": "resolved",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-reinfection-meta-analysis",
+        "e-cdc-prior-infection-cohorts"
+      ],
+      "note": "Meta-analysis of 65 studies: 78.6% protection against pre-Omicron reinfection at 40 weeks, about 90% against severe disease; lower for Omicron reinfection. The stated condition is met.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 10, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-fatality-steep-age-gradient:2022-02-24:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-fatality-steep-age-gradient",
+      "date": "2022-02-24",
+      "noticedAt": "2026-09-22",
+      "status": "resolved",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-ifr-by-age-prevaccine"
+      ],
+      "note": "718 age-specific seroprevalence surveys matched to deaths: fatality per infection 0.0023% at 7, 0.057% at 30, 1.0% at 60, 20.3% at 90, pre-vaccine. Averages by age, not for healthy people.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 11, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-access-conditioned-on-vaccination:1905-02-20:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-access-conditioned-on-vaccination",
+      "date": "1905-02-20",
+      "noticedAt": "2026-09-22",
+      "status": "unresolvable",
+      "resolutionKind": "authority-allocation",
+      "evidenceNodeIds": [
+        "e-jacobson-1905"
+      ],
+      "note": "Jacobson upholds a compulsory smallpox-vaccination law with a $5 penalty. It allocates the power to compel to states; it does not decide whether compelling is right.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 12, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-access-conditioned-on-vaccination:2022-01-13:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-access-conditioned-on-vaccination",
+      "date": "2022-01-13",
+      "noticedAt": "2026-09-22",
+      "status": "unresolvable",
+      "resolutionKind": "value-difference",
+      "evidenceNodeIds": [
+        "e-nfib-v-osha-stay",
+        "e-biden-v-missouri"
+      ],
+      "note": "The Court stays OSHA's employer rule and lets the health-care-worker rule stand, the same day. Courts sort who may mandate what; whether conditioning access is right stays a value fork.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 12, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-broad-restrictions-right-tradeoff:2020-10-04:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-broad-restrictions-right-tradeoff",
+      "date": "2020-10-04",
+      "noticedAt": "2026-09-22",
+      "status": "unresolvable",
+      "resolutionKind": "value-difference",
+      "evidenceNodeIds": [
+        "e-great-barrington-declaration"
+      ],
+      "note": "Great Barrington Declaration proposes Focused Protection: lower-risk people resume normal life while the vulnerable are shielded. A weighting of welfare against lives, written as epidemiology.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 13, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-broad-restrictions-right-tradeoff:2020-10-15:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-broad-restrictions-right-tradeoff",
+      "date": "2020-10-15",
+      "noticedAt": "2026-09-22",
+      "status": "unresolvable",
+      "resolutionKind": "value-difference",
+      "evidenceNodeIds": [
+        "e-john-snow-memorandum"
+      ],
+      "note": "John Snow Memorandum argues against letting infection spread among lower-risk people while shielding the vulnerable. The other horn of the same weighting, also written as epidemiology.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 13, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-conduct-reduced-later-compliance:2023-04-20:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-conduct-reduced-later-compliance",
+      "date": "2023-04-20",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-unicef-vaccine-confidence-2023"
+      ],
+      "note": "UNICEF: perceived importance of childhood vaccines fell in 52 of 55 countries during the pandemic, with several named drivers; it calls confidence volatile and time specific.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 14, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-conduct-reduced-later-compliance:2024-08-07:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-conduct-reduced-later-compliance",
+      "date": "2024-08-07",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-gallup-childhood-vaccines-2024"
+      ],
+      "note": "Gallup: 'extremely important' fell from 58% (2019) to 40% (2024); Republicans to 26%, Democrats little changed. The split tracks pandemic-era trust; cause is not isolated.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 14, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-conduct-reduced-later-compliance:2025-08-01:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-conduct-reduced-later-compliance",
+      "date": "2025-08-01",
+      "noticedAt": "2026-09-22",
+      "status": "narrowed",
+      "resolutionKind": "existing-evidence",
+      "evidenceNodeIds": [
+        "e-kindergarten-mmr-decline"
+      ],
+      "note": "Kindergarten MMR coverage 92.5% in 2024-25, from 95.2% in 2019-20. The predicted outcome is observed; separating Covid-era conduct from other drivers is not done.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 14, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-gof-risk-outweighs-benefit:2025-05-05:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-gof-risk-outweighs-benefit",
+      "date": "2025-05-05",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-eo-14292-gof"
+      ],
+      "note": "Executive Order 14292 ends federal funding of dangerous gain-of-function work in countries of concern and orders oversight revised. Authority moved; risk was not measured.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 15, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    },
+    {
+      "id": "covid-what-ended:c-gof-risk-outweighs-benefit:2026-07-28:1",
+      "topicId": "covid-what-ended",
+      "claimId": "c-gof-risk-outweighs-benefit",
+      "date": "2026-07-28",
+      "noticedAt": "2026-09-22",
+      "status": "open",
+      "evidenceNodeIds": [
+        "e-usg-high-risk-research-policy-2026"
+      ],
+      "note": "New federal policy prohibits dangerous gain-of-function research and keeps flagged work paused. Who decides changed again; the value split over risk and scientific freedom persists.",
+      "author": {
+        "kind": "editorial",
+        "curator": "argumend-editorial",
+        "basis": "docs/research/2026-09-22-covid-crux-retrospective.md row 15, fact-checked 2026-09-22"
+      },
+      "createdAt": "2026-09-22"
+    }
+  ]
+}
