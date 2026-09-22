@@ -209,6 +209,18 @@ and must be regenerated again once the corrected labels merge.
    anyway; (c) it ships as is. Shipped as (c) pending review, because silently
    exempting the topic would hide exactly the measurement this work exists to
    surface.
+
+   One consequence to look at before shipping: the topic-page verdict banner
+   renders the authored `status` pill directly under the verdict label, and
+   `status` is a separate editorial field this change does not touch. On
+   `moon-landing` the banner will therefore read "Clearly favors the claim" /
+   "One evidence card could change this reading" / **Settled** — a visible
+   contradiction, and the only place in the library where it arises
+   (`climate-change` is the sole other `status: "settled"` topic and it keeps
+   its settled quadrant). Deepening the map resolves it; so does any decision
+   that reconciles `status` with the computed quadrant. Patching the pill alone
+   would paper over the disagreement rather than resolve it, so it was left
+   visible.
 2. **Should `contested` get a symmetric guard?** 50 of 90 contested topics are
    one card from settled. "Contested" is the humbler claim so it is less
    dangerous to publish, but it is no better measured, and the reader is not
