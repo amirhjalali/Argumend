@@ -27,6 +27,21 @@ import type { CruxMovementEntry } from "@/lib/argument/ledger";
 export const STANDING_DISAGREEMENT_LINE =
   "Nothing does — this is a standing value disagreement; the map holds both horns.";
 
+/**
+ * The standing line for the kind of fork. A value fork keeps the engine's
+ * exact line; a definitional or who-decides fork says what it turns on, so a
+ * definition question is not mislabelled as a clash of values.
+ */
+export function standingLineFor(kind?: ResolutionKind): string {
+  if (kind === "definitional-choice") {
+    return "Nothing does — this turns on a choice of definition; the map holds both readings.";
+  }
+  if (kind === "authority-allocation") {
+    return "Nothing does — this turns on who should decide; the map holds both answers.";
+  }
+  return STANDING_DISAGREEMENT_LINE;
+}
+
 const STATUS_LABEL: Record<CruxLedgerStatus, string> = {
   open: "Open",
   narrowed: "Narrowed",
@@ -200,7 +215,7 @@ export function CruxMovementLedger({
   nodesById: Map<string, ArgumentNode>;
   /**
    * The surrounding card already answers "what would settle it" with
-   * STANDING_DISAGREEMENT_LINE. The thread still splits into its two horns,
+   * its standing line (standingLineFor). The thread still splits into its two horns,
    * but the caption says when it last moved instead of repeating the line.
    */
   standingLineShown?: boolean;
@@ -323,7 +338,7 @@ export function CruxMovementLedger({
               }
             >
               {tail === "double" && !standingLineShown
-                ? STANDING_DISAGREEMENT_LINE
+                ? standingLineFor(latest.resolutionKind)
                 : `No recorded movement since ${formatDay(latest.date)}.`}
             </p>
           </li>

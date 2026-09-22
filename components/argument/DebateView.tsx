@@ -30,7 +30,7 @@ import { ShareCard } from "./ShareCard";
 import {
   CruxMovementLedger,
   CruxMovementTrack,
-  STANDING_DISAGREEMENT_LINE,
+  standingLineFor,
 } from "./CruxMovement";
 
 // Position accent colors from the design system: teal, rust, brown, crimson.
@@ -232,8 +232,14 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
               if (claim?.type !== "claim") return null;
               const note = meta.cruxNotes?.[crux.claimId];
               const movement = claimMovement(ledger, crux.claimId);
-              const latestStatus = movement.at(-1)?.entry.status;
+              const latestEntry = movement.at(-1)?.entry;
+              const latestStatus = latestEntry?.status;
               const isResolved = latestStatus === "resolved";
+              // A ledger that calls the crux unresolvable names the kind of fork.
+              const kind =
+                latestStatus === "unresolvable"
+                  ? (latestEntry?.resolutionKind ?? claim.resolution?.kind)
+                  : claim.resolution?.kind;
               const mode = settleMode(claim, latestStatus);
               const condition = claim.resolution?.condition;
               const leads = mode === "standing"
@@ -273,7 +279,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
                         </h3>
                         <SettleAnswer
                           mode={mode}
-                          kind={claim.resolution?.kind}
+                          kind={kind}
                           condition={condition}
                           resolved={isResolved}
                         />
@@ -342,6 +348,16 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
               );
             })}
         </ol>
+        {AI_MAP_IDS.has(meta.id) && (
+          <p className="mt-2">
+            <Link
+              href="/ai"
+              className="inline-flex min-h-11 items-center text-sm text-secondary link-underline hover:text-stone-900 dark:text-stone-300 dark:hover:text-stone-100"
+            >
+              What has moved across the AI maps →
+            </Link>
+          </p>
+        )}
       </section>
 
       {/* ---------------- Steal-able numbers ---------------- */}
@@ -550,6 +566,9 @@ function renderStakes(
 // Crux entry parts
 // ---------------------------------------------------------------------------
 
+/** Maps covered by the living AI page at /ai, which links back from here. */
+const AI_MAP_IDS: ReadonlySet<string> = new Set(["ai-mass-unemployment", "capitalism-after-ai"]);
+
 /** Numeral gutter | entry. The margin rule sits on the column boundary. */
 const ENTRY_GRID = "grid grid-cols-[2.5rem_minmax(0,1fr)] sm:grid-cols-[3.75rem_minmax(0,1fr)]";
 /**
@@ -656,7 +675,7 @@ function SettleAnswer({
           What would settle it
         </span>
         <span className="mt-1 block font-serif text-[1.0625rem] italic leading-[1.5] text-[#7a4e34] dark:text-[#d9b89d] sm:text-[1.1875rem]">
-          {STANDING_DISAGREEMENT_LINE}
+          {standingLineFor(kind)}
         </span>
       </span>
     );
