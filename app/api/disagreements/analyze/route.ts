@@ -11,14 +11,13 @@ import {
 } from "@/lib/disagreement/model";
 import { createPublicationToken, digestReportBundle, hashClientKey } from "@/lib/disagreement/publication";
 import { canPublishReport } from "@/lib/disagreement/quality";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
 function clientKey(request: NextRequest): string {
-  const forwarded = request.headers.get("x-forwarded-for") ?? "unknown";
-  const first = forwarded.split(",")[0]?.trim() || "unknown";
-  return hashClientKey(first);
+  return hashClientKey(clientIp(request));
 }
 
 export async function POST(request: NextRequest) {

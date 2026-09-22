@@ -19,8 +19,8 @@
  * header-based limiter has; the fix is to run behind a proxy, not to read a
  * different header.
  *
- * Other API routes still read the first entry. They predate this helper and
- * changing them is a separate piece of work; new routes should use it.
+ * Every API route that keys a rate limit on an address now goes through this
+ * helper. A new one must too: reading `x-forwarded-for` directly is the bug.
  */
 
 const DEFAULT_TRUSTED_PROXY_HOPS = 1;
