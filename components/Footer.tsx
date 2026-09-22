@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { footerColumns } from "@/lib/nav";
+import { footerColumns, legalLinks } from "@/lib/nav";
 
 export function Footer() {
   const visibleFooterColumns = footerColumns.filter((column) => column.links.length > 0);
@@ -53,10 +53,25 @@ export function Footer() {
         </nav>
 
         {/* Bottom bar */}
-        <div className="mt-10 flex items-center justify-between border-t border-stone-200 dark:border-[var(--border-divider)] pt-6">
-          <p className="text-xs text-stone-500 dark:text-stone-400">
-            &copy; 2026 Argumend. Built with stubbornness and peer review.
-          </p>
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-stone-200 dark:border-[var(--border-divider)] pt-6">
+          <div className="flex flex-wrap items-center gap-x-5">
+            <p className="text-xs text-stone-500 dark:text-stone-400">
+              &copy; 2026 Argumend. Built with stubbornness and peer review.
+            </p>
+            {/* Legal links belong on every page, not in a discovery column. */}
+            <nav aria-label="Legal" className="flex items-center gap-x-5">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  prefetch={false}
+                  className="inline-flex min-h-11 items-center rounded-md text-xs text-stone-500 transition-colors duration-200 hover:text-deep dark:text-stone-400"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
           <a
             href="https://github.com/amirhjalali/Argumend"
             target="_blank"
