@@ -19,11 +19,14 @@ import type {
   Position,
 } from "@/types/argument";
 import type { CruxResult } from "@/lib/crux";
+import type { CruxLedgerEntry } from "@/types/cruxLedger";
+import { claimMovement } from "@/lib/argument/ledger";
 import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { ARGUMENT_TOPICS_LAST_UPDATED } from "@/lib/site";
 import { DivergenceChart } from "./DivergenceChart";
 import { ShareCard } from "./ShareCard";
+import { CruxMovementLedger, CruxMovementTrack } from "./CruxMovement";
 
 // Position accent colors from the design system: teal, rust, brown, crimson.
 const POSITION_ACCENTS = ["#3a6965", "#C4613C", "#8B5A3C", "#a23b3b"];
@@ -48,9 +51,15 @@ interface DebateViewProps {
   meta: ArgumentTopicMeta;
   graph: ArgumentGraph;
   cruxes: CruxResult[];
+  /**
+   * Crux-ledger entries for this topic. Only the public projection is ever
+   * rendered (unreviewed model proposals are filtered out here as well as
+   * upstream). Omitted or empty: the crux cards render exactly as before.
+   */
+  ledger?: CruxLedgerEntry[];
 }
 
-export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
+export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps) {
   const nodesById = new Map(graph.nodes.map((n) => [n.id, n]));
   const question = graph.nodes.find((n) => n.type === "question");
   const positions = graph.nodes
@@ -216,6 +225,8 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
             if (claim?.type !== "claim") return null;
             const isValueCrux = claim.resolution?.kind === "value-difference";
             const note = meta.cruxNotes?.[crux.claimId];
+            const movement = claimMovement(ledger, crux.claimId);
+            const isResolved = movement.at(-1)?.entry.status === "resolved";
             return (
               <li key={crux.claimId}>
                 <details className="group/crux surface-card rounded-lg border-l-4 border-[#a23b3b]">
@@ -225,7 +236,13 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
                         <span className="font-serif text-lg text-[#a23b3b] dark:text-[#e66767]">
                           {index + 1}
                         </span>
-                        <span className="text-[15px] leading-snug font-medium text-stone-900 dark:text-stone-100">
+                        <span
+                          className={`text-[15px] leading-snug font-medium ${
+                            isResolved
+                              ? "text-stone-600 dark:text-stone-400"
+                              : "text-stone-900 dark:text-stone-100"
+                          }`}
+                        >
                           {note?.question ?? claim.summary ?? claim.statement}
                         </span>
                         <span
@@ -242,6 +259,11 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
                         {isValueCrux && <Chip tone="warn">Values, not facts</Chip>}
                       </span>
                     </h3>
+                    {movement.length > 0 && (
+                      <span className="mt-2.5 block pl-7">
+                        <CruxMovementTrack movement={movement} />
+                      </span>
+                    )}
                   </summary>
                   <div className="border-t border-stone-200 dark:border-[var(--border-divider)] px-4 py-4 space-y-3">
                     <p className="text-sm leading-relaxed text-stone-800 dark:text-stone-200">
@@ -259,6 +281,11 @@ export function DebateView({ meta, graph, cruxes }: DebateViewProps) {
                       </span>{" "}
                       {claim.resolution?.condition ?? "not yet specified."}
                     </p>
+                    <CruxMovementLedger
+                      movement={movement}
+                      claimId={crux.claimId}
+                      nodesById={nodesById}
+                    />
                     <details className="group/evidence pt-1">
                       <summary className="-mx-1 inline-flex min-h-11 w-[calc(100%+0.5rem)] cursor-pointer list-none items-center justify-between gap-2 rounded px-1 text-xs font-medium text-muted hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-400 dark:hover:text-stone-200 dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
                         <span>Show the evidence and the exact claim</span>
