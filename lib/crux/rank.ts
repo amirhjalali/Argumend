@@ -84,9 +84,11 @@ export interface IdentifyCruxesOptions {
    * score formula is untouched.
    *
    *   resolved     leaves candidacy (reported in `droppedByLedgerIds`)
-   *   unresolvable selected ahead of unpinned claims, without the redundancy
-   *                penalty, if its own base score clears the floor; pins plus
-   *                these never exceed `limit`
+   *   unresolvable kept in the set if its own base score clears the floor,
+   *                even where redundancy control would cut it (then on its
+   *                base score, in the lowest unpinned slot); pins plus these
+   *                never exceed `limit`. It only adds: claims the ranking
+   *                selects anyway keep their scores and order
    *   narrowed     `evidenceStarved` false, plus a "Ledger: narrowed on ..." fact
    *   open         no change
    *
@@ -108,9 +110,10 @@ export interface CruxRanking {
    */
   droppedByFloorIds: string[];
   /**
-   * Claim ids that passed editorial candidacy but left it because the crux
-   * ledger records them `resolved`, sorted. Empty unless a ledger was
-   * supplied. Pinned claims are never listed: the pin keeps them.
+   * Claim ids out of candidacy because the crux ledger records them
+   * `resolved`, sorted, including those the matching graph status edit had
+   * already taken out. Empty unless a ledger was supplied. Pinned claims are
+   * never listed: the pin keeps them.
    */
   droppedByLedgerIds: string[];
 }
@@ -141,9 +144,12 @@ export function identifyCruxesWithDiagnostics(
   const pinned = unsuppressed
     .filter((signal) => signal.claim.cruxOverride === "pin")
     .sort(scoreSort);
-  // Ledger rule 2: an unresolvable crux is held in the set on its own base
-  // score, so redundancy control cannot bury it. Below the floor it is not
-  // forced; capped so pins plus held claims never exceed the limit.
+  // Ledger rule 2: an unresolvable crux that clears the floor on its own base
+  // score is kept in the set, so redundancy control cannot bury it. The rule
+  // only adds: a held claim the greedy pass selects anyway is selected exactly
+  // as without a ledger, and one it would cut takes the lowest unpinned slot
+  // on its base score without entering anyone else's redundancy comparison.
+  // Capped so pins plus held claims never exceed the limit.
   const held = unsuppressed
     .filter(
       (signal) =>
@@ -155,35 +161,42 @@ export function identifyCruxesWithDiagnostics(
     .slice(0, Math.max(0, limit - pinned.length));
   const heldIds = new Set(held.map((signal) => signal.claim.id));
   const unpinned = unsuppressed
-    .filter((signal) => signal.claim.cruxOverride !== "pin" && !heldIds.has(signal.claim.id))
+    .filter((signal) => signal.claim.cruxOverride !== "pin")
     .sort(scoreSort);
-  const selected: Array<{ signal: CruxSignal; score: number }> = [
-    ...pinned.map((signal) => ({ signal, score: Math.max(FLOOR, signal.baseScore) })),
-    ...held.map((signal) => ({ signal, score: signal.baseScore })),
-  ];
+  const selected: Array<{ signal: CruxSignal; score: number }> = pinned.map((signal) => ({
+    signal,
+    score: Math.max(FLOOR, signal.baseScore),
+  }));
+  const keptByLedger: Array<{ signal: CruxSignal; score: number }> = [];
+  let heldAhead = held.length;
 
   for (const signal of unpinned) {
-    if (selected.length >= limit) break;
+    const isHeld = heldIds.has(signal.claim.id);
+    if (isHeld) heldAhead -= 1;
+    // Slots still owed to held claims further down the order are reserved;
+    // a held claim always finds its own slot open.
+    if (!isHeld && selected.length + keptByLedger.length + heldAhead >= limit) continue;
     const overlap = maxOverlap(signal, selected.map((item) => item.signal));
     const score = signal.baseScore * (1 - REDUNDANCY_RHO * overlap);
     if (isSelectable(signal, score)) {
       selected.push({ signal, score });
+    } else if (isHeld) {
+      keptByLedger.push({ signal, score: signal.baseScore });
     }
   }
 
   const pinnedResults = selected
     .filter((item) => item.signal.claim.cruxOverride === "pin")
     .sort((a, b) => b.score - a.score || a.signal.claim.id.localeCompare(b.signal.claim.id));
-  const heldResults = selected
-    .filter((item) => heldIds.has(item.signal.claim.id))
-    .sort((a, b) => b.score - a.score || a.signal.claim.id.localeCompare(b.signal.claim.id));
-  const regularResults = selected
-    .filter((item) => item.signal.claim.cruxOverride !== "pin" && !heldIds.has(item.signal.claim.id))
-    .filter((item) => isSelectable(item.signal, item.score))
-    .sort((a, b) => b.score - a.score || a.signal.claim.id.localeCompare(b.signal.claim.id));
+  const regularResults = [
+    ...selected
+      .filter((item) => item.signal.claim.cruxOverride !== "pin")
+      .filter((item) => isSelectable(item.signal, item.score)),
+    ...keptByLedger,
+  ].sort((a, b) => b.score - a.score || a.signal.claim.id.localeCompare(b.signal.claim.id));
 
   return {
-    cruxes: [...pinnedResults, ...heldResults, ...regularResults]
+    cruxes: [...pinnedResults, ...regularResults]
       .slice(0, limit)
       .map((item) => toResult(item.signal, item.score, ledger.get(item.signal.claim.id))),
     droppedByFloorIds,
