@@ -135,7 +135,9 @@ score(n) = I(n) · (0.30·C + 0.20·R + 0.35·D + 0.05·T) + 0.15·S(n)
 1. **`resolved` leaves candidacy**, exactly as a probe-floor removal does: no slot, no scoping reach
    passed to a gate, no redundancy comparison. It is reported in
    `identifyCruxesWithDiagnostics(...).droppedByLedgerIds`, and a claim that gated it says so in its
-   "Gates:" fact rather than printing a bare "none". Other claims' numbers can move as a
+   "Gates:" fact rather than printing a bare "none". Both hold when the matching graph edit (below)
+   had already ended its candidacy, which a validated ledger always ships with: without that, the
+   report would be empty in exactly the case it exists for. Other claims' numbers can move as a
    consequence, because the candidate set changed (the scoping bonus renormalizes, and a scoping
    claim whose reach came only through the resolved claim may fall out); that is what the matching
    graph edit (claim `status` → `broadly_accepted`/`superseded`, required by the ledger validator)

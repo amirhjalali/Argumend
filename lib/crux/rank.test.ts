@@ -262,6 +262,26 @@ describe("identifyCruxes with crux-ledger status (v1.3, spec §1.3)", () => {
     );
   });
 
+  it("rule 1: a resolved claim the graph edit already took out is still reported", () => {
+    // The ledger validator requires `resolved` to ship with the claim's graph
+    // status moved off contested, which ends its editorial candidacy first.
+    const graph = workedExampleGraph();
+    const c2 = graph.nodes.find((node): node is Claim => node.id === "c2" && node.type === "claim");
+    if (c2 === undefined) throw new Error("fixture has no claim c2");
+    c2.status = "broadly_accepted";
+    const withoutLedger = identifyCruxes(graph);
+
+    const ranking = identifyCruxesWithDiagnostics(graph, { ledgerStatus: { c2: "resolved" } });
+
+    expect(ranking.droppedByLedgerIds).toEqual(["c2"]);
+    expect(ranking.cruxes.map((result) => [result.claimId, result.score])).toEqual(
+      withoutLedger.map((result) => [result.claimId, result.score])
+    );
+    expect(ranking.cruxes.find((result) => result.claimId === "c4")?.explanationFacts).toContain(
+      "Gates: none; removed from candidacy as resolved in the crux ledger: c2."
+    );
+  });
+
   it("rule 2: unresolvable is selected on its own base score, ahead of unpinned claims", () => {
     const graph = workedExampleGraph();
     const defaultC1 = identifyCruxes(graph).find((result) => result.claimId === "c1");

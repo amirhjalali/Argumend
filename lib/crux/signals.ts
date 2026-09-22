@@ -62,9 +62,10 @@ export interface CruxSignalResult {
    */
   droppedByFloorIds: string[];
   /**
-   * Claim ids that met editorial candidacy but left it because their current
-   * public crux-ledger entry is `resolved`, sorted. Empty unless a ledger was
-   * supplied.
+   * Claim ids out of candidacy because their current public crux-ledger entry
+   * is `resolved`, sorted: removed here, or already out through the graph
+   * status edit the ledger validator requires alongside a `resolved` entry.
+   * Pinned claims are never listed. Empty unless a ledger was supplied.
    */
   droppedByLedgerIds: string[];
 }
@@ -119,8 +120,13 @@ export function computeCruxSignals(
       .filter((claim) => belowCandidacyFloor(claim, overrides, candidacyFloor))
       .map((claim) => claim.id)
   );
+  // Every active claim the ledger records resolved, not only the editorial
+  // candidates: the ledger validator requires the matching graph edit (status
+  // off contested/unresolved), which usually takes the claim out of candidacy
+  // before the ledger gets to. Reporting only the candidates would leave that
+  // drop silent, which is what rule 1 exists to prevent.
   const resolvedIds = new Set(
-    editorialCandidates
+    activeClaims
       .filter((claim) => resolvedByLedger(claim, options.ledgerResolvedIds))
       .map((claim) => claim.id)
   );

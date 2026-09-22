@@ -108,9 +108,10 @@ export interface CruxRanking {
    */
   droppedByFloorIds: string[];
   /**
-   * Claim ids that passed editorial candidacy but left it because the crux
-   * ledger records them `resolved`, sorted. Empty unless a ledger was
-   * supplied. Pinned claims are never listed: the pin keeps them.
+   * Claim ids out of candidacy because the crux ledger records them
+   * `resolved`, sorted, including those the matching graph status edit had
+   * already taken out. Empty unless a ledger was supplied. Pinned claims are
+   * never listed: the pin keeps them.
    */
   droppedByLedgerIds: string[];
 }
