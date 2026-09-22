@@ -116,6 +116,51 @@ Measurement, including the thresholds' instability and the effect on definitiona
 cruxes, is in `docs/reviews/2026-09-21-jev-contestedness-gate.md`. Both flags are off; nothing about
 the shipped ranking has changed.
 
+## v1.3: ledger status
+
+Governing spec: `docs/plans/2026-09-22-crux-ledger-and-living-ai-map-spec.md` §1.3. The crux ledger
+(`data/argument/<topicId>.ledger.json`, `types/cruxLedger.ts`) records dated movement per claim.
+`identifyCruxes(graph, { ledgerStatus })` takes, per claim id, the claim's current public ledger
+status: either the bare status (`ledgerStatus()` in `lib/argument/ledger.ts`) or the current entry
+itself (`currentLedgerEntries()`), which adds the date and note a card cites. `loadArgumentTopic`
+passes `currentLedgerEntries` of the topic's ledger.
+
+The ledger acts **at candidacy and selection only, never inside the score**. The formula is
+unchanged:
+
+```
+score(n) = I(n) · (0.30·C + 0.20·R + 0.35·D + 0.05·T) + 0.15·S(n)
+```
+
+1. **`resolved` leaves candidacy**, exactly as a probe-floor removal does: no slot, no scoping reach
+   passed to a gate, no redundancy comparison. It is reported in
+   `identifyCruxesWithDiagnostics(...).droppedByLedgerIds`, and a claim that gated it says so in its
+   "Gates:" fact rather than printing a bare "none". Other claims' numbers can move as a
+   consequence, because the candidate set changed (the scoping bonus renormalizes, and a scoping
+   claim whose reach came only through the resolved claim may fall out); that is what the matching
+   graph edit (claim `status` → `broadly_accepted`/`superseded`, required by the ledger validator)
+   would do anyway. The ledger makes the drop legible.
+2. **`unresolvable` stays a candidate and is held in the set.** If its own base score clears the
+   floor (the same `isSelectable` test every crux passes), it is selected on that base score, with no
+   redundancy penalty, after pins and ahead of every unpinned claim, and it is listed in that order.
+   Pins plus held claims never exceed `limit`; when there are more held claims than slots, the
+   highest base scores win. Below the floor it is not forced in. Rationale: the T-band already
+   refuses to bury value cruxes; redundancy control must not bury them by the back door.
+3. **`narrowed` changes no number.** It clears the "evidence-starved crux" annotation
+   (`evidenceStarved: false`; the arriving evidence is why it narrowed) and adds an explanation fact
+   `Ledger: narrowed on <date> — <note>`. Held `unresolvable` and pinned `resolved` cards carry the
+   same kind of line.
+4. **`open`, or no entry: no change.** An empty ledger reproduces the ranking byte-for-byte
+   (`lib/crux/ledgerRegression.test.ts`, against a baseline captured before ledgers existed).
+
+`cruxOverride` wins over all four: `suppress` beats `unresolvable`, and `pin` keeps a `resolved`
+claim in candidacy and in the set. `CruxResult.ledgerStatus` reports the status the engine saw, and
+is omitted for a claim with no entry.
+
+Only public entries reach the engine. A judgment (model) entry with no `reviewedBy` lives in the
+review queue: `currentLedgerEntries` and `ledgerStatus` skip it, and an unreviewed entry cannot
+retire a published one, so model drift cannot move a ranking (tested in `lib/crux/rank.test.ts`).
+
 ## Alternatives considered and rejected
 
 - **Pure LLM identification**: unexplainable, unstable run-to-run, and violates the auditable-over-authoritative rule. Rejected outright (all three proposals concurred).

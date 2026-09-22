@@ -11,6 +11,7 @@ import { identifyCruxes, type CruxResult } from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import type { CruxLedgerEntry } from "@/types/cruxLedger";
 import { loadCruxLedger, type LedgerReader } from "@/lib/argument/ledgerFile";
+import { currentLedgerEntries } from "@/lib/argument/ledger";
 import aiMassUnemploymentDraft from "@/data/topics/drafts/ai-mass-unemployment.draft.json";
 import capitalismAfterAiDraft from "@/data/topics/drafts/capitalism-after-ai.draft.json";
 import usIsraelSupportDraft from "@/data/topics/drafts/us-israel-support.draft.json";
@@ -376,9 +377,9 @@ export interface ArgumentTopic {
   /**
    * Validated crux-ledger entries from data/argument/<id>.ledger.json, or []
    * when the file does not exist. Includes review-queue entries: pass through
-   * `publicLedgerEntries` (lib/argument/ledger) before rendering. Week 1 of
-   * the ledger does not feed the ranking; `cruxes` is computed exactly as
-   * before (spec §4).
+   * `publicLedgerEntries` (lib/argument/ledger) before rendering. The current
+   * public entry per claim feeds `cruxes` (spec §1.3); review-queue entries
+   * never do, and an empty ledger ranks exactly as before.
    */
   ledger: CruxLedgerEntry[];
 }
@@ -412,11 +413,12 @@ export function loadArgumentTopic(
     );
   }
 
+  const ledger = loadCruxLedger(id, parsed.graph, options.readLedger);
   const topic: ArgumentTopic = {
     meta: entry.meta,
     graph: parsed.graph,
-    cruxes: identifyCruxes(parsed.graph),
-    ledger: loadCruxLedger(id, parsed.graph, options.readLedger),
+    cruxes: identifyCruxes(parsed.graph, { ledgerStatus: currentLedgerEntries(ledger) }),
+    ledger,
   };
   if (useCache) cache.set(id, topic);
   return topic;
