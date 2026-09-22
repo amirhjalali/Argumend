@@ -582,8 +582,9 @@
     "balance": 23,
     "weight": 76,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -2412,8 +2413,9 @@
     "balance": 25,
     "weight": 78,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Clearly favors the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
