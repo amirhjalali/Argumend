@@ -5,6 +5,12 @@ export interface CruxResult {
   claimId: string;
   score: number;
   contestedness: number;
+  /**
+   * The calibrated probe value behind `contestedness`, when the caller
+   * supplied one. Absent on every default (no-override) computation, so the
+   * serialized shape is unchanged for topics that are not probed.
+   */
+  contestednessOverride?: number;
   reach: number;
   directReach: number;
   discrimination: number;
@@ -32,6 +38,19 @@ export interface IdentifyCruxesOptions {
    * acceptance thresholds without changing serving behavior.
    */
   limit?: number;
+  /**
+   * Crux engine v1.2: claim id -> 0..1 contestedness from a calibrated probe
+   * of the same source the claims came from. Where supplied it replaces the
+   * balance modulator inside C; the editorial status prefactor is kept, and
+   * claims with no entry rank exactly as they do today. See
+   * `./contestedness.ts` and `docs/CRUX_ENGINE.md` §v1.2.
+   */
+  contestednessOverrides?: Readonly<Record<string, number>>;
+  /**
+   * Claims whose override falls below this drop out of candidacy entirely
+   * (default 0.25). Pinned claims are exempt.
+   */
+  candidacyFloor?: number;
 }
 
 export function identifyCruxes(
@@ -39,7 +58,10 @@ export function identifyCruxes(
   options: IdentifyCruxesOptions = {},
 ): CruxResult[] {
   const limit = Math.max(1, options.limit ?? MAX_RESULTS);
-  const { signals } = computeCruxSignals(graph);
+  const { signals } = computeCruxSignals(graph, {
+    contestednessOverrides: options.contestednessOverrides,
+    candidacyFloor: options.candidacyFloor,
+  });
   const unsuppressed = signals.filter((signal) => signal.claim.cruxOverride !== "suppress");
   const pinned = unsuppressed
     .filter((signal) => signal.claim.cruxOverride === "pin")
@@ -98,6 +120,9 @@ function toResult(signal: CruxSignal, score: number): CruxResult {
     claimId: signal.claim.id,
     score: round(score),
     contestedness: round(signal.contestedness),
+    ...(signal.contestednessOverride === undefined
+      ? {}
+      : { contestednessOverride: round(signal.contestednessOverride) }),
     reach: round(signal.reach),
     directReach: round(signal.directReach),
     discrimination: round(signal.discrimination),
@@ -122,6 +147,13 @@ function explanationFacts(signal: CruxSignal, score: number): string[] {
     `Status is ${claim.status} because ${claim.statusBasis}.`,
     `Component scores: score ${format(score)}, contestedness ${format(signal.contestedness)}, reach ${format(signal.reach)}, discrimination ${format(signal.discrimination)}, tractability ${format(signal.tractability)}, implicit boost ${format(signal.implicitBoost)}, scoping bonus ${format(signal.scopingBonus)}.`,
   ];
+  if (signal.contestednessOverride !== undefined) {
+    // Named so a crux card can show where the number came from: the probe
+    // measured the source, the status weight is still the editorial call.
+    facts.push(
+      `Contestedness from probe: ${format(signal.contestednessOverride)} (status ${claim.status} weights it to ${format(signal.contestedness)}).`,
+    );
+  }
   const positionText = signal.affectedPositions
     .map((target) => `${target.id} ${target.delta >= 0 ? "+" : ""}${format(target.delta)}`)
     .join(", ");

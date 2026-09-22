@@ -1,4 +1,5 @@
 import type { ArgumentEdge, ArgumentGraph, Claim, ResolutionKind } from "@/types/argument";
+import { DEFAULT_CANDIDACY_FLOOR, overriddenContestedness } from "./contestedness";
 import { buildInfluenceGraph, evidenceWeight, type InfluenceGraph } from "./influence";
 import { propagate } from "./propagate";
 
@@ -10,6 +11,11 @@ export interface DeltaTarget {
 export interface CruxSignal {
   claim: Claim;
   contestedness: number;
+  /**
+   * The calibrated probe value that produced `contestedness`, when one was
+   * supplied. Undefined means contestedness came from the graph as usual.
+   */
+  contestednessOverride?: number;
   directReach: number;
   reach: number;
   directDiscrimination: number;
@@ -34,6 +40,23 @@ export interface CruxSignalResult {
   signals: CruxSignal[];
 }
 
+export interface CruxSignalOptions {
+  /**
+   * Claim id -> 0..1 contestedness measured by a calibrated external probe
+   * over the same source the claims were extracted from (crux engine v1.2;
+   * see `./contestedness.ts`). Where present it replaces the balance-derived
+   * modulator; the editorial status prefactor is kept. Claims absent from the
+   * map keep today's behaviour exactly.
+   */
+  contestednessOverrides?: Readonly<Record<string, number>>;
+  /**
+   * Claims whose override falls below this leave candidacy entirely rather
+   * than merely ranking lower. Pinned claims are never dropped. Defaults to
+   * `DEFAULT_CANDIDACY_FLOOR` (0.25).
+   */
+  candidacyFloor?: number;
+}
+
 const TRACTABILITY: Record<ResolutionKind | "missing", number> = {
   "existing-evidence": 1,
   "future-observable": 0.9,
@@ -43,20 +66,27 @@ const TRACTABILITY: Record<ResolutionKind | "missing", number> = {
   "value-difference": 0.65,
 };
 
-export function computeCruxSignals(graph: ArgumentGraph): CruxSignalResult {
+export function computeCruxSignals(
+  graph: ArgumentGraph,
+  options: CruxSignalOptions = {}
+): CruxSignalResult {
+  const overrides = options.contestednessOverrides ?? {};
+  const candidacyFloor = options.candidacyFloor ?? DEFAULT_CANDIDACY_FLOOR;
   const influenceGraph = buildInfluenceGraph(graph);
   const activeClaims = graph.nodes.filter(
     (node): node is Claim =>
       node.type === "claim" && !influenceGraph.excludedNodeIds.has(node.id)
   );
-  const candidates = activeClaims.filter((claim) => isCandidate(claim));
+  const candidates = activeClaims.filter(
+    (claim) => isCandidate(claim) && !belowCandidacyFloor(claim, overrides, candidacyFloor)
+  );
   const candidateIds = new Set(candidates.map((claim) => claim.id));
   const claimCount = activeClaims.length;
   const positionIds = graph.nodes
     .filter((node) => node.type === "position" && !influenceGraph.excludedNodeIds.has(node.id))
     .map((node) => node.id);
   const rawSignals = candidates.map((claim) =>
-    directSignal(graph, influenceGraph, claim, claimCount, positionIds)
+    directSignal(graph, influenceGraph, claim, claimCount, positionIds, overrides[claim.id])
   );
   const rawById = new Map(rawSignals.map((signal) => [signal.claim.id, signal]));
   const directMassById = new Map(
@@ -112,12 +142,30 @@ function isCandidate(claim: Claim): boolean {
   );
 }
 
+/**
+ * Mirrors the projection's uncontested filter inside the engine: a claim the
+ * probe says the source never argues over is not a crux candidate at all, so
+ * it cannot occupy a slot, inherit scoping reach, or act as a redundancy
+ * comparison. A pin is an editorial decision and outranks the probe; a claim
+ * with no override is untouched.
+ */
+function belowCandidacyFloor(
+  claim: Claim,
+  overrides: Readonly<Record<string, number>>,
+  floor: number
+): boolean {
+  if (claim.cruxOverride === "pin") return false;
+  const override = overrides[claim.id];
+  return override !== undefined && override < floor;
+}
+
 function directSignal(
   graph: ArgumentGraph,
   ig: InfluenceGraph,
   claim: Claim,
   claimCount: number,
-  positionIds: string[]
+  positionIds: string[],
+  contestednessOverride: number | undefined
 ): CruxSignal {
   const directIg = {
     ...ig,
@@ -164,7 +212,7 @@ function directSignal(
   const directReach = Math.min(1, downstreamImpactSum / Math.max(0.15 * claimCount, 0.15));
   const directDiscrimination = discrimination(affectedPositions);
   const evidenceCoverage = evidenceCoverageFor(graph, claim.id);
-  const contestedness = contestednessFor(graph, claim.id, claim.status);
+  const contestedness = contestednessFor(graph, claim.id, claim.status, contestednessOverride);
   const tractability = TRACTABILITY[claim.resolution?.kind ?? "missing"];
   const implicitBoost = claim.implicit === true ? 1.15 : 1;
   const directScoreMass =
@@ -174,6 +222,7 @@ function directSignal(
   return {
     claim,
     contestedness,
+    contestednessOverride,
     directReach,
     reach: directReach,
     directDiscrimination,
@@ -197,7 +246,8 @@ function directSignal(
 function contestednessFor(
   graph: ArgumentGraph,
   claimId: string,
-  status: Claim["status"]
+  status: Claim["status"],
+  override: number | undefined
 ): number {
   const statusWeight =
     status === "contested" || status === "unresolved"
@@ -205,6 +255,10 @@ function contestednessFor(
       : status === "broadly_accepted"
         ? 0.3
         : 0;
+  // v1.2: a calibrated probe of the source replaces the structural balance
+  // proxy. The status prefactor survives, so an editorially uncontested claim
+  // still scores zero however contested the probe thinks it is.
+  if (override !== undefined) return overriddenContestedness(statusWeight, override);
   const { support, opposition } = supportOppositionInflow(graph, claimId);
   const max = Math.max(support, opposition);
   const balance = max > 0 ? Math.min(support, opposition) / max : 0;
