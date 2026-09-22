@@ -8,7 +8,7 @@ import {
   STANDING_DISAGREEMENT_LINE,
 } from "./CruxMovement";
 import { identifyCruxes } from "@/lib/crux";
-import { claimMovement } from "@/lib/argument/ledger";
+import { claimMovement, isPublicEntry } from "@/lib/argument/ledger";
 import { workedExampleGraph } from "@/lib/argument/fixtures";
 import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
 import type { CruxLedgerEntry } from "@/types/cruxLedger";
@@ -91,6 +91,25 @@ describe("CruxMovementLedger", () => {
     expect(rows[1].id).toBe("ledger-ai-jobs-c2-2025-04-10-1");
     // Source date vs our ingest date, both shown.
     expect(within(rows[1]).getByText(/Added to the map Sep 1, 2026/)).toBeTruthy();
+  });
+
+  it("renders an ISO date as that calendar day in any server timezone", () => {
+    const previous = process.env.TZ;
+    try {
+      for (const tz of ["America/Los_Angeles", "Pacific/Honolulu", "Pacific/Kiritimati"]) {
+        process.env.TZ = tz;
+        const first = entry("c2", "2025-02-01", "open", "Nothing has moved it.");
+        ledgerFor([first], "c2");
+        expect(screen.getByText("Feb 1, 2025"), tz).toBeTruthy();
+        cleanup();
+        render(<CruxMovementTrack movement={claimMovement([first], "c2")} />);
+        expect(screen.getByText("Feb 2025"), tz).toBeTruthy();
+        cleanup();
+      }
+    } finally {
+      if (previous === undefined) delete process.env.TZ;
+      else process.env.TZ = previous;
+    }
   });
 
   it("trails an open or narrowed crux with its last movement date", () => {
@@ -223,6 +242,16 @@ describe("DebateView crux cards with a ledger", () => {
 
     // Cards without entries stay exactly as they were.
     expect(container.querySelectorAll('[data-testid="crux-movement-ledger"]')).toHaveLength(2);
+  });
+
+  it("says what a correction corrects when given the page's input (public entries, superseded kept)", () => {
+    const retracted = { ...narrowed, supersededBy: "ai-jobs:c2:2025-05-01:1" };
+    const correction = entry("c2", "2025-05-01", "open", "The postings figure was revised; nothing moved.");
+    // What app/topics/[id]/page.tsx passes: the loaded ledger minus the review queue.
+    const pageInput = [opened, retracted, correction].filter(isPublicEntry);
+    render(<DebateView meta={meta} graph={graph} cruxes={cruxes} ledger={pageInput} />);
+    expect(screen.queryByText(narrowed.note)).toBeNull();
+    expect(screen.getByText(/Corrects the entry of Apr 10, 2025/)).toBeTruthy();
   });
 
   it("never renders an unreviewed model proposal, even if one is passed in", () => {
