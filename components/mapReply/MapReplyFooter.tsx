@@ -85,9 +85,9 @@ export function MapReplyFooter({
       ) : null}
 
       <p className="font-sans text-xs text-[var(--text-muted)]">
-        {executionSummary(execution)}
+        {executionSummary(execution)}{" "}
         {execution.lane === "fake" ? (
-          <span className="ml-2 rounded-full border border-[var(--border-default)] px-2 py-0.5">
+          <span className="whitespace-nowrap rounded-full border border-[var(--border-default)] px-2 py-0.5">
             fixtures, not a live model
           </span>
         ) : null}

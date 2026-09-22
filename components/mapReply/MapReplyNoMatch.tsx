@@ -98,9 +98,9 @@ export function MapReplyNoMatch({
           Map another thread
         </button>
         <p className="font-sans text-xs text-[var(--text-muted)]">
-          {executionSummary(result.execution)}
+          {executionSummary(result.execution)}{" "}
           {result.execution.lane === "fake" ? (
-            <span className="ml-2 rounded-full border border-[var(--border-default)] px-2 py-0.5">
+            <span className="whitespace-nowrap rounded-full border border-[var(--border-default)] px-2 py-0.5">
               fixtures, not a live model
             </span>
           ) : null}

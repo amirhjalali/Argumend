@@ -104,7 +104,7 @@ export function SectionBar({
                       {section.title}
                     </span>
                     {dominant ? (
-                      <span className="ml-2 text-xs uppercase tracking-wide text-deep dark:text-deep-light">
+                      <span className="ml-2 whitespace-nowrap text-xs uppercase tracking-wide text-deep dark:text-deep-light">
                         largest share
                       </span>
                     ) : null}
