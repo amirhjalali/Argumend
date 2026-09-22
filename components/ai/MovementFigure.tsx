@@ -56,7 +56,7 @@ export function MovementFigure({
             <div key={column.month} className="flex min-w-0 flex-1 flex-col items-center">
               <div
                 className={`flex w-full flex-col-reverse items-center gap-[3px] pb-1.5 pt-2 ${
-                  column.inWindow ? "bg-[#3a6965]/[0.07] dark:bg-[#8fc0bb]/[0.08]" : ""
+                  column.inWindow ? "bg-[#3a6965]/[0.11] dark:bg-[#8fc0bb]/[0.13]" : ""
                 }`}
               >
                 {column.entries.map((entry) => (

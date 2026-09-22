@@ -21,7 +21,7 @@ import {
   shiftDay,
   type PoolMap,
 } from "@/lib/argument/ledgerPool";
-import { ArrivedGroupView } from "./ArrivedSince";
+import { ArrivedGroupView, firstCitations, type ArrivedDisplay } from "./ArrivedSince";
 import { Changelog } from "./Changelog";
 import { CruxCard } from "./CruxCard";
 import { MovementFigure } from "./MovementFigure";
@@ -72,6 +72,13 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
     (min, entry) => (min === null || entry.date < min ? entry.date : min),
     null,
   );
+  const noticedDays = new Set(
+    arrived.flatMap((group) => group.entries.map((entry) => entry.noticedAt ?? entry.createdAt.slice(0, 10))),
+  );
+  const arrivedDisplay: ArrivedDisplay = {
+    fullCitations: firstCitations(arrived),
+    sharedNoticedDay: noticedDays.size === 1 ? [...noticedDays][0] : null,
+  };
   const movedCount =
     summary.moved.open + summary.moved.narrowed + summary.moved.resolved + summary.moved.unresolvable;
 
@@ -170,7 +177,10 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
         <p className="mt-2 max-w-[36rem] text-[14px] leading-relaxed text-secondary dark:text-stone-400">
           Sources dated between {formatDay(since)} and {formatDay(asOf)}, and what each did to
           the question it bears on. A source counts by its own date, not the day the map picked
-          it up.
+          it up
+          {arrivedDisplay.sharedNoticedDay
+            ? `; all of these were added to the map on ${formatDay(arrivedDisplay.sharedNoticedDay)}.`
+            : "."}
         </p>
         <nav aria-label="Window" className="mt-5 flex flex-wrap items-center gap-2 text-[13px]">
           {WINDOW_CHOICES.map((choice) => {
@@ -197,7 +207,12 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
             {arrived.map((group) => {
               const map = mapsById.get(group.topicId);
               if (!map) return null;
-              return <ArrivedGroupView key={`${group.topicId}/${group.claimId}`} group={group} map={map} />;
+              return <ArrivedGroupView
+                  key={`${group.topicId}/${group.claimId}`}
+                  group={group}
+                  map={map}
+                  display={arrivedDisplay}
+                />;
             })}
           </ol>
         ) : (
