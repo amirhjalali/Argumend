@@ -23,6 +23,12 @@ export const MAP_REPLY_LIMITS = {
   maxTurnCharacters: 1_200,
   /** Transcript sent with the topic, thread-level and crux probes. */
   maxTranscriptCharacters: 12_000,
+  /**
+   * Refuse a body larger than this without reading it. Generous against
+   * `maxCharacters`, because JSON escaping and multi-byte UTF-8 both inflate
+   * the wire size of a legitimate paste; it only catches obvious floods.
+   */
+  maxRequestBytes: 64 * 1024,
   /** Lexical shortlist size. One Choice over 156 maps is not a real question. */
   prefilterCandidates: 8,
 } as const;
@@ -30,6 +36,14 @@ export const MAP_REPLY_LIMITS = {
 export const MAP_REPLY_THRESHOLDS = {
   /** Below this the thread gets a "no map" result instead of a wrong map. */
   topicConfidence: 0.5,
+  /**
+   * Below this a turn is not placed on the map at all. The routing experiment
+   * scored 93.3% overall but 95.2% on placements above 0.7, and the demo
+   * thread's genuinely ambiguous comment landed at 41%. Counting a coin-flip
+   * placement toward a section, and then asserting the section as fact, is the
+   * one way this reply can be confidently wrong.
+   */
+  sectionConfidence: 0.7,
   /** Composed "not an argument": high fallacy AND almost no checkable content. */
   fallacy: 0.8,
   factual: 0.2,

@@ -80,6 +80,7 @@ Set via environment variables. All default to off (offline mode):
 - `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true` — live debate generation
 - `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true` — live multi-model judging
 - `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis at `/analyze-v2`
+- `CRUX_PROJECTION_JEV_GATE=true` — withhold a ranked crux whose calibrated contestedness (from a probe such as Jev) is below the floor. Inert unless a caller supplies probe values, which no production lane does; it sends nothing anywhere by itself.
 - `ENABLE_JEV_MAP_REPLY=true` — `POST /api/map-reply`: route a pasted thread to a
   topic map via TypeSafe AI's Jev. **Sends the pasted text to a third party**
   (scrubbed and speaker-renamed first); keep off unless that is acceptable. Needs
@@ -88,7 +89,6 @@ Set via environment variables. All default to off (offline mode):
   build time like every `NEXT_PUBLIC_` variable; `/reply` 404s while it is off.
   Independent of the flag above: rendering a page is not the decision to send
   text to a third party, so both have to be on for a submit to reach the model.
-- `CRUX_PROJECTION_JEV_GATE=true` — withhold a ranked crux whose calibrated contestedness (from a probe such as Jev) is below the floor. Inert unless a caller supplies probe values, which no production lane does; it sends nothing anywhere by itself.
 
 ### Disagreement Diagnosis (V2)
 

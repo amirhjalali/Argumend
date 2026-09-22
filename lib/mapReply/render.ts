@@ -5,9 +5,14 @@
  * that came back from Jev, or a string copied verbatim out of the topic data
  * (a title, a section name, a crux, an evidence title and its source). There
  * is no generated prose, no summary of anyone's argument, and no winner.
+ *
+ * The renderer also carries the reply's honesty about its own coverage. It
+ * says how many turns were actually checked, it hedges a placement that did
+ * not clear the confidence floor instead of asserting it, and it qualifies a
+ * claim about a speaker whose turns were not all probed.
  */
 import { MAP_REPLY_THRESHOLDS } from "./constants";
-import type { MapReplyMatch, MapReplyNoMatch } from "./types";
+import type { MapReplyMatch, MapReplyNoMatch, MapReplyThreadStats } from "./types";
 
 export function formatPercent(value: number): string {
   return `${Math.round(value * 100)}%`;
@@ -19,27 +24,68 @@ function joinList(items: string[]): string {
   return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 }
 
+function plural(count: number, singular: string): string {
+  return count === 1 ? singular : `${singular}s`;
+}
+
+/** "8 turns", or "the 8 turns we could check" when some were never probed. */
+function probedPhrase(thread: MapReplyThreadStats): string {
+  const unit = plural(thread.substantiveCount, "turn");
+  if (thread.unprobedCount <= 0) return `${thread.substantiveCount} ${unit}`;
+  return `the ${thread.substantiveCount} ${unit} we could check`;
+}
+
+/** What was left out, said plainly rather than left for the reader to infer. */
+function coverageLine(thread: MapReplyThreadStats): string | null {
+  if (thread.unprobedCount <= 0) return null;
+  if (thread.truncated) {
+    return `Only the first ${thread.substantiveCount} of ${thread.turnCount} turns were checked.`;
+  }
+  const unit = plural(thread.unprobedCount, "turn");
+  const verb = thread.unprobedCount === 1 ? "was" : "were";
+  return `${thread.unprobedCount} shorter ${unit} ${verb} too brief to check.`;
+}
+
 function openingLine(match: Omit<MapReplyMatch, "markdown">): string {
-  const { dominantSection, thread, notArguing, signals } = match;
+  const { dominantSection, thread, notArguing, notArguingInProbedTurns, signals } = match;
   const sentences: string[] = [];
 
-  if (dominantSection) {
+  if (dominantSection && dominantSection.tentative) {
+    // Nothing cleared the floor, so the section is offered, not asserted.
+    sentences.push(
+      `This thread is probably arguing about **${dominantSection.title}** (${dominantSection.count} of ${probedPhrase(thread)}), but no turn was placed on the map with confidence.`,
+    );
+  } else if (dominantSection) {
     const share =
       dominantSection.count * 2 > thread.substantiveCount
         ? "Most of this thread"
         : "The largest share of this thread";
-    const unit = thread.substantiveCount === 1 ? "turn" : "turns";
     sentences.push(
-      `${share} (${dominantSection.count} of ${thread.substantiveCount} ${unit}) is arguing about **${dominantSection.title}**.`,
+      `${share} (${dominantSection.count} of ${probedPhrase(thread)}) is arguing about **${dominantSection.title}**.`,
     );
   } else {
     sentences.push("No section of this map received an argument from this thread.");
+  }
+
+  if (match.unplacedCount > 0) {
+    const unit = plural(match.unplacedCount, "turn");
+    sentences.push(
+      `${match.unplacedCount} ${unit} could not be placed on the map with confidence.`,
+    );
   }
 
   if (notArguing.length > 0) {
     const verb = notArguing.length === 1 ? "did not make an argument" : "did not make arguments";
     sentences.push(`${joinList(notArguing)} ${verb} about the topic.`);
   }
+  if (notArguingInProbedTurns.length > 0) {
+    const verb =
+      notArguingInProbedTurns.length === 1 ? "did not make an argument" : "did not make arguments";
+    sentences.push(
+      `${joinList(notArguingInProbedTurns)} ${verb} about the topic in the turns we could check.`,
+    );
+  }
+
   if (signals.talkingPast >= MAP_REPLY_THRESHOLDS.threadSignal) {
     sentences.push(
       "Some of you are arguing about different sections of the map while thinking you disagree.",
@@ -59,6 +105,13 @@ export function renderMapReplyMarkdown(match: Omit<MapReplyMatch, "markdown">): 
   lines.push(`The map's claim: ${match.topic.metaClaim}`);
   lines.push("");
   lines.push(openingLine(match));
+
+  const coverage = coverageLine(match.thread);
+  if (coverage) {
+    lines.push("");
+    lines.push(coverage);
+  }
+
   lines.push("");
   lines.push(`**Pattern:** ${match.pattern.label} (${formatPercent(match.pattern.confidence)}).`);
 

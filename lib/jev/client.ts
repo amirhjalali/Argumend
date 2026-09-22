@@ -45,7 +45,12 @@ export const JEV_REQUEST_TIMEOUT_MS = 10_000;
 export const JEV_TOTAL_TIMEOUT_MS = 45_000;
 /** One first attempt plus five retries: the API returned 529s repeatedly in launch week. */
 export const JEV_DEFAULT_MAX_ATTEMPTS = 6;
-/** Retry-After is honoured but never allowed to park a request handler. */
+/**
+ * The longest vendor-requested wait this client will actually sit out. Beyond
+ * it the call fails instead of retrying: retrying early against an explicit
+ * "wait ten minutes" is the behaviour a 429 is asking us not to have, and it
+ * spends the caller's remaining attempts to earn another 429.
+ */
 export const JEV_MAX_RETRY_AFTER_MS = 10_000;
 
 export function resolveJevModel(): string {
@@ -80,7 +85,12 @@ export function backoffDelayMs(attempt: number, random = Math.random): number {
   return Math.min(4_000, 400 * 2 ** attempt) + Math.floor(random() * 250);
 }
 
-/** `Retry-After` is either delta-seconds or an HTTP date. Both are clamped. */
+/**
+ * `Retry-After` is either delta-seconds or an HTTP date. Returned unclamped:
+ * the caller decides whether the wait is one it can sit out, and clamping here
+ * would erase the difference between "try again in two seconds" and "try again
+ * in ten minutes".
+ */
 export function parseRetryAfterMs(header: string | null, now: number = Date.now()): number | null {
   if (!header) return null;
   const trimmed = header.trim();
@@ -88,12 +98,12 @@ export function parseRetryAfterMs(header: string | null, now: number = Date.now(
 
   const seconds = Number(trimmed);
   if (Number.isFinite(seconds) && seconds >= 0) {
-    return Math.min(JEV_MAX_RETRY_AFTER_MS, Math.round(seconds * 1000));
+    return Math.round(seconds * 1000);
   }
 
   const date = Date.parse(trimmed);
   if (Number.isNaN(date)) return null;
-  return Math.min(JEV_MAX_RETRY_AFTER_MS, Math.max(0, date - now));
+  return Math.max(0, date - now);
 }
 
 function isRetryableStatus(status: number): boolean {
@@ -105,6 +115,14 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   return typeof value === "object" && value !== null && !Array.isArray(value)
     ? (value as Record<string, unknown>)
     : null;
+}
+
+/** Best-effort usage read from a payload that failed validation. */
+function readUsageTokens(payload: unknown): number {
+  const usage = asRecord(asRecord(payload)?.usage);
+  const input = typeof usage?.input_tokens === "number" ? usage.input_tokens : 0;
+  const output = typeof usage?.output_tokens === "number" ? usage.output_tokens : 0;
+  return input + output;
 }
 
 /** Validate the wire shape without trusting any of it. */
@@ -226,7 +244,15 @@ export class HttpJevProvider implements JevProvider {
         } catch {
           throw new JevError("JEV_BAD_RESPONSE", "Jev returned invalid JSON.");
         }
-        const parsed = parseJevResponse(payload);
+        let parsed: JevResponse;
+        try {
+          parsed = parseJevResponse(payload);
+        } catch (error) {
+          // A 200 we cannot use was still billed. If the payload reported its
+          // usage, charge it to the ceiling rather than losing the spend.
+          recordJevTokens(readUsageTokens(payload));
+          throw error;
+        }
         recordJevTokens(parsed.usage.input_tokens + parsed.usage.output_tokens);
         return { ...parsed, latencyMs, retries, label: options.label };
       }
@@ -239,6 +265,16 @@ export class HttpJevProvider implements JevProvider {
         throw new JevError(
           isRetryableStatus(response.status) ? "JEV_UNAVAILABLE" : "JEV_REQUEST_FAILED",
           `Jev responded with HTTP ${response.status}.`,
+          response.status,
+        );
+      }
+
+      // An explicit wait longer than this client will sit out is a refusal,
+      // not a hint. Surface it instead of retrying early into another 429.
+      if (retryAfterMs !== null && retryAfterMs > JEV_MAX_RETRY_AFTER_MS) {
+        throw new JevError(
+          "JEV_UNAVAILABLE",
+          `Jev asked for a ${Math.round(retryAfterMs / 1000)}s wait after HTTP ${response.status}.`,
           response.status,
         );
       }

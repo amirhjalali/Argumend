@@ -10,7 +10,7 @@ import {
   resolveJevLane,
   resolveJevModel,
 } from "./client";
-import { resetJevBudget } from "./budget";
+import { jevTokensSpentToday, resetJevBudget } from "./budget";
 import { FakeJevProvider } from "./fake";
 import { JevError } from "./errors";
 import type { JevQuestionSet } from "./types";
@@ -120,6 +120,64 @@ describe("HttpJevProvider", () => {
     expect(slept).toEqual([2000]);
   });
 
+  it("fails fast instead of retrying early when Retry-After exceeds the cap", async () => {
+    // A 429 that says "wait ten minutes" is a refusal. Retrying inside the
+    // 45s budget just spends attempts to earn another 429.
+    const slept: number[] = [];
+    const fetchImpl = vi.fn(async () => fail(429, { "retry-after": "600" })) as unknown as typeof fetch;
+
+    await expect(
+      provider(fetchImpl, {
+        sleepImpl: async (ms: number) => {
+          slept.push(ms);
+        },
+      }).systemOne({}, QUESTIONS),
+    ).rejects.toMatchObject({ code: "JEV_UNAVAILABLE", status: 429 });
+
+    expect(slept).toEqual([]);
+    expect((fetchImpl as unknown as ReturnType<typeof vi.fn>).mock.calls).toHaveLength(1);
+  });
+
+  it("surfaces the wait the vendor asked for", async () => {
+    const fetchImpl = vi.fn(async () => fail(503, { "retry-after": "120" })) as unknown as typeof fetch;
+    let error: unknown;
+    try {
+      await provider(fetchImpl).systemOne({}, QUESTIONS);
+    } catch (caught) {
+      error = caught;
+    }
+    expect((error as JevError).message).toContain("120s wait");
+  });
+
+  it("still sits out a short Retry-After", async () => {
+    const slept: number[] = [];
+    let call = 0;
+    const fetchImpl = vi.fn(async () => {
+      call += 1;
+      return call === 1 ? fail(429, { "retry-after": "9" }) : ok(ANSWER);
+    }) as unknown as typeof fetch;
+
+    await provider(fetchImpl, {
+      sleepImpl: async (ms: number) => {
+        slept.push(ms);
+      },
+    }).systemOne({}, QUESTIONS);
+
+    expect(slept).toEqual([9000]);
+  });
+
+  it("charges a billed but unusable 200 to the daily ceiling", async () => {
+    vi.stubEnv("JEV_DAILY_TOKEN_CEILING", "1000000");
+    const fetchImpl = vi.fn(async () =>
+      ok({ model: "jev-1.13.0", usage: { input_tokens: 800, output_tokens: 40 } }),
+    ) as unknown as typeof fetch;
+
+    await expect(provider(fetchImpl).systemOne({}, QUESTIONS)).rejects.toMatchObject({
+      code: "JEV_BAD_RESPONSE",
+    });
+    expect(jevTokensSpentToday()).toBe(840);
+  });
+
   it("never puts the API key into an error message", async () => {
     const fetchImpl = vi.fn(async () => fail(403)) as unknown as typeof fetch;
     let error: unknown;
@@ -200,13 +258,16 @@ describe("parseJevResponse", () => {
 });
 
 describe("parseRetryAfterMs", () => {
-  it("reads delta-seconds and HTTP dates, and clamps both", () => {
+  it("reads delta-seconds and HTTP dates without clamping either", () => {
     expect(parseRetryAfterMs("3")).toBe(3000);
-    expect(parseRetryAfterMs("600")).toBe(10_000);
+    // Unclamped: the caller has to be able to tell 3 seconds from 10 minutes.
+    expect(parseRetryAfterMs("600")).toBe(600_000);
     expect(parseRetryAfterMs(null)).toBeNull();
+    expect(parseRetryAfterMs("")).toBeNull();
     expect(parseRetryAfterMs("not-a-date")).toBeNull();
     const now = Date.parse("2026-09-21T00:00:00Z");
     expect(parseRetryAfterMs("Mon, 21 Sep 2026 00:00:02 GMT", now)).toBe(2000);
+    expect(parseRetryAfterMs("Mon, 21 Sep 2026 00:10:00 GMT", now)).toBe(600_000);
   });
 });
 

@@ -44,6 +44,7 @@ describe(".env.example", () => {
     expect(example.JEV_DAILY_TOKEN_CEILING).toBe("5000000");
     expect(example.ARGUMEND_JEV_PROVIDER).toBe("");
     expect(example.MAP_REPLY_TOPIC_CONFIDENCE).toBe("0.5");
+    expect(example.TRUSTED_PROXY_HOPS).toBe("1");
   });
 
   it("warns, in the file itself, that the Jev lane sends pasted text to a third party", () => {

@@ -11,9 +11,15 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { clientIp } from "@/lib/clientIp";
 import { getJevProvider, isJevMapReplyEnabled, resolveJevLane } from "@/lib/jev/client";
 import { MAP_REPLY_LIMITS, MAP_REPLY_RATE_LIMITS, MAP_REPLY_TIMEOUT_MS } from "@/lib/mapReply/constants";
 import { MapReplyError, toMapReplyError } from "@/lib/mapReply/errors";
+import {
+  exceedsDeclaredBodySize,
+  mapReplyJsonError,
+  resolveRequestId,
+} from "@/lib/mapReply/http";
 import { runMapReply } from "@/lib/mapReply/pipeline";
 import { rateLimit } from "@/lib/rate-limit";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
@@ -24,72 +30,70 @@ const MapReplyRequestSchema = z.object({
   text: z.string(),
 });
 
-function createRequestId(): string {
-  return crypto.randomUUID();
-}
-
-function clientKey(request: NextRequest): string {
-  const forwarded = request.headers.get("x-forwarded-for") ?? "unknown";
-  return forwarded.split(",")[0]?.trim() || "unknown";
-}
-
-function jsonError(code: MapReplyError["code"], requestId: string, error: MapReplyError, extraHeaders?: HeadersInit) {
-  return NextResponse.json(
-    { error: error.message, code, requestId },
-    { status: error.status, headers: { "x-request-id": requestId, ...extraHeaders } },
-  );
+function rateLimited(requestId: string, resetAt: number, remaining: number) {
+  return mapReplyJsonError(requestId, new MapReplyError("RATE_LIMITED"), {
+    "Retry-After": String(Math.ceil((resetAt - Date.now()) / 1000)),
+    "X-RateLimit-Remaining": String(Math.max(0, remaining)),
+  });
 }
 
 export async function POST(request: NextRequest) {
-  const requestId = request.headers.get("x-request-id") || createRequestId();
+  const requestId = resolveRequestId(request.headers.get("x-request-id"));
 
   if (!isJevMapReplyEnabled()) {
-    const error = new MapReplyError("FEATURE_DISABLED");
-    return jsonError("FEATURE_DISABLED", requestId, error);
+    return mapReplyJsonError(requestId, new MapReplyError("FEATURE_DISABLED"));
   }
 
   const lane = resolveJevLane();
   // Fixture answers must never be served as if they were real judgements.
   if (lane === "fake" && process.env.NODE_ENV === "production") {
-    const error = new MapReplyError("PROVIDER_NOT_CONFIGURED");
-    return jsonError("PROVIDER_NOT_CONFIGURED", requestId, error);
+    return mapReplyJsonError(requestId, new MapReplyError("PROVIDER_NOT_CONFIGURED"));
   }
 
-  const key = clientKey(request);
+  // The hourly bucket is flood protection and is spent on every attempt. The
+  // daily bucket is the third-party spend budget and is only spent on a
+  // request that is actually going to be served, so a burst of malformed or
+  // oversized requests cannot exhaust the day's allowance in an hour.
+  const key = clientIp(request);
   const hourly = rateLimit(`map-reply-hour:${key}`, {
     maxRequests: MAP_REPLY_RATE_LIMITS.perHour,
     windowMs: MAP_REPLY_RATE_LIMITS.hourWindowMs,
   });
-  const daily = rateLimit(`map-reply-day:${key}`, {
-    maxRequests: MAP_REPLY_RATE_LIMITS.perDay,
-    windowMs: MAP_REPLY_RATE_LIMITS.dayWindowMs,
-  });
-  if (!hourly.success || !daily.success) {
-    const resetAt = Math.max(hourly.resetAt, daily.resetAt);
-    return jsonError("RATE_LIMITED", requestId, new MapReplyError("RATE_LIMITED"), {
-      "Retry-After": String(Math.ceil((resetAt - Date.now()) / 1000)),
-      "X-RateLimit-Remaining": String(Math.min(hourly.remaining, daily.remaining)),
-    });
+  if (!hourly.success) {
+    return rateLimited(requestId, hourly.resetAt, hourly.remaining);
+  }
+
+  // Refuse an oversized body before reading it, where the runtime reports one.
+  if (exceedsDeclaredBodySize(request.headers.get("content-length"))) {
+    return mapReplyJsonError(requestId, new MapReplyError("CONTENT_TOO_LONG"));
   }
 
   let raw: unknown;
   try {
     raw = await request.json();
   } catch {
-    return jsonError("INVALID_REQUEST", requestId, new MapReplyError("INVALID_REQUEST"));
+    return mapReplyJsonError(requestId, new MapReplyError("INVALID_REQUEST"));
   }
 
   const parsed = MapReplyRequestSchema.safeParse(raw);
   if (!parsed.success) {
-    return jsonError("INVALID_REQUEST", requestId, new MapReplyError("INVALID_REQUEST"));
+    return mapReplyJsonError(requestId, new MapReplyError("INVALID_REQUEST"));
   }
 
   const text = parsed.data.text.trim();
   if (text.length < MAP_REPLY_LIMITS.minCharacters) {
-    return jsonError("CONTENT_TOO_SHORT", requestId, new MapReplyError("CONTENT_TOO_SHORT"));
+    return mapReplyJsonError(requestId, new MapReplyError("CONTENT_TOO_SHORT"));
   }
   if (text.length > MAP_REPLY_LIMITS.maxCharacters) {
-    return jsonError("CONTENT_TOO_LONG", requestId, new MapReplyError("CONTENT_TOO_LONG"));
+    return mapReplyJsonError(requestId, new MapReplyError("CONTENT_TOO_LONG"));
+  }
+
+  const daily = rateLimit(`map-reply-day:${key}`, {
+    maxRequests: MAP_REPLY_RATE_LIMITS.perDay,
+    windowMs: MAP_REPLY_RATE_LIMITS.dayWindowMs,
+  });
+  if (!daily.success) {
+    return rateLimited(requestId, daily.resetAt, daily.remaining);
   }
 
   const startedAt = Date.now();
@@ -134,6 +138,6 @@ export async function POST(request: NextRequest) {
       latencyMs: Date.now() - startedAt,
       message: sanitizeServerLog(error),
     });
-    return jsonError(mapped.code, requestId, mapped);
+    return mapReplyJsonError(requestId, mapped);
   }
 }

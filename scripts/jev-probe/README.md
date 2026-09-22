@@ -24,12 +24,11 @@ Sends source text to a third-party API; not wired into any product lane.
 round1 and round3 read the human-evaluation kit under docs/research/2026-09-15-v2-human-evaluation-kit/,
 which lives on the sprint-2026-09-14 branch; the expA-F scripts need only the topic library.
 
-`map-reply-smoke.ts` is the only script here that exercises shipped code: it runs `lib/mapReply`
-against the live API. See `docs/MAP_REPLY.md`.
-
 `jev()` takes an options object (`{ maxAttempts, model }`) and defaults to the moving `jev-latest` alias.
 Anything thresholded should pin an exact version — `crux-contestedness.ts` sends `jev-1.13.0` and records
 the model the API answers with in its cache, so a silent server-side change shows up as a diff.
+`map-reply-smoke.ts` is the only script here that exercises shipped code: it runs `lib/mapReply`
+against the live API. See `docs/MAP_REPLY.md`.
 
 Run an exp twice and diff its `*.results.json` to measure repeatability. Result files are gitignored.
 Blog post built from these numbers: data/blog.ts slug `we-gave-a-model-that-cant-talk-1000-arguments`.

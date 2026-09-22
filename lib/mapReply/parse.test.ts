@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isSpeakerLabel, parseThread, renderTranscript } from "./parse";
+import { isAnnotationLabel, isSpeakerLabel, parseThread, renderTranscript } from "./parse";
 import { RENT_CONTROL_THREAD } from "./__fixtures__/rentControlThread";
 
 describe("parseThread", () => {
@@ -139,6 +139,48 @@ describe("parseThread", () => {
     expect(parsed.turns[0].text.length).toBeLessThanOrEqual(101);
     expect(parsed.turns[0].text.length).toBeGreaterThan(90);
     expect(parsed.turns[0].text.endsWith("…")).toBe(true);
+  });
+
+  it("folds a single author's Edit and Update into their own post", () => {
+    // These look exactly like speaker lines. Treating them as speakers turned
+    // one Reddit post into a conversation between Unattributed, Edit and Update.
+    const post = [
+      "I have lived in this building for nine years and the cap is the only reason I am still here.",
+      "",
+      "Edit: to be clear, I am not saying construction does not matter, only that it is slower than people claim.",
+      "",
+      "Update: the council postponed the vote to next Tuesday, so there is still time to write in.",
+    ].join("\n");
+
+    const parsed = parseThread(post);
+    expect(parsed.hasSpeakerLabels).toBe(false);
+    expect(parsed.speakers).toEqual(["Paragraph 1"]);
+    expect(parsed.turns).toHaveLength(1);
+    expect(parsed.turns[0].text).toContain("nine years");
+    expect(parsed.turns[0].text).toContain("Edit: to be clear");
+    expect(parsed.turns[0].text).toContain("Update: the council postponed");
+  });
+
+  it("folds an annotation into the speaker above it in a real thread", () => {
+    const parsed = parseThread(
+      [
+        "alice: The supply argument depends entirely on how the policy is designed in practice.",
+        "Edit: I should have said vacancy decontrol, which is the part that actually matters here.",
+        "bob: That is not what the San Francisco natural experiment actually measured at all.",
+      ].join("\n"),
+    );
+    expect(parsed.speakers).toEqual(["alice", "bob"]);
+    expect(parsed.turns[0].text).toContain("vacancy decontrol");
+  });
+
+  it("knows which labels are annotations", () => {
+    for (const label of ["Edit", "edit 2", "Update", "ETA", "TL;DR", "tldr", "Note", "Source", "PS", "P.S."]) {
+      expect(isAnnotationLabel(label)).toBe(true);
+      expect(isSpeakerLabel(label)).toBe(false);
+    }
+    for (const label of ["marisol_k", "Piers Morgan", "Editor Jane"]) {
+      expect(isAnnotationLabel(label)).toBe(false);
+    }
   });
 
   it("returns nothing for empty input", () => {

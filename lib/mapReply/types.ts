@@ -3,7 +3,10 @@ import type { ScrubCounts } from "./scrub";
 
 export interface MapReplyThreadStats {
   turnCount: number;
+  /** Turns that got per-turn questions. */
   substantiveCount: number;
+  /** Turns that did not: under the word floor, or past the cap. */
+  unprobedCount: number;
   wordCount: number;
   characterCount: number;
   hasSpeakerLabels: boolean;
@@ -42,6 +45,16 @@ export interface MapReplyExecution {
   timings: MapReplyTimings;
 }
 
+/** Every gate the reply applied, so a UI can show a probe that just missed. */
+export interface MapReplyThresholds {
+  topicConfidence: number;
+  sectionConfidence: number;
+  fallacy: number;
+  factual: number;
+  threadSignal: number;
+  cruxTouched: number;
+}
+
 export interface MapReplyTopicChoice {
   choice: string;
   confidence: number;
@@ -60,6 +73,12 @@ export interface MapReplyTurn {
   sectionTitle: string | null;
   sectionConfidence: number;
   sectionProbabilities: Record<string, number>;
+  /**
+   * "confident" cleared the section floor and counts toward a section;
+   * "tentative" is a placement too weak to assert, counted as unplaced;
+   * "none" is not an argument about the topic at all.
+   */
+  placement: "confident" | "tentative" | "none";
   stance: string;
   stanceConfidence: number;
   stanceProbabilities: Record<string, number>;
@@ -72,7 +91,10 @@ export interface MapReplyTurn {
 export interface MapReplySectionCount {
   id: string;
   title: string;
+  /** Confident placements only. */
   count: number;
+  /** Placements below the section floor, shown but never asserted. */
+  tentative: number;
 }
 
 export interface MapReplyEvidenceItem {
@@ -118,6 +140,8 @@ export interface MapReplyDominantSection {
   title: string;
   summary: string;
   count: number;
+  /** True when no turn cleared the floor and this is the best weak guess. */
+  tentative: boolean;
   cruxId: string;
   cruxTitle: string;
   cruxDescription: string;
@@ -133,13 +157,22 @@ export interface MapReplyMatch {
     url: string;
   };
   thread: MapReplyThreadStats;
+  thresholds: MapReplyThresholds;
   candidates: PrefilterCandidate[];
   topicChoice: MapReplyTopicChoice;
   sectionCounts: MapReplySectionCount[];
   dominantSection: MapReplyDominantSection | null;
   turns: MapReplyTurn[];
-  /** Speakers whose every probed turn was composed as "not an argument". */
+  /** Probed turns whose placement did not clear the section floor. */
+  unplacedCount: number;
+  /** Speakers whose every turn was probed and composed as "not an argument". */
   notArguing: string[];
+  /**
+   * Speakers whose *probed* turns were all "not an argument" but who also
+   * said things the pipeline never looked at. Any claim about them has to be
+   * qualified, and the reply qualifies it.
+   */
+  notArguingInProbedTurns: string[];
   pattern: MapReplyPattern;
   signals: MapReplySignals;
   cruxes: MapReplyCruxTouch[];
@@ -156,6 +189,7 @@ export interface MapReplyNoMatch {
   reason: MapReplyNoMatchReason;
   message: string;
   thread: MapReplyThreadStats;
+  thresholds: MapReplyThresholds;
   candidates: PrefilterCandidate[];
   topicChoice: MapReplyTopicChoice | null;
   markdown: string;
