@@ -49,11 +49,15 @@ const UNRESOLVABLE_REASON: Partial<Record<ResolutionKind, string>> = {
   "authority-allocation": "It turns on who gets to decide.",
 };
 
-/** Text color per status. Teal is evidence moving it; brown is a standing fork. */
+/**
+ * Text color per status. Teal is evidence moving it; brown is a standing fork.
+ * Every pair clears 4.5:1 on --bg-panel in its theme (resolved is the faded
+ * teal, #56736f = 4.9:1 light; the lighter #6f8f8c was 3.4:1).
+ */
 const STATUS_TEXT: Record<CruxLedgerStatus, string> = {
   open: "text-stone-600 dark:text-stone-300",
   narrowed: "text-[#3a6965] dark:text-[#8fc0bb]",
-  resolved: "text-[#6f8f8c] dark:text-[#7f9c99]",
+  resolved: "text-[#56736f] dark:text-[#7f9c99]",
   unresolvable: "text-[#8B5A3C] dark:text-[#cfa88a]",
 };
 
