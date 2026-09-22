@@ -1,0 +1,329 @@
+{
+ "topic-select": {
+  "model": "jev-1.13.0",
+  "answers": {
+   "topic": {
+    "type": "choice",
+    "choice": "rent-control-effectiveness",
+    "confidence": 0.95,
+    "probabilities": {
+     "congestion-pricing": 0,
+     "housing-affordability-crisis": 0.04,
+     "longevity-anti-aging": 0,
+     "none": 0,
+     "lab-grown-meat-adoption": 0,
+     "artificial-reproduction-ethics": 0,
+     "ai-replacing-doctors": 0,
+     "rent-control-effectiveness": 0.96,
+     "minimum-wage-effects": 0
+    }
+   }
+  },
+  "usage": {
+   "input_tokens": 1565,
+   "output_tokens": 133
+  }
+ },
+ "turns-0": {
+  "model": "jev-1.13.0",
+  "answers": {
+   "section_0": {
+    "type": "choice",
+    "choice": "supply-effects",
+    "confidence": 1,
+    "probabilities": {
+     "supply-effects": 1,
+     "alternative-approaches": 0,
+     "none": 0,
+     "incumbent-vs-newcomer": 0
+    }
+   },
+   "stance_0": {
+    "type": "choice",
+    "choice": "for",
+    "confidence": 0.99,
+    "probabilities": {
+     "against": 0.01,
+     "for": 0.99,
+     "neither": 0
+    }
+   },
+   "fallacy_0": {
+    "type": "noul",
+    "noul": 0.8
+   },
+   "factual_0": {
+    "type": "noul",
+    "noul": 0.55
+   },
+   "section_1": {
+    "type": "choice",
+    "choice": "incumbent-vs-newcomer",
+    "confidence": 1,
+    "probabilities": {
+     "alternative-approaches": 0,
+     "none": 0,
+     "supply-effects": 0,
+     "incumbent-vs-newcomer": 1
+    }
+   },
+   "stance_1": {
+    "type": "choice",
+    "choice": "against",
+    "confidence": 0.99,
+    "probabilities": {
+     "against": 0.99,
+     "for": 0,
+     "neither": 0.01
+    }
+   },
+   "fallacy_1": {
+    "type": "noul",
+    "noul": 0.38
+   },
+   "factual_1": {
+    "type": "noul",
+    "noul": 0.68
+   },
+   "section_2": {
+    "type": "choice",
+    "choice": "supply-effects",
+    "confidence": 1,
+    "probabilities": {
+     "alternative-approaches": 0,
+     "none": 0,
+     "supply-effects": 1,
+     "incumbent-vs-newcomer": 0
+    }
+   },
+   "stance_2": {
+    "type": "choice",
+    "choice": "for",
+    "confidence": 1,
+    "probabilities": {
+     "against": 0,
+     "for": 1,
+     "neither": 0
+    }
+   },
+   "fallacy_2": {
+    "type": "noul",
+    "noul": 0.2
+   },
+   "factual_2": {
+    "type": "noul",
+    "noul": 0.92
+   },
+   "section_3": {
+    "type": "choice",
+    "choice": "incumbent-vs-newcomer",
+    "confidence": 0.94,
+    "probabilities": {
+     "alternative-approaches": 0,
+     "none": 0,
+     "supply-effects": 0.04,
+     "incumbent-vs-newcomer": 0.96
+    }
+   },
+   "stance_3": {
+    "type": "choice",
+    "choice": "against",
+    "confidence": 0.69,
+    "probabilities": {
+     "against": 0.8,
+     "for": 0,
+     "neither": 0.2
+    }
+   },
+   "fallacy_3": {
+    "type": "noul",
+    "noul": 0.11
+   },
+   "factual_3": {
+    "type": "noul",
+    "noul": 0.87
+   },
+   "section_4": {
+    "type": "choice",
+    "choice": "supply-effects",
+    "confidence": 1,
+    "probabilities": {
+     "alternative-approaches": 0,
+     "none": 0,
+     "supply-effects": 1,
+     "incumbent-vs-newcomer": 0
+    }
+   },
+   "stance_4": {
+    "type": "choice",
+    "choice": "neither",
+    "confidence": 0.53,
+    "probabilities": {
+     "against": 0.31,
+     "for": 0.01,
+     "neither": 0.6799999999999999
+    }
+   },
+   "fallacy_4": {
+    "type": "noul",
+    "noul": 0.06
+   },
+   "factual_4": {
+    "type": "noul",
+    "noul": 0.94
+   },
+   "section_5": {
+    "type": "choice",
+    "choice": "supply-effects",
+    "confidence": 0.99,
+    "probabilities": {
+     "alternative-approaches": 0,
+     "none": 0,
+     "supply-effects": 1,
+     "incumbent-vs-newcomer": 0
+    }
+   },
+   "stance_5": {
+    "type": "choice",
+    "choice": "for",
+    "confidence": 0.99,
+    "probabilities": {
+     "against": 0,
+     "for": 1,
+     "neither": 0
+    }
+   },
+   "fallacy_5": {
+    "type": "noul",
+    "noul": 0.73
+   },
+   "factual_5": {
+    "type": "noul",
+    "noul": 0.23
+   },
+   "section_6": {
+    "type": "choice",
+    "choice": "alternative-approaches",
+    "confidence": 1,
+    "probabilities": {
+     "none": 0,
+     "supply-effects": 0,
+     "alternative-approaches": 1,
+     "incumbent-vs-newcomer": 0
+    }
+   },
+   "stance_6": {
+    "type": "choice",
+    "choice": "against",
+    "confidence": 0.79,
+    "probabilities": {
+     "against": 0.86,
+     "for": 0,
+     "neither": 0.14
+    }
+   },
+   "fallacy_6": {
+    "type": "noul",
+    "noul": 0.22
+   },
+   "factual_6": {
+    "type": "noul",
+    "noul": 0.84
+   },
+   "section_7": {
+    "type": "choice",
+    "choice": "none",
+    "confidence": 0.62,
+    "probabilities": {
+     "supply-effects": 0.01,
+     "alternative-approaches": 0,
+     "none": 0.72,
+     "incumbent-vs-newcomer": 0.27
+    }
+   },
+   "stance_7": {
+    "type": "choice",
+    "choice": "for",
+    "confidence": 0.3,
+    "probabilities": {
+     "against": 0.01,
+     "for": 0.54,
+     "neither": 0.45
+    }
+   },
+   "fallacy_7": {
+    "type": "noul",
+    "noul": 0.89
+   },
+   "factual_7": {
+    "type": "noul",
+    "noul": 0.05
+   }
+  },
+  "usage": {
+   "input_tokens": 5910,
+   "output_tokens": 1086
+  }
+ },
+ "thread": {
+  "model": "jev-1.13.0",
+  "answers": {
+   "pattern": {
+    "type": "choice",
+    "choice": "mixed-disagreement",
+    "confidence": 0.99,
+    "probabilities": {
+     "value-conflict": 0,
+     "definition-mismatch": 0,
+     "causal-model-split": 0,
+     "mixed-disagreement": 0.99,
+     "priority-tradeoff": 0,
+     "single-empirical-crux": 0,
+     "forecast-split": 0.01,
+     "mostly-common-ground": 0
+    }
+   },
+   "empirical_lever": {
+    "type": "noul",
+    "noul": 0.5
+   },
+   "value_residual": {
+    "type": "noul",
+    "noul": 0.75
+   },
+   "talking_past": {
+    "type": "noul",
+    "noul": 0.87
+   },
+   "definitional": {
+    "type": "noul",
+    "noul": 0.63
+   }
+  },
+  "usage": {
+   "input_tokens": 948,
+   "output_tokens": 179
+  }
+ },
+ "crux": {
+  "model": "jev-1.13.0",
+  "answers": {
+   "crux_supply-effects": {
+    "type": "noul",
+    "noul": 0.77
+   },
+   "crux_incumbent-vs-newcomer": {
+    "type": "noul",
+    "noul": 0.49
+   },
+   "crux_alternative-approaches": {
+    "type": "noul",
+    "noul": 0.58
+   }
+  },
+  "usage": {
+   "input_tokens": 1087,
+   "output_tokens": 71
+  }
+ }
+}

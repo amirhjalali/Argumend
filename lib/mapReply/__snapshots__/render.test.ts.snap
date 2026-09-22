@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renderMapReplyMarkdown > renders the recorded rent-control reply 1`] = `
+"**Argumend map: Does Rent Control Help or Hurt Renters?**
+The map's claim: Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.
+
+The largest share of this thread (4 of 8 turns) is arguing about **Supply Effects**. gary_1962 did not make an argument about the topic. Some of you are arguing about different sections of the map while thinking you disagree. You are also using a key term to mean different things.
+
+**Pattern:** Mixed disagreement (99%).
+
+**The crux for this section:** The Construction Response Test. Measure whether rent control policies with new-construction exemptions actually reduce housing starts compared to unregulated markets. If construction rates decline in rent-controlled jurisdictions even when new buildings are exempt, the supply argument holds. If construction is unaffected or responds primarily to zoning and land-use policy, the supply critique is overstated.
+
+**Strongest evidence in this section** (weighted on source reliability, independence, replicability and directness, out of 40):
+- For the map's claim (34/40): Stanford Study: San Francisco Rent Control Reduced Rental Supply by 15%. Diamond, McQuade & Qian, American Economic Review, 109(9): 3365-94 (2019)
+- Against the map's claim (28/40): Cambridge Decontrol Raised Property Values via Spillovers, Not Mainly New Construction (Autor, Palmer & Pathak 2014). Autor, Palmer & Pathak, Journal of Political Economy, 122(3): 661-717 (2014)
+
+**Cruxes this thread touched:** The Construction Response Test (77%) | The Supply Response Timeline Test (58%)
+**Never reached:** The Displacement vs Mobility Net Welfare Test
+
+Full map: https://argumend.org/topics/rent-control-effectiveness"
+`;
