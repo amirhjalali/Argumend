@@ -8,6 +8,8 @@ import { generateMetadata as topicMetadata } from "./topics/[id]/page";
 import { generateMetadata as blogMetadata } from "./blog/[slug]/page";
 import { generateMetadata as questionMetadata } from "./questions/[slug]/page";
 import { generateMetadata as isMetadata } from "./is/[slug]/page";
+import { metadata as privacyMetadata } from "./privacy/page";
+import { metadata as termsMetadata } from "./terms/page";
 
 function canonicalOf(metadata: Awaited<ReturnType<typeof topicMetadata>>) {
   return metadata.alternates?.canonical;
@@ -23,6 +25,17 @@ describe("canonical URL contracts", () => {
         params: Promise.resolve({ id: topic.id }),
       });
       expect(canonicalOf(metadata)).toBe(expected);
+      expect(sitemapUrls.has(expected)).toBe(true);
+    }
+  });
+
+  it("keeps the legal canonicals self-aligned and advertised in the sitemap", () => {
+    for (const [path, metadata] of [
+      ["/privacy", privacyMetadata],
+      ["/terms", termsMetadata],
+    ] as const) {
+      const expected = `https://argumend.org${path}`;
+      expect(metadata.alternates?.canonical).toBe(expected);
       expect(sitemapUrls.has(expected)).toBe(true);
     }
   });
