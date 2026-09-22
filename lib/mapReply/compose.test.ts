@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import type { Evidence, Pillar } from "@/lib/schemas/topic";
-import { isNotAnArgument, selectEvidence } from "./compose";
+import { isNotAnArgument, placementFor, selectEvidence, silentSpeakers } from "./compose";
+import type { ThreadTurn } from "./parse";
+import type { MapReplyTurn } from "./types";
 
 function evidence(id: string, side: "for" | "against", score: number): Evidence {
   const per = score / 4;
@@ -109,5 +111,75 @@ describe("selectEvidence", () => {
     const [item] = selectEvidence(pillar([evidence("a", "for", 20)]));
     expect(item.source).toBe("source-a");
     expect(item.sourceUrl).toBeUndefined();
+  });
+});
+
+describe("placementFor: the section confidence floor", () => {
+  it("places a confident routing", () => {
+    expect(placementFor("supply-effects", 0.94, false)).toBe("confident");
+    expect(placementFor("supply-effects", 0.7, false)).toBe("confident");
+  });
+
+  it("leaves a coin-flip routing unplaced rather than counting it", () => {
+    // The demo thread's genuinely ambiguous comment landed at 41%. Counting it
+    // toward a section, and then asserting that section as fact, is how this
+    // reply gets to be confidently wrong.
+    expect(placementFor("supply-effects", 0.41, false)).toBe("tentative");
+    expect(placementFor("supply-effects", 0.69, false)).toBe("tentative");
+  });
+
+  it("keeps a non-argument off the map at any confidence", () => {
+    expect(placementFor("none", 0.99, false)).toBe("none");
+    expect(placementFor("supply-effects", 0.99, true)).toBe("none");
+  });
+});
+
+function probedTurn(speaker: string, index: number, notAnArgument: boolean): MapReplyTurn {
+  return {
+    index,
+    speaker,
+    text: "t",
+    wordCount: 20,
+    section: notAnArgument ? "none" : "supply-effects",
+    sectionTitle: notAnArgument ? null : "Supply Effects",
+    sectionConfidence: 0.9,
+    sectionProbabilities: {},
+    placement: notAnArgument ? "none" : "confident",
+    stance: "neither",
+    stanceConfidence: 0.5,
+    stanceProbabilities: {},
+    fallacy: notAnArgument ? 0.9 : 0.1,
+    factual: notAnArgument ? 0.05 : 0.8,
+    notAnArgument,
+  };
+}
+
+function spoken(speaker: string, index: number): ThreadTurn {
+  return { index, speaker, text: "t", wordCount: 20 };
+}
+
+describe("silentSpeakers", () => {
+  it("names a speaker flatly when every turn they took was probed", () => {
+    const turns = [probedTurn("gary", 0, true), probedTurn("alice", 1, false)];
+    const all = [spoken("gary", 0), spoken("alice", 1)];
+    expect(silentSpeakers(turns, all)).toEqual({ complete: ["gary"], partial: [] });
+  });
+
+  it("qualifies a speaker who also said things that were never probed", () => {
+    // gary's second turn fell under the word floor, so it never reached the
+    // model. Saying flatly that he made no argument claims more than we know.
+    const turns = [probedTurn("gary", 0, true)];
+    const all = [spoken("gary", 0), spoken("gary", 2)];
+    expect(silentSpeakers(turns, all)).toEqual({ complete: [], partial: ["gary"] });
+  });
+
+  it("names nobody when a speaker made at least one argument", () => {
+    const turns = [probedTurn("gary", 0, true), probedTurn("gary", 1, false)];
+    const all = [spoken("gary", 0), spoken("gary", 1)];
+    expect(silentSpeakers(turns, all)).toEqual({ complete: [], partial: [] });
+  });
+
+  it("says nothing about a speaker whose turns were never probed at all", () => {
+    expect(silentSpeakers([], [spoken("lurker", 0)])).toEqual({ complete: [], partial: [] });
   });
 });

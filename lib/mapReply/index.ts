@@ -1,13 +1,22 @@
 export { runMapReply } from "./pipeline";
 export type { RunMapReplyOptions } from "./pipeline";
-export { parseThread, renderTranscript } from "./parse";
+export { isAnnotationLabel, isSpeakerLabel, parseThread, renderTranscript } from "./parse";
 export type { ParsedThread, ThreadTurn } from "./parse";
 export { prefilterTopics } from "./prefilter";
 export type { PrefilterCandidate } from "./prefilter";
 export { chunkTurns } from "./chunk";
-export { scrubText, scrubThread } from "./scrub";
+export { maskableSpeakerNames, scrubText, scrubThread } from "./scrub";
 export type { ScrubCounts, ScrubbedThread, ScrubbedTurn } from "./scrub";
-export { composeMapReply, composeNoMatch, isNotAnArgument, selectEvidence } from "./compose";
+export {
+  UNPLACED_OPTION,
+  composeMapReply,
+  composeNoMatch,
+  isNotAnArgument,
+  mapReplyThresholds,
+  placementFor,
+  selectEvidence,
+  silentSpeakers,
+} from "./compose";
 export { renderMapReplyMarkdown, renderNoMatchMarkdown, formatPercent } from "./render";
 export {
   MAP_REPLY_LIMITS,

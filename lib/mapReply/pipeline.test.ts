@@ -130,6 +130,115 @@ describe("runMapReply on the recorded rent-control thread", () => {
   });
 });
 
+describe("runMapReply and the section confidence floor", () => {
+  /** The recorded run with every section placement dropped below the floor. */
+  function unconfidentFixtures() {
+    const turns = RENT_CONTROL_JEV_FIXTURES["turns-0"];
+    const answers = Object.fromEntries(
+      Object.entries(turns.answers).map(([id, answer]) =>
+        id.startsWith("section_") && answer.choice !== "none"
+          ? [id, { ...answer, confidence: 0.45 }]
+          : [id, answer],
+      ),
+    );
+    return { ...RENT_CONTROL_JEV_FIXTURES, "turns-0": { ...turns, answers } };
+  }
+
+  it("exposes every threshold it applied", async () => {
+    const result = await runRentControl();
+    expect(result.thresholds).toEqual({
+      topicConfidence: 0.5,
+      sectionConfidence: 0.7,
+      fallacy: 0.8,
+      factual: 0.2,
+      threadSignal: 0.5,
+      cruxTouched: 0.5,
+    });
+  });
+
+  it("counts confident placements and leaves the rest unplaced", async () => {
+    const result = await runRentControl();
+    if (!result.ok) throw new Error("expected a match");
+
+    expect(result.unplacedCount).toBe(0);
+    expect(result.turns.every((turn) => turn.placement !== "tentative")).toBe(true);
+    const unplaced = result.sectionCounts.find((section) => section.id === "unplaced");
+    expect(unplaced?.count).toBe(0);
+  });
+
+  it("does not assert a section that no turn placed confidently", async () => {
+    const result = await runMapReply({
+      text: RENT_CONTROL_THREAD,
+      provider: new FakeJevProvider(unconfidentFixtures()),
+    });
+    if (!result.ok) throw new Error("expected a match");
+
+    // Every routed turn is now a coin flip, so none of them counts toward a
+    // section and the reply offers the section instead of asserting it.
+    expect(result.unplacedCount).toBe(7);
+    expect(result.sectionCounts.find((section) => section.id === "unplaced")?.count).toBe(7);
+    expect(result.sectionCounts.find((section) => section.id === "supply-effects")?.count).toBe(0);
+    expect(result.sectionCounts.find((section) => section.id === "supply-effects")?.tentative).toBe(4);
+    expect(result.dominantSection?.id).toBe("supply-effects");
+    expect(result.dominantSection?.tentative).toBe(true);
+    expect(result.markdown).toContain("probably arguing about **Supply Effects**");
+    expect(result.markdown).toContain("7 turns could not be placed on the map with confidence.");
+    expect(result.markdown).not.toContain("Most of this thread");
+  });
+
+  it("still counts a non-argument as a non-argument, not as unplaced", async () => {
+    const result = await runMapReply({
+      text: RENT_CONTROL_THREAD,
+      provider: new FakeJevProvider(unconfidentFixtures()),
+    });
+    if (!result.ok) throw new Error("expected a match");
+    expect(result.sectionCounts.find((section) => section.id === "none")?.count).toBe(1);
+    expect(result.notArguing).toEqual(["gary_1962"]);
+  });
+});
+
+describe("runMapReply and turns it never probed", () => {
+  it("qualifies a speaker whose short turns were never checked", async () => {
+    const thread = [
+      RENT_CONTROL_THREAD,
+      "dtown_renter: Vienna builds social housing at scale and it keeps the whole market cheaper.",
+      "gary_1962: exactly this",
+    ].join("\n");
+
+    const result = await runMapReply({ text: thread, provider: fakeProvider() });
+    if (!result.ok) throw new Error("expected a match");
+
+    expect(result.thread.turnCount).toBe(10);
+    expect(result.thread.substantiveCount).toBe(9);
+    expect(result.thread.unprobedCount).toBe(1);
+    // gary_1962's second turn was too short to probe, so the flat claim is
+    // downgraded to one about the turns that were actually checked.
+    expect(result.notArguing).toEqual([]);
+    expect(result.notArguingInProbedTurns).toEqual(["gary_1962"]);
+    expect(result.markdown).toContain("in the turns we could check");
+    expect(result.markdown).toContain("1 shorter turn was too brief to check.");
+  });
+
+  it("says so when the turn cap dropped the rest of the thread", async () => {
+    const long = Array.from(
+      { length: 12 },
+      (_unused, index) =>
+        `user${index}: Rent control policy design decides whether supply falls, and the exemptions are the part that matters here.`,
+    ).join("\n");
+
+    const result = await runMapReply({
+      text: `${RENT_CONTROL_THREAD}\n${long}`,
+      provider: fakeProvider(),
+      maxSubstantiveTurns: 8,
+    });
+    if (!result.ok) throw new Error("expected a match");
+
+    expect(result.thread.truncated).toBe(true);
+    expect(result.thread.substantiveCount).toBe(8);
+    expect(result.markdown).toContain("Only the first 8 of 20 turns were checked.");
+  });
+});
+
 describe("runMapReply when no map fits", () => {
   it("returns a no-map result rather than a wrong map when confidence is low", async () => {
     const result = await runMapReply({

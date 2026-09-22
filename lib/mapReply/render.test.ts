@@ -95,6 +95,64 @@ describe("renderMapReplyMarkdown", () => {
     expect(markdown).toContain(result.topic.url);
   });
 
+  it("hedges a dominant section that no turn placed confidently", async () => {
+    const result = await rentControlReply();
+    const weak: Omit<MapReplyMatch, "markdown"> = {
+      ...result,
+      dominantSection: { ...result.dominantSection!, tentative: true, count: 3 },
+      unplacedCount: 3,
+    };
+    const markdown = renderMapReplyMarkdown(weak);
+    expect(markdown).toContain("This thread is probably arguing about **Supply Effects**");
+    expect(markdown).toContain("no turn was placed on the map with confidence");
+    expect(markdown).not.toContain("Most of this thread");
+  });
+
+  it("says how many turns could not be placed", async () => {
+    const result = await rentControlReply();
+    const markdown = renderMapReplyMarkdown({ ...result, unplacedCount: 2 });
+    expect(markdown).toContain("2 turns could not be placed on the map with confidence.");
+    expect(renderMapReplyMarkdown({ ...result, unplacedCount: 1 })).toContain(
+      "1 turn could not be placed",
+    );
+    expect(renderMapReplyMarkdown(result)).not.toContain("could not be placed");
+  });
+
+  it("does not claim more coverage than it had", async () => {
+    const result = await rentControlReply();
+    const partial: Omit<MapReplyMatch, "markdown"> = {
+      ...result,
+      thread: { ...result.thread, turnCount: 13, unprobedCount: 5 },
+    };
+    const markdown = renderMapReplyMarkdown(partial);
+    expect(markdown).toContain("of the 8 turns we could check");
+    expect(markdown).toContain("5 shorter turns were too brief to check.");
+  });
+
+  it("says when only the first N turns were checked", async () => {
+    const result = await rentControlReply();
+    const truncated: Omit<MapReplyMatch, "markdown"> = {
+      ...result,
+      thread: { ...result.thread, turnCount: 132, unprobedCount: 124, truncated: true },
+    };
+    expect(renderMapReplyMarkdown(truncated)).toContain(
+      "Only the first 8 of 132 turns were checked.",
+    );
+  });
+
+  it("qualifies a speaker whose turns were not all probed", async () => {
+    const result = await rentControlReply();
+    const qualified: Omit<MapReplyMatch, "markdown"> = {
+      ...result,
+      notArguing: [],
+      notArguingInProbedTurns: ["gary_1962"],
+    };
+    const markdown = renderMapReplyMarkdown(qualified);
+    expect(markdown).toContain(
+      "gary_1962 did not make an argument about the topic in the turns we could check.",
+    );
+  });
+
   it("lists several silent speakers in one sentence", async () => {
     const result = await rentControlReply();
     const quiet: Omit<MapReplyMatch, "markdown"> = {

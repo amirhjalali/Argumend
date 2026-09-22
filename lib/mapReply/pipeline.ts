@@ -59,6 +59,8 @@ export interface RunMapReplyOptions {
   /** Defaults to the per-topic lazy loader. */
   loadTopic?: (topicId: string) => Promise<Topic | null>;
   candidateLimit?: number;
+  /** Overrides the probed-turn cap; tests use it to exercise truncation. */
+  maxSubstantiveTurns?: number;
 }
 
 function elapsed(from: number): number {
@@ -100,7 +102,7 @@ export async function runMapReply(options: RunMapReplyOptions): Promise<MapReply
   const loadTopic = options.loadTopic ?? loadTopicById;
 
   const parseStartedAt = performance.now();
-  const parsed = parseThread(text);
+  const parsed = parseThread(text, { maxSubstantiveTurns: options.maxSubstantiveTurns });
   // Redact before any state is built, so nothing downstream can leak an
   // identifier by accident.
   const scrubbed = scrubThread(parsed);
