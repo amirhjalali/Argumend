@@ -172,7 +172,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 ))}
               </ul>
 
-              <details className="group mt-3 overflow-hidden rounded-xl border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5]/70 dark:bg-[var(--bg-card)]/70">
+              <details className="group mt-3 overflow-hidden rounded-xl border border-stone-200/80 dark:border-[var(--border-divider)] bg-[#faf8f5]/70 dark:bg-card/70">
                 <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm font-medium text-secondary dark:text-stone-400 hover:text-deep [&::-webkit-details-marker]:hidden">
                   <span>Browse all categories</span>
                   <span className="flex items-center gap-2 text-xs font-normal text-muted dark:text-stone-400">

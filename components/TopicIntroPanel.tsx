@@ -130,7 +130,7 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
         {...motionProps}
         className="absolute z-20 top-auto bottom-3 left-1/2 -translate-x-1/2 w-[94%] max-w-xs md:top-4 md:bottom-auto md:left-auto md:right-4 md:translate-x-0 md:w-72"
       >
-        <div className="bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] shadow-2xl overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
+        <div className="bg-[#faf8f5]/95 dark:bg-card/95 backdrop-blur-sm rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] shadow-2xl overflow-hidden max-h-[45vh] md:max-h-none overflow-y-auto">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-stone-200/40 dark:border-[var(--border-default)]">
             <div className="flex min-w-0 items-center gap-2">

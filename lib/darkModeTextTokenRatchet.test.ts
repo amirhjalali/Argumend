@@ -13,7 +13,12 @@ import { describe, it, expect } from "vitest";
  * introduces a fresh unpaired `text-primary`/`text-secondary` on a
  * dark-adaptive surface gets caught even before anyone adds it to a list.
  *
- * `tailwind.config.ts` defines the brand text colors as FIXED hex:
+ * Update 2026-09-22: `tailwind.config.ts` now maps primary/secondary/muted to
+ * RGB-channel variables that flip under `.dark` (see darkModeSurfaceTokens
+ * test), so a bare utility no longer renders dark-on-dark. The ratchet stays
+ * as a style guard: explicit pairs keep the intended dark shade visible.
+ *
+ * Historically the brand text colors were FIXED hex:
  *   primary: #3d3a36, secondary: #564d45, muted: #6d6058
  * So the utilities `text-primary` / `text-secondary` / `text-muted` do NOT
  * adapt in dark mode. On a dark-adaptive surface (`#1a1917` canvas) a bare

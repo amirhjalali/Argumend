@@ -109,7 +109,7 @@ export function StatRow({
         : false;
 
   return (
-    <div className="flex items-center gap-3 py-3 border-b border-stone-200/40 dark:border-[var(--border-divider)]/60 last:border-b-0">
+    <div className="flex items-center gap-3 py-3 border-b border-stone-200/40 dark:border-divider/60 last:border-b-0">
       <span
         className={`flex-1 text-right font-mono text-sm tabular-nums ${
           v1Wins
