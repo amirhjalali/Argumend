@@ -8,7 +8,6 @@ import { getVisiblePrimaryNav, learnNav, metaNav } from "@/lib/nav";
 import { topicSummaries } from "@/data/topicIndex";
 import { TrendingTopics } from "@/components/TrendingTopics";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { BalanceWeightChip } from "@/components/BalanceWeightChip";
 
 const DESKTOP_QUERY = "(min-width: 768px)";
 const authEntryEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === "true";
@@ -190,7 +189,7 @@ export function Sidebar({
 
         {/* Featured Topics (limited to 8) */}
         <section className="pb-5" aria-labelledby="sidebar-topics-heading">
-          <h2 id="sidebar-topics-heading" className="text-[11px] font-medium text-muted dark:text-stone-400 px-3 mb-3 tracking-wide">
+          <h2 id="sidebar-topics-heading" className="label-caps px-3 mb-2">
             Topics
           </h2>
 
@@ -208,16 +207,13 @@ export function Sidebar({
                         : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-subtle/50"
                     }`}
                   >
-                    <span className="font-serif text-[14px] flex-1 truncate">
+                    {/* Titles only. Each row used to carry a balance/weight
+                        glyph; most maps are "contested", so the nav read as a
+                        column of red meters, a scoreboard rather than a way in
+                        (2026-09-22 design audit, finding 6). */}
+                    <span className="font-serif text-[15px] leading-snug flex-1 line-clamp-2">
                       {topic.title}
                     </span>
-
-                    <BalanceWeightChip
-                      balance={topic.balance}
-                      weight={topic.weight}
-                      verdict={topic.verdict}
-                      className="flex-shrink-0"
-                    />
                   </button>
                 </li>
               );
