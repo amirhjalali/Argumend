@@ -325,7 +325,7 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
                                   ? "text-stone-600 dark:text-stone-300"
                                   : isUserChoice
                                     ? "text-white"
-                                    : "text-stone-800 dark:text-stone-100"
+                                    : "text-stone-800 dark:text-white"
                               }`}
                             >
                               {pct}%
