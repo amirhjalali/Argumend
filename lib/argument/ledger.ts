@@ -35,6 +35,16 @@ export const UNRESOLVABLE_KINDS: readonly ResolutionKind[] = [
 ];
 
 /**
+ * Unresolvable kinds that can never back a `resolved` entry (spec §1.1): a
+ * value or definitional fork is not settled by a condition being met.
+ * `authority-allocation` is absent on purpose; who decides can be decided.
+ */
+export const NEVER_RESOLVED_KINDS: readonly ResolutionKind[] = [
+  "value-difference",
+  "definitional-choice",
+];
+
+/**
  * Graph statuses that count as "the claim's status was updated" when a
  * ledger says `resolved` (spec §1.3 rule 1: `broadly_accepted`/`superseded`;
  * `uncontested` is the stronger form of the same move).
@@ -392,6 +402,27 @@ export function validateCruxLedger(ledger: CruxLedgerFile, graph: ArgumentGraph)
     }
   }
 
+  // §1.1: `resolved` means the stated condition was met. A value or
+  // definitional fork has no condition evidence can meet, so neither kind can
+  // be resolved. `authority-allocation` can: a court or legislature can
+  // settle who decides.
+  for (const entry of ledger.entries) {
+    if (
+      entry.status === "resolved" &&
+      entry.resolutionKind !== undefined &&
+      NEVER_RESOLVED_KINDS.includes(entry.resolutionKind)
+    ) {
+      issues.push({
+        rule: "resolved-kind-not-resolvable",
+        severity: "error",
+        entryId: entry.id,
+        message: `resolved cannot carry resolutionKind "${entry.resolutionKind}": a value or definitional fork is never met by a condition. Use "unresolvable", or a resolvable kind if evidence settled it.`,
+      });
+    }
+  }
+
+  issues.push(...reopenIssues(ledger.entries));
+
   const cycleAt = firstSupersessionCycle(ledger.entries, entriesById);
   if (cycleAt !== undefined) {
     issues.push({
@@ -418,6 +449,50 @@ export function validateCruxLedger(ledger: CruxLedgerFile, graph: ArgumentGraph)
     }
   }
 
+  return issues;
+}
+
+/** Statuses that close a claim; only an editorial author may move it off one. */
+const CLOSED_STATUSES: readonly CruxLedgerStatus[] = ["resolved", "unresolvable"];
+
+/**
+ * §1.2: leaving `resolved` or `unresolvable` is an editorial act. For each
+ * entry still in force (public or queued), find the claim's in-force public
+ * entry just before it; if that entry closed the claim and this one moves it
+ * to a different status, the author must be editorial. A queued model
+ * proposal to reopen is flagged too, so it never reaches review looking valid.
+ */
+function reopenIssues(entries: readonly CruxLedgerEntry[]): LedgerIssue[] {
+  const issues: LedgerIssue[] = [];
+  const inForcePublic = publicLedgerEntries(entries);
+  const publicIds = new Set(entries.filter(isPublicEntry).map((entry) => entry.id));
+  const candidates = entries
+    .filter((entry) => entry.supersededBy === undefined || !publicIds.has(entry.supersededBy))
+    .sort(compareLedgerEntries);
+
+  for (const entry of candidates) {
+    if (entry.author.kind === "editorial") continue;
+    const previous = inForcePublic
+      .filter(
+        (candidate) =>
+          candidate.claimId === entry.claimId &&
+          candidate.id !== entry.id &&
+          compareLedgerEntries(candidate, entry) < 0,
+      )
+      .at(-1);
+    if (
+      previous !== undefined &&
+      CLOSED_STATUSES.includes(previous.status) &&
+      previous.status !== entry.status
+    ) {
+      issues.push({
+        rule: "reopen-requires-editorial",
+        severity: "error",
+        entryId: entry.id,
+        message: `Claim "${entry.claimId}" is ${previous.status} as of ${previous.date}; moving it to "${entry.status}" must be written by an editorial author.`,
+      });
+    }
+  }
   return issues;
 }
 

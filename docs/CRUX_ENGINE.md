@@ -166,6 +166,15 @@ Only public entries reach the engine. A judgment (model) entry with no `reviewed
 review queue: `currentLedgerEntries` and `ledgerStatus` skip it, and an unreviewed entry cannot
 retire a published one, so model drift cannot move a ranking (tested in `lib/crux/rank.test.ts`).
 
+Two validator rules keep a closed claim closed honestly (`validateCruxLedger`,
+`lib/argument/ledger.ts`). `resolved` may not carry `value-difference` or `definitional-choice`
+(`resolved-kind-not-resolvable`): a value or definitional fork is never settled by a condition being
+met, so it is `unresolvable` or it was resolved on some other kind; `authority-allocation` stays
+allowed, because a court or legislature can decide who decides. And moving a claim off `resolved` or
+`unresolvable` to any other status takes an editorial author (`reopen-requires-editorial`), checked
+against the claim's in-force public entry just before; a queued model proposal to reopen is flagged
+too.
+
 ## Alternatives considered and rejected
 
 - **Pure LLM identification**: unexplainable, unstable run-to-run, and violates the auditable-over-authoritative rule. Rejected outright (all three proposals concurred).

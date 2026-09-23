@@ -64,11 +64,11 @@
       "date": "2024-04-18",
       "noticedAt": "2026-09-22",
       "status": "resolved",
-      "resolutionKind": "definitional-choice",
+      "resolutionKind": "existing-evidence",
       "evidenceNodeIds": [
         "e-airborne-terminology-2024"
       ],
-      "note": "Agencies retire the droplet/aerosol split for 'infectious respiratory particles' and 'transmission through the air'. The vocabulary the 2020 dispute used is gone.",
+      "note": "Agencies retire the droplet/aerosol split for 'infectious respiratory particles' and 'transmission through the air'. The official terms catch up with the 2021 entry; the claim's status does not change.",
       "author": {
         "kind": "editorial",
         "curator": "argumend-editorial",

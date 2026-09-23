@@ -286,6 +286,83 @@ describe("crux ledger: §1.2 who may write", () => {
   });
 });
 
+describe("crux ledger: resolved kinds", () => {
+  const resolved = (resolutionKind: ResolutionKind) =>
+    entry({ claimId: "c5", status: "resolved", resolutionKind, evidenceNodeIds: ["e2"] });
+
+  it.each(["value-difference", "definitional-choice"] as ResolutionKind[])(
+    "rejects resolved with resolutionKind %s",
+    (kind) => {
+      expect(rules(ledger(resolved(kind)))).toEqual(["resolved-kind-not-resolvable"]);
+      expect(parses(ledger(resolved(kind)))).toBe(false);
+    },
+  );
+
+  it.each(["existing-evidence", "future-observable", "authority-allocation"] as ResolutionKind[])(
+    "accepts resolved with resolutionKind %s",
+    (kind) => {
+      expect(rules(ledger(resolved(kind)))).toEqual([]);
+    },
+  );
+});
+
+describe("crux ledger: leaving resolved or unresolvable", () => {
+  const closed = entry({
+    claimId: "c3",
+    date: "2026-01-15",
+    status: "unresolvable",
+    resolutionKind: "value-difference",
+  });
+  const later = (overrides: Partial<CruxLedgerEntry>) =>
+    entry({ claimId: "c3", date: "2026-03-01", ...overrides });
+
+  it("accepts an editorial author reopening an unresolvable claim", () => {
+    expect(rules(ledger(closed, later({ status: "open" })))).toEqual([]);
+  });
+
+  it("rejects a reviewed model author moving an unresolvable claim to open or narrowed", () => {
+    expect(rules(ledger(closed, later({ status: "open", author: reviewedJudgment })))).toEqual([
+      "reopen-requires-editorial",
+    ]);
+    expect(
+      rules(
+        ledger(
+          closed,
+          later({ status: "narrowed", resolutionKind: "existing-evidence", evidenceNodeIds: ["e1"], author: reviewedJudgment }),
+        ),
+      ),
+    ).toEqual(["reopen-requires-editorial"]);
+  });
+
+  it("rejects a queued model proposal to reopen, so it never reaches review looking valid", () => {
+    expect(rules(ledger(closed, later({ status: "open", author: unreviewedJudgment })))).toEqual([
+      "reopen-requires-editorial",
+    ]);
+  });
+
+  it("rejects a model author reopening a resolved claim", () => {
+    const resolved = entry({
+      claimId: "c5",
+      status: "resolved",
+      resolutionKind: "existing-evidence",
+      evidenceNodeIds: ["e2"],
+    });
+    const reopen = entry({ claimId: "c5", date: "2026-03-01", status: "open", author: reviewedJudgment });
+    expect(rules(ledger(resolved, reopen))).toContain("reopen-requires-editorial");
+  });
+
+  it("allows a model author on a claim whose earlier closing entry was superseded", () => {
+    const retracted = { ...closed, supersededBy: `${TOPIC}:c3:2026-01-15:2` };
+    const correction = entry({ id: `${TOPIC}:c3:2026-01-15:2`, claimId: "c3", note: "Corrected: still open." });
+    expect(rules(ledger(retracted, correction, later({ status: "open", author: reviewedJudgment })))).toEqual([]);
+  });
+
+  it("does not apply to a model entry before the claim was closed", () => {
+    const earlier = entry({ claimId: "c3", date: "2025-12-01", author: reviewedJudgment });
+    expect(rules(ledger(earlier, closed))).toEqual([]);
+  });
+});
+
 describe("crux ledger: graph references", () => {
   it("requires claimId to resolve to a CLAIM", () => {
     expect(rules(ledger(entry({ claimId: "c-missing" })))).toEqual(["claim-resolves"]);
