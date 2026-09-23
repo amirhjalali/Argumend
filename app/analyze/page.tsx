@@ -659,7 +659,7 @@ export default function AnalyzePage() {
                     </div>
                     <span className={`text-xs tabular-nums ${
                       content.length > MAX_ANALYSIS_CHARACTERS
-                        ? "font-semibold text-red-600 dark:text-red-400"
+                        ? "font-semibold text-error-text"
                         : content.length > MAX_ANALYSIS_CHARACTERS * 0.9
                           ? "text-rust-600 dark:text-rust-400"
                           : "text-muted dark:text-[var(--text-muted)]"
@@ -700,18 +700,18 @@ export default function AnalyzePage() {
                     tabIndex={-1}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-4 bg-red-50/80 dark:bg-red-500/10 border border-red-200/60 dark:border-red-500/20 rounded-xl flex items-start gap-3"
+                    className="p-4 bg-error/[0.06] dark:bg-error/10 border border-error/30 dark:border-error/40 rounded-xl flex items-start gap-3"
                     role="alert"
                   >
-                    <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-error flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
-                      <p className="font-medium text-red-800 dark:text-red-300 text-sm">Analysis wasn&apos;t completed</p>
-                      <p className="mt-0.5 text-red-700 dark:text-red-400 text-sm">{error}</p>
+                      <p className="font-medium text-error-text text-sm">Analysis wasn&apos;t completed</p>
+                      <p className="mt-0.5 text-error-text text-sm">{error}</p>
                     </div>
                     <button
                       type="button"
                       onClick={dismissError}
-                      className="rounded-md px-2 py-1 text-xs font-medium text-red-700 dark:text-red-300 hover:bg-red-100 dark:hover:bg-red-500/20"
+                      className="rounded-md px-2 py-1 text-xs font-medium text-error-text hover:bg-error/10 dark:hover:bg-error/20"
                     >
                       Dismiss
                     </button>

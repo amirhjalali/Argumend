@@ -117,7 +117,7 @@ export function SubscribeButton({ topicId }: SubscribeButtonProps) {
           type="button"
           onClick={() => setRequestVersion((version) => version + 1)}
           aria-describedby={statusId}
-          className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-medium text-red-700 transition-colors hover:bg-red-100 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
+          className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-error/30 bg-error/[0.06] px-3 py-2 text-sm font-medium text-error-text transition-colors hover:bg-error/10 dark:border-error/40 dark:bg-error/10"
         >
           <RefreshCw className="h-4 w-4" aria-hidden="true" />
           Retry follow status

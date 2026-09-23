@@ -133,7 +133,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
           {copyError && (
             <p
               role="alert"
-              className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
+              className="mt-3 rounded-lg border border-error/30 bg-error/[0.06] px-3 py-2 text-xs text-error-text dark:border-error/40 dark:bg-error/10"
             >
               {copyError}
             </p>

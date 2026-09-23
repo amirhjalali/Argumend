@@ -77,7 +77,7 @@ export function MapReplyForm({
           <p
             id={COUNTER_ID}
             className={`font-sans text-sm tabular-nums ${
-              atCap ? "text-crux dark:text-crux-light" : "text-[var(--text-muted)]"
+              atCap ? "text-error-text" : "text-[var(--text-muted)]"
             }`}
           >
             {value.length.toLocaleString()} / {maxCharacters.toLocaleString()} characters

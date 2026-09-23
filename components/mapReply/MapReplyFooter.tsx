@@ -79,7 +79,7 @@ export function MapReplyFooter({
         {copied ? "Reply copied to the clipboard" : ""}
       </p>
       {copyFailed ? (
-        <p className="font-sans text-sm text-crux dark:text-crux-light" role="status">
+        <p className="font-sans text-sm text-error-text" role="status">
           The clipboard was not available. Select the reply and copy it manually.
         </p>
       ) : null}

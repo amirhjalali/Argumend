@@ -644,27 +644,27 @@ export function DebateView() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="p-4 bg-red-50/80 dark:bg-red-500/10 border border-red-200/60 dark:border-red-500/30 rounded-xl"
+            className="p-4 bg-error/[0.06] dark:bg-error/10 border border-error/30 dark:border-error/40 rounded-xl"
             role="alert"
           >
             <div className="flex items-start gap-3">
-              <AlertCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+              <AlertCircle className="w-5 h-5 text-error mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-red-700 dark:text-red-300 text-sm font-medium">
+                <p className="text-error-text text-sm font-medium">
                   Debate generation paused
                 </p>
-                <p className="text-red-600 dark:text-red-400 text-sm mt-1">{state.error}</p>
+                <p className="text-error-text text-sm mt-1">{state.error}</p>
               </div>
               <div className="flex gap-2">
                 <button
                   onClick={clearError}
-                  className="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-100 rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs font-medium text-error-text hover:bg-error/10 rounded-lg transition-colors"
                 >
                   Dismiss
                 </button>
                 <button
                   onClick={resetDebate}
-                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-rust-600 hover:bg-rust-700 rounded-lg transition-colors"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
                   Restart

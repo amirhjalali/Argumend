@@ -86,16 +86,16 @@ export function SavedClient() {
         ) : error && ids.length === 0 ? (
           <div
             role="alert"
-            className="rounded-xl border border-red-200 bg-red-50/80 p-8 text-center dark:border-red-900/60 dark:bg-red-950/30 sm:p-10"
+            className="rounded-xl border border-error/30 bg-error/[0.06] p-8 text-center dark:border-error/40 dark:bg-error/10 sm:p-10"
           >
             <AlertCircle
-              className="mx-auto mb-4 h-9 w-9 text-red-500 dark:text-red-300"
+              className="mx-auto mb-4 h-9 w-9 text-error"
               aria-hidden="true"
             />
-            <h2 className="font-serif text-xl text-red-900 dark:text-red-100">
+            <h2 className="font-serif text-xl text-error-text">
               Saved topics are unavailable
             </h2>
-            <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-red-700 dark:text-red-300">
+            <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-error-text">
               {error} Check this browser&rsquo;s storage or privacy settings, then
               reload the page. No bookmarks were changed.
             </p>
@@ -206,7 +206,7 @@ export function SavedClient() {
         {error && ids.length > 0 && (
           <p
             role="alert"
-            className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
+            className="mt-4 rounded-lg border border-error/30 bg-error/[0.06] px-4 py-3 text-sm text-error-text dark:border-error/40 dark:bg-error/10"
           >
             {error} Your existing bookmarks have not changed.
           </p>

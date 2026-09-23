@@ -6,6 +6,12 @@ import { ArrowRight } from "lucide-react";
 import { topicSummaries, featuredTopicId } from "@/data/topicIndex";
 import type { Topic } from "@/lib/schemas/topic";
 import { loadTopicById } from "@/data/topicLoader";
+import {
+  CRUX_SHEET,
+  ENTRY_COLUMN,
+  ENTRY_GRID,
+  MARGIN_RULE,
+} from "@/components/argument/DebateView";
 
 interface FeaturedTopicHeroProps {
   onTopicSelect: (id: string) => void;
@@ -96,64 +102,86 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
 
         {/* The crux arrives with the lazily loaded topic module. Hold roughly
             its height until then so the sections below don't jump. Measured
-            on the featured topic at 390/768/1024/1440 px (1425/1372/941/775
-            px), rounded down so a shorter crux shrinks the gap a little
+            on the featured topic at 390/768/1024/1440 px (1501/1406/1017/788
+            px, crux-sheet layout), about 90% of it, so a shorter crux shrinks the gap a little
             rather than a longer one pushing the page a lot. */}
-        <div className={settled ? undefined : "min-h-[80rem] md:min-h-[76rem] lg:min-h-[54rem] xl:min-h-[44rem]"}>
+        <div className={settled ? undefined : "min-h-[84rem] md:min-h-[79rem] lg:min-h-[57rem] xl:min-h-[44rem]"}>
         {crux ? (
-          <div className="mt-8 border-l-2 border-crux pl-5 md:pl-6">
-            <p className="label-caps text-crux dark:text-[#e66767]">The crux</p>
-            <h3 className="mt-1 max-w-3xl font-serif text-2xl leading-snug text-primary dark:text-stone-200 md:text-[1.875rem]">
-              {crux.title}
-            </h3>
-            <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-              {crux.description}
-            </p>
-          </div>
-        ) : null}
-
-        {flip ? (
-          // The memorable part of the page: the two conditions face each
-          // other across one rule. Neither side comes first by colour or size.
-          <div className="mt-10 grid border-y border-stone-300/70 dark:border-divider md:grid-cols-2">
-            <div className="py-6 md:py-8 md:pr-10">
-              <p className="label-caps text-rust-700 dark:text-rust-300">
-                What would change a supporter&rsquo;s mind
-              </p>
-              <p className="mt-2 font-serif text-lg leading-relaxed text-primary dark:text-stone-200 md:text-[1.25rem]">
-                {flip.supporter_flip}
-              </p>
+          // The flagship crux sheet (components/argument/DebateView.tsx), one
+          // crux long: ruled paper, one crimson margin rule, small-caps labels
+          // over serif answers. The home block keeps its own job, the two
+          // conditions that would move each side, in the site's one crux
+          // style. No numeral in the margin: there is only one crux here.
+          <div className={`mt-8 ${CRUX_SHEET}`}>
+            <div className={MARGIN_RULE}>
+              <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
+                <div className={ENTRY_COLUMN}>
+                  <p className="label-caps !text-crux-text">The crux</p>
+                  <h3 className="mt-1 max-w-3xl text-pretty font-serif text-[1.3125rem] font-medium leading-[1.3] text-stone-900 dark:text-stone-100 sm:text-[1.625rem]">
+                    {crux.title}
+                  </h3>
+                  <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
+                    {crux.description}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="border-t border-stone-300/70 py-6 dark:border-divider md:border-l md:border-t-0 md:py-8 md:pl-10">
-              <p className="label-caps text-skeptic dark:text-[#cfa88a]">
-                What would change a skeptic&rsquo;s mind
-              </p>
-              <p className="mt-2 font-serif text-lg leading-relaxed text-primary dark:text-stone-200 md:text-[1.25rem]">
-                {flip.skeptic_flip}
-              </p>
-            </div>
-          </div>
-        ) : null}
 
-        {flip?.common_ground || flip?.live_disagreement ? (
-          <dl className="mt-8 grid gap-6 md:grid-cols-2 md:gap-10">
-            {flip.common_ground ? (
-              <div>
-                <dt className="text-sm font-medium text-primary dark:text-stone-200">Common ground</dt>
-                <dd className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                  {flip.common_ground}
-                </dd>
+            {flip ? (
+              // The two conditions face each other across one rule inside a
+              // single entry: same size, same ink, the side named only by its
+              // label's colour. They stack below lg.
+              <div className={MARGIN_RULE}>
+                <div className={`${ENTRY_GRID} pr-4 sm:pr-6`}>
+                  <div
+                    className={`${ENTRY_COLUMN} grid divide-y divide-stone-200/90 dark:divide-[#3d3a36] lg:grid-cols-2 lg:divide-x lg:divide-y-0`}
+                  >
+                    <p className="py-5 sm:py-6 lg:pr-8">
+                      <span className="label-caps block !text-rust-700 dark:!text-rust-300">
+                        What would change a supporter&rsquo;s mind
+                      </span>
+                      <span className="mt-1 block font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.1875rem]">
+                        {flip.supporter_flip}
+                      </span>
+                    </p>
+                    <p className="py-5 sm:py-6 lg:pl-8">
+                      <span className="label-caps block !text-skeptic dark:!text-[#cfa88a]">
+                        What would change a skeptic&rsquo;s mind
+                      </span>
+                      <span className="mt-1 block font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.1875rem]">
+                        {flip.skeptic_flip}
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
             ) : null}
-            {flip.live_disagreement ? (
-              <div>
-                <dt className="text-sm font-medium text-primary dark:text-stone-200">The live disagreement</dt>
-                <dd className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                  {flip.live_disagreement}
-                </dd>
+
+            {flip?.common_ground || flip?.live_disagreement ? (
+              <div className={MARGIN_RULE}>
+                <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
+                  <dl className={`${ENTRY_COLUMN} grid gap-y-4 lg:grid-cols-2 lg:gap-x-16`}>
+                    {flip.common_ground ? (
+                      <div>
+                        <dt className="label-caps">Common ground</dt>
+                        <dd className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
+                          {flip.common_ground}
+                        </dd>
+                      </div>
+                    ) : null}
+                    {flip.live_disagreement ? (
+                      <div>
+                        <dt className="label-caps">The live disagreement</dt>
+                        <dd className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
+                          {flip.live_disagreement}
+                        </dd>
+                      </div>
+                    ) : null}
+                  </dl>
+                </div>
               </div>
             ) : null}
-          </dl>
+          </div>
         ) : null}
 
         {forEvidence || againstEvidence ? (

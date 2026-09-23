@@ -130,7 +130,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
             disabled={loading}
             className={`min-h-11 w-full bg-white dark:bg-[var(--bg-card)] border border-stone-300 dark:border-[var(--border-default)] rounded-lg text-primary dark:text-stone-200 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
-            } ${error ? "border-red-400 focus:ring-red-400/30 focus:border-red-400/50" : ""} ${loading ? "opacity-60" : ""}`}
+            } ${error ? "border-error focus:ring-error/30 focus:border-error/50" : ""} ${loading ? "opacity-60" : ""}`}
           />
         </div>
         <button
@@ -153,7 +153,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
 
       {/* Error message */}
       {error && (
-        <p id={errorId} className="mt-2 text-xs text-red-500" role="alert">{error}</p>
+        <p id={errorId} className="mt-2 text-xs text-error-text" role="alert">{error}</p>
       )}
     </div>
   );

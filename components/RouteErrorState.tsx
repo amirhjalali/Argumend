@@ -37,7 +37,7 @@ export function RouteErrorState({
         aria-live="assertive"
         className="w-full max-w-md rounded-2xl border border-stone-200/70 bg-[#faf8f5] p-6 text-center shadow-sm sm:p-10 dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]"
       >
-        <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-red-600 dark:bg-red-950/40 dark:text-red-300">
+        <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-error/[0.06] text-error-text dark:bg-error/10">
           <AlertTriangle className="h-6 w-6" strokeWidth={1.7} aria-hidden="true" />
         </div>
 
