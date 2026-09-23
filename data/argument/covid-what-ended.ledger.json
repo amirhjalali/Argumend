@@ -566,10 +566,10 @@
       "createdAt": "2026-09-22"
     },
     {
-      "id": "covid-what-ended:c-broad-restrictions-right-tradeoff:2020-10-15:1",
+      "id": "covid-what-ended:c-broad-restrictions-right-tradeoff:2020-10-14:1",
       "topicId": "covid-what-ended",
       "claimId": "c-broad-restrictions-right-tradeoff",
-      "date": "2020-10-15",
+      "date": "2020-10-14",
       "noticedAt": "2026-09-22",
       "status": "unresolvable",
       "resolutionKind": "value-difference",
