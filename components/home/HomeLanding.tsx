@@ -1,6 +1,5 @@
 "use client";
 
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { HeroAnalyze } from "@/components/HeroAnalyze";
@@ -152,13 +151,6 @@ function LibraryIndex() {
 
 interface HomeLandingProps {
   onTopicSelect: (id: string) => void;
-  /**
-   * The live mini-map HomeClient builds for desktop. The landing no longer
-   * shows it: the worked crux says more than a four-box sketch, and leaving
-   * it unmounted keeps React Flow off the home page. Kept on the interface so
-   * HomeClient's canvas code stays untouched; remove both together.
-   */
-  preview?: ReactNode;
 }
 
 export function HomeLanding({ onTopicSelect }: HomeLandingProps) {

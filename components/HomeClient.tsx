@@ -8,8 +8,7 @@ import { useIsMobile } from "@/hooks/useMediaQuery";
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
 import { HomeLanding } from "@/components/home/HomeLanding";
-import { topicSummaries, featuredTopicId } from "@/data/topicIndex";
-import { FEATURES } from "@/lib/constants";
+import { topicSummaries } from "@/data/topicIndex";
 import { useMobileSidebarA11y } from "@/hooks/useMobileSidebarA11y";
 import { ViewToggle } from "@/components/ViewToggle";
 
@@ -36,12 +35,6 @@ const DesktopCanvas = dynamic(() => import("@/components/DesktopCanvas"), {
   ssr: false,
 });
 
-// Self-building mini argument-map shown in the hero. Isolated React Flow
-// instance (its own provider + local state), client-only to avoid SSR/hydration
-// issues. Gated behind FEATURES.LIVE_HERO_CANVAS + non-mobile in CanvasExperience.
-const HeroMiniCanvas = dynamic(() => import("@/components/HeroMiniCanvas"), {
-  ssr: false,
-});
 // ---------------------------------------------------------------------------
 // Sidebar layout wrapper -- eliminates duplication between hero and canvas views
 // ---------------------------------------------------------------------------
@@ -201,16 +194,7 @@ function CanvasExperience() {
           sidebarRef={sidebarRef}
         >
           <main id="main-content" role="main" className="relative flex-1 min-w-0 overflow-y-auto">
-            <HomeLanding
-              onTopicSelect={handleTopicSelect}
-              preview={
-                FEATURES.LIVE_HERO_CANVAS && !isMobile ? (
-                  <HeroMiniCanvas
-                    onClick={() => handleTopicSelect(featuredTopicId)}
-                  />
-                ) : undefined
-              }
-            />
+            <HomeLanding onTopicSelect={handleTopicSelect} />
           </main>
         </SidebarLayout>
       </div>
