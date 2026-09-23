@@ -14,7 +14,6 @@ import { CitationCard } from "@/components/CitationCard";
 import { SaveTopicButton } from "@/components/SaveTopicButton";
 import { SubscribeButton } from "@/components/SubscribeButton";
 import { EmbedButton } from "@/components/EmbedButton";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { GlossaryTerm } from "@/components/GlossaryTerm";
 import { FalsificationCrux } from "@/components/FalsificationCrux";
 import { FlagshipIntro } from "@/components/FlagshipIntro";
@@ -448,11 +447,8 @@ export function ReadModeView({ topic }: { topic: Topic }) {
             <SubscribeButton topicId={topic.id} />
             <EmbedButton topicId={topic.id} />
           </section>
-
-          {/* ─── Newsletter: capture at peak intent (reader finished the topic) ─── */}
-          <section aria-label="Stay updated" className="mt-10">
-            <NewsletterSignup variant="compact" source="topic-read" />
-          </section>
+          {/* No in-page newsletter form: AppShell's footer already renders one
+              a scroll below, and the topic-specific ask is SubscribeButton above. */}
         </article>
 
         {/* ─── Sticky pillar TOC (desktop rail) ─── */}
