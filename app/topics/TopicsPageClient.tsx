@@ -10,14 +10,16 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { CollectionPagination } from "@/components/CollectionPagination";
 import { paginate, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
+import { DEFAULT_SORT, mixCategories } from "./_query";
 
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
 
-type SortOption = "category" | "weight-desc" | "contested" | "balance-desc" | "balance-asc" | "title-asc";
+export type SortOption = "mixed" | "category" | "weight-desc" | "contested" | "balance-desc" | "balance-asc" | "title-asc";
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: "mixed", label: "Mixed categories" },
   { value: "category", label: "By category" },
   { value: "weight-desc", label: "Most settled" },
   { value: "contested", label: "Most contested" },
@@ -102,6 +104,7 @@ export default function TopicsPageClient({
     }
 
     // Sort
+    if (sortBy === "mixed") return mixCategories(filtered);
     filtered.sort((a, b) => {
       switch (sortBy) {
         case "category": {
@@ -147,7 +150,7 @@ export default function TopicsPageClient({
     }
     if (minBalance > DEFAULT_MIN) params.set("min", String(minBalance));
     if (maxBalance < DEFAULT_MAX) params.set("max", String(maxBalance));
-    if (sortBy !== "category") params.set("sort", sortBy);
+    if (sortBy !== DEFAULT_SORT) params.set("sort", sortBy);
     if (search.trim()) params.set("q", search.trim());
     return params;
   }, [activeCategory, activeStatuses, minBalance, maxBalance, sortBy, search]);
@@ -217,7 +220,7 @@ export default function TopicsPageClient({
     }
     if (minBalance > DEFAULT_MIN) params.set("min", String(minBalance));
     if (maxBalance < DEFAULT_MAX) params.set("max", String(maxBalance));
-    if (sortBy !== "category") params.set("sort", sortBy);
+    if (sortBy !== DEFAULT_SORT) params.set("sort", sortBy);
     if (search.trim()) params.set("q", search.trim());
     if (visiblePage > 1) params.set("page", String(visiblePage));
 
