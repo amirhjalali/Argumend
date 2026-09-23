@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { RotateCcw, Users, BarChart3 } from "lucide-react";
+import { RotateCcw, Users } from "lucide-react";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -195,13 +195,6 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
     setAggregate(agg[topicId] ?? null);
   }, [topicId, userVote]);
 
-  // Compute distribution for bar chart
-  const distribution = VOTE_OPTIONS.map((_, i) => {
-    if (!aggregate || aggregate.count === 0) return 0;
-    return aggregate.votes.filter((v) => getVoteIndex(v) === i).length;
-  });
-  const maxDistribution = Math.max(...distribution, 1);
-
   const votedOptionIndex = userVote !== null ? getVoteIndex(userVote) : null;
   const votedLabel = votedOptionIndex !== null ? VOTE_OPTIONS[votedOptionIndex].label : "";
 
@@ -266,85 +259,19 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
               </motion.div>
             </div>
 
-            {/* Aggregate distribution bar */}
-            {aggregate && aggregate.count > 0 && (
-              <motion.div
+            {/* No scoreboard (north star): the aggregate is still recorded,
+                but readers see no per-option share and no head count, only
+                that other people have weighed this too. */}
+            {aggregate && aggregate.count > 1 && (
+              <motion.p
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
+                className="flex items-center justify-center gap-1.5 text-xs text-stone-500 dark:text-stone-400"
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <BarChart3 className="h-4 w-4 text-stone-500" />
-                  <span className="text-xs font-medium text-stone-500 uppercase tracking-widest">
-                    Community Results
-                  </span>
-                </div>
-                <div className="space-y-2">
-                  {VOTE_OPTIONS.map((option, i) => {
-                    const count = distribution[i];
-                    const pct =
-                      aggregate.count > 0
-                        ? Math.round((count / aggregate.count) * 100)
-                        : 0;
-                    const isUserChoice = votedOptionIndex === i;
-
-                    return (
-                      <div key={option.label} className="flex items-center gap-3">
-                        <span
-                          className={`text-xs w-28 sm:w-32 text-right font-medium truncate ${
-                            isUserChoice ? "text-primary dark:text-stone-200 font-semibold" : "text-stone-500"
-                          }`}
-                        >
-                          {option.label}
-                          {isUserChoice && " *"}
-                        </span>
-                        <div className="flex-1 h-6 rounded-md bg-stone-100 dark:bg-stone-800 overflow-hidden relative">
-                          <motion.div
-                            className={`h-full rounded-md ${
-                              isUserChoice ? "bg-deep" : option.barColor
-                            }`}
-                            initial={{ width: 0 }}
-                            animate={{
-                              width: `${Math.max(
-                                count > 0 ? (count / maxDistribution) * 100 : 0,
-                                count > 0 ? 4 : 0,
-                              )}%`,
-                            }}
-                            transition={{
-                              duration: 0.6,
-                              delay: 0.3 + i * 0.08,
-                              ease: "easeOut",
-                            }}
-                          />
-                          {count > 0 && (
-                            // The label sits at the track's right end, so on the
-                            // longest bar it lands on the fill, not the track.
-                            <span
-                              className={`absolute right-2 top-1/2 -translate-y-1/2 text-[11px] font-mono font-semibold tabular-nums ${
-                                count < maxDistribution
-                                  ? "text-stone-600 dark:text-stone-300"
-                                  : isUserChoice
-                                    ? "text-white"
-                                    : "text-stone-800 dark:text-white"
-                              }`}
-                            >
-                              {pct}%
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Vote count */}
-                <div className="flex items-center justify-center gap-1.5 mt-4 text-xs text-stone-500">
-                  <Users className="h-3.5 w-3.5" />
-                  <span>
-                    {aggregate.count} {aggregate.count === 1 ? "person has" : "people have"} voted on this topic
-                  </span>
-                </div>
-              </motion.div>
+                <Users className="h-3.5 w-3.5" aria-hidden />
+                <span>You&rsquo;re not alone &mdash; readers land all over this one.</span>
+              </motion.p>
             )}
 
             {/* Comparison with AI analysis */}
