@@ -69,3 +69,18 @@ export interface CruxLedgerFile {
  * no public entry are absent, which the engine treats exactly like "open".
  */
 export type LedgerStatusByClaim = Readonly<Record<string, CruxLedgerStatus>>;
+
+/**
+ * What the crux engine needs from a claim's current public ledger entry: the
+ * status that drives the §1.3 rules, plus the date and note that let a card
+ * say when and why (e.g. "Ledger: narrowed on 2026-05-01 — …"). A full
+ * `CruxLedgerEntry` satisfies it.
+ */
+export type CruxLedgerMark = Pick<CruxLedgerEntry, "status" | "date" | "note">;
+
+/**
+ * `identifyCruxes`'s `ledgerStatus` option: per claim id, either the bare
+ * status (`ledgerStatus()` in lib/argument/ledger.ts) or the current entry
+ * (`currentLedgerEntries()`), which also carries the date and note.
+ */
+export type LedgerInputByClaim = Readonly<Record<string, CruxLedgerStatus | CruxLedgerMark>>;
