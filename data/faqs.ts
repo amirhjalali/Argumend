@@ -21,8 +21,8 @@ export const faqs: FAQ[] = [
     answer: "Yes. All curated topics, argument maps, and the analysis tool are free to use. No account required to browse. You only need to sign in if you want to save your own analyses.",
   },
   {
-    question: "How are confidence scores calculated?",
-    answer: "Confidence scores reflect the weight of evidence and expert consensus on a topic. A score of 95%+ indicates a settled question with overwhelming evidence (like anthropogenic climate change or the moon landing). Scores around 50% indicate genuinely contested questions where reasonable people can disagree (like certain interpretations of quantum mechanics or the nature of consciousness). For curated topics, the confidence score is a weighted composite of all evidence items across the topic\u2019s analytical pillars. Each evidence item is scored on four dimensions\u2014source reliability, independence, replicability, and directness\u2014giving a maximum of 40 points per item. The balance between supporting and opposing evidence, combined with the verification status of crux questions, produces the final percentage. For user-submitted analyses, the AI judge council assigns strength scores on a 1\u201310 scale based on logical coherence, evidentiary support, and rhetorical quality.",
+    question: "How does the map weigh evidence?",
+    answer: "Each evidence card on a map is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. A card that does well on all four carries more weight than one that rests on a single indirect study. Each card gets a plain status word from that weighing \u2014 Established, Strong, Contested or Thin \u2014 so you can see how much a single piece of evidence can carry. The map then lays the heavier cards on each side next to each other and describes the state of the evidence: where it largely converges, where it is still divided, and where it is too thin to say much. It never names a winner. The more useful part is usually the crux \u2014 the specific question where new evidence would change someone\u2019s mind \u2014 because that is where two people who disagree can actually make progress. For user-submitted analyses, the AI judge council rates arguments on logical coherence, evidentiary support, and rhetorical quality.",
     linkText: "Full methodology",
     linkHref: "/methodology",
   },
@@ -62,7 +62,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "How often is topic data updated?",
-    answer: "Curated topics are reviewed and updated whenever significant new evidence emerges\u2014typically every few months. We monitor major journals, preprints, and policy developments related to each topic. If a crux is resolved or new data shifts the evidence balance, we update the confidence score and add the relevant findings. Community members can flag outdated information through the Community page.",
+    answer: "Curated topics are reviewed and updated whenever significant new evidence emerges\u2014typically every few months. We monitor major journals, preprints, and policy developments related to each topic. If a crux is resolved or new data shifts the evidence balance, we update how the map describes the evidence and add the relevant findings. Community members can flag outdated information through the Community page.",
   },
   {
     question: "How does the AI judge council work?",
@@ -88,7 +88,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "How do you handle topics where the science is still evolving?",
-    answer: "We mark these topics as \u201ccontested\u201d or \u201chighly speculative\u201d and set confidence scores accordingly. Crux questions for evolving topics are often tagged with a \u201ctheoretical\u201d verification status, indicating that the decisive test is possible but hasn\u2019t been conclusively performed. As new research emerges, we update scores and evidence. Saying \u201cwe\u2019re at 55% confidence and here\u2019s why\u201d is more honest than pretending certainty where none exists.",
+    answer: "We mark these topics as \u201ccontested\u201d or \u201chighly speculative\u201d and say so plainly on the map. Crux questions for evolving topics are often tagged with a \u201ctheoretical\u201d verification status, indicating that the decisive test is possible but hasn\u2019t been conclusively performed. As new research emerges, we update the evidence and how it is weighed. Saying \u201cthe evidence is still divided, and here is the question that would settle it\u201d is more honest than pretending certainty where none exists.",
   },
   {
     question: "Can I export or share my analysis results?",
@@ -118,7 +118,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What is Bayesian reasoning and why does it matter?",
-    answer: "Bayesian reasoning is updating your beliefs based on new evidence, proportional to how surprising that evidence is. If you believe something with 70% confidence and encounter strong counter-evidence, you should lower your confidence \u2014 not dismiss the evidence to protect your belief. Argumend\u2019s confidence scores embody this principle: they shift as evidence accumulates, and the methodology is transparent so you can trace exactly why.",
+    answer: "Bayesian reasoning is updating your beliefs based on new evidence, proportional to how surprising that evidence is. If you believe something with 70% confidence and encounter strong counter-evidence, you should lower your confidence \u2014 not dismiss the evidence to protect your belief. Argumend\u2019s maps embody this principle: how the evidence is weighed shifts as evidence accumulates, and the methodology is transparent so you can trace exactly why.",
   },
   {
     question: "Can AI really analyze arguments objectively?",
@@ -150,7 +150,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What is epistemic humility?",
-    answer: "Epistemic humility is holding your beliefs proportional to your evidence \u2014 being confident where the evidence is strong, uncertain where it is weak, and willing to update when it shifts. It is not wishy-washy relativism; some questions really are settled. It simply means you separate how sure you feel from how sure the evidence warrants. Argumend builds this into its confidence scores: instead of declaring winners, it tells you \u201chere\u2019s 60% confidence, and here\u2019s exactly why,\u201d which is more honest than pretending certainty no one has earned.",
+    answer: "Epistemic humility is holding your beliefs proportional to your evidence \u2014 being confident where the evidence is strong, uncertain where it is weak, and willing to update when it shifts. It is not wishy-washy relativism; some questions really are settled. It simply means you separate how sure you feel from how sure the evidence warrants. Argumend builds this into its maps: instead of declaring winners, it tells you \u201cthe evidence is still divided, and here\u2019s exactly why,\u201d which is more honest than pretending certainty no one has earned.",
   },
   {
     question: "How can I change someone\u2019s mind with evidence?",
@@ -172,7 +172,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Where does Argumend\u2019s evidence come from?",
-    answer: "For curated topics, evidence is drawn from peer-reviewed research, primary data, expert consensus statements, official records, and reputable reporting \u2014 then weighted on four dimensions: source reliability, independence, replicability, and directness. We prioritize independent, replicable findings over single studies or appeals to authority. Each evidence item is scored and the balance of supporting versus opposing evidence drives the topic\u2019s confidence score. When evidence is thin or contested, we say so rather than overstating certainty.",
+    answer: "For curated topics, evidence is drawn from peer-reviewed research, primary data, expert consensus statements, official records, and reputable reporting \u2014 then weighted on four dimensions: source reliability, independence, replicability, and directness. We prioritize independent, replicable findings over single studies or appeals to authority. Each evidence item is weighed, and the heavier cards on each side are set next to each other to describe the state of the evidence. When evidence is thin or contested, we say so rather than overstating certainty.",
     linkText: "Learn about our evidence methodology",
     linkHref: "/methodology",
   },
@@ -228,7 +228,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Can I trust Argumend's conclusions?",
-    answer: "Trust the process more than any single verdict -- and check it yourself. Every confidence score is traceable to the underlying evidence, each piece weighted on source reliability, independence, replicability, and directness, with the full methodology public. We steel-man every side, including unpopular ones, and route submitted arguments through a multi-model judge council to reduce any single model's bias. We're also explicit about uncertainty: a topic at 55% confidence is us saying the question is genuinely contested, not hiding the ball. The goal isn't to be an authority you defer to -- it's to show you the evidence and reasoning so you can judge for yourself.",
+    answer: "Trust the process more than any single verdict -- and check it yourself. Every evidence status on a map is traceable to the underlying sources, each piece weighted on source reliability, independence, replicability, and directness, with the full methodology public. We steel-man every side, including unpopular ones, and route submitted arguments through a multi-model judge council to reduce any single model's bias. We're also explicit about uncertainty: a topic marked contested is us saying the evidence is genuinely divided, not hiding the ball. The goal isn't to be an authority you defer to -- it's to show you the evidence and reasoning so you can judge for yourself.",
     linkText: "Read our methodology",
     linkHref: "/methodology",
   },
@@ -266,7 +266,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What is the difference between deductive and inductive reasoning?",
-    answer: "Deductive reasoning moves from general premises to a conclusion that must be true if those premises are -- it guarantees the conclusion but adds no information beyond what the premises already contain. Inductive reasoning moves from specific observations to a broader generalization that is probably, but not certainly, true -- it extends knowledge but can always be overturned by new evidence. Most real-world reasoning, including science, is inductive: we infer general patterns from limited data, which is why conclusions come with confidence levels rather than certainty. Argumend's confidence scores reflect this -- they express how strongly the accumulated evidence supports a claim, not a deductive proof.",
+    answer: "Deductive reasoning moves from general premises to a conclusion that must be true if those premises are -- it guarantees the conclusion but adds no information beyond what the premises already contain. Inductive reasoning moves from specific observations to a broader generalization that is probably, but not certainly, true -- it extends knowledge but can always be overturned by new evidence. Most real-world reasoning, including science, is inductive: we infer general patterns from limited data, which is why conclusions come with confidence levels rather than certainty. Argumend's evidence statuses reflect this -- they describe how strongly the accumulated evidence bears on a claim, not a deductive proof.",
   },
   {
     question: "How do I read an argument map on Argumend?",
@@ -276,7 +276,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Are Argumend's topics written by AI or by humans?",
-    answer: "Both, with a human in the loop. Curated topics are researched and structured with AI assistance, then reviewed and edited by people before publishing -- the pillars, evidence weighting, and confidence scores are checked against sources rather than generated and left unverified. When you submit your own text, the analysis runs through a multi-model AI judge council automatically. In every case the methodology is transparent and each confidence score traces back to the underlying evidence, so you can evaluate the reasoning yourself rather than taking the output on faith.",
+    answer: "Both, with a human in the loop. Curated topics are researched and structured with AI assistance, then reviewed and edited by people before publishing -- the pillars and evidence weighting are checked against sources rather than generated and left unverified. When you submit your own text, the analysis runs through a multi-model AI judge council automatically. In every case the methodology is transparent and each evidence status traces back to the underlying sources, so you can evaluate the reasoning yourself rather than taking the output on faith.",
     linkText: "Read our methodology",
     linkHref: "/methodology",
   },
@@ -294,7 +294,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What is cherry-picking and how does it distort an argument?",
-    answer: "Cherry-picking is selecting only the evidence that supports your conclusion while ignoring the data that cuts against it. A single supportive study, one favorable statistic, or a handful of anecdotes can make almost any claim look airtight if you hide everything else. It's deceptive precisely because each cited fact may be true -- the distortion lives in what's left out. The antidote is to weigh the full body of evidence, including the strongest findings against your view, and to ask whether a claim survives once the whole picture is in. Argumend's confidence scores are built on the balance of supporting and opposing evidence for exactly this reason.",
+    answer: "Cherry-picking is selecting only the evidence that supports your conclusion while ignoring the data that cuts against it. A single supportive study, one favorable statistic, or a handful of anecdotes can make almost any claim look airtight if you hide everything else. It's deceptive precisely because each cited fact may be true -- the distortion lives in what's left out. The antidote is to weigh the full body of evidence, including the strongest findings against your view, and to ask whether a claim survives once the whole picture is in. Argumend's maps set the strongest supporting and opposing evidence side by side for exactly this reason.",
     linkText: "Learn about our evidence methodology",
     linkHref: "/methodology",
   },
@@ -332,8 +332,8 @@ export const faqs: FAQ[] = [
   },
   {
     question: "What is the difference between confidence and consensus?",
-    answer: "Consensus is how many people -- or experts -- agree on a claim; confidence is how strongly the evidence supports it. They often move together, but not always: a near-unanimous view can rest on weak evidence, and a genuinely strong case can still be unpopular. Argumend's confidence scores track the weight and quality of evidence, not a headcount of who believes what. Expert consensus does count as one input -- it signals that informed people have already weighed the evidence -- but it never substitutes for the evidence itself. When a topic scores as settled, it is because the evidence is overwhelming, not merely because most people say so.",
-    linkText: "How confidence scores work",
+    answer: "Consensus is how many people -- or experts -- agree on a claim; confidence is how strongly the evidence supports it. They often move together, but not always: a near-unanimous view can rest on weak evidence, and a genuinely strong case can still be unpopular. Argumend's maps track the weight and quality of evidence, not a headcount of who believes what. Expert consensus does count as one input -- it signals that informed people have already weighed the evidence -- but it never substitutes for the evidence itself. When a map says the evidence largely converges, it is because the evidence is overwhelming, not merely because most people say so.",
+    linkText: "How the map weighs evidence",
     linkHref: "/concepts/confidence-calibration",
   },
   {
@@ -344,7 +344,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: "How is Argumend different from ChatGPT or an AI chatbot?",
-    answer: "Ask a chatbot a contested question and it hands you one fluent answer -- you can't see what it weighed, what it left out, or how sure it should be. Argumend does the opposite: it lays out the structure of the disagreement -- the core claim, the strongest case on each side, the evidence behind them, and the crux that would settle it -- so you can judge for yourself. We do use AI, including a multi-model judge council for text you submit, but every confidence score traces back to weighted evidence and the full methodology is public. The goal isn't to be an oracle you trust; it's to expose the reasoning a single chatbot answer hides.",
+    answer: "Ask a chatbot a contested question and it hands you one fluent answer -- you can't see what it weighed, what it left out, or how sure it should be. Argumend does the opposite: it lays out the structure of the disagreement -- the core claim, the strongest case on each side, the evidence behind them, and the crux that would settle it -- so you can judge for yourself. We do use AI, including a multi-model judge council for text you submit, but every evidence status traces back to weighed sources and the full methodology is public. The goal isn't to be an oracle you trust; it's to expose the reasoning a single chatbot answer hides.",
     linkText: "How Argumend works",
     linkHref: "/how-it-works",
   },
