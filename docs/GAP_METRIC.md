@@ -69,9 +69,23 @@ one *probed turn*:
 - contested: every other confident dominant-section turn;
 - undisputed: always 0 — this lane has no agreement probe, and it is not guessed.
 
+These are **interpretations**, not labels the pipeline produces, and two of them
+are coarse:
+
+- *Definitional is all-or-nothing per thread.* The `definitional` signal is
+  thread-level, so when it clears its threshold every dominant-section turn is
+  definitional and contested drops to 0. A map-reply gap is therefore close to
+  bimodal on that one signal, and a threshold change moves it a lot — exactly the
+  Goodhart shape the contested-share guardrail watches for.
+- *Talking past cannot tell a second fight from a missed one.* A thread arguing two
+  sections in earnest counts its minority section as talking past. A stricter
+  reading (open question for the founder): count an off-dominant turn as talking
+  past only when no other speaker argues that section; otherwise it is contested.
+
 `confidenceBucket` is the median placement confidence of the dominant section's
 turns (`low` < 0.70 ≤ `medium` < 0.85 ≤ `high`), `tentative` when the dominant
-section is a weak guess, `none` when there is none. `speakerCount` is the number
+section is a weak guess, `none` when there is none. Only confident turns (≥ 0.70)
+enter that median, so `low` does not occur on this lane today. `speakerCount` is the number
 of distinct speaker labels; the labels themselves are not stored.
 
 **analyze-v2** — a proposition is one common-ground item or one disagreement item:
@@ -94,6 +108,8 @@ never means.
   by more than any real change we could hope to detect.
 - Replies with `propositionCount = 0` (everything unmatched) do not count toward
   n; they are reported as `emptyCount`.
+- The median unmatched count is *not* suppressed under n < 20: it is a
+  map-coverage alarm, and an all-unmatched week (n = 0) is exactly when it matters.
 - A new `promptVersion` is a new segment, never merged with the old one.
 - Empty weeks in the requested range appear with n = 0.
 
