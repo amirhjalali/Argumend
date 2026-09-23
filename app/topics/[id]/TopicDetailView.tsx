@@ -94,8 +94,8 @@ const statusLabels: Record<TopicStatus, string> = {
 };
 
 const verificationColors: Record<string, { bg: string; text: string; label: string }> = {
-  verified: { bg: "bg-emerald-50", text: "text-emerald-700", label: "Verified" },
-  theoretical: { bg: "bg-deep/10", text: "text-deep", label: "Theoretical" },
+  verified: { bg: "bg-deep/10", text: "text-deep dark:text-accent-text", label: "Verified" },
+  theoretical: { bg: "bg-stone-100 dark:bg-stone-700/50", text: "text-stone-700 dark:text-stone-200", label: "Theoretical" },
   impossible: { bg: "bg-stone-100", text: "text-stone-600", label: "Impossible to Verify" },
 };
 
@@ -155,14 +155,14 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
     <div
       className={`rounded-lg border p-4 shadow-sm ${
         isFor
-          ? "bg-emerald-50/40 border-emerald-200/50"
-          : "bg-red-50/30 border-red-200/50"
+          ? "bg-rust-50/40 border-rust-200/50"
+          : "bg-skeptic/5 border-skeptic/20"
       }`}
     >
       <div className="flex items-start gap-3 mb-3">
         <div
           className={`mt-0.5 flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center ${
-            isFor ? "bg-emerald-100 text-emerald-600" : "bg-red-100 text-red-500"
+            isFor ? "bg-rust-100 text-rust-700" : "bg-skeptic/10 text-skeptic-dark"
           }`}
         >
           {isFor ? (
@@ -179,8 +179,8 @@ function EvidenceCard({ evidence }: { evidence: Evidence }) {
             <span
               className={`inline-flex items-center gap-1 text-xs font-mono tabular-nums flex-shrink-0 px-1.5 py-0.5 rounded-md border ${
                 isFor
-                  ? "bg-emerald-50 text-emerald-600 border-emerald-200/60"
-                  : "bg-red-50 text-red-500 border-red-200/60"
+                  ? "bg-rust-50 text-rust-700 border-rust-200/60"
+                  : "bg-skeptic/5 text-skeptic-dark border-skeptic/20"
               }`}
             >
               <BarChart3 className="h-3 w-3" />
@@ -259,7 +259,7 @@ function CruxCard({ crux }: { crux: Crux }) {
         </h4>
         <span
           className={`ml-auto text-xs font-medium px-2.5 py-0.5 rounded-full border inline-flex items-center gap-1 ${verification.bg} ${verification.text} ${
-            isTestable ? "ring-1 ring-emerald-300/50" : ""
+            isTestable ? "ring-1 ring-deep/30" : ""
           }`}
         >
           {isTestable && <CheckCircle className="h-3 w-3" />}
@@ -326,12 +326,12 @@ function PillarSection({
 
       {/* Skeptic vs Proponent */}
       <div className="grid md:grid-cols-2 gap-4 mb-5">
-        <div className="rounded-lg border border-red-200/50 bg-stone-50/50 p-4 shadow-sm">
+        <div className="rounded-lg border border-skeptic/20 bg-stone-50/50 p-4 shadow-sm">
           <div className="flex items-center gap-2 mb-2.5">
-            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
-              <UserX className="h-3.5 w-3.5 text-red-500" strokeWidth={1.5} />
+            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-skeptic/10 flex items-center justify-center">
+              <UserX className="h-3.5 w-3.5 text-skeptic-dark" strokeWidth={1.5} />
             </div>
-            <span className="text-xs font-semibold text-red-500 uppercase tracking-widest">
+            <span className="text-xs font-semibold text-skeptic-dark uppercase tracking-widest">
               What a Skeptic Would Say
             </span>
           </div>
@@ -340,12 +340,12 @@ function PillarSection({
           </p>
         </div>
 
-        <div className="rounded-lg border border-emerald-200/50 bg-[#4f7b77]/[0.02] p-4 shadow-sm">
+        <div className="rounded-lg border border-rust-200/50 bg-rust-50/20 p-4 shadow-sm">
           <div className="flex items-center gap-2 mb-2.5">
-            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
-              <UserCheck className="h-3.5 w-3.5 text-emerald-600" strokeWidth={1.5} />
+            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-rust-100 flex items-center justify-center">
+              <UserCheck className="h-3.5 w-3.5 text-rust-700" strokeWidth={1.5} />
             </div>
-            <span className="text-xs font-semibold text-emerald-600 uppercase tracking-widest">
+            <span className="text-xs font-semibold text-rust-700 uppercase tracking-widest">
               What a Proponent Would Say
             </span>
           </div>
@@ -470,11 +470,11 @@ function QuickStatsBar({ topic }: { topic: Topic }) {
       <div className="flex flex-wrap items-center gap-4">
         {/* Verification breakdown */}
         <div className="flex items-center gap-2.5">
-          <Shield className="h-3.5 w-3.5 text-emerald-600" />
+          <Shield className="h-3.5 w-3.5 text-deep dark:text-accent-text" />
           <span className="text-xs text-stone-500 mr-1">Crux verification:</span>
           <div className="flex items-center gap-1.5">
             {verificationCounts.verified ? (
-              <span className="text-xs text-emerald-700 font-medium">
+              <span className="text-xs text-deep dark:text-accent-text font-medium">
                 {verificationCounts.verified} verified
               </span>
             ) : null}
@@ -525,7 +525,7 @@ function CopyLinkButton({ url }: { url: string }) {
       onClick={handleCopy}
       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
         copied
-          ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-700/40"
+          ? "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border border-deep/25 dark:border-deep/40"
           : "bg-white dark:bg-[var(--bg-card)] text-stone-600 dark:text-stone-300 border border-stone-200/60 dark:border-[var(--border-divider)] hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-300 dark:hover:border-[#4a4640]"
       }`}
     >
@@ -1443,14 +1443,14 @@ export default function TopicDetailView({
                           </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-3 mb-3 pl-10">
-                          <blockquote className="border-l-2 border-red-300 pl-3 py-1">
-                            <p className="text-xs font-medium text-red-500 uppercase tracking-widest mb-1">Skeptic</p>
+                          <blockquote className="border-l-2 border-skeptic/50 pl-3 py-1">
+                            <p className="text-xs font-medium text-skeptic-dark dark:text-[#cfa88a] uppercase tracking-widest mb-1">Skeptic</p>
                             <p className="text-sm text-stone-600 italic leading-relaxed">
                               &ldquo;{pillar.skeptic_premise}&rdquo;
                             </p>
                           </blockquote>
-                          <blockquote className="border-l-2 border-emerald-300 pl-3 py-1">
-                            <p className="text-xs font-medium text-emerald-600 uppercase tracking-widest mb-1">Proponent</p>
+                          <blockquote className="border-l-2 border-rust-300 pl-3 py-1">
+                            <p className="text-xs font-medium text-rust-700 dark:text-rust-300 uppercase tracking-widest mb-1">Proponent</p>
                             <p className="text-sm text-stone-600 leading-relaxed">
                               {pillar.proponent_rebuttal}
                             </p>

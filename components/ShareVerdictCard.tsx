@@ -463,8 +463,8 @@ export function ShareVerdictCard({
                   >
                     {copied ? (
                       <>
-                        <Check className="h-4 w-4 text-emerald-600" />
-                        <span className="text-emerald-700">Copied!</span>
+                        <Check className="h-4 w-4 text-deep dark:text-accent-text" />
+                        <span className="text-deep dark:text-accent-text">Copied!</span>
                       </>
                     ) : (
                       <>
