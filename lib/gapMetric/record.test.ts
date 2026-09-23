@@ -214,6 +214,29 @@ describe("gapFromMapReply", () => {
     expect(record.modelId).toBe(GAP_UNKNOWN_ID);
   });
 
+  it("drops hostile ids and still produces a record the schema accepts", () => {
+    const base = match();
+    const hostile = ["Rent control", "rent‐control", "rënt-control", "rent-control ", "a".repeat(81), "rent--control", ""];
+    for (const id of hostile) {
+      const record = gapFromMapReply(
+        match({
+          topic: { ...base.topic, id },
+          cruxes: base.cruxes.map((crux) => ({ ...crux, cruxId: id })),
+          execution: { ...base.execution, model: `${id} x`, version: "v1\nGary" },
+          // A speaker named like a real id must not leak through anywhere.
+          thread: { ...base.thread, speakers: ["supply-timeline-test", "equity-test"] },
+        }),
+        NOW,
+      )!;
+      expect(record.topicId, JSON.stringify(id)).toBeNull();
+      expect(record.cruxClaimIds).toEqual([]);
+      expect(record.modelId).toBe(GAP_UNKNOWN_ID);
+      expect(record.promptVersion).toBe(GAP_UNKNOWN_ID);
+      expect(record.speakerCount).toBe(2);
+      expect(GapObservationSchema.safeParse(record).success).toBe(true);
+    }
+  });
+
   it("logs nothing for a no-match result", () => {
     const base = match();
     expect(
