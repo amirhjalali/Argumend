@@ -172,7 +172,7 @@ export function EvidenceBalanceBar({
         </span>
         <span className="text-xs font-medium text-stone-500 dark:text-stone-400 flex items-center gap-1">
           {againstCount} counter
-          <ThumbsDown className="h-3 w-3 text-red-400" aria-hidden="true" />
+          <ThumbsDown className="h-3 w-3 text-stone-500 dark:text-stone-400" aria-hidden="true" />
         </span>
       </div>
       <div className="h-2.5 rounded-full overflow-hidden flex bg-stone-200/60 dark:bg-[#3d3a36]">

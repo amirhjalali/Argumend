@@ -39,13 +39,13 @@ function getStatusLabel(status: string): string {
 function getStatusColor(status: string): string {
   switch (status) {
     case "settled":
-      return "#059669"; // emerald
+      return "#3a6965"; // deep teal: narrowed, never green-as-true
     case "contested":
-      return "#C4613C"; // rust
+      return "#564d45"; // stone ink: rust is the proponent side and the CTA
     case "highly_speculative":
-      return "#78716c"; // stone
+      return "#6d6058"; // muted stone (#78716c was 4.3:1 on the parchment)
     default:
-      return "#78716c";
+      return "#6d6058";
   }
 }
 
