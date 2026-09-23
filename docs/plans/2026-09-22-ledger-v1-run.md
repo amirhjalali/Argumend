@@ -181,3 +181,30 @@ git log --first-parent --oneline 8c4fbac..north-star/ledger-v1
   pane (verify `#cruxes` jump links). Smallest follow-up if you want focus: start the sidebar
   collapsed on these routes. First-screen screenshots in `docs/reviews/2026-09-22-shell-seam/` on
   that branch. Reverts as one unit. To take it: `git merge north-star/shell-seam`.
+
+## 9. Wave 4 (01:10–02:00 UTC, after "go ahead and merge those drafts")
+
+Merged: `north-star/legacy-scoreboard` and `north-star/shell-seam` (both drafts above);
+**verdict-wording** (readouts say "Evidence largely converges on the claim / still divided / still
+thin"; chips "Converges / Divided"; share cards, embeds and highlights say where scores leaned,
+never who won; enum keys unchanged; `data/topicSummaries.json` regenerated, labels only);
+**shell-polish** (AppShell move reviewed: one `<main>`, skip link, anchors, no hydration warnings,
+static generation OK; reading routes start with the desktop sidebar collapsed).
+
+Not merged, ready for your call:
+- **`north-star/capitalism-evidence`**: 7 web-verified evidence nodes + 10 edges for
+  capitalism-after-ai; every ledger entry now cites graph evidence. It changes the flagship top 5 on
+  a 0.007 margin (open-models 0.552 enters, wage-channel 0.545 drops to 6th and its crux note is
+  removed). Options: accept, pin wage-channel via `cruxOverride`, or revisit polarities.
+- **gap-metric** (branch `worktree-agent-a09a28c5cf74f93aa`, under review at wrap): counts-only
+  logging behind `ENABLE_GAP_METRIC_LOGGING` (default off), `gap_observations` table with no text
+  column, migration `drizzle/0003_gap_observations.sql` (hand-trimmed: check before `db:migrate`),
+  weekly median/IQR with n<20 suppression, `bun run metric:gap`. Map-reply lane definitions are
+  inferences (see `docs/GAP_METRIC.md`).
+- **design-cleanup** and **copy-cleanup** were stopped at the time limit; see their branches if
+  they committed.
+
+New open items: TopBar `sticky` never sticks because `html, body { overflow-x: hidden }` (use
+`clip`, then add ~64px scroll-margin); legacy sidebar pops in after hydration; blog/glossary passages
+still use "settled" (listed in the verdict-wording report); editorial "settled" pin maps (e.g.
+moon-landing) now read "Evidence largely converges on the claim".
