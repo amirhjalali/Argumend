@@ -739,7 +739,7 @@ export default function AnalyzePage() {
                         ? "bg-gradient-to-r from-rust-400 to-rust-500 text-white/90 shadow-md cursor-wait"
                         : !content.trim()
                         ? "bg-stone-100 dark:bg-[var(--bg-surface)] text-stone-400 dark:text-stone-600 cursor-not-allowed"
-                        : "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700"
+                        : "bg-gradient-to-r from-rust-600 to-rust-700 text-white shadow-md hover:shadow-lg hover:from-rust-700 hover:to-rust-800"
                     }`}
                   >
                     {isAnalyzing ? (

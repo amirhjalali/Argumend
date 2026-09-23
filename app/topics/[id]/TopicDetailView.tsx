@@ -715,7 +715,7 @@ function DebatePreviewSection({ topicId, topicTitle }: { topicId: string; topicT
         </p>
         <Link
           href={`/?topic=${topicId}&view=debate`}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm btn-lift"
         >
           <Swords className="h-4 w-4" />
           Start a debate
@@ -1078,7 +1078,7 @@ export default function TopicDetailView({
               {hasMockDebate(topic.id) && (
                 <a
                   href="#ai-debate"
-                  className="ml-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift self-center"
+                  className="ml-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm btn-lift self-center"
                 >
                   <Swords className="h-3.5 w-3.5" />
                   Watch Debate
@@ -1232,7 +1232,7 @@ export default function TopicDetailView({
               </a>
               <Link
                 href={`/?topic=${topic.id}`}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm btn-lift"
               >
                 Explore interactively
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -1267,7 +1267,7 @@ export default function TopicDetailView({
                 className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg text-[15px] font-medium transition-all ${
                   stance === "agree"
                     ? "bg-rust-600 text-white ring-2 ring-offset-2 ring-rust-500/50 shadow-md scale-[1.02]"
-                    : "bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 shadow-sm"
+                    : "bg-gradient-to-r from-rust-600 to-rust-700 text-white hover:from-rust-700 hover:to-rust-800 shadow-sm"
                 }`}
               >
                 <CheckCircle className="h-4 w-4" />
@@ -1377,7 +1377,7 @@ export default function TopicDetailView({
                       </a>
                       <Link
                         href={`/?topic=${topic.id}`}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm btn-lift"
                       >
                         Dive into the interactive map
                         <ArrowRight className="h-3.5 w-3.5" />
@@ -1531,7 +1531,7 @@ export default function TopicDetailView({
             </p>
             <Link
               href={`/?topic=${topic.id}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm btn-lift"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm btn-lift"
             >
               Explore this topic interactively
               <ArrowRight className="h-4 w-4" />

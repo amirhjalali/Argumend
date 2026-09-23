@@ -174,7 +174,7 @@ export function DisagreementAnalyzeClient() {
               onClick={submit}
               aria-describedby={CONSENT_ID}
               disabled={status === "loading" || tooShort}
-              className="min-h-11 rounded-full bg-[#C4613C] px-6 text-white disabled:opacity-60"
+              className="min-h-11 rounded-full bg-[#b05434] px-6 text-white disabled:opacity-60"
             >
               Find what it turns on
             </button>

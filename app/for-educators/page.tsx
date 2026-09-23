@@ -247,7 +247,7 @@ export default function ForEducatorsPage() {
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="#printable-worksheets"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:from-rust-600 hover:to-rust-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:from-rust-700 hover:to-rust-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2"
             >
               <Printer className="h-4 w-4" aria-hidden="true" />
               Get printable worksheets
@@ -456,7 +456,7 @@ export default function ForEducatorsPage() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-12 mb-8">
           <Link
             href="/topics"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-md hover:shadow-lg"
           >
             Browse topics (free)
             <ArrowRight className="h-3.5 w-3.5" />

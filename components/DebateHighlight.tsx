@@ -290,7 +290,7 @@ const DebateHighlightInner = forwardRef<HTMLDivElement, DebateHighlightInnerProp
         <div className="px-5 pb-5 flex justify-center">
           <Link
             href={`/?topic=${topicId}&view=debate`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#C4613C] to-[#b05434] text-white text-sm font-medium hover:from-[#b05434] hover:to-[#8b3f27] transition-all shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#b05434] to-[#8b3f27] text-white text-sm font-medium hover:from-[#8b3f27] hover:to-[#6b301e] transition-all shadow-sm"
           >
             Watch full debate
             <ArrowRight className="h-4 w-4" />

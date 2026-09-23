@@ -486,7 +486,7 @@ export default function MethodologyPage() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-12 mb-8">
           <Link
             href="/analyze"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-md hover:shadow-lg"
           >
             Try it yourself
             <ArrowRight className="h-3.5 w-3.5" />

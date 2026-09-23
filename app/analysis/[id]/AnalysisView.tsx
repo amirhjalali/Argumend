@@ -771,7 +771,7 @@ export function AnalysisView({
                 </p>
                 <Link
                   href="/analyze"
-                  className="inline-flex items-center gap-2 px-6 py-3 mt-4 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 mt-4 bg-gradient-to-r from-rust-600 to-rust-700 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:from-rust-700 hover:to-rust-800 transition-all"
                 >
                   <Brain className="h-4 w-4" />
                   Analyze another

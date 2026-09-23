@@ -37,7 +37,7 @@ export default function NotFound() {
       <nav aria-label="Not found navigation" className="flex flex-wrap items-center justify-center gap-3 mb-10">
         <Link
           href="/"
-          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-canvas)]"
+          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-gradient-to-r from-rust-600 to-rust-700 text-white hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-canvas)]"
         >
           <Home className="w-4 h-4" strokeWidth={1.8} />
           Back to Home

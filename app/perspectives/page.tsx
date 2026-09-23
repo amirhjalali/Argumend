@@ -481,7 +481,7 @@ export default function PerspectivesPage() {
           </motion.p>
           <motion.a
             href="/topics"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl font-bold font-serif text-lg shadow-lg shadow-rust-500/25 transition-all hover:shadow-xl hover:shadow-rust-500/30 hover:-translate-y-1"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-rust-600 to-rust-700 text-white rounded-xl font-bold font-serif text-lg shadow-lg shadow-rust-500/25 transition-all hover:shadow-xl hover:shadow-rust-500/30 hover:-translate-y-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}

@@ -103,7 +103,7 @@ export function ShareReport({
                 type="button"
                 disabled={busy}
                 onClick={publish}
-                className="min-h-11 rounded-full bg-[#C4613C] px-5 text-white disabled:opacity-60"
+                className="min-h-11 rounded-full bg-[#b05434] px-5 text-white disabled:opacity-60"
               >
                 Create unlisted link
               </button>
@@ -121,7 +121,7 @@ export function ShareReport({
             type="button"
             disabled={busy}
             onClick={() => setConfirming(true)}
-            className="min-h-11 rounded-full bg-[#C4613C] px-5 text-white disabled:opacity-60"
+            className="min-h-11 rounded-full bg-[#b05434] px-5 text-white disabled:opacity-60"
           >
             Create shareable link
           </button>

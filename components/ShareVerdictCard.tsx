@@ -50,7 +50,7 @@ function getWinnerLabel(winner: "for" | "against" | "draw" | null): string {
 function getWinnerBgClass(winner: "for" | "against" | "draw" | null): string {
   switch (winner) {
     case "for":
-      return "bg-rust-500 text-white";
+      return "bg-rust-600 text-white";
     case "against":
       return "bg-deep text-white";
     case "draw":
@@ -444,7 +444,7 @@ export function ShareVerdictCard({
                     disabled={downloading}
                     aria-busy={downloading || undefined}
                     aria-describedby={downloadError ? "verdict-download-error" : undefined}
-                    className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-rust-500 to-rust-600 rounded-xl hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm disabled:opacity-60"
+                    className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-rust-600 to-rust-700 rounded-xl hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm disabled:opacity-60"
                   >
                     {downloading ? (
                       <span className="animate-pulse">Generating...</span>

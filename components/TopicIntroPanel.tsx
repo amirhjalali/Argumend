@@ -202,7 +202,7 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
                   ) : (
                     <button
                       onClick={() => setDismissedState(true)}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-semibold hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-semibold hover:from-rust-700 hover:to-rust-800 transition-all shadow-md hover:shadow-lg"
                     >
                       Explore the Map
                       <ChevronRight className="h-3.5 w-3.5" />

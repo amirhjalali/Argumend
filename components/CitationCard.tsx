@@ -155,7 +155,7 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
               href={reference.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 flex items-center justify-center gap-2 w-full px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-rust-500 to-rust-600 rounded-lg shadow-sm hover:shadow-md transition-all"
+              className="mt-3 flex items-center justify-center gap-2 w-full px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-rust-600 to-rust-700 rounded-lg shadow-sm hover:shadow-md transition-all"
             >
               View Source
               <ExternalLink className="h-3 w-3" />
