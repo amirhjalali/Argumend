@@ -134,6 +134,19 @@ describe("TopicsPage default order", () => {
     expect(view.queryByRole("heading", { level: 2, name: "Policy" })).toBeNull();
   });
 
+  it("shows the featured maps on the unfiltered list only", () => {
+    const featured = <section data-testid="featured-maps" />;
+    const all = render(<TopicsPageClient initialState={defaultState} featured={featured} />);
+    expect(all.queryByTestId("featured-maps")).not.toBeNull();
+    cleanup();
+
+    window.history.replaceState({}, "", "/topics?category=science");
+    const science = render(
+      <TopicsPageClient initialState={{ ...defaultState, category: "science" }} featured={featured} />,
+    );
+    expect(science.queryByTestId("featured-maps")).toBeNull();
+  });
+
   it("still groups by category when that sort is chosen, and writes it to the URL", async () => {
     window.history.replaceState({}, "", "/topics");
     const view = render(<TopicsPageClient initialState={defaultState} />);

@@ -297,7 +297,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
                           className={`${ENTRY_COLUMN} mt-3 font-serif text-[0.9375rem] italic leading-snug text-muted dark:text-stone-400`}
                         >
                           <span className="label-caps !text-[0.9375rem] not-italic">
-                            Hidden assumption:
+                            A hidden assumption:
                           </span>{" "}
                           nobody in the debate says it out loud, but the positions lean on it.
                         </span>
