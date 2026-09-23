@@ -161,3 +161,17 @@ bun dev   # /, /topics, /topics/ai-mass-unemployment, /topics/capitalism-after-a
 ENABLE_DISAGREEMENT_V2=true ARGUMEND_DISAGREEMENT_PROVIDER=fake bun dev   # /analyze-v2 on fixtures
 git log --first-parent --oneline 8c4fbac..north-star/ledger-v1
 ```
+
+## 8. Draft branches for comparison (not merged)
+
+- **`north-star/legacy-scoreboard`** (5 commits on acf5833, tests/tsc/lint green): answers §4 item 3.
+  Legacy topic pages drop percentages ("This fact: Established", no "· 97%"); headers describe the
+  evidence ("evidence largely converges / still divided / still thin"); the vote keeps voting and
+  the map comparison but hides crowd percentages ("You're not alone — readers land all over this
+  one."); FAQ "confidence scores" → "How does the map weigh evidence?"; dashboard "Winner: …" →
+  "Completed". Data fields untouched. Deliberately left: the verdict readout wording from
+  `getVerdict` ("Settled — evidence strongly favors the claim"), the vote's 57/100 balance line,
+  "Settled" enum labels elsewhere. Screenshots: `docs/reviews/2026-09-22-legacy-scoreboard/` on
+  that branch. To take it: `git merge north-star/legacy-scoreboard`.
+- **`north-star/shell-seam`**: answers §4 item 1 (flagship pages and `/ai` inside AppShell) — see
+  its commit message and `docs/reviews/2026-09-22-shell-seam/` on that branch.
