@@ -157,17 +157,17 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
           fight:
             "Everyone agrees AI makes some teams faster. Nobody has the firm-level data showing what bosses then do with the slack — hire fewer, or sell more.",
           soWhat:
-            "If it's “hire fewer,” the displacement case is right on the mechanism. If it's “sell more,” history repeats and the jobs come back somewhere else.",
+            "If it's “hire fewer,” the displacement case gains its mechanism. If it's “sell more,” the historical pattern holds and the jobs can come back somewhere else.",
         },
         "c-targeted-programs-can-help": {
           fight:
             "America's flagship retraining program left participants earning less than workers who got nothing. Defenders say that indicts the design, not the idea — better-funded, employer-linked programs do show gains.",
           soWhat:
-            "If serious retraining works, displacement is a budget problem. If it doesn't, the main proposed remedy is theatre.",
+            "If serious retraining works, displacement is a budget problem. If it doesn't, the main proposed remedy cannot carry the load.",
         },
         "c-displaced-workers-can-retrain-costlessly": {
           fight:
-            "Optimists assume displaced workers move on without lasting damage. The displacement data says otherwise — earnings still down 25% a decade later, and Black and non-degree workers 67% more likely to be displaced at all.",
+            "Optimists assume displaced workers move on without lasting damage. The displacement data cuts against that — earnings still down 25% a decade later, and Black and non-degree workers 67% more likely to be displaced at all.",
           soWhat:
             "This assumption is doing silent work under every “the economy always adjusts” argument. If it's false, the aggregate story hides real, durable harm.",
         },
@@ -260,7 +260,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         },
         "c-wage-channel-loses-primacy": {
           fight:
-            "Wages can lose share without disappearing. The argument is over when that decline becomes a change in kind: when most non-owners can no longer rely on work as their main claim on output.",
+            "Wages can lose share without disappearing. The argument is about when that decline becomes a change in kind: when most non-owners can no longer rely on work as their main claim on output.",
           soWhat:
             "If wages remain primary, capitalism mostly adapts. If dividends or transfers have to replace them, the system needs structural redesign even if markets and private firms remain.",
         },

@@ -6,6 +6,7 @@ import {
   CruxMovementLedger,
   CruxMovementTrack,
   STANDING_DISAGREEMENT_LINE,
+  standingLineFor,
 } from "./CruxMovement";
 import { identifyCruxes } from "@/lib/crux";
 import { claimMovement, isPublicEntry } from "@/lib/argument/ledger";
@@ -118,13 +119,42 @@ describe("CruxMovementLedger", () => {
     expect(screen.queryByText(STANDING_DISAGREEMENT_LINE)).toBeNull();
   });
 
-  it("keeps an unresolvable crux on the page under the standing line", () => {
+  it("keeps an unresolvable crux on the page under the standing line for its kind", () => {
+    // `fork` is a definitional fork, so its line names a definition, not values.
     ledgerFor([fork], "c3");
     expect(screen.getByText("Unresolvable by evidence")).toBeTruthy();
-    expect(screen.getByText(STANDING_DISAGREEMENT_LINE)).toBeTruthy();
+    expect(screen.getByText(standingLineFor("definitional-choice"))).toBeTruthy();
+    expect(screen.queryByText(STANDING_DISAGREEMENT_LINE)).toBeNull();
     expect(screen.getByText("It turns on a choice of definition.")).toBeTruthy();
     expect(screen.getByTestId("crux-movement-tail")).toBeTruthy();
     expect(screen.queryByText(/No recorded movement/)).toBeNull();
+  });
+
+  it("keeps the engine's exact line for a value fork", () => {
+    const valueFork = { ...fork, resolutionKind: "value-difference" as const };
+    ledgerFor([valueFork], "c3");
+    expect(screen.getByText(STANDING_DISAGREEMENT_LINE)).toBeTruthy();
+  });
+
+  it("dates the fork instead of repeating the line when the card already shows it", () => {
+    render(
+      <CruxMovementLedger
+        movement={claimMovement([fork], "c3")}
+        claimId="c3"
+        nodesById={nodesById}
+        standingLineShown
+      />,
+    );
+    expect(screen.queryByText(standingLineFor("definitional-choice"))).toBeNull();
+    expect(screen.getByText("No recorded movement since Sep 1, 2026.")).toBeTruthy();
+    expect(screen.getByTestId("crux-movement-tail")).toBeTruthy();
+  });
+
+  it("says a shared ingest date once, under the history", () => {
+    const a = { ...opened, noticedAt: "2026-09-22" };
+    const b = { ...narrowed, noticedAt: "2026-09-22" };
+    ledgerFor([a, b], "c2");
+    expect(screen.getAllByText(/Added to the map Sep 22, 2026/)).toHaveLength(1);
   });
 
   it("ends a resolved crux's thread instead of mirroring the unresolvable ending", () => {
@@ -237,8 +267,13 @@ describe("DebateView crux cards with a ledger", () => {
     expect(within(c2.querySelector("summary")!).getByTestId("crux-movement-track")).toBeTruthy();
     expect(within(c2).getByText("No recorded movement since Apr 10, 2025.")).toBeTruthy();
 
+    // The card leads with the fork's line once; the ledger inside it dates the
+    // fork rather than printing the same line again.
     const c3 = byClaim("c3");
-    expect(within(c3).getByText(STANDING_DISAGREEMENT_LINE)).toBeTruthy();
+    expect(within(c3).getByText(standingLineFor("definitional-choice"))).toBeTruthy();
+    expect(
+      within(c3.querySelector("summary")!).getByText(standingLineFor("definitional-choice")),
+    ).toBeTruthy();
 
     // Cards without entries stay exactly as they were.
     expect(container.querySelectorAll('[data-testid="crux-movement-ledger"]')).toHaveLength(2);
@@ -263,5 +298,89 @@ describe("DebateView crux cards with a ledger", () => {
     render(<DebateView meta={meta} graph={graph} cruxes={cruxes} ledger={[opened, queued]} />);
     expect(screen.queryByText(queued.note)).toBeNull();
     expect(screen.getByText(opened.note)).toBeTruthy();
+  });
+});
+
+describe("standingLineFor", () => {
+  it("keeps the engine's exact line for a value fork and when the kind is unknown", () => {
+    expect(standingLineFor("value-difference")).toBe(STANDING_DISAGREEMENT_LINE);
+    expect(standingLineFor(undefined)).toBe(STANDING_DISAGREEMENT_LINE);
+    expect(STANDING_DISAGREEMENT_LINE).toBe(
+      "Nothing does — this is a standing value disagreement; the map holds both horns.",
+    );
+  });
+
+  it("names the fork for definitional and who-decides cruxes", () => {
+    expect(standingLineFor("definitional-choice")).toBe(
+      "Nothing does — this turns on a choice of definition; the map holds both readings.",
+    );
+    expect(standingLineFor("authority-allocation")).toBe(
+      "Nothing does — this turns on who should decide; the map holds both answers.",
+    );
+  });
+});
+
+describe("CruxMovementTrack as a timeline", () => {
+  it("dates a standing state from the start of its run, and shows where the record starts", () => {
+    const again = entry("c2", "2025-09-01", "open", "Still open after the replication.");
+    render(<CruxMovementTrack movement={claimMovement([opened, again], "c2")} />);
+    // Open since the first open entry, not the latest note; the start is not repeated.
+    expect(screen.getByText("Open since")).toBeTruthy();
+    expect(screen.getByText("May 2024").getAttribute("datetime")).toBe("2024-05-01");
+    expect(screen.queryByText("Sep 2025")).toBeNull();
+    cleanup();
+
+    render(<CruxMovementTrack movement={claimMovement([opened, narrowed], "c2")} />);
+    expect(screen.getByText(/May 2024/).getAttribute("datetime")).toBe("2024-05-01");
+    expect(screen.getByText("Apr 2025").getAttribute("datetime")).toBe("2025-04-10");
+  });
+});
+
+describe("DebateView crux entries lead with how each could close", () => {
+  const base: ArgumentTopicMeta = {
+    id: "ai-jobs",
+    title: "Will AI cause mass unemployment?",
+    tagline: "t",
+    hook: "h",
+    tldr: "tl;dr",
+    highlights: [],
+    takeaways: [],
+  };
+  const cruxes = identifyCruxes(graph);
+
+  it("puts what would settle it, or the standing line, in the collapsed summary", () => {
+    const { container } = render(
+      <DebateView meta={base} graph={graph} cruxes={cruxes} ledger={[fork]} />,
+    );
+    const summaries = [
+      ...container.querySelectorAll<HTMLElement>("#cruxes > ol > li > details > summary"),
+    ];
+    expect(summaries.length).toBe(cruxes.length);
+    for (const summary of summaries) {
+      expect(within(summary).getByText(/What (would settle|settled) it/)).toBeTruthy();
+    }
+    expect(container.querySelector('[data-settle="standing"]')?.textContent).toContain(
+      standingLineFor("definitional-choice"),
+    );
+  });
+
+  it("sorts the list in one sentence by how each question could close", () => {
+    render(<DebateView meta={base} graph={graph} cruxes={cruxes} ledger={[fork]} />);
+    const intro = screen.getByText(/Settle one and whole positions move\./);
+    // The fixture's fork plus claims with no written condition.
+    expect(intro.textContent).toMatch(/One cannot be settled by evidence, and \w+ ha(s|ve) no stated test yet\.$/);
+    expect(intro.textContent).not.toMatch(/%|winner/i);
+  });
+
+  it("links to the living AI page from the two AI maps only", () => {
+    render(<DebateView meta={{ ...base, id: "ai-mass-unemployment" }} graph={graph} cruxes={cruxes} />);
+    const link = screen.getByRole("link", { name: "What has moved across the AI maps →" });
+    expect(link.getAttribute("href")).toBe("/ai");
+    expect(link.className).toContain("min-h-11");
+    expect(link.className).not.toMatch(/rust|C4613C/i);
+    cleanup();
+
+    render(<DebateView meta={{ ...base, id: "us-israel-support" }} graph={graph} cruxes={cruxes} />);
+    expect(screen.queryByRole("link", { name: /What has moved across the AI maps/ })).toBeNull();
   });
 });

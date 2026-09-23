@@ -6,30 +6,12 @@
 import Link from "next/link";
 import { claimMovement } from "@/lib/argument/ledger";
 import type { PooledCrux } from "@/lib/argument/ledgerPool";
-import {
-  CruxMovementTrack,
-  STANDING_DISAGREEMENT_LINE,
-} from "@/components/argument/CruxMovement";
+import { CruxMovementTrack, standingLineFor } from "@/components/argument/CruxMovement";
 import { STATUS_TEXT, STATUS_WORD, domId, formatDay } from "./format";
 import { claimOf, cruxQuestion, type IndexedMap } from "./types";
 
 const ORDINAL = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth"];
 const CARDINAL = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
-
-/**
- * What settles a standing fork, per kind. The map pages' line names a value
- * disagreement, so it is used for that kind only; a definitional or
- * who-decides fork saying "value disagreement" would misdescribe it.
- * Same wording as `standingLineFor` on north-star/crux-card-design; switch
- * to that export once it lands in components/argument/CruxMovement.
- */
-const STANDING_LINE: Record<string, string> = {
-  "value-difference": STANDING_DISAGREEMENT_LINE,
-  "definitional-choice":
-    "Nothing does — this turns on a choice of definition; the map holds both readings.",
-  "authority-allocation":
-    "Nothing does — this turns on who should decide; the map holds both answers.",
-};
 
 export function CruxCard({
   crux,
@@ -49,8 +31,7 @@ export function CruxCard({
   const latest = movement.at(-1)?.entry;
   const status = latest?.status;
   const standing = status === "unresolvable" || claim?.resolution?.kind === "value-difference";
-  const standingLine =
-    STANDING_LINE[latest?.resolutionKind ?? claim?.resolution?.kind ?? ""] ?? STANDING_DISAGREEMENT_LINE;
+  const standingLine = standingLineFor(latest?.resolutionKind ?? claim?.resolution?.kind);
   const quiet = latest === undefined || latest.date < since;
   const rankWord = ORDINAL[crux.mapRank - 1] ?? `number ${crux.mapRank}`;
   const countWord = CARDINAL[crux.mapCruxCount - 1] ?? String(crux.mapCruxCount);

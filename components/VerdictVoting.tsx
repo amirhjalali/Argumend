@@ -317,7 +317,17 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
                             }}
                           />
                           {count > 0 && (
-                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[11px] font-mono font-semibold text-stone-600 tabular-nums">
+                            // The label sits at the track's right end, so on the
+                            // longest bar it lands on the fill, not the track.
+                            <span
+                              className={`absolute right-2 top-1/2 -translate-y-1/2 text-[11px] font-mono font-semibold tabular-nums ${
+                                count < maxDistribution
+                                  ? "text-stone-600 dark:text-stone-300"
+                                  : isUserChoice
+                                    ? "text-white"
+                                    : "text-stone-800 dark:text-white"
+                              }`}
+                            >
                               {pct}%
                             </span>
                           )}
@@ -342,30 +352,30 @@ export function VerdictVoting({ topicId, balance }: VerdictVotingProps) {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.4 }}
-              className="rounded-lg border border-stone-200/60 bg-gradient-to-br from-[#faf8f5] to-[#f4f1eb] p-4 sm:p-5"
+              className="rounded-lg border border-stone-200/60 bg-gradient-to-br from-[#faf8f5] to-[#f4f1eb] p-4 sm:p-5 dark:border-[var(--border-default)] dark:from-[#252420] dark:to-[#302e2a]"
             >
-              <p className="text-sm text-stone-600 leading-relaxed">
-                {/* Always-light card (fixed #faf8f5→#f4f1eb gradient, no dark
-                    variant), so the fixed-light brand token is correct here. */}
-                <span className="font-medium text-[#3d3a36]">
-                  Compare your verdict with our evidence-based analysis:
+              <p className="text-sm text-stone-600 leading-relaxed dark:text-stone-300">
+                {/* No verdict language: the reader's answer is set beside the
+                    map's evidence balance, never graded against it. */}
+                <span className="font-medium text-primary dark:text-stone-200">
+                  How that compares with the map:
                 </span>{" "}
-                The evidence balance for this topic is{" "}
-                <span className="font-mono font-semibold text-deep tabular-nums">{balance}/100</span>{" "}
+                the evidence balance for this topic is{" "}
+                <span className="font-mono font-semibold text-deep tabular-nums dark:text-[#8bb5b1]">{balance}/100</span>{" "}
                 (0 = against, 100 = for).
                 {userVote !== null && Math.abs(userVote - balance) <= 15 && (
                   <span className="font-medium">
-                    {" "}Your verdict aligns closely with the evidence-based analysis.
+                    {" "}You land close to where the weighed evidence sits.
                   </span>
                 )}
                 {userVote !== null && Math.abs(userVote - balance) > 15 && userVote > balance && (
                   <span className="font-medium">
-                    {" "}You seem more convinced than the evidence alone suggests -- explore the counterarguments in the analysis above.
+                    {" "}You lean further toward &ldquo;for&rdquo; than the weighed evidence does; the skeptic&rsquo;s strongest points above are where to test that.
                   </span>
                 )}
                 {userVote !== null && Math.abs(userVote - balance) > 15 && userVote < balance && (
                   <span className="font-medium">
-                    {" "}You seem more skeptical than the evidence indicates -- the supporting evidence above may offer a new perspective.
+                    {" "}You lean further toward &ldquo;against&rdquo; than the weighed evidence does; the proponent&rsquo;s strongest points above are where to test that.
                   </span>
                 )}
               </p>

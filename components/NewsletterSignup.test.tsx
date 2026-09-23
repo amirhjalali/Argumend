@@ -106,4 +106,12 @@ describe("NewsletterSignup", () => {
       "min-h-11",
     );
   });
+
+  it("draws Subscribe in ink, leaving rust to the page's one primary action", () => {
+    const view = render(<NewsletterSignup variant="compact" />);
+    const button = view.getByRole("button", { name: "Subscribe" });
+
+    expect(button.className).toContain("bg-primary");
+    expect(button.className).not.toMatch(/\brust-/);
+  });
 });
