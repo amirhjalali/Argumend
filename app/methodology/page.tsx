@@ -89,9 +89,9 @@ const methodologySteps = [
     details: [
       "Balance: forStrength / (forStrength + againstStrength) x 100 — 50 is an even split",
       "Weight: a composite of evidential mass, source quality, and crux resolvability",
-      "High weight + strong lean = Settled — evidence strongly favors one side",
-      "High weight + weak lean = Well-mapped, genuinely contested",
-      "Low weight = Open question — limited evidence so far, regardless of lean",
+      "High weight + strong lean = Evidence largely converges on the claim (or on the counterclaim)",
+      "High weight + weak lean = Well-mapped, evidence still divided",
+      "Low weight = Evidence still thin — an open question, regardless of lean",
     ],
   },
 ];
@@ -403,7 +403,7 @@ export default function MethodologyPage() {
                     <div className="h-full w-[95%] bg-gradient-to-r from-[#4f7b77] to-[#5a8a86] rounded-full" />
                   </div>
                   <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
-                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — evidence strongly favors one side
+                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence largely converges</strong> — on the claim or on the counterclaim
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
@@ -416,7 +416,7 @@ export default function MethodologyPage() {
                     <div className="h-full w-[80%] bg-gradient-to-r from-[#4f7b77]/70 to-[#5a8a86]/70 rounded-full" />
                   </div>
                   <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
-                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Well-mapped, genuinely contested</strong> — richly evidenced, still split
+                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Well-mapped, evidence still divided</strong> — richly evidenced, still split
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
@@ -427,7 +427,7 @@ export default function MethodologyPage() {
                     <div className="h-full w-[55%] bg-gradient-to-r from-rust-500 to-rust-600 rounded-full" />
                   </div>
                   <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
-                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Leans / Balanced</strong> — moderately evidenced
+                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence leans / roughly balanced</strong> — moderately evidenced
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
@@ -438,7 +438,7 @@ export default function MethodologyPage() {
                     <div className="h-full w-[25%] bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] rounded-full" />
                   </div>
                   <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
-                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Open question</strong> — limited evidence so far, lean not asserted
+                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence still thin</strong> — an open question, lean not asserted
                   </p>
                 </div>
               </div>

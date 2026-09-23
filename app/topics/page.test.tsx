@@ -52,7 +52,7 @@ describe("TopicsPage discovery filters", () => {
     await waitFor(() => expect(view.getByRole("status").textContent).toContain(`of ${technologyCount} matching topics`));
     expect(view.getByText("1 active")).toBeTruthy();
 
-    fireEvent.click(view.getAllByRole("button", { name: "Contested" })[0]);
+    fireEvent.click(view.getAllByRole("button", { name: "Evidence divided" })[0]);
     expect(view.getByText("2 active")).toBeTruthy();
 
     fireEvent.change(view.getAllByRole("slider", { name: "Minimum balance" })[0], {

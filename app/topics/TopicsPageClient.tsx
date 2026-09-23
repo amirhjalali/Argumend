@@ -31,9 +31,9 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 const ALL_STATUSES: TopicStatus[] = ["settled", "contested", "highly_speculative"];
 
 const STATUS_LABELS: Record<TopicStatus, string> = {
-  settled: "Settled",
-  contested: "Contested",
-  highly_speculative: "Speculative",
+  settled: "Evidence converges",
+  contested: "Evidence divided",
+  highly_speculative: "Evidence thin",
 };
 
 // Default balance bounds — values outside [DEFAULT_MIN, DEFAULT_MAX] count as

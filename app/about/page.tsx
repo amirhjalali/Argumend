@@ -166,7 +166,7 @@ export default function AboutPage() {
                 strong lean
               </span>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — evidence strongly favors one side
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence largely converges</strong> — on the claim or on the counterclaim
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -176,7 +176,7 @@ export default function AboutPage() {
                 weak lean
               </span>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Well-mapped, genuinely contested</strong> — richly evidenced, still split
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Well-mapped, evidence still divided</strong> — richly evidenced, still split
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -184,7 +184,7 @@ export default function AboutPage() {
                 medium weight
               </span>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Leans / Balanced</strong> — moderately evidenced
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence leans / roughly balanced</strong> — moderately evidenced
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -192,7 +192,7 @@ export default function AboutPage() {
                 low weight
               </span>
               <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Open question</strong> — limited evidence so far
+                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence still thin</strong> — an open question
               </p>
             </div>
           </div>

@@ -259,28 +259,30 @@ describe("getVerdict", () => {
   it("high weight + strong lean => settled, names the favored side", () => {
     const v = getVerdict(80, 80);
     expect(v.quadrant).toBe("settled");
-    expect(v.label).toContain("favors the claim");
+    expect(v.label).toBe("Evidence largely converges on the claim");
     const against = getVerdict(20, 80);
     expect(against.quadrant).toBe("settled");
-    expect(against.label).toContain("favors the counterclaim");
+    expect(against.label).toBe("Evidence largely converges on the counterclaim");
   });
 
-  it("high weight + weak lean => well-mapped, genuinely contested", () => {
+  it("high weight + weak lean => well-mapped, evidence still divided", () => {
     const v = getVerdict(55, 80);
     expect(v.quadrant).toBe("contested");
-    expect(v.label).toBe("Well-mapped, genuinely contested");
+    expect(v.label).toBe("Well-mapped, evidence still divided");
   });
 
   it("medium weight => moderately evidenced, with lean", () => {
     expect(getVerdict(65, 50).quadrant).toBe("moderate");
     expect(getVerdict(65, 50).label).toContain("moderately evidenced");
-    expect(getVerdict(51, 50).label).toContain("Balanced");
+    expect(getVerdict(51, 50).label).toContain("roughly balanced");
+    expect(getVerdict(65, 50).label).toBe("Evidence leans toward the claim — moderately evidenced");
+    expect(getVerdict(35, 50).label).toBe("Evidence leans toward the counterclaim — moderately evidenced");
   });
 
   it("low weight => open question regardless of lean", () => {
     const v = getVerdict(90, 20);
     expect(v.quadrant).toBe("open");
-    expect(v.label).toBe("Open question — limited evidence so far");
+    expect(v.label).toBe("Evidence still thin — an open question");
   });
 
   it("boundary behavior matches VERDICT constants", () => {
@@ -297,11 +299,11 @@ describe("getVerdict", () => {
 
 describe("getLeanLabel", () => {
   it("labels by lean magnitude", () => {
-    expect(getLeanLabel(50)).toBe("Evenly balanced");
-    expect(getLeanLabel(60)).toBe("Leans toward the claim");
-    expect(getLeanLabel(40)).toBe("Leans toward the counterclaim");
-    expect(getLeanLabel(75)).toBe("Clearly favors the claim");
-    expect(getLeanLabel(5)).toBe("Strongly favors the counterclaim");
+    expect(getLeanLabel(50)).toBe("Evidence evenly balanced");
+    expect(getLeanLabel(60)).toBe("Evidence leans toward the claim");
+    expect(getLeanLabel(40)).toBe("Evidence leans toward the counterclaim");
+    expect(getLeanLabel(75)).toBe("Evidence clearly leans toward the claim");
+    expect(getLeanLabel(5)).toBe("Evidence leans strongly toward the counterclaim");
   });
 });
 

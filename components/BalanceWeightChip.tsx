@@ -22,14 +22,14 @@ export const QUADRANT_STYLE: Record<
     color: "rgb(var(--accent-text-rgb))",
     bg: "rgb(var(--accent-text-rgb) / 0.10)",
     onColor: "rgb(var(--bg-canvas-rgb))",
-    short: "Settled",
+    short: "Converges",
   },
   contested: {
     color: "rgb(var(--text-secondary-rgb))",
     bg: "rgb(var(--text-secondary-rgb) / 0.10)",
     // The fill turns light in dark mode, so the type on it turns dark.
     onColor: "rgb(var(--bg-canvas-rgb))",
-    short: "Contested",
+    short: "Divided",
   },
   // Rust ink token (--rust-text: rust-700 light, rust-500 dark); the tint stays
   // rust-500 so the chip reads as the same family.
@@ -53,7 +53,7 @@ interface BalanceWeightChipProps {
   balance: number;
   weight: number;
   verdict: Verdict;
-  /** Show the quadrant word ("Settled" / "Contested" / …) after the glyphs */
+  /** Show the quadrant word ("Converges" / "Divided" / …) after the glyphs */
   showLabel?: boolean;
   className?: string;
 }

@@ -4,7 +4,7 @@ import { BalanceWeightChip, QUADRANT_STYLE } from "./BalanceWeightChip";
 import { BalanceWeightReadout } from "./BalanceWeightReadout";
 import { FRAGILE_VERDICT_NOTE } from "./FragileVerdictNote";
 
-const verdict = { label: "Well-mapped, genuinely contested", quadrant: "contested" as const };
+const verdict = { label: "Well-mapped, evidence still divided", quadrant: "contested" as const };
 
 describe("BalanceWeightChip", () => {
   it("exposes both axes and the verdict to assistive tech", () => {
@@ -16,7 +16,7 @@ describe("BalanceWeightChip", () => {
 
   it("shows the quadrant word when showLabel is set", () => {
     render(<BalanceWeightChip balance={46} weight={70} verdict={verdict} showLabel />);
-    expect(screen.getByText("Contested")).toBeTruthy();
+    expect(screen.getByText("Divided")).toBeTruthy();
   });
 });
 
@@ -45,7 +45,7 @@ describe("QUADRANT_STYLE", () => {
 describe("BalanceWeightReadout", () => {
   it("renders the verdict label and both axis readouts", () => {
     render(<BalanceWeightReadout balance={46} weight={70} verdict={verdict} />);
-    expect(screen.getByText("Well-mapped, genuinely contested")).toBeTruthy();
+    expect(screen.getByText("Well-mapped, evidence still divided")).toBeTruthy();
     expect(screen.getByRole("meter", { name: /balance of evidence/i })).toBeTruthy();
     expect(screen.getByRole("meter", { name: /weight of evidence/i })).toBeTruthy();
   });
@@ -59,7 +59,7 @@ describe("BalanceWeightReadout", () => {
 
   it("says so under the label when the reading is one card from changing", () => {
     const fragileVerdict = {
-      label: "Clearly favors the claim",
+      label: "Evidence clearly leans toward the claim",
       quadrant: "moderate" as const,
       fragile: true,
     };

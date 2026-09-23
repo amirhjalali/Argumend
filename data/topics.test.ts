@@ -251,12 +251,12 @@ describe("weight calibration anchors (spec §2.2)", () => {
     expect(topicVerdictSensitivity(climate!).flipsToChange).toBe(2);
   });
 
-  it("moloch is well-mapped and genuinely contested — never 'insufficient'", () => {
+  it("moloch is well-mapped and its evidence still divided — never 'insufficient'", () => {
     const moloch = topics.find((t) => t.id === "moloch");
     expect(moloch).toBeDefined();
     expect(moloch!.weight).toBeGreaterThanOrEqual(60);
     expect(moloch!.verdict.quadrant).toBe("contested");
-    expect(moloch!.verdict.label).toBe("Well-mapped, genuinely contested");
+    expect(moloch!.verdict.label).toBe("Well-mapped, evidence still divided");
   });
 
   it("a fragile verdict is either demoted or pinned, never quietly settled", () => {

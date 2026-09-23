@@ -124,7 +124,7 @@ describe("TopicSchema", () => {
     confidence_score: 75,
     balance: 75,
     weight: 60,
-    verdict: { label: "Leans toward the claim — moderately evidenced", quadrant: "moderate" },
+    verdict: { label: "Evidence leans toward the claim — moderately evidenced", quadrant: "moderate" },
     status: "contested",
     category: "policy",
     pillars: [
@@ -305,15 +305,16 @@ describe("applyVerdictRobustness", () => {
     );
     expect(guarded.quadrant).toBe("moderate");
     expect(guarded.fragile).toBe(true);
-    expect(guarded.label).toBe("Clearly favors the claim");
-    expect(guarded.label).not.toMatch(/settled/i);
+    expect(guarded.label).toBe("Evidence clearly leans toward the claim");
+    // The demoted label never carries the settled-quadrant wording.
+    expect(guarded.label).not.toMatch(/converges|settled/i);
   });
 
   it("demotes a settled verdict on a map with too few cards", () => {
     const guarded = applyVerdictRobustness(getVerdict(95, 80), 95, sensitivity({ cardCount: 4 }));
     expect(guarded.quadrant).toBe("moderate");
     expect(guarded.fragile).toBe(true);
-    expect(guarded.label).toBe("Strongly favors the claim");
+    expect(guarded.label).toBe("Evidence leans strongly toward the claim");
   });
 
   it("keeps the direction of the lean when it demotes", () => {
@@ -322,7 +323,7 @@ describe("applyVerdictRobustness", () => {
       20,
       sensitivity({ flipsToChange: 1, balance: 20 })
     );
-    expect(guarded.label).toBe("Clearly favors the counterclaim");
+    expect(guarded.label).toBe("Evidence clearly leans toward the counterclaim");
   });
 
   it("pins a fragile settled reading when the topic is authored settled", () => {
@@ -333,7 +334,7 @@ describe("applyVerdictRobustness", () => {
       "settled"
     );
     expect(pinned.quadrant).toBe("settled");
-    expect(pinned.label).toBe("Settled — evidence strongly favors the claim");
+    expect(pinned.label).toBe("Evidence largely converges on the claim");
     // The pin keeps the word; it does not hide the measurement.
     expect(pinned.fragile).toBe(true);
     expect(pinned.pinnedByStatus).toBe(true);

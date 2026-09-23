@@ -631,15 +631,15 @@ Balance is computed as forStrength / (forStrength + againstStrength) x 100 over 
 
 That's what weight is for. Weight is a composite of three things: the evidential mass (how much evidence there is, with diminishing returns for piling on more), the average quality of the sources, and how resolvable the underlying cruxes are — some disagreements can in principle be settled by more research, others can't be settled at all. High weight means the map is richly evidenced and rests on cruxes that are at least theoretically answerable. Low weight means we simply don't know much yet, whatever the balance says.
 
-Putting the two axes together produces the verdict:
+Putting the two axes together produces the evidence readout:
 
-**High weight, strong lean: "Settled — evidence strongly favors [side]."** The claim is well-supported by multiple independent, high-quality sources, and opposing evidence is sparse or weak.
+**High weight, strong lean: "Evidence largely converges on [the claim / the counterclaim]."** The claim is well-supported by multiple independent, high-quality sources, and opposing evidence is sparse or weak.
 
-**High weight, weak lean: "Well-mapped, genuinely contested."** The map is richly evidenced on both sides — this is not the same thing as "we don't know." It means smart people have looked hard at this and still land on different sides.
+**High weight, weak lean: "Well-mapped, evidence still divided."** The map is richly evidenced on both sides — this is not the same thing as "we don't know." It means smart people have looked hard at this and still land on different sides.
 
 **Medium weight: "… moderately evidenced."** There's enough evidence to form a view, but real gaps remain. This is the range where productive debate is most likely.
 
-**Low weight: "Open question — limited evidence so far."** Whatever the balance number says, there simply isn't enough evidence yet to trust the lean. Treat any apparent direction as provisional.
+**Low weight: "Evidence still thin — an open question."** Whatever the balance number says, there simply isn't enough evidence yet to trust the lean. Treat any apparent direction as provisional.
 
 Balance and weight are most useful together as a triage tool. When exploring a complex map with dozens of nodes, start with the low-weight nodes — those are where the interesting questions are, where the debate is genuinely unresolved, and where new evidence would make the biggest difference. A pillar with high weight and a strong lean is settled business; a pillar with low weight deserves your attention regardless of which way its balance currently points.`,
       },
