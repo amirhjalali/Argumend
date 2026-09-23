@@ -22,6 +22,13 @@
       "when": 1787059200000,
       "tag": "0002_disagreement_reports",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1790127427283,
+      "tag": "0003_gap_observations",
+      "breakpoints": true
     }
   ]
 }

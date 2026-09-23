@@ -89,6 +89,12 @@ Set via environment variables. All default to off (offline mode):
   build time like every `NEXT_PUBLIC_` variable; `/reply` 404s while it is off.
   Independent of the flag above: rendering a page is not the decision to send
   text to a third party, so both have to be on for a submit to reach the model.
+- `ENABLE_GAP_METRIC_LOGGING=true` — after a successful `/api/map-reply` or
+  `/api/disagreements/analyze` response, insert one counts-only row into
+  `gap_observations` (north-star metric). No text, ever: the record is a strict
+  schema of enums, counts and slug ids. Fire-and-forget; a no-op without
+  `DATABASE_URL`; never fails the request. Weekly table:
+  `npx tsx scripts/gap-metric-report.ts`. See `docs/GAP_METRIC.md`.
 
 ### Disagreement Diagnosis (V2)
 

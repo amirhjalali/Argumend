@@ -21,6 +21,8 @@ import {
   resolveRequestId,
 } from "@/lib/mapReply/http";
 import { runMapReply } from "@/lib/mapReply/pipeline";
+import { logGapObservation } from "@/lib/gapMetric/log";
+import { gapFromMapReply } from "@/lib/gapMetric/record";
 import { rateLimit } from "@/lib/rate-limit";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
@@ -124,6 +126,9 @@ export async function POST(request: NextRequest) {
       timings: result.execution.timings,
       latencyMs: Date.now() - startedAt,
     });
+
+    // North-star gap metric: counts and ids only, flag-gated, never awaited.
+    void logGapObservation(() => gapFromMapReply(result));
 
     return NextResponse.json(
       { requestId, ...result },
