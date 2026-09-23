@@ -1243,14 +1243,14 @@
   {
    "id": "e-eo-14292-gof",
    "type": "evidence",
-   "statement": "Executive Order 14292 (5 May 2025) stated that dangerous gain-of-function research has the potential to significantly endanger American lives, ended federal funding of such research in countries of concern, and ordered federal oversight policy revised.",
+   "statement": "Executive Order 14292 (5 May 2025) stated that dangerous gain-of-function research has the potential to significantly endanger American lives, directed suspension of federally funded dangerous gain-of-function research until a new policy is complete, ended federal funding of such research in countries of concern, and ordered federal oversight policy revised.",
    "provenance": {
     "origin": "curator",
     "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [15b] (source re-opened 2026-09-22)"
    },
    "createdAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
-   "finding": "Executive Order 14292 (5 May 2025) stated that dangerous gain-of-function research has the potential to significantly endanger American lives, ended federal funding of such research in countries of concern, and ordered federal oversight policy revised.",
+   "finding": "Executive Order 14292 (5 May 2025) stated that dangerous gain-of-function research has the potential to significantly endanger American lives, directed suspension of federally funded dangerous gain-of-function research until a new policy is complete, ended federal funding of such research in countries of concern, and ordered federal oversight policy revised.",
    "source": {
     "title": "Executive Order 14292: Improving the Safety and Security of Biological Research",
     "kind": "government",
