@@ -4,7 +4,7 @@ Branch `north-star/ledger-v1`, stacked on `north-star-2026-09-22` (PR #7) → `j
 **Local only; nothing pushed.** Driver: Opus 5.5. Planner: Fable. At most 5 agents at once; no
 `claude -p` CLI-lane runs. Every code branch had an independent reviewer; design-push and
 color-signals were reviewed after merge (findings merged). ~25 first-parent merges,
-~395 files, +14.0k / −2.6k. Final state: `bunx vitest run` 242 files / 2864+ tests green,
+~395 files, +14.0k / −2.6k. Final state: `bunx vitest run` 242 files / 2866 tests green,
 `tsc --noEmit` clean, lint clean, `bun run build` from the main checkout green, standalone server
 smoke-tested (/, /ai, both AI maps, /topics, /sitemap.xml → 200).
 
@@ -75,7 +75,7 @@ dated movement.
 1. **Shell seam (biggest QA finding).** Flagship topic pages and `/ai` have only a thin
    home/explore row; the rest of the site has sidebar + top bar. *Rec:* put flagship + `/ai` inside
    the AppShell (or deliberately move the whole site to the lighter shell) — one decision, one pass.
-2. **Three crux styles** (topic sheet, `/ai` card, home block). *Rec:* the topic-page sheet everywhere.
+2. **Crux styles:** `/ai` now matches the topic sheet; the home page's worked-example block is the last different one. *Rec:* align it too.
 3. **Legacy scoreboard framing** on ~150 legacy topics: "Established · 97%", "SCIENCE, BROADLY
    SETTLED", the vote with per-option percentages, `/faq` "confidence scores", dashboard
    "Winner: …". *Rec:* a legacy-wide pass (remove percentages; status words only).
@@ -125,11 +125,25 @@ dated movement.
   step (extra lockfile → wrong root); build from the main checkout.
 - PR #6 prerequisites unchanged: `TRUSTED_PROXY_HOPS=2` in Coolify at deploy.
 
-## 6. Late items (filled at wrap-up)
+## 6. Late items (merged at wrap-up)
 
-See the commit log after this file for the color-signals post-merge review and the QA small-fixes
-branch (how-it-works copy, `/api/topic-views` without DB, category filter vs flagship cards,
-breadcrumb wrap, "hidden assumption" wording).
+- **color-signals post-merge review:** no functional regressions (rust-600 sweep one-to-one,
+  progress bars untouched, tokens compile, OG route 200, nav active state clear). Fixed the missed
+  consent-line link; the driver then moved the remaining 24 `dark:text-deep-light` uses (3.71:1)
+  to `text-accent-text` (7.82:1). Open: the Technology *category* chip is stone like the status
+  chips; "contested" can appear twice on a card (verdict chip + status chip).
+- **qa-fixes:** /how-it-works describes today's topic pages; `/api/topic-views` returns an empty
+  list (200) when the DB stack can't load; the flagship block only shows under "all" on /topics;
+  breadcrumb separators never start a line; "A hidden assumption:" wording.
+- **quick-wins:** the judge council shows where the judges' reasoning concentrated, never a winner
+  (`ShareVerdictCard` not yet checked); one newsletter signup per topic page (topic signups now
+  count as "footer"); one theme toggle per viewport.
+- **ai-crux-style:** `/ai` uses the topic-page crux sheet (numerals are per-map ranks: 1, 1, 2, 2…).
+  QA item 2 is now down to two styles (sheet vs the home page's worked-example block).
+- **Final verification (00:58 UTC):** 242 files / 2866 tests, tsc, lint green; `bun run build` from
+  the main checkout green; standalone server returns 200 for /, /ai, both AI maps, /topics,
+  /topics?category=science, /how-it-works, /api/topic-views, /sitemap.xml, /api/og/…; the AI map
+  page carries the /ai link.
 
 ## 7. How to review
 
