@@ -209,11 +209,11 @@
       "noticedAt": "2026-09-22",
       "status": "open",
       "evidenceNodeIds": ["e-dallas-fed-wage-growth"],
-      "note": "Dallas Fed: AI exposure goes with slower wage growth where experience earns no premium and faster growth where it does. The lifetime credential premium the claim is about has not been measured yet.",
+      "note": "Dallas Fed: AI exposure goes with slower wage growth where experience earns no premium and faster growth where the premium is high. The lifetime credential premium the claim is about has not been measured yet.",
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
-        "basis": "Scott Davis, 'AI is simultaneously aiding and replacing workers, wage data suggest', Federal Reserve Bank of Dallas, 2026-02-24 (read 2026-09-22). The graph node's source title differs from the published title; flagged for review."
+        "basis": "Scott Davis, 'AI is simultaneously aiding and replacing workers, wage data suggest', Federal Reserve Bank of Dallas, 2026-02-24 (read 2026-09-22). The graph node's source title now matches the published title."
       },
       "createdAt": "2026-09-22T00:00:00Z"
     },

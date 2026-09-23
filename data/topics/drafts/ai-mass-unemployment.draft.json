@@ -1731,9 +1731,11 @@
    "type": "evidence",
    "finding": "A one-standard-deviation increase in AI exposure has little effect on wage growth for occupations with median experience premia, but is associated with a 0.28 percentage-point reduction in wage growth for occupations with zero experience premium.",
    "source": {
-    "title": "AI Exposure and Wage Growth",
+    "title": "AI is simultaneously aiding and replacing workers, wage data suggest",
     "url": "https://www.dallasfed.org/research/economics/2026/0224",
+    "author": "Scott Davis",
     "institution": "Federal Reserve Bank of Dallas",
+    "publishedAt": "2026-02-24",
     "kind": "government",
     "verification": "verified-live"
    },
