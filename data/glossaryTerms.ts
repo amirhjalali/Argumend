@@ -47,7 +47,7 @@ const GLOSSARY: Array<GlossaryEntry & { aliases?: string[] }> = [
   {
     term: "Confidence score",
     definition:
-      "A 0–100 estimate of how strongly the weight of evidence supports the claim.",
+      "A 0–100 balance showing which way the weighted evidence tips (50 is even), read together with weight: how much evidence there is. Not the probability that the claim is true.",
     aliases: ["confidence-score"],
   },
   {

@@ -57,12 +57,12 @@ export const concepts: Concept[] = [
     id: "confidence-calibration",
     title: "Balance & Weight Calibration",
     description:
-      "A single percentage cannot tell whether evidence strongly favors one side or whether there is enough good evidence to be confident in any direction. Argumend therefore reports two separate measurements rather than treating a directional score as a probability.\n\nBalance shows which way the weighted evidence tips: balance = forStrength / (forStrength + againstStrength) x 100. A score of 50 is even; values above 50 favor the claim, and values below 50 favor the counterclaim. Balance is not the probability that a claim is true. Weight shows how much we currently know. It combines evidential mass, average source quality, and how resolvable the topic's cruxes are.\n\nThe verdict uses both axes. High weight plus a strong lean can be settled; high weight near 50 is well-mapped but genuinely contested; medium weight supports a cautious lean; and low weight remains an open question regardless of apparent direction. Keeping direction and evidential strength separate prevents a thin one-sided record from masquerading as certainty.",
+      "A single percentage cannot tell whether evidence strongly favors one side or whether there is enough good evidence to be confident in any direction. Argumend therefore reports two separate measurements rather than treating a directional score as a probability.\n\nBalance shows which way the weighted evidence tips: balance = forStrength / (forStrength + againstStrength) x 100. A score of 50 is even; values above 50 favor the claim, and values below 50 favor the counterclaim. Balance is not the probability that a claim is true. Weight shows how much we currently know. It combines evidential mass, average source quality, and how resolvable the topic's cruxes are.\n\nThe evidence-state readout uses both axes. With high weight and a strong lean, the evidence largely converges on the claim (or on the counterclaim); high weight near 50 is well-mapped, with the evidence still divided; medium weight supports a cautious lean; and low weight means the evidence is still thin, an open question regardless of apparent direction. Keeping direction and evidential strength separate prevents a thin one-sided record from masquerading as certainty.",
     keyPoints: [
       "Balance = forStrength / (forStrength + againstStrength) x 100; 50 is even",
       "Balance shows direction, not the probability that a claim is true",
       "Weight combines evidential mass, source quality, and crux resolvability",
-      "A verdict is derived from both balance and weight",
+      "The evidence-state readout is derived from both balance and weight",
       "Low-weight questions remain open even when the available evidence leans strongly",
     ],
     relatedConcepts: ["evidence-weighting", "cruxes", "fallacies"],

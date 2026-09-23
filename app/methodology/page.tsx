@@ -431,11 +431,11 @@ export default function MethodologyPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-[#a23b3b]">
+                  <span className="w-24 text-center text-xs font-mono font-medium text-score-low dark:text-[#c49a7c]">
                     low weight
                   </span>
                   <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
-                    <div className="h-full w-[25%] bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] rounded-full" />
+                    <div className="h-full w-[25%] bg-gradient-to-r from-score-low to-skeptic-light rounded-full" />
                   </div>
                   <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
                     <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence still thin</strong> — an open question, lean not asserted
