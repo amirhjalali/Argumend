@@ -24,7 +24,7 @@ describe("JudgingResults execution labels", () => {
   it("does not present programmatic evaluators as provider models", () => {
     render(<JudgingResults result={result} mode="programmatic" />);
 
-    expect(screen.getByText("Programmatic Rubric Verdict")).toBeTruthy();
+    expect(screen.getByText("Programmatic Rubric Scores")).toBeTruthy();
     expect(screen.getByText("Programmatic evaluator 1")).toBeTruthy();
     expect(screen.getAllByText("Rule-based rubric")).toHaveLength(3);
     expect(screen.queryByText("Claude Sonnet 4")).toBeNull();
@@ -35,7 +35,7 @@ describe("JudgingResults execution labels", () => {
   it("retains provider identities for live judging", () => {
     render(<JudgingResults result={result} mode="live" />);
 
-    expect(screen.getByText("Judge Council Verdict")).toBeTruthy();
+    expect(screen.getByText("Judge Council Scores")).toBeTruthy();
     expect(screen.getByText("Claude Sonnet 4")).toBeTruthy();
     expect(screen.getByText("GPT-4o")).toBeTruthy();
     expect(screen.getByText("Gemini 1.5 Pro")).toBeTruthy();
@@ -64,7 +64,7 @@ describe("JudgingResults execution labels", () => {
     render(<JudgingResults result={result} mode="programmatic" />);
 
     const control = screen.getByRole("button", {
-      name: /Programmatic evaluator 1 verdict: .* expand details/,
+      name: /Programmatic evaluator 1 scores: .* expand details/,
     });
     const detailsId = control.getAttribute("aria-controls");
     expect(detailsId).toBeTruthy();
@@ -75,5 +75,13 @@ describe("JudgingResults execution labels", () => {
     expect(control.getAttribute("aria-expanded")).toBe("true");
     expect(document.getElementById(detailsId ?? "")).toBeTruthy();
     expect(screen.getByText("Overall Assessment")).toBeTruthy();
+  });
+
+  it("never declares a winner", () => {
+    const { container } = render(<JudgingResults result={result} mode="live" />);
+    const text = container.textContent ?? "";
+
+    expect(text).not.toMatch(/\bWins\b|\bDraw\b|No Verdict|Decisive/);
+    expect(text).toMatch(/reasoning concentrated/);
   });
 });
