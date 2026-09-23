@@ -180,17 +180,17 @@ export default function ResearchPage() {
         ))}
 
         {/* Section navigation */}
-        <div className="bg-[#faf8f3]/60 border border-stone-200/60 rounded-lg p-5 md:p-6 mb-16 md:mb-24">
+        <div className="bg-[#faf8f3]/60 dark:bg-card/60 border border-stone-200/60 dark:border-[var(--border-default)] rounded-lg p-5 md:p-6 mb-16 md:mb-24">
           <div className="flex items-center gap-2.5 mb-4">
-            <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
-            <h3 className="text-sm font-medium text-primary">In this article</h3>
+            <BookOpen className="h-4 w-4 text-deep dark:text-[#8bb5b1]" strokeWidth={1.8} />
+            <h3 className="text-sm font-medium text-primary dark:text-stone-200">In this article</h3>
           </div>
           <ol className="space-y-2">
             {researchSections.map((section, i) => (
               <li key={section.id}>
                 <a
                   href={`#${section.id}`}
-                  className="text-sm text-stone-500 hover:text-deep transition-colors flex items-start gap-2"
+                  className="text-sm text-stone-500 dark:text-stone-400 hover:text-deep dark:hover:text-[#8bb5b1] transition-colors flex items-start gap-2"
                 >
                   <span className="text-muted font-mono text-xs mt-0.5">
                     {i + 1}.
