@@ -1,13 +1,23 @@
 /**
- * One pooled crux on the living AI map: the question, the map it belongs to
- * and its rank inside that map (never a rank across maps), what would settle
- * it, the ledger's status word, and the movement strip.
+ * One pooled crux on the living AI map, drawn as an entry on the map pages'
+ * crux sheet (components/argument/DebateView.tsx): crimson margin numeral,
+ * the question, what would settle it, and the movement strip. /ai adds the map
+ * it belongs to and its rank inside that map (never a rank across maps).
+ * Renders the sheet's <li>; the parent supplies <ol className={CRUX_SHEET}>.
  */
 import Link from "next/link";
 import { claimMovement } from "@/lib/argument/ledger";
 import type { PooledCrux } from "@/lib/argument/ledgerPool";
-import { CruxMovementTrack, standingLineFor } from "@/components/argument/CruxMovement";
-import { STATUS_TEXT, STATUS_WORD, domId, formatDay } from "./format";
+import { CruxMovementTrack } from "@/components/argument/CruxMovement";
+import {
+  ENTRY_COLUMN,
+  ENTRY_GRID,
+  MARGIN_RULE,
+  SettleAnswer,
+  settleMode,
+  type SettleMode,
+} from "@/components/argument/DebateView";
+import { domId, formatDay } from "./format";
 import { claimOf, cruxQuestion, type IndexedMap } from "./types";
 
 const ORDINAL = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth"];
@@ -30,30 +40,36 @@ export function CruxCard({
   const movement = claimMovement(map.ledger, crux.claimId);
   const latest = movement.at(-1)?.entry;
   const status = latest?.status;
-  // Same rule as the map pages: a resolved entry outranks an authored value
-  // fork, so "Nothing does" never sits under a Resolved status.
-  const standing =
-    status === "unresolvable" ||
-    (claim?.resolution?.kind === "value-difference" && status !== "resolved");
-  const standingLine = standingLineFor(latest?.resolutionKind ?? claim?.resolution?.kind);
+  const isResolved = status === "resolved";
+  // Same rules as the map page's crux sheet: a resolved entry outranks an
+  // authored value fork, and an unresolvable entry names its kind of fork.
+  const mode: SettleMode = claim ? settleMode(claim, status) : "unstated";
+  const kind =
+    status === "unresolvable"
+      ? (latest?.resolutionKind ?? claim?.resolution?.kind)
+      : claim?.resolution?.kind;
   const quiet = latest === undefined || latest.date < since;
   const rankWord = ORDINAL[crux.mapRank - 1] ?? `number ${crux.mapRank}`;
   const countWord = CARDINAL[crux.mapCruxCount - 1] ?? String(crux.mapCruxCount);
   const headingId = `crux-${domId(crux.topicId)}-${domId(crux.claimId)}`;
 
   return (
-    <article
+    <li
       aria-labelledby={headingId}
       data-testid="ai-crux-card"
       data-topic={crux.topicId}
-      className="relative rounded-md border border-divider/70 bg-[var(--bg-panel)] py-5 pl-5 pr-4 shadow-[0_1px_0_rgb(var(--border-divider-rgb)/0.6)] sm:py-6 sm:pl-7 sm:pr-6"
+      className={MARGIN_RULE}
     >
-      <span
-        aria-hidden="true"
-        className="absolute bottom-5 left-0 top-5 w-[3px] rounded-r-sm bg-[#a23b3b] dark:bg-[#e06a6a] sm:bottom-6 sm:top-6"
-      />
-      <p className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-[12.5px] leading-snug">
-        <span className="text-muted dark:text-stone-400">
+      <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6`}>
+        {/* The margin numeral is the crux's rank inside its own map, never a
+            rank across maps, so the sheet reads 1, 1, 2, 2 as the maps interleave. */}
+        <span
+          aria-hidden="true"
+          className="row-span-4 pr-3 text-right font-serif text-[1.875rem] leading-[1.6rem] text-[#a23b3b] dark:text-[#d27070] sm:pr-4 sm:text-[2.125rem] sm:leading-[1.75rem]"
+        >
+          {crux.mapRank}
+        </span>
+        <p className={`${ENTRY_COLUMN} mb-1.5 text-[12.5px] leading-snug text-muted dark:text-stone-400`}>
           <Link
             href={`/topics/${crux.topicId}#cruxes`}
             className="font-medium text-stone-800 underline decoration-stone-400/60 underline-offset-[3px] hover:decoration-stone-700 dark:text-stone-200 dark:decoration-stone-500 dark:hover:decoration-stone-200"
@@ -61,51 +77,35 @@ export function CruxCard({
             {map.label}
           </Link>
           , {rankWord} of its {countWord} cruxes
-        </span>
-        {status && (
-          <span className={`font-serif text-[16px] italic ${STATUS_TEXT[status]}`}>
-            {STATUS_WORD[status]}
-          </span>
-        )}
-      </p>
-
-      <h3
-        id={headingId}
-        className={`mt-2.5 text-balance font-serif text-[1.375rem] leading-[1.25] sm:text-[1.5rem] ${
-          status === "resolved"
-            ? "text-stone-600 dark:text-stone-400"
-            : "text-stone-900 dark:text-stone-50"
-        }`}
-      >
-        {question}
-      </h3>
-
-      <p className="mt-3 font-serif text-[1.0625rem] leading-[1.55] text-stone-700 dark:text-stone-300">
-        <span className="font-sans text-[12.5px] font-semibold text-stone-800 dark:text-stone-200">
-          What would settle it:
-        </span>{" "}
-        {standing ? (
-          <span className="italic text-[#8B5A3C] dark:text-[#cfa88a]">{standingLine}</span>
-        ) : (
-          sentence(claim?.resolution?.condition ?? "not yet specified")
-        )}
-      </p>
-
-      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-divider/60 pt-3.5">
-        {movement.length > 0 && <CruxMovementTrack movement={movement} />}
-        {quiet && (
-          <p className="text-xs leading-snug italic text-muted dark:text-stone-400">
-            No movement recorded since {formatDay(latest?.date ?? mapDrawnOn)}
-            {latest ? "." : ", when the map was drawn."}
-          </p>
+        </p>
+        <h3
+          id={headingId}
+          className={`${ENTRY_COLUMN} text-pretty font-serif text-[1.1875rem] font-medium leading-[1.35] sm:text-[1.3125rem] ${
+            isResolved ? "text-stone-600 dark:text-stone-400" : "text-stone-900 dark:text-stone-100"
+          }`}
+        >
+          {question}
+        </h3>
+        <p className={ENTRY_COLUMN}>
+          <SettleAnswer
+            mode={mode}
+            kind={kind}
+            condition={claim?.resolution?.condition}
+            resolved={isResolved}
+          />
+        </p>
+        {(movement.length > 0 || quiet) && (
+          <div className={`${ENTRY_COLUMN} mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-2`}>
+            <CruxMovementTrack movement={movement} />
+            {quiet && (
+              <p className="text-xs italic leading-snug text-muted dark:text-stone-400">
+                No movement recorded since {formatDay(latest?.date ?? mapDrawnOn)}
+                {latest ? "." : ", when the map was drawn."}
+              </p>
+            )}
+          </div>
         )}
       </div>
-    </article>
+    </li>
   );
-}
-
-/** The engine's conditions are phrases; close them as a sentence. */
-function sentence(text: string): string {
-  const trimmed = text.trim();
-  return /[.!?]$/.test(trimmed) ? trimmed : `${trimmed}.`;
 }

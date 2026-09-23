@@ -24,6 +24,7 @@ import {
 } from "@/lib/argument/ledgerPool";
 import { ArrivedGroupView } from "./ArrivedSince";
 import { Changelog } from "./Changelog";
+import { CRUX_SHEET } from "@/components/argument/DebateView";
 import { CruxCard } from "./CruxCard";
 import { MovementFigure } from "./MovementFigure";
 import { aiHref, formatDay, formatLongDay, mapLabel } from "./format";
@@ -147,19 +148,19 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
           A crux is a question where an answer would move whole positions. These are the
           maps&rsquo; top cruxes today, with what each map says would settle them.
         </p>
-        <ol className="mt-7 space-y-4 sm:space-y-5">
+        {/* The map pages' crux sheet: one ruled card, a crimson margin rule. */}
+        <ol className={`mt-7 ${CRUX_SHEET}`}>
           {cruxes.map((crux) => {
             const map = mapsById.get(crux.topicId);
             if (!map) return null;
             return (
-              <li key={`${crux.topicId}/${crux.claimId}`}>
-                <CruxCard
-                  crux={crux}
-                  map={map}
-                  since={since}
-                  mapDrawnOn={ARGUMENT_TOPICS_FIRST_PUBLISHED}
-                />
-              </li>
+              <CruxCard
+                key={`${crux.topicId}/${crux.claimId}`}
+                crux={crux}
+                map={map}
+                since={since}
+                mapDrawnOn={ARGUMENT_TOPICS_FIRST_PUBLISHED}
+              />
             );
           })}
         </ol>

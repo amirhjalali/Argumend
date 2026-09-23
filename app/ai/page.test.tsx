@@ -36,7 +36,7 @@ describe("/ai with the real AI maps", () => {
       const topicId = card.getAttribute("data-topic")!;
       expect(AI_MAP_TOPIC_IDS).toContain(topicId);
       expect(within(card).getByRole("link", { name: AI_MAP_LABELS[topicId] })).toBeTruthy();
-      expect(card.textContent).toContain("What would settle it:");
+      expect(card.textContent).toMatch(/What (would settle it|settled it)/);
     }
   });
 
@@ -55,10 +55,10 @@ describe("/ai with the real AI maps", () => {
     const view = await renderPage();
     const standing = view
       .getAllByTestId("ai-crux-card")
-      .filter((card) => card.textContent?.includes("Unresolvable by evidence"));
+      .filter((card) => card.querySelector("[data-settle=\"standing\"]"));
     expect(standing.length).toBeGreaterThan(0);
     for (const card of standing) {
-      expect(card.textContent).toMatch(/What would settle it: Nothing does — .*; the map holds both \w+\./);
+      expect(card.textContent).toMatch(/What would settle itNothing does — .*; the map holds both \w+\./);
     }
   });
 
