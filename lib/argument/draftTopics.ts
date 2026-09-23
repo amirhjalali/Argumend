@@ -200,7 +200,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       hook: "Capitalism pays most people through wages. AI could automate a wider range of tasks while labor's share has already declined globally since the 1980s and the U.S. nonfarm-business index has fallen since 2000. The dispute is whether AI extends that trend or changes its scale.",
       tldr: "Almost nobody argues markets stop working. The real fight is narrower and stranger: whether the wage channel keeps distributing enough income to sustain demand and consent — and whether a system that keeps markets but pays people through dividends or transfers still counts as the thing we're defending. Two of the five cruxes are assumptions nobody states out loud; a third is a definition.",
       shareCard: {
-        left: { value: "−19.3", label: "Index-point change in U.S. nonfarm labor share, Q1 2000 → Q2 2026" },
+        left: { value: "−19.4", label: "Index-point change in U.S. nonfarm labor share, Q1 2000 → Q2 2026" },
         right: { value: "40%", label: "Estimated share of 2025 U.S. enterprise LLM spend attributed to one provider" },
         line: "Falling wage share, high AI-provider concentration. Whether that ends capitalism depends on what you think capitalism is.",
         attribution: "BLS/FRED · Menlo Ventures — argumend.org",
@@ -211,7 +211,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "p-breaks-fundamentally": { name: "Loukas Karabarbounis & Brent Neiman", affiliation: "Chicago Booth", line: "document a global decline in labor's share since the 1980s associated with the falling price of capital. This camp uses that finding as a precedent; their study does not itself establish the AI forecast." },
       },
       highlights: [
-        { fact: "−19.3", context: "Index-point decline in U.S. nonfarm business labor share from Q1 2000 (112.828) to Q2 2026 (93.547) — a 17.1% relative drop.", source: "BLS via FRED, series PRS85006173" },
+        { fact: "−19.4", context: "Index-point decline in U.S. nonfarm business labor share from Q1 2000 (112.828) to Q2 2026 (93.446, revised) — a 17.2% relative drop.", source: "BLS via FRED, series PRS85006173" },
         { fact: "40% / 27%", context: "Estimated shares of 2025 U.S. enterprise LLM spend attributed to the two leading providers, based on a decision-maker survey and bottom-up market model.", source: "Menlo Ventures" },
         { fact: "€11.2B", context: "Mondragon's 2024 sales with more than 70,000 employees — a large live test of an alternative ownership structure at industrial scale.", source: "Mondragon 2024 annual report" },
         { fact: "$1,000/mo", context: "The largest U.S. guaranteed-income RCT: three years, 1,000 adults — real evidence on transfers, in an economy where jobs still existed.", source: "NBER / OpenResearch" },
