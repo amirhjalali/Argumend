@@ -48,7 +48,7 @@ describe("DisagreementAnalyzeClient", () => {
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
     await waitFor(() => {
-      expect(view.getByText("ARGUMEND DIAGNOSIS")).toBeTruthy();
+      expect(view.getByText("Argumend diagnosis")).toBeTruthy();
     });
     expect(view.getByText("What this report does not establish")).toBeTruthy();
     expect(view.queryByText(/winner/i)).toBeNull();

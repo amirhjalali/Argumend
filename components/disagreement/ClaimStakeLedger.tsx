@@ -1,5 +1,6 @@
 import { STAKE_STATUS_COPY } from "@/lib/disagreement/stakes";
 import type { ArgumentAccountability, DisagreementReportV1 } from "@/types/disagreement";
+import { ReportSection } from "./ReportSection";
 
 const BASIS_LABEL = {
   explicit: "consequence stated by the participant",
@@ -27,44 +28,44 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
     }),
   );
 
-  return (
-    <section aria-labelledby="stake-ledger-heading">
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h2
-          id="stake-ledger-heading"
-          className="font-serif text-2xl text-[var(--text-heading)] sm:text-3xl"
-        >
-          What is actually at stake?
-        </h2>
-        <p className="text-xs tracking-[0.14em] text-[var(--text-muted)]">
-          {accountability.headline.toUpperCase()}
-        </p>
-      </div>
-      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)]">
-        {accountability.summary}
-      </p>
+  const marks = (stake: (typeof accountability.stakes)[number]) =>
+    stake.grounding.map((ref, index) => (
+      <sup key={ref.id} className="ml-0.5 font-sans text-deep dark:text-deep-light">
+        {NOTE_MARKS[index] ?? "•"}
+      </sup>
+    ));
 
+  const ifWrong = (stake: (typeof accountability.stakes)[number]) =>
+    stake.ifFalseEffect === "not-stated" ? "No update is stated." : stake.consequence;
+
+  return (
+    <ReportSection
+      id="stakes"
+      title="What is actually at stake?"
+      lede={
+        <>
+          <span className="font-medium text-[var(--text-primary)]">{accountability.headline}</span>{" "}
+          {accountability.summary}
+        </>
+      }
+    >
       {/* Desktop ledger */}
-      <table className="mt-6 hidden w-full border-collapse text-left text-sm md:table">
+      <table className="hidden w-full border-collapse text-left font-sans text-sm md:table">
         <thead>
-          <tr className="border-b border-[var(--text-primary)] text-[11px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
-            <th scope="col" className="py-2 pr-4 font-medium">Claim</th>
-            <th scope="col" className="py-2 pr-4 font-medium">What it supports</th>
-            <th scope="col" className="py-2 pr-4 font-medium">If it is wrong</th>
-            <th scope="col" className="py-2 font-medium">Status</th>
+          <tr className="border-b border-[var(--text-muted)]">
+            <th scope="col" className="label-caps py-2 pr-4 font-medium">Claim</th>
+            <th scope="col" className="label-caps py-2 pr-4 font-medium">What it supports</th>
+            <th scope="col" className="label-caps py-2 pr-4 font-medium">If it is wrong</th>
+            <th scope="col" className="label-caps py-2 font-medium">Status</th>
           </tr>
         </thead>
         <tbody>
           {accountability.stakes.map((stake) => (
             <tr key={stake.id} className="border-b border-[var(--border-divider)] align-top">
               <td className="py-4 pr-4">
-                <p className="font-serif text-[15px] leading-snug text-[var(--text-primary)]">
+                <p className="font-serif text-[1.0625rem] leading-snug text-[var(--text-heading)]">
                   &ldquo;{stake.claim}&rdquo;
-                  {stake.grounding.map((ref, index) => (
-                    <sup key={ref.id} className="ml-0.5 text-[#3a6965]">
-                      {NOTE_MARKS[index] ?? "•"}
-                    </sup>
-                  ))}
+                  {marks(stake)}
                 </p>
                 {stake.participantId ? (
                   <p className="mt-1 text-xs text-[var(--text-muted)]">
@@ -72,14 +73,10 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
                   </p>
                 ) : null}
               </td>
-              <td className="py-4 pr-4 text-[var(--text-secondary)]">{stake.targetConclusion}</td>
-              <td className="py-4 pr-4 text-[var(--text-secondary)]">
-                {stake.ifFalseEffect === "not-stated"
-                  ? "No update is stated."
-                  : stake.consequence}
-              </td>
+              <td className="py-4 pr-4 leading-relaxed text-[var(--text-secondary)]">{stake.targetConclusion}</td>
+              <td className="py-4 pr-4 leading-relaxed text-[var(--text-secondary)]">{ifWrong(stake)}</td>
               <td className="py-4">
-                <p className="text-[var(--text-primary)]">{STAKE_STATUS_COPY[stake.diagnostic]}</p>
+                <p className="leading-relaxed text-[var(--text-primary)]">{STAKE_STATUS_COPY[stake.diagnostic]}</p>
                 <p className="mt-1 text-xs text-[var(--text-muted)]">{BASIS_LABEL[stake.basis]}</p>
               </td>
             </tr>
@@ -88,36 +85,33 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
       </table>
 
       {/* Mobile stacked ledger */}
-      <div className="mt-4 md:hidden">
+      <div className="divide-y divide-[var(--border-divider)] md:hidden">
         {accountability.stakes.map((stake) => (
-          <div key={stake.id} className="border-b border-[var(--border-divider)] py-5">
-            <p className="text-[10px] font-medium tracking-[0.18em] text-[var(--text-muted)]">CLAIM</p>
-            <p className="mt-1 font-serif text-lg leading-snug text-[var(--text-primary)]">
+          <div key={stake.id} className="py-5 first:pt-0">
+            <p className="font-serif text-[1.25rem] leading-snug text-[var(--text-heading)]">
               &ldquo;{stake.claim}&rdquo;
-              {stake.grounding.map((ref, index) => (
-                <sup key={ref.id} className="ml-0.5 text-[#3a6965]">
-                  {NOTE_MARKS[index] ?? "•"}
-                </sup>
-              ))}
+              {marks(stake)}
             </p>
             {stake.participantId ? (
-              <p className="mt-1 text-xs text-[var(--text-muted)]">
+              <p className="mt-1 font-sans text-[0.8125rem] text-[var(--text-muted)]">
                 {participants.get(stake.participantId) ?? "Participant"}
               </p>
             ) : null}
-            <p className="mt-4 text-[10px] font-medium tracking-[0.18em] text-[var(--text-muted)]">
-              USED TO SUPPORT
-            </p>
-            <p className="mt-1 text-sm text-[var(--text-secondary)]">{stake.targetConclusion}</p>
-            <p className="mt-4 text-[10px] font-medium tracking-[0.18em] text-[var(--text-muted)]">
-              IF IT IS WRONG
-            </p>
-            <p className="mt-1 text-sm text-[var(--text-secondary)]">
-              {stake.ifFalseEffect === "not-stated" ? "No update is stated." : stake.consequence}
-            </p>
-            <p className="mt-4 text-[10px] font-medium tracking-[0.18em] text-[var(--text-muted)]">STATUS</p>
-            <p className="mt-1 text-sm text-[var(--text-primary)]">{STAKE_STATUS_COPY[stake.diagnostic]}</p>
-            <p className="mt-1 text-xs text-[var(--text-muted)]">{BASIS_LABEL[stake.basis]}</p>
+            <dl className="mt-4 space-y-3 font-sans text-[0.9375rem] leading-relaxed">
+              <div>
+                <dt className="label-caps">Used to support</dt>
+                <dd className="text-[var(--text-secondary)]">{stake.targetConclusion}</dd>
+              </div>
+              <div>
+                <dt className="label-caps">If it is wrong</dt>
+                <dd className="text-[var(--text-secondary)]">{ifWrong(stake)}</dd>
+              </div>
+              <div>
+                <dt className="label-caps">Status</dt>
+                <dd className="text-[var(--text-primary)]">{STAKE_STATUS_COPY[stake.diagnostic]}</dd>
+                <dd className="text-[0.8125rem] text-[var(--text-muted)]">{BASIS_LABEL[stake.basis]}</dd>
+              </div>
+            </dl>
           </div>
         ))}
       </div>
@@ -125,14 +119,14 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
       {notes.length > 0 ? (
         <ol className="mt-5 space-y-1.5 border-t border-[var(--border-divider)] pt-4">
           {notes.map((note) => (
-            <li key={note.ref.id} className="text-xs leading-relaxed text-[var(--text-muted)]">
-              <span className="mr-1 text-[#3a6965]">{note.mark}</span>
+            <li key={note.ref.id} className="font-sans text-xs leading-relaxed text-[var(--text-muted)]">
+              <span className="mr-1 text-deep dark:text-deep-light">{note.mark}</span>
               {note.speaker ? `${note.speaker}: ` : ""}
               &ldquo;{note.ref.quote}&rdquo;
             </li>
           ))}
         </ol>
       ) : null}
-    </section>
+    </ReportSection>
   );
 }
