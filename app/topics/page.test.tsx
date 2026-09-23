@@ -1,7 +1,7 @@
 import "@/test/setup-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
-import { topicSummaries } from "@/data/topicIndex";
+import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
 
 vi.mock("next/link", () => ({
   default: ({ children, href, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
@@ -16,7 +16,7 @@ vi.mock("@/components/BalanceWeightChip", () => ({ BalanceWeightChip: () => null
 import TopicsPageClient, { type TopicsQueryState } from "./TopicsPageClient";
 import { TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
 import { generateMetadata } from "./page";
-import { parseTopicsQuery } from "./_query";
+import { mixCategories, parseTopicsQuery } from "./_query";
 
 const defaultState: TopicsQueryState = {
   category: "all",
@@ -24,7 +24,7 @@ const defaultState: TopicsQueryState = {
   minBalance: 0,
   maxBalance: 100,
   search: "",
-  sort: "category",
+  sort: "mixed",
   page: 1,
 };
 
@@ -112,6 +112,58 @@ describe("TopicsPage discovery filters", () => {
   });
 });
 
+describe("TopicsPage default order", () => {
+  afterEach(cleanup);
+
+  const firstPageCategories = (container: HTMLElement) =>
+    [...container.querySelectorAll('a[href^="/topics/"]')].map((link) => {
+      const id = link.getAttribute("href")!.replace("/topics/", "");
+      return topicSummaries.find((topic) => topic.id === id)!.category;
+    });
+
+  it("opens on a first page that spans every category, not one", () => {
+    window.history.replaceState({}, "", "/topics");
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    const categories = firstPageCategories(view.container);
+
+    expect(new Set(categories)).toEqual(new Set(CATEGORY_ORDER));
+    // Dealt in CATEGORY_ORDER, so the first five rows are one of each.
+    expect(categories.slice(0, CATEGORY_ORDER.length)).toEqual(CATEGORY_ORDER);
+    // The default order keeps a bare URL and shows no category group headings.
+    expect(window.location.search).toBe("");
+    expect(view.queryByRole("heading", { level: 2, name: "Policy" })).toBeNull();
+  });
+
+  it("still groups by category when that sort is chosen, and writes it to the URL", async () => {
+    window.history.replaceState({}, "", "/topics");
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+
+    fireEvent.change(view.getByRole("combobox", { name: "Sort:" }), {
+      target: { value: "category" },
+    });
+
+    await waitFor(() => expect(window.location.search).toBe("?sort=category"));
+    expect(view.getByRole("heading", { level: 2, name: "Policy" })).toBeTruthy();
+    expect(new Set(firstPageCategories(view.container))).toEqual(new Set(["policy"]));
+    expect(parseTopicsQuery({ sort: "category" }).sort).toBe("category");
+  });
+
+  it("deals categories round-robin, heaviest evidence first, deterministically", () => {
+    const topics = [
+      { id: "p1", category: "policy" as const, weight: 50 },
+      { id: "p2", category: "policy" as const, weight: 90 },
+      { id: "p3", category: "policy" as const, weight: 70 },
+      { id: "s1", category: "science" as const, weight: 40 },
+      { id: "e1", category: "economics" as const, weight: 60 },
+    ];
+
+    const mixed = mixCategories(topics).map((topic) => topic.id);
+    expect(mixed).toEqual(["p2", "s1", "e1", "p3", "p1"]);
+    expect(mixCategories(topics).map((topic) => topic.id)).toEqual(mixed);
+    expect(mixCategories(topicSummaries)).toHaveLength(topicSummaries.length);
+  });
+});
+
 describe("TopicsPage pagination metadata", () => {
   it("normalizes discovery query state", () => {
     expect(parseTopicsQuery({
@@ -127,7 +179,7 @@ describe("TopicsPage pagination metadata", () => {
       minBalance: 20,
       maxBalance: 20,
       search: "",
-      sort: "category",
+      sort: "mixed",
       page: 1,
     });
   });

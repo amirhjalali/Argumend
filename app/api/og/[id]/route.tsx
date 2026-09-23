@@ -17,7 +17,7 @@ export const runtime = "edge";
 
 const QUADRANT_COLORS: Record<VerdictQuadrant, string> = {
   settled: "#3a6965",
-  contested: "#a23b3b",
+  contested: "#564d45", // stone; crimson is for cruxes (components/BalanceWeightChip.tsx)
   moderate: "#C4613C",
   open: "#7a7068",
 };

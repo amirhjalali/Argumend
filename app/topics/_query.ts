@@ -1,15 +1,21 @@
 import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
 import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
 import { parsePageParam } from "@/lib/collectionPagination";
-import type { TopicsQueryState } from "./TopicsPageClient";
+// Type-only: a value imported from a "use client" module into this
+// server-side module would arrive as a client reference, not the value.
+import type { SortOption, TopicsQueryState } from "./TopicsPageClient";
 
 export type TopicsSearchParams = Record<
   string,
   string | string[] | undefined
 >;
 
+/** The order a bare /topics URL shows; any other sort is written to ?sort=. */
+export const DEFAULT_SORT: SortOption = "mixed";
+
 const STATUSES: TopicStatus[] = ["settled", "contested", "highly_speculative"];
 const SORTS: TopicsQueryState["sort"][] = [
+  "mixed",
   "category",
   "weight-desc",
   "contested",
@@ -49,7 +55,7 @@ export function parseTopicsQuery(query: TopicsSearchParams): TopicsQueryState {
     search: (first(query.q) ?? "").slice(0, 200),
     sort: sortValue && SORTS.includes(sortValue as TopicsQueryState["sort"])
       ? sortValue as TopicsQueryState["sort"]
-      : "category",
+      : DEFAULT_SORT,
     page: parsePageParam(query.page),
   };
 }
@@ -62,7 +68,7 @@ export function queryForTopicsMetadata(
   if (state.statuses.length > 0) query.set("status", state.statuses.join(","));
   if (state.minBalance > 0) query.set("min", String(state.minBalance));
   if (state.maxBalance < 100) query.set("max", String(state.maxBalance));
-  if (state.sort !== "category") query.set("sort", state.sort);
+  if (state.sort !== DEFAULT_SORT) query.set("sort", state.sort);
   if (state.search) query.set("q", state.search);
   return query;
 }
@@ -82,4 +88,26 @@ export function countMatchingTopics(state: TopicsQueryState): number {
     }
     return true;
   }).length;
+}
+
+/**
+ * Deal the topics out one category at a time, in CATEGORY_ORDER, each
+ * category's own list strongest-evidenced first. The first page then shows
+ * the range of the library instead of 24 policy questions in a row.
+ * Deterministic: the same input always gives the same order.
+ */
+export function mixCategories<T extends { category: TopicCategory; weight: number }>(
+  topics: readonly T[],
+): T[] {
+  const queues = CATEGORY_ORDER.map((category) =>
+    topics.filter((t) => t.category === category).sort((a, b) => b.weight - a.weight),
+  );
+  const rounds = Math.max(0, ...queues.map((queue) => queue.length));
+  const mixed: T[] = [];
+  for (let round = 0; round < rounds; round++) {
+    for (const queue of queues) {
+      if (round < queue.length) mixed.push(queue[round]);
+    }
+  }
+  return mixed;
 }

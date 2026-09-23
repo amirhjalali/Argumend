@@ -270,7 +270,7 @@ function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: 
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
       className="rounded-2xl border bg-panel/85 p-4 md:p-6 shadow-card"
-      style={{ borderColor: `${s.color}66` }}
+      style={{ borderColor: `color-mix(in srgb, ${s.color} 40%, transparent)` }}
     >
       <div className="text-center space-y-4">
         {/* Verdict Label */}
@@ -325,8 +325,8 @@ function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: 
           <div className="h-6 w-px bg-stone-300 dark:bg-stone-600" />
 
           <div
-            className="px-3 py-1 rounded-full text-white font-mono font-bold"
-            style={{ backgroundColor: s.color }}
+            className="px-3 py-1 rounded-full font-mono font-bold"
+            style={{ backgroundColor: s.color, color: s.onColor }}
           >
             {balance}/100 · w{weight}
           </div>

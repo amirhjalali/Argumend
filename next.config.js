@@ -53,9 +53,14 @@ const nextConfig = {
   // pages are prerendered, but /topics (dynamic) loads every flagship at
   // request time, so keep the files in the standalone trace or a runtime
   // render silently sees an empty ledger. Keys are picomatch globs matched
-  // with `contains`, so '/topics' covers /topics and /topics/[id].
+  // with `contains`, so '/topics' covers /topics and /topics/[id]. /ai reads
+  // the AI maps' ledgers on every request (its ?map=/?since= links make it
+  // dynamic), and the revalidated sitemap dates /ai by them, so both need the
+  // same files.
   outputFileTracingIncludes: {
     '/topics': ['./data/argument/**/*.json'],
+    '/ai': ['./data/argument/**/*.json'],
+    '/sitemap.xml': ['./data/argument/**/*.json'],
   },
   devIndicators: {
     appIsrStatus: false,
