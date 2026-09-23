@@ -80,7 +80,7 @@ export default function HowItWorksPage() {
     <AppShell>
       <JsonLd data={howToJsonLd} />
       <div className="mx-auto max-w-4xl px-4 md:px-8">
-        {/* Hero — subtitle before heading for variety */}
+        {/* Hero — heading first, as on every other content page */}
         <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#1a1917]/80 -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
           <Breadcrumbs
             items={[
@@ -88,15 +88,15 @@ export default function HowItWorksPage() {
               { label: "How It Works" },
             ]}
           />
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mx-auto mb-5">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 leading-[1.08] mb-5">
+            Mapping arguments,<br />
+            <span className="text-stone-500 dark:text-stone-400">not winning them</span>
+          </h1>
+          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl mx-auto">
             We turn messy debates into visual maps. You see the strongest arguments
             on every side, trace each claim to its source, and find the one question
             that would actually change someone&apos;s mind.
           </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
-            Mapping arguments,<br />
-            <span className="text-stone-500 dark:text-stone-400">not winning them</span>
-          </h1>
         </div>
 
         {/* Quick Start Steps */}
