@@ -32,7 +32,9 @@ describe("FlagshipIntro", () => {
     const view = render(<FlagshipIntro topic={topic} />);
 
     expect(view.getByText(/800x safer than coal/)).toBeTruthy();
-    expect(view.getByText(/This fact:.*90%/)).toBeTruthy();
+    // Status word only: the pill never prints a percentage (north star).
+    expect(view.getByText("This fact: Established")).toBeTruthy();
+    expect(view.queryByText(/90%/)).toBeNull();
     expect(view.getByText(/The honest version/)).toBeTruthy();
     expect(view.getByText("Second sentence.")).toBeTruthy();
   });
