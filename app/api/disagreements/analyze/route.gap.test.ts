@@ -60,12 +60,13 @@ describe("POST /api/disagreements/analyze gap-metric logging", () => {
   it("writes nothing while the flag is off", async () => {
     vi.stubEnv("ENABLE_GAP_METRIC_LOGGING", "false");
     expect((await POST(post())).status).toBe(200);
+    await new Promise((resolve) => setTimeout(resolve, 0));
     expect(dbState.inserted).toHaveLength(0);
   });
 
   it("writes one counts-only analyze-v2 row", async () => {
     expect((await POST(post())).status).toBe(200);
-    expect(dbState.inserted).toHaveLength(1);
+    await vi.waitFor(() => expect(dbState.inserted).toHaveLength(1));
     const row = GapObservationSchema.parse(dbState.inserted[0]);
     expect(row.lane).toBe("analyze-v2");
     expect(row.topicId).toBeNull();

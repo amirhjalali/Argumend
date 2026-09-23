@@ -67,13 +67,14 @@ describe("POST /api/map-reply gap-metric logging", () => {
     dbState.configured = false;
     const response = await POST(post(RENT_CONTROL_THREAD));
     expect(response.status).toBe(200);
+    await flush();
     expect(dbState.inserted).toHaveLength(0);
   });
 
   it("writes one counts-only row that carries none of the paste", async () => {
     const response = await POST(post(RENT_CONTROL_THREAD));
     expect(response.status).toBe(200);
-    expect(dbState.inserted).toHaveLength(1);
+    await vi.waitFor(() => expect(dbState.inserted).toHaveLength(1));
     const row = GapObservationSchema.parse(dbState.inserted[0]);
     expect(row.lane).toBe("map-reply");
     expect(row.topicId).toBe("rent-control-effectiveness");
@@ -94,10 +95,9 @@ describe("POST /api/map-reply gap-metric logging", () => {
     dbState.failInsert = true;
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     const response = await POST(post(RENT_CONTROL_THREAD));
-    await flush();
     expect(response.status).toBe(200);
     expect((await response.json()).ok).toBe(true);
-    expect(warn).toHaveBeenCalled();
+    await vi.waitFor(() => expect(warn).toHaveBeenCalled());
     warn.mockRestore();
   });
 
@@ -106,7 +106,30 @@ describe("POST /api/map-reply gap-metric logging", () => {
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     const response = await POST(post(RENT_CONTROL_THREAD));
     expect(response.status).toBe(200);
+    await vi.waitFor(() => expect(warn).toHaveBeenCalled());
     expect(dbState.inserted).toHaveLength(0);
     warn.mockRestore();
+  });
+
+  it("still serves the reply when the database module cannot load at all", async () => {
+    // What a server without a loadable postgres driver does. The route must not
+    // import the DB stack at module load (the /api/topic-views 500).
+    vi.resetModules();
+    vi.doMock("@/lib/db", () => {
+      throw new Error("Failed to load external module postgres");
+    });
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      const { POST: freshPost } = await import("./route");
+      const response = await freshPost(post(RENT_CONTROL_THREAD));
+      expect(response.status).toBe(200);
+      expect((await response.json()).ok).toBe(true);
+      await vi.waitFor(() => expect(warn).toHaveBeenCalled());
+      expect(dbState.inserted).toHaveLength(0);
+    } finally {
+      warn.mockRestore();
+      vi.doUnmock("@/lib/db");
+      vi.resetModules();
+    }
   });
 });
