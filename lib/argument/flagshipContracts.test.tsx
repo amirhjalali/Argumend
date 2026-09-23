@@ -213,5 +213,15 @@ describe("flagship debate-map contracts", () => {
     for (const mention of highTravelMentions) {
       expect(mention).toMatch(/employ(?:ment|ed)/i);
     }
+
+    // The 16% is a decline relative to less-exposed peers (Stanford/ADP,
+    // November 2025 version); in levels the group fell about 6%. Copy must
+    // never present it as a fall "relative to late 2022".
+    for (const mention of resultMentions) {
+      expect(mention).not.toMatch(/16%\s+relative to late 2022/i);
+    }
+    for (const mention of [aiIndex?.tagline, aiTopic.meta.tagline, aiTopic.meta.hook, aiTopic.meta.closer?.take]) {
+      expect(mention).toMatch(/16% relative to less-exposed peers/i);
+    }
   });
 });
