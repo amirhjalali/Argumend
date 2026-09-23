@@ -5,7 +5,7 @@ describe("buildVerdictCardSvg", () => {
   it("exports the displayed verdict and truthful offline provenance", () => {
     const svg = buildVerdictCardSvg({
       topicTitle: "Nuclear <Energy> & Climate",
-      winnerLabel: "DRAW",
+      winnerLabel: "SCORES EVEN",
       forScore: 6.3,
       againstScore: 6.6,
       drivingDimension: "Evidence Quality",
@@ -24,7 +24,7 @@ describe("buildVerdictCardSvg", () => {
   it("uses square social-card dimensions for Instagram", () => {
     const svg = buildVerdictCardSvg({
       topicTitle: "A topic",
-      winnerLabel: "FOR WINS",
+      winnerLabel: "SCORES LEANED FOR",
       forScore: 8,
       againstScore: 4,
       drivingDimension: null,

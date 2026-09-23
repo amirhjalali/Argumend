@@ -190,10 +190,10 @@ function VerdictBadge({ winner }: { winner: "for" | "against" | "draw" | null })
 
   const label =
     winner === "for"
-      ? "Proponent wins"
+      ? "Scores leaned proponent"
       : winner === "against"
-        ? "Skeptic wins"
-        : "Draw";
+        ? "Scores leaned skeptic"
+        : "Scores even";
 
   const style =
     winner === "for"
