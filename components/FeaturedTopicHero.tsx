@@ -95,11 +95,14 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
         </div>
 
         {/* The crux arrives with the lazily loaded topic module. Hold roughly
-            its height until then so the sections below don't jump. */}
-        <div className={settled ? undefined : "min-h-[52rem] md:min-h-[36rem]"}>
+            its height until then so the sections below don't jump. Measured
+            on the featured topic at 390/768/1024/1440 px (1425/1372/941/775
+            px), rounded down so a shorter crux shrinks the gap a little
+            rather than a longer one pushing the page a lot. */}
+        <div className={settled ? undefined : "min-h-[80rem] md:min-h-[76rem] lg:min-h-[54rem] xl:min-h-[44rem]"}>
         {crux ? (
           <div className="mt-8 border-l-2 border-crux pl-5 md:pl-6">
-            <p className="label-caps text-crux dark:text-crux-light">The crux</p>
+            <p className="label-caps text-crux dark:text-[#e66767]">The crux</p>
             <h3 className="mt-1 max-w-3xl font-serif text-2xl leading-snug text-primary dark:text-stone-200 md:text-[1.875rem]">
               {crux.title}
             </h3>
@@ -122,7 +125,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
               </p>
             </div>
             <div className="border-t border-stone-300/70 py-6 dark:border-divider md:border-l md:border-t-0 md:py-8 md:pl-10">
-              <p className="label-caps text-skeptic dark:text-skeptic-light">
+              <p className="label-caps text-skeptic dark:text-[#cfa88a]">
                 What would change a skeptic&rsquo;s mind
               </p>
               <p className="mt-2 font-serif text-lg leading-relaxed text-primary dark:text-stone-200 md:text-[1.25rem]">
@@ -174,7 +177,7 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
               ) : null}
               {againstEvidence ? (
                 <li className="border-t border-stone-300/70 py-4 dark:border-divider">
-                  <p className="text-xs font-medium text-skeptic dark:text-skeptic-light">
+                  <p className="text-xs font-medium text-skeptic dark:text-[#cfa88a]">
                     Against the claim
                   </p>
                   <p className="mt-1 text-[0.9375rem] font-medium leading-snug text-primary dark:text-stone-200">

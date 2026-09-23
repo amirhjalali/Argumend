@@ -115,7 +115,7 @@ function LibraryIndex() {
                   <span className="label-caps text-current">
                     {CATEGORY_LABELS[shelf.category]}
                   </span>
-                  <span className="pb-px text-xs tabular-nums text-muted dark:text-stone-500">
+                  <span className="pb-px text-xs tabular-nums text-muted">
                     {shelf.count}
                   </span>
                 </Link>

@@ -312,7 +312,7 @@ export default function TopicsPageClient({
                 aria-current={activeCategory === "all" ? "page" : undefined}
                 className={tabClass(activeCategory === "all")}
               >
-                All <span className="tabular-nums text-muted dark:text-stone-500">({categoryCounts.all})</span>
+                All <span className="tabular-nums text-muted">({categoryCounts.all})</span>
               </Link>
               {CATEGORY_ORDER.map((cat) => (
                 <Link
@@ -322,7 +322,7 @@ export default function TopicsPageClient({
                   aria-current={activeCategory === cat ? "page" : undefined}
                   className={tabClass(activeCategory === cat)}
                 >
-                  {CATEGORY_LABELS[cat]} <span className="tabular-nums text-muted dark:text-stone-500">({categoryCounts[cat]})</span>
+                  {CATEGORY_LABELS[cat]} <span className="tabular-nums text-muted">({categoryCounts[cat]})</span>
                 </Link>
               ))}
             </div>
@@ -375,7 +375,7 @@ export default function TopicsPageClient({
             <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-lg text-sm text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200 marker:content-none [&::-webkit-details-marker]:hidden">
               <ChevronRight className="h-4 w-4 transition-transform group-open:rotate-90" aria-hidden="true" />
               <span>Filters</span>
-              <span className="hidden text-muted dark:text-stone-500 sm:inline">status, evidence balance</span>
+              <span className="hidden text-muted sm:inline">status, evidence balance</span>
               {advancedFilterCount > 0 && (
                 <span
                   className="rounded-full bg-deep/10 px-2 py-0.5 text-xs font-medium text-deep dark:bg-[#8bb5b1]/15 dark:text-[#8bb5b1]"
@@ -417,7 +417,7 @@ export default function TopicsPageClient({
                     {minBalance}&ndash;{maxBalance}
                   </span>
                 </legend>
-                <p className="mb-1 text-xs text-muted dark:text-stone-500">
+                <p className="mb-1 text-xs text-muted">
                   0 leans against the claim, 100 leans toward it.
                 </p>
                 <label className="flex items-center gap-3 text-xs text-secondary dark:text-stone-400">
@@ -504,7 +504,7 @@ export default function TopicsPageClient({
                         >
                           {CATEGORY_LABELS[group.category]}
                         </h2>
-                        <span className="text-xs tabular-nums text-muted dark:text-stone-500">
+                        <span className="text-xs tabular-nums text-muted">
                           {categoryCounts[group.category]} topics
                         </span>
                       </div>
@@ -522,7 +522,7 @@ export default function TopicsPageClient({
                             <p className="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
                               {topic.meta_claim}
                             </p>
-                            <p className="mt-2 flex flex-wrap gap-x-4 text-[0.8125rem] text-muted dark:text-stone-500">
+                            <p className="mt-2 flex flex-wrap gap-x-4 text-[0.8125rem] text-muted">
                               {!group.category && <span>{CATEGORY_LABELS[topic.category]}</span>}
                               <span>{STATUS_LABELS[topic.status]}</span>
                               <span>

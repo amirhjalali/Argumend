@@ -48,7 +48,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-stone-300/70 dark:border-divider pt-4">
           <div className="flex flex-wrap items-center gap-x-5">
-            <p className="text-xs text-stone-500 dark:text-stone-400">
+            <p className="text-xs text-muted">
               &copy; 2026 Argumend. Built with stubbornness and peer review.
             </p>
             {/* Legal links belong on every page, not in a discovery column. */}
@@ -58,7 +58,7 @@ export function Footer() {
                   key={link.href}
                   href={link.href}
                   prefetch={false}
-                  className="inline-flex min-h-11 items-center rounded-md text-xs text-stone-500 transition-colors duration-200 hover:text-deep dark:text-stone-400"
+                  className="inline-flex min-h-11 items-center rounded-md text-xs text-muted transition-colors duration-200 hover:text-deep dark:hover:text-[#8bb5b1]"
                 >
                   {link.label}
                 </Link>
