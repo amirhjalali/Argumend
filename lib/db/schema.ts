@@ -502,6 +502,11 @@ export const gapObservations = pgTable(
   (table) => [
     index("gap_observations_observed_on_idx").on(table.observedOn),
     check("gap_observations_topic_id_slug", sql`${table.topicId} IS NULL OR ${table.topicId} ~ '^[a-z0-9]+(-[a-z0-9]+)*$'`),
+    // Every crux id a slug: joined on a space, the whole array must read as slugs.
+    check(
+      "gap_observations_crux_claim_ids_slugs",
+      sql`cardinality(${table.cruxClaimIds}) <= 32 AND array_to_string(${table.cruxClaimIds}, ' ') ~ '^([a-z0-9]+(-[a-z0-9]+)*( [a-z0-9]+(-[a-z0-9]+)*)*)?$'`,
+    ),
     check("gap_observations_model_id_shape", sql`${table.modelId} ~ '^[A-Za-z0-9][A-Za-z0-9._:@/-]*$'`),
     check("gap_observations_prompt_version_shape", sql`${table.promptVersion} ~ '^[A-Za-z0-9][A-Za-z0-9._:@/-]*$'`),
     check(

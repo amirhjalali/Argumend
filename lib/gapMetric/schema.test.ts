@@ -37,6 +37,7 @@ describe("gap_observations table: counts and ids only", () => {
     expect(checks).toEqual(
       expect.arrayContaining([
         "gap_observations_topic_id_slug",
+        "gap_observations_crux_claim_ids_slugs",
         "gap_observations_model_id_shape",
         "gap_observations_prompt_version_shape",
         "gap_observations_labels_partition",
@@ -55,6 +56,7 @@ describe("gap_observations table: counts and ids only", () => {
     const body = table.slice(0, table.indexOf(");\n") + 2);
     expect(body).not.toMatch(/\btext\b|\bjsonb?\b/);
     expect(body).toContain("gap_observations_topic_id_slug");
+    expect(body).toContain("gap_observations_crux_claim_ids_slugs");
     expect(sql).not.toContain('CREATE TABLE "disagreement_');
   });
 });

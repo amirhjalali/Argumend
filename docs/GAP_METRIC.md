@@ -44,7 +44,8 @@ timestamp finer than a day. Enforced four ways:
    sentences). The logger parses before inserting and drops anything refused.
 2. A type-level test fails `tsc` if a new free-string field is added to the record.
 3. The table has no `text`/`json` column; the only varchar columns are four short
-   id columns, each pinned by a Postgres `CHECK` regex. `lib/gapMetric/schema.test.ts`
+   id columns, each pinned by a Postgres `CHECK` regex (for `crux_claim_ids`, every
+   element must be a slug and there are at most 32). `lib/gapMetric/schema.test.ts`
    inspects the Drizzle columns and the migration SQL.
 4. Route tests assert the stored row contains no speaker handle and no long word
    from the pasted fixture.

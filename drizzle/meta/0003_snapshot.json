@@ -1074,6 +1074,10 @@
           "name": "gap_observations_topic_id_slug",
           "value": "\"gap_observations\".\"topic_id\" IS NULL OR \"gap_observations\".\"topic_id\" ~ '^[a-z0-9]+(-[a-z0-9]+)*$'"
         },
+        "gap_observations_crux_claim_ids_slugs": {
+          "name": "gap_observations_crux_claim_ids_slugs",
+          "value": "cardinality(\"gap_observations\".\"crux_claim_ids\") <= 32 AND array_to_string(\"gap_observations\".\"crux_claim_ids\", ' ') ~ '^([a-z0-9]+(-[a-z0-9]+)*( [a-z0-9]+(-[a-z0-9]+)*)*)?$'"
+        },
         "gap_observations_model_id_shape": {
           "name": "gap_observations_model_id_shape",
           "value": "\"gap_observations\".\"model_id\" ~ '^[A-Za-z0-9][A-Za-z0-9._:@/-]*$'"

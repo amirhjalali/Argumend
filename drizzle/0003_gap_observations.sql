@@ -23,6 +23,7 @@ CREATE TABLE "gap_observations" (
 	"prompt_version" varchar(64) NOT NULL,
 	"observed_on" date NOT NULL,
 	CONSTRAINT "gap_observations_topic_id_slug" CHECK ("gap_observations"."topic_id" IS NULL OR "gap_observations"."topic_id" ~ '^[a-z0-9]+(-[a-z0-9]+)*$'),
+	CONSTRAINT "gap_observations_crux_claim_ids_slugs" CHECK (cardinality("gap_observations"."crux_claim_ids") <= 32 AND array_to_string("gap_observations"."crux_claim_ids", ' ') ~ '^([a-z0-9]+(-[a-z0-9]+)*( [a-z0-9]+(-[a-z0-9]+)*)*)?$'),
 	CONSTRAINT "gap_observations_model_id_shape" CHECK ("gap_observations"."model_id" ~ '^[A-Za-z0-9][A-Za-z0-9._:@/-]*$'),
 	CONSTRAINT "gap_observations_prompt_version_shape" CHECK ("gap_observations"."prompt_version" ~ '^[A-Za-z0-9][A-Za-z0-9._:@/-]*$'),
 	CONSTRAINT "gap_observations_labels_partition" CHECK ("gap_observations"."talking_past_count" + "gap_observations"."definitional_count" + "gap_observations"."undisputed_count" + "gap_observations"."contested_count" = "gap_observations"."proposition_count")
