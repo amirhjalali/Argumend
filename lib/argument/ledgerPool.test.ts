@@ -152,6 +152,14 @@ describe("dates", () => {
     expect(resolveSince("2026-02-30", "2026-09-22")).toBe("2026-06-24");
     expect(resolveSince("<script>", "2026-09-22")).toBe("2026-06-24");
   });
+
+  it("resolveSince clamps a day before the floor to the floor, never the default", () => {
+    expect(resolveSince("0001-01-01", "2026-09-22", "2023-10-27")).toBe("2023-10-27");
+    expect(resolveSince("2023-10-26", "2026-09-22", "2023-10-27")).toBe("2023-10-27");
+    expect(resolveSince("2023-10-27", "2026-09-22", "2023-10-27")).toBe("2023-10-27");
+    expect(resolveSince("2024-01-01", "2026-09-22", "2023-10-27")).toBe("2024-01-01");
+    expect(resolveSince(undefined, "2026-09-22", "2026-08-01")).toBe("2026-06-24");
+  });
 });
 
 // ---------------------------------------------------------------------------

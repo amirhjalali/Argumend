@@ -16,11 +16,17 @@ import { claimOf, cruxQuestion, type IndexedMap } from "./types";
 const ORDINAL = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth"];
 const CARDINAL = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
-/** Why nothing settles it, for the kinds a standing fork can have. */
-const STANDING_REASON: Record<string, string> = {
-  "value-difference": "It turns on a difference in values.",
-  "definitional-choice": "It turns on a choice of definition.",
-  "authority-allocation": "It turns on who gets to decide.",
+/**
+ * What settles a standing fork, per kind. The map pages' line names a value
+ * disagreement, so it is used for that kind only; a definitional or
+ * who-decides fork saying "value disagreement" would misdescribe it.
+ */
+const STANDING_LINE: Record<string, string> = {
+  "value-difference": STANDING_DISAGREEMENT_LINE,
+  "definitional-choice":
+    "Nothing does — it turns on a choice of definition; the map holds both horns.",
+  "authority-allocation":
+    "Nothing does — it turns on who gets to decide; the map holds both horns.",
 };
 
 export function CruxCard({
@@ -41,9 +47,8 @@ export function CruxCard({
   const latest = movement.at(-1)?.entry;
   const status = latest?.status;
   const standing = status === "unresolvable" || claim?.resolution?.kind === "value-difference";
-  const standingReason = standing
-    ? STANDING_REASON[latest?.resolutionKind ?? claim?.resolution?.kind ?? ""]
-    : undefined;
+  const standingLine =
+    STANDING_LINE[latest?.resolutionKind ?? claim?.resolution?.kind ?? ""] ?? STANDING_DISAGREEMENT_LINE;
   const quiet = latest === undefined || latest.date < since;
   const rankWord = ORDINAL[crux.mapRank - 1] ?? `number ${crux.mapRank}`;
   const countWord = CARDINAL[crux.mapCruxCount - 1] ?? String(crux.mapCruxCount);
@@ -93,12 +98,7 @@ export function CruxCard({
           What would settle it:
         </span>{" "}
         {standing ? (
-          <>
-            <span className="italic text-[#8B5A3C] dark:text-[#cfa88a]">
-              {STANDING_DISAGREEMENT_LINE}
-            </span>
-            {standingReason && <> {standingReason}</>}
-          </>
+          <span className="italic text-[#8B5A3C] dark:text-[#cfa88a]">{standingLine}</span>
         ) : (
           sentence(claim?.resolution?.condition ?? "not yet specified")
         )}

@@ -133,10 +133,15 @@ export function ledgerAsOf(maps: readonly PoolMap[]): string | null {
 
 /**
  * The `?since=` value to use: the reader's day when it is a real calendar day
- * no later than `asOf`, otherwise `DEFAULT_SINCE_DAYS` before `asOf`.
+ * no later than `asOf`, otherwise `DEFAULT_SINCE_DAYS` before `asOf`. A day
+ * before `floor` (the earliest dated entry) shows the same thing as the floor,
+ * so it becomes the floor: `?since=0001-01-01` reads "since" the first
+ * source, not "since January 1, 1".
  */
-export function resolveSince(raw: string | undefined, asOf: string): string {
-  if (raw !== undefined && isIsoDay(raw) && raw <= asOf) return raw;
+export function resolveSince(raw: string | undefined, asOf: string, floor?: string): string {
+  if (raw !== undefined && isIsoDay(raw) && raw <= asOf) {
+    return floor !== undefined && raw < floor ? floor : raw;
+  }
   return shiftDay(asOf, -DEFAULT_SINCE_DAYS);
 }
 
