@@ -26,11 +26,11 @@ const topicSummaries = topicSummaryData as TopicSummary[];
 function getStatusLabel(status: string): string {
   switch (status) {
     case "settled":
-      return "Settled";
+      return "Evidence converges";
     case "contested":
-      return "Contested";
+      return "Evidence divided";
     case "highly_speculative":
-      return "Highly Speculative";
+      return "Evidence thin";
     default:
       return status;
   }

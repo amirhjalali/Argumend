@@ -50,9 +50,9 @@ export function buildVerdictCardSvg(data: VerdictCardImageData): string {
   const barWidth = scoreX - barX - 36;
   const forWidth = Math.max(0, Math.min(100, data.forScore * 10)) / 100 * barWidth;
   const againstWidth = Math.max(0, Math.min(100, data.againstScore * 10)) / 100 * barWidth;
-  const winnerFill = data.winnerLabel === "FOR WINS"
+  const winnerFill = data.winnerLabel === "SCORES LEANED FOR"
     ? "#c4613c"
-    : data.winnerLabel === "AGAINST WINS"
+    : data.winnerLabel === "SCORES LEANED AGAINST"
       ? "#4f7b77"
       : "#78716c";
   const sourceLabel = data.mode === "programmatic" ? "Programmatic rubric" : "AI judges";

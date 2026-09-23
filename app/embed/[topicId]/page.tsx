@@ -96,10 +96,10 @@ function VerdictBanner({
   const margin = Math.abs(forAvg - againstAvg).toFixed(1);
   const label =
     winner === "for"
-      ? "For side wins"
+      ? "Scores leaned toward the for side"
       : winner === "against"
-        ? "Against side wins"
-        : "Draw";
+        ? "Scores leaned toward the against side"
+        : "Scores came out even";
 
   return (
     <div className="flex items-center justify-between rounded-lg border px-3 py-2 border-deep/20 bg-deep/5 dark:border-deep-light/30 dark:bg-deep-light/10">

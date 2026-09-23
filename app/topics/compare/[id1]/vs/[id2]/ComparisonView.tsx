@@ -32,9 +32,9 @@ const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
 };
 
 const statusLabels: Record<TopicStatus, string> = {
-  settled: "Settled",
-  contested: "Contested",
-  highly_speculative: "Highly Speculative",
+  settled: "Evidence converges",
+  contested: "Evidence divided",
+  highly_speculative: "Evidence thin",
 };
 
 const verificationColors: Record<

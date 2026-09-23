@@ -183,15 +183,15 @@ export default function HowItWorksPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-4 text-center">
-                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Settled</h3>
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Evidence largely converges</h3>
                 <p className="text-sm text-stone-500">High weight, strong lean. Think: &ldquo;Did we land on the moon?&rdquo;</p>
               </div>
               <div className="p-4 text-center border-x border-stone-200/50 dark:border-[var(--border-default)]">
-                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Well-mapped, genuinely contested</h3>
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Well-mapped, evidence still divided</h3>
                 <p className="text-sm text-stone-500">High weight, weak lean. Richly evidenced, but reasonable people still land on different sides.</p>
               </div>
               <div className="p-4 text-center">
-                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Open question</h3>
+                <h3 className="font-serif text-base text-primary dark:text-stone-200 mb-1">Evidence still thin</h3>
                 <p className="text-sm text-stone-500">Low weight, regardless of lean. We simply don&apos;t know enough yet.</p>
               </div>
             </div>
