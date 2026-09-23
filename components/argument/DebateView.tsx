@@ -221,7 +221,8 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
           reader: what would settle it, or that nothing does. */}
       <section id="cruxes" aria-label="Cruxes" className="mt-12 scroll-mt-4">
         <h2 className="font-serif text-[1.625rem] leading-tight text-stone-900 dark:text-stone-100">
-          The whole fight turns on {cruxes.length === 5 ? "five" : cruxes.length} questions
+          The whole fight turns on {numberWord(cruxes.length).toLowerCase()}{" "}
+          {cruxes.length === 1 ? "question" : "questions"}
         </h2>
         <p className="mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300">
           Settle one and whole positions move. {settleTally(cruxes, nodesById, ledger)}
@@ -255,55 +256,56 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
                     >
                       <span
                         aria-hidden="true"
-                        className="pr-3 text-right font-serif text-[1.875rem] leading-[1.6rem] text-[#a23b3b] dark:text-[#d27070] sm:pr-4 sm:text-[2.125rem] sm:leading-[1.75rem]"
+                        className="row-span-4 pr-3 text-right font-serif text-[1.875rem] leading-[1.6rem] text-[#a23b3b] dark:text-[#d27070] sm:pr-4 sm:text-[2.125rem] sm:leading-[1.75rem]"
                       >
                         {index + 1}
                       </span>
-                      <span className="block min-w-0 pl-4 sm:pl-5">
-                        <h3 className="flex items-start gap-3">
-                          <span
-                            className={`text-pretty font-serif text-[1.1875rem] font-medium leading-[1.35] sm:text-[1.3125rem] ${
-                              isResolved
-                                ? "text-stone-600 dark:text-stone-400"
-                                : "text-stone-900 dark:text-stone-100"
-                            }`}
-                          >
-                            {note?.question ?? claim.summary ?? claim.statement}
-                          </span>
-                          <span
-                            aria-hidden="true"
-                            className="ml-auto mt-0.5 shrink-0 font-sans text-xl leading-none text-muted transition-transform group-open/crux:rotate-90 motion-reduce:transition-none dark:text-stone-400"
-                          >
-                            ›
-                          </span>
-                        </h3>
+                      {/* The heading is a direct child of <summary>, the one
+                          place its content model allows one. */}
+                      <h3 className={`${ENTRY_COLUMN} flex items-start gap-3`}>
+                        <span
+                          className={`text-pretty font-serif text-[1.1875rem] font-medium leading-[1.35] sm:text-[1.3125rem] ${
+                            isResolved
+                              ? "text-stone-600 dark:text-stone-400"
+                              : "text-stone-900 dark:text-stone-100"
+                          }`}
+                        >
+                          {note?.question ?? claim.summary ?? claim.statement}
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          className="ml-auto mt-0.5 shrink-0 font-sans text-xl leading-none text-muted transition-transform group-open/crux:rotate-90 motion-reduce:transition-none dark:text-stone-400"
+                        >
+                          ›
+                        </span>
+                      </h3>
+                      <span className={ENTRY_COLUMN}>
                         <SettleAnswer
                           mode={mode}
                           kind={kind}
                           condition={condition}
                           resolved={isResolved}
                         />
-                        {(movement.length > 0 || claim.implicit) && (
-                          <span className="mt-3.5 flex flex-wrap items-center gap-x-5 gap-y-2">
-                            {movement.length > 0 && <CruxMovementTrack movement={movement} />}
-                            {claim.implicit && (
-                              <span className="label-caps !text-[0.9375rem] !leading-none">
-                                Hidden assumption
-                              </span>
-                            )}
-                          </span>
-                        )}
                       </span>
+                      {movement.length > 0 && (
+                        <span className={`${ENTRY_COLUMN} mt-3.5 flex`}>
+                          <CruxMovementTrack movement={movement} />
+                        </span>
+                      )}
+                      {claim.implicit && (
+                        <span
+                          className={`${ENTRY_COLUMN} mt-3 font-serif text-[0.9375rem] italic leading-snug text-muted dark:text-stone-400`}
+                        >
+                          <span className="label-caps !text-[0.9375rem] not-italic">
+                            Hidden assumption:
+                          </span>{" "}
+                          nobody in the debate says it out loud, but the positions lean on it.
+                        </span>
+                      )}
                     </summary>
                     <div className={`${ENTRY_GRID} pb-6 pr-4`}>
                       <span aria-hidden="true" />
                       <div className="min-w-0 space-y-4 pl-4 sm:pl-5">
-                        {claim.implicit && (
-                          <p className="font-serif text-[0.9375rem] italic leading-relaxed text-muted dark:text-stone-400">
-                            Nobody in the debate says this out loud, but the positions
-                            lean on it.
-                          </p>
-                        )}
                         <RunIn lead={leads.stakes} emphasis>
                           {note?.soWhat ?? renderStakes(crux, nodesById)}
                         </RunIn>
@@ -571,6 +573,8 @@ const AI_MAP_IDS: ReadonlySet<string> = new Set(["ai-mass-unemployment", "capita
 
 /** Numeral gutter | entry. The margin rule sits on the column boundary. */
 const ENTRY_GRID = "grid grid-cols-[2.5rem_minmax(0,1fr)] sm:grid-cols-[3.75rem_minmax(0,1fr)]";
+/** A summary row in the entry column, right of the margin rule. */
+const ENTRY_COLUMN = "col-start-2 min-w-0 pl-4 sm:pl-5";
 /**
  * The margin rule, drawn per entry so the list stays `ol > li`. It starts a
  * pixel high to bridge each divider, so the rule reads as one line that the
@@ -590,7 +594,10 @@ type SettleMode = "evidence" | "agreement" | "standing" | "unstated";
 
 function settleMode(claim: Claim, latestStatus?: CruxLedgerStatus): SettleMode {
   const kind = claim.resolution?.kind;
-  if (latestStatus === "unresolvable" || kind === "value-difference") return "standing";
+  if (latestStatus === "unresolvable") return "standing";
+  // A resolved entry outranks the authored kind: "nothing settles it" under a
+  // "Resolved" track would contradict the ledger.
+  if (kind === "value-difference" && latestStatus !== "resolved") return "standing";
   if (!claim.resolution?.condition) return "unstated";
   if (kind === "definitional-choice" || kind === "authority-allocation") return "agreement";
   return "evidence";
@@ -613,7 +620,7 @@ const numberWord = (n: number) => NUMBER_WORDS[n] ?? String(n);
  * "Four could be settled by evidence, and one not at all." Counts only;
  * it never says which way any of them will go.
  */
-function settleTally(
+export function settleTally(
   cruxes: CruxResult[],
   nodesById: Map<string, ArgumentNode>,
   ledger: CruxLedgerEntry[],
@@ -625,23 +632,31 @@ function settleTally(
     const latest = claimMovement(ledger, crux.claimId).at(-1)?.entry.status;
     counts[settleMode(claim, latest)] += 1;
   }
+  // Clauses start lower-case; only the sentence's first word is capitalized.
+  // "Standing" says "not by evidence", never "not at all": a definitional
+  // fork the ledger calls unresolvable can still close by stipulation.
   const clauses: string[] = [];
-  if (counts.evidence) clauses.push(`${numberWord(counts.evidence)} could be settled by evidence`);
+  const count = (n: number) => numberWord(n).toLowerCase();
+  if (counts.evidence) clauses.push(`${count(counts.evidence)} could be settled by evidence`);
   if (counts.agreement) {
     clauses.push(
-      `${numberWord(counts.agreement)}${clauses.length ? "" : " could be settled"} by agreeing on terms`,
+      `${count(counts.agreement)}${clauses.length ? "" : " could be settled"} by agreeing on terms`,
     );
   }
   if (counts.standing) {
-    clauses.push(clauses.length ? `${numberWord(counts.standing)} not at all` : `${numberWord(counts.standing)} cannot be settled at all`);
+    clauses.push(
+      clauses.length
+        ? `${count(counts.standing)} not by evidence at all`
+        : `${count(counts.standing)} cannot be settled by evidence`,
+    );
   }
   if (counts.unstated) {
-    clauses.push(`${numberWord(counts.unstated)} ${counts.unstated === 1 ? "has" : "have"} no stated test yet`);
+    clauses.push(`${count(counts.unstated)} ${counts.unstated === 1 ? "has" : "have"} no stated test yet`);
   }
   if (clauses.length === 0) return "";
   const last = clauses.pop()!;
-  const sentence = clauses.length ? `${clauses.join(", ")}, and ${last.toLowerCase()}` : last;
-  return `${sentence}.`;
+  const sentence = clauses.length ? `${clauses.join(", ")}, and ${last}` : last;
+  return `${sentence[0].toUpperCase()}${sentence.slice(1)}.`;
 }
 
 /** Capitalize a lower-case authored fragment and close it with a period. */

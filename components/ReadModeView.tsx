@@ -238,7 +238,13 @@ export function ReadModeView({ topic }: { topic: Topic }) {
   // open sheet and the CTA can't overlap on narrow screens.
   const tocHidden = controlsHidden && !mobileTocOpen;
   const mapHidden = controlsHidden || mobileTocOpen;
-  const floatMotion = "transition-transform transition-opacity duration-300 ease-out";
+  // One transition list: two `transition-*` utilities overwrite each other's
+  // property. Visibility flips at the end of a hide, so a hidden float also
+  // leaves the tab order and the accessibility tree instead of sitting there
+  // invisible but focusable.
+  const floatMotion = "transition-[transform,opacity,visibility] duration-300 ease-out";
+  const floatHidden = "invisible translate-y-[150%] opacity-0 pointer-events-none";
+  const floatShown = "visible translate-y-0 opacity-100";
   // Lift the floats above the iOS home indicator (safe-area inset → 0 on desktop).
   const floatBottom = { bottom: "calc(env(safe-area-inset-bottom) + 1.25rem)" };
 
@@ -485,9 +491,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
       {tocItems.length > 0 && (
         <div
           className={`lg:hidden fixed left-5 z-30 ${floatMotion} ${
-            tocHidden
-              ? "translate-y-[150%] opacity-0 pointer-events-none"
-              : "translate-y-0 opacity-100"
+            tocHidden ? floatHidden : floatShown
           }`}
           style={floatBottom}
         >
@@ -533,10 +537,8 @@ export function ReadModeView({ topic }: { topic: Topic }) {
 
       {/* ─── Sticky open-the-map CTA ─── */}
       <div
-        className={`fixed right-5 z-30 ${floatMotion} lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto ${
-          mapHidden
-            ? "translate-y-[150%] opacity-0 pointer-events-none"
-            : "translate-y-0 opacity-100"
+        className={`fixed right-5 z-30 ${floatMotion} lg:visible lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto ${
+          mapHidden ? floatHidden : floatShown
         }`}
         style={floatBottom}
       >

@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 import { DebateView } from "@/components/argument/DebateView";
 import type { ArgumentNode, Claim } from "@/types/argument";
 import { loadArgumentTopic } from "./draftTopics";
+import { findVerdictLanguage } from "./ledger";
 import { argumentTopicIds, argumentTopicIndex } from "./topicIds";
 import {
   ARGUMENT_TOPICS_FIRST_PUBLISHED,
@@ -113,6 +114,22 @@ describe("flagship debate-map contracts", () => {
           relevantNeighbors.length,
           `${topicId}/${crux.claimId} needs a direct evidence or claim relationship`,
         ).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("keeps authored crux copy conditional, never a verdict on a side", () => {
+    // The ledger's verdict patterns, plus "<a case> is right/wrong", which
+    // they leave to topic-specific names ("the displacement case is right").
+    const sideIsRight = /\b(case|camp|side|view|story) (is|was|are|were) (right|wrong|correct|mistaken)\b/i;
+    for (const topicId of argumentTopicIds) {
+      const notes = loadArgumentTopic(topicId)!.meta.cruxNotes ?? {};
+      for (const [claimId, note] of Object.entries(notes)) {
+        for (const text of collectStrings(note)) {
+          expect(findVerdictLanguage(text), `${topicId}/${claimId}: ${text}`).toEqual([]);
+          expect(text, `${topicId}/${claimId}`).not.toMatch(sideIsRight);
+          expect(text, `${topicId}/${claimId}`).not.toMatch(/\btheatre\b/i);
+        }
       }
     }
   });

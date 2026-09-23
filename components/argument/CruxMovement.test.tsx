@@ -368,7 +368,7 @@ describe("DebateView crux entries lead with how each could close", () => {
     render(<DebateView meta={base} graph={graph} cruxes={cruxes} ledger={[fork]} />);
     const intro = screen.getByText(/Settle one and whole positions move\./);
     // The fixture's fork plus claims with no written condition.
-    expect(intro.textContent).toMatch(/One cannot be settled at all, and \w+ ha(s|ve) no stated test yet\.$/);
+    expect(intro.textContent).toMatch(/One cannot be settled by evidence, and \w+ ha(s|ve) no stated test yet\.$/);
     expect(intro.textContent).not.toMatch(/%|winner/i);
   });
 
