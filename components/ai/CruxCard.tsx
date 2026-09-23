@@ -30,7 +30,11 @@ export function CruxCard({
   const movement = claimMovement(map.ledger, crux.claimId);
   const latest = movement.at(-1)?.entry;
   const status = latest?.status;
-  const standing = status === "unresolvable" || claim?.resolution?.kind === "value-difference";
+  // Same rule as the map pages: a resolved entry outranks an authored value
+  // fork, so "Nothing does" never sits under a Resolved status.
+  const standing =
+    status === "unresolvable" ||
+    (claim?.resolution?.kind === "value-difference" && status !== "resolved");
   const standingLine = standingLineFor(latest?.resolutionKind ?? claim?.resolution?.kind);
   const quiet = latest === undefined || latest.date < since;
   const rankWord = ORDINAL[crux.mapRank - 1] ?? `number ${crux.mapRank}`;
