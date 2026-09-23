@@ -68,6 +68,9 @@ const config: Config = {
           warn: "#d4805f", // Soft rust warning
           link: "#b05434", // Rust-600 link
           error: "#c4584d",
+          // Theme-aware teal for text: #3a6965 light, #8bb5b1 dark (globals.css
+          // --accent-text). `text-accent-text`, `decoration-accent-text/40`.
+          text: "rgb(var(--accent-text-rgb) / <alpha-value>)",
         },
 
         // Bold semantic colors for graph elements

@@ -46,6 +46,12 @@
 
   --crux-crimson: #a23b3b;
 
+  /* Teal for TEXT (links, evidence/settled labels). Light: deep #3a6965,
+     5.50:1 on the canvas. Dark: #8bb5b1, 7.82:1 on #1a1917 and 6.91:1 on
+     cards; deep-light #4f7b77 is only 3.71:1 there, so never use it for text. */
+  --accent-text: #3a6965;
+  --accent-text-rgb: 58 105 101;
+
   --border-default: rgba(214, 211, 209, 0.6);
   --border-subtle: rgba(214, 211, 209, 0.4);
   --border-muted: rgba(214, 211, 209, 0.5);
@@ -92,6 +98,9 @@
   --border-divider-rgb: 61 58 54;
 
   --crux-crimson: #c45c5c; /* crux.light — brighter for dark backgrounds */
+
+  --accent-text: #8bb5b1;
+  --accent-text-rgb: 139 181 177;
 
   --border-default: rgba(61, 58, 54, 0.8);
   --border-subtle: rgba(61, 58, 54, 0.5);
