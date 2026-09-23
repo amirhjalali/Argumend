@@ -159,13 +159,14 @@
       "claimId": "c-mass-unemployment-definition-strict",
       "date": "2026-09-15",
       "noticedAt": "2026-09-22",
-      "status": "open",
+      "status": "unresolvable",
+      "resolutionKind": "definitional-choice",
       "evidenceNodeIds": [],
-      "note": "Yale Budget Lab's tracker judges disruption by occupational churn and the AI exposure of the unemployed, not a U-3 threshold, and finds no AI footprint yet. The sides still measure with different yardsticks.",
+      "note": "Yale Budget Lab's tracker measures disruption by occupational churn and the AI exposure of the unemployed, not a U-3 threshold. Which yardstick defines 'mass unemployment' has to be stipulated; no data can pick it.",
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
-        "basis": "The Budget Lab at Yale, 'Tracking the Impact of AI on the Labor Market', published 2026-07-16, updated 2026-09-15 with August 2026 CPS data (read 2026-09-22). Definitional crux: evidence cannot settle it; only agreement on a metric can."
+        "basis": "The Budget Lab at Yale, 'Tracking the Impact of AI on the Labor Market', published 2026-07-16, updated 2026-09-15 with August 2026 CPS data (read 2026-09-22). With Axios 2025-05-28 (a U-3 yardstick in public use), two yardsticks now run side by side. The claim is a choice of definition, so no evidence settles it; the sides adopting one metric would be a stipulation, not a resolution. Same status as capitalism-after-ai's c-survival-definition-contested."
       },
       "createdAt": "2026-09-22T00:00:00Z"
     },
