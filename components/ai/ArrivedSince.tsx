@@ -1,7 +1,9 @@
 /**
  * What's arrived since: ledger entries whose source is dated inside the
- * reader's window, grouped by the crux they bear on, each with the evidence
- * that moved it (finding, source, how far the source was checked).
+ * reader's window, grouped by the crux they bear on. Each entry shows its
+ * date, status, and note; the evidence that moved it (finding, source, how
+ * far the source was checked) waits behind a native disclosure, so the
+ * section reads as a list of what changed and stays zero-JS.
  */
 import Link from "next/link";
 import type { Evidence } from "@/types/argument";
@@ -17,46 +19,19 @@ import {
 } from "./format";
 import { cruxQuestion, type IndexedMap } from "./types";
 
-/**
- * Which (entry, evidence) pairs print the evidence in full: the first time a
- * source appears in the section. Later citations of the same source name it
- * and point back, so one paper cited by two cruxes is not read twice.
- */
-export function firstCitations(groups: readonly ArrivedGroup[]): Set<string> {
-  const seen = new Set<string>();
-  const first = new Set<string>();
-  for (const group of groups) {
-    for (const entry of group.entries) {
-      for (const evidenceId of entry.evidenceNodeIds) {
-        const key = `${group.topicId}|${evidenceId}`;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        first.add(`${entry.id}|${evidenceId}`);
-      }
-    }
-  }
-  return first;
-}
-
-export interface ArrivedDisplay {
-  /** Pairs from `firstCitations`. */
-  fullCitations: Set<string>;
-  /** When every entry shares one recorded day, the intro says it once. */
-  sharedNoticedDay: string | null;
-}
-
 export function ArrivedGroupView({
   group,
   map,
-  display,
+  showNoticed,
 }: {
   group: ArrivedGroup;
   map: IndexedMap;
-  display: ArrivedDisplay;
+  /** False when the section intro already names the one day every entry was added. */
+  showNoticed: boolean;
 }) {
   const headingId = `arrived-${domId(group.topicId)}-${domId(group.claimId)}`;
   return (
-    <li aria-labelledby={headingId} className="py-7 first:pt-2">
+    <li aria-labelledby={headingId} className="py-6 first:pt-2">
       <p className="text-[12.5px] leading-snug text-muted dark:text-stone-400">
         <Link
           href={`/topics/${group.topicId}#cruxes`}
@@ -71,9 +46,9 @@ export function ArrivedGroupView({
       >
         {cruxQuestion(map, group.claimId)}
       </h3>
-      <ol className="mt-4 space-y-6">
+      <ol className="mt-3 space-y-5">
         {group.entries.map((entry) => (
-          <ArrivedEntry key={entry.id} entry={entry} map={map} display={display} />
+          <ArrivedEntry key={entry.id} entry={entry} map={map} showNoticed={showNoticed} />
         ))}
       </ol>
     </li>
@@ -83,11 +58,11 @@ export function ArrivedGroupView({
 function ArrivedEntry({
   entry,
   map,
-  display,
+  showNoticed,
 }: {
   entry: CruxLedgerEntry;
   map: IndexedMap;
-  display: ArrivedDisplay;
+  showNoticed: boolean;
 }) {
   const evidence = entry.evidenceNodeIds
     .map((id) => map.nodesById.get(id))
@@ -102,47 +77,52 @@ function ArrivedEntry({
         <span className={`block font-serif text-[15px] italic sm:mt-0.5 ${STATUS_TEXT[entry.status]}`}>
           {STATUS_WORD[entry.status]}
         </span>
-        {entry.noticedAt && entry.noticedAt !== entry.date && display.sharedNoticedDay === null && (
+        {showNoticed && entry.noticedAt && entry.noticedAt !== entry.date && (
           <span className="block text-[11.5px] text-muted dark:text-stone-400 sm:mt-1">
             added {formatDay(entry.noticedAt)}
           </span>
         )}
       </div>
       <div className="min-w-0">
-        <p className="font-serif text-[1.0625rem] leading-[1.6] text-stone-800 dark:text-stone-200">
+        <p className="font-serif text-[1rem] leading-[1.55] text-stone-800 dark:text-stone-200 sm:text-[1.0625rem] sm:leading-[1.6]">
           {entry.note}
         </p>
         {evidence.length > 0 ? (
-          <ul className="mt-3 space-y-3" aria-label="Evidence behind this entry">
-            {evidence.map((node) => (
-              <EvidenceItem
-                key={node.id}
-                node={node}
-                full={display.fullCitations.has(`${entry.id}|${node.id}`)}
-              />
-            ))}
-          </ul>
+          <Sources label={
+              evidence.length === 1
+                ? "The source and what it found"
+                : `The ${evidence.length} sources and what they found`
+            }>
+            <ul className="space-y-3" aria-label="Evidence behind this entry">
+              {evidence.map((node) => (
+                <EvidenceItem key={node.id} node={node} />
+              ))}
+            </ul>
+          </Sources>
         ) : (
-          <SourceNote entry={entry} />
+          entry.author.kind === "editorial" && (
+            <Sources label="The editors’ source record">
+              <p className="border-l-2 border-stone-300 pl-3.5 text-[13px] leading-relaxed text-stone-600 [overflow-wrap:anywhere] dark:border-stone-600 dark:text-stone-400">
+                {entry.author.basis}
+              </p>
+            </Sources>
+          )
         )}
       </div>
     </li>
   );
 }
 
-function EvidenceItem({ node, full }: { node: Evidence; full: boolean }) {
+function EvidenceItem({ node }: { node: Evidence }) {
   const { source } = node;
   const published = formatSourceDate(source.publishedAt);
   const byline = [source.institution ?? source.author, published].filter(Boolean).join(", ");
   return (
     <li className="border-l-2 border-[#3a6965]/70 pl-3.5 dark:border-[#8fc0bb]/60">
-      {full && (
-        <p className="mb-1.5 text-[13.5px] leading-relaxed text-stone-700 dark:text-stone-300">
-          {node.finding}
-        </p>
-      )}
+      <p className="mb-1.5 text-[13.5px] leading-relaxed text-stone-700 dark:text-stone-300">
+        {node.finding}
+      </p>
       <p className="text-[12.5px] leading-snug">
-        {!full && <span className="text-muted dark:text-stone-400">Also cited above: </span>}
         {source.url ? (
           <a
             href={source.url}
@@ -158,33 +138,28 @@ function EvidenceItem({ node, full }: { node: Evidence; full: boolean }) {
         )}
         {byline && <span className="text-muted dark:text-stone-400">. {byline}</span>}
       </p>
-      {full && (
-        <p className="mt-0.5 text-[11.5px] leading-snug text-muted dark:text-stone-400">
-          {VERIFICATION_LINE[source.verification]}
-          {source.verifiedAt ? `, ${formatDay(source.verifiedAt)}` : ""}.
-        </p>
-      )}
+      <p className="mt-0.5 text-[11.5px] leading-snug text-muted dark:text-stone-400">
+        {VERIFICATION_LINE[source.verification]}
+        {source.verifiedAt ? `, ${formatDay(source.verifiedAt)}` : ""}.
+      </p>
     </li>
   );
 }
 
-/** An editorial entry with no evidence node: show the editors' source record. */
-function SourceNote({ entry }: { entry: CruxLedgerEntry }) {
-  if (entry.author.kind !== "editorial") return null;
+/** A closed-by-default disclosure for what stands behind an entry. */
+function Sources({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <details className="group/source mt-2.5">
-      <summary className="inline-flex min-h-8 cursor-pointer list-none items-center gap-1.5 rounded text-[12.5px] font-medium text-stone-700 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-300 dark:hover:text-stone-100 [&::-webkit-details-marker]:hidden">
+    <details className="group/source -mb-2 mt-0.5">
+      <summary className="-ml-1 inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded px-1 text-[12.5px] font-medium text-stone-700 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-300 dark:hover:text-stone-100 dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
         <span
           aria-hidden="true"
           className="inline-block text-[11px] transition-transform group-open/source:rotate-90 motion-reduce:transition-none"
         >
           ›
         </span>
-        The editors&rsquo; source record
+        {label}
       </summary>
-      <p className="mt-1.5 border-l-2 border-stone-300 pl-3.5 text-[13px] leading-relaxed text-stone-600 [overflow-wrap:anywhere] dark:border-stone-600 dark:text-stone-400">
-        {entry.author.basis}
-      </p>
+      <div className="mb-1 mt-1">{children}</div>
     </details>
   );
 }

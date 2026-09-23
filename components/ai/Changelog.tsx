@@ -13,8 +13,12 @@ export function changelogAnchor(entryId: string): string {
   return `log-${domId(entryId)}`;
 }
 
-/** Rows shown before the rest folds behind a disclosure. */
-export const CHANGELOG_OPEN_ROWS = 8;
+/**
+ * Rows shown before the rest folds behind a disclosure. Kept short: the
+ * section above already shows every in-window note, so the open rows are the
+ * newest few and the full record is one tap away.
+ */
+export const CHANGELOG_OPEN_ROWS = 3;
 
 type DayGroup = { day: string; items: ChangelogItem[] };
 
@@ -122,7 +126,7 @@ function ChangelogRow({ item, map }: { item: ChangelogItem; map: IndexedMap }) {
       <p
         className={`mt-1 text-[14px] leading-relaxed ${
           struck
-            ? "text-muted line-through decoration-stone-400/80 dark:text-stone-500"
+            ? "text-muted line-through decoration-stone-400/80 dark:text-stone-400"
             : "text-stone-700 dark:text-stone-300"
         }`}
       >

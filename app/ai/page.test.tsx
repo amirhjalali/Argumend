@@ -58,15 +58,45 @@ describe("/ai with the real AI maps", () => {
       .filter((card) => card.textContent?.includes("Unresolvable by evidence"));
     expect(standing.length).toBeGreaterThan(0);
     for (const card of standing) {
-      expect(card.textContent).toContain("Nothing does — this is a standing value disagreement");
+      expect(card.textContent).toMatch(/What would settle it: Nothing does — .*the map holds both horns\./);
     }
   });
 
-  it("uses no verdict language, no percentages of agreement, and no settled badge", async () => {
+  it("names a definitional fork as one, not as a value disagreement", async () => {
     const view = await renderPage();
-    const text = view.container.textContent ?? "";
+    const card = view
+      .getAllByTestId("ai-crux-card")
+      .find((c) => c.textContent?.includes("What do we even mean by capitalism"));
+    expect(card?.textContent).toContain("it turns on a choice of definition");
+    expect(card?.textContent).not.toContain("value disagreement");
+  });
+
+  const verdictCases: Array<[string, Record<string, string>]> = [
+    ["the default window", {}],
+    // The widest window renders every entry's evidence findings and source
+    // records, which the default window leaves out.
+    ["every entry", { since: "0001-01-01" }],
+    ...AI_MAP_TOPIC_IDS.map((map): [string, Record<string, string>] => [
+      `only ${map}`,
+      { map, since: "0001-01-01" },
+    ]),
+  ];
+  it.each(verdictCases)("uses no verdict language, agreement percentages, or settled badge: %s", async (_, params) => {
+    const view = await renderPage(params);
+    // Folded disclosures are in textContent; labels and titles are not, so add them.
+    const attributes = [...view.container.querySelectorAll("[aria-label], [title]")].flatMap((el) => [
+      el.getAttribute("aria-label") ?? "",
+      el.getAttribute("title") ?? "",
+    ]);
+    const text = [
+      view.container.textContent ?? "",
+      ...attributes,
+      String(metadata.title),
+      String(metadata.description),
+    ].join("\n");
     expect(findVerdictLanguage(text)).toEqual([]);
     expect(text).not.toMatch(/\bagree(ment)? (score|percentage)\b/i);
+    expect(text).not.toMatch(/\d\s*%\s*(agree|consensus)/i);
     expect(text).not.toMatch(/\bSettled\b/);
     expect(text).not.toMatch(/\bwinner\b/i);
   });
@@ -83,8 +113,21 @@ describe("/ai with the real AI maps", () => {
     const view = await renderPage();
     const section = view.getByRole("heading", { name: /What has arrived since June 24, 2026/ })
       .closest("section")!;
-    expect(within(section).getAllByRole("list", { name: "Evidence behind this entry" }).length).toBeGreaterThan(0);
+    expect(section.querySelectorAll('ul[aria-label="Evidence behind this entry"]').length).toBeGreaterThan(0);
     expect(section.textContent).toMatch(/Link checked live/);
+  });
+
+  it("keeps each entry's findings behind a closed disclosure", async () => {
+    const view = await renderPage();
+    const section = view.getByRole("heading", { name: /What has arrived since/ }).closest("section")!;
+    const lists = [...section.querySelectorAll('ul[aria-label="Evidence behind this entry"]')];
+    expect(lists.length).toBeGreaterThan(0);
+    for (const list of lists) {
+      const details = list.closest("details");
+      expect(details).not.toBeNull();
+      expect(details!.hasAttribute("open")).toBe(false);
+      expect(details!.querySelector("summary")?.textContent).toMatch(/sources? and what (it|they) found/);
+    }
   });
 
   it("never shows the unregistered Covid ledger", async () => {
@@ -114,14 +157,20 @@ describe("/ai link parameters", () => {
     expect(view.getByRole("heading", { name: /since June 24, 2026/ })).toBeTruthy();
   });
 
+  it("reads a since before the first entry as since the first entry", async () => {
+    const view = await renderPage({ since: "0001-01-01" });
+    expect(view.getByRole("heading", { name: /What has arrived since October 27, 2023/ })).toBeTruthy();
+    expect(view.getByRole("link", { name: "Everything", current: "page" })).toBeTruthy();
+  });
+
   it("widens the window with ?since=", async () => {
     const narrow = await renderPage({ since: "2026-09-01" });
     const narrowGroups = narrow.getByRole("heading", { name: /since September 1, 2026/ })
       .closest("section")!
       .querySelectorAll("h3").length;
     cleanup();
-    const wide = await renderPage({ since: "2023-01-01" });
-    const wideGroups = wide.getByRole("heading", { name: /since January 1, 2023/ })
+    const wide = await renderPage({ since: "2025-01-01" });
+    const wideGroups = wide.getByRole("heading", { name: /since January 1, 2025/ })
       .closest("section")!
       .querySelectorAll("h3").length;
     expect(wideGroups).toBeGreaterThan(narrowGroups);

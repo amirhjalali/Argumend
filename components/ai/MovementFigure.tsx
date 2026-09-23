@@ -26,7 +26,7 @@ export function MovementFigure({
   const statuses = [...new Set(entries.map((e) => e.status))];
 
   return (
-    <figure className="mt-10" aria-labelledby="movement-figure-caption">
+    <figure className="mt-6" aria-labelledby="movement-figure-caption">
       <div
         className="flex items-end"
         role="img"
@@ -88,7 +88,7 @@ export function MovementFigure({
         className="mt-6 max-w-[34rem] text-[13px] leading-relaxed text-muted dark:text-stone-400"
       >
         Each mark is one dated entry in the maps&rsquo; ledgers, placed in the month of its
-        source. The shaded months are the window below.{" "}
+        source. The shaded months are the window chosen above.{" "}
         <span className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
           {statuses.map((status) => (
             <span key={status} className="inline-flex items-center gap-1.5">

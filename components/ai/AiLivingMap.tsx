@@ -16,12 +16,13 @@ import {
   ledgerAsOf,
   ledgerChangelog,
   movementSummary,
+  noticedDay,
   poolTopCruxes,
   resolveSince,
   shiftDay,
   type PoolMap,
 } from "@/lib/argument/ledgerPool";
-import { ArrivedGroupView, firstCitations, type ArrivedDisplay } from "./ArrivedSince";
+import { ArrivedGroupView } from "./ArrivedSince";
 import { Changelog } from "./Changelog";
 import { CruxCard } from "./CruxCard";
 import { MovementFigure } from "./MovementFigure";
@@ -56,7 +57,14 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
   // The as-of day and the default window come from every AI map, so the
   // filter changes what is shown, never the dates the page is anchored to.
   const asOf = ledgerAsOf(indexed) ?? ARGUMENT_TOPICS_FIRST_PUBLISHED;
-  const since = resolveSince(sinceParam, asOf);
+  const figureEntries = pool.flatMap((map) =>
+    publicLedgerEntries(map.ledger).map((entry) => ({ id: entry.id, date: entry.date, status: entry.status })),
+  );
+  const earliest = figureEntries.reduce<string | null>(
+    (min, entry) => (min === null || entry.date < min ? entry.date : min),
+    null,
+  );
+  const since = resolveSince(sinceParam, asOf, earliest ?? undefined);
   const defaultSince = resolveSince(undefined, asOf);
   const sinceForLinks = since === defaultSince ? undefined : since;
   const mapForLinks = selected?.topicId;
@@ -65,20 +73,8 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
   const arrived = arrivedSince(pool, since, asOf);
   const summary = movementSummary(pool, since, asOf);
   const changelog = ledgerChangelog(pool);
-  const figureEntries = pool.flatMap((map) =>
-    publicLedgerEntries(map.ledger).map((entry) => ({ id: entry.id, date: entry.date, status: entry.status })),
-  );
-  const earliest = figureEntries.reduce<string | null>(
-    (min, entry) => (min === null || entry.date < min ? entry.date : min),
-    null,
-  );
-  const noticedDays = new Set(
-    arrived.flatMap((group) => group.entries.map((entry) => entry.noticedAt ?? entry.createdAt.slice(0, 10))),
-  );
-  const arrivedDisplay: ArrivedDisplay = {
-    fullCitations: firstCitations(arrived),
-    sharedNoticedDay: noticedDays.size === 1 ? [...noticedDays][0] : null,
-  };
+  const noticedDays = new Set(arrived.flatMap((group) => group.entries.map(noticedDay)));
+  const sharedNoticedDay = noticedDays.size === 1 ? [...noticedDays][0] : null;
   const movedCount =
     summary.moved.open + summary.moved.narrowed + summary.moved.resolved + summary.moved.unresolvable;
 
@@ -86,13 +82,13 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
     <main id="main-content" className="mx-auto max-w-[44rem] px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
       <nav
         aria-label="Site"
-        className="mb-10 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-muted dark:text-stone-400"
+        className="mb-6 flex flex-wrap items-center gap-x-5 text-xs text-muted dark:text-stone-400"
       >
-        <Link href="/" className="link-underline">
-          Argumend home
+        <Link href="/" className="inline-flex min-h-11 items-center">
+          <span className="link-underline">Argumend home</span>
         </Link>
-        <Link href="/topics" className="link-underline">
-          Explore topics
+        <Link href="/topics" className="inline-flex min-h-11 items-center">
+          <span className="link-underline">Explore topics</span>
         </Link>
       </nav>
 
@@ -106,8 +102,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
         </h1>
         <p className="mt-6 max-w-[36rem] font-serif text-[1.25rem] leading-[1.55] text-stone-800 dark:text-stone-200 sm:text-[1.375rem]">
           What the fight over AI and work turns on right now, what would settle each question,
-          and what has moved it. The page keeps a dated record of the evidence as it arrives.
-          It does not score the sides.
+          and the dated evidence that has moved it. It does not score the sides.
         </p>
         <p className="mt-4 max-w-[36rem] text-[14px] leading-relaxed text-secondary dark:text-stone-400">
           Drawn from {indexed.length === 2 ? "two" : indexed.length} maps:{" "}
@@ -122,11 +117,11 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
               </Link>
             </span>
           ))}
-          . Each map ranks its own cruxes. Ranks are never compared across maps, so the cards
-          below take each map&rsquo;s first question, then each map&rsquo;s second, and so on.
+          . Each map ranks its own cruxes and ranks are never compared across maps, so the
+          cards alternate: each map&rsquo;s first question, then each map&rsquo;s second.
         </p>
 
-        <nav aria-label="Show cruxes from" className="mt-7 flex flex-wrap gap-2">
+        <nav aria-label="Show cruxes from" className="mt-6 flex flex-wrap gap-2">
           <FilterLink href={aiHref({ since: sinceForLinks })} current={!selected}>
             Both maps
           </FilterLink>
@@ -140,18 +135,16 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
             </FilterLink>
           ))}
         </nav>
-
-        <MovementFigure entries={figureEntries} since={since} asOf={asOf} />
       </header>
 
       {/* ---------------- 2. Top cruxes now ---------------- */}
-      <section aria-labelledby="cruxes-now" className="mt-20">
+      <section aria-labelledby="cruxes-now" className="mt-14 sm:mt-16">
         <SectionHeading id="cruxes-now">What it turns on now</SectionHeading>
         <p className="mt-2 max-w-[36rem] text-[14px] leading-relaxed text-secondary dark:text-stone-400">
           A crux is a question where an answer would move whole positions. These are the
           maps&rsquo; top cruxes today, with what each map says would settle them.
         </p>
-        <ol className="mt-8 space-y-5">
+        <ol className="mt-7 space-y-4 sm:space-y-5">
           {cruxes.map((crux) => {
             const map = mapsById.get(crux.topicId);
             if (!map) return null;
@@ -170,17 +163,15 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
       </section>
 
       {/* ---------------- 3. What's arrived since ---------------- */}
-      <section aria-labelledby="arrived" className="mt-24">
+      <section aria-labelledby="arrived" className="mt-20">
         <SectionHeading id="arrived">
           What has arrived since <time dateTime={since}>{formatLongDay(since)}</time>
         </SectionHeading>
         <p className="mt-2 max-w-[36rem] text-[14px] leading-relaxed text-secondary dark:text-stone-400">
-          Sources dated between {formatDay(since)} and {formatDay(asOf)}, and what each did to
-          the question it bears on. A source counts by its own date, not the day the map picked
-          it up
-          {arrivedDisplay.sharedNoticedDay
-            ? `; all of these were added to the map on ${formatDay(arrivedDisplay.sharedNoticedDay)}.`
-            : "."}
+          Sources dated {formatDay(since)} to {formatDay(asOf)}, by their own date, and what
+          each did to the question it bears on
+          {sharedNoticedDay ? `. All were added to the map on ${formatDay(sharedNoticedDay)}.` : "."}{" "}
+          Open an entry&rsquo;s sources to read the findings.
         </p>
         <nav aria-label="Window" className="mt-5 flex flex-wrap items-center gap-2 text-[13px]">
           {WINDOW_CHOICES.map((choice) => {
@@ -203,16 +194,18 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
         </nav>
 
         {arrived.length > 0 ? (
-          <ol className="mt-6 divide-y divide-divider">
+          <ol className="mt-5 divide-y divide-divider">
             {arrived.map((group) => {
               const map = mapsById.get(group.topicId);
               if (!map) return null;
-              return <ArrivedGroupView
+              return (
+                <ArrivedGroupView
                   key={`${group.topicId}/${group.claimId}`}
                   group={group}
                   map={map}
-                  display={arrivedDisplay}
-                />;
+                  showNoticed={sharedNoticedDay === null}
+                />
+              );
             })}
           </ol>
         ) : (
@@ -224,9 +217,10 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
       </section>
 
       {/* ---------------- 4. Movement summary ---------------- */}
-      <section aria-labelledby="movement" className="mt-24">
+      <section aria-labelledby="movement" className="mt-20">
         <SectionHeading id="movement">How much moved</SectionHeading>
-        <div className="mt-5 max-w-[36rem] space-y-4 font-serif text-[1.1875rem] leading-[1.6] text-stone-800 dark:text-stone-200">
+        <MovementFigure entries={figureEntries} since={since} asOf={asOf} />
+        <div className="mt-8 max-w-[36rem] space-y-4 font-serif text-[1.1875rem] leading-[1.6] text-stone-800 dark:text-stone-200">
           <p
             data-testid="ai-movement-summary"
             className="font-serif text-[1.25rem] leading-[1.6] text-stone-800 dark:text-stone-200"
@@ -272,12 +266,12 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
       </section>
 
       {/* ---------------- 5. Changelog ---------------- */}
-      <section aria-labelledby="changelog" className="mt-24">
+      <section aria-labelledby="changelog" className="mt-20">
         <SectionHeading id="changelog">Changelog</SectionHeading>
         <p className="mt-2 max-w-[36rem] text-[14px] leading-relaxed text-secondary dark:text-stone-400">
           Every published ledger entry{selected ? ` on ${selected.label}` : " across both maps"},
-          newest recorded first. Corrections never delete: a superseded entry stays, struck
-          through, next to the entry that corrects it.
+          newest recorded first. A corrected entry stays, struck through, and names its
+          correction.
         </p>
         <div className="mt-8">
           <Changelog items={changelog} mapsById={mapsById} />
@@ -322,7 +316,7 @@ function FilterLink({
       href={href}
       scroll={false}
       aria-current={current ? "page" : undefined}
-      className={`inline-flex min-h-9 items-center rounded-full border px-3.5 text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e] ${
+      className={`inline-flex min-h-11 items-center rounded-full border px-3.5 text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e] ${
         current
           ? "border-stone-800 bg-stone-800 text-[#f7f4ee] dark:border-stone-200 dark:bg-stone-200 dark:text-stone-900"
           : "border-stone-300 text-stone-700 hover:border-stone-500 hover:text-stone-900 dark:border-stone-600 dark:text-stone-300 dark:hover:border-stone-400 dark:hover:text-stone-100"
@@ -347,14 +341,16 @@ function capitalize(value: string): string {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
-/** "Three narrowed. Six added evidence and stay open. None met its stated condition." */
+/**
+ * "Three narrowed. Five stay open. None met its stated condition." The lead
+ * sentence already says each recorded a source; an open entry may carry only
+ * the editors' source record, so "added evidence" would overstate it.
+ */
 function summaryClauses(moved: Record<"open" | "narrowed" | "resolved" | "unresolvable", number>): string {
   const n = (count: number) => (count === 0 ? "None" : capitalize(countWords(count)));
   const clauses = [
     `${n(moved.narrowed)} narrowed.`,
-    moved.open === 0
-      ? "None added evidence while staying open."
-      : `${n(moved.open)} added evidence and ${moved.open === 1 ? "stays" : "stay"} open.`,
+    `${n(moved.open)} ${moved.open === 1 || moved.open === 0 ? "stays" : "stay"} open.`,
     moved.resolved === 0
       ? "None met its stated condition."
       : `${n(moved.resolved)} met ${moved.resolved === 1 ? "its" : "their"} stated condition.`,
