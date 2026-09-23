@@ -72,6 +72,8 @@ export function DiamondDiagram() {
     };
   }, [computeLines]);
 
+  // Always-light card (fixed parchment gradient, no dark variant), so the
+  // captions pin literal ink: `text-secondary` flips light in dark mode.
   return (
     <div
       ref={containerRef}
@@ -123,7 +125,7 @@ export function DiamondDiagram() {
               <span>Meta Claim</span>
             </div>
           </div>
-          <p className="mt-2 text-xs text-secondary italic">
+          <p className="mt-2 text-xs text-[#564d45] italic">
             The central topic
           </p>
         </div>
@@ -140,7 +142,7 @@ export function DiamondDiagram() {
                 <span>Skeptic</span>
               </div>
             </div>
-            <p className="mt-2 text-xs text-secondary italic text-center">
+            <p className="mt-2 text-xs text-[#564d45] italic text-center">
               Strongest objection
             </p>
           </div>
@@ -154,7 +156,7 @@ export function DiamondDiagram() {
                 <span>Proponent</span>
               </div>
             </div>
-            <p className="mt-2 text-xs text-secondary italic text-center">
+            <p className="mt-2 text-xs text-[#564d45] italic text-center">
               Best response
             </p>
           </div>
