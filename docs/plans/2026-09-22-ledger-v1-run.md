@@ -196,7 +196,7 @@ Not merged, ready for your call:
   capitalism-after-ai; every ledger entry now cites graph evidence. It changes the flagship top 5 on
   a 0.007 margin (open-models 0.552 enters, wage-channel 0.545 drops to 6th and its crux note is
   removed). Options: accept, pin wage-channel via `cruxOverride`, or revisit polarities.
-- **design-cleanup** was stopped at the time limit; see its worktree branch if it committed.
+- **design-cleanup** landed just after the stop and is merged: one `text-error-text` token for all error states (light #ab4a40 is close to crux crimson — founder call), Philosophy plum / Technology slate category hues, settled verdict chip in stone ink, home crux block on the flagship sheet (home now imports constants from `components/argument/DebateView.tsx`; move them to a shared module if the home bundle grows). No production build was run after this merge.
 
 Also merged at wrap: **copy-cleanup** (glossary/concepts on the two-axis model; low-weight rows off
 crimson; blog passages quoting the old verdict mechanics) and **gap-metric** (counts-only logging
@@ -206,7 +206,7 @@ behind `ENABLE_GAP_METRIC_LOGGING`, default off; `gap_observations` has no text 
 Gap-metric questions: per-topic default report? use `signals.talkingPast` for the talking-past rule?
 allow-list model ids? `replyId`/`createdAt` deviations OK?
 
-Final state at 01:58 UTC: 248 files / 2910 tests, tsc, lint green.
+Final state at 02:02 UTC: 248 files / 2911 tests, tsc, lint green. Run `bun run build` from the main checkout before any deploy.
 
 New open items: TopBar `sticky` never sticks because `html, body { overflow-x: hidden }` (use
 `clip`, then add ~64px scroll-margin); legacy sidebar pops in after hydration; blog/glossary passages
