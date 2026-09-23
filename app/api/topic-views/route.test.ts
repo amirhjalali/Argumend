@@ -192,6 +192,32 @@ describe("GET /api/topic-views", () => {
     );
   });
 
+  it("returns an empty list when the database module cannot load at all", async () => {
+    // What a dev server without a loadable postgres driver does: importing the
+    // query module throws. That used to fail the route with a 500.
+    vi.resetModules();
+    vi.doMock("@/lib/db/queries", () => {
+      throw new Error("Failed to load external module postgres");
+    });
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    try {
+      const { GET: freshGet, POST: freshPost } = await import("./route");
+
+      const response = await freshGet(getRequest("?limit=10"));
+      expect(response.status).toBe(200);
+      await expect(response.json()).resolves.toEqual({ trending: [] });
+      expect(warn).toHaveBeenCalledOnce();
+
+      const posted = await freshPost(postRequest({ topicId: "ai-risk" }));
+      expect(posted.status).toBe(200);
+      await expect(posted.json()).resolves.toEqual({ ok: true });
+      expect(mocks.auth).not.toHaveBeenCalled();
+    } finally {
+      vi.doUnmock("@/lib/db/queries");
+      vi.resetModules();
+    }
+  });
+
   it("returns a quiet empty result when persistence is not configured", async () => {
     mocks.isDatabaseConfigured.mockReturnValue(false);
     const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
