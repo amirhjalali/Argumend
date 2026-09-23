@@ -83,18 +83,9 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
     summary.moved.open + summary.moved.narrowed + summary.moved.resolved + summary.moved.unresolvable;
 
   return (
-    <main id="main-content" className="mx-auto max-w-[44rem] px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
-      <nav
-        aria-label="Site"
-        className="mb-6 flex flex-wrap items-center gap-x-5 text-xs text-muted dark:text-stone-400"
-      >
-        <Link href="/" className="inline-flex min-h-11 items-center">
-          <span className="link-underline">Argumend home</span>
-        </Link>
-        <Link href="/topics" className="inline-flex min-h-11 items-center">
-          <span className="link-underline">Explore topics</span>
-        </Link>
-      </nav>
+    // app/ai/page.tsx wraps this in AppShell, which owns <main id="main-content">
+    // and the site navigation; this column only keeps the reading measure.
+    <div className="mx-auto max-w-[44rem] px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
 
       {/* ---------------- 1. What this page is ---------------- */}
       <header>
@@ -290,7 +281,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
           source&rsquo;s own, and the day the map recorded it.
         </p>
       </div>
-    </main>
+    </div>
   );
 }
 

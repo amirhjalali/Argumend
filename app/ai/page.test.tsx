@@ -1,5 +1,10 @@
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, within } from "@testing-library/react";
+
+// The shell needs the app router; these tests are about the page body.
+vi.mock("@/components/AppShell", () => ({
+  AppShell: ({ children }: { children: React.ReactNode }) => <main>{children}</main>,
+}));
 import { findVerdictLanguage } from "@/lib/argument/ledger";
 import { AI_MAP_TOPIC_IDS } from "@/lib/argument/ledgerPool";
 import { AI_MAP_LABELS } from "@/components/ai/format";
