@@ -73,9 +73,9 @@ export const fallacyFamilies: Record<FallacyFamilyId, FallacyFamilyMeta> = {
     label: "Authority & Evidence",
     description:
       "Misuses sources, samples, or data — treating weak or selective evidence as if it settled the question.",
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
     iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-deep-light",
+    iconText: "text-deep dark:text-accent-text",
     hoverBorder: "hover:border-deep/40",
     borderAccent: "border-l-deep/50",
   },

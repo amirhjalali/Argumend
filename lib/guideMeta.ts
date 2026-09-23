@@ -63,9 +63,9 @@ export const guideTracks: Record<GuideTrackId, GuideTrackMeta> = {
     label: "Reading Arguments",
     description:
       "Start here — how to navigate an argument map, find the claim that actually decides the disagreement, and state the other side at its strongest.",
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
     iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-deep-light",
+    iconText: "text-deep dark:text-accent-text",
     hoverBorder: "hover:border-deep/40",
     borderAccent: "border-l-deep/50",
     dotBg: "bg-deep",

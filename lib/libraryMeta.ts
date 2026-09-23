@@ -75,9 +75,9 @@ export const libraryShelves: Record<LibraryShelfId, LibraryShelfMeta> = {
     description:
       "Where the vocabulary comes from — what counts as an argument, a premise, or a good reason in the first place.",
     icon: Compass,
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
     iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-deep-light",
+    iconText: "text-deep dark:text-accent-text",
     hoverBorder: "hover:border-deep/40",
   },
   evidence: {

@@ -49,7 +49,7 @@ const PROVIDER_ROLES: Record<string, string> = {
  * here: on a policy page a visitor has to be able to see, at a glance, which
  * words lead to the provider that will receive their text.
  */
-const LINK = "text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200";
+const LINK = "text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200";
 
 function Section({
   id,

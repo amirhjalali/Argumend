@@ -62,7 +62,7 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
         {/* Header: Meta Claim Label & Title */}
         <div className="mb-4">
           <div className="mb-2 flex items-center gap-1.5">
-            <Crown className="h-3.5 w-3.5 text-deep dark:text-deep-light" strokeWidth={1.8} />
+            <Crown className="h-3.5 w-3.5 text-deep dark:text-accent-text" strokeWidth={1.8} />
             <p className="text-[11px] font-sans font-medium text-stone-500 dark:text-[var(--text-muted)]">
               Meta Claim
             </p>
