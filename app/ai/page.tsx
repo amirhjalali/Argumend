@@ -67,7 +67,7 @@ export default async function AiPage({ searchParams }: PageProps) {
       />
       {/* The site shell, as on every other content page. AiLivingMap stays a
           server component passed through as children: no client JS of its own. */}
-      <AppShell>
+      <AppShell layout="reading">
         <AiLivingMap maps={maps} mapParam={first(params.map)} sinceParam={first(params.since)} />
       </AppShell>
     </>

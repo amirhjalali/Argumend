@@ -40,8 +40,12 @@ interface SidebarState {
  * Renders closed on the server and derives the desktop default from a
  * subscribe-able media-query snapshot on the client. User actions override the
  * responsive default until the next explicit open/close/toggle.
+ *
+ * The choice is not persisted: it lasts while the shell stays mounted.
  */
-export function useSidebarState(): SidebarState {
+export function useSidebarState({
+  desktopDefaultOpen = true,
+}: { desktopDefaultOpen?: boolean } = {}): SidebarState {
   const isDesktop = useMediaQuery(`(min-width: ${DESKTOP_BREAKPOINT}px)`);
   const [openOverride, setOpenOverride] = useState<boolean | null>(null);
   const mounted = useSyncExternalStore(
@@ -49,11 +53,14 @@ export function useSidebarState(): SidebarState {
     getMountedSnapshot,
     getServerMountedSnapshot,
   );
-  const isOpen = openOverride ?? isDesktop;
+  // Reading routes pass desktopDefaultOpen=false: closed on every viewport,
+  // which also matches the server render, so nothing moves on hydration.
+  const defaultOpen = desktopDefaultOpen && isDesktop;
+  const isOpen = openOverride ?? defaultOpen;
 
   const toggle = useCallback(() => {
-    setOpenOverride((prev) => !(prev ?? isDesktop));
-  }, [isDesktop]);
+    setOpenOverride((prev) => !(prev ?? defaultOpen));
+  }, [defaultOpen]);
 
   const close = useCallback(() => {
     setOpenOverride(false);
