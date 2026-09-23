@@ -102,10 +102,10 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
 
         {/* The crux arrives with the lazily loaded topic module. Hold roughly
             its height until then so the sections below don't jump. Measured
-            on the featured topic at 390/768/1024/1440 px (1501/1406/1086/956
+            on the featured topic at 390/768/1024/1440 px (1501/1406/1017/788
             px, crux-sheet layout), about 90% of it, so a shorter crux shrinks the gap a little
             rather than a longer one pushing the page a lot. */}
-        <div className={settled ? undefined : "min-h-[84rem] md:min-h-[79rem] lg:min-h-[61rem] xl:min-h-[54rem]"}>
+        <div className={settled ? undefined : "min-h-[84rem] md:min-h-[79rem] lg:min-h-[57rem] xl:min-h-[44rem]"}>
         {crux ? (
           // The flagship crux sheet (components/argument/DebateView.tsx), one
           // crux long: ruled paper, one crimson margin rule, small-caps labels
@@ -128,56 +128,57 @@ export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
             </div>
 
             {flip ? (
-              // Each side's condition is its own ruled entry: same size, same
-              // ink; the side is named only by its label's colour.
-              <>
-                <div className={MARGIN_RULE}>
-                  <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
-                    <p className={ENTRY_COLUMN}>
+              // The two conditions face each other across one rule inside a
+              // single entry: same size, same ink, the side named only by its
+              // label's colour. They stack below lg.
+              <div className={MARGIN_RULE}>
+                <div className={`${ENTRY_GRID} pr-4 sm:pr-6`}>
+                  <div
+                    className={`${ENTRY_COLUMN} grid divide-y divide-stone-200/90 dark:divide-[#3d3a36] lg:grid-cols-2 lg:divide-x lg:divide-y-0`}
+                  >
+                    <p className="py-5 sm:py-6 lg:pr-8">
                       <span className="label-caps block !text-rust-700 dark:!text-rust-300">
                         What would change a supporter&rsquo;s mind
                       </span>
-                      <span className="mt-1 block max-w-3xl font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.1875rem]">
+                      <span className="mt-1 block font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.1875rem]">
                         {flip.supporter_flip}
                       </span>
                     </p>
-                  </div>
-                </div>
-                <div className={MARGIN_RULE}>
-                  <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
-                    <p className={ENTRY_COLUMN}>
+                    <p className="py-5 sm:py-6 lg:pl-8">
                       <span className="label-caps block !text-skeptic dark:!text-[#cfa88a]">
                         What would change a skeptic&rsquo;s mind
                       </span>
-                      <span className="mt-1 block max-w-3xl font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.1875rem]">
+                      <span className="mt-1 block font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.1875rem]">
                         {flip.skeptic_flip}
                       </span>
                     </p>
                   </div>
                 </div>
-              </>
+              </div>
             ) : null}
 
             {flip?.common_ground || flip?.live_disagreement ? (
               <div className={MARGIN_RULE}>
-                <dl className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6 gap-y-4`}>
-                  {flip.common_ground ? (
-                    <div className={ENTRY_COLUMN}>
-                      <dt className="label-caps">Common ground</dt>
-                      <dd className="mt-1 max-w-3xl text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                        {flip.common_ground}
-                      </dd>
-                    </div>
-                  ) : null}
-                  {flip.live_disagreement ? (
-                    <div className={ENTRY_COLUMN}>
-                      <dt className="label-caps">The live disagreement</dt>
-                      <dd className="mt-1 max-w-3xl text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                        {flip.live_disagreement}
-                      </dd>
-                    </div>
-                  ) : null}
-                </dl>
+                <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
+                  <dl className={`${ENTRY_COLUMN} grid gap-y-4 lg:grid-cols-2 lg:gap-x-16`}>
+                    {flip.common_ground ? (
+                      <div>
+                        <dt className="label-caps">Common ground</dt>
+                        <dd className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
+                          {flip.common_ground}
+                        </dd>
+                      </div>
+                    ) : null}
+                    {flip.live_disagreement ? (
+                      <div>
+                        <dt className="label-caps">The live disagreement</dt>
+                        <dd className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
+                          {flip.live_disagreement}
+                        </dd>
+                      </div>
+                    ) : null}
+                  </dl>
+                </div>
               </div>
             ) : null}
           </div>
