@@ -42,6 +42,17 @@ describe("categoryColors", () => {
     }
   });
 
+  it("keeps the reserved colours off category chips", () => {
+    // Crimson means a crux and stone means a status; a category chip in either
+    // reads as a signal it isn't. Every category gets its own hue.
+    for (const [category, cls] of Object.entries(categoryColors)) {
+      expect(cls, `${category} category chip uses crux crimson`).not.toMatch(/crux/);
+      expect(cls, `${category} category chip uses status stone`).not.toMatch(/stone-\d/);
+    }
+    const hues = Object.values(categoryColors).map((cls) => cls.match(/text-([a-z]+)/)?.[1]);
+    expect(new Set(hues).size, "two categories share a hue").toBe(hues.length);
+  });
+
   it("tells contested from speculative by outline/fill, not only by shade", () => {
     expect(statusColors.contested).toMatch(/bg-transparent/);
     expect(statusColors.highly_speculative).toMatch(/border-dashed/);
