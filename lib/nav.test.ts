@@ -91,10 +91,11 @@ describe("derived sidebar groups", () => {
     expect(primaryNav[0]).toMatchObject({ href: "/", label: "Home" });
   });
 
-  it("marks only Analyze Text as the highlighted CTA", () => {
-    const highlighted = navItems.filter((i) => i.highlight);
-    expect(highlighted.map((i) => i.href)).toEqual(["/analyze"]);
-    expect(highlighted[0]).toMatchObject({ href: "/analyze", label: "Analyze Text" });
+  it("gives no nav item a permanent accent (one rust fill per page is the page CTA)", () => {
+    for (const item of navItems) {
+      expect(Object.keys(item)).not.toContain("highlight");
+    }
+    expect(navItems.find((i) => i.href === "/analyze")).toMatchObject({ label: "Analyze Text" });
   });
 
   it("opts auth-gated and saved routes out of prefetch", () => {

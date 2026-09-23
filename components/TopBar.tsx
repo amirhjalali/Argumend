@@ -133,7 +133,7 @@ export function TopBar({
             href={process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true" ? "/analyze-v2" : "/analyze"}
             prefetch={false}
             aria-label="Analyze text"
-            className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-rust-600 dark:text-rust-400 text-sm font-medium hover:text-rust-800 dark:hover:text-rust-300 hover:bg-rust-50/60 dark:hover:bg-rust-900/30 rounded-lg transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2.5 min-h-[44px] text-stone-500 dark:text-stone-400 text-sm hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
           >
             <Brain className="h-3.5 w-3.5" strokeWidth={1.8} />
             <span className="hidden sm:inline">Analyze</span>
