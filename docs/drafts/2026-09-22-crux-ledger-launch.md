@@ -84,9 +84,10 @@ trial of BNT162b2 reported 95% efficacy against symptomatic Covid [2a], and a ma
 **It stopped mattering.** *Does prior infection protect about as well as vaccination?* During Delta,
 by early October 2021, case rates among unvaccinated people with a prior diagnosis were 29.0-fold
 lower in California and 14.7-fold lower in New York; for vaccinated people without one, 6.2-fold and
-4.5-fold [10a]. The CDC published that on 28 January 2022. OSHA's employer rule, which had declined
-a prior-infection exception, was withdrawn on 26 January [12d]. The evidence landed two days after
-the decision it fed had gone. A crux can resolve just after it stops mattering.
+4.5-fold [10a]. The CDC posted that on 19 January 2022. Six days earlier, on 13 January, the Supreme
+Court had stayed OSHA's employer rule, which had declined a prior-infection exception; OSHA withdrew it
+on 26 January [12d]. The evidence landed after the decision it fed had gone. A crux can resolve just
+after it stops mattering.
 
 **No evidence ever could.** *Should a person's freedom of movement and work be conditioned on a
 medical decision?* On 13 January 2022 the Supreme Court stayed the OSHA vaccine-or-test rule and, the
@@ -112,7 +113,7 @@ was recorded on 22 September 2026 and dated to its source, which reaches back to
 Three questions on AI and jobs have **narrowed**. None has resolved.
 
 *Do firms respond to AI mainly by hiring less, rather than by producing more?* Firm data now agree
-that AI-linked headcount cuts are rare: 2% of U.S. firms in Census data, and in a New York Fed
+that AI-linked headcount cuts are rare: about 2% of AI-using U.S. firms in Census data, and in a New York Fed
 survey, firms retraining far more often than laying off. What is still split is one margin: whether
 adopters slow *junior* hiring. U.S. résumé data say yes. Danish registers say no. (Narrowed,
 1 September 2026.)
@@ -173,7 +174,7 @@ empirical answer to find.
 | 15 rows; fact-check dated 2026-09-22; six "mostly resolved", one held | retrospective, intro |
 | Tally 4/6/3(+7 policy)/2 | retrospective, **Tally** |
 | Vaccines 95%, 596,618 pairs, 92% | row 2, [2a], [2c] |
-| Prior infection 29.0/14.7 vs 6.2/4.5; MMWR 28 Jan 2022; OSHA withdrawn 26 Jan 2022 | row 10, [10a], [12d]; "two days before" is the retrospective's own wording |
+| Prior infection 29.0/14.7 vs 6.2/4.5; MMWR posted 19 Jan 2022 (print 28 Jan); OSHA stayed 13 Jan, withdrawn 26 Jan 2022 | row 10, [10a], [12d]; dates corrected by the ledger content review |
 | SCOTUS stay + CMS rule, 13 Jan 2022 | row 12, [12b], [12c] |
 | Masks 13.3% to 42.3%; Cochrane statement quotes | row 7, [7a], [7c] |
 | "state the observation that would settle it" | retrospective, Pattern 1 |
@@ -207,11 +208,11 @@ specific map, never the home page. Character counts are literal, including the U
 #### S1. Prior infection (Covid row 10)
 
 ```
-Does prior infection protect about as well as the vaccine? CDC data said yes: case rates 14.7 to 29.0x lower, published 28 Jan 2022.
+Does prior infection protect about as well as the vaccine? CDC data said yes: case rates 14.7 to 29.0x lower, posted 19 Jan 2022.
 
-OSHA's rule, which gave no credit for it, was withdrawn 26 Jan.
+Six days earlier the Supreme Court had stayed OSHA's rule, which gave no credit for it.
 
-A crux can resolve two days after it stops mattering.
+A crux can resolve just after it stops mattering.
 ```
 
 - Source: retrospective row 10, [10a], [12d]. No link: the Covid retrospective is not a public page
@@ -234,7 +235,7 @@ Some cruxes never had an empirical answer. A ledger should say so.
 ```
 Do firms answer AI by hiring less or producing more?
 
-Narrowed, 1 Sep 2026: AI-linked headcount cuts are rare (2% of US firms).
+Narrowed, 1 Sep 2026: AI-linked headcount cuts are rare (about 2% of AI-using US firms).
 
 Still split: do adopters slow junior hiring? US résumé data say yes. Danish registers say no.
 
@@ -305,11 +306,11 @@ wants it live-accurate, it needs to be generated from the ledger summary, not wr
 
 1. **The page is not live.** The post says "the new page at `/ai`". Confirm it is deployed and at that
    URL before the post or S3–S5 go out. The page is in the sitemap but deliberately not in the nav.
-2. **"Two days" in S1 and the post.** OSHA's withdrawal is dated by the retrospective as *effective*
+2. **[RESOLVED by ledger review] "Two days" in S1 and the post.** The MMWR was first posted 19 Jan 2022, six days after the 13 Jan stay; the post and S1 now say so. Original note: OSHA's withdrawal is dated by the retrospective as *effective*
    26 Jan 2022 [12d] and the MMWR as published 28 Jan [10a]. The retrospective itself says "two days
    before the CDC data were published". Worth a glance at the Federal Register date if anyone will
    argue the point.
-3. **"2% of U.S. firms" and the NY Fed figure.** The ledger note says "2% of U.S. firms" (Census
+3. **[RESOLVED by ledger review: Census §5.2 says ~2% of AI-using firms; post, S-posts and ledger now say so] "2% of U.S. firms" and the NY Fed figure.** The ledger note says "2% of U.S. firms" (Census
    CES-WP-26-25) and the entry's basis says "4% of service firms cut staff, about a third retrained"
    (NY Fed). The post uses only the 2% and "retrain far more often than lay off". The Census
    abstract reads: "Most users (66%) rely on AI solely to augment tasks, while AI-related employment
