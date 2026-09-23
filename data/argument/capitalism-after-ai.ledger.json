@@ -96,7 +96,7 @@
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
-        "basis": "FRED PRS85006173, Nonfarm Business Sector: Labor Share for All Workers, updated 2026-09-03, https://fred.stlouisfed.org/series/PRS85006173 — Q2 2025 96.723, Q2 2026 93.446 (revised; the graph node still shows 93.547). FRED PCEC96, Real Personal Consumption Expenditures, updated 2026-08-26, https://fred.stlouisfed.org/series/PCEC96 — 15,317.1 (Nov 2022) to 16,901.3 (Jul 2026), chained 2017 $bn SAAR. FRED W209RC1 compensation received rose from 13,689.2 (Q4 2022) to 16,307.2 (Jul 2026), $bn SAAR, https://fred.stlouisfed.org/series/W209RC1."
+        "basis": "FRED PRS85006173, Nonfarm Business Sector: Labor Share for All Workers, updated 2026-09-03, https://fred.stlouisfed.org/series/PRS85006173 — Q2 2025 96.723, Q2 2026 93.446 (revised from 93.547; the graph node now carries the revision). FRED PCEC96, Real Personal Consumption Expenditures, updated 2026-08-26, https://fred.stlouisfed.org/series/PCEC96 — 15,317.1 (Nov 2022) to 16,901.3 (Jul 2026), chained 2017 $bn SAAR. FRED W209RC1 compensation received rose from 13,689.2 (Q4 2022) to 16,307.2 (Jul 2026), $bn SAAR, https://fred.stlouisfed.org/series/W209RC1."
       },
       "createdAt": "2026-09-22T00:00:00Z"
     },

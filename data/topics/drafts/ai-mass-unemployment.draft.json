@@ -1399,12 +1399,13 @@
   {
    "id": "e-stanford-adp-16pct",
    "type": "evidence",
-   "finding": "Workers aged 22-25 in the most AI-exposed occupations experienced a 16% relative employment decline after controlling for firm-level shocks, concentrated in software development, customer service, and clerical occupations.",
+   "finding": "In the study's November 2025 version (ADP payroll data through September 2025), workers aged 22-25 in the most AI-exposed occupations experienced a 16% employment decline relative to less-exposed peers after controlling for firm-level shocks, with software developers and customer service among the most affected occupations.",
    "source": {
-    "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence",
-    "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+    "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence (November 2025 version)",
+    "url": "https://digitaleconomy.stanford.edu/app/uploads/2025/11/CanariesintheCoalMine_Nov25.pdf",
     "author": "Brynjolfsson, Chandar, Chen",
     "institution": "Stanford Digital Economy Lab",
+    "publishedAt": "2025-11-13",
     "kind": "institutional",
     "verification": "verified-live",
     "interest": "Research lab whose flagship finding is the result under dispute; the follow-up defends the team's own prior work."
@@ -1424,7 +1425,7 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "statement": "Workers aged 22-25 in the most AI-exposed occupations experienced a 16% relative employment decline after controlling for firm-level shocks, concentrated in software development, customer service, and clerical occupations."
+   "statement": "In the study's November 2025 version (ADP payroll data through September 2025), workers aged 22-25 in the most AI-exposed occupations experienced a 16% employment decline relative to less-exposed peers after controlling for firm-level shocks, with software developers and customer service among the most affected occupations."
   },
   {
    "id": "e-stanford-followup-rates",
@@ -1731,9 +1732,11 @@
    "type": "evidence",
    "finding": "A one-standard-deviation increase in AI exposure has little effect on wage growth for occupations with median experience premia, but is associated with a 0.28 percentage-point reduction in wage growth for occupations with zero experience premium.",
    "source": {
-    "title": "AI Exposure and Wage Growth",
+    "title": "AI is simultaneously aiding and replacing workers, wage data suggest",
     "url": "https://www.dallasfed.org/research/economics/2026/0224",
+    "author": "Scott Davis",
     "institution": "Federal Reserve Bank of Dallas",
+    "publishedAt": "2026-02-24",
     "kind": "government",
     "verification": "verified-live"
    },
@@ -2811,7 +2814,7 @@
   {
    "id": "e-hosseini-lichtinger-seniority",
    "type": "evidence",
-   "finding": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment kept rising, with the junior decline driven mainly by slower hiring rather than more separations.",
+   "finding": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment did not fall, with the junior decline driven mainly by slower hiring rather than more separations.",
    "source": {
     "title": "Generative AI as Seniority-Biased Technological Change: Evidence from U.S. R\u00e9sum\u00e9 and Job Posting Data",
     "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555",
@@ -2833,7 +2836,7 @@
    },
    "createdAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
-   "statement": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment kept rising, with the junior decline driven mainly by slower hiring rather than more separations.",
+   "statement": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment did not fall, with the junior decline driven mainly by slower hiring rather than more separations.",
    "weight": {
     "sourceReliability": 6,
     "independence": 7,
@@ -2842,14 +2845,14 @@
     "weightBasis": "Very large firm-level panel directly about adopters' hiring by seniority, but an unrefereed working paper whose adoption proxy (integrator postings) may flag firms already restructuring; a Danish register study finds no such adopter-level effect."
    },
    "unverifiedFlags": [
-    "SSRN abstract page was bot-blocked on 2026-09-22; the finding is taken from the Stanford Digital Economy Lab seminar abstract (event dated 2025-09-22) and the co-author's announcement post, not from the paper text. Effect magnitudes are deliberately omitted.",
+    "SSRN abstract page was bot-blocked on 2026-09-22; the finding is taken from the Stanford Digital Economy Lab seminar abstract (event dated 2025-09-22) and the co-author's announcement post, not from the paper text. Effect magnitudes are deliberately omitted. The seminar abstract says senior employment 'continued to rise'; the SSRN abstract, as quoted in search snippets on 2026-09-22, says it 'remains largely unchanged', so the finding says only that it did not fall.",
     "publishedAt is the co-author's public announcement date (2025-09-01, from the post id); the SSRN posting date itself was not confirmed."
    ]
   },
   {
    "id": "e-census-btos-ai-supplement-2026",
    "type": "evidence",
-   "finding": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and AI-related employment decreases occurred in only 2% of firms, though broader functional deployment and operational investment were associated with employment decreases.",
+   "finding": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and about 95% of AI-using firms reported no AI-related change in employment, with decreases at about 2% of AI-using firms (increases slightly more common), though broader functional deployment and operational investment were associated with employment decreases.",
    "source": {
     "title": "The Microstructure of AI Diffusion: Evidence from Firms, Business Functions, and Worker Tasks (CES Working Paper 26-25)",
     "url": "https://www.census.gov/library/working-papers/2026/adrm/CES-WP-26-25.html",
@@ -2872,7 +2875,7 @@
    },
    "createdAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
-   "statement": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and AI-related employment decreases occurred in only 2% of firms, though broader functional deployment and operational investment were associated with employment decreases.",
+   "statement": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and about 95% of AI-using firms reported no AI-related change in employment, with decreases at about 2% of AI-using firms (increases slightly more common), though broader functional deployment and operational investment were associated with employment decreases.",
    "weight": {
     "sourceReliability": 9,
     "independence": 9,
@@ -3026,7 +3029,7 @@
   {
    "id": "e-eig-young-grads-exposure",
    "type": "evidence",
-   "finding": "An analysis of Current Population Survey data through mid-2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
+   "finding": "An analysis of Current Population Survey data from 2022 into 2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
    "source": {
     "title": "AI and Jobs: The Final Word (Until the Next One)",
     "url": "https://eig.org/ai-and-jobs-the-final-word/",
@@ -3037,7 +3040,7 @@
     "verification": "verified-live",
     "verifiedAt": "2026-09-22"
    },
-   "relevance": "Challenges the credential-pathway claim's early signal: rising unemployment among young graduates shows up in less-exposed occupations too, which points to a general entry-level squeeze rather than an AI-specific narrowing. Unemployment rates can miss hiring and wage effects, and the data end in mid-2025.",
+   "relevance": "Challenges the credential-pathway claim's early signal: rising unemployment among young graduates shows up in less-exposed occupations too, which points to a general entry-level squeeze rather than an AI-specific narrowing. Unemployment rates can miss hiring and wage effects, and the data end in 2025.",
    "tags": [
     "early-career",
     "credentials",
@@ -3049,13 +3052,13 @@
    },
    "createdAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
-   "statement": "An analysis of Current Population Survey data through mid-2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
+   "statement": "An analysis of Current Population Survey data from 2022 into 2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
    "weight": {
     "sourceReliability": 6,
     "independence": 7,
     "replicability": 7,
     "directness": 5,
-    "weightBasis": "Public CPS microdata with results checked across five exposure measures; directness is limited because unemployment rates by occupation of young entrants are noisy, the authors acknowledge no causal identification, and the data end in mid-2025."
+    "weightBasis": "Public CPS microdata with results checked across five exposure measures; directness is limited because unemployment rates by occupation of young entrants are noisy, the authors acknowledge no causal identification, and the data end in 2025."
    }
   },
   {

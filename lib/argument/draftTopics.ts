@@ -78,8 +78,8 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         alt: "Two crowds of office workers stand on opposite sides of a widening crack in the ground; one side's floor stays level, the other tilts away.",
       },
       tagline:
-        "Employment among 22–25-year-olds in the most AI-exposed occupations fell 16% while unemployment sat near 4%. Which number matters? The whole fight in five questions.",
-      hook: "Among 22–25-year-olds in the most AI-exposed occupations, employment fell 16% relative to late 2022 after controlling for firm-level shocks — while overall U.S. unemployment sat near 4%. Both numbers are real. The fight is over what they mean.",
+        "Employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers while unemployment sat near 4%. Which number matters? The whole fight in five questions.",
+      hook: "Among 22–25-year-olds in the most AI-exposed occupations, employment fell 16% relative to less-exposed peers since late 2022, after controlling for firm-level shocks — while overall U.S. unemployment sat near 4%. Both numbers are real. The fight is over what they mean.",
       contextNote:
         "“AI-exposed” means jobs whose everyday tasks overlap most with what current AI systems do — software, clerical, customer service, analysis.",
       tldr: "This is three fights in a trench coat: whether AI is what broke entry-level hiring (the data can't yet say), whether the harm arrives as unemployment or as worse jobs (history mostly says worse jobs), and who gets to set the pace of deployment (no dataset settles that). Five questions carry almost all of it.",
@@ -145,10 +145,10 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
           { camp: "Not fewer jobs — worse ones", reading: "both are true and both miss it — the damage shows up in wages and career ladders, which neither number tracks." },
           { camp: "Wrong question — who decides?", reading: "neither number settles anything; deployment terms are set in contracts and law, not forecasts." },
         ],
-        take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to late 2022. Both are real. Which one you think is the story is which camp you're in — and the honest answer is that firm-level data to settle attribution doesn't exist yet.",
+        take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers since late 2022. Both are real. Which one you think is the story is which camp you're in — and the honest answer is that firm-level data to settle attribution doesn't exist yet.",
       },
       takeaways: [
-        "Employment among early-career workers in AI-exposed jobs fell ~16% — but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
+        "Employment among early-career workers in AI-exposed jobs fell ~16% relative to less-exposed peers — but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
         "Klarna's famous “AI replaced 700 agents” was the company's workload math, not evidence of 700 layoffs. Headline AI-layoff numbers rarely mean what they seem.",
         "America's biggest projected job growth is home-health care at ~$35K. Whether growth centered in jobs like that counts as the economy “adjusting” is a value question no dataset can settle.",
       ],
@@ -200,7 +200,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       hook: "Capitalism pays most people through wages. AI could automate a wider range of tasks while labor's share has already declined globally since the 1980s and the U.S. nonfarm-business index has fallen since 2000. The dispute is whether AI extends that trend or changes its scale.",
       tldr: "Almost nobody argues markets stop working. The real fight is narrower and stranger: whether the wage channel keeps distributing enough income to sustain demand and consent — and whether a system that keeps markets but pays people through dividends or transfers still counts as the thing we're defending. Two of the five cruxes are assumptions nobody states out loud; a third is a definition.",
       shareCard: {
-        left: { value: "−19.3", label: "Index-point change in U.S. nonfarm labor share, Q1 2000 → Q2 2026" },
+        left: { value: "−19.4", label: "Index-point change in U.S. nonfarm labor share, Q1 2000 → Q2 2026" },
         right: { value: "40%", label: "Estimated share of 2025 U.S. enterprise LLM spend attributed to one provider" },
         line: "Falling wage share, high AI-provider concentration. Whether that ends capitalism depends on what you think capitalism is.",
         attribution: "BLS/FRED · Menlo Ventures — argumend.org",
@@ -211,7 +211,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "p-breaks-fundamentally": { name: "Loukas Karabarbounis & Brent Neiman", affiliation: "Chicago Booth", line: "document a global decline in labor's share since the 1980s associated with the falling price of capital. This camp uses that finding as a precedent; their study does not itself establish the AI forecast." },
       },
       highlights: [
-        { fact: "−19.3", context: "Index-point decline in U.S. nonfarm business labor share from Q1 2000 (112.828) to Q2 2026 (93.547) — a 17.1% relative drop.", source: "BLS via FRED, series PRS85006173" },
+        { fact: "−19.4", context: "Index-point decline in U.S. nonfarm business labor share from Q1 2000 (112.828) to Q2 2026 (93.446, revised) — a 17.2% relative drop.", source: "BLS via FRED, series PRS85006173" },
         { fact: "40% / 27%", context: "Estimated shares of 2025 U.S. enterprise LLM spend attributed to the two leading providers, based on a decision-maker survey and bottom-up market model.", source: "Menlo Ventures" },
         { fact: "€11.2B", context: "Mondragon's 2024 sales with more than 70,000 employees — a large live test of an alternative ownership structure at industrial scale.", source: "Mondragon 2024 annual report" },
         { fact: "$1,000/mo", context: "The largest U.S. guaranteed-income RCT: three years, 1,000 adults — real evidence on transfers, in an economy where jobs still existed.", source: "NBER / OpenResearch" },

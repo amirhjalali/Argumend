@@ -25,7 +25,7 @@
       "noticedAt": "2026-09-22",
       "status": "open",
       "evidenceNodeIds": ["e-hosseini-lichtinger-seniority"],
-      "note": "U.S. résumé data: firms that began hiring generative-AI integrators slowed junior hiring from early 2023 while senior headcount kept rising. Output was not measured, so expansion versus cutback stays open.",
+      "note": "U.S. résumé data: firms that began hiring generative-AI integrators slowed junior hiring from early 2023 while senior headcount did not fall. Output was not measured, so expansion versus cutback stays open.",
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
@@ -46,7 +46,7 @@
         "e-census-btos-ai-supplement-2026",
         "e-hosseini-lichtinger-seniority"
       ],
-      "note": "Firm data now agree AI-linked headcount cuts are rare (2% of U.S. firms; NY Fed firms retrain far more often than they lay off). Still split: whether adopters slow junior hiring. U.S. résumé data say yes; Danish registers say no.",
+      "note": "Firm data agree AI-linked headcount cuts are rare (about 2% of AI-using U.S. firms; NY-region firms retrain far more than they lay off). Still split: whether adopters slow junior hiring. U.S. résumé data say yes; Danish registers say no.",
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
@@ -149,7 +149,7 @@
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
-        "basis": "Axios, 'Behind the Curtain: A white-collar bloodbath', VandeHei and Allen, 2025-05-28 (read 2026-09-22). Interest: the speaker leads an AI developer. Cited only as a public yardstick in use, not as evidence about the forecast."
+        "basis": "Axios, 'Behind the Curtain: Top AI CEO foresees white-collar bloodbath', VandeHei and Allen, 2025-05-28 (read 2026-09-22). Interest: the speaker leads an AI developer. Cited only as a public yardstick in use, not as evidence about the forecast."
       },
       "createdAt": "2026-09-22T00:00:00Z"
     },
@@ -159,13 +159,14 @@
       "claimId": "c-mass-unemployment-definition-strict",
       "date": "2026-09-15",
       "noticedAt": "2026-09-22",
-      "status": "open",
+      "status": "unresolvable",
+      "resolutionKind": "definitional-choice",
       "evidenceNodeIds": [],
-      "note": "Yale Budget Lab's tracker judges disruption by occupational churn and the AI exposure of the unemployed, not a U-3 threshold, and finds no AI footprint yet. The sides still measure with different yardsticks.",
+      "note": "Yale Budget Lab's tracker measures disruption by occupational churn and the AI exposure of the unemployed, not a U-3 threshold. Which yardstick defines 'mass unemployment' has to be stipulated; no data can pick it.",
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
-        "basis": "The Budget Lab at Yale, 'Tracking the Impact of AI on the Labor Market', published 2026-07-16, updated 2026-09-15 with August 2026 CPS data (read 2026-09-22). Definitional crux: evidence cannot settle it; only agreement on a metric can."
+        "basis": "The Budget Lab at Yale, 'Tracking the Impact of AI on the Labor Market', published 2026-07-16, updated 2026-09-15 with August 2026 CPS data (read 2026-09-22). With Axios 2025-05-28 (a U-3 yardstick in public use), two yardsticks now run side by side. The claim is a choice of definition, so no evidence settles it; the sides adopting one metric would be a stipulation, not a resolution. Same status as capitalism-after-ai's c-survival-definition-contested."
       },
       "createdAt": "2026-09-22T00:00:00Z"
     },
@@ -177,7 +178,7 @@
       "noticedAt": "2026-09-22",
       "status": "open",
       "evidenceNodeIds": [],
-      "note": "Burning Glass Institute: the share of postings asking under three years of experience dipped where AI can do junior tasks, and young graduates' unemployment rose faster than any other group's. It names AI as one of four causes.",
+      "note": "Burning Glass Institute: the share of postings asking under three years of experience dipped where AI can do junior tasks, and young graduates' unemployment rose faster than any other group's. It names AI in two of four interlocking causes.",
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
@@ -193,7 +194,7 @@
       "noticedAt": "2026-09-22",
       "status": "open",
       "evidenceNodeIds": ["e-eig-young-grads-exposure"],
-      "note": "Economic Innovation Group: unemployment rose for young workers and recent graduates in exposed and unexposed occupations alike through mid-2025, so the entry-level squeeze may be general rather than AI-specific.",
+      "note": "Economic Innovation Group: unemployment rose for young workers and recent graduates in exposed and unexposed occupations alike from 2022 into 2025, so the entry-level squeeze may be general rather than AI-specific.",
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
@@ -209,11 +210,11 @@
       "noticedAt": "2026-09-22",
       "status": "open",
       "evidenceNodeIds": ["e-dallas-fed-wage-growth"],
-      "note": "Dallas Fed: AI exposure goes with slower wage growth where experience earns no premium and faster growth where it does. The lifetime credential premium the claim is about has not been measured yet.",
+      "note": "Dallas Fed: AI exposure goes with slower wage growth where experience earns no premium and faster growth where the premium is high. The lifetime credential premium the claim is about has not been measured yet.",
       "author": {
         "kind": "editorial",
         "curator": "Argumend editors",
-        "basis": "Scott Davis, 'AI is simultaneously aiding and replacing workers, wage data suggest', Federal Reserve Bank of Dallas, 2026-02-24 (read 2026-09-22). The graph node's source title differs from the published title; flagged for review."
+        "basis": "Scott Davis, 'AI is simultaneously aiding and replacing workers, wage data suggest', Federal Reserve Bank of Dallas, 2026-02-24 (read 2026-09-22). The graph node's source title now matches the published title."
       },
       "createdAt": "2026-09-22T00:00:00Z"
     },
