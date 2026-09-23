@@ -14,16 +14,17 @@ available to them is `narrowed`.
 
 | claimId | date | status | resolutionKind | evidenceNodeIds |
 |---|---|---|---|---|
-| c-survival-definition-contested | 2023-10-27 | unresolvable | definitional-choice | — |
-| c-ai-ownership-stays-concentrated | 2025-04-07 | narrowed | future-observable | — |
-| c-ai-ownership-stays-concentrated | 2026-04-13 | narrowed | future-observable | — |
-| c-reallocation-keeps-pace | 2026-08-12 | open | — | — |
-| c-reallocation-keeps-pace | 2026-09-15 | open | — | — |
-| c-demand-collapse-without-recycling | 2026-09-03 | open | — | e-labor-share-fred |
-| c-wage-channel-loses-primacy | 2026-08-26 | open | — | — |
+| c-survival-definition-contested | 2023-10-27 | unresolvable | definitional-choice | e-snow-technofeudalism-review |
+| c-ai-ownership-stays-concentrated | 2025-04-07 | narrowed | future-observable | e-ai-index-2025-open-gap |
+| c-ai-ownership-stays-concentrated | 2026-04-13 | narrowed | future-observable | e-ai-index-2026-open-gap |
+| c-reallocation-keeps-pace | 2026-08-12 | open | — | e-canaries-2026-update |
+| c-reallocation-keeps-pace | 2026-09-15 | open | — | e-yale-budget-lab-tracker-2026 |
+| c-demand-collapse-without-recycling | 2026-09-03 | open | — | e-labor-share-fred, e-real-pce-fred |
+| c-wage-channel-loses-primacy | 2026-08-26 | open | — | e-compensation-share-personal-income |
 
-Six of seven entries are editorial-only because what bore on them from 2023 to 2026 is not in the
-graph yet. "Evidence nodes to add" at the end lists them.
+When first written, six of seven entries were editorial-only because what bore on them was not in
+the graph. Later on 2026-09-22 the nodes were added and every entry now cites one; see "Evidence
+nodes added" near the end.
 
 ---
 
@@ -218,7 +219,7 @@ ChatGPT's launch. No preregistered threshold exists that I could find. `open`.
 
 ---
 
-## Evidence nodes to add (do not edit the draft graph here; for the graph owner)
+## Evidence nodes to add (as first proposed; all now added, see next section)
 
 | Proposed node | Bears on | Suggested polarity | Source |
 |---|---|---|---|
@@ -233,6 +234,41 @@ ChatGPT's launch. No preregistered threshold exists that I could find. `open`.
 
 Once a node lands, its ledger entry can be superseded by one listing the node in
 `evidenceNodeIds`, per the append-only rule.
+
+## Evidence nodes added (2026-09-22)
+
+Each source above was re-opened on 2026-09-22 and the finding, date and URL re-checked before the
+node was written (FRED values from the series CSV downloads; the Yale page shows "July 16, 2026 |
+Updated: September 15, 2026"; the Jacobin standfirst and body sentence match the quotes above).
+All nodes carry `provenance.origin: "curator"`, `source.verification: "verified-live"` with
+`verifiedAt: 2026-09-22`, and weight sub-scores with a `weightBasis`. Every new edge is `evidences`
+with a `note` stating why that polarity.
+
+| Node | Edge → claim | Polarity | Differs from the proposal above? |
+|---|---|---|---|
+| e-ai-index-2025-open-gap | edge-117 → c-ai-ownership-stays-concentrated | challenging | no |
+| e-ai-index-2025-open-gap | edge-118 → c-open-models-lower-entry-barriers | supporting | no |
+| e-ai-index-2026-open-gap | edge-119 → c-ai-ownership-stays-concentrated | qualifying | no |
+| e-ai-index-2026-open-gap | edge-120 → c-open-models-lower-entry-barriers | qualifying | added, since both claims were asked for |
+| e-snow-technofeudalism-review | edge-121 → c-survival-definition-contested | supporting | no; `source.interest` records Jacobin's stance and the paywall |
+| e-canaries-2026-update | edge-122 → c-reallocation-keeps-pace | challenging | no |
+| e-yale-budget-lab-tracker-2026 | edge-123 → c-reallocation-keeps-pace | qualifying | no |
+| e-real-pce-fred | edge-124 → c-demand-collapse-without-recycling | **qualifying** | yes, proposed `challenging`. The claim is conditional ("if labor income falls faster than ..."), so evidence that the trigger has not occurred bears on the antecedent, not the mechanism |
+| e-labor-share-fred (existing) | edge-125 → c-demand-collapse-without-recycling | qualifying | no |
+| e-compensation-share-personal-income | edge-126 → c-wage-channel-loses-primacy | challenging | no; the node's URL is W209RC1, its relevance names PI, and it says the ratio is Argumend's computation |
+
+The ledger entries were edited in place to list these ids in `evidenceNodeIds`. Dates, statuses,
+notes and bases are unchanged.
+
+**Effect on the crux ranking (a deliberate graph edit, baseline regenerated).** Top 5 before:
+ownership 0.828, reallocation 0.750, survival-definition 0.715, demand-collapse 0.606,
+wage-channel 0.590. After: ownership 0.805, reallocation 0.713, survival-definition 0.702,
+demand-collapse 0.608, **c-open-models-lower-entry-barriers 0.552** (was seventh at 0.473). Mixed
+evidence (supporting 2025, qualifying 2026) raised its contestedness from 0.50 to 0.84.
+`c-wage-channel-loses-primacy` falls to sixth at 0.545. Its crux note was removed from
+`lib/argument/draftTopics.ts`, because a note must describe a rendered crux. The new crux got a
+question-form `summary`, a `resolution` contract and a crux note. The wage-channel ledger entry
+stays; that claim is just no longer in the rendered top five.
 
 ## Considered and not used
 
