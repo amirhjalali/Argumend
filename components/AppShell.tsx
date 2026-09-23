@@ -12,10 +12,16 @@ const APP_SIDEBAR_ID = "app-sidebar-navigation";
 
 interface AppShellProps {
   children: React.ReactNode;
+  /**
+   * "reading" starts the desktop sidebar collapsed, for single-column pages
+   * meant to be read top to bottom (flagship topic maps, /ai). The reader can
+   * still open it from the top bar. Default "browse" keeps it open on desktop.
+   */
+  layout?: "browse" | "reading";
 }
 
-export function AppShell({ children }: AppShellProps) {
-  const sidebar = useSidebarState();
+export function AppShell({ children, layout = "browse" }: AppShellProps) {
+  const sidebar = useSidebarState({ desktopDefaultOpen: layout !== "reading" });
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
 

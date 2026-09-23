@@ -172,7 +172,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
         {/* Same shell as the legacy topic pages (TopicPageClient), so a
             flagship map reads as part of the site. DebateView stays a server
             component passed through as children. */}
-        <AppShell>
+        <AppShell layout="reading">
           <DebateView
             meta={argumentTopic.meta}
             graph={argumentTopic.graph}

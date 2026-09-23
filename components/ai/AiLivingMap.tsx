@@ -291,7 +291,7 @@ function SectionHeading({ id, children }: { id: string; children: React.ReactNod
   return (
     <h2
       id={id}
-      className="text-balance font-serif text-[1.875rem] leading-[1.15] tracking-[-0.01em] text-stone-900 dark:text-stone-50 sm:text-[2.125rem]"
+      className="scroll-mt-6 text-balance font-serif text-[1.875rem] leading-[1.15] tracking-[-0.01em] text-stone-900 dark:text-stone-50 sm:text-[2.125rem]"
     >
       {children}
     </h2>
