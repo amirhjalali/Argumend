@@ -258,11 +258,12 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
           soWhat:
             "This separates a distribution problem from a macroeconomic one. Failure to recycle income means productive capacity can rise while demand and employment remain weak.",
         },
-        "c-wage-channel-loses-primacy": {
+        "c-open-models-lower-entry-barriers": {
+          question: "Can open models make it cheap enough for new firms to compete?",
           fight:
-            "Wages can lose share without disappearing. The argument is about when that decline becomes a change in kind: when most non-owners can no longer rely on work as their main claim on output.",
+            "Open-weight models came within 1.7% of closed ones in 2024, then fell 3.3% behind by March 2026. The dispute is whether near-frontier models are enough for downstream firms to enter and compete, or whether the top tier, the compute, and the distribution stay with a few firms.",
           soWhat:
-            "If wages remain primary, capitalism mostly adapts. If dividends or transfers have to replace them, the system needs structural redesign even if markets and private firms remain.",
+            "If open models keep entry cheap, concentration at the frontier matters less for who earns AI income. If they fall behind, the ownership question gets harder to escape.",
         },
       },
     },

@@ -9,7 +9,7 @@
       "noticedAt": "2026-09-22",
       "status": "unresolvable",
       "resolutionKind": "definitional-choice",
-      "evidenceNodeIds": [],
+      "evidenceNodeIds": ["e-snow-technofeudalism-review"],
       "note": "The 2023 technofeudalism exchange read the same facts about cloud rents as capitalism's end or as its new form, depending on the criterion used. No evidence picks the criterion; it has to be stipulated.",
       "author": {
         "kind": "editorial",
@@ -26,7 +26,7 @@
       "noticedAt": "2026-09-22",
       "status": "narrowed",
       "resolutionKind": "future-observable",
-      "evidenceNodeIds": [],
+      "evidenceNodeIds": ["e-ai-index-2025-open-gap"],
       "note": "Open-weight models came within 1.7% of closed models on some benchmarks in 2024, down from 8%. Near-frontier capability is not held by a few firms alone; the forecast now turns on compute, chips, and who deploys.",
       "author": {
         "kind": "editorial",
@@ -43,7 +43,7 @@
       "noticedAt": "2026-09-22",
       "status": "narrowed",
       "resolutionKind": "future-observable",
-      "evidenceNodeIds": [],
+      "evidenceNodeIds": ["e-ai-index-2026-open-gap"],
       "note": "By March 2026 the open-model gap had reopened to 3.3%, and six of the top ten Arena models were closed. Near-frontier models stay available outside a few firms, while the top tier and the investment stay concentrated.",
       "author": {
         "kind": "editorial",
@@ -59,7 +59,7 @@
       "date": "2026-08-12",
       "noticedAt": "2026-09-22",
       "status": "open",
-      "evidenceNodeIds": [],
+      "evidenceNodeIds": ["e-canaries-2026-update"],
       "note": "Payroll data through June 2026: employment of 22-25-year-olds in AI-exposed jobs sits 19% below less-exposed peers, mostly through reduced hiring. That bears on entry, not on how fast displaced workers are re-employed.",
       "author": {
         "kind": "editorial",
@@ -75,7 +75,7 @@
       "date": "2026-09-15",
       "noticedAt": "2026-09-22",
       "status": "open",
-      "evidenceNodeIds": [],
+      "evidenceNodeIds": ["e-yale-budget-lab-tracker-2026"],
       "note": "Yale's September 2026 tracker finds no clear AI-related footprint in U.S. employment or occupational mix. The longitudinal re-employment data the resolution condition asks for does not exist yet.",
       "author": {
         "kind": "editorial",
@@ -91,7 +91,7 @@
       "date": "2026-09-03",
       "noticedAt": "2026-09-22",
       "status": "open",
-      "evidenceNodeIds": ["e-labor-share-fred"],
+      "evidenceNodeIds": ["e-labor-share-fred", "e-real-pce-fred"],
       "note": "Labor's share kept falling (index 93.4 in Q2 2026), but total employee pay and real consumer spending both kept rising through July 2026. The trigger, labor income falling faster than it is recycled, has not appeared.",
       "author": {
         "kind": "editorial",
@@ -107,7 +107,7 @@
       "date": "2026-08-26",
       "noticedAt": "2026-09-22",
       "status": "open",
-      "evidenceNodeIds": [],
+      "evidenceNodeIds": ["e-compensation-share-personal-income"],
       "note": "Employee compensation was about 60% of U.S. personal income in July 2026, about the same share as in late 2022. Wages are still the largest channel, and no preregistered threshold for a change in kind has been set.",
       "author": {
         "kind": "editorial",
