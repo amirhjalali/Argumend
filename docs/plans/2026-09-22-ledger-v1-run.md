@@ -196,13 +196,17 @@ Not merged, ready for your call:
   capitalism-after-ai; every ledger entry now cites graph evidence. It changes the flagship top 5 on
   a 0.007 margin (open-models 0.552 enters, wage-channel 0.545 drops to 6th and its crux note is
   removed). Options: accept, pin wage-channel via `cruxOverride`, or revisit polarities.
-- **gap-metric** (branch `worktree-agent-a09a28c5cf74f93aa`, under review at wrap): counts-only
-  logging behind `ENABLE_GAP_METRIC_LOGGING` (default off), `gap_observations` table with no text
-  column, migration `drizzle/0003_gap_observations.sql` (hand-trimmed: check before `db:migrate`),
-  weekly median/IQR with n<20 suppression, `bun run metric:gap`. Map-reply lane definitions are
-  inferences (see `docs/GAP_METRIC.md`).
-- **design-cleanup** and **copy-cleanup** were stopped at the time limit; see their branches if
-  they committed.
+- **design-cleanup** was stopped at the time limit; see its worktree branch if it committed.
+
+Also merged at wrap: **copy-cleanup** (glossary/concepts on the two-axis model; low-weight rows off
+crimson; blog passages quoting the old verdict mechanics) and **gap-metric** (counts-only logging
+behind `ENABLE_GAP_METRIC_LOGGING`, default off; `gap_observations` has no text column; migration
+`drizzle/0003_gap_observations.sql` NOT applied — first confirm whether prod uses `db:push` or
+`db:migrate`; reviewer made the DB import lazy so the paste routes can't 500 on a driver failure).
+Gap-metric questions: per-topic default report? use `signals.talkingPast` for the talking-past rule?
+allow-list model ids? `replyId`/`createdAt` deviations OK?
+
+Final state at 01:58 UTC: 248 files / 2910 tests, tsc, lint green.
 
 New open items: TopBar `sticky` never sticks because `html, body { overflow-x: hidden }` (use
 `clip`, then add ~64px scroll-margin); legacy sidebar pops in after hydration; blog/glossary passages
