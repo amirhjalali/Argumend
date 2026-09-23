@@ -160,7 +160,7 @@ export function DisagreementAnalyzeClient() {
           </p>
           <button
             type="button"
-            className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200"
+            className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
             onClick={() => setInputCollapsed(false)}
           >
             Edit
@@ -196,7 +196,7 @@ export function DisagreementAnalyzeClient() {
                 setContentType("conversation");
                 setContent(DISAGREEMENT_EXAMPLE_SOURCE);
               }}
-              className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark disabled:opacity-60 dark:text-deep-light dark:hover:text-stone-200"
+              className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark disabled:opacity-60 dark:text-accent-text dark:hover:text-stone-200"
             >
               See an example
             </button>
@@ -222,7 +222,7 @@ export function DisagreementAnalyzeClient() {
           className="mt-8 max-w-3xl space-y-2 border-l-2 border-[var(--text-muted)] pl-4"
         >
           <p className="text-[var(--text-primary)]">{error}</p>
-          <Link className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 dark:text-deep-light" href="/analyze">
+          <Link className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 dark:text-accent-text" href="/analyze">
             Try the limited local parser
           </Link>
         </div>
@@ -245,7 +245,7 @@ export function DisagreementAnalyzeClient() {
                 />
                 <button
                   type="button"
-                  className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200"
+                  className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
                   onClick={startOver}
                 >
                   Analyze another

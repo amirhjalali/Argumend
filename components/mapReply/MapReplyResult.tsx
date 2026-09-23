@@ -47,7 +47,7 @@ function MapReplyHeader({ match }: { match: MapReplyMatch }) {
           </span>
           <span
             className={`font-sans text-sm font-medium tabular-nums ${
-              hedged ? "text-skeptic dark:text-skeptic-light" : "text-deep dark:text-deep-light"
+              hedged ? "text-skeptic dark:text-skeptic-light" : "text-deep dark:text-accent-text"
             }`}
           >
             {percentLabel(topicChoice.confidence)}

@@ -77,6 +77,9 @@ const config: Config = {
         crux: {
           DEFAULT: "#a23b3b", // Deep crimson for cruxes
           light: "#c45c5c",
+          // Theme-aware crimson for text: #a23b3b light, #d97373 dark (4.61:1 on
+          // dark paper). `text-crux-text`.
+          text: "rgb(var(--crux-text-rgb) / <alpha-value>)",
           dark: "#7a2929",
         },
         evidence: {

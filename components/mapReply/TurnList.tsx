@@ -78,7 +78,7 @@ function Placement({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
             : undefined
         }
         className={`inline-flex items-baseline gap-1.5 ${
-          tentative ? "text-[var(--text-secondary)]" : "text-deep dark:text-deep-light"
+          tentative ? "text-[var(--text-secondary)]" : "text-deep dark:text-accent-text"
         }`}
       >
         <span>{turn.sectionTitle ?? turn.section}</span>
@@ -209,7 +209,7 @@ export function TurnList({
         onToggle={(event) => setOpen(event.currentTarget.open)}
         className="group"
       >
-        <summary className="flex min-h-11 cursor-pointer items-center gap-1.5 font-sans text-[0.9375rem] text-deep marker:content-none dark:text-deep-light sm:hidden [&::-webkit-details-marker]:hidden">
+        <summary className="flex min-h-11 cursor-pointer items-center gap-1.5 font-sans text-[0.9375rem] text-deep marker:content-none dark:text-accent-text sm:hidden [&::-webkit-details-marker]:hidden">
           <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">
             ›
           </span>

@@ -77,7 +77,7 @@ export function PatternSignals({
           <h4 className="font-serif text-[1.375rem] leading-snug text-[var(--text-heading)]">
             {pattern.label}
           </h4>
-          <span className="font-sans text-sm font-medium tabular-nums text-deep dark:text-deep-light">
+          <span className="font-sans text-sm font-medium tabular-nums text-deep dark:text-accent-text">
             {percentLabel(pattern.confidence)}
           </span>
         </div>

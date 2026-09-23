@@ -22,10 +22,10 @@ const TONE_FILL: Record<MeterTone, string> = {
 };
 
 const TONE_TEXT: Record<MeterTone, string> = {
-  teal: "text-deep dark:text-deep-light",
+  teal: "text-deep dark:text-accent-text",
   rust: "text-rust-600 dark:text-rust-500",
   brown: "text-skeptic dark:text-skeptic-light",
-  crux: "text-crux dark:text-crux-light",
+  crux: "text-crux dark:text-crux-text",
   stone: "text-[var(--text-muted)]",
 };
 

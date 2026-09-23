@@ -52,6 +52,10 @@
   --accent-text: #3a6965;
   --accent-text-rgb: 58 105 101;
 
+  /* Crux crimson for TEXT. Dark: #d97373, 4.61:1 on paper #2a2926 and 5.56:1
+     on the canvas; crux-light #c45c5c is 3.49:1 on paper. */
+  --crux-text-rgb: 162 59 59;
+
   --border-default: rgba(214, 211, 209, 0.6);
   --border-subtle: rgba(214, 211, 209, 0.4);
   --border-muted: rgba(214, 211, 209, 0.5);
@@ -101,6 +105,7 @@
 
   --accent-text: #8bb5b1;
   --accent-text-rgb: 139 181 177;
+  --crux-text-rgb: 217 115 115;
 
   --border-default: rgba(61, 58, 54, 0.8);
   --border-subtle: rgba(61, 58, 54, 0.5);

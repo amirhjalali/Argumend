@@ -226,7 +226,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           <div>
             <button
               onClick={() => setShowCrux(!showCrux)}
-              className="flex items-center gap-1.5 py-2 min-h-[44px] text-[13px] text-crux dark:text-[#d98080] font-medium hover:text-crux-dark dark:hover:text-[#e6a3a3] transition-colors"
+              className="flex items-center gap-1.5 py-2 min-h-[44px] text-[13px] text-crux dark:text-crux-text font-medium hover:text-crux-dark dark:hover:text-[#e6a3a3] transition-colors"
             >
               <FlaskConical className="h-3.5 w-3.5" />
               Decisive Test: {pillar.crux.title}

@@ -70,7 +70,7 @@ export function MapReplyForm({
             type="button"
             disabled={disabled}
             onClick={() => onChange(RENT_CONTROL_THREAD)}
-            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep underline underline-offset-2 hover:text-deep-dark disabled:opacity-60 dark:text-deep-light dark:hover:text-stone-200"
+            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep underline underline-offset-2 hover:text-deep-dark disabled:opacity-60 dark:text-accent-text dark:hover:text-stone-200"
           >
             Load example
           </button>

@@ -38,7 +38,7 @@ export const categoryColors: Record<TopicCategory, string> = {
     "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
   // Crux crimson (#a23b3b) — the deep, contested questions
   philosophy:
-    "bg-crux/10 dark:bg-crux/20 text-crux dark:text-[#d98080] border-crux/25 dark:border-crux/40",
+    "bg-crux/10 dark:bg-crux/20 text-crux dark:text-crux-text border-crux/25 dark:border-crux/40",
 };
 
 /**

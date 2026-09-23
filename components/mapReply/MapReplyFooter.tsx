@@ -69,7 +69,7 @@ export function MapReplyFooter({
         <button
           type="button"
           onClick={onReset}
-          className="inline-flex min-h-11 items-center rounded-md font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200"
+          className="inline-flex min-h-11 items-center rounded-md font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
         >
           Map another thread
         </button>
