@@ -31,7 +31,14 @@ export const QUADRANT_STYLE: Record<
     onColor: "rgb(var(--bg-canvas-rgb))",
     short: "Contested",
   },
-  moderate: { color: "#C4613C", bg: "rgba(196, 97, 60, 0.10)", onColor: "#ffffff", short: "Moderate" },
+  // Rust ink token (--rust-text: rust-700 light, rust-500 dark); the tint stays
+  // rust-500 so the chip reads as the same family.
+  moderate: {
+    color: "rgb(var(--rust-text-rgb))",
+    bg: "rgba(196, 97, 60, 0.10)",
+    onColor: "#ffffff",
+    short: "Moderate",
+  },
   // Muted stone ink (--text-muted: #6d6058 light, #9a9189 dark). The fixed
   // #7a7068 was 3.63:1 on the dark canvas; the token is 5.68:1.
   open: {
