@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { AiLivingMap } from "@/components/ai/AiLivingMap";
 import { JsonLd } from "@/components/JsonLd";
-import { ledgerAsOf } from "@/lib/argument/ledgerPool";
-import { loadAiMaps } from "./loadAiMaps";
-import { ARGUMENT_TOPICS_FIRST_PUBLISHED, SITE_NAME, SITE_URL } from "@/lib/site";
+import { aiPageAsOf, loadAiMaps } from "./loadAiMaps";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 /**
  * /ai — the living AI-discourse map (spec §2): today's top cruxes across the
- * AI maps, what has arrived since a date, how much moved, and the changelog.
+ * AI maps, what has moved since a date, how much moved, and the changelog.
  *
- * Deliberately not linked from the nav, the sidebar, or the topic pages yet:
- * that is a founder decision. Rendering matches the topic pages (no
+ * In the sitemap, but deliberately not in the nav or the sidebar. Rendering matches the topic pages (no
  * `dynamic`/`revalidate` override); the `?map=` and `?since=` links make it
  * request-rendered, and the maps and ledgers are cached per process by
  * `loadArgumentTopic`, so each render is pure computation over static data.
@@ -50,7 +48,7 @@ function first(value: string | string[] | undefined): string | undefined {
 export default async function AiPage({ searchParams }: PageProps) {
   const params = (await searchParams) ?? {};
   const maps = loadAiMaps();
-  const asOf = ledgerAsOf(maps) ?? ARGUMENT_TOPICS_FIRST_PUBLISHED;
+  const asOf = aiPageAsOf(maps);
 
   return (
     <>

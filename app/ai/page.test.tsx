@@ -27,11 +27,11 @@ describe("/ai with the real AI maps", () => {
     expect(view.container.textContent).toMatch(/A living map, as of September 22, 2026/);
   });
 
-  it("shows 5–8 crux cards, each naming its map and a settle line", async () => {
+  it("shows 5–6 crux cards, each naming its map and a settle line", async () => {
     const view = await renderPage();
     const cards = view.getAllByTestId("ai-crux-card");
     expect(cards.length).toBeGreaterThanOrEqual(5);
-    expect(cards.length).toBeLessThanOrEqual(8);
+    expect(cards.length).toBeLessThanOrEqual(6);
     for (const card of cards) {
       const topicId = card.getAttribute("data-topic")!;
       expect(AI_MAP_TOPIC_IDS).toContain(topicId);
@@ -58,7 +58,7 @@ describe("/ai with the real AI maps", () => {
       .filter((card) => card.textContent?.includes("Unresolvable by evidence"));
     expect(standing.length).toBeGreaterThan(0);
     for (const card of standing) {
-      expect(card.textContent).toMatch(/What would settle it: Nothing does — .*the map holds both horns\./);
+      expect(card.textContent).toMatch(/What would settle it: Nothing does — .*; the map holds both \w+\./);
     }
   });
 
@@ -67,7 +67,9 @@ describe("/ai with the real AI maps", () => {
     const card = view
       .getAllByTestId("ai-crux-card")
       .find((c) => c.textContent?.includes("What do we even mean by capitalism"));
-    expect(card?.textContent).toContain("it turns on a choice of definition");
+    expect(card?.textContent).toContain(
+      "Nothing does — this turns on a choice of definition; the map holds both readings.",
+    );
     expect(card?.textContent).not.toContain("value disagreement");
   });
 
@@ -101,6 +103,17 @@ describe("/ai with the real AI maps", () => {
     expect(text).not.toMatch(/\bwinner\b/i);
   });
 
+  it("starts the changelog folded, with the count and latest recorded day in its summary", async () => {
+    const view = await renderPage();
+    const log = view.getByTestId("ai-changelog");
+    expect(log.tagName).toBe("DETAILS");
+    expect(log.hasAttribute("open")).toBe(false);
+    const rows = view.getAllByTestId("ai-changelog-entry");
+    expect(log.querySelector("summary")?.textContent).toContain(
+      `${rows.length} entries, the latest recorded September 22, 2026`,
+    );
+  });
+
   it("lists the changelog newest-recorded first, then by source date", async () => {
     const view = await renderPage();
     const rows = view.getAllByTestId("ai-changelog-entry");
@@ -109,9 +122,9 @@ describe("/ai with the real AI maps", () => {
     expect(keys).toEqual([...keys].sort().reverse());
   });
 
-  it("shows what arrived in the default 90-day window, with evidence sources", async () => {
+  it("shows what moved in the default 90-day window, with evidence sources", async () => {
     const view = await renderPage();
-    const section = view.getByRole("heading", { name: /What has arrived since June 24, 2026/ })
+    const section = view.getByRole("heading", { name: /What has moved since June 24, 2026/ })
       .closest("section")!;
     expect(section.querySelectorAll('ul[aria-label="Evidence behind this entry"]').length).toBeGreaterThan(0);
     expect(section.textContent).toMatch(/Link checked live/);
@@ -119,7 +132,7 @@ describe("/ai with the real AI maps", () => {
 
   it("keeps each entry's findings behind a closed disclosure", async () => {
     const view = await renderPage();
-    const section = view.getByRole("heading", { name: /What has arrived since/ }).closest("section")!;
+    const section = view.getByRole("heading", { name: /What has moved since/ }).closest("section")!;
     const lists = [...section.querySelectorAll('ul[aria-label="Evidence behind this entry"]')];
     expect(lists.length).toBeGreaterThan(0);
     for (const list of lists) {
@@ -153,13 +166,13 @@ describe("/ai link parameters", () => {
 
   it("ignores an unknown map and a malformed since", async () => {
     const view = await renderPage({ map: "not-a-map", since: "2026-02-30" });
-    expect(view.getAllByTestId("ai-crux-card").length).toBe(8);
+    expect(view.getAllByTestId("ai-crux-card").length).toBe(6);
     expect(view.getByRole("heading", { name: /since June 24, 2026/ })).toBeTruthy();
   });
 
   it("reads a since before the first entry as since the first entry", async () => {
     const view = await renderPage({ since: "0001-01-01" });
-    expect(view.getByRole("heading", { name: /What has arrived since October 27, 2023/ })).toBeTruthy();
+    expect(view.getByRole("heading", { name: /What has moved since October 27, 2023/ })).toBeTruthy();
     expect(view.getByRole("link", { name: "Everything", current: "page" })).toBeTruthy();
   });
 

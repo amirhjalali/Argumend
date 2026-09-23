@@ -6,6 +6,7 @@ import {
   CONTENT_LAST_UPDATED,
   LEGAL_LAST_UPDATED,
 } from "@/lib/site";
+import { aiPageAsOf } from "./ai/loadAiMaps";
 import sitemap from "./sitemap";
 
 /**
@@ -50,8 +51,17 @@ describe("sitemap", () => {
         "https://argumend.org",
         "https://argumend.org/topics",
         "https://argumend.org/analyze",
+        "https://argumend.org/ai",
         "https://argumend.org/about",
       ]),
+    );
+  });
+
+  it("lists /ai once, dated by the latest recorded ledger entry", () => {
+    const matching = entries.filter((entry) => entry.url === "https://argumend.org/ai");
+    expect(matching).toHaveLength(1);
+    expect(new Date(matching[0].lastModified as string | Date).getTime()).toBe(
+      new Date(`${aiPageAsOf()}T00:00:00Z`).getTime(),
     );
   });
 

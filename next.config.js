@@ -55,10 +55,12 @@ const nextConfig = {
   // render silently sees an empty ledger. Keys are picomatch globs matched
   // with `contains`, so '/topics' covers /topics and /topics/[id]. /ai reads
   // the AI maps' ledgers on every request (its ?map=/?since= links make it
-  // dynamic), so it needs the same files.
+  // dynamic), and the revalidated sitemap dates /ai by them, so both need the
+  // same files.
   outputFileTracingIncludes: {
     '/topics': ['./data/argument/**/*.json'],
     '/ai': ['./data/argument/**/*.json'],
+    '/sitemap.xml': ['./data/argument/**/*.json'],
   },
   devIndicators: {
     appIsrStatus: false,

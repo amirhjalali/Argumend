@@ -37,6 +37,9 @@ export interface AiLivingMapProps {
   sinceParam?: string;
 }
 
+/** Crux cards on /ai: the lower half of the spec's 5–8, so the page stays one brief. */
+const CRUX_CARDS = 6;
+
 const WINDOW_CHOICES = [
   { days: 30, label: "30 days" },
   { days: DEFAULT_SINCE_DAYS, label: "90 days" },
@@ -69,7 +72,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
   const sinceForLinks = since === defaultSince ? undefined : since;
   const mapForLinks = selected?.topicId;
 
-  const cruxes = poolTopCruxes(pool);
+  const cruxes = poolTopCruxes(pool, CRUX_CARDS);
   const arrived = arrivedSince(pool, since, asOf);
   const summary = movementSummary(pool, since, asOf);
   const changelog = ledgerChangelog(pool);
@@ -162,10 +165,11 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
         </ol>
       </section>
 
-      {/* ---------------- 3. What's arrived since ---------------- */}
-      <section aria-labelledby="arrived" className="mt-20">
-        <SectionHeading id="arrived">
-          What has arrived since <time dateTime={since}>{formatLongDay(since)}</time>
+      {/* ---------------- 3. What has moved since ---------------- */}
+      {/* Filtered by each source's own date; when the map recorded it is the changelog's job. */}
+      <section aria-labelledby="moved-since" className="mt-20">
+        <SectionHeading id="moved-since">
+          What has moved since <time dateTime={since}>{formatLongDay(since)}</time>
         </SectionHeading>
         <p className="mt-2 max-w-[36rem] text-[14px] leading-relaxed text-secondary dark:text-stone-400">
           Sources dated {formatDay(since)} to {formatDay(asOf)}, by their own date, and what
@@ -173,7 +177,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
           {sharedNoticedDay ? `. All were added to the map on ${formatDay(sharedNoticedDay)}.` : "."}{" "}
           Open an entry&rsquo;s sources to read the findings.
         </p>
-        <nav aria-label="Window" className="mt-5 flex flex-wrap items-center gap-2 text-[13px]">
+        <nav aria-label="Show what has moved since" className="mt-5 flex flex-wrap items-center gap-2 text-[13px]">
           {WINDOW_CHOICES.map((choice) => {
             const day = shiftDay(asOf, -choice.days);
             return (
@@ -270,8 +274,8 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
         <SectionHeading id="changelog">Changelog</SectionHeading>
         <p className="mt-2 max-w-[36rem] text-[14px] leading-relaxed text-secondary dark:text-stone-400">
           Every published ledger entry{selected ? ` on ${selected.label}` : " across both maps"},
-          newest recorded first. A corrected entry stays, struck through, and names its
-          correction.
+          newest recorded first, grouped by the day the map recorded it. A corrected entry
+          stays, struck through, and names its correction.
         </p>
         <div className="mt-8">
           <Changelog items={changelog} mapsById={mapsById} />

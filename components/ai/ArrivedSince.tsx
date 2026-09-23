@@ -1,5 +1,5 @@
 /**
- * What's arrived since: ledger entries whose source is dated inside the
+ * What has moved since: ledger entries whose source is dated inside the
  * reader's window, grouped by the crux they bear on. Each entry shows its
  * date, status, and note; the evidence that moved it (finding, source, how
  * far the source was checked) waits behind a native disclosure, so the

@@ -20,13 +20,15 @@ const CARDINAL = ["one", "two", "three", "four", "five", "six", "seven", "eight"
  * What settles a standing fork, per kind. The map pages' line names a value
  * disagreement, so it is used for that kind only; a definitional or
  * who-decides fork saying "value disagreement" would misdescribe it.
+ * Same wording as `standingLineFor` on north-star/crux-card-design; switch
+ * to that export once it lands in components/argument/CruxMovement.
  */
 const STANDING_LINE: Record<string, string> = {
   "value-difference": STANDING_DISAGREEMENT_LINE,
   "definitional-choice":
-    "Nothing does — it turns on a choice of definition; the map holds both horns.",
+    "Nothing does — this turns on a choice of definition; the map holds both readings.",
   "authority-allocation":
-    "Nothing does — it turns on who gets to decide; the map holds both horns.",
+    "Nothing does — this turns on who should decide; the map holds both answers.",
 };
 
 export function CruxCard({
