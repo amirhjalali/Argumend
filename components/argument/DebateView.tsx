@@ -227,7 +227,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
         <p className="mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300">
           Settle one and whole positions move. {settleTally(cruxes, nodesById, ledger)}
         </p>
-        <ol className="mt-5 surface-card overflow-hidden !rounded-lg divide-y divide-stone-200/90 dark:divide-[#3d3a36]">
+        <ol className={`mt-5 ${CRUX_SHEET}`}>
             {cruxes.map((crux, index) => {
               const claim = nodesById.get(crux.claimId);
               if (claim?.type !== "claim") return null;
@@ -571,16 +571,19 @@ function renderStakes(
 /** Maps covered by the living AI page at /ai, which links back from here. */
 const AI_MAP_IDS: ReadonlySet<string> = new Set(["ai-mass-unemployment", "capitalism-after-ai"]);
 
+/** The crux sheet: one ruled card, hairline rules between entries. Shared with /ai. */
+export const CRUX_SHEET =
+  "surface-card overflow-hidden !rounded-lg divide-y divide-stone-200/90 dark:divide-[#3d3a36]";
 /** Numeral gutter | entry. The margin rule sits on the column boundary. */
-const ENTRY_GRID = "grid grid-cols-[2.5rem_minmax(0,1fr)] sm:grid-cols-[3.75rem_minmax(0,1fr)]";
+export const ENTRY_GRID = "grid grid-cols-[2.5rem_minmax(0,1fr)] sm:grid-cols-[3.75rem_minmax(0,1fr)]";
 /** A summary row in the entry column, right of the margin rule. */
-const ENTRY_COLUMN = "col-start-2 min-w-0 pl-4 sm:pl-5";
+export const ENTRY_COLUMN = "col-start-2 min-w-0 pl-4 sm:pl-5";
 /**
  * The margin rule, drawn per entry so the list stays `ol > li`. It starts a
  * pixel high to bridge each divider, so the rule reads as one line that the
  * horizontal rules cross, as on ledger paper.
  */
-const MARGIN_RULE =
+export const MARGIN_RULE =
   "relative before:pointer-events-none before:absolute before:-top-px before:bottom-0 before:left-[2.5rem] before:z-10 before:border-l before:border-[#a23b3b]/45 before:content-[''] dark:before:border-[#c45c5c]/55 sm:before:left-[3.75rem]";
 
 /**
@@ -590,9 +593,9 @@ const MARGIN_RULE =
  *  - standing:  nothing closes it; a value fork, or a ledger that says so
  *  - unstated:  the map has not written a condition down yet
  */
-type SettleMode = "evidence" | "agreement" | "standing" | "unstated";
+export type SettleMode = "evidence" | "agreement" | "standing" | "unstated";
 
-function settleMode(claim: Claim, latestStatus?: CruxLedgerStatus): SettleMode {
+export function settleMode(claim: Claim, latestStatus?: CruxLedgerStatus): SettleMode {
   const kind = claim.resolution?.kind;
   if (latestStatus === "unresolvable") return "standing";
   // A resolved entry outranks the authored kind: "nothing settles it" under a
@@ -672,7 +675,7 @@ function asSentence(text: string): string {
  * could settle it, brown with the engine's standing line when nothing does.
  * Summary content, so phrasing elements only.
  */
-function SettleAnswer({
+export function SettleAnswer({
   mode,
   kind,
   condition,
