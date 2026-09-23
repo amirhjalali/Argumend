@@ -219,7 +219,7 @@ this document did for rows 5, 7, 9 and 14.
 All accessed 2026-09-22. "EPMC" = the Europe PMC record read for the abstract.
 
 **Row 1**
-- [1a] Hamner et al., "High SARS-CoV-2 Attack Rate Following Exposure at a Choir Practice — Skagit County, Washington, March 2020", *MMWR* 69(19), 15 May 2020. https://www.cdc.gov/mmwr/volumes/69/wr/mm6919e6.htm
+- [1a] Hamner et al., "High SARS-CoV-2 Attack Rate Following Exposure at a Choir Practice — Skagit County, Washington, March 2020", *MMWR* 69(19), Early Release 12 May 2020 (weekly issue 15 May). https://www.cdc.gov/mmwr/volumes/69/wr/mm6919e6.htm
 - [1b] Shen et al., "Community Outbreak Investigation of SARS-CoV-2 Transmission Among Bus Riders in Eastern China", *JAMA Internal Medicine*, online 1 Sept 2020. https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2770172
 - [1c] Lu et al., "COVID-19 Outbreak Associated with Air Conditioning in Restaurant, Guangzhou, China, 2020", *Emerging Infectious Diseases* 26(7), July 2020. https://wwwnc.cdc.gov/eid/article/26/7/20-0764_article
 - [1d] Morawska & Milton, "It Is Time to Address Airborne Transmission of Coronavirus Disease 2019 (COVID-19)", *Clinical Infectious Diseases*, online 6 July 2020 (239 supporting scientists). https://academic.oup.com/cid/article/71/9/2311/5867798
