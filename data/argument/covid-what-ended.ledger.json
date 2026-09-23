@@ -450,17 +450,17 @@
       "createdAt": "2026-09-22"
     },
     {
-      "id": "covid-what-ended:c-prior-infection-comparable:2022-01-28:1",
+      "id": "covid-what-ended:c-prior-infection-comparable:2022-01-19:1",
       "topicId": "covid-what-ended",
       "claimId": "c-prior-infection-comparable",
-      "date": "2022-01-28",
+      "date": "2022-01-19",
       "noticedAt": "2026-09-22",
       "status": "narrowed",
       "resolutionKind": "existing-evidence",
       "evidenceNodeIds": [
         "e-cdc-prior-infection-cohorts"
       ],
-      "note": "California and New York, Delta: case rates 29.0- and 14.7-fold lower after prior infection vs 6.2- and 4.5-fold after vaccination. OSHA's rule was withdrawn two days earlier.",
+      "note": "California and New York, Delta: case rates 29.0- and 14.7-fold lower after prior infection vs 6.2- and 4.5-fold after vaccination. The Supreme Court had stayed OSHA's rule six days earlier.",
       "author": {
         "kind": "editorial",
         "curator": "argumend-editorial",
