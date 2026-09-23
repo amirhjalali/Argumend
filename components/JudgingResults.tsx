@@ -444,7 +444,7 @@ function DisagreementWarnings({ disagreements }: { disagreements: JudgingResult[
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.3 }}
-      className="bg-[color:var(--crux-crimson,#a23b3b)]/5 border border-[color:var(--crux-crimson,#a23b3b)]/30 rounded-xl p-4 md:p-5"
+      className="bg-crux/5 dark:bg-crux-light/5 border border-crux/30 dark:border-crux-light/30 rounded-xl p-4 md:p-5"
     >
       <div className="flex items-start gap-3">
         <AlertTriangle className="h-5 w-5 text-[color:var(--crux-crimson,#a23b3b)] flex-shrink-0 mt-0.5" />
@@ -460,7 +460,7 @@ function DisagreementWarnings({ disagreements }: { disagreements: JudgingResult[
                 <span className="text-stone-600 dark:text-stone-400"> — {d.spread.toFixed(1)} point spread</span>
                 <div className="flex gap-2 mt-1">
                   {d.scores.map((s) => (
-                    <span key={s.judgeId} className="text-xs bg-[color:var(--crux-crimson,#a23b3b)]/10 text-[color:var(--crux-crimson,#a23b3b)] px-2 py-0.5 rounded">
+                    <span key={s.judgeId} className="text-xs bg-crux/10 dark:bg-crux-light/10 text-[color:var(--crux-crimson,#a23b3b)] px-2 py-0.5 rounded">
                       {s.judgeId}: {s.score}
                     </span>
                   ))}

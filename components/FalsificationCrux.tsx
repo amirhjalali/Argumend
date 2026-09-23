@@ -15,7 +15,7 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
   return (
     <aside
       id={`crux-${crux.id}`}
-      className="mt-6 rounded-lg border border-[color:var(--crux-crimson,#a23b3b)]/30 bg-[color:var(--crux-crimson,#a23b3b)]/5 px-5 py-4 scroll-mt-24"
+      className="mt-6 rounded-lg border border-crux/30 dark:border-crux-light/30 bg-crux/5 dark:bg-crux-light/5 px-5 py-4 scroll-mt-24"
     >
       <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[color:var(--crux-crimson,#a23b3b)] mb-2">
         ◆ <GlossaryTerm term="crux">Crux</GlossaryTerm> —{" "}

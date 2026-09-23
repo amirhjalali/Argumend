@@ -98,6 +98,25 @@ describe("theme-adaptive tokens that need opacity modifiers", () => {
   // Tailwind 3 cannot apply an opacity modifier to an arbitrary `var()` color
   // and drops the class without a warning. The sticky top bar stayed light in
   // dark mode because of `dark:bg-[var(--bg-canvas)]/90` (audit finding 2).
+  // The type-hinted, fallback form `bg-[color:var(--crux-crimson,#a23b3b)]/5`
+  // is dropped the same way, so the pattern covers it too.
+  const DROPPED = /-\[(?:color:)?var\(--[\w-]+(?:,[^\]]*)?\)\]\/\d+/;
+
+  it("the dropped-class pattern matches every var() form Tailwind 3 drops", async () => {
+    const forms = [
+      "bg-[var(--bg-card)]/80",
+      "border-[color:var(--crux-crimson,#a23b3b)]/30",
+      "bg-[color:var(--crux-crimson,#a23b3b)]/5",
+    ];
+    for (const form of forms) {
+      expect(form).toMatch(DROPPED);
+      const result = await postcss([
+        tailwindcss({ ...tailwindConfig, content: [{ raw: `<p class="${form}"></p>` }] }),
+      ]).process("@tailwind utilities;", { from: undefined });
+      expect(result.css.trim()).toBe("");
+    }
+  });
+
   it("no source uses an arbitrary var() color with an opacity modifier", () => {
     const walk = (dir: string): string[] =>
       readdirSync(join(process.cwd(), dir), { withFileTypes: true }).flatMap((e) =>
@@ -111,7 +130,7 @@ describe("theme-adaptive tokens that need opacity modifiers", () => {
       );
     const offenders = ["app", "components", "lib", "hooks"]
       .flatMap(walk)
-      .filter((file) => /-\[var\(--[\w-]+\)\]\/\d+/.test(read(file)));
+      .filter((file) => DROPPED.test(read(file)));
     expect(offenders).toEqual([]);
   });
 });
