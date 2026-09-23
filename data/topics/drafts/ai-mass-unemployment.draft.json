@@ -3028,7 +3028,7 @@
   {
    "id": "e-eig-young-grads-exposure",
    "type": "evidence",
-   "finding": "An analysis of Current Population Survey data through mid-2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
+   "finding": "An analysis of Current Population Survey data from 2022 into 2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
    "source": {
     "title": "AI and Jobs: The Final Word (Until the Next One)",
     "url": "https://eig.org/ai-and-jobs-the-final-word/",
@@ -3039,7 +3039,7 @@
     "verification": "verified-live",
     "verifiedAt": "2026-09-22"
    },
-   "relevance": "Challenges the credential-pathway claim's early signal: rising unemployment among young graduates shows up in less-exposed occupations too, which points to a general entry-level squeeze rather than an AI-specific narrowing. Unemployment rates can miss hiring and wage effects, and the data end in mid-2025.",
+   "relevance": "Challenges the credential-pathway claim's early signal: rising unemployment among young graduates shows up in less-exposed occupations too, which points to a general entry-level squeeze rather than an AI-specific narrowing. Unemployment rates can miss hiring and wage effects, and the data end in 2025.",
    "tags": [
     "early-career",
     "credentials",
@@ -3051,13 +3051,13 @@
    },
    "createdAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
-   "statement": "An analysis of Current Population Survey data through mid-2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
+   "statement": "An analysis of Current Population Survey data from 2022 into 2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
    "weight": {
     "sourceReliability": 6,
     "independence": 7,
     "replicability": 7,
     "directness": 5,
-    "weightBasis": "Public CPS microdata with results checked across five exposure measures; directness is limited because unemployment rates by occupation of young entrants are noisy, the authors acknowledge no causal identification, and the data end in mid-2025."
+    "weightBasis": "Public CPS microdata with results checked across five exposure measures; directness is limited because unemployment rates by occupation of young entrants are noisy, the authors acknowledge no causal identification, and the data end in 2025."
    }
   },
   {
