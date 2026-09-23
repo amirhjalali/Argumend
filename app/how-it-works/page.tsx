@@ -41,22 +41,22 @@ const steps = [
   {
     number: "01",
     title: "Pick a topic",
-    description: "Choose a controversial issue from the sidebar. Each topic is a complete argument map.",
+    description: "Browse the topics page and choose an issue. Each topic opens as a page you can read top to bottom.",
   },
   {
     number: "02",
-    title: "Explore the map",
-    description: "Pan and zoom to navigate. Click \"Explore\" on any node to reveal deeper arguments.",
+    title: "Read the cruxes",
+    description: "Each topic lists its cruxes: the specific questions the sides actually disagree about. Under each one, \"What would settle it\" names the evidence or test that could move it.",
   },
   {
     number: "03",
-    title: "Find the crux",
-    description: "Look for red Crux nodes. These identify the specific questions that would resolve disagreements.",
+    title: "See how it has moved",
+    description: "Where a crux has a history, \"How this has moved\" is a dated record of it: open, narrowed, resolved, or unresolvable by evidence, and what changed each time. It records movement, not a winner.",
   },
   {
     number: "04",
-    title: "Update your beliefs",
-    description: "Consider the evidence. What would change your mind? That's the question that matters.",
+    title: "Open the map if you want more",
+    description: "The interactive map is still there for any topic. Pan and zoom through positions, objections, and evidence, and trace each claim to its source.",
   },
 ];
 
