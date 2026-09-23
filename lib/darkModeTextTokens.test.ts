@@ -3,8 +3,16 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 /**
- * Dark-mode guard for the fixed-hex brand text tokens.
+ * Dark-mode guard for the brand text tokens.
  *
+ * Since 2026-09-22 `primary`/`secondary`/`muted` resolve through RGB channel
+ * variables that flip under `.dark`, so a bare use no longer goes dark-on-dark.
+ * The history below is kept because the canonical pairs this file enforces are
+ * still the house style, and they still win as explicit overrides. The live
+ * risk is now the reverse: a bare token on a surface that stays light in dark
+ * mode goes light-on-light, and such surfaces pin literal ink instead.
+ *
+ * Original rationale (pre-2026-09-22):
  * `tailwind.config.ts` defines `primary: "#3d3a36"` / `secondary: "#564d45"` as
  * literal hex, so the Tailwind utilities `text-primary` / `text-secondary` do
  * NOT adapt in dark mode — a bare use on a dark-adaptive surface renders as
@@ -92,10 +100,11 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/SynopticTable.tsx" },
   { path: "components/nodes/MetaNode.tsx" },
   { path: "app/topics/TopicsPageClient.tsx" },
-  // VerdictVoting's always-light "Compare" card and ShareVerdictCard's
-  // rasterized title pin literal ink (`text-[#3d3a36]`) since 2026-09-22: the
-  // brand tokens now flip in dark mode, so a bare token there would go
-  // light-on-light. They no longer need an exemption.
+  // ShareVerdictCard's rasterized title pins literal ink (`text-[#3d3a36]`)
+  // since 2026-09-22: the brand tokens now flip in dark mode, so a bare token
+  // there would go light-on-light. VerdictVoting's "compare" card gained a
+  // dark surface instead, so it uses the canonical pair. Neither needs an
+  // exemption.
   { path: "components/VerdictVoting.tsx" },
   { path: "app/methodology/page.tsx" },
   { path: "app/how-it-works/page.tsx" },
