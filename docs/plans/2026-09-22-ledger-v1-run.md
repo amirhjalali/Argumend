@@ -173,5 +173,11 @@ git log --first-parent --oneline 8c4fbac..north-star/ledger-v1
   `getVerdict` ("Settled — evidence strongly favors the claim"), the vote's 57/100 balance line,
   "Settled" enum labels elsewhere. Screenshots: `docs/reviews/2026-09-22-legacy-scoreboard/` on
   that branch. To take it: `git merge north-star/legacy-scoreboard`.
-- **`north-star/shell-seam`**: answers §4 item 1 (flagship pages and `/ai` inside AppShell) — see
-  its commit message and `docs/reviews/2026-09-22-shell-seam/` on that branch.
+- **`north-star/shell-seam`** (1 commit `9cf4f8f` on acf5833, tests/tsc/lint green; build not run):
+  answers §4 item 1. Flagship topic pages and `/ai` render inside AppShell; their thin
+  "Argumend home · Explore topics" row is gone and their inner `<main>` became a `<div>` (one main
+  landmark). No added client JS on `/ai`. Trade-off: at 1440 the sidebar opens by default (~260px)
+  beside the reading column; on phones it adds only the top bar. Scrolling moves into AppShell's
+  pane (verify `#cruxes` jump links). Smallest follow-up if you want focus: start the sidebar
+  collapsed on these routes. First-screen screenshots in `docs/reviews/2026-09-22-shell-seam/` on
+  that branch. Reverts as one unit. To take it: `git merge north-star/shell-seam`.
