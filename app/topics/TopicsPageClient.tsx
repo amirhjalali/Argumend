@@ -299,7 +299,10 @@ export default function TopicsPageClient({
             </p>
           </div>
 
-          {featured}
+          {/* The "start here" maps span categories, so they sit above the
+              unfiltered list only. Under a category filter they would lead a
+              page they do not belong to. */}
+          {activeCategory === "all" && featured}
 
           {/* Category tabs: one quiet row at every width. On phones it scrolls
               sideways inside its own strip instead of wrapping into a wall of
