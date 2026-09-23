@@ -97,11 +97,11 @@ export function MapReplyClient() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {inputCollapsed && status === "done" ? (
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border-divider)] pb-4">
           <p className="font-sans text-sm text-[var(--text-secondary)]">
-            Thread submitted · {text.length.toLocaleString()} characters
+            Thread submitted, {text.length.toLocaleString()} characters
           </p>
           <button
             type="button"
@@ -125,7 +125,7 @@ export function MapReplyClient() {
       {status === "error" && error ? (
         <div
           role="alert"
-          className="space-y-2 rounded-xl border-l-2 border-crux bg-[var(--bg-paper)] p-5 dark:border-crux-light"
+          className="space-y-2 border-l-2 border-[var(--text-muted)] py-1 pl-4"
         >
           <p className="text-[var(--text-primary)]">{error.message}</p>
           {error.requestId ? (

@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { DebateView } from "./DebateView";
+import { DebateView, settleTally } from "./DebateView";
 import { identifyCruxes } from "@/lib/crux";
 import { workedExampleGraph, baseNode, evidence } from "@/lib/argument/fixtures";
 import {
@@ -213,10 +213,15 @@ describe("DebateView", () => {
       expect(claim).toBeDefined();
       expect(within(summary).queryByText("Empirical")).toBeNull();
       expect(within(summary).queryByText("Contested")).toBeNull();
+      // Exactly one heading, as a direct child: the only place the
+      // <summary> content model allows one.
+      expect(summary.querySelectorAll("h1, h2, h3, h4, h5, h6").length).toBe(1);
+      expect(summary.querySelector(":scope > h3")).not.toBeNull();
       if (claim!.implicit) {
+        // The tag and what it means read as one unit in the summary.
         expect(
-          within(summary).getByText(/Hidden assumption/),
-        ).not.toBeNull();
+          within(summary).getByText(/Hidden assumption/).parentElement?.textContent,
+        ).toMatch(/Hidden assumption: nobody in the debate says it out loud/);
       }
     }
 
@@ -453,5 +458,48 @@ describe("DebateView registry contract", () => {
         expect(html).not.toContain(explainer);
       }
     }
+  });
+});
+
+describe("settleTally", () => {
+  type Kind = NonNullable<Claim["resolution"]>["kind"] | "none";
+  function tally(kinds: Kind[]): string {
+    const nodes = kinds.map(
+      (kind, index) =>
+        ({
+          id: `c${index}`,
+          type: "claim",
+          ...(kind === "none" ? {} : { resolution: { kind, condition: "A stated test." } }),
+        }) as unknown as Claim,
+    );
+    return settleTally(
+      nodes.map((node) => ({ claimId: node.id }) as never),
+      new Map(nodes.map((node) => [node.id, node])),
+      [],
+    );
+  }
+
+  it("reads as one sentence for every mix of counts, capitalized once", () => {
+    expect(tally([])).toBe("");
+    expect(tally(["existing-evidence"])).toBe("One could be settled by evidence.");
+    expect(tally(["existing-evidence", "future-observable"])).toBe("Two could be settled by evidence.");
+    expect(tally(["definitional-choice"])).toBe("One could be settled by agreeing on terms.");
+    expect(tally(["value-difference"])).toBe("One cannot be settled by evidence.");
+    expect(tally(["value-difference", "value-difference"])).toBe("Two cannot be settled by evidence.");
+    expect(tally(["none"])).toBe("One has no stated test yet.");
+    expect(tally(["none", "none"])).toBe("Two have no stated test yet.");
+    expect(tally(["existing-evidence", "value-difference"])).toBe(
+      "One could be settled by evidence, and one not by evidence at all.",
+    );
+    expect(
+      tally(["existing-evidence", "existing-evidence", "authority-allocation", "value-difference", "none"]),
+    ).toBe(
+      "Two could be settled by evidence, one by agreeing on terms, one not by evidence at all, and one has no stated test yet.",
+    );
+  });
+
+  it("counts forms of settlement only, never an outcome", () => {
+    const sentence = tally(["existing-evidence", "definitional-choice", "value-difference", "none"]);
+    expect(sentence).not.toMatch(/\b(right|wrong|wins?|won|true|false|likely)\b/i);
   });
 });

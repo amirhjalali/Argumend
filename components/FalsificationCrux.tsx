@@ -15,52 +15,53 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
   return (
     <aside
       id={`crux-${crux.id}`}
-      className="mt-6 rounded-lg border border-crux/30 dark:border-crux-light/30 bg-crux/5 dark:bg-crux-light/5 px-5 py-4 scroll-mt-24"
+      className="mt-8 scroll-mt-24 rounded-lg border border-stone-200/80 border-l-2 border-l-[color:var(--crux-crimson)] bg-[var(--bg-paper)] px-5 py-5 dark:border-[#3d3a36] dark:border-l-[color:var(--crux-crimson)] sm:px-6"
     >
-      <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[color:var(--crux-crimson,#a23b3b)] mb-2">
-        ◆ <GlossaryTerm term="crux">Crux</GlossaryTerm> —{" "}
+      <p className="label-caps !text-[color:var(--crux-crimson)]">
+        <GlossaryTerm term="crux" className="[font-variant-caps:inherit] [letter-spacing:inherit]">Crux</GlossaryTerm>:{" "}
         {f ? "what would change your mind" : "what would settle this"}
-      </div>
+      </p>
 
       {f ? (
         <>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {/* A supporter (FOR the claim) — rust/proponent tone */}
-            <div className="rounded-md border-l-4 border-l-rust-400 bg-rust-50/40 dark:bg-rust-900/10 pl-3 pr-3 py-2.5">
-              <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-rust-700 mb-1">
+          {/* The two flips are the point of the block, so they get display
+              size and one column each; the labels stay small. Rust names the
+              proponent side and brown the skeptic, as everywhere else. */}
+          <div className="mt-4 divide-y divide-stone-200/80 dark:divide-[#3d3a36]">
+            <div className="pb-4">
+              <p className="label-caps !text-[0.9375rem] !text-rust-700 dark:!text-[#d4805f]">
                 A supporter changes their mind if…
-              </div>
-              <p className="font-serif text-[15.5px] leading-snug text-primary dark:text-stone-200">
+              </p>
+              <p className="mt-1 font-serif text-[1.25rem] leading-[1.45] text-primary dark:text-stone-200 sm:text-[1.375rem]">
                 {f.supporter_flip}
               </p>
             </div>
-            {/* A skeptic (AGAINST the claim) — stone tone */}
-            <div className="rounded-md border-l-4 border-l-stone-500 bg-stone-100/50 dark:bg-stone-900/10 pl-3 pr-3 py-2.5">
-              <div className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] text-stone-700 dark:text-stone-300 mb-1">
+            <div className="pt-4">
+              <p className="label-caps !text-[0.9375rem] !text-[#8B5A3C] dark:!text-[#cfa88a]">
                 A skeptic changes their mind if…
-              </div>
-              <p className="font-serif text-[15.5px] leading-snug text-primary dark:text-stone-200">
+              </p>
+              <p className="mt-1 font-serif text-[1.25rem] leading-[1.45] text-primary dark:text-stone-200 sm:text-[1.375rem]">
                 {f.skeptic_flip}
               </p>
             </div>
           </div>
 
           {(f.common_ground || f.live_disagreement) && (
-            <dl className="mt-3 space-y-1.5 text-[14px] font-serif leading-snug">
+            <dl className="mt-5 space-y-2 font-serif text-[16px] leading-relaxed">
               {f.common_ground && (
-                <div className="flex gap-2">
-                  <dt className="font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-deep whitespace-nowrap pt-0.5">
-                    Both agree
-                  </dt>
-                  <dd className="text-primary/90 dark:text-stone-200/90">{f.common_ground}</dd>
+                <div>
+                  <dt className="inline font-medium italic text-primary dark:text-stone-200">
+                    Both agree.
+                  </dt>{" "}
+                  <dd className="inline text-secondary dark:text-stone-400">{f.common_ground}</dd>
                 </div>
               )}
               {f.live_disagreement && (
-                <div className="flex gap-2">
-                  <dt className="font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-[color:var(--crux-crimson,#a23b3b)] whitespace-nowrap pt-0.5">
-                    Live fight
-                  </dt>
-                  <dd className="text-primary/90 dark:text-stone-200/90">{f.live_disagreement}</dd>
+                <div>
+                  <dt className="inline font-medium italic text-primary dark:text-stone-200">
+                    The live fight.
+                  </dt>{" "}
+                  <dd className="inline text-secondary dark:text-stone-400">{f.live_disagreement}</dd>
                 </div>
               )}
             </dl>
@@ -68,8 +69,8 @@ export function FalsificationCrux({ crux }: { crux: Crux }) {
 
           {/* Secondary: the empirical test that could resolve it */}
           <details className="mt-3 group">
-            <summary className="cursor-pointer text-xs font-sans text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200">
-              How it could be settled empirically — {crux.title}
+            <summary className="inline-flex min-h-11 cursor-pointer items-center rounded text-xs font-sans text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep">
+              How it could be settled empirically: {crux.title}
             </summary>
             <p className="font-serif text-[15px] leading-relaxed text-primary/90 dark:text-stone-200/90 mt-2">
               {crux.description}

@@ -359,3 +359,40 @@ describe("MapReplyResult on the contract's harder branches", () => {
     expect(view.getByText("Mixed disagreement")).toBeTruthy();
   });
 });
+
+describe("MapReplyResult turn list", () => {
+  const realMatchMedia = window.matchMedia;
+
+  function mockWidth(desktop: boolean) {
+    window.matchMedia = ((query: string) => ({
+      matches: desktop,
+      media: query,
+      onchange: null,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      addListener: () => {},
+      removeListener: () => {},
+      dispatchEvent: () => false,
+    })) as typeof window.matchMedia;
+  }
+
+  afterEach(() => {
+    window.matchMedia = realMatchMedia;
+    cleanup();
+  });
+
+  it("collapses the turns on a phone behind a summary that gives the count", () => {
+    mockWidth(false);
+    const view = render(<MapReplyResult match={match} onReset={() => {}} />);
+    const details = view.container.querySelector("details");
+    expect(details?.open).toBe(false);
+    const unit = match.turns.length === 1 ? "turn" : "turns";
+    expect(view.getByText(`Show all ${match.turns.length} ${unit}`)).toBeTruthy();
+  });
+
+  it("opens the turns from 640px up", () => {
+    mockWidth(true);
+    const view = render(<MapReplyResult match={match} onReset={() => {}} />);
+    expect(view.container.querySelector("details")?.open).toBe(true);
+  });
+});

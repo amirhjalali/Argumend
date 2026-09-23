@@ -88,7 +88,7 @@ export function ShareReport({
 
   return (
     <section className="space-y-4 border-t border-[var(--border-divider)] pt-8">
-      <h2 className="font-serif text-2xl">Share</h2>
+      <h2 className="font-serif text-[1.75rem] leading-tight text-[var(--text-heading)]">Share</h2>
       {surface === "session" && !shareUrl ? (
         confirming ? (
           // Publication is one of the report's few bordered panels: it is an
@@ -103,7 +103,7 @@ export function ShareReport({
                 type="button"
                 disabled={busy}
                 onClick={publish}
-                className="min-h-11 rounded-full bg-[#b05434] px-5 text-white disabled:opacity-60"
+                className="min-h-11 rounded-full bg-rust-600 px-5 font-sans font-medium text-white transition-colors hover:bg-rust-700 disabled:opacity-60"
               >
                 Create unlisted link
               </button>
@@ -121,7 +121,7 @@ export function ShareReport({
             type="button"
             disabled={busy}
             onClick={() => setConfirming(true)}
-            className="min-h-11 rounded-full bg-[#b05434] px-5 text-white disabled:opacity-60"
+            className="min-h-11 rounded-full bg-rust-600 px-5 font-sans font-medium text-white transition-colors hover:bg-rust-700 disabled:opacity-60"
           >
             Create shareable link
           </button>
