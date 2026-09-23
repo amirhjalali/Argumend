@@ -121,7 +121,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "app/not-found.tsx" },
   { path: "app/topics/compare/CompareIndexView.tsx" },
   { path: "components/FalsificationCrux.tsx" },
-  { path: "components/HeroMiniCanvas.tsx" },
   { path: "components/MobileArgumentList.tsx" },
   { path: "components/ZoomIndicator.tsx" },
   { path: "app/blog/tag/[tag]/page.tsx" },

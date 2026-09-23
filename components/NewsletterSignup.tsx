@@ -137,7 +137,9 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
           type="submit"
           disabled={loading}
           aria-label={loading ? "Subscribing…" : "Subscribe"}
-          className={`min-h-11 flex-shrink-0 bg-gradient-to-r from-rust-500 to-rust-600 hover:from-rust-600 hover:to-rust-700 text-white font-medium rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed ${
+          // Ink, like the home paste box's Analyze button: a page keeps rust
+          // for its one primary action, and a signup is never that.
+          className={`min-h-11 flex-shrink-0 bg-primary text-canvas hover:bg-primary/90 font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/50 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:opacity-60 disabled:cursor-not-allowed ${
             isCompact ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"
           }`}
         >

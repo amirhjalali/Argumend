@@ -1,14 +1,31 @@
 import type { Verdict, VerdictQuadrant } from "@/lib/schemas/topic";
 
-/** Quadrant → color/label. The ONLY place verdict colors are defined. */
+/**
+ * Quadrant → color/label. The ONLY place verdict colors are defined.
+ *
+ * Contested is stone ink (--text-secondary: #564d45 light, #b0a99f dark), not
+ * crux crimson. Most maps are contested, so crimson here turned every list
+ * into a column of alarms and spent the crux colour on something that is not
+ * a crux; contested is the normal state of a live question. The variable form
+ * also gives this one quadrant a dark-mode partner. Colours are CSS colour
+ * strings, not always hex: derive tints with color-mix(), never by appending
+ * alpha digits.
+ */
 export const QUADRANT_STYLE: Record<
   VerdictQuadrant,
-  { color: string; bg: string; short: string }
+  /** onColor: text colour for type set on a solid `color` fill. */
+  { color: string; bg: string; onColor: string; short: string }
 > = {
-  settled: { color: "#3a6965", bg: "rgba(58, 105, 101, 0.10)", short: "Settled" },
-  contested: { color: "#a23b3b", bg: "rgba(162, 59, 59, 0.10)", short: "Contested" },
-  moderate: { color: "#C4613C", bg: "rgba(196, 97, 60, 0.10)", short: "Moderate" },
-  open: { color: "#7a7068", bg: "rgba(122, 112, 104, 0.12)", short: "Open" },
+  settled: { color: "#3a6965", bg: "rgba(58, 105, 101, 0.10)", onColor: "#ffffff", short: "Settled" },
+  contested: {
+    color: "rgb(var(--text-secondary-rgb))",
+    bg: "rgb(var(--text-secondary-rgb) / 0.10)",
+    // The fill turns light in dark mode, so the type on it turns dark.
+    onColor: "rgb(var(--bg-canvas-rgb))",
+    short: "Contested",
+  },
+  moderate: { color: "#C4613C", bg: "rgba(196, 97, 60, 0.10)", onColor: "#ffffff", short: "Moderate" },
+  open: { color: "#7a7068", bg: "rgba(122, 112, 104, 0.12)", onColor: "#ffffff", short: "Open" },
 };
 
 interface BalanceWeightChipProps {
