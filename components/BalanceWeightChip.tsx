@@ -16,11 +16,14 @@ export const QUADRANT_STYLE: Record<
   /** onColor: text colour for type set on a solid `color` fill. */
   { color: string; bg: string; onColor: string; short: string }
 > = {
-  // Teal text token (--accent-text: #3a6965 light, #8bb5b1 dark). The fixed
-  // hex was 2.83:1 on the dark canvas; the token is 7.82:1.
+  // Solid stone ink (--text-primary: #3d3a36 light, #e8e4de dark), the same
+  // family as the settled STATUS chip, so "settled" means one thing site-wide.
+  // Teal stays evidence. It was teal here while the status chip was stone.
+  // Contrast on its tint: 8.50:1 light, 9.64:1 dark (canvas); set solid, the
+  // canvas-coloured type on it is 10.0:1 / 13.9:1.
   settled: {
-    color: "rgb(var(--accent-text-rgb))",
-    bg: "rgb(var(--accent-text-rgb) / 0.10)",
+    color: "rgb(var(--text-primary-rgb))",
+    bg: "rgb(var(--text-primary-rgb) / 0.12)",
     onColor: "rgb(var(--bg-canvas-rgb))",
     short: "Settled",
   },

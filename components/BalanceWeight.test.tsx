@@ -30,8 +30,8 @@ describe("QUADRANT_STYLE", () => {
     expect(QUADRANT_STYLE.contested.color).toBe("rgb(var(--text-secondary-rgb))");
   });
 
-  it("gives settled and open theme-aware ink (fixed hex failed 4.5:1 on the dark canvas)", () => {
-    expect(QUADRANT_STYLE.settled.color).toBe("rgb(var(--accent-text-rgb))");
+  it("gives settled (stone, like the status chip) and open theme-aware ink", () => {
+    expect(QUADRANT_STYLE.settled.color).toBe("rgb(var(--text-primary-rgb))");
     expect(QUADRANT_STYLE.open.color).toBe("rgb(var(--text-muted-rgb))");
   });
 
