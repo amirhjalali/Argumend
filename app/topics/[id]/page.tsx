@@ -4,6 +4,7 @@ import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { JsonLd } from "@/components/JsonLd";
+import { AppShell } from "@/components/AppShell";
 import LegacyTopicPageLoader from "./LegacyTopicPageLoader";
 import { buildGenericOgUrl, buildTopicOgUrl } from "@/lib/og";
 import {
@@ -168,14 +169,19 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
             citation: citations,
           }}
         />
-        <DebateView
-          meta={argumentTopic.meta}
-          graph={argumentTopic.graph}
-          cruxes={argumentTopic.cruxes}
-          // Drop review-queue entries, but keep superseded public ones: the
-          // strip hides them itself and needs them to say what an entry corrects.
-          ledger={argumentTopic.ledger.filter(isPublicEntry)}
-        />
+        {/* Same shell as the legacy topic pages (TopicPageClient), so a
+            flagship map reads as part of the site. DebateView stays a server
+            component passed through as children. */}
+        <AppShell>
+          <DebateView
+            meta={argumentTopic.meta}
+            graph={argumentTopic.graph}
+            cruxes={argumentTopic.cruxes}
+            // Drop review-queue entries, but keep superseded public ones: the
+            // strip hides them itself and needs them to say what an entry corrects.
+            ledger={argumentTopic.ledger.filter(isPublicEntry)}
+          />
+        </AppShell>
       </>
     );
   }

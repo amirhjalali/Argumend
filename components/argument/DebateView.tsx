@@ -80,19 +80,9 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
   const scopedQuestion = question?.statement.trim();
 
   return (
-    <main id="main-content" className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
-      <nav
-        aria-label="Debate map navigation"
-        className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted dark:text-stone-400"
-      >
-        <Link href="/" className="link-underline">
-          Argumend home
-        </Link>
-        <span aria-hidden="true">·</span>
-        <Link href="/topics" className="link-underline">
-          Explore topics
-        </Link>
-      </nav>
+    // The route wraps this in AppShell, which owns <main id="main-content">
+    // and the site navigation; this column only keeps the reading measure.
+    <div className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
 
       <article>
         {/* ---------------- Layer 1: hook and the shape of the fight ---------------- */}
@@ -525,7 +515,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
         </p>
       </footer>
       </article>
-    </main>
+    </div>
   );
 }
 

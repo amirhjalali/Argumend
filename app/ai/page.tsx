@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AiLivingMap } from "@/components/ai/AiLivingMap";
+import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
 import { aiPageAsOf, loadAiMaps } from "./loadAiMaps";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
@@ -64,7 +65,11 @@ export default async function AiPage({ searchParams }: PageProps) {
           author: { "@type": "Organization", name: SITE_NAME },
         }}
       />
-      <AiLivingMap maps={maps} mapParam={first(params.map)} sinceParam={first(params.since)} />
+      {/* The site shell, as on every other content page. AiLivingMap stays a
+          server component passed through as children: no client JS of its own. */}
+      <AppShell>
+        <AiLivingMap maps={maps} mapParam={first(params.map)} sinceParam={first(params.since)} />
+      </AppShell>
     </>
   );
 }

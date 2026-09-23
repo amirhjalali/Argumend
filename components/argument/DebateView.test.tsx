@@ -141,19 +141,15 @@ describe("DebateView", () => {
 
     // Layer 1 leads with the question, the identity hook, and the payoff card —
     // and the inventory stats bar is gone by design (product critique 2026-08-11).
-    const main = screen.getByRole("main");
-    expect(main.id).toBe("main-content");
-    expect(within(main).getByRole("heading", { level: 1 }).textContent).toBe(
+    // The route's AppShell owns <main> and the site nav; the view must not
+    // add a second main landmark or its own home/explore row.
+    expect(screen.queryByRole("main")).toBeNull();
+    expect(screen.queryByRole("link", { name: "Argumend home" })).toBeNull();
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toBe(
       TEST_META.title,
     );
     expect(screen.getByText(graph.question.statement)).not.toBeNull();
     expect(screen.getByText("Reviewed Aug 12, 2026")).not.toBeNull();
-    expect(
-      screen.getByRole("link", { name: "Argumend home" }).getAttribute("href"),
-    ).toBe("/");
-    expect(
-      screen.getAllByRole("link", { name: "Explore topics" })[0].getAttribute("href"),
-    ).toBe("/topics");
     const cruxJump = screen.getByRole("link", {
       name: "Jump to the five crux questions ↓",
     });
@@ -390,7 +386,7 @@ describe("DebateView registry contract", () => {
       expect(staticText).toContain(graph.question.statement);
       expect(staticText).toContain(meta.hook);
       expect(staticText).toContain(meta.tldr);
-      expect(staticContainer.querySelector("main")?.id).toBe("main-content");
+      expect(staticContainer.querySelector("main")).toBeNull();
       expect(staticContainer.querySelector("h1")?.textContent?.trim()).toBe(meta.title);
       expect(staticText).toContain(`Scope: ${graph.question.statement}`);
       expect(staticText).toContain("Reviewed Aug 12, 2026");
