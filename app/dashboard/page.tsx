@@ -225,9 +225,9 @@ export default async function DashboardPage() {
                         }`}
                       >
                         {debate.status === "completed"
-                          ? debate.winner
-                            ? `Winner: ${debate.winner}`
-                            : "Completed"
+                          ? // Never a winner (north star): a finished debate is
+                            // just finished. `debate.winner` stays in the data.
+                            "Completed"
                           : debate.status === "in_progress"
                             ? "In Progress"
                             : debate.status}

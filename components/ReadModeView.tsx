@@ -22,10 +22,12 @@ import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
 // One quiet line of small caps in place of two tracked-caps pills: the
 // category and the map's status are facts about the page, not alarms.
+// The status describes the state of the evidence, never a verdict
+// ("settled") the reader is invited to line up behind.
 const statusLabel: Record<TopicStatus, string> = {
-  settled: "broadly settled",
-  contested: "contested",
-  highly_speculative: "highly speculative",
+  settled: "evidence largely converges",
+  contested: "evidence still divided",
+  highly_speculative: "evidence still thin",
 };
 
 function strongest(evidence: Evidence[] | undefined, side: "for" | "against"): Evidence | null {
@@ -91,9 +93,9 @@ function EvidenceItem({ ev }: { ev: Evidence }) {
         </span>
         <span
           className="text-[11px] font-sans font-medium text-deep dark:text-[#8fc0bb]"
-          title="Confidence tier from source reliability, independence, replicability, and directness"
+          title="Evidence tier from source reliability, independence, replicability, and directness"
         >
-          {tier}, {pct}%
+          {tier}
         </span>
       </div>
       <p className="font-serif text-[16px] leading-snug text-primary dark:text-stone-200 mb-1">
