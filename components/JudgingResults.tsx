@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import {
   Gavel,
-  Trophy,
+  Scale,
   AlertTriangle,
   ChevronDown,
   Users,
@@ -24,7 +24,10 @@ interface JudgingResultsProps {
   mode?: "live" | "programmatic";
 }
 
-function WinnerBanner({
+// Argumend never names a winner (docs/plans/2026-09-22-north-star.md). The
+// council's scores are shown as where the judges' reasoning leaned, not as a
+// verdict; the per-side numbers stay visible so nothing is hidden.
+function ScoreLeanBanner({
   result,
   mode,
 }: {
@@ -35,33 +38,29 @@ function WinnerBanner({
   const agreeingCount = result.verdicts.filter((verdict) => verdict.winner === winner).length;
   const unanimous = result.verdicts.length > 0 && agreeingCount === result.verdicts.length;
 
-  const bannerStyles = {
-    for: "from-rust-500 to-rust-600",
-    against: "from-stone-500 to-stone-600",
-    draw: "from-stone-500 to-stone-600",
-    null: "from-stone-400 to-stone-500",
-  };
-
-  const winnerLabel = winner === "for"
-    ? "Proponent Wins"
+  const leanLabel = winner === "for"
+    ? "Scores leaned toward the proponent case"
     : winner === "against"
-    ? "Skeptic Wins"
+    ? "Scores leaned toward the skeptic case"
     : winner === "draw"
-    ? "Draw"
-    : "No Verdict";
+    ? "Scores came out even"
+    : "No lean recorded";
 
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`rounded-xl bg-gradient-to-r ${bannerStyles[winner ?? "null"]} p-4 md:p-6 text-white shadow-lg`}
+      className="rounded-xl bg-gradient-to-r from-stone-500 to-stone-600 p-4 md:p-6 text-white shadow-lg"
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
         <div className="flex items-center gap-2 md:gap-4">
-          <Trophy className="h-8 w-8" />
+          <Scale className="h-8 w-8" aria-hidden="true" />
           <div>
-            <h2 className="text-lg md:text-2xl font-serif font-bold">{winnerLabel}</h2>
+            <p className="text-xs uppercase tracking-widest opacity-80">
+              Where the {mode === "live" ? "judges'" : "evaluators'"} reasoning concentrated
+            </p>
+            <h2 className="text-lg md:text-2xl font-serif font-bold">{leanLabel}</h2>
             <p className="text-sm opacity-90 mt-1">
               {hasConsensus ? (
                 <span className="flex items-center gap-1.5">
@@ -73,7 +72,7 @@ function WinnerBanner({
               ) : (
                 <span className="flex items-center gap-1.5">
                   <AlertTriangle className="h-3.5 w-3.5" />
-                  Split decision - {mode === "live" ? "judges" : "evaluators"} disagreed
+                  Split - {mode === "live" ? "judges" : "evaluators"} leaned different ways
                 </span>
               )}
             </p>
@@ -173,9 +172,9 @@ function VerdictConfidenceSummary({
   const overallConf = (avgForConf + avgAgainstConf) / 2;
   const confInfo = getConfidenceInfo(overallConf);
 
-  // Score difference for verdict strength
+  // Gap between the two sides' average scores (a spread, not a verdict)
   const scoreDiff = Math.abs(result.aggregatedScores.for.average - result.aggregatedScores.against.average);
-  const verdictStrength = scoreDiff >= 2 ? "Decisive" : scoreDiff >= 0.8 ? "Close" : "Very Close";
+  const scoreGap = scoreDiff >= 2 ? "Wide" : scoreDiff >= 0.8 ? "Narrow" : "Very Narrow";
   const agreeingCount = result.verdicts.filter(
     (verdict) => verdict.winner === result.winner
   ).length;
@@ -190,8 +189,8 @@ function VerdictConfidenceSummary({
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Verdict Strength</p>
-          <p className="text-lg font-serif font-bold text-primary dark:text-stone-200">{verdictStrength}</p>
+          <p className="text-xs uppercase tracking-widest text-muted dark:text-stone-400">Score Gap</p>
+          <p className="text-lg font-serif font-bold text-primary dark:text-stone-200">{scoreGap}</p>
           <p className="text-[10px] text-stone-500">{scoreDiff.toFixed(1)} point margin</p>
         </div>
         <div className="space-y-1">
@@ -211,7 +210,7 @@ function VerdictConfidenceSummary({
               ? `All ${mode === "live" ? "judges" : "evaluators"} agree`
               : result.hasConsensus
                 ? "Majority agreement"
-                : "Split decision"}
+                : "Leaned different ways"}
           </p>
         </div>
       </div>
@@ -271,16 +270,16 @@ function JudgeCard({
   const detailsId = useId();
   const llmOption = getLLMOption(verdict.model);
 
-  const winnerLabel = verdict.winner === "for"
-    ? "For"
+  const leanLabel = verdict.winner === "for"
+    ? "Leans for"
     : verdict.winner === "against"
-    ? "Against"
-    : "Draw";
+    ? "Leans against"
+    : "Even";
 
   const avgConf = (verdict.forScore.confidence + verdict.againstScore.confidence) / 2;
   const displayName = mode === "live" ? verdict.judgeName : `Programmatic evaluator ${index + 1}`;
 
-  const winnerColor = verdict.winner === "for"
+  const leanColor = verdict.winner === "for"
     ? "text-rust-600 dark:text-rust-300 bg-rust-50 dark:bg-rust-500/15"
     : verdict.winner === "against"
     ? "text-stone-600 dark:text-stone-200 bg-stone-100 dark:bg-stone-700"
@@ -298,7 +297,7 @@ function JudgeCard({
         className="w-full p-4 md:p-5 text-left hover:bg-stone-50/50 dark:hover:bg-[var(--bg-overlay)] transition-colors"
         aria-expanded={isExpanded}
         aria-controls={detailsId}
-        aria-label={`${displayName} verdict: ${winnerLabel} — ${isExpanded ? "collapse" : "expand"} details`}
+        aria-label={`${displayName} scores: ${leanLabel} — ${isExpanded ? "collapse" : "expand"} details`}
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 md:gap-4">
           <div className="flex items-center gap-2 md:gap-3">
@@ -325,8 +324,8 @@ function JudgeCard({
           </div>
 
           <div className="flex w-full sm:w-auto items-center justify-between gap-2 md:gap-4">
-            <div className={`px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium ${winnerColor}`}>
-              {winnerLabel}
+            <div className={`px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-medium ${leanColor}`}>
+              {leanLabel}
             </div>
             <span className={`hidden sm:inline-flex text-[10px] px-2 py-0.5 rounded-full font-medium ${
               avgConf >= 0.8 ? "bg-deep/10 text-deep dark:bg-deep/20 dark:text-accent-text" : avgConf >= 0.5 ? "bg-stone-100 text-stone-600 dark:bg-stone-700/50 dark:text-stone-300" : "border border-dashed border-stone-400/70 text-stone-600 dark:border-stone-600/70 dark:text-stone-400"
@@ -488,7 +487,7 @@ export function JudgingResults({
         <div className="flex min-w-0 items-center gap-2">
           <Gavel className="h-4 w-4 text-deep" />
           <h2 className="text-lg font-serif font-semibold text-primary dark:text-stone-200">
-            {mode === "live" ? "Judge Council Verdict" : "Programmatic Rubric Verdict"}
+            {mode === "live" ? "Judge Council Scores" : "Programmatic Rubric Scores"}
           </h2>
         </div>
         <div className="hidden sm:block flex-1 h-px bg-gradient-to-r from-stone-200/80 dark:from-stone-700/80 to-transparent" />
@@ -497,8 +496,8 @@ export function JudgingResults({
         </span>
       </div>
 
-      {/* Winner Banner */}
-      <WinnerBanner result={result} mode={mode} />
+      {/* Where the scores leaned (never a declared winner) */}
+      <ScoreLeanBanner result={result} mode={mode} />
 
       {/* Verdict Confidence Summary */}
       <VerdictConfidenceSummary result={result} mode={mode} />
@@ -542,7 +541,7 @@ export function JudgingResults({
           <div className="flex items-center gap-2 flex-shrink-0">
             <Users className="h-4 w-4 text-deep" />
             <h3 className="font-serif font-semibold text-primary dark:text-stone-200">
-              Individual {mode === "live" ? "Judge" : "Evaluator"} Verdicts
+              Individual {mode === "live" ? "Judge" : "Evaluator"} Scores
             </h3>
           </div>
           <div className="flex-1 h-px bg-gradient-to-r from-stone-200/80 to-transparent" />

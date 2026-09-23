@@ -250,7 +250,11 @@ export function Sidebar({
               ))}
             </ul>
           )}
-          <ThemeToggle />
+          {/* The top bar shows the theme toggle from `sm` up; below that it is
+              hidden there, so this copy covers phones only (one per viewport). */}
+          <div className="sm:hidden">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </nav>
