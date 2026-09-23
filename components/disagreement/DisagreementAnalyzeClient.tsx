@@ -130,33 +130,44 @@ export function DisagreementAnalyzeClient() {
     trackEvent({ action: "disagreement_analyze_another", surface: "session" });
   }
 
+
+  const done = status === "done" && inputCollapsed;
+
   return (
-    <div className="mx-auto w-full max-w-5xl space-y-8 px-4 py-10">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="font-serif text-4xl text-[var(--text-heading)]">
+    <div className="mx-auto w-full max-w-5xl px-4 pb-16 pt-10 sm:px-6 sm:pt-14">
+      <header className="max-w-3xl">
+        <h1
+          className={
+            done
+              ? "font-serif text-2xl leading-tight text-[var(--text-heading)]"
+              : "font-serif text-[2.375rem] leading-[1.1] text-[var(--text-heading)] sm:text-5xl"
+          }
+        >
           What is the argument really resting on?
         </h1>
-        <p className="mt-3 text-lg text-[var(--text-secondary)]">
-          Paste a disagreement. Argumend separates facts from values, finds the hinge, and shows
-          what each major claim is actually committed to changing.
-        </p>
-      </div>
+        {done ? null : (
+          <p className="mt-4 max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
+            Paste a disagreement. Argumend separates facts from values, finds the hinge, and shows
+            what each major claim is actually committed to changing.
+          </p>
+        )}
+      </header>
 
-      {status === "done" && inputCollapsed ? (
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 border-b border-[var(--border-divider)] pb-4">
-          <p className="text-sm text-[var(--text-secondary)]">
-            Source submitted · {content.length.toLocaleString()} characters
+      {done ? (
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border-divider)] pb-3">
+          <p className="font-sans text-sm text-[var(--text-muted)]">
+            Source submitted, {content.length.toLocaleString()} characters
           </p>
           <button
             type="button"
-            className="min-h-11 text-sm text-[#3a6965] underline"
+            className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200"
             onClick={() => setInputCollapsed(false)}
           >
             Edit
           </button>
         </div>
       ) : (
-        <div className="mx-auto max-w-3xl space-y-8">
+        <div className="mt-8 max-w-3xl space-y-6">
           <AnalyzeInput
             content={content}
             contentType={contentType}
@@ -166,15 +177,15 @@ export function DisagreementAnalyzeClient() {
           />
 
           {/* The disclosure sits at the click, not in a banner further up. */}
-          <AiConsentLine id={CONSENT_ID} className="-mb-4" />
+          <AiConsentLine id={CONSENT_ID} className="max-w-[36rem]" />
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             <button
               type="button"
               onClick={submit}
               aria-describedby={CONSENT_ID}
               disabled={status === "loading" || tooShort}
-              className="min-h-11 rounded-full bg-[#C4613C] px-6 text-white disabled:opacity-60"
+              className="inline-flex min-h-11 items-center rounded-full bg-rust-600 px-6 font-sans text-base font-medium text-white transition-colors hover:bg-rust-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
               Find what it turns on
             </button>
@@ -185,13 +196,13 @@ export function DisagreementAnalyzeClient() {
                 setContentType("conversation");
                 setContent(DISAGREEMENT_EXAMPLE_SOURCE);
               }}
-              className="min-h-11 rounded-full border border-[var(--border-default)] px-5"
+              className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark disabled:opacity-60 dark:text-deep-light dark:hover:text-stone-200"
             >
               See an example
             </button>
           </div>
           {tooShort && content.length > 0 ? (
-            <p className="text-sm text-[var(--text-muted)]" role="status">
+            <p className="font-sans text-sm text-[var(--text-muted)]" role="status">
               Add a little more — the analysis needs at least {DISAGREEMENT_LIMITS.minSourceCharacters}{" "}
               characters of the argument to work with ({DISAGREEMENT_LIMITS.minSourceCharacters - content.trim().length}{" "}
               to go).
@@ -200,20 +211,28 @@ export function DisagreementAnalyzeClient() {
         </div>
       )}
 
-      {status === "loading" ? <AnalysisProgress step={step} /> : null}
+      {status === "loading" ? (
+        <div className="mt-8 max-w-3xl">
+          <AnalysisProgress step={step} />
+        </div>
+      ) : null}
       {status === "error" ? (
-        <div className="mx-auto max-w-3xl space-y-3">
-          <p className="text-[#a23b3b]">{error}</p>
-          <Link className="text-sm underline" href="/analyze">
+        <div
+          role="alert"
+          className="mt-8 max-w-3xl space-y-2 border-l-2 border-[var(--text-muted)] pl-4"
+        >
+          <p className="text-[var(--text-primary)]">{error}</p>
+          <Link className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 dark:text-deep-light" href="/analyze">
             Try the limited local parser
           </Link>
         </div>
       ) : null}
 
       {report && graph ? (
-        <div ref={mastheadRef} className="scroll-mt-8">
+        <div ref={mastheadRef} className="mt-10 scroll-mt-8">
           <DisagreementReportView
             report={report}
+            headlineAs="h2"
             footer={
               <>
                 <RepresentationFeedback section="overall" />
@@ -224,7 +243,11 @@ export function DisagreementAnalyzeClient() {
                   unavailableReason={unavailableReason}
                   surface="session"
                 />
-                <button type="button" className="min-h-11 text-sm underline" onClick={startOver}>
+                <button
+                  type="button"
+                  className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200"
+                  onClick={startOver}
+                >
                   Analyze another
                 </button>
               </>

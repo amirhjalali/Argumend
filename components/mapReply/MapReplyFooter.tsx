@@ -57,7 +57,7 @@ export function MapReplyFooter({
         <button
           type="button"
           onClick={copy}
-          className="btn-lift inline-flex min-h-11 items-center gap-2 rounded-full bg-rust-500 px-5 font-sans text-sm font-medium text-white transition-colors hover:bg-rust-600"
+          className="btn-lift inline-flex min-h-11 items-center gap-2 rounded-full bg-rust-600 px-5 font-sans text-sm font-medium text-white transition-colors hover:bg-rust-700"
         >
           {copied ? (
             <Check aria-hidden="true" className="h-4 w-4" />

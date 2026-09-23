@@ -13,10 +13,10 @@ const CONSENT_ID = "map-reply-consent";
 const COUNTER_ID = "map-reply-counter";
 
 const PLACEHOLDER = [
-  "One turn per line, as  name: what they said",
+  "One turn per line, as name: what they said",
   "",
-  "marisol_k: Council is voting on a 3% rent cap Tuesday. Every economist on the planet says rent control destroys housing supply.",
-  "dtown_renter: Econ 101 also says my rent going up 22% in one year is the market clearing. A cap means I don't get pushed out.",
+  "marisol_k: Council votes on a 3% rent cap Tuesday.",
+  "dtown_renter: A cap means I don't get pushed out.",
 ].join("\n");
 
 export function MapReplyForm({
@@ -62,7 +62,7 @@ export function MapReplyForm({
           // property of the component rather than of the input element.
           onChange={(event) => onChange(event.target.value.slice(0, maxCharacters))}
           placeholder={PLACEHOLDER}
-          className="w-full resize-y rounded-xl border border-[var(--border-default)] bg-[var(--bg-input)] p-4 font-sans text-base leading-relaxed text-[var(--text-primary)] placeholder:font-serif placeholder:italic placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-deep/30 disabled:opacity-60"
+          className="w-full resize-y rounded-lg border border-[var(--border-default)] bg-[var(--bg-input)] p-4 font-sans text-base leading-relaxed text-[var(--text-primary)] placeholder:font-serif placeholder:text-lg placeholder:italic placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-deep/30 disabled:opacity-60"
         />
 
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
@@ -89,7 +89,7 @@ export function MapReplyForm({
       <AiConsentLine
         id={CONSENT_ID}
         consent={buildMapReplyConsentLine()}
-        className="max-w-prose"
+        className="max-w-[36rem]"
       />
 
       <div className="flex flex-wrap items-center gap-4">
@@ -97,7 +97,7 @@ export function MapReplyForm({
           type="submit"
           disabled={disabled || tooShort}
           aria-describedby={CONSENT_ID}
-          className="btn-lift inline-flex min-h-11 items-center rounded-full bg-rust-500 px-6 font-sans text-base font-medium text-white transition-colors hover:bg-rust-600 disabled:cursor-not-allowed disabled:opacity-60"
+          className="btn-lift inline-flex min-h-11 items-center rounded-full bg-rust-600 px-6 font-sans text-base font-medium text-white transition-colors hover:bg-rust-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Map this thread
         </button>

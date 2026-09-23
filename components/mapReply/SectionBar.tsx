@@ -17,14 +17,20 @@ import { ResultSection } from "./ResultSection";
  * unplaced segment and drawing them twice would inflate the thread.
  */
 
-/** Static strings so Tailwind's scanner emits every swatch. */
+/**
+ * Static strings so Tailwind's scanner emits every swatch.
+ *
+ * One hue in steps, not the side colours: a section of the map is a topic,
+ * not a side, and drawing one in rust and another in brown read as "for" and
+ * "against" when neither is.
+ */
+const DOMINANT_TONE = "bg-deep dark:bg-deep-light";
 const SECTION_TONES = [
-  "bg-deep dark:bg-deep-light",
-  "bg-rust-500 dark:bg-rust-400",
-  "bg-skeptic dark:bg-skeptic-light",
-  "bg-deep-dark dark:bg-deep",
-  "bg-rust-700 dark:bg-rust-600",
-  "bg-skeptic-dark dark:bg-skeptic",
+  "bg-deep/55 dark:bg-deep-light/60",
+  "bg-deep/30 dark:bg-deep-light/35",
+  "bg-deep-dark/75 dark:bg-deep-light/80",
+  "bg-deep-dark/40 dark:bg-deep-light/45",
+  "bg-deep/15 dark:bg-deep-light/20",
 ] as const;
 
 const UNPLACED_ID = "unplaced";
@@ -32,10 +38,8 @@ const NOISE_ID = "none";
 const UNPLACED_TONE = "bg-stone-400 dark:bg-stone-500";
 const NOISE_TONE = "bg-stone-300 dark:bg-stone-600";
 
-function toneFor(section: MapReplySectionCount, pillarIndex: number): string {
-  if (section.id === UNPLACED_ID) return UNPLACED_TONE;
-  if (section.id === NOISE_ID) return NOISE_TONE;
-  return SECTION_TONES[pillarIndex % SECTION_TONES.length];
+function isPillar(section: MapReplySectionCount): boolean {
+  return section.id !== NOISE_ID && section.id !== UNPLACED_ID;
 }
 
 /** What was left unchecked, said plainly rather than left to be inferred. */
@@ -66,15 +70,26 @@ export function SectionBar({
   const present = sectionCounts.filter((section) => section.count > 0);
   const coverage = coverageSentence(thread);
 
-  // Pillar order drives the palette, so a section keeps its colour whether or
-  // not the sections before it received any turns.
-  const pillarIndexById = new Map(
-    sectionCounts
-      .filter((section) => section.id !== NOISE_ID && section.id !== UNPLACED_ID)
-      .map((section, index) => [section.id, index] as const),
-  );
+  // The section with the largest share is always the darkest step, so the
+  // eye lands on it first; the other pillars take lighter steps in map order.
+  const toneById = new Map<string, string>();
+  let step = 0;
+  for (const section of sectionCounts) {
+    if (section.id === UNPLACED_ID) toneById.set(section.id, UNPLACED_TONE);
+    else if (section.id === NOISE_ID) toneById.set(section.id, NOISE_TONE);
+    else if (section.id === dominantSectionId) toneById.set(section.id, DOMINANT_TONE);
+    else toneById.set(section.id, SECTION_TONES[step++ % SECTION_TONES.length]);
+  }
+  const toneFor = (section: MapReplySectionCount) => toneById.get(section.id) ?? SECTION_TONES[0];
 
   const unit = thread.substantiveCount === 1 ? "turn" : "turns";
+
+  // When nothing cleared the floor, every section is a guess: the pillar
+  // segments are drawn faded so the bar does not look like a firm result.
+  const dimFor = (section: MapReplySectionCount) =>
+    dominantIsTentative && isPillar(section)
+      ? "opacity-60"
+      : "";
 
   return (
     <ResultSection
@@ -82,63 +97,59 @@ export function SectionBar({
       aside={`${thread.substantiveCount} ${unit} checked`}
     >
       {total === 0 ? (
-        <p className="text-[var(--text-secondary)]">
+        <p className="font-sans text-[0.9375rem] text-[var(--text-secondary)]">
           No turn in this thread was long enough to route to a section.
         </p>
       ) : (
         <>
           <div
-            className="flex h-4 w-full overflow-hidden rounded-full bg-[var(--bg-overlay)]"
+            className="flex h-3 w-full gap-px overflow-hidden rounded-sm bg-[var(--bg-overlay)]"
             aria-hidden="true"
           >
-            {present.map((section) => {
-              const dominant = section.id === dominantSectionId;
-              return (
-                <div
-                  key={section.id}
-                  className={`${toneFor(section, pillarIndexById.get(section.id) ?? 0)} ${
-                    dominant && !dominantIsTentative ? "" : "opacity-50"
-                  }`}
-                  style={{ width: `${(section.count / total) * 100}%` }}
-                />
-              );
-            })}
+            {present.map((section) => (
+              <div
+                key={section.id}
+                className={`${toneFor(section)} ${dimFor(section)}`}
+                style={{ width: `${(section.count / total) * 100}%` }}
+              />
+            ))}
           </div>
 
-          <ul className="space-y-2.5">
+          <ul className="divide-y divide-[var(--border-divider)] border-b border-[var(--border-divider)]">
             {present.map((section) => {
               const dominant = section.id === dominantSectionId;
               return (
-                <li key={section.id} className="flex items-start gap-3">
+                <li key={section.id} className="flex items-start gap-3 py-2.5">
                   <span
                     aria-hidden="true"
-                    className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-sm ${toneFor(
-                      section,
-                      pillarIndexById.get(section.id) ?? 0,
-                    )} ${dominant && !dominantIsTentative ? "" : "opacity-50"}`}
+                    className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-sm ${toneFor(section)} ${dimFor(section)}`}
                   />
-                  <span className="min-w-0 flex-1 font-sans text-sm">
+                  <span className="min-w-0 flex-1 font-sans text-[0.9375rem] leading-snug">
                     <span
                       className={
                         dominant
-                          ? "font-medium text-[var(--text-primary)]"
+                          ? "font-semibold text-[var(--text-heading)]"
                           : "text-[var(--text-secondary)]"
                       }
                     >
                       {section.title}
                     </span>
-                    {dominant ? (
-                      <span className="ml-2 whitespace-nowrap text-xs uppercase tracking-wide text-deep dark:text-deep-light">
-                        {dominantIsTentative ? "best guess only" : "largest share"}
-                      </span>
-                    ) : null}
-                    {section.tentative > 0 ? (
-                      <span className="ml-2 whitespace-nowrap text-xs text-[var(--text-muted)]">
-                        + {section.tentative} too weak to count
+                    {dominant || section.tentative > 0 ? (
+                      <span className="mt-0.5 flex flex-wrap gap-x-3 text-[0.8125rem]">
+                        {dominant ? (
+                          <span className="text-deep dark:text-deep-light">
+                            {dominantIsTentative ? "best guess only" : "largest share"}
+                          </span>
+                        ) : null}
+                        {section.tentative > 0 ? (
+                          <span className="text-[var(--text-muted)]">
+                            + {section.tentative} too weak to count
+                          </span>
+                        ) : null}
                       </span>
                     ) : null}
                   </span>
-                  <span className="shrink-0 font-sans text-sm tabular-nums text-[var(--text-muted)]">
+                  <span className="shrink-0 font-serif text-lg leading-none tabular-nums text-[var(--text-primary)]">
                     {section.count}
                   </span>
                 </li>
@@ -149,21 +160,21 @@ export function SectionBar({
       )}
 
       {dominantIsTentative ? (
-        <p className="max-w-prose font-sans text-sm text-[var(--text-muted)]">
+        <p className="max-w-[36rem] font-sans text-sm leading-relaxed text-[var(--text-muted)]">
           No turn was placed on the map with confidence, so the leading section above is
           offered as a guess and nothing else on this page rests on it.
         </p>
       ) : null}
 
       {unplacedCount > 0 ? (
-        <p className="max-w-prose font-sans text-sm text-[var(--text-muted)]">
+        <p className="max-w-[36rem] font-sans text-sm leading-relaxed text-[var(--text-muted)]">
           {unplacedCount} {unplacedCount === 1 ? "turn" : "turns"} the model placed too
           weakly to count. Each one still shows its best guess below.
         </p>
       ) : null}
 
       {coverage ? (
-        <p className="max-w-prose font-sans text-sm text-[var(--text-muted)]">{coverage}</p>
+        <p className="max-w-[36rem] font-sans text-sm leading-relaxed text-[var(--text-muted)]">{coverage}</p>
       ) : null}
     </ResultSection>
   );
