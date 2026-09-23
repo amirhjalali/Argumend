@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { MapReplyThresholds, MapReplyTurn } from "@/lib/mapReply/types";
 import { Meter, percentLabel } from "./meters";
 import { ResultSection } from "./ResultSection";
@@ -16,6 +19,11 @@ import { ResultSection } from "./ResultSection";
  * as "not an argument" is dimmed and says which of the two rules caught it,
  * because that is a claim about a person and it has to show its work.
  *
+ * On a phone the turns sit behind a native disclosure whose summary gives the
+ * count, because eight probed turns are several screens of receipts under a
+ * reply that has already said what they add up to. From 640px up the list is
+ * simply open, and the summary is not drawn.
+ *
  * The floor itself is not hard-coded here. It arrives on every result as
  * `thresholds.sectionConfidence`, so the wording cannot drift from the gate.
  */
@@ -32,6 +40,14 @@ const STANCE_TEXT: Record<string, string> = {
   against: "text-skeptic dark:text-skeptic-light",
   neither: "text-[var(--text-muted)]",
 };
+
+const DESKTOP_QUERY = "(min-width: 640px)";
+
+function isDesktop(): boolean {
+  return typeof window !== "undefined" && typeof window.matchMedia === "function"
+    ? window.matchMedia(DESKTOP_QUERY).matches
+    : false;
+}
 
 function notAnArgumentReason(turn: MapReplyTurn): string {
   if (turn.section === "none") {
@@ -143,6 +159,20 @@ export function TurnList({
 }) {
   const floor = thresholds.sectionConfidence;
   const tentativeCount = turns.filter((turn) => turn.placement === "tentative").length;
+  // The reply only renders after a client-side submit, so reading the media
+  // query in the initializer cannot mismatch a server render.
+  const [open, setOpen] = useState(isDesktop);
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const query = window.matchMedia(DESKTOP_QUERY);
+    // Widening past the breakpoint hides the summary, so the list must open.
+    const onChange = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(true);
+    };
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
 
   return (
     <ResultSection
@@ -174,11 +204,23 @@ export function TurnList({
         </p>
       ) : null}
 
-      <ul className="divide-y divide-[var(--border-divider)]">
-        {turns.map((turn) => (
-          <TurnItem key={turn.index} turn={turn} floor={floor} />
-        ))}
-      </ul>
+      <details
+        open={open}
+        onToggle={(event) => setOpen(event.currentTarget.open)}
+        className="group"
+      >
+        <summary className="flex min-h-11 cursor-pointer items-center gap-1.5 font-sans text-[0.9375rem] text-deep marker:content-none dark:text-deep-light sm:hidden [&::-webkit-details-marker]:hidden">
+          <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">
+            ›
+          </span>
+          {open ? "Hide" : "Show"} all {turns.length} {turns.length === 1 ? "turn" : "turns"}
+        </summary>
+        <ul className="divide-y divide-[var(--border-divider)] pt-4 sm:pt-0">
+          {turns.map((turn) => (
+            <TurnItem key={turn.index} turn={turn} floor={floor} />
+          ))}
+        </ul>
+      </details>
     </ResultSection>
   );
 }
