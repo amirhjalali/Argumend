@@ -233,7 +233,7 @@ export default function LibraryPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/concepts"
-                className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-rust-600 to-rust-700 text-white rounded-xl text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 Key Concepts
                 <ArrowRight className="h-3.5 w-3.5" />

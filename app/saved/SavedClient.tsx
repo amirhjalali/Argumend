@@ -112,7 +112,7 @@ export function SavedClient() {
             </p>
             <Link
               href="/topics"
-              className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)]"
+              className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)]"
             >
               Explore Topics
               <ArrowRight className="h-4 w-4" />

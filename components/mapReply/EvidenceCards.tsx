@@ -55,7 +55,7 @@ function EvidenceItem({ item }: { item: MapReplyEvidenceItem }) {
           href={item.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-1 inline-flex min-h-11 items-center gap-1.5 self-start font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-deep-light dark:hover:text-stone-200"
+          className="mt-1 inline-flex min-h-11 items-center gap-1.5 self-start font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
         >
           Open the source
           <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />

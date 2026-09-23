@@ -240,7 +240,7 @@ export default function GlossaryPage() {
           </p>
           <Link
             href="/topics"
-            className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-b from-rust-500 to-rust-600 text-white font-medium text-sm hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+            className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-b from-rust-600 to-rust-700 text-white font-medium text-sm hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm"
           >
             Explore Topics
             <ArrowRight className="h-4 w-4" />

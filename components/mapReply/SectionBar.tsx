@@ -137,7 +137,7 @@ export function SectionBar({
                     {dominant || section.tentative > 0 ? (
                       <span className="mt-0.5 flex flex-wrap gap-x-3 text-[0.8125rem]">
                         {dominant ? (
-                          <span className="text-deep dark:text-deep-light">
+                          <span className="text-deep dark:text-accent-text">
                             {dominantIsTentative ? "best guess only" : "largest share"}
                           </span>
                         ) : null}

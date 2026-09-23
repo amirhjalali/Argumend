@@ -512,7 +512,7 @@ export default function AnalyzePage() {
                   Argument Analysis
                 </div>
                 {!liveAnalyzeEnabled && (
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-full text-xs font-medium text-emerald-700 dark:text-emerald-400 tracking-wide">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 rounded-full text-xs font-medium text-stone-700 dark:text-stone-300 tracking-wide">
                     <Lock className="h-3.5 w-3.5" />
                     Programmatic Mode
                   </div>
@@ -527,7 +527,7 @@ export default function AnalyzePage() {
                 how strong the reasoning really is.
               </p>
               {!liveAnalyzeEnabled && (
-                <p className="text-sm text-emerald-700/80 dark:text-emerald-400/80 max-w-2xl mx-auto">
+                <p className="text-sm text-secondary dark:text-stone-400 max-w-2xl mx-auto">
                   Running in local/offline mode to keep analysis costs predictable.
                 </p>
               )}
@@ -739,7 +739,7 @@ export default function AnalyzePage() {
                         ? "bg-gradient-to-r from-rust-400 to-rust-500 text-white/90 shadow-md cursor-wait"
                         : !content.trim()
                         ? "bg-stone-100 dark:bg-[var(--bg-surface)] text-stone-400 dark:text-stone-600 cursor-not-allowed"
-                        : "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700"
+                        : "bg-gradient-to-r from-rust-600 to-rust-700 text-white shadow-md hover:shadow-lg hover:from-rust-700 hover:to-rust-800"
                     }`}
                   >
                     {isAnalyzing ? (
@@ -925,7 +925,7 @@ export default function AnalyzePage() {
                     </div>
                   </motion.div>
                 ) : (
-                  <div className="rounded-xl border border-emerald-200/60 dark:border-emerald-800/40 bg-emerald-50/60 dark:bg-emerald-900/15 p-4 text-sm font-medium text-emerald-700 dark:text-emerald-400">
+                  <div className="rounded-xl border border-stone-200/70 dark:border-stone-700/60 bg-stone-50/60 dark:bg-stone-800/30 p-4 text-sm font-medium text-stone-700 dark:text-stone-300">
                     No potential fallacies were identified in this analysis.
                   </div>
                 )}

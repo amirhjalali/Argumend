@@ -45,7 +45,7 @@ export function SourceNotes({
   if (quotes.length === 0) return null;
   return (
     <details className="group mt-2">
-      <summary className="inline-flex min-h-11 cursor-pointer items-center gap-1.5 font-sans text-sm text-deep marker:content-none dark:text-deep-light [&::-webkit-details-marker]:hidden">
+      <summary className="inline-flex min-h-11 cursor-pointer items-center gap-1.5 font-sans text-sm text-deep marker:content-none dark:text-accent-text [&::-webkit-details-marker]:hidden">
         <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">
           ›
         </span>

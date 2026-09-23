@@ -34,8 +34,6 @@ export interface NavItem {
   /** Lucide icon. Present for "primary"/"learn"; optional for "meta" links. */
   icon?: LucideIcon;
   group: NavGroup;
-  /** Render with the rust "highlight" accent in the sidebar (e.g. Analyze). */
-  highlight?: boolean;
   /** Opt out of Next.js prefetch for heavier/auth-gated routes. */
   noPrefetch?: boolean;
   /** Only expose this destination when account-backed features are enabled. */
@@ -55,7 +53,7 @@ export const navItems: NavItem[] = [
   // --- Primary (sidebar main list) ---
   { label: "Home", href: "/", icon: Compass, group: "primary" },
   { label: "Explore", href: "/topics", icon: ListChecks, group: "primary" },
-  { label: "Analyze Text", href: "/analyze", icon: Brain, group: "primary", highlight: true },
+  { label: "Analyze Text", href: "/analyze", icon: Brain, group: "primary" },
   { label: "Saved", href: "/saved", icon: Bookmark, group: "primary", noPrefetch: true },
   { label: "About", href: "/about", icon: HelpCircle, group: "primary" },
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard, group: "primary", noPrefetch: true, requiresAuth: true },

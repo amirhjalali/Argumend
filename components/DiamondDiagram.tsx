@@ -149,7 +149,7 @@ export function DiamondDiagram() {
           <div className="flex flex-col items-center">
             <div
               ref={proponentRef}
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white font-semibold shadow-md"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-600 to-rust-700 text-white font-semibold shadow-md"
             >
               <div className="flex items-center gap-2">
                 <Shield className="h-4 w-4" />

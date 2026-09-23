@@ -30,6 +30,23 @@ describe("categoryColors", () => {
   it("decouples settled status from the science category (no green-as-verdict)", () => {
     expect(statusColors.settled).not.toBe(categoryColors.science);
   });
+
+  it("keeps status chips in one neutral stone family (no signal hue)", () => {
+    // Status is not a verdict. Rust is the proponent side and the CTA, teal is
+    // evidence, crimson is a crux, brown is the skeptic side: none of them may
+    // colour a status chip that sits beside a category chip.
+    const hue = /(deep|rust|crux|skeptic|proponent|evidence|emerald|green|rose|red|amber|orange|yellow)[-/]/;
+    for (const [status, cls] of Object.entries(statusColors)) {
+      expect(hue.test(cls), `${status} status chip uses a signal hue: ${cls}`).toBe(false);
+      expect(cls, `${status} status chip should be stone`).toMatch(/text-stone-\d/);
+    }
+  });
+
+  it("tells contested from speculative by outline/fill, not only by shade", () => {
+    expect(statusColors.contested).toMatch(/bg-transparent/);
+    expect(statusColors.highly_speculative).toMatch(/border-dashed/);
+    expect(statusColors.contested).not.toMatch(/border-dashed/);
+  });
 });
 
 /**
@@ -55,6 +72,7 @@ describe("category/status color SOT consolidation (repo guard)", () => {
     "app/topics/category/[slug]/page.tsx",
     "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
     "app/topics/compare/CompareIndexView.tsx",
+    "components/MobileArgumentList.tsx",
   ];
 
   // Read relative to the repo root (vitest cwd); split so the literal
@@ -93,6 +111,28 @@ describe("category/status color SOT consolidation (repo guard)", () => {
       ).toBe(false);
     },
   );
+});
+
+/**
+ * Truth-signal guard: surfaces that label sides, statuses and verification
+ * must not say "green = true / red = false". Proponent is rust, skeptic is
+ * brown, evidence/verified is teal, status is stone. Error states are not in
+ * these files, so any emerald/green/rose/red here is a verdict signal.
+ */
+describe("no green/red truth signals on side and status surfaces", () => {
+  const signalFiles = [
+    "components/MobileArgumentList.tsx",
+    "app/api/og/[id]/route.tsx",
+    "components/JudgingResults.tsx",
+  ];
+  const readSource = (rel: string) =>
+    readFileSync(join(process.cwd(), ...rel.split("/")), "utf8");
+  const TRUTH_SIGNAL = /(emerald|green|rose|red)-\d|#(059669|10b981|16a34a|22c55e|dc2626|ef4444|e11d48|f43f5e)\b/i;
+
+  it.each(signalFiles)("%s uses no emerald/green/rose/red token or hex", (file) => {
+    const hit = readSource(file).match(TRUTH_SIGNAL);
+    expect(hit?.[0], `${file} signals truth with ${hit?.[0]}`).toBeUndefined();
+  });
 });
 
 /**

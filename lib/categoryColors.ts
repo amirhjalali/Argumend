@@ -17,41 +17,48 @@
  * but intentionally omits the `border` *width* utility — every consumer already
  * supplies its own `border` class, so we provide the border *color* only.
  *
- * Green-as-verdict decoupling: "Settled" status deliberately does NOT reuse a
- * green/science treatment. Green reads as "this claim is true," which fights the
- * neutral brand. Settled gets a calm deep-teal "resolved" treatment, and the
- * Science category is brown — so the two never share a color.
+ * Green-as-verdict decoupling: no status chip uses green, or any hue. Green
+ * reads as "this claim is true," which fights the neutral brand. Status chips
+ * are neutral stone (see `statusColors`); the Science category is brown.
  */
 import type { TopicCategory, TopicStatus } from "@/lib/schemas/topic";
 
 export const categoryColors: Record<TopicCategory, string> = {
   // Deep teal — institutional / governance
   policy:
-    "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
+    "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
   // Stone — neutral / machine
   technology:
     "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-300 border-stone-200/60 dark:border-stone-700/40",
   // Brown (skeptic = #8B5A3C) — empirical / earthy. NOT green (see decoupling note).
   science:
-    "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-light border-skeptic/25 dark:border-skeptic/40",
+    "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-[#cfa88a] border-skeptic/25 dark:border-skeptic/40",
   // Rust — markets / warmth
   economics:
     "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
   // Crux crimson (#a23b3b) — the deep, contested questions
   philosophy:
-    "bg-crux/10 dark:bg-crux/20 text-crux dark:text-crux-light border-crux/25 dark:border-crux/40",
+    "bg-crux/10 dark:bg-crux/20 text-crux dark:text-crux-text border-crux/25 dark:border-crux/40",
 };
 
+/**
+ * Status chips are ONE neutral stone family, told apart by fill, outline and
+ * weight rather than hue. A hue here borrows a meaning it does not have: rust
+ * is the proponent side and the page's CTA, teal is evidence, crimson is a
+ * crux, and a status chip sits right beside a category chip that may use any
+ * of them. Status is not a verdict, so it carries no signal colour.
+ *
+ *   settled             solid stone fill, semibold  (12.5:1 light / 12.0:1 dark)
+ *   contested           outline only, no fill       ( 9.1:1 light / 14.0:1 dark)
+ *   highly_speculative  faint fill, dashed outline  ( 6.9:1 light /  6.6:1 dark)
+ */
 export const statusColors: Record<TopicStatus, string> = {
-  // Deep teal "resolved" — calm and settled, never green.
   settled:
-    "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
-  // Rust — an active, live disagreement.
+    "font-semibold bg-stone-200/70 dark:bg-stone-700/60 text-stone-800 dark:text-stone-100 border-stone-300/80 dark:border-stone-600/60",
   contested:
-    "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
-  // Stone — faint and uncertain.
+    "bg-transparent text-stone-700 dark:text-stone-200 border-stone-500/70 dark:border-stone-400/70",
   highly_speculative:
-    "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-300 border-stone-200/60 dark:border-stone-700/40",
+    "border-dashed bg-stone-100/60 dark:bg-stone-800/40 text-stone-600 dark:text-stone-400 border-stone-400/70 dark:border-stone-600/70",
 };
 
 /**

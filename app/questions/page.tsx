@@ -335,7 +335,7 @@ export default function QuestionsIndexPage() {
             </p>
             <Link
               href="/topics"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 px-6 py-3 font-sans text-sm font-semibold text-white shadow-md transition-all hover:from-rust-600 hover:to-rust-700 hover:shadow-lg"
+              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 px-6 py-3 font-sans text-sm font-semibold text-white shadow-md transition-all hover:from-rust-700 hover:to-rust-800 hover:shadow-lg"
             >
               Browse all topics
               <span aria-hidden="true">&rarr;</span>

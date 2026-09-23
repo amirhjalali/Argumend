@@ -110,7 +110,7 @@ export default async function DashboardPage() {
                 </p>
                 <Link
                   href="/topics"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm"
                 >
                   Explore Topics
                   <ArrowRight className="h-4 w-4" />
@@ -182,7 +182,7 @@ export default async function DashboardPage() {
                 </p>
                 <Link
                   href="/topics"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm"
                 >
                   Find a Topic
                   <ArrowRight className="h-4 w-4" />

@@ -449,7 +449,7 @@ function TopicPicker({
           disabled={!canCompare}
           className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-all ${
             canCompare
-              ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 shadow-sm btn-lift"
+              ? "bg-gradient-to-r from-rust-600 to-rust-700 text-white hover:from-rust-700 hover:to-rust-800 shadow-sm btn-lift"
               : "bg-stone-200 dark:bg-[var(--bg-muted)] text-muted dark:text-stone-400 cursor-not-allowed"
           }`}
         >

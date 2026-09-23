@@ -36,7 +36,7 @@ export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
   return (
     <section id="crux" aria-labelledby="argument-hinge-heading" className="scroll-mt-24">
       <div className="rounded-md border border-[var(--border-divider)] border-t-[3px] border-t-crux bg-[var(--bg-paper)] px-5 pb-6 pt-5 dark:border-t-crux-light sm:px-8 sm:pb-8 sm:pt-6">
-        <h2 id="argument-hinge-heading" className="label-caps text-crux dark:text-crux-light">
+        <h2 id="argument-hinge-heading" className="label-caps text-crux dark:text-crux-text">
           What the argument turns on
         </h2>
         <p className="mt-3 font-serif text-[1.625rem] leading-[1.2] text-[var(--text-heading)] sm:text-[2rem]">

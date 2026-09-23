@@ -222,7 +222,7 @@ export default function ResearchPage() {
           </p>
           <Link
             href="/topics"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm"
           >
             Explore Topics
             <Scale className="h-3.5 w-3.5" />

@@ -141,7 +141,7 @@ export default function CommunityPage() {
               href="https://github.com/amirhjalali/Argumend"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-lg font-medium text-sm hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-600 to-rust-700 text-white rounded-lg font-medium text-sm hover:from-rust-700 hover:to-rust-800 transition-all shadow-md hover:shadow-lg"
             >
               Contribute on GitHub
               <ArrowRight className="h-3.5 w-3.5" />

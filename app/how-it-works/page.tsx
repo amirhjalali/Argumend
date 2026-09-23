@@ -222,7 +222,7 @@ export default function HowItWorksPage() {
           </p>
           <Link
             href="/topics/nuclear-energy-safety"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-serif text-base font-semibold text-white bg-gradient-to-r from-rust-500 to-rust-600 shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-serif text-base font-semibold text-white bg-gradient-to-r from-rust-600 to-rust-700 shadow-md hover:shadow-lg hover:from-rust-700 hover:to-rust-800 transition-all duration-200"
           >
             Explore: Should we build more nuclear power?
             <span aria-hidden="true">&rarr;</span>

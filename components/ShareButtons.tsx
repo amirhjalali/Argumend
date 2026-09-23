@@ -238,7 +238,7 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
             href={cruxTwitterHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-rust-500 to-rust-600 text-white hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-rust-600 to-rust-700 text-white hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm"
             aria-label="Share the crux question on X"
             title="Share the crux question"
           >

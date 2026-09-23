@@ -115,10 +115,10 @@ function SectionDivider({ label, icon: Icon }: { label: string; icon: React.Comp
 function StrengthBadge({ score }: { score: number }) {
   const strength = getArgumentStrength(score);
   const styles = {
-    strong: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/50",
-    moderate: "bg-deep/10 text-deep border-deep/20",
+    strong: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/25 dark:border-deep/40",
+    moderate: "bg-transparent text-deep dark:text-accent-text border-deep/30 dark:border-deep/50",
     weak: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[var(--border-divider)]",
-    unsupported: "bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400 border-red-100 dark:border-red-800/40",
+    unsupported: "border-dashed bg-transparent text-stone-600 dark:text-stone-400 border-stone-300 dark:border-stone-600",
   };
 
   return (
@@ -219,11 +219,11 @@ function SplitStrengthBar({ forScore, againstScore }: { forScore: number; agains
 function ConfidenceExplainer({ score }: { score: number }) {
   const info = getConfidenceInfo(score);
   const colorMap = {
-    "very-high": "border-emerald-200 dark:border-emerald-800/50 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300",
-    "high": "border-emerald-200/60 dark:border-emerald-800/40 bg-emerald-50/50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400",
+    "very-high": "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/25 dark:border-deep/40",
+    "high": "bg-transparent text-deep dark:text-accent-text border-deep/30 dark:border-deep/50",
     "moderate": "border-stone-200 dark:border-[var(--border-divider)] bg-stone-50 dark:bg-[var(--bg-overlay)] text-stone-700 dark:text-stone-300",
-    "low": "border-red-200/60 dark:border-red-800/40 bg-red-50/50 dark:bg-red-900/20 text-red-700 dark:text-red-400",
-    "very-low": "border-red-200 dark:border-red-800/50 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300",
+    "low": "border-dashed bg-transparent text-stone-600 dark:text-stone-400 border-stone-300 dark:border-stone-600",
+    "very-low": "border-dashed bg-transparent text-stone-600 dark:text-stone-400 border-stone-400 dark:border-stone-500",
   };
 
   return (
@@ -235,7 +235,7 @@ function ConfidenceExplainer({ score }: { score: number }) {
 }
 
 function BiasCard({ bias }: { bias: DetectedBias }) {
-  const impactColor = bias.impact >= 7 ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800/40" : bias.impact >= 4 ? "text-stone-600 dark:text-stone-400 bg-stone-50 dark:bg-[var(--bg-overlay)] border-stone-200 dark:border-[var(--border-divider)]" : "text-stone-500 dark:text-stone-400 bg-stone-50/50 dark:bg-[var(--bg-overlay)] border-stone-100 dark:border-[var(--border-divider)]";
+  const impactColor = bias.impact >= 7 ? "bg-stone-200/70 dark:bg-stone-700/60 text-stone-800 dark:text-stone-100 border-stone-300 dark:border-stone-600" : bias.impact >= 4 ? "text-stone-600 dark:text-stone-400 bg-stone-50 dark:bg-[var(--bg-overlay)] border-stone-200 dark:border-[var(--border-divider)]" : "text-stone-500 dark:text-stone-400 bg-stone-50/50 dark:bg-[var(--bg-overlay)] border-stone-100 dark:border-[var(--border-divider)]";
   const sideLabel = bias.affectedSide === "for" ? "FOR side" : bias.affectedSide === "against" ? "AGAINST side" : "Both sides";
 
   return (
@@ -416,20 +416,20 @@ function FallacyCard({ fallacy }: { fallacy: PotentialFallacy }) {
   const severity = fallacy.severity ?? "possible";
 
   const severityStyles = {
-    confirmed: "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800/50",
-    likely: "bg-rust-100 dark:bg-rust-900/30 text-rust-700 dark:text-rust-400 border-rust-200 dark:border-rust-800/50",
+    confirmed: "bg-stone-200/70 dark:bg-stone-700/60 text-stone-800 dark:text-stone-100 border-stone-300 dark:border-stone-600",
+    likely: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-700 dark:text-stone-200 border-stone-300 dark:border-stone-600",
     possible: "bg-stone-100 dark:bg-[var(--bg-overlay)] text-stone-500 dark:text-stone-400 border-stone-200 dark:border-[var(--border-divider)]",
   };
 
   const cardStyles = {
-    confirmed: "bg-red-50/60 dark:bg-red-900/15 border-red-200/60 dark:border-red-800/40",
-    likely: "bg-rust-50/40 dark:bg-rust-900/15 border-rust-200/50 dark:border-rust-800/40",
+    confirmed: "bg-stone-100/80 dark:bg-stone-800/40 border-stone-300 dark:border-stone-600",
+    likely: "bg-stone-50/60 dark:bg-[var(--bg-overlay)] border-stone-200 dark:border-stone-700",
     possible: "bg-stone-50/50 dark:bg-[var(--bg-overlay)] border-stone-200/60 dark:border-[var(--border-default)]",
   };
 
   const SeverityIcon = severity === "confirmed" ? AlertTriangle : severity === "likely" ? AlertTriangle : Info;
-  const iconColor = severity === "confirmed" ? "text-red-600" : severity === "likely" ? "text-rust-600" : "text-muted dark:text-stone-400";
-  const iconBg = severity === "confirmed" ? "bg-red-100" : severity === "likely" ? "bg-rust-100/80" : "bg-stone-100";
+  const iconColor = severity === "confirmed" ? "text-stone-800 dark:text-stone-100" : severity === "likely" ? "text-stone-600 dark:text-stone-300" : "text-muted dark:text-stone-400";
+  const iconBg = severity === "confirmed" ? "bg-stone-200 dark:bg-stone-700" : "bg-stone-100 dark:bg-stone-800";
 
   return (
     <motion.div
@@ -496,11 +496,11 @@ function RelatedTopicCard({ topic }: { topic: TopicSummary }) {
 /** Positive empty-state for no fallacies/biases */
 function EmptyPositiveState({ label, icon: Icon }: { label: string; icon: React.ComponentType<{ className?: string }> }) {
   return (
-    <div className="flex items-center gap-3 p-4 bg-emerald-50/50 dark:bg-emerald-900/15 border border-emerald-200/40 dark:border-emerald-800/30 rounded-xl">
-      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100/80 dark:bg-emerald-900/30 flex items-center justify-center">
-        <Icon className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+    <div className="flex items-center gap-3 p-4 bg-deep/5 dark:bg-deep/10 border border-deep/20 dark:border-deep/30 rounded-xl">
+      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-deep/10 dark:bg-deep/20 flex items-center justify-center">
+        <Icon className="h-4 w-4 text-deep dark:text-accent-text" />
       </div>
-      <p className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">{label}</p>
+      <p className="text-sm text-deep dark:text-accent-text font-medium">{label}</p>
     </div>
   );
 }
@@ -771,7 +771,7 @@ export function AnalysisView({
                 </p>
                 <Link
                   href="/analyze"
-                  className="inline-flex items-center gap-2 px-6 py-3 mt-4 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:from-rust-600 hover:to-rust-700 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 mt-4 bg-gradient-to-r from-rust-600 to-rust-700 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:from-rust-700 hover:to-rust-800 transition-all"
                 >
                   <Brain className="h-4 w-4" />
                   Analyze another

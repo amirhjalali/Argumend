@@ -97,7 +97,7 @@ export function Sidebar({
       <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5">
         {/* Primary Navigation */}
         <div className="space-y-0.5 pb-5" role="list" aria-label="Primary navigation">
-          {visiblePrimaryNav.map(({ label, icon: Icon, href, highlight }) => {
+          {visiblePrimaryNav.map(({ label, icon: Icon, href }) => {
             const isActive = isActiveRoute(href);
             return (
               <Link
@@ -108,14 +108,12 @@ export function Sidebar({
                 className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 min-h-[44px] text-[14px] transition-colors ${
                   isActive
                     ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
-                    : highlight
-                    ? "text-rust-700 dark:text-rust-400 hover:text-rust-800 dark:hover:text-rust-300 hover:bg-rust-50/50 dark:hover:bg-rust-900/30 font-medium"
                     : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-subtle/50"
                 }`}
               >
                 <Icon
                   className={`h-4 w-4 ${
-                    isActive ? "text-stone-700 dark:text-stone-300" : highlight ? "text-rust-500 dark:text-rust-400" : "text-stone-400"
+                    isActive ? "text-stone-700 dark:text-stone-300" : "text-stone-400"
                   }`}
                   strokeWidth={1.8}
                 />
@@ -203,7 +201,7 @@ export function Sidebar({
                     aria-pressed={isSelected}
                     className={`flex w-full items-center gap-2 rounded-md px-3 py-2.5 min-h-[44px] text-left transition-colors ${
                       isSelected
-                        ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-rust-500 pl-[10px]"
+                        ? "text-stone-900 dark:text-stone-100 font-medium border-l-2 border-stone-800 dark:border-stone-200 pl-[10px]"
                         : "text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-50/50 dark:hover:bg-subtle/50"
                     }`}
                   >
@@ -224,7 +222,7 @@ export function Sidebar({
             <Link
               href="/topics"
               prefetch={false}
-              className="flex items-center gap-1 px-3 py-2.5 min-h-[44px] mt-1 text-[13px] font-medium text-deep hover:text-deep-dark transition-colors"
+              className="flex items-center gap-1 px-3 py-2.5 min-h-[44px] mt-1 text-[13px] font-medium text-accent-text hover:text-deep-dark dark:hover:text-stone-100 transition-colors"
             >
               View all {topicSummaries.length} topics
               <ChevronRight className="h-3.5 w-3.5" />

@@ -30,7 +30,7 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
 
   const marks = (stake: (typeof accountability.stakes)[number]) =>
     stake.grounding.map((ref, index) => (
-      <sup key={ref.id} className="ml-0.5 font-sans text-deep dark:text-deep-light">
+      <sup key={ref.id} className="ml-0.5 font-sans text-deep dark:text-accent-text">
         {NOTE_MARKS[index] ?? "•"}
       </sup>
     ));
@@ -120,7 +120,7 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
         <ol className="mt-5 space-y-1.5 border-t border-[var(--border-divider)] pt-4">
           {notes.map((note) => (
             <li key={note.ref.id} className="font-sans text-xs leading-relaxed text-[var(--text-muted)]">
-              <span className="mr-1 text-deep dark:text-deep-light">{note.mark}</span>
+              <span className="mr-1 text-deep dark:text-accent-text">{note.mark}</span>
               {note.speaker ? `${note.speaker}: ` : ""}
               &ldquo;{note.ref.quote}&rdquo;
             </li>

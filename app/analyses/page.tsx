@@ -99,7 +99,7 @@ export default async function AnalysesPage() {
           <div className="flex justify-center">
             <Link
               href="/analyze"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rust-600 to-rust-700 text-white rounded-xl text-sm font-semibold font-serif shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
             >
               <Brain className="h-4 w-4" />
               Analyze something
@@ -121,7 +121,7 @@ export default async function AnalysesPage() {
               </p>
               <Link
                 href="/analyze"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-rust-500 to-rust-600 text-white rounded-xl text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-rust-600 to-rust-700 text-white rounded-xl text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 <Brain className="h-3.5 w-3.5" />
                 Analyze your first text

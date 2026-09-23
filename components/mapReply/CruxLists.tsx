@@ -26,7 +26,7 @@ function CruxItem({ crux }: { crux: MapReplyCruxTouch }) {
       }
     >
       {dominant ? (
-        <p className="mb-1.5 font-sans text-[0.8125rem] text-crux dark:text-crux-light">
+        <p className="mb-1.5 font-sans text-[0.8125rem] text-crux dark:text-crux-text">
           The crux for the section this thread spent most of its turns in
         </p>
       ) : null}

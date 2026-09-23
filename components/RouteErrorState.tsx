@@ -57,7 +57,7 @@ export function RouteErrorState({
           <button
             type="button"
             onClick={reset}
-            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:from-rust-600 hover:to-rust-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#faf8f5] sm:w-auto dark:focus-visible:ring-offset-[var(--bg-card)]"
+            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rust-600 to-rust-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:from-rust-700 hover:to-rust-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#faf8f5] sm:w-auto dark:focus-visible:ring-offset-[var(--bg-card)]"
           >
             <RotateCcw className="h-4 w-4" aria-hidden="true" />
             Try again

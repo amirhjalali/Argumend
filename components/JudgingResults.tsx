@@ -329,7 +329,7 @@ function JudgeCard({
               {winnerLabel}
             </div>
             <span className={`hidden sm:inline-flex text-[10px] px-2 py-0.5 rounded-full font-medium ${
-              avgConf >= 0.8 ? "bg-emerald-100 text-emerald-700" : avgConf >= 0.5 ? "bg-stone-100 text-stone-600" : "bg-red-100 text-red-600"
+              avgConf >= 0.8 ? "bg-deep/10 text-deep dark:bg-deep/20 dark:text-accent-text" : avgConf >= 0.5 ? "bg-stone-100 text-stone-600 dark:bg-stone-700/50 dark:text-stone-300" : "border border-dashed border-stone-400/70 text-stone-600 dark:border-stone-600/70 dark:text-stone-400"
             }`}>
               {Math.round(avgConf * 100)}% conf
             </span>

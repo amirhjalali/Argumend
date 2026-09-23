@@ -65,7 +65,7 @@ export function SaveTopicButton({ topicId }: SaveTopicButtonProps) {
         aria-describedby={message ? statusId : undefined}
         className={`inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)] disabled:cursor-wait disabled:opacity-60 ${
           saved
-            ? "bg-[#C4613C] text-white border-[#C4613C] hover:bg-[#b05434] hover:border-[#b05434]"
+            ? "bg-[#b05434] text-white border-[#b05434] hover:bg-[#8b3f27] hover:border-[#8b3f27]"
             : error
               ? "border-red-300 bg-red-50 text-red-700 hover:bg-red-100 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
               : "bg-white/80 dark:bg-card/80 text-secondary dark:text-stone-400 border-stone-200/60 dark:border-[var(--border-default)] hover:text-primary dark:hover:text-stone-200 hover:border-stone-300/80"

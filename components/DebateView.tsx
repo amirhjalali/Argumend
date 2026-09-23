@@ -583,7 +583,7 @@ export function DebateView() {
                     aria-label={`${num} rounds`}
                     className={`w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl font-serif font-semibold transition-all ${
                       state.maxRounds === num
-                        ? "bg-gradient-to-br from-rust-500 to-rust-600 text-white shadow-md"
+                        ? "bg-gradient-to-br from-rust-600 to-rust-700 text-white shadow-md"
                         : "bg-white dark:bg-[var(--bg-card)] border border-stone-200 dark:border-[var(--border-divider)] text-stone-600 dark:text-stone-300 hover:border-stone-300"
                     }`}
                   >
@@ -604,7 +604,7 @@ export function DebateView() {
                   flex items-center gap-3 px-4 md:px-8 py-3.5 rounded-xl font-serif font-semibold text-lg transition-all
                   ${
                     canStart
-                      ? "bg-gradient-to-r from-rust-500 to-rust-600 text-white shadow-lg hover:shadow-xl btn-lift"
+                      ? "bg-gradient-to-r from-rust-600 to-rust-700 text-white shadow-lg hover:shadow-xl btn-lift"
                       : "bg-stone-100 dark:bg-stone-800 text-stone-400 cursor-not-allowed"
                   }
                 `}

@@ -248,7 +248,7 @@ ${againstMsg?.content || "*No argument*"}
               exit={{ opacity: 0 }}
               className="text-center py-4"
             >
-              <CheckCircle className="w-10 h-10 text-emerald-500 mx-auto mb-3" />
+              <CheckCircle className="w-10 h-10 text-deep dark:text-accent-text mx-auto mb-3" />
               <p className="font-serif text-lg text-stone-800 dark:text-[var(--text-primary)] mb-2">
                 Shared Successfully!
               </p>
