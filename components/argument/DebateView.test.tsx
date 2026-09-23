@@ -220,8 +220,8 @@ describe("DebateView", () => {
       if (claim!.implicit) {
         // The tag and what it means read as one unit in the summary.
         expect(
-          within(summary).getByText(/Hidden assumption/).parentElement?.textContent,
-        ).toMatch(/Hidden assumption: nobody in the debate says it out loud/);
+          within(summary).getByText(/A hidden assumption/).parentElement?.textContent,
+        ).toMatch(/A hidden assumption: nobody in the debate says it out loud/);
       }
     }
 
