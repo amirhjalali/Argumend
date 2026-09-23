@@ -1266,14 +1266,14 @@
   {
    "id": "e-usg-high-risk-research-policy-2026",
    "type": "evidence",
-   "statement": "NIH notice NOT-OD-26-101 (28 July 2026) announced the USG Policy for Stopping High-Risk Life Sciences Research, including an explicit prohibition on dangerous gain-of-function research, with research flagged as potentially dangerous remaining paused until implementation requirements are set.",
+   "statement": "NIH notice NOT-OD-26-101 (28 July 2026) announced the USG Policy for Stopping High-Risk Life Sciences Research, which explicitly prohibits federal support for dangerous gain-of-function research, with research flagged as potentially dangerous remaining paused until implementation requirements are set.",
    "provenance": {
     "origin": "curator",
     "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [15c] (source re-opened 2026-09-22)"
    },
    "createdAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
-   "finding": "NIH notice NOT-OD-26-101 (28 July 2026) announced the USG Policy for Stopping High-Risk Life Sciences Research, including an explicit prohibition on dangerous gain-of-function research, with research flagged as potentially dangerous remaining paused until implementation requirements are set.",
+   "finding": "NIH notice NOT-OD-26-101 (28 July 2026) announced the USG Policy for Stopping High-Risk Life Sciences Research, which explicitly prohibits federal support for dangerous gain-of-function research, with research flagged as potentially dangerous remaining paused until implementation requirements are set.",
    "source": {
     "title": "USG Policy for Stopping High-Risk Life Sciences Research (NOT-OD-26-101)",
     "kind": "government",
