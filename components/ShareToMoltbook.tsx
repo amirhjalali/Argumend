@@ -305,12 +305,12 @@ ${againstMsg?.content || "*No argument*"}
               exit={{ opacity: 0 }}
             >
               <div className="flex items-start gap-3 mb-4">
-                <AlertCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                <AlertCircle className="w-5 h-5 text-error mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-sm font-medium text-red-800">
+                  <p className="text-sm font-medium text-error-text">
                     Failed to share
                   </p>
-                  <p className="text-sm text-red-600 mt-1">{error}</p>
+                  <p className="text-sm text-error-text mt-1">{error}</p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -322,7 +322,7 @@ ${againstMsg?.content || "*No argument*"}
                 </button>
                 <button
                   onClick={handleShare}
-                  className="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition-colors"
+                  className="flex-1 px-4 py-2.5 text-sm font-medium text-white bg-rust-600 hover:bg-rust-700 rounded-lg transition-colors"
                 >
                   Try Again
                 </button>

@@ -479,7 +479,7 @@ export function ShareVerdictCard({
                   <div
                     id="verdict-copy-error"
                     role="alert"
-                    className="space-y-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
+                    className="space-y-2 rounded-xl border border-error/30 bg-error/[0.06] px-4 py-3 text-sm text-error-text dark:border-error/40 dark:bg-error/10"
                   >
                     <p>{copyError}</p>
                     <input
@@ -487,7 +487,7 @@ export function ShareVerdictCard({
                       value={shareUrl}
                       onFocus={(event) => event.currentTarget.select()}
                       aria-label="Verdict share link"
-                      className="w-full rounded-lg border border-red-200 bg-white px-3 py-2 font-mono text-xs text-stone-700 outline-none focus:ring-2 focus:ring-red-400 dark:border-red-900 dark:bg-stone-900 dark:text-stone-200"
+                      className="w-full rounded-lg border border-error/30 bg-white px-3 py-2 font-mono text-xs text-stone-700 outline-none focus:ring-2 focus:ring-error dark:border-error/40 dark:bg-stone-900 dark:text-stone-200"
                     />
                   </div>
                 )}
@@ -496,14 +496,14 @@ export function ShareVerdictCard({
                   <div
                     id="verdict-download-error"
                     role="alert"
-                    className="flex flex-col gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300 sm:flex-row sm:items-center sm:justify-between"
+                    className="flex flex-col gap-3 rounded-xl border border-error/30 bg-error/[0.06] px-4 py-3 text-sm text-error-text dark:border-error/40 dark:bg-error/10 sm:flex-row sm:items-center sm:justify-between"
                   >
                     <span>{downloadError}</span>
                     <button
                       type="button"
                       onClick={handleDownload}
                       disabled={downloading}
-                      className="min-h-10 flex-shrink-0 rounded-lg border border-red-300 bg-white px-3 py-2 text-xs font-semibold text-red-700 transition-colors hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 disabled:opacity-60 dark:border-red-800 dark:bg-red-950/50 dark:text-red-200 dark:hover:bg-red-900/40"
+                      className="min-h-10 flex-shrink-0 rounded-lg border border-error/30 bg-white px-3 py-2 text-xs font-semibold text-error-text transition-colors hover:bg-error/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error disabled:opacity-60 dark:border-error/40 dark:bg-error/10 dark:hover:bg-error/20"
                     >
                       Try download again
                     </button>

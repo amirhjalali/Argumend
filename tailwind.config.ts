@@ -73,6 +73,29 @@ const config: Config = {
           text: "rgb(var(--accent-text-rgb) / <alpha-value>)",
         },
 
+        // Category-only hues, never a signal. Plum is philosophy (crimson is
+        // reserved for cruxes); slate ink is technology (stone is reserved for
+        // status chips). Text contrast on their chip tints: plum 5.90:1 light /
+        // 6.20:1 dark (plum.light), ink 5.61:1 light / 6.63:1 dark (ink.light).
+        plum: {
+          DEFAULT: "#6b4768",
+          light: "#c9a2c5",
+        },
+        ink: {
+          DEFAULT: "#4a5868",
+          light: "#aab6c4",
+        },
+
+        // Error state. DEFAULT #c4584d is accent.error, for borders, icons and
+        // tints (3.84:1 on the canvas, enough for non-text). Error TEXT uses the
+        // theme-aware `text-error-text` (--error-text: #ab4a40 light, 4.92:1 on
+        // the canvas; #e8897f dark, 6.96:1). Never crux crimson for an error:
+        // crimson means a crux.
+        error: {
+          DEFAULT: "#c4584d",
+          text: "rgb(var(--error-text-rgb) / <alpha-value>)",
+        },
+
         // Bold semantic colors for graph elements
         crux: {
           DEFAULT: "#a23b3b", // Deep crimson for cruxes

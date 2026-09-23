@@ -67,7 +67,7 @@ export function SaveTopicButton({ topicId }: SaveTopicButtonProps) {
           saved
             ? "bg-[#b05434] text-white border-[#b05434] hover:bg-[#8b3f27] hover:border-[#8b3f27]"
             : error
-              ? "border-red-300 bg-red-50 text-red-700 hover:bg-red-100 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300"
+              ? "border-error/30 bg-error/[0.06] text-error-text hover:bg-error/10 dark:border-error/40 dark:bg-error/10"
               : "bg-white/80 dark:bg-card/80 text-secondary dark:text-stone-400 border-stone-200/60 dark:border-[var(--border-default)] hover:text-primary dark:hover:text-stone-200 hover:border-stone-300/80"
         }`}
       >
