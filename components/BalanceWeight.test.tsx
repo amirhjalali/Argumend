@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { BalanceWeightChip } from "./BalanceWeightChip";
+import { BalanceWeightChip, QUADRANT_STYLE } from "./BalanceWeightChip";
 import { BalanceWeightReadout } from "./BalanceWeightReadout";
 import { FRAGILE_VERDICT_NOTE } from "./FragileVerdictNote";
 
@@ -17,6 +17,23 @@ describe("BalanceWeightChip", () => {
   it("shows the quadrant word when showLabel is set", () => {
     render(<BalanceWeightChip balance={46} weight={70} verdict={verdict} showLabel />);
     expect(screen.getByText("Contested")).toBeTruthy();
+  });
+});
+
+describe("QUADRANT_STYLE", () => {
+  it("draws contested in stone ink, keeping crux crimson for cruxes", () => {
+    const all = JSON.stringify(QUADRANT_STYLE).toLowerCase();
+    expect(all).not.toContain("#a23b3b");
+    expect(all).not.toContain("162, 59, 59");
+    // The theme variable is #564d45 on parchment and a light stone in dark
+    // mode, so the chip stays legible on both canvases.
+    expect(QUADRANT_STYLE.contested.color).toBe("rgb(var(--text-secondary-rgb))");
+  });
+
+  it("gives every quadrant a text colour for type on its solid fill", () => {
+    for (const style of Object.values(QUADRANT_STYLE)) {
+      expect(style.onColor).toBeTruthy();
+    }
   });
 });
 

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { metadata as aiMetadata } from "./ai/page";
 import { metadata as analysesMetadata } from "./analyses/page";
 import { metadata as isMetadata } from "./is/page";
 import { metadata as privacyMetadata } from "./privacy/page";
@@ -8,6 +9,7 @@ import { metadata as termsMetadata } from "./terms/page";
 
 describe("public page title metadata", () => {
   it.each([
+    ["ai", aiMetadata],
     ["analyses", analysesMetadata],
     ["is", isMetadata],
     ["privacy", privacyMetadata],
