@@ -2852,7 +2852,7 @@
   {
    "id": "e-census-btos-ai-supplement-2026",
    "type": "evidence",
-   "finding": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and AI-related employment decreases occurred in only 2% of firms, though broader functional deployment and operational investment were associated with employment decreases.",
+   "finding": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and about 95% of AI-using firms reported no AI-related change in employment, with decreases at about 2% of AI-using firms (increases slightly more common), though broader functional deployment and operational investment were associated with employment decreases.",
    "source": {
     "title": "The Microstructure of AI Diffusion: Evidence from Firms, Business Functions, and Worker Tasks (CES Working Paper 26-25)",
     "url": "https://www.census.gov/library/working-papers/2026/adrm/CES-WP-26-25.html",
@@ -2875,7 +2875,7 @@
    },
    "createdAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
-   "statement": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and AI-related employment decreases occurred in only 2% of firms, though broader functional deployment and operational investment were associated with employment decreases.",
+   "statement": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and about 95% of AI-using firms reported no AI-related change in employment, with decreases at about 2% of AI-using firms (increases slightly more common), though broader functional deployment and operational investment were associated with employment decreases.",
    "weight": {
     "sourceReliability": 9,
     "independence": 9,
