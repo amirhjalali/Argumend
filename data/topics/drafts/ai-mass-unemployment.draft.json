@@ -2813,7 +2813,7 @@
   {
    "id": "e-hosseini-lichtinger-seniority",
    "type": "evidence",
-   "finding": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment kept rising, with the junior decline driven mainly by slower hiring rather than more separations.",
+   "finding": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment did not fall, with the junior decline driven mainly by slower hiring rather than more separations.",
    "source": {
     "title": "Generative AI as Seniority-Biased Technological Change: Evidence from U.S. R\u00e9sum\u00e9 and Job Posting Data",
     "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555",
@@ -2835,7 +2835,7 @@
    },
    "createdAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
-   "statement": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment kept rising, with the junior decline driven mainly by slower hiring rather than more separations.",
+   "statement": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment did not fall, with the junior decline driven mainly by slower hiring rather than more separations.",
    "weight": {
     "sourceReliability": 6,
     "independence": 7,
@@ -2844,7 +2844,7 @@
     "weightBasis": "Very large firm-level panel directly about adopters' hiring by seniority, but an unrefereed working paper whose adoption proxy (integrator postings) may flag firms already restructuring; a Danish register study finds no such adopter-level effect."
    },
    "unverifiedFlags": [
-    "SSRN abstract page was bot-blocked on 2026-09-22; the finding is taken from the Stanford Digital Economy Lab seminar abstract (event dated 2025-09-22) and the co-author's announcement post, not from the paper text. Effect magnitudes are deliberately omitted.",
+    "SSRN abstract page was bot-blocked on 2026-09-22; the finding is taken from the Stanford Digital Economy Lab seminar abstract (event dated 2025-09-22) and the co-author's announcement post, not from the paper text. Effect magnitudes are deliberately omitted. The seminar abstract says senior employment 'continued to rise'; the SSRN abstract, as quoted in search snippets on 2026-09-22, says it 'remains largely unchanged', so the finding says only that it did not fall.",
     "publishedAt is the co-author's public announcement date (2025-09-01, from the post id); the SSRN posting date itself was not confirmed."
    ]
   },
