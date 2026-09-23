@@ -30,6 +30,11 @@ describe("QUADRANT_STYLE", () => {
     expect(QUADRANT_STYLE.contested.color).toBe("rgb(var(--text-secondary-rgb))");
   });
 
+  it("gives settled and open theme-aware ink (fixed hex failed 4.5:1 on the dark canvas)", () => {
+    expect(QUADRANT_STYLE.settled.color).toBe("rgb(var(--accent-text-rgb))");
+    expect(QUADRANT_STYLE.open.color).toBe("rgb(var(--text-muted-rgb))");
+  });
+
   it("gives every quadrant a text colour for type on its solid fill", () => {
     for (const style of Object.values(QUADRANT_STYLE)) {
       expect(style.onColor).toBeTruthy();

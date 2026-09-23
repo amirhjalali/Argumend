@@ -16,7 +16,14 @@ export const QUADRANT_STYLE: Record<
   /** onColor: text colour for type set on a solid `color` fill. */
   { color: string; bg: string; onColor: string; short: string }
 > = {
-  settled: { color: "#3a6965", bg: "rgba(58, 105, 101, 0.10)", onColor: "#ffffff", short: "Settled" },
+  // Teal text token (--accent-text: #3a6965 light, #8bb5b1 dark). The fixed
+  // hex was 2.83:1 on the dark canvas; the token is 7.82:1.
+  settled: {
+    color: "rgb(var(--accent-text-rgb))",
+    bg: "rgb(var(--accent-text-rgb) / 0.10)",
+    onColor: "rgb(var(--bg-canvas-rgb))",
+    short: "Settled",
+  },
   contested: {
     color: "rgb(var(--text-secondary-rgb))",
     bg: "rgb(var(--text-secondary-rgb) / 0.10)",
@@ -25,7 +32,14 @@ export const QUADRANT_STYLE: Record<
     short: "Contested",
   },
   moderate: { color: "#C4613C", bg: "rgba(196, 97, 60, 0.10)", onColor: "#ffffff", short: "Moderate" },
-  open: { color: "#7a7068", bg: "rgba(122, 112, 104, 0.12)", onColor: "#ffffff", short: "Open" },
+  // Muted stone ink (--text-muted: #6d6058 light, #9a9189 dark). The fixed
+  // #7a7068 was 3.63:1 on the dark canvas; the token is 5.68:1.
+  open: {
+    color: "rgb(var(--text-muted-rgb))",
+    bg: "rgb(var(--text-muted-rgb) / 0.06)",
+    onColor: "rgb(var(--bg-canvas-rgb))",
+    short: "Open",
+  },
 };
 
 interface BalanceWeightChipProps {
