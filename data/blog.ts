@@ -54,7 +54,7 @@ That let us ask Jev questions we could actually grade:
 - **Evidence weight.** Rate that same evidence on our four dimensions. Compared by rank correlation with the human scores, with the human's written reasoning withheld.
 - **Contestedness.** Given a transcript and a candidate claim, do the speakers actually disagree about it? This is the question our pipeline got wrong on the death toll.
 - **Disagreement pattern.** Given a whole disagreement, which of our eleven patterns is it? Graded against the answer keys.
-- **Verdict.** Given a map summary, how settled is the question? Compared with the verdict we compute from evidence weights.
+- **Evidence state.** Given a map summary, where does the evidence on the question stand? Compared with the evidence-state readout we compute from evidence weights.
 - **Repeatability.** Run the 240-item evidence test twice and diff every answer.
 - **Speed.** Time an eight-comment thread through Jev, then hand the identical task to Claude Sonnet.
 - **Real clips.** Run two Piers Morgan Uncensored debates, one four minutes and one thirty-six, through the same pipeline against the maps we already have.
@@ -72,7 +72,7 @@ That let us ask Jev questions we could actually grade:
 
 We think the failures are as informative as the wins, because they mark where the boundary between the two systems has to go.
 
-- **It is not a judge.** Asked how settled each of 155 topics is, given the full map summary and every evidence title on each side, Jev agreed with our evidence-weighted verdict 60% of the time, and the reason is simple: it called 139 of the 155 "genuinely contested". It cannot weigh. Give it a claim and a good rubric and it will place things on a scale; give it a whole map and ask who is winning and it shrugs. We consider that the correct behaviour for a model that cannot explain itself, and we would not want it any other way.
+- **It is not a judge.** Asked where the evidence stands on each of 155 topics, given the full map summary and every evidence title on each side, Jev agreed with our evidence-weighted readout 60% of the time, and the reason is simple: it called 139 of the 155 "genuinely contested". It cannot weigh. Give it a claim and a good rubric and it will place things on a scale; give it a whole map and ask who is winning and it shrugs. We consider that the correct behaviour for a model that cannot explain itself, and we would not want it any other way.
 - **It is not a substitute for the evidence rubric.** Its ratings of source reliability, independence, replicability and directness correlated with the human ratings at 0.50, 0.63, 0.45 and 0.45. Real signal, but not something you would publish a score from. Our evidence weights stay human.
 - **Asked directly for the crux, it contradicts itself.** On one map its "best crux" choice picked a claim its own contestedness probe had put at 9%. The pick-the-crux question rewards "would settle the main question" over "is actually disputed here". Composing the two yes/no probes in code, and letting our engine rank, works. Asking for the crux does not. TypeSafe's own guidance says the same: ask small questions, combine them yourself.
 - **Pattern classification landed 3 of 5** on the answer keys. Both misses were caught by the narrower yes/no probes we ran alongside: the definitional case had the highest "are they using a word differently" score of any item, and the control case, which is mostly agreement, had the lowest "do they genuinely disagree" score. Eleven-way choices are hard; decomposed questions are not.
@@ -434,7 +434,7 @@ Two things are worth holding onto here. First, glyphosate is a herbicide — its
 
 Put it together and the GMO debate stops being a yes/no culture-war flag and becomes three tractable questions:
 
-- **Safe to eat?** Settled yes — about as firmly as nutrition science settles anything.
+- **Safe to eat?** The evidence largely converges on yes — about as firmly as nutrition science settles anything.
 - **Good for agriculture?** Trait-dependent — Bt traits look clearly beneficial, herbicide-tolerance brings real costs.
 - **Is glyphosate dangerous?** Genuinely unresolved, and largely a hazard-vs-risk dispute about real-world exposure.
 
@@ -502,7 +502,7 @@ Put the three answers together and a coherent picture emerges, and it isn't trib
 
 The disagreement that feels like a values war ("freedom vs. safety") turns out to be mostly an empirical question about transmission, plus a genuine but separable values question about how much weight to give individual consent. Separating those — as our [structured breakdown of the debate](/topics/vaccine-mandates) does — won't make everyone agree, but it replaces a shouting match with a question you can actually answer.
 
-Want to see how this same "it depends on the specifics" logic plays out across other contested claims? Browse the [Is it true? directory](/is), where every verdict comes with the evidence and the crux behind it.`,
+Want to see how this same "it depends on the specifics" logic plays out across other contested claims? Browse the [Is it true? directory](/is), where every answer comes with the evidence and the crux behind it.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // 00. Fact or Value?
@@ -572,7 +572,7 @@ In each case, separating the two does not make the disagreement vanish. It does 
 
 ## How Argumend is built around this
 
-Every topic we map keeps the two layers visible on purpose. The **weighted evidence** answers the factual questions — how strongly the data supports each claim — while the **crux** and the steel-manned positions surface the value disagreements that evidence alone can't settle. When you read a topic and see a high-confidence verdict next to a still-fierce debate, that gap is almost always the fact-or-value split doing its quiet work.
+Every topic we map keeps the two layers visible on purpose. The **weighted evidence** answers the factual questions — how strongly the data supports each claim — while the **crux** and the steel-manned positions surface the value disagreements that evidence alone can't settle. When you read a topic and see evidence that largely converges next to a still-fierce debate, that gap is almost always the fact-or-value split doing its quiet work.
 
 Pick any contested claim on the [Is it true? directory](/is) and try sorting it yourself. Once you see which parts are facts and which are values, you can never quite un-see it — and most arguments get a lot less frustrating.`,
   },
@@ -654,7 +654,7 @@ You do not need a philosophy degree to put this to work:
 
 This question is not a rhetorical flourish for us; it is the architecture. Every topic we map identifies its **cruxes** explicitly, and for our most-developed topics we now state, for each pillar, exactly **what would change a supporter's mind and what would change a skeptic's mind** — alongside where the two sides already agree and where the live disagreement really sits.
 
-The goal is to model the thing good reasoners do privately and almost no public argument does: treat a belief as a bet on reality, and say in advance what would make you fold. If you want to see it in action, pick any contested claim on our [Is it true? directory](/is) and read past the verdict to the crux. And if you want a companion habit, the discipline that pairs best with this one is [steel-manning the other side](/blog/why-steel-manning-makes-you-smarter) — because you cannot honestly say what would change your mind until you understand the strongest version of the view you're resisting.
+The goal is to model the thing good reasoners do privately and almost no public argument does: treat a belief as a bet on reality, and say in advance what would make you fold. If you want to see it in action, pick any contested claim on our [Is it true? directory](/is) and read past the short answer to the crux. And if you want a companion habit, the discipline that pairs best with this one is [steel-manning the other side](/blog/why-steel-manning-makes-you-smarter) — because you cannot honestly say what would change your mind until you understand the strongest version of the view you're resisting.
 
 The next time you feel certain, try the test. Name the evidence that would prove you wrong. If none exists, you have learned something important — not about the topic, but about yourself.`,
   },
@@ -873,9 +873,9 @@ This reframing makes it possible to have a productive conversation. Instead of d
 
 ## How This Works at Argumend
 
-Every topic on Argumend carries a confidence score—a numerical representation of how settled the question is based on the weight of available evidence. These scores aren't opinions; they're computed by evaluating the strength of evidence on each side, the reliability of the supporting sources, and the degree of expert consensus.
+Every topic on Argumend carries two numbers: balance, which shows which way the weighted evidence tips, and weight, which shows how much evidence there is. These scores aren't opinions; they're computed by evaluating the strength of evidence on each side, the reliability of the supporting sources, and the degree of expert consensus.
 
-A topic like "Did the Moon Landing Happen?" carries a confidence score near 98%, reflecting overwhelming and independently verified evidence. A topic like "Is Free Will an Illusion?" might sit near 45%, reflecting a genuinely unresolved philosophical and scientific question where strong arguments exist on both sides.
+On a topic like "Did the Moon Landing Happen?" the evidence largely converges on the claim, with heavy weight and a lopsided balance built from overwhelming, independently verified sources. A topic like "Is Free Will an Illusion?" sits near an even balance, with the evidence still divided on a genuinely unresolved philosophical and scientific question where strong arguments exist on both sides.
 
 These scores serve two purposes. First, they communicate at a glance how much genuine uncertainty exists around a topic, so you can calibrate your own confidence accordingly. Second, they decompose into sub-scores for individual arguments and evidence, so you can see exactly which components are driving the overall assessment.
 

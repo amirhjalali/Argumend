@@ -188,7 +188,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-[#a23b3b] text-sm font-bold w-24 text-center">
+              <span className="font-mono tabular-nums text-score-low dark:text-[#c49a7c] text-sm font-bold w-24 text-center">
                 low weight
               </span>
               <p className="text-sm text-stone-600 dark:text-stone-400">

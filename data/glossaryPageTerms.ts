@@ -68,11 +68,11 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Confidence Score",
     definition:
-      "A numerical measure (0-100) of how strongly available evidence supports or undermines a claim. A score of 95+ indicates overwhelming evidence (settled science). Around 50 means genuinely contested. Scores are computed from individual evidence items, each weighted on four dimensions.",
-    example: "Compare confidence scores across all topics",
+      "Argumend reads evidence on two separate axes rather than one number. Balance (0-100) shows which way the weighted evidence tips: 50 is even, above 50 favors the claim, below 50 the counterclaim. Weight shows how much evidence there is, combining evidential mass, source quality, and how resolvable the cruxes are. Read together: high weight with a strong lean means the evidence largely converges on the claim (or the counterclaim); high weight near 50 means well-mapped, evidence still divided; low weight means evidence still thin, an open question whatever the lean. Neither number is the probability that a claim is true.",
+    example: "Compare balance and weight across all topics",
     exampleHref: "/topics",
     learnMoreHref: "/concepts/confidence-calibration",
-    learnMoreText: "How confidence scores work",
+    learnMoreText: "How balance and weight work",
     category: "core",
   },
   {
@@ -382,7 +382,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     example: "See uncertainty stated honestly on the Consciousness topic",
     exampleHref: "/topics/consciousness-hard-problem",
     learnMoreHref: "/concepts/confidence-calibration",
-    learnMoreText: "How confidence scores work",
+    learnMoreText: "How balance and weight work",
     category: "reasoning",
   },
 ];
