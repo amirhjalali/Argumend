@@ -13,6 +13,10 @@ import type { MeterTone } from "./meters";
  * panel — it is the difference between "they are not talking past each other"
  * and "we could not tell" — and a UI that only listed the signals that fired
  * would throw that away and read as more certain than the pipeline is.
+ *
+ * The two signals that decide whether this is a fact fight or a values fight
+ * come first, side by side, because that is the distinction the reply exists
+ * to draw.
  */
 
 interface SignalRow {
@@ -67,32 +71,31 @@ export function PatternSignals({
   const hedged = isHedged(pattern.confidence);
 
   return (
-    <ResultSection title="Pattern and signals">
-      <div className="surface-card p-5">
-        <p className="font-sans text-xs uppercase tracking-[0.12em] text-[var(--text-muted)]">
-          Pattern
-        </p>
-        <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h4 className="font-serif text-xl text-[var(--text-heading)]">{pattern.label}</h4>
-          <span className="font-sans text-sm tabular-nums text-deep dark:text-deep-light">
+    <ResultSection title="What kind of disagreement it is">
+      <div className="max-w-[36rem]">
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <h4 className="font-serif text-[1.375rem] leading-snug text-[var(--text-heading)]">
+            {pattern.label}
+          </h4>
+          <span className="font-sans text-sm font-medium tabular-nums text-deep dark:text-deep-light">
             {percentLabel(pattern.confidence)}
           </span>
         </div>
         {description ? (
-          <p className="mt-2 max-w-prose text-[var(--text-secondary)]">{description}</p>
+          <p className="mt-1 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+            {description}
+          </p>
         ) : null}
-        <div className="mt-3">
-          <Meter value={pattern.confidence} tone="teal" thick />
-        </div>
+        <Meter className="mt-3" value={pattern.confidence} tone="teal" />
         {hedged ? (
-          <p className="mt-2 font-sans text-xs text-[var(--text-muted)]">
+          <p className="mt-2 font-sans text-[0.8125rem] leading-relaxed text-[var(--text-muted)]">
             Below {percentLabel(DISPLAY_CONFIDENCE_HEDGE)}: the pattern is the most likely of
             eight, not a settled reading. The pipeline applies no threshold here.
           </p>
         ) : null}
       </div>
 
-      <div className="grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-x-10 gap-y-5 border-t border-[var(--border-divider)] pt-6 sm:grid-cols-2">
         {SIGNAL_ROWS.map((row) => {
           const value = signals[row.key];
           const cleared = value >= signals.threshold;
@@ -115,7 +118,7 @@ export function PatternSignals({
         })}
       </div>
 
-      <p className="max-w-prose font-sans text-xs text-[var(--text-muted)]">
+      <p className="max-w-[36rem] font-sans text-[0.8125rem] text-[var(--text-muted)]">
         The tick on each track is the {percentLabel(signals.threshold)} threshold. All four
         signals are shown whether or not they cleared it.
       </p>

@@ -31,15 +31,15 @@ export function MapReplyNoMatch({
   const { topicChoice, candidates } = result;
 
   return (
-    <article className="space-y-6">
+    <article className="space-y-8">
       <header className="space-y-3">
-        <p className="font-sans text-xs uppercase tracking-[0.14em] text-[var(--text-muted)]">
+        <p className="label-caps">
           No map
         </p>
-        <h2 className="font-serif text-3xl leading-tight text-[var(--text-heading)]">
+        <h2 className="font-serif text-[2.125rem] leading-[1.1] text-[var(--text-heading)] sm:text-[2.75rem]">
           {HEADLINE[result.reason]}
         </h2>
-        <p className="max-w-prose text-lg leading-relaxed text-[var(--text-secondary)]">
+        <p className="max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
           {result.message}
         </p>
       </header>
@@ -47,7 +47,7 @@ export function MapReplyNoMatch({
       {topicChoice ? (
         <div className="max-w-md space-y-1.5">
           <div className="flex items-baseline justify-between gap-3">
-            <span className="font-sans text-xs uppercase tracking-wide text-[var(--text-muted)]">
+            <span className="font-sans text-sm text-[var(--text-secondary)]">
               Best fit against the {percentLabel(topicChoice.threshold)} bar
             </span>
             <span className="font-sans text-sm tabular-nums text-[var(--text-muted)]">
@@ -63,23 +63,23 @@ export function MapReplyNoMatch({
       ) : null}
 
       {candidates.length > 0 ? (
-        <section className="space-y-3 border-t border-[var(--border-divider)] pt-6">
-          <h3 className="font-serif text-2xl text-[var(--text-heading)]">Closest maps</h3>
-          <p className="max-w-prose text-sm text-[var(--text-secondary)]">
+        <section className="space-y-4 border-t border-[var(--border-divider)] pt-8">
+          <h3 className="font-serif text-[1.75rem] leading-tight text-[var(--text-heading)] sm:text-[2rem]">Closest maps</h3>
+          <p className="max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
             These are the maps the shortlist put in front of the model. None of them cleared the
             bar; one of them may still be what you are arguing about.
           </p>
-          <ul className="space-y-3">
+          <ul className="divide-y divide-[var(--border-divider)] border-y border-[var(--border-divider)]">
             {candidates.map((candidate) => (
               <li key={candidate.id}>
                 <Link
                   href={`/topics/${candidate.id}`}
-                  className="card-hover block rounded-xl bg-[var(--bg-paper)] p-4"
+                  className="group block py-4"
                 >
-                  <span className="font-serif text-lg leading-snug text-[var(--text-heading)]">
+                  <span className="font-serif text-[1.25rem] leading-snug text-[var(--text-heading)] underline decoration-[var(--border-default)] underline-offset-4 group-hover:decoration-deep">
                     {candidate.title}
                   </span>
-                  <span className="mt-1 block text-sm leading-relaxed text-[var(--text-secondary)]">
+                  <span className="mt-1 block font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
                     {candidate.metaClaim}
                   </span>
                 </Link>
@@ -89,7 +89,7 @@ export function MapReplyNoMatch({
         </section>
       ) : null}
 
-      <div className="space-y-3 border-t border-[var(--border-divider)] pt-6">
+      <div className="space-y-3 pt-2">
         <button
           type="button"
           onClick={onReset}

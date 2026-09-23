@@ -36,20 +36,19 @@ export default function ReplyPage() {
     <div className="min-h-screen bg-[var(--bg-canvas)]">
       <TopBar />
       <main id="main-content">
-        <div className="mx-auto w-full max-w-4xl space-y-10 px-4 py-10 sm:px-6">
-          <header className="space-y-4">
-            <h1 className="font-serif text-4xl leading-tight text-[var(--text-heading)] sm:text-5xl">
+        <div className="mx-auto w-full max-w-3xl space-y-8 px-4 pb-16 pt-10 sm:px-6 sm:pt-14">
+          <header>
+            <h1 className="font-serif text-[2.375rem] leading-[1.1] text-[var(--text-heading)] sm:text-5xl">
               Reply with the map
             </h1>
-            <p className="max-w-prose text-lg leading-relaxed text-[var(--text-secondary)]">
-              Paste an argument. Argumend finds the map it belongs to and tells you what you are
-              actually arguing about, what each turn was doing, which of that map&rsquo;s cruxes
-              the thread touched and which it never reached, and the strongest evidence on each
-              side.
+            <p className="mt-4 max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
+              Paste an argument you are in. Argumend finds the map it belongs to and shows what
+              the thread is actually arguing about, which of the map&rsquo;s cruxes it reached,
+              and the strongest evidence on each side.
             </p>
-            <p className="max-w-prose text-lg leading-relaxed text-[var(--text-secondary)]">
-              It never says who is right. Every line it produces is either a number from the
-              model or a sentence that already exists on the map.
+            <p className="mt-3 max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">
+              It never says who is right. Every line is either a number from the model or a
+              sentence that already exists on the map.
             </p>
           </header>
 
