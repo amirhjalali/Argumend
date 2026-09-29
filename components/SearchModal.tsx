@@ -17,7 +17,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import MiniSearch from "minisearch";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
-import { categoryColors } from "@/lib/categoryColors";
+import { categoryColors, toneStyles } from "@/lib/categoryColors";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
@@ -153,37 +153,32 @@ const FLAGSHIP_MAP_IDS = ["ai-mass-unemployment", "capitalism-after-ai"];
 
 const TYPE_CONFIG: Record<
   ResultType,
-  { icon: typeof Search; label: string; badge: string; badgeClasses: string }
+  { icon: typeof Search; label: string; badge: string }
 > = {
   map: {
     icon: Network,
     label: "Maps",
     badge: "Map",
-    badgeClasses: "bg-rust-50 text-rust-700 dark:bg-rust-900/30 dark:text-rust-300",
   },
   topic: {
     icon: MessageSquare,
     label: "Topics",
     badge: "Topic",
-    badgeClasses: "bg-deep/10 text-deep",
   },
   blog: {
     icon: FileText,
     label: "Blog",
     badge: "Blog",
-    badgeClasses: "bg-deep/5 text-deep/80",
   },
   concept: {
     icon: Lightbulb,
     label: "Concepts",
     badge: "Concept",
-    badgeClasses: "bg-rust-50 text-rust-600",
   },
   page: {
     icon: File,
     label: "Pages",
     badge: "Page",
-    badgeClasses: "bg-stone-100 text-stone-500",
   },
 };
 
@@ -620,8 +615,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           not a scoreboard (2026-09-29 overhaul). */}
                       <span
                         className={`
-                          flex-shrink-0 whitespace-nowrap text-center min-w-[3.25rem] text-[10px] font-medium px-2 py-0.5 rounded-full
-                          ${config.badgeClasses}
+                          flex-shrink-0 whitespace-nowrap text-center min-w-[3.25rem] text-[10px] font-medium px-2 py-0.5 rounded-full border
+                          ${toneStyles.neutral.chip}
                         `}
                       >
                         {config.badge}

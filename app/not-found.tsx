@@ -25,10 +25,13 @@ export default function NotFound() {
       secondaryLabel="Paste an argument"
     >
       <p className="font-sans text-sm text-muted">
-        Looking for something specific? Search is in the header, or press{" "}
-        <kbd className="rounded border border-stone-300/70 bg-card px-1.5 font-mono text-xs dark:border-divider">
-          ⌘K
-        </kbd>
+        Looking for something specific? Use search in the header
+        <span className="hidden sm:inline">
+          , or press{" "}
+          <kbd className="rounded border border-stone-300/70 bg-card px-1.5 font-mono text-xs dark:border-divider">
+            ⌘K
+          </kbd>
+        </span>
         .
       </p>
     </RouteNotFound>
