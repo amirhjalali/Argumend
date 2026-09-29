@@ -37,15 +37,16 @@ describe("renderMapReplyMarkdown", () => {
     expect(result.markdown).toContain(result.dominantSection?.cruxDescription ?? "");
     for (const item of result.evidence) {
       expect(result.markdown).toContain(item.title);
-      expect(result.markdown).toContain(`${item.score}/40`);
+      // Weights stay on the page: a copied x/40 beside a side reads as a score.
+      expect(result.markdown).not.toContain(`${item.score}/40`);
     }
     expect(result.markdown).toContain(result.topic.url);
   });
 
   it("labels the side of every evidence item", async () => {
     const result = await rentControlReply();
-    expect(result.markdown).toContain("For the map's claim");
-    expect(result.markdown).toContain("Against the map's claim");
+    expect(result.markdown).toContain("Supports the map's claim");
+    expect(result.markdown).toContain("Cuts against the map's claim");
   });
 
   it("reports a minority section honestly rather than calling it 'most'", async () => {
@@ -140,27 +141,25 @@ describe("renderMapReplyMarkdown", () => {
     );
   });
 
-  it("qualifies a speaker whose turns were not all probed", async () => {
+  it("counts turns that were not arguments, and never names who took them", async () => {
     const result = await rentControlReply();
-    const qualified: Omit<MapReplyMatch, "markdown"> = {
+    const markdown = renderMapReplyMarkdown({
       ...result,
-      notArguing: [],
-      notArguingInProbedTurns: ["gary_1962"],
-    };
-    const markdown = renderMapReplyMarkdown(qualified);
-    expect(markdown).toContain(
-      "gary_1962 did not make an argument about the topic in the turns we could check.",
-    );
+      notArguing: ["gary_1962", "lurker_99"],
+      notArguingInProbedTurns: ["throwaway"],
+    });
+    const offTopic = result.turns.filter((turn) => turn.placement === "none").length;
+    expect(offTopic).toBeGreaterThan(0);
+    expect(markdown).toContain(`${offTopic} of 8 turns`);
+    for (const speaker of [...result.thread.speakers, "gary_1962", "lurker_99", "throwaway"]) {
+      expect(markdown).not.toContain(speaker);
+    }
+    expect(markdown).not.toMatch(/\byou\b/i);
   });
 
-  it("lists several silent speakers in one sentence", async () => {
+  it("copies no probability, weight or threshold", async () => {
     const result = await rentControlReply();
-    const quiet: Omit<MapReplyMatch, "markdown"> = {
-      ...result,
-      notArguing: ["gary_1962", "lurker_99", "throwaway"],
-    };
-    expect(renderMapReplyMarkdown(quiet)).toContain(
-      "gary_1962, lurker_99 and throwaway did not make arguments about the topic.",
-    );
+    // Map text may carry percentages ("by 15%"); the reply adds none of its own.
+    expect(result.markdown).not.toMatch(/\(\d+%\)|\/40/);
   });
 });

@@ -1,27 +1,25 @@
 /**
  * Markdown rendering of a composed map reply.
  *
- * Every sentence below is one of three things: fixed scaffolding, a number
- * that came back from Jev, or a string copied verbatim out of the topic data
+ * Every sentence below is one of three things: fixed scaffolding, a count
+ * from the probe results, or a string copied verbatim out of the topic data
  * (a title, a section name, a crux, an evidence title and its source). There
  * is no generated prose, no summary of anyone's argument, and no winner.
  *
+ * It describes turns, never people: no speaker is named, and nobody is told
+ * "you". It carries no probability, weight or threshold either; the page
+ * keeps those under "How this was read". This text is what a reader copies
+ * back into a thread whose other members did not ask to be assessed.
+ *
  * The renderer also carries the reply's honesty about its own coverage. It
- * says how many turns were actually checked, it hedges a placement that did
- * not clear the confidence floor instead of asserting it, and it qualifies a
- * claim about a speaker whose turns were not all probed.
+ * says how many turns were actually checked, and it hedges a placement that
+ * did not clear the confidence floor instead of asserting it.
  */
 import { MAP_REPLY_THRESHOLDS } from "./constants";
 import type { MapReplyMatch, MapReplyNoMatch, MapReplyThreadStats } from "./types";
 
 export function formatPercent(value: number): string {
   return `${Math.round(value * 100)}%`;
-}
-
-function joinList(items: string[]): string {
-  if (items.length === 0) return "";
-  if (items.length === 1) return items[0];
-  return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 }
 
 function plural(count: number, singular: string): string {
@@ -47,7 +45,7 @@ function coverageLine(thread: MapReplyThreadStats): string | null {
 }
 
 function openingLine(match: Omit<MapReplyMatch, "markdown">): string {
-  const { dominantSection, thread, notArguing, notArguingInProbedTurns, signals } = match;
+  const { dominantSection, thread, signals } = match;
   const sentences: string[] = [];
 
   if (dominantSection && dominantSection.tentative) {
@@ -74,25 +72,22 @@ function openingLine(match: Omit<MapReplyMatch, "markdown">): string {
     );
   }
 
-  if (notArguing.length > 0) {
-    const verb = notArguing.length === 1 ? "did not make an argument" : "did not make arguments";
-    sentences.push(`${joinList(notArguing)} ${verb} about the topic.`);
-  }
-  if (notArguingInProbedTurns.length > 0) {
-    const verb =
-      notArguingInProbedTurns.length === 1 ? "did not make an argument" : "did not make arguments";
-    sentences.push(
-      `${joinList(notArguingInProbedTurns)} ${verb} about the topic in the turns we could check.`,
-    );
+  // Turns, not people: the reply is read by, and may be pasted back to,
+  // people who never asked to be assessed, so it never names who "did not
+  // make an argument". It counts the moves instead.
+  const offTopic = match.turns.filter((turn) => turn.placement === "none").length;
+  if (offTopic > 0) {
+    const verb = offTopic === 1 ? "was not an argument" : "were not arguments";
+    sentences.push(`${offTopic} of ${probedPhrase(thread)} ${verb} about the topic.`);
   }
 
   if (signals.talkingPast >= MAP_REPLY_THRESHOLDS.threadSignal) {
     sentences.push(
-      "Some of you are arguing about different sections of the map while thinking you disagree.",
+      "Some turns argue about different sections of the map as if they were one disagreement.",
     );
   }
   if (signals.definitional >= MAP_REPLY_THRESHOLDS.threadSignal) {
-    sentences.push("You are also using a key term to mean different things.");
+    sentences.push("A key term is being used to mean different things.");
   }
 
   return sentences.join(" ");
@@ -112,8 +107,11 @@ export function renderMapReplyMarkdown(match: Omit<MapReplyMatch, "markdown">): 
     lines.push(coverage);
   }
 
+  // The copied reply carries no probabilities, weights or thresholds: those
+  // stay on the page, under "How this was read", where they can be read as
+  // what they are rather than as a score for one side.
   lines.push("");
-  lines.push(`**Pattern:** ${match.pattern.label} (${formatPercent(match.pattern.confidence)}).`);
+  lines.push(`**Pattern:** ${match.pattern.label}.`);
 
   if (match.dominantSection) {
     lines.push("");
@@ -124,13 +122,11 @@ export function renderMapReplyMarkdown(match: Omit<MapReplyMatch, "markdown">): 
 
   if (match.evidence.length > 0) {
     lines.push("");
-    lines.push(
-      "**Strongest evidence in this section** (weighted on source reliability, independence, replicability and directness, out of 40):",
-    );
+    lines.push("**Strongest evidence in this section:**");
     for (const item of match.evidence) {
-      const side = item.side === "for" ? "For the map's claim" : "Against the map's claim";
+      const side = item.side === "for" ? "Supports the map's claim" : "Cuts against the map's claim";
       const source = item.source ? ` ${item.source}` : "";
-      lines.push(`- ${side} (${item.score}/40): ${item.title}.${source}`);
+      lines.push(`- ${side}: ${item.title}.${source}`);
     }
   }
 
@@ -139,9 +135,7 @@ export function renderMapReplyMarkdown(match: Omit<MapReplyMatch, "markdown">): 
   lines.push("");
   if (touched.length > 0) {
     lines.push(
-      `**Cruxes this thread touched:** ${touched
-        .map((crux) => `${crux.cruxTitle} (${formatPercent(crux.touched)})`)
-        .join(" | ")}`,
+      `**Cruxes this thread touched:** ${touched.map((crux) => crux.cruxTitle).join(" | ")}`,
     );
     if (untouched.length > 0) {
       lines.push(`**Never reached:** ${untouched.map((crux) => crux.cruxTitle).join(" | ")}`);

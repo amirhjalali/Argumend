@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { metadata as aiMetadata } from "./ai/page";
-import { metadata as analysesMetadata } from "./analyses/page";
 import { metadata as privacyMetadata } from "./privacy/page";
 import { generateMetadata as questionsMetadata } from "./questions/page";
 import { metadata as replyMetadata } from "./reply/page";
@@ -12,7 +11,6 @@ const questionsIndexMetadata = await questionsMetadata({ searchParams: Promise.r
 describe("public page title metadata", () => {
   it.each([
     ["ai", aiMetadata],
-    ["analyses", analysesMetadata],
     ["privacy", privacyMetadata],
     ["questions", questionsIndexMetadata],
     // /reply is noindex while it is flagged, but it still renders a <title>

@@ -3,9 +3,9 @@ import type { ArgumentAccountability, DisagreementReportV1 } from "@/types/disag
 import { ReportSection } from "./ReportSection";
 
 const BASIS_LABEL = {
-  explicit: "consequence stated by the participant",
-  inferred: "consequence inferred from the argument",
-  unstated: "no consequence stated",
+  explicit: "the participant says so",
+  inferred: "read from the argument",
+  unstated: "the text doesn’t say",
 } as const;
 
 const NOTE_MARKS = ["¹", "²", "³", "⁴"];
@@ -36,7 +36,9 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
     ));
 
   const ifWrong = (stake: (typeof accountability.stakes)[number]) =>
-    stake.ifFalseEffect === "not-stated" ? "No update is stated." : stake.consequence;
+    stake.ifFalseEffect === "not-stated"
+      ? "The text doesn’t say what would change."
+      : stake.consequence;
 
   return (
     <ReportSection

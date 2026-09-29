@@ -16,7 +16,8 @@ describe("global skip-link targets", () => {
   it.each([
     "components/learn/ArticleLayout.tsx",
     "components/learn/CollectionIndex.tsx",
-    "app/analyze-v2/page.tsx",
+    "app/analyze/page.tsx",
+    "app/analysis/[id]/page.tsx",
     "app/reply/page.tsx",
     "app/d/[slug]/page.tsx",
     "components/RouteNotFound.tsx",

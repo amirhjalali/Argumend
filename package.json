@@ -5,6 +5,7 @@
   "description": "AI-powered argument mapping for contentious topics.",
   "scripts": {
     "dev": "bun --bun next dev",
+    "dev:node": "next dev",
     "build": "bun --bun next build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static",
     "start": "node .next/standalone/server.js",
     "smoke:standalone": "node scripts/smoke-standalone.mjs",
