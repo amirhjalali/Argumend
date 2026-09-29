@@ -38,33 +38,17 @@ export const DEBATE = {
   ENABLE_LIVE_JUDGING: process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API === "true",
 } as const;
 
-// React Flow / Graph constants
+// The diagram canvas (/topics/[id]/map). Its framing lives with its layout in
+// lib/diagram/layout.ts (FIT_VIEW).
 export const GRAPH = {
-  /** Default viewport configuration */
-  DEFAULT_VIEWPORT: { x: -200, y: 0, zoom: 0.8 },
-  /** Minimum zoom level */
-  MIN_ZOOM: 0.2,
   /** Maximum zoom level */
   MAX_ZOOM: 1.6,
-  /** Padding for fit view */
-  FOCUS_FIT_VIEW_PADDING: 0.08,
-  /** Padding for the full-map overview control */
-  OVERVIEW_FIT_VIEW_PADDING: 0.08,
   /** Duration for animated transitions (ms) */
   TRANSITION_DURATION: 450,
   /** Background grid gap */
   GRID_GAP: 24,
   /** Background dot size */
   DOT_SIZE: 1.2,
-} as const;
-
-// MiniMap configuration
-export const MINIMAP = {
-  WIDTH: 160,
-  HEIGHT: 100,
-  BOTTOM: 24,
-  RIGHT: 24,
-  Z_INDEX: 40,
 } as const;
 
 // Thinking indicator animation

@@ -7,6 +7,7 @@ vi.mock("next/navigation", () => ({
 }));
 
 import TopicDiagramPage, { generateMetadata, generateStaticParams } from "./page";
+import type { DiagramModel } from "@/lib/diagram/model";
 
 const params = (id: string) => ({ params: Promise.resolve({ id }) });
 
@@ -23,5 +24,13 @@ describe("/topics/[id]/map — the diagram route", () => {
     expect(ids).not.toContain("ai-mass-unemployment");
     await expect(TopicDiagramPage(params("ai-mass-unemployment"))).rejects.toThrow("NEXT_NOT_FOUND");
     await expect(TopicDiagramPage(params("definitely-missing"))).rejects.toThrow("NEXT_NOT_FOUND");
+  });
+
+  it("hands the diagram a model built on the server from the map's own data", async () => {
+    const page = await TopicDiagramPage(params("nuclear-energy-safety"));
+    const diagram = (page.props.children as { props: { diagram: DiagramModel } }).props.diagram;
+    expect(diagram.topicId).toBe("nuclear-energy-safety");
+    expect(diagram.nodes[0].kind).toBe("question");
+    expect(diagram.nodes.some((n) => n.kind === "crux")).toBe(true);
   });
 });

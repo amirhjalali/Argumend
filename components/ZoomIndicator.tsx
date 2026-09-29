@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useReactFlow, useViewport } from "@xyflow/react";
 import { Minus, Plus, Maximize2, Move } from "lucide-react";
 import { GRAPH } from "@/lib/constants";
+import { FIT_VIEW } from "@/lib/diagram/layout";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export function ZoomIndicator() {
@@ -35,7 +36,7 @@ export function ZoomIndicator() {
       <div className="flex items-center gap-1 rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] bg-[#fefcf9]/90 dark:bg-card/90 backdrop-blur-sm p-1 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
         <button
           onClick={() => zoomOut()}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200 focus-visible:rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
           aria-label="Zoom out"
           title="Zoom out"
         >
@@ -50,7 +51,7 @@ export function ZoomIndicator() {
 
         <button
           onClick={() => zoomIn()}
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200 focus-visible:rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
           aria-label="Zoom in"
           title="Zoom in"
         >
@@ -62,13 +63,13 @@ export function ZoomIndicator() {
         <button
           onClick={() =>
             fitView({
-              padding: GRAPH.OVERVIEW_FIT_VIEW_PADDING,
+              ...FIT_VIEW,
               duration: reduceMotion ? 0 : GRAPH.TRANSITION_DURATION,
             })
           }
-          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200"
-          aria-label="Fit to view"
-          title="Fit to view"
+          className="flex h-8 w-8 items-center justify-center rounded-lg text-secondary dark:text-stone-400 transition-colors hover:bg-stone-200 dark:hover:bg-[var(--bg-muted)] hover:text-primary dark:hover:text-stone-200 focus-visible:rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
+          aria-label="Fit the whole diagram in view"
+          title="Fit the whole diagram in view"
         >
           <Maximize2 className="h-4 w-4" aria-hidden="true" />
         </button>
@@ -78,7 +79,7 @@ export function ZoomIndicator() {
       {showDragHint && (
         <div className="mt-2 flex items-center gap-2 rounded-lg bg-stone-800/90 px-3 py-2 text-xs text-white shadow-lg animate-fade-in" role="status" aria-live="polite">
           <Move className="h-3.5 w-3.5 text-stone-300" aria-hidden="true" />
-          <span>Drag to pan, scroll to zoom</span>
+          <span>Drag or scroll to move, pinch to zoom</span>
         </div>
       )}
     </div>

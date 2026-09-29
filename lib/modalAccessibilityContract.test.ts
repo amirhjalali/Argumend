@@ -27,7 +27,7 @@ const dialogSources = auditedSources.filter((file) => {
 describe("modal accessibility source contract", () => {
   it("discovers the expected explicit dialog surfaces", () => {
     expect(dialogSources.sort()).toEqual([
-      "components/CruxModal.tsx",
+      "components/DiagramDetail.tsx",
       "components/EmbedButton.tsx",
       "components/SearchModal.tsx",
       "components/TopBar.tsx",
