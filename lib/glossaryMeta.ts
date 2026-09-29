@@ -16,11 +16,17 @@ import type { LucideIcon } from "lucide-react";
 import {
   Anchor,
   AlertTriangle,
+  ArrowDownUp,
   Award,
   BadgeCheck,
   BookOpen,
+  Brain,
+  CheckCheck,
   Columns3,
+  Diff,
+  EqualNot,
   Eye,
+  EyeOff,
   FastForward,
   Feather,
   Filter,
@@ -42,6 +48,8 @@ import {
   Percent,
   PieChart,
   Plane,
+  Quote,
+  Repeat2,
   Scale,
   Scissors,
   Shield,
@@ -115,7 +123,7 @@ export const glossaryChapters: Record<GlossaryCategory, GlossaryChapterMeta> = {
     numeral: "IV",
     label: "Argumend Methodology",
     description:
-      "How Argumend turns a pile of sources into a number you can argue with.",
+      "How a map weighs its sources and describes the state of the evidence.",
     chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-light border-skeptic/25 dark:border-skeptic/40",
     iconBg: "bg-skeptic/10 dark:bg-skeptic/20",
     iconText: "text-skeptic-dark dark:text-skeptic-light",
@@ -138,12 +146,13 @@ const iconByTerm: Record<string, LucideIcon> = {
   "Argument Mapping": Network,
   "Steel-Manning": Shield,
   Crux: Key,
-  "Confidence Score": Gauge,
+  "Balance and Weight": Gauge,
   "Meta-Claim": Flag,
   Pillar: Columns3,
   "Skeptic Premise": ShieldQuestion,
   "Proponent Rebuttal": MessageSquareReply,
   "Verification Status": BadgeCheck,
+  "Facts and Values": Diff,
 
   // II. Reasoning & Thinking
   "Bayesian Reasoning": Percent,
@@ -157,6 +166,10 @@ const iconByTerm: Record<string, LucideIcon> = {
   "Correlation vs. Causation": Spline,
   "Principle of Charity": HeartHandshake,
   "Epistemic Humility": Feather,
+  "Validity and Soundness": CheckCheck,
+  "Deductive and Inductive Reasoning": ArrowDownUp,
+  "Anecdotal Evidence": Quote,
+  Denialism: EyeOff,
 
   // III. Logical Fallacies & Biases
   "Confirmation Bias": Glasses,
@@ -176,6 +189,9 @@ const iconByTerm: Record<string, LucideIcon> = {
   "Red Herring": Fish,
   "Slippery Slope": TrendingDown,
   Equivocation: Split,
+  "Cognitive Bias": Brain,
+  "False Equivalence": EqualNot,
+  "Fallacy Fallacy": Repeat2,
 
   // IV. Argumend Methodology
   "Evidence Weighting": Weight,
