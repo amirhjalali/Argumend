@@ -26,7 +26,7 @@ describe("primary navigation (the header, phone sheet and footer all read it)", 
 
   it("routes the paste tool and the learn hub through the shared constants", () => {
     expect(ANALYZE_HREF).toBe("/analyze");
-    expect(LEARN_HREF).toBe("/guides");
+    expect(LEARN_HREF).toBe("/learn");
   });
 
   it("keeps Saved, the dashboard and Home out of the primary nav", () => {
@@ -55,14 +55,28 @@ describe("primary navigation (the header, phone sheet and footer all read it)", 
   });
 });
 
-describe("learn group (phone menu sheet)", () => {
-  it("lists Guides, Fallacies, Glossary, Blog", () => {
+describe("learn group (phone menu sheet and footer)", () => {
+  it("lists the /learn hub's main sections", () => {
     expect(learnNav.map((item) => [item.label, item.href])).toEqual([
-      ["Guides", "/guides"],
+      ["Core ideas", "/learn#ideas"],
+      ["Guides", "/learn#guides"],
       ["Fallacies", "/fallacies"],
       ["Glossary", "/glossary"],
-      ["Blog", "/blog"],
+      ["Essays", "/blog"],
+      ["For teachers", "/for-educators"],
     ]);
+  });
+
+  it("never repeats the hub itself, which is the primary Learn item", () => {
+    expect(learnNav.map((item) => item.href)).not.toContain(LEARN_HREF);
+  });
+
+  it("points only at section anchors the hub renders", () => {
+    const hub = read("lib/learn/sections.ts");
+    for (const item of learnNav) {
+      const anchor = item.href.split("#")[1];
+      if (anchor) expect(hub).toContain(`id: "${anchor}"`);
+    }
   });
 });
 
@@ -74,9 +88,15 @@ describe("getActivePrimaryHref", () => {
     ["/analyze-v2", ANALYZE_HREF],
     ["/reply", ANALYZE_HREF],
     ["/d/some-report", ANALYZE_HREF],
+    ["/learn", LEARN_HREF],
     ["/guides/crux-test", LEARN_HREF],
+    ["/concepts/cruxes", LEARN_HREF],
     ["/fallacies/straw-man", LEARN_HREF],
+    ["/glossary", LEARN_HREF],
+    ["/questions/is-nuclear-energy-safe", LEARN_HREF],
     ["/blog/some-post", LEARN_HREF],
+    ["/research", LEARN_HREF],
+    ["/for-educators/worksheets/crux-finder", LEARN_HREF],
     ["/about", "/about"],
     ["/methodology", "/about"],
   ])("marks %s as part of %s", (pathname, expected) => {
@@ -92,7 +112,7 @@ describe("getActivePrimaryHref", () => {
 });
 
 describe("footerColumns", () => {
-  it("has the Argumend and More columns", () => {
+  it("has the Argumend, Learn and More columns", () => {
     expect(
       footerColumns.map((column) => ({
         title: column.title,
@@ -100,12 +120,17 @@ describe("footerColumns", () => {
       })),
     ).toEqual([
       { title: "Argumend", labels: ["Maps", "Paste an argument", "Learn", "About"] },
+      {
+        title: "Learn",
+        labels: ["Core ideas", "Guides", "Fallacies", "Glossary", "Essays", "For teachers"],
+      },
       { title: "More", labels: ["FAQ", "Methodology", "Saved", "GitHub"] },
     ]);
   });
 
   it("reuses the primary items so the footer cannot drift from the header", () => {
     expect(footerColumns[0].links).toBe(primaryNav);
+    expect(footerColumns[1].links).toBe(learnNav);
   });
 
   it("marks only GitHub as external", () => {

@@ -10,8 +10,6 @@ const routesThatMustNotLoadTheFullCorpus = [
   "app/page.tsx",
   "components/home/HomeLanding.tsx",
   "components/home/homeModel.ts",
-  "app/is/page.tsx",
-  "app/is/[slug]/page.tsx",
   "app/questions/page.tsx",
   "app/questions/[slug]/page.tsx",
   "app/sitemap.ts",

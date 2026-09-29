@@ -8,10 +8,14 @@ import { topicSummaries } from "./topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 
 const knownStaticRoutes = new Set([
+  "/about#read-a-map",
   "/analyze",
   "/fallacies",
-  "/how-it-works",
+  "/glossary",
+  "/learn",
   "/methodology",
+  "/questions",
+  "/research",
   "/topics",
 ]);
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AppShell } from "@/components/AppShell";
 
 export function calculateReadingProgress(
   scrollTop: number,
@@ -13,7 +12,8 @@ export function calculateReadingProgress(
   return Math.min(Math.max(scrollTop / scrollableDistance, 0), 1);
 }
 
-function ReadingProgressBar() {
+/** A 3px bar at the top of the window that fills as the essay is read. */
+export function ReadingProgressBar() {
   const [progress, setProgress] = useState(0);
   const rafRef = useRef<number>(0);
 
@@ -57,14 +57,5 @@ function ReadingProgressBar() {
       aria-valuemax={100}
       aria-label="Reading progress"
     />
-  );
-}
-
-export function BlogArticleClient({ children }: { children: React.ReactNode }) {
-  return (
-    <AppShell>
-      <ReadingProgressBar />
-      {children}
-    </AppShell>
   );
 }

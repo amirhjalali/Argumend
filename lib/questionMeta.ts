@@ -128,6 +128,8 @@ export type QuestionKindId =
 export interface QuestionKindMeta {
   readonly id: QuestionKindId;
   readonly label: string;
+  /** The kind in plain words, as a question page's opening line: "A question of fact." */
+  readonly plain: string;
   /** One line explaining what kind of answer this question can even have. */
   readonly description: string;
   readonly icon: LucideIcon;
@@ -136,6 +138,7 @@ export interface QuestionKindMeta {
 export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
   empirical: {
     id: "empirical",
+    plain: "A question of fact.",
     label: "Empirical",
     description:
       "Asks what is true. Evidence can in principle settle it — the fight is over which evidence counts.",
@@ -143,6 +146,7 @@ export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
   },
   normative: {
     id: "normative",
+    plain: "A question of value.",
     label: "Normative",
     description:
       "Asks what we should do. Evidence constrains the answer but never fully decides it — values do the rest.",
@@ -150,6 +154,7 @@ export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
   },
   predictive: {
     id: "predictive",
+    plain: "A question about the future.",
     label: "Predictive",
     description:
       "Asks what will happen. No evidence closes it yet; the disagreement is about how the future resolves.",
@@ -157,6 +162,7 @@ export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
   },
   explanatory: {
     id: "explanatory",
+    plain: "A question of cause.",
     label: "Explanatory",
     description:
       "Asks why or how something happens. Rival causal stories usually fit the same facts.",

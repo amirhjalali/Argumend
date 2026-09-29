@@ -7,7 +7,7 @@
  *
  *   Header      Maps · Paste an argument · Learn · About   (+ search, theme)
  *   Phone menu  the same four, then the Learn group, then theme
- *   Footer      "Argumend" (the same four) · "More" · legal
+ *   Footer      "Argumend" (the same four) · "Learn" · "More" · legal
  *
  * Saved is a utility, not a destination: it lives in the footer, and the
  * header shows a bookmark icon only once the visitor has saved something.
@@ -22,8 +22,8 @@
 /** The paste tool. Repoint here when the canonical paste route is chosen. */
 export const ANALYZE_HREF = "/analyze";
 
-/** The learn hub. Repoint here when the learn hub moves. */
-export const LEARN_HREF = "/guides";
+/** The learn hub (/learn, 2026-09-29): one index for the whole library. */
+export const LEARN_HREF = "/learn";
 
 export const SAVED_HREF = "/saved";
 
@@ -54,7 +54,17 @@ export const primaryNav: readonly NavLink[] = [
   {
     label: "Learn",
     href: LEARN_HREF,
-    activePrefixes: ["/guides", "/fallacies", "/glossary", "/blog", "/concepts"],
+    activePrefixes: [
+      "/guides",
+      "/concepts",
+      "/fallacies",
+      "/glossary",
+      "/questions",
+      "/blog",
+      "/research",
+      "/for-educators",
+      "/perspectives",
+    ],
   },
   {
     label: "About",
@@ -63,12 +73,18 @@ export const primaryNav: readonly NavLink[] = [
   },
 ];
 
-/** The "Learn" group in the phone menu sheet. */
+/**
+ * The "Learn" group in the phone menu sheet and the footer: the hub's main
+ * sections (app/learn/page.tsx, lib/learn/sections.ts). The hub itself is the
+ * primary "Learn" item, so it is not repeated here.
+ */
 export const learnNav: readonly NavLink[] = [
-  { label: "Guides", href: "/guides" },
+  { label: "Core ideas", href: `${LEARN_HREF}#ideas` },
+  { label: "Guides", href: `${LEARN_HREF}#guides` },
   { label: "Fallacies", href: "/fallacies" },
   { label: "Glossary", href: "/glossary" },
-  { label: "Blog", href: "/blog" },
+  { label: "Essays", href: "/blog" },
+  { label: "For teachers", href: "/for-educators" },
 ];
 
 export interface FooterColumn {
@@ -76,9 +92,10 @@ export interface FooterColumn {
   links: readonly NavLink[];
 }
 
-/** Footer columns: the primary four, then the secondary pages. */
+/** Footer columns: the primary four, the Learn sections, then the secondary pages. */
 export const footerColumns: readonly FooterColumn[] = [
   { title: "Argumend", links: primaryNav },
+  { title: "Learn", links: learnNav },
   {
     title: "More",
     links: [

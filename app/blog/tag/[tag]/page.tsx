@@ -99,7 +99,10 @@ export async function generateMetadata({
           )
         : null,
     },
-    robots: page > pageCount ? { index: false, follow: true } : undefined,
+    // 153 tags, most holding one post: tag pages help readers move between
+    // posts but are thin pages for search, so they stay out of the index
+    // while their links are still followed (2026-09-29 learn overhaul).
+    robots: { index: false, follow: true },
   };
 }
 

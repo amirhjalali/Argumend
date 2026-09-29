@@ -62,7 +62,7 @@ export function QuestionsSearch({
   };
 
   return (
-    <div className="mb-8">
+    <div className="mb-8 max-w-xl">
       <div className="relative">
         <input
           ref={inputRef}
@@ -70,7 +70,7 @@ export function QuestionsSearch({
           placeholder="Search questions by keyword..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-lg border border-stone-200 bg-panel py-3 pl-10 pr-12 font-sans text-sm text-primary dark:text-stone-200 placeholder:text-muted dark:placeholder:text-stone-500 focus:border-deep/40 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-[var(--border-default)] dark:focus:border-teal-400/60 dark:focus:ring-teal-400/30"
+          className="w-full rounded-lg border border-stone-200 bg-panel py-3 pl-10 pr-12 font-sans text-sm text-primary dark:text-stone-200 placeholder:text-muted dark:placeholder:text-stone-500 focus:border-deep/40 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-[var(--border-default)] dark:focus:border-accent-text/60 dark:focus:ring-accent-text/30"
           aria-label="Search questions"
           aria-controls="question-search-results"
           aria-describedby={query.trim() ? "question-search-status" : undefined}
@@ -118,7 +118,7 @@ export function QuestionsSearch({
               <button
                 type="button"
                 onClick={clearSearch}
-                className="mt-3 inline-flex min-h-11 items-center rounded-lg border border-deep/30 px-4 py-2 text-sm font-medium text-deep transition-colors hover:bg-deep/5 dark:border-teal-400/40 dark:text-teal-300"
+                className="mt-3 inline-flex min-h-11 items-center rounded-lg border border-deep/30 px-4 py-2 text-sm font-medium text-deep transition-colors hover:bg-deep/5 dark:border-accent-text/40 dark:text-accent-text"
               >
                 Clear search
               </button>
@@ -140,7 +140,7 @@ export function QuestionsSearch({
                   <li key={q.slug}>
                     <Link
                       href={`/questions/${q.slug}`}
-                      className="block min-h-11 rounded-md px-3 py-2 font-sans text-stone-900 transition-colors hover:bg-stone-100/70 hover:text-deep dark:text-stone-200 dark:hover:bg-[var(--bg-muted)] dark:hover:text-teal-300"
+                      className="block min-h-11 rounded-md px-3 py-2 font-sans text-stone-900 transition-colors hover:bg-stone-100/70 hover:text-deep dark:text-stone-200 dark:hover:bg-[var(--bg-muted)] dark:hover:text-accent-text"
                     >
                       <span className="block">{q.question}</span>
                       <span className="block font-sans text-xs text-muted dark:text-stone-400">

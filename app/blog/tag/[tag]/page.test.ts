@@ -35,4 +35,11 @@ describe("blog tag routing", () => {
       "https://argumend.org/blog/tag/critical-thinking",
     );
   });
+
+  it("keeps every tag page out of the search index but followable", async () => {
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ tag: "critical-thinking" }),
+    });
+    expect(metadata.robots).toEqual({ index: false, follow: true });
+  });
 });

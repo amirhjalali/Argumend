@@ -1,25 +1,31 @@
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
-import { getAllQuestionVariations, findQuestionBySlug } from "@/lib/questions";
+import {
+  findQuestionBySlug,
+  getAllQuestionVariations,
+  getPrimaryQuestionVariations,
+  getQuestionVariations,
+} from "@/lib/questions";
+import { classifyQuestion } from "@/lib/questionMeta";
+import { legacyTopicPage } from "@/lib/topicPage/legacy";
 import { getTopicMentions, buildTopicLinkTargets } from "@/lib/topic-links";
-import { LinkedText } from "@/components/LinkedText";
-import { AppShell } from "@/components/AppShell";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Button } from "@/components/ui/Button";
-import { JsonLd } from "@/components/JsonLd";
-import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
-import {
-  getQuestionCategoryMeta,
-  classifyQuestion,
-} from "@/lib/questionMeta";
+import { mapLinkFor } from "@/lib/learn/nextStep";
 import { buildTopicOgUrl } from "@/lib/og";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { ArticleLayout, type RelatedItem } from "@/components/learn/ArticleLayout";
 import {
-  CONTENT_FIRST_PUBLISHED,
-  CONTENT_LAST_UPDATED,
-} from "@/lib/site";
+  AgreementBlock,
+  CruxSheet,
+  PositionCards,
+  type CruxEntryView,
+} from "@/components/topic/TopicPage";
+import { asSentence } from "@/components/topic/cruxPrimitives";
+import { LinkedText } from "@/components/LinkedText";
+import { JsonLd } from "@/components/JsonLd";
+import { Section } from "@/components/ui/Section";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -32,62 +38,45 @@ export const revalidate = 86400;
 // ---------------------------------------------------------------------------
 
 export function generateStaticParams() {
-  const variations = getAllQuestionVariations(topicSummaries);
-  return variations.map((v) => ({ slug: v.slug }));
+  return getAllQuestionVariations(topicSummaries).map((v) => ({ slug: v.slug }));
 }
 
+const questionUrl = (slug: string) => `${SITE_URL}/questions/${slug}`;
+
 // ---------------------------------------------------------------------------
-// Dynamic Metadata
+// Metadata: every phrasing of a topic's question renders, but only the
+// primary one is canonical.
 // ---------------------------------------------------------------------------
 
 type PageProps = { params: Promise<{ slug: string }> };
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const result = findQuestionBySlug(slug, topicSummaries);
-
   if (!result) {
-    return { title: "Question Not Found" };
+    return { title: "Question Not Found", robots: { index: false, follow: true } };
   }
 
   const { variation, topic } = result;
-  const categoryLabel = CATEGORY_LABELS[topic.category];
+  const primary = getQuestionVariations(topic)[0];
+  const canonical = questionUrl(primary.slug);
+  const title = variation.question;
 
   return {
-    title: variation.question,
+    title,
     description: variation.metaDescription,
-    keywords: [
-      variation.question,
-      topic.title,
-      categoryLabel,
-      "argument analysis",
-      "evidence-based",
-      "pros and cons",
-      "debate",
-    ],
-    alternates: {
-      canonical: `https://argumend.org/questions/${variation.slug}`,
-    },
+    alternates: { canonical },
     openGraph: {
       type: "article",
-      title: `${variation.question} | ARGUMEND`,
+      title: `${title} | ${SITE_NAME}`,
       description: variation.metaDescription,
-      url: `https://argumend.org/questions/${variation.slug}`,
-      siteName: "ARGUMEND",
-      images: [
-        {
-          url: buildTopicOgUrl(topic.id),
-          width: 1200,
-          height: 630,
-          alt: variation.question,
-        },
-      ],
+      url: canonical,
+      siteName: SITE_NAME,
+      images: [{ url: buildTopicOgUrl(topic.id), width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${variation.question} | ARGUMEND`,
+      title: `${title} | ${SITE_NAME}`,
       description: variation.metaDescription,
       images: [buildTopicOgUrl(topic.id)],
     },
@@ -95,389 +84,118 @@ export async function generateMetadata({
 }
 
 // ---------------------------------------------------------------------------
-// Page Component (Server)
+// Page: crux first. The question, what kind of question it is (fact or
+// value?), what both sides already agree on, what it turns on and what would
+// settle it, then the two sides, then the whole map. No verdict: the map owns
+// the evidence readings, and this page never names a winner.
 // ---------------------------------------------------------------------------
 
 export default async function QuestionPage({ params }: PageProps) {
   const { slug } = await params;
   const summaryResult = findQuestionBySlug(slug, topicSummaries);
-
-  if (!summaryResult) {
-    notFound();
-  }
+  if (!summaryResult) notFound();
 
   const topic = await loadTopicById(summaryResult.topic.id);
   if (!topic) notFound();
+
   const { variation } = summaryResult;
-  const verdict = topic.verdict.label;
-  const categoryLabel = CATEGORY_LABELS[topic.category];
-
-  // Two-axis identity for the page: category carries the color, question kind
-  // carries the icon + the "what kind of answer can this even have" framing.
-  const categoryMeta = getQuestionCategoryMeta(topic.category);
-  const CategoryIcon = categoryMeta.icon;
+  const variations = getQuestionVariations(summaryResult.topic);
+  const primary = variations[0];
+  const alsoAskedAs = variations.filter((v) => v.slug !== variation.slug);
   const kind = classifyQuestion(variation.question);
-  const KindIcon = kind.icon;
 
-  // Topic link targets for cross-linking
+  // The same page model and crux sheet as the topic page, so a question page
+  // and its map read as one thing. The map keeps the evidence cards.
+  const { page, cruxes } = legacyTopicPage(topic);
+  const cruxViews: CruxEntryView[] = cruxes.map((crux) => ({ ...crux, evidence: undefined }));
+
   const linkTargets = buildTopicLinkTargets(topicSummaries);
+  const claimSegments = getTopicMentions(topic.meta_claim, linkTargets, topic.id);
 
-  // Collect "for" and "against" arguments from pillars
-  const forArguments: { title: string; summary: string }[] = [];
-  const againstArguments: { title: string; summary: string }[] = [];
+  const related: RelatedItem[] = getPrimaryQuestionVariations(topicSummaries)
+    .filter((v) => {
+      if (v.topicId === topic.id) return false;
+      return topicSummaries.find((t) => t.id === v.topicId)?.category === topic.category;
+    })
+    .slice(0, 3)
+    .map((v) => ({
+      href: `/questions/${v.slug}`,
+      title: v.question,
+      kind: "Question",
+      description: topicSummaries.find((t) => t.id === v.topicId)?.title,
+    }));
 
-  for (const pillar of topic.pillars) {
-    forArguments.push({
-      title: pillar.title,
-      summary: pillar.proponent_rebuttal,
-    });
-    againstArguments.push({
-      title: pillar.title,
-      summary: pillar.skeptic_premise,
-    });
-  }
+  // QAPage: the answer describes what the question turns on, never a verdict.
+  const answer = [
+    cruxes.length > 0
+      ? `This question turns on ${cruxes.length} ${cruxes.length === 1 ? "question" : "questions"}.`
+      : "",
+    ...cruxes.map((crux) =>
+      `${asSentence(crux.question)} What would settle it: ${asSentence(crux.settle.condition ?? "")}`.trim(),
+    ),
+    page.agreement.length > 0 ? `Both sides already agree: ${page.agreement.join(" ")}` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-  // Build a synthesized answer from the pillars for QAPage schema
-  const synthesizedAnswer = [
-    `${topic.meta_claim}`,
-    `The evidence assessment is "${verdict}" — balance of evidence ${topic.balance}/100 (50 = even split), weight of evidence ${topic.weight}/100.`,
-    `Key arguments in favor include: ${forArguments.map((a) => a.summary).join(" ")}`,
-    `Key arguments against include: ${againstArguments.map((a) => a.summary).join(" ")}`,
-  ].join(" ");
-
-  // JSON-LD: QAPage schema (primary structured data for question pages)
   const qaPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "QAPage",
+    url: questionUrl(primary.slug),
     mainEntity: {
       "@type": "Question",
       name: variation.question,
-      text: variation.metaDescription,
+      text: variation.question,
       answerCount: 1,
       acceptedAnswer: {
         "@type": "Answer",
-        text: synthesizedAnswer,
-        url: `https://argumend.org/questions/${variation.slug}`,
-        author: {
-          "@type": "Organization",
-          name: "ARGUMEND",
-          url: "https://argumend.org",
-        },
+        text: answer,
+        url: `${SITE_URL}/topics/${topic.id}`,
+        author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
       },
     },
   };
-
-  // JSON-LD: FAQPage schema from pillars (for additional rich snippets)
-  const faqEntries = topic.pillars.map((pillar) => ({
-    "@type": "Question" as const,
-    name: `What does the evidence say about "${pillar.title}"?`,
-    acceptedAnswer: {
-      "@type": "Answer" as const,
-      text: `For: ${pillar.proponent_rebuttal} Against: ${pillar.skeptic_premise}`,
-    },
-  }));
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    name: variation.question,
-    description: variation.metaDescription,
-    mainEntity: faqEntries,
-  };
-
-  // JSON-LD: Article schema
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: variation.question,
-    description: topic.meta_claim,
-    url: `https://argumend.org/questions/${variation.slug}`,
-    author: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://argumend.org/icon.png",
-      },
-    },
-    datePublished: CONTENT_FIRST_PUBLISHED,
-    dateModified: CONTENT_LAST_UPDATED,
-    articleSection: categoryLabel,
-    inLanguage: "en-US",
-    about: {
-      "@type": "Thing",
-      name: topic.title,
-    },
-  };
-
-  // Compute cross-linked text segments for the meta_claim
-  const metaClaimSegments = getTopicMentions(
-    topic.meta_claim,
-    linkTargets,
-    topic.id
-  );
-
-  // Related questions from the same topic
-  const relatedQuestions = getAllQuestionVariations(topicSummaries).filter(
-    (v) => v.topicId === topic.id && v.slug !== variation.slug
-  );
-
-  // Questions from other topics in the same category (for broader discovery)
-  const crossTopicQuestions = getAllQuestionVariations(topicSummaries)
-    .filter((v) => {
-      const vTopic = topicSummaries.find((t) => t.id === v.topicId);
-      return (
-        vTopic &&
-        vTopic.category === topic.category &&
-        v.topicId !== topic.id
-      );
-    })
-    .slice(0, 5);
 
   return (
-    <>
-      <JsonLd data={qaPageJsonLd} />
-      <JsonLd data={faqJsonLd} />
-      <JsonLd data={articleJsonLd} />
+    <ArticleLayout
+      kind="question"
+      title={variation.question}
+      lede={
+        <>
+          <span className="text-primary">{kind.plain}</span> {kind.description}
+        </>
+      }
+      meta={`${CATEGORY_LABELS[topic.category]} · from the map “${topic.title}”`}
+      nextMap={mapLinkFor(topic.id) ?? { href: `/topics/${topic.id}`, title: topic.title }}
+      nextMapLabel="Read the whole map"
+      related={related}
+      chrome={<JsonLd data={qaPageJsonLd} />}
+    >
+      <p className="font-sans text-sm leading-relaxed text-muted">
+        <span className="font-medium text-secondary">The claim the map weighs:</span>{" "}
+        <LinkedText segments={claimSegments} />
+      </p>
 
-      <AppShell layout="reading">
-        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-          {/* Breadcrumbs */}
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Questions", href: "/questions" },
-              { label: topic.title, href: `/topics/${topic.id}` },
-              { label: variation.question },
-            ]}
-          />
+      <AgreementBlock heading={page.agreementHeading} items={page.agreement} />
+      <CruxSheet page={page} cruxes={cruxViews} />
+      <PositionCards heading={page.positionsHeading} note={page.positionsNote} cards={page.positions} />
 
-          {/* Category + question-kind badges */}
-          <div className="mb-6 flex flex-wrap items-center gap-2">
-            <span
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide ${categoryMeta.chip}`}
-            >
-              <CategoryIcon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
-              {categoryLabel}
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-panel px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wide text-muted dark:border-[var(--border-default)] dark:text-stone-400">
-              <KindIcon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
-              {kind.label}
-            </span>
-          </div>
-
-          {/* Main question heading */}
-          <h1 className="font-serif text-4xl font-bold leading-tight text-primary dark:text-stone-200 sm:text-5xl">
-            {variation.question}
-          </h1>
-
-          {/* What kind of answer this question can have */}
-          <p className="mt-3 font-sans text-sm italic leading-relaxed text-muted dark:text-stone-400">
-            {kind.description}
-          </p>
-
-          {/* Intro paragraph with cross-links */}
-          <p className="mt-6 font-sans text-lg leading-relaxed text-secondary dark:text-stone-400">
-            <LinkedText segments={metaClaimSegments} />
-          </p>
-
-          {/* Evidence assessment */}
-          <div
-            className={`mt-6 rounded-lg border border-t-2 border-stone-200/80 bg-panel p-4 dark:border-[var(--border-default)] ${categoryMeta.topBorder}`}
-          >
-            <p className="font-sans text-sm text-muted dark:text-stone-400">
-              Evidence assessment
-            </p>
-            <p className="mt-1 font-serif text-xl font-semibold text-primary dark:text-stone-200">
-              {verdict}
-            </p>
-            <BalanceWeightReadout
-              balance={topic.balance}
-              weight={topic.weight}
-              verdict={topic.verdict}
-              className="mt-3"
-            />
-          </div>
-
-          {/* Arguments: For & Against */}
-          <div className="mt-12 grid gap-8 sm:grid-cols-2">
-            {/* For column */}
-            <div>
-              <h2 className="mb-4 font-serif text-2xl font-bold text-primary dark:text-stone-200">
-                Arguments for
-              </h2>
-              <ul className="space-y-4">
-                {forArguments.map((arg, i) => (
-                  <li
-                    key={i}
-                    className="rounded-lg border border-rust-200 bg-rust-50 p-4 dark:border-rust-800/70 dark:bg-rust-900/30"
-                  >
-                    <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-rust-700 dark:text-rust-300">
-                      {arg.title}
-                    </h3>
-                    <p className="mt-2 font-sans text-sm leading-relaxed text-primary dark:text-stone-200">
-                      <LinkedText
-                        segments={getTopicMentions(
-                          arg.summary,
-                          linkTargets,
-                          topic.id
-                        )}
-                      />
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Against column */}
-            <div>
-              <h2 className="mb-4 font-serif text-2xl font-bold text-primary dark:text-stone-200">
-                Arguments against
-              </h2>
-              <ul className="space-y-4">
-                {againstArguments.map((arg, i) => (
-                  <li
-                    key={i}
-                    className="rounded-lg border border-stone-200 bg-stone-50 p-4 dark:border-[var(--border-default)] dark:bg-[var(--bg-panel)]"
-                  >
-                    <h3 className="font-sans text-sm font-semibold uppercase tracking-wide text-stone-600 dark:text-stone-400">
-                      {arg.title}
-                    </h3>
-                    <p className="mt-2 font-sans text-sm leading-relaxed text-primary dark:text-stone-200">
-                      <LinkedText
-                        segments={getTopicMentions(
-                          arg.summary,
-                          linkTargets,
-                          topic.id
-                        )}
-                      />
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Key crux questions */}
-          <div className="mt-12">
-            <h2 className="mb-4 font-serif text-2xl font-bold text-primary dark:text-stone-200">
-              The crux questions
-            </h2>
-            <p className="mb-6 font-sans text-sm text-secondary dark:text-stone-400">
-              These are the decisive points that could resolve the debate.
-              Each pillar has a crux — a testable or definitive question
-              that, if answered, would shift the balance of evidence.
-            </p>
-            <ul className="space-y-3">
-              {topic.pillars.map((pillar) => (
-                <li
-                  key={pillar.crux.id}
-                  className="rounded-lg border border-deep/10 bg-panel p-4 dark:border-teal-700/40"
+      {alsoAskedAs.length > 0 ? (
+        <Section id="also-asked" title="Also asked as" className="mt-12">
+          <ul className="border-b border-divider">
+            {alsoAskedAs.map((v, index) => (
+              <li key={v.slug} className={index > 0 ? "border-t border-divider" : undefined}>
+                <Link
+                  href={`/questions/${v.slug}`}
+                  className="flex min-h-11 items-center rounded-sm py-2.5 font-serif text-lg leading-snug text-primary transition-colors hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
                 >
-                  <h3 className="font-sans text-sm font-semibold text-deep dark:text-teal-300">
-                    {pillar.crux.title}
-                  </h3>
-                  <p className="mt-1 font-sans text-sm leading-relaxed text-secondary dark:text-stone-400">
-                    {pillar.crux.description}
-                  </p>
-                  <p className="mt-2 font-sans text-xs text-muted dark:text-stone-400">
-                    Status:{" "}
-                    <span className="font-medium capitalize">
-                      {pillar.crux.verification_status.replace("_", " ")}
-                    </span>{" "}
-                    &middot; Cost: {pillar.crux.cost_to_verify}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CTA to full topic page */}
-          <div className="mt-12 rounded-xl border border-rust-200 bg-rust-50 p-8 text-center dark:border-rust-800/70 dark:bg-rust-900/30">
-            <h2 className="font-serif text-2xl font-bold text-primary dark:text-stone-200">
-              Explore the full analysis
-            </h2>
-            <p className="mx-auto mt-2 max-w-md font-sans text-sm text-secondary dark:text-stone-400">
-              See all the evidence, weighted scores, and detailed analysis
-              for each argument pillar on the full{" "}
-              <strong>{topic.title}</strong> topic page.
-            </p>
-            <Button href={`/topics/${topic.id}`} className="mt-6">
-              See the full debate
-            </Button>
-          </div>
-
-          {/* Related questions from the same topic */}
-          {relatedQuestions.length > 0 && (
-            <div className="mt-12">
-              <h2 className="mb-4 font-serif text-xl font-bold text-primary dark:text-stone-200">
-                Related questions about {topic.title}
-              </h2>
-              <ul className="space-y-2">
-                {relatedQuestions.map((v) => {
-                  const RelatedIcon = classifyQuestion(v.question).icon;
-                  return (
-                    <li key={v.slug} className="flex items-start gap-2.5">
-                      <RelatedIcon
-                        className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70 dark:text-stone-400/70"
-                        strokeWidth={1.8}
-                        aria-hidden="true"
-                      />
-                      <Link
-                        href={`/questions/${v.slug}`}
-                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep dark:text-teal-300 dark:hover:text-teal-200"
-                      >
-                        {v.question}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          )}
-
-          {/* Cross-topic questions (same category) */}
-          {crossTopicQuestions.length > 0 && (
-            <div className="mt-10">
-              <h2 className="mb-4 font-serif text-xl font-bold text-primary dark:text-stone-200">
-                More {categoryLabel.toLowerCase()} questions
-              </h2>
-              <ul className="space-y-2">
-                {crossTopicQuestions.map((v) => {
-                  const CrossIcon = classifyQuestion(v.question).icon;
-                  return (
-                    <li key={v.slug} className="flex items-start gap-2.5">
-                      <CrossIcon
-                        className="mt-[0.3em] h-3.5 w-3.5 flex-shrink-0 text-muted/70 dark:text-stone-400/70"
-                        strokeWidth={1.8}
-                        aria-hidden="true"
-                      />
-                      <Link
-                        href={`/questions/${v.slug}`}
-                        className="font-sans text-deep underline decoration-deep/30 transition-colors hover:text-deep-dark hover:decoration-deep dark:text-teal-300 dark:hover:text-teal-200"
-                      >
-                        {v.question}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <Link
-                href="/questions"
-                className="mt-4 inline-flex items-center gap-1 font-sans text-sm text-muted transition-colors hover:text-deep dark:text-stone-400 dark:hover:text-teal-300"
-              >
-                Browse all questions <span aria-hidden="true">&rarr;</span>
-              </Link>
-            </div>
-          )}
-        </div>
-      </AppShell>
-    </>
+                  {v.question}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      ) : null}
+    </ArticleLayout>
   );
 }
