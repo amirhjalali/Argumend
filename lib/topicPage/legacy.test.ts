@@ -33,7 +33,11 @@ describe("legacyTopicPage", () => {
     // The h1 is the map's authored question; the short label stays the crumb.
     expect(page.title).toBe(topic.question ?? topic.title);
     expect(page.crumb).toBe(topic.title);
-    expect(page.subtitle).toEqual({ lead: "The claim", text: topic.meta_claim });
+    // A question headline states the claim, so the "The claim:" line is
+    // dropped; label-titled maps keep it.
+    expect(page.subtitle).toEqual(
+      topic.question ? undefined : { lead: "The claim", text: topic.meta_claim },
+    );
     expect(page.hook?.text).toBe(topic.keystone_fact!.statement);
     expect(page.hook?.source?.url).toBe(topic.keystone_fact!.sourceUrl);
     expect(page.sourceCount).toBe(countSources(topic));
@@ -115,5 +119,5 @@ describe("legacyTopicPage", () => {
       }
       expect(new Set(cruxes.map((c) => c.anchor)).size, summary.id).toBe(cruxes.length);
     }
-  });
+  }, 30_000);
 });

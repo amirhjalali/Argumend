@@ -547,6 +547,7 @@
   {
     "id": "standardized-testing-debate",
     "title": "Standardized Testing Value",
+    "question": "Should tests like the SAT and ACT stay central to college admissions?",
     "meta_claim": "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain a core component of college admissions and educational assessment.",
     "confidence_score": 62,
     "balance": 62,

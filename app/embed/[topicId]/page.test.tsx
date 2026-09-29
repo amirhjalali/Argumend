@@ -59,7 +59,6 @@ describe("embed widget: an older (pillar) map", () => {
     expect(view.getByRole("heading", { level: 1 }).textContent).toBe(
       topic.question ?? topic.title,
     );
-    expect(text).toContain(topic.meta_claim);
     expect(view.getByRole("heading", { name: "What both sides already agree on" })).toBeTruthy();
     expect(text).toContain(topic.pillars[0].crux.falsification!.common_ground!);
     expect(view.getByRole("heading", { name: "The question it turns on" })).toBeTruthy();

@@ -1,6 +1,7 @@
 export const standardizedTestingDebateData = {
   id: "standardized-testing-debate",
   title: "Standardized Testing Value",
+  question: "Should tests like the SAT and ACT stay central to college admissions?",
   meta_claim:
     "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain a core component of college admissions and educational assessment.",
   status: "contested" as const,
@@ -35,6 +36,8 @@ export const standardizedTestingDebateData = {
       crux: {
         id: "test-optional-diversity-outcomes",
         title: "Test-Optional Policy Outcomes on Diversity and Achievement",
+        question:
+          "Did going test-optional raise diversity without losing the ability to spot talented students?",
         description:
           "Measuring whether test-optional policies actually increased socioeconomic and racial diversity and improved student outcomes, or reduced colleges' ability to identify talent.",
         methodology:
@@ -127,6 +130,8 @@ export const standardizedTestingDebateData = {
       crux: {
         id: "alternative-assessment-comparison",
         title: "Head-to-Head Comparison of Assessment Methods",
+        question:
+          "Are essays and portfolios fairer predictors than tests, or do they favor wealthy families more?",
         description:
           "Rigorously comparing the predictive validity, equity effects, and scalability of standardized tests vs. portfolios, mastery assessments, and holistic review.",
         methodology:

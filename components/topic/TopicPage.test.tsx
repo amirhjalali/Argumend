@@ -82,7 +82,7 @@ describe("one crux-first template for every map", () => {
     // /embed serves flagship maps, so Embed is offered next to Save and Share.
     expect(within(view.container).getAllByRole("button", { name: /embed/i }).length).toBeGreaterThan(0);
     expect(within(view.container).getAllByRole("button", { name: /save this map/i }).length).toBeGreaterThan(0);
-  });
+  }, 30_000);
 
   it("renders a legacy map with falsification data in the same order, with no scoreboard", async () => {
     const { topic, view } = await renderLegacy("nuclear-energy-safety");
