@@ -85,10 +85,9 @@ const countBare = (src: string): number => src.match(BARE_BRAND_TEXT)?.length ??
  * dark-mode burst-fix merge landed all six parallel chunks.
  */
 // Honest fixed-light floor: NewsletterSignup's two brand-text lines live on a
-// permanently parchment card, while ShareVerdictCard and VerdictVoting each
-// contain one fixed-light capture/raster surface. Their precise guards document
-// those exemptions; every dark-adaptive brand-text use is migrated.
-const BARE_TOKEN_CEILING = 4;
+// permanently parchment card, and TopicPage keeps one. The verdict share card
+// and VerdictVoting, which each held a fixed-light raster surface, are deleted.
+const BARE_TOKEN_CEILING = 3;
 
 describe("dark-mode text token guard (text-primary / text-secondary) — repo-wide ratchet", () => {
   const cwd = process.cwd();

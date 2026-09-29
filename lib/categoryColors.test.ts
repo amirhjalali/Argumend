@@ -171,7 +171,6 @@ describe("no green/red truth signals on side and status surfaces", () => {
   const signalFiles = [
     "components/MobileArgumentList.tsx",
     "app/api/og/[id]/route.tsx",
-    "components/JudgingResults.tsx",
   ];
   const readSource = (rel: string) =>
     readFileSync(join(process.cwd(), ...rel.split("/")), "utf8");
@@ -272,7 +271,6 @@ describe("off-palette color guard (app + components source trees)", () => {
 describe("dark-mode pairing guard for text-primary / text-secondary", () => {
   const pairedFiles = [
     "components/ReadModeView.tsx",
-    "components/JudgingResults.tsx",
   ];
 
   const EXPECTED_PAIR: Record<string, string> = {

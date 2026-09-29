@@ -98,13 +98,8 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "app/blog/category/[category]/page.tsx" },
   { path: "components/nodes/MetaNode.tsx" },
   { path: "app/topics/TopicsPageClient.tsx" },
-  // ShareVerdictCard's rasterized title pins literal ink (`text-[#3d3a36]`)
-  // since 2026-09-22: the brand tokens now flip in dark mode, so a bare token
-  // there would go light-on-light, and it needs no exemption.
   { path: "app/methodology/page.tsx" },
   { path: "components/FeaturedTopicHero.tsx" },
-  { path: "components/ShareVerdictCard.tsx" },
-  { path: "components/ScalesOfEvidence.tsx" },
   { path: "components/SearchModal.tsx" },
   { path: "components/nodes/RichNode.tsx" },
   { path: "components/nodes/EvidenceNode.tsx" },
@@ -117,7 +112,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "app/blog/tag/[tag]/page.tsx" },
   { path: "components/TableOfContents.tsx" },
   { path: "app/faq/page.tsx" },
-  { path: "components/DebateView.tsx" },
   { path: "components/TopBar.tsx" },
   { path: "app/questions/QuestionsSearch.tsx" },
   { path: "app/auth/signin/page.tsx" },
@@ -132,7 +126,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/SubscribeButton.tsx" },
   { path: "components/RouteErrorState.tsx" },
   { path: "components/ThemeToggle.tsx" },
-  { path: "components/ViewToggle.tsx" },
   { path: "app/embed/[topicId]/layout.tsx" },
   // components/NewsletterSignup.tsx intentionally excluded: fixed-light
   // `bg-[#faf8f5]` card with no dark surface, so bare text-primary/secondary
