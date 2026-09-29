@@ -1,85 +1,36 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Compass, Home, Brain, MessageSquare } from "lucide-react";
+import { RouteNotFound } from "@/components/RouteNotFound";
+import { ANALYZE_HREF } from "@/lib/nav";
 
 export const metadata: Metadata = {
-  title: "Page Not Found",
+  title: "Page not found",
   description:
-    "The page you're looking for doesn't exist. Browse topics, read the blog, or run an analysis on Argumend.",
+    "The page you're looking for doesn't exist. Browse the maps or paste an argument on Argumend.",
 };
 
 export default function NotFound() {
   return (
-    <main id="main-content" className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#1a1916] flex flex-col items-center justify-center px-6 py-20 text-center">
-      {/* Icon */}
-      <div className="mb-8">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#efe9df] dark:bg-[var(--bg-muted)] border border-stone-200/60 dark:border-[var(--border-default)]">
-          <Compass className="w-9 h-9 text-deep" strokeWidth={1.5} />
-        </div>
-      </div>
-
-      {/* 404 Label */}
-      <p className="text-sm font-sans font-medium tracking-[0.2em] uppercase text-muted dark:text-stone-400 mb-4">
-        404
+    <RouteNotFound
+      eyebrow="404"
+      title="Insufficient evidence for this page"
+      description={
+        <>
+          The argument you&rsquo;re looking for hasn&rsquo;t been mapped yet. Or maybe it moved
+          to stronger ground; arguments do that sometimes.
+        </>
+      }
+      primaryHref="/topics"
+      primaryLabel="Browse maps"
+      secondaryHref={ANALYZE_HREF}
+      secondaryLabel="Paste an argument"
+    >
+      <p className="font-sans text-sm text-muted">
+        Looking for something specific? Search is in the header, or press{" "}
+        <kbd className="rounded border border-stone-300/70 bg-card px-1.5 font-mono text-xs dark:border-divider">
+          ⌘K
+        </kbd>
+        .
       </p>
-
-      {/* Headline */}
-      <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08] max-w-xl">
-        Insufficient Evidence for This Page
-      </h1>
-
-      {/* Subtext */}
-      <p className="font-sans text-base sm:text-lg text-secondary dark:text-stone-400 max-w-md leading-relaxed mb-10">
-        The argument you&rsquo;re looking for hasn&rsquo;t been mapped yet. Or maybe it moved to stronger ground&mdash;arguments do that sometimes.
-      </p>
-
-      {/* Navigation Links */}
-      <nav aria-label="Not found navigation" className="flex flex-wrap items-center justify-center gap-3 mb-10">
-        <Link
-          href="/"
-          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium bg-gradient-to-r from-rust-600 to-rust-700 text-white hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-canvas)]"
-        >
-          <Home className="w-4 h-4" strokeWidth={1.8} />
-          Back to Home
-        </Link>
-        <Link
-          href="/topics"
-          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[var(--border-divider)] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-canvas)]"
-        >
-          <MessageSquare className="w-4 h-4" strokeWidth={1.8} />
-          Browse Topics
-        </Link>
-        <Link
-          href="/analyze"
-          className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl font-sans text-sm font-medium border border-stone-300 dark:border-[var(--border-divider)] text-primary dark:text-stone-200 bg-white dark:bg-[var(--bg-card)] hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-400 dark:hover:border-[#4a4640] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-canvas)]"
-        >
-          <Brain className="w-4 h-4" strokeWidth={1.8} />
-          Run an Analysis
-        </Link>
-      </nav>
-
-      {/* Helpful note */}
-      <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)] max-w-sm w-full">
-        <p className="font-sans text-sm text-muted dark:text-stone-400">
-          If you had something specific in mind, our{" "}
-          <Link href="/topics" className="text-deep hover:underline dark:text-[#9bc7c3]">
-            topics
-          </Link>{" "}
-          are a good place to start.
-        </p>
-      </div>
-
-      {/* Branding footer */}
-      <div className="mt-16">
-        <Link href="/" className="group flex min-h-11 flex-col items-center justify-center gap-1 rounded-md">
-          <span className="font-serif text-base font-medium tracking-[0.08em] text-muted dark:text-stone-400 group-hover:text-primary dark:group-hover:text-stone-200 transition-colors">
-            ARGUMEND
-          </span>
-          <span className="text-[10px] font-sans text-muted dark:text-stone-500">
-            Disagree better.
-          </span>
-        </Link>
-      </div>
-    </main>
+    </RouteNotFound>
   );
 }

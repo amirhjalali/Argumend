@@ -133,6 +133,7 @@ describe("no local nav link arrays in the shell (SOT regression guard)", () => {
     "components/TopBar.tsx",
     "components/Footer.tsx",
     "components/HeroAnalyze.tsx",
+    "app/not-found.tsx",
     "components/disagreement/DisagreementAnalyzeClient.tsx",
   ])("%s links the paste tool through ANALYZE_HREF, never a literal", (file) => {
     const source = read(file);

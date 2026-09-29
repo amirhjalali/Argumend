@@ -6,7 +6,9 @@ import {
   CATEGORY_ORDER,
 } from "@/data/topicIndex";
 import { getAllQuestionVariations, getQuestionVariations } from "@/lib/questions";
+import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Button } from "@/components/ui/Button";
 import { JsonLd } from "@/components/JsonLd";
 import {
   getQuestionCategoryMeta,
@@ -162,7 +164,7 @@ export default function QuestionsIndexPage() {
     <>
       <JsonLd data={collectionJsonLd} />
 
-      <main id="main-content" className="min-h-[100svh] bg-canvas">
+      <AppShell>
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
           {/* Breadcrumbs */}
           <Breadcrumbs
@@ -333,31 +335,12 @@ export default function QuestionsIndexPage() {
               Every question links to a detailed topic page with argument
               maps, weighted evidence scales, and crux questions.
             </p>
-            <Link
-              href="/topics"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 px-6 py-3 font-sans text-sm font-semibold text-white shadow-md transition-all hover:from-rust-700 hover:to-rust-800 hover:shadow-lg"
-            >
+            <Button href="/topics" className="mt-6">
               Browse all topics
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
+            </Button>
           </div>
-
-          {/* Footer attribution */}
-          <footer className="mt-16 border-t border-stone-200 pt-6 dark:border-[var(--border-default)]">
-            <p className="font-sans text-xs text-muted dark:text-stone-400">
-              Every analysis uses structured argument mapping with
-              steel-manned positions and independently weighted evidence.{" "}
-              <Link
-                href="/methodology"
-                className="text-deep underline decoration-deep/30 hover:decoration-deep dark:text-teal-300"
-              >
-                Read our methodology
-              </Link>
-              .
-            </p>
-          </footer>
         </div>
-      </main>
+      </AppShell>
     </>
   );
 }
