@@ -24,7 +24,7 @@ import {
 } from "@/lib/argument/ledgerPool";
 import { ArrivedGroupView } from "./ArrivedSince";
 import { Changelog } from "./Changelog";
-import { CRUX_SHEET } from "@/components/argument/DebateView";
+import { CRUX_SHEET } from "@/components/topic/cruxPrimitives";
 import { CruxCard } from "./CruxCard";
 import { MovementFigure } from "./MovementFigure";
 import { aiHref, formatDay, formatLongDay, mapLabel } from "./format";

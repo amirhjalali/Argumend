@@ -7,9 +7,11 @@ import { useSavedTopics } from "@/hooks/useSavedTopics";
 
 interface SaveTopicButtonProps {
   topicId: string;
+  /** Show the text label at every width (topic-page action row). */
+  labelled?: boolean;
 }
 
-export function SaveTopicButton({ topicId }: SaveTopicButtonProps) {
+export function SaveTopicButton({ topicId, labelled = false }: SaveTopicButtonProps) {
   const { saved, hydrated, error, toggle } = useSavedTopics(topicId);
   const [syncing, setSyncing] = useState(false);
   const [syncError, setSyncError] = useState<string | null>(null);
@@ -77,7 +79,7 @@ export function SaveTopicButton({ topicId }: SaveTopicButtonProps) {
           fill={saved ? "currentColor" : "none"}
           aria-hidden="true"
         />
-        <span className="hidden sm:inline">
+        <span className={labelled ? undefined : "hidden sm:inline"}>
           {!hydrated
             ? "Loading…"
             : syncing

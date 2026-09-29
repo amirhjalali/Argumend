@@ -7,9 +7,16 @@ import { useModalAccessibility } from "@/hooks/useModalAccessibility";
 
 interface EmbedButtonProps {
   topicId: string;
+  /** A bordered button with a visible "Embed" label (topic-page action row). */
+  labelled?: boolean;
+  /** Which edge of the button the desktop popover lines up with. */
+  align?: "left" | "right";
 }
 
-export function EmbedButton({ topicId }: EmbedButtonProps) {
+const LABELLED_CLASS =
+  "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-stone-200/80 bg-white/80 px-3 py-2 text-sm font-medium text-secondary dark:text-stone-300 transition-colors hover:border-stone-300/80 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:border-[var(--border-default)] dark:bg-card/80 dark:hover:text-stone-100";
+
+export function EmbedButton({ topicId, labelled = false, align = "left" }: EmbedButtonProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState<string | null>(null);
@@ -63,13 +70,18 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
           setCopyError(null);
           setOpen((value) => !value);
         }}
-        className="inline-flex items-center justify-center h-11 w-11 rounded-lg text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors"
-        aria-label="Embed this topic"
+        className={
+          labelled
+            ? LABELLED_CLASS
+            : "inline-flex items-center justify-center h-11 w-11 rounded-lg text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] transition-colors"
+        }
+        aria-label={labelled ? undefined : "Embed this topic"}
         aria-expanded={open}
         aria-controls="topic-embed-dialog"
-        title="Embed"
+        title={labelled ? undefined : "Embed"}
       >
-        <Code className="h-4 w-4" />
+        <Code className="h-4 w-4" strokeWidth={labelled ? 1.8 : undefined} aria-hidden={labelled || undefined} />
+        {labelled && "Embed"}
       </button>
 
       {open && (
@@ -80,7 +92,7 @@ export function EmbedButton({ topicId }: EmbedButtonProps) {
           aria-modal="true"
           aria-labelledby="topic-embed-title"
           tabIndex={-1}
-          className="fixed inset-x-4 top-20 z-50 mx-auto max-h-[calc(100svh-6rem)] w-auto max-w-[400px] overflow-y-auto rounded-lg border border-stone-200 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-card)] shadow-lw p-4 animate-in fade-in slide-in-from-top-1 sm:absolute sm:inset-x-auto sm:left-0 sm:top-full sm:mt-2 sm:w-[400px] sm:max-w-[calc(100vw-2rem)]"
+          className={`fixed inset-x-4 top-20 z-50 mx-auto max-h-[calc(100svh-6rem)] w-auto max-w-[400px] overflow-y-auto rounded-lg border border-stone-200 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-card)] shadow-lw p-4 animate-in fade-in slide-in-from-top-1 sm:absolute sm:inset-x-auto ${align === "right" ? "sm:right-0" : "sm:left-0"} sm:top-full sm:mt-2 sm:w-[400px] sm:max-w-[calc(100vw-2rem)]`}
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-3">

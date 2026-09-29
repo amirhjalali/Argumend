@@ -37,6 +37,13 @@ export interface ArgumentTopicMeta {
   /** The payoff paragraph: what the map reveals about the SHAPE of the fight. */
   tldr: string;
   /**
+   * "What every camp already accepts": ids of claims this map's graph marks
+   * uncontested or broadly accepted, shown near the top of the page in the
+   * graph's own words. The perceived-vs-actual disagreement gap, stated up
+   * front. Omitted: the block does not render.
+   */
+  agreementClaims?: string[];
+  /**
    * An optional related voice or evidence source per position, keyed by
    * position id. This illustrates one argument stream; it must not imply the
    * person or group endorses every claim in the full camp.
@@ -83,6 +90,11 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       contextNote:
         "“AI-exposed” means jobs whose everyday tasks overlap most with what current AI systems do — software, clerical, customer service, analysis.",
       tldr: "This is three fights in a trench coat: whether AI is what broke entry-level hiring (the data can't yet say), whether the harm arrives as unemployment or as worse jobs (history mostly says worse jobs), and who gets to set the pace of deployment (no dataset settles that). Five questions carry almost all of it.",
+      agreementClaims: [
+        "c-aggregate-unemployment-normal",
+        "c-ai-increases-output-per-worker",
+        "c-exposure-not-displacement",
+      ],
       advocates: {
         "p-displacement-now": {
           name: "Erik Brynjolfsson",
@@ -199,6 +211,11 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "Labor's share of income has declined globally over four decades, and the U.S. index is down since 2000. Four camps ask what AI means for the wage channel — and what “survive” even means.",
       hook: "Capitalism pays most people through wages. AI could automate a wider range of tasks while labor's share has already declined globally since the 1980s and the U.S. nonfarm-business index has fallen since 2000. The dispute is whether AI extends that trend or changes its scale.",
       tldr: "Almost nobody argues markets stop working. The real fight is narrower and stranger: whether the wage channel keeps distributing enough income to sustain demand and consent — and whether a system that keeps markets but pays people through dividends or transfers still counts as the thing we're defending. Two of the five cruxes are assumptions nobody states out loud; a third is a definition.",
+      agreementClaims: [
+        "c-historical-automation-preserved-markets",
+        "c-labor-share-declining-global",
+        "c-model-market-concentrated",
+      ],
       shareCard: {
         left: { value: "−19.4", label: "Index-point change in U.S. nonfarm labor share, Q1 2000 → Q2 2026" },
         right: { value: "40%", label: "Estimated share of 2025 U.S. enterprise LLM spend attributed to one provider" },
@@ -280,6 +297,11 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "$38 billion pledged for FY2019–28, 100+ military sales reported from October 2023 through early March 2024, and four positions split by leverage, legal accountability, and civilian harm.",
       hook: "This is the argument where people are least likely to grant that the other side is arguing in good faith. So this map separates what is documented from what remains uncertain: the reported direct-death total; identification, undercount, indirect deaths, and civilian–combatant classification; what the May 2024 NSM-20 review actually said; and which statutes still apply after that memorandum was rescinded in February 2025.",
       tldr: "Almost nobody disputes the 2016 MOU's $38 billion pledge for FY2019–28 or the 100+ military sales reported from October 7, 2023 through early March 2024. The fight is what follows: how the unresolved parts of the casualty record change the moral and legal analysis, whether U.S. aid creates usable leverage, and how current arms-transfer statutes are applied. The May 2024 NSM-20 review documented serious concerns while accepting assurances sufficient for aid to continue; NSM-20 itself was rescinded in February 2025.",
+      agreementClaims: [
+        "c-mou-38b",
+        "c-hamas-fto-iran-backed",
+        "c-nsm20-finding-ambiguous",
+      ],
       shareCard: {
         left: {
           value: "Concerns found",

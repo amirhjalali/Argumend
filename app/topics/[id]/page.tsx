@@ -5,7 +5,7 @@ import { loadTopicById } from "@/data/topicLoader";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { JsonLd } from "@/components/JsonLd";
 import { AppShell } from "@/components/AppShell";
-import LegacyTopicPageLoader from "./LegacyTopicPageLoader";
+import { ReadModeView } from "@/components/ReadModeView";
 import { buildGenericOgUrl, buildTopicOgUrl } from "@/lib/og";
 import {
   argumentTopicIds,
@@ -83,7 +83,9 @@ export async function generateMetadata({
     return { title: "Topic Not Found" };
   }
 
-  const description = `${topic.meta_claim} — ${topic.verdict.label}. Explore ${topic.pillarCount} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
+  // Crux-first, never the verdict: what the argument turns on and what both
+  // sides already agree on is what the page leads with.
+  const description = `${topic.meta_claim} The ${topic.pillarCount === 1 ? "question" : `${topic.pillarCount} questions`} the argument turns on, what both sides already agree on, and what would change each side's mind.`;
   const categoryLabel = CATEGORY_LABELS[topic.category];
   const media = getGeneratedMedia("topic", topic.id);
   const socialImage = media?.hero
@@ -169,9 +171,8 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
             citation: citations,
           }}
         />
-        {/* Same shell as the legacy topic pages (TopicPageClient), so a
-            flagship map reads as part of the site. DebateView stays a server
-            component passed through as children. */}
+        {/* One shell and one template for every map (components/topic/TopicPage).
+            DebateView stays a server component passed through as children. */}
         <AppShell layout="reading">
           <DebateView
             meta={argumentTopic.meta}
@@ -192,10 +193,12 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
     notFound();
   }
 
+  // Old "Map" links asked for the canvas. The diagram now lives inside the
+  // site at /topics/[id]/map, logic map only.
   const view = (await searchParams)?.view;
   const requestedView = Array.isArray(view) ? view[0] : view;
   if (requestedView === "graph" || requestedView === "logic-map") {
-    redirect(`/?topic=${encodeURIComponent(topic.id)}&view=logic-map`);
+    redirect(`/topics/${encodeURIComponent(topic.id)}/map`);
   }
 
   const categoryLabel = CATEGORY_LABELS[topic.category];
@@ -264,7 +267,11 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           } as unknown as Record<string, unknown>}
         />
       ) : null}
-      <LegacyTopicPageLoader topic={topic} />
+      {/* Server-rendered like the flagship maps: the same template, the same
+          shell, and only the reflection and action buttons hydrate. */}
+      <AppShell layout="reading">
+        <ReadModeView topic={topic} />
+      </AppShell>
     </>
   );
 }

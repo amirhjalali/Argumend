@@ -1,555 +1,230 @@
-"use client";
-
-import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+/**
+ * ReadModeView — legacy pillar maps on the one topic-page template.
+ *
+ * The map's own text, rearranged crux-first by lib/topicPage/legacy.ts and
+ * rendered by components/topic/TopicPage.tsx, the same template the
+ * ArgumentGraph maps use. What this file adds is only what is specific to the
+ * legacy data: its evidence cards (without score bars), its tests, the
+ * "How the evidence weighs" fold and the link to the diagram.
+ *
+ * Server-safe: no hooks, no client directive.
+ */
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Network, List, X } from "lucide-react";
-import type { Topic, TopicStatus, Evidence } from "@/lib/schemas/topic";
-import { calculateEvidenceScore, confidenceTier } from "@/lib/evidenceMetrics";
-import { CATEGORY_LABELS, topicSummaries, getCrossCategoryRelatedSummaries } from "@/data/topicIndex";
-import { ReadGraphToggle } from "@/components/ReadGraphToggle";
-import { SynopticTable } from "@/components/SynopticTable";
-import { ConfidenceBar } from "@/components/ConfidenceBar";
-import { VerdictVoting } from "@/components/VerdictVoting";
+import type { Topic } from "@/lib/schemas/topic";
+import { getCrossCategoryRelatedSummaries, topicSummaries } from "@/data/topicIndex";
+import {
+  legacyTopicPage,
+  type LegacyCrux,
+  type LegacyEvidenceItem,
+  type LegacyWeighing,
+} from "@/lib/topicPage/legacy";
+import type { RelatedMap } from "@/lib/topicPage/model";
+import { TopicPage, type CruxEntryView, type TopicFold } from "@/components/topic/TopicPage";
+import { DetailBlock, SOURCE_LINK } from "@/components/topic/cruxPrimitives";
+import { FragileVerdictNote } from "@/components/FragileVerdictNote";
 import { CitationCard } from "@/components/CitationCard";
-import { SaveTopicButton } from "@/components/SaveTopicButton";
-import { SubscribeButton } from "@/components/SubscribeButton";
-import { EmbedButton } from "@/components/EmbedButton";
-import { GlossaryTerm } from "@/components/GlossaryTerm";
-import { FalsificationCrux } from "@/components/FalsificationCrux";
-import { FlagshipIntro } from "@/components/FlagshipIntro";
-import { formatLongDate } from "@/lib/formatDate";
-import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 
-// One quiet line of small caps in place of two tracked-caps pills: the
-// category and the map's status are facts about the page, not alarms.
-// The status describes the state of the evidence, never a verdict
-// ("settled") the reader is invited to line up behind.
-const statusLabel: Record<TopicStatus, string> = {
-  settled: "evidence largely converges",
-  contested: "evidence still divided",
-  highly_speculative: "evidence still thin",
-};
+const MADE_BY =
+  "Steel-manned positions for both sides, weighed evidence cards, and the test that could settle each crux.";
 
-function strongest(evidence: Evidence[] | undefined, side: "for" | "against"): Evidence | null {
-  if (!evidence?.length) return null;
-  const filtered = evidence.filter((e) => e.side === side);
-  if (!filtered.length) return null;
-  return filtered.reduce((best, cur) =>
-    calculateEvidenceScore(cur.weight) > calculateEvidenceScore(best.weight) ? cur : best
+/** Three related maps: same category first, then the nearest other categories. */
+function relatedMaps(topic: Topic): RelatedMap[] {
+  const sameCategory = topicSummaries
+    .filter((t) => t.category === topic.category && t.id !== topic.id)
+    .slice(0, 3);
+  const cross =
+    sameCategory.length >= 3
+      ? []
+      : getCrossCategoryRelatedSummaries(topic.id, topic.category, 3 - sameCategory.length);
+  return [...sameCategory, ...cross].map((t) => ({ id: t.id, title: t.title }));
+}
+
+export function ReadModeView({ topic }: { topic: Topic }) {
+  const { page, cruxes, weighing, references } = legacyTopicPage(topic, relatedMaps(topic));
+
+  const cruxViews: CruxEntryView[] = cruxes.map((crux) => ({
+    ...crux,
+    evidenceLabel:
+      crux.evidence.length > 0 ? "Show the evidence on each side and the test" : "Show the test",
+    evidence: <LegacyCruxEvidence crux={crux} />,
+  }));
+
+  const folds: TopicFold[] = [
+    {
+      id: "weighing",
+      title: "How the evidence weighs",
+      hint: "In words, from the weighed evidence cards on this map.",
+      content: <EvidenceWeighs weighing={weighing} />,
+    },
+    {
+      id: "researcher",
+      title: "Researcher mode",
+      hint: `Every test on this map${references.length ? ", and further reading" : ""}.`,
+      content: <LegacyResearcher topic={topic} cruxes={cruxes} references={references} />,
+    },
+  ];
+
+  return (
+    <TopicPage
+      page={page}
+      cruxes={cruxViews}
+      afterCruxes={
+        page.diagramHref ? (
+          <p className="mt-2">
+            <Link
+              href={page.diagramHref}
+              className="inline-flex min-h-11 items-center text-sm text-secondary dark:text-stone-400 link-underline hover:text-stone-900 dark:hover:text-stone-100"
+            >
+              See it as a diagram →
+            </Link>
+          </p>
+        ) : undefined
+      }
+      folds={folds}
+      madeBy={MADE_BY}
+    />
   );
 }
 
-/** Count distinct cited sources across references + all evidence items. */
-function countSources(topic: Topic): number {
-  const seen = new Set<string>();
-  for (const ref of topic.references ?? []) {
-    seen.add((ref.url ?? ref.title).toLowerCase());
-  }
-  for (const pillar of topic.pillars) {
-    for (const ev of pillar.evidence ?? []) {
-      const key = ev.sourceUrl ?? ev.source;
-      if (key) seen.add(key.toLowerCase());
-    }
-  }
-  for (const ev of topic.evidence ?? []) {
-    const key = ev.sourceUrl ?? ev.source;
-    if (key) seen.add(key.toLowerCase());
-  }
-  return seen.size;
-}
+// ---------------------------------------------------------------------------
 
-/**
- * The sentence under the verdict readout. The readout already prints the
- * verdict label, so this names the heaviest card on each side instead: never
- * one side's best card without the other's.
- */
-function bottomLine(topic: Topic): string | null {
-  const allEvidence = topic.pillars.flatMap((p) => p.evidence ?? []);
-  const title = (e: Evidence | null) => e?.title?.replace(/\.$/, "");
-  const topFor = title(strongest(allEvidence, "for"));
-  const topAgainst = title(strongest(allEvidence, "against"));
-  if (topFor && topAgainst) {
-    return `Heaviest card for: ${topFor}. Heaviest card against: ${topAgainst}.`;
-  }
-  return null;
-}
+const SIDE = {
+  for: { label: "Supports the claim", glyph: "＋", className: "text-rust-700 dark:text-[#d4805f]" },
+  against: { label: "Challenges the claim", glyph: "−", className: "text-[#8B5A3C] dark:text-[#cfa88a]" },
+} as const;
 
-function EvidenceItem({ ev }: { ev: Evidence }) {
-  const score = calculateEvidenceScore(ev.weight); // 0–40
-  const pct = Math.round((score / 40) * 100);
-  const tier = confidenceTier(pct);
-  const accent =
-    ev.side === "for"
-      ? "border-l-rust-400 bg-rust-50/30 dark:bg-rust-900/10"
-      : "border-l-[#8B5A3C]/70 bg-stone-100/30 dark:border-l-[#cfa88a]/60 dark:bg-stone-900/10";
-  const label = ev.side === "for" ? "Supports" : "Against";
-  const labelColor =
-    ev.side === "for" ? "!text-rust-700 dark:!text-[#d4805f]" : "!text-[#8B5A3C] dark:!text-[#cfa88a]";
+/** One pillar's evidence, grouped by side, strongest first. No score bars. */
+function LegacyCruxEvidence({ crux }: { crux: LegacyCrux }) {
+  const bySide = (side: "for" | "against") => crux.evidence.filter((e) => e.side === side);
   return (
-    <li className={`rounded-md border-l-4 ${accent} pl-4 pr-4 py-3`}>
-      <div className="flex items-baseline gap-2 mb-1 flex-wrap">
-        <span className={`label-caps !text-[0.9375rem] !leading-none ${labelColor}`}>
-          {label}
-        </span>
-        <span
-          className="text-[11px] font-sans font-medium text-deep dark:text-[#8fc0bb]"
-          title="Evidence tier from source reliability, independence, replicability, and directness"
-        >
-          {tier}
-        </span>
-      </div>
-      <p className="font-serif text-[16px] leading-snug text-primary dark:text-stone-200 mb-1">
-        <span className="font-semibold">{ev.title}.</span>{" "}
-        <span className="text-primary dark:text-stone-200/90">{ev.description}</span>
-      </p>
-      <div className="mt-1.5 flex items-center gap-3 text-xs text-secondary dark:text-stone-400">
-        <div className="w-24 flex-shrink-0">
-          <ConfidenceBar value={score} max={40} tone={ev.side} />
-        </div>
-        {ev.source &&
-          (ev.sourceUrl ? (
+    <>
+      {(["for", "against"] as const).map((side) =>
+        bySide(side).length > 0 ? (
+          <DetailBlock key={side} label={SIDE[side].label}>
+            <ul className="space-y-2.5">
+              {bySide(side).map((item) => (
+                <LegacyEvidenceRow key={item.id} item={item} />
+              ))}
+            </ul>
+          </DetailBlock>
+        ) : null,
+      )}
+      <DetailBlock label="The test">
+        <p>
+          <span className="font-medium text-stone-800 dark:text-stone-200">{crux.test.title}.</span>{" "}
+          {crux.test.methodology}
+        </p>
+        <p className="mt-1 text-xs text-muted dark:text-stone-400">Cost to run it: {crux.test.cost}</p>
+      </DetailBlock>
+    </>
+  );
+}
+
+function LegacyEvidenceRow({ item }: { item: LegacyEvidenceItem }) {
+  const side = SIDE[item.side];
+  return (
+    <li className="text-sm leading-relaxed">
+      <span className={`font-medium ${side.className}`}>
+        <span aria-hidden="true">{side.glyph} </span>
+        {item.title}.
+      </span>{" "}
+      <span className="text-secondary dark:text-stone-400">{item.description}</span>
+      {item.source && (
+        <span className="block text-xs text-muted dark:text-stone-400">
+          {item.sourceUrl ? (
             <a
-              href={ev.sourceUrl}
+              href={item.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-0.5 link-underline hover:text-primary"
+              aria-label={`Open source from ${item.source} (opens in a new tab)`}
+              className={SOURCE_LINK}
             >
-              {ev.source}
-              <ExternalLink className="h-3 w-3" aria-hidden />
+              {item.source} ↗
             </a>
           ) : (
-            <span>{ev.source}</span>
-          ))}
-      </div>
+            <span className="inline-flex min-h-11 items-center">{item.source}</span>
+          )}
+        </span>
+      )}
     </li>
   );
 }
 
-// ---------------------------------------------------------------------------
-// Scroll progress + sticky pillar TOC
-// ---------------------------------------------------------------------------
-
-interface TocItem {
-  id: string; // anchor id (without #)
-  label: string;
-}
-
-function useScrollProgress(): number {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    const onScroll = () => {
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - doc.clientHeight;
-      setProgress(max > 0 ? Math.min(1, doc.scrollTop / max) : 0);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-  return progress;
-}
-
-function useActiveSection(ids: string[]): string | null {
-  const [active, setActive] = useState<string | null>(ids[0] ?? null);
-  const idsKey = ids.join("|");
-  useEffect(() => {
-    const items = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
-    if (!items.length) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]?.target?.id) setActive(visible[0].target.id);
-      },
-      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
-    );
-    items.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [idsKey]);
-  return active;
-}
-
-export function ReadModeView({ topic }: { topic: Topic }) {
-  const categoryLabel = CATEGORY_LABELS[topic.category];
-
-  const sourceCount = useMemo(() => countSources(topic), [topic]);
-  const synthesis = useMemo(() => bottomLine(topic), [topic]);
-
-  const tocItems: TocItem[] = useMemo(
-    () =>
-      topic.pillars.map((p, idx) => ({
-        id: `pillar-${p.id}`,
-        label: p.title || `Pillar ${idx + 1}`,
-      })),
-    [topic.pillars]
-  );
-
-  // Related-topic cards only need id/title/category, so they read from the
-  // lightweight `topicSummaries` index instead of the ~500KB full topics module.
-  const relatedTopics = useMemo(() => {
-    const sameCategory = topicSummaries
-      .filter((t) => t.category === topic.category && t.id !== topic.id)
-      .slice(0, 3);
-    if (sameCategory.length >= 3) return sameCategory;
-    const cross = getCrossCategoryRelatedSummaries(topic.id, topic.category, 3 - sameCategory.length);
-    return [...sameCategory, ...cross];
-  }, [topic.id, topic.category]);
-
-  const progress = useScrollProgress();
-  const activeId = useActiveSection(tocItems.map((t) => t.id));
-  const [mobileTocOpen, setMobileTocOpen] = useState(false);
-  const tocRef = useRef<HTMLElement>(null);
-
-  // Mobile-only: the floating controls stay out of the first screen entirely
-  // (they used to land on the key fact, the most important sentence on the
-  // page), then hide while reading down and return on scroll-up, so they stop
-  // permanently occluding the body text. Desktop is unaffected — the floats below keep static positions
-  // via `lg:` resets. The transition is neutralized by the global
-  // prefers-reduced-motion block in globals.css, so reduced-motion users get an
-  // instant (un-animated) toggle.
-  const [controlsHidden, setControlsHidden] = useState(true);
-  useEffect(() => {
-    let lastY = window.scrollY;
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        if (y < window.innerHeight * 0.9) setControlsHidden(true);
-        else if (y < lastY) setControlsHidden(false);
-        else if (y > lastY + 4) setControlsHidden(true);
-        lastY = y;
-        ticking = false;
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Keep the TOC reachable while its sheet is open; hide the map CTA then so the
-  // open sheet and the CTA can't overlap on narrow screens.
-  const tocHidden = controlsHidden && !mobileTocOpen;
-  const mapHidden = controlsHidden || mobileTocOpen;
-  // One transition list: two `transition-*` utilities overwrite each other's
-  // property. Visibility flips at the end of a hide, so a hidden float also
-  // leaves the tab order and the accessibility tree instead of sitting there
-  // invisible but focusable.
-  const floatMotion = "transition-[transform,opacity,visibility] duration-300 ease-out";
-  const floatHidden = "invisible translate-y-[150%] opacity-0 pointer-events-none";
-  const floatShown = "visible translate-y-0 opacity-100";
-  // Lift the floats above the iOS home indicator (safe-area inset → 0 on desktop).
-  const floatBottom = { bottom: "calc(env(safe-area-inset-bottom) + 1.25rem)" };
-
+/**
+ * The balance/weight reading, moved out of the page body and into words:
+ * converges, divided, or thin. Never a score out of 100, and never one side's
+ * heaviest card without the other's.
+ */
+function EvidenceWeighs({ weighing }: { weighing: LegacyWeighing }) {
   return (
-    <>
-      {/* ─── Scroll-progress bar ─── */}
-      <div className="fixed top-0 inset-x-0 z-40 h-0.5 bg-transparent pointer-events-none">
-        <div
-          className="h-full bg-deep transition-[width] duration-150 ease-out"
-          style={{ width: `${progress * 100}%` }}
-        />
-      </div>
-
-      <div className="relative mx-auto max-w-[88rem] lg:flex lg:gap-8 lg:px-8">
-        <article className="mx-auto w-full max-w-[72ch] px-5 sm:px-8 pt-6 pb-32 lg:mx-0 lg:px-0">
-          {/* ─── Header ─── */}
-          <header className="mb-8">
-            <div className="flex items-center justify-between gap-4 mb-4">
-              <p className="label-caps">
-                {categoryLabel}, {statusLabel[topic.status]}
-              </p>
-              <ReadGraphToggle current="read" />
-            </div>
-            <h1 className="font-serif text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary dark:text-stone-200 mb-3">
-              {topic.title}
-            </h1>
-
-            {/* ─── Provenance strip ─── */}
-            <p className="mt-3 font-sans text-[11px] text-muted dark:text-[var(--text-muted)]">
-              {topic.last_updated ? (
-                <>Analyzed {formatLongDate(topic.last_updated)}</>
-              ) : (
-                <>Continuously reviewed</>
-              )}
-              {" · "}
-              {sourceCount} {sourceCount === 1 ? "source" : "sources"}
-              {topic.methodology_version ? <> · methodology {topic.methodology_version}</> : null}
-            </p>
-          </header>
-
-          {/* ─── Flagship intro: keystone fact + simple case (gated on data) ─── */}
-          <FlagshipIntro topic={topic} />
-
-          {/* ─── The Claim ─── */}
-          <section aria-label="The claim">
-            <p className="font-serif text-[22px] leading-[1.55] text-primary dark:text-stone-200 first-letter:font-serif first-letter:text-[64px] first-letter:font-semibold first-letter:float-left first-letter:leading-[0.85] first-letter:mr-2 first-letter:mt-1 first-letter:text-deep">
-              {topic.meta_claim}
-            </p>
-          </section>
-
-          {/* ─── Synoptic table ─── */}
-          <SynopticTable pillars={topic.pillars} />
-
-          {/* ─── Pillars ─── */}
-          {topic.pillars.map((pillar, idx) => {
-            const evFor = strongest(pillar.evidence, "for");
-            const evAgainst = strongest(pillar.evidence, "against");
-            return (
-              <Fragment key={pillar.id}>
-              <section
-                id={`pillar-${pillar.id}`}
-                aria-label={`Pillar ${idx + 1}: ${pillar.title}`}
-                className="mt-12 scroll-mt-24"
-              >
-                <div className="mb-4">
-                  <p className="label-caps mb-1">
-                    <GlossaryTerm term="pillar" className="[font-variant-caps:inherit] [letter-spacing:inherit]">Pillar</GlossaryTerm> {idx + 1} of{" "}
-                    {topic.pillars.length}
-                  </p>
-                  <h2 className="font-serif text-[28px] leading-tight text-primary dark:text-stone-200">
-                    {pillar.title}
-                  </h2>
-                  {pillar.short_summary && (
-                    <p className="font-serif text-[17px] leading-relaxed text-secondary dark:text-stone-400 mt-2 italic">
-                      {pillar.short_summary}
-                    </p>
-                  )}
-                </div>
-
-                <blockquote className="my-5 border-l-4 border-l-[#8B5A3C]/70 pl-4 py-1 bg-stone-100/30 dark:border-l-[#cfa88a]/60 dark:bg-stone-900/10">
-                  <p className="label-caps mb-1 !text-[#8B5A3C] dark:!text-[#cfa88a]">
-                    The skeptic
-                  </p>
-                  <p className="font-serif text-[18px] leading-relaxed text-primary dark:text-stone-200">
-                    {pillar.skeptic_premise}
-                  </p>
-                </blockquote>
-
-                <div className="my-5 border-l-4 border-l-rust-400/70 pl-4 py-1 bg-rust-50/30 dark:bg-rust-900/10">
-                  <p className="label-caps mb-1 !text-rust-700 dark:!text-[#d4805f]">
-                    The proponent
-                  </p>
-                  <p className="font-serif text-[18px] leading-relaxed text-primary dark:text-stone-200">
-                    {pillar.proponent_rebuttal}
-                  </p>
-                </div>
-
-                {(evFor || evAgainst || (pillar.evidence?.length ?? 0) > 0) && (
-                  <div className="mt-6">
-                    <h3 className="label-caps mb-3">Strongest evidence on each side</h3>
-                    <ul className="space-y-2.5 list-none p-0">
-                      {evFor && <EvidenceItem ev={evFor} />}
-                      {evAgainst && <EvidenceItem ev={evAgainst} />}
-                    </ul>
-                    {(pillar.evidence?.length ?? 0) > 2 && (
-                      <details className="mt-3">
-                        <summary className="inline-flex min-h-11 cursor-pointer items-center rounded text-xs text-secondary dark:text-stone-400 hover:text-primary font-sans focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep">
-                          Show all {pillar.evidence!.length} evidence items
-                        </summary>
-                        <ul className="space-y-2.5 mt-3 list-none p-0">
-                          {pillar
-                            .evidence!.filter((e) => e.id !== evFor?.id && e.id !== evAgainst?.id)
-                            .map((ev) => (
-                              <EvidenceItem key={ev.id} ev={ev} />
-                            ))}
-                        </ul>
-                      </details>
-                    )}
-                  </div>
-                )}
-
-                {/* Crux — falsification framing when available, else the settle-test */}
-                <FalsificationCrux crux={pillar.crux} />
-              </section>
-
-              {/* ─── Where the evidence stands: after the first crux, not
-                  before it. The verdict is one editorial judgment deep; the
-                  crux is what a reader should meet first. ─── */}
-              {idx === 0 && (
-                <section aria-label="Where the evidence stands" className="mt-12">
-                  <h2 className="label-caps mb-3">Where the evidence stands</h2>
-                  <BalanceWeightReadout
-                    balance={topic.balance}
-                    weight={topic.weight}
-                    verdict={topic.verdict}
-                  />
-                  {synthesis && (
-                    <p className="mt-3 font-serif text-[17px] leading-relaxed text-secondary dark:text-stone-400">
-                      {synthesis}
-                    </p>
-                  )}
-                </section>
-              )}
-              </Fragment>
-            );
-          })}
-
-          {/* ─── Sources ─── */}
-          {topic.references?.length ? (
-            <section aria-label="Further reading" className="mt-14">
-              <h2 className="label-caps mb-3">Further reading</h2>
-              <ul className="space-y-2.5 list-none p-0">
-                {topic.references.map((ref, i) => (
-                  <li key={ref.url}>
-                    <CitationCard reference={ref} index={i + 1} />
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-
-          {/* ─── Engagement: community verdict ─── */}
-          <div className="mt-16">
-            <VerdictVoting
-              topicId={topic.id}
-              topicTitle={topic.title}
-              balance={topic.balance}
-            />
-          </div>
-
-          {/* ─── Related topics ─── */}
-          {relatedTopics.length > 0 && (
-            <section aria-label="Related topics" className="mt-4">
-              <h2 className="label-caps mb-3">Related topics</h2>
-              <ul className="grid gap-3 sm:grid-cols-2 list-none p-0">
-                {relatedTopics.map((rt) => (
-                  <li key={rt.id}>
-                    <Link
-                      href={`/topics/${rt.id}`}
-                      className="surface-card card-hover block rounded-lg border border-stone-200/70 dark:border-[var(--border-divider)] px-4 py-3 transition-colors"
-                    >
-                      <div className="label-caps !text-[0.9375rem] mb-1">
-                        {CATEGORY_LABELS[rt.category]}
-                      </div>
-                      <div className="font-serif text-[17px] leading-snug text-primary dark:text-stone-200">
-                        {rt.title}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-
-          {/* ─── Save / track ─── */}
-          <section
-            aria-label="Topic actions"
-            className="mt-10 flex flex-wrap items-center gap-2"
-          >
-            <SaveTopicButton topicId={topic.id} />
-            <SubscribeButton topicId={topic.id} />
-            <EmbedButton topicId={topic.id} />
-          </section>
-          {/* No in-page newsletter form: AppShell's footer already renders one
-              a scroll below, and the topic-specific ask is SubscribeButton above. */}
-        </article>
-
-        {/* ─── Sticky pillar TOC (desktop rail) ─── */}
-        {tocItems.length > 0 && (
-          <nav
-            aria-label="Table of contents"
-            className="hidden lg:block w-56 flex-shrink-0"
-          >
-            <div className="sticky top-24 pt-6">
-              <p className="label-caps mb-3">On this page</p>
-              <ul className="space-y-1.5 list-none p-0 border-l border-stone-200/70 dark:border-[var(--border-divider)]">
-                {tocItems.map((item) => {
-                  const isActive = activeId === item.id;
-                  return (
-                    <li key={item.id} className="-ml-px">
-                      <a
-                        href={`#${item.id}`}
-                        className={`flex min-h-11 items-center border-l-2 pl-3 py-1 text-[13px] leading-snug font-sans transition-colors ${
-                          isActive
-                            ? "border-l-deep text-primary dark:text-stone-200 font-medium"
-                            : "border-l-transparent text-secondary dark:text-stone-400 hover:text-primary"
-                        }`}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </nav>
-        )}
-      </div>
-
-      {/* ─── Mobile TOC (collapsible) ─── */}
-      {tocItems.length > 0 && (
-        <div
-          className={`lg:hidden fixed left-5 z-30 ${floatMotion} ${
-            tocHidden ? floatHidden : floatShown
-          }`}
-          style={floatBottom}
-        >
-          <button
-            type="button"
-            onClick={() => setMobileTocOpen((v) => !v)}
-            aria-expanded={mobileTocOpen}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white/90 dark:bg-card/90 backdrop-blur border border-stone-200/70 dark:border-[var(--border-divider)] px-3.5 py-2.5 text-sm font-sans font-medium text-primary dark:text-stone-200 shadow-lg"
-          >
-            {mobileTocOpen ? <X className="h-4 w-4" aria-hidden /> : <List className="h-4 w-4" aria-hidden />}
-            Contents
-          </button>
-          {mobileTocOpen && (
-            <nav
-              ref={tocRef}
-              aria-label="Table of contents"
-              className="absolute bottom-full mb-2 left-0 w-64 max-h-[60vh] overflow-y-auto rounded-xl bg-white dark:bg-[var(--bg-card)] border border-stone-200/70 dark:border-[var(--border-divider)] shadow-xl p-3"
-            >
-              <ul className="space-y-1 list-none p-0">
-                {tocItems.map((item) => {
-                  const isActive = activeId === item.id;
-                  return (
-                    <li key={item.id}>
-                      <a
-                        href={`#${item.id}`}
-                        onClick={() => setMobileTocOpen(false)}
-                        className={`flex min-h-11 items-center rounded-md px-3 py-2 text-[13px] leading-snug font-sans transition-colors ${
-                          isActive
-                            ? "bg-deep/10 text-primary dark:text-stone-200 font-medium"
-                            : "text-secondary dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)]"
-                        }`}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-          )}
-        </div>
+    <div className="space-y-3">
+      <p className="font-serif text-[1.125rem] leading-snug text-stone-900 dark:text-stone-100">
+        {weighing.label}
+      </p>
+      <FragileVerdictNote fragile={weighing.fragile} />
+      {weighing.heaviest && (
+        <p className="font-serif text-[1rem] leading-relaxed text-secondary dark:text-stone-400">
+          <em className="font-medium text-stone-900 dark:text-stone-100">Heaviest card for:</em>{" "}
+          {weighing.heaviest.forTitle}.{" "}
+          <em className="font-medium text-stone-900 dark:text-stone-100">Heaviest card against:</em>{" "}
+          {weighing.heaviest.againstTitle}.
+        </p>
       )}
-
-      {/* ─── Sticky open-the-map CTA ─── */}
-      <div
-        className={`fixed right-5 z-30 ${floatMotion} lg:visible lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto ${
-          mapHidden ? floatHidden : floatShown
-        }`}
-        style={floatBottom}
-      >
-        <Link
-          href={`/?topic=${encodeURIComponent(topic.id)}&view=logic-map`}
-          className="inline-flex min-h-11 items-center gap-2 rounded-full bg-deep text-white px-4 py-2.5 text-sm font-sans font-medium shadow-lg hover:bg-deep/90 transition-colors"
-        >
-          <Network className="h-4 w-4" aria-hidden />
-          <span className="hidden sm:inline">Open the map</span>
-          <span className="sm:hidden">Map</span>
-          <ArrowRight className="h-4 w-4" aria-hidden />
+      <p className="text-xs leading-relaxed text-muted dark:text-stone-400">
+        Each card is weighed on its source, independence, replicability and directness. That
+        reading is one editorial judgment deep; the questions above are what would move it.{" "}
+        <Link href="/methodology" className="inline-flex min-h-11 items-center link-underline">
+          How cards are weighed →
         </Link>
-      </div>
-    </>
+      </p>
+    </div>
+  );
+}
+
+function LegacyResearcher({
+  topic,
+  cruxes,
+  references,
+}: {
+  topic: Topic;
+  cruxes: LegacyCrux[];
+  references: { title: string; url: string }[];
+}) {
+  const pillarTitle = new Map(topic.pillars.map((p) => [p.id, p.title]));
+  return (
+    <div className="space-y-5">
+      <DetailBlock label="The tests">
+        <ul className="space-y-3">
+          {cruxes.map((crux) => (
+            <li key={crux.anchor}>
+              <p className="text-[12.5px] text-muted dark:text-stone-400">
+                {pillarTitle.get(crux.pillarId)}
+              </p>
+              <p>
+                <span className="font-medium text-stone-800 dark:text-stone-200">
+                  {crux.test.title}.
+                </span>{" "}
+                {crux.settle.condition}
+              </p>
+              <p className="mt-0.5">{crux.test.methodology}</p>
+              <p className="mt-0.5 text-xs text-muted dark:text-stone-400">
+                {crux.settle.note} Cost to run it: {crux.test.cost}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </DetailBlock>
+      {references.length > 0 && (
+        <DetailBlock label="Further reading">
+          <ul className="list-none space-y-2.5 p-0">
+            {references.map((ref, i) => (
+              <li key={ref.url}>
+                <CitationCard reference={ref} index={i + 1} />
+              </li>
+            ))}
+          </ul>
+        </DetailBlock>
+      )}
+    </div>
   );
 }
