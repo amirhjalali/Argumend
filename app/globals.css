@@ -139,10 +139,14 @@
   box-sizing: border-box;
 }
 
+/* `clip`, not `hidden`: `overflow-x: hidden` on html/body makes <body> the
+   scroll container, and the sticky header then has nothing to stick to (it
+   scrolled away on every page). `clip` trims sideways overflow without
+   creating a scroll container, so the window scrolls and the header sticks. */
 html,
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
   background-color: var(--bg-canvas);
   color: var(--text-primary);
   min-height: 100%;
@@ -154,6 +158,13 @@ body {
 body {
   position: relative;
   isolation: isolate;
+}
+
+/* The sticky header is 3.5rem tall. Anchor jumps (#cruxes) and focus moves
+   land a little below it instead of underneath it. Elements that still carry
+   their own `scroll-mt-*` add to this; the page sweep can drop those. */
+html {
+  scroll-padding-top: 4.5rem;
 }
 
 /* Warm background with watercolor accent (top-right corner, like LessWrong) */
@@ -282,6 +293,11 @@ html {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* The header's phone menu sheet slides in from the right. */
+  .animate-sheet-in {
+    animation: sheet-in 180ms cubic-bezier(0.2, 0, 0, 1);
   }
 
   .display-text {
@@ -937,4 +953,19 @@ html {
 
   /* Ensure borders print well */
   .border { border-color: #ccc !important; }
+}
+
+@keyframes sheet-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sheet-in {
+    animation: none;
+  }
 }

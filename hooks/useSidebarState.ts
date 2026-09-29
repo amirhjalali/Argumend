@@ -32,10 +32,11 @@ interface SidebarState {
 }
 
 /**
- * Custom hook for managing sidebar state across the application.
- * Handles responsive behavior and provides consistent controls.
- *
- * Issue #1, #18: Consolidates duplicated sidebar logic from page.tsx and AppShell.tsx
+ * LEGACY (2026-09-29): the header owns navigation and there is no sidebar.
+ * Only the two private copies of the old shell (components/HomeClient.tsx,
+ * app/analyze/page.tsx) still call this; it now starts closed on every
+ * viewport so their empty sidebar column never opens. Delete it with
+ * components/Sidebar.tsx when those files move onto AppShell.
  *
  * Renders closed on the server and derives the desktop default from a
  * subscribe-able media-query snapshot on the client. User actions override the
@@ -44,7 +45,7 @@ interface SidebarState {
  * The choice is not persisted: it lasts while the shell stays mounted.
  */
 export function useSidebarState({
-  desktopDefaultOpen = true,
+  desktopDefaultOpen = false,
 }: { desktopDefaultOpen?: boolean } = {}): SidebarState {
   const isDesktop = useMediaQuery(`(min-width: ${DESKTOP_BREAKPOINT}px)`);
   const [openOverride, setOpenOverride] = useState<boolean | null>(null);

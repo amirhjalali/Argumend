@@ -6,6 +6,7 @@ import { AiConsentLine } from "@/components/AiConsentLine";
 import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE, DISAGREEMENT_LIMITS } from "@/lib/disagreement/constants";
 import { characterBucket, latencyBucket } from "@/lib/disagreement/labels";
+import { ANALYZE_HREF } from "@/lib/nav";
 import type { ArgumentGraph } from "@/types/argument";
 import type { DisagreementContentType, DisagreementReportV1 } from "@/types/disagreement";
 import { AnalysisProgress } from "./AnalysisProgress";
@@ -222,7 +223,7 @@ export function DisagreementAnalyzeClient() {
           className="mt-8 max-w-3xl space-y-2 border-l-2 border-[var(--text-muted)] pl-4"
         >
           <p className="text-[var(--text-primary)]">{error}</p>
-          <Link className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 dark:text-accent-text" href="/analyze">
+          <Link className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 dark:text-accent-text" href={ANALYZE_HREF}>
             Try the limited local parser
           </Link>
         </div>

@@ -18,33 +18,27 @@ function ReadingProgressBar() {
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    // AppShell's main can own scrolling when its flex parent is height-bound,
-    // but long article routes currently grow the document instead. Detect the
-    // element that is actually scrollable rather than assuming either model.
-    const main = document.getElementById("main-content");
-    const scrollContainer =
-      main && main.scrollHeight > main.clientHeight ? main : null;
-    const scrollTarget: HTMLElement | Window = scrollContainer ?? window;
-
+    // The window is the scroll container on every page (the shell no longer
+    // scrolls inside <main>), so progress is plain window scroll.
     const handleScroll = () => {
       if (rafRef.current) return;
       rafRef.current = requestAnimationFrame(() => {
-        const scrollTop = scrollContainer?.scrollTop ?? window.scrollY;
-        const scrollHeight =
-          scrollContainer?.scrollHeight ?? document.documentElement.scrollHeight;
-        const clientHeight = scrollContainer?.clientHeight ?? window.innerHeight;
         setProgress(
-          calculateReadingProgress(scrollTop, scrollHeight, clientHeight),
+          calculateReadingProgress(
+            window.scrollY,
+            document.documentElement.scrollHeight,
+            window.innerHeight,
+          ),
         );
         rafRef.current = 0;
       });
     };
 
-    scrollTarget.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => {
-      scrollTarget.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
