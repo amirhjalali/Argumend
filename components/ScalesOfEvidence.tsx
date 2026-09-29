@@ -337,54 +337,17 @@ function VerdictDisplay({ balance, weight, verdict, forWeight, againstWeight }: 
 }
 
 // Generate evidence from pillars if not explicitly defined
+/**
+ * The map's authored evidence, and only that. A pillar without evidence cards
+ * contributes nothing: this used to invent a "for" and an "against" card from
+ * the pillar prose with fixed weights (9/8/9/8 for the proponent, 4/5/3/5 for
+ * the skeptic), which put a thumb on the scale (2026-09-29 topic evaluation).
+ */
 function generateEvidenceFromTopic(topic: Topic): Evidence[] {
-  const evidence: Evidence[] = [];
-
-  // Use explicit topic-level evidence if available
   if (topic.evidence && topic.evidence.length > 0) {
     return [...topic.evidence];
   }
-
-  // Otherwise, generate from pillars
-  topic.pillars.forEach((pillar) => {
-    // Use explicit pillar evidence if available
-    if (pillar.evidence && pillar.evidence.length > 0) {
-      evidence.push(...pillar.evidence);
-      return;
-    }
-
-    // Generate evidence from proponent rebuttal (FOR)
-    evidence.push({
-      id: `${pillar.id}-for`,
-      title: pillar.title,
-      description: pillar.proponent_rebuttal.slice(0, 200) + (pillar.proponent_rebuttal.length > 200 ? "..." : ""),
-      side: "for",
-      weight: {
-        sourceReliability: pillar.crux.verification_status === "verified" ? 9 : 6,
-        independence: 8,
-        replicability: pillar.crux.verification_status === "verified" ? 9 : 5,
-        directness: 8,
-      },
-      reasoning: `Based on ${pillar.crux.title}: ${pillar.crux.verification_status}`,
-    });
-
-    // Generate evidence from skeptic premise (AGAINST)
-    evidence.push({
-      id: `${pillar.id}-against`,
-      title: `Skeptic: ${pillar.title}`,
-      description: pillar.skeptic_premise.slice(0, 200) + (pillar.skeptic_premise.length > 200 ? "..." : ""),
-      side: "against",
-      weight: {
-        sourceReliability: 4,
-        independence: 5,
-        replicability: 3,
-        directness: 5,
-      },
-      reasoning: "Steel-manned skeptic position for fair consideration",
-    });
-  });
-
-  return evidence;
+  return topic.pillars.flatMap((pillar) => pillar.evidence ?? []);
 }
 
 export function ScalesOfEvidence() {
