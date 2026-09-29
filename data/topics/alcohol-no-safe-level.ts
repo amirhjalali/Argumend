@@ -32,9 +32,9 @@ export const alcoholNoSafeLevelData = {
         "Ethanol is a Group 1 carcinogen, and breast-cancer risk rises measurably from the very first grams per day — with no dose below which the effect 'switches off.'",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "If alcohol is a no-threshold carcinogen, then any positive intake raises lifetime risk of at least one of the seven alcohol-linked cancers (breast, bowel, mouth, throat, larynx, oesophagus, liver). The breast-cancer dose-response is roughly linear all the way down to one drink: a single daily drink (~10 g) raises a woman's relative breast-cancer risk by about 7%. Because cancer risk has no safe floor while any cardiovascular upside is small and contested, the honest summary is that the risk to the drinker starts from the first drop.",
-      proponent_rebuttal:
         "A statistically detectable relative-risk increase is not the same as a meaningful absolute risk: a ~7% relative increase on a low baseline is a tiny absolute change for one drink, and 'no observed threshold' often just reflects insufficient statistical power to resolve a small floor, not proof that one is absent. Cancer is also only one organ system. Net health is what matters, and for some outcomes (ischaemic heart disease, stroke, diabetes) light intake is associated with lower risk, so a no-safe-level claim that fixes only on carcinogenesis cherry-picks the endpoint.",
+      proponent_rebuttal:
+        "If alcohol is a no-threshold carcinogen, then any positive intake raises lifetime risk of at least one of the seven alcohol-linked cancers (breast, bowel, mouth, throat, larynx, oesophagus, liver). The breast-cancer dose-response is roughly linear all the way down to one drink: a single daily drink (~10 g) raises a woman's relative breast-cancer risk by about 7%. Because cancer risk has no safe floor while any cardiovascular upside is small and contested, the honest summary is that the risk to the drinker starts from the first drop.",
       crux: {
         id: "carcinogen-threshold",
         title: "The Carcinogenic Threshold Test",
@@ -104,9 +104,9 @@ export const alcoholNoSafeLevelData = {
         "Cancer is one organ system; the meta-claim is about overall health. Genetic (Mendelian randomization) and bias-corrected studies increasingly find risk rising from zero, but the size of any low-dose harm is genuinely contested.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "When you sum every cause of death, the dose that minimizes total health loss is essentially zero. The Global Burden of Disease 2016 analysis of 195 countries concluded that the level of consumption minimizing harm is zero standard drinks. Mendelian-randomization studies — which use genetic variants as 'natural experiments' immune to lifestyle confounding — find a linear increase in all-cause mortality with genetically predicted intake and no protective dip at modest levels. So the all-cause curve, properly de-confounded, has no safe trough.",
-      proponent_rebuttal:
         "The strongest bias-corrected observational meta-analysis (Zhao et al., 107 cohorts, 4.8 million people) found that low-volume drinkers (under 25 g/day) had a relative risk of death of 0.93 (95% CI 0.85-1.01) — not significantly different from lifetime abstainers, meaning low intake was not shown to raise mortality. And the GBD 2020 update explicitly concluded that adults aged 40+ without underlying conditions may see net benefit from small amounts (one to two drinks/day) for cardiovascular disease, stroke, and diabetes. 'No safe level' overstates a curve whose low end is statistically flat, not clearly upward.",
+      proponent_rebuttal:
+        "When you sum every cause of death, the dose that minimizes total health loss is essentially zero. The Global Burden of Disease 2016 analysis of 195 countries concluded that the level of consumption minimizing harm is zero standard drinks. Mendelian-randomization studies — which use genetic variants as 'natural experiments' immune to lifestyle confounding — find a linear increase in all-cause mortality with genetically predicted intake and no protective dip at modest levels. So the all-cause curve, properly de-confounded, has no safe trough.",
       crux: {
         id: "confounding-vs-causation",
         title: "Confounding vs. Causation at Low Doses",
@@ -212,9 +212,9 @@ export const alcoholNoSafeLevelData = {
         "Decades of observational data showed moderate drinkers outliving abstainers. The fight is over whether that J-shaped curve is real biology or an artifact of who ends up in the 'non-drinker' group.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "The famous J-curve is largely a measurement artifact. When you split 'non-drinkers' into lifetime abstainers versus former drinkers — many of whom quit because they were already sick — the apparent protection of moderate drinking shrinks or vanishes. Studies that fail to make this distinction systematically flatter light drinkers, so the historical 'moderate drinkers live longer' finding cannot establish a genuinely safe level.",
-      proponent_rebuttal:
         "Even in a meta-analysis built by the leading abstainer-bias critics, the unadjusted J-curve was not subtle: across 87 studies, low-volume drinkers had a mortality relative risk of 0.86 (95% CI 0.83-0.90). A signal that large and that consistent across decades and continents is not trivially explained away, and biologically plausible mechanisms (HDL cholesterol, insulin sensitivity, fibrinogen) exist. The honest position is that some of the J-curve is bias and some may be real — which is precisely not 'no safe level, full stop.'",
+      proponent_rebuttal:
+        "The famous J-curve is largely a measurement artifact. When you split 'non-drinkers' into lifetime abstainers versus former drinkers — many of whom quit because they were already sick — the apparent protection of moderate drinking shrinks or vanishes. Studies that fail to make this distinction systematically flatter light drinkers, so the historical 'moderate drinkers live longer' finding cannot establish a genuinely safe level.",
       crux: {
         id: "reference-group-test",
         title: "The Reference-Group Test",
