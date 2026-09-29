@@ -66,6 +66,16 @@ export const scottCostDiseaseData = {
           "\\Delta P_{sector} = s_L \\cdot \\Delta w_{econ} + \\underbrace{\\varepsilon}_{\\text{residual}}",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (public BLS/BEA data; Helland–Tabarrok replication)",
+        falsification: {
+          supporter_flip:
+            "If splitting each sector's real cost growth into a Baumol-predicted wage path and a residual left only a small residual in health, education and construction, the rise would be a mechanical effect of wages rather than a pathology, and the case for a stack of reinforcing causes would weaken.",
+          skeptic_flip:
+            "A skeptic who treats Baumol as the whole story should weigh that it predicts higher prices, not flat output — yet NAEP scores for 17-year-olds are essentially flat since the 1970s as real per-pupil spending rose — and that equally labor-bound services like haircuts and restaurant meals saw only modest real price growth.",
+          common_ground:
+            "Both sides accept Baumol's mechanism as real: labor-intensive services rise in relative price as the rest of the economy automates, so part of the cost rise needs no villain.",
+          live_disagreement:
+            "How large the residual is once Baumol's wage effect is subtracted — small enough to call the rise a mechanical accounting identity, or large enough that other mechanisms dominate.",
+        },
       },
       evidence: [
         {
@@ -159,6 +169,16 @@ export const scottCostDiseaseData = {
           "Using OECD and Himmelstein et al. (2020) accounts, hold outcome measures (life expectancy, amenable mortality) roughly constant and attribute the residual administrative-spending gap between matched systems.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (OECD + Annals of Internal Medicine 2020 data)",
+        falsification: {
+          supporter_flip:
+            "If matched comparisons of systems with similar health outcomes found the administrative gap between U.S. multi-payer care and Canada's single payer mostly buying real coordination rather than paperwork, the bloat layer of the cost-disease stack would weaken.",
+          skeptic_flip:
+            "A skeptic who sees admin growth as coordination cost should weigh that U.S. health-care administration ran about $2,497 per capita versus about $551 in Canada in 2017 — roughly four times — and that university administrator ranks grew far faster than faculty or students for decades.",
+          common_ground:
+            "Both sides agree administration is a large share of U.S. health spending — roughly a third by one estimate — and that no single administrative line explains a several-fold cost rise on its own.",
+          live_disagreement:
+            "How much of the administrative gap at equal outcomes is waste driven by third-party payment, and how much is the genuine coordination cost of modern care and regulation.",
+        },
       },
       evidence: [
         {
@@ -236,6 +256,16 @@ export const scottCostDiseaseData = {
           "\\frac{\\partial \\text{Tuition}}{\\partial \\text{Subsidy}} \\approx 0.60",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (NY Fed Staff Report No. 733)",
+        falsification: {
+          supporter_flip:
+            "If difference-in-differences studies of loan-cap and reimbursement changes found low pass-through — subsidies mostly expanding access rather than raising list prices — subsidy capture would drop out of the cost-disease stack.",
+          skeptic_flip:
+            "A skeptic who notes that pass-through estimates vary widely should weigh the cleanest natural experiment: the New York Fed found roughly 60 cents of each subsidized federal-loan dollar showed up as higher sticker tuition.",
+          common_ground:
+            "Both sides agree K–12 shows cost disease without a tuition-style demand subsidy, so subsidy capture can be at most one layer of the stack, not the general mechanism.",
+          live_disagreement:
+            "How much of each aid or insurance dollar providers capture as higher prices rather than expanded access — large where the federal-loan natural experiment is cleanest, less certain in health care.",
+        },
       },
       evidence: [
         {
@@ -312,6 +342,16 @@ export const scottCostDiseaseData = {
           "Use the Transit Costs Project database to pair comparable tunneling projects internationally; regress out wage and geological controls; the residual country multiple is the dysfunction estimate.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (Transit Costs Project open database)",
+        falsification: {
+          supporter_flip:
+            "If pairing comparable tunneling projects in the Transit Costs Project database and controlling for wages and geology left little residual country multiple, the U.S. gap would be scope and geography rather than dysfunction.",
+          skeptic_flip:
+            "A skeptic who calls the comparisons apples-to-oranges should weigh that matched-project studies still find U.S. subway tunneling at several times French or Korean costs for comparable work, and that real per-mile Interstate spending roughly tripled from the 1960s to the 1980s as litigation and participation requirements grew.",
+          common_ground:
+            "Both sides agree differences in station scope, utility relocation, wages and urban density explain part of the gap between U.S. and peer-nation construction costs.",
+          live_disagreement:
+            "Whether a large U.S. cost multiple survives once wages, geology and scope are controlled for — the one branch of cost disease with no productivity-growth excuse — or whether much of it is measurement.",
+        },
       },
       evidence: [
         {
@@ -388,6 +428,16 @@ export const scottCostDiseaseData = {
           "Construct hedonic/outcome-denominated indices for each sector and compare their trend to the raw price trend. Divergence quantifies how much of 'cost disease' is unpriced quality.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$50K (hedonic index construction across sectors)",
+        falsification: {
+          supporter_flip:
+            "If outcome-denominated price indices — cost per QALY, per NAEP point, per passenger-mile — came out roughly flat, the apparent explosion would be unpriced quality, and the cost-disease claim would reduce to a measurement problem.",
+          skeptic_flip:
+            "A skeptic who sees a statistical illusion should weigh that quality adjustment breaks on schooling, where NAEP scores for 17-year-olds barely moved since the 1970s as real spending rose, and that U.S. life expectancy plateaued in the 2010s and fell before the pandemic even as health spending climbed.",
+          common_ground:
+            "Both sides agree modern medicine delivers real gains — statins, antiretrovirals, modern oncology — that raw price indices ignore, so quality adjustment accounts for at least part of health care's cost rise.",
+          live_disagreement:
+            "How much of the cost rise is unpriced quality once each sector is measured per outcome — plausible for medicine, harder to square with flat test scores and stalled life expectancy.",
+        },
       },
       evidence: [
         {

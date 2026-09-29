@@ -33,6 +33,16 @@ export const affirmativeActionMeritocracyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Multi-decade longitudinal cohort study requiring institutional partnerships and sustained funding)",
+        falsification: {
+          supporter_flip:
+            "If a long-run study following 50,000+ students from kindergarten to careers, controlling for family wealth, school quality and test prep, found test scores predicting later success as well for disadvantaged students as for advantaged ones, 'merit' measures would reflect capability rather than accumulated advantage, and the case for race-conscious correction would weaken.",
+          skeptic_flip:
+            "A skeptic who favors race-blind evaluation should weigh the University of California's finding that family income, parental education and race explain over 40% of the variance in SAT/ACT scores but less than 10% in high school grades, and that legacy applicants from top-1% families have more than a five-fold admissions advantage.",
+          common_ground:
+            "Both sides agree disadvantage starts long before the university gate — median white family wealth was $171,000 versus $17,600 for Black families in 2022 — and that K-12 opportunity matters.",
+          live_disagreement:
+            "Whether test scores and credentials measure individual ability or encode accumulated advantage — and so whether the remedy belongs at admission or earlier, in schools and neighborhoods.",
+        },
       },
       evidence: [
         {
@@ -131,6 +141,16 @@ export const affirmativeActionMeritocracyData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 (IPEDS enrollment data is publicly available; state-level analyses exist)",
+        falsification: {
+          supporter_flip:
+            "If selective universities in states that banned affirmative action, and all of them after SFFA, reached representation and graduation outcomes comparable to race-conscious admissions within a reasonable time through income-based preferences, percentage plans and outreach, the claim that race-conscious policies are necessary would weaken.",
+          skeptic_flip:
+            "A skeptic who backs race-neutral alternatives should weigh that after Proposition 209 underrepresented minority enrollment fell 50% at UC Berkeley and 43% at UCLA, that Bleemer found the ban lowered minority students' graduation odds and wages, and that Stanford simulations found income-based preferences fall well short of the diversity lost.",
+          common_ground:
+            "Both sides agree minority enrollment at the most selective campuses fell after bans like California's Proposition 209, and that race-neutral tools such as Texas's Top 10% rule restore some diversity.",
+          live_disagreement:
+            "Whether race-neutral strategies can fully recover that diversity given enough time and institutional commitment, or only partially, leaving representation lower in ways that compound.",
+        },
       },
       evidence: [
         {
@@ -246,6 +266,16 @@ export const affirmativeActionMeritocracyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-8M (Multi-site longitudinal study with survey and qualitative components)",
+        falsification: {
+          supporter_flip:
+            "If long-run surveys of 10,000 students at 50 universities, plus attitude data from states with and without bans, found race-conscious policies mainly producing backlash and stigma rather than cross-racial friendships and reduced prejudice, the social case for them would weaken.",
+          skeptic_flip:
+            "A skeptic who fears resentment should weigh that multiple reanalyses have challenged the mismatch hypothesis, that students exposed to racial diversity in college show greater civic engagement and reduced prejudice, and that Brazil's 2012 quotas raised Black and mixed-race federal university enrollment from 33% to 50% with no measurable decline in academic quality.",
+          common_ground:
+            "Both sides agree more Americans disapprove than approve of considering race in admissions — 50% to 33% in a June 2023 Pew survey — and that international cases from India to Brazil offer mixed lessons.",
+          live_disagreement:
+            "Whether race-conscious policies build cross-racial understanding and role models, or generate resentment and stigma that undercut their own goals — which long-run attitude data from states with and without bans could show.",
+        },
       },
       evidence: [
         {

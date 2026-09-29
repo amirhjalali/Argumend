@@ -33,6 +33,16 @@ export const minneapolisShootingData = {
           "P(\\text{excessive force}) = f(\\text{threat level}, \\text{response proportionality}, \\text{de-escalation attempts})",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (Footage exists but access blocked)",
+        falsification: {
+          supporter_flip:
+            "If complete, unedited body-camera footage from every agent present, cross-checked against bystander video timestamps and witness statements, showed Pretti holding a gun and approaching officers as DHS described, the case that the shooting was excessive force would largely fall away.",
+          skeptic_flip:
+            "A skeptic who accepts the self-defense account should weigh that multiple independent recordings reviewed by NPR, Reuters, BBC, the NYT, CNN and The Guardian show a different sequence than officials described, with reviewers reporting Pretti held a phone rather than a gun, and that he held a valid Minnesota permit to carry.",
+          common_ground:
+            "Both sides agree federal agents shot and killed Alex Pretti on January 24, 2026, and that agents' body-camera footage exists and bears directly on what happened.",
+          live_disagreement:
+            "Whether Pretti was holding a gun and posed the threat DHS describes, or held a phone as independent video reviewers report — which complete body-camera footage, cross-checked against bystander video, would show.",
+        },
       },
       evidence: [
         {
@@ -138,6 +148,16 @@ export const minneapolisShootingData = {
           "R_{force} = \\frac{\\text{incidents}_{fatal}}{\\text{encounters}_{total}} \\times 10^6",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (Independent audit)",
+        falsification: {
+          supporter_flip:
+            "If an independent comparison found CBP and ICE use-of-force training hours, de-escalation requirements and accountability mechanisms on par with accredited police departments, the two January shootings would read as separate incidents turning on their own facts rather than a systemic problem.",
+          skeptic_flip:
+            "A skeptic who sees two unrelated incidents should weigh that two U.S. citizens were shot dead by federal agents in one state within roughly three weeks — Renée Good on January 7 and Alex Pretti on January 24, 2026 — and that if federal training and de-escalation rules fall short of local police standards, the pattern points to training, rules or supervision.",
+          common_ground:
+            "Both sides agree two U.S. citizens were killed by federal agents in Minnesota in January 2026, during an enforcement surge amid large protests.",
+          live_disagreement:
+            "Whether two deaths in three weeks reflect gaps in federal training, rules of engagement or supervision, or the predictable result of more confrontations in volatile crowds, each turning on its own contested facts.",
+        },
       },
     },
   ],

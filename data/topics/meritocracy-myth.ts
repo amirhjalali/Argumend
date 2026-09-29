@@ -74,6 +74,16 @@ export const meritocracyMythData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$200K (longitudinal tax record analysis + statistical modeling)",
+        falsification: {
+          supporter_flip:
+            "If linked tax records showed low intergenerational income elasticity across quintiles once heritable traits are controlled for, with bottom-quintile children commonly reaching the top, the claim that success is mainly inherited rather than earned would weaken.",
+          skeptic_flip:
+            "A skeptic who sees mobility as alive should weigh that absolute mobility fell from about 90% for Americans born in 1940 to about 50% for those born in the early 1980s, driven mostly by more unequal growth, and that a child born in the bottom quintile has only about a 7.5% chance of reaching the top.",
+          common_ground:
+            "Both sides accept Chetty's figures: a child born in the bottom income quintile has about a 7.5% chance of reaching the top, ranging from roughly 4% to 13% by region.",
+          live_disagreement:
+            "Whether that regional variation shows local opportunity and effort shaping outcomes, or structural barriers that make climbing from the bottom a statistical exception.",
+        },
       },
       evidence: [
         {
@@ -177,6 +187,16 @@ export const meritocracyMythData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$500K (longitudinal study analysis + natural experiment data)",
+        falsification: {
+          supporter_flip:
+            "If sibling, adoption and variance-decomposition studies attributed most adult income variation to individual factors — effort, talent, choices — rather than parental wealth, zip code, schools and networks, the claim that meritocracy is a myth would weaken.",
+          skeptic_flip:
+            "A skeptic who credits agency should weigh that in the randomized Moving to Opportunity experiment, children who moved to low-poverty neighborhoods before age 13 earned about 31% more as young adults, and that among top-1% families, legacy applicants are roughly five times as likely to be admitted.",
+          common_ground:
+            "Both sides agree some structural advantages exist — legacy admissions, better-funded schools in richer zip codes, family networks — and that individual effort and ability also play a part.",
+          live_disagreement:
+            "How large a share of income differences comes from factors outside a person's control, and whether financial aid and expanded access are correcting those advantages or leaving them to compound.",
+        },
       },
       evidence: [
         {
@@ -277,6 +297,16 @@ export const meritocracyMythData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$150K (cross-national survey + experimental studies)",
+        falsification: {
+          supporter_flip:
+            "If cross-national surveys and priming experiments found that stronger meritocratic belief increases support for education funding, healthcare access and other equalizing policies, the claim that the belief mainly legitimizes inequality would weaken.",
+          skeptic_flip:
+            "A skeptic who values meritocratic belief should weigh system-justification research linking it to rationalizing inequality — crediting the advantaged and blaming the disadvantaged — and Sandel's argument that meritocratic sorting has bred elite hubris and eroded solidarity.",
+          common_ground:
+            "Both sides agree the evidence here is contested: growth-mindset and grit effects are smaller than once advertised, and the link between meritocratic belief and weaker support for redistribution is debated.",
+          live_disagreement:
+            "Whether belief in meritocracy on balance motivates effort and fuels reform, as civil-rights advocates invoked it, or legitimizes existing inequality by framing it as deserved.",
+        },
       },
       evidence: [
         {

@@ -28,6 +28,16 @@ export const meaningWithoutReligionData = {
           "Recruit matched cohorts of committed secular humanists and committed religious practitioners. Measure meaning in life (MLQ), life satisfaction (SWLS), psychological resilience, social connectedness, and coping with adversity over a 10-year period. Control for income, education, health, and social network size.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$3M (10-year longitudinal cohort study)",
+        falsification: {
+          supporter_flip:
+            "If a 10-year matched comparison of committed secular humanists and committed believers, controlling for income, education, health and social networks, found the secular group consistently lower on meaning, resilience and connectedness, the claim that secular life can fully supply these goods would weaken.",
+          skeptic_flip:
+            "A skeptic who sees religion as a uniquely complete package should weigh that among the nonreligious, wellbeing tracks whether people find their worldview comforting and belong to a community, not unbelief itself, and that Finland, Denmark, Sweden and the Netherlands, among the most secular nations, rank in the World Happiness Report's top 10.",
+          common_ground:
+            "Both sides agree community and belonging are central to what makes religion work for people, and that the happiness of secular nations may owe more to strong welfare states than to irreligion.",
+          live_disagreement:
+            "Whether secular frameworks and nonreligious communities can supply the whole package — purpose, belonging, ritual, comfort in suffering — or only fragments of it, and whether Pew's happiness gap (36% 'very happy' among the actively religious vs. 25% of the unaffiliated) reflects belief or community.",
+        },
       },
       evidence: [
         {
@@ -108,6 +118,16 @@ export const meaningWithoutReligionData = {
           "Large-scale behavioral study comparing prosocial behavior (charitable giving, honesty in economic games, volunteering, altruistic punishment of unfairness) between religious and secular individuals. Control for community participation, income, education, and social desirability bias. Use behavioral measures, not self-report.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (Cross-cultural behavioral economics study)",
+        falsification: {
+          supporter_flip:
+            "If behavioral studies — charitable giving, honesty in economic games, volunteering — found religious people reliably more prosocial than committed secular people after controlling for community participation, income, education and social desirability, the claim that secular foundations are fully adequate for ethics would weaken.",
+          skeptic_flip:
+            "A skeptic who doubts secular ethics should weigh that the Euthyphro dilemma shows morality can be articulated and justified without appeal to a deity, and that modern secular societies with the lowest religious belief sustain low crime, high social trust and robust prosocial norms.",
+          common_ground:
+            "Both sides accept that secular ethics offers several competing foundations — flourishing, contracts, Kant's categorical imperative — and that the Euthyphro dilemma does not by itself refute divine-command theory.",
+          live_disagreement:
+            "Whether moral claims without a transcendent ground carry binding authority or only strong preference — and whether religious belief predicts more moral behavior than secular commitment once community is accounted for.",
+        },
       },
       evidence: [
         {

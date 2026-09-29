@@ -74,6 +74,16 @@ export const iranWarJustificationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 (IAEA reports are public; independent technical assessments available from FAS and Princeton SGS)",
+        falsification: {
+          supporter_flip:
+            "If independent technical assessments found the steps beyond enrichment — metal conversion, pit fabrication, implosion design, miniaturization, missile integration — would take Iran well over a year, with no sign of material diverted to a weaponization track, the case that the threat is near enough to justify strikes would weaken.",
+          skeptic_flip:
+            "A skeptic who sees Iraq-style threat inflation should weigh that the core measurements come from the IAEA itself, not national intelligence alone: about 408 kg of 60% enriched uranium as of May 2025, particles at 83.7% at Fordow, and verification gaps after Iran removed JCPOA cameras in 2022 and de-designated experienced inspectors in 2023.",
+          common_ground:
+            "Both sides agree Iran holds about 408 kg of 60% enriched uranium and could produce enough fissile material within weeks, while turning it into a deliverable warhead would take longer.",
+          live_disagreement:
+            "How close Iran is to a deliverable weapon rather than to fissile material alone, and whether acting before an unambiguous sign of weaponization is prudent or repeats the Iraq error of compressed urgency.",
+        },
       },
       evidence: [
         {
@@ -182,6 +192,16 @@ export const iranWarJustificationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K (open-source intelligence analysis + captured weapons forensics + satellite imagery)",
+        falsification: {
+          supporter_flip:
+            "If mapping the supply chains for Hezbollah's precision-guided missiles, Houthi anti-ship missiles and militia drones showed these groups largely self-sufficient, and past cases of weakened state sponsors left proxy capability intact, striking Iran would not buy the attrition its advocates expect.",
+          skeptic_flip:
+            "A skeptic who fears a regional war should weigh that the proxies were already fighting without any strike on Iran — Hezbollah opened fire on October 8, 2023, the Houthis attacked Red Sea shipping, and militias attacked US forces more than 180 times — and that the IRGC Quds Force supplies their strategic direction, weapons and funding.",
+          common_ground:
+            "Both sides agree Iran's proxies have fought on several fronts since October 2023 — Hezbollah against northern Israel, the Houthis in the Red Sea — and that no single strike would eliminate them.",
+          live_disagreement:
+            "Whether degrading Iran's military-industrial base would raise the cost of sustaining its proxies, or hand them a casus belli for coordinated retaliation by groups able to fight on their own, as Hezbollah's arsenal grew after 2006.",
+        },
       },
       evidence: [
         {
@@ -290,6 +310,16 @@ export const iranWarJustificationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 (diplomatic records, UN proceedings, and media reporting are publicly available)",
+        falsification: {
+          supporter_flip:
+            "If mapping every formal proposal since 2018 showed realistic offramps — a cap-and-freeze interim deal, talks via Oman or Qatar — left unpursued or undercut by the US rather than rejected by Iran on the merits, the claim that diplomacy was exhausted would fail.",
+          skeptic_flip:
+            "A skeptic who says diplomacy was abandoned should weigh that the JCPOA's core limits expire around 2030-2031, that it never covered ballistic missiles, and that EU-led revival talks reached a near-final draft in 2022 before collapsing over Iran's demand that the IRGC be delisted as a terrorist organization.",
+          common_ground:
+            "Both sides agree the JCPOA capped enrichment at 3.67% under IAEA monitoring while it was in force, and that its core limits were set to lapse around 2030-2031.",
+          live_disagreement:
+            "Whether diplomacy failed on its merits — sunset clauses, missiles and Iran's rejections — or was abandoned when the US left a deal Iran was complying with, and whether offramps like a cap-and-freeze deal remain realistic.",
+        },
       },
       evidence: [
         {

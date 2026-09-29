@@ -70,6 +70,16 @@ export const childrenSmartphoneAgeData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-8M (Large-scale randomized controlled trial with biomarker analysis)",
+        falsification: {
+          supporter_flip:
+            "If a 12-month trial randomizing 1,000 adolescents to full smartphones, phones with social media and algorithmic feeds blocked, basic phones or no phone found no differences in mental health, sleep or stress markers, the developmental-harm case for a ban would lose its causal footing.",
+          skeptic_flip:
+            "A skeptic who points to small effect sizes should weigh that total screen time is a noisy proxy that may dilute the effects of social media in particular, that persistent sadness among US teen girls rose from 36% in 2011 to 57% in 2021, and that the suicide rate for girls aged 10-14 more than doubled over roughly the same period.",
+          common_ground:
+            "Both sides agree average associations between screen time and wellbeing are small — in the r = 0.05-0.15 range — and that much of the experimental literature is contested or methodologically weak.",
+          live_disagreement:
+            "Whether specific features — algorithmic feeds, notifications, social comparison, lost sleep — cause real harm that screen-time averages hide, or whether the small correlations reflect other causes of the youth mental-health decline.",
+        },
       },
       evidence: [
         {
@@ -151,6 +161,16 @@ export const childrenSmartphoneAgeData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1.5M (Multi-national comparative epidemiological analysis)",
+        falsification: {
+          supporter_flip:
+            "If a comparison across 30+ countries found the onset of adolescent mental-health decline varying independently of each country's smartphone adoption, once economic conditions, safety nets and education systems are controlled for, alternative explanations would gain ground and the case for a ban would weaken.",
+          skeptic_flip:
+            "A skeptic who sees many possible causes should weigh that the post-2012 decline appears across the US, UK, Canada, Australia and Scandinavia — countries with very different economies and safety nets — while few proposed alternatives show the same sharp inflection or cross-national pattern.",
+          common_ground:
+            "Both sides agree the cross-national data are noisier than advocates sometimes suggest, with some countries fitting poorly, and that observational dose-response patterns are confounded.",
+          live_disagreement:
+            "Whether the near-simultaneous decline across countries with different economies points specifically to smartphones and social feeds, or whether a multi-causal story — the financial crisis aftermath, academic pressure, other crises — explains it better.",
+        },
       },
       evidence: [
         {
@@ -215,6 +235,16 @@ export const childrenSmartphoneAgeData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$400K-1M (Community comparison study with longitudinal mental health tracking)",
+        falsification: {
+          supporter_flip:
+            "If communities running Wait Until 8th or phone-free school programs for two or more years reached 70%+ adoption and removed the social-exclusion penalty, voluntary action would solve the coordination problem and a government ban would be unnecessary.",
+          skeptic_flip:
+            "A skeptic who prefers voluntary approaches should weigh that the Wait Until 8th pledge has drawn wide attention but limited participation, that each family faces a dilemma in which giving the phone dominates whatever others do, and that Australia began enforcing an under-16 social media ban in December 2025.",
+          common_ground:
+            "Both sides agree the collective-action problem is real: a child without a smartphone risks social exclusion when every peer has one, so single families struggle to hold out alone.",
+          live_disagreement:
+            "Whether voluntary pledges, phone-free schools and design regulation can reach the critical mass that removes the exclusion penalty, or whether only an age rule can — and whether one could be enforced without being toothless or invasive.",
+        },
       },
       evidence: [
         {

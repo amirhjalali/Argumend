@@ -29,6 +29,16 @@ export const billionaireWealthData = {
           "Cross-national panel regression comparing wealth Gini coefficients with intergenerational earnings elasticity, controlling for education, tax policy, and institutional quality.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1.5M (Multi-country longitudinal economic study)",
+        falsification: {
+          supporter_flip:
+            "If cross-national panels comparing wealth concentration with intergenerational earnings mobility found no link once education, tax policy and institutional quality are controlled for, the claim that extreme wealth harms society by blunting mobility would weaken.",
+          skeptic_flip:
+            "A skeptic who sees billionaires as job creators should weigh that the top 1% hold roughly 30% of US household net worth while the bottom 50% hold about 2.5%, a gap that has widened substantially since the late 1980s, and that a large share of foundational innovation originates in publicly funded labs and research grants.",
+          common_ground:
+            "Both sides accept the Federal Reserve's picture — the top 1% hold roughly 30% of US household net worth, the bottom 50% about 2.5% — and that billionaire-founded firms such as Amazon employ very large numbers of people.",
+          live_disagreement:
+            "Whether extreme concentration itself blunts social mobility and distorts markets, or whether it and weaker mobility both stem from other structural causes — and whether the jobs and innovation billionaires create outweigh that harm.",
+        },
       },
       evidence: [
         {
@@ -129,6 +139,16 @@ export const billionaireWealthData = {
           "Extend Gilens & Page methodology: compare policy outcomes with preferences of different income groups across a larger sample of policy issues.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$800K (Updated policy responsiveness study)",
+        falsification: {
+          supporter_flip:
+            "If extending the Gilens & Page method to a larger set of policy issues found outcomes tracking the median voter about as closely as the wealthy, the claim that concentrated wealth buys outsized political power would weaken.",
+          skeptic_flip:
+            "A skeptic who trusts disclosure rules and philanthropy should weigh Gilens & Page's finding, across 1,779 policy issues, that economic elites and business groups shaped outcomes while average citizens had little independent influence, and that federal lobbying hit a record $4.4B in 2024.",
+          common_ground:
+            "Both sides agree the very wealthy shape public life well beyond their own vote, through political giving and through philanthropy such as the Gates Foundation's global-health funding.",
+          live_disagreement:
+            "Whether that influence systematically tilts policy toward elite preferences and away from the median voter, or whether disclosure rules, competing donors and philanthropy's public benefits keep it in check.",
+        },
       },
       evidence: [
         {

@@ -65,6 +65,16 @@ export const molochData = {
           "\\text{Cooperation sustainable} \\iff \\delta \\geq \\frac{T - R}{T - P}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (game-theoretic modeling of observed payoff structures)",
+        falsification: {
+          supporter_flip:
+            "If estimates of continuation probability and player anonymity showed the domains held up as Moloch traps — international competition, advertising, factory-farming standards — sitting above the Folk Theorem threshold where cooperation is self-enforcing, the claim that competition systematically sacrifices values there would weaken.",
+          skeptic_flip:
+            "A skeptic who calls the Prisoner's Dilemma a toy should weigh that mutual defection in the one-shot game is a theorem, and that wherever exit is cheap, horizons are short or players are too many for reputation to bind, real payoffs approximate that one-shot case.",
+          common_ground:
+            "Both sides accept the game theory itself: defection dominates the one-shot Prisoner's Dilemma, and the Folk Theorem makes cooperation sustainable in repeated games with a long enough shadow of the future.",
+          live_disagreement:
+            "Which real domains are effectively one-shot — cheap exit, short horizons, anonymous players — and which are repeated games where reputation and contracts sustain cooperation.",
+        },
       },
       evidence: [
         {
@@ -124,6 +134,16 @@ export const molochData = {
           "Take Ostrom's eight design principles and test their presence/absence against outcomes across resource systems spanning orders of magnitude in scale (village irrigation to global fisheries to the atmosphere). Measure whether principle-satisfaction predicts escape from the trap independent of scale.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (meta-analysis of existing common-pool-resource case studies)",
+        falsification: {
+          supporter_flip:
+            "If Ostrom's eight design principles predicted escape from the trap as well in global fisheries or the atmosphere as in village irrigation, independent of scale, the claim that races to the bottom are the default without an overriding mechanism would weaken.",
+          skeptic_flip:
+            "A skeptic who cites Ostrom should weigh that her success stories describe bounded, high-trust communities, while competitive industrial fishing drove the Northern cod off Newfoundland to commercial extinction and a 1992 moratorium, and the stock has never fully recovered.",
+          common_ground:
+            "Both sides accept that Ostrom documented many long-enduring commons governed by locally designed rules without a central authority, and that unmanaged open-access resources like the Grand Banks cod can collapse.",
+          live_disagreement:
+            "Whether the principles that let bounded, high-trust communities govern a commons scale up to anonymous, planetary competition, or whether local success stories fail to generalize.",
+        },
       },
       evidence: [
         {
@@ -219,6 +239,16 @@ export const molochData = {
           "Track surplus-per-capita against population/agent-count growth across regimes; for AI specifically, measure whether competing labs' safety expenditure diverges upward or converges toward a competitive floor as capability stakes rise.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 today (retrospective growth data); the AI case is unfolding, not yet settled",
+        falsification: {
+          supporter_flip:
+            "If competing AI labs' safety spending rose rather than converging toward a competitive floor as capability stakes grew, and surplus per capita kept outrunning growth in the number of agents, the claim that technology sharpens Moloch would weaken.",
+          skeptic_flip:
+            "A skeptic who points to the escape from Malthus should weigh that it may rest on growth outpacing population rather than a repeal of the logic, and that where copying is near-instant — Hanson's emulated minds — or a race to deploy AI makes caution a handicap, competitors who spend on safety can be outcompeted.",
+          common_ground:
+            "Both sides agree that for roughly two centuries since industrialization, real incomes and populations rose together across the developed world — the opposite of what Malthus predicted.",
+          live_disagreement:
+            "Whether technology permanently raises the ceiling faster than competition consumes the surplus, or only postpones a Malthusian return once growth slows or copying becomes cheap — with the AI deployment race as the live test.",
+        },
       },
       evidence: [
         {
@@ -313,6 +343,16 @@ export const molochData = {
           "There is no way to run the experiment safely: building a value-aligned singleton to test the claim is precisely the risk the AI-safety field warns against, and a misaligned one is catastrophic. The claim can only be probed indirectly, via whether any large-scale, indefinitely stable coordination has ever survived without a top-level sovereign.",
         verification_status: "impossible" as const,
         cost_to_verify: "Not verifiable without incurring the very risk in question",
+        falsification: {
+          supporter_flip:
+            "If polycentric governance — overlapping, semi-autonomous authorities of the kind Ostrom studied — held a large-scale coordination problem stable indefinitely without a top-level sovereign, the claim that only a singleton can durably override the incentives would fail.",
+          skeptic_flip:
+            "A skeptic who calls the singleton a counsel of despair should weigh the structural argument: states race against states, treaties are undercut by defectors and norms erode under competition, so any coordinator embedded in the competition can itself be outcompeted.",
+          common_ground:
+            "Both sides agree a singleton powerful enough to override all competition would itself be a grave hazard — Bostrom flags the risk of locking in catastrophic values — and that the claim cannot be safely tested by building one.",
+          live_disagreement:
+            "Whether every coordinator embedded in the competition is eventually outcompeted, so only a singleton can hold the line, or whether polycentric governance can hold it indefinitely — a question that may not be testable in advance.",
+        },
       },
       evidence: [
         {
@@ -390,6 +430,16 @@ export const molochData = {
           "Assemble a corpus of international and large-scale coordination attempts (ozone, climate, fisheries, arms control, trade). Code each for outcome and for the underlying incentive conditions (cost of substitutes, verifiability, number of players). Test whether success correlates with favorable game structure rather than with will alone.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (the historical treaty and commons record is documented)",
+        falsification: {
+          supporter_flip:
+            "If a coded corpus of coordination attempts — ozone, climate, fisheries, arms control, trade — showed success at a high rate regardless of substitute costs, verifiability or the number of players, Moloch would look like a tendency humans routinely defeat rather than the default.",
+          skeptic_flip:
+            "A skeptic who cites the Montreal Protocol should weigh that it succeeded partly because substitutes were cheap and the science unusually clear, and that climate coordination, where abatement is costly and free-riding easy, has repeatedly fallen short of its targets.",
+          common_ground:
+            "Both sides accept the successes as real — the Montreal Protocol is healing the ozone layer, and arms-control treaties cut deployed warheads by large margins — and that some coordination efforts have fallen short.",
+          live_disagreement:
+            "Whether cooperation's successes show a general human capacity to defeat Moloch, or cluster where the game is favorable — cheap substitutes, clear science, few players — and fail where it is not.",
+        },
       },
       evidence: [
         {

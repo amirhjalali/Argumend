@@ -33,6 +33,16 @@ export const rfkHealthPolicyData = {
         verification_status: "impossible" as const,
         cost_to_verify:
           "Ethically prohibited as an RCT; ~$10-50M for the strongest observational alternative (large linked-cohort study)",
+        falsification: {
+          supporter_flip:
+            "If large linked-database studies such as the Vaccine Safety Datalink, self-controlled case series and cross-country comparisons kept finding no schedule-wide harm — as the 2011 Institute of Medicine review of more than 1,000 studies did — while preventable diseases like measles returned, restructuring the schedule would cost health rather than improve it.",
+          skeptic_flip:
+            "A skeptic who treats the schedule as beyond question should weigh that no large modern randomized trial has compared the full schedule with a lighter one, that a 2022 CDC-authored study found an association between cumulative vaccine aluminum and persistent asthma (its authors flagged possible confounding), and that past advisory bodies had documented industry ties.",
+          common_ground:
+            "Both sides agree individual vaccines are well studied, that no randomized trial has compared the full schedule with a lighter one, and that MMR is safe and effective for most people — Kennedy said so in April 2026 testimony.",
+          live_disagreement:
+            "Whether the missing whole-schedule trial is an ethics artifact, with surveillance data already answering the safety question, or a real evidence gap that justifies redesigning the schedule and demoting vaccines like hepatitis B at birth.",
+        },
       },
       evidence: [
         {
@@ -131,6 +141,16 @@ export const rfkHealthPolicyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$20-100M (large multi-year inpatient/controlled-feeding trial; the smaller pilot protocol has repeatedly lacked sustained NIH funding)",
+        falsification: {
+          supporter_flip:
+            "If a scaled-up controlled-feeding trial matching calories, macronutrients, sugar and sodium found no difference in metabolic or cardiovascular outcomes between ultra-processed and minimally processed diets, and the dye phase-out stayed a non-binding industry understanding, MAHA's food agenda would do little to change chronic disease.",
+          skeptic_flip:
+            "A skeptic who sees symbolism should weigh that Hall's NIH inpatient trial found people ate roughly 500 extra calories a day on an ultra-processed diet, that large cohorts such as NutriNet-Santé link ultra-processed intake to cardiovascular and all-cause mortality, and that the GRAS loophole genuinely lets companies declare their own additives safe.",
+          common_ground:
+            "Both sides agree the GRAS self-affirmation pathway lets companies add ingredients without FDA review, and that even critics like Marion Nestle share MAHA's concerns about Big Food.",
+          live_disagreement:
+            "How much chronic disease is caused by processing itself rather than calories, sugar, salt, lifestyle and genetics — and whether MAHA's food actions are binding policy or announcements without enforcement.",
+        },
       },
       evidence: [
         {
@@ -229,6 +249,16 @@ export const rfkHealthPolicyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-20M (large prospective biomarker cohort at low-dose exposure; existing dose-response data at 0.5-1.0 mg/L is sparse)",
+        falsification: {
+          supporter_flip:
+            "If biomarker-based studies at 0.5-1.0 mg/L found no neurodevelopmental harm and a meaningful cavity benefit, especially for low-income children, ending the CDC recommendation would cost dental health for no gain, and this part of the agenda would fail.",
+          skeptic_flip:
+            "A skeptic who defends fluoridation should weigh the October 2024 Cochrane review finding the cavity benefit has shrunk since fluoride toothpaste spread — about 0.24 fewer decayed baby teeth per child in post-1975 studies — and the NTP and JAMA Pediatrics evidence of an inverse fluoride-IQ association at higher doses.",
+          common_ground:
+            "Both sides agree harm is established only above 1.5 mg/L, more than twice the US level of 0.7 mg/L, and that direct evidence at 0.7 mg/L itself is thin.",
+          live_disagreement:
+            "Whether fluoridation at 0.7 mg/L still clears the benefit-harm line now that toothpaste supplies much of the protection, or whether ending it would reverse decades of cavity prevention for children with little dental access.",
+        },
       },
       evidence: [
         {
@@ -328,6 +358,16 @@ export const rfkHealthPolicyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (multi-decision regulatory forensic audit cross-referencing financial-disclosure and evidence records)",
+        falsification: {
+          supporter_flip:
+            "If an audit of contested ACIP recommendations, GRAS determinations and accelerated approvals found decisions tracking the evidence available at the time, no more industry-favoring than those of conflict-free panels or foreign regulators, the capture rationale for dismissing expert panels would fail.",
+          skeptic_flip:
+            "A skeptic who calls capture unproven should weigh research, including Prasad's, showing that drugs approved on surrogate endpoints often fail or never complete their confirmatory trials yet stay on the market for years, alongside the revolving door between regulators and industry and the GRAS self-affirmation gap.",
+          common_ground:
+            "Both sides agree transparency and conflict-of-interest disclosure are legitimate goals, and that MAHA contains competing factions: Prasad's push for stricter approvals and Makary's move to loosen them.",
+          live_disagreement:
+            "Whether documented industry ties distorted specific recommendations enough to justify dismissing expert panels wholesale, or whether the restructuring damaged institutional capacity without delivering coherent reform.",
+        },
       },
       evidence: [
         {
