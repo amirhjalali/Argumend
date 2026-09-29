@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 /**
  * Home is a server component inside the site shell, like every other page.
  * The React Flow canvas that used to live here (`/?topic=…`) is gone: that
- * URL now redirects to the map's own page (next.config.js, "home + story").
+ * URL now redirects to the map's page or diagram (proxy.ts, legacyHomeTopicPath).
  */
 export default function HomePage() {
   return (

@@ -134,17 +134,12 @@ const nextConfig = {
       },
       // ── end maps library ──────────────────────────────────────────────
       // ── home + story (ux/home-story, 2026-09-29) ─────────────────────────
-      // Home no longer hosts the legacy canvas. `/?topic=:id` (with any
-      // `view`) opened it; every map lives at /topics/:id. Next merges the
-      // incoming query into the destination, so `view=read` is set here to
-      // override a `view=logic-map`, which the legacy topic page would
-      // otherwise bounce straight back to `/?topic=` (a redirect loop).
-      {
-        source: '/',
-        has: [{ type: 'query', key: 'topic', value: '(?<id>.*)' }],
-        destination: '/topics/:id?view=read',
-        permanent: true,
-      },
+      // Home no longer hosts the legacy canvas. Its links, `/?topic=:id`
+      // with any `view`, are redirected by proxy.ts (legacyHomeTopicPath in
+      // lib/dynamicRoutePolicy.ts), not here: a rule here would carry the
+      // stale `topic`/`view` query onto the map's URL, and it would run
+      // before the proxy could drop them. `view=graph|logic-map` goes to
+      // the diagram, /topics/:id/map; anything else to /topics/:id.
       // The story lives on one page. /how-it-works and /community were
       // folded into /about.
       {
