@@ -9,7 +9,6 @@
  *
  * Server-safe: no hooks, no client directive.
  */
-import Link from "next/link";
 import type { Topic } from "@/lib/schemas/topic";
 import { getCrossCategoryRelatedSummaries, topicSummaries } from "@/data/topicIndex";
 import {
@@ -23,6 +22,7 @@ import { TopicPage, type CruxEntryView, type TopicFold } from "@/components/topi
 import { DetailBlock, SOURCE_LINK } from "@/components/topic/cruxPrimitives";
 import { FragileVerdictNote } from "@/components/FragileVerdictNote";
 import { CitationCard } from "@/components/CitationCard";
+import { TextAction } from "@/components/ui";
 
 const MADE_BY =
   "Steel-manned positions for both sides, weighed evidence cards, and the test that could settle each crux.";
@@ -71,12 +71,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
       afterCruxes={
         page.diagramHref ? (
           <p className="mt-2">
-            <Link
-              href={page.diagramHref}
-              className="inline-flex min-h-11 items-center text-sm text-secondary dark:text-stone-400 link-underline hover:text-stone-900 dark:hover:text-stone-100"
-            >
-              See it as a diagram →
-            </Link>
+            <TextAction href={page.diagramHref}>See it as a diagram →</TextAction>
           </p>
         ) : undefined
       }
@@ -173,9 +168,9 @@ function EvidenceWeighs({ weighing }: { weighing: LegacyWeighing }) {
       <p className="text-xs leading-relaxed text-muted dark:text-stone-400">
         Each card is weighed on its source, independence, replicability and directness. That
         reading is one editorial judgment deep; the questions above are what would move it.{" "}
-        <Link href="/methodology" className="inline-flex min-h-11 items-center link-underline">
+        <TextAction href="/methodology" className="!text-xs">
           How cards are weighed →
-        </Link>
+        </TextAction>
       </p>
     </div>
   );

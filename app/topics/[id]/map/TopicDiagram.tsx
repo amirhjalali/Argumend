@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import { PAGE_GUTTER, PAGE_WIDTHS, TextAction } from "@/components/ui";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import { useIsHydrated, useIsMobile } from "@/hooks/useMediaQuery";
 
@@ -26,13 +26,10 @@ export function TopicDiagram({ topicId, title }: { topicId: string; title: strin
 
   return (
     <div className="flex flex-col">
-      <div className="mx-auto w-full max-w-[66rem] px-4 pb-4 pt-3 sm:px-6 lg:px-8">
-        <Link
-          href={`/topics/${topicId}`}
-          className="inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-deep link-underline dark:text-[#8fc0bb]"
-        >
+      <div className={`mx-auto w-full ${PAGE_WIDTHS.default} ${PAGE_GUTTER} pb-4 pt-4 sm:pt-6`}>
+        <TextAction href={`/topics/${topicId}`} className="gap-1.5">
           <span aria-hidden="true">←</span> Back to the map page
-        </Link>
+        </TextAction>
         <p className="label-caps mt-2">Diagram</p>
         <h1 className="mt-1 text-balance font-serif text-[1.75rem] leading-tight text-stone-900 dark:text-stone-100 sm:text-[2rem]">
           {title}

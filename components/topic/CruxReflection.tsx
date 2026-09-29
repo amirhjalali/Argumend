@@ -12,6 +12,7 @@
  * with other readers. Stored in this browser only; nothing is sent or counted.
  */
 import { useCallback, useEffect, useState } from "react";
+import { TextAction } from "@/components/ui";
 
 export interface ReflectionOption {
   id: string;
@@ -103,7 +104,7 @@ export function CruxReflection({
     <section
       id="reflect"
       aria-labelledby="reflect-heading"
-      className="mt-12 scroll-mt-20 surface-paper rounded-lg p-4 sm:p-5"
+      className="mt-12 surface-paper rounded-lg p-4 sm:p-5"
     >
       <h2
         id="reflect-heading"
@@ -164,13 +165,9 @@ export function CruxReflection({
           </div>
           <p role="status" className="mt-3 text-xs text-muted dark:text-stone-400">
             {answer.changed ? "Kept in this browser only." : "Noted in this browser only."}{" "}
-            <button
-              type="button"
-              onClick={clear}
-              className="inline-flex min-h-11 items-center font-medium text-secondary dark:text-stone-300 link-underline"
-            >
+            <TextAction onClick={clear} className="!text-xs">
               Clear my answer
-            </button>
+            </TextAction>
           </p>
         </div>
       )}

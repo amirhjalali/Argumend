@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Code, Copy, Check, X } from "lucide-react";
 import { copyTextToClipboard } from "@/lib/copyToClipboard";
 import { useModalAccessibility } from "@/hooks/useModalAccessibility";
+import { buttonClasses } from "@/components/ui";
 
 interface EmbedButtonProps {
   topicId: string;
@@ -13,8 +14,7 @@ interface EmbedButtonProps {
   align?: "left" | "right";
 }
 
-const LABELLED_CLASS =
-  "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-stone-200/80 bg-white/80 px-3 py-2 text-sm font-medium text-secondary dark:text-stone-300 transition-colors hover:border-stone-300/80 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:border-[var(--border-default)] dark:bg-card/80 dark:hover:text-stone-100";
+const LABELLED_CLASS = buttonClasses({ variant: "secondary", className: "!px-4" });
 
 export function EmbedButton({ topicId, labelled = false, align = "left" }: EmbedButtonProps) {
   const [open, setOpen] = useState(false);

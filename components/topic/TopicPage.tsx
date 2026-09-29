@@ -20,6 +20,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PAGE_GUTTER, PAGE_TITLE_SIZES, PAGE_WIDTHS, Section, TextAction } from "@/components/ui";
 import {
   CRUX_SHEET,
   ENTRY_COLUMN,
@@ -87,11 +88,13 @@ export function TopicPage({
   return (
     // The route wraps this in AppShell, which owns <main id="main-content">
     // and the site navigation.
+    // The reading column is the site's reading width (PageContainer
+    // "reading"); desktop adds the rail beside it inside the default width.
     <div
-      className="mx-auto w-full max-w-[66rem] px-4 pb-16 pt-3 sm:px-6 lg:grid lg:grid-cols-[minmax(0,42rem)_14rem] lg:justify-center lg:gap-14 lg:px-8"
+      className={`mx-auto w-full ${PAGE_WIDTHS.default} ${PAGE_GUTTER} pb-16 pt-4 sm:pt-6 lg:grid lg:grid-cols-[minmax(0,44rem)_13rem] lg:justify-center lg:gap-12`}
       data-topic-kind={page.kind}
     >
-      <article className="min-w-0">
+      <article className={`mx-auto w-full min-w-0 ${PAGE_WIDTHS.reading} lg:mx-0`}>
         <TopicHeader page={page} />
         <AgreementBlock heading={page.agreementHeading} items={page.agreement} />
         <CruxSheet page={page} cruxes={cruxes} />
@@ -167,7 +170,11 @@ export function TopicHeader({ page }: { page: TopicPageData }) {
           </>
         )}
       </p>
-      <h1 className="mt-2 text-balance font-serif text-[2.25rem] leading-[1.08] tracking-[-0.02em] text-stone-900 dark:text-stone-100 sm:text-[2.75rem]">
+      {/* The site's page-title scale (components/ui PageHeader "page"); the
+          display size would push the crux sheet off the first screen. */}
+      <h1
+        className={`mt-2 text-balance font-serif font-normal tracking-[-0.018em] text-primary ${PAGE_TITLE_SIZES.page}`}
+      >
         {page.title}
       </h1>
       {page.subtitle && (
@@ -219,7 +226,7 @@ export function AgreementBlock({ heading, items }: { heading: string; items: str
     <section
       id="agreement"
       aria-labelledby="agreement-heading"
-      className="mt-6 scroll-mt-20 surface-paper rounded-lg border-l-[3px] border-l-deep/70 p-4 dark:border-l-[#8bb5b1]/60 sm:px-5 sm:py-4"
+      className="mt-6 surface-paper rounded-lg border-l-[3px] border-l-deep/70 p-4 dark:border-l-[#8bb5b1]/60 sm:px-5 sm:py-4"
     >
       <h2
         id="agreement-heading"
@@ -249,29 +256,23 @@ export function AgreementBlock({ heading, items }: { heading: string; items: str
 export function CruxSheet({ page, cruxes }: { page: TopicPageData; cruxes: CruxEntryView[] }) {
   if (cruxes.length === 0) return null;
   return (
-    <section id="cruxes" aria-labelledby="cruxes-heading" className="mt-9 scroll-mt-20">
-      <h2
-        id="cruxes-heading"
-        className="font-serif text-[1.625rem] leading-tight text-stone-900 dark:text-stone-100"
-      >
-        {cruxSheetHeading(cruxes.length)}
-      </h2>
+    <Section
+      id="cruxes"
+      title={cruxSheetHeading(cruxes.length)}
+      lede={page.cruxTally ? `Settle one and whole positions move. ${page.cruxTally}` : undefined}
+      className="mt-8"
+    >
       {page.cruxLede && (
-        <p className="mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300">
+        <p className="-mt-2 text-pretty font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-300">
           {page.cruxLede}
         </p>
       )}
-      {page.cruxTally && (
-        <p className="mt-2 text-sm leading-relaxed text-muted dark:text-stone-400">
-          Settle one and whole positions move. {page.cruxTally}
-        </p>
-      )}
-      <ol className={`mt-5 ${CRUX_SHEET}`}>
+      <ol data-crux-sheet="" className={`${page.cruxLede ? "mt-5" : ""} ${CRUX_SHEET}`}>
         {cruxes.map((crux, index) => (
           <CruxEntry key={crux.anchor} crux={crux} index={index} />
         ))}
       </ol>
-    </section>
+    </Section>
   );
 }
 
@@ -284,7 +285,7 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
   const hasBody =
     crux.runIns.length > 0 || crux.flips || crux.afterRunIns || crux.evidence;
   return (
-    <li id={crux.anchor} className={`${MARGIN_RULE} scroll-mt-20`}>
+    <li id={crux.anchor} className={MARGIN_RULE}>
       <details className="group/crux">
         <summary
           className={`${ENTRY_GRID} cursor-pointer list-none py-5 pr-4 transition-colors hover:bg-stone-900/[0.018] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep motion-reduce:transition-none dark:hover:bg-white/[0.025] dark:focus-visible:ring-[#6fa39e] sm:py-6 [&::-webkit-details-marker]:hidden`}
@@ -437,17 +438,8 @@ export function PositionCards({
 }) {
   if (cards.length === 0) return null;
   return (
-    <section id="positions" aria-labelledby="positions-heading" className="mt-12 scroll-mt-20">
-      <h2
-        id="positions-heading"
-        className="font-serif text-xl text-stone-900 dark:text-stone-100"
-      >
-        {heading}
-      </h2>
-      {note && (
-        <p className="mt-1 text-xs leading-relaxed text-muted dark:text-stone-400">{note}</p>
-      )}
-      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+    <Section id="positions" title={heading} lede={note} className="mt-10">
+      <ul className="grid gap-3 sm:grid-cols-2">
         {cards.map((card) => (
           <li
             key={card.id}
@@ -508,7 +500,7 @@ export function PositionCards({
           </li>
         ))}
       </ul>
-    </section>
+    </Section>
   );
 }
 
@@ -524,7 +516,7 @@ export function TopicFolds({ folds }: { folds: TopicFold[] }) {
         <details
           key={fold.id}
           id={fold.id}
-          className="group/fold surface-card scroll-mt-20 rounded-lg"
+          className="group/fold surface-card rounded-lg"
         >
           <summary className="cursor-pointer list-none rounded-lg p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
             <span className="flex items-start gap-3">
@@ -564,34 +556,35 @@ function TopicFooter({
 }) {
   return (
     <footer className="mt-12">
-      <nav aria-label="Related maps" className="mb-5">
-        <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100">Keep exploring</h2>
-        <ul className="mt-1 text-sm">
-          {related.map((topic) => (
-            <li key={topic.id}>
+      <nav aria-label="Related maps">
+        <Section title="Keep exploring" level={2}>
+          <ul className="-mt-3 text-sm">
+            {related.map((topic) => (
+              <li key={topic.id}>
+                <Link
+                  href={`/topics/${topic.id}`}
+                  className="inline-flex min-h-11 items-center link-underline text-stone-800 dark:text-stone-200"
+                >
+                  {topic.title} →
+                </Link>
+              </li>
+            ))}
+            <li>
               <Link
-                href={`/topics/${topic.id}`}
+                href="/topics"
                 className="inline-flex min-h-11 items-center link-underline text-stone-800 dark:text-stone-200"
               >
-                {topic.title} →
+                Browse all topics →
               </Link>
             </li>
-          ))}
-          <li>
-            <Link
-              href="/topics"
-              className="inline-flex min-h-11 items-center link-underline text-stone-800 dark:text-stone-200"
-            >
-              Browse all topics →
-            </Link>
-          </li>
-        </ul>
+          </ul>
+        </Section>
       </nav>
-      <p className="text-xs leading-relaxed text-muted dark:text-stone-400">
+      <p className="mt-5 text-xs leading-relaxed text-muted dark:text-stone-400">
         {madeBy}{" "}
-        <Link href="/methodology" className="inline-flex min-h-11 items-center link-underline">
+        <TextAction href="/methodology" className="!text-xs">
           How this map was made →
-        </Link>
+        </TextAction>
       </p>
     </footer>
   );

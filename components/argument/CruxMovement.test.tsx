@@ -259,7 +259,7 @@ describe("DebateView crux cards with a ledger", () => {
     const { container } = render(
       <DebateView meta={meta} graph={graph} cruxes={cruxes} ledger={[opened, narrowed, fork]} />,
     );
-    const cards = [...container.querySelectorAll("#cruxes > ol > li")];
+    const cards = [...container.querySelectorAll("#cruxes [data-crux-sheet] > li")];
     const byClaim = (claimId: string) =>
       cards.find((card) => card.querySelector(`#movement-${claimId}`)) as HTMLElement;
 
@@ -353,7 +353,7 @@ describe("DebateView crux entries lead with how each could close", () => {
       <DebateView meta={base} graph={graph} cruxes={cruxes} ledger={[fork]} />,
     );
     const summaries = [
-      ...container.querySelectorAll<HTMLElement>("#cruxes > ol > li > details > summary"),
+      ...container.querySelectorAll<HTMLElement>("#cruxes [data-crux-sheet] > li > details > summary"),
     ];
     expect(summaries.length).toBe(cruxes.length);
     for (const summary of summaries) {

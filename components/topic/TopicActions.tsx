@@ -9,9 +9,7 @@ import { Share2 } from "lucide-react";
 import { SaveTopicButton } from "@/components/SaveTopicButton";
 import { EmbedButton } from "@/components/EmbedButton";
 import { ShareButtons } from "@/components/ShareButtons";
-
-export const ACTION_BUTTON =
-  "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-stone-200/80 bg-white/80 px-3 py-2 text-sm font-medium text-secondary dark:text-stone-300 transition-colors hover:border-stone-300/80 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:border-[var(--border-default)] dark:bg-card/80 dark:hover:text-stone-100";
+import { Button } from "@/components/ui";
 
 function subscribeNothing() {
   return () => {};
@@ -95,15 +93,15 @@ export function ShareTopicButton({
 
   return (
     <div className="relative" ref={panelRef}>
-      <button
-        type="button"
+      <Button
+        variant="secondary"
         onClick={onClick}
         aria-expanded={canShare ? undefined : open}
-        className={ACTION_BUTTON}
+        className="!px-4"
       >
         <Share2 className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
         Share
-      </button>
+      </Button>
       {open && (
         <div
           role="group"

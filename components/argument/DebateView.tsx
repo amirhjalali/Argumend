@@ -12,7 +12,6 @@
  * <details>); no canvas bundle; designed at 390px.
  */
 import Image from "next/image";
-import Link from "next/link";
 import type {
   ArgumentGraph,
   ArgumentEdge,
@@ -36,6 +35,7 @@ import {
   settleMode,
   settleTally,
 } from "@/components/topic/cruxPrimitives";
+import { Chip, TextAction } from "@/components/ui";
 import { DivergenceChart } from "./DivergenceChart";
 import { ShareCard } from "./ShareCard";
 import { CruxMovementLedger, CruxMovementTrack } from "./CruxMovement";
@@ -242,12 +242,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
       afterCruxes={
         AI_MAP_IDS.has(meta.id) ? (
           <p className="mt-2">
-            <Link
-              href="/ai"
-              className="inline-flex min-h-11 items-center text-sm text-secondary dark:text-stone-300 link-underline hover:text-stone-900 dark:hover:text-stone-100"
-            >
-              What has moved across the AI maps →
-            </Link>
+            <TextAction href="/ai">What has moved across the AI maps →</TextAction>
           </p>
         ) : undefined
       }
@@ -443,14 +438,6 @@ function ResearcherClaim({
         <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
       </div>
     </details>
-  );
-}
-
-function Chip({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-block rounded-full border border-stone-300 px-2 py-0.5 text-[11px] font-medium text-muted dark:border-[var(--border-divider)] dark:text-stone-400">
-      {children}
-    </span>
   );
 }
 

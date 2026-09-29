@@ -101,10 +101,7 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "app/topics/TopicsPageClient.tsx" },
   // ShareVerdictCard's rasterized title pins literal ink (`text-[#3d3a36]`)
   // since 2026-09-22: the brand tokens now flip in dark mode, so a bare token
-  // there would go light-on-light. VerdictVoting's "compare" card gained a
-  // dark surface instead, so it uses the canonical pair. Neither needs an
-  // exemption.
-  { path: "components/VerdictVoting.tsx" },
+  // there would go light-on-light, and it needs no exemption.
   { path: "app/methodology/page.tsx" },
   { path: "app/how-it-works/page.tsx" },
   { path: "app/lessons-from-the-deep/page.tsx" },

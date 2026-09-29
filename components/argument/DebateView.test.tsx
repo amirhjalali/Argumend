@@ -202,7 +202,7 @@ describe("DebateView", () => {
     // Crux headlines carry at most the two meaningful chips — never the
     // epistemic/status tag soup the critique flagged.
     const cruxSummaries = [
-      ...cruxSection.querySelectorAll<HTMLElement>("ol > li > details > summary"),
+      ...cruxSection.querySelectorAll<HTMLElement>("[data-crux-sheet] > li > details > summary"),
     ];
     expect(cruxSummaries.length).toBe(cruxes.length);
     for (const [index, summary] of cruxSummaries.entries()) {

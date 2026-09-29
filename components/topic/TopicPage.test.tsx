@@ -40,7 +40,7 @@ function expectCruxFirstOrder(container: HTMLElement, { agreement }: { agreement
   expect(before(positions, reflection)).toBe(true);
   expect(before(reflection, researcher)).toBe(true);
   // Every crux entry leads with what would settle it.
-  const entries = cruxes.querySelectorAll(":scope > ol > li");
+  const entries = cruxes.querySelectorAll("[data-crux-sheet] > li");
   expect(entries.length).toBeGreaterThan(0);
   for (const entry of entries) {
     expect(entry.querySelector("summary [data-settle]")).not.toBeNull();
@@ -111,7 +111,7 @@ describe("one crux-first template for every map", () => {
     const text = view.container.textContent ?? "";
     expect(text).not.toMatch(SCOREBOARD);
     expect(text).not.toContain("REQUIRES AUTHORING");
-    const questions = [...view.container.querySelectorAll("#cruxes > ol > li h3 > span:first-child")].map((h) =>
+    const questions = [...view.container.querySelectorAll("#cruxes [data-crux-sheet] > li h3 > span:first-child")].map((h) =>
       h.textContent?.trim(),
     );
     expect(questions).toEqual(topic.pillars.map((p) => p.crux.title));
@@ -163,6 +163,6 @@ describe("the one-tap reflection", () => {
     ).toBe("somewhat");
 
     const text = reflection.textContent ?? "";
-    expect(text).not.toMatch(/%|readers|not alone|further than|lean/i);
+    expect(text).not.toMatch(/%|readers|not alone|further than|\blean\b/i);
   });
 });

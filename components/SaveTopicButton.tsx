@@ -4,6 +4,7 @@ import { useCallback, useId, useState } from "react";
 import { Bookmark } from "lucide-react";
 
 import { useSavedTopics } from "@/hooks/useSavedTopics";
+import { buttonClasses } from "@/components/ui";
 
 interface SaveTopicButtonProps {
   topicId: string;
@@ -65,7 +66,12 @@ export function SaveTopicButton({ topicId, labelled = false }: SaveTopicButtonPr
         aria-pressed={hydrated ? saved : undefined}
         aria-label={label}
         aria-describedby={message ? statusId : undefined}
-        className={`inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)] disabled:cursor-wait disabled:opacity-60 ${
+        className={labelled
+          ? buttonClasses({
+              variant: "secondary",
+              className: `!px-4 disabled:cursor-wait ${saved ? "!border-deep/50 text-deep dark:text-accent-text" : ""}`,
+            })
+          : `inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)] disabled:cursor-wait disabled:opacity-60 ${
           saved
             ? "bg-[#b05434] text-white border-[#b05434] hover:bg-[#8b3f27] hover:border-[#8b3f27]"
             : error
