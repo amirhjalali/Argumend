@@ -178,10 +178,12 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
     const f = crux.falsification;
     const live = f?.live_disagreement?.trim();
     const ground = f?.common_ground?.trim();
+    const authored = crux.question?.trim();
+    const liveRunIn = authored && live ? [{ lead: "Where the fight is.", text: live }] : [];
     return {
       anchor: `crux-${pillar.id}`,
       pillarId: pillar.id,
-      question: live || crux.title,
+      question: authored || live || crux.title,
       shortLabel: pillar.title,
       kicker: pillar.title,
       settle: {
@@ -191,7 +193,10 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
         label: "What would settle it",
         note: TESTABILITY[crux.verification_status],
       },
-      runIns: ground && !agreement.includes(ground) ? [{ lead: "Both agree.", text: ground }] : [],
+      runIns: [
+        ...liveRunIn,
+        ...(ground && !agreement.includes(ground) ? [{ lead: "Both agree.", text: ground }] : []),
+      ],
       flips: f ? { supporter: f.supporter_flip, skeptic: f.skeptic_flip } : undefined,
       evidence: evidenceItems(pillar.evidence),
       test: {
@@ -205,7 +210,7 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
   const page: TopicPageData = {
     id: topic.id,
     kind: "legacy",
-    title: topic.title,
+    title: topic.question?.trim() || topic.title,
     crumb: topic.title,
     subtitle: { lead: "The claim", text: topic.meta_claim },
     reviewedOn: topic.last_updated,

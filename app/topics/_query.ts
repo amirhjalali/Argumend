@@ -91,7 +91,7 @@ export const DEBATE_MAP_ENTRIES: LibraryEntry[] = argumentTopicIndex.map((topic)
 const TOPIC_ENTRIES: LibraryEntry[] = topicSummaries.map((topic) => ({
   id: topic.id,
   href: `/topics/${topic.id}`,
-  title: topic.title,
+  title: topic.question ?? topic.title,
   summary: topic.meta_claim,
   category: topic.category,
   kind: "topic",

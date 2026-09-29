@@ -11,6 +11,7 @@ import { join } from "path";
 const summaries = topics.map((t) => ({
   id: t.id,
   title: t.title,
+  ...(t.question ? { question: t.question } : {}),
   meta_claim: t.meta_claim,
   confidence_score: t.confidence_score,
   balance: t.balance,
