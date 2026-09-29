@@ -69,6 +69,23 @@ describe("production packaging contracts", () => {
     expect(packageJson.scripts.analyze).toBe("ANALYZE=true bun --bun next build");
   });
 
+  it("runs the Playwright suite in CI against the built server, never under vitest", () => {
+    const ci = read(".github/workflows/ci.yml");
+    expect(ci).toContain("bunx playwright install --with-deps --only-shell chromium");
+    expect(ci).toContain("bun run test:e2e");
+    expect(ci).toContain("actions/upload-artifact@v4");
+
+    const packageJson = JSON.parse(read("package.json")) as {
+      scripts: Record<string, string>;
+      devDependencies: Record<string, string>;
+    };
+    expect(packageJson.scripts["test:e2e"]).toBe("playwright test -c e2e/playwright.config.ts");
+    expect(packageJson.devDependencies["@playwright/test"]).toMatch(/^\d+\.\d+\.\d+$/);
+
+    expect(read("vitest.config.mts")).toContain('"e2e/**"');
+    expect(read("e2e/playwright.config.ts")).toContain('ENABLE_LIVE_ANALYZE_API: "false"');
+  });
+
   it("smokes every core offline workflow with providers and persistence disabled", () => {
     const smoke = read("scripts/smoke-standalone.mjs");
 

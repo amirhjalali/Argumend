@@ -13,7 +13,8 @@ export default defineConfig({
     globals: true,
     include: ["**/*.test.ts", "**/*.test.tsx"],
     // Agent worktrees and tool artifacts live under .claude/; never collect their copies of the suite.
-    exclude: ["**/node_modules/**", "**/.claude/**", "**/.playwright-mcp/**", "**/.next/**"],
+    // e2e/ is the Playwright suite (`bun run test:e2e`), run against a built server, not here.
+    exclude: ["**/node_modules/**", "**/.claude/**", "**/.playwright-mcp/**", "**/.next/**", "e2e/**"],
     coverage: {
       reporter: ["text", "html"],
       exclude: [
