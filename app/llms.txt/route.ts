@@ -7,6 +7,7 @@ import {
   SITE_URL,
 } from "@/lib/site";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 const BASE = SITE_URL;
 
@@ -70,7 +71,7 @@ Corpus last reviewed: ${CONTENT_LAST_UPDATED}.
     const lines = inCat
       .map(
         (t) =>
-          `- [${t.title}](${BASE}/topics/${t.id}): ${t.meta_claim} (balance: ${t.balance}/100; weight: ${t.weight}/100; verdict: ${t.verdict.label})`,
+          `- [${mapDisplayTitle(t)}](${BASE}/topics/${t.id}): ${t.meta_claim} (balance: ${t.balance}/100; weight: ${t.weight}/100; verdict: ${t.verdict.label})`,
       )
       .join("\n");
     return `## ${CATEGORY_LABELS[cat]}\n${lines}`;

@@ -2,6 +2,7 @@ import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
 import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
 import { argumentTopicIndex, type ArgumentTopicId } from "@/lib/argument/topicIds";
 import { parsePageParam } from "@/lib/collectionPagination";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 /**
  * The maps library's query model, shared by the server page (metadata,
@@ -91,7 +92,7 @@ export const DEBATE_MAP_ENTRIES: LibraryEntry[] = argumentTopicIndex.map((topic)
 const TOPIC_ENTRIES: LibraryEntry[] = topicSummaries.map((topic) => ({
   id: topic.id,
   href: `/topics/${topic.id}`,
-  title: topic.question ?? topic.title,
+  title: mapDisplayTitle(topic),
   summary: topic.meta_claim,
   category: topic.category,
   kind: "topic",

@@ -13,6 +13,7 @@ import { classifyQuestion } from "@/lib/questionMeta";
 import { legacyTopicPage } from "@/lib/topicPage/legacy";
 import { getTopicMentions, buildTopicLinkTargets } from "@/lib/topic-links";
 import { mapLinkFor } from "@/lib/learn/nextStep";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 import { buildTopicOgUrl } from "@/lib/og";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { ArticleLayout, type RelatedItem } from "@/components/learn/ArticleLayout";
@@ -122,7 +123,10 @@ export default async function QuestionPage({ params }: PageProps) {
       href: `/questions/${v.slug}`,
       title: v.question,
       kind: "Question",
-      description: topicSummaries.find((t) => t.id === v.topicId)?.title,
+      description: (() => {
+        const summary = topicSummaries.find((t) => t.id === v.topicId);
+        return summary ? mapDisplayTitle(summary) : undefined;
+      })(),
     }));
 
   // QAPage: the answer describes what the question turns on, never a verdict.
@@ -165,8 +169,8 @@ export default async function QuestionPage({ params }: PageProps) {
           <span className="text-primary">{kind.plain}</span> {kind.description}
         </>
       }
-      meta={`${CATEGORY_LABELS[topic.category]} · from the map “${topic.title}”`}
-      nextMap={mapLinkFor(topic.id) ?? { href: `/topics/${topic.id}`, title: topic.title }}
+      meta={`${CATEGORY_LABELS[topic.category]} · from the map “${mapDisplayTitle(topic)}”`}
+      nextMap={mapLinkFor(topic.id) ?? { href: `/topics/${topic.id}`, title: mapDisplayTitle(topic) }}
       nextMapLabel="Read the whole map"
       related={related}
       chrome={<JsonLd data={qaPageJsonLd} />}

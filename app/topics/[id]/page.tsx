@@ -19,6 +19,7 @@ import {
   CONTENT_FIRST_PUBLISHED,
   CONTENT_LAST_UPDATED,
 } from "@/lib/site";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 // ---------------------------------------------------------------------------
 // Static Generation
@@ -94,7 +95,7 @@ export async function generateMetadata({
     : buildTopicOgUrl(topic.id);
   // The question the map answers when one is authored (what the h1 shows);
   // otherwise the short label.
-  const pageTitle = topic.question ?? topic.title;
+  const pageTitle = mapDisplayTitle(topic);
 
   return {
     // The map's headline alone, as on the flagship maps: the /topics layout's
@@ -124,7 +125,7 @@ export async function generateMetadata({
           url: socialImage,
           width: media?.hero.width ?? 1200,
           height: media?.hero.height ?? 630,
-          alt: media?.hero.alt ?? topic.title,
+          alt: media?.hero.alt ?? pageTitle,
         },
       ],
     },
@@ -248,7 +249,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
         data={{
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: topic.title,
+          headline: mapDisplayTitle(topic),
           description: topic.meta_claim,
           url: `https://argumend.org/topics/${topic.id}`,
           image: socialImage,

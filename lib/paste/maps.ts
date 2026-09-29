@@ -54,6 +54,7 @@ import type {
   PasteMapMatch,
   PasteMapsResult,
 } from "./types";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 export const MAP_MATCH = {
   /**
@@ -281,13 +282,13 @@ function pillarMatch(topic: Topic, text: string): PasteMapMatch {
 
   return {
     id: topic.id,
-    title: topic.title,
+    title: mapDisplayTitle(topic),
     claim: topic.meta_claim,
     href: topicHref(topic.id),
     kind: "map",
     crux,
     cards,
-    cardsAbout: "map-claim",
+    cardsAbout: topic.question?.trim() ? "map-question" : "map-claim",
   };
 }
 

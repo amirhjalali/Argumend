@@ -52,7 +52,7 @@ export interface DiagramCruxNode {
   kicker?: string;
   settle: SettleView;
   runIns: RunInText[];
-  flips?: { supporter: string; skeptic: string };
+  flips?: LegacyCrux["flips"];
   test: LegacyCrux["test"];
   /** The same crux on the map page. */
   pageHref: string;
@@ -63,7 +63,7 @@ export interface DiagramSideNode {
   id: string;
   parentId: string;
   side: DiagramSide;
-  /** "Supporters" / "Skeptics", the page's position-card labels. */
+  /** "Says yes" / "Says no" (or "Supporters" / "Skeptics"), the page's position-card labels. */
   heading: string;
   /** The first sentence of this pillar's case, shown on the node. */
   label: string;
@@ -93,7 +93,7 @@ export type DiagramNode =
 
 export interface DiagramModel {
   topicId: string;
-  /** The short title, for the route header. */
+  /** The map's name, as the page's H1 has it (lib/mapNaming.ts). */
   title: string;
   /** Every node in reading order: the order of the page, and the tab order. */
   nodes: DiagramNode[];
@@ -171,7 +171,7 @@ export function buildDiagram(topic: Topic): DiagramModel {
     }
   });
 
-  return { topicId: topic.id, title: topic.title, nodes };
+  return { topicId: topic.id, title: page.title, nodes };
 }
 
 /** A node's children, in model order. */

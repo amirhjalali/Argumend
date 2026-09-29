@@ -2,9 +2,14 @@
 // Internal Cross-Linking Utility
 // ============================================================================
 
+import { mapDisplayTitle } from "@/lib/mapNaming";
+
 interface TopicLinkTarget {
   id: string;
+  /** The short label, matched as a phrase in running text. */
   title: string;
+  /** The map's name for readers (lib/mapNaming.ts), used in the link's tooltip. */
+  question?: string;
 }
 
 /**
@@ -67,7 +72,7 @@ export function getTopicMentions(
           start,
           end,
           topicId: topic.id,
-          topicTitle: topic.title,
+          topicTitle: mapDisplayTitle(topic),
           matchedText: match[0],
         });
         usedRanges.push([start, end]);
@@ -112,5 +117,5 @@ export function getTopicMentions(
 export function buildTopicLinkTargets(
   topics: readonly TopicLinkTarget[]
 ): TopicLinkTarget[] {
-  return topics.map((t) => ({ id: t.id, title: t.title }));
+  return topics.map((t) => ({ id: t.id, title: t.title, ...(t.question ? { question: t.question } : {}) }));
 }

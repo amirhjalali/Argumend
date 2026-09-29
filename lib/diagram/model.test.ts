@@ -34,7 +34,7 @@ describe("buildDiagram: the page's story as a tree", () => {
     topic.pillars.forEach((pillar, i) => {
       const crux = childrenOf(diagram, "question")[i];
       const sides = childrenOf(diagram, crux.id);
-      expect(sides.map((s) => (s.kind === "side" ? s.heading : ""))).toEqual(["Supporters", "Skeptics"]);
+      expect(sides.map((s) => (s.kind === "side" ? s.heading : ""))).toEqual(["Says yes", "Says no"]);
       const [supporters, skeptics] = sides;
       if (supporters.kind !== "side" || skeptics.kind !== "side") throw new Error("not sides");
       expect(supporters.text).toBe(pillar.proponent_rebuttal);

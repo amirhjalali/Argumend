@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renderMapReplyMarkdown > renders the recorded rent-control reply 1`] = `
-"**Argumend map: Does Rent Control Help or Hurt Renters?**
+"**Argumend map: Does rent control make housing less affordable in the long run?**
 The map's claim: Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.
 
 The largest share of this thread (4 of 8 turns) is arguing about **Supply Effects**. 1 of 8 turns was not an argument about the topic. Some turns argue about different sections of the map as if they were one disagreement. A key term is being used to mean different things.

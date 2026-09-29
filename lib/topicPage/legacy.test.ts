@@ -31,9 +31,10 @@ describe("legacyTopicPage", () => {
     ]);
 
     expect(page.kind).toBe("legacy");
-    // The h1 is the map's authored question; the short label stays the crumb.
+    // One name per map: the h1 is the map's authored question, and the
+    // breadcrumb says the same (it truncates on one line), not the old label.
     expect(page.title).toBe(topic.question ?? topic.title);
-    expect(page.crumb).toBe(topic.title);
+    expect(page.crumb).toBe(page.title);
     // A question headline states the claim, so the "The claim:" line is
     // dropped; label-titled maps keep it.
     expect(page.subtitle).toEqual(
@@ -65,6 +66,10 @@ describe("legacyTopicPage", () => {
       expect(crux.flips).toEqual({
         supporter: pillar.crux.falsification!.supporter_flip,
         skeptic: pillar.crux.falsification!.skeptic_flip,
+        // "Yes" to the map's question, said in full: the crux question just
+        // above may be worded the other way round.
+        supporterLead: "Someone who says yes to the map’s question would change their mind if…",
+        skepticLead: "Someone who says no to the map’s question would change their mind if…",
       });
       // Common ground already shown up top is not repeated in the fold.
       expect(crux.runIns).toEqual(
@@ -76,7 +81,9 @@ describe("legacyTopicPage", () => {
     }
 
     // Two position cards built from the pillar texts, each shown once.
-    expect(page.positions.map((p) => p.label)).toEqual(["Supporters", "Skeptics"]);
+    // Named by their answer to the question the reader sees, not "Supporters"
+    // of a claim the page no longer shows.
+    expect(page.positions.map((p) => p.label)).toEqual(["Says yes", "Says no"]);
     expect(page.positions[0].full.map((f) => f.text)).toEqual(
       topic.pillars.map((p) => p.proponent_rebuttal),
     );

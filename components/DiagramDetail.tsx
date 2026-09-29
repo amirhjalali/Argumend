@@ -104,7 +104,7 @@ function Header({ node, model }: { node: DiagramNode; model: DiagramModel }) {
   );
 }
 
-/** "A supporter / a skeptic changes their mind if…", styled as the crux sheet has it. */
+/** "Someone who says yes / no would change their mind if…", styled as the crux sheet has it. */
 function MindChange({ label, side, text }: { label: string; side: keyof typeof SIDE_LABEL; text: string }) {
   return (
     <div>
@@ -172,8 +172,8 @@ function Body({ node }: { node: DiagramNode }) {
           </div>
           {node.flips && (
             <div className="space-y-3">
-              <MindChange label="A supporter changes their mind if…" side="supporters" text={node.flips.supporter} />
-              <MindChange label="A skeptic changes their mind if…" side="skeptics" text={node.flips.skeptic} />
+              <MindChange label={node.flips.supporterLead} side="supporters" text={node.flips.supporter} />
+              <MindChange label={node.flips.skepticLead} side="skeptics" text={node.flips.skeptic} />
             </div>
           )}
           {node.runIns.map((runIn) => (
