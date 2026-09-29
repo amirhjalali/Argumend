@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { PAGE_GUTTER } from "@/components/ui/PageContainer";
+import { cx } from "@/components/ui/cx";
 import { footerColumns, legalLinks, type NavLink } from "@/lib/nav";
 
 const FOOTER_LINK =
@@ -26,12 +28,18 @@ function FooterLink({ link }: { link: NavLink }) {
  * destinations again ("Argumend"), the Learn sections ("Learn"), the
  * secondary ones ("More"), and the legal
  * line. Columns come from lib/nav.ts.
+ *
+ * Its content column is the default page width (PageContainer's max-w-5xl
+ * and gutter), so its left edge is the h1's on every hub page. Phones get
+ * the three columns side by side, as from `sm` up, instead of two columns
+ * and a third row: the footer is only as tall as its longest column, and
+ * every link keeps its 44px target. A long label wraps inside its column.
  */
 export function Footer() {
   return (
-    <footer className="bg-canvas border-t border-stone-300/70 px-4 dark:border-divider md:px-8" role="contentinfo">
-      <div className="mx-auto max-w-5xl py-12 md:py-16">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] md:gap-12">
+    <footer className="bg-canvas border-t border-stone-300/70 dark:border-divider" role="contentinfo">
+      <div className={cx("mx-auto max-w-5xl py-10 sm:py-12 md:py-16", PAGE_GUTTER)}>
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] md:gap-12">
           <div>
             <Link href="/" prefetch={false} className="inline-flex min-h-11 items-center rounded-md">
               <span className="font-serif text-2xl text-primary dark:text-stone-200">
@@ -43,7 +51,7 @@ export function Footer() {
               would change a mind, never around who won.
             </p>
 
-            <nav aria-label="Footer navigation" className="mt-8 grid max-w-xl grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3">
+            <nav aria-label="Footer navigation" className="mt-6 grid max-w-xl grid-cols-3 gap-x-4 gap-y-6 sm:mt-8 sm:gap-x-8 md:grid-cols-2 lg:grid-cols-3">
               {footerColumns.map((column) => {
                 const headingId = `footer-${column.title.toLowerCase()}`;
                 return (
@@ -70,7 +78,7 @@ export function Footer() {
         </div>
 
         {/* Bottom line */}
-        <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-1 border-t border-stone-300/70 pt-4 dark:border-divider">
+        <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-1 border-t border-stone-300/70 pt-3 dark:border-divider sm:mt-10 sm:pt-4">
           <p className="text-xs text-muted">&copy; 2026 Argumend</p>
           {/* Legal links belong on every page, not in a discovery column. */}
           <nav aria-label="Legal" className="flex items-center gap-x-5">
