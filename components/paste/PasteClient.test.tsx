@@ -93,6 +93,30 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(fetchMock.mock.calls.map(([url]) => url)).toEqual(["/api/analyze"]);
   });
 
+  it("announces what came back through a status region that was there before the submit", async () => {
+    stubFetch({ "/api/analyze": () => jsonResponse({ maps: matched }) });
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    const announcer = view
+      .getAllByRole("status")
+      .find((el) => el.className.includes("sr-only"));
+    expect(announcer?.textContent).toBe("");
+
+    // The too-short hint is announced once, not once per keystroke: its
+    // countdown is hidden from the accessibility tree.
+    fireEvent.change(view.getByLabelText("The argument to read"), { target: { value: "Too short" } });
+    const hint = view.getByText(/Add a little more/);
+    expect(hint.getAttribute("role")).toBe("status");
+    expect(hint.querySelector('[aria-hidden="true"]')?.textContent).toMatch(/to go/);
+
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+    await waitFor(() =>
+      expect(announcer?.textContent).toBe(
+        "Result below. This argument is already mapped: Immigration and Wages.",
+      ),
+    );
+  });
+
   it("answers 'no map' with the closest maps rather than a wrong map", async () => {
     stubFetch({ "/api/analyze": () => jsonResponse({ maps: unmatched }) });
     const view = render(<PasteClient lanes={OFFLINE} />);
