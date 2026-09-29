@@ -160,14 +160,14 @@ export function TopBar() {
               </Link>
             ) : null}
 
-            {/* text-secondary, not stone-500: "Search" is a text label, and
+            {/* The secondary text token, not stone-500: "Search" is a text label, and
                 stone-500 was 4.26:1 on the canvas. */}
             <button
               type="button"
               onClick={openSearch}
               aria-label="Search"
               aria-haspopup="dialog"
-              className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-lg px-2.5 text-secondary transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:hover:text-stone-200"
+              className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-lg px-2.5 text-secondary dark:text-stone-400 transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:hover:text-stone-200"
             >
               <Search className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
               <span className="hidden font-sans text-sm lg:inline">Search</span>
