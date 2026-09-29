@@ -1,6 +1,7 @@
 export const returnToOfficeProductivityData = {
   id: "return-to-office-productivity",
   title: "Does Return-to-Office Actually Improve Productivity?",
+  question: "Do return-to-office mandates improve productivity and innovation?",
   meta_claim:
     "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const returnToOfficeProductivityData = {
       crux: {
         id: "rto-productivity-rct",
         title: "The RTO Productivity Randomized Trial",
+        question:
+          "Does fully remote work lower total output once coordination and knowledge transfer are counted?",
         description:
           "A properly randomized experiment assigning comparable teams within the same organization to fully remote, hybrid, and fully in-office conditions, measuring both individual output and team-level coordination metrics over 12+ months.",
         methodology:
@@ -152,6 +155,8 @@ export const returnToOfficeProductivityData = {
       crux: {
         id: "serendipity-innovation-measurement",
         title: "The Serendipity-to-Innovation Pipeline Test",
+        question:
+          "Do chance in-person encounters produce more innovation than structured remote collaboration?",
         description:
           "Measuring whether in-person serendipitous encounters actually convert to measurable innovation output at a higher rate than structured remote collaboration, or whether the water cooler effect is a compelling narrative with weak empirical backing.",
         methodology:
@@ -264,6 +269,8 @@ export const returnToOfficeProductivityData = {
       crux: {
         id: "rto-motive-analysis",
         title: "The RTO Motive Decomposition Test",
+        question:
+          "Are office mandates driven by productivity needs, or by leases, layoffs and management style?",
         description:
           "Separating the stated rationale (productivity, culture, innovation) from revealed preferences (real estate, control, attrition management) by analyzing whether RTO mandate intensity correlates with productivity metrics or with financial and organizational control variables.",
         methodology:

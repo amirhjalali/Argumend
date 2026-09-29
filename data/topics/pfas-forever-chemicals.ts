@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const pfasForeverChemicalsData = {
   id: "pfas-forever-chemicals",
   title: "PFAS \"Forever Chemicals\"",
+  question:
+    "Are PFAS causing enough harm to justify costly bans and water cleanup?",
   meta_claim:
     "PFAS are causing widespread human health harm and warrant aggressive, costly bans and water cleanup",
   status: "contested" as const,
@@ -40,6 +42,8 @@ export const pfasForeverChemicalsData = {
       crux: {
         id: "reverse-causation-test",
         title: "The Reverse-Causation (GFR) Test",
+        question:
+          "Do PFAS links to kidney and other cancers hold up in studies that separate cause from effect?",
         description:
           "Whether the human associations between PFAS and disease survive study designs that break the reverse-causation loop. Because the kidney both clears PFAS and is the organ at issue for several outcomes, cross-sectional blood-level correlations can be artifacts. The question is whether prospective designs — measuring PFAS years before disease onset, adjusting for measured kidney function, and using exposure assigned by external sources (e.g., water concentration) rather than by blood level — still show the effect.",
         methodology:
@@ -156,6 +160,8 @@ export const pfasForeverChemicalsData = {
       crux: {
         id: "dose-response-threshold",
         title: "The Population-Dose Threshold Test",
+        question:
+          "Does PFAS harm reach the doses most people carry, or only high-exposure communities and workers?",
         description:
           "Whether the PFAS body burdens carried by the general population (not the C8/occupational extremes) sit above or below the threshold for measurable harm — and whether a threshold meaningfully exists for the most potent endpoints. If documented harms cluster only at the high exposures seen in contaminated communities and workers, general-population risk is small and falling. If clear dose-response extends down into the range most people occupy, ubiquity itself is the harm.",
         methodology:
@@ -272,6 +278,8 @@ export const pfasForeverChemicalsData = {
       crux: {
         id: "net-benefit-of-regulation",
         title: "The Net-Benefit and Substitution Test",
+        question:
+          "Should PFAS be banned and treated as a whole class, or through narrow, prioritized rules?",
         description:
           "Whether the monetized health and environmental benefits of PFAS limits and bans exceed their cleanup and compliance costs — and whether class-wide regulation actually reduces total fluorochemical harm or merely shifts it to substitutes. If avoided disease and cleanup-cost-shifting to polluters outweigh treatment costs, and class bans prevent regrettable substitution, aggressive regulation is justified. If costs swamp uncertain benefits and bans just spawn equally-toxic replacements, a narrower, prioritized approach is better.",
         methodology:

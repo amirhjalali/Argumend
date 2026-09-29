@@ -1,6 +1,8 @@
 export const molochData = {
   id: "moloch",
   title: "Meditations on Moloch",
+  question:
+    "Does competition erode human values unless strong coordination stops it?",
   meta_claim:
     "Competition and coordination failure — Scott Alexander's 'Moloch' — systematically push civilization toward equilibria that sacrifice human values for competitive advantage, and durably escaping those multipolar traps requires a coordination mechanism strong enough to override the incentives that create them.",
   status: "contested" as const,
@@ -53,6 +55,8 @@ export const molochData = {
       crux: {
         id: "one-shot-vs-repeated",
         title: "The One-Shot vs. Repeated-Game Test",
+        question:
+          "Is a given rivalry a one-off game where defecting pays, or a repeated one where cooperation can last?",
         description:
           "Determine, for a given domain, whether the effective interaction is better modeled as a one-shot game (where defection is the dominant strategy) or an iterated game with a long shadow of the future (where the Folk Theorem makes cooperation a sustainable equilibrium). The answer decides whether Moloch is inescapable there.",
         methodology:
@@ -112,6 +116,8 @@ export const molochData = {
       crux: {
         id: "ostrom-scaling-test",
         title: "The Ostrom Scaling Test",
+        question:
+          "Do the principles that let communities self-govern shared resources still work at global scale?",
         description:
           "Ostrom identified design principles under which communities reliably self-govern commons without a central Leviathan. The crux is whether those principles hold as the number of players, the anonymity, and the physical scale of the resource increase — i.e. whether local success stories generalize to global multipolar traps.",
         methodology:
@@ -205,6 +211,8 @@ export const molochData = {
       crux: {
         id: "malthusian-reassertion-test",
         title: "The Malthusian Reassertion Test",
+        question:
+          "Does technology permanently outpace competition, or only delay a slide back to subsistence?",
         description:
           "Determine whether technology permanently raises the ceiling faster than competition consumes the surplus, or merely postpones a Malthusian equilibrium that returns once growth slows or copying/reproduction becomes cheap. The AI-deployment race is the live test case: does competitive pressure force safety spending down toward the minimum?",
         methodology:
@@ -297,6 +305,8 @@ export const molochData = {
       crux: {
         id: "singleton-necessity",
         title: "The Singleton-Necessity Test",
+        question:
+          "Does lasting escape from Moloch require a single top-level authority, or can decentralized governance suffice?",
         description:
           "Decide whether durable escape from Moloch strictly requires a singleton (a single decision-making agency at the top level, per Bostrom), or whether polycentric, decentralized governance can hold the line indefinitely. This is the load-bearing disagreement between Alexander and Ostrom — and it may be unfalsifiable in advance.",
         methodology:
@@ -372,6 +382,8 @@ export const molochData = {
       crux: {
         id: "coordination-track-record",
         title: "The Coordination Track-Record Test",
+        question:
+          "How often has cooperation durably solved collective-action problems, and does success track the incentives?",
         description:
           "Compile the base rate: across major collective-action problems humanity has faced, what fraction were durably solved by cooperation versus lost to a race to the bottom, and what distinguishes the two groups? A high, condition-independent success rate would refute Moloch; a success rate that tracks payoff structure would confirm it.",
         methodology:

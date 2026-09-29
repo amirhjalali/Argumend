@@ -1,6 +1,8 @@
 export const rightToRepairData = {
   id: "right-to-repair",
   title: "Right to Repair",
+  question:
+    "Do right-to-repair laws help consumers without harming innovation or safety?",
   meta_claim:
     "Right-to-repair laws benefit consumers without significantly harming innovation or safety.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const rightToRepairData = {
       crux: {
         id: "net-consumer-surplus",
         title: "Net Consumer Surplus After Firm Response",
+        question:
+          "Once firms adjust prices and parts, do right-to-repair laws lower or raise consumers' total ownership costs?",
         description:
           "Does the average consumer end up better off once manufacturers adjust new-product prices, parts pricing, and product durability in response to a right-to-repair mandate?",
         methodology:
@@ -107,6 +111,8 @@ export const rightToRepairData = {
       crux: {
         id: "innovation-after-mandate",
         title: "Do R&D and Product Quality Fall After a Mandate?",
+        question:
+          "Do right-to-repair laws lead to measurable drops in firms' R&D, patents or new products?",
         description:
           "Following a binding right-to-repair law, do affected manufacturers measurably reduce R&D spending, patenting, or new-product introduction relative to comparable unaffected firms?",
         methodology:
@@ -196,6 +202,8 @@ export const rightToRepairData = {
       crux: {
         id: "scope-vs-blanket",
         title: "Scoped Safety Carve-Outs vs. Blanket Mandate",
+        question:
+          "Can targeted safety carve-outs neutralize repair risks, or is the risk inherent to broad mandates?",
         description:
           "Is the safety/cybersecurity risk inherent to right-to-repair, or is it confined to safety-critical networked systems and solvable with scoped standards while general electronics repair stays low-risk?",
         methodology:

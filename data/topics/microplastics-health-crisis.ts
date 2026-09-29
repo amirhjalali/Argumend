@@ -1,6 +1,8 @@
 export const microplasticsHealthCrisisData = {
   id: "microplastics-health-crisis",
   title: "The Microplastics Health Crisis",
+  question:
+    "Are microplastics in our bodies a health crisis on the scale of lead?",
   meta_claim:
     "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public health crisis comparable to lead exposure, not merely an environmental nuisance.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const microplasticsHealthCrisisData = {
       crux: {
         id: "microplastic-cardiovascular-causation",
         title: "The Cardiovascular Causation Test",
+        question:
+          "Do microplastics in arteries drive heart disease, or are they bystanders in already-diseased tissue?",
         description:
           "The central question is whether microplastics in arterial plaque actively drive inflammation and cardiovascular events or are merely bystander particles deposited in already-diseased tissue. If microplastics directly trigger inflammatory cascades (IL-18, IL-1beta, TNF-alpha) that accelerate atherosclerosis, they represent a modifiable cardiovascular risk factor. If they are passively accumulated without pathological effect, the NEJM correlation is misleading.",
         methodology:
@@ -152,6 +156,8 @@ export const microplasticsHealthCrisisData = {
       crux: {
         id: "edc-mixture-dose-response",
         title: "The Low-Dose Mixture Effects Test",
+        question:
+          "Do real-world, low-dose mixtures of plastic chemicals cause measurable reproductive harm?",
         description:
           "The fundamental disagreement is whether endocrine-disrupting chemicals from plastics cause harm at real-world human exposure levels when accounting for mixture effects. If EDCs produce adverse reproductive outcomes only at doses far exceeding human exposure, regulatory thresholds are adequate. If mixture effects at environmentally relevant doses produce measurable harm, the entire chemical-by-chemical regulatory framework is inadequate and millions are being harmed by cumulative exposure.",
         methodology:
@@ -268,6 +274,8 @@ export const microplasticsHealthCrisisData = {
       crux: {
         id: "polymer-inertness-assumption",
         title: "The Polymer Biological Inertness Test",
+        question:
+          "Are micro- and nanoplastics biologically inert at real exposures, or do they actively cause harm?",
         description:
           "The entire regulatory framework rests on the assumption that plastic polymers are biologically inert — that they pass through the body without interaction. If micro- and nanoplastics trigger inflammatory responses, cross biological barriers (blood-brain, placental), accumulate in tissues, and serve as vectors for adsorbed chemicals, the foundational regulatory assumption is wrong and the framework requires fundamental revision.",
         methodology:

@@ -1,6 +1,8 @@
 export const schoolPhoneBansData = {
   id: "school-phone-bans",
   title: "Should Schools Ban Smartphones?",
+  question:
+    "Do school phone bans improve students' learning and mental health?",
   meta_claim:
     "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
   status: "contested" as const,
@@ -38,6 +40,8 @@ export const schoolPhoneBansData = {
       crux: {
         id: "phone-ban-causal-impact",
         title: "The Randomized Phone Ban Trial",
+        question:
+          "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
         description:
           "The definitive test is whether phone bans cause academic improvement or merely correlate with it due to confounding factors (e.g., schools that implement bans may also be implementing other reforms). A large-scale randomized controlled trial — randomly assigning schools to ban or no-ban conditions — would isolate the causal effect. The existing evidence relies on natural experiments and quasi-experimental designs with potential selection bias.",
         methodology:
@@ -144,6 +148,8 @@ export const schoolPhoneBansData = {
       crux: {
         id: "phone-ban-mental-health-impact",
         title: "The School Phone Ban Mental Health Assessment",
+        question:
+          "How much of the teen mental-health decline did smartphones cause, and can a school-only ban move it at all?",
         description:
           "If school phone bans measurably improve student mental health outcomes — validated depression and anxiety scores, self-harm rates, peer relationship quality — the case for bans is strengthened beyond academic arguments alone. If mental health outcomes do not change, the ban is justified only on academic grounds, and the mental health crisis requires different interventions.",
         methodology:
@@ -250,6 +256,8 @@ export const schoolPhoneBansData = {
       crux: {
         id: "equitable-enforcement-test",
         title: "The Equitable Enforcement Assessment",
+        question:
+          "Can phone bans be enforced without new racial disparities, while accommodating students who need phones?",
         description:
           "If phone bans can be implemented without creating racially disproportionate disciplinary outcomes and without disadvantaging students who depend on phones for medical, safety, or accessibility needs, the equity objection is addressed. If enforcement data shows racial disparities comparable to other school discipline areas (3x overrepresentation of Black students), the ban creates a new inequity that must be weighed against academic benefits.",
         methodology:

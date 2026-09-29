@@ -1,6 +1,8 @@
 export const netNeutralityData = {
   id: "net-neutrality",
   title: "Net Neutrality",
+  question:
+    "Are net-neutrality rules needed to keep the internet open and competitive?",
   meta_claim:
     "Net-neutrality regulation is necessary to protect an open, competitive internet.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const netNeutralityData = {
       crux: {
         id: "violation-frequency",
         title: "Do Violations Recur Without Enforceable Rules?",
+        question:
+          "Without rules, do providers keep discriminating against traffic, or do competition and antitrust deter it?",
         description:
           "The load-bearing disagreement is whether documented blocking/throttling reflects a structural incentive that recurs whenever rules lapse, or a handful of one-off episodes already deterred by competition and antitrust.",
         methodology:
@@ -127,6 +131,8 @@ export const netNeutralityData = {
       crux: {
         id: "investment-counterfactual",
         title: "The Investment Counterfactual",
+        question:
+          "Did net-neutrality rules reduce broadband investment, and by how much?",
         description:
           "Both sides cite real capex figures; the disagreement is the counterfactual — what investment WOULD have been absent the rules — and which metric (aggregate spend vs. new fiber connections, nominal vs. inflation-adjusted) is the right denominator.",
         methodology:
@@ -197,6 +203,8 @@ export const netNeutralityData = {
       crux: {
         id: "open-without-rules",
         title: "Does the Internet Stay Open Without Federal Rules?",
+        question:
+          "Was harmful traffic discrimination worse in the deregulated 2018-2025 period than under the 2015-2017 rules?",
         description:
           "The decisive question is empirical, not legal: across the deregulated 2018-2025 window, did measurable, harmful, non-transparent traffic discrimination increase — or did competition, transparency rules, and reputational pressure keep the internet effectively open?",
         methodology:

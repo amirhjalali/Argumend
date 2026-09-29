@@ -1,6 +1,8 @@
 export const longevityScienceData = {
   id: "longevity-science",
   title: "The Science of Life Extension",
+  question:
+    "Will longevity research significantly extend healthy lifespan in 20 years?",
   meta_claim:
     "Recent breakthroughs in longevity research — including senolytics, epigenetic reprogramming, and caloric restriction mimetics — will significantly extend healthy human lifespan within the next 20 years.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const longevityScienceData = {
       crux: {
         id: "senolytic-human-healthspan",
         title: "The Human Senolytic Efficacy Test",
+        question:
+          "Do senolytic drugs improve human healthspan in large trials, or does the mouse-to-human gap defeat them?",
         description:
           "The definitive test is whether senolytic drugs produce measurable improvements in human healthspan biomarkers — frailty index, inflammatory markers, organ function, and epigenetic age — in randomized controlled trials of sufficient size and duration. If Phase 2/3 trials demonstrate significant healthspan improvements by 2030, the approach validates. If multiple senolytics fail human trials despite animal success, the mouse-to-human translation gap for aging interventions may be insurmountable.",
         methodology:
@@ -143,6 +147,8 @@ export const longevityScienceData = {
       crux: {
         id: "safe-reprogramming-in-vivo",
         title: "The Safe In-Vivo Reprogramming Test",
+        question:
+          "Can cell reprogramming be delivered safely in living primates and humans without raising cancer risk?",
         description:
           "The critical test is whether partial epigenetic reprogramming can be delivered safely in living organisms — reducing biological age without triggering cancer or teratoma formation — and whether the rejuvenation effect persists after treatment ends. If safe in-vivo reprogramming is demonstrated in non-human primates with durable age reversal and no increased cancer incidence, human trials become feasible. If cancer risks prove insurmountable in higher animals, the approach may be limited to ex-vivo cell therapy.",
         methodology:
@@ -249,6 +255,8 @@ export const longevityScienceData = {
       crux: {
         id: "tame-trial-outcome",
         title: "The TAME Trial Outcome Test",
+        question:
+          "Can metformin or any drug delay several age-related diseases at once?",
         description:
           "The TAME trial is the single most important near-term test of pharmacological life extension — assuming it secures full funding and enrolls, which it has not yet done. If metformin significantly delays the composite endpoint of age-related diseases (cardiovascular events, cancer, dementia, mortality) compared to placebo, it will validate aging as a treatable condition and open the FDA regulatory pathway for anti-aging drugs. If it fails — or if it never launches for lack of funding — the pharmacological approach will face a major setback in both scientific credibility and funding.",
         methodology:

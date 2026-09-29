@@ -1,6 +1,7 @@
 export const socialMediaAgeLimitsData = {
   id: "social-media-age-limits",
   title: "Social Media Age Limits",
+  question: "Should children under 16 be legally barred from social media?",
   meta_claim:
     "Children under 16 should be legally prohibited from using social media platforms.",
   status: "contested" as const,
@@ -35,6 +36,8 @@ export const socialMediaAgeLimitsData = {
       crux: {
         id: "causal-mechanism-study",
         title: "Randomized Social Media Abstinence Trial",
+        question:
+          "Does removing social media actually improve teens' mental health, or is the link driven by other factors?",
         description:
           "A properly controlled trial where teens are randomly assigned to abstain from social media for 6+ months, with mental health measured via clinical instruments rather than self-report.",
         methodology:
@@ -144,6 +147,8 @@ export const socialMediaAgeLimitsData = {
       crux: {
         id: "enforcement-effectiveness",
         title: "Age Verification Effectiveness Study",
+        question:
+          "Can age checks keep enough under-16s off social media without unacceptable privacy and accuracy costs?",
         description:
           "Measuring what percentage of underage users are actually prevented from accessing platforms under various age verification regimes.",
         methodology:

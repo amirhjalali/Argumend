@@ -1,6 +1,7 @@
 export const jonesActData = {
   id: "jones-act",
   title: "Repealing the Jones Act",
+  question: "Should the Jones Act be repealed or substantially reformed?",
   meta_claim:
     "The Jones Act's requirement that cargo moving between U.S. ports travel on ships that are U.S.-built, U.S.-flagged, and U.S.-crewed imposes large and measurable economic costs — inflated domestic shipping prices, a shrunken merchant fleet, freight pushed onto trucks and rail, and disproportionate harm to Puerto Rico, Hawaii, Alaska, and Guam — that outweigh its claimed national-security and maritime-industry benefits, so it should be repealed or substantially reformed.",
   status: "contested" as const,
@@ -56,6 +57,8 @@ export const jonesActData = {
       crux: {
         id: "counterfactual-cost-test",
         title: "The Counterfactual Cost Test",
+        question:
+          "Would domestic shipping get much cheaper if the Jones Act were repealed?",
         description:
           "Estimate what domestic waterborne freight would cost under repeal by benchmarking against foreign-flag rates on comparable routes and against U.S.-flag international rates, then net out the observed premium. A large, robust premium implies real deadweight loss; a small or fragile one vindicates the skeptic.",
         methodology:
@@ -149,6 +152,8 @@ export const jonesActData = {
       crux: {
         id: "island-price-gap",
         title: "The Captive-Route Price Gap",
+        question:
+          "Does the Act measurably raise prices for Puerto Rico, Hawaii, Alaska and Guam?",
         description:
           "Compare the delivered cost of identical goods shipped to a noncontiguous U.S. jurisdiction from the mainland (Jones Act–bound) versus from a comparable nearby foreign port (not bound). A persistent gap after controlling for distance and volume isolates the Act's price effect on captive consumers.",
         methodology:
@@ -243,6 +248,8 @@ export const jonesActData = {
       crux: {
         id: "modal-shift-test",
         title: "The Modal-Shift and Emissions Test",
+        question:
+          "Does the Act push enough freight onto trucks and rail to carry a real emissions and congestion cost?",
         description:
           "Estimate how much domestic freight would shift from truck/rail to coastal shipping if waterborne rates fell to world levels, then convert the shift into changes in fuel use, CO2, and congestion. A large elastic shift implies the Act carries a real environmental and infrastructure cost.",
         methodology:
@@ -320,6 +327,8 @@ export const jonesActData = {
       crux: {
         id: "sealift-readiness-audit",
         title: "The Sealift-Readiness Audit",
+        question:
+          "Can today's Jones Act fleet and mariners meet the Defense Department's wartime sealift needs?",
         description:
           "Test directly whether today's Jones Act fleet and mariner pool actually meet Department of Defense sealift requirements. If the protected fleet cannot surge on demand, the security rationale fails on its own terms, independent of the economics.",
         methodology:
@@ -412,6 +421,8 @@ export const jonesActData = {
       crux: {
         id: "distributional-ledger",
         title: "The Distributional Ledger",
+        question:
+          "Do the Act's diffuse costs to consumers exceed its concentrated gains to shipyards and mariners?",
         description:
           "Lay the Act's costs and benefits on a single ledger: the concentrated, identifiable gains to shipyards, vessel owners, and mariners versus the diffuse, per-household cost to consumers and downstream industries. If aggregate costs exceed benefits while benefits are far more concentrated, the public-choice explanation holds.",
         methodology:

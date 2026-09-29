@@ -1,6 +1,8 @@
 export const ukrainePeaceTermsData = {
   id: "ukraine-peace-terms",
   title: "How the Russia-Ukraine War Should End",
+  question:
+    "Would a deal freezing current lines end the war on acceptable terms?",
   meta_claim:
     "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const ukrainePeaceTermsData = {
       crux: {
         id: "line-of-contact-feasibility",
         title: "The Battlefield Reversibility Test",
+        question:
+          "Can Ukraine realistically retake its 1991 borders, or is the front line effectively frozen?",
         description:
           "The core question is whether Ukraine can plausibly restore its 1991 borders by force, or whether the front line is effectively frozen. If ISW control-of-terrain data shows the line is static and neither side can achieve operational breakthroughs, then refusing to ratify de facto control prolongs a war that cannot change the territorial outcome. If Russia's offensive capacity is genuinely collapsing, holding out for better terms is rational.",
         methodology:
@@ -118,6 +122,8 @@ export const ukrainePeaceTermsData = {
       crux: {
         id: "security-guarantee-paradox",
         title: "The Security-Guarantee Paradox",
+        question:
+          "Is there a security guarantee strong enough to deter Russia that Russia would also accept?",
         description:
           "The decisive question is whether any security guarantee exists that is simultaneously (a) strong enough to deter a future Russian attack and (b) acceptable to Russia as part of a deal. If the two sets are disjoint — every Russia-acceptable guarantee is too weak, every deterrent-grade guarantee is Russia-rejected — then no negotiated settlement can be both durable and signable, and the war ends only on the battlefield.",
         methodology:
@@ -214,6 +220,8 @@ export const ukrainePeaceTermsData = {
       crux: {
         id: "russian-attrition-crossover",
         title: "The Attrition-Crossover Forecast",
+        question:
+          "Can Russia sustain another year of attrition, or will its combat power materially degrade by late 2026?",
         description:
           "The highest-leverage empirical disagreement: can Russia sustain another year of offensive attrition, or does its combat power materially degrade in late 2026? If Russian armored stocks, recruitment, and fiscal capacity are genuinely crossing a depletion threshold, withholding sanctions relief and continuing to arm Ukraine extracts better terms. If Russian willingness dominates and the autocracy can outlast Ukrainian manpower, prolonging the war only raises the body count without improving the outcome.",
         methodology:
@@ -310,6 +318,8 @@ export const ukrainePeaceTermsData = {
       crux: {
         id: "demonstration-effect-china",
         title: "The Demonstration-Effect Test",
+        question:
+          "Would a settlement at current lines make a Chinese move on Taiwan more or less likely?",
         description:
           "Does a negotiated settlement at current lines raise or lower the probability of a Chinese move on Taiwan in 2027-2030? This turns on whether deterrence is dominantly reputational — a signal that travels across cases, so conceding in Ukraine invites aggression elsewhere — or situational, specific to local military and economic balances. The crux is a long-running international-relations dispute that maps directly onto whether 'unjust peace' carries global costs or is contained to the Ukrainian theater.",
         methodology:

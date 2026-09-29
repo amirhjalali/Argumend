@@ -1,6 +1,7 @@
 export const nuclearEnergySafetyData = {
   id: "nuclear-energy-safety",
   title: "Nuclear Energy for Climate",
+  question: "Should nuclear power be expanded to help decarbonize electricity?",
   meta_claim:
     "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
   status: "contested" as const,
@@ -35,6 +36,8 @@ export const nuclearEnergySafetyData = {
       crux: {
         id: "deaths-per-twh",
         title: "Deaths Per TWh Analysis",
+        question:
+          "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
         description:
           "Comprehensive accounting of deaths from each energy source including mining, construction, pollution, and accidents.",
         methodology:
@@ -147,6 +150,8 @@ export const nuclearEnergySafetyData = {
       crux: {
         id: "grid-decarbonization",
         title: "Grid Decarbonization Speed",
+        question:
+          "Are nuclear's cost and build-time problems fixable, or are renewables plus storage faster per dollar?",
         description:
           "Compare historical speed of grid decarbonization via nuclear (France, Sweden) vs. renewables (Germany, California).",
         methodology:

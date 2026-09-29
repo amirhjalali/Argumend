@@ -1,6 +1,7 @@
 export const occupationalLicensingReformData = {
   id: "occupational-licensing-reform",
   title: "Occupational Licensing Reform",
+  question: "Does occupational licensing do more economic harm than good?",
   meta_claim:
     "Occupational licensing does more economic harm than good and should be rolled back.",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const occupationalLicensingReformData = {
       crux: {
         id: "quality-causal-test",
         title: "Does Licensing Causally Raise Quality?",
+        question:
+          "Does stricter licensing raise service quality enough to justify higher prices, occupation by occupation?",
         description:
           "The load-bearing disagreement is whether licensing actually improves service quality/safety, or merely raises prices. If it raises quality enough to justify the price, rollback harms consumers; if not, the regime is mostly an entry barrier.",
         methodology:
@@ -142,6 +145,8 @@ export const occupationalLicensingReformData = {
       crux: {
         id: "reform-vs-rollback",
         title: "Reciprocity vs. Rollback",
+        question:
+          "Do license-recognition laws deliver most of the mobility gains, or is deeper rollback needed?",
         description:
           "The decisive question is whether the documented mobility and access harms require ABOLISHING licenses or merely making them PORTABLE. If portability/recognition reforms capture most of the mobility gain, the case for rollback weakens sharply.",
         methodology:

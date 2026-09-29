@@ -1,6 +1,8 @@
 export const nuclearRenaissanceSmrData = {
   id: "nuclear-renaissance-smr",
   title: "Can Small Modular Reactors Save Nuclear Energy?",
+  question:
+    "Can small modular reactors deliver clean power at scale within a decade?",
   meta_claim:
     "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at meaningful scale within the next decade — a proposition advocates treat as imminent and skeptics regard as perennially deferred.",
   status: "contested" as const,
@@ -84,6 +86,8 @@ export const nuclearRenaissanceSmrData = {
       crux: {
         id: "smr-lcoe-comparison",
         title: "The Levelized Cost Comparison",
+        question:
+          "Can factory production bring small reactors' costs below renewables with backup power?",
         description:
           "Compare the actual achieved LCOE of deployed SMR units against renewables+storage providing equivalent firm power.",
         methodology:
@@ -194,6 +198,8 @@ export const nuclearRenaissanceSmrData = {
       crux: {
         id: "passive-safety-validation",
         title: "The Passive Safety Demonstration",
+        question:
+          "Do small reactors' passive safety systems prevent core damage without any operator action?",
         description:
           "Demonstrate that SMR passive safety systems prevent core damage under all credible accident scenarios without operator intervention.",
         methodology:
@@ -304,6 +310,8 @@ export const nuclearRenaissanceSmrData = {
       crux: {
         id: "first-commercial-smr-date",
         title: "The First Western Commercial SMR Milestone",
+        question:
+          "Will Western small-reactor projects connect to the grid on schedule this decade, or slip again?",
         description:
           "Track whether the first Western commercial SMR achieves grid connection by its publicly committed date.",
         methodology:

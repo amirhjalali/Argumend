@@ -1,6 +1,8 @@
 export const remoteWorkPermanenceData = {
   id: "remote-work-permanence",
   title: "The Future of Remote Work",
+  question:
+    "Will remote and hybrid work permanently replace the five-day office week?",
   meta_claim:
     "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
   status: "contested" as const,
@@ -19,6 +21,8 @@ export const remoteWorkPermanenceData = {
       crux: {
         id: "innovation-output-measurement",
         title: "Remote vs. In-Office Innovation Output",
+        question:
+          "Do remote teams produce as much innovation as comparable in-office teams?",
         description:
           "Controlled comparison of innovation metrics (patents, new products, revenue from new initiatives) between matched remote and in-office teams.",
         methodology:
@@ -118,6 +122,8 @@ export const remoteWorkPermanenceData = {
       crux: {
         id: "urban-economic-adaptation",
         title: "Urban Economic Adaptation Timeline",
+        question:
+          "How quickly can cities adapt to emptier offices through conversions, rezoning and new uses?",
         description:
           "Measuring how quickly urban economies can adapt to reduced office occupancy through conversion, rezoning, and new economic models.",
         methodology:

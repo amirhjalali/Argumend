@@ -1,6 +1,8 @@
 export const socialSecurityRetirementAgeData = {
   id: "social-security-retirement-age",
   title: "Raising the Retirement Age",
+  question:
+    "Is raising the retirement age a fair, necessary fix for Social Security?",
   meta_claim:
     "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const socialSecurityRetirementAgeData = {
       crux: {
         id: "solvency-gap-share",
         title: "Share of the Solvency Gap Closed",
+        question:
+          "How much of Social Security's funding gap would raising the retirement age close, versus revenue options?",
         description:
           "Whether raising the retirement age does enough of the work to be called 'necessary' depends on a measurable quantity: what fraction of the 75-year actuarial deficit an FRA increase actually closes, versus revenue alternatives.",
         methodology:
@@ -126,6 +130,8 @@ export const socialSecurityRetirementAgeData = {
       crux: {
         id: "lifetime-incidence",
         title: "Distribution of the Lifetime Benefit Cut",
+        question:
+          "Over a lifetime, does raising the retirement age cut benefits evenly, or fall hardest on lower earners?",
         description:
           "The 'fairness' dispute is empirical: does an FRA increase reduce lifetime benefits roughly equally across the income distribution, or does the longevity gap make the cut sharply regressive in lifetime terms?",
         methodology:

@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const privacyVsConvenienceData = {
   id: "privacy-vs-convenience",
   title: "Have We Already Lost the Battle for Digital Privacy?",
+  question: "Have we already lost the battle for digital privacy?",
   meta_claim:
     "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
   status: "contested" as const,
@@ -40,6 +41,8 @@ export const privacyVsConvenienceData = {
       crux: {
         id: "opt-out-effectiveness",
         title: "The Opt-Out Effectiveness Test",
+        question:
+          "Can careful privacy habits shrink corporate profiling, or does data aggregation rebuild the profile anyway?",
         description:
           "Whether an ordinary user, following best-practice privacy guidance, can reduce their corporate data exposure to a level that meaningfully limits profiling. If privacy tools and opt-out mechanisms reduce trackable data by 80%+ across major platforms, individual agency is real. If corporate tracking reconstructs equivalent profiles regardless of user actions, opt-out is theater.",
         methodology:
@@ -153,6 +156,8 @@ export const privacyVsConvenienceData = {
       crux: {
         id: "surveillance-reform-substance",
         title: "The Surveillance Reform Substance Test",
+        question:
+          "Did surveillance reforms and encryption reduce government access, or did agencies find workarounds?",
         description:
           "Whether post-Snowden legal reforms and encryption technologies have meaningfully reduced government access to citizens' private communications and data, or whether surveillance agencies have adapted their methods to maintain equivalent capability through alternative legal authorities and technical workarounds.",
         methodology:
@@ -268,6 +273,8 @@ export const privacyVsConvenienceData = {
       crux: {
         id: "regulatory-behavioral-impact",
         title: "The Regulatory Behavioral Impact Test",
+        question:
+          "Does privacy regulation shrink how much data is collected per user, or just relabel its legal basis?",
         description:
           "Whether privacy regulations (GDPR, CCPA, and successors) have produced measurable reductions in the volume and intrusiveness of personal data collection, or whether they have merely added compliance bureaucracy without changing surveillance practices. If regulated markets show meaningfully smaller data footprints per user compared to unregulated markets, regulation works. If data collection volumes are equivalent regardless of regulatory regime, the approach has failed.",
         methodology:

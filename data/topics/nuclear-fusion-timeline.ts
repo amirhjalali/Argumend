@@ -1,6 +1,8 @@
 export const nuclearFusionTimelineData = {
   id: "nuclear-fusion-timeline",
   title: "Fusion Power Within Two Decades",
+  question:
+    "Will fusion power be a meaningful part of the energy mix within 20 years?",
   meta_claim:
     "Commercial fusion power will be a meaningful part of the energy mix within the next two decades.",
   status: "highly_speculative" as const,
@@ -37,6 +39,8 @@ export const nuclearFusionTimelineData = {
       crux: {
         id: "engineering-gain",
         title: "Wall-Plug Energy Gain (Q_eng > 1)",
+        question:
+          "Can a complete fusion plant put out more electricity than it consumes?",
         description:
           "The load-bearing question is not whether fusion reactions release net energy relative to energy delivered to the fuel (demonstrated), but whether an integrated machine can put more electricity onto the grid than it draws from it, continuously.",
         methodology:
@@ -127,6 +131,8 @@ export const nuclearFusionTimelineData = {
       crux: {
         id: "tritium-self-sufficiency",
         title: "Demonstrated Tritium Breeding Ratio (TBR > 1)",
+        question:
+          "Can a full-scale breeding blanket make more tritium fuel than the reactor burns?",
         description:
           "A D-T fusion economy cannot run unless each reactor breeds at least as much tritium as it burns (TBR > 1, with margin for losses, startup, and decay). This has never been shown at scale, and it is the single hardest external constraint on whether D-T fusion can be deployed widely within two decades.",
         methodology:
@@ -235,6 +241,8 @@ export const nuclearFusionTimelineData = {
       crux: {
         id: "fleet-vs-pilot",
         title: "Pilot Plant vs. Energy-Mix Share",
+        question:
+          "Can fusion go from a first grid-connected plant to about 1% of world power in two decades?",
         description:
           "The claim turns on 'meaningful part of the energy mix,' not on a single demo. The decisive question is whether multiple economically competitive plants can be built and operated at scale within ~20 years, versus one-off demonstrations that prove feasibility but contribute negligible generation.",
         methodology:
