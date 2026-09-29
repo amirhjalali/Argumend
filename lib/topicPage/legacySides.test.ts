@@ -22,6 +22,9 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["transgender-athletes-sports", 2, "The open category model is not exclusion"],
   ["masculinity-crisis", 2, "The 'both sides fail' framing creates a false equivalence"],
   // Found by the same audit's scan of every legacy map.
+  // Decided by the founder's go-ahead after round 3: the flips and both evidence
+  // cards already treated "CBDCs threaten dollar power" as the claim's side.
+  ["central-bank-digital-currency", 2, "The de-dollarization narrative is vastly overstated."],
   ["facial-recognition-policing", 0, "The bias is real but largely an artifact of weak algorithms"],
   ["facial-recognition-policing", 1, "Every documented wrongful arrest is a failure of police procedure"],
   ["alcohol-no-safe-level", 0, "A statistically detectable relative-risk increase is not the same"],
