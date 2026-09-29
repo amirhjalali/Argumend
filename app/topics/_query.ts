@@ -1,5 +1,6 @@
 import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
-import type { TopicCategory, TopicStatus } from "@/data/topicIndex";
+import type { TopicCategory } from "@/data/topicIndex";
+import argumentSummaries from "@/data/argumentTopicSummaries.json";
 import { argumentTopicIndex, type ArgumentTopicId } from "@/lib/argument/topicIds";
 import { parsePageParam } from "@/lib/collectionPagination";
 
@@ -39,16 +40,6 @@ export const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 const SORTS = SORT_OPTIONS.map((option) => option.value);
 
 /**
- * How far the evidence on a legacy map has got, in words. Muted stone text
- * on the row, never a colour: it describes the map, it does not score a side.
- */
-export const STATUS_LABELS: Record<TopicStatus, string> = {
-  settled: "Evidence largely converges",
-  contested: "Evidence still divided",
-  highly_speculative: "Evidence still thin",
-};
-
-/**
  * The library shelf for each new-model (ArgumentGraph) map, so a category
  * filter finds it next to the older maps on the same subject. Typed by the
  * registry's ids: registering a map without a shelf fails the type check.
@@ -68,25 +59,42 @@ export interface LibraryEntry {
   summary: string;
   category: TopicCategory;
   kind: "debate-map" | "topic";
-  status?: TopicStatus;
-  pillarCount?: number;
-  evidenceCount?: number;
+  /**
+   * The question the map's first crux asks, as the map page heads it
+   * (generated into the summaries by scripts/regen-summaries.ts). The card
+   * shows what a map turns on, never how far its evidence has got: that
+   * reading lives inside the map.
+   */
+  firstCrux?: string;
+  /** How many questions the map turns on (its cruxes). */
+  cruxCount?: number;
   /** Lower-cased text the search box matches against. */
   haystack: string;
 }
 
+const ARGUMENT_CRUX = new Map(
+  (argumentSummaries as { id: string; firstCrux: string; cruxCount: number }[]).map(
+    (summary) => [summary.id, summary],
+  ),
+);
+
 /** The new-model maps, pinned above everything else in the library. */
-export const DEBATE_MAP_ENTRIES: LibraryEntry[] = argumentTopicIndex.map((topic) => ({
-  id: topic.id,
-  href: `/topics/${topic.id}`,
-  title: topic.title,
-  summary: topic.tagline,
-  category: DEBATE_MAP_CATEGORY[topic.id],
-  kind: "debate-map",
-  haystack: [topic.title, topic.tagline, ...topic.aliases, "debate map"]
-    .join(" \n ")
-    .toLowerCase(),
-}));
+export const DEBATE_MAP_ENTRIES: LibraryEntry[] = argumentTopicIndex.map((topic) => {
+  const crux = ARGUMENT_CRUX.get(topic.id);
+  return {
+    id: topic.id,
+    href: `/topics/${topic.id}`,
+    title: topic.title,
+    summary: topic.tagline,
+    category: DEBATE_MAP_CATEGORY[topic.id],
+    kind: "debate-map",
+    firstCrux: crux?.firstCrux,
+    cruxCount: crux?.cruxCount,
+    haystack: [topic.title, topic.tagline, crux?.firstCrux ?? "", ...topic.aliases, "debate map"]
+      .join(" \n ")
+      .toLowerCase(),
+  };
+});
 
 const TOPIC_ENTRIES: LibraryEntry[] = topicSummaries.map((topic) => ({
   id: topic.id,
@@ -95,10 +103,16 @@ const TOPIC_ENTRIES: LibraryEntry[] = topicSummaries.map((topic) => ({
   summary: topic.meta_claim,
   category: topic.category,
   kind: "topic",
-  status: topic.status,
-  pillarCount: topic.pillarCount,
-  evidenceCount: topic.evidenceCount,
-  haystack: [topic.title, topic.meta_claim, ...(topic.tags ?? [])]
+  firstCrux: topic.firstCrux,
+  // One crux per pillar on the older maps.
+  cruxCount: topic.pillarCount,
+  haystack: [
+    topic.title,
+    topic.question ?? "",
+    topic.meta_claim,
+    topic.firstCrux ?? "",
+    ...(topic.tags ?? []),
+  ]
     .join(" \n ")
     .toLowerCase(),
 }));

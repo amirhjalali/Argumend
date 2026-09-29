@@ -15,6 +15,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does legal betting mostly replace illegal betting, or create new betting that would not have happened?",
     "tags": [
       "policy"
     ]
@@ -35,6 +36,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Do PFAS links to kidney and other cancers hold up in studies that separate cause from effect?",
     "tags": [
       "science"
     ]
@@ -55,6 +57,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does fasting win when calories are matched, or only by making it easier to eat less?",
     "tags": [
       "science"
     ]
@@ -75,6 +78,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Do the benefits of bright morning light outweigh the value of an extra hour of evening light?",
     "tags": [
       "policy"
     ]
@@ -95,6 +99,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Would ending tips raise or lower the typical server's total take-home pay?",
     "tags": [
       "economics"
     ]
@@ -115,6 +120,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Do chatbots' short-term symptom gains hold up against human therapists and last beyond a few months?",
     "tags": [
       "technology"
     ]
@@ -135,6 +141,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 14,
+    "firstCrux": "Are hard-to-cut emissions and overshoot large enough to require carbon removal at gigatonne scale?",
     "tags": [
       "science"
     ]
@@ -155,6 +162,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "In hard-to-electrify sectors, can other decarbonization routes undercut hydrogen?",
     "tags": [
       "technology"
     ]
@@ -175,6 +183,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Is vertical farming's high electricity use an engineering problem cheap power can fix, or a physical limit?",
     "tags": [
       "technology"
     ]
@@ -195,6 +204,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Is a species defined by genomic ancestry or by ecological function, and so is the 'dire wolf' back?",
     "tags": [
       "science"
     ]
@@ -215,6 +225,7 @@
     "category": "economics",
     "pillarCount": 5,
     "evidenceCount": 16,
+    "firstCrux": "How much of the cost rise is just rising wages in work that can't be automated?",
     "tags": [
       "economics"
     ]
@@ -235,6 +246,7 @@
     "category": "philosophy",
     "pillarCount": 5,
     "evidenceCount": 18,
+    "firstCrux": "Is a given rivalry a one-off game where defecting pays, or a repeated one where cooperation can last?",
     "tags": [
       "philosophy"
     ]
@@ -255,6 +267,7 @@
     "category": "technology",
     "pillarCount": 5,
     "evidenceCount": 21,
+    "firstCrux": "Will the length of tasks AI can complete on its own keep doubling at its recent pace, or plateau?",
     "tags": [
       "technology"
     ]
@@ -276,6 +289,7 @@
     "category": "economics",
     "pillarCount": 5,
     "evidenceCount": 18,
+    "firstCrux": "Would domestic shipping get much cheaper if the Jones Act were repealed?",
     "tags": [
       "economics"
     ]
@@ -296,6 +310,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
     "tags": [
       "policy"
     ]
@@ -317,6 +332,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 9,
+    "firstCrux": "Would single-payer's projected administrative and drug savings survive a real US transition?",
     "tags": [
       "policy"
     ]
@@ -337,6 +353,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "How much of the US firearm death rate comes from gun availability and laws versus other factors?",
     "tags": [
       "policy"
     ]
@@ -357,6 +374,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Does a minimum wage that is high relative to local wages, like $15 in a low-cost region, cost jobs?",
     "tags": [
       "policy"
     ]
@@ -378,6 +396,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "How much of Portugal's improvement came from decriminalization versus treatment investment?",
     "tags": [
       "policy"
     ]
@@ -398,6 +417,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Without proof that it deters, can possible deterrence plus retribution still justify the death penalty?",
     "tags": [
       "policy"
     ]
@@ -418,6 +438,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Do accountability measures like body cameras reduce police use of force without raising officer risk?",
     "tags": [
       "policy"
     ]
@@ -438,6 +459,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 7,
+    "firstCrux": "Do the extra voters compulsion brings make policy more representative, or just add noise?",
     "tags": [
       "policy"
     ]
@@ -458,6 +480,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "How much of today's racial wealth gap traces to slavery, Jim Crow and discriminatory policy?",
     "tags": [
       "policy"
     ]
@@ -479,6 +502,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
     "tags": [
       "policy"
     ]
@@ -499,6 +523,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "How large would the real gains from freer migration be once fiscal, wage and transition costs are counted?",
     "tags": [
       "policy"
     ]
@@ -520,6 +545,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 14,
+    "firstCrux": "Can any realistic funding plan pay for UBI without growth-damaging debt or tax rates?",
     "tags": [
       "policy"
     ]
@@ -540,6 +566,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Did Europe's wealth taxes fail due to fixable design flaws, or problems inherent in taxing wealth yearly?",
     "tags": [
       "policy"
     ]
@@ -560,6 +587,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 5,
+    "firstCrux": "Did going test-optional raise diversity without losing the ability to spot talented students?",
     "tags": [
       "policy"
     ]
@@ -580,6 +608,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 5,
+    "firstCrux": "Can the National Popular Vote compact realistically reach 270 electoral votes?",
     "tags": [
       "policy"
     ]
@@ -600,6 +629,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 5,
+    "firstCrux": "Does surveillance prevent crime, or push it to nearby areas?",
     "tags": [
       "policy"
     ]
@@ -621,6 +651,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Did Iran's nuclear escalation result from the US leaving the nuclear deal, or would it have happened anyway?",
     "tags": [
       "policy"
     ]
@@ -641,6 +672,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Was immunity for Epstein's unnamed co-conspirators standard practice, or an extraordinary concession?",
     "tags": [
       "policy"
     ]
@@ -661,6 +693,7 @@
     "category": "policy",
     "pillarCount": 4,
     "evidenceCount": 19,
+    "firstCrux": "Can ByteDance staff in China still access Americans' TikTok data despite Project Texas safeguards?",
     "tags": [
       "policy"
     ]
@@ -681,6 +714,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Did border crossings fall because of enforcement, or because of other factors?",
     "tags": [
       "policy"
     ]
@@ -701,6 +735,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Do engagement algorithms drive election misinformation, or would human biases spread it on any platform?",
     "tags": [
       "policy"
     ]
@@ -722,6 +757,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Did nuclear weapons cause the Long Peace, or would the superpowers have avoided war anyway?",
     "tags": [
       "policy"
     ]
@@ -742,6 +778,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
     "tags": [
       "policy"
     ]
@@ -762,6 +799,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 14,
+    "firstCrux": "How often do truly catastrophic pandemics strike under modern conditions?",
     "tags": [
       "policy"
     ]
@@ -782,6 +820,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Is Iran near a deliverable nuclear weapon, or is the gap from enriched uranium to a bomb understated?",
     "tags": [
       "policy"
     ]
@@ -802,6 +841,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does China have the sealift to carry and supply forces across a contested Taiwan Strait?",
     "tags": [
       "policy"
     ]
@@ -822,6 +862,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Can adaptation keep pace with aquifer depletion before farming in key regions collapses?",
     "tags": [
       "policy"
     ]
@@ -842,6 +883,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Do sugar taxes cut total sugar intake, or do people switch products and shop across the border?",
     "tags": [
       "policy"
     ]
@@ -862,6 +904,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Does removing social media actually improve teens' mental health, or is the link driven by other factors?",
     "tags": [
       "technology"
     ]
@@ -882,6 +925,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Is social media's harm a small average effect, or a large one concentrated in heavy-using girls?",
     "tags": [
       "technology"
     ]
@@ -902,6 +946,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does scheming-like behavior in AI tests reflect a deep drive to seek power, or artifacts of contrived setups?",
     "tags": [
       "technology"
     ]
@@ -922,6 +967,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Can watermarks survive real-world edits and deliberate removal at usable rates?",
     "tags": [
       "technology"
     ]
@@ -942,6 +988,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Are users of free platforms net harmed once privacy, innovation and attention costs are weighed?",
     "tags": [
       "technology"
     ]
@@ -962,6 +1009,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Does fear of online backlash measurably narrow what people are willing to say in public?",
     "tags": [
       "technology"
     ]
@@ -982,6 +1030,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Can media bias be measured reliably, and which direction does it run?",
     "tags": [
       "technology"
     ]
@@ -1002,6 +1051,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 5,
+    "firstCrux": "Will Starship-class transport, with orbital refueling and Mars landings, be demonstrated this decade?",
     "tags": [
       "technology"
     ]
@@ -1022,6 +1072,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 5,
+    "firstCrux": "Is lab-grown meat's cost gap a scale-up problem that shrinks with volume, or a hard floor?",
     "tags": [
       "technology"
     ]
@@ -1042,6 +1093,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 17,
+    "firstCrux": "Are AI's failures on novel tasks a lasting ceiling, or a gap the next models will close?",
     "tags": [
       "technology"
     ]
@@ -1062,6 +1114,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Does AI tutoring help disadvantaged students most, or the already advantaged?",
     "tags": [
       "technology"
     ]
@@ -1082,6 +1135,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Will AI capabilities keep scaling toward catastrophe-relevant thresholds, or plateau?",
     "tags": [
       "technology"
     ]
@@ -1102,6 +1156,7 @@
     "category": "technology",
     "pillarCount": 4,
     "evidenceCount": 19,
+    "firstCrux": "Can AI match professionals on complete real-world deliverables, not just standardized tests?",
     "tags": [
       "technology"
     ]
@@ -1122,6 +1177,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 14,
+    "firstCrux": "Does technological capability outpace society's ability to adapt, or does adaptation keep up?",
     "tags": [
       "technology"
     ]
@@ -1142,6 +1198,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Will capability gains from more compute hit a ceiling before general reasoning?",
     "tags": [
       "technology"
     ]
@@ -1162,6 +1219,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Can factory production bring small reactors' costs below renewables with backup power?",
     "tags": [
       "technology"
     ]
@@ -1182,6 +1240,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Do heavy short-form video users show weaker sustained attention than matched non-users?",
     "tags": [
       "science"
     ]
@@ -1202,6 +1261,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 15,
+    "firstCrux": "Does AI's benchmark accuracy hold up on messy real-world clinical data across populations?",
     "tags": [
       "technology"
     ]
@@ -1222,6 +1282,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Can careful privacy habits shrink corporate profiling, or does data aggregation rebuild the profile anyway?",
     "tags": [
       "technology"
     ]
@@ -1242,6 +1303,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does the falling carbon-isotope ratio in the air confirm that the added CO₂ comes from fossil fuels?",
     "tags": [
       "science"
     ]
@@ -1262,6 +1324,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "How fast does an EV make up its battery's emissions, and how much do mining harms weigh?",
     "tags": [
       "science"
     ]
@@ -1282,6 +1345,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "How much moral weight does farmed-animal suffering carry against the cost of changing the system?",
     "tags": [
       "science"
     ]
@@ -1302,6 +1366,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Is organic buyers' lower cancer rate due to the food, or to their healthier, wealthier lifestyles?",
     "tags": [
       "science"
     ]
@@ -1322,6 +1387,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Can gene editing become precise enough to be safe for changes passed to future generations?",
     "tags": [
       "science"
     ]
@@ -1342,6 +1408,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Do the returns on government space spending beat what the same money would do on Earth?",
     "tags": [
       "science"
     ]
@@ -1362,6 +1429,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 5,
+    "firstCrux": "How much of veganism's per-person footprint cut would hold at global scale, after land and rebound effects?",
     "tags": [
       "science"
     ]
@@ -1382,6 +1450,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 5,
+    "firstCrux": "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
     "tags": [
       "science"
     ]
@@ -1402,6 +1471,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 21,
+    "firstCrux": "Is the outbreak's start in the same city as the Wuhan Institute of Virology a real signal, or coincidence?",
     "tags": [
       "science"
     ]
@@ -1422,6 +1492,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Do people overeat because food is processed, or because of its energy density, taste and eating speed?",
     "tags": [
       "science"
     ]
@@ -1442,6 +1513,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Do senolytic drugs improve human healthspan in large trials, or does the mouse-to-human gap defeat them?",
     "tags": [
       "science"
     ]
@@ -1462,6 +1534,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Is the evidence strong enough to justify treating minors, compared with other accepted pediatric care?",
     "tags": [
       "science"
     ]
@@ -1482,6 +1555,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Do microplastics in arteries drive heart disease, or are they bystanders in already-diseased tissue?",
     "tags": [
       "science"
     ]
@@ -1502,6 +1576,7 @@
     "category": "science",
     "pillarCount": 4,
     "evidenceCount": 15,
+    "firstCrux": "Does ten or more years of continuous use stay net-beneficial, or reveal cumulative risks?",
     "tags": [
       "science"
     ]
@@ -1522,6 +1597,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
     "tags": [
       "science"
     ]
@@ -1542,6 +1618,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 14,
+    "firstCrux": "How many miles must an EV drive to repay its manufacturing carbon, on each market's grid?",
     "tags": [
       "science"
     ]
@@ -1562,6 +1639,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does sustained high omega-6 intake from seed oils measurably shift inflammatory signaling in humans?",
     "tags": [
       "science"
     ]
@@ -1582,6 +1660,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does the ultra-processed food environment drive obesity, or does personal choice still dominate?",
     "tags": [
       "science"
     ]
@@ -1602,6 +1681,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does loneliness itself cause early death, or is it a marker of existing disadvantage?",
     "tags": [
       "science"
     ]
@@ -1622,6 +1702,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Do remote teams produce as much innovation as comparable in-office teams?",
     "tags": [
       "economics"
     ]
@@ -1642,6 +1723,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "What share of school-and-major combinations pay off once you account for who enrolls?",
     "tags": [
       "economics"
     ]
@@ -1662,6 +1744,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Does the homeschool test-score edge survive controls for family income, education and who takes tests?",
     "tags": [
       "economics"
     ]
@@ -1682,6 +1765,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Does extreme wealth concentration cause declining social mobility, or do both share other causes?",
     "tags": [
       "economics"
     ]
@@ -1702,6 +1786,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "How much of actual aid spending goes to proven, cost-effective programs?",
     "tags": [
       "economics"
     ]
@@ -1722,6 +1807,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 7,
+    "firstCrux": "Is Bitcoin's lead a durable network moat, or a first-mover edge a better protocol could erode?",
     "tags": [
       "economics"
     ]
@@ -1742,6 +1828,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 15,
+    "firstCrux": "Can crypto rules deter fraud without driving compliant builders offshore?",
     "tags": [
       "economics"
     ]
@@ -1762,6 +1849,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 5,
+    "firstCrux": "How much control do platform algorithms really exert, compared with employers and true contractors?",
     "tags": [
       "economics"
     ]
@@ -1782,6 +1870,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
     "tags": [
       "economics"
     ]
@@ -1802,6 +1891,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 9,
+    "firstCrux": "Is maintained productivity a real effect of the schedule, or of self-selected, motivated firms?",
     "tags": [
       "economics"
     ]
@@ -1823,6 +1913,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
     "tags": [
       "economics"
     ]
@@ -1843,6 +1934,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "How much of the 2021–22 price rise did monetary and fiscal expansion cause, versus merely allow?",
     "tags": [
       "economics"
     ]
@@ -1863,6 +1955,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Do record price-to-income ratios force prices down, or can tight supply keep them high?",
     "tags": [
       "economics"
     ]
@@ -1883,6 +1976,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Can the US keep its borrowing rate below its growth rate over decades?",
     "tags": [
       "economics"
     ]
@@ -1903,6 +1997,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does fully remote work lower total output once coordination and knowledge transfer are counted?",
     "tags": [
       "economics"
     ]
@@ -1923,6 +2018,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "What share of mined diamonds can be traced to a verified-ethical mine today?",
     "tags": [
       "economics"
     ]
@@ -1943,6 +2039,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
     "tags": [
       "economics"
     ]
@@ -1963,6 +2060,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Can rich economies grow while cutting emissions 7–10% a year, without offshoring them?",
     "tags": [
       "economics"
     ]
@@ -1983,6 +2081,7 @@
     "category": "philosophy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Is the brain signal before a conscious choice a fixed commitment, or preparation consciousness can still veto?",
     "tags": [
       "philosophy"
     ]
@@ -2003,6 +2102,7 @@
     "category": "philosophy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "Can simulating a brain's wiring reproduce its behavior, and would that say anything about experience?",
     "tags": [
       "philosophy"
     ]
@@ -2025,6 +2125,7 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Do laser echoes from the Moon need astronaut-placed reflectors, or could natural features explain them?",
     "tags": [
       "philosophy"
     ]
@@ -2045,6 +2146,7 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 4,
+    "firstCrux": "Does the full sequence of events back the federal self-defense account, or the bystander video and witnesses?",
     "tags": [
       "philosophy"
     ]
@@ -2065,6 +2167,7 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 12,
+    "firstCrux": "Does consciousness require biology, or only the right information processing?",
     "tags": [
       "philosophy"
     ]
@@ -2085,6 +2188,7 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 6,
+    "firstCrux": "Do committed secular people fare as well as committed believers on meaning, resilience and community?",
     "tags": [
       "philosophy"
     ]
@@ -2106,6 +2210,7 @@
     "category": "philosophy",
     "pillarCount": 3,
     "evidenceCount": 12,
+    "firstCrux": "How strongly does parents' income predict their children's adult income?",
     "tags": [
       "philosophy"
     ]
@@ -2126,6 +2231,7 @@
     "category": "philosophy",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "After a complete functional account, is 'why does it feel like something?' a real question left over?",
     "tags": [
       "philosophy"
     ]
@@ -2146,6 +2252,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 9,
+    "firstCrux": "Can artificial wombs sustain fetuses below 22–23 weeks with outcomes as good as neonatal intensive care?",
     "tags": [
       "science"
     ]
@@ -2166,6 +2273,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "Can an adversary government compel data access or algorithm changes despite company safeguards?",
     "tags": [
       "policy"
     ]
@@ -2186,6 +2294,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "How likely is a pandemic-capable pathogen to escape over time, given modern containment and more labs?",
     "tags": [
       "policy"
     ]
@@ -2206,6 +2315,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Do specific smartphone features cause harm to teens, or does the correlation reflect other factors?",
     "tags": [
       "technology"
     ]
@@ -2226,6 +2336,7 @@
     "category": "philosophy",
     "pillarCount": 3,
     "evidenceCount": 6,
+    "firstCrux": "Can democracies reform themselves fast enough to meet long-horizon challenges?",
     "tags": [
       "philosophy"
     ]
@@ -2246,6 +2357,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Can natural sinks plus feasible cuts stay within the carbon budget without technological removal?",
     "tags": [
       "science"
     ]
@@ -2266,6 +2378,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
     "tags": [
       "economics"
     ]
@@ -2286,6 +2399,7 @@
     "category": "philosophy",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Are men's worse outcomes driven by gender itself, or by class and economic factors that hit more men?",
     "tags": [
       "philosophy"
     ]
@@ -2306,6 +2420,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Does calling real evidence a deepfake actually let powerful people escape accountability?",
     "tags": [
       "technology"
     ]
@@ -2326,6 +2441,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Is there a fertility level below which falling income per person becomes self-reinforcing?",
     "tags": [
       "economics"
     ]
@@ -2346,6 +2462,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "Do treatments that extend healthy lifespan in short-lived animals deliver similar gains in primates?",
     "tags": [
       "science"
     ]
@@ -2366,6 +2483,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 10,
+    "firstCrux": "Can satellites and signals intelligence replace lost treaty inspections, or does losing them fuel buildups?",
     "tags": [
       "policy"
     ]
@@ -2386,6 +2504,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "After two-plus years on hormones, do retained advantages exceed normal variation among women in that sport?",
     "tags": [
       "policy"
     ]
@@ -2406,6 +2525,7 @@
     "category": "philosophy",
     "pillarCount": 3,
     "evidenceCount": 11,
+    "firstCrux": "Can consciousness be detected without a human template, and in which species would it show up?",
     "tags": [
       "philosophy"
     ]
@@ -2426,6 +2546,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 6,
+    "firstCrux": "Are immigration's economic gains broadly shared, or do the costs fall on low-income natives?",
     "tags": [
       "policy"
     ]
@@ -2446,6 +2567,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "Do psychedelic therapy's large effects hold up in trials with better blinding?",
     "tags": [
       "science"
     ]
@@ -2466,6 +2588,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 14,
+    "firstCrux": "Do test scores and credentials measure individual ability, or accumulated advantage?",
     "tags": [
       "policy"
     ]
@@ -2486,6 +2609,7 @@
     "category": "policy",
     "pillarCount": 4,
     "evidenceCount": 16,
+    "firstCrux": "Can Ukraine realistically retake its 1991 borders, or is the front line effectively frozen?",
     "tags": [
       "policy"
     ]
@@ -2507,6 +2631,7 @@
     "category": "economics",
     "pillarCount": 4,
     "evidenceCount": 16,
+    "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
     "tags": [
       "economics"
     ]
@@ -2527,6 +2652,7 @@
     "category": "policy",
     "pillarCount": 4,
     "evidenceCount": 16,
+    "firstCrux": "Does the childhood vaccine schedule as a whole carry harms that studies of single vaccines miss?",
     "tags": [
       "policy"
     ]
@@ -2548,6 +2674,7 @@
     "category": "policy",
     "pillarCount": 4,
     "evidenceCount": 16,
+    "firstCrux": "How much of DOGE's claimed savings survives a line-by-line reconciliation?",
     "tags": [
       "policy"
     ]
@@ -2568,6 +2695,7 @@
     "category": "technology",
     "pillarCount": 4,
     "evidenceCount": 17,
+    "firstCrux": "Do safety-stripped open models give bad actors real help on dangerous tasks beyond what search provides?",
     "tags": [
       "technology"
     ]
@@ -2588,6 +2716,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "How much of the observed emission cuts did carbon taxes actually cause?",
     "tags": [
       "economics",
       "carbon-tax",
@@ -2612,6 +2741,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 6,
+    "firstCrux": "Over the years, what lasts: the drop in cars entering the zone, or faster journey times?",
     "tags": [
       "policy",
       "transport",
@@ -2637,6 +2767,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Once firms adjust prices and parts, do right-to-repair laws lower or raise consumers' total ownership costs?",
     "tags": [
       "policy",
       "right-to-repair",
@@ -2662,6 +2793,7 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 7,
+    "firstCrux": "Does a competent adult's autonomy extend to choosing the timing of an inevitable death?",
     "tags": [
       "philosophy",
       "bioethics",
@@ -2687,6 +2819,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Does the amendment's militia clause limit the right, or only explain its purpose?",
     "tags": [
       "policy",
       "second-amendment",
@@ -2711,6 +2844,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Does self-driving cars' safety edge survive a truly like-for-like, independently audited comparison?",
     "tags": [
       "technology",
       "autonomous-vehicles",
@@ -2736,6 +2870,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Without rules, do providers keep discriminating against traffic, or do competition and antitrust deter it?",
     "tags": [
       "technology",
       "net-neutrality",
@@ -2761,6 +2896,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 9,
+    "firstCrux": "Is the wrong in how training data was acquired, or in training on it at all?",
     "tags": [
       "technology",
       "copyright",
@@ -2786,6 +2922,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "Are the systems police actually use, at their real settings, equally accurate across race and sex?",
     "tags": [
       "technology",
       "facial-recognition",
@@ -2811,6 +2948,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 9,
+    "firstCrux": "Does finding no harm reflect real safety, or how hard subtle long-term effects are to detect?",
     "tags": [
       "science",
       "gmo",
@@ -2836,6 +2974,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 9,
+    "firstCrux": "Can a complete fusion plant put out more electricity than it consumes?",
     "tags": [
       "science",
       "fusion",
@@ -2861,6 +3000,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 9,
+    "firstCrux": "How much of the uptake after a mandate is caused by the mandate, rather than the maturing rollout?",
     "tags": [
       "policy",
       "vaccines",
@@ -2886,6 +3026,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Should the benefit be judged by the average patient, or by a subgroup who truly respond to the drug?",
     "tags": [
       "science",
       "psychiatry",
@@ -2911,6 +3052,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 7,
+    "firstCrux": "How much of Social Security's funding gap would raising the retirement age close, versus revenue options?",
     "tags": [
       "economics",
       "social-security",
@@ -2936,6 +3078,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "How much of the wealth in taxable estates was never taxed during the owner's life?",
     "tags": [
       "economics",
       "estate-tax",
@@ -2961,6 +3104,7 @@
     "category": "economics",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Does stricter licensing raise service quality enough to justify higher prices, occupation by occupation?",
     "tags": [
       "economics",
       "labor",
@@ -2986,6 +3130,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "Can a lawful-access design exist whose added security risk is acceptably small?",
     "tags": [
       "technology",
       "encryption",
@@ -3011,6 +3156,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
     "tags": [
       "technology",
       "section-230",
@@ -3036,6 +3182,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 7,
+    "firstCrux": "Could an autonomous weapon commit a war crime for which no human can be held responsible?",
     "tags": [
       "technology",
       "autonomous-weapons",
@@ -3061,6 +3208,7 @@
     "category": "technology",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "Is new data-center demand met by clean power, or by new gas and delayed coal retirements?",
     "tags": [
       "technology",
       "ai",
@@ -3086,6 +3234,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Does the gap between diagnosed and community ADHD rates reflect false positives or previously missed cases?",
     "tags": [
       "science",
       "adhd",
@@ -3111,6 +3260,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 6,
+    "firstCrux": "Does vaping's quit-rate advantage in trials hold up in the real-world market of flavored disposables?",
     "tags": [
       "science",
       "vaping",
@@ -3136,6 +3286,7 @@
     "category": "policy",
     "pillarCount": 2,
     "evidenceCount": 8,
+    "firstCrux": "Do decriminalization and legalization differ on safety, and are changes due to the law or other factors?",
     "tags": [
       "policy",
       "sex-work",
@@ -3161,6 +3312,7 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "Do forced open seats bring more competitive races and new kinds of legislators, or reshuffle similar ones?",
     "tags": [
       "policy",
       "governance",
@@ -3186,6 +3338,7 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 7,
+    "firstCrux": "Do effects measured in small trials hold at national scale and over years?",
     "tags": [
       "philosophy",
       "ethics",
@@ -3210,6 +3363,7 @@
     "category": "science",
     "pillarCount": 3,
     "evidenceCount": 7,
+    "firstCrux": "Does cancer risk rise from the first drink, or could a small threshold hide below what studies can detect?",
     "tags": [
       "science",
       "alcohol",
@@ -3235,6 +3389,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 8,
+    "firstCrux": "Does 'a currency issuer can't be forced to default' guide spending policy, or hide the inflation limit?",
     "tags": [
       "economics",
       "mmt",
@@ -3260,6 +3415,7 @@
     "category": "science",
     "pillarCount": 2,
     "evidenceCount": 7,
+    "firstCrux": "Is the link between visible matter and galactic motion exact, or does it vary slightly from galaxy to galaxy?",
     "tags": [
       "science",
       "cosmology",

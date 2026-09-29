@@ -15,7 +15,6 @@ import {
   DEBATE_MAP_ENTRIES,
   LIBRARY_ENTRIES,
   SORT_OPTIONS,
-  STATUS_LABELS,
   filterLibrary,
   queryForTopicsState,
   showsStartHere,
@@ -23,6 +22,7 @@ import {
   type SortOption,
   type TopicsQueryState,
 } from "./_query";
+import { MapCardText } from "./MapCardText";
 
 export type { SortOption, TopicsQueryState } from "./_query";
 
@@ -343,23 +343,7 @@ export default function TopicsPageClient({
                           <TitleTag className="font-serif text-[1.3125rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
                             {topic.title}
                           </TitleTag>
-                          <p className="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                            {topic.summary}
-                          </p>
-                          {/* No "kind" chip: every row is a map. A new-model
-                              row under a category shelf has no meta at all. */}
-                          {(!group.category || topic.status || topic.pillarCount !== undefined) && (
-                            <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-muted">
-                              {!group.category && <span>{CATEGORY_LABELS[topic.category]}</span>}
-                              {topic.status && <span>{STATUS_LABELS[topic.status]}</span>}
-                              {topic.pillarCount !== undefined && topic.evidenceCount !== undefined && (
-                                <span>
-                                  {topic.pillarCount} {topic.pillarCount === 1 ? "pillar" : "pillars"},{" "}
-                                  {topic.evidenceCount} evidence {topic.evidenceCount === 1 ? "card" : "cards"}
-                                </span>
-                              )}
-                            </p>
-                          )}
+                          <MapCardText map={topic} showCategory={!group.category} />
                         </Link>
                       </li>
                     ))}
@@ -409,9 +393,7 @@ function StartHere() {
               <h3 className="font-serif text-[1.375rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
                 {map.title}
               </h3>
-              <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-secondary dark:text-stone-400 md:line-clamp-3">
-                {map.summary}
-              </p>
+              <MapCardText map={map} />
             </Link>
           </li>
         ))}

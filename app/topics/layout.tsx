@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { MAP_COUNT_LABEL as L } from "@/data/topicIndex";
+import { MAP_COUNT as L } from "@/data/topicIndex";
 import { buildGenericOgUrl } from "@/lib/og";
 
 const SOCIAL_IMAGE = buildGenericOgUrl({
