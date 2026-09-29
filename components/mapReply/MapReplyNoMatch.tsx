@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ClosestMaps } from "./ClosestMaps";
 import type { MapReplyNoMatch as MapReplyNoMatchResult, MapReplyNoMatchReason } from "@/lib/mapReply/types";
 import { executionSummary } from "./MapReplyFooter";
 import { Meter, percentLabel } from "./meters";
@@ -62,32 +62,15 @@ export function MapReplyNoMatch({
         </div>
       ) : null}
 
-      {candidates.length > 0 ? (
-        <section className="space-y-4 border-t border-[var(--border-divider)] pt-8">
-          <h3 className="font-serif text-[1.75rem] leading-tight text-[var(--text-heading)] sm:text-[2rem]">Closest maps</h3>
-          <p className="max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-            These are the maps the shortlist put in front of the model. None of them cleared the
-            bar; one of them may still be what you are arguing about.
-          </p>
-          <ul className="divide-y divide-[var(--border-divider)] border-y border-[var(--border-divider)]">
-            {candidates.map((candidate) => (
-              <li key={candidate.id}>
-                <Link
-                  href={`/topics/${candidate.id}`}
-                  className="group block py-4"
-                >
-                  <span className="font-serif text-[1.25rem] leading-snug text-[var(--text-heading)] underline decoration-[var(--border-default)] underline-offset-4 group-hover:decoration-deep">
-                    {candidate.title}
-                  </span>
-                  <span className="mt-1 block font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-                    {candidate.metaClaim}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
+      <ClosestMaps
+        title="Closest maps"
+        lede="These are the maps the shortlist put in front of the model. None of them cleared the bar; one of them may still be what you are arguing about."
+        maps={candidates.map((candidate) => ({
+          id: candidate.id,
+          title: candidate.title,
+          claim: candidate.metaClaim,
+        }))}
+      />
 
       <div className="space-y-3 pt-2">
         <button

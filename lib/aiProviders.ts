@@ -12,6 +12,11 @@
  * This module is pure data plus string formatting: no environment reads, no
  * server imports. Client components import it directly.
  *
+ * The paste flow at `/analyze` (2026-09-29) does not use a fixed roster: the
+ * server works out which lanes will run (`lib/paste/lanes.ts`) and the page
+ * builds its line with `buildPasteConsentLine` from exactly those providers,
+ * or says that nothing leaves the server when only the offline map lane runs.
+ *
  * Which lane uses which provider (verified 2026-09-21):
  * - `DIAGNOSIS_PROVIDER_IDS` — `/analyze-v2` posts to `/api/disagreements/analyze`,
  *   which builds a provider via `createDisagreementProvider` in
@@ -22,11 +27,12 @@
  *   a provider via `getJevProvider()` in `lib/jev/client.ts`. The only live
  *   lane is TypeSafe AI's Jev; the other lane is local fixtures and sends
  *   nothing anywhere.
- * - `ANALYZE_SOURCE_PROVIDER_IDS` — `/analyze` live extraction runs
- *   `DEFAULT_EXTRACTION_AGENT` (`model: "claude"`) in `lib/analyze/extractor.ts`.
- * - `ANALYZE_JUDGING_PROVIDER_IDS` — the judge council in `app/api/analyze/route.ts`
- *   defaults to `["claude", "gpt-4", "gemini"]` and accepts `"grok"`. Judging
- *   receives extracted argument data, not the raw pasted source.
+ * - `ANALYZE_SOURCE_PROVIDER_IDS` — the retired `/analyze` live extraction
+ *   (`DEFAULT_EXTRACTION_AGENT`, `model: "claude"`, in `lib/analyze/extractor.ts`).
+ *   Since 2026-09-29 no paste surface calls it.
+ * - `ANALYZE_JUDGING_PROVIDER_IDS` — the judge council the retired `/analyze`
+ *   judging ran (`["claude", "gpt-4", "gemini"]`, accepting `"grok"`). No paste
+ *   surface judges anything any more.
  */
 
 export type AiProviderId = "anthropic" | "openai" | "google" | "typesafe" | "xai";
@@ -226,9 +232,26 @@ export function buildMapReplyConsentLine(
   return { before, linkText, after, text: `${before}${linkText}${after}` };
 }
 
-/** The short badge copy on `/analyze` when live extraction is enabled. */
-export function analyzeSourceBadge(): string {
-  return `Source text isn’t stored; live mode sends it to ${providerDisclosure(
-    ANALYZE_SOURCE_PROVIDER_IDS,
-  )}`;
+/**
+ * The consent line for the one paste box at `/analyze`, built for the lanes
+ * that will actually run on this deployment.
+ *
+ * With no provider the map lane is the only lane: the text is matched against
+ * the maps on our own server, sent nowhere and kept nowhere, and the line says
+ * exactly that instead of asking for consent to a transfer that never
+ * happens. With providers it names them outright, as the map-reply line does,
+ * because the page knows which one it is: the diagnosis sentence above hedges
+ * with a vendor the diagnosis lane never calls.
+ */
+export function buildPasteConsentLine(ids: readonly AiProviderId[]): ConsentLine {
+  const before =
+    ids.length === 0
+      ? "Nothing you paste leaves our server. It is matched against Argumend’s maps there and is not stored. "
+      : `By submitting, you agree that this text is sent to ${formatProviderList(ids)} ` +
+        `(processed in ${sharedProcessingRegion(ids)}) and is not stored. ` +
+        "It is also matched against Argumend’s maps on our server." +
+        " Don't paste private information about other people. ";
+  const linkText = "Privacy";
+  const after = ".";
+  return { before, linkText, after, text: `${before}${linkText}${after}` };
 }

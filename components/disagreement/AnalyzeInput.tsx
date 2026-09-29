@@ -5,7 +5,7 @@ import type { DisagreementContentType } from "@/types/disagreement";
 const TYPE_LABEL: Record<DisagreementContentType, string> = {
   conversation: "Conversation",
   article: "Article",
-  freeform: "Freeform",
+  freeform: "My own draft",
 };
 
 /**
@@ -19,12 +19,15 @@ export function AnalyzeInput({
   disabled,
   onContentChange,
   onTypeChange,
+  label = "Disagreement text",
 }: {
   content: string;
   contentType: DisagreementContentType;
   disabled: boolean;
   onContentChange: (value: string) => void;
   onTypeChange: (value: DisagreementContentType) => void;
+  /** The textarea's accessible name. */
+  label?: string;
 }) {
   return (
     <div className="space-y-3">
@@ -58,7 +61,7 @@ export function AnalyzeInput({
         </div>
       </fieldset>
       <label className="block">
-        <span className="sr-only">Disagreement text</span>
+        <span className="sr-only">{label}</span>
         <textarea
           value={content}
           disabled={disabled}

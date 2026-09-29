@@ -51,7 +51,6 @@ describe("modal accessibility source contract", () => {
     const callers = [
       "components/AppShell.tsx",
       "components/HomeClient.tsx",
-      "app/analyze/page.tsx",
     ];
     for (const file of callers) {
       const source = readFileSync(join(process.cwd(), file), "utf8");
