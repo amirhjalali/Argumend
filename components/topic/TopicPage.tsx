@@ -33,6 +33,7 @@ import {
   SettleAnswer,
 } from "./cruxPrimitives";
 import { CruxReflection } from "./CruxReflection";
+import { OpenCruxFromHash } from "./OpenCruxFromHash";
 import { TopicActions } from "./TopicActions";
 import {
   cruxSheetHeading,
@@ -106,6 +107,7 @@ export function TopicPage({
           cards={page.positions}
         />
         {afterPositions}
+        <OpenCruxFromHash />
         {reflectionOptions.length > 0 && (
           <CruxReflection topicId={page.id} options={reflectionOptions} />
         )}
