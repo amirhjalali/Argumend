@@ -200,7 +200,7 @@ export function DetailBlock({
 
 /** The one disclosure style used inside crux entries and position cards. */
 export const INLINE_SUMMARY =
-  "-mx-1 inline-flex min-h-11 w-[calc(100%+0.5rem)] cursor-pointer list-none items-center justify-between gap-2 rounded px-1 text-[0.8125rem] font-medium text-muted hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-400 dark:hover:text-stone-200 dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden";
+  "-mx-1 inline-flex min-h-11 w-[calc(100%+0.5rem)] cursor-pointer list-none items-center justify-between gap-2 rounded px-1 text-[0.8125rem] font-medium text-muted hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-stone-400 dark:hover:text-stone-200 [&::-webkit-details-marker]:hidden";
 
 /** An external source link with a 44px hit area (sources are what sceptics tap). */
 export const SOURCE_LINK =

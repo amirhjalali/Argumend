@@ -409,7 +409,7 @@ function EvidenceCitation({ node, entryId }: { node: Evidence; entryId: string }
   return (
     <li id={`ledger-${domId(entryId)}--${domId(node.id)}`}>
       <details className="group/cite">
-        <summary className="-mx-1 inline-flex min-h-11 cursor-pointer list-none items-baseline gap-1.5 rounded px-1 py-3 text-[12.5px] leading-snug text-[#3a6965] hover:text-[#2d524f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-[#8fc0bb] dark:hover:text-[#b5dad6] dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
+        <summary className="-mx-1 inline-flex min-h-11 cursor-pointer list-none items-baseline gap-1.5 rounded px-1 py-3 text-[12.5px] leading-snug text-[#3a6965] hover:text-[#2d524f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#8fc0bb] dark:hover:text-[#b5dad6] [&::-webkit-details-marker]:hidden">
           <span
             aria-hidden="true"
             className="inline-block translate-y-px text-[11px] transition-transform group-open/cite:rotate-90 motion-reduce:transition-none"

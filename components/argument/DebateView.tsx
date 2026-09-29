@@ -411,7 +411,7 @@ function ResearcherClaim({
 }) {
   return (
     <details className="group/claim surface-paper rounded-lg">
-      <summary className="cursor-pointer list-none rounded-lg p-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
+      <summary className="cursor-pointer list-none rounded-lg p-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus [&::-webkit-details-marker]:hidden">
         <h3 className="text-sm leading-snug text-stone-900 dark:text-stone-100">
           <span className="flex items-start gap-2">
             <span>{claim.summary ?? claim.statement}</span>
@@ -570,7 +570,7 @@ function EvidenceItem({
         )}
         {node.source.interest && (
           <details className="group/interest">
-            <summary className="-mx-1 inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded px-1 font-medium text-[#8B5A3C] hover:text-[#6B442C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-[#d4805f] dark:hover:text-[#e6a48c] dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
+            <summary className="-mx-1 inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded px-1 font-medium text-[#8B5A3C] hover:text-[#6B442C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#d4805f] dark:hover:text-[#e6a48c] [&::-webkit-details-marker]:hidden">
               <span aria-hidden="true">⚑</span>
               Source interest
               <span

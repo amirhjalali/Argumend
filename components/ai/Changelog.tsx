@@ -49,7 +49,7 @@ export function Changelog({
 
   return (
     <details data-testid="ai-changelog" className="group/log border-t border-divider">
-      <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded pt-1 text-[13.5px] font-medium text-stone-700 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-300 dark:hover:text-stone-100 dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
+      <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded pt-1 text-[13.5px] font-medium text-stone-700 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-stone-300 dark:hover:text-stone-100 [&::-webkit-details-marker]:hidden">
         <span
           aria-hidden="true"
           className="inline-block text-[12px] transition-transform group-open/log:rotate-90 motion-reduce:transition-none"

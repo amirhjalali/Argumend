@@ -66,7 +66,7 @@ export function CruxModal() {
                             <button
                                 onClick={closeCrux}
                                 data-modal-initial-focus
-                                className="rounded-full p-2 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                                className="rounded-full p-2 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[var(--bg-overlay)] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-focus"
                                 aria-label="Close crux details"
                             >
                                 <X className="h-5 w-5" />

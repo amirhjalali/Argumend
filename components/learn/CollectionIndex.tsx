@@ -151,7 +151,7 @@ function MoreLink({ href, label }: { href: string; label: string }) {
     <p className="mt-2">
       <Link
         href={href}
-        className="inline-flex min-h-11 items-center gap-1 rounded-sm font-sans text-sm text-deep underline underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text dark:hover:text-stone-200"
+        className="inline-flex min-h-11 items-center gap-1 rounded-sm font-sans text-sm text-deep underline underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text dark:hover:text-stone-200"
       >
         {label}
         <span aria-hidden="true">&rarr;</span>
@@ -178,7 +178,7 @@ export function CollectionRows({
         <li key={item.href} className="border-b border-divider">
           <Link
             href={item.href}
-            className="group flex min-h-11 items-start gap-4 rounded-sm py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+            className="group flex min-h-11 items-start gap-4 rounded-sm py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
           >
             <span className="min-w-0 flex-1">
               <span className="block font-serif text-lg leading-snug text-primary transition-colors group-hover:text-accent-text">

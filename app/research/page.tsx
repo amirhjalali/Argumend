@@ -42,7 +42,7 @@ function InlineCitation({ ids, index }: { ids: string[]; index: Map<string, numb
             key={id}
             href={`#ref-${id}`}
             aria-label={`Reference ${num}`}
-            className="-my-2.5 -ml-1.5 -mr-2 inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm align-super font-sans text-xs font-medium text-deep no-underline hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text"
+            className="-my-2.5 -ml-1.5 -mr-2 inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm align-super font-sans text-xs font-medium text-deep no-underline hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text"
           >
             [{num}]
           </a>
@@ -173,7 +173,7 @@ export default function ResearchPage() {
                             href={item.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex min-h-11 items-start justify-between gap-4 rounded-sm py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                            className="group flex min-h-11 items-start justify-between gap-4 rounded-sm py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
                           >
                             <span className="min-w-0">
                               <span className="block font-serif text-lg leading-snug text-primary transition-colors group-hover:text-accent-text">

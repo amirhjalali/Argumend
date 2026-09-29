@@ -54,7 +54,7 @@ function write(topicId: string, value: StoredReflection | null) {
 }
 
 const OPTION_BASE =
-  "flex min-h-11 w-full items-start gap-3 rounded-lg border px-3 py-2.5 text-left text-sm leading-snug transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e]";
+  "flex min-h-11 w-full items-start gap-3 rounded-lg border px-3 py-2.5 text-left text-sm leading-snug transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus";
 const OPTION_IDLE =
   "border-stone-300/80 bg-white/60 text-stone-800 hover:border-deep/60 hover:bg-deep/[0.04] dark:border-[var(--border-divider)] dark:bg-transparent dark:text-stone-200 dark:hover:border-[#8bb5b1]/60";
 const OPTION_CHOSEN =
@@ -154,7 +154,7 @@ export function CruxReflection({
                   type="button"
                   aria-pressed={chosen}
                   onClick={() => setChanged(choice.id)}
-                  className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep ${
+                  className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
                     chosen ? OPTION_CHOSEN : OPTION_IDLE
                   }`}
                 >

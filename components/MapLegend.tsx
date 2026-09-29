@@ -117,7 +117,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
               </h3>
               <button
                 onClick={closeLegend}
-                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-focus"
                 aria-label="Collapse legend"
                 aria-controls={legendPanelId}
                 aria-expanded="true"

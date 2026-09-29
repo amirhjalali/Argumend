@@ -70,7 +70,7 @@ export function QuestionsSearch({
           placeholder="Search questions by keyword..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-lg border border-stone-200 bg-panel py-3 pl-10 pr-12 font-sans text-sm text-primary dark:text-stone-200 placeholder:text-muted dark:placeholder:text-stone-500 focus:border-deep/40 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-[var(--border-default)] dark:focus:border-accent-text/60 dark:focus:ring-accent-text/30"
+          className="w-full rounded-lg border border-stone-200 bg-panel py-3 pl-10 pr-12 font-sans text-sm text-primary dark:text-stone-200 placeholder:text-muted dark:placeholder:text-stone-500 focus:border-deep/40 focus:outline-none focus:ring-2 focus:ring-focus dark:border-[var(--border-default)] dark:focus:border-accent-text/60"
           aria-label="Search questions"
           aria-controls="question-search-results"
           aria-describedby={query.trim() ? "question-search-status" : undefined}

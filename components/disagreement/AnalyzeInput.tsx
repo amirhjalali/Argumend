@@ -40,7 +40,7 @@ export function AnalyzeInput({
           {(["conversation", "article", "freeform"] as const).map((value) => (
             <label
               key={value}
-              className={`inline-flex min-h-10 cursor-pointer items-center rounded-full px-3.5 font-sans text-sm transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-deep/40 ${
+              className={`inline-flex min-h-10 cursor-pointer items-center rounded-full px-3.5 font-sans text-sm transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-focus ${
                 contentType === value
                   ? "bg-deep/10 font-medium text-deep dark:bg-deep-light/20 dark:text-stone-100"
                   : "text-[var(--text-secondary)] hover:text-[var(--text-heading)]"
@@ -68,7 +68,7 @@ export function AnalyzeInput({
           onChange={(event) => onContentChange(event.target.value)}
           rows={11}
           maxLength={20000}
-          className="w-full resize-y rounded-lg border border-[var(--border-default)] bg-[var(--bg-input)] p-4 font-sans text-base leading-relaxed text-[var(--text-primary)] placeholder:font-serif placeholder:text-lg placeholder:italic placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-deep/30 disabled:opacity-60"
+          className="w-full resize-y rounded-lg border border-[var(--border-default)] bg-[var(--bg-input)] p-4 font-sans text-base leading-relaxed text-[var(--text-primary)] placeholder:font-serif placeholder:text-lg placeholder:italic placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-focus disabled:opacity-60"
           placeholder="Paste a conversation, article, or argument."
         />
       </label>

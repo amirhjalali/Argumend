@@ -29,7 +29,7 @@ export default function FAQPage() {
         <div className="divide-y divide-divider border-y border-divider">
           {faqs.map((faq, index) => (
             <details key={`${index}-${faq.question}`} open={index === 0} className="group">
-              <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus [&::-webkit-details-marker]:hidden">
                 <h2 className="font-serif text-[1.25rem] leading-snug text-primary dark:text-stone-200">
                   {faq.question}
                 </h2>
