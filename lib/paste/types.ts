@@ -44,9 +44,9 @@ export interface PasteMapCard {
 export interface PasteMapCrux {
   /** The question the crux asks, as the map words it. */
   question: string;
-  /** What a supporter of the map's claim would need to see to change their mind. */
+  /** What someone who says yes (agrees with the map's claim) would need to see to change their mind. */
   supporterFlip?: string;
-  /** What a skeptic would need to see. */
+  /** What someone who says no would need to see. */
   skepticFlip?: string;
   /** How it could be settled, when the map has no supporter/skeptic framing. */
   settle?: string;
@@ -69,8 +69,12 @@ export interface PasteMapMatch extends PasteMapCandidate {
   crux: PasteMapCrux | null;
   /** At most one card per side, strongest first. */
   cards: PasteMapCard[];
-  /** What the cards' sides are relative to: the map's claim, or the crux's claim. */
-  cardsAbout: "map-claim" | "crux-claim";
+  /**
+   * What the cards' sides (and the crux's two mind-changes) are relative to:
+   * the answer to the map's question ("Points to yes" / "Points to no"), the
+   * map's claim when it has no question, or the crux's claim (flagships).
+   */
+  cardsAbout: "map-question" | "map-claim" | "crux-claim";
 }
 
 /**

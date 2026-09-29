@@ -23,8 +23,12 @@ describe("buildPasteSummary", () => {
     const maps = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
     const summary = buildPasteSummary({ maps, report: null });
 
-    expect(summary).toContain("It is already mapped: Immigration and Wages.");
-    expect(summary).toContain("What would change a supporter's mind:");
+    // Named by the map's question, as its page heading is; sides by the answer.
+    expect(summary).toContain(
+      "It is already mapped: Does large-scale immigration significantly cut low-skilled native wages?",
+    );
+    expect(summary).not.toContain("Immigration and Wages");
+    expect(summary).toContain("Someone who says yes to the map’s question would change their mind if…");
     expect(summary).toContain(
       "https://argumend.org/topics/immigration-wage-impact#crux-labor-market-economics",
     );

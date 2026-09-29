@@ -14,6 +14,7 @@ import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { getAllQuestionVariations } from "@/lib/questions";
 import type { Topic } from "@/lib/schemas/topic";
 import type { MapDocument } from "./mapIndex";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 /** The reader-facing phrasings for each topic, from the two search catalogues. */
 function phrasingsByTopic(): Map<string, string[]> {
@@ -39,7 +40,8 @@ export function pillarMapDocument(topic: Topic, phrasings: readonly string[] = [
   const evidence = [...(topic.evidence ?? []), ...pillars.flatMap((pillar) => pillar.evidence ?? [])];
   return {
     id: topic.id,
-    title: topic.title,
+    // The name the reader sees on the map page's H1 (lib/mapNaming.ts).
+    title: mapDisplayTitle(topic),
     claim: topic.meta_claim,
     kind: "map",
     fields: {

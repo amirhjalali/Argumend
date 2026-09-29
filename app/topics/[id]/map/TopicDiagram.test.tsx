@@ -53,8 +53,8 @@ describe("TopicDiagram on a phone", () => {
     const text = panel.textContent ?? "";
     const { cruxes } = legacyTopicPage(topic);
     expect(text).toContain("What would settle it");
-    expect(text).toContain("Supporters");
-    expect(text).toContain("Skeptics");
+    expect(text).toContain("Says yes");
+    expect(text).toContain("Says no");
     for (const item of cruxes[0].evidence) expect(text).toContain(item.title);
 
     // Neutral outline: no tally, no scores, no scoreboard phrasing.

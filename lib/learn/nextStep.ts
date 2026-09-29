@@ -1,5 +1,6 @@
 import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 /**
  * The "Next step" at the end of every Learn article: one specific map, then
@@ -23,7 +24,7 @@ export function mapLinkFor(topicId: string): MapLink | undefined {
   const flagship = argumentTopicIndex.find((topic) => topic.id === topicId);
   if (flagship) return { href: `/topics/${flagship.id}`, title: flagship.title };
   const topic = topicSummaries.find((summary) => summary.id === topicId);
-  if (topic) return { href: `/topics/${topic.id}`, title: topic.title };
+  if (topic) return { href: `/topics/${topic.id}`, title: mapDisplayTitle(topic) };
   return undefined;
 }
 

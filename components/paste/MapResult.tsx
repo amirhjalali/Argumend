@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useRef, useState } from "react";
+import { Fragment, useEffect, useId, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
 import { Button, TextAction, textActionClasses } from "@/components/ui";
 import { trackEvent } from "@/lib/analytics";
 import { toneStyles } from "@/lib/categoryColors";
+import { ANSWER_SIDES, CLAIM_SIDES, type SideWords } from "@/lib/mapNaming";
 import type {
   PasteMapCandidate,
   PasteMapCard,
@@ -29,10 +30,14 @@ import type {
  * question it opens.
  */
 
-const SIDE_LABEL: Record<PasteMapCard["side"], string> = {
-  for: "Supports it",
-  against: "Cuts against it",
-};
+/** Sides by the answer to the map's question, else by the claim (lib/mapNaming.ts). */
+function sideWordsFor(match: PasteMapMatch): SideWords {
+  return match.cardsAbout === "map-question" ? ANSWER_SIDES : CLAIM_SIDES;
+}
+
+function sideLabel(side: PasteMapCard["side"], words: SideWords): string {
+  return side === "for" ? words.yesEvidence : words.noEvidence;
+}
 
 // The tone map's small-text pairs: rust-500 and skeptic-light were 4.28:1
 // and 4.34:1 on the dark canvas, under AA for 14px text.
@@ -83,10 +88,10 @@ function ClampedText({ text, className }: { text: string; className: string }) {
   );
 }
 
-function Card({ card }: { card: PasteMapCard }) {
+function Card({ card, words }: { card: PasteMapCard; words: SideWords }) {
   return (
     <li className="flex flex-col border-t-2 border-[var(--border-divider)] pt-4">
-      <p className={`font-sans text-sm font-medium ${SIDE_TEXT[card.side]}`}>{SIDE_LABEL[card.side]}</p>
+      <p className={`font-sans text-sm font-medium ${SIDE_TEXT[card.side]}`}>{sideLabel(card.side, words)}</p>
       <h4 className="mt-2 font-serif text-[1.25rem] leading-snug text-[var(--text-heading)]">
         {card.title}
       </h4>
@@ -117,6 +122,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
   const crux = match.crux;
   if (!crux) return null;
   const flips = crux.supporterFlip && crux.skepticFlip;
+  const words = sideWordsFor(match);
 
   return (
     <div className="mt-8 rounded-md border border-[var(--border-divider)] border-t-[3px] border-t-crux bg-[var(--bg-paper)] px-5 pb-6 pt-5 dark:border-t-crux-light sm:px-8 sm:pb-8 sm:pt-6">
@@ -128,7 +134,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
         <dl className="mt-6 divide-y divide-[var(--border-divider)] border-t border-[var(--border-divider)]">
           <div className="py-4">
             <dt className="label-caps !text-rust-700 dark:!text-[#d4805f]">
-              What would change a supporter&rsquo;s mind
+              {words.yesChangesMind}
             </dt>
             <dd className="mt-1 font-serif text-[1.125rem] leading-relaxed text-[var(--text-primary)]">
               {crux.supporterFlip}
@@ -136,7 +142,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
           </div>
           <div className="pt-4">
             <dt className="label-caps !text-skeptic dark:!text-[#cfa88a]">
-              What would change a skeptic&rsquo;s mind
+              {words.noChangesMind}
             </dt>
             <dd className="mt-1 font-serif text-[1.125rem] leading-relaxed text-[var(--text-primary)]">
               {crux.skepticFlip}
@@ -174,13 +180,18 @@ function RelatedLine({ related }: { related: readonly PasteMapCandidate[] }) {
   return (
     <p className="mt-4 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
       Closely related:{" "}
+      {/* Each link carries its own ";" in one box: the links are inline-flex,
+          so a free-standing separator could wrap to the start of a line. */}
       {related.map((map, index) => (
-        <span key={map.id}>
-          {index > 0 ? "; " : null}
-          <Link href={map.href} className={textActionClasses("text-[0.9375rem]")}>
-            {map.title}
-          </Link>
-        </span>
+        <Fragment key={map.id}>
+          <span className="inline-flex items-center">
+            <Link href={map.href} className={textActionClasses("text-[0.9375rem]")}>
+              {map.title}
+            </Link>
+            {index < related.length - 1 ? ";" : null}
+          </span>
+          {index < related.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </p>
   );
@@ -241,13 +252,15 @@ export function MapMatch({
         <div className="mt-10">
           <h3 className="label-caps">The strongest card on each side</h3>
           <p className="mt-1 max-w-[36rem] font-sans text-[0.9375rem] text-[var(--text-secondary)]">
-            {match.cardsAbout === "map-claim"
-              ? "Each card is read against the map’s claim above."
-              : "Each card is read against the claim behind this question."}
+            {match.cardsAbout === "map-question"
+              ? "Yes and no answer the map’s question at the top, not the crux."
+              : match.cardsAbout === "map-claim"
+                ? "Each card is read against the map’s claim above."
+                : "Each card is read against the claim behind this question."}
           </p>
           <ul className="mt-5 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
             {cards.map((card) => (
-              <Card key={card.id} card={card} />
+              <Card key={card.id} card={card} words={sideWordsFor(match)} />
             ))}
           </ul>
         </div>

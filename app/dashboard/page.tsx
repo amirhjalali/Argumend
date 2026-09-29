@@ -8,6 +8,7 @@ import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { AppShell } from "@/components/AppShell";
 import { PageContainer, PageHeader, TextAction } from "@/components/ui";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 export const metadata: Metadata = {
   // Plain string — the root title template ("%s | ARGUMEND") adds the suffix;
@@ -37,7 +38,7 @@ function resolveSavedMaps(ids: string[]): SavedMap[] {
   }
   for (const topic of topicSummaries) {
     if (!byId.has(topic.id)) {
-      byId.set(topic.id, { id: topic.id, title: topic.title, line: topic.meta_claim });
+      byId.set(topic.id, { id: topic.id, title: mapDisplayTitle(topic), line: topic.meta_claim });
     }
   }
   return ids.flatMap((id) => {

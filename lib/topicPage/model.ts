@@ -62,8 +62,11 @@ export interface CruxEntryData {
   implicit?: boolean;
   /** Folded prose, in order. */
   runIns: RunInText[];
-  /** "A supporter / a skeptic changes their mind if…" */
-  flips?: { supporter: string; skeptic: string };
+  /**
+   * What would change each side's mind, with the lead-in naming that side
+   * ("Someone who says yes would change their mind if…").
+   */
+  flips?: { supporter: string; skeptic: string; supporterLead: string; skepticLead: string };
 }
 
 export interface PositionCardData {

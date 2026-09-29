@@ -22,6 +22,7 @@ import { CollectionPagination } from "@/components/CollectionPagination";
 import { JsonLd } from "@/components/JsonLd";
 import { Section } from "@/components/ui/Section";
 import { QuestionsSearch } from "./QuestionsSearch";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 // ---------------------------------------------------------------------------
 // One row per map: its primary question. The other phrasings are listed on
@@ -100,14 +101,17 @@ export default async function QuestionsIndexPage({ searchParams }: PageProps) {
     return {
       href: `/questions/${v.slug}`,
       title: v.question,
-      meta: [classifyQuestion(v.question).label, topic?.title].filter(Boolean).join(" · "),
+      meta: [classifyQuestion(v.question).label, topic && mapDisplayTitle(topic)].filter(Boolean).join(" · "),
     };
   });
 
   const searchable = getAllQuestionVariations(topics).map((v) => ({
     slug: v.slug,
     question: v.question,
-    topicTitle: topicById.get(v.topicId)?.title ?? "",
+    topicTitle: (() => {
+      const topic = topicById.get(v.topicId);
+      return topic ? mapDisplayTitle(topic) : "";
+    })(),
     topicId: v.topicId,
   }));
 

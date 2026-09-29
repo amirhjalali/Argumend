@@ -363,12 +363,12 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
               {crux.flips && (
                 <div className="space-y-3">
                   <MindChange
-                    label="A supporter changes their mind if…"
+                    label={crux.flips.supporterLead}
                     tone="supporter"
                     text={crux.flips.supporter}
                   />
                   <MindChange
-                    label="A skeptic changes their mind if…"
+                    label={crux.flips.skepticLead}
                     tone="skeptic"
                     text={crux.flips.skeptic}
                   />
@@ -402,7 +402,7 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
   );
 }
 
-/** "A supporter / a skeptic changes their mind if…" — rust names the proponent side, brown the skeptic. */
+/** "Someone who says yes / no would change their mind if…" — rust names the proponent side, brown the skeptic. */
 function MindChange({
   label,
   tone,

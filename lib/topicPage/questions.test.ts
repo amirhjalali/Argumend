@@ -105,7 +105,7 @@ describe("legacyTopicPage with authored questions", () => {
     if (!authored) return; // nothing authored yet: the fallback test below covers the page
     const { page, cruxes } = legacyTopicPage(authored);
     expect(page.title).toBe(authored.question);
-    expect(page.crumb).toBe(authored.title);
+    expect(page.crumb).toBe(authored.question);
     for (const [index, crux] of cruxes.entries()) {
       const pillar = authored.pillars[index];
       if (!pillar.crux.question) continue;

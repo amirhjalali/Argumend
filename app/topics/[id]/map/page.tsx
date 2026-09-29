@@ -5,6 +5,7 @@ import { loadTopicById } from "@/data/topicLoader";
 import { AppShell } from "@/components/AppShell";
 import { buildDiagram } from "@/lib/diagram/model";
 import { TopicDiagram } from "./TopicDiagram";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 /**
  * The diagram of a legacy map: the topic page's question, cruxes, sides and
@@ -27,8 +28,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const topic = topicSummaries.find((t) => t.id === id);
   if (!topic) return { title: "Topic Not Found" };
   return {
-    title: `${topic.title} — Diagram`,
-    description: `The argument map for “${topic.title}” as an interactive diagram.`,
+    title: `${mapDisplayTitle(topic)} — Diagram`,
+    description: `The argument map for “${mapDisplayTitle(topic)}” as an interactive diagram.`,
     robots: { index: false, follow: true },
     alternates: { canonical: `https://argumend.org/topics/${topic.id}` },
   };

@@ -34,6 +34,7 @@ import type {
   MapReplyTopicChoice,
   MapReplyTurn,
 } from "./types";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 type Answers = Record<string, JevAnswer>;
 
@@ -287,7 +288,7 @@ export function composeMapReply(input: ComposeMapReplyInput): MapReplyMatch {
     ok: true,
     topic: {
       id: topic.id,
-      title: topic.title,
+      title: mapDisplayTitle(topic),
       metaClaim: topic.meta_claim,
       path: `/topics/${topic.id}`,
       url: `${SITE_URL}/topics/${topic.id}`,

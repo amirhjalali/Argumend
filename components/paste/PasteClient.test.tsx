@@ -81,10 +81,16 @@ describe("PasteClient with every lane off (production today)", () => {
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
     await waitFor(() => view.getByRole("heading", { name: "This argument is already mapped" }));
-    expect(view.getByText("Immigration and Wages")).toBeTruthy();
-    expect(view.getByText("What would change a supporter’s mind")).toBeTruthy();
-    expect(view.getByText("Supports it")).toBeTruthy();
-    expect(view.getByText("Cuts against it")).toBeTruthy();
+    // Named by the question its map page asks, never the old Title-Case label.
+    expect(view.getByRole("link", { name: "Does large-scale immigration significantly cut low-skilled native wages?" })).toBeTruthy();
+    expect(view.queryByText("Immigration and Wages")).toBeNull();
+    // Sides by the answer to that question, said in full under the crux.
+    expect(
+      view.getByText("Someone who says yes to the map’s question would change their mind if…"),
+    ).toBeTruthy();
+    expect(view.getByText("Points to yes")).toBeTruthy();
+    expect(view.getByText("Points to no")).toBeTruthy();
+    expect(view.queryByText(/Supports it|Cuts against it/)).toBeNull();
     expect(
       view.getByRole("link", { name: "Open the map at this crux" }).getAttribute("href"),
     ).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
@@ -123,7 +129,7 @@ describe("PasteClient with every lane off (production today)", () => {
     // The announcement names the sibling too.
     const announcer = view.getAllByRole("status").find((el) => el.className.includes("sr-only"));
     expect(announcer?.textContent).toBe(
-      "Result below. This argument is already mapped: Immigration and Wages. Closely related: The Case for Open Borders.",
+      "Result below. This argument is already mapped: Does large-scale immigration significantly cut low-skilled native wages? Closely related: The Case for Open Borders.",
     );
   });
 
@@ -146,7 +152,7 @@ describe("PasteClient with every lane off (production today)", () => {
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
     await waitFor(() =>
       expect(announcer?.textContent).toBe(
-        "Result below. This argument is already mapped: Immigration and Wages.",
+        "Result below. This argument is already mapped: Does large-scale immigration significantly cut low-skilled native wages?",
       ),
     );
   });
