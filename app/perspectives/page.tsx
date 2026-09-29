@@ -3,9 +3,12 @@
 import { createElement, useRef } from "react";
 import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
-import { ChevronDown } from "lucide-react";
+import { NextStep } from "@/components/learn/ArticleLayout";
+import { Chip } from "@/components/ui/Chip";
+import { PageContainer } from "@/components/ui/PageContainer";
+import { PageHeader } from "@/components/ui/PageHeader";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   getPerspectiveIcon,
   getPerspectiveLens,
@@ -14,6 +17,13 @@ import {
   perspectiveLensOrder,
   type PerspectiveSceneId,
 } from "@/lib/perspectiveMeta";
+import { articleCrumbs } from "@/lib/learn/sections";
+
+/** Where the story sends a reader next: the map it is really about. */
+const NEXT_MAP = {
+  href: "/topics/ai-mass-unemployment",
+  title: "Will AI cause mass unemployment?",
+};
 
 interface Scene {
   /** Typed against the lens taxonomy so every scene keeps a lens and an icon. */
@@ -201,10 +211,12 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
       ref={ref}
       id={scene.id}
       className="min-h-[100svh] flex items-center justify-center px-4 md:px-8 py-10 md:py-20 relative overflow-hidden"
+      // Theme-aware: the canvas fading into the overlay tone, so the scenes
+      // follow dark mode instead of staying parchment on a dark page.
       style={{
         background: `linear-gradient(180deg,
-          ${index === 0 ? '#f5f0e8' : '#ebe6de'} 0%,
-          ${index === scenes.length - 1 ? '#f5f0e8' : '#e5ddd0'} 100%)`
+          rgb(var(--bg-canvas-rgb)) 0%,
+          rgb(var(--bg-overlay-rgb) / ${index === scenes.length - 1 ? 0.35 : 0.7}) 100%)`,
       }}
     >
       {/* Accent line decoration */}
@@ -337,17 +349,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
 }
 
 export default function PerspectivesPage() {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-
   const lensGroups = groupScenesByLens(scenes);
-
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   return (
     <AppShell>
@@ -366,134 +368,41 @@ export default function PerspectivesPage() {
           },
         }}
       />
-      {/* Hero with parallax */}
-      <motion.div
-        ref={heroRef}
-        className="min-h-[100svh] flex items-center justify-center bg-gradient-to-b from-canvas to-overlay px-4 relative overflow-hidden"
-        style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
-      >
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.03]"
-            style={{ background: `radial-gradient(circle, ${perspectiveLenses.vantage.accent} 0%, transparent 70%)` }}
-            animate={{ scale: [1, 1.1, 1], rotate: [0, 10, 0] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full opacity-[0.03]"
-            style={{ background: `radial-gradient(circle, ${perspectiveLenses.sequence.accent} 0%, transparent 70%)` }}
-            animate={{ scale: [1.1, 1, 1.1], rotate: [0, -10, 0] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-
-        <div className="text-center max-w-4xl relative z-10">
-          {/* No-JS fallback: content is visible by default, animations enhance */}
-          <div className="animate-fade-in-up">
-            <h1 className="display-text mb-8 text-primary dark:text-stone-200">
-              Perspectives
-            </h1>
-          </div>
-
-          <p
-            className="mx-auto mb-12 max-w-2xl animate-fade-in-up text-base text-secondary dark:text-stone-400 md:text-xl lg:text-2xl"
-            style={{ animationDelay: '0.2s' }}
-          >
-            A scroll-driven story about why you are not your ideas—
-            <br className="hidden md:inline" />
-            and why that&apos;s liberating.
-          </p>
-
-          {/* The four lenses the story walks through — doubles as a jump nav */}
-          <nav
-            aria-label="The four lenses"
-            className="flex flex-wrap justify-center gap-2 mb-10 animate-fade-in-up"
-            style={{ animationDelay: '0.35s' }}
-          >
-            {perspectiveLensOrder.map((id) => {
-              const lens = perspectiveLenses[id];
-              const first = lensGroups.find((g) => g.lens.id === id)?.items[0];
-              return (
-                <a
-                  key={id}
-                  href={`#${first?.id ?? ""}`}
-                  title={lens.description}
-                  className="inline-flex items-center gap-2 pl-2.5 pr-3 py-1.5 rounded-full border text-xs font-medium transition-colors hover:bg-overlay"
-                  style={{
-                    color: lens.accent,
-                    borderColor: `${lens.accent}33`,
-                    backgroundColor: `${lens.accent}0f`,
-                  }}
-                >
-                  <span className="font-serif text-[13px] opacity-70">{lens.numeral}</span>
-                  {lens.label}
-                </a>
-              );
-            })}
+      <PageContainer width="reading" className="!pb-10">
+        <PageHeader
+          breadcrumbs={articleCrumbs("essay", "Perspectives")}
+          eyebrow="Essay"
+          title="Perspectives"
+          lede="One street fight, told five ways: a short scroll story about why you are not your ideas, and why that is a relief."
+          className="!mb-0"
+        >
+          {/* The four lenses the story walks through, as a jump list. */}
+          <nav aria-label="The four lenses">
+            <ul className="flex flex-wrap gap-2">
+              {perspectiveLensOrder.map((id) => {
+                const lens = perspectiveLenses[id];
+                const first = lensGroups.find((g) => g.lens.id === id)?.items[0];
+                return (
+                  <li key={id}>
+                    <Chip href={`#${first?.id ?? ""}`} className="px-3.5 text-[0.8125rem]">
+                      {lens.label}
+                    </Chip>
+                  </li>
+                );
+              })}
+            </ul>
           </nav>
-
-          <div
-            className="flex flex-col items-center gap-2 text-muted dark:text-stone-400 animate-fade-in"
-            style={{ animationDelay: '0.5s' }}
-          >
-            <span className="text-sm font-medium tracking-wide">Scroll to begin</span>
-            <div className="animate-bounce-slow">
-              <ChevronDown className="h-6 w-6" />
-            </div>
-          </div>
-        </div>
-      </motion.div>
+        </PageHeader>
+      </PageContainer>
 
       {/* Scenes */}
       {scenes.map((scene, index) => (
         <Scene key={scene.id} scene={scene} index={index} />
       ))}
 
-      {/* CTA */}
-      <motion.div
-        className="min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-overlay to-canvas px-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="text-center max-w-xl">
-          <motion.h2
-            className="mb-6 font-serif text-2xl text-primary dark:text-stone-200 md:text-3xl lg:text-4xl xl:text-5xl"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Try it on a real topic
-          </motion.h2>
-          <motion.p
-            className="mb-10 text-lg text-secondary dark:text-stone-400 md:text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            See how different perspectives play out on real topics—
-            <br />
-            and find where your own views might have blind spots.
-          </motion.p>
-          <motion.a
-            href="/topics"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-rust-600 to-rust-700 text-white rounded-xl font-bold font-serif text-lg shadow-lg shadow-rust-500/25 transition-all hover:shadow-xl hover:shadow-rust-500/30 hover:-translate-y-1"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Explore Topics
-            <ChevronDown className="h-5 w-5 rotate-[-90deg]" />
-          </motion.a>
-        </div>
-      </motion.div>
+      <PageContainer width="reading" className="!pt-0">
+        <NextStep map={NEXT_MAP} label="Try the lenses on a real map" />
+      </PageContainer>
     </AppShell>
   );
 }

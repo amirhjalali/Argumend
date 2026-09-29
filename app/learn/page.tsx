@@ -91,7 +91,7 @@ function buildGroups(): Record<LearnHubSectionId, Omit<CollectionGroup, "id" | "
           title: "Perspectives",
           description:
             "A short scroll story about one street fight told five ways: why you are not your ideas, and why that is a relief.",
-          meta: "Essay · 5 min read",
+          meta: "Essay · a scroll story",
         },
         essayItem(START_ESSAY),
         {
