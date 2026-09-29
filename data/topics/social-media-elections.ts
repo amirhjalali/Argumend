@@ -32,6 +32,16 @@ export const socialMediaElectionsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-10M (Platform cooperation required; large-scale RCT during election cycle with independent researchers)",
+        falsification: {
+          supporter_flip:
+            "If a large election-cycle trial comparing algorithmic, reverse-chronological and accuracy-optimized feeds found similar exposure to and sharing of misinformation in all three, the problem would lie in human psychology rather than algorithms, and the amplification case would weaken.",
+          skeptic_flip:
+            "A skeptic who blames human nature should weigh that in the MIT study of 126,000 Twitter cascades false stories were 70% more likely to be retweeted and reached 1,500 people 6x faster, that Facebook's own researchers found its algorithms boosted divisive content, and that the Meta experiments measured weeks, not years of sorting.",
+          common_ground:
+            "Both sides accept the 2023 Meta experiment's result — moving roughly 23,000 users to a chronological feed did not reduce polarization over its weeks — and that misinformation predates social media.",
+          live_disagreement:
+            "Whether engagement-maximizing algorithms give electoral misinformation its scale, or whether people seeking confirming information would spread it as widely on any platform — and whether short experiments can detect years of cumulative sorting.",
+        },
       },
       evidence: [
         {
@@ -130,6 +140,16 @@ export const socialMediaElectionsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-8M (Requires platform data access, voter file matching, and multi-election longitudinal analysis with IRB approval)",
+        falsification: {
+          supporter_flip:
+            "If matching voter files to exposure in 2016, 2020 and 2024 showed no difference in turnout or vote choice between exposed and matched unexposed voters, even in the swing populations targeted, foreign campaigns would be a security concern rather than an electoral threat.",
+          skeptic_flip:
+            "A skeptic who calls the impact overstated should weigh that the IRA reached 126 million Americans on Facebook and 20 million on Instagram, targeted African American voters with voter-suppression messaging, and aimed to suppress turnout and amplify division in close elections — effects that are inherently hard to measure.",
+          common_ground:
+            "Both sides agree Russia, China and Iran have run influence operations aimed at US elections — the Mueller investigation indicted 13 Russians — and that the IRA's Facebook ad spending in 2016 was about $100,000.",
+          live_disagreement:
+            "Whether foreign campaigns change turnout or votes in targeted swing populations by enough to matter in close elections, or remain a real security issue invoked disproportionately to explain domestic outcomes.",
+        },
       },
       evidence: [
         {
@@ -213,6 +233,16 @@ export const socialMediaElectionsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-election field experiments with voter file validation, requiring campaign cooperation and IRB approval)",
+        falsification: {
+          supporter_flip:
+            "If pre-registered field experiments across several elections and countries, measured against voter files, found micro-targeted persuasion and demobilization effects well below the 0.5-2% margins that decide competitive races, micro-targeting would be a campaign efficiency tool, not a democratic threat.",
+          skeptic_flip:
+            "A skeptic who sees micro-targeting's threat as overstated should weigh that the 2016 election was decided by 77,744 votes across three states, that the Trump 2020 campaign ran about 5.9 million unique Facebook ads tailored to voter segments, and that suppression messaging is harder to detect and study than persuasion.",
+          common_ground:
+            "Both sides agree Cambridge Analytica's psychographic models were crude, and that selectively suppressing turnout through targeted discouragement is a real concern that is hard to study.",
+          live_disagreement:
+            "Whether micro-targeted ads, especially discouragement messaging, move enough votes to matter at the thin margins that decide close elections, or whether the near-zero persuasion effects found across 49 field experiments hold for them too.",
+        },
       },
       evidence: [
         {

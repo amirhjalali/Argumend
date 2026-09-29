@@ -65,6 +65,16 @@ export const jonesActData = {
           "Assemble U.S.-built vs. world ship-construction prices (MARAD/industry data), U.S.-flag vs. foreign-flag operating-cost gaps, and domestic vs. comparable foreign-route freight rates. Model repeal scenarios with a range of foreign-carrier entry assumptions, as USITC-style CGE welfare studies do, and report a range rather than a point estimate.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$150K (CGE welfare model + freight-rate data assembly)",
+        falsification: {
+          supporter_flip:
+            "If repeal-scenario models run across a range of foreign-carrier entry assumptions produced only a small or fragile premium — foreign carriers declining thin domestic routes, or rates barely falling — the claim of large, measurable costs would give way to GAO's 'genuinely uncertain.'",
+          skeptic_flip:
+            "A skeptic who calls the costs counterfactual guesses should weigh the parts that are observed: a U.S.-built oceangoing ship costs roughly four to five times a foreign-built one, and the privately owned oceangoing Jones Act fleet is under a hundred vessels. The USITC estimated $1.324 billion a year in welfare gains from full liberalization.",
+          common_ground:
+            "Both sides agree the size of the cost rests on a counterfactual no one can observe directly, and that U.S.-built ships cost several times the world price.",
+          live_disagreement:
+            "Whether repeal would bring a large, robust fall in domestic freight rates or a small, fragile one — which turns on whether foreign carriers would actually serve thin domestic routes and how quickly a fleet would re-form.",
+        },
       },
       evidence: [
         {
@@ -160,6 +170,16 @@ export const jonesActData = {
           "Match container and bulk shipments to Puerto Rico, Hawaii, and Guam against foreign-origin shipments of like goods over like distances; control for volume, fuel, and port fees; attribute the residual delivered-cost gap to the U.S.-build/flag/crew requirement.",
         verification_status: "verified" as const,
         cost_to_verify: "$0–$50K (customs, PIERS/port, and freight-rate data)",
+        falsification: {
+          supporter_flip:
+            "If matching shipments of like goods over like distances, controlling for volume, fuel and port fees, left no persistent delivered-cost gap between mainland and nearby foreign origins, higher island prices would reflect distance and small markets rather than the law.",
+          skeptic_flip:
+            "A skeptic who credits distance and market size should weigh the New York Fed's 2012 observation that shipping from the mainland to Puerto Rico cost roughly twice as much as from nearby foreign ports, and that the Act was temporarily waived after Hurricane Maria in 2017 to speed relief.",
+          common_ground:
+            "Both sides agree the Act binds only cargo from the U.S. mainland — Puerto Rico can import from foreign ports on foreign ships — and that the islands have no truck or rail alternative for that cargo.",
+          live_disagreement:
+            "How much of the islands' higher landed costs the Act causes, versus distance, small markets and port economics — and whether repeal would bring cheaper service or less reliable service on thin routes.",
+        },
       },
       evidence: [
         {
@@ -256,6 +276,16 @@ export const jonesActData = {
           "Combine mode-choice elasticities with per-ton-mile emissions factors (EPA/BTS) and a repeal-scenario coastal rate. Compare the U.S. short-sea freight share against European cabotage-liberalized coastlines as an upper-bound benchmark.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$100K (freight mode-choice modeling)",
+        falsification: {
+          supporter_flip:
+            "If mode-choice elasticities showed little freight moving to coastal shipping even at world rates, because rail and trucks keep the edge on speed and door-to-door reach, the emissions and congestion cost attributed to the Act would largely disappear.",
+          skeptic_flip:
+            "A skeptic who credits geography should weigh that water is by far the most fuel-efficient freight mode per ton-mile, and that the U.S. moves a strikingly small share of domestic freight by short-sea shipping compared with liberalized European coastlines.",
+          common_ground:
+            "Both sides agree waterborne freight is the most fuel-efficient mode per ton-mile, and that the low U.S. short-sea share has more than one cause.",
+          live_disagreement:
+            "How much freight would actually shift to the water if coastal rates fell to world levels — a large, elastic shift with real emissions savings, or a small one because trucks and rail keep the edge on speed and reach anyway.",
+        },
       },
       evidence: [
         {
@@ -335,6 +365,16 @@ export const jonesActData = {
           "Use MARAD/TRANSCOM readiness exercises (no-notice 'turbo activations'), Ready Reserve Force mission-capable rates, the certified mariner-availability gap, and the count and age of oceangoing Jones Act ships to measure whether requirements are met — then ask whether the Act, versus targeted subsidies, is what sustains them.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (GAO, MARAD, and TRANSCOM readiness reports)",
+        falsification: {
+          supporter_flip:
+            "If readiness audits showed the Jones Act fleet and mariner pool meeting Defense Department sealift requirements on demand — and showed the Act, not targeted subsidies, sustaining them — the security case for keeping it would outweigh much of its economic cost.",
+          skeptic_flip:
+            "A skeptic who treats the merchant marine as a fourth arm of defense should weigh that the oceangoing Jones Act fleet has fallen under a hundred ships, that MARAD and TRANSCOM warn of a shortage of credentialed mariners, and that in a 2019 no-notice turbo activation only a minority of reserve sealift ships reached full mission-capable readiness.",
+          common_ground:
+            "Both sides agree a domestic shipbuilding and mariner base has real strategic value and is slow and costly to rebuild once lost, and that the oceangoing Jones Act fleet has shrunk to under a hundred ships.",
+          live_disagreement:
+            "Whether the Act is what keeps a wartime sealift base alive, or whether a century of protection has coincided with its decline, so targeted subsidies would deliver readiness more cheaply.",
+        },
       },
       evidence: [
         {
@@ -429,6 +469,16 @@ export const jonesActData = {
           "Quantify beneficiary employment and revenue in protected shipyards and carriers against economy-wide consumer and industrial cost estimates; compare the per-beneficiary stake to the per-consumer burden to gauge organizational asymmetry, and price a buy-out/transition package as the reform alternative.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$75K (distributional incidence study)",
+        falsification: {
+          supporter_flip:
+            "If a single ledger of shipyard, carrier and mariner gains against consumer and industrial costs found the benefits roughly matching the costs, the Act's survival would reflect a defensible public choice rather than organized capture.",
+          skeptic_flip:
+            "A skeptic who reads the Act's century-long survival as a democratic choice should weigh that analyses across the spectrum, from Cato to the Mercatus Center, converge on it as net-negative, and that a compact coalition with a large per-member stake is exactly the profile expected to prevail over diffuse consumer interests.",
+          common_ground:
+            "Both sides agree repeal would impose concentrated, immediate losses on shipyard towns and mariner households, and that any reform would need transition support for them.",
+          live_disagreement:
+            "Whether the Act's survival reflects legitimate stakeholders a democracy has chosen to protect, or a small organized coalition prevailing over a larger cost spread thinly across consumers.",
+        },
       },
       evidence: [
         {

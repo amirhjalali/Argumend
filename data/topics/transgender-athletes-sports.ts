@@ -33,6 +33,16 @@ export const transgenderAthletesSportsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Multi-year, multi-sport prospective cohort study with sufficient sample sizes)",
+        falsification: {
+          supporter_flip:
+            "If prospective sport-specific studies tracking transgender women athletes through 3+ years of hormone therapy found performance gaps against matched cisgender women larger than the natural variation among elite women in that sport, the claim that hormone therapy sufficiently removes male-puberty advantages would fail there.",
+          skeptic_flip:
+            "A skeptic who sees permanent advantage should weigh that testosterone suppression brings hemoglobin to cisgender-female levels within about four months and reduces muscle mass and strength, that push-up and sit-up performance fell within female ranges after two years, and that the 12% running figure comes from Air Force fitness tests, not elite athletes.",
+          common_ground:
+            "Both sides agree hormone therapy reduces some male-puberty advantages, such as hemoglobin and muscle mass, while skeletal ones persist, and that the Air Force data showed a roughly 12% running edge after two years.",
+          live_disagreement:
+            "Whether the advantages that remain after hormone therapy are competitively meaningful in a given sport or fall within the natural variation of the women's category — an answer that may differ between strength, endurance and skill sports.",
+        },
       },
       evidence: [
         {
@@ -96,7 +106,7 @@ export const transgenderAthletesSportsData = {
       id: "inclusion-dignity",
       title: "Inclusion, Dignity & Anti-Discrimination",
       short_summary:
-        "Excluding transgender athletes from competition consistent with their gender identity causes documented psychological harm, violates anti-discrimination principles, and sends a message that transgender people are not accepted in public life. The question is whether competitive fairness in sport justifies this exclusion or whether alternative frameworks can honor both values.",
+        "Inclusion advocates argue that excluding transgender athletes from competition consistent with their gender identity is linked to psychological harm, violates anti-discrimination principles, and sends a message that transgender people are not accepted in public life. The question is whether competitive fairness in sport justifies this exclusion or whether alternative frameworks can honor both values.",
       icon_name: "Users" as const,
       skeptic_premise:
         "Inclusion is important but cannot override the fundamental purpose of sex-segregated sport, which is to ensure fair competition for female athletes. Women fought for decades for Title IX and equal sporting opportunities. Allowing athletes with male-puberty advantages to compete in women's categories effectively eliminates the protected category that sex-segregated sport was designed to create. This is not about transgender dignity; it is about fairness for the millions of cisgender women and girls who compete in sport. Excluding transgender women from the women's category is not excluding them from sport — they can compete in men's or open categories, or alternative frameworks can be developed. The rights of transgender athletes must be balanced against the rights of cisgender female athletes, and the current framing treats the former as absolute while dismissing the latter.",
@@ -114,6 +124,16 @@ export const transgenderAthletesSportsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Multi-national survey and competition data analysis over 3-5 years)",
+        falsification: {
+          supporter_flip:
+            "If competition results under inclusive policies showed substantial, quantifiable displacement of cisgender women — lost podium places, records and scholarships — the competitive harm could outweigh the harm of exclusion, weakening the case for inclusion in the women's category.",
+          skeptic_flip:
+            "A skeptic who puts fairness first should weigh that a 2024 meta-analysis of 12 studies and 21,565 participants linked exclusion and discrimination in sport to elevated depression and suicide risk, that most transgender athletes are recreational, and that no transgender woman won an Olympic medal across roughly two decades of inclusive eligibility.",
+          common_ground:
+            "Both sides agree sport matters for health and belonging as well as competition, and that the women's category exists to give female athletes fair competition.",
+          live_disagreement:
+            "Whether the harm of exclusion outweighs the competitive harm to cisgender women from inclusion, and whether elite-level concerns justify rules that also reach recreational players.",
+        },
       },
       evidence: [
         {
@@ -163,9 +183,9 @@ export const transgenderAthletesSportsData = {
         "Some researchers and sporting bodies have proposed replacing the current binary male/female categories with an 'open' category (anyone can enter) and a 'restricted' category (biological females only), potentially resolving the tension between inclusion and fairness. The question is whether such a model is practically workable and socially acceptable.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The 'open category' model is a rebranding of exclusion. Telling transgender women they can compete in an 'open' category rather than the women's category still denies them recognition of their gender identity in sport. An open category would be dominated by cisgender men, making it functionally the men's category with a different name. Transgender women would have no realistic chance of competitive success in an open category, meaning they would effectively be excluded from meaningful competition. Furthermore, implementing additional categories creates logistical challenges for sporting events, particularly at the youth and recreational level where resources are limited. The premise that we need a third category to accommodate less than 1% of athletes fundamentally misunderstands that the goal is inclusion within existing women's sport, not segregation into a separate category.",
-      proponent_rebuttal:
         "The open category model is not exclusion — it is the only framework that simultaneously protects female athletes' competitive fairness and provides transgender athletes a pathway to competition at every level. World Athletics, the governing body of track and field, explored this approach and found it had support from athletes, administrators, and human rights organizations. An open category allows anyone to compete regardless of sex, gender identity, or hormone levels, while the restricted category ensures that athletes without male-puberty advantages compete on a level playing field. This is analogous to weight classes in combat sports or parasport categories — not discrimination, but classification that enables fair competition. The alternative — either excluding transgender athletes entirely or including them in a category where they may have advantages — satisfies no one. The open category is the pragmatic middle ground.",
+      proponent_rebuttal:
+        "The 'open category' model is a rebranding of exclusion. Telling transgender women they can compete in an 'open' category rather than the women's category still denies them recognition of their gender identity in sport. An open category would be dominated by cisgender men, making it functionally the men's category with a different name. Transgender women would have no realistic chance of competitive success in an open category, meaning they would effectively be excluded from meaningful competition. Furthermore, implementing additional categories creates logistical challenges for sporting events, particularly at the youth and recreational level where resources are limited. The premise that we need a third category to accommodate less than 1% of athletes fundamentally misunderstands that the goal is inclusion within existing women's sport, not segregation into a separate category.",
       crux: {
         id: "open-category-feasibility",
         title: "The Open Category Pilot Test",
@@ -178,6 +198,16 @@ export const transgenderAthletesSportsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-sport, multi-nation pilot program over 2-3 years)",
+        falsification: {
+          supporter_flip:
+            "If pilots in 3-5 sports over two seasons showed transgender athletes taking part in open categories in meaningful numbers and reporting satisfaction, with competition in the restricted category intact, the case that inclusion must mean the women's category would weaken.",
+          skeptic_flip:
+            "A skeptic who favors an open category should weigh that it would likely be dominated by cisgender men, leaving transgender women little realistic chance of competitive success, and that extra categories strain youth and recreational events where resources are limited.",
+          common_ground:
+            "Both sides agree the major governing bodies have moved to restrict the female category: World Athletics in 2023, the NCAA in 2025 and the IOC in 2026.",
+          live_disagreement:
+            "Whether an open category is fair classification, like weight classes or parasport categories, that gives transgender athletes a real pathway, or a rebranding of exclusion that would function as the men's category under another name.",
+        },
       },
       evidence: [
         {

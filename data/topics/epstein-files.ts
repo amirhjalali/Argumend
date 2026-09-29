@@ -88,6 +88,16 @@ export const epsteinFilesData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 (DOJ OPR report is public; the NPA terms are a matter of court record)",
+        falsification: {
+          supporter_flip:
+            "If a comparison with other federal non-prosecution agreements in sex-trafficking cases from 2000 to 2010 showed that immunity for unnamed co-conspirators was routine, the 2007 deal would read as aggressive defense lawyering plus one prosecutor's poor judgment, and the case for systemic failure would weaken.",
+          skeptic_flip:
+            "A skeptic should weigh that the failures ran through several offices, not one: Palm Beach police identified 36 victims aged 14 to 17, a 60-count federal indictment was drafted and set aside, and a federal judge ruled in 2019 that keeping the deal from victims violated the Crime Victims' Rights Act. If the co-conspirator immunity clause has no precedent, 'individual misjudgment' is hard to sustain.",
+          common_ground:
+            "Both sides accept that the 2007 non-prosecution agreement was unusually lenient, and that the DOJ's own Office of Professional Responsibility found 'poor judgment' in it but not professional misconduct.",
+          live_disagreement:
+            "Whether the deal's extraordinary terms, above all blanket immunity for unnamed co-conspirators, were one office's misjudgment under pressure from an elite defense team, or a cascade of state and federal decisions all bending toward a powerful defendant.",
+        },
       },
       evidence: [
         {
@@ -193,6 +203,16 @@ export const epsteinFilesData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5\u201310M (Independent review panel with security clearances reviewing 3.5M pages)",
+        falsification: {
+          supporter_flip:
+            "If an independent audit of the unredacted files found that nearly every redaction protects victim privacy, an ongoing investigation, national security or a law-enforcement method, and that perpetrator names were not systematically withheld, the claim that the release shields powerful people would weaken.",
+          skeptic_flip:
+            "A skeptic who sees the release as the system working should weigh that the first batch missed the law's December 19, 2025 deadline with hundreds of pages entirely blacked out, and that survivors' attorneys report at least 31 victims who were minors left unredacted while alleged perpetrators' names were hidden — the reverse of what the law asked for.",
+          common_ground:
+            "Both sides agree the DOJ's 3.5 million pages came out under the Epstein Files Transparency Act, which passed the House 427–1 — a rare near-unanimous congressional mandate.",
+          live_disagreement:
+            "Whether the redactions and missed deadlines reflect ordinary protection of victims, investigations and security, or resistance to exposing powerful people — and so whether a release that took an act of Congress two decades on shows transparency or its absence.",
+        },
       },
       evidence: [
         {
@@ -299,6 +319,16 @@ export const epsteinFilesData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$10\u201320M (Independent special counsel investigation with prosecutorial authority)",
+        falsification: {
+          supporter_flip:
+            "If an independent review applying the ordinary sex-trafficking probable-cause standard found the released evidence too thin to charge any of the eight FBI-named co-conspirators — the same answer a defendant without wealth or connections would get — the gap between naming and charging would reflect the evidence, not a shielded network.",
+          skeptic_flip:
+            "A skeptic who counts Maxwell's conviction and the settlements as accountability should weigh that FBI documents name eight alleged co-conspirators, none charged in the US across the Bush, Obama, Trump (first term) and Biden administrations, and that the 2007 deal granted immunity to unnamed co-conspirators. If less-connected defendants in comparable trafficking cases were charged on similar evidence, the gap is hard to call chance.",
+          common_ground:
+            "Both sides accept that Maxwell was convicted and sentenced to 20 years, that survivors received over $121 million from the compensation program and $365 million from bank settlements, and that no one else has been criminally convicted in the US.",
+          live_disagreement:
+            "Whether the absence of further prosecutions reflects a lack of prosecutable evidence against specific people, or wealth and power shielding Epstein's associates — which turns on whether the named co-conspirators are held to the same charging standard as ordinary trafficking defendants.",
+        },
       },
       evidence: [
         {

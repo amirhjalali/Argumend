@@ -33,6 +33,16 @@ export const genderAffirmingCareMinorsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Three independent systematic reviews by international research teams)",
+        falsification: {
+          supporter_flip:
+            "If independent teams applying identical GRADE methods — one from a country with permissive guidelines, one from a country that restricted access, one with no prior policy — all found the evidence low-quality and weaker than for comparable accepted pediatric treatments, the case for routine access outside research settings would weaken.",
+          skeptic_flip:
+            "A skeptic who trusts the European reviews should weigh that every major US medical organization, from the AAP to the Endocrine Society, supports access, that Tordoff et al. found 60% lower odds of moderate-to-severe depression and 73% lower odds of suicidality over 12 months, and that few areas of pediatric medicine have randomized trials.",
+          common_ground:
+            "Both sides agree there are no randomized trials here, that the Cass Review and reviews in Finland and Sweden rated the evidence low quality, and that major US medical bodies still support access.",
+          live_disagreement:
+            "Whether the existing evidence, imperfect as it is, meets the bar that other accepted pediatric treatments meet, or whether its quality is low enough that treatment should be confined to research settings.",
+        },
       },
       evidence: [
         {
@@ -132,6 +142,16 @@ export const genderAffirmingCareMinorsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-8M (Prospective longitudinal study with 10-year follow-up at multiple sites)",
+        falsification: {
+          supporter_flip:
+            "If a prospective study using the MacArthur Competence Assessment Tool found adolescents at gender clinics systematically less able than adults, or than teens consenting to other treatments, to understand long-term consequences, stronger safeguards or age thresholds would be warranted.",
+          skeptic_flip:
+            "A skeptic worried about consent should weigh that adolescents already consent to psychiatric medications with significant side effects, that testosterone is given to cisgender teenage boys with delayed puberty, and that withholding treatment is not neutral: endogenous puberty brings its own partially irreversible changes.",
+          common_ground:
+            "Both sides agree some changes are permanent either way: cross-sex hormones cause partially irreversible effects, and so does endogenous puberty.",
+          live_disagreement:
+            "Whether adolescents with persistent, well-evaluated dysphoria can weigh lifelong consequences well enough to consent, or whether still-maturing judgment and a changing referral population call for more safeguards or higher age thresholds.",
+        },
       },
       evidence: [
         {
@@ -213,6 +233,16 @@ export const genderAffirmingCareMinorsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$50-100M (20-year prospective multi-site international cohort study)",
+        falsification: {
+          supporter_flip:
+            "If a 20-year prospective cohort comparing medical treatment, psychosocial support alone and no treatment found high regret, significant complications or no mental-health advantage for the medical pathway, the treatment paradigm would need fundamental revision.",
+          skeptic_flip:
+            "A skeptic who wants long-term data first should weigh that puberty blockers have been used for precocious puberty since the 1980s, that fertility preservation is available before cross-sex hormones, and that stimulants for ADHD, SSRIs and growth hormone are prescribed to children without 30-year trial data.",
+          common_ground:
+            "Both sides agree there is no 20- or 30-year outcome data — most studies follow patients for under 5 years — and that bone density and fertility need monitoring and planning.",
+          live_disagreement:
+            "Whether acting on current evidence while long-term data accumulate is ordinary pediatric practice or an experiment on minors — and whether effects on bone, cognition and fertility turn out to be manageable over decades.",
+        },
       },
       evidence: [
         {

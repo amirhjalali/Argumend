@@ -33,6 +33,16 @@ export const immigrationBorderCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Econometric analysis requiring CBP microdata and origin-country economic data)",
+        falsification: {
+          supporter_flip:
+            "If a multivariate analysis of monthly encounters found the drops after 2023 tracking Mexican enforcement cooperation, origin-country economic conditions and seasonal patterns more closely than U.S. policy dates or barrier construction, the claim that U.S. enforcement drives deterrence would weaken.",
+          skeptic_flip:
+            "A skeptic who calls enforcement an expensive treadmill should weigh that encounters fell by over 60% after the June 2023 asylum transit ban and the 2025 return of Remain in Mexico and expanded expedited removal, following a record 2.47 million encounters in FY2023.",
+          common_ground:
+            "Both sides agree encounters hit a record 2.47 million in FY2023 and then fell sharply after the asylum restrictions of 2023-2025.",
+          live_disagreement:
+            "How much of the decline U.S. enforcement caused, versus Mexico's own enforcement and conditions in origin countries — and whether enforcement deters crossings durably or redirects them onto more dangerous routes.",
+        },
       },
       evidence: [
         {
@@ -131,6 +141,16 @@ export const immigrationBorderCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 (Census microdata and CPS data are publicly available for analysis)",
+        falsification: {
+          supporter_flip:
+            "If replicating the Borjas and Card methods on 2015-2025 data found negligible wage effects for native-born workers without a high school diploma, or effects offset by lower prices and business creation, the economic case for restriction as protection for vulnerable workers would collapse.",
+          skeptic_flip:
+            "A skeptic who sees immigration as a net positive at every level should weigh Borjas's finding that 1980-2000 immigration cut wages for native-born workers without a high school diploma by 7.4%, and the National Academy of Sciences' finding that low-education first-generation immigrants impose net state and local fiscal costs of about $1,600 per person a year.",
+          common_ground:
+            "Both sides agree immigration is positive for the economy as a whole; the CBO projects the recent surge will add $7 trillion to US GDP over the next decade.",
+          live_disagreement:
+            "Whether those gains come at a meaningful cost to low-skill native-born workers and border communities, or whether wage effects are small and offset by lower prices, new businesses and tax contributions.",
+        },
       },
       evidence: [
         {
@@ -212,6 +232,16 @@ export const immigrationBorderCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Large-scale legal case review requiring immigration law expertise and court record access)",
+        falsification: {
+          supporter_flip:
+            "If independent experts reviewing a stratified sample of 5,000 asylum cases — controlling for legal representation and judge assignment — found most claims strong on the merits, restrictions would be denying protection to refugees, and the enforcement-first approach would fail on its own legal terms.",
+          skeptic_flip:
+            "A skeptic who sees restrictions as shutting out refugees should weigh that only about 14% of asylum cases decided on the merits in FY2023 were granted, and that smuggling organizations charge $5,000-$15,000 per person and instruct migrants to claim asylum as an entry strategy.",
+          common_ground:
+            "Both sides agree the immigration court backlog is enormous — about 3.7 million cases at its FY2024 peak — and that multi-year waits serve neither genuine refugees nor enforcement.",
+          live_disagreement:
+            "Whether most claimants at the southern border have real persecution claims that restrictions wrongly block, or whether low grant rates show asylum being used as a route for economic migration — given that grant rates vary widely by judge and representation.",
+        },
       },
       evidence: [
         {

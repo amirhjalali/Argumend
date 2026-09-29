@@ -1,5 +1,3 @@
-/* katex CSS moved to CruxModal component — only loaded when math is displayed */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -595,59 +593,6 @@ html {
   stroke: rgba(120, 113, 108, 0.7);
 }
 
-.logic-edge path {
-  stroke-width: 1.5px;
-}
-
-/* Handle styling */
-.logic-handle {
-  width: 8px !important;
-  height: 8px !important;
-  border: 1.5px solid #d6d3d1 !important;
-  background: var(--bg-card) !important;
-  border-radius: 50% !important;
-  box-shadow: none !important;
-  transition: border-color 0.15s ease !important;
-}
-
-.logic-handle:hover {
-  border-color: #a8a29e !important;
-}
-
-/* Minimap */
-.logic-minimap {
-  border-radius: 8px !important;
-  overflow: hidden;
-  border: 1px solid rgba(214, 211, 209, 0.6) !important;
-  background: #fefcf9 !important;
-  box-shadow: 0 1px 4px rgba(120, 100, 80, 0.08) !important;
-}
-
-.dark .logic-minimap {
-  border-color: #3d3a36 !important;
-  background: #201f1c !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35) !important;
-}
-
-.logic-minimap .react-flow__minimap-mask {
-  fill: rgba(245, 245, 244, 0.7) !important;
-  stroke: #d6d3d1;
-  stroke-width: 1px;
-}
-
-/* The stylesheet forces a light mask with !important, so the component's
-   theme-aware maskColor prop can never win on its own — mirror it here. */
-.dark .logic-minimap .react-flow__minimap-mask {
-  fill: rgba(26, 25, 23, 0.78) !important;
-  stroke: #3d3a36;
-}
-
-.logic-minimap .react-flow__minimap-node {
-  rx: 2;
-  ry: 2;
-  stroke-width: 0;
-}
-
 /* React Flow's attribution badge ships a half-white background, a pale box
    in the corner of the dark diagram. Keep the credit, in the theme's colours. */
 .dark .react-flow__attribution {
@@ -656,38 +601,6 @@ html {
 
 .dark .react-flow__attribution a {
   color: rgb(var(--text-muted-rgb));
-}
-
-/* Controls */
-.react-flow__controls {
-  border: 1px solid rgba(214, 211, 209, 0.6) !important;
-  border-radius: 6px !important;
-  overflow: hidden;
-  background: #fefcf9 !important;
-  box-shadow: 0 1px 4px rgba(120, 100, 80, 0.08) !important;
-}
-
-.react-flow__controls-button {
-  background: #fefcf9 !important;
-  border-bottom: 1px solid #f0ece5 !important;
-  color: #78716c !important;
-  width: 32px !important;
-  height: 32px !important;
-}
-
-.react-flow__controls-button:last-child {
-  border-bottom: none !important;
-}
-
-.react-flow__controls-button:hover {
-  background: #f5f2ec !important;
-  color: #44403c !important;
-}
-
-.react-flow__controls-button svg {
-  fill: currentColor !important;
-  width: 14px !important;
-  height: 14px !important;
 }
 
 /* Utility Classes */
@@ -704,23 +617,6 @@ html {
   outline: none;
 }
 
-
-/* Node entrance animation */
-@keyframes nodeEnter {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.node-enter {
-  animation: nodeEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-}
 
 /* CSS animations for no-JS resilience */
 /* fadeInUp = larger motion (20px) for hero elements and prominent section entrances */
@@ -916,16 +812,8 @@ html {
     transition: none;
   }
 
-  /* React Flow node birth animation */
-  .node-enter {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-
-  /* React Flow edge "marching ants" dashes.
-     The `animated` flag is also gated in buildEdge (useLogicGraph.ts); this is
-     a CSS backstop for any edges that still carry the dash animation. */
+  /* React Flow edge "marching ants" dashes. The diagram's edges are never
+     animated (components/DesktopCanvas.tsx); this is a CSS backstop. */
   .react-flow__edge.animated path,
   .react-flow__edge-path {
     stroke-dasharray: none !important;

@@ -32,6 +32,16 @@ export const longevityAntiAgingData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$50-100M (Long-term primate longevity studies requiring 10+ years)",
+        falsification: {
+          supporter_flip:
+            "If 10-year primate studies of rapamycin and senolytic combinations showed little gain in lifespan or healthspan despite the dramatic mouse results, the translational gap for lifespan extension could be unbridgeable, and passing 120 within our lifetimes would look out of reach.",
+          skeptic_flip:
+            "A skeptic who sees only mouse results should weigh that rapamycin has extended lifespan in every organism tested, including 9-14% in mice even when started late in life, and that cyclic partial reprogramming reversed age-related vision loss in old mice without tumor formation.",
+          common_ground:
+            "Both sides agree the striking results so far come from short-lived animals — a 30% gain in a mouse is a matter of months — and that human evidence is still early and small.",
+          live_disagreement:
+            "Whether aging runs through a few master pathways that treatments can move in humans as in mice, or through thousands of interacting pathways where fixing one creates problems elsewhere, such as cancer risk from telomere extension.",
+        },
       },
       evidence: [
         {
@@ -130,6 +140,16 @@ export const longevityAntiAgingData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$75M (TAME trial completion plus biobank follow-up analysis over 5-10 years)",
+        falsification: {
+          supporter_flip:
+            "If 20+ year biobank follow-up and the TAME trial showed that improving epigenetic age does not track fewer cancers, cardiovascular events, cognitive decline or deaths, the field would lack a feasible way to test longevity treatments in humans, and a within-our-lifetimes timeline would slip away.",
+          skeptic_flip:
+            "A skeptic who calls the biomarkers artifacts should weigh that the GrimAge clock predicts time to death, cancer and coronary heart disease in independent cohorts totaling over 15,000 people, and that healthspan effects can be measured in 5-10 year trials rather than lifetime follow-up.",
+          common_ground:
+            "Both sides agree a human lifespan trial would take 80+ years, so the field depends on biomarkers, and that the gap between animal results and human outcomes is real.",
+          live_disagreement:
+            "Whether epigenetic clocks and other biomarkers are validated enough to serve as surrogate endpoints — so that a 'younger' measured age means a longer life — or whether the field may be measuring artifacts.",
+        },
       },
       evidence: [
         {
@@ -194,6 +214,16 @@ export const longevityAntiAgingData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K (Health economics modeling based on pharmaceutical cost trajectories)",
+        falsification: {
+          supporter_flip:
+            "If cost analyses projected the most effective regimens staying at $10,000+ a month long after validation, rather than falling under $500 a month within 15 years as chronic-disease drugs have, a biological class divide would become likely whatever policy intends.",
+          skeptic_flip:
+            "A skeptic who fears a biological aristocracy should weigh that medical advances from antibiotics to gene sequencing started expensive and became cheap, that metformin costs under $4 a month and rapamycin is generic, and that pensions and social contracts adapted through the 20th century's demographic transition.",
+          common_ground:
+            "Both sides agree the most intensive protocols today are extremely expensive — Bryan Johnson's costs over $2 million a year — while some candidate drugs, such as metformin and generic rapamycin, are cheap.",
+          live_disagreement:
+            "Whether effective longevity treatments will follow the usual path from expensive to affordable, or stay costly enough to create a class divide — and whether pensions, politics and inheritance could adapt to much longer lives.",
+        },
       },
       evidence: [
         {

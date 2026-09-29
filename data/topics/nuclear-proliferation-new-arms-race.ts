@@ -33,6 +33,16 @@ export const nuclearProliferationNewArmsRaceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Strategic studies analysis requiring classified data access and expert interviews)",
+        falsification: {
+          supporter_flip:
+            "If comparing periods with and without verification showed states keeping an accurate picture of each other's arsenals through satellites and signals intelligence alone, with no rise in warhead estimates, modernization spending or aggressive postures since inspections ended, the loss of treaties would be manageable rather than a driver of risk.",
+          skeptic_flip:
+            "A skeptic who trusts deterrence over paper agreements should weigh that New START's inspection regime gave each side confidence in the other's force posture, and that since February 2023 Russia has stopped missile-test notifications, on-site inspections and data exchanges.",
+          common_ground:
+            "Both sides agree the treaty architecture has largely collapsed — the INF Treaty ended after Russian violations and New START inspections have stopped — and that there are now nine nuclear-armed states.",
+          live_disagreement:
+            "Whether losing verification, data exchanges and predictability pushes states toward worst-case planning and buildups, or whether mutual deterrence holds regardless of paper agreements, with arsenals still far below their Cold War peak.",
+        },
       },
       evidence: [
         {
@@ -131,6 +141,16 @@ export const nuclearProliferationNewArmsRaceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K (Annual open-source intelligence analysis plus satellite imagery interpretation)",
+        falsification: {
+          supporter_flip:
+            "If SIPRI and FAS counts over the next decade showed global warhead totals roughly stable and new systems replacing old ones without first-strike capabilities or threats to second-strike survivability, today's programs would be modernization rather than an arms race.",
+          skeptic_flip:
+            "A skeptic who sees routine replacement should weigh that China's stockpile rose from roughly 200 warheads in 2019 to over 600 by 2025, with roughly 300 new ICBM silos under construction, and that the 2023 Congressional Strategic Posture Commission concluded the US may need to raise its deployed warhead count for the first time since the Cold War.",
+          common_ground:
+            "Both sides agree much of the US arsenal rests on systems designed in the 1970s-1980s that need replacing, and that US deployed strategic warheads have stayed flat below New START's limit of 1,550.",
+          live_disagreement:
+            "Whether new systems — hypersonic delivery, lower-yield options, weapons built to defeat missile defenses — plus China's multi-fold buildup mark a genuine arms race, or a tripolar balance reached through modernization.",
+        },
       },
       evidence: [
         {
@@ -229,6 +249,16 @@ export const nuclearProliferationNewArmsRaceData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-10M (Classified wargaming and simulation exercises with expert participants)",
+        falsification: {
+          supporter_flip:
+            "If modeling and tabletop exercises with former nuclear command personnel showed leaders could still deliberate within compressed timelines, keeping humans in the loop without pre-delegation or launch-on-warning postures, the AI and hypersonic concern would be overstated.",
+          skeptic_flip:
+            "A skeptic who trusts human-in-the-loop policy should weigh that hypersonic glide vehicles can cut warning times from the Cold War's 30 minutes to under 10 for regional targets, below the 10-15 minutes estimated for reliable deliberation, and that Russia's Perimeter system can transfer launch authority once activated in a crisis.",
+          common_ground:
+            "Both sides agree human judgment has mattered in past false alarms — Stanislav Petrov correctly judged the 1983 warning to be false — and that no nuclear state is known to have handed launch authority to AI.",
+          live_disagreement:
+            "Whether shrinking warning times push states toward pre-delegated or automated responses that raise the risk of catastrophic error, or whether submarine-based second strikes and better AI early warning keep deliberate human decisions feasible.",
+        },
       },
       evidence: [
         {

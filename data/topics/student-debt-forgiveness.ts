@@ -33,6 +33,16 @@ export const studentDebtForgivenessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Macroeconomic modeling requiring Federal Reserve FRB/US access or equivalent)",
+        falsification: {
+          supporter_flip:
+            "If simulating $1 trillion of forgiveness against the same sum spent on cash transfers to households under $75,000, infrastructure, universal pre-K or forgiveness only for borrowers earning under $50,000 left forgiveness with the lowest multiplier, the economic case for broad cancellation would weaken.",
+          skeptic_flip:
+            "A skeptic who calls forgiveness inefficient should weigh Federal Reserve findings that student debt holders buy homes, marry, start businesses and save for retirement less than earlier generations, and that the median balance is $29,400, with those who attended but did not finish college among the most harmed.",
+          common_ground:
+            "Both sides agree graduate-degree holders owe the most in absolute terms, and that the most favorable GDP estimate — Levy's $86-108 billion a year — comes from an advocacy-leaning model, with Penn Wharton and CRFB far less favorable.",
+          live_disagreement:
+            "Whether relief for middle-class borrowers would be spent in ways that lift growth more than other uses of the money, or would add to inflation and the national debt while mostly helping higher earners.",
+        },
       },
       evidence: [
         {
@@ -114,6 +124,16 @@ export const studentDebtForgivenessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 (Federal budget data, CBO scores, and program data are publicly available, but the comparative synthesis has not been systematically conducted)",
+        falsification: {
+          supporter_flip:
+            "If a comparison of federal forgiveness and bailout programs — PPP, TARP, farm subsidies, mortgage interest deductions — showed student debt relief uniquely likely to encourage heavier future borrowing and tuition increases, the moral hazard objection would stand on principle rather than selective application.",
+          skeptic_flip:
+            "A skeptic who stresses fairness should weigh that the SBA forgave over 93% of $800+ billion in PPP loans with little moral hazard objection, and that student loans are the only major consumer debt that cannot be routinely discharged in bankruptcy.",
+          common_ground:
+            "Both sides agree guaranteed federal loans have let universities raise tuition without the usual price discipline, because students will always pay.",
+          live_disagreement:
+            "Whether forgiveness fairly corrects a system that loaded teenagers with undischargeable debt, or unfairly shifts the cost onto taxpayers — two-thirds of whom lack bachelor's degrees — and onto those who already repaid.",
+        },
       },
       evidence: [
         {
@@ -195,6 +215,16 @@ export const studentDebtForgivenessData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Econometric analysis combining institutional tuition data with FOIA-obtained pricing documents)",
+        falsification: {
+          supporter_flip:
+            "If comparing tuition at institutions whose students received large forgiveness with those that did not showed faster increases at the former, forgiveness would be self-defeating without tuition controls, and the case for broad relief now would weaken.",
+          skeptic_flip:
+            "A skeptic who prefers fixing income-driven repayment should weigh that servicers mismanaged IDR for over two decades, so only 32 borrowers had received IDR forgiveness before the 2021 fixes, and that crisis-driven relief like the GI Bill has often catalyzed structural reform rather than blocked it.",
+          common_ground:
+            "Both sides agree forgiveness alone does not solve the underlying problem, and that tuition, bankruptcy rules and repayment plans need reform whatever happens to existing debt.",
+          live_disagreement:
+            "Whether cancelling today's debt would feed faster tuition increases and a new crisis — the NY Fed found 60 cents of tuition per added subsidized-loan dollar — or can be paired with tuition controls and restored bankruptcy rights without that loop.",
+        },
       },
       evidence: [
         {

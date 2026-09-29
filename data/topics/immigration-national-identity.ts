@@ -18,9 +18,9 @@ export const immigrationNationalIdentityData = {
         "Immigrants fill critical labor shortages, start businesses at higher rates than native-born citizens, and contribute to GDP growth. But the economic benefits are not evenly distributed — employers and consumers benefit from lower labor costs, while native-born workers in competing sectors may face wage depression, and public services in high-immigration areas face increased demand.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The aggregate economic case for immigration masks deeply unequal distribution of costs and benefits. Employers in agriculture, construction, hospitality, and meatpacking benefit from immigrant labor that suppresses wages — Harvard economist George Borjas estimates that immigration reduces wages for native workers without a high school degree by 7.4%. Low-income communities bear the costs of increased competition for housing, school places, and healthcare, while affluent communities benefit from cheaper services. The fiscal impact depends heavily on the skill level of immigrants: high-skilled immigrants are net fiscal contributors, but low-skilled immigrants often consume more in public services than they pay in taxes for 15-20 years. The aggregate GDP growth claim is technically true but misleading — GDP per capita, which measures individual prosperity, grows much more slowly because the gains are spread across a larger population.",
-      proponent_rebuttal:
         "The wage suppression evidence is contested. A comprehensive National Academy of Sciences report (2017) found that the long-run wage impact of immigration on native workers is 'very small' and that immigration boosts the wages of higher-skilled native workers through complementarity effects. Immigrants are about 80% more likely to start businesses than native-born Americans (Azoulay, Jones, Kim & Miranda, American Economic Review: Insights, 2022, using Census and tax records), creating jobs rather than just filling them. Fiscal analyses that show immigrants as 'net negative' typically use static snapshots that ignore the lifetime fiscal trajectory — second-generation immigrants (children of immigrants) are among the strongest net fiscal contributors in the US, paying more in taxes than both their parents and native-born peers. Immigration is the only realistic solution to the demographic time bomb facing every developed nation: without immigration, the US, EU, Japan, and South Korea face collapsing worker-to-retiree ratios that will bankrupt pension and healthcare systems.",
+      proponent_rebuttal:
+        "The aggregate economic case for immigration masks deeply unequal distribution of costs and benefits. Employers in agriculture, construction, hospitality, and meatpacking benefit from immigrant labor that suppresses wages — Harvard economist George Borjas estimates that immigration reduces wages for native workers without a high school degree by 7.4%. Low-income communities bear the costs of increased competition for housing, school places, and healthcare, while affluent communities benefit from cheaper services. The fiscal impact depends heavily on the skill level of immigrants: high-skilled immigrants are net fiscal contributors, but low-skilled immigrants often consume more in public services than they pay in taxes for 15-20 years. The aggregate GDP growth claim is technically true but misleading — GDP per capita, which measures individual prosperity, grows much more slowly because the gains are spread across a larger population.",
       crux: {
         id: "distributional-impact-analysis",
         title: "The Distributional Impact Accounting",
@@ -33,6 +33,16 @@ export const immigrationNationalIdentityData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-year economic analysis using Census, IRS, and administrative data)",
+        falsification: {
+          supporter_flip:
+            "If a distributional analysis across income quintiles, regions and 5-, 15- and 30-year horizons found immigration's gains broadly shared — or large enough to compensate low-income natives for wage, housing and public-service pressures — the economic strand of the claim would weaken.",
+          skeptic_flip:
+            "A skeptic who sees immigration as broadly beneficial should weigh Borjas's estimate that immigration cut wages for native workers without a high school diploma by 7.4%, that low-skilled immigrants often draw more in public services than they pay in taxes for 15-20 years, and that GDP per capita grows far more slowly than total GDP.",
+          common_ground:
+            "Both sides agree immigration raises aggregate GDP, and that its fiscal impact depends on immigrants' skill level and on the time horizon measured.",
+          live_disagreement:
+            "Whether the gains reach low-income natives or accrue mainly to employers and affluent consumers — with the wage effect on low-skilled workers estimated anywhere from Borjas's 7.4% to the National Academy's 'very small'.",
+        },
       },
       evidence: [
         {
@@ -82,9 +92,9 @@ export const immigrationNationalIdentityData = {
         "Robert Putnam's research shows that diversity initially reduces social trust, civic engagement, and community cohesion in the short term. The question is whether this is a permanent feature of diverse societies or a transitional phenomenon that long-term integration can overcome, and whether the type and pace of immigration determines whether integration succeeds or fails.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Robert Putnam's landmark study, based on 30,000 interviews across 41 US communities, found that ethnic diversity is associated with lower social trust — not just between groups but within groups. In diverse communities, people 'hunker down,' trusting neighbors less, volunteering less, and withdrawing from civic life. Scandinavian welfare states, built on ethnic and cultural homogeneity, are eroding under immigration pressure — Sweden's gang violence crisis, Denmark's integration failures, and the rise of anti-immigration parties across Europe are not coincidence but predictable consequences of rapid demographic change without democratic consent. Social cohesion is not infinitely elastic: it depends on shared language, values, civic norms, and cultural reference points that take generations to develop and can be disrupted faster than they can be rebuilt. The pace of immigration matters as much as the total number — when communities change faster than institutions can integrate newcomers, the result is parallel societies rather than pluralism.",
-      proponent_rebuttal:
         "Putnam himself noted that his diversity-trust findings represent a short-term 'hunkering down' effect, not a permanent feature of diverse societies. His same data shows that the negative effects diminish over time as communities develop new, more inclusive identities. The US, Canada, and Australia — all immigrant-founded nations — have among the highest social trust levels in the world despite enormous ethnic diversity. The Scandinavian comparison is misleading: the challenge is not diversity per se but the speed and nature of refugee migration (concentrated from a few conflict zones) combined with welfare state design that was never adapted for heterogeneous populations. Countries like Canada, which use points-based skilled immigration systems and invest heavily in settlement services, demonstrate that high immigration and high social cohesion can coexist. The key variable is not the presence of immigrants but the quality of integration policy, the distribution of immigrant settlement, and the economic opportunities available to newcomers.",
+      proponent_rebuttal:
+        "Robert Putnam's landmark study, based on 30,000 interviews across 41 US communities, found that ethnic diversity is associated with lower social trust — not just between groups but within groups. In diverse communities, people 'hunker down,' trusting neighbors less, volunteering less, and withdrawing from civic life. Scandinavian welfare states, built on ethnic and cultural homogeneity, are eroding under immigration pressure — Sweden's gang violence crisis, Denmark's integration failures, and the rise of anti-immigration parties across Europe are not coincidence but predictable consequences of rapid demographic change without democratic consent. Social cohesion is not infinitely elastic: it depends on shared language, values, civic norms, and cultural reference points that take generations to develop and can be disrupted faster than they can be rebuilt. The pace of immigration matters as much as the total number — when communities change faster than institutions can integrate newcomers, the result is parallel societies rather than pluralism.",
       crux: {
         id: "integration-model-comparison",
         title: "The Integration Model Effectiveness Comparison",
@@ -97,6 +107,16 @@ export const immigrationNationalIdentityData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Comparative political science analysis using existing survey data and integration indices)",
+        falsification: {
+          supporter_flip:
+            "If a 20-year comparison of 15-20 OECD countries found high-immigration countries with strong integration policies keeping social trust and civic participation high while similar countries with weak policies did not, policy design rather than immigration itself would drive cohesion, undercutting the claim that integration cannot cope.",
+          skeptic_flip:
+            "A skeptic who trusts integration policy should weigh Putnam's survey of 30,000 Americans across 41 communities, which found diversity associated with lower trust even within groups, and the argument that shared language and civic norms take generations to build but can be disrupted faster than they are rebuilt.",
+          common_ground:
+            "Both sides accept Putnam's finding that diversity is linked to lower trust in the short to medium term, and that the pace and type of immigration affect whether integration succeeds.",
+          live_disagreement:
+            "Whether the drop in trust is a transitional 'hunkering down' that strong integration policy overcomes, or a structural effect that appears whatever the policy — with Canada and Sweden as the contested test cases.",
+        },
       },
       evidence: [
         {
@@ -146,9 +166,9 @@ export const immigrationNationalIdentityData = {
         "Polls consistently show that democratic majorities in most developed nations want immigration levels reduced or held constant, yet governments continue to admit immigrants at rates that exceed public preferences. The gap between public opinion and immigration policy raises fundamental questions about democratic self-determination and whether citizens have a right to control the demographic composition of their nation.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "In virtually every Western democracy, polls show that a majority or plurality of citizens want immigration reduced. A 2024 Gallup poll found 55% of Americans want immigration decreased — the first majority favoring less immigration since 2005. In the UK, reducing immigration was the top issue driving the Brexit vote. In Germany, the AfD's rise is directly correlated with immigration levels. Yet governments of both left and right consistently maintain immigration levels that exceed public preferences because business interests want cheap labor, progressives want demographic change, and bureaucratic momentum perpetuates existing policies. This gap between public preference and policy is a democratic deficit that breeds populist backlash. Citizens have a right to determine the character and composition of their political community through democratic processes — this is not xenophobia but self-determination, the same principle that underpins national sovereignty and decolonization.",
-      proponent_rebuttal:
         "Democratic opinion polls on immigration are heavily influenced by media framing and economic conditions rather than reflecting stable preferences. When polls ask about immigration abstractly, majorities favor reduction; when they ask about specific immigrants (their neighbor, their colleague, refugees fleeing war), attitudes are far more favorable. The 'democratic deficit' argument assumes that immigration policy should be determined by simple majority preference, but liberal democracies have always limited majority rule through rights protections — the majority cannot vote to expel citizens or deny refugees protection under international law. Moreover, the politicians who promise to reduce immigration and win elections (Trump, Johnson, Meloni) consistently fail to do so because the economic dependence on immigrant labor is structural, not a policy choice. Without immigration, aging developed nations face labor shortages that threaten healthcare, agriculture, construction, and eldercare. The 'consent' framing frames immigration as something done to citizens rather than a structural economic and demographic necessity.",
+      proponent_rebuttal:
+        "In virtually every Western democracy, polls show that a majority or plurality of citizens want immigration reduced. A 2024 Gallup poll found 55% of Americans want immigration decreased — the first majority favoring less immigration since 2005. In the UK, reducing immigration was the top issue driving the Brexit vote. In Germany, the AfD's rise is directly correlated with immigration levels. Yet governments of both left and right consistently maintain immigration levels that exceed public preferences because business interests want cheap labor, progressives want demographic change, and bureaucratic momentum perpetuates existing policies. This gap between public preference and policy is a democratic deficit that breeds populist backlash. Citizens have a right to determine the character and composition of their political community through democratic processes — this is not xenophobia but self-determination, the same principle that underpins national sovereignty and decolonization.",
       crux: {
         id: "policy-preference-gap-driver",
         title: "The Policy-Preference Gap Causal Analysis",
@@ -161,6 +181,16 @@ export const immigrationNationalIdentityData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Comparative political economy analysis across 10 democracies)",
+        falsification: {
+          supporter_flip:
+            "If modeling showed that cutting immigration to match public preference would bring labor shortages in healthcare, agriculture and eldercare plus pension strain no government could accept, the gap would reflect economic necessity rather than elite capture, and the 'without consent' framing would weaken.",
+          skeptic_flip:
+            "A skeptic who sees necessity should weigh that 55% of Americans wanted immigration decreased in 2024 — up from 41% in 2023 and the first majority since 2005 — and that governments of both left and right have kept levels above what majorities say they want.",
+          common_ground:
+            "Both sides agree polls in most developed democracies show majorities or pluralities wanting less immigration, and that politicians who promise cuts often fail to deliver them.",
+          live_disagreement:
+            "Whether that gap reflects business lobbying and ideology overriding voters, or a structural dependence on immigrant labor in aging societies that no government can wish away — and how far majority preference should govern immigration at all.",
+        },
       },
       evidence: [
         {

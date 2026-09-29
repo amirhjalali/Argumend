@@ -71,6 +71,16 @@ export const masculinityCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Large-scale decomposition analysis using existing longitudinal datasets)",
+        falsification: {
+          supporter_flip:
+            "If a decomposition of NLSY or PSID data found that controlling for income, wealth, parental education, location and race erased most of the male-female gaps in education, mental health, mortality and work, the crisis would be mainly economic rather than one of young men as such.",
+          skeptic_flip:
+            "A skeptic who sees a class crisis should weigh that boys struggle from elementary school onward, with lower reading scores and higher dropout rates across every demographic group, and that men now earn only about 42% of bachelor's degrees, down from around 57% in the early 1970s.",
+          common_ground:
+            "Both sides agree the underlying numbers are real: men die by suicide at nearly 4x women's rate and now earn about 42% of bachelor's degrees.",
+          live_disagreement:
+            "Whether these gaps persist among men and women of the same class, marking an irreducibly gendered crisis, or mostly disappear once income, education and place are controlled for.",
+        },
       },
       evidence: [
         {
@@ -169,6 +179,16 @@ export const masculinityCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Multi-community quasi-experimental comparison study)",
+        falsification: {
+          supporter_flip:
+            "If communities that received job retraining and new industry saw men's suicide, labor-force participation, social connection and life satisfaction recover without any cultural programs, the crisis would be primarily economic and the identity-and-purpose part of the claim would weaken.",
+          skeptic_flip:
+            "A skeptic who sees a purely economic crisis should weigh that suicide rates are elevated even among affluent professionals such as physicians and dentists, that wealthy, low-unemployment Japan and South Korea have some of the highest male suicide rates, and that the share of men with zero close friends rose from 3% to 15% since 1990.",
+          common_ground:
+            "Both sides agree the decline of male-dominated industries has hurt working-class men — real wages for men without degrees have fallen 14% since 1979 — and that economic help is at least part of the answer.",
+          live_disagreement:
+            "Whether jobs, wages and connection would resolve men's struggles on their own — deaths of despair have risen for working-class women too — or whether a lost sense of male identity needs cultural answers as well.",
+        },
       },
       evidence: [
         {
@@ -235,9 +255,9 @@ export const masculinityCrisisData = {
         "Both 'man up' traditionalism and 'deconstruct masculinity' progressivism fail to offer a compelling positive vision that most men find meaningful. This vacuum is filled by figures ranging from thoughtful (Richard Reeves) to inflammatory (Andrew Tate), suggesting that the missing element is a constructive framework, not more critique from either direction.",
       icon_name: "HelpCircle" as const,
       skeptic_premise:
-        "The progressive framework has failed young men not by being wrong about toxic behavior, but by offering critique without construction. 'Toxic masculinity' discourse, as it filters through social media and institutional communications, is often experienced by young men as a wholesale condemnation of male identity rather than a critique of specific harmful behaviors. The APA's 2019 guidelines describing 'traditional masculinity' as 'on the whole, harmful' drew backlash not because the underlying research was wrong, but because the framing felt like an institutional declaration that being male is pathological. When mainstream institutions offer only deconstruction, the reconstruction vacuum is filled by figures who validate male identity — sometimes productively (Jordan Peterson on responsibility), sometimes toxically (Andrew Tate on dominance). The problem is not that progressives are wrong about specific harms; it is that they have not articulated what positive masculinity looks like. And the very premise of a universal 'masculinity crisis' that fuels this market is overstated: affluent and elite men remain overwhelmingly dominant at the top of nearly every status hierarchy — CEO suites, Congress, board seats, and the top 1% of incomes are still held mostly by men. The struggling young men drawn to Tate and Peterson are disproportionately working-class and isolated, not 'men' as a category. Treating a concentrated class-and-connection problem as a generalized crisis of maleness both flatters elite men who are thriving and lets the actual structural drivers off the hook.",
+        "The 'both sides fail' framing creates a false equivalence between fundamentally different problems. The conservative response to male struggle — 'man up,' reject feminism, embrace hierarchy — actively worsens outcomes by discouraging help-seeking behavior, reinforcing the emotional suppression that drives male suicide, and directing legitimate anger toward scapegoats (women, immigrants, minorities) rather than toward structural causes. The progressive response, while imperfect in its communication, correctly identifies the harmful norms (suppress emotions, avoid vulnerability, equate worth with earning) that contribute to male suffering. The solution is not to abandon the critique but to communicate it better and pair it with positive alternatives. Programs like ManKind Project, Evryman, and Next Gen Men show that progressive masculinity frameworks can resonate with men when they validate male experience while expanding the definition of strength. And the very premise of a universal 'masculinity crisis' is overstated: affluent and elite men remain overwhelmingly dominant at the top of nearly every status hierarchy — CEO suites, Congress, board seats, and the top 1% of incomes are still held mostly by men. The struggling young men drawn to Tate and Peterson are disproportionately working-class and isolated, not 'men' as a category. Treating a concentrated class-and-connection problem as a generalized crisis of maleness both flatters elite men who are thriving and lets the actual structural drivers off the hook.",
       proponent_rebuttal:
-        "The 'both sides fail' framing creates a false equivalence between fundamentally different problems. The conservative response to male struggle — 'man up,' reject feminism, embrace hierarchy — actively worsens outcomes by discouraging help-seeking behavior, reinforcing the emotional suppression that drives male suicide, and directing legitimate anger toward scapegoats (women, immigrants, minorities) rather than toward structural causes. The progressive response, while imperfect in its communication, correctly identifies the harmful norms (suppress emotions, avoid vulnerability, equate worth with earning) that contribute to male suffering. The solution is not to abandon the critique but to communicate it better and pair it with positive alternatives. Programs like ManKind Project, Evryman, and Next Gen Men show that progressive masculinity frameworks can resonate with men when they validate male experience while expanding the definition of strength.",
+        "The progressive framework has failed young men not by being wrong about toxic behavior, but by offering critique without construction. 'Toxic masculinity' discourse, as it filters through social media and institutional communications, is often experienced by young men as a wholesale condemnation of male identity rather than a critique of specific harmful behaviors. The APA's 2019 guidelines describing 'traditional masculinity' as 'on the whole, harmful' drew backlash not because the underlying research was wrong, but because the framing felt like an institutional declaration that being male is pathological. When mainstream institutions offer only deconstruction, the reconstruction vacuum is filled by figures who validate male identity — sometimes productively (Jordan Peterson on responsibility), sometimes toxically (Andrew Tate on dominance). The problem is not that progressives are wrong about specific harms; it is that they have not articulated what positive masculinity looks like.",
       crux: {
         id: "framework-effectiveness-test",
         title: "The Masculinity Framework Effectiveness Comparison",
@@ -250,6 +270,16 @@ export const masculinityCrisisData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-arm randomized controlled trial with 12-month follow-up)",
+        falsification: {
+          supporter_flip:
+            "If randomly assigning struggling men aged 18-35 to traditional, progressive or blended 12-month programs showed one existing framework significantly improving mental health, connection and life satisfaction, the claim that neither left nor right has an adequate answer would weaken.",
+          skeptic_flip:
+            "A skeptic who thinks the existing frameworks suffice should weigh that the APA's 2019 description of traditional masculinity as 'on the whole, harmful' drew major backlash, and that Andrew Tate's content drew over 11.6 billion views on TikTok — signs of a vacuum mainstream frameworks are not filling.",
+          common_ground:
+            "Both sides agree some traditional norms, such as suppressing emotion and avoiding help, do real harm to men, and that progressive messaging about them has often landed badly with young men.",
+          live_disagreement:
+            "Whether the answer is better communication of the progressive critique, a renewed emphasis on responsibility and purpose, or a new synthesis — and whether the crisis is general to men or concentrated among working-class, isolated men.",
+        },
       },
       evidence: [
         {

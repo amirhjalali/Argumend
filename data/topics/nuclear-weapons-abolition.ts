@@ -33,6 +33,16 @@ export const nuclearWeaponsAbolitionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Archival research across US, Russian, and Indian declassified records with quantitative analysis)",
+        falsification: {
+          supporter_flip:
+            "If declassified war planning showed Soviet and American leaders rejecting military options for reasons other than nuclear risk, and nuclear dyads proved no less war-prone than comparable conventional ones, the case that deterrence caused the Long Peace would shrink to coincidence.",
+          skeptic_flip:
+            "A skeptic who calls the nuclear peace post hoc should weigh that Soviet archives show leaders citing nuclear consequences as the reason for restraint in the 1948 and 1961 Berlin crises, and that India and Pakistan fought three full-scale wars before their 1998 tests and none since.",
+          common_ground:
+            "Both sides agree nuclear-armed great powers have not fought a direct war since 1945, and that whether deterrence caused this cannot be proven, only argued from counterfactuals.",
+          live_disagreement:
+            "Whether the threat of annihilation kept the superpowers from war, or the UN, trade, democracy and exhausted imperial rivalries would have done so anyway — and how much weight near-misses like Cuba and Able Archer should carry.",
+        },
       },
       evidence: [
         {
@@ -116,9 +126,9 @@ export const nuclearWeaponsAbolitionData = {
         "The Treaty on the Prohibition of Nuclear Weapons (2021) has 70+ state parties, but no nuclear-armed state has joined. The knowledge to build nuclear weapons cannot be abolished, creating a fundamental 'breakout' problem that makes verified complete elimination nearly impossible.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Complete nuclear abolition is a noble aspiration that is practically impossible and potentially dangerous. The knowledge to build nuclear weapons cannot be un-invented. In a world where all states disarmed, the first state to secretly rebuild even a small arsenal would gain unprecedented strategic advantage — creating powerful incentives to cheat. Verification of zero nuclear weapons is orders of magnitude harder than verifying arms reduction (the difference between counting weapons and proving a negative). Even the most intrusive verification regime could not guarantee that a state had not hidden warheads or fissile material. The nuclear-armed states — the US, Russia, China, UK, France, India, Pakistan, Israel, and North Korea — unanimously refuse to disarm, making the Treaty on the Prohibition of Nuclear Weapons a symbolic gesture by non-nuclear states that cannot compel compliance.",
-      proponent_rebuttal:
         "The 'knowledge cannot be abolished' argument proves too much — it would also argue against chemical and biological weapons abolition, both of which have been largely achieved through the CWC and BWC despite the knowledge remaining available. The TPNW, which entered into force in 2021 with 70+ state parties, creates a legal norm and stigma framework comparable to how the Anti-Personnel Mine Ban Treaty (1997) reduced mine use by 80% despite major military powers never joining. Verification is challenging but not impossible: the IAEA already monitors nuclear material worldwide, and emerging technologies (satellite imagery, environmental sampling, xenon detection) could form the basis of a comprehensive verification regime. The breakout problem exists but can be managed through latent deterrence — states could maintain the infrastructure to rapidly rebuild if a violation were detected, creating deterrence without deployed weapons.",
+      proponent_rebuttal:
+        "Complete nuclear abolition is a noble aspiration that is practically impossible and potentially dangerous. The knowledge to build nuclear weapons cannot be un-invented. In a world where all states disarmed, the first state to secretly rebuild even a small arsenal would gain unprecedented strategic advantage — creating powerful incentives to cheat. Verification of zero nuclear weapons is orders of magnitude harder than verifying arms reduction (the difference between counting weapons and proving a negative). Even the most intrusive verification regime could not guarantee that a state had not hidden warheads or fissile material. The nuclear-armed states — the US, Russia, China, UK, France, India, Pakistan, Israel, and North Korea — unanimously refuse to disarm, making the Treaty on the Prohibition of Nuclear Weapons a symbolic gesture by non-nuclear states that cannot compel compliance.",
       crux: {
         id: "breakout-verification",
         title: "The Verification and Breakout Problem",
@@ -131,6 +141,16 @@ export const nuclearWeaponsAbolitionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-20M (Multi-institutional technical verification feasibility study)",
+        falsification: {
+          supporter_flip:
+            "If an independent technical study found that environmental sampling, satellite imagery and xenon detection could catch clandestine enrichment or weapon assembly well within the breakout timeline, disarmed states would not be left vulnerable, and the claim that abolition makes the world less safe would weaken.",
+          skeptic_flip:
+            "A skeptic who favors abolition should weigh that the knowledge to build weapons cannot be un-invented, that verifying zero means proving a negative rather than counting weapons, and that every nuclear-armed state has refused to join the TPNW.",
+          common_ground:
+            "Both sides agree the knowledge to build nuclear weapons cannot be erased, and that no nuclear-armed state has joined the TPNW, which entered into force in 2021.",
+          live_disagreement:
+            "Whether a verification regime could detect a secret rebuild fast enough to respond, making abolition workable through latent deterrence as the chemical and biological weapons bans suggest, or whether the first state to cheat would gain a decisive advantage.",
+        },
       },
       evidence: [
         {
@@ -197,9 +217,9 @@ export const nuclearWeaponsAbolitionData = {
         "Even a 'limited' nuclear exchange would cause catastrophic humanitarian consequences including nuclear winter and global famine, making nuclear weapons an existential risk to civilization — but deterrence advocates argue this very horror is precisely what prevents their use.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The humanitarian horror of nuclear weapons is precisely what makes them work as deterrents — and this is a feature, not a bug. Deterrence theorists from Bernard Brodie to Kenneth Waltz have argued that the uniquely catastrophic nature of nuclear weapons is the mechanism by which they prevent war. If nuclear weapons were somehow made 'humane,' they would lose their deterrent effect and wars would become more likely. The 80 years of non-use is not luck but rather the predictable outcome of rational states confronting the prospect of civilizational destruction. Reducing the horror of nuclear weapons through abolition would make major war thinkable again — and conventional great power wars killed 80+ million people in the first half of the 20th century.",
-      proponent_rebuttal:
         "The humanitarian consequences of nuclear weapons use are so severe that no political objective can justify the risk. A 2022 study in Nature Food modeled the effects of a 'limited' nuclear war between India and Pakistan (100 Hiroshima-sized weapons) and found it would inject 5-47 million tonnes of soot into the stratosphere, reducing global food production by 7-50% for 5-10 years and potentially causing 2 billion deaths from famine alone — dwarfing the direct casualties. A full US-Russia exchange would end civilization. The existential risk argument is not about probability but expected value: even a 1% chance per century of an event that kills billions and potentially causes human extinction represents the largest risk humanity has ever created. No deterrence benefit can justify this expected cost when alternatives exist.",
+      proponent_rebuttal:
+        "The humanitarian horror of nuclear weapons is precisely what makes them work as deterrents — and this is a feature, not a bug. Deterrence theorists from Bernard Brodie to Kenneth Waltz have argued that the uniquely catastrophic nature of nuclear weapons is the mechanism by which they prevent war. If nuclear weapons were somehow made 'humane,' they would lose their deterrent effect and wars would become more likely. The 80 years of non-use is not luck but rather the predictable outcome of rational states confronting the prospect of civilizational destruction. Reducing the horror of nuclear weapons through abolition would make major war thinkable again — and conventional great power wars killed 80+ million people in the first half of the 20th century.",
       crux: {
         id: "nuclear-winter-lethality",
         title: "The Nuclear Winter Severity Assessment",
@@ -212,6 +232,16 @@ export const nuclearWeaponsAbolitionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-center climate modeling study with agricultural impact assessment)",
+        falsification: {
+          supporter_flip:
+            "If independent earth-system models confirmed that even a regional exchange of 100 weapons would cut global food production enough to kill billions, the permanent nonzero chance of use would be hard to outweigh with any deterrence benefit, and the case for keeping the weapons would weaken.",
+          skeptic_flip:
+            "A skeptic who sees only catastrophic risk should weigh that nuclear weapons have not been used in conflict for over 80 years across the Cold War and many crises, and that conventional great-power wars killed 80+ million people in the first half of the 20th century.",
+          common_ground:
+            "Both sides agree any nuclear use would be a humanitarian catastrophe — the ICRC says no adequate response exists for a detonation in a populated area — and that this horror sits at the center of the argument either way.",
+          live_disagreement:
+            "Whether nuclear winter models are right that even a limited exchange would cause global famine, making the tail risk outweigh any deterrence benefit, or overstated, leaving the record of non-use as the weightier fact.",
+        },
       },
       evidence: [
         {

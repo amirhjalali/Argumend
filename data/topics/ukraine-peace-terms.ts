@@ -33,6 +33,16 @@ export const ukrainePeaceTermsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 (ISW and RUSI assessments are public; the forecast itself is contested and cannot be settled before the fact)",
+        falsification: {
+          supporter_flip:
+            "If ISW terrain data over a rolling 12 months showed Russian offensive capacity genuinely collapsing — net territorial change turning in Ukraine's favor as Russian casualties and equipment losses outran replacement — holding out for better terms would be rational and a freeze at current lines would look premature.",
+          skeptic_flip:
+            "A skeptic who sees a reward for aggression should weigh ISW's description of a front line that has barely moved in months, with Russia's spring 2026 offensive called 'underwhelming', and that a Korea-style armistice would ratify de facto control without de jure recognition, preserving Ukraine's legal claim.",
+          common_ground:
+            "Both sides agree the front line has barely moved in recent months, and that any freeze would leave roughly 4 million Ukrainians in territory Russia now occupies.",
+          live_disagreement:
+            "Whether ratifying battlefield reality without formal recognition buys a durable peace or only time before the next invasion — and whether any leader can cede territory without the national referendum Zelensky says the constitution requires.",
+        },
       },
       evidence: [
         {
@@ -131,6 +141,16 @@ export const ukrainePeaceTermsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Structured net-assessment and red-line analysis; the underlying question is a forecast about Russian intent that cannot be fully resolved in advance)",
+        falsification: {
+          supporter_flip:
+            "If mapping every proposed guarantee — bilateral arms, a European tripwire force, NATO membership, Article 5 — against Russia's stated red lines and military-balance analysis found no option both acceptable to Russia and strong enough to deter, no settlement could be both durable and signable, and the case for a deal would fail.",
+          skeptic_flip:
+            "A skeptic who sees a rearm-and-relaunch runway should weigh the January 2026 Paris offer of UK and French 'military hubs' and a 15,000-20,000 European tripwire force, backed by continued heavy armament of unoccupied Ukraine — deterrence on the Korea model without NATO membership.",
+          common_ground:
+            "Both sides agree any deal must answer what stops Russia from attacking again, and that Russia has so far rejected any NATO troops in Ukraine.",
+          live_disagreement:
+            "Whether a guarantee exists that Russia would accept and that would still deter — a European tripwire plus an armed Ukraine — or whether every guarantee strong enough to deter is one Russia will refuse.",
+        },
       },
       evidence: [
         {
@@ -229,6 +249,16 @@ export const ukrainePeaceTermsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-2M (Multi-source intelligence fusion and forecasting; the crossover date is a contested prediction that resolves only as it occurs)",
+        falsification: {
+          supporter_flip:
+            "If armored-vehicle availability, recruitment net of casualties and real fiscal stress all crossed a depletion threshold as RUSI projects for late 2026, withholding sanctions relief and continuing to arm Ukraine would extract better terms, and freezing the war now would give away leverage.",
+          skeptic_flip:
+            "A skeptic betting on Russian depletion should weigh that Carnegie's March 2026 study called Ukraine's manpower problem 'increasingly acute', that years of sanctions have not coerced Russia, and that forecasts of Russia's attrition curve crossing have been made and missed before.",
+          common_ground:
+            "Both sides agree the war has become a contest of attrition in which manpower is decisive, and that sanctions have not by themselves forced Russia to stop.",
+          live_disagreement:
+            "Whether Russia's armored stocks and recruitment are crossing a depletion threshold that makes waiting worthwhile, or whether an autocracy's willingness to absorb losses outlasts Ukraine's manpower.",
+        },
       },
       evidence: [
         {
@@ -327,6 +357,16 @@ export const ukrainePeaceTermsData = {
         verification_status: "impossible" as const,
         cost_to_verify:
           "Unbounded — the counterfactual (whether China attacks Taiwan because of a Ukraine deal) cannot be observed; only correlational indicators can be tracked after the fact",
+        falsification: {
+          supporter_flip:
+            "If PLA exercises, amphibious-lift production and gray-zone incursions around Taiwan rose after a settlement at current lines, and assessments found China drawing the strategic lesson that aggression pays, the demonstration effect would be real and a freeze would carry costs far beyond Ukraine.",
+          skeptic_flip:
+            "A skeptic who sees a frozen conflict emboldening aggressors should weigh AEI's assessment that China's lessons from Ukraine are mainly operational — drones, AI, electronic warfare — rather than a strategic green light, and that Taiwan is geographically and economically unlike Ukraine.",
+          common_ground:
+            "Both sides agree a settlement at current lines would be a frozen, Korea-style armistice without formal resolution rather than a peace treaty.",
+          live_disagreement:
+            "Whether deterrence is mainly reputational, so a settlement at current lines raises the odds of a Taiwan move in 2027-2030, or mainly situational, so Ukraine's lessons stay local — and whether the pause would hold or let Russia rearm.",
+        },
       },
       evidence: [
         {

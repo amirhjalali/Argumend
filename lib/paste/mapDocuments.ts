@@ -58,8 +58,10 @@ export function pillarMapDocument(topic: Topic, phrasings: readonly string[] = [
           pillar.crux.description,
           pillar.crux.falsification?.live_disagreement,
           pillar.crux.falsification?.common_ground,
-          pillar.crux.falsification?.supporter_flip,
-          pillar.crux.falsification?.skeptic_flip,
+          // supporter_flip / skeptic_flip are left out: they describe
+          // hypothetical evidence ("If … the case would weaken"), whose
+          // generic vocabulary (wages, jobs, studies) pulled unrelated maps
+          // level with the right one once every map carried them.
         ]),
       ]),
       evidence: present(evidence.flatMap((item) => [item.title, item.description, item.source])),

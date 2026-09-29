@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { loadTopicById } from "@/data/topicLoader";
 import { topicSummaries } from "@/data/topicIndex";
+import { withoutFalsification } from "@/test/fixtures/legacyTopics";
 import { countSources, firstSentence, legacyTopicPage } from "./legacy";
 
 describe("firstSentence", () => {
@@ -90,7 +91,12 @@ describe("legacyTopicPage", () => {
   });
 
   it("renders a map without falsification data from what it has", async () => {
-    const topic = (await loadTopicById("epstein-files"))!;
+    // Every shipped map now has falsification data, so the fallback runs on a
+    // fixture: a real map with the blocks (and its keystone fact) taken out.
+    const topic = {
+      ...withoutFalsification((await loadTopicById("epstein-files"))!),
+      keystone_fact: undefined,
+    };
     expect(topic.pillars.every((p) => !p.crux.falsification)).toBe(true);
     const { page, cruxes } = legacyTopicPage(topic);
 
@@ -100,11 +106,38 @@ describe("legacyTopicPage", () => {
     expect(cruxes.map((c) => c.question)).toEqual(
       topic.pillars.map((p) => p.crux.question ?? p.crux.title),
     );
+    // With no crux questions either, the crux title is the heading.
+    const bare = legacyTopicPage({
+      ...topic,
+      pillars: topic.pillars.map((p) => ({ ...p, crux: { ...p.crux, question: undefined } })),
+    });
+    expect(bare.cruxes.map((c) => c.question)).toEqual(topic.pillars.map((p) => p.crux.title));
     for (const crux of cruxes) {
       expect(crux.flips).toBeUndefined();
+      expect(crux.runIns).toEqual([]);
       expect(crux.settle.condition!.length).toBeGreaterThan(0);
     }
   });
+
+  it("gives every pillar of every legacy map the agreement and mind-change lines", async () => {
+    // "What both sides already agree on" and "A supporter / a skeptic changes
+    // their mind if…" are the heart of the page; no map ships without them.
+    const missing: string[] = [];
+    for (const summary of topicSummaries) {
+      const topic = (await loadTopicById(summary.id))!;
+      for (const pillar of topic.pillars) {
+        const f = pillar.crux.falsification;
+        const fields = [f?.supporter_flip, f?.skeptic_flip, f?.common_ground, f?.live_disagreement];
+        if (!fields.every((text) => typeof text === "string" && text.trim().length > 0)) {
+          missing.push(`${summary.id}/${pillar.id}`);
+        }
+      }
+      const { page, cruxes } = legacyTopicPage(topic);
+      expect(page.agreement.length, summary.id).toBeGreaterThan(0);
+      for (const crux of cruxes) expect(crux.flips, `${summary.id}/${crux.anchor}`).toBeDefined();
+    }
+    expect(missing).toEqual([]);
+  }, 30_000);
 
   it("never emits placeholder or invented copy across the whole library", async () => {
     for (const summary of topicSummaries) {

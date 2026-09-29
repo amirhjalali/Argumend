@@ -31,6 +31,16 @@ export const assistedDyingEuthanasiaData = {
           "Examine how the law already treats analogous choices (refusal of treatment, palliative sedation, advance directives) and whether a coherent moral line can be drawn between 'letting die' and 'helping die.' Test constitutional reasoning (e.g., Carter v. Canada) against legislative and ethical counter-frameworks.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (philosophical and legal analysis)",
+        falsification: {
+          supporter_flip:
+            "If evidence showed that a legal right to assisted death reliably turns into a felt duty to die for the old, ill and dependent — so the choice stops being the patient's own — the autonomy argument would undercut itself, and the case for a right would weaken.",
+          skeptic_flip:
+            "A skeptic who holds life inviolable should weigh that the law already lets competent adults refuse life-sustaining treatment, sign DNRs and receive palliative sedation that hastens death, and that among the 376 Oregonians who died under its law in 2024, the leading concerns were losing autonomy (88.6%) and dignity, not unmanaged pain.",
+          common_ground:
+            "Both sides agree competent adults may already refuse life-sustaining treatment, and that a right to die must not become a felt duty to die for the old, ill and dependent.",
+          live_disagreement:
+            "Whether a moral line separates letting a patient die, which the law already allows, from helping one die — and so whether autonomy extends to the timing of an inevitable death or meets a limit set by society's interest in protecting life.",
+        },
       },
       evidence: [
         {
@@ -111,6 +121,16 @@ export const assistedDyingEuthanasiaData = {
           "Quantify the prevalence and refractoriness of terminal suffering (pain, dyspnea, existential distress) under optimal palliative care; audit the demographics and circumstances of those using assisted-dying laws for evidence of coercion or socioeconomic pressure; compare terminal-only regimes (Oregon) with broader ones (Canada Track 2).",
         verification_status: "verified" as const,
         cost_to_verify: "$300K (clinical review + registry data analysis)",
+        falsification: {
+          supporter_flip:
+            "If audits of terminal-only regimes like Oregon's found the poor, disabled or uninsured over-represented among those who use them, or if optimal palliative care proved able to relieve nearly all terminal suffering, the case that a narrow law helps without pressuring the vulnerable would weaken.",
+          skeptic_flip:
+            "A skeptic worried about coercion should weigh that palliative-care scholarship recognizes some end-of-life suffering is refractory to even the best care, and Oregon's 25+ years of terminal-only data, which supporters read as showing no demographic sign of coercion of the poor or uninsured.",
+          common_ground:
+            "Both sides agree any law must confine assisted death to genuine, voluntary choices, and that outside pressures appear in the data: in Oregon's 2024 figures, 42.0% cited being a burden on others.",
+          live_disagreement:
+            "Whether some terminal suffering is truly beyond the best palliative care, and whether eligibility rules, capacity checks and waiting periods can hold a law to voluntary cases or erode over time, as critics read Canada's expansion.",
+        },
       },
       evidence: [
         {
