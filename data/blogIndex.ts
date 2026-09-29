@@ -93,7 +93,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "are-gmos-safe",
     title: "Are GMOs Safe to Eat? What the Evidence Actually Says",
-    description: "On the question people worry about most — is GM food safe to eat — the science is about as settled as it gets. The genuine debates are somewhere else entirely. Here's how to tell them apart.",
+    description: "On the question people worry about most — is GM food safe to eat — the evidence is about as consistent as nutrition science gets. The genuine debates are somewhere else entirely. Here's how to tell them apart.",
     tags: [
       "GMO",
       "food safety",
@@ -180,7 +180,7 @@ export const articleSummaries: ArticleSummary[] = [
   },
   {
     slug: "how-confidence-scores-change-thinking",
-    title: "How Confidence Scores Change the Way You Think",
+    title: "How calibrated confidence changes the way you think",
     description: "Saying 'I'm 70% sure' is more honest—and more useful—than saying 'I believe.' Learn how calibrated confidence transforms arguments into something you can actually update.",
     tags: [
       "confidence calibration",
@@ -916,7 +916,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "contested-health-claims-mapped",
     title: "Contested Health Claims, Mapped: What the Evidence Actually Says",
-    description: "GMO safety, antidepressant efficacy, and vaccine mandates are three health debates where the science is strong but the public fight is loud. We map where the evidence is settled, where it's genuinely contested, and where the disagreement is really about values.",
+    description: "GMO safety, antidepressant efficacy, and vaccine mandates are three health debates where the science is strong but the public fight is loud. We map where the evidence largely converges, where it's genuinely contested, and where the disagreement is really about values.",
     tags: [
       "health",
       "science",

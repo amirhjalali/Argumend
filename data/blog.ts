@@ -179,7 +179,7 @@ The immediate change is inside the pipeline, not on the site: a contestedness ga
 
 After that, the reply above stops being a demo. If you moderate a community that argues about things we have mapped, we would like to put it in your thread. Every argument on this site, all 156 of them, is already a map with a crux, weighted evidence on both sides, and no winner. That is what a referee should hand you. Now it can do it in under half a second.
 
-Read the [methodology](/methodology) behind the evidence weights, explore the [rent control map](/topics/rent-control-effectiveness), or start with [what would change your mind](/blog/what-would-change-your-mind).`,
+If you are in an argument right now, [paste it in](/analyze): the paste tool does the same job for your own thread, and it never says who is right. To see what a map looks like when its cruxes are kept up to date, read [Will AI cause mass unemployment?](/topics/ai-mass-unemployment), where each crux carries a dated ledger of the evidence that has moved it.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // 0000000. Did COVID Come From a Lab?
@@ -247,7 +247,7 @@ It is genuinely uncomfortable to sit with uncertainty on a question this charged
 
 The defensible position is calibrated: natural origin is somewhat more likely on current evidence, a lab leak is a real and unrefuted possibility, and a confident verdict awaits data that China controls. Holding that position isn't fence-sitting — it's accuracy.
 
-You can explore the full weighted evidence, the intelligence assessments, and the specific cruxes on the [topic page](/topics/lab-leak-theory), or see the same evidence-first, both-sides treatment of other contested claims in the [Is it true? directory](/is).`,
+You can explore the full weighted evidence, the intelligence assessments, and the specific cruxes on the [lab-leak map](/topics/lab-leak-theory). And if you are in an argument about it right now, [paste it in](/analyze) to see what that argument actually turns on.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // 000000. Could AI Be Conscious?
@@ -307,7 +307,7 @@ So, could AI be conscious? The calibrated answer:
 - **Future systems: genuinely unknown**, because the question turns on the unresolved substrate-vs-function problem and we have no test to settle it.
 - **The right stance is calibrated uncertainty** — not the confident dismissal that treats the question as absurd, nor the confident belief that treats fluent text as proof.
 
-That posture — taking a strange question seriously without overclaiming in either direction — is exactly what structured analysis is for. You can see the full set of arguments, the cruxes, and what would resolve them on the [topic page](/topics/consciousness-ai-systems), or explore the same evidence-first treatment of other contested claims in the [Is it true? directory](/is).`,
+That posture — taking a strange question seriously without overclaiming in either direction — is exactly what structured analysis is for. You can see the full set of arguments, the cruxes, and what would resolve them on the [map](/topics/consciousness-ai-systems). And if you are in an argument about it, [paste it in](/analyze) to see which parts of it are about evidence and which are about definitions.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // 00000. Is Fluoride in Your Water Safe?
@@ -371,7 +371,7 @@ Stack the three layers and the fluoride debate stops being a culture-war shibbol
 - **Worth it for teeth?** Still a benefit, but a much smaller one than in the pre-toothpaste era; its best case is now equity for underserved kids.
 - **Ethical to add without consent?** A genuine values question where reasonable societies (most of Europe vs. the US) have landed differently.
 
-If you came looking for "fluoride is safe, full stop" or "fluoride is poison," the evidence offers neither. It offers something more useful: a clear map of which parts are settled, which are contested, and exactly what would resolve them. You can explore that map on the [full topic page](/topics/fluoride-water-supplies), or see the same evidence-first treatment of dozens of other claims in the [Is it true? directory](/is).`,
+If you came looking for "fluoride is safe, full stop" or "fluoride is poison," the evidence offers neither. It offers something more useful: a clear map of which parts the evidence has answered, which are still contested, and exactly what would resolve them. You can read it on the [fluoride map](/topics/fluoride-water-supplies), and if you are in a fluoride argument right now, [paste it in](/analyze) to see which of the three questions each of you is actually arguing about.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // 0000. Are GMOs Safe to Eat?
@@ -380,7 +380,7 @@ If you came looking for "fluoride is safe, full stop" or "fluoride is poison," t
     slug: "are-gmos-safe",
     title: "Are GMOs Safe to Eat? What the Evidence Actually Says",
     description:
-      "On the question people worry about most — is GM food safe to eat — the science is about as settled as it gets. The genuine debates are somewhere else entirely. Here's how to tell them apart.",
+      "On the question people worry about most — is GM food safe to eat — the evidence is about as consistent as nutrition science gets. The genuine debates are somewhere else entirely. Here's how to tell them apart.",
     author: "Argumend Team",
     publishedAt: "2026-06-22T15:00:00Z",
     readingTime: "8 min read",
@@ -400,9 +400,9 @@ If you came looking for "fluoride is safe, full stop" or "fluoride is poison," t
 2. Is GM agriculture **good for farming and the environment**?
 3. Is **glyphosate** — the herbicide tied to many GM crops — dangerous?
 
-Most arguments about GMOs blur these together, so a real concern about herbicide use gets answered with a point about food safety, and everyone leaves more confused. Pull them apart and the picture becomes clear: one of these is essentially settled, and the other two are where the honest debate actually lives. Our full [GMO analysis](/topics/gmo-crops-safety) maps all three.
+Most arguments about GMOs blur these together, so a real concern about herbicide use gets answered with a point about food safety, and everyone leaves more confused. Pull them apart and the picture becomes clear: on one of these the evidence largely converges, and the other two are where the honest debate actually lives. Our [GMO map](/topics/gmo-crops-safety) weighs all three together, which is why its overall reading is "evidence still divided": the food-safety evidence is strong, and the farming and herbicide questions are genuinely open.
 
-## Question 1: Is GM food safe to eat? (Yes — and this part is settled)
+## Question 1: Is GM food safe to eat? (The evidence largely converges on yes)
 
 This is the question that drives the fear, and it has the clearest answer. After more than 25 years of cultivation and billions of meals, every major scientific review has reached the same conclusion: there is **no substantiated difference in health risk** between eating today's genetically engineered crops and their conventional counterparts.
 
@@ -440,7 +440,7 @@ Put it together and the GMO debate stops being a yes/no culture-war flag and bec
 
 Notice that the first is a question of **fact** (evidence settles it) while "should we grow and eat GMOs" smuggles in **values** — about corporate control of seeds, precaution, and how to weigh farmer benefit against ecological cost. As we wrote in [Fact or Value?](/blog/fact-or-value), most GMO arguments go in circles precisely because a values disagreement is being fought with food-safety evidence that was never going to resolve it.
 
-If you want to see the weighted evidence and the cruxes behind each of these questions, the full [GMO breakdown](/topics/gmo-crops-safety) lays them out — and the [Is it true? directory](/is) does the same for dozens of other contested claims.`,
+If you want to see the weighted evidence and the cruxes behind each of these questions, the [GMO map](/topics/gmo-crops-safety) lays them out. And if you are in a GMO argument right now, [paste it in](/analyze): it will show you which of the three questions each of you is actually answering.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // 000. Are Vaccine Mandates Justified?
@@ -502,7 +502,7 @@ Put the three answers together and a coherent picture emerges, and it isn't trib
 
 The disagreement that feels like a values war ("freedom vs. safety") turns out to be mostly an empirical question about transmission, plus a genuine but separable values question about how much weight to give individual consent. Separating those — as our [structured breakdown of the debate](/topics/vaccine-mandates) does — won't make everyone agree, but it replaces a shouting match with a question you can actually answer.
 
-Want to see how this same "it depends on the specifics" logic plays out across other contested claims? Browse the [Is it true? directory](/is), where every answer comes with the evidence and the crux behind it.`,
+The [vaccine mandates map](/topics/vaccine-mandates) lays out the evidence and the cruxes behind each of these questions. If you are in a mandate argument right now, [paste it in](/analyze) to see whether you disagree about the evidence or about the values.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // 00. Fact or Value?
@@ -557,7 +557,7 @@ The fact-or-value split is the hidden structure of most controversies:
 
 - **The death penalty.** The factual question — does it deter? — is, on the best evidence, [unresolved at best and probably "no"](/topics/death-penalty-deterrence). But notice that settling it wouldn't end the debate, because the live disagreement is really a value one: whether retribution justifies the state taking a life, and how much weight to give the risk of executing the innocent. Facts narrow the fight; they don't finish it.
 
-- **Nuclear energy.** Here the facts do most of the work: safety is [about as settled as these things get](/topics/nuclear-energy-safety). What remains is partly factual (can we build reactors cheaply and fast enough?) and partly a value question about how to weigh rare catastrophic risk against the steady, certain harm of the fossil fuels nuclear would replace.
+- **Nuclear energy.** Here the facts do much of the work. On safety the evidence is strong and consistent: per unit of energy, nuclear power sits alongside wind and solar. The [nuclear map](/topics/nuclear-energy-safety) still reads "evidence still divided", because its question is whether to expand nuclear power, and what remains is partly factual (can we build reactors cheaply and fast enough?) and partly a value question about how to weigh rare catastrophic risk against the steady, certain harm of the fossil fuels nuclear would replace.
 
 - **Assisted dying.** This one is almost pure value. The facts — that terminally ill patients suffer, that safeguards can be designed — are not really in dispute. The [disagreement is about autonomy versus the sanctity of life](/topics/assisted-dying-euthanasia), and no clinical trial will adjudicate that. Recognizing it as a values question is what keeps the debate honest.
 
@@ -574,7 +574,7 @@ In each case, separating the two does not make the disagreement vanish. It does 
 
 Every topic we map keeps the two layers visible on purpose. The **weighted evidence** answers the factual questions — how strongly the data supports each claim — while the **crux** and the steel-manned positions surface the value disagreements that evidence alone can't settle. When you read a topic and see evidence that largely converges next to a still-fierce debate, that gap is almost always the fact-or-value split doing its quiet work.
 
-Pick any contested claim on the [Is it true? directory](/is) and try sorting it yourself. Once you see which parts are facts and which are values, you can never quite un-see it — and most arguments get a lot less frustrating.`,
+Pick any [map](/topics) and try sorting its cruxes yourself, or [paste an argument you're in](/analyze) and see how the paste tool sorts it. Once you see which parts are facts and which are values, you can never quite un-see it — and most arguments get a lot less frustrating.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // 0. What Would Change Your Mind?
@@ -654,7 +654,7 @@ You do not need a philosophy degree to put this to work:
 
 This question is not a rhetorical flourish for us; it is the architecture. Every topic we map identifies its **cruxes** explicitly, and for our most-developed topics we now state, for each pillar, exactly **what would change a supporter's mind and what would change a skeptic's mind** — alongside where the two sides already agree and where the live disagreement really sits.
 
-The goal is to model the thing good reasoners do privately and almost no public argument does: treat a belief as a bet on reality, and say in advance what would make you fold. If you want to see it in action, pick any contested claim on our [Is it true? directory](/is) and read past the short answer to the crux. And if you want a companion habit, the discipline that pairs best with this one is [steel-manning the other side](/blog/why-steel-manning-makes-you-smarter) — because you cannot honestly say what would change your mind until you understand the strongest version of the view you're resisting.
+The goal is to model the thing good reasoners do privately and almost no public argument does: treat a belief as a bet on reality, and say in advance what would make you fold. If you want to see it in action, read [Will AI cause mass unemployment?](/topics/ai-mass-unemployment), where every crux says what would settle it and keeps a dated record of the evidence that has moved it. And if you want a companion habit, the discipline that pairs best with this one is [steel-manning the other side](/blog/why-steel-manning-makes-you-smarter) — because you cannot honestly say what would change your mind until you understand the strongest version of the view you're resisting.
 
 The next time you feel certain, try the test. Name the evidence that would prove you wrong. If none exists, you have learned something important — not about the topic, but about yourself.`,
   },
@@ -823,15 +823,15 @@ The real value of studying logical fallacies is not in catching other people's e
 
 Next time you feel a surge of certainty during an argument, pause. Ask yourself: Am I attacking the person or the argument? Am I responding to what they actually said? Am I treating this as simpler than it really is? The honest answers might surprise you.
 
-Argumend's analysis framework is designed to surface these patterns automatically—identifying where arguments rely on fallacious reasoning rather than evidence, so you can focus on what actually matters.`,
+Argumend's maps are built to make the non-fallacious version of each argument easy to find: every position in its strongest form, the evidence under it weighed, and the crux that would actually settle it. That is usually a better use of an argument than counting the other side's fallacies.`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────
-  // 3. How Confidence Scores Change the Way You Think
+  // 3. How Calibrated Confidence Changes the Way You Think
   // ──────────────────────────────────────────────────────────────────────────
   {
     slug: "how-confidence-scores-change-thinking",
-    title: "How Confidence Scores Change the Way You Think",
+    title: "How calibrated confidence changes the way you think",
     description:
       "Saying 'I'm 70% sure' is more honest—and more useful—than saying 'I believe.' Learn how calibrated confidence transforms arguments into something you can actually update.",
     author: "Argumend Team",
@@ -871,13 +871,13 @@ This reframing makes it possible to have a productive conversation. Instead of d
 
 **Principle 3: Update incrementally.** When new evidence arrives, calibrated thinkers adjust their confidence by the appropriate amount—not too much, not too little. If you're 70% confident in something and you encounter a moderately strong piece of contrary evidence, maybe you drop to 60%. You don't immediately flip to 30%, and you don't ignore it entirely. This incremental updating is the essence of rational thinking.
 
-## How This Works at Argumend
+## How this works on Argumend's maps
 
-Every topic on Argumend carries two numbers: balance, which shows which way the weighted evidence tips, and weight, which shows how much evidence there is. These scores aren't opinions; they're computed by evaluating the strength of evidence on each side, the reliability of the supporting sources, and the degree of expert consensus.
+Argumend's maps deliberately don't hand you a single percentage. Each map carries two numbers instead: balance, which shows which way the weighed evidence tips, and weight, which shows how much good evidence there is. They aren't opinions; they're built from the evidence cards on the map, each scored for the reliability of its source, its independence, whether it has been replicated, and how directly it bears on the claim. Together they give a plain reading: the evidence largely converges, is still divided, or is still thin.
 
-On a topic like "Did the Moon Landing Happen?" the evidence largely converges on the claim, with heavy weight and a lopsided balance built from overwhelming, independently verified sources. A topic like "Is Free Will an Illusion?" sits near an even balance, with the evidence still divided on a genuinely unresolved philosophical and scientific question where strong arguments exist on both sides.
+On a map like "Did the Moon Landing Happen?" the evidence largely converges on the claim, with heavy weight and a lopsided balance built from overwhelming, independently verified sources. A map like "Is Free Will an Illusion?" sits near an even balance and is only moderately evidenced: a genuinely unresolved philosophical and scientific question where strong arguments exist on both sides.
 
-These scores serve two purposes. First, they communicate at a glance how much genuine uncertainty exists around a topic, so you can calibrate your own confidence accordingly. Second, they decompose into sub-scores for individual arguments and evidence, so you can see exactly which components are driving the overall assessment.
+The reading serves two purposes. First, it shows at a glance how much genuine uncertainty exists around a question, so you can calibrate your own confidence against it. Second, it is built from individual cards, each with its own weight, so you can see exactly which evidence is driving it. What it is not is a probability that the claim is true. That number is yours to set, which is the whole point of this post.
 
 ## The Superforecasting Connection
 
@@ -967,7 +967,7 @@ The nuclear energy debate teaches a broader lesson about how disagreements work.
 
 When you impose a binary framework—"nuclear is good" or "nuclear is bad"—you inevitably ignore or dismiss the legitimate concerns on the other side. When you instead lay out the strongest arguments in parallel, you discover that the real conversation is about priorities and probabilities, not about who has the facts right.
 
-This is why Argumend presents every topic with steel-manned arguments on each side, identifies the specific cruxes where the disagreement actually lives, and assigns confidence scores based on the weight of evidence. The nuclear energy topic on Argumend doesn't tell you whether to support nuclear power. It shows you exactly where reasonable people diverge and what evidence would resolve those divergences.
+This is why Argumend presents every topic with steel-manned arguments on each side, identifies the specific cruxes where the disagreement actually lives, and weighs the evidence card by card without naming a winner. The [nuclear energy map](/topics/nuclear-energy-safety) doesn't tell you whether to support nuclear power. It shows you exactly where reasonable people diverge and what evidence would resolve those divergences.
 
 The honest answer to "Should we expand nuclear energy?" is not yes or no. It's "It depends on these specific empirical questions, and here's where the evidence currently points on each one." That's a less satisfying answer than a bumper sticker—but it's the one most likely to be useful.`,
   },
@@ -1035,7 +1035,7 @@ Philip Tetlock's research on superforecasters found that the single strongest pr
 
 Argumend is built to make self-challenge easier. Every topic presents the steel-manned arguments on both sides, so you can immediately encounter the strongest version of the case against your position. The crux identification framework shows you exactly what evidence or reasoning, if it held up, would require you to change your mind.
 
-The confidence scores provide a calibration benchmark. If you're 95% confident about a topic where Argumend's evidence analysis suggests 60% confidence is warranted, that gap is a signal to examine your reasoning more carefully.
+Each map's reading of its evidence gives you something to check your certainty against. If you're sure about a question where the map says the evidence is still divided, that gap is a signal to examine your reasoning more carefully.
 
 None of this replaces the hard internal work of questioning your own beliefs. But having a structured framework for seeing the strongest opposing arguments, identifying what matters most, and calibrating your confidence makes that work significantly more accessible.
 
@@ -1163,13 +1163,13 @@ Research by Philip Tetlock in his forecasting tournaments showed that the best p
 
 Importantly, superforecasters were not wishy-washy. They held strong views when the evidence supported them. But they distinguished between "I'm 95% confident because the evidence is overwhelming" and "I'm 55% confident because this is genuinely uncertain." The Dunning-Kruger-affected person cannot make this distinction because they lack the knowledge to assess how strong the evidence actually is.
 
-## What Argumend Does Differently
+## What Argumend does differently
 
-Argumend's approach to topic analysis is specifically designed to counter the Dunning-Kruger effect. Instead of presenting political topics as binary debates with two equally valid sides, our multi-judge analysis evaluates the strength of evidence underlying each position.
+Argumend's maps are built to counter the Dunning-Kruger effect in one specific way. Instead of presenting political topics as binary debates with two equally valid sides, each map weighs the evidence under each position, card by card, on the reliability of its source, its independence, whether it has been replicated, and how directly it bears on the claim.
 
-The confidence scores on each topic are not opinions. They are computed assessments based on the quality and quantity of evidence, the degree of expert consensus, the logical coherence of the arguments, and the reliability of the sources cited. When a topic shows a confidence score of 75% on one side, it means the weight of evidence substantially favors that position, even if public opinion is evenly split.
+The reading at the top of the evidence is not an opinion poll. It is built from those cards: which way the weighed evidence tips, and how much good evidence there is. When a map says the evidence largely converges on one side, it means the weight of evidence substantially favors that position, even if public opinion is evenly split. When it says the evidence is still divided, or still thin, that is information too.
 
-This matters because the Dunning-Kruger effect is, at its core, a calibration problem. People do not know what they do not know, so they cannot accurately assess how confident they should be. Argumend provides an external calibration benchmark. If you are 95% confident about a topic where the evidence analysis suggests 60% confidence is warranted, that gap is a signal worth investigating. It does not mean you are wrong. It means your confidence exceeds what the evidence alone supports, and you should examine whether your certainty is coming from evidence or from something else.
+This matters because the Dunning-Kruger effect is, at its core, a calibration problem. People do not know what they do not know, so they cannot accurately assess how confident they should be. A map gives you something outside your own head to check against. If you are certain about a question where the map says the evidence is still divided, that gap is a signal worth investigating. It does not mean you are wrong. It means your confidence exceeds what the evidence alone supports, and you should examine whether your certainty is coming from evidence or from something else.
 
 ## Moving Beyond the Effect
 
@@ -1259,7 +1259,7 @@ This effect occurs because excessive confidence triggers skepticism. When someon
 
 The research points to a consistent set of principles. Effective persuasion does not look like winning an argument. It looks like a collaborative exploration where both parties feel heard, where the focus is on specific evidence rather than general positions, and where the goal is mutual understanding rather than victory.
 
-At Argumend, we designed our analysis framework around these principles. By presenting steel-manned arguments on both sides, we create the conditions for genuine engagement. By identifying cruxes, we help users focus on the specific beliefs that actually drive disagreement. And by providing calibrated confidence scores, we model the kind of epistemic humility that research shows makes productive conversation possible.
+At Argumend, we designed our analysis framework around these principles. By presenting steel-manned arguments on both sides, we create the conditions for genuine engagement. By identifying cruxes, we help users focus on the specific beliefs that actually drive disagreement. And by saying plainly when the evidence is still divided or still thin, and never naming a winner, we try to model the kind of epistemic humility that research shows makes productive conversation possible. The [paste tool](/analyze) starts where the research says to start: paste an argument you're in, and it shows what the two of you already agree on before what you don't.
 
 You cannot force someone to change their mind. But you can create the conditions under which they are willing to change it themselves. That is the difference between arguing and persuading.`,
   },
@@ -1313,17 +1313,15 @@ In the context of debate, this is particularly dangerous. A hallucinated study c
 
 This is a design problem, not an inherent limitation. But it requires careful architectural decisions about how to weight evidence quality, expert consensus, and source reliability in the analysis pipeline.
 
-## Argumend's Multi-Judge Approach
+## How Argumend uses AI
 
-Argumend addresses these pitfalls through a multi-judge architecture that treats AI bias as a problem to be engineered around rather than wished away.
+Argumend's answer to these pitfalls is to give AI the jobs it is good at and keep people on the parts that need judgment.
 
-Instead of relying on a single AI model to analyze a topic, Argumend uses multiple independent AI judges, each prompted with different analytical frameworks. One judge evaluates the logical structure of arguments. Another assesses the quality and reliability of cited evidence. A third identifies potential biases and rhetorical techniques. A fourth evaluates expert consensus and source credibility.
+On the maps, AI helps research and draft, but people check the evidence against its sources and edit each map before it is published. The weight on every evidence card, its score for source reliability, independence, replication and directness, is set by a person, not a model. On the flagship AI maps, a model can propose that a crux has moved when new evidence arrives, but nothing reaches the page until a person has reviewed it. Every card names its source, with a link where one exists, so a reader can check it too.
 
-The outputs of these judges are then aggregated using a meta-analysis layer that identifies where the judges agree and where they diverge. Agreement across independently prompted judges increases confidence in a conclusion. Divergence signals genuine uncertainty or potential bias, and is flagged for transparency rather than hidden.
+On the paste tool, a model reads the text you paste and returns a structured reading of it: the positions, what the sides already agree on, and what the disagreement turns on. It works only from your text. It does not fact-check, it does not guess at motives, and it does not say who is right.
 
-This architecture is inspired by ensemble methods in machine learning, where multiple models with different biases produce more accurate aggregate predictions than any single model. It is also inspired by the judicial system itself, where multiple judges with different perspectives reduce the risk of any single judge's bias determining the outcome.
-
-Critically, Argumend's system includes source verification. When the analysis cites a study or statistic, the source is checked against actual databases. Hallucinated citations are caught and removed before they reach the user. This does not eliminate all errors, but it addresses the most dangerous failure mode of AI-generated analysis.
+Two rules follow from the pitfalls above. Against false balance, the maps do not give every side equal weight by default: they weigh the evidence and say plainly when it largely converges. Against confident hallucination and inherited bias, no model output is presented as a verdict. A model's job is to structure and to propose; deciding what the evidence shows stays with people who can be asked why.
 
 ## The Future of AI-Assisted Reasoning
 
@@ -1331,7 +1329,7 @@ The trajectory of AI in argumentation points toward a fundamentally different re
 
 But this future depends on getting the design right. AI debate tools that optimize for engagement will produce the same pathologies as social media: rewarding emotional triggers and tribal signaling. AI debate tools that optimize for accuracy and calibration can genuinely improve human reasoning.
 
-The key design principle is transparency. Users should always be able to see what evidence an analysis is based on, what assumptions the AI is making, what the judges disagreed about, and where the confidence scores come from. AI should function as a research assistant that shows its work, not as an oracle that issues pronouncements.
+The key design principle is transparency. Users should always be able to see what evidence an analysis is based on, what assumptions the AI is making, and where every number on the page comes from. AI should function as a research assistant that shows its work, not as an oracle that issues pronouncements.
 
 The promise of AI in debate is not that it will think for us. It is that it will help us think better: surfacing evidence we would miss, structuring arguments we would muddle, and challenging positions we would leave unexamined. The pitfall is that it could instead think instead of us, replacing human judgment with algorithmic authority.
 
@@ -1506,7 +1504,7 @@ Here is how to spot misinformation in approximately sixty seconds:
 
 This process becomes faster with practice. Experienced fact-checkers can often identify likely misinformation in seconds because they have internalized these patterns. The goal is not to become a professional fact-checker but to develop enough skill to avoid being easily misled.
 
-At [Argumend](https://argumend.org), we build structured analysis into every topic we cover, identifying the strongest evidence on each side and flagging where claims are well-supported versus where they rely on weak or misleading sourcing. Our confidence scores reflect how robust the evidence base actually is — not how loudly a claim is being made. Tools like these, combined with the individual skills outlined above, create a genuine defense against the rising tide of misinformation.
+At [Argumend](https://argumend.org), we build structured analysis into every topic we cover, identifying the strongest evidence on each side and flagging where claims are well-supported versus where they rely on weak or misleading sourcing. Each map says whether the evidence largely converges, is still divided, or is still thin — a reading of how robust the evidence base actually is, not of how loudly a claim is being made. Tools like these, combined with the individual skills outlined above, create a genuine defense against the rising tide of misinformation.
 
 The sixty seconds you invest in checking a claim before believing or sharing it is not wasted time. It is one of the most valuable investments you can make — in your own understanding, in the quality of public discourse, and in a world where truth still matters.`,
   },
@@ -1616,7 +1614,7 @@ Changing your mind is a skill, and like any skill, it improves with deliberate p
 
 3. **Practice saying "I was wrong."** Start with low-stakes situations. You were wrong about a restaurant recommendation, about a factual claim in conversation, about a prediction. Build the muscle of admitting error in small ways, and it becomes easier in larger ones.
 
-4. **Use Argumend's structured analyses.** On [Argumend](https://argumend.org), every topic is broken down into specific claims with confidence scores that reflect the strength of evidence on each side. This framework models what rational belief updating looks like in practice — not picking a team, but evaluating each claim on its merits and acknowledging where the evidence is genuinely mixed.
+4. **Use Argumend's maps.** On [Argumend](https://argumend.org), every topic is broken down into specific claims, with the evidence on each side weighed card by card and a plain reading of whether it largely converges, is still divided, or is still thin. This framework models what rational belief updating looks like in practice — not picking a team, but evaluating each claim on its merits and acknowledging where the evidence is genuinely mixed.
 
 The art of changing your mind is ultimately the art of caring more about being right than about being consistent. It requires courage, because it means exposing yourself to the possibility of error. It requires humility, because it means accepting that your current understanding is incomplete. And it requires patience, because genuine understanding develops slowly, through the steady accumulation of evidence and the willingness to follow that evidence wherever it leads.
 
@@ -1712,7 +1710,7 @@ On a question where scientific consensus is strong, genuine fairness means repor
 
 On a question where expert opinion is genuinely divided, fairness means presenting the strongest versions of competing arguments, identifying the specific points of disagreement, and helping the audience understand what evidence would resolve the dispute.
 
-This is the approach we take at [Argumend](https://argumend.org). Our structured analysis of every topic begins by assessing the actual state of evidence — not by mechanically assigning equal weight to opposing positions, but by evaluating each claim on its merits and assigning confidence scores based on the strength and quality of the supporting evidence. When the evidence is lopsided, our analysis reflects that. When it is genuinely mixed, our analysis reflects that too. The goal is not balance for its own sake, but accuracy — which sometimes means acknowledging that both sides are not, in fact, equal.
+This is the approach we take at [Argumend](https://argumend.org). Our structured analysis of every topic begins by assessing the actual state of evidence — not by mechanically assigning equal weight to opposing positions, but by weighing each piece of evidence on its merits: the reliability of its source, its independence, whether it has been replicated, and how directly it bears on the claim. When the evidence is lopsided, our analysis reflects that. When it is genuinely mixed, our analysis reflects that too. The goal is not balance for its own sake, but accuracy — which sometimes means acknowledging that both sides are not, in fact, equal.
 
 The false balance fallacy persists because it feels fair and because avoiding it requires the uncomfortable task of making judgments about the quality of evidence. But intellectual honesty demands that we weigh evidence, not just count opinions. True fairness is not giving equal weight to every voice. It is giving appropriate weight to every piece of evidence — and having the courage to say, when the evidence warrants it, that one position is simply better supported than the other.`,
   },
@@ -1803,9 +1801,9 @@ Educators who have implemented argument mapping education report several consist
 
 The rise of digital tools has made argument mapping more accessible than ever. Software platforms allow students to build maps collaboratively, share them for peer review, and work with complex arguments that would be unwieldy on paper.
 
-At [Argumend](https://argumend.org), we have built argument mapping into the core of our platform. Every topic analysis includes a visual logic graph that maps the key claims, supporting evidence, objections, and cruxes — the specific points where the strongest arguments on each side collide. This is not a static diagram but a structured, interactive analysis that models the kind of reasoning we believe every student should learn to do independently.
+At [Argumend](https://argumend.org), we have built argument mapping into the core of our platform. Every map sets out the key claims, the supporting evidence, the objections, and the cruxes — the specific points where the strongest arguments on each side collide — and many also offer an interactive graph of the same material. It models the kind of reasoning we believe every student should learn to do independently.
 
-Our approach draws on the same research that supports classroom argument mapping, but extends it by incorporating confidence scoring and evidence quality assessment. Each node in an Argumend logic graph is not just a claim — it is a claim with an explicit confidence level based on the strength of the supporting evidence. This teaches a crucial lesson that traditional argument mapping sometimes misses: not all reasons are equally strong, and recognizing the difference between a well-supported claim and a weakly supported one is as important as identifying the logical structure.
+Our approach draws on the same research that supports classroom argument mapping, but extends it with evidence weighing. Each piece of evidence on an Argumend map is not just a reason — it is a reason with an explicit weight, scored on the reliability of its source, its independence, whether it has been replicated, and how directly it bears on the claim. This teaches a crucial lesson that traditional argument mapping sometimes misses: not all reasons are equally strong, and recognizing the difference between a well-supported claim and a weakly supported one is as important as identifying the logical structure.
 
 ## How to Start
 
@@ -1919,7 +1917,7 @@ This technique transforms debate from a competitive exercise into a collaborativ
 
 The concept of cruxes is fundamental to how [Argumend](https://argumend.org) analyzes every topic on our platform. When we map a debate, we do not simply list arguments for and against. We identify the specific cruxes — the key points where the strongest arguments on each side directly collide — and highlight them as the focal points of the analysis.
 
-For example, in our analysis of nuclear energy, we identify cruxes such as whether next-generation reactor designs adequately address safety concerns, whether nuclear power can be deployed fast enough to contribute meaningfully to decarbonization, and whether long-term waste storage is a solved problem. Each of these cruxes is a specific, investigable question. And for each one, we present the strongest evidence and arguments on both sides, along with a confidence score that reflects how well the evidence supports each position.
+For example, in our analysis of nuclear energy, we identify cruxes such as whether next-generation reactor designs adequately address safety concerns, whether nuclear power can be deployed fast enough to contribute meaningfully to decarbonization, and whether long-term waste storage is a solved problem. Each of these cruxes is a specific, investigable question. And for each one, we present the strongest evidence and arguments on both sides, with each piece of evidence weighed on its own merits.
 
 This approach models the kind of reasoning we believe makes debates productive. Instead of arguing about "nuclear energy" as a monolithic topic, you can focus on the specific cruxes where your actual disagreement lives. You might discover that you agree on most of the cruxes and only diverge on one — which makes the remaining disagreement far easier to examine honestly.
 
@@ -2116,7 +2114,7 @@ Everything we have discussed — the Principle of Charity, finding cruxes, epist
 
 **Argument mapping** is the practice of representing claims, evidence, and logical relationships in a visual diagram rather than in flowing prose or speech. When an argument is mapped, you can immediately see which claims are supported by evidence and which are floating unsupported. You can identify where two people actually disagree (the crux) versus where they are talking past each other. You can spot logical fallacies that are invisible in the flow of conversation but obvious when the reasoning is laid bare.
 
-This is precisely what Argumend is built to do. Our platform takes complex, multi-sided debates and maps them into clear visual structures where every claim is linked to its supporting evidence, confidence levels are explicit, and the strongest arguments on every side are visible at a glance. It is the Principle of Charity, the Socratic method, and crux-finding, operationalized as a tool.
+This is precisely what Argumend is built to do. Each map takes a complex, multi-sided argument and lays it out so that every claim is linked to its supporting evidence, the weight of that evidence is explicit, and the strongest arguments on every side are visible at a glance. It is the Principle of Charity, the Socratic method, and crux-finding, operationalized as a tool.
 
 To see how argument mapping works in practice, visit our [how it works page](/how-it-works) and explore any of our mapped topics. You may find that seeing an argument — rather than just hearing it — changes the way you think about disagreement entirely.
 
@@ -2680,7 +2678,7 @@ There is also a deeper problem: **provenance verifies that a piece of content ha
 
 ## What This Means for Evidence-Based Reasoning
 
-At Argumend, our entire mission is built on the premise that evidence matters — that claims should be evaluated based on the strength of supporting evidence, and that better reasoning leads to better conclusions. Deepfakes threaten this premise at the foundational level.
+Argumend rests on the premise that evidence matters — that claims should be evaluated based on the strength of supporting evidence, and that better reasoning leads to better conclusions. Deepfakes threaten this premise at the foundational level.
 
 If any piece of media can be fabricated, and any authentic piece of media can be dismissed as fabricated, then **media evidence becomes epistemically weightless**. We are forced back to relying on institutional trust, expert testimony, and chains of custody — exactly the kinds of authority structures that are also under assault from polarization and populism.
 
@@ -2696,7 +2694,7 @@ If any piece of media can be fabricated, and any authentic piece of media can be
 
 **Understand that uncertainty is appropriate.** In a world of deepfakes, saying "I don't know if this is real" is not weakness — it is rational. The people most vulnerable to deepfake manipulation are those who are most certain about everything they see.
 
-The tools we build at Argumend — [argument mapping](/topics/ai-deepfakes-truth-collapse), evidence weighting, confidence scoring — are more necessary than ever in a world where seeing is no longer believing. Explore how we map the deepfakes debate and consider what evidence standards you apply to the media you consume.`,
+The habits Argumend is built around — [mapping an argument](/topics/ai-deepfakes-truth-collapse), weighing each piece of evidence by where it came from, asking what would change a mind — are more necessary than ever in a world where seeing is no longer believing. Explore how we map the deepfakes debate and consider what evidence standards you apply to the media you consume.`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -3632,7 +3630,7 @@ The climate case for nuclear is strongest as a complement to renewables rather t
 
 ## Explore the Full Analysis
 
-This article covers the broad strokes. For the detailed evidence, source evaluations, weighted confidence scores, and testable crux points, explore our full [Nuclear Energy for Climate](/topics/nuclear-energy-safety) topic on Argumend. Every claim is sourced, every argument is steel-manned, and the evidence is weighted so you can draw your own conclusions.
+This article covers the broad strokes. For the detailed evidence, source evaluations, and testable crux points, explore our full [Nuclear Energy for Climate](/topics/nuclear-energy-safety) map. Every claim is sourced, every argument is steel-manned, and the evidence is weighted so you can draw your own conclusions.
 
 The nuclear question is not simple. Anyone who tells you it is, whether they are for or against, is selling you a bumper sticker instead of an analysis. The evidence deserves better than that, and so do you.`,
   },
@@ -4077,7 +4075,7 @@ The current evidence leans toward the second interpretation, but it has not defi
 
 ## Explore the Full Analysis
 
-For the complete evidence-weighted argument map on the seed oils debate — with every claim sourced, both sides steel-manned, and confidence scores assigned to each pillar — explore our full [Seed Oils and Human Health](/topics/seed-oils-health) topic on Argumend.
+For the complete evidence-weighted argument map on the seed oils debate — with every claim sourced, both sides steel-manned, and a crux for each pillar — explore our full [Seed Oils and Human Health](/topics/seed-oils-health) map.
 
 The seed oils question is a perfect case study in how tribal identity distorts scientific reasoning. The carnivore influencer who calls seed oils "literal poison" and the registered dietitian who insists they are "heart-healthy" are both oversimplifying a genuinely complex evidence base. The truth, as it so often does, lives in the uncomfortable middle — where certainty is scarce, nuance is necessary, and the honest answer is: it depends, and we are still learning.`,
   },
@@ -4290,7 +4288,7 @@ The Taiwan question is not a spectator sport. A conflict in the Taiwan Strait wo
 
 The worst possible approach is to assume either that war is inevitable or that it cannot happen. Both forms of certainty are unwarranted by the evidence. What the evidence supports is vigilance, preparation, and the kind of clear-eyed analysis that takes both the risks and the costs of overreaction seriously.
 
-For the full interactive analysis with weighted evidence, steel-manned arguments on all sides, and identified crux points, explore the topic on [Argumend](/topics).
+For the full maps, with weighted evidence, steel-manned arguments on all sides, and identified crux points, [browse the maps](/topics).
 
 The Taiwan Strait question will likely define the geopolitics of the next decade. The least we can do is think clearly about it.`,
   },
@@ -5129,7 +5127,7 @@ This debate is a magnet for [logical fallacies](/blog/5-logical-fallacies-in-onl
 
 ## Inspect the Evidence Yourself
 
-We have mapped this entire argument—the strongest proponent and skeptic positions, the supporting evidence, and the cruxes above—on an interactive graph. You can expand each claim, follow it to its sources, and decide for yourself where the evidence actually points.
+We have mapped this entire argument—the strongest proponent and skeptic positions, the supporting evidence, and the cruxes above—on the [universal basic income map](/topics/universal-basic-income). You can follow each claim to its sources and decide for yourself where the evidence actually points.
 
 Explore the live argument map: **[Universal Basic Income](/topics/universal-basic-income)**.
 
@@ -5215,7 +5213,7 @@ This debate is thick with [logical fallacies](/blog/5-logical-fallacies-in-onlin
 
 ## Inspect the Evidence Yourself
 
-We have mapped the full argument—proponent and skeptic positions, the deterrence and innocence evidence, and the moral crux above—as an interactive graph you can explore claim by claim, source by source.
+We have mapped the full argument—proponent and skeptic positions, the deterrence and innocence evidence, and the moral crux above—on the [death penalty map](/topics/death-penalty-deterrence), which you can read claim by claim, source by source.
 
 Explore the live argument map: **[The Death Penalty](/topics/death-penalty-deterrence)**.
 
@@ -5303,7 +5301,7 @@ This topic invites [logical fallacies](/blog/5-logical-fallacies-in-online-debat
 
 ## Inspect the Evidence Yourself
 
-We have mapped the full argument—proponent and skeptic positions, the Portugal and Oregon evidence, and the implementation crux above—as an interactive graph you can explore claim by claim.
+We have mapped the full argument—proponent and skeptic positions, the Portugal and Oregon evidence, and the implementation crux above—on the [drug decriminalization map](/topics/drug-decriminalization), which you can read claim by claim.
 
 Explore the live argument map: **[Drug Decriminalization](/topics/drug-decriminalization)**.
 
@@ -5375,7 +5373,7 @@ Five debates, one shape: a culture-war slogan on top, a specific and often empir
     slug: "contested-health-claims-mapped",
     title: "Contested Health Claims, Mapped: What the Evidence Actually Says",
     description:
-      "GMO safety, antidepressant efficacy, and vaccine mandates are three health debates where the science is strong but the public fight is loud. We map where the evidence is settled, where it's genuinely contested, and where the disagreement is really about values.",
+      "GMO safety, antidepressant efficacy, and vaccine mandates are three health debates where the science is strong but the public fight is loud. We map where the evidence largely converges, where it's genuinely contested, and where the disagreement is really about values.",
     author: "Argumend Team",
     publishedAt: "2026-06-16T11:00:00Z",
     readingTime: "8 min read",
@@ -5411,7 +5409,7 @@ Explore it: **[Vaccine Mandates](/topics/vaccine-mandates)**.
 
 ## How to Read Any Health Debate
 
-The recurring move across all three: separate the empirical claim from the values claim, then separate the bundled empirical claims from each other. Once you do, "are GMOs safe," "do antidepressants work," and "are mandates justified" each split into a settled part and a genuinely open part. That's where honest disagreement lives.
+The recurring move across all three: separate the empirical claim from the values claim, then separate the bundled empirical claims from each other. Once you do, "are GMOs safe," "do antidepressants work," and "are mandates justified" each split into a part the evidence largely answers and a part that is genuinely open. That's where honest disagreement lives.
 
 For more health maps where this same discipline pays off, see **[Ultra-Processed Food](/topics/ultra-processed-food)**, **[Seed Oils & Health](/topics/seed-oils-health)**, **[GLP-1 Weight-Loss Drugs](/topics/glp1-weight-loss-drugs)**, and **[Microplastics](/topics/microplastics-health-crisis)**—and the guide on [false balance](/blog/false-balance-both-sides), which is the failure mode that haunts health reporting.`,
   },
@@ -6043,7 +6041,7 @@ This response takes the correlation seriously while refusing to let it masquerad
 
 ## The Bottom Line
 
-The post hoc fallacy turns the order of events into a verdict about cause, and our pattern-hungry minds rarely object. But sequence and correlation are starting points for investigation, not conclusions. Coincidence, reverse causation, and hidden common causes can all produce the same tidy before-and-after picture, and only the work of ruling them out — through mechanism, controlled comparison, and honest accounting for confounders — can tell you whether one thing truly caused another. The next time an argument rests on "it happened right after," resist the pull of the story long enough to ask the harder question: after this, yes — but *because* of this? You can see the same evidence-first, both-sides treatment of contested causal claims throughout the [Is it true? directory](/is).`,
+The post hoc fallacy turns the order of events into a verdict about cause, and our pattern-hungry minds rarely object. But sequence and correlation are starting points for investigation, not conclusions. Coincidence, reverse causation, and hidden common causes can all produce the same tidy before-and-after picture, and only the work of ruling them out — through mechanism, controlled comparison, and honest accounting for confounders — can tell you whether one thing truly caused another. The next time an argument rests on "it happened right after," resist the pull of the story long enough to ask the harder question: after this, yes — but *because* of this? And if you are in an argument that turns on a claim like this, [paste it in](/analyze) to see whether the disagreement is really about cause.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // Hasty Generalization fallacy explainer
@@ -6501,7 +6499,7 @@ The practical upshot is that the honest American debate is rarely "single-payer,
 
 ## The Bottom Line
 
-The defensible position on universal healthcare is calibrated and design-specific, not slogan-shaped. Universal coverage is demonstrably achievable — every peer country manages it, and the US already spends more than enough — but the mechanism carries real tradeoffs in access speed and possibly innovation, and "single-payer" is only one of several routes to "everyone covered." Both confident extremes — "guaranteed coverage with no downsides" and "any government role means rationing and ruin" — claim more than the evidence supports. The honest debate is not for-or-against universality; it is about which design best balances coverage, cost, choice, and innovation. You can explore the full weighted evidence and the specific cruxes on the [topic page](/topics/universal-healthcare), or see the same both-sides treatment of other contested questions in the [Is it true? directory](/is).`,
+The defensible position on universal healthcare is calibrated and design-specific, not slogan-shaped. Universal coverage is demonstrably achievable — every peer country manages it, and the US already spends more than enough — but the mechanism carries real tradeoffs in access speed and possibly innovation, and "single-payer" is only one of several routes to "everyone covered." Both confident extremes — "guaranteed coverage with no downsides" and "any government role means rationing and ruin" — claim more than the evidence supports. The honest debate is not for-or-against universality; it is about which design best balances coverage, cost, choice, and innovation. You can explore the full weighted evidence and the specific cruxes on the [universal healthcare map](/topics/universal-healthcare), or [paste an argument you're in](/analyze) to see which design question it actually turns on.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // Both-sides case study: student debt forgiveness (tied to existing flagship topic)
@@ -6581,7 +6579,7 @@ It is also worth remembering that the debt did not appear from nowhere, and neit
 
 ## The Bottom Line
 
-The defensible position on student debt is design-specific and honest about the split between facts and values. Broad, uncapped forgiveness is genuinely vulnerable to the regressivity and "ignores the cause" critiques; well-targeted relief for distressed and defrauded borrowers answers most of those objections while reaching the people in real trouble. And almost everyone, across the divide, has reason to care more about the price of college than the headlines suggest, because that is the leak that keeps refilling the bucket. Both confident extremes — "cancel it all, it is obvious justice" and "forgive nothing, it is pure unfairness" — flatten a debate whose honest answer depends on the design and on a value judgment you should make out loud. Explore the full weighted evidence on the [topic page](/topics/student-debt-forgiveness), or see the same both-sides treatment of other contested questions in the [Is it true? directory](/is).`,
+The defensible position on student debt is design-specific and honest about the split between facts and values. Broad, uncapped forgiveness is genuinely vulnerable to the regressivity and "ignores the cause" critiques; well-targeted relief for distressed and defrauded borrowers answers most of those objections while reaching the people in real trouble. And almost everyone, across the divide, has reason to care more about the price of college than the headlines suggest, because that is the leak that keeps refilling the bucket. Both confident extremes — "cancel it all, it is obvious justice" and "forgive nothing, it is pure unfairness" — flatten a debate whose honest answer depends on the design and on a value judgment you should make out loud. Explore the full weighted evidence on the [student debt map](/topics/student-debt-forgiveness), or [paste an argument you're in](/analyze) to see which part of it is about facts and which is about values.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // Evergreen how-to: spotting bad statistics
@@ -7171,7 +7169,7 @@ Because the stakes are so emotional, assisted dying attracts a few predictable r
 
 None of this requires you to be neutral. You can land firmly on either side. But a [well-calibrated](/concepts/confidence-calibration) position on assisted dying has a particular shape: it states which value you weight more heavily and why, it concedes the real force of the opposing value, and it stays honest about the empirical questions that remain genuinely contested. The position to distrust — on either side — is the one that pretends the trade-off does not exist: that autonomy carries no risk to the vulnerable, or that protecting the vulnerable costs the suffering nothing.
 
-You can explore the full argument — proponent and skeptic positions, the safeguard and slippery-slope evidence, and the moral crux above — as an interactive map you can examine claim by claim in our analysis of [assisted dying and euthanasia](/topics/assisted-dying-euthanasia). The goal of a both-sides treatment is not to make you waver. It is to make sure that when you do take a side, you are disagreeing about the value question that actually matters — not fighting over evidence that, here, was never going to decide it.`,
+You can read the full argument — proponent and skeptic positions, the safeguard and slippery-slope evidence, and the moral crux above — claim by claim on our map of [assisted dying and euthanasia](/topics/assisted-dying-euthanasia). The goal of a both-sides treatment is not to make you waver. It is to make sure that when you do take a side, you are disagreeing about the value question that actually matters — not fighting over evidence that, here, was never going to decide it.`,
   },
   // ──────────────────────────────────────────────────────────────────────────
   // How-to: Telling if a source is trustworthy
