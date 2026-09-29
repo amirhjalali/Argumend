@@ -1,35 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
-import { GET, POST } from "./route";
-import { listAnalyses, saveAnalysis } from "@/lib/db/queries";
-import { extractArgumentsOffline } from "@/lib/analyze/offline";
+import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
+import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
+import { MAP_MATCH } from "@/lib/paste/maps";
+import type { PasteMapsResult } from "@/lib/paste/types";
+import * as route from "./route";
 
-const { mockAuth, mockExtractArguments, mockLiveJudgeDebate } = vi.hoisted(() => ({
-  mockAuth: vi.fn(),
-  mockExtractArguments: vi.fn(),
-  mockLiveJudgeDebate: vi.fn(),
-}));
-
-vi.mock("@/lib/auth", () => ({ auth: mockAuth }));
-
-vi.mock("@/lib/analyze/extractor", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@/lib/analyze/extractor")>();
-  return { ...actual, extractArguments: mockExtractArguments };
-});
-
-vi.mock("@/lib/judge/council", () => ({
-  createJudgeCouncil: () => ({ judgeDebate: mockLiveJudgeDebate }),
-}));
-
-vi.mock("@/lib/db/queries", () => ({
-  saveAnalysis: vi.fn(async () => {
-    throw new Error("Database is not available");
-  }),
-  saveJudgment: vi.fn(async () => {
-    throw new Error("Database is not available");
-  }),
-  listAnalyses: vi.fn(async () => []),
-}));
+const { POST } = route;
 
 function postRequest(body: unknown): NextRequest {
   return new NextRequest(new URL("http://localhost/api/analyze"), {
@@ -38,255 +15,108 @@ function postRequest(body: unknown): NextRequest {
       "content-type": "application/json",
       "x-forwarded-for": `test-${Math.random()}`,
     },
-    body: JSON.stringify(body),
+    body: typeof body === "string" ? body : JSON.stringify(body),
   });
 }
 
-function malformedRequest(): NextRequest {
-  return new NextRequest(new URL("http://localhost/api/analyze"), {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-forwarded-for": `test-malformed-${Math.random()}`,
-    },
-    body: "{not-json",
-  });
+async function mapsFor(content: string): Promise<PasteMapsResult> {
+  const response = await POST(postRequest({ content, contentType: "conversation" }));
+  expect(response.status).toBe(200);
+  const body = (await response.json()) as { maps: PasteMapsResult };
+  return body.maps;
 }
 
-describe("POST /api/analyze", () => {
+function mapCount(maps: PasteMapsResult): number {
+  return (maps.match ? 1 : 0) + maps.closest.length;
+}
+
+describe("POST /api/analyze (the paste flow's map lane)", () => {
   beforeEach(() => {
-    vi.clearAllMocks();
-    vi.spyOn(console, "warn").mockImplementation(() => {});
-    vi.stubEnv("DATABASE_URL", "");
-    vi.stubEnv("AUTH_SECRET", "test-auth-secret");
-    process.env.ENABLE_LIVE_ANALYZE_API = "false";
-    process.env.NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API = "false";
-    process.env.ENABLE_LIVE_JUDGING_API = "false";
-    process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API = "false";
-    mockAuth.mockReset();
-    mockAuth.mockResolvedValue({ user: { id: "test-user" } });
-    mockExtractArguments.mockReset();
-    mockLiveJudgeDebate.mockReset();
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    // No network, ever: any fetch from the lane fails the test.
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(() => {
+        throw new Error("the map lane must not make network requests");
+      }),
+    );
   });
 
   afterEach(() => {
+    vi.unstubAllGlobals();
     vi.restoreAllMocks();
-    vi.unstubAllEnvs();
   });
 
-  it("returns an offline analysis without auth or database persistence", async () => {
-    const res = await POST(postRequest({
-      content:
-        "Supporters argue nuclear energy provides reliable low-carbon electricity. Critics counter that nuclear projects are slow and expensive.",
-      contentType: "article",
-    }));
+  it("maps the immigration example to its map, at the crux, with one card per side", async () => {
+    const maps = await mapsFor(DISAGREEMENT_EXAMPLE_SOURCE);
 
-    expect(res.status).toBe(200);
-    const body = await res.json();
-    expect(body.id).toBeUndefined();
-    expect(typeof body.extracted.topic).toBe("string");
-    expect(Array.isArray(body.extracted.positions)).toBe(true);
-    expect(typeof body.extracted.summary).toBe("string");
-    expect(typeof body.extracted.confidence).toBe("number");
-    expect(body.extracted.positions.length >= 2).toBe(true);
-    expect(body.execution).toEqual({
-      analysis: { requested: "offline", actual: "offline" },
-      judging: { requested: "disabled", actual: "disabled" },
-    });
-    expect(saveAnalysis).not.toHaveBeenCalled();
-    expect(console.warn).not.toHaveBeenCalled();
+    expect(maps.status).toBe("matched");
+    expect(maps.match?.id).toBe("immigration-wage-impact");
+    expect(maps.match?.crux?.href).toMatch(/^\/topics\/immigration-wage-impact#crux-/);
+    expect(maps.match?.crux?.supporterFlip).toBeTruthy();
+    expect(maps.match?.crux?.skepticFlip).toBeTruthy();
+    expect(new Set(maps.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+    expect(fetch).not.toHaveBeenCalled();
   });
 
-  it("never logs private bound values when analysis persistence fails", async () => {
-    vi.stubEnv("DATABASE_URL", "postgres://configured.test/argumend");
-    vi.mocked(saveAnalysis).mockRejectedValueOnce(
-      new Error(
-        'Failed query: insert into "analyses" ("summary") values ($1)\nparams: private submitted argument',
-      ),
+  it("maps the nuclear example to the nuclear map", async () => {
+    const maps = await mapsFor(EXAMPLE_ANALYSIS_TEXT);
+    expect(maps.match?.id).toBe("nuclear-energy-safety");
+  });
+
+  it("can match a flagship debate map, anchored at its top crux", async () => {
+    const maps = await mapsFor(
+      "The US should stop sending weapons to Israel until it protects civilians in Gaza. No, Israel is an ally facing Hamas and conditioning aid would reward terrorism.",
     );
-
-    const res = await POST(postRequest({
-      content: "Supporters make a case. Critics make a countercase.",
-    }));
-
-    expect(res.status).toBe(200);
-    const logged = JSON.stringify(vi.mocked(console.warn).mock.calls);
-    expect(logged).toContain("params: [redacted]");
-    expect(logged).not.toContain("private submitted argument");
+    expect(maps.match?.id).toBe("us-israel-support");
+    expect(maps.match?.kind).toBe("flagship");
+    expect(maps.match?.crux?.href).toMatch(/^\/topics\/us-israel-support#crux-[a-z0-9-]+$/);
   });
 
-  it("returns a stable 400 response for malformed JSON", async () => {
-    const res = await POST(malformedRequest());
+  it("never names more than three maps", async () => {
+    for (const text of [DISAGREEMENT_EXAMPLE_SOURCE, EXAMPLE_ANALYSIS_TEXT, "Vaccines cause autism, my cousin changed after the MMR shot. That study was retracted."]) {
+      const maps = await mapsFor(text);
+      expect(mapCount(maps)).toBeLessThanOrEqual(MAP_MATCH.maxMaps);
+    }
+  });
 
-    expect(res.status).toBe(400);
-    await expect(res.json()).resolves.toEqual({
-      error: "Invalid JSON",
+  it("answers 'no map' rather than a wrong map for unrelated text", async () => {
+    const maps = await mapsFor(
+      "Pineapple on pizza is great, the sweetness balances the salty ham. It's an abomination, fruit does not belong on pizza.",
+    );
+    expect(maps.match).toBeNull();
+    expect(maps.status).not.toBe("matched");
+  });
+
+  it("carries no weight scores on the cards it shows", async () => {
+    const maps = await mapsFor(DISAGREEMENT_EXAMPLE_SOURCE);
+    for (const card of maps.match?.cards ?? []) {
+      expect(card).not.toHaveProperty("score");
+    }
+  });
+
+  it("refuses text too short to place", async () => {
+    const response = await POST(postRequest({ content: "Too short." }));
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toMatchObject({ code: "INVALID_REQUEST" });
+  });
+
+  it("returns a stable 400 for malformed JSON", async () => {
+    const response = await POST(postRequest("{not-json"));
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toEqual({
+      error: "The request could not be understood.",
       code: "INVALID_JSON",
     });
   });
 
-  it("records a successful live analysis without a fallback code", async () => {
-    process.env.ENABLE_LIVE_ANALYZE_API = "true";
-    const liveResult = extractArgumentsOffline(
-      "Supporters favor the proposal. Critics oppose the proposal.",
-      "freeform",
-    );
-    mockExtractArguments.mockResolvedValueOnce(liveResult);
-
-    const res = await POST(postRequest({ content: "A two-sided proposal." }));
-    const body = await res.json();
-
-    expect(res.status).toBe(200);
-    expect(body.execution.analysis).toEqual({
-      requested: "live",
-      actual: "live",
-    });
-  });
-
-  it("uses a safe provenance code when live analysis falls back offline", async () => {
-    process.env.ENABLE_LIVE_ANALYZE_API = "true";
-    mockExtractArguments.mockRejectedValueOnce(
-      new Error("secret provider credential failure"),
-    );
-
-    const res = await POST(postRequest({
-      content: "Supporters favor the proposal. Critics oppose the proposal.",
-    }));
-    const body = await res.json();
-
-    expect(res.status).toBe(200);
-    expect(body.execution.analysis).toEqual({
-      requested: "live",
-      actual: "offline",
-      fallbackCode: "ANALYSIS_PROVIDER_ERROR",
-    });
-    expect(JSON.stringify(body)).not.toContain("secret provider credential failure");
-  });
-
-  it("records live judging fallback separately from analysis mode", async () => {
-    process.env.ENABLE_LIVE_JUDGING_API = "true";
-    mockLiveJudgeDebate.mockRejectedValueOnce(
-      new Error("private judging provider response"),
-    );
-
-    const res = await POST(postRequest({
-      content:
-        "Supporters argue the policy lowers costs. Critics argue implementation creates risk.",
-      includeJudging: true,
-    }));
-    const body = await res.json();
-
-    expect(res.status).toBe(200);
-    expect(body.execution.analysis).toEqual({
-      requested: "offline",
-      actual: "offline",
-    });
-    expect(body.execution.judging).toEqual({
-      requested: "live",
-      actual: "offline",
-      fallbackCode: "JUDGING_PROVIDER_ERROR",
-    });
-    expect(body.judgingResult).not.toBeNull();
-    expect(JSON.stringify(body)).not.toContain("private judging provider response");
-  });
-
-  it("keeps public UI flags from authorizing live backend work", async () => {
-    process.env.NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API = "true";
-    process.env.NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API = "true";
-
-    const res = await POST(postRequest({
-      content:
-        "Supporters argue the policy lowers costs. Critics argue implementation creates risk.",
-      includeJudging: true,
-    }));
-    const body = await res.json();
-
-    expect(res.status).toBe(200);
-    expect(body.execution).toEqual({
-      analysis: { requested: "offline", actual: "offline" },
-      judging: { requested: "offline", actual: "offline" },
-    });
-    expect(mockAuth).not.toHaveBeenCalled();
-    expect(mockExtractArguments).not.toHaveBeenCalled();
-    expect(mockLiveJudgeDebate).not.toHaveBeenCalled();
-  });
-
-  it("persists derived analysis without passing the raw input", async () => {
-    vi.stubEnv("DATABASE_URL", "postgres://configured.test/argumend");
-    vi.mocked(saveAnalysis).mockResolvedValueOnce({ id: "analysis-id" } as never);
-    const content = "A confidential argument that must not be stored.";
-
-    const res = await POST(postRequest({ content, contentType: "freeform" }));
-
-    expect(res.status).toBe(200);
-    expect(saveAnalysis).toHaveBeenCalledTimes(1);
-    expect(saveAnalysis).toHaveBeenCalledWith(
-      { contentType: "freeform" },
-      expect.objectContaining({
-        topic: expect.any(String),
-        positions: expect.any(Array),
-      })
-    );
-    expect(saveAnalysis).not.toHaveBeenCalledWith(
-      expect.objectContaining({ inputContent: content }),
-      expect.anything()
-    );
-  });
-});
-
-describe("GET /api/analyze", () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    vi.stubEnv("DATABASE_URL", "postgres://configured.test/argumend");
-  });
-
-  afterEach(() => vi.unstubAllEnvs());
-
-  it("returns the offline collection fallback without probing the database", async () => {
-    vi.stubEnv("DATABASE_URL", "");
-
-    const response = await GET(
-      new NextRequest(`http://localhost/api/analyze`, {
-        headers: { "x-forwarded-for": `test-list-offline-${Math.random()}` },
-      })
-    );
-
-    expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toEqual({
-      analyses: [],
-      persistence: "unavailable",
-    });
-    expect(listAnalyses).not.toHaveBeenCalled();
-  });
-
-  it("redacts private fields from historical analysis rows", async () => {
-    vi.mocked(listAnalyses).mockResolvedValueOnce([
-      {
-        id: "analysis-id",
-        topic: "Public topic",
-        summary: "Public summary",
-        inputContent: "private source text",
-        contentHash: "private-hash",
-        userId: "private-owner",
-      },
-    ] as never);
-
-    const response = await GET(
-      new NextRequest(`http://localhost/api/analyze?limit=1`, {
-        headers: { "x-forwarded-for": `test-list-${Math.random()}` },
-      })
-    );
+  it("no longer scores, judges, saves or lists anything", async () => {
+    const response = await POST(postRequest({ content: DISAGREEMENT_EXAMPLE_SOURCE }));
     const body = await response.json();
 
-    expect(response.status).toBe(200);
-    expect(body.analyses).toEqual([
-      {
-        id: "analysis-id",
-        topic: "Public topic",
-        summary: "Public summary",
-      },
-    ]);
-    expect(JSON.stringify(body)).not.toContain("private source text");
-    expect(JSON.stringify(body)).not.toContain("private-owner");
+    expect(Object.keys(body)).toEqual(["maps"]);
+    expect(JSON.stringify(body)).not.toMatch(/judg|verdict|winner|aggregate/i);
+    // The public listing that exposed every saved extraction is gone.
+    expect("GET" in route).toBe(false);
   });
 });

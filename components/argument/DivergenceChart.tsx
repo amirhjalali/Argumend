@@ -259,21 +259,22 @@ export function DivergenceChart() {
             fontSize={9}
             className="fill-stone-500 dark:fill-stone-400"
           >
-            Mid ’26
+            Sep ’25
           </text>
         </svg>
       </div>
       <p className="mt-2 text-[11px] leading-relaxed text-muted dark:text-stone-400">
         Left: BLS U-3, December values + June 2026. Right: relative employment of
         22–25-year-olds in the most AI-exposed occupations, indexed to late 2022
-        (−16%, Stanford Digital Economy Lab / ADP) — dashed because it is a
-        cumulative estimate, not an observed monthly path.
+        (−16% relative to less-exposed peers through September 2025, Stanford
+        Digital Economy Lab / ADP) — dashed because it is a cumulative estimate,
+        not an observed monthly path.
       </p>
       <p className="sr-only">
         Data table: U-3 unemployment — December 2022: 3.5%, December 2023: 3.7%,
         December 2024: 4.1%, December 2025: 4.4%, June 2026: 4.2%. Early-career
-        AI-exposed employment index — late 2022: 100, mid 2026: 84 (a 16
-        percent relative decline).
+        AI-exposed employment index — late 2022: 100, September 2025: 84 (a 16
+        percent decline relative to less-exposed peers).
       </p>
     </figure>
   );

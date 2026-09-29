@@ -13,13 +13,13 @@ export const runtime = "edge";
 function getWinnerLabel(winner: "for" | "against" | "draw" | null): string {
   switch (winner) {
     case "for":
-      return "FOR WINS";
+      return "SCORES LEANED FOR";
     case "against":
-      return "AGAINST WINS";
+      return "SCORES LEANED AGAINST";
     case "draw":
-      return "DRAW";
+      return "SCORES EVEN";
     default:
-      return "NO VERDICT";
+      return "NO LEAN RECORDED";
   }
 }
 

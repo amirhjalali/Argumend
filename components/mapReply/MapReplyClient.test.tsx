@@ -121,18 +121,22 @@ describe("MapReplyClient", () => {
       expect(view.getByRole("link", { name: match.topic.title })).toBeTruthy();
     });
 
-    // Header: the map, its claim, and how sure the topic Choice was.
+    // Header: the map and its claim. How sure the topic Choice was sits
+    // under "How this was read".
     expect(
       view.getByRole("link", { name: match.topic.title }).getAttribute("href"),
     ).toBe("/topics/rent-control-effectiveness");
     expect(view.getByText(match.topic.metaClaim)).toBeTruthy();
+    expect(view.getByText("How this was read")).toBeTruthy();
     expect(view.getByText("95%")).toBeTruthy();
 
-    // What the thread is about, and who was not arguing.
+    // What the thread is about, and how many turns were not arguments:
+    // turns are counted and numbered, never attributed to a named person.
     expect(view.getByText("What this thread is about")).toBeTruthy();
     expect(view.getAllByText("Supply Effects").length).toBeGreaterThan(0);
     expect(view.getByText("Not an argument about the topic")).toBeTruthy();
-    expect(view.getAllByText("gary_1962").length).toBe(2);
+    expect(view.queryByText(/gary_1962/)).toBeNull();
+    expect(view.getByText(/1 of the 8 checked turns was not an argument about the topic/)).toBeTruthy();
     expect(view.getAllByText("Not an argument").length).toBe(1);
     expect(view.getByText("8 turns checked")).toBeTruthy();
     expect(view.getByText("every placement above the 70% floor")).toBeTruthy();
@@ -146,15 +150,17 @@ describe("MapReplyClient", () => {
     expect(view.getByText("A key term being used to mean two things")).toBeTruthy();
     expect(view.getByText("This thread touched")).toBeTruthy();
     expect(view.getByText("It never reached")).toBeTruthy();
-    expect(view.getByText("The Construction Response Test")).toBeTruthy();
-    expect(view.getByText("The Displacement vs Mobility Net Welfare Test")).toBeTruthy();
-    expect(view.getByText("For the map's claim")).toBeTruthy();
-    expect(view.getByText("Against the map's claim")).toBeTruthy();
-    expect(view.getByText("34 / 40")).toBeTruthy();
+    expect(view.getAllByText("The Construction Response Test").length).toBeGreaterThan(0);
+    expect(view.getAllByText("The Displacement vs Mobility Net Welfare Test").length).toBeGreaterThan(0);
+    expect(view.getByText("Supports the map's claim")).toBeTruthy();
+    expect(view.getByText("Cuts against the map's claim")).toBeTruthy();
+    // No score beside a side; the weights explain the choice in the fold.
+    expect(view.queryByText("34 / 40")).toBeNull();
+    expect(view.getByText(/: 34 of 40$/)).toBeTruthy();
 
     // The receipt that makes the consent line credible.
     expect(
-      view.getByText(/^4 requests, \d+ ms, model jev-1\.13\.0, 0 identifiers removed$/),
+      view.getByText(/^4 requests, \d+ ms, model jev-1\.13\.0, 0 identifiers removed\./),
     ).toBeTruthy();
 
     // The product rule.
@@ -234,7 +240,7 @@ describe("MapReplyResult", () => {
     const view = render(<MapReplyResult match={unsure} onReset={() => undefined} />);
 
     expect(view.getAllByText("55%").length).toBeGreaterThan(0);
-    expect(view.getByText(/Below 70%, treat the map itself as a guess/)).toBeTruthy();
+    expect(view.getByText(/This is not a confident match, so treat the map itself as a guess/)).toBeTruthy();
   });
 
   it("does not hedge a confident map", () => {
@@ -330,18 +336,20 @@ describe("MapReplyResult on the contract's harder branches", () => {
     expect(capped.getByText("Only the first 48 of 60 turns were checked.")).toBeTruthy();
   });
 
-  it("qualifies a silent speaker who also said things nobody checked", () => {
+  it("describes turns, never the people who took them", () => {
     const view = render(
       <MapReplyResult
-        match={{ ...match, notArguing: [], notArguingInProbedTurns: ["gary_1962"] }}
+        match={{ ...match, notArguing: ["gary_1962"], notArguingInProbedTurns: ["lurker_99"] }}
         onReset={() => undefined}
       />,
     );
+    const text = view.container.textContent ?? "";
 
-    expect(
-      view.getByText(/made no argument in the turns that were checked, but also said things/),
-    ).toBeTruthy();
-    expect(view.queryByText(/made no argument about the topic in any turn/)).toBeNull();
+    for (const speaker of [...match.thread.speakers, "gary_1962", "lurker_99"]) {
+      expect(text).not.toContain(speaker);
+    }
+    expect(view.getByText("Turn 1")).toBeTruthy();
+    expect(text).not.toMatch(/made no argument/);
   });
 
   it("ignores fields it does not know about", () => {
@@ -357,5 +365,42 @@ describe("MapReplyResult on the contract's harder branches", () => {
 
     expect(view.getByRole("link", { name: match.topic.title })).toBeTruthy();
     expect(view.getByText("Mixed disagreement")).toBeTruthy();
+  });
+});
+
+describe("MapReplyResult turn list", () => {
+  const realMatchMedia = window.matchMedia;
+
+  function mockWidth(desktop: boolean) {
+    window.matchMedia = ((query: string) => ({
+      matches: desktop,
+      media: query,
+      onchange: null,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      addListener: () => {},
+      removeListener: () => {},
+      dispatchEvent: () => false,
+    })) as typeof window.matchMedia;
+  }
+
+  afterEach(() => {
+    window.matchMedia = realMatchMedia;
+    cleanup();
+  });
+
+  it("collapses the turns on a phone behind a summary that gives the count", () => {
+    mockWidth(false);
+    const view = render(<MapReplyResult match={match} onReset={() => {}} />);
+    const details = view.getByText(/Show all/).closest("details");
+    expect(details?.open).toBe(false);
+    const unit = match.turns.length === 1 ? "turn" : "turns";
+    expect(view.getByText(`Show all ${match.turns.length} ${unit}`)).toBeTruthy();
+  });
+
+  it("opens the turns from 640px up", () => {
+    mockWidth(true);
+    const view = render(<MapReplyResult match={match} onReset={() => {}} />);
+    expect(view.getByText(/Hide all/).closest("details")?.open).toBe(true);
   });
 });

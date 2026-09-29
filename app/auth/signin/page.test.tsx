@@ -44,3 +44,30 @@ describe("SignInPage offline behavior", () => {
     expect(mocks.redirect).toHaveBeenCalledWith("/");
   });
 });
+
+describe("SignInPage copy (account-backed builds)", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    process.env.NEXT_PUBLIC_ENABLE_AUTH = "true";
+    mocks.auth.mockResolvedValue(null);
+  });
+
+  afterEach(() => {
+    delete process.env.NEXT_PUBLIC_ENABLE_AUTH;
+  });
+
+  it("says what an account is for, in the product's own terms", async () => {
+    const { renderToStaticMarkup } = await import("react-dom/server");
+    const html = renderToStaticMarkup(await SignInPage());
+
+    expect(html).toContain("Sign in to keep your saved maps across devices.");
+    expect(html).not.toMatch(/welcome back/i);
+    expect(html).not.toMatch(/debate/i);
+    expect(html).not.toMatch(/analyses/i);
+    // The only filled action is signing in; the guest path is a quiet link.
+    expect(html).not.toContain("from-rust-600");
+    // Terms go to the terms page, not to /about.
+    expect(html).toContain('href="/terms"');
+    expect(html).not.toContain('href="/about"');
+  });
+});

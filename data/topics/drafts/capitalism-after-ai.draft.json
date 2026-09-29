@@ -766,13 +766,13 @@
   {
    "id": "e-labor-share-fred",
    "type": "evidence",
-   "finding": "U.S. nonfarm business labor share, indexed to 2017=100, was 112.828 in Q1 2000, 99.721 in Q1 2017, 97.871 in Q1 2025, 94.843 in Q1 2026, and 93.547 in Q2 2026.",
-   "statement": "U.S. nonfarm business labor share, indexed to 2017=100, was 112.828 in Q1 2000, 99.721 in Q1 2017, 97.871 in Q1 2025, 94.843 in Q1 2026, and 93.547 in Q2 2026.",
+   "finding": "U.S. nonfarm business labor share, indexed to 2017=100, was 112.828 in Q1 2000, 99.721 in Q1 2017, 97.871 in Q1 2025, 94.843 in Q1 2026, and 93.446 in Q2 2026 (as revised in the 2026-09-03 FRED update).",
+   "statement": "U.S. nonfarm business labor share, indexed to 2017=100, was 112.828 in Q1 2000, 99.721 in Q1 2017, 97.871 in Q1 2025, 94.843 in Q1 2026, and 93.446 in Q2 2026 (as revised in the 2026-09-03 FRED update).",
    "source": {
     "title": "Nonfarm Business Sector: Labor Share",
     "kind": "government",
     "verification": "verified-live",
-    "verifiedAt": "2026-08-11",
+    "verifiedAt": "2026-09-22",
     "url": "https://fred.stlouisfed.org/series/PRS85006173",
     "institution": "Federal Reserve Bank of St. Louis / U.S. Bureau of Labor Statistics"
    },

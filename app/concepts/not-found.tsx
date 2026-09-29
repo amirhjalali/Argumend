@@ -5,9 +5,9 @@ export default function ConceptNotFound() {
     <RouteNotFound
       eyebrow="Concept unavailable"
       title="We could not find this concept"
-      description="This concept may have moved or may not be in the collection yet. Browse the full concept library to continue learning."
-      primaryHref="/concepts"
-      primaryLabel="Browse Concepts"
+      description="This concept may have moved or may not be in the collection yet. Browse the core ideas to continue learning."
+      primaryHref="/learn#ideas"
+      primaryLabel="Browse core ideas"
     />
   );
 }

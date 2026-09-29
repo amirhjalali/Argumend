@@ -1,9 +1,19 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { shouldServeNamedNotFound } from "@/lib/dynamicRoutePolicy";
+import { legacyHomeTopicPath, shouldServeNamedNotFound } from "@/lib/dynamicRoutePolicy";
 
 const INTERNAL_NOT_FOUND_PATH = "/__argumend-dynamic-not-found__";
 
 export function proxy(request: NextRequest) {
+  // Old home-canvas links, `/?topic=<id>[&view=…]`: one 308 to the map's
+  // page or diagram, without the stale `topic`/`view` parameters.
+  if (request.nextUrl.pathname === "/") {
+    const destination = legacyHomeTopicPath(request.nextUrl.searchParams);
+    if (destination) {
+      return NextResponse.redirect(new URL(destination, request.url), 308);
+    }
+    return NextResponse.next();
+  }
+
   if (!shouldServeNamedNotFound(request.nextUrl.pathname)) {
     return NextResponse.next();
   }
@@ -18,10 +28,10 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
+    // Only home requests that carry `?topic=` reach the proxy.
+    { source: "/", has: [{ type: "query", key: "topic" }] },
     "/topics/:id",
-    "/topics/category/:slug",
-    "/topics/tag/:slug",
-    "/topics/compare/:id1/vs/:id2",
+    "/topics/:id/map",
     "/blog/:slug",
     "/blog/category/:category",
     "/blog/tag/:tag",

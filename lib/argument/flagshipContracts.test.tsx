@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 import { DebateView } from "@/components/argument/DebateView";
 import type { ArgumentNode, Claim } from "@/types/argument";
 import { loadArgumentTopic } from "./draftTopics";
+import { findVerdictLanguage } from "./ledger";
 import { argumentTopicIds, argumentTopicIndex } from "./topicIds";
 import {
   ARGUMENT_TOPICS_FIRST_PUBLISHED,
@@ -117,6 +118,22 @@ describe("flagship debate-map contracts", () => {
     }
   });
 
+  it("keeps authored crux copy conditional, never a verdict on a side", () => {
+    // The ledger's verdict patterns, plus "<a case> is right/wrong", which
+    // they leave to topic-specific names ("the displacement case is right").
+    const sideIsRight = /\b(case|camp|side|view|story) (is|was|are|were) (right|wrong|correct|mistaken)\b/i;
+    for (const topicId of argumentTopicIds) {
+      const notes = loadArgumentTopic(topicId)!.meta.cruxNotes ?? {};
+      for (const [claimId, note] of Object.entries(notes)) {
+        for (const text of collectStrings(note)) {
+          expect(findVerdictLanguage(text), `${topicId}/${claimId}: ${text}`).toEqual([]);
+          expect(text, `${topicId}/${claimId}`).not.toMatch(sideIsRight);
+          expect(text, `${topicId}/${claimId}`).not.toMatch(/\btheatre\b/i);
+        }
+      }
+    }
+  });
+
   it("ships decodable JPEG heroes whose intrinsic and rendered dimensions agree", async () => {
     const publicRoot = path.resolve(process.cwd(), "public");
 
@@ -212,6 +229,16 @@ describe("flagship debate-map contracts", () => {
     ];
     for (const mention of highTravelMentions) {
       expect(mention).toMatch(/employ(?:ment|ed)/i);
+    }
+
+    // The 16% is a decline relative to less-exposed peers (Stanford/ADP,
+    // November 2025 version); in levels the group fell about 6%. Copy must
+    // never present it as a fall "relative to late 2022".
+    for (const mention of resultMentions) {
+      expect(mention).not.toMatch(/16%\s+relative to late 2022/i);
+    }
+    for (const mention of [aiIndex?.tagline, aiTopic.meta.tagline, aiTopic.meta.hook, aiTopic.meta.closer?.take]) {
+      expect(mention).toMatch(/16% relative to less-exposed peers/i);
     }
   });
 });

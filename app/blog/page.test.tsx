@@ -20,7 +20,7 @@ vi.mock("@/components/Breadcrumbs", () => ({ Breadcrumbs: () => null }));
 vi.mock("@/components/JsonLd", () => ({ JsonLd: () => null }));
 
 import BlogPage, { generateMetadata } from "./page";
-import { BLOG_MOBILE_CATEGORY_LIMIT, BLOG_PAGE_SIZE } from "./_config";
+import { BLOG_CATEGORY_CHIPS, BLOG_PAGE_SIZE } from "./_config";
 
 afterEach(cleanup);
 
@@ -41,33 +41,32 @@ describe("BlogPage pagination", () => {
     });
 
     expect(metadata.alternates?.canonical).toBe("https://argumend.org/blog?page=2");
-    expect(metadata.title).toBe("Blog — Page 2 of 8");
+    expect(metadata.title).toBe(
+      `Blog — Page 2 of ${Math.ceil(articleSummaries.length / BLOG_PAGE_SIZE)}`,
+    );
     expect(metadata.pagination).toEqual({
       previous: "https://argumend.org/blog",
       next: "https://argumend.org/blog?page=3",
     });
   });
 
-  it("keeps top mobile categories concise and every category crawlable", async () => {
+  it("shows at most six category chips and no tag chips before the list", async () => {
     const view = render(await BlogPage({ searchParams: Promise.resolve({}) }));
     const facets = getArticleSummaryCategoryFacets();
-    const topList = view.getByRole("list", { name: "Top blog categories" });
-    const moreList = view.getByRole("list", { name: "More blog categories" });
+    const chips = within(view.getByRole("navigation", { name: "Top blog categories" })).getAllByRole("link");
 
-    expect(within(topList).getAllByRole("link")).toHaveLength(
-      BLOG_MOBILE_CATEGORY_LIMIT,
-    );
-    expect(
-      within(topList).getAllByRole("link")[0].getAttribute("href"),
-    ).toBe(`/blog/category/${facets[0].slug}`);
-    expect(within(topList).getByRole("link", { name: "Analysis, 8 articles" })).toBeTruthy();
-    expect(within(moreList).getAllByRole("link")).toHaveLength(
-      facets.length - BLOG_MOBILE_CATEGORY_LIMIT,
-    );
-    expect(
-      within(topList).getAllByRole("link").length +
-        within(moreList).getAllByRole("link").length,
-    ).toBe(facets.length);
-    expect(view.getByText(`${facets.length - BLOG_MOBILE_CATEGORY_LIMIT} more`)).toBeTruthy();
+    expect(chips).toHaveLength(Math.min(BLOG_CATEGORY_CHIPS, facets.length));
+    expect(BLOG_CATEGORY_CHIPS).toBeLessThanOrEqual(6);
+    expect(chips[0].getAttribute("href")).toBe(`/blog/category/${facets[0].slug}`);
+    for (const chip of chips) expect(chip.className).toContain("min-h-11");
+    expect(view.container.querySelector('a[href^="/blog/tag/"]')).toBeNull();
+  });
+
+  it("lists posts as compact 44px rows without per-post dates", async () => {
+    const view = render(await BlogPage({ searchParams: Promise.resolve({}) }));
+    const rows = view.container.querySelectorAll('a[href^="/blog/"]:not([href^="/blog/category/"]):not([href^="/blog?"])');
+    expect(rows.length).toBe(BLOG_PAGE_SIZE);
+    for (const row of rows) expect(row.className).toContain("min-h-11");
+    expect(view.container.textContent).not.toMatch(/June 29, 2026|March 26, 2026/);
   });
 });

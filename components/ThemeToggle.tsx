@@ -1,71 +1,84 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { Sun, Moon, Monitor } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Monitor, Moon, Sun, type LucideIcon } from "lucide-react";
+import { useIsHydrated } from "@/hooks/useMediaQuery";
 
-export function ThemeToggle() {
+export type ThemeChoice = "light" | "dark" | "system";
+
+const ORDER: readonly ThemeChoice[] = ["light", "dark", "system"];
+
+const LABEL: Record<ThemeChoice, string> = {
+  light: "Light",
+  dark: "Dark",
+  system: "System",
+};
+
+const ICON: Record<ThemeChoice, LucideIcon> = {
+  light: Sun,
+  dark: Moon,
+  system: Monitor,
+};
+
+/** light → dark → system → light. Anything unrecognised counts as system. */
+export function nextThemeChoice(current: string | undefined): ThemeChoice {
+  const index = ORDER.indexOf(toThemeChoice(current));
+  return ORDER[(index + 1) % ORDER.length];
+}
+
+function toThemeChoice(theme: string | undefined): ThemeChoice {
+  return theme === "light" || theme === "dark" ? theme : "system";
+}
+
+interface ThemeToggleProps {
+  /**
+   * "icon": one 44px icon button, for the header.
+   * "labeled": the same button with the current mode written beside the
+   * icon, for the phone menu sheet where there is room to say it.
+   */
+  variant?: "icon" | "labeled";
+}
+
+/**
+ * One button that cycles the colour theme light → dark → system. The icon
+ * shows the current mode and the accessible name says it ("Theme: Dark.
+ * Switch to system."), so the control never needs three buttons' width.
+ */
+export function ThemeToggle({ variant = "icon" }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const hydrated = useIsHydrated();
 
-  // Prevent hydration mismatch
-  useEffect(() => {
-    const handle = setTimeout(() => setMounted(true), 0);
-    return () => clearTimeout(handle);
-  }, []);
-
-  if (!mounted) {
-    // Render a placeholder with the same dimensions to avoid layout shift
+  // The theme lives in localStorage, so the server cannot know it. Hold the
+  // space until the client does, instead of rendering the wrong icon.
+  if (!hydrated) {
     return (
-      <div className="flex items-center gap-0.5 p-1 rounded-lg bg-stone-100 dark:bg-[var(--bg-card)]">
-        <div className="h-11 w-11 rounded-md" />
-        <div className="h-11 w-11 rounded-md" />
-        <div className="h-11 w-11 rounded-md" />
-      </div>
+      <span
+        aria-hidden="true"
+        className={variant === "labeled" ? "inline-block h-11 w-28" : "inline-block h-11 w-11"}
+      />
     );
   }
 
-  const options = [
-    { id: "light", icon: Sun, label: "Light mode" },
-    { id: "dark", icon: Moon, label: "Dark mode" },
-    { id: "system", icon: Monitor, label: "System preference" },
-  ] as const;
+  const current = toThemeChoice(theme);
+  const next = nextThemeChoice(current);
+  const Icon = ICON[current];
+  const label = `Theme: ${LABEL[current]}. Switch to ${LABEL[next].toLowerCase()}.`;
 
   return (
-    <div
-      className="flex items-center gap-0.5 p-1 rounded-lg bg-stone-100 dark:bg-[var(--bg-card)]"
-      role="radiogroup"
-      aria-label="Color theme"
+    <button
+      type="button"
+      onClick={() => setTheme(next)}
+      aria-label={label}
+      title={label}
+      data-theme-choice={current}
+      className={
+        variant === "labeled"
+          ? "inline-flex min-h-11 items-center gap-2 rounded-lg px-3 font-sans text-sm text-secondary dark:text-stone-400 transition-colors hover:bg-subtle hover:text-primary dark:hover:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+          : "inline-flex h-11 w-11 items-center justify-center rounded-lg text-stone-500 transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-stone-400 dark:hover:text-stone-200"
+      }
     >
-      {options.map(({ id, icon: Icon, label }) => {
-        const isActive = theme === id;
-        return (
-          <button
-            key={id}
-            onClick={() => setTheme(id)}
-            role="radio"
-            aria-checked={isActive}
-            aria-label={label}
-            title={label}
-            className={`
-              relative flex h-11 w-11 items-center justify-center rounded-md
-              transition-all duration-200
-              ${
-                isActive
-                  ? "bg-white dark:bg-[#3d3a36] text-primary dark:text-stone-200 shadow-sm"
-                  : "text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300"
-              }
-            `}
-          >
-            <Icon
-              className={`h-4 w-4 transition-transform duration-200 ${
-                isActive ? "scale-110" : "scale-100"
-              }`}
-              strokeWidth={1.8}
-            />
-          </button>
-        );
-      })}
-    </div>
+      <Icon className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
+      {variant === "labeled" ? <span aria-hidden="true">{LABEL[current]}</span> : null}
+    </button>
   );
 }

@@ -1,97 +1,98 @@
 import Link from "next/link";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { footerColumns, legalLinks } from "@/lib/nav";
+import { PAGE_GUTTER } from "@/components/ui/PageContainer";
+import { cx } from "@/components/ui/cx";
+import { footerColumns, legalLinks, type NavLink } from "@/lib/nav";
 
-export function Footer() {
-  const visibleFooterColumns = footerColumns.filter((column) => column.links.length > 0);
+const FOOTER_LINK =
+  "inline-flex min-h-11 items-center rounded-md text-sm text-secondary dark:text-stone-400 transition-colors duration-200 hover:text-deep dark:hover:text-accent-text";
 
+function FooterLink({ link }: { link: NavLink }) {
+  if (link.external) {
+    return (
+      <a href={link.href} target="_blank" rel="noopener noreferrer" className={FOOTER_LINK}>
+        {link.label}
+        <span className="sr-only"> (opens in a new tab)</span>
+      </a>
+    );
+  }
   return (
-    <footer className="bg-[#f4f1eb] dark:bg-[var(--bg-canvas)] border-t border-stone-200 dark:border-[var(--border-divider)]" role="contentinfo">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        {/* Top section: logo + tagline, with newsletter capture */}
-        <div className="mb-10 grid gap-8 md:grid-cols-2 md:items-start">
+    <Link href={link.href} prefetch={false} className={FOOTER_LINK}>
+      {link.label}
+    </Link>
+  );
+}
+
+/**
+ * The site footer: the one newsletter signup on every page, the primary
+ * destinations again ("Argumend"), the Learn sections ("Learn"), the
+ * secondary ones ("More"), and the legal
+ * line. Columns come from lib/nav.ts.
+ *
+ * Its content column is the default page width (PageContainer's max-w-5xl
+ * and gutter), so its left edge is the h1's on every hub page. Phones get
+ * the three columns side by side, as from `sm` up, instead of two columns
+ * and a third row: the footer is only as tall as its longest column, and
+ * every link keeps its 44px target. A long label wraps inside its column.
+ */
+export function Footer() {
+  return (
+    <footer className="bg-canvas border-t border-stone-300/70 dark:border-divider" role="contentinfo">
+      <div className={cx("mx-auto max-w-5xl py-10 sm:py-12 md:py-16", PAGE_GUTTER)}>
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] md:gap-12">
           <div>
             <Link href="/" prefetch={false} className="inline-flex min-h-11 items-center rounded-md">
-              <span className="font-serif text-xl font-semibold text-stone-700 dark:text-stone-200">
+              <span className="font-serif text-2xl text-primary dark:text-stone-200">
                 Argumend
               </span>
             </Link>
-            <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400">
-              Disagree better.
+            <p className="mt-1 max-w-sm font-serif text-lg leading-snug text-secondary dark:text-stone-400">
+              Disagree better. Maps of hard questions, built around what
+              would change a mind, never around who won.
             </p>
+
+            <nav aria-label="Footer navigation" className="mt-6 grid max-w-xl grid-cols-3 gap-x-4 gap-y-6 sm:mt-8 sm:gap-x-8 md:grid-cols-2 lg:grid-cols-3">
+              {footerColumns.map((column) => {
+                const headingId = `footer-${column.title.toLowerCase()}`;
+                return (
+                  <div key={column.title}>
+                    <p id={headingId} className="label-caps">
+                      {column.title}
+                    </p>
+                    <ul aria-labelledby={headingId} className="mt-1">
+                      {column.links.map((link) => (
+                        <li key={link.href}>
+                          <FooterLink link={link} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </nav>
           </div>
-          <div className="md:max-w-sm md:justify-self-end">
-            <h3 className="font-serif text-base text-stone-700 dark:text-stone-200 mb-3">
-              Get new arguments in your inbox
-            </h3>
+          {/* The signup card brings its own heading. The only signup on a page. */}
+          <div className="md:justify-self-end md:w-full">
             <NewsletterSignup variant="compact" source="footer" />
           </div>
         </div>
 
-        {/* Link columns */}
-        <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          {visibleFooterColumns.map((column) => (
-            <div key={column.title}>
-              <h3 className="text-xs font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400">
-                {column.title}
-              </h3>
-              <ul className="mt-3">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      prefetch={false}
-                      className="inline-flex min-h-11 items-center rounded-md text-sm text-stone-500 transition-colors duration-200 hover:text-deep dark:text-stone-400"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </nav>
-
-        {/* Bottom bar */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-stone-200 dark:border-[var(--border-divider)] pt-6">
-          <div className="flex flex-wrap items-center gap-x-5">
-            <p className="text-xs text-stone-500 dark:text-stone-400">
-              &copy; 2026 Argumend. Built with stubbornness and peer review.
-            </p>
-            {/* Legal links belong on every page, not in a discovery column. */}
-            <nav aria-label="Legal" className="flex items-center gap-x-5">
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  prefetch={false}
-                  className="inline-flex min-h-11 items-center rounded-md text-xs text-stone-500 transition-colors duration-200 hover:text-deep dark:text-stone-400"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-          <a
-            href="https://github.com/amirhjalali/Argumend"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
-            aria-label="Argumend on GitHub"
-          >
-            <svg
-              className="h-5 w-5"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </a>
+        {/* Bottom line */}
+        <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-1 border-t border-stone-300/70 pt-3 dark:border-divider sm:mt-10 sm:pt-4">
+          <p className="text-xs text-muted">&copy; 2026 Argumend</p>
+          {/* Legal links belong on every page, not in a discovery column. */}
+          <nav aria-label="Legal" className="flex items-center gap-x-5">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                prefetch={false}
+                className="inline-flex min-h-11 items-center rounded-md text-xs text-muted transition-colors duration-200 hover:text-deep dark:hover:text-accent-text"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

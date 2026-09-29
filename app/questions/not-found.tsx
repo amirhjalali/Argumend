@@ -7,7 +7,7 @@ export default function QuestionNotFound() {
       title="We could not find this question"
       description="The question link may be incomplete or no longer available. Browse all questions to explore another evidence-based answer."
       primaryHref="/questions"
-      primaryLabel="Browse Questions"
+      primaryLabel="Browse questions"
     />
   );
 }

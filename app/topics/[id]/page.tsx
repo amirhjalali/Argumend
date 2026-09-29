@@ -4,13 +4,15 @@ import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { JsonLd } from "@/components/JsonLd";
-import LegacyTopicPageLoader from "./LegacyTopicPageLoader";
+import { AppShell } from "@/components/AppShell";
+import { ReadModeView } from "@/components/ReadModeView";
 import { buildGenericOgUrl, buildTopicOgUrl } from "@/lib/og";
 import {
   argumentTopicIds,
   loadArgumentTopic,
 } from "@/lib/argument/draftTopics";
 import { DebateView } from "@/components/argument/DebateView";
+import { isPublicEntry } from "@/lib/argument/ledger";
 import {
   ARGUMENT_TOPICS_FIRST_PUBLISHED,
   ARGUMENT_TOPICS_LAST_UPDATED,
@@ -52,7 +54,8 @@ export async function generateMetadata({
       title: argumentTopic.meta.title,
       subtitle: argumentTopic.meta.tagline,
     });
-    const pageTitle = `${argumentTopic.meta.title} — Debate Map`;
+    // The question alone; the layout's title template adds "| ARGUMEND".
+    const pageTitle = argumentTopic.meta.title;
     const url = `https://argumend.org/topics/${argumentTopic.meta.id}`;
     return {
       title: pageTitle,
@@ -81,7 +84,9 @@ export async function generateMetadata({
     return { title: "Topic Not Found" };
   }
 
-  const description = `${topic.meta_claim} — ${topic.verdict.label}. Explore ${topic.pillarCount} argument pillars with steel-manned positions, weighted evidence, and crux questions.`;
+  // Crux-first, never the verdict: what the argument turns on and what both
+  // sides already agree on is what the page leads with.
+  const description = `${topic.meta_claim} The ${topic.pillarCount === 1 ? "question" : `${topic.pillarCount} questions`} the argument turns on, what both sides already agree on, and what would change each side's mind.`;
   const categoryLabel = CATEGORY_LABELS[topic.category];
   const media = getGeneratedMedia("topic", topic.id);
   const socialImage = media?.hero
@@ -89,7 +94,9 @@ export async function generateMetadata({
     : buildTopicOgUrl(topic.id);
 
   return {
-    title: `${topic.title} — Argument Analysis`,
+    // The map's title alone, as on the flagship maps: the /topics layout's
+    // template adds "| ARGUMEND", like every other page title on the site.
+    title: topic.title,
     description,
     keywords: [
       topic.title,
@@ -105,7 +112,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      title: `${topic.title} — Argument Analysis | ARGUMEND`,
+      title: `${topic.title} | ARGUMEND`,
       description,
       url: `https://argumend.org/topics/${topic.id}`,
       siteName: "ARGUMEND",
@@ -120,7 +127,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${topic.title} — Argument Analysis`,
+      title: topic.title,
       description,
       images: [socialImage],
     },
@@ -167,11 +174,18 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
             citation: citations,
           }}
         />
-        <DebateView
-          meta={argumentTopic.meta}
-          graph={argumentTopic.graph}
-          cruxes={argumentTopic.cruxes}
-        />
+        {/* One shell and one template for every map (components/topic/TopicPage).
+            DebateView stays a server component passed through as children. */}
+        <AppShell layout="reading">
+          <DebateView
+            meta={argumentTopic.meta}
+            graph={argumentTopic.graph}
+            cruxes={argumentTopic.cruxes}
+            // Drop review-queue entries, but keep superseded public ones: the
+            // strip hides them itself and needs them to say what an entry corrects.
+            ledger={argumentTopic.ledger.filter(isPublicEntry)}
+          />
+        </AppShell>
       </>
     );
   }
@@ -182,10 +196,12 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
     notFound();
   }
 
+  // Old "Map" links asked for the canvas. The diagram now lives inside the
+  // site at /topics/[id]/map, logic map only.
   const view = (await searchParams)?.view;
   const requestedView = Array.isArray(view) ? view[0] : view;
   if (requestedView === "graph" || requestedView === "logic-map") {
-    redirect(`/?topic=${encodeURIComponent(topic.id)}&view=logic-map`);
+    redirect(`/topics/${encodeURIComponent(topic.id)}/map`);
   }
 
   const categoryLabel = CATEGORY_LABELS[topic.category];
@@ -223,7 +239,8 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
       {/* No ClaimReview: Argumend's confidence-spectrum verdicts aren't binary
           fact-checks and the brand isn't a registered fact-checker (Google
           restricts ClaimReview rich results). Article + FAQPage cover the page;
-          /is pages use QAPage. Consistent with the cycle-4 schema decision. */}
+          the FAQPage questions are visible in the "Common questions" fold
+          (ReadModeView), as Google requires. */}
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -254,7 +271,11 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           } as unknown as Record<string, unknown>}
         />
       ) : null}
-      <LegacyTopicPageLoader topic={topic} />
+      {/* Server-rendered like the flagship maps: the same template, the same
+          shell, and only the reflection and action buttons hydrate. */}
+      <AppShell layout="reading">
+        <ReadModeView topic={topic} />
+      </AppShell>
     </>
   );
 }

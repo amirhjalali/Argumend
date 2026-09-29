@@ -8,8 +8,9 @@ const STEPS = [
 
 export function AnalysisProgress({ step }: { step: number }) {
   return (
-    <p className="text-sm text-[#3a6965]" aria-live="polite">
-      {STEPS[step % STEPS.length]}
+    <p className="flex items-center gap-3 font-serif text-lg italic text-[var(--text-secondary)]" aria-live="polite">
+      <span aria-hidden="true" className="h-1.5 w-1.5 animate-pulse rounded-full bg-deep motion-reduce:animate-none dark:bg-deep-light" />
+      {STEPS[step % STEPS.length]}…
     </p>
   );
 }

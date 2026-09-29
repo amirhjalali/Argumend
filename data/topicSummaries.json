@@ -7,7 +7,7 @@
     "balance": 47,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -26,7 +26,7 @@
     "balance": 68,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -45,7 +45,7 @@
     "balance": 41,
     "weight": 78,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -64,7 +64,7 @@
     "balance": 69,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -83,7 +83,7 @@
     "balance": 57,
     "weight": 81,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -102,7 +102,7 @@
     "balance": 39,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -121,7 +121,7 @@
     "balance": 42,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -140,7 +140,7 @@
     "balance": 39,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -159,7 +159,7 @@
     "balance": 38,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -178,7 +178,7 @@
     "balance": 36,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -197,7 +197,7 @@
     "balance": 85,
     "weight": 81,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
+      "label": "Evidence largely converges on the claim",
       "quadrant": "settled"
     },
     "status": "contested",
@@ -216,7 +216,7 @@
     "balance": 46,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -235,7 +235,7 @@
     "balance": 54,
     "weight": 77,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
@@ -254,7 +254,7 @@
     "balance": 73,
     "weight": 77,
     "verdict": {
-      "label": "Clearly favors the claim",
+      "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -274,7 +274,7 @@
     "balance": 54,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -293,7 +293,7 @@
     "balance": 71,
     "weight": 76,
     "verdict": {
-      "label": "Clearly favors the claim",
+      "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -313,7 +313,7 @@
     "balance": 54,
     "weight": 68,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -332,7 +332,7 @@
     "balance": 61,
     "weight": 63,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -351,7 +351,7 @@
     "balance": 75,
     "weight": 65,
     "verdict": {
-      "label": "Clearly favors the claim",
+      "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -371,7 +371,7 @@
     "balance": 17,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -390,7 +390,7 @@
     "balance": 79,
     "weight": 58,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -409,7 +409,7 @@
     "balance": 86,
     "weight": 53,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -428,7 +428,7 @@
     "balance": 78,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -447,7 +447,7 @@
     "balance": 21,
     "weight": 65,
     "verdict": {
-      "label": "Clearly favors the counterclaim",
+      "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -467,7 +467,7 @@
     "balance": 62,
     "weight": 57,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -486,7 +486,7 @@
     "balance": 70,
     "weight": 73,
     "verdict": {
-      "label": "Clearly favors the claim",
+      "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -506,7 +506,7 @@
     "balance": 48,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -525,7 +525,7 @@
     "balance": 62,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -544,7 +544,7 @@
     "balance": 68,
     "weight": 58,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -563,7 +563,7 @@
     "balance": 19,
     "weight": 50,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -582,7 +582,7 @@
     "balance": 23,
     "weight": 76,
     "verdict": {
-      "label": "Clearly favors the counterclaim",
+      "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -602,7 +602,7 @@
     "balance": 61,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -621,7 +621,7 @@
     "balance": 53,
     "weight": 80,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -640,7 +640,7 @@
     "balance": 40,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -659,7 +659,7 @@
     "balance": 69,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -678,7 +678,7 @@
     "balance": 30,
     "weight": 70,
     "verdict": {
-      "label": "Clearly favors the counterclaim",
+      "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -698,7 +698,7 @@
     "balance": 66,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -717,7 +717,7 @@
     "balance": 65,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -736,7 +736,7 @@
     "balance": 50,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -755,7 +755,7 @@
     "balance": 47,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
@@ -774,7 +774,7 @@
     "balance": 67,
     "weight": 74,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -793,7 +793,7 @@
     "balance": 69,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -812,7 +812,7 @@
     "balance": 59,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -831,7 +831,7 @@
     "balance": 47,
     "weight": 60,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -850,7 +850,7 @@
     "balance": 59,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -869,7 +869,7 @@
     "balance": 74,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -888,7 +888,7 @@
     "balance": 65,
     "weight": 60,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -907,7 +907,7 @@
     "balance": 64,
     "weight": 53,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -926,7 +926,7 @@
     "balance": 79,
     "weight": 62,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -945,7 +945,7 @@
     "balance": 55,
     "weight": 53,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -964,7 +964,7 @@
     "balance": 54,
     "weight": 49,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -983,7 +983,7 @@
     "balance": 51,
     "weight": 77,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1002,7 +1002,7 @@
     "balance": 39,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1021,7 +1021,7 @@
     "balance": 51,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1040,7 +1040,7 @@
     "balance": 46,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1059,7 +1059,7 @@
     "balance": 63,
     "weight": 74,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1078,7 +1078,7 @@
     "balance": 60,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
@@ -1097,7 +1097,7 @@
     "balance": 46,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1116,7 +1116,7 @@
     "balance": 63,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1135,7 +1135,7 @@
     "balance": 44,
     "weight": 74,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1154,7 +1154,7 @@
     "balance": 51,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1173,7 +1173,7 @@
     "balance": 85,
     "weight": 83,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
+      "label": "Evidence largely converges on the claim",
       "quadrant": "settled"
     },
     "status": "settled",
@@ -1192,7 +1192,7 @@
     "balance": 62,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1211,7 +1211,7 @@
     "balance": 66,
     "weight": 60,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1230,7 +1230,7 @@
     "balance": 61,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1249,7 +1249,7 @@
     "balance": 49,
     "weight": 60,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -1268,7 +1268,7 @@
     "balance": 61,
     "weight": 55,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1287,7 +1287,7 @@
     "balance": 63,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1306,7 +1306,7 @@
     "balance": 74,
     "weight": 52,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1325,7 +1325,7 @@
     "balance": 64,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1344,7 +1344,7 @@
     "balance": 62,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1363,7 +1363,7 @@
     "balance": 65,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1382,7 +1382,7 @@
     "balance": 37,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1401,7 +1401,7 @@
     "balance": 66,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1420,7 +1420,7 @@
     "balance": 48,
     "weight": 77,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1439,7 +1439,7 @@
     "balance": 33,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1458,7 +1458,7 @@
     "balance": 44,
     "weight": 79,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1477,7 +1477,7 @@
     "balance": 40,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1496,7 +1496,7 @@
     "balance": 18,
     "weight": 72,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
+      "label": "Evidence largely converges on the counterclaim",
       "quadrant": "settled"
     },
     "status": "contested",
@@ -1515,7 +1515,7 @@
     "balance": 57,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1534,7 +1534,7 @@
     "balance": 74,
     "weight": 57,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1553,7 +1553,7 @@
     "balance": 61,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1572,7 +1572,7 @@
     "balance": 53,
     "weight": 50,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1591,7 +1591,7 @@
     "balance": 66,
     "weight": 59,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1610,7 +1610,7 @@
     "balance": 40,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1629,7 +1629,7 @@
     "balance": 54,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1648,7 +1648,7 @@
     "balance": 47,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1667,7 +1667,7 @@
     "balance": 67,
     "weight": 54,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1686,7 +1686,7 @@
     "balance": 66,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1705,7 +1705,7 @@
     "balance": 57,
     "weight": 62,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1724,7 +1724,7 @@
     "balance": 70,
     "weight": 71,
     "verdict": {
-      "label": "Clearly favors the claim",
+      "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -1744,7 +1744,7 @@
     "balance": 40,
     "weight": 81,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1763,7 +1763,7 @@
     "balance": 68,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1782,7 +1782,7 @@
     "balance": 59,
     "weight": 83,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1801,7 +1801,7 @@
     "balance": 27,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1820,7 +1820,7 @@
     "balance": 52,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1839,7 +1839,7 @@
     "balance": 58,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1858,7 +1858,7 @@
     "balance": 58,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1877,7 +1877,7 @@
     "balance": 48,
     "weight": 64,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1896,7 +1896,7 @@
     "balance": 51,
     "weight": 64,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1915,7 +1915,7 @@
     "balance": 76,
     "weight": 82,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
+      "label": "Evidence largely converges on the claim",
       "quadrant": "settled",
       "fragile": true,
       "pinnedByStatus": true
@@ -1936,7 +1936,7 @@
     "balance": 86,
     "weight": 49,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1955,7 +1955,7 @@
     "balance": 31,
     "weight": 63,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -1974,7 +1974,7 @@
     "balance": 66,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -1993,7 +1993,7 @@
     "balance": 70,
     "weight": 76,
     "verdict": {
-      "label": "Clearly favors the claim",
+      "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -2013,7 +2013,7 @@
     "balance": 69,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2032,7 +2032,7 @@
     "balance": 69,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2051,7 +2051,7 @@
     "balance": 63,
     "weight": 68,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2070,7 +2070,7 @@
     "balance": 58,
     "weight": 62,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2089,7 +2089,7 @@
     "balance": 72,
     "weight": 58,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2108,7 +2108,7 @@
     "balance": 49,
     "weight": 61,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2127,7 +2127,7 @@
     "balance": 30,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2146,7 +2146,7 @@
     "balance": 43,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2165,7 +2165,7 @@
     "balance": 59,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2184,7 +2184,7 @@
     "balance": 72,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2203,7 +2203,7 @@
     "balance": 59,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2222,7 +2222,7 @@
     "balance": 52,
     "weight": 62,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2241,7 +2241,7 @@
     "balance": 60,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2260,7 +2260,7 @@
     "balance": 36,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2279,7 +2279,7 @@
     "balance": 81,
     "weight": 71,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
+      "label": "Evidence largely converges on the claim",
       "quadrant": "settled"
     },
     "status": "contested",
@@ -2298,7 +2298,7 @@
     "balance": 49,
     "weight": 61,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2317,7 +2317,7 @@
     "balance": 45,
     "weight": 64,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2336,7 +2336,7 @@
     "balance": 78,
     "weight": 77,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
+      "label": "Evidence largely converges on the claim",
       "quadrant": "settled"
     },
     "status": "contested",
@@ -2355,7 +2355,7 @@
     "balance": 38,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2374,7 +2374,7 @@
     "balance": 29,
     "weight": 78,
     "verdict": {
-      "label": "Clearly favors the counterclaim",
+      "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -2394,7 +2394,7 @@
     "balance": 39,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2413,7 +2413,7 @@
     "balance": 25,
     "weight": 78,
     "verdict": {
-      "label": "Clearly favors the counterclaim",
+      "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
       "fragile": true
     },
@@ -2433,7 +2433,7 @@
     "balance": 51,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2452,7 +2452,7 @@
     "balance": 63,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2475,7 +2475,7 @@
     "balance": 53,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2499,7 +2499,7 @@
     "balance": 77,
     "weight": 55,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2523,7 +2523,7 @@
     "balance": 59,
     "weight": 63,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2547,7 +2547,7 @@
     "balance": 52,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2570,7 +2570,7 @@
     "balance": 43,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2594,7 +2594,7 @@
     "balance": 57,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2618,7 +2618,7 @@
     "balance": 65,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2642,7 +2642,7 @@
     "balance": 51,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2666,7 +2666,7 @@
     "balance": 47,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2690,7 +2690,7 @@
     "balance": 47,
     "weight": 59,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -2714,7 +2714,7 @@
     "balance": 59,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2738,7 +2738,7 @@
     "balance": 58,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2762,7 +2762,7 @@
     "balance": 43,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2786,7 +2786,7 @@
     "balance": 70,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2810,7 +2810,7 @@
     "balance": 64,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2834,7 +2834,7 @@
     "balance": 35,
     "weight": 63,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2858,7 +2858,7 @@
     "balance": 42,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2882,7 +2882,7 @@
     "balance": 59,
     "weight": 59,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2906,7 +2906,7 @@
     "balance": 55,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2930,7 +2930,7 @@
     "balance": 59,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2954,7 +2954,7 @@
     "balance": 52,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2978,7 +2978,7 @@
     "balance": 69,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3002,7 +3002,7 @@
     "balance": 33,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3026,7 +3026,7 @@
     "balance": 57,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3049,7 +3049,7 @@
     "balance": 59,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3073,7 +3073,7 @@
     "balance": 47,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3097,7 +3097,7 @@
     "balance": 46,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",

@@ -1,15 +1,17 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import {
-  ArrowRight,
-} from "lucide-react";
 import { concepts, getConceptBySlug, getAllConceptSlugs } from "@/data/concepts";
-import { topicSummaries } from "@/data/topicIndex";
-import { AppShell } from "@/components/AppShell";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import { getConceptIcon, getConceptStage } from "@/lib/conceptMeta";
+import {
+  ArticleLayout,
+  KeyTakeaways,
+  RelatedReading,
+  type RelatedItem,
+} from "@/components/learn/ArticleLayout";
+import { mapLinkFor, pickNextMap } from "@/lib/learn/nextStep";
+import { readTime } from "@/lib/learn/readTime";
+import { leadSentences } from "@/lib/learn/summary";
+import { firstSentence } from "@/lib/topicPage/legacy";
 import { buildGenericOgUrl } from "@/lib/og";
 import { ORGANIZATION_ID, SITE_NAME, SITE_URL } from "@/lib/site";
 
@@ -38,6 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const firstParagraph = concept.description.split("\n\n")[0];
+  const ogImage = buildGenericOgUrl({ title: concept.title, subtitle: "Key Concept" });
 
   return {
     title: `${concept.title} — Key Concept`,
@@ -51,49 +54,42 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://argumend.org/concepts/${concept.id}`,
       type: "article",
       siteName: SITE_NAME,
-      images: [
-        {
-          url: buildGenericOgUrl({ title: concept.title, subtitle: "Key Concept" }),
-          width: 1200,
-          height: 630,
-          alt: concept.title,
-        },
-      ],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: concept.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${concept.title} — Key Concept`,
       description: firstParagraph.slice(0, 160),
-      images: [buildGenericOgUrl({ title: concept.title, subtitle: "Key Concept" })],
+      images: [ogImage],
     },
   };
 }
 
 // ---------------------------------------------------------------------------
-// Page component (server)
+// Page: the Learn article template. Body: the idea, its key points, then the
+// maps where it shows up.
 // ---------------------------------------------------------------------------
 export default async function ConceptDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const concept = getConceptBySlug(slug);
   if (!concept) notFound();
 
-  // Only listing fields are needed here; avoid loading every topic's evidence graph.
-  const topicExamples = concept.topicExamples
-    .map((id) => topicSummaries.find((topic) => topic.id === id))
-    .filter((topic): topic is NonNullable<typeof topic> => Boolean(topic));
-
-  // Resolve related concepts
-  const relatedConcepts = concept.relatedConcepts
-    .map((id) => concepts.find((c) => c.id === id))
-    .filter(Boolean);
-
-  // Split description into paragraphs
+  // The first sentence is the lede, so the body starts after it.
   const paragraphs = concept.description.split("\n\n");
+  const lede = firstSentence(paragraphs[0]);
+  const body = [paragraphs[0].slice(lede.length).trim(), ...paragraphs.slice(1)].filter(Boolean);
 
-  // Taxonomy: which stage of the method this concept belongs to, plus its own icon
-  const stage = getConceptStage(concept.id);
-  // Wrapped in an object so the lint rule sees a stable component reference,
-  const specimen = { Icon: getConceptIcon(concept.id) };
+  const maps: RelatedItem[] = concept.topicExamples.flatMap((id) => {
+    const link = mapLinkFor(id);
+    return link ? [{ kind: "Map", href: link.href, title: link.title }] : [];
+  });
+
+  const related: RelatedItem[] = concept.relatedConcepts.flatMap((id) => {
+    const other = concepts.find((c) => c.id === id);
+    return other
+      ? [{ kind: "Idea", href: `/concepts/${other.id}`, title: other.title, description: leadSentences(other.description) }]
+      : [];
+  });
 
   // JSON-LD structured data — DefinedTerm is the correct type for a concept/term page.
   const jsonLd = {
@@ -105,184 +101,32 @@ export default async function ConceptDetailPage({ params }: PageProps) {
     termCode: concept.id,
     inDefinedTermSet: {
       "@type": "DefinedTermSet",
-      name: "Argumend Key Concepts",
-      url: "https://argumend.org/concepts",
+      name: "Argumend core ideas",
+      url: "https://argumend.org/learn#ideas",
     },
-    publisher: {
-      "@type": "Organization",
-      "@id": ORGANIZATION_ID,
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://argumend.org/concepts/${concept.id}`,
-    },
+    publisher: { "@type": "Organization", "@id": ORGANIZATION_ID, name: SITE_NAME, url: SITE_URL },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://argumend.org/concepts/${concept.id}` },
   };
 
   return (
-    <AppShell>
-      {/* JSON-LD */}
-      <JsonLd data={jsonLd} />
-
-      <div className="min-h-full">
-        <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-16">
-          {/* Breadcrumb with BreadcrumbList JSON-LD */}
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Concepts", href: "/concepts" },
-              { label: concept.title },
-            ]}
-          />
-
-          {/* Hero */}
-          <header className="mb-10 md:mb-20">
-            <div className="flex items-center gap-3 mb-5">
-              <div
-                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full ${stage.iconBg}`}
-              >
-                <specimen.Icon className={`h-6 w-6 ${stage.iconText}`} strokeWidth={1.8} />
-              </div>
-              <Link
-                href={`/concepts#${stage.id}`}
-                className={`inline-flex min-h-11 items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-medium ${stage.chip}`}
-              >
-                {stage.numeral}. {stage.label}
-              </Link>
-            </div>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
-              {concept.title}
-            </h1>
-          </header>
-
-          {/* Full Description */}
-          <section className="mb-16 md:mb-24">
-            <div className="space-y-5 text-base md:text-[17px] text-primary dark:text-stone-200 leading-[1.8]">
-              {paragraphs.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
-            </div>
-          </section>
-
-          {/* Key Points — tinted by stage, tying the summary back to the taxonomy */}
-          <section className="mb-16 md:mb-24">
-            <div className="flex items-center gap-2 mb-4">
-              <specimen.Icon className={`h-5 w-5 ${stage.iconText}`} strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">
-                Key Points
-              </h2>
-            </div>
-            <div
-              className={`bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${stage.borderAccent}`}
-            >
-              <ul className="space-y-4">
-                {concept.keyPoints.map((point, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-deep mt-2.5 flex-shrink-0" />
-                    <span className="text-primary dark:text-stone-200 leading-relaxed">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          {/* See It In Action */}
-          {topicExamples.length > 0 && (
-            <section className="mb-16 md:mb-24">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
-                See It in Action
-              </h2>
-              <p className="text-secondary dark:text-stone-400 mb-6 leading-relaxed">
-                Explore topics where {concept.title.toLowerCase()} plays a central role in the analysis.
-              </p>
-              <div className="grid gap-3">
-                {topicExamples.map((topic) => (
-                  <Link
-                    key={topic.id}
-                    href={`/topics/${topic.id}`}
-                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-[var(--bg-card)]/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-deep" />
-                      <span className="text-primary dark:text-stone-200 font-medium group-hover:text-deep dark:group-hover:text-[#9bc7c3] transition-colors">
-                        {topic.title}
-                      </span>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep group-hover:translate-x-0.5 transition-all duration-200" />
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Related Concepts */}
-          {relatedConcepts.length > 0 && (
-            <section className="mb-16 md:mb-24">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
-                Related Concepts
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {relatedConcepts.map((related) => {
-                  const relatedStage = getConceptStage(related!.id);
-                  const RelatedIcon = getConceptIcon(related!.id);
-                  return (
-                    <Link
-                      key={related!.id}
-                      href={`/concepts/${related!.id}`}
-                      className={`group bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm transition-all duration-200 ${relatedStage.hoverBorder}`}
-                    >
-                      <div
-                        className={`flex items-center justify-center w-8 h-8 rounded-full mb-3 ${relatedStage.iconBg}`}
-                      >
-                        <RelatedIcon className={`h-4 w-4 ${relatedStage.iconText}`} strokeWidth={1.8} />
-                      </div>
-                      <h3 className="font-serif text-lg text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-[#9bc7c3] transition-colors mb-1">
-                        {related!.title}
-                      </h3>
-                      <p className="text-sm text-secondary dark:text-stone-400 line-clamp-2">
-                        {related!.description.split("\n\n")[0]?.slice(0, 100)}...
-                      </p>
-                    </Link>
-                  );
-                })}
-              </div>
-            </section>
-          )}
-
-          {/* CTA */}
-          <section className="text-center py-10 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <h3 className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 mb-3">
-              See this in practice
-            </h3>
-            <p className="text-secondary dark:text-stone-400 mb-7 leading-relaxed">
-              See how these concepts come together in real argument maps.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link
-                href="/topics"
-                className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Explore Topics
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/concepts"
-                className="inline-flex min-h-11 items-center px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary dark:text-stone-200 text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] transition-all duration-200"
-              >
-                All Concepts
-              </Link>
-            </div>
-          </section>
-
-          {/* Footer */}
-          <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)] mt-4">
-            <p className="text-sm text-muted dark:text-stone-400 italic text-center">
-              Understanding the framework is the first step toward better reasoning.
-            </p>
-          </div>
-        </div>
+    <ArticleLayout
+      kind="idea"
+      title={concept.title}
+      lede={lede}
+      meta={readTime(concept.description, ...concept.keyPoints)}
+      nextMap={pickNextMap({ topicIds: concept.topicExamples, keywords: concept.title })}
+      related={related}
+      chrome={<JsonLd data={jsonLd} />}
+    >
+      <div className="prose-custom">
+        {body.map((paragraph) => (
+          <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+        ))}
       </div>
-    </AppShell>
+      <KeyTakeaways items={concept.keyPoints} />
+      {maps.length > 0 ? (
+        <RelatedReading id="on-a-map" title="Where it shows up" items={maps} />
+      ) : null}
+    </ArticleLayout>
   );
 }

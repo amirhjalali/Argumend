@@ -5,39 +5,39 @@ import { getVerdictSentence } from "./topic";
 // this exercises the full-sentence sibling used in prose contexts at each
 // confidence boundary.
 describe("getVerdictSentence", () => {
-  it("returns the 'beyond reasonable doubt' sentence for score >= 95", () => {
+  it("returns the 'converges strongly' sentence for score >= 95", () => {
     expect(getVerdictSentence(95)).toBe(
-      "The evidence establishes this claim beyond reasonable doubt",
+      "The evidence mapped here converges strongly on this claim",
     );
     expect(getVerdictSentence(100)).toBe(
-      "The evidence establishes this claim beyond reasonable doubt",
+      "The evidence mapped here converges strongly on this claim",
     );
   });
 
-  it("returns the 'weight of evidence supports' sentence for 75-94", () => {
+  it("returns the 'most of the weighted evidence' sentence for 75-94", () => {
     expect(getVerdictSentence(75)).toBe(
-      "The weight of evidence supports this claim",
+      "Most of the weighted evidence points toward this claim",
     );
     expect(getVerdictSentence(94)).toBe(
-      "The weight of evidence supports this claim",
+      "Most of the weighted evidence points toward this claim",
     );
   });
 
-  it("returns the 'leans toward but contested' sentence for 50-74", () => {
+  it("returns the 'leans toward but still divided' sentence for 50-74", () => {
     expect(getVerdictSentence(50)).toBe(
-      "The evidence leans toward this claim, but it stays genuinely contested",
+      "The evidence leans toward this claim, but it is still divided",
     );
     expect(getVerdictSentence(74)).toBe(
-      "The evidence leans toward this claim, but it stays genuinely contested",
+      "The evidence leans toward this claim, but it is still divided",
     );
   });
 
-  it("returns the 'too little evidence' sentence for score < 50", () => {
+  it("returns the 'does not lean toward' sentence for score < 50", () => {
     expect(getVerdictSentence(49)).toBe(
-      "There's too little evidence to settle this claim",
+      "The evidence mapped here does not lean toward this claim",
     );
     expect(getVerdictSentence(0)).toBe(
-      "There's too little evidence to settle this claim",
+      "The evidence mapped here does not lean toward this claim",
     );
   });
 

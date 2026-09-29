@@ -38,7 +38,6 @@ import {
   listAnalyses,
   listDebates,
   listJudgments,
-  listUserDebates,
   recordTopicView,
   saveJudgment,
   saveTopic,
@@ -116,23 +115,17 @@ describe("database query state transitions", () => {
     expect(mocks.listJudgments).toHaveBeenCalledWith(expect.objectContaining({ limit: 9 }));
   });
 
-  it("returns saved topic ids in persistence order and scopes debate lists to the user", async () => {
+  it("returns saved topic ids in persistence order", async () => {
     mocks.listSavedTopics.mockResolvedValue([
       { topicId: "ai-risk" },
       { topicId: "nuclear-energy-safety" },
     ]);
-    mocks.listDebates.mockResolvedValue([{ id: "debate-1" }]);
-
     await expect(getSavedTopicIds("user-1")).resolves.toEqual([
       "ai-risk",
       "nuclear-energy-safety",
     ]);
-    await expect(listUserDebates("user-1", 4)).resolves.toEqual([{ id: "debate-1" }]);
     expect(mocks.listSavedTopics).toHaveBeenCalledWith(
       expect.objectContaining({ orderBy: expect.anything() }),
-    );
-    expect(mocks.listDebates).toHaveBeenCalledWith(
-      expect.objectContaining({ limit: 4, where: expect.anything() }),
     );
   });
 

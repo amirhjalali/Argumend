@@ -3,8 +3,16 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 /**
- * Dark-mode guard for the fixed-hex brand text tokens.
+ * Dark-mode guard for the brand text tokens.
  *
+ * Since 2026-09-22 `primary`/`secondary`/`muted` resolve through RGB channel
+ * variables that flip under `.dark`, so a bare use no longer goes dark-on-dark.
+ * The history below is kept because the canonical pairs this file enforces are
+ * still the house style, and they still win as explicit overrides. The live
+ * risk is now the reverse: a bare token on a surface that stays light in dark
+ * mode goes light-on-light, and such surfaces pin literal ink instead.
+ *
+ * Original rationale (pre-2026-09-22):
  * `tailwind.config.ts` defines `primary: "#3d3a36"` / `secondary: "#564d45"` as
  * literal hex, so the Tailwind utilities `text-primary` / `text-secondary` do
  * NOT adapt in dark mode — a bare use on a dark-adaptive surface renders as
@@ -86,84 +94,38 @@ const read = (relPath: string) =>
  * paired.
  */
 const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
-  { path: "app/analyses/page.tsx" },
   { path: "app/saved/SavedClient.tsx" },
   { path: "app/blog/category/[category]/page.tsx" },
-  { path: "components/SynopticTable.tsx" },
   { path: "components/nodes/MetaNode.tsx" },
   { path: "app/topics/TopicsPageClient.tsx" },
-  {
-    path: "components/VerdictVoting.tsx",
-    // The "Compare your verdict" card is a fixed `from-[#faf8f5] to-[#f4f1eb]`
-    // gradient with no dark variant, so dark text is correct in both modes.
-    exempt: ['<span className="font-medium text-primary">'],
-  },
   { path: "app/methodology/page.tsx" },
-  { path: "app/how-it-works/page.tsx" },
-  { path: "app/lessons-from-the-deep/page.tsx" },
-  { path: "app/analysis/[id]/AnalysisView.tsx" },
-  { path: "app/analyze/page.tsx" },
   { path: "components/FeaturedTopicHero.tsx" },
-  {
-    path: "components/ShareVerdictCard.tsx",
-    // The share card itself is rasterized to a PNG on a hard-coded #f4f1eb
-    // background, so it is always-light by design.
-    exempt: ["font-serif font-bold text-primary leading-tight mt-3"],
-  },
-  { path: "components/ScalesOfEvidence.tsx" },
   { path: "components/SearchModal.tsx" },
   { path: "components/nodes/RichNode.tsx" },
   { path: "components/nodes/EvidenceNode.tsx" },
   { path: "app/embed/[topicId]/page.tsx" },
   { path: "app/about/page.tsx" },
-  { path: "app/for-educators/page.tsx" },
-  { path: "app/library/page.tsx" },
-  { path: "app/concepts/page.tsx" },
-  { path: "app/concepts/[slug]/page.tsx" },
-  { path: "app/glossary/page.tsx" },
-  { path: "app/fallacies/page.tsx" },
-  { path: "app/fallacies/[slug]/page.tsx" },
   { path: "app/dashboard/page.tsx" },
   { path: "app/not-found.tsx" },
-  { path: "app/topics/compare/CompareIndexView.tsx" },
-  { path: "components/FalsificationCrux.tsx" },
-  { path: "components/HeroMiniCanvas.tsx" },
   { path: "components/MobileArgumentList.tsx" },
   { path: "components/ZoomIndicator.tsx" },
   { path: "app/blog/tag/[tag]/page.tsx" },
-  { path: "app/blog/[slug]/page.tsx" },
   { path: "components/TableOfContents.tsx" },
   { path: "app/faq/page.tsx" },
-  { path: "components/DebateView.tsx" },
-  { path: "components/HomeClient.tsx" },
-  { path: "components/ReadGraphToggle.tsx" },
   { path: "components/TopBar.tsx" },
-  { path: "app/is/page.tsx" },
-  { path: "app/is/IsHubClient.tsx" },
-  { path: "app/is/[slug]/page.tsx" },
-  { path: "app/questions/page.tsx" },
   { path: "app/questions/QuestionsSearch.tsx" },
-  { path: "app/questions/[slug]/page.tsx" },
   { path: "app/auth/signin/page.tsx" },
   { path: "components/BalanceWeightReadout.tsx" },
-  { path: "app/guides/page.tsx" },
-  { path: "app/guides/[id]/page.tsx" },
-  { path: "app/blog/page.tsx" },
   { path: "components/InteractiveContent.tsx" },
   { path: "components/CitationCard.tsx" },
   { path: "components/MapLegend.tsx" },
-  { path: "components/ControversyMeter.tsx" },
   { path: "components/HeroAnalyze.tsx" },
   { path: "components/CruxModal.tsx" },
   { path: "components/TopicIntroPanel.tsx" },
   { path: "components/SaveTopicButton.tsx" },
   { path: "components/SubscribeButton.tsx" },
-  { path: "components/ConfidenceTimeline.tsx" },
   { path: "components/RouteErrorState.tsx" },
-  { path: "components/Sidebar.tsx" },
   { path: "components/ThemeToggle.tsx" },
-  { path: "components/ViewToggle.tsx" },
-  { path: "app/analysis/[id]/not-found.tsx" },
   { path: "app/embed/[topicId]/layout.tsx" },
   // components/NewsletterSignup.tsx intentionally excluded: fixed-light
   // `bg-[#faf8f5]` card with no dark surface, so bare text-primary/secondary

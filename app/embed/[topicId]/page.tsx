@@ -1,16 +1,30 @@
 import { notFound } from "next/navigation";
-import { topicSummaries } from "@/data/topicIndex";
-import { loadTopicById } from "@/data/topicLoader";
-import { getMockVerdict } from "@/data/mockVerdicts";
-import { BalanceWeightReadout } from "@/components/BalanceWeightReadout";
 import type { Metadata } from "next";
+import { SettleAnswer } from "@/components/topic/cruxPrimitives";
+import { TextAction } from "@/components/ui";
+import { numberWord } from "@/lib/topicPage/model";
+import { embedMeta, embedTopicIds, loadEmbedModel } from "./_model";
+
+/**
+ * The embeddable map summary (an <iframe> on other people's sites; the code
+ * comes from components/EmbedButton.tsx: width 100%, height 400).
+ *
+ * It shows what a map is for, in the order the map page uses: the question,
+ * what the sides already agree on, the first question the fight turns on and
+ * what would settle it, then a link to the whole map. It never shows a
+ * verdict, a margin, a balance or a winner: a widget on someone else's page
+ * is the last place to tell their readers who won.
+ *
+ * Compact and self-contained: one column, at most ~600px tall at 600px wide,
+ * readable in light and dark (it follows the viewer's colour scheme).
+ */
 
 // ---------------------------------------------------------------------------
 // Static Generation
 // ---------------------------------------------------------------------------
 
 export function generateStaticParams() {
-  return topicSummaries.map((topic) => ({ topicId: topic.id }));
+  return embedTopicIds().map((topicId) => ({ topicId }));
 }
 
 // ---------------------------------------------------------------------------
@@ -23,104 +37,14 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { topicId } = await params;
-  const topic = topicSummaries.find((t) => t.id === topicId);
-  if (!topic) return { title: "Not Found" };
+  const meta = embedMeta(topicId);
+  if (!meta) return { title: "Not Found" };
 
   return {
-    title: `${topic.title} — Embed`,
-    description: topic.meta_claim,
+    title: `${meta.title} — Embed`,
+    description: meta.description,
     robots: { index: false, follow: false },
   };
-}
-
-// ---------------------------------------------------------------------------
-// Argument Card
-// ---------------------------------------------------------------------------
-
-function ArgumentCard({
-  side,
-  arguments: args,
-}: {
-  side: "for" | "against";
-  arguments: { title: string; summary: string }[];
-}) {
-  const isFor = side === "for";
-
-  return (
-    <div
-      className={`rounded-lg border p-3 ${
-        isFor
-          ? "border-rust-200 bg-rust-50/60 dark:border-rust-800/40 dark:bg-rust-900/30"
-          : "border-stone-200 bg-stone-50/60 dark:border-stone-700/50 dark:bg-stone-800/30"
-      }`}
-    >
-      <h3
-        className={`text-xs font-semibold uppercase tracking-wide mb-2 ${
-          isFor
-            ? "text-rust-600 dark:text-rust-400"
-            : "text-stone-500 dark:text-stone-400"
-        }`}
-      >
-        {isFor ? "For" : "Against"}
-      </h3>
-      <ul className="space-y-1.5">
-        {args.map((arg, i) => (
-          <li
-            key={i}
-            className="text-[13px] leading-[1.5] break-words text-primary dark:text-stone-200"
-          >
-            <span className="font-medium">{arg.title}:</span>{" "}
-            <span className="text-stone-600 dark:text-stone-400">
-              {arg.summary}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Verdict Banner
-// ---------------------------------------------------------------------------
-
-function VerdictBanner({
-  winner,
-  forAvg,
-  againstAvg,
-}: {
-  winner: "for" | "against" | "draw" | null;
-  forAvg: number;
-  againstAvg: number;
-}) {
-  const margin = Math.abs(forAvg - againstAvg).toFixed(1);
-  const label =
-    winner === "for"
-      ? "For side wins"
-      : winner === "against"
-        ? "Against side wins"
-        : "Draw";
-
-  return (
-    <div className="flex items-center justify-between rounded-lg border px-3 py-2 border-deep/20 bg-deep/5 dark:border-deep-light/30 dark:bg-deep-light/10">
-      <div>
-        <span className="text-xs font-medium uppercase tracking-wide text-deep dark:text-deep-light">
-          Verdict
-        </span>
-        <p className="text-sm font-semibold text-primary dark:text-stone-200">
-          {label}
-        </p>
-      </div>
-      <div className="text-right">
-        <span className="text-[11px] text-muted dark:text-stone-400">
-          Margin
-        </span>
-        <p className="text-sm font-mono font-semibold tabular-nums text-primary dark:text-stone-200">
-          {margin}
-        </p>
-      </div>
-    </div>
-  );
 }
 
 // ---------------------------------------------------------------------------
@@ -129,102 +53,82 @@ function VerdictBanner({
 
 export default async function EmbedPage({ params }: PageProps) {
   const { topicId } = await params;
-  const topic = await loadTopicById(topicId);
+  const map = await loadEmbedModel(topicId);
 
-  if (!topic) {
+  if (!map) {
     notFound();
   }
 
-  // Extract top for/against arguments from pillars. Keep summaries short so the
-  // widget stays compact and never overflows at typical embed widths.
-  const truncate = (text: string) =>
-    text.length > 120 ? text.slice(0, 117) + "…" : text;
-
-  const forArgs = topic.pillars.slice(0, 3).map((p) => ({
-    title: p.title,
-    summary: truncate(p.proponent_rebuttal),
-  }));
-
-  const againstArgs = topic.pillars.slice(0, 3).map((p) => ({
-    title: p.title,
-    summary: truncate(p.skeptic_premise),
-  }));
-
-  // Load verdict if available
-  const verdict = getMockVerdict(topicId);
-
-  // Back-link to the canonical topic page so the embed drives traffic to
-  // argumend.org. Opens in a new tab because the widget lives in an iframe.
-  const topicUrl = `https://argumend.org/topics/${topicId}`;
-
   return (
-    <main id="main-content" className="w-full max-w-[600px] mx-auto px-4 py-5 font-sans">
-      {/* Header */}
-      <div className="mb-4">
-        <h1 className="font-serif text-xl sm:text-2xl tracking-tight leading-tight mb-2 break-words text-primary dark:text-stone-200">
-          {topic.title}
-        </h1>
-        <p className="text-sm leading-relaxed text-secondary dark:text-stone-400">
-          {topic.meta_claim}
-        </p>
-      </div>
-
-      {/* Evidence assessment */}
-      <div className="mb-4">
-        <BalanceWeightReadout
-          balance={topic.balance}
-          weight={topic.weight}
-          verdict={topic.verdict}
-        />
-      </div>
-
-      {/* Arguments */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-        <ArgumentCard side="for" arguments={forArgs} />
-        <ArgumentCard side="against" arguments={againstArgs} />
-      </div>
-
-      {/* Verdict (if available) */}
-      {verdict && (
-        <div className="mb-4">
-          <VerdictBanner
-            winner={verdict.winner}
-            forAvg={verdict.aggregatedScores.for.average}
-            againstAvg={verdict.aggregatedScores.against.average}
-          />
-        </div>
-      )}
-
-      {/* Attribution / CTA — drives traffic back to the full analysis. */}
-      <div className="pt-3 border-t border-stone-200/70 dark:border-stone-700/50">
-        <a
-          href={topicUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors border-rust-200 bg-rust-50 text-rust-700 hover:bg-rust-100 dark:border-rust-500/30 dark:bg-rust-500/10 dark:text-rust-300 dark:hover:bg-rust-500/20"
+    <main id="main-content" className="mx-auto w-full max-w-[600px] px-4 py-5 font-sans sm:px-5">
+      <article aria-labelledby="embed-title" data-embed-kind={map.kind}>
+        <p className="label-caps">Argumend map</p>
+        <h1
+          id="embed-title"
+          className="mt-1 text-balance break-words font-serif text-[1.5rem] leading-[1.15] tracking-[-0.01em] text-primary dark:text-stone-200 sm:text-[1.625rem]"
         >
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+          {map.title}
+        </h1>
+        {map.subtitle && (
+          <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-secondary dark:text-stone-400">
+            <span className="font-medium">{map.subtitle.lead}:</span> {map.subtitle.text}
+          </p>
+        )}
+
+        {map.agreement.length > 0 && (
+          <section aria-labelledby="embed-agreement" className="mt-3.5 border-t border-divider pt-3">
+            <h2 id="embed-agreement" className="label-caps">
+              {map.agreementHeading}
+            </h2>
+            <ul className="mt-1.5 space-y-1.5">
+              {map.agreement.map((fact) => (
+                <li
+                  key={fact}
+                  className="relative line-clamp-2 pl-3.5 font-serif text-[0.9375rem] leading-[1.4] text-secondary dark:text-stone-400 before:absolute before:left-0 before:top-[0.6em] before:h-1 before:w-1 before:rounded-full before:bg-stone-400 before:content-['']"
+                >
+                  {fact}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {map.crux && (
+          <section
+            aria-labelledby="embed-crux"
+            className="mt-3.5 border-l-2 border-crux/50 pl-3.5 dark:border-crux-light/60"
           >
-            <path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3Z" />
-          </svg>
-          Analyzed by Argumend
-          <span
-            aria-hidden="true"
-            className="transition-transform group-hover:translate-x-0.5"
-          >
-            &rarr;
-          </span>
-        </a>
-      </div>
+            <h2 id="embed-crux" className="label-caps !text-crux-text">
+              The question it turns on
+            </h2>
+            <p className="mt-1 line-clamp-3 text-pretty font-serif text-[1.125rem] font-medium leading-[1.35] text-stone-900 dark:text-stone-100">
+              {map.crux.question}
+            </p>
+            {/* The map page's own "what would settle it" line, a size down
+                and held to three lines; the whole test is one tap away. */}
+            <div className="[&_[data-settle]>span:last-child]:line-clamp-3 [&_[data-settle]>span:last-child]:text-[1rem] [&_[data-settle]>span:last-child]:leading-[1.45] [&_[data-settle]]:!mt-2">
+              <SettleAnswer
+                mode={map.crux.settle.mode}
+                kind={map.crux.settle.kind}
+                condition={map.crux.settle.condition}
+                resolved={map.crux.settle.resolved}
+                label={map.crux.settle.label}
+              />
+            </div>
+          </section>
+        )}
+
+        <footer className="mt-3.5 flex flex-wrap items-center justify-between gap-x-4 border-t border-divider pt-1">
+          <TextAction href={map.href} target="_blank" rel="noopener noreferrer">
+            Read the whole map on Argumend →
+          </TextAction>
+          {map.cruxCount > 1 && (
+            <span className="text-xs text-muted">
+              {numberWord(map.cruxCount)} questions in all
+            </span>
+          )}
+        </footer>
+      </article>
     </main>
   );
 }

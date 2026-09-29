@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
+import { useLogicGraph, useLoadedTopic } from "@/hooks/useLogicGraph";
 import { MiniGraphPreview } from "@/components/MiniGraphPreview";
 import { calculateEvidenceScore } from "@/types/logic";
+import { statusColors } from "@/lib/categoryColors";
 import type { Pillar, Evidence } from "@/types/logic";
 import {
   ChevronDown,
@@ -29,19 +30,19 @@ function VerificationBadge({
       icon: CheckCircle2,
       label: "Verified",
       className:
-        "text-emerald-700 bg-emerald-50 dark:text-emerald-300 dark:bg-emerald-500/15",
+        "text-deep bg-deep/10 dark:text-accent-text dark:bg-deep/20",
     },
     theoretical: {
       icon: HelpCircle,
       label: "Theoretical",
       className:
-        "text-rust-700 bg-rust-50 dark:text-rust-300 dark:bg-rust-500/15",
+        "text-stone-700 bg-stone-100 dark:text-stone-200 dark:bg-stone-700/50",
     },
     impossible: {
       icon: XCircle,
       label: "Impossible",
       className:
-        "text-red-600 bg-red-50 dark:text-red-300 dark:bg-red-500/15",
+        "border border-dashed border-stone-400/70 text-stone-600 bg-stone-100/60 dark:border-stone-600/70 dark:text-stone-400 dark:bg-stone-800/40",
     },
   }[status];
 
@@ -57,7 +58,7 @@ function VerificationBadge({
   );
 }
 
-function EvidenceItem({ evidence }: { evidence: Evidence }) {
+function EvidenceItem({ evidence, showScore }: { evidence: Evidence; showScore: boolean }) {
   const [expanded, setExpanded] = useState(false);
   const score = calculateEvidenceScore(evidence.weight);
   const isFor = evidence.side === "for";
@@ -72,14 +73,14 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
       <div
         className={`rounded-lg border px-3 py-2.5 transition-colors ${
           isFor
-            ? "border-emerald-200/60 bg-emerald-50/30 dark:border-emerald-500/25 dark:bg-emerald-500/10"
-            : "border-rose-200/60 bg-rose-50/30 dark:border-rose-500/25 dark:bg-rose-500/10"
+            ? "border-rust-200/60 bg-rust-50/30 dark:border-rust-500/25 dark:bg-rust-500/10"
+            : "border-skeptic/25 bg-skeptic/5 dark:border-skeptic/40 dark:bg-skeptic/10"
         }`}
       >
         <div className="flex items-start gap-2">
           <div
             className={`mt-0.5 flex-shrink-0 h-2 w-2 rounded-full ${
-              isFor ? "bg-emerald-500" : "bg-rose-500"
+              isFor ? "bg-rust-500" : "bg-skeptic"
             }`}
           />
           <div className="flex-1 min-w-0">
@@ -87,9 +88,11 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
               <p className="text-[13px] font-medium text-stone-700 dark:text-stone-200 leading-snug">
                 {evidence.title}
               </p>
-              <span className="flex-shrink-0 text-[11px] font-mono text-muted dark:text-stone-400">
-                {score}/40
-              </span>
+              {showScore && (
+                <span className="flex-shrink-0 text-[11px] font-mono text-muted dark:text-stone-400">
+                  {score}/40
+                </span>
+              )}
             </div>
 
             {expanded && (
@@ -99,6 +102,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                 </p>
 
                 {/* Weight bars */}
+                {showScore && (
                 <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
                   {(
                     [
@@ -115,7 +119,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                       <div className="flex-1 h-1.5 bg-stone-200/60 dark:bg-stone-700/70 rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full ${
-                            isFor ? "bg-emerald-400" : "bg-rose-400"
+                            isFor ? "bg-rust-400" : "bg-skeptic-light"
                           }`}
                           style={{ width: `${value * 10}%` }}
                         />
@@ -126,6 +130,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                     </div>
                   ))}
                 </div>
+                )}
 
                 {evidence.source && (
                   <p className="text-[11px] text-muted dark:text-stone-400 italic">
@@ -141,14 +146,19 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
   );
 }
 
-function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
+function PillarSection({
+  pillar,
+  index,
+  showScores,
+}: {
+  pillar: Pillar;
+  index: number;
+  showScores: boolean;
+}) {
   const [expanded, setExpanded] = useState(false);
   const [showCrux, setShowCrux] = useState(false);
 
   const evidence = pillar.evidence || [];
-  const forEvidence = evidence.filter((e) => e.side === "for");
-  const againstEvidence = evidence.filter((e) => e.side === "against");
-
   return (
     <div className="border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl overflow-hidden bg-white/50 dark:bg-[var(--bg-card)]">
       {/* Pillar header */}
@@ -180,10 +190,10 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           {/* Arguments */}
           <div className="grid gap-3">
             {/* Proponent view */}
-            <div className="rounded-lg bg-emerald-50/40 dark:bg-emerald-500/10 border border-emerald-100/60 dark:border-emerald-500/20 p-3">
+            <div className="rounded-lg bg-rust-50/40 dark:bg-rust-500/10 border border-rust-100/60 dark:border-rust-500/20 p-3">
               <div className="flex items-center gap-1.5 mb-1.5">
-                <Shield className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-300" />
-                <span className="text-[11px] font-medium text-emerald-700 dark:text-emerald-300 uppercase tracking-wide">
+                <Shield className="h-3.5 w-3.5 text-rust-600 dark:text-rust-300" />
+                <span className="text-[11px] font-medium text-rust-700 dark:text-rust-300 uppercase tracking-wide">
                   Proponent
                 </span>
               </div>
@@ -193,10 +203,10 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
             </div>
 
             {/* Skeptic view */}
-            <div className="rounded-lg bg-rose-50/40 dark:bg-rose-500/10 border border-rose-100/60 dark:border-rose-500/20 p-3">
+            <div className="rounded-lg bg-skeptic/5 dark:bg-skeptic/10 border border-skeptic/20 dark:border-skeptic/30 p-3">
               <div className="flex items-center gap-1.5 mb-1.5">
-                <AlertTriangle className="h-3.5 w-3.5 text-rose-500 dark:text-rose-300" />
-                <span className="text-[11px] font-medium text-rose-600 dark:text-rose-300 uppercase tracking-wide">
+                <AlertTriangle className="h-3.5 w-3.5 text-skeptic dark:text-[#cfa88a]" />
+                <span className="text-[11px] font-medium text-skeptic-dark dark:text-[#cfa88a] uppercase tracking-wide">
                   Skeptic
                 </span>
               </div>
@@ -210,12 +220,11 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           {evidence.length > 0 && (
             <div className="space-y-2">
               <p className="text-[11px] font-medium text-muted dark:text-stone-400 uppercase tracking-wide">
-                Evidence ({forEvidence.length} for, {againstEvidence.length}{" "}
-                against)
+                Evidence on each side
               </p>
               <div className="space-y-1.5">
                 {evidence.map((e) => (
-                  <EvidenceItem key={e.id} evidence={e} />
+                  <EvidenceItem key={e.id} evidence={e} showScore={showScores} />
                 ))}
               </div>
             </div>
@@ -225,10 +234,10 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
           <div>
             <button
               onClick={() => setShowCrux(!showCrux)}
-              className="flex items-center gap-1.5 py-2 min-h-[44px] text-[13px] text-rust-700 dark:text-rust-300 font-medium hover:text-rust-800 dark:hover:text-rust-200 transition-colors"
+              className="flex items-center gap-1.5 py-2 min-h-[44px] text-[13px] text-crux dark:text-crux-text font-medium hover:text-crux-dark dark:hover:text-[#e6a3a3] transition-colors"
             >
               <FlaskConical className="h-3.5 w-3.5" />
-              Decisive Test: {pillar.crux.title}
+              What would settle it: {pillar.crux.title}
               {showCrux ? (
                 <ChevronDown className="h-3 w-3" />
               ) : (
@@ -237,7 +246,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
             </button>
 
             {showCrux && (
-              <div className="mt-2 rounded-lg bg-rust-50/50 dark:bg-rust-500/10 border border-rust-100/60 dark:border-rust-500/20 p-3 space-y-2">
+              <div className="mt-2 rounded-lg bg-crux/5 dark:bg-crux/10 border border-crux/15 dark:border-crux/30 p-3 space-y-2">
                 <p className="text-[13px] text-stone-600 dark:text-stone-300 leading-relaxed">
                   {pillar.crux.description}
                 </p>
@@ -258,15 +267,26 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
   );
 }
 
-export function MobileArgumentList() {
-  const currentTopicId = useLogicGraph((state) => state.currentTopicId);
+/**
+ * `outlineOnly` is the phone view of the diagram route (/topics/[id]/map):
+ * the pillar outline alone, without the Evidence (points tally) and Debate
+ * tabs, the verdict label, or per-card scores.
+ */
+export function MobileArgumentList({ outlineOnly = false }: { outlineOnly?: boolean } = {}) {
   const setView = useLogicGraph((state) => state.setView);
-  const currentView = useLogicGraph((state) => state.currentView);
+  const storeView = useLogicGraph((state) => state.currentView);
+  const currentView = outlineOnly ? "logic-map" : storeView;
   const pillarListRef = useRef<HTMLDivElement>(null);
-  const topics = getLoadedTopics();
-  const topic = topics?.find((t) => t.id === currentTopicId);
+  // Re-renders when the topic module lands; `setTopic` sets the id first.
+  const topic = useLoadedTopic();
 
-  if (!topic) return null;
+  if (!topic) {
+    return (
+      <p role="status" className="px-4 py-10 text-center font-sans text-sm text-muted dark:text-stone-400">
+        Loading the map…
+      </p>
+    );
+  }
 
   const scrollToPillars = () => {
     pillarListRef.current?.scrollIntoView({
@@ -278,23 +298,15 @@ export function MobileArgumentList() {
     });
   };
 
-  const statusColors = {
-    settled:
-      "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300",
-    contested:
-      "bg-rust-100 text-rust-700 dark:bg-rust-500/15 dark:text-rust-300",
-    highly_speculative:
-      "bg-rose-100 text-rose-600 dark:bg-rose-500/15 dark:text-rose-300",
-  };
-
   return (
     <div className="h-full overflow-y-auto bg-[var(--bg-surface)]">
       <div className="px-4 py-5 space-y-5 max-w-lg mx-auto">
         {/* Topic header */}
         <div className="space-y-3">
+          {!outlineOnly && (
           <div className="flex items-center gap-2">
             <span
-              className={`px-2.5 py-1 rounded-full text-[11px] font-medium ${
+              className={`px-2.5 py-1 rounded-full border text-[11px] font-medium ${
                 statusColors[topic.status]
               }`}
             >
@@ -304,10 +316,17 @@ export function MobileArgumentList() {
               {topic.verdict.label}
             </span>
           </div>
+          )}
 
-          <h1 className="font-serif text-xl font-medium text-stone-900 dark:text-stone-100 leading-snug">
-            {topic.title}
-          </h1>
+          {outlineOnly ? (
+            <h2 className="font-serif text-xl font-medium text-stone-900 dark:text-stone-100 leading-snug">
+              {topic.title}
+            </h2>
+          ) : (
+            <h1 className="font-serif text-xl font-medium text-stone-900 dark:text-stone-100 leading-snug">
+              {topic.title}
+            </h1>
+          )}
 
           <p className="text-[13px] text-stone-500 dark:text-stone-400 leading-relaxed">
             {topic.meta_claim}
@@ -315,6 +334,7 @@ export function MobileArgumentList() {
         </div>
 
         {/* View switcher (mobile-optimized) */}
+        {!outlineOnly && (
         <div className="flex gap-1 p-1 rounded-lg bg-stone-100/80 dark:bg-stone-800/80" role="group" aria-label="View mode">
           {(
             [
@@ -338,6 +358,7 @@ export function MobileArgumentList() {
             </button>
           ))}
         </div>
+        )}
 
         {/* Mini-graph preview — the product's signature map shape, shown before
             the accordion so phone users see it first. Static, non-interactive. */}
@@ -353,10 +374,10 @@ export function MobileArgumentList() {
         {currentView === "logic-map" && (
           <div ref={pillarListRef} className="space-y-3 scroll-mt-4">
             <p className="text-[11px] font-medium text-muted dark:text-stone-400 uppercase tracking-wide">
-              {topic.pillars.length} Key Arguments
+              {topic.pillars.length} key arguments
             </p>
             {topic.pillars.map((pillar, i) => (
-              <PillarSection key={pillar.id} pillar={pillar} index={i} />
+              <PillarSection key={pillar.id} pillar={pillar} index={i} showScores={!outlineOnly} />
             ))}
           </div>
         )}

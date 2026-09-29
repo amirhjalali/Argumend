@@ -35,7 +35,7 @@ import type { LogicNodeData } from "@/types/graph";
  * to mobile sessions, which render MobileArgumentList instead. Owns its own
  * ReactFlowProvider so HomeClient no longer needs React Flow in its module graph.
  */
-function CanvasInner() {
+function CanvasInner({ showIntroPanel }: { showIntroPanel: boolean }) {
   const nodes = useLogicGraph((state) => state.nodes);
   const edges = useLogicGraph((state) => state.edges);
   const onNodesChange = useCallback((changes: NodeChange<Node<LogicNodeData>>[]) => {
@@ -180,7 +180,7 @@ function CanvasInner() {
         <ZoomIndicator />
         <MapLegend onFindCrux={hasCruxPath ? handleFindCrux : undefined} />
         <NavigationPath />
-        <TopicIntroPanel userInteracted={userInteracted} />
+        {showIntroPanel && <TopicIntroPanel userInteracted={userInteracted} />}
       </ReactFlow>
 
       <CruxModal />
@@ -188,10 +188,19 @@ function CanvasInner() {
   );
 }
 
-export default function DesktopCanvas() {
+export default function DesktopCanvas({
+  showIntroPanel = true,
+}: {
+  /**
+   * The floating topic card (title + balance chip). The diagram route at
+   * /topics/[id]/map turns it off: its own header names the map, and the
+   * diagram shows structure, not a verdict.
+   */
+  showIntroPanel?: boolean;
+} = {}) {
   return (
     <ReactFlowProvider>
-      <CanvasInner />
+      <CanvasInner showIntroPanel={showIntroPanel} />
     </ReactFlowProvider>
   );
 }

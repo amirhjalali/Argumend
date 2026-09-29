@@ -19,7 +19,7 @@ describe("concept detail metadata", () => {
       params: Promise.resolve({ slug: "steel-manning" }),
     });
 
-    expect(metadata.title).toBe("Steel-Manning — Key Concept");
-    expect(metadata.openGraph?.title).toBe("Steel-Manning — Key Concept");
+    expect(metadata.title).toBe("Steel-manning — Key Concept");
+    expect(metadata.openGraph?.title).toBe("Steel-manning — Key Concept");
   });
 });
