@@ -6,6 +6,7 @@ import { ReadModeView } from "@/components/ReadModeView";
 import { loadArgumentTopic } from "@/lib/argument/draftTopics";
 import { isPublicEntry } from "@/lib/argument/ledger";
 import { loadTopicById } from "@/data/topicLoader";
+import { withoutFalsification } from "@/test/fixtures/legacyTopics";
 
 afterEach(() => {
   cleanup();
@@ -106,8 +107,12 @@ describe("one crux-first template for every map", () => {
   });
 
   it("renders a legacy map without falsification data cleanly, with no scoreboard", async () => {
-    const { topic, view } = await renderLegacy("epstein-files");
+    // Every shipped map has falsification data now; the fallback renders a
+    // fixture with it taken out.
+    const topic = withoutFalsification((await loadTopicById("epstein-files"))!);
+    const view = render(<ReadModeView topic={topic} />);
     expectCruxFirstOrder(view.container, { agreement: false });
+    expect(view.container.textContent).not.toContain("changes their mind");
     const text = view.container.textContent ?? "";
     expect(text).not.toMatch(SCOREBOARD);
     expect(text).not.toContain("REQUIRES AUTHORING");

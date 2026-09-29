@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { loadTopicById } from "@/data/topicLoader";
 import { topicSummaries } from "@/data/topicIndex";
+import { withoutFalsification } from "@/test/fixtures/legacyTopics";
 import { countSources, firstSentence, legacyTopicPage } from "./legacy";
 
 describe("firstSentence", () => {
@@ -90,7 +91,12 @@ describe("legacyTopicPage", () => {
   });
 
   it("renders a map without falsification data from what it has", async () => {
-    const topic = (await loadTopicById("epstein-files"))!;
+    // Every shipped map now has falsification data, so the fallback runs on a
+    // fixture: a real map with the blocks (and its keystone fact) taken out.
+    const topic = {
+      ...withoutFalsification((await loadTopicById("epstein-files"))!),
+      keystone_fact: undefined,
+    };
     expect(topic.pillars.every((p) => !p.crux.falsification)).toBe(true);
     const { page, cruxes } = legacyTopicPage(topic);
 
@@ -100,8 +106,15 @@ describe("legacyTopicPage", () => {
     expect(cruxes.map((c) => c.question)).toEqual(
       topic.pillars.map((p) => p.crux.question ?? p.crux.title),
     );
+    // With no crux questions either, the crux title is the heading.
+    const bare = legacyTopicPage({
+      ...topic,
+      pillars: topic.pillars.map((p) => ({ ...p, crux: { ...p.crux, question: undefined } })),
+    });
+    expect(bare.cruxes.map((c) => c.question)).toEqual(topic.pillars.map((p) => p.crux.title));
     for (const crux of cruxes) {
       expect(crux.flips).toBeUndefined();
+      expect(crux.runIns).toEqual([]);
       expect(crux.settle.condition!.length).toBeGreaterThan(0);
     }
   });
