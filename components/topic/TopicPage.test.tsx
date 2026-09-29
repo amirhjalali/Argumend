@@ -79,8 +79,8 @@ describe("one crux-first template for every map", () => {
       .map((el) => el.textContent ?? "")
       .join(" ");
     expect(beforePositions.match(/16%/g)?.length ?? 0).toBe(1);
-    // Flagship maps can't be embedded yet, so Embed is not offered.
-    expect(within(view.container).queryByRole("button", { name: /embed/i })).toBeNull();
+    // /embed serves flagship maps, so Embed is offered next to Save and Share.
+    expect(within(view.container).getAllByRole("button", { name: /embed/i }).length).toBeGreaterThan(0);
     expect(within(view.container).getAllByRole("button", { name: /save topic/i }).length).toBeGreaterThan(0);
   });
 

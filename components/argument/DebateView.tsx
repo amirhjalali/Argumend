@@ -139,7 +139,8 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
       .filter((topic) => topic.id !== meta.id)
       .slice(0, 3)
       .map((topic) => ({ id: topic.id, title: topic.title })),
-    embeddable: false,
+    // /embed/:id serves new-model maps too (app/embed/[topicId]/_model.ts).
+    embeddable: true,
   };
 
   const cruxEntries: CruxEntryView[] = cruxes.flatMap((crux) => {
