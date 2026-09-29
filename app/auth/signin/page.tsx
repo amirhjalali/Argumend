@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
+import { Button, TextAction } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Sign in",
@@ -13,9 +14,6 @@ export const metadata: Metadata = {
     canonical: "https://argumend.org/auth/signin",
   },
 };
-
-const QUIET_LINK =
-  "inline-flex min-h-11 items-center text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40";
 
 /**
  * Sign-in, shown only when NEXT_PUBLIC_ENABLE_AUTH is on. The copy is written
@@ -64,10 +62,7 @@ export default async function SignInPage() {
               await signIn("google", { redirectTo: "/" });
             }}
           >
-            <button
-              type="submit"
-              className="flex min-h-12 w-full items-center justify-center gap-3 rounded-lg border border-stone-300/80 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-card)] px-4 py-3 text-sm font-medium text-primary dark:text-stone-200 shadow-sm transition-colors hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/50"
-            >
+            <Button type="submit" variant="secondary" size="lg" className="w-full gap-3">
               <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
@@ -87,7 +82,7 @@ export default async function SignInPage() {
                 />
               </svg>
               Continue with Google
-            </button>
+            </Button>
           </form>
 
           <p className="mt-5 flex items-start gap-2 text-xs leading-relaxed text-muted dark:text-stone-400">
@@ -98,20 +93,18 @@ export default async function SignInPage() {
 
         <div className="text-center text-sm text-secondary dark:text-stone-400">
           <p>You do not need an account to read maps, or to save them on this device.</p>
-          <Link href="/topics" className={`${QUIET_LINK} font-medium`}>
-            Continue without signing in
-          </Link>
+          <TextAction href="/topics">Continue without signing in</TextAction>
         </div>
 
         <p className="text-center text-xs text-secondary dark:text-stone-400">
           By signing in, you agree to our{" "}
-          <Link href="/terms" className={QUIET_LINK}>
+          <TextAction href="/terms" className="text-xs">
             terms
-          </Link>{" "}
+          </TextAction>{" "}
           and{" "}
-          <Link href="/privacy" className={QUIET_LINK}>
+          <TextAction href="/privacy" className="text-xs">
             privacy policy
-          </Link>
+          </TextAction>
           .
         </p>
       </div>

@@ -7,6 +7,7 @@ import { getSavedTopicIds } from "@/lib/db/queries";
 import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { AppShell } from "@/components/AppShell";
+import { PageContainer, PageHeader, TextAction } from "@/components/ui";
 
 export const metadata: Metadata = {
   // Plain string — the root title template ("%s | ARGUMEND") adds the suffix;
@@ -67,21 +68,20 @@ export default async function DashboardPage() {
 
   return (
     <AppShell layout="reading">
-      <div className="mx-auto w-full max-w-[44rem] px-4 pb-16 pt-8 sm:px-6 sm:pt-12 lg:px-8">
-        <header>
-          <p className="label-caps">{firstName ? `Signed in as ${firstName}` : "Signed in"}</p>
-          <h1 className="mt-2 font-serif text-[2.375rem] font-normal leading-[1.06] tracking-[-0.015em] text-primary dark:text-stone-200 sm:text-[3rem]">
-            Your saved maps
-          </h1>
-          <p className="mt-4 max-w-[36rem] font-serif text-xl leading-[1.5] text-secondary dark:text-stone-400">
-            {savedMaps.length === 0
+      <PageContainer width="reading">
+        <PageHeader
+          eyebrow={firstName ? `Signed in as ${firstName}` : "Signed in"}
+          title="Your saved maps"
+          lede={
+            savedMaps.length === 0
               ? "Nothing saved yet. Maps you save while signed in appear here, on any device."
-              : `${savedMaps.length} saved, in the order you saved them.`}
-          </p>
-        </header>
+              : `${savedMaps.length} saved, in the order you saved them.`
+          }
+          className="!mb-8"
+        />
 
         {savedMaps.length > 0 ? (
-          <ul className="mt-8 divide-y divide-divider border-y border-divider">
+          <ul className="divide-y divide-divider border-y border-divider">
             {savedMaps.map((map) => (
               <li key={map.id}>
                 <Link
@@ -107,14 +107,9 @@ export default async function DashboardPage() {
         ) : null}
 
         <p className="mt-6">
-          <Link
-            href="/topics"
-            className="inline-flex min-h-11 items-center font-sans text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"
-          >
-            Browse the maps
-          </Link>
+          <TextAction href="/topics">Browse the maps</TextAction>
         </p>
-      </div>
+      </PageContainer>
     </AppShell>
   );
 }

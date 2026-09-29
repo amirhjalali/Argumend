@@ -1,12 +1,6 @@
-import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
+import { PageContainer, PageHeader, TextAction } from "@/components/ui";
 import { faqs } from "@/data/faqs";
-import { getCollectionItemPresentation } from "@/lib/collectionStyles";
-import {
-  STORY_CONTAINER,
-  StoryHeader,
-  TEXT_ACTION,
-} from "@/components/story/StoryParts";
 
 /**
  * /faq renders whatever `data/faqs.ts` exports, in the story pages' editorial
@@ -18,8 +12,8 @@ import {
 export default function FAQPage() {
   return (
     <AppShell layout="reading">
-      <div className={STORY_CONTAINER}>
-        <StoryHeader
+      <PageContainer width="reading">
+        <PageHeader
           breadcrumbs={[
             { label: "Home", href: "/" },
             { label: "About", href: "/about" },
@@ -28,24 +22,13 @@ export default function FAQPage() {
           eyebrow="Questions"
           title="Questions people ask"
           lede="Short answers. The whole story, and the rules the site keeps, are on the About page."
-        >
-          <p className="mt-4 font-sans text-sm text-muted dark:text-stone-400">
-            {faqs.length} questions. Open any one to read the answer.
-          </p>
-        </StoryHeader>
+          meta={`${faqs.length} questions. Open any one to read the answer.`}
+          className="!mb-8"
+        />
 
-        <div className="mt-8 divide-y divide-divider border-y border-divider">
+        <div className="divide-y divide-divider border-y border-divider">
           {faqs.map((faq, index) => (
-            <details
-              key={`${index}-${faq.question}`}
-              open={index === 0}
-              className="group"
-              style={
-                getCollectionItemPresentation(index, {
-                  intrinsicSize: "0 64px",
-                }).style
-              }
-            >
+            <details key={`${index}-${faq.question}`} open={index === 0} className="group">
               <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 [&::-webkit-details-marker]:hidden">
                 <h2 className="font-serif text-[1.25rem] leading-snug text-primary dark:text-stone-200">
                   {faq.question}
@@ -62,9 +45,9 @@ export default function FAQPage() {
                   {faq.answer}
                 </p>
                 {faq.linkHref && faq.linkText ? (
-                  <Link href={faq.linkHref} className={`${TEXT_ACTION} mt-1`}>
+                  <TextAction href={faq.linkHref} className="mt-1">
                     {faq.linkText}
-                  </Link>
+                  </TextAction>
                 ) : null}
               </div>
             </details>
@@ -74,10 +57,8 @@ export default function FAQPage() {
         <p className="mt-8 font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-400">
           Something missing, or wrong?
         </p>
-        <Link href="/about#contribute" className={TEXT_ACTION}>
-          Tell us how to fix it
-        </Link>
-      </div>
+        <TextAction href="/about#contribute">Tell us how to fix it</TextAction>
+      </PageContainer>
     </AppShell>
   );
 }

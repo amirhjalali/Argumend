@@ -116,8 +116,9 @@ describe("toneStyles (the one tone map)", () => {
  * a repo-wide assertion would false-positive on code outside this migration.
  */
 describe("category/status color SOT consolidation (repo guard)", () => {
+  // app/dashboard/page.tsx left this list on 2026-09-29: it no longer draws
+  // category or status colors at all (saved maps are plain hairline rows).
   const migratedFiles = [
-    "app/dashboard/page.tsx",
     "app/saved/SavedClient.tsx",
     "app/topics/tag/[slug]/page.tsx",
     "app/topics/category/[slug]/page.tsx",

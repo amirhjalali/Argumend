@@ -44,7 +44,7 @@ describe("DashboardPage (account-backed builds)", () => {
     expect(html).not.toContain("no-such-map");
     expect(html).not.toMatch(/debate/i);
     expect(html).not.toMatch(/winner/i);
-    expect(html).not.toMatch(/balance|weight/i);
+    expect(html.replace(/<[^>]+>/g, " ")).not.toMatch(/balance|weight/i);
     expect(String(metadata.description)).not.toMatch(/debate/i);
   });
 

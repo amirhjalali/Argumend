@@ -1,16 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
-import {
-  OnThisPage,
-  PROSE,
-  PROSE_LINK,
-  RuledList,
-  STORY_CONTAINER,
-  StoryHeader,
-  StorySection,
-  TEXT_ACTION,
-} from "@/components/story/StoryParts";
+import { OnThisPage, PROSE, PROSE_LINK, RuledList, STORY_SECTION } from "@/components/story/StoryParts";
+import { PageContainer, PageHeader, Section, TextAction } from "@/components/ui";
 import { HOME_EVIDENCE_HREF, HOME_FLAGSHIP_HREF, numberWord } from "@/components/home/homeModel";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { evidenceCitationStats } from "@/data/corpusStats";
@@ -132,8 +124,8 @@ export default function MethodologyPage() {
           },
         }}
       />
-      <article className={STORY_CONTAINER}>
-        <StoryHeader
+      <PageContainer width="reading" as="article">
+        <PageHeader
           breadcrumbs={[
             { label: "Home", href: "/" },
             { label: "About", href: "/about" },
@@ -144,9 +136,9 @@ export default function MethodologyPage() {
           lede="What happens between a hard question and a map of it: where the positions and evidence come from, how each card is weighed and filed, how the cruxes are found, and how their movement is recorded. Every step is a judgment, written down so you can check it."
         >
           <OnThisPage items={SECTIONS} />
-        </StoryHeader>
+        </PageHeader>
 
-        <StorySection id="positions-and-evidence" title="Positions and evidence">
+        <Section className={STORY_SECTION} id="positions-and-evidence" title="Positions and evidence">
           <div className={PROSE}>
             <p>
               A map starts from the serious positions on a question: stances real
@@ -176,9 +168,10 @@ export default function MethodologyPage() {
               fairness, and corrected where it was wrong.
             </p>
           </div>
-        </StorySection>
+        </Section>
 
-        <StorySection
+        <Section
+          className={STORY_SECTION}
           id="weighing"
           title="Weighing a card"
           lede="Each card is scored from 0 to 10 on four measures, and a card's weight is their sum, out of 40."
@@ -192,9 +185,9 @@ export default function MethodologyPage() {
               that written reason.
             </p>
           </div>
-        </StorySection>
+        </Section>
 
-        <StorySection id="side-audit" title="Filing a card by what it shows">
+        <Section className={STORY_SECTION} id="side-audit" title="Filing a card by what it shows">
           <div className={PROSE}>
             <p>
               Every card is filed for or against the map&rsquo;s central claim by
@@ -215,9 +208,9 @@ export default function MethodologyPage() {
               has the details.
             </p>
           </div>
-        </StorySection>
+        </Section>
 
-        <StorySection id="cruxes" title="Finding the cruxes">
+        <Section className={STORY_SECTION} id="cruxes" title="Finding the cruxes">
           <div className={PROSE}>
             <p>
               A crux is a claim that is genuinely contested and whose answer
@@ -247,9 +240,9 @@ export default function MethodologyPage() {
               run, and, on many, what would change each side&rsquo;s mind.
             </p>
           </div>
-        </StorySection>
+        </Section>
 
-        <StorySection id="ledger" title="The crux ledger">
+        <Section className={STORY_SECTION} id="ledger" title="The crux ledger">
           <div className={PROSE}>
             <p>
               On the AI maps, each crux keeps a dated ledger: when it was open,
@@ -261,13 +254,13 @@ export default function MethodologyPage() {
             </p>
           </div>
           <p className="mt-4">
-            <Link href={`${HOME_FLAGSHIP_HREF}#cruxes`} className={TEXT_ACTION}>
+            <TextAction href={`${HOME_FLAGSHIP_HREF}#cruxes`}>
               See the ledger on {flagshipTitle}
-            </Link>
+            </TextAction>
           </p>
-        </StorySection>
+        </Section>
 
-        <StorySection id="older-maps" title="How the cards weigh, on the older maps">
+        <Section className={STORY_SECTION} id="older-maps" title="How the cards weigh, on the older maps">
           <div className={PROSE}>
             <p>
               The {TOPIC_COUNT} older maps also sum their cards into a one-line
@@ -297,9 +290,9 @@ export default function MethodologyPage() {
               The balance and weight numbers are never adjusted; only the reading is.
             </p>
           </div>
-        </StorySection>
+        </Section>
 
-        <StorySection id="limits" title="What this cannot do">
+        <Section className={STORY_SECTION} id="limits" title="What this cannot do">
           <div className={PROSE}>
             <p>
               A map is not a fact-check, and it does not say which side is
@@ -311,15 +304,15 @@ export default function MethodologyPage() {
             </p>
           </div>
           <div className="mt-4 flex flex-wrap gap-x-6">
-            <Link href={HOME_FLAGSHIP_HREF} className={TEXT_ACTION}>
+            <TextAction href={HOME_FLAGSHIP_HREF}>
               Read a map: {flagshipTitle}
-            </Link>
-            <Link href="/about#contribute" className={TEXT_ACTION}>
+            </TextAction>
+            <TextAction href="/about#contribute">
               Suggest a correction
-            </Link>
+            </TextAction>
           </div>
-        </StorySection>
-      </article>
+        </Section>
+      </PageContainer>
     </AppShell>
   );
 }

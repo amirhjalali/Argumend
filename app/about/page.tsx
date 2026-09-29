@@ -1,20 +1,13 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
-import {
-  OnThisPage,
-  PROSE,
-  PROSE_LINK,
-  RuledList,
-  STORY_CONTAINER,
-  StoryHeader,
-  StorySection,
-  TEXT_ACTION,
-} from "@/components/story/StoryParts";
+import { OnThisPage, PROSE, PROSE_LINK, RuledList, STORY_SECTION } from "@/components/story/StoryParts";
+import { PageContainer, PageHeader, Section, TextAction } from "@/components/ui";
 import {
   HOME_EVIDENCE_HREF,
   HOME_FLAGSHIP_HREF,
 } from "@/components/home/homeModel";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
+import { GITHUB_URL } from "@/lib/nav";
 
 /**
  * /about is the site's only story page. It absorbed /how-it-works
@@ -24,8 +17,6 @@ import { argumentTopicIndex } from "@/lib/argument/topicIds";
  * 2026-09-17 blog post linked from #why). Nothing here describes a feature
  * that does not run by default.
  */
-
-const GITHUB_URL = "https://github.com/amirhjalali/Argumend";
 
 const flagshipTitle =
   argumentTopicIndex.find((topic) => `/topics/${topic.id}` === HOME_FLAGSHIP_HREF)?.title ??
@@ -215,17 +206,17 @@ const CONTRIBUTE = [
 export default function AboutPage() {
   return (
     <AppShell layout="reading">
-      <article className={STORY_CONTAINER}>
-        <StoryHeader
+      <PageContainer width="reading" as="article">
+        <PageHeader
           breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
           eyebrow="About Argumend"
           title="Disagree better."
           lede="Argumend maps hard questions around what would change a mind, never around who won. This page is the whole story: why it exists, the rules it keeps, how to read a map, how maps are made, and how to help."
         >
           <OnThisPage items={SECTIONS} />
-        </StoryHeader>
+        </PageHeader>
 
-        <StorySection id="why" title="Why it exists">
+        <Section className={STORY_SECTION} id="why" title="Why it exists">
           <div className={PROSE}>
             <p>
               Most arguments are not about what they seem. Two people who sound
@@ -245,9 +236,9 @@ export default function AboutPage() {
             <RuledList items={MEASURED} />
           </div>
           <p className="mt-2">
-            <Link href={HOME_EVIDENCE_HREF} className={TEXT_ACTION}>
+            <TextAction href={HOME_EVIDENCE_HREF}>
               The full write-up, with its caveats
-            </Link>
+            </TextAction>
           </p>
 
           <div className={`${PROSE} mt-6`}>
@@ -262,22 +253,22 @@ export default function AboutPage() {
               each other, so that people can look for wisdom rather than a side.
             </p>
           </div>
-        </StorySection>
+        </Section>
 
-        <StorySection id="principles" title="Three principles">
+        <Section className={STORY_SECTION} id="principles" title="Three principles">
           <RuledList items={PRINCIPLES} numbered />
-        </StorySection>
+        </Section>
 
-        <StorySection id="read-a-map" title="How to read a map" lede="No account needed.">
+        <Section className={STORY_SECTION} id="read-a-map" title="How to read a map" lede="No account needed.">
           <RuledList items={STEPS} numbered />
           <p className="mt-4">
-            <Link href={HOME_FLAGSHIP_HREF} className={TEXT_ACTION}>
+            <TextAction href={HOME_FLAGSHIP_HREF}>
               Try it on {flagshipTitle}
-            </Link>
+            </TextAction>
           </p>
-        </StorySection>
+        </Section>
 
-        <StorySection id="how-maps-are-made" title="How maps are made">
+        <Section className={STORY_SECTION} id="how-maps-are-made" title="How maps are made">
           <div className={PROSE}>
             <p>
               Every card of evidence is weighed on four things: how reliable its
@@ -290,24 +281,24 @@ export default function AboutPage() {
             </p>
           </div>
           <p className="mt-4">
-            <Link href="/methodology" className={TEXT_ACTION}>
+            <TextAction href="/methodology">
               How maps are made, step by step
-            </Link>
+            </TextAction>
           </p>
-        </StorySection>
+        </Section>
 
-        <StorySection id="faq" title="Questions">
+        <Section className={STORY_SECTION} id="faq" title="Questions">
           <div className={PROSE}>
             <p>Short answers to the questions people ask most.</p>
           </div>
           <p className="mt-2">
-            <Link href="/faq" className={TEXT_ACTION}>
+            <TextAction href="/faq">
               Read the questions
-            </Link>
+            </TextAction>
           </p>
-        </StorySection>
+        </Section>
 
-        <StorySection id="contribute" title="Contribute">
+        <Section className={STORY_SECTION} id="contribute" title="Contribute">
           <div className={PROSE}>
             <p>
               Argumend is open source, and any map can be wrong. Contributions
@@ -318,13 +309,13 @@ export default function AboutPage() {
             <RuledList items={CONTRIBUTE} />
           </div>
           <p className="mt-4">
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className={TEXT_ACTION}>
+            <TextAction href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               Open Argumend on GitHub
               <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            </TextAction>
           </p>
-        </StorySection>
-      </article>
+        </Section>
+      </PageContainer>
     </AppShell>
   );
 }

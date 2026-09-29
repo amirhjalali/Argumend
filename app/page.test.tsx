@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, within } from "@testing-library/react";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { TOPIC_COUNT } from "@/data/topicIndex";
+import { ANALYZE_HREF } from "@/lib/nav";
 import { articles } from "@/data/blog";
 import {
   HOME_EVIDENCE_HREF,
@@ -26,12 +27,12 @@ function renderHome() {
 }
 
 describe("home: one argument, two doors", () => {
-  it("has exactly one h1, the claim, and keeps the tagline on the page", () => {
+  it("has exactly one h1, the claim", () => {
     const view = renderHome();
     const h1s = view.getAllByRole("heading", { level: 1 });
     expect(h1s).toHaveLength(1);
     expect(h1s[0].textContent).toBe("Find what the argument actually turns on.");
-    expect(view.getByText("Disagree better.")).toBeTruthy();
+    // "Disagree better." rides in the site header (TopBar) at every width.
   });
 
   it("sends its primary button to a flagship map page, never the legacy canvas", () => {
@@ -49,7 +50,7 @@ describe("home: one argument, two doors", () => {
   it("offers the paste tool as the quiet second door", () => {
     const view = renderHome();
     const paste = view.getByRole("link", { name: /Paste an argument you.re in/ });
-    expect(paste.getAttribute("href")).toMatch(/^\/analyze(-v2)?$/);
+    expect(paste.getAttribute("href")).toBe(ANALYZE_HREF);
   });
 
   it("links its one line of evidence to the public post it comes from", () => {

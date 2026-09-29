@@ -1,102 +1,30 @@
 /**
- * The editorial pieces the story pages share (/about, /methodology, /faq):
- * a left-aligned page header, hairline-ruled sections and one quiet link
- * style. They follow the PageHeader / Section / TextAction contract proposed
- * in docs/reviews/2026-09-29-site-review (design system P1, P3, P4), so the
- * story pages can move onto `components/ui` without changing a word.
- * TODO(ux/shell-foundation): replace with components/ui once it lands.
+ * The two pieces the story pages (/about, /methodology) share that the
+ * site-wide primitives in components/ui do not cover: the "On this page"
+ * anchor list and a hairline-ruled list of titled entries. Headers,
+ * sections, containers and actions come from components/ui.
  */
-import Link from "next/link";
-import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
-
-/** Reading measure, one gutter, one vertical rhythm. */
-export const STORY_CONTAINER = "mx-auto w-full max-w-[44rem] px-4 pb-16 pt-6 sm:px-6 sm:pt-10 lg:px-8";
-
-/** The quiet action: teal, underlined, at least 44px tall. */
-export const TEXT_ACTION =
-  "inline-flex min-h-11 items-center font-sans text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40";
+import { TextAction } from "@/components/ui";
 
 /** An inline link inside serif prose. */
 export const PROSE_LINK =
   "text-deep underline decoration-deep/30 underline-offset-[3px] transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40";
 
-/** Long-form serif body copy. */
+/** Long-form serif body copy (`.reading-body`, globals.css). */
 export const PROSE = "reading-body space-y-5 text-primary dark:text-stone-200";
 
-export function StoryHeader({
-  breadcrumbs,
-  eyebrow,
-  title,
-  lede,
-  children,
-}: {
-  breadcrumbs?: BreadcrumbItem[];
-  eyebrow?: React.ReactNode;
-  title: React.ReactNode;
-  lede?: React.ReactNode;
-  children?: React.ReactNode;
-}) {
-  return (
-    <header>
-      {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
-      {eyebrow ? <p className="label-caps">{eyebrow}</p> : null}
-      <h1 className="mt-2 text-balance font-serif text-[2.375rem] font-normal leading-[1.06] tracking-[-0.015em] text-primary dark:text-stone-200 sm:text-[3rem]">
-        {title}
-      </h1>
-      {lede ? (
-        <p className="mt-5 max-w-[36rem] font-serif text-xl leading-[1.5] text-secondary dark:text-stone-400">
-          {lede}
-        </p>
-      ) : null}
-      {children}
-    </header>
-  );
-}
-
-export function StorySection({
-  id,
-  title,
-  lede,
-  children,
-}: {
-  id: string;
-  title: React.ReactNode;
-  lede?: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <section
-      id={id}
-      aria-labelledby={`${id}-heading`}
-      className="mt-12 scroll-mt-20 border-t border-divider pt-8 sm:mt-16"
-    >
-      <h2
-        id={`${id}-heading`}
-        className="text-balance font-serif text-[1.75rem] leading-[1.15] text-primary dark:text-stone-200 sm:text-[2rem]"
-      >
-        {title}
-      </h2>
-      {lede ? (
-        <p className="mt-2 max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-          {lede}
-        </p>
-      ) : null}
-      <div className="mt-6">{children}</div>
-    </section>
-  );
-}
+/** Space between the story pages' sections; anchors land below the sticky header. */
+export const STORY_SECTION = "mt-12 scroll-mt-20 sm:mt-16";
 
 /** "On this page": the anchored sections as plain links, 44px each. */
 export function OnThisPage({ items }: { items: { id: string; label: string }[] }) {
   return (
-    <nav aria-label="On this page" className="mt-8">
+    <nav aria-label="On this page">
       <p className="label-caps">On this page</p>
       <ul className="mt-1 flex flex-wrap gap-x-5">
         {items.map((item) => (
           <li key={item.id}>
-            <Link href={`#${item.id}`} className={TEXT_ACTION}>
-              {item.label}
-            </Link>
+            <TextAction href={`#${item.id}`}>{item.label}</TextAction>
           </li>
         ))}
       </ul>
@@ -104,7 +32,7 @@ export function OnThisPage({ items }: { items: { id: string; label: string }[] }
   );
 }
 
-/** A hairline-ruled list of titled entries (not cards). */
+/** A hairline-ruled list of titled entries (rows, not cards). */
 export function RuledList({
   items,
   numbered = false,

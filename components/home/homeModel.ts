@@ -23,14 +23,6 @@ export const HOME_FLAGSHIP_HREF = `/topics/${HOME_FLAGSHIP_ID}`;
  */
 export const HOME_EVIDENCE_HREF = "/blog/we-gave-a-model-that-cant-talk-1000-arguments";
 
-/**
- * Home's second door. Mirrors the paste box (components/HeroAnalyze.tsx),
- * which submits to the diagnosis tool while its flag is on.
- * TODO(ux/shell-foundation): use ANALYZE_HREF from lib/nav.ts once it lands.
- */
-export const HOME_PASTE_HREF =
-  process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true" ? "/analyze-v2" : "/analyze";
-
 export interface HomeCrux {
   topicId: string;
   topicTitle: string;

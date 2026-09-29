@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   CRUX_SHEET,
   ENTRY_COLUMN,
@@ -8,12 +7,15 @@ import {
 } from "@/components/argument/DebateView";
 import { CruxMovementTrack } from "@/components/argument/CruxMovement";
 import { numberWord, type HomeCrux } from "@/components/home/homeModel";
+import { Section, TextAction } from "@/components/ui";
 
 interface FeaturedTopicHeroProps {
   /** Crux #1 of the map home's primary button opens (see homeModel). */
   crux: HomeCrux;
   /** That map's page. */
   href: string;
+  /** Extra classes for the section (home sets its vertical rhythm). */
+  className?: string;
 }
 
 /**
@@ -24,7 +26,7 @@ interface FeaturedTopicHeroProps {
  * open. A server component with no client JS; the data comes from the map's
  * own graph, engine ranking and public ledger.
  */
-export function FeaturedTopicHero({ crux, href }: FeaturedTopicHeroProps) {
+export function FeaturedTopicHero({ crux, href, className }: FeaturedTopicHeroProps) {
   // The same run-in leads the map page uses for this state of crux.
   const leads =
     crux.mode === "standing"
@@ -34,23 +36,18 @@ export function FeaturedTopicHero({ crux, href }: FeaturedTopicHeroProps) {
         : { stakes: "What each answer changes.", fight: "Why it is still open." };
 
   return (
-    <section aria-labelledby="home-crux-heading" className="px-4 md:px-8">
-      <div className="mx-auto max-w-5xl border-t border-stone-300/70 py-10 dark:border-divider md:py-20">
-        <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-12">
-          <h2
-            id="home-crux-heading"
-            className="text-balance font-serif text-[2rem] leading-[1.08] tracking-[-0.01em] text-primary dark:text-stone-200 md:text-[2.5rem]"
-          >
-            What would change your mind?
-          </h2>
-          <p className="max-w-md font-serif text-[1.1875rem] leading-[1.5] text-secondary dark:text-stone-400 md:pt-2">
-            Every map narrows a fight to a few questions like this one. It is
-            the first of {numberWord(crux.cruxCount)} on{" "}
-            <em>{crux.topicTitle}</em>
-          </p>
-        </div>
-
-        <div className={`mt-6 md:mt-12 ${CRUX_SHEET}`}>
+    <Section
+      id="home-crux"
+      title="What would change your mind?"
+      lede={
+        <>
+          Every map narrows a fight to a few questions like this one. It is the
+          first of {numberWord(crux.cruxCount)} on <em>{crux.topicTitle}</em>
+        </>
+      }
+      className={className}
+    >
+        <div className={CRUX_SHEET}>
           <div className={MARGIN_RULE}>
             <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
               <span
@@ -104,15 +101,9 @@ export function FeaturedTopicHero({ crux, href }: FeaturedTopicHeroProps) {
         </div>
 
         <p className="mt-4 md:mt-6">
-          <Link
-            href={href}
-            className="inline-flex min-h-11 items-center font-sans text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"
-          >
-            Read the whole map
-          </Link>
+          <TextAction href={href}>Read the whole map</TextAction>
         </p>
-      </div>
-    </section>
+    </Section>
   );
 }
 
