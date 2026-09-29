@@ -35,13 +35,18 @@ No API keys or database needed for local dev — the app runs offline by default
 ```
 app/                    # Next.js App Router pages
   api/                  # API routes (analyze, debate, judge, auth, etc.)
-  topics/[id]/          # Topic detail pages
-  analyses/, analyze/   # Analysis pages
-  blog/, guides/, explore/, about/  # Content pages
+  page.tsx              # Home (server page: components/home/*)
+  topics/               # Maps library; topics/[id] = one crux-first page for every map
+  topics/[id]/map/      # Diagram view (React Flow), noindex
+  analyze/              # The one paste tool (map match; diagnosis when its lane is on)
+  learn/                # Learn hub; blog/, guides/, concepts/, fallacies/, glossary/, questions/ hang off it
+  about/, methodology/  # The story page and "How maps are made"
 components/             # React components
-  HomeClient.tsx        # Main canvas — React Flow graph viewer
+  AppShell.tsx, TopBar.tsx, Footer.tsx  # The one shell: sticky header, no sidebar
+  ui/                   # Page primitives: PageHeader, PageContainer, Section, Button, TextAction, Chip
+  topic/                # TopicPage template + crux primitives (flagship and legacy maps)
+  paste/, learn/, home/ # Paste flow, ArticleLayout/CollectionIndex, home beats
   nodes/                # Custom React Flow nodes (RichNode, EvidenceNode, MetaNode)
-  Sidebar.tsx, TopBar.tsx, Footer.tsx  # Shell components
 hooks/
   useLogicGraph.ts      # Core state management (Zustand store) — graph nodes/edges
   useDebateOrchestrator.ts  # Debate session state
@@ -79,7 +84,9 @@ Set via environment variables. All default to off (offline mode):
 - `ENABLE_LIVE_ANALYZE_API=true` — live argument extraction via AI
 - `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true` — live debate generation
 - `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true` — live multi-model judging
-- `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis at `/analyze-v2`
+- `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis, shown above the
+  map match at `/analyze` (with the flag off, `/analyze` still matches pasted text to a
+  map offline; `/analyze-v2` redirects to `/analyze`)
 - `CRUX_PROJECTION_JEV_GATE=true` — withhold a ranked crux whose calibrated contestedness (from a probe such as Jev) is below the floor. Inert unless a caller supplies probe values, which no production lane does; it sends nothing anywhere by itself.
 - `ENABLE_JEV_MAP_REPLY=true` — `POST /api/map-reply`: route a pasted thread to a
   topic map via TypeSafe AI's Jev. **Sends the pasted text to a third party**
@@ -164,7 +171,12 @@ Stoic/parchment aesthetic inspired by LessWrong.
 Toggle via `class` strategy on `<html>`. CSS custom properties (`--bg-canvas`, `--text-primary`, etc.) defined in `globals.css` under `:root` and `.dark`. Use Tailwind `dark:` classes or CSS variables.
 
 ### Component Classes
-Utility classes defined in `globals.css`: `.surface-card`, `.surface-paper`, `.btn-*`, `.card-hover`, `.link-underline`.
+Build pages from `components/ui` (`PageHeader`, `PageContainer` reading|default,
+`Section`, `Button` primary = the one rust fill per page, `TextAction`, `Chip` with tones
+from `lib/categoryColors.ts` `toneStyles`) rather than hand-rolled headers, containers,
+buttons or pills. Navigation lives only in `lib/nav.ts` (`ANALYZE_HREF`, `LEARN_HREF`).
+Utility classes in `globals.css`: `.surface-card`, `.surface-paper`, `.btn-primary`,
+`.label-caps`, `.card-hover`, `.link-underline`. See `docs/plans/2026-09-29-site-overhaul.md`.
 
 ## Deployment
 
