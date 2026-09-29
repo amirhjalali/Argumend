@@ -1,6 +1,7 @@
 export const longevityAntiAgingData = {
   id: "longevity-anti-aging",
   title: "Anti-Aging & Radical Life Extension",
+  question: "Could human lifespans pass 120 within our lifetimes?",
   meta_claim:
     "Recent advances in longevity science — including rapamycin, senolytics, epigenetic reprogramming, and caloric restriction mimetics — suggest that meaningful human lifespan extension beyond 120 years is achievable within our lifetimes.",
   status: "contested" as const,
@@ -22,6 +23,8 @@ export const longevityAntiAgingData = {
       crux: {
         id: "mouse-to-human-translation",
         title: "The Cross-Species Translation Test",
+        question:
+          "Do treatments that extend healthy lifespan in short-lived animals deliver similar gains in primates?",
         description:
           "The decisive question is whether interventions that extend healthy lifespan in short-lived model organisms produce proportional benefits in long-lived primates. If rapamycin, senolytics, or partial reprogramming extend healthy lifespan by 10%+ in non-human primates, the case for human translation becomes strong. If primate trials show minimal effects despite dramatic mouse results, the translational gap may be unbridgeable for lifespan extension.",
         methodology:
@@ -118,6 +121,8 @@ export const longevityAntiAgingData = {
       crux: {
         id: "biomarker-validation",
         title: "The Biomarker-to-Lifespan Validation",
+        question:
+          "Can aging biomarkers like epigenetic clocks stand in for lifespan when testing treatments in humans?",
         description:
           "If epigenetic clocks and other aging biomarkers are shown to accurately predict remaining lifespan in large, diverse human cohorts — and if interventions that improve these biomarkers also reduce mortality — then surrogate endpoint trials become valid shortcuts for evaluating longevity interventions. If biomarkers prove unreliable predictors of actual lifespan outcomes, the field lacks a feasible way to evaluate interventions in humans.",
         methodology:
@@ -180,6 +185,8 @@ export const longevityAntiAgingData = {
       crux: {
         id: "access-equity-test",
         title: "The Cost Curve Projection",
+        question:
+          "Will effective longevity treatments become cheap enough to avoid a biological class divide?",
         description:
           "If the most effective longevity interventions can be delivered at costs comparable to current chronic disease medications (under $500/month) within 15 years of clinical validation, the equity concern becomes manageable through existing insurance and public health frameworks. If costs remain at $10,000+/month for effective regimens, a biological class divide becomes likely regardless of policy intentions.",
         methodology:

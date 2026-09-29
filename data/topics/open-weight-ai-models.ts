@@ -1,6 +1,8 @@
 export const openWeightAiModelsData = {
   id: "open-weight-ai-models",
   title: "Releasing Open-Weight Frontier AI Models",
+  question:
+    "Does publishing the weights of frontier AI models do more good than harm?",
   meta_claim:
     "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const openWeightAiModelsData = {
       crux: {
         id: "marginal-uplift-test",
         title: "The Marginal-Uplift Test",
+        question:
+          "Do safety-stripped open models give bad actors real help on dangerous tasks beyond what search provides?",
         description:
           "The decisive question is whether an open-weight model measurably increases a malicious actor's ability to cause mass-casualty harm relative to a control group with access to search engines, textbooks, and existing closed models. If a stripped-safety open model provides no statistically significant uplift on end-to-end dangerous tasks over that baseline, the misuse argument against release collapses; if it does, irreversibility (see Pillar 2) makes release uniquely dangerous.",
         methodology:
@@ -160,6 +164,8 @@ export const openWeightAiModelsData = {
       crux: {
         id: "reversibility-test",
         title: "The Recall Test",
+        question:
+          "Since released weights can't be recalled, should release face a higher bar, or should rules target misuse?",
         description:
           "The question is empirically decidable: once a set of open weights has been released and mirrored, is there any technical or legal mechanism by which the original developer or a government can render those specific weights non-functional or inaccessible to a determined actor? If no such mechanism exists — and the evidence says it does not — then release is irreversible, and the live dispute is purely about whether irreversibility justifies caution-at-release or a pivot to use-based regulation.",
         methodology:
@@ -266,6 +272,8 @@ export const openWeightAiModelsData = {
       crux: {
         id: "structured-access-substitution-test",
         title: "The Structured-Access Substitution Test",
+        question:
+          "How much of open models' benefit needs fully downloadable weights rather than gated access?",
         description:
           "The benefit side of the ledger hinges on whether the democratization, competition, and safety-research gains attributed to open weights can be substantially captured through intermediate options — structured/researcher access, capability-gated release, and downloadable-but-export-controlled tiers — without full open release. If those intermediate regimes deliver most of the benefit at lower tail risk, the case for fully open weights weakens; if deep capability genuinely requires unrestricted local weights, the benefit case holds.",
         methodology:
@@ -372,6 +380,8 @@ export const openWeightAiModelsData = {
       crux: {
         id: "differential-availability-test",
         title: "The Differential-Availability Test",
+        question:
+          "Does a US open release add real access to dangerous capability beyond comparable foreign open models?",
         description:
           "The geopolitical crux reduces to a counterfactual: does a given U.S. open release meaningfully increase total global access to dangerous capability beyond what comparable Chinese (or other foreign) open models already provide? If foreign open models of equivalent capability are already freely downloadable, a matching U.S. release adds little marginal global risk while preserving competitive and research benefits; if the U.S. model is materially more capable on dangerous tasks, restraint reduces the global risk floor even if it does not eliminate foreign availability.",
         methodology:

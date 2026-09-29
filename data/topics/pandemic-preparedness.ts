@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const pandemicPreparednessData = {
   id: "pandemic-preparedness",
   title: "Pandemic Preparedness Investment",
+  question: "Should governments invest heavily in pandemic preparedness?",
   meta_claim:
     "Governments should invest heavily in pandemic preparedness infrastructure",
   status: "contested" as const,
@@ -39,6 +40,8 @@ export const pandemicPreparednessData = {
       crux: {
         id: "probability-weighted-cost",
         title: "The Probability-Weighted Expected Cost Test",
+        question:
+          "How often do truly catastrophic pandemics strike under modern conditions?",
         description:
           "Whether the probability-weighted expected cost of future pandemics justifies massive upfront investment. If pandemic-scale events (causing >1 million deaths and >$5 trillion in economic damage) occur with sufficient frequency, even expensive preparedness infrastructure pays for itself many times over. If such events are genuinely rare and most outbreaks are containable with existing capacity, the investment is a poor allocation of scarce health dollars.",
         methodology:
@@ -174,6 +177,8 @@ export const pandemicPreparednessData = {
       crux: {
         id: "institutional-reform-effectiveness",
         title: "The Institutional Reform Durability Test",
+        question:
+          "Can preparedness reforms be made to last, or do bureaucratic incentives always let them lapse?",
         description:
           "Whether institutional reforms can prevent the same failures that characterized COVID-19 responses, or whether bureaucratic incentives make preparedness inherently difficult to sustain. If post-COVID reforms in surveillance, stockpiling, and rapid response authority prove durable and effective in future outbreaks, the investment case is validated. If institutions revert to pre-pandemic complacency within 5-10 years — as occurred after H1N1 in 2009 — the investment is wasted.",
         methodology:
@@ -292,6 +297,8 @@ export const pandemicPreparednessData = {
       crux: {
         id: "research-restriction-net-effect",
         title: "The Research Restriction Net Risk Assessment",
+        question:
+          "Does the lab-accident risk of enhanced-pathogen research outweigh its value for defense?",
         description:
           "Whether restricting dangerous biological research (gain-of-function, dual-use research of concern) reduces pandemic risk more than it slows beneficial medical advances. If the probability of a lab-origin pandemic exceeds the probability that gain-of-function findings prevent a natural pandemic, restrictions reduce net risk. If gain-of-function research produces irreplaceable insights for vaccine and therapeutic development, restrictions increase vulnerability.",
         methodology:

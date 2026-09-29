@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const seedOilsHealthData = {
   id: "seed-oils-health",
   title: "Are Seed Oils Harmful to Human Health?",
+  question:
+    "Are seed oils a major driver of inflammation, obesity and metabolic disease?",
   meta_claim:
     "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
   status: "contested" as const,
@@ -84,6 +86,8 @@ export const seedOilsHealthData = {
       crux: {
         id: "la-to-aa-conversion",
         title: "The Linoleic Acid to Arachidonic Acid Conversion Test",
+        question:
+          "Does sustained high omega-6 intake from seed oils measurably shift inflammatory signaling in humans?",
         description:
           "The core dispute is whether dietary linoleic acid from seed oils meaningfully increases tissue arachidonic acid levels and downstream inflammatory eicosanoids in humans. If LA-to-AA conversion is tightly regulated and tissue AA remains stable regardless of LA intake, the ratio hypothesis fails. If high LA intake measurably elevates tissue AA and pro-inflammatory mediators, the mechanism is plausible.",
         methodology:
@@ -197,6 +201,8 @@ export const seedOilsHealthData = {
       crux: {
         id: "aldehyde-dose-response",
         title: "The Dietary Aldehyde Dose-Response Test",
+        question:
+          "Do real-world diets deliver enough cooking-oil aldehydes to cause measurable harm?",
         description:
           "The key question is whether the aldehydes and lipid peroxides generated during normal cooking with seed oils reach concentrations that cause measurable biological harm in humans. If typical dietary exposure to these compounds from seed oil use falls well below established toxicological thresholds, the oxidation concern is theoretical. If exposures approach harmful levels — especially with cumulative daily intake — the processing argument has substance.",
         methodology:
@@ -308,6 +314,8 @@ export const seedOilsHealthData = {
       crux: {
         id: "seed-oil-replacement-trial",
         title: "The Seed Oil Replacement Trial",
+        question:
+          "Does replacing seed oils specifically, not saturated fat in general, change heart and metabolic outcomes?",
         description:
           "The definitive test would be a large, long-term randomized controlled trial replacing seed oils with alternative fats (olive oil, butter, coconut oil, or animal fats) while holding total fat and caloric intake constant. If the seed-oil group shows worse inflammatory markers, metabolic outcomes, or cardiovascular events, the epidemiological association is causal. If outcomes are equivalent or favor the seed-oil group, the harm narrative is unsupported.",
         methodology:

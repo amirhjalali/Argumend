@@ -1,6 +1,7 @@
 export const iranWarJustificationData = {
   id: "iran-war-justification",
   title: "Is Military Action Against Iran Justified?",
+  question: "Is military action against Iran justified?",
   meta_claim:
     "Military strikes against Iran's nuclear and military infrastructure are a justified response to regional aggression and nuclear proliferation risks.",
   status: "contested" as const,
@@ -64,6 +65,8 @@ export const iranWarJustificationData = {
       crux: {
         id: "breakout-timeline-verification",
         title: "The Breakout Timeline Verification",
+        question:
+          "Is Iran near a deliverable nuclear weapon, or is the gap from enriched uranium to a bomb understated?",
         description:
           "Determine whether Iran's current enrichment capacity and stockpile constitute a genuine near-term weapons capability, or whether the gap between enriched material and a deliverable nuclear weapon is being understated to build a case for war.",
         methodology:
@@ -170,6 +173,8 @@ export const iranWarJustificationData = {
       crux: {
         id: "proxy-dependency-test",
         title: "The Proxy Dependency Test",
+        question:
+          "Do Iran's proxies depend on Iranian support enough that striking Iran would weaken them?",
         description:
           "Determine whether Iran's proxy forces are operationally dependent on continued Iranian material support (weapons, funding, training), such that degrading Iran's military capacity would meaningfully reduce proxy capabilities — or whether these groups have achieved sufficient autonomy to sustain operations independently.",
         methodology:
@@ -276,6 +281,8 @@ export const iranWarJustificationData = {
       crux: {
         id: "diplomatic-exhaustion-test",
         title: "The Diplomatic Exhaustion Test",
+        question:
+          "Has diplomacy with Iran been genuinely exhausted, or was it undermined before it could succeed?",
         description:
           "Determine whether all realistic diplomatic pathways have been genuinely pursued and failed on their merits — or whether diplomatic failure was engineered by parties who preferred a military option. This requires assessing whether the US negotiated in good faith after 2018 and whether Iran's rejections of subsequent proposals were unreasonable.",
         methodology:

@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const obesityPersonalResponsibilityData = {
   id: "obesity-personal-responsibility",
   title: "Is Obesity a Personal Choice or a Systemic Failure?",
+  question: "Is obesity mainly a matter of personal choice?",
   meta_claim:
     "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
   status: "contested" as const,
@@ -24,6 +25,8 @@ export const obesityPersonalResponsibilityData = {
       crux: {
         id: "food-environment-causation",
         title: "The Ultra-Processed Food Causation Test",
+        question:
+          "Does the ultra-processed food environment drive obesity, or does personal choice still dominate?",
         description:
           "Determine whether the ultra-processed food environment causally drives obesity independent of individual choice, or whether personal agency remains the dominant factor in weight outcomes.",
         methodology:
@@ -130,6 +133,8 @@ export const obesityPersonalResponsibilityData = {
       crux: {
         id: "biological-determinism-threshold",
         title: "The Biological Override Threshold Test",
+        question:
+          "How far do genes and the body's set point limit what diet and willpower can achieve?",
         description:
           "Determine the degree to which biological factors (genetics, hormones, microbiome, metabolic adaptation) constrain an individual's ability to maintain a healthy weight through behavioral changes alone. If biological factors create a 'set point' that the body defends through metabolic and hormonal adaptation, willpower-based interventions are fundamentally limited.",
         methodology:
@@ -235,6 +240,8 @@ export const obesityPersonalResponsibilityData = {
       crux: {
         id: "glp1-disease-model-validation",
         title: "The GLP-1 Disease Model Validation Test",
+        question:
+          "Do GLP-1 drugs work by correcting a biological defect, or simply by suppressing appetite?",
         description:
           "Determine whether GLP-1 drug efficacy validates the disease model of obesity or merely demonstrates that pharmacological appetite suppression can override behavioral patterns. If GLP-1 drugs correct specific biological deficits (impaired incretin signaling, leptin resistance, disrupted gut-brain communication) that cause obesity independent of food environment and behavior, the disease model is validated. If they primarily function as appetite suppressants that work regardless of biological status, they are treating a symptom, not a disease.",
         methodology:

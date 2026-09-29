@@ -1,6 +1,8 @@
 export const universalHealthcareData = {
   id: "universal-healthcare",
   title: "Universal Healthcare in the US",
+  question:
+    "Should the US replace employer-based insurance with universal healthcare?",
   meta_claim:
     "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
   status: "contested" as const,
@@ -35,6 +37,8 @@ export const universalHealthcareData = {
       crux: {
         id: "administrative-savings-calculation",
         title: "Administrative Savings Under Single-Payer",
+        question:
+          "Would single-payer's projected administrative and drug savings survive a real US transition?",
         description:
           "Calculating whether eliminating private insurance administration, billing complexity, and provider overhead would generate enough savings to cover the currently uninsured.",
         methodology:
@@ -159,6 +163,8 @@ export const universalHealthcareData = {
       crux: {
         id: "outcomes-comparison",
         title: "Risk-Adjusted Health Outcomes Comparison",
+        question:
+          "How much of the US health-outcome gap is due to how care is financed, versus obesity, violence and overdoses?",
         description:
           "Comprehensive comparison of health outcomes between the US and universal healthcare countries, controlling for demographics, lifestyle factors, and measurement differences.",
         methodology:

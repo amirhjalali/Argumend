@@ -1,6 +1,8 @@
 export const labGrownMeatData = {
   id: "lab-grown-meat-adoption",
   title: "Lab-Grown Meat Adoption",
+  question:
+    "Will lab-grown meat be cost-competitive and widely adopted in 15 years?",
   meta_claim:
     "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
   status: "contested" as const,
@@ -34,6 +36,8 @@ export const labGrownMeatData = {
       crux: {
         id: "cost-parity-timeline",
         title: "Cost Parity with Conventional Meat",
+        question:
+          "Is lab-grown meat's cost gap a scale-up problem that shrinks with volume, or a hard floor?",
         description:
           "Determining when (or whether) actual, demonstrated cultivated-meat production costs — not techno-economic projections for facilities that have not been built — will reach parity with conventionally farmed chicken ($3-4/lb) and beef ($5-8/lb).",
         methodology:
@@ -120,6 +124,8 @@ export const labGrownMeatData = {
       crux: {
         id: "blind-taste-acceptance",
         title: "Blind Taste Test at Price Parity",
+        question:
+          "Is the 'yuck factor' a lasting barrier, or will it fade once cultivated meat is cheap and on shelves?",
         description:
           "Determining whether consumers can distinguish cultivated meat from conventional meat in blinded taste tests, and whether they would purchase it at equal prices.",
         methodology:

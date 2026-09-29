@@ -1,6 +1,8 @@
 export const minneapolisShootingData = {
   id: "minneapolis-shooting",
   title: "Minneapolis ICE Shooting",
+  question:
+    "Did federal agents use excessive force in the fatal Minneapolis shooting?",
   meta_claim:
     "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account.",
   status: "contested" as const,
@@ -21,6 +23,8 @@ export const minneapolisShootingData = {
       crux: {
         id: "body-cam-review",
         title: "The Body Camera Analysis",
+        question:
+          "Does the full sequence of events back the federal self-defense account, or the bystander video and witnesses?",
         description:
           "Complete body-worn camera footage from federal agents would definitively show the sequence of events and whether force was justified.",
         methodology:
@@ -124,6 +128,8 @@ export const minneapolisShootingData = {
       crux: {
         id: "training-standards",
         title: "Training and Rules of Engagement Audit",
+        question:
+          "How do CBP and ICE training and rules for using force compare with local police standards?",
         description:
           "Independent review of CBP/ICE training standards and rules of engagement compared to local police departments.",
         methodology:

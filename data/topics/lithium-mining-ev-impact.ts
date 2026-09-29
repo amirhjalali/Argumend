@@ -1,6 +1,7 @@
 export const lithiumMiningEvImpactData = {
   id: "lithium-mining-ev-impact",
   title: "Lithium Mining & EV Environmental Impact",
+  question: "Are EVs clearly greener than gas cars once mining is counted?",
   meta_claim:
     "Electric vehicles are significantly better for the environment than gas cars when mining impacts are included",
   status: "contested" as const,
@@ -38,6 +39,8 @@ export const lithiumMiningEvImpactData = {
       crux: {
         id: "manufacturing-offset-lifetime",
         title: "The Manufacturing Carbon Debt Repayment Test",
+        question:
+          "How many miles must an EV drive to repay its manufacturing carbon, on each market's grid?",
         description:
           "If EV manufacturing emissions are offset by operational savings within a typical vehicle lifetime (150,000-200,000 miles / 12-15 years), then EVs deliver genuine climate benefits despite higher upfront emissions. If the breakeven point exceeds typical ownership in many markets, the climate case weakens significantly.",
         methodology:
@@ -144,6 +147,8 @@ export const lithiumMiningEvImpactData = {
       crux: {
         id: "mining-externalities-reduction",
         title: "The Mining Externality Trajectory Assessment",
+        question:
+          "Will mining's water, land and labor harms fall fast enough to be acceptable within a decade?",
         description:
           "If mining externalities (water depletion, habitat destruction, human rights abuses) can be reduced to acceptable levels through technology improvements, alternative battery chemistries, and enforceable regulation within the next decade, the environmental case for EVs strengthens considerably. If these externalities are structurally embedded in the supply chain and resistant to reform, EVs represent a problematic tradeoff rather than a clear improvement.",
         methodology:
@@ -267,6 +272,8 @@ export const lithiumMiningEvImpactData = {
       crux: {
         id: "supply-scaling-feasibility",
         title: "The Critical Mineral Supply-Demand Feasibility Test",
+        question:
+          "Can mining, refining and non-Chinese supply chains scale fast enough to meet EV battery demand?",
         description:
           "Whether current battery technology can scale to replace ICE vehicles without creating new resource dependencies hinges on three testable questions: (1) Can lithium mining and refining capacity triple by 2030? (2) Can alternative chemistries (sodium-ion, LFP, solid-state) reduce reliance on the most constrained minerals? (3) Can Western nations build enough domestic supply chain to avoid Chinese dependency? If all three are achievable, the transition is feasible. If any fails, significant bottlenecks or dependencies will persist.",
         methodology:

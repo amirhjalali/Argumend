@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const labDiamondsEthicsData = {
   id: "lab-diamonds-ethics",
   title: "Are Lab-Grown Diamonds More Ethical Than Mined Diamonds?",
+  question: "Are lab-grown diamonds more ethical than mined diamonds?",
   meta_claim:
     "Lab-grown diamonds are the ethical choice — they avoid the human rights abuses and environmental destruction of diamond mining.",
   status: "contested" as const,
@@ -40,6 +41,8 @@ export const labDiamondsEthicsData = {
       crux: {
         id: "supply-chain-traceability",
         title: "The Supply Chain Traceability Test",
+        question:
+          "What share of mined diamonds can be traced to a verified-ethical mine today?",
         description:
           "Whether existing certification and traceability systems can reliably guarantee that a mined diamond was not produced under conditions of violence, forced labor, or child labor. If the Kimberley Process and blockchain traceability platforms can provide mine-to-market verification for the majority of diamonds, the human rights case for lab-grown becomes weaker. If significant gaps in traceability persist — especially for artisanal production — the ethical advantage of lab-grown diamonds remains substantial.",
         methodology:
@@ -153,6 +156,8 @@ export const labDiamondsEthicsData = {
       crux: {
         id: "lifecycle-carbon-comparison",
         title: "The Full Lifecycle Carbon and Environmental Comparison",
+        question:
+          "Does a lab-grown diamond's footprint beat mining on today's power grids, not just on hydropower?",
         description:
           "Whether lab-grown diamonds have a lower total environmental footprint than mined diamonds when accounting for carbon emissions, land use, water consumption, ecosystem disruption, and waste generation across the full production lifecycle. If lab-grown production on current grids already matches or beats mining, the environmental case is clear. If coal-powered lab production exceeds mining's carbon footprint, the advantage depends on grid decarbonization timelines.",
         methodology:
@@ -265,6 +270,8 @@ export const labDiamondsEthicsData = {
       crux: {
         id: "economic-dependency-alternatives",
         title: "The Economic Transition Feasibility Test",
+        question:
+          "Can diamond-dependent nations diversify before lab-grown competition cuts their revenue too deeply?",
         description:
           "Whether diamond-dependent economies can successfully diversify before lab-grown market share erodes mining revenue to economically damaging levels. If Botswana, Namibia, and others can transition to alternative revenue sources while maintaining living standards, the ethical case for lab-grown is strengthened. If the transition proves too slow or costly, the shift to lab-grown diamonds may inflict net harm on vulnerable populations.",
         methodology:

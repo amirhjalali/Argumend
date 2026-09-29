@@ -1,6 +1,8 @@
 export const minimumWageEffectsData = {
   id: "minimum-wage-effects",
   title: "Raising the Minimum Wage",
+  question:
+    "Would a $15 federal minimum wage help workers without costing many jobs?",
   meta_claim:
     "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
   status: "contested" as const,
@@ -34,6 +36,8 @@ export const minimumWageEffectsData = {
       crux: {
         id: "employment-elasticity-measurement",
         title: "Employment Elasticity at High Minimum Wage Levels",
+        question:
+          "Does a minimum wage that is high relative to local wages, like $15 in a low-cost region, cost jobs?",
         description:
           "Determining the employment elasticity of minimum wage increases at levels significantly above the current federal minimum, where historical data is limited.",
         methodology:
@@ -142,6 +146,8 @@ export const minimumWageEffectsData = {
       crux: {
         id: "poverty-reduction-efficiency",
         title: "Minimum Wage vs. EITC Poverty Reduction Efficiency",
+        question:
+          "How much of a minimum-wage raise reaches poor households, and does it overlap the earned income tax credit?",
         description:
           "Comparing the poverty reduction efficiency of minimum wage increases versus Earned Income Tax Credit expansion, accounting for both direct effects and behavioral responses.",
         methodology:

@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const rentControlEffectivenessData = {
   id: "rent-control-effectiveness",
   title: "Does Rent Control Help or Hurt Renters?",
+  question: "Does rent control make housing less affordable in the long run?",
   meta_claim:
     "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const rentControlEffectivenessData = {
       crux: {
         id: "construction-response-test",
         title: "The Construction Response Test",
+        question:
+          "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
         description:
           "Measure whether rent control policies with new-construction exemptions actually reduce housing starts compared to unregulated markets. If construction rates decline in rent-controlled jurisdictions even when new buildings are exempt, the supply argument holds. If construction is unaffected or responds primarily to zoning and land-use policy, the supply critique is overstated.",
         methodology:
@@ -152,6 +155,8 @@ export const rentControlEffectivenessData = {
       crux: {
         id: "displacement-net-welfare",
         title: "The Displacement vs Mobility Net Welfare Test",
+        question:
+          "Is protecting current tenants from displacement worth the higher rents and longer searches newcomers face?",
         description:
           "Determine whether the welfare gains from preventing displacement of incumbent tenants exceed the welfare losses imposed on newcomers who face higher rents and reduced housing access. If displacement causes severe, measurable harm (homelessness, health impacts, educational disruption) that outweighs the efficiency costs of reduced mobility, rent control is net welfare-positive. If the mobility costs and market distortions outweigh displacement prevention benefits, alternative anti-displacement tools would be preferable.",
         methodology:
@@ -267,6 +272,8 @@ export const rentControlEffectivenessData = {
       crux: {
         id: "supply-timeline-test",
         title: "The Supply Response Timeline Test",
+        question:
+          "Is rent stabilization a needed bridge against displacement, or a distraction that delays supply reform?",
         description:
           "Determine how long supply-side interventions (upzoning, streamlined permitting, social housing) take to produce measurable rent relief for low-income tenants. If supply responses are fast enough to prevent displacement (2-3 years), rent stabilization is unnecessary. If supply takes 10-20 years to meaningfully affect affordability, rent stabilization serves as a necessary bridge policy.",
         methodology:
