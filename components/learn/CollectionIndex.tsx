@@ -99,12 +99,19 @@ export function CollectionIndex({
                   <li key={chip.href}>
                     <Chip
                       href={chip.href}
+                      current={chip.current}
                       tone={chip.current ? "teal" : "neutral"}
                       className={cx("px-3.5 text-[0.8125rem]", chip.current ? "ring-1 ring-deep/30" : null)}
                     >
-                      <span aria-current={chip.current ? "page" : undefined}>{chip.label}</span>
+                      <span>{chip.label}</span>
+                      {/* Lighter weight, not opacity: a 70% count was 2.9–4.1:1
+                          on the chip tints (axe color-contrast). The space keeps
+                          the link's name "Science 31", not "Science31". */}
                       {chip.count !== undefined ? (
-                        <span className="tabular-nums opacity-70">{chip.count}</span>
+                        <>
+                          {" "}
+                          <span className="tabular-nums font-normal">{chip.count}</span>
+                        </>
                       ) : null}
                     </Chip>
                   </li>

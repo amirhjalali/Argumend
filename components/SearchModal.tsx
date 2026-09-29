@@ -480,7 +480,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
         >
           {/* Search Input */}
           <div className="flex items-center gap-3 px-5 py-4 border-b border-stone-200/60 dark:border-[var(--border-divider)]">
-            <Search className="h-5 w-5 text-deep flex-shrink-0" strokeWidth={1.8} />
+            <Search className="h-5 w-5 text-deep dark:text-accent-text flex-shrink-0" strokeWidth={1.8} />
             <input
               ref={inputRef}
               data-modal-initial-focus
@@ -511,8 +511,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             )}
             <button
               onClick={onClose}
-              className="flex-shrink-0 px-3 py-2 min-h-[44px] rounded-md border border-stone-200 dark:border-[var(--border-divider)] text-xs text-stone-500 font-mono hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] transition-colors"
-              aria-label="Close search"
+              className="flex-shrink-0 px-3 py-2 min-h-[44px] rounded-md border border-stone-200 dark:border-[var(--border-divider)] text-xs text-stone-600 dark:text-stone-400 font-mono hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] transition-colors"
+              aria-label="Close search (Esc)"
             >
               ESC
             </button>
@@ -607,7 +607,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         `}
                       >
                         <Icon
-                          className={`h-4 w-4 ${isActive ? "text-rust-600" : "text-stone-400"}`}
+                          className={`h-4 w-4 ${isActive ? "text-rust-600 dark:text-rust-300" : "text-stone-400"}`}
                           strokeWidth={1.8}
                         />
                       </div>
@@ -617,7 +617,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         <div className="flex items-center gap-2">
                           <span
                             className={`text-sm font-medium truncate ${
-                              isActive ? "text-rust-700" : "text-primary dark:text-stone-200"
+                              isActive ? "text-rust-700 dark:text-rust-300" : "text-primary dark:text-stone-200"
                             }`}
                           >
                             {result.title}
@@ -652,7 +652,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       {/* Arrow for active */}
                       {isActive && (
                         <ArrowRight
-                          className="flex-shrink-0 h-3.5 w-3.5 text-rust-600"
+                          className="flex-shrink-0 h-3.5 w-3.5 text-rust-600 dark:text-rust-300"
                           strokeWidth={2}
                         />
                       )}
