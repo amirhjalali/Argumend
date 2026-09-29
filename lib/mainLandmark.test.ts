@@ -14,10 +14,8 @@ describe("global skip-link targets", () => {
   });
 
   it.each([
-    "app/is/page.tsx",
-    "app/is/[slug]/page.tsx",
-    "app/questions/page.tsx",
-    "app/questions/[slug]/page.tsx",
+    "components/learn/ArticleLayout.tsx",
+    "components/learn/CollectionIndex.tsx",
     "app/analyze-v2/page.tsx",
     "app/reply/page.tsx",
     "app/d/[slug]/page.tsx",
@@ -26,6 +24,16 @@ describe("global skip-link targets", () => {
     const source = readFileSync(join(process.cwd(), path), "utf8");
     expect(source).toContain("<AppShell");
     // Never a second, nested <main>.
+    expect(source).not.toMatch(/<main\b/);
+  });
+
+  // Learn pages render inside AppShell through the two Learn templates.
+  it.each([
+    "app/questions/page.tsx",
+    "app/questions/[slug]/page.tsx",
+  ])("%s renders through a Learn template", (path) => {
+    const source = readFileSync(join(process.cwd(), path), "utf8");
+    expect(source).toMatch(/<(ArticleLayout|CollectionIndex)\b/);
     expect(source).not.toMatch(/<main\b/);
   });
 
