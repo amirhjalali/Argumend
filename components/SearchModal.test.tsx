@@ -167,6 +167,31 @@ describe("SearchModal keyboard lifecycle", () => {
     },
   );
 
+  it("lists both map models under one Maps group, and no retired pages", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    fireEvent.change(input, { target: { value: "nuclear" } });
+    const text = view.container.textContent ?? "";
+    expect(text).toMatch(/Maps/);
+    expect(text).not.toMatch(/Topics|Topic\b/);
+
+    // Redirected paths lose their #anchor on client navigation, and these
+    // duplicated About. Neither comes back as a result.
+    fireEvent.change(input, { target: { value: "how it works" } });
+    expect(view.queryByRole("option", { name: /^How it works/ })).toBeNull();
+    fireEvent.change(input, { target: { value: "community" } });
+    expect(view.queryByRole("option", { name: /^Community/ })).toBeNull();
+
+    // About is still found, and says what the page holds now.
+    fireEvent.change(input, { target: { value: "contribute" } });
+    const about = view.getByRole("option", { name: /^About/ });
+    fireEvent.click(about);
+    expect(push).toHaveBeenLastCalledWith("/about");
+  });
+
   it("indexes useful aliases for the flagship maps", async () => {
     const view = render(<SearchHarness />);
     fireEvent.click(view.getByRole("button", { name: "Open search" }));

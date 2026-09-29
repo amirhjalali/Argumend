@@ -8,7 +8,7 @@ import type { DisagreementReportV1 } from "@/types/disagreement";
  * sentence rather than "Kind of disagreement: Cause · Resolvability: High",
  * which read as operator categories to anyone who had not built them.
  *
- * `headlineAs` lets a page that already has an h1 (the /analyze-v2 tool page)
+ * `headlineAs` lets a page that already has an h1 (the /analyze paste page)
  * keep one h1; the public report page leaves it as the page heading.
  */
 export function ReportMasthead({

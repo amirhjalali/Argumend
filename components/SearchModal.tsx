@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import {
   Search,
   X,
-  MessageSquare,
   FileText,
   Lightbulb,
   File,
@@ -76,23 +75,16 @@ const STATIC_PAGES: SearchResult[] = [
   PASTE_PAGE,
   ALL_MAPS_PAGE,
   {
-    id: "page-how-it-works",
-    title: "How it works",
-    subtitle: "Learn about Argumend's methodology and approach",
-    type: "page",
-    href: "/how-it-works",
-  },
-  {
     id: "page-about",
     title: "About",
-    subtitle: "Our mission to map the truth",
+    subtitle: "Why Argumend exists, how to read a map, and how to contribute",
     type: "page",
     href: "/about",
   },
   {
     id: "page-methodology",
-    title: "Methodology",
-    subtitle: "Evidence weighting, scoring, and verification",
+    title: "How maps are made",
+    subtitle: "The methodology: positions, evidence, and what would settle each crux",
     type: "page",
     href: "/methodology",
   },
@@ -104,11 +96,11 @@ const STATIC_PAGES: SearchResult[] = [
     href: "/faq",
   },
   {
-    id: "page-library",
-    title: "Library",
-    subtitle: "Curated books, papers, and tools",
+    id: "page-research",
+    title: "Research",
+    subtitle: "The research behind Argumend, with a reading list",
     type: "page",
-    href: "/library",
+    href: "/research",
   },
   {
     id: "page-concepts",
@@ -123,13 +115,6 @@ const STATIC_PAGES: SearchResult[] = [
     subtitle: "Articles on critical thinking and epistemology",
     type: "page",
     href: "/blog",
-  },
-  {
-    id: "page-community",
-    title: "Community",
-    subtitle: "Join the Argumend community",
-    type: "page",
-    href: "/community",
   },
   {
     id: "page-for-educators",
@@ -160,10 +145,12 @@ const TYPE_CONFIG: Record<
     label: "Maps",
     badge: "Map",
   },
+  // Pillar-model maps. Same kind of thing as `map` to a reader, so the same
+  // label and badge, and they share the "Maps" group (see the grouping below).
   topic: {
-    icon: MessageSquare,
-    label: "Topics",
-    badge: "Topic",
+    icon: Network,
+    label: "Maps",
+    badge: "Map",
   },
   blog: {
     icon: FileText,
@@ -322,12 +309,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       .map((r) => itemsById.get(r.id as string))
       .filter((item): item is SearchResult => item != null);
 
-    // Group by type
-    const typeOrder: ResultType[] = ["map", "topic", "blog", "concept", "page"];
+    // Group by type; both map models share one "Maps" group, in score order.
+    const typeOrder: ResultType[] = ["map", "blog", "concept", "page"];
     const grouped: SearchGroup[] = [];
 
     for (const type of typeOrder) {
-      const results = matched.filter((r) => r.type === type).slice(0, MAX_PER_GROUP);
+      const results = matched
+        .filter((r) => (r.type === "topic" ? "map" : r.type) === type)
+        .slice(0, MAX_PER_GROUP);
       if (results.length > 0) {
         grouped.push({
           label: TYPE_CONFIG[type].label,

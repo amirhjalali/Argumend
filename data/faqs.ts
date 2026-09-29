@@ -82,14 +82,14 @@ export const faqs: FAQ[] = [
     answer:
       "The people who make the maps have views, so the method is built to catch them. Every position is stated in its strongest form. Evidence is filed by what it shows rather than by who cites it, and weighed on the same four questions whichever side it helps. When an audit of our own maps found cards filed on the wrong side, we corrected them. Where the evidence does lean one way, the map says so rather than inventing balance. If you think a map is unfair, tell us which card and why.",
     linkText: "Suggest a correction",
-    linkHref: "/community",
+    linkHref: "/about#contribute",
   },
   {
     question: "How do I suggest a correction or a new map?",
     answer:
-      "Open an issue on GitHub from the community page. For a correction, name the map and the card, say what is wrong (wrong side, weighed too high or too low, out of date, missing) and bring the source. For a new map, the best candidates are questions where serious people disagree and where you can say what evidence would change a mind.",
-    linkText: "Community and contributing",
-    linkHref: "/community",
+      "Open an issue on Argumend's GitHub; the Contribute section of the About page links to it. For a correction, name the map and the card, say what is wrong (wrong side, weighed too high or too low, out of date, missing) and bring the source. For a new map, the best candidates are questions where serious people disagree and where you can say what evidence would change a mind.",
+    linkText: "How to contribute",
+    linkHref: "/about#contribute",
   },
   {
     question: "Can I save maps?",
