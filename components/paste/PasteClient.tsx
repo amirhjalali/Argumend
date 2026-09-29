@@ -152,7 +152,7 @@ function mapReadingLine(reading: PasteMapReading): string {
     reading.coverage === null ? "" : ` The best match accounts for ${Math.round(reading.coverage * 100)}% of your words.`;
   return [
     `Best match ${formatScore(reading.topScore)}. ${lead}${coverage}`,
-    `A map is named only when it leads every map on a different subject by ${reading.minLead} times, and by ${reading.minExclusiveLead} times on the words where they differ, with a score of at least ${reading.minScore} (or, for a short text, ${Math.round(reading.minCoverage * 100)}% of its words). Maps on the same subject are shown as closely related rather than counted against it.`,
+    `A map is named only when it leads every map on a different subject by ${reading.minLead} times, and by ${reading.minExclusiveLead} times on the words where they differ, with a score of at least ${reading.minScore} (or, for a short text, ${Math.round(reading.minCoverage * 100)}% of its words). Maps on the same subject are shown as closely related rather than counted against it. With no map named, the closest maps are listed only when several maps on one subject share much of your text; a word or two in common is not enough.`,
     `These are keyword scores, comparable within one paste only. Took ${reading.matchMs} ms.`,
   ].join(" ");
 }
@@ -191,7 +191,8 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const [diagnosis, setDiagnosis] = useState<DiagnosisState>({ status: "off" });
   const [inputOpen, setInputOpen] = useState(true);
   const [step, setStep] = useState(0);
-  const [submittedLength, setSubmittedLength] = useState(0);
+  // The text as submitted: the box can be edited again before the next submit.
+  const [submitted, setSubmitted] = useState("");
 
   const runRef = useRef(0);
   const resultsRef = useRef<HTMLElement>(null);
@@ -209,7 +210,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
       setMaps(null);
       setMapsError("");
       setStep(0);
-      setSubmittedLength(text.length);
+      setSubmitted(text);
       setDiagnosis(diagnosisOn ? { status: "loading" } : { status: "off" });
       trackEvent({ action: "analysis_submit", contentType: type });
       if (diagnosisOn) {
@@ -346,6 +347,9 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const related = match ? (maps?.related ?? []) : [];
   const report = diagnosis.status === "done" ? diagnosis.report : null;
   const summary = match || report ? buildPasteSummary({ maps, report }) : undefined;
+  // With no map, the "read it yourself" guide stands in for the diagnosis:
+  // always when that lane is off, and when it is on but did not run.
+  const showGuide = !diagnosisOn || diagnosis.status === "failed";
 
   // What a screen reader hears when the result lands. Focus moves to the
   // result region too, but "Result, region" alone does not say what came back.
@@ -364,11 +368,15 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           ]
             .filter(Boolean)
             .join(" ")
-        : maps?.status === "closest"
-          ? "Result below. No map matches it closely; the closest maps are listed."
-          : maps
-            ? "Result below. No map on the site came close."
-            : "Result below."
+        : maps
+          ? [
+              "Result below. No map matches it, rather than a wrong one.",
+              maps.status === "closest" ? "The closest maps are listed." : "",
+              showGuide ? "Then three questions to read it yourself." : "",
+            ]
+              .filter(Boolean)
+              .join(" ")
+          : "Result below."
       : "";
 
   const lede = diagnosisOn
@@ -399,7 +407,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
       {!inputOpen ? (
         <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-b border-divider pb-3">
           <p className="font-sans text-sm text-muted">
-            Your text, {submittedLength.toLocaleString("en-US")} characters
+            Your text, {submitted.length.toLocaleString("en-US")} characters
           </p>
           <TextAction onClick={() => setInputOpen(true)}>Edit</TextAction>
         </div>
@@ -511,7 +519,12 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
             match ? (
               <MapMatch match={match} related={related} />
             ) : (
-              <MapNoMatch maps={maps} />
+              <MapNoMatch
+                maps={maps}
+                text={submitted}
+                diagnosisOn={diagnosisOn}
+                guide={showGuide}
+              />
             )
           ) : mapsError ? (
             <p role="status" className="max-w-3xl font-sans text-[0.9375rem] text-[var(--text-secondary)]">

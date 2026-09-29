@@ -111,8 +111,10 @@ export interface PasteMapReading {
 export interface PasteMapsResult {
   /**
    * "matched": one map stands clear of every map on a different subject;
-   * "closest": some maps share words with the paste but none stands clear;
-   * "none": nothing came close.
+   * "closest": maps on the paste's subject share much of its wording, but
+   * none stands clear of the rest;
+   * "none": no map is named or offered (a word or two in common is not
+   * enough to offer one).
    */
   status: "matched" | "closest" | "none";
   match: PasteMapMatch | null;

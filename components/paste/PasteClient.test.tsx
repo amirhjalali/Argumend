@@ -8,6 +8,7 @@ import { FakeDisagreementProvider } from "@/lib/disagreement/model/fake";
 import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "@/lib/disagreement/prompts/v1/examples";
 import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
 import { findMaps } from "@/lib/paste/maps";
+import { ASSISTED_LIVING_PASTE } from "@/lib/paste/testPastes";
 import type { PasteLanes, PasteMapsResult } from "@/lib/paste/types";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
@@ -168,6 +169,44 @@ describe("PasteClient with every lane off (production today)", () => {
     await waitFor(() => view.getByRole("heading", { name: /^No map/ }));
     expect(view.queryByRole("link", { name: "Open the map at this crux" })).toBeNull();
     expect(view.queryByRole("heading", { name: "Closely related" })).toBeNull();
+  });
+
+  it("gives a family argument no map covers a guide to read it, and no closest maps", async () => {
+    const assisted = await findMaps(ASSISTED_LIVING_PASTE);
+    const fetchMock = stubFetch({ "/api/analyze": () => jsonResponse({ maps: assisted }) });
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    const announcer = view.getAllByRole("status").find((el) => el.className.includes("sr-only"));
+    fireEvent.change(view.getByLabelText("The argument to read"), { target: { value: ASSISTED_LIVING_PASTE } });
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+
+    await waitFor(() => view.getByRole("heading", { name: "No map, rather than the wrong map" }));
+    expect(view.queryByRole("heading", { name: "Closest maps" })).toBeNull();
+    expect(view.getByRole("heading", { name: "Read it yourself" })).toBeTruthy();
+    for (const question of [
+      "Is this about a fact, a value, or a word?",
+      "What would change each person’s mind?",
+      "What do you both already agree on?",
+    ]) {
+      expect(view.getByRole("heading", { name: question })).toBeTruthy();
+    }
+    // Cues quote the reader's own sentence, labelled as a word search.
+    expect(view.getByText("A word search, not a reading. It can be wrong.")).toBeTruthy();
+    expect(view.getByText("“Assisted living is the responsible choice.”")).toBeTruthy();
+    // The honest line about the lane that is off, the crux concept and the library.
+    expect(view.getByText(/needs Argumend’s AI diagnosis, which is not switched on here/)).toBeTruthy();
+    expect(view.getByRole("link", { name: "What a crux is" }).getAttribute("href")).toBe("/concepts/cruxes");
+    expect(view.getByRole("link", { name: "Browse all maps" }).getAttribute("href")).toBe("/topics");
+    expect(announcer?.textContent).toBe(
+      "Result below. No map matches it, rather than a wrong one. Then three questions to read it yourself.",
+    );
+
+    // What the reader writes stays in the page: no request, nothing stored.
+    fireEvent.change(view.getByLabelText("You would think again if…"), {
+      target: { value: "a nurse said she is safe alone" },
+    });
+    fireEvent.change(view.getByLabelText("We both agree that…"), { target: { value: "Mom's safety comes first" } });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(sessionStorage.length).toBe(0);
   });
 
   it("submits the home page's paste on arrival, once, under Strict Mode", async () => {

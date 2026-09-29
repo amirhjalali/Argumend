@@ -77,12 +77,17 @@ export const MAP_MATCH = {
   minShortScore: 4.5,
   /**
    * With no map named, the closest maps are offered only when the best one
-   * reaches this score, or `closestCoverage` of a short paste's words with
-   * at least `minShortScore`. Below that, the overlap is a word or two
-   * ("water", "nuclear") and a list would be noise dressed as a lead.
+   * reaches this score and accounts for at least `closestCoverage` of the
+   * paste's words, and no one map stood clear (see `decideMatch`). Below
+   * that the overlap is a word or two ("water", "nuclear"), or a thin slice
+   * of a long text, and a list would be noise dressed as a lead: a sibling
+   * dispute about moving Mom into assisted living was offered remote work
+   * and AI jobs. Set on 2026-09-29 so that none of the eval's 37 pastes that
+   * no map covers is offered a closest map; see
+   * docs/reviews/2026-09-29-r2-no-match.md.
    */
   closestFloor: 8,
-  closestCoverage: 0.3,
+  closestCoverage: 0.2,
   /** A map is listed beside the answer only when it scores at least this share of the best one. */
   shownShare: 0.5,
   /** Maps named in any one answer, the match and its neighbours included. */
@@ -217,9 +222,14 @@ export function decideMatch(
     return { named: top, related, closest, top, rival, lead, exclusiveLead, coverage };
   }
 
+  // Closest maps are a fair offer when several maps compete for a text that
+  // is substantially about their subject and none stands clear of the rest.
+  // They are not offered when one map did stand clear but had too little of
+  // the text behind it to be named: that is a paste borrowing one map's words
+  // (a landlord who won't fix the boiler, and rent control), and listing the
+  // map anyway would name it by the back door.
   const cameClose =
-    top.score >= MAP_MATCH.closestFloor ||
-    (coverage >= MAP_MATCH.closestCoverage && top.score >= MAP_MATCH.minShortScore);
+    !clear && top.score >= MAP_MATCH.closestFloor && coverage >= MAP_MATCH.closestCoverage;
   const closest = cameClose ? [top, ...rest.filter(shown)].slice(0, MAP_MATCH.maxMaps) : [];
   return { named: null, related: [], closest, top, rival, lead, exclusiveLead, coverage };
 }

@@ -5,6 +5,7 @@ import type { Pillar } from "@/lib/schemas/topic";
 import { EXPECTED_MAP_COUNT } from "./mapDocuments";
 import type { RankedMap } from "./mapIndex";
 import { decideMatch, findMaps, getMapIndex, MAP_MATCH, pickPillar } from "./maps";
+import { ASSISTED_LIVING_PASTE, NUCLEAR_PASTE } from "./testPastes";
 
 /**
  * A ranking with the given scores. Every word of the paste is scored, so
@@ -107,6 +108,22 @@ describe("decideMatch", () => {
     expect(decision.closest).toEqual([]);
   });
 
+  it("lists nothing when the overlap is a thin slice of a long text", () => {
+    // Scores high on raw words, but the maps account for a tenth of the paste.
+    const decision = decideMatch(ranking([20, 19.5, 19], 200), noSiblings);
+    expect(decision.named).toBeNull();
+    expect(decision.coverage).toBeLessThan(MAP_MATCH.closestCoverage);
+    expect(decision.closest).toEqual([]);
+  });
+
+  it("lists nothing when one map stood clear but had too little behind it to be named", () => {
+    // Clear of every other subject, too thin to name: listing it would name it anyway.
+    const decision = decideMatch(ranking([11, 5], 40), noSiblings);
+    expect(decision.named).toBeNull();
+    expect(decision.lead).toBeGreaterThanOrEqual(MAP_MATCH.minLead);
+    expect(decision.closest).toEqual([]);
+  });
+
   it("never shows more than three maps", () => {
     const decision = decideMatch(ranking([60, 55, 50, 30, 29, 28]), (a, b) => a !== b && [a, b].every((id) => ["map-0", "map-1", "map-2"].includes(id)));
     expect(1 + decision.related.length + decision.closest.length).toBeLessThanOrEqual(MAP_MATCH.maxMaps);
@@ -187,6 +204,20 @@ describe("findMaps", () => {
     expect(match?.crux?.question).toMatch(/^Does immigration barely move the wages of directly competing workers/);
     expect(match?.crux?.href).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
     expect(match?.cards.length).toBe(2);
+  });
+
+  it("offers no closest maps for a family argument no map covers", async () => {
+    const result = await findMaps(ASSISTED_LIVING_PASTE);
+    expect(result.status).toBe("none");
+    expect(result.match).toBeNull();
+    expect(result.closest).toEqual([]);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("still names the nuclear map for the live-site nuclear paste", async () => {
+    const result = await findMaps(NUCLEAR_PASTE);
+    expect(result.status).toBe("matched");
+    expect(result.match?.id).toBe("nuclear-energy-safety");
   });
 
   it("names nothing for text with no words in common with any map", async () => {
