@@ -594,7 +594,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       onMouseEnter={() => setActiveIndex(idx)}
                       className={`
                         w-full flex items-center gap-3 px-5 py-3 text-left transition-colors duration-100
-                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500 ring-2 ring-deep/20" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-subtle/60 border-l-2 border-l-transparent"}
+                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500 ring-2 ring-inset ring-focus" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-subtle/60 border-l-2 border-l-transparent"}
                       `}
                       role="option"
                       aria-selected={isActive}

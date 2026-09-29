@@ -118,4 +118,26 @@ describe("focus rings in source", () => {
     }
     expect(offenders).toEqual([]);
   });
+
+  it("never leaves a ring's colour to Tailwind's default (a faded blue)", () => {
+    // A class string that draws a focus ring width must also pick its colour.
+    // Button's base string is the one exception: every variant adds it, and
+    // the next test checks that.
+    const literal = /["'`][^"'`]*(?:focus|focus-visible):ring-[12](?!\d)[^"'`]*["'`]/g;
+    const offenders: string[] = [];
+    for (const file of files) {
+      if (file.endsWith(join("components", "ui", "Button.tsx"))) continue;
+      for (const [text] of read(file).matchAll(literal)) {
+        if (!/ring-(?:focus|error)\b/.test(text)) offenders.push(`${file}: ${text.slice(0, 120)}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it("gives every Button variant the focus ring", async () => {
+    const { buttonClasses } = await import("@/components/ui/Button");
+    for (const variant of ["primary", "secondary", "quiet"] as const) {
+      expect(buttonClasses({ variant })).toContain("focus-visible:ring-focus");
+    }
+  });
 });
