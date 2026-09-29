@@ -7,7 +7,12 @@ const SOCIAL_IMAGE = buildGenericOgUrl({
 });
 
 export const metadata: Metadata = {
-  title: "Blog — Essays on Critical Thinking & Argument Analysis",
+  // An object, not a plain string: a string title here resets the root
+  // "%s | ARGUMEND" template for every page below this segment.
+  title: {
+    default: "Blog — Essays on Critical Thinking & Argument Analysis",
+    template: "%s | ARGUMEND",
+  },
   description:
     "Essays on critical thinking, logical fallacies, steel-manning, confidence calibration, and the art of productive disagreement. By the Argumend team.",
   keywords: [
