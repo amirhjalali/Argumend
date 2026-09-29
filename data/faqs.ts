@@ -45,7 +45,7 @@ export const faqs: FAQ[] = [
     question:
       "What do “largely converges”, “still divided” and “still thin” mean?",
     answer:
-      "They describe the state of the evidence on a map, not the answer to the question. “Largely converges” means there is a lot of good evidence and most of it points one way. “Still divided” means there is a lot of good evidence and it points both ways. “Still thin” means there is not yet enough good evidence to say much, whichever way it leans. In between, a map says which way the evidence leans and that it is moderately evidenced. If a map is small, or a single card could flip its reading, it says so. None of these is the probability that a claim is true, and none is a count of how many experts agree.",
+      "They describe the state of the evidence on a map, not the answer to the question. “Largely converges” means there is a lot of good evidence and most of it points one way. “Still divided” means there is a lot of good evidence and it points both ways. “Still thin” means there is not yet enough good evidence to say much, whichever way it leans. In between, a map says which way the evidence leans and that it is moderately evidenced. If a single evidence card could change a map\u2019s reading, the map says so. None of these is the probability that a claim is true, and none is a count of how many experts agree.",
     linkText: "Balance and weight",
     linkHref: "/concepts/confidence-calibration",
   },
