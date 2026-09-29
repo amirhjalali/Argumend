@@ -188,7 +188,12 @@ describe("the one-tap reflection", () => {
       window.localStorage.getItem("argumend-crux-reflection-nuclear-energy-safety")!,
     );
     expect(stored.choice).toBe("crux-climate-effectiveness");
-    expect(scope.getByText(/Did this map change what you thought the argument was about\?/)).toBeTruthy();
+    expect(scope.getByText("Did this change what you thought you were arguing about?")).toBeTruthy();
+    // The tap leads to the question it picked.
+    expect(scope.getByRole("link", { name: "Open this question" }).getAttribute("href")).toBe(
+      "#crux-climate-effectiveness",
+    );
+    expect(reflection.querySelector("[data-settle]")?.textContent).toMatch(/^What would settle it/);
 
     fireEvent.click(scope.getByRole("button", { name: "A little" }));
     expect(
