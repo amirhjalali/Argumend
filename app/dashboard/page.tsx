@@ -1,51 +1,56 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import {
-  Bookmark,
-  Swords,
-  Clock,
-  ArrowRight,
-  CheckCircle,
-  AlertCircle,
-  HelpCircle,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { auth } from "@/lib/auth";
-import { getSavedTopicIds, listUserDebates } from "@/lib/db/queries";
-import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
-import type { TopicStatus } from "@/data/topicIndex";
+import { getSavedTopicIds } from "@/lib/db/queries";
+import { topicSummaries } from "@/data/topicIndex";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { AppShell } from "@/components/AppShell";
-import {
-  categoryColors,
-  statusColors,
-  categoryTopBorder,
-} from "@/lib/categoryColors";
-import { BalanceWeightChip } from "@/components/BalanceWeightChip";
-import { formatShortDate } from "@/lib/formatDate";
 
 export const metadata: Metadata = {
   // Plain string — the root title template ("%s | ARGUMEND") adds the suffix;
   // baking it in here produced a doubled "Dashboard | ARGUMEND | ARGUMEND".
-  title: "Dashboard",
-  description: "Your saved topics and recent debate history.",
+  title: "Your saved maps",
+  description: "The maps you have saved, on any device you sign in on.",
   robots: { index: false, follow: false },
   alternates: {
     canonical: "https://argumend.org/dashboard",
   },
 };
 
-const statusIcons: Record<TopicStatus, typeof CheckCircle> = {
-  settled: CheckCircle,
-  contested: AlertCircle,
-  highly_speculative: HelpCircle,
-};
+interface SavedMap {
+  id: string;
+  title: string;
+  line: string;
+}
 
-const statusLabels: Record<TopicStatus, string> = {
-  settled: "Evidence converges",
-  contested: "Evidence divided",
-  highly_speculative: "Evidence thin",
-};
+/**
+ * Resolve saved ids to maps: the flagship maps first (they are not in the
+ * lightweight summaries), then the rest of the library. Unknown ids drop out.
+ */
+function resolveSavedMaps(ids: string[]): SavedMap[] {
+  const byId = new Map<string, SavedMap>();
+  for (const topic of argumentTopicIndex) {
+    byId.set(topic.id, { id: topic.id, title: topic.title, line: topic.tagline });
+  }
+  for (const topic of topicSummaries) {
+    if (!byId.has(topic.id)) {
+      byId.set(topic.id, { id: topic.id, title: topic.title, line: topic.meta_claim });
+    }
+  }
+  return ids.flatMap((id) => {
+    const map = byId.get(id);
+    return map ? [map] : [];
+  });
+}
 
+/**
+ * The signed-in home, shown only when NEXT_PUBLIC_ENABLE_AUTH is on: the
+ * maps you saved, in the order you saved them. It carries no debate history,
+ * no scores and no winners; an account exists to keep saved maps across
+ * devices, and that is all this page shows.
+ */
 export default async function DashboardPage() {
   if (process.env.NEXT_PUBLIC_ENABLE_AUTH !== "true") {
     redirect("/saved");
@@ -57,188 +62,58 @@ export default async function DashboardPage() {
     redirect("/auth/signin");
   }
 
-  const [savedTopicIds, recentDebates] = await Promise.all([
-    getSavedTopicIds(session.user.id),
-    listUserDebates(session.user.id, 10),
-  ]);
-
-  // Resolve saved topic IDs to topic summaries
-  const savedTopicSet = new Set(savedTopicIds);
-  const savedTopicsList = topicSummaries.filter((t) =>
-    savedTopicSet.has(t.id)
-  );
-
-  // Sort to match save order
-  savedTopicsList.sort(
-    (a, b) => savedTopicIds.indexOf(a.id) - savedTopicIds.indexOf(b.id)
-  );
-
-  const firstName = session.user.name?.split(" ")[0] ?? "there";
+  const savedMaps = resolveSavedMaps(await getSavedTopicIds(session.user.id));
+  const firstName = session.user.name?.split(" ")[0];
 
   return (
-    <AppShell>
-      <div className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[var(--bg-canvas)]">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          {/* Header */}
-          <div className="mb-10">
-            <h1 className="font-serif text-3xl sm:text-4xl tracking-tight text-primary dark:text-stone-200 mb-2 leading-[1.08]">
-              Welcome back, {firstName}
-            </h1>
-            <p className="text-base text-stone-500 dark:text-[var(--text-muted)] leading-relaxed">
-              Your saved topics and recent debate activity.
-            </p>
-          </div>
+    <AppShell layout="reading">
+      <div className="mx-auto w-full max-w-[44rem] px-4 pb-16 pt-8 sm:px-6 sm:pt-12 lg:px-8">
+        <header>
+          <p className="label-caps">{firstName ? `Signed in as ${firstName}` : "Signed in"}</p>
+          <h1 className="mt-2 font-serif text-[2.375rem] font-normal leading-[1.06] tracking-[-0.015em] text-primary dark:text-stone-200 sm:text-[3rem]">
+            Your saved maps
+          </h1>
+          <p className="mt-4 max-w-[36rem] font-serif text-xl leading-[1.5] text-secondary dark:text-stone-400">
+            {savedMaps.length === 0
+              ? "Nothing saved yet. Maps you save while signed in appear here, on any device."
+              : `${savedMaps.length} saved, in the order you saved them.`}
+          </p>
+        </header>
 
-          {/* Saved Topics */}
-          <section className="mb-12">
-            <div className="flex items-center gap-2 mb-5">
-              <Bookmark className="h-5 w-5 text-rust-500" strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
-                Saved Topics
-              </h2>
-              <span className="ml-auto text-sm text-muted dark:text-[var(--text-muted)] font-mono tabular-nums">
-                {savedTopicsList.length}
-              </span>
-            </div>
-
-            {savedTopicsList.length === 0 ? (
-              <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-card/60 p-8 text-center">
-                <Bookmark className="h-8 w-8 text-stone-300 dark:text-[var(--text-muted)] mx-auto mb-3" />
-                <p className="text-stone-500 dark:text-[var(--text-secondary)] mb-4">
-                  No saved topics yet. Browse topics and hit the bookmark button
-                  to save them here.
-                </p>
+        {savedMaps.length > 0 ? (
+          <ul className="mt-8 divide-y divide-divider border-y border-divider">
+            {savedMaps.map((map) => (
+              <li key={map.id}>
                 <Link
-                  href="/topics"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm"
+                  href={`/topics/${map.id}`}
+                  className="group flex items-start justify-between gap-4 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50"
                 >
-                  Explore Topics
-                  <ArrowRight className="h-4 w-4" />
+                  <span className="min-w-0">
+                    <span className="block font-serif text-[1.25rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
+                      {map.title}
+                    </span>
+                    <span className="mt-1 block line-clamp-2 text-sm leading-relaxed text-secondary dark:text-stone-400">
+                      {map.line}
+                    </span>
+                  </span>
+                  <ChevronRight
+                    className="mt-1.5 h-4 w-4 shrink-0 text-muted transition-transform group-hover:translate-x-0.5 dark:text-stone-400"
+                    aria-hidden="true"
+                  />
                 </Link>
-              </div>
-            ) : (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {savedTopicsList.map((topic) => {
-                  const StatusIcon = statusIcons[topic.status];
+              </li>
+            ))}
+          </ul>
+        ) : null}
 
-                  return (
-                    <Link
-                      key={topic.id}
-                      href={`/topics/${topic.id}`}
-                      className={`group flex flex-col bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] border-t-2 ${categoryTopBorder[topic.category]} rounded-xl p-5 hover:border-[#4f7b77]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200`}
-                    >
-                      <h3 className="font-serif text-base text-primary dark:text-stone-200 group-hover:text-deep transition-colors leading-snug mb-1.5">
-                        {topic.title}
-                      </h3>
-                      <p className="text-xs text-stone-500 dark:text-[var(--text-muted)] leading-relaxed line-clamp-2 mb-4 flex-1">
-                        {topic.meta_claim}
-                      </p>
-
-                      {/* Balance + weight */}
-                      <div className="mb-3">
-                        <BalanceWeightChip balance={topic.balance} weight={topic.weight} verdict={topic.verdict} showLabel />
-                      </div>
-
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="flex flex-wrap items-center gap-1.5">
-                          <span
-                            className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border capitalize ${categoryColors[topic.category]}`}
-                          >
-                            {CATEGORY_LABELS[topic.category]}
-                          </span>
-                          <span
-                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium border ${statusColors[topic.status]}`}
-                          >
-                            <StatusIcon className="h-3 w-3" />
-                            {statusLabels[topic.status]}
-                          </span>
-                        </div>
-                        <ArrowRight className="h-3.5 w-3.5 text-stone-300 dark:text-[var(--text-muted)] group-hover:text-deep group-hover:translate-x-0.5 transition-all flex-shrink-0" />
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-          </section>
-
-          {/* Recent Debates */}
-          <section>
-            <div className="flex items-center gap-2 mb-5">
-              <Swords className="h-5 w-5 text-deep" strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
-                Recent Debates
-              </h2>
-              <span className="ml-auto text-sm text-muted dark:text-[var(--text-muted)] font-mono tabular-nums">
-                {recentDebates.length}
-              </span>
-            </div>
-
-            {recentDebates.length === 0 ? (
-              <div className="rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/60 dark:bg-card/60 p-8 text-center">
-                <Swords className="h-8 w-8 text-stone-300 dark:text-[var(--text-muted)] mx-auto mb-3" />
-                <p className="text-stone-500 dark:text-[var(--text-secondary)] mb-4">
-                  No debates yet. Start a debate on any topic to see it here.
-                </p>
-                <Link
-                  href="/topics"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm"
-                >
-                  Find a Topic
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            ) : (
-              <div className="space-y-3">
-                {recentDebates.map((debate) => (
-                  <div
-                    key={debate.id}
-                    className="flex items-center gap-4 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/80 dark:bg-card/80 p-4 hover:shadow-sm transition-shadow"
-                  >
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
-                      <Swords className="h-5 w-5 text-deep" />
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-medium text-primary dark:text-stone-200 truncate">
-                        {debate.topicTitle}
-                      </h3>
-                      <div className="flex items-center gap-3 mt-1">
-                        <span className="text-xs text-muted dark:text-[var(--text-muted)] font-mono">
-                          {debate.forModel} vs {debate.againstModel}
-                        </span>
-                        <span className="text-xs text-muted dark:text-[var(--text-muted)] flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {formatShortDate(debate.createdAt)}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex-shrink-0">
-                      <span
-                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
-                          debate.status === "completed"
-                            ? "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40"
-                            : debate.status === "in_progress"
-                              ? "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40"
-                              : "bg-stone-100 dark:bg-stone-800/40 text-stone-600 dark:text-stone-300 border-stone-200/60 dark:border-stone-700/40"
-                        }`}
-                      >
-                        {debate.status === "completed"
-                          ? // Never a winner (north star): a finished debate is
-                            // just finished. `debate.winner` stays in the data.
-                            "Completed"
-                          : debate.status === "in_progress"
-                            ? "In Progress"
-                            : debate.status}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
-        </div>
+        <p className="mt-6">
+          <Link
+            href="/topics"
+            className="inline-flex min-h-11 items-center font-sans text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"
+          >
+            Browse the maps
+          </Link>
+        </p>
       </div>
     </AppShell>
   );
