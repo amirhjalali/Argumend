@@ -307,9 +307,9 @@ export const usNationalDebtCrisisData = {
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The dollar's reserve currency status means the US enjoys an 'exorbitant privilege' — global demand for dollars and Treasury securities keeps borrowing costs artificially low and allows the US to run deficits that would cripple any other nation. This creates a dangerous complacency. However, this privilege is not permanent: de-dollarization efforts by BRICS nations, China's yuan internationalization, and the rise of central bank digital currencies could gradually erode dollar dominance. If foreign demand for Treasuries declines, the US would face a sudden repricing of its debt sustainability.",
-      proponent_rebuttal:
         "Reports of the dollar's demise have been greatly exaggerated for decades. The dollar's share of global reserves has declined slowly from ~70% to ~58% since 2000, but no credible alternative exists. The euro has structural governance issues, the yuan lacks capital account openness, and Bitcoin is too volatile. The dollar's dominance rests on deep, liquid capital markets, rule of law, military power, and network effects — not just economic size. BRICS de-dollarization announcements are mostly political theater; actual cross-border transactions remain overwhelmingly dollar-denominated. Even in a multipolar currency world, the dollar would likely remain first among equals. The privilege endures because there is literally no other asset that can absorb the scale of global savings demand.",
+      proponent_rebuttal:
+        "The dollar's reserve currency status means the US enjoys an 'exorbitant privilege' — global demand for dollars and Treasury securities keeps borrowing costs artificially low and allows the US to run deficits that would cripple any other nation. This creates a dangerous complacency. However, this privilege is not permanent: de-dollarization efforts by BRICS nations, China's yuan internationalization, and the rise of central bank digital currencies could gradually erode dollar dominance. If foreign demand for Treasuries declines, the US would face a sudden repricing of its debt sustainability.",
       crux: {
         id: "reserve-currency-erosion-rate",
         title: "The Dollar Dominance Trajectory Test",
@@ -326,9 +326,9 @@ export const usNationalDebtCrisisData = {
           "$0 (IMF COFER and SWIFT data are publicly available quarterly)",
         falsification: {
           supporter_flip:
-            "A supporter who counts on enduring dollar privilege would reconsider if COFER, SWIFT, and commodity-pricing data showed the dollar's reserve share falling at an accelerating rate — and if a credible deep, liquid alternative (or a working multilateral settlement system like mBridge at scale) began absorbing meaningful global savings demand.",
+            "A supporter forecasting de-dollarization should weigh that the dollar still holds ~58% of allocated reserves versus the euro's ~20%, that the ~$28-30T Treasury market is unmatched in depth and liquidity, and that mBridge's cumulative volume was only ~$55B by late 2025 — political intent without displacement of dollar flows.",
           skeptic_flip:
-            "A skeptic forecasting de-dollarization should weigh that the dollar still holds ~58% of allocated reserves versus the euro's ~20%, that the ~$28-30T Treasury market is unmatched in depth and liquidity, and that mBridge's cumulative volume was only ~$55B by late 2025 — political intent without displacement of dollar flows.",
+            "A skeptic who counts on enduring dollar privilege would reconsider if COFER, SWIFT, and commodity-pricing data showed the dollar's reserve share falling at an accelerating rate — and if a credible deep, liquid alternative (or a working multilateral settlement system like mBridge at scale) began absorbing meaningful global savings demand.",
           common_ground:
             "Both sides agree the dollar's reserve share has drifted down slowly from ~70% in 2000 to ~58% and that no rival currency currently offers comparable depth, liquidity, and safety at the scale global reserves require.",
           live_disagreement:

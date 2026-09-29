@@ -57,9 +57,9 @@ export const darkMatterVsMondData = {
         cost_to_verify: "$2M (Deep multi-wavelength galaxy survey + reanalysis)",
         falsification: {
           supporter_flip:
-            "A MOND supporter should change their mind if a large, homogeneous galaxy survey resolved a statistically significant intrinsic scatter in the radial acceleration relation — or showed the residuals correlate with a galaxy property (formation time, environment, halo mass) — since a genuinely modified force should produce an exact law with no halo-to-halo variation.",
+            "A dark-matter supporter should weigh that the observed scatter is already only ~0.13 dex (and ~0.057 dex galaxy-by-galaxy), with intrinsic scatter consistent with zero and a single universal a0 ≈ 1.2 × 10⁻¹⁰ m/s², which Milgrom predicted before the data existed — a tightness that requires CDM halos to finely track the visible disk in every galaxy.",
           skeptic_flip:
-            "A dark-matter skeptic of MOND should weigh that the observed scatter is already only ~0.13 dex (and ~0.057 dex galaxy-by-galaxy), with intrinsic scatter consistent with zero and a single universal a0 ≈ 1.2 × 10⁻¹⁰ m/s², which Milgrom predicted before the data existed — a tightness that requires CDM halos to finely track the visible disk in every galaxy.",
+            "A skeptic who favors MOND should change their mind if a large, homogeneous galaxy survey resolved a statistically significant intrinsic scatter in the radial acceleration relation — or showed the residuals correlate with a galaxy property (formation time, environment, halo mass) — since a genuinely modified force should produce an exact law with no halo-to-halo variation.",
           common_ground:
             "Both sides agree the radial acceleration relation is real, tight, and has a characteristic acceleration scale; the dispute is whether that regularity is a fundamental law or an emergent outcome of galaxy formation.",
           live_disagreement:

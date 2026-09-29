@@ -48,9 +48,9 @@ export const encryptionBackdoorsData = {
         cost_to_verify: "$2M (red-team study + reference implementation)",
         falsification: {
           supporter_flip:
-            "A skeptic of secure backdoors would have to reconsider if an exceptional-access design survived years of open adversarial red-teaming — preserving forward secrecy, with key custody split and audited — without a demonstrated way to abuse it at scale, the way modern HSM and key-management schemes have held up.",
+            "A supporter of lawful access should weigh that no proposed design has yet survived independent cryptographic review, that the 1990s Clipper Chip key-escrow scheme was found to contain exploitable flaws, and that lawful-intercept systems themselves get breached (the 2024 Salt Typhoon intrusions hit CALEA wiretap infrastructure) — so 'we can just build it securely' is an unproven engineering claim.",
           skeptic_flip:
-            "A proponent should weigh that no proposed design has yet survived independent cryptographic review, that the 1990s Clipper Chip key-escrow scheme was found to contain exploitable flaws, and that lawful-intercept systems themselves get breached (the 2024 Salt Typhoon intrusions hit CALEA wiretap infrastructure) — so 'we can just build it securely' is an unproven engineering claim.",
+            "A skeptic of secure backdoors would have to reconsider if an exceptional-access design survived years of open adversarial red-teaming — preserving forward secrecy, with key custody split and audited — without a demonstrated way to abuse it at scale, the way modern HSM and key-management schemes have held up.",
           common_ground:
             "Both sides agree any exceptional-access mechanism adds an attack surface and that the relevant question is the size of the residual risk, not whether risk is literally zero.",
           live_disagreement:
@@ -121,9 +121,9 @@ export const encryptionBackdoorsData = {
         "Whether compelled access meaningfully improves investigations of terrorism, child exploitation, and organized crime — or whether the 'going dark' threat is overstated and criminals simply migrate to other tools.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The harm is real and measurable. When Meta turned on default end-to-end encryption for Messenger, NCMEC's CyberTipline reports fell sharply — by roughly 7 million year-over-year — which NCMEC attributes largely to encryption blinding the platform to abuse it would otherwise report. End-to-end encryption can render lawfully seized devices and warrant-served accounts unreadable, leaving investigators with valid court orders they cannot execute. Determined offenders coordinate behind encryption that no warrant can pierce.",
-      proponent_rebuttal:
         "The 'going dark' threat has been demonstrably overstated, and lawful access is often achievable without weakening encryption for everyone. The FBI repeatedly told Congress it was locked out of ~7,775 devices in 2017; it later admitted the true figure was roughly 1,200, the rest a counting error. Meanwhile targeted lawful hacking — exploiting a specific network rather than mandating a universal backdoor — produced one of the largest crime busts in history (EncroChat). A drop in automated platform reports is not the same as a drop in solvable cases; metadata, device forensics, informants, and targeted exploits remain.",
+      proponent_rebuttal:
+        "The harm is real and measurable. When Meta turned on default end-to-end encryption for Messenger, NCMEC's CyberTipline reports fell sharply — by roughly 7 million year-over-year — which NCMEC attributes largely to encryption blinding the platform to abuse it would otherwise report. End-to-end encryption can render lawfully seized devices and warrant-served accounts unreadable, leaving investigators with valid court orders they cannot execute. Determined offenders coordinate behind encryption that no warrant can pierce.",
       crux: {
         id: "marginal-cases-solved",
         title: "Marginal Serious Cases Solved Only via a Mandated Backdoor",
@@ -137,9 +137,9 @@ export const encryptionBackdoorsData = {
         cost_to_verify: "$1M (multi-jurisdiction case audit)",
         falsification: {
           supporter_flip:
-            "A skeptic of mandated access should change their mind if a rigorous case audit found a substantial, recurring set of serious investigations that genuinely could not be advanced by lawful hacking, cloud backups, metadata, or compelled credentials — i.e. a large marginal value that only a built-in backdoor could deliver.",
+            "A supporter of mandated access should weigh that the FBI's central 'going dark' statistic was overstated by roughly 6× (7,775 vs. ~1,200 devices), and that the record EncroChat bust (Operation Venetic: 746 UK arrests) came from a targeted exploit of a criminal-only network, not a universal backdoor — so much of the demonstrated payoff comes from lawful hacking rather than mandated access.",
           skeptic_flip:
-            "A proponent should weigh that the FBI's central 'going dark' statistic was overstated by roughly 6× (7,775 vs. ~1,200 devices), and that the record EncroChat bust (Operation Venetic: 746 UK arrests) came from a targeted exploit of a criminal-only network, not a universal backdoor — so much of the demonstrated payoff comes from lawful hacking rather than mandated access.",
+            "A skeptic of mandated access should change their mind if a rigorous case audit found a substantial, recurring set of serious investigations that genuinely could not be advanced by lawful hacking, cloud backups, metadata, or compelled credentials — i.e. a large marginal value that only a built-in backdoor could deliver.",
           common_ground:
             "Both sides agree encryption sometimes blocks lawful investigations and that the NCMEC report drop after Meta's E2E rollout reflects a real loss of automated abuse detection.",
           live_disagreement:
@@ -227,9 +227,9 @@ export const encryptionBackdoorsData = {
         cost_to_verify: "$0 (policy and legal analysis)",
         falsification: {
           supporter_flip:
-            "A skeptic of containability should reconsider if comparable surveillance powers (CALEA lawful intercept, financial-records access) showed a long track record of staying confined to court-authorized use under transparency reporting and judicial review, without authoritarian copycat mandates or large-scale theft of the capability.",
+            "A supporter of lawful access should reconsider if comparable powers such as CALEA lawful intercept showed a record of escaping court-authorized use — copycat mandates from other regimes, or breaches of the capability itself, as in the 2024 Salt Typhoon intrusions into CALEA wiretap infrastructure — and should weigh that one jurisdiction's compulsion, the UK's secret order under the Investigatory Powers Act, led Apple to withdraw Advanced Data Protection for UK users rather than build a backdoor.",
           skeptic_flip:
-            "A proponent should weigh that democracies already manage abuse-prone tools — wiretaps, search warrants, financial surveillance — through warrants and oversight rather than abolition, and that 'authoritarian regimes want it too' argues for strong democratic governance of access, not for leaving warrant-authorized investigations powerless.",
+            "A skeptic of containability should reconsider if comparable surveillance powers (CALEA lawful intercept, financial-records access) showed a long track record of staying confined to court-authorized use under transparency reporting and judicial review, without authoritarian copycat mandates or large-scale theft of the capability.",
           common_ground:
             "Both sides agree a lawful-access capability is valuable to authoritarian governments and attackers, and that judicial oversight and transparency reporting are necessary (if not necessarily sufficient) safeguards.",
           live_disagreement:

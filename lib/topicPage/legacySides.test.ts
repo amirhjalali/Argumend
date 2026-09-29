@@ -58,7 +58,80 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["rent-control-effectiveness", 1, "The 'insider vs outsider' framing fundamentally mischaracterizes"],
   ["rent-control-effectiveness", 2, "Supply-side solutions are correct in the long run"],
   ["autonomous-weapons-ban", 0, "Existing international humanitarian law already assigns responsibility"],
+  // Round 3, finishing the audit's suspects list.
+  ["encryption-backdoors", 1, "The 'going dark' threat has been demonstrably overstated"],
+  ["section-230-reform", 0, "Section 230's exceptions already preserve liability"],
+  ["section-230-reform", 2, "Removing 230 would not primarily punish Big Tech"],
+  ["us-national-debt-crisis", 2, "Reports of the dollar's demise have been greatly exaggerated"],
+  ["congressional-term-limits", 2, "The bar is far higher than popularity suggests."],
+  ["facial-recognition-policing", 2, "A governance gap is an argument for governance, not abolition."],
+  ["ai-deepfakes-truth-collapse", 2, "The transition challenge is real but the trajectory is positive."],
 ];
+
+// Crux flips that once pointed the wrong way. supporter_flip is what would
+// change the mind of someone who agrees with the map's meta_claim;
+// skeptic_flip is what someone who disagrees should weigh. Each row pins the
+// opening the flip used to have — it must be gone — and the flip must now
+// address its own side. Round 3, 2026-09-29.
+const FIXED_FLIPS: [id: string, pillar: number, side: "supporter" | "skeptic", oldOpening: string][] = [
+  // Rewritten.
+  ["adhd-overdiagnosis", 2, "skeptic", "A skeptic worried about over-labeling"],
+  ["open-weight-ai-models", 3, "skeptic", "A skeptic who treats foreign availability as decisive"],
+  ["occupational-licensing-reform", 0, "skeptic", "A skeptic confident licensing is pure rent-seeking"],
+  ["congressional-term-limits", 1, "supporter", "If post-limit data showed term-limited legislatures held"],
+  ["facial-recognition-policing", 1, "supporter", "A supporter of restriction should update if a representative case-file audit found that wrongful arrests persist"],
+  ["encryption-backdoors", 2, "supporter", "A skeptic of containability"],
+  // Swapped between the two fields.
+  ["dark-matter-vs-mond", 0, "supporter", "A MOND supporter"],
+  ["dark-matter-vs-mond", 0, "skeptic", "A dark-matter skeptic of MOND"],
+  ["open-weight-ai-models", 1, "supporter", "A supporter of the irreversibility claim"],
+  ["open-weight-ai-models", 1, "skeptic", "Someone arguing irreversibility is overstated"],
+  ["return-to-office-productivity", 0, "supporter", "A remote-work supporter"],
+  ["return-to-office-productivity", 0, "skeptic", "An RTO supporter"],
+  ["return-to-office-productivity", 2, "supporter", "Someone who believes RTO mandates are mostly a cover"],
+  ["return-to-office-productivity", 2, "skeptic", "Someone who takes companies' productivity rationale"],
+  ["ai-content-labeling", 0, "supporter", "If a new generation of watermarks"],
+  ["ai-content-labeling", 0, "skeptic", "A skeptic confident watermarks work"],
+  ["ai-content-labeling", 1, "supporter", "A supporter who fears chilling effects"],
+  ["ai-content-labeling", 1, "skeptic", "A skeptic who thinks labeling is harmless"],
+  ["central-bank-digital-currency", 1, "supporter", "If a controlled multi-country comparison"],
+  ["central-bank-digital-currency", 1, "skeptic", "A skeptic who points to M-Pesa"],
+  ["simulation-hypothesis", 2, "supporter", "A supporter who reads physics as 'computational' should treat the proposal as testable"],
+  ["simulation-hypothesis", 2, "skeptic", "A skeptic should weigh that the cited 'computational' features"],
+  ["encryption-backdoors", 0, "supporter", "A skeptic of secure backdoors"],
+  ["encryption-backdoors", 0, "skeptic", "A proponent should weigh"],
+  ["encryption-backdoors", 1, "supporter", "A skeptic of mandated access"],
+  ["encryption-backdoors", 1, "skeptic", "A proponent should weigh"],
+  ["encryption-backdoors", 2, "skeptic", "A proponent should weigh"],
+  ["section-230-reform", 1, "supporter", "A supporter of the 'collateral damage' worry"],
+  ["section-230-reform", 1, "skeptic", "A skeptic of the over-removal worry"],
+  ["section-230-reform", 2, "supporter", "A supporter of the 'repeal entrenches incumbents' argument"],
+  ["section-230-reform", 2, "skeptic", "A skeptic should weigh that defending even meritless suits"],
+  ["us-national-debt-crisis", 2, "supporter", "A supporter who counts on enduring dollar privilege"],
+  ["us-national-debt-crisis", 2, "skeptic", "A skeptic forecasting de-dollarization"],
+  ["congressional-term-limits", 2, "supporter", "If a term-limits amendment cleared"],
+  ["congressional-term-limits", 2, "skeptic", "A skeptic who assumes overwhelming public support"],
+  ["facial-recognition-policing", 2, "supporter", "A supporter of regulation-not-ban"],
+  ["facial-recognition-policing", 2, "skeptic", "A skeptic favoring hard restriction"],
+  ["ai-deepfakes-truth-collapse", 2, "supporter", "If adoption tracking showed C2PA stalling"],
+  ["ai-deepfakes-truth-collapse", 2, "skeptic", "A skeptic who thinks the transition is hopeless"],
+];
+
+const ADDRESSES: Record<"supporter" | "skeptic", RegExp> = {
+  supporter: /^An? (?:[\w-]+ )?supporter\b/,
+  skeptic: /^A skeptic\b/,
+};
+
+describe("legacy crux flips address their own side", () => {
+  it.each(FIXED_FLIPS)("%s pillar %i %s flip", async (id, pillar, side, oldOpening) => {
+    const topic = await loadTopicById(id);
+    expect(topic, id).not.toBeNull();
+    const flip = legacyTopicPage(topic!).cruxes[pillar].flips![side];
+
+    expect(flip.startsWith(oldOpening)).toBe(false);
+    expect(flip).toMatch(ADDRESSES[side]);
+  });
+});
 
 describe("legacy position cards file each side's text on its own side", () => {
   it.each(WRONG_SIDE_OPENINGS)("%s pillar %i", async (id, pillar, opening) => {

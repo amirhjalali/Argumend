@@ -189,7 +189,7 @@ export const adhdOverdiagnosisData = {
           supporter_flip:
             "If long-term follow-up of borderline-eligible people showed that diagnosing and treating them produced clear net benefit on hard outcomes (attainment, accidents, self-harm, employment), the 'overdiagnosis does net harm at the margin' claim would fail — the extra diagnoses would be helping the people who get them.",
           skeptic_flip:
-            "A skeptic worried about over-labeling should weigh that untreated ADHD carries documented severe harms — a Danish cohort found a mortality rate ratio of 2.07 — and that the harm-of-diagnosis evidence for milder cases rests on only about five studies the JAMA authors themselves call thin.",
+            "A skeptic who reads the harms of untreated ADHD as decisive should update if long-term follow-up of borderline-eligible people showed that diagnosing and treating them produced no net benefit on hard outcomes (attainment, accidents, self-harm, employment), matching the 'diminishing returns' the JAMA review describes for milder cases — and should weigh that the Danish cohort's mortality rate ratio of 2.07 was measured across people with ADHD as a whole, not specifically the milder cases at the diagnostic margin.",
           common_ground:
             "Both sides agree severe ADHD treatment has clear benefits and that the long-term net effect specifically for milder, borderline cases is poorly studied.",
           live_disagreement:
