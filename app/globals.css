@@ -197,9 +197,19 @@ body::after {
   pointer-events: none;
 }
 
-/* In dark mode, hide the watercolor background image */
+/* Phones draw the wash in a box under ~400px wide at a third of its opacity,
+   so a 469px copy (36KB, not 110KB) renders the same. Desktop keeps the
+   full-size file. Only the matching rule's image is fetched. */
+@media (max-width: 767px) {
+  body::after {
+    background-image: url("/images/lw-background-sm.webp");
+  }
+}
+
+/* In dark mode, hide the watercolor background image (and skip fetching it) */
 .dark body::after {
   opacity: 0;
+  background-image: none;
 }
 
 /* Typography refinements - LessWrong-inspired elegance */
