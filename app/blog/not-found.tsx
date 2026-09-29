@@ -3,11 +3,11 @@ import { RouteNotFound } from "@/components/RouteNotFound";
 export default function BlogNotFound() {
   return (
     <RouteNotFound
-      eyebrow="Article unavailable"
-      title="We could not find this blog page"
-      description="The article, category, or tag may have moved. Return to the blog to browse the latest essays and analysis."
+      eyebrow="Essay unavailable"
+      title="We could not find this essay"
+      description="The essay, category or tag may have moved. Browse the essays to find it or another one."
       primaryHref="/blog"
-      primaryLabel="Browse the Blog"
+      primaryLabel="Browse the essays"
     />
   );
 }
