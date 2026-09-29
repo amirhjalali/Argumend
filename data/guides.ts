@@ -565,90 +565,80 @@ Many potentially useful treatments have been abandoned based on underpowered neg
   {
     id: "how-to-read-an-argument-map",
     title: "How to Read an Argument Map",
-    subtitle: "Navigating Interactive Argument Maps",
-    description: "A practical guide to navigating Argumend's interactive argument maps — understanding nodes, connections, evidence, and cruxes.",
-    readTime: "10 min read",
+    subtitle: "What a Map Shows, and Where to Look First",
+    description: "A practical guide to reading an Argumend map: the positions, the evidence each side reads, the cruxes, and what the map's reading of the evidence does and does not mean.",
+    readTime: "9 min read",
     sections: [
       {
         title: "What the Map Shows",
-        content: `When you open an argument map on Argumend, you're looking at a visual representation of a debate's logical structure. Instead of reading a wall of text where arguments blur together, the map breaks a topic into discrete, connected components that you can explore at your own pace.
+        content: `An Argumend map opens as a page you read from top to bottom. It starts with the question, sets out the serious positions on it, shows the evidence each side reads, and names the cruxes: the questions that would move one side or the other if they were answered. It never says who is right. Its job is to show you where the disagreement actually lives.
 
-At the center of every map is the **topic node** — the core question or claim being examined. Branching out from the center you'll find **pillar nodes**, which represent the major supporting or opposing lines of reasoning. Each pillar can, in turn, have **evidence nodes** attached to it — specific facts, studies, or data points that strengthen or weaken that line of reasoning.
+Most maps are organized into [pillars](/concepts/pillars), the main lines of argument the question turns on. A short table near the top lists every pillar in a line, so you can see the shape of the map before you read it. The flagship AI maps are organized a little differently: they open with the handful of camps people fall into, then the few questions the whole fight turns on, each with a dated record of how it has moved.
 
-The map is interactive. You can click any node to expand it and read its full description. You can zoom in on a cluster of related arguments, or zoom out to see the overall shape of the debate. Hovering over a connection line reveals the relationship between two nodes — whether one supports, opposes, or qualifies another.
-
-Think of the map as a table of contents for a debate, except every entry is connected to every other relevant entry. You never lose context, because the structure itself shows you how ideas relate.`,
+Many maps also have an interactive view that draws the same material as a graph of claims, evidence and links. Switch to it with the Read / Graph control at the top of the map. The page is the place to start; the graph is useful once you want to follow one claim to everything it touches.`,
       },
       {
         title: "Understanding Pillars",
-        content: `[Pillars](/concepts/pillars) are the backbone of every argument map. Each pillar represents a distinct line of reasoning — an independent argument that either supports or opposes the central claim.
+        content: `[Pillars](/concepts/pillars) are the backbone of most maps. Each pillar is one line of argument the question turns on (cost, safety, fairness, feasibility), and each holds both sides of that line: the skeptic's case first, then the proponent's reply, both stated in their strongest form.
 
-A topic like "Should cities invest in public transit?" might have pillars such as "Economic benefits of reduced car dependency," "Environmental impact of transit systems," "Equity and access for low-income residents," and "Fiscal sustainability of transit agencies." Each pillar can stand on its own: even if one pillar collapses, the others remain.
+A question like "Should cities invest in public transit?" might have pillars such as "Economic benefits of reduced car dependency," "Environmental impact," "Equity and access for low-income residents," and "Fiscal sustainability of transit agencies." Each pillar can be weighed on its own: even if one collapses, the others remain.
 
-This matters because real-world debates often fail when people conflate different arguments. Someone might present a devastating critique of the economic case for transit, and their opponent concedes as if the entire issue is settled — even though the environmental and equity arguments are untouched. The pillar structure prevents this. By breaking a position into independent lines of reasoning, the map makes it clear which arguments have been addressed and which remain standing.
+This matters because real-world debates often fail when people conflate different arguments. Someone might present a devastating critique of the economic case for transit, and their opponent concedes as if the whole question were answered, even though the environmental and equity arguments are untouched. By breaking a question into separate lines of reasoning, the map makes it clear which arguments have been addressed and which remain standing.
 
-When reading a map, start by scanning the pillars. This gives you the big picture — the main reasons people hold the positions they hold. Then drill into the pillars that interest you most, or the ones that seem weakest, to see what evidence supports them.
-
-Each pillar is color-coded. Pillars supporting the central claim typically appear in one color family, while opposing pillars appear in another. This visual distinction helps you quickly grasp the balance of the debate without reading a single word.`,
+When reading a map, start by scanning the pillars. This gives you the big picture: the main reasons people hold the positions they hold. Then read the pillars that interest you most, or the ones you think your own side is weakest on.`,
       },
       {
         title: "Reading Evidence: For and Against",
-        content: `Evidence nodes are where the map gets concrete. While pillars state the arguments in general terms, evidence nodes provide the specific facts, studies, statistics, and examples that give those arguments weight.
+        content: `Evidence cards are where the map gets concrete. While a pillar states the arguments in general terms, its cards hold the specific studies, statistics, records and examples that give those arguments weight. Each pillar shows its heaviest card on each side first; "Show all" opens the rest.
 
-Each evidence node has several properties you should pay attention to:`,
+Each card has a few things worth reading:`,
         subsections: [
           {
             title: "Direction: Supporting or Opposing",
-            content: `Every piece of evidence is linked to a pillar with a clear directional relationship. A green connection line means the evidence supports that pillar's argument. A red connection line means it weakens or contradicts it. This is crucial: strong arguments have both supporting and opposing evidence displayed honestly. If you see a pillar with only supporting evidence, that might mean the map is incomplete rather than that the argument is airtight.`,
+            content: `Every card is marked Supports or Against, and it is filed by what the evidence shows, not by who usually cites it. A study that a campaign likes to quote can still count against that campaign's claim. Honest pillars carry cards on both sides. If a pillar shows only one side, that may mean the map is incomplete rather than that the argument is airtight.`,
           },
           {
-            title: "Source and Reliability Indicators",
-            content: `Each evidence node shows where the information comes from — a peer-reviewed study, a government dataset, a news report, an expert opinion. Argumend attaches reliability indicators to help you quickly judge quality. A meta-analysis from a top journal carries more weight than a single blog post, and the map reflects this through visual cues like source badges and weight indicators. You do not need to evaluate every source yourself; the indicators give you a starting point.`,
-          },
-          {
-            title: "Verification Status",
-            content: `Some evidence nodes carry a verification badge — confirmed, disputed, or unverified. Confirmed evidence has been cross-referenced against multiple independent sources. Disputed evidence has credible challenges. Unverified evidence is presented as-is, without independent confirmation. When you see disputed or unverified tags, treat the evidence as provisional rather than settled.`,
+            title: "Weight and Source",
+            content: `Each card is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. A person scores each from 0 to 10, and the card shows a plain word for the result (Established, Strong, Contested or Thin) and a bar for its total. The detailed view shows all four scores. Every card names its source, with a link where one exists, so you can read the original yourself. The weights are a starting point for your own judgment, not a replacement for it.`,
           },
         ],
       },
       {
         title: "Finding the Crux",
-        content: `The crux is the most important concept on any argument map. A [crux](/concepts/cruxes) is the single point of disagreement that, if resolved, would change the most minds. It is the fulcrum of the debate.
+        content: `The crux is the most important thing on any map. A [crux](/concepts/cruxes) is a question that, if answered, would change minds on one side or the other. It is the fulcrum of the disagreement.
 
-On Argumend's maps, cruxes are highlighted with a distinctive marker — typically a diamond icon or a bright accent border — so they stand out from ordinary nodes. You can also find them by looking for the node with the most connection lines: cruxes tend to sit at the intersection of multiple pillars because they affect several lines of reasoning simultaneously.
+On most maps, each pillar ends with its crux, marked "Crux" in red. Many say what would change a supporter's mind and what would change a skeptic's, then what both sides already agree on and where the live fight is. Below that is how the crux could be settled: the method, and whether that test has been run (verified), could be run (theoretical), or cannot be run with today's tools (impossible). On the flagship AI maps, the cruxes come right after the camps, each with what would settle it, or a plain statement that no evidence will because the disagreement is about values or about who should decide.
 
-For example, in a debate about renewable energy policy, the crux might be: "Can battery storage technology scale fast enough to make an all-renewable grid reliable by 2040?" If the answer is yes, multiple pillars supporting renewable investment are strengthened. If the answer is no, several opposing pillars gain force. That one factual question shifts the balance of the entire debate.
+For example, in an argument about renewable energy, the crux might be: "Can battery storage scale fast enough to make an all-renewable grid reliable by 2040?" If the answer is yes, several arguments for renewable investment get stronger. If it is no, several arguments against it gain force. That one factual question moves the whole map.
 
-When you find the crux, you've found the most productive place to focus your attention. Instead of arguing about peripheral points, you can direct your research and thinking toward the question that actually matters. This is one of the most valuable skills in critical thinking: identifying where your effort will have the highest leverage.
-
-To find the crux on any map, look for the node labeled "crux" or "key disagreement." Read it carefully and ask yourself: which side of this question do I find more convincing, and what evidence would change my mind?`,
+When you find the crux, you've found the most productive place to focus your attention. Instead of arguing about peripheral points, you can direct your reading toward the question that actually matters. Read it and ask yourself two things: which answer do I find more convincing, and what evidence would change my mind?`,
       },
       {
-        title: "Using Balance and Weight Scores",
-        content: `Every major node on an Argumend map displays two scores, not one: **balance**, a number from 0 to 100 showing which way the evidence tips, and **weight**, a number from 0 to 100 showing how much evidence there actually is.
+        title: "Reading Balance and Weight",
+        content: `After the first crux, a map says where the evidence stands as a whole. It comes after the crux on purpose: the crux is what you should meet first.
 
-Balance is computed as forStrength / (forStrength + againstStrength) x 100 over the 0–40 scores each piece of evidence earns. A balance of 50 means the evidence is evenly split; above 50 leans toward the claim, below 50 leans against it. Balance alone tells you *direction*, nothing about *confidence in that direction*.
+The reading rests on two numbers. **Balance**, from 0 to 100, shows which way the weighed evidence tips: 50 is even, above 50 leans toward the claim, below 50 against it. Balance tells you *direction*, and nothing about how much to trust it.
 
-That's what weight is for. Weight is a composite of three things: the evidential mass (how much evidence there is, with diminishing returns for piling on more), the average quality of the sources, and how resolvable the underlying cruxes are — some disagreements can in principle be settled by more research, others can't be settled at all. High weight means the map is richly evidenced and rests on cruxes that are at least theoretically answerable. Low weight means we simply don't know much yet, whatever the balance says.
+That's what **weight** is for. Weight combines how much evidence there is (with diminishing returns for piling on more), the average quality of the sources, and how testable the cruxes are. High weight means the map is richly evidenced and rests on questions that could in principle be answered. Low weight means we simply don't know much yet, whatever the balance says.
 
-Putting the two axes together produces the evidence readout:
+Together they produce the plain-language reading the map shows:
 
-**High weight, strong lean: "Evidence largely converges on [the claim / the counterclaim]."** The claim is well-supported by multiple independent, high-quality sources, and opposing evidence is sparse or weak.
+**High weight, strong lean: "Evidence largely converges on [the claim / the counterclaim]."** Most of the good evidence points one way. A map only says this when it has at least eight evidence cards and no single card could flip the reading; otherwise it says which way the evidence leans, or notes that one card could change it.
 
-**High weight, weak lean: "Well-mapped, evidence still divided."** The map is richly evidenced on both sides — this is not the same thing as "we don't know." It means smart people have looked hard at this and still land on different sides.
+**High weight, weak lean: "Well-mapped, evidence still divided."** The map is richly evidenced on both sides. This is not the same thing as "we don't know." It means careful people have looked hard and still land in different places.
 
-**Medium weight: "… moderately evidenced."** There's enough evidence to form a view, but real gaps remain. This is the range where productive debate is most likely.
+**Medium weight: "… moderately evidenced."** There's enough evidence to lean, but real gaps remain.
 
-**Low weight: "Evidence still thin — an open question."** Whatever the balance number says, there simply isn't enough evidence yet to trust the lean. Treat any apparent direction as provisional.
+**Low weight: "Evidence still thin — an open question."** Whatever the balance says, there isn't enough evidence yet to trust the lean.
 
-Balance and weight are most useful together as a triage tool. When exploring a complex map with dozens of nodes, start with the low-weight nodes — those are where the interesting questions are, where the debate is genuinely unresolved, and where new evidence would make the biggest difference. A pillar with high weight and a strong lean is settled business; a pillar with low weight deserves your attention regardless of which way its balance currently points.`,
+None of these readings names a winner, and none is the probability that the claim is true. Under the reading, the map names the heaviest card on each side. Read both, especially the one against the view you came in with.`,
       },
     ],
     keyTakeaways: [
-      "Start by scanning the pillars to understand the major lines of reasoning before diving into details",
-      "Pay attention to evidence direction (supporting vs. opposing) and verification status — not all evidence is created equal",
-      "Find the crux first — it's the single point where resolving a disagreement would shift the most about the debate",
-      "Balance shows which way the evidence tips; weight shows how much of it there is — use both together, not balance alone, to triage where your attention is most needed",
+      "Read the question and scan the pillars (on the flagship maps, the camps) before diving into details",
+      "Every evidence card is filed by what it shows and carries a plain word for its weight: Established, Strong, Contested or Thin",
+      "Find the crux first: it says what would change a supporter's mind and a skeptic's, and what would settle it",
+      "Balance shows which way the evidence tips and weight how much of it there is; together they say whether the evidence largely converges, is still divided or is still thin, never who won",
     ],
     furtherReading: [
       { title: "Good Reasoning Matters", author: "Leo Groarke & Christopher Tindale" },
@@ -659,113 +649,91 @@ Balance and weight are most useful together as a triage tool. When exploring a c
   {
     id: "running-your-first-analysis",
     title: "Running Your First Analysis",
-    subtitle: "From Text to Structured Insight",
-    description: "Step-by-step guide to using Argumend's AI analysis tool to extract arguments, identify cruxes, and evaluate reasoning from any text.",
-    readTime: "11 min read",
+    subtitle: "Paste an Argument You're In and Find What It Turns On",
+    description: "How to use Argumend's paste tool on an argument you're part of: what to paste, what the report shows, what it will not tell you, and what happens to your text.",
+    readTime: "8 min read",
     sections: [
       {
-        title: "What Text Works Best",
-        content: `Argumend's analysis tool works on any text that contains arguments — but some texts produce richer results than others. Understanding what to feed the tool helps you get the most out of it.
+        title: "What to Paste",
+        content: `The paste tool is for arguments you are actually in: a thread you are replying to, a family group chat, a transcript of a panel, an op-ed and the letters that answered it. It reads the text you give it and nothing else. It does not look anything up.
 
-**Ideal inputs:**
+**Works well:**
 
-- **Opinion editorials and essays.** These are explicitly argumentative. The author is trying to convince you of something, so the analysis tool has clear positions, evidence, and reasoning to extract.
-- **Policy proposals and position papers.** These contain structured arguments with supporting evidence, making them excellent candidates for decomposition into pillars and cruxes.
-- **Debate transcripts and panel discussions.** Multiple perspectives in a single text let the tool identify genuine disagreements and map out where the participants diverge.
-- **Research summaries and literature reviews.** These synthesize evidence on a topic and often contain implicit arguments about what the evidence means.
+- **Conversations with two or more voices.** A thread, a comment chain, a transcript. Choose "Conversation", and the tool can see where the participants actually diverge and where they talk past each other.
+- **Opinion pieces and essays.** Choose "Article". There is one author, but usually an opponent the author is answering, and the tool will set out both.
+- **Your own draft.** Paste what you are about to post and see what it commits you to.
 
-**Inputs that work, but produce thinner results:**
+**Works less well:**
 
-- **Straight news reporting.** Good journalism tries to present facts without argument. The tool can still extract claims and evidence, but there may be fewer explicit positions to analyze.
-- **Technical documentation.** Manuals and specifications are informational rather than argumentative. The tool may identify factual claims but won't find much debate structure.
-- **Very short texts (under 200 words).** Brief passages may not contain enough material for a meaningful analysis. Aim for at least a few paragraphs.
+- **Straight news reporting.** Good reporting tries not to argue, so there may be little disagreement to find.
+- **Very short text.** The tool needs at least a few sentences (120 characters) to work with, and it does best with a few paragraphs. The limit is 20,000 characters.
 
-**A practical tip:** If you're analyzing a topic rather than a specific text, try finding two or three articles that disagree with each other and paste them together. The analysis engine excels when it can identify genuine disagreement — multiple perspectives in the input produce a much richer argument map than a single-perspective piece.`,
+**A practical tip:** if you are reading about a question rather than arguing about it, paste two pieces that disagree with each other, one after the other. Real disagreement in the input produces a much more useful report than a single point of view.
+
+**Before you paste:** don't include private information about other people. The tool does not remove names or other identifying details, so leave out anything you would not want an outside company to read.`,
       },
       {
         title: "How to Paste and Submit",
-        content: `Navigate to the **[/analyze](/analyze)** page on Argumend. You'll see a large text area with a prompt to paste or type your text.
+        content: `Open the **[paste tool](/analyze)**.
 
-**Step 1: Paste your text.** Copy the article, essay, or transcript you want to analyze and paste it into the text area. The tool accepts plain text — formatting like bold and italic will be stripped, but that's fine. The analysis works on the words and ideas, not the formatting.
+**Step 1: Paste your text** into the box and choose what it is: Conversation, Article, or Freeform. Formatting is ignored; the tool works on the words.
 
-**Step 2: Review the preview.** Before submitting, scan what you've pasted to make sure the text copied correctly. Occasionally, copying from PDFs or web pages introduces garbled characters or missing paragraphs. A quick visual check saves you from analyzing corrupted input.
+**Step 2: Check what you pasted.** Copying from PDFs and web pages sometimes garbles characters or drops paragraphs. A quick look saves you a report built on broken input.
 
-**Step 3: Submit for analysis.** Click the "Analyze" button. The AI engine will process your text — this typically takes between ten and thirty seconds depending on length. You'll see a progress indicator while the analysis runs.
+**Step 3: Read the line above the button.** It says where your text goes: to an AI model, named there, which reads it and sends back a structured report. The text is not stored.
 
-**Step 4: Wait for the full result.** The analysis appears in stages. Positions and pillars are usually identified first, followed by evidence extraction, crux identification, and finally fallacy detection. Let the full process complete before drawing conclusions — early partial results may shift as the engine processes more of the text.
-
-You don't need to create an account to run an analysis, though saving and sharing results requires one. Each analysis generates a unique URL you can bookmark or share.`,
+**Step 4: Press "Find what it turns on".** Reading the text takes a little while, and the page shows its progress. You don't need an account.`,
       },
       {
-        title: "Understanding the Results",
-        content: `Once the analysis completes, you'll see a structured breakdown of the text's arguments. Here's what each section means and how to use it.`,
+        title: "Understanding the Report",
+        content: `The report reads like a short document rather than a score sheet. Each part answers one question about the argument you pasted.`,
         subsections: [
           {
-            title: "Positions",
-            content: `At the top of the results, the tool identifies the main positions present in the text — the core claims or stances that the author (or authors) are advancing. Each position is stated in a clear, neutral sentence.
+            title: "The Positions",
+            content: `Each position in the text, stated in a neutral sentence that the person holding it should recognize. There can be two, three or more; the tool does not force a disagreement into two sides, and it will not invent a counter-position the text does not contain.
 
-If the text contains a single perspective, you might see one primary position and one or two implied counter-positions that the author is arguing against. If the text contains multiple perspectives (like a debate transcript), you'll see each side's position stated explicitly.
-
-Positions are the "what" of the argument — what is being claimed. Everything else in the analysis supports, opposes, or qualifies these positions.`,
+Under each position is a short question: is this an accurate representation? If it isn't, say so. That feedback is private and is how the tool gets better.`,
           },
           {
-            title: "Pillars and Evidence",
-            content: `Below the positions, you'll find the pillars — the major independent arguments supporting or opposing each position. Each pillar is labeled with its direction (for or against) and includes the specific evidence extracted from the text.
-
-The evidence is drawn directly from the source text: statistics cited, studies referenced, examples given, logical steps made. The tool distinguishes between empirical evidence (data, studies, observed facts) and logical arguments (deductive or inductive reasoning steps).
-
-This is where the analysis earns its keep. A skilled reader might identify the main argument in an essay, but might miss a secondary argument buried in paragraph seven, or fail to notice that two seemingly different points actually support the same underlying pillar. The tool catches these structural patterns.`,
+            title: "What They Agree On",
+            content: `The premises the sides already share, with the lines of the text that show it. This section is often the surprise. Many arguments that feel total turn out to share most of their facts, and seeing that on the page changes what the rest of the conversation is about.`,
           },
           {
-            title: "Cruxes",
-            content: `The crux section identifies the key points of disagreement — the specific factual or value-based questions where resolving them would most change the conclusion. This is often the most valuable part of the analysis.
+            title: "What It Turns On",
+            content: `The crux: the question the disagreement actually rests on, and what kind of question it is. Some are factual and could be settled by evidence. Some are about values: which cost matters more. Some are about a word the two sides are using differently. Knowing which kind you are in tells you whether more evidence will help at all.
 
-For each crux, the tool explains why it matters: which pillars it affects, what each side would need to be true, and what kind of evidence would resolve it. If you only have time to focus on one part of the results, focus on the cruxes. They tell you where the real action is.`,
+If you only have time for one part of the report, read this one.`,
           },
           {
-            title: "Fallacy Detection",
-            content: `The tool scans for common logical fallacies — straw man arguments, appeals to authority, false dichotomies, slippery slopes, ad hominem attacks, and others. Each detected fallacy is shown with the relevant passage highlighted and an explanation of why it qualifies as a reasoning error.
-
-A word of caution: fallacy detection is the most subjective part of the analysis. Some patterns that look like fallacies are actually legitimate reasoning moves in context. An appeal to expert opinion, for example, isn't a fallacy when the expert is genuinely authoritative on the specific question at hand. Use the fallacy section as a starting point for critical examination, not as a definitive verdict.`,
+            title: "What Is at Stake, and What Could Move It",
+            content: `What each major claim is actually committed to: what it says should change, and what it would mean if it turned out to be wrong. Where a claim has no stated update if it is wrong, the report says so. The last section lists what could move the disagreement forward: the evidence, definition or decision that would narrow it.`,
           },
         ],
       },
       {
-        title: "The AI Judge Council",
-        content: `Behind the scenes, Argumend doesn't rely on a single AI model to produce its analysis. Instead, it uses a **judge council** — multiple independent AI evaluators that each assess the text separately before their judgments are synthesized.
+        title: "What the Report Will Not Tell You",
+        content: `The report is **source-only**: it maps what the pasted text says. That comes with three limits, and they are deliberate.
 
-This design mirrors the principle of triangulation (covered in our [Triangulation guide](/guides/triangulation)). A single AI model might have systematic blind spots or tendencies — perhaps it consistently underweights certain types of evidence, or has a subtle bias toward particular framings. By running multiple models independently and then comparing their assessments, Argumend reduces the impact of any single model's weaknesses.
+1. **It does not fact-check.** If someone in the thread cites a statistic, the report records that they cited it; it does not say whether the statistic is true. For the evidence on a question, read the [maps](/topics).
 
-Here's how it works in practice:
+2. **It does not guess at motives or character.** It will not tell you someone is arguing in bad faith, and it does not label fallacies. Those labels are too easily used to score a point, and they rarely change a mind.
 
-1. **Independent evaluation.** Each AI judge analyzes the text on its own, identifying positions, pillars, evidence, and cruxes without seeing what the other judges found.
-
-2. **Comparison and consensus.** The system compares the judges' outputs. Where they agree, confidence is high. Where they disagree, the system flags the disagreement and investigates further.
-
-3. **Synthesis.** The final analysis represents the consensus view, with confidence scores reflecting the degree of agreement among judges. Areas where judges disagreed are presented with lower confidence scores, alerting you that the interpretation is less certain.
-
-4. **Transparency.** In the detailed view, you can see where judges diverged. This is useful information — it tells you which aspects of the analysis are robust and which are more interpretation-dependent.
-
-The judge council is why Argumend's confidence scores are more calibrated than a single model's output would be. It's also why the tool sometimes flags uncertainty rather than presenting a false sense of certainty — genuine ambiguity in the source text produces genuine disagreement among judges, and the system reports this honestly rather than papering over it.`,
+3. **It does not say who is right.** There is no winner, no score for either side, and no agreement percentage. If you want to know who won, this is the wrong tool. If you want to know what you are actually disagreeing about, it is the right one.`,
       },
       {
-        title: "Sharing Your Analysis",
-        content: `Every completed analysis generates a permanent URL that you can share with anyone. The recipient doesn't need an Argumend account to view the results — the full analysis is accessible via the link.
+        title: "Sharing a Report",
+        content: `A report comes back to your browser and nowhere else. If you want to send it to the person you were arguing with, you can publish it: the report is saved at an unlisted link that anyone with the link can open. The full text you pasted is not saved; only the short quotes the report uses appear on the page. Your browser keeps a key that lets you delete the report later.
 
-**Sharing for discussion.** If you're debating a topic with someone and want to establish a shared understanding of the argument structure, send them the analysis link. Instead of talking past each other, you can point to specific pillars and say "I think this pillar is weak because..." or "I agree with this evidence but disagree with this one." The shared structure makes disagreement productive.
+**Sharing for a conversation.** Send the link to the person you disagree with and start from "What they agree on." It is much easier to talk about the one question you differ on once you have both seen how much you share.
 
-**Sharing for education.** Teachers and professors can use analysis links as teaching tools. Assign students an article, run the analysis, and then ask students to evaluate whether the AI's breakdown matches their own reading. Where does the AI get it right? Where does it miss something? This builds critical thinking skills by giving students a structured second opinion to compare against.
-
-**Exporting results.** You can export the analysis in several formats. The structured data export gives you the raw positions, pillars, evidence, and cruxes in a format you can import into other tools. The summary export produces a human-readable breakdown suitable for pasting into documents or presentations.
-
-**Building a personal library.** If you create an account, your analyses are saved to your library. Over time, this becomes a personal database of argument structures on topics you care about. You can search your library, compare analyses, and track how your understanding of a topic has evolved as you've analyzed more sources.`,
+**Sharing for a class.** Paste an article, publish the report, and ask students whether the positions are stated fairly. Where would the author object? What did the tool miss? Comparing their own reading with the report is a good exercise in reading charitably.`,
       },
     ],
     keyTakeaways: [
-      "The best inputs for analysis are explicitly argumentative texts — editorials, position papers, debate transcripts — ideally with multiple perspectives",
-      "Focus on the cruxes first: they identify where resolving a single disagreement would shift the most about the conclusion",
-      "The AI judge council uses multiple independent evaluators to reduce bias — confidence scores reflect the degree of consensus among them",
-      "Use the sharing and export features to make disagreements productive: point to specific pillars and evidence rather than arguing in generalities",
+      "Paste an argument you are part of, ideally with more than one voice in it, and don't include private information about other people",
+      "Read \"What it turns on\" first: it says whether the disagreement is about facts, values or the meaning of a word",
+      "The report maps what the text says; it does not fact-check, guess at motives, label fallacies, or name a winner",
+      "Your text is sent to an AI model to be read and is not stored; a published report keeps only the short quotes it uses",
     ],
     furtherReading: [
       { title: "Argumentation: The Study of Effective Reasoning", author: "David Zarefsky" },
@@ -790,7 +758,7 @@ Think of these four dimensions as separate filters. A piece of evidence might sc
 
 The power of the framework comes from evaluating all four dimensions together. Evidence that scores high on all four is the gold standard — you can update your beliefs substantially based on it. Evidence that scores low on all four should barely move the needle. Most real-world evidence falls somewhere in between, and the framework helps you calibrate appropriately.
 
-On Argumend's argument maps, each evidence node displays indicators for these four dimensions, giving you a quick visual assessment of evidence quality without needing to research every source yourself.`,
+On Argumend's maps, a person scores every evidence card on these four dimensions. The card shows a plain word for the result (Established, Strong, Contested or Thin), and the detailed view shows all four scores, which gives you a starting point without researching every source yourself.`,
       },
       {
         title: "Source Reliability: What Makes a Source Trustworthy",
@@ -802,7 +770,7 @@ Several factors determine reliability:`,
             title: "Track Record",
             content: `The single best predictor of future reliability is past reliability. Has this source been accurate before? Have they issued corrections when wrong? A source that has been consistently accurate over years has earned a degree of trust. A source with a history of errors, retractions, or fabrications should be treated with skepticism regardless of what they're currently claiming.
 
-Argumend tracks source track records where possible. Peer-reviewed journals with low retraction rates, news organizations with strong editorial standards, and government statistical agencies with decades of consistent methodology all receive higher reliability indicators.`,
+This is the question behind the source-reliability score on every Argumend evidence card. Peer-reviewed journals with low retraction rates, news organizations with strong editorial standards, and government statistical agencies with decades of consistent methodology all score higher.`,
           },
           {
             title: "Expertise and Methodology",
@@ -814,7 +782,7 @@ Methodology matters as much as credentials. A well-designed study by a junior re
             title: "Incentive Alignment",
             content: `Consider what incentives the source faces. A pharmaceutical company reporting that their own drug works has an obvious financial incentive to find positive results. That doesn't mean their study is wrong — but it means you should weight it less heavily than an independent replication by researchers with no financial stake.
 
-The most credible statements are those that go against the source's interests. When a tobacco company acknowledges that smoking causes cancer, or a defense contractor admits their weapon system has flaws, those statements carry extra weight precisely because the source had every reason not to make them. Argumend flags "statements against interest" as particularly noteworthy evidence.`,
+The most credible statements are those that go against the source's interests. When a tobacco company acknowledges that smoking causes cancer, or a defense contractor admits their weapon system has flaws, those statements carry extra weight precisely because the source had every reason not to make them. Statements against interest are worth looking for.`,
           },
           {
             title: "Transparency",
@@ -858,7 +826,7 @@ Independence is especially important in the social media age, where a single cla
 
 The replication crisis in psychology and other fields (discussed in our [Hierarchy of Evidence guide](/guides/evidence-hierarchy)) showed that many published findings fail to replicate. This makes replication status a crucial quality indicator. Evidence that has been successfully replicated — especially by independent teams — deserves substantially more weight than evidence from a single unreplicated study.
 
-On Argumend, evidence nodes that reference replicated findings carry a replicability indicator. When evaluating evidence yourself, check: has this finding been replicated? By whom? Were the replications close to the original conditions, or did they test the finding in new contexts (which is even better)?
+On Argumend's maps, this is the replicability score each evidence card carries. When evaluating evidence yourself, check: has this finding been replicated? By whom? Were the replications close to the original conditions, or did they test the finding in new contexts (which is even better)?
 
 There's a practical hierarchy of replicability:
 - **Direct replication by independent teams:** Strongest. Different people followed the same procedure and got the same result.
@@ -880,7 +848,7 @@ Common sources of indirectness:
 - **Analogies:** "This policy worked in Country X, so it will work in Country Y." This is indirect because it assumes the two contexts are similar enough for the analogy to hold.
 - **Extrapolation:** Extending a trend beyond the range of observed data. Past performance is indirect evidence of future results, and the further you extrapolate, the weaker the evidence becomes.
 
-On Argumend's maps, evidence nodes indicate directness level. When you see a chain of indirect evidence, ask yourself how many inferential steps are required and how confident you are in each step. The overall strength of the evidence chain is limited by its weakest link.`,
+On Argumend's maps, directness is one of the four scores on every evidence card. When you see a chain of indirect evidence, ask yourself how many inferential steps are required and how confident you are in each step. The overall strength of the evidence chain is limited by its weakest link.`,
           },
         ],
       },
@@ -928,7 +896,7 @@ A useful mental model: imagine you're a juror. You wouldn't convict based solely
 
 Most disagreements have dozens of surface-level points of contention, but only one or two genuine cruxes. Everything else is either downstream of the crux (it only matters because the crux holds) or peripheral (it feels relevant but wouldn't actually change anyone's conclusion).
 
-Consider the [Moon Landing debate](/topics/moon-landing) on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
+Consider the [Moon Landing map](/topics/moon-landing) on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
 
 Or take [Nuclear Energy](/topics/nuclear-energy-safety). Proponents and opponents often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
 
@@ -944,7 +912,7 @@ The crux is where the real action is. Everything else is noise.`,
 
 Empirical cruxes are the most productive to identify because they point directly to what research, data, or experiments could resolve the disagreement. When you find an empirical crux, you've found the specific question that both sides should be investigating together rather than arguing past each other.
 
-The test: could you design a study, gather data, or point to a measurement that would settle this question? If yes, it's empirical. These are the cruxes where Argumend's evidence nodes are most directly useful — you can look at the actual data bearing on the crux and assess its quality.`,
+The test: could you design a study, gather data, or point to a measurement that would settle this question? If yes, it's empirical. These are the cruxes where Argumend's evidence cards are most directly useful — you can look at the actual data bearing on the crux and assess its quality.`,
           },
           {
             title: "Value Cruxes",
@@ -956,7 +924,7 @@ Many debates that look empirical are actually value cruxes in disguise. The deba
           },
           {
             title: "Definitional Cruxes",
-            content: `The most frustrating type: people think they disagree about substance, but they're actually using the same words to mean different things. The Free Will debate on Argumend is a textbook example. Compatibilists and hard determinists can argue for hours without making progress because they define "free will" differently. Once you realize the crux is definitional — "What do we even mean by free will?" — the debate transforms.
+            content: `The most frustrating type: people think they disagree about substance, but they're actually using the same words to mean different things. The Free Will map on Argumend is a textbook example. Compatibilists and hard determinists can argue for hours without making progress because they define "free will" differently. Once you realize the crux is definitional — "What do we even mean by free will?" — the debate transforms.
 
 Similarly, debates about whether AI is "conscious" or whether certain speech constitutes "violence" often stall on definitional cruxes. The participants aren't really disagreeing about the world; they're disagreeing about how to use language.
 
@@ -984,7 +952,7 @@ This process is uncomfortable because it requires genuine vulnerability. You're 
       },
       {
         title: "Practice: Identifying Cruxes in Real Debates",
-        content: `Let's walk through crux identification in three debates you can explore on Argumend.`,
+        content: `Let's walk through crux identification in three arguments you can explore on Argumend's maps.`,
         subsections: [
           {
             title: "AI Risk: Will Artificial Intelligence Pose an Existential Threat?",
@@ -1082,7 +1050,7 @@ This is why "base rates" matter. The base rate is how often a type of claim turn
 
 Bad reasoning ignores priors entirely, treating every new claim as if it starts from a blank slate. Good reasoning honestly assesses what you believed before, then updates proportionally.
 
-On Argumend, [confidence scores](/concepts/confidence-calibration) implicitly reflect priors. A claim that "vaccines cause autism" starts with an extremely low prior because decades of large-scale studies have found no connection. A single new study claiming a link barely moves the needle — and that's the rational response, not stubbornness.`,
+A claim that "vaccines cause autism" starts with an extremely low prior because decades of large-scale studies have found no connection. A single new study claiming a link barely moves the needle — and that's the rational response, not stubbornness. Argumend's maps work the same way: a new evidence card lands on top of everything already weighed, so on a well-evidenced map it moves the [reading](/concepts/confidence-calibration) only a little.`,
       },
       {
         title: "Likelihood: How Surprising Is This Evidence?",
@@ -1122,7 +1090,7 @@ Then you encounter a comprehensive study showing that no country has ever decarb
 
 Notice what happened: your belief changed, but not wildly. Each piece of evidence moved you proportionally to its strength and diagnosticity. You didn't flip-flop between 0% and 100% with each new data point. That proportional, incremental updating is the hallmark of rational thinking.
 
-On Argumend, the confidence scores on each evidence node reflect this kind of proportional updating. High-quality, diagnostic evidence carries more weight. Cumulative evidence from multiple independent sources compounds. The overall confidence score for a position integrates all of this — it's the posterior after processing all the available evidence.`,
+Argumend's maps are built on the same idea. High-quality, diagnostic evidence carries more weight, and evidence from multiple independent sources adds up. A map's [balance and weight](/concepts/confidence-calibration) integrate all of it. They are not probabilities, but they move the way a posterior should: a little for weak evidence, more for strong.`,
       },
       {
         title: "Calibration: Are You As Right As You Think?",
@@ -1140,7 +1108,7 @@ The connection to Argumend is direct. When you look at a topic and form an opini
 
 This doesn't mean you should doubt everything equally. It means you should practice what Philip Tetlock calls "calibrated uncertainty" — being confident in proportion to the evidence, not in proportion to how strongly you feel. Superforecasters, the most accurate predictors Tetlock studied, were distinguished not by having better information but by being better calibrated. They knew what they didn't know.
 
-Argumend's confidence scores are designed with calibration in mind. A score of 75 means the evidence moderately favors this position, not that it's definitively settled. A score of 50 means the evidence is genuinely balanced — and that's an honest, useful assessment, not a failure to reach a conclusion. Learning to sit comfortably with calibrated uncertainty, rather than forcing premature certainty, is one of the most valuable intellectual skills you can develop.`,
+Argumend's maps are written with calibration in mind. "The evidence leans toward the claim" is a weaker statement than "the evidence largely converges", and a map says which one it means. "Well-mapped, evidence still divided" is an honest, useful reading, not a failure to reach a conclusion. Learning to sit comfortably with calibrated uncertainty, rather than forcing premature certainty, is one of the most valuable intellectual skills you can develop.`,
       },
     ],
     keyTakeaways: [
@@ -1185,7 +1153,7 @@ The first step of your audit is simply asking: "Is this an empirical, causal, pr
 
 **What's their track record?** A source that has been consistently accurate in the past is more likely to be accurate now. This applies to individual experts, institutions, and publications. A climate scientist publishing in Nature has a different track record than an anonymous blog. A government statistical agency that has reported economic data reliably for decades is more trustworthy than a newly launched advocacy group's in-house "research."
 
-On Argumend, you can check the source reliability indicators on evidence nodes — they reflect exactly this kind of track-record assessment.
+On Argumend's maps, the source-reliability score on each evidence card reflects exactly this kind of track-record assessment.
 
 **What are their incentives?** Everyone has interests that could bias their claims. A pharmaceutical company reporting positive drug trial results has a financial incentive to find those results. A politician citing economic data that supports their policy has a political incentive to cherry-pick. An academic who built their career on a theory has a reputational incentive to defend it.
 
@@ -1223,19 +1191,19 @@ This is the Bayesian "prior" from the [Bayesian Thinking guide](/guides/bayesian
 
 Knowing the base rate anchors your evaluation. If you're looking at a single psychology study claiming a revolutionary finding, your base rate tells you there's roughly a coin flip's chance it will replicate. That doesn't mean you should dismiss it — it means you should calibrate your confidence accordingly and wait for replication before updating strongly.
 
-On Argumend, the confidence scoring system implicitly accounts for base rates. Claims supported by replicated, multi-source evidence receive higher scores than claims resting on a single study, precisely because the base rate of single studies being correct is lower than the base rate of replicated findings being correct.`,
+On Argumend's maps, the replicability and independence scores do the same job. A finding replicated by independent teams scores higher than one resting on a single study, precisely because the base rate of single studies being correct is lower than the base rate of replicated findings being correct.`,
       },
       {
         title: "Step 5: Assign Provisional Confidence",
         content: `You've identified the claim type, checked the source, triangulated, and consulted the base rate. Now it's time to put a number on your confidence — and commit to updating it.
 
-Argumend uses a 0-100 scale, and you can adopt the same framework for any claim you evaluate:
+A 0-100 scale works well, and you can use it for any claim you evaluate:
 
 **90-100: Near certainty.** Multiple high-quality, independent sources confirm the claim. The base rate for this type of claim being true is high. The evidence is strongly diagnostic. You'd be genuinely shocked if this turned out to be wrong. Example: "The Earth orbits the Sun." "Smoking causes lung cancer."
 
 **70-89: High confidence.** Strong evidence from reliable sources with good corroboration. Some minor uncertainties remain, but the weight of evidence clearly favors this claim. Example: "Masks reduce respiratory virus transmission." "Exercise improves mental health."
 
-**50-69: Moderate confidence.** Evidence leans in one direction but with meaningful counterarguments or gaps. Reasonable people could disagree. This is where most contested claims on Argumend topics live, and that's perfectly appropriate. Example: "Social media is a primary cause of the teen mental health crisis." "Nuclear energy is necessary for full decarbonization."
+**50-69: Moderate confidence.** Evidence leans in one direction but with meaningful counterarguments or gaps. Reasonable people could disagree. This is where most genuinely contested claims live, and that's perfectly appropriate. Example: "Social media is a primary cause of the teen mental health crisis." "Nuclear energy is necessary for full decarbonization."
 
 **30-49: Low confidence.** Evidence is mixed, thin, or comes from sources with questionable reliability. The claim might be true, but you wouldn't bet on it without more information.
 
@@ -1310,7 +1278,7 @@ This means seeking out the best sources from the other side, not the worst. If y
 
 **3. Prioritize empirical evidence over arguments.** A strong steelman is grounded in data, not just logic. "There are philosophical reasons to support X" is weaker than "here are three peer-reviewed studies demonstrating X." When you can fill the other side's case with concrete empirical evidence, you've built something that's genuinely hard to dismiss.
 
-On Argumend, every topic's argument map already presents both sides' evidence in structured form. When practicing steelmanning, explore the side you disagree with on the map. Look at the evidence nodes — especially the ones with high reliability indicators. These are the building blocks of a genuine steelman.`,
+On Argumend, every topic's argument map already presents both sides' evidence in structured form. When practicing steelmanning, explore the side you disagree with on the map. Look at the evidence cards — especially the ones rated Established or Strong. These are the building blocks of a genuine steelman.`,
       },
       {
         title: "The Logic Step",
@@ -1346,7 +1314,7 @@ There are four possible outcomes, and all of them are good:
 
 **What steelmanning teaches you over time:** The more you practice, the less binary your thinking becomes. You start seeing positions as having varying degrees of support rather than being simply "right" or "wrong." You become harder to manipulate because you've already considered the best arguments on all sides. And you become more persuasive because people can tell when you genuinely understand their position versus when you're just performing open-mindedness.
 
-The practice integrates with everything else on Argumend. Every topic is built on steelmanned arguments. Every pillar presents the strongest case. Every evidence node supports genuine engagement rather than tribal point-scoring. Steelmanning isn't just a technique — it's the intellectual foundation of productive disagreement.`,
+The practice integrates with everything else on Argumend. Every topic is built on steelmanned arguments. Every pillar presents the strongest case. Every evidence card is filed by what it shows, not by which team cites it. Steelmanning isn't just a technique — it's the intellectual foundation of productive disagreement.`,
       },
     ],
     keyTakeaways: [
@@ -1619,7 +1587,7 @@ Here's the workflow in brief:
 4. **Look for convergent, independent evidence** to break genuine ties.
 5. **Set a confidence level that reflects the residual uncertainty** — and say so out loud.
 
-The result should usually be a number, not a verdict. On Argumend, this is exactly what a [confidence score](/concepts/confidence-calibration) encodes: a claim where strong evidence genuinely conflicts might land at 55 or 60 — not because the analysis was sloppy, but because the evidence itself is unsettled. A score near 50 isn't a cop-out; it's the honest output of weighing real conflict, and it tells you precisely where more research would change minds.
+The result should usually be a degree of belief, not a verdict. On Argumend's maps, this is what "well-mapped, evidence still divided" [means](/concepts/confidence-calibration): strong evidence on both sides, weighed honestly, and no clean answer yet — not because the analysis was sloppy, but because the evidence itself is unsettled. That reading isn't a cop-out; it's the honest output of weighing real conflict, and the crux beside it tells you precisely where more research would change minds.
 
 That intellectual honesty has a payoff. When you can say "the best evidence leans this way, but here's the strongest finding against me, and here's what would change my mind," you've done something most participants in a debate never do. You've weighed the evidence instead of choosing a side — and you've left yourself a clear path to update when better evidence arrives. Explore the weighted evidence on any [Argumend topic](/topics) and you'll see this discipline applied: every pillar shows both its supporting and its opposing evidence, scored, so the conflict is visible rather than hidden. The full method is laid out in our [methodology](/methodology), and the recurring terms are defined in the [glossary](/glossary).`,
       },
@@ -1643,7 +1611,7 @@ That intellectual honesty has a payoff. When you can say "the best evidence lean
     id: "reading-confidence-like-a-forecaster",
     title: "Reading Confidence Like a Forecaster",
     subtitle: "Calibration, Probability, and the Discipline of Honest Uncertainty",
-    description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read confidence scores the same way.",
+    description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read other people's certainty, and a map's reading of its evidence, the same way.",
     readTime: "13 min read",
     sections: [
       {
@@ -1652,7 +1620,7 @@ That intellectual honesty has a payoff. When you can say "the best evidence lean
 
 When a weather forecaster says "70% chance of rain," they're making a testable claim. Collect every day they said "70%," and if it rained on roughly 70% of them, the forecaster is *calibrated* — their stated confidence matches how often they're actually right. If it rained on only 40% of those days, they're overconfident. This is a radically different way of thinking about belief: not "am I sure?" but "if I made a hundred claims at this confidence level, how many should turn out true?"
 
-This guide is about adopting that mindset — and using it to read the [confidence scores](/concepts/confidence-calibration) on Argumend the way a forecaster would. It builds directly on the [Bayesian Thinking guide](/guides/bayesian-thinking), which covers how to *update* beliefs as evidence arrives. Calibration is the complementary skill: making sure the confidence you end up with actually means what it says.`,
+This guide is about adopting that mindset — and using it to read other people's certainty, your own, and the [evidence readings](/concepts/confidence-calibration) on Argumend's maps the way a forecaster would. It builds directly on the [Bayesian Thinking guide](/guides/bayesian-thinking), which covers how to *update* beliefs as evidence arrives. Calibration is the complementary skill: making sure the confidence you end up with actually means what it says.`,
       },
       {
         title: "Calibration: The Core Skill",
@@ -1673,12 +1641,12 @@ This guide is about adopting that mindset — and using it to read the [confiden
         ],
       },
       {
-        title: "What a Confidence Score Actually Says",
-        content: `With calibration in mind, you can read Argumend's confidence scores correctly — and avoid the two most common misreadings.
+        title: "What a Map's Reading Actually Says",
+        content: `With calibration in mind, you can read a map's description of its evidence correctly — and avoid the two most common misreadings.
 
-A [confidence score](/concepts/confidence-calibration) of 85 does not mean "this is 85% likely to be true" in some cosmic sense, and it does not mean "85% of people agree." It means that, weighing the available evidence on its quality, roughly 85% of the well-weighted support points in this direction. It's a statement about the *current state of evidence*, not a permanent fact — and like a forecaster's number, it's meant to move when new evidence arrives.
+When a map says the evidence "largely converges on the claim," it does not mean "this is certainly true," and it does not mean "most people agree." It means that, weighing the available evidence on its quality, most of the well-weighed support points one way, and there is enough of it that no single card could change the reading. It's a statement about the *current state of evidence*, not a permanent fact — and like a forecaster's number, it's meant to move when new evidence arrives. The map deliberately gives you no percentage to bet on: the [balance and weight](/concepts/confidence-calibration) behind the reading say which way the evidence tips and how much of it there is, not how likely the claim is to be true.
 
-This has two practical consequences. First, a high score is an invitation to act, not to stop thinking: 85 is strong, but a calibrated reasoner still expects claims at that level to be overturned occasionally. Second, a middling score is genuinely informative. A claim at 50 isn't "we know nothing" — it's "the evidence is real but genuinely balanced," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions on any topic tend to cluster in the contested middle, which is why scanning for mid-range scores is the fastest way to find where a debate is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through using scores as exactly this kind of triage tool.`,
+This has two practical consequences. First, "largely converges" is an invitation to act, not to stop thinking: a calibrated reasoner still expects well-supported claims to be overturned occasionally, and the map still shows you the heaviest card on the other side. Second, "still divided" is genuinely informative. It isn't "we know nothing" — it's "the evidence is real but points both ways," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions tend to cluster there, which is why divided maps and their cruxes are the fastest way to find where an argument is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through reading a map as exactly this kind of triage.`,
       },
       {
         title: "Habits of Calibrated Forecasters",
@@ -1724,9 +1692,9 @@ This has two practical consequences. First, a high score is an invitation to act
         title: "Calibration in Practice on Argumend",
         content: `Putting it together, here's how to read any topic the way a forecaster would.
 
-When you open a topic like [AI Risk](/topics/ai-risk), [Climate Change](/topics/climate-change), or [Longevity Science](/topics/longevity-science), resist the pull to look for a verdict. Instead, read the confidence scores as probabilities you could bet on. Ask of each high-confidence claim: would I be genuinely surprised if this were overturned? Ask of each contested claim: what specific evidence would move this number, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
+When you open a topic like [AI Risk](/topics/ai-risk), [Climate Change](/topics/climate-change), or [Longevity Science](/topics/longevity-science), resist the pull to look for a verdict; the map won't give you one. Instead, read the evidence the way a forecaster would. Ask of each card rated Established: would I be genuinely surprised if this were overturned? Ask of each contested point: what specific evidence would move it, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
 
-Then turn the lens on yourself. Pick a claim on the topic, write down your own confidence as a number, and note what would change it. Come back when you've read more — or when the world has supplied new evidence — and see whether you should update. This simple practice, repeated, is how calibration is built. It's also the entire spirit of Argumend: not to hand you conclusions, but to give you a structured, honestly-scored map of the [evidence](/concepts/evidence-weighting) so you can hold your own beliefs to a forecaster's standard.
+Then turn the lens on yourself. Pick a claim on the topic, write down your own confidence as a number, and note what would change it. Come back when you've read more — or when the world has supplied new evidence — and see whether you should update. This simple practice, repeated, is how calibration is built. It's also the entire spirit of Argumend: not to hand you conclusions, but to give you a structured, honestly weighed map of the [evidence](/concepts/evidence-weighting) so you can hold your own beliefs to a forecaster's standard.
 
 The reward is a kind of intellectual freedom. Once confidence is a number you can be accountable for, you stop needing to be certain to have an opinion, and you stop being threatened by evidence against you — it's just information that adjusts a probability. You can hold a view at 70%, take the other side's best argument seriously, and change your mind by degrees rather than all at once. That is what it means to read confidence like a forecaster.`,
       },
@@ -1735,7 +1703,7 @@ The reward is a kind of intellectual freedom. Once confidence is a number you ca
       "Confidence is a testable probability, not a feeling: if you're right about 70% of the things you call '70% likely,' you're calibrated — and being wrong sometimes is required, not a failure",
       "Most people, including experts, are systematically overconfident; the fix is to pull your stated confidence toward what your track record actually justifies",
       "Good judgment needs both calibration (honest probabilities) and resolution (the willingness to say 95% or 5% when warranted) — hedging everything to 50% is useless",
-      "An Argumend confidence score reflects the current weight of evidence, not cosmic truth or popularity — high scores invite action, mid-range scores flag where a debate is genuinely live",
+      "A map's reading (largely converges, still divided, still thin) describes the current state of the evidence, not cosmic truth or popularity — and \"still divided\" flags where an argument is genuinely live",
       "Borrow the forecaster's habits: think in ranges, start from base rates, update in small steps, and keep score of your predictions to reveal where you're miscalibrated",
       "When reading others, weight precision and acknowledged uncertainty over loud conviction — confidence is not competence, and track record beats credentials",
     ],
@@ -1825,7 +1793,7 @@ None of these alone proves causation. Together they tell you how seriously to ta
         title: "Reading Causal Claims on Argumend",
         content: `Once you see this distinction clearly, you'll notice that a huge share of bad arguments are really one error wearing different costumes: treating a correlation as if it were a cause. Formally, it's the [false cause fallacy](/fallacies/false-cause), and spotting it is one of the highest-leverage moves in the [argument audit](/guides/argument-audit) toolkit.
 
-On Argumend, this is why a topic rarely collapses into a single verdict. A claim like "the data show X and Y move together" might earn a high [confidence score](/concepts/confidence-calibration) — the correlation is real and well-measured — while the causal claim built on top of it, "therefore X causes Y," sits much lower, because the rival explanations haven't been ruled out. Keeping those two scores separate is the discipline. When you read any topic, ask of every causal arrow: is this a measured correlation, or has someone established the direction, controlled the confounders, and found a mechanism? The gap between those is where most of the real uncertainty — and most of the [evidence weighting](/concepts/evidence-weighting) — lives. The recurring terms are defined in the [glossary](/glossary), and the full scoring approach in our [methodology](/methodology).`,
+On Argumend, this is why a map rarely collapses into a single answer, and it is what the directness score on each evidence card is for. A study showing that X and Y move together can be strong evidence that they do — the correlation is real and well-measured — while counting for much less toward "therefore X causes Y," because the rival explanations haven't been ruled out. Keeping those two apart is the discipline. When you read any topic, ask of every causal arrow: is this a measured correlation, or has someone established the direction, controlled the confounders, and found a mechanism? The gap between those is where most of the real uncertainty — and most of the [evidence weighting](/concepts/evidence-weighting) — lives. The recurring terms are defined in the [glossary](/glossary), and the full weighing approach in our [methodology](/methodology).`,
       },
     ],
     keyTakeaways: [
@@ -1834,7 +1802,7 @@ On Argumend, this is why a topic rarely collapses into a single verdict. A claim
       "Confounding is the most common trap: the kind of person who does X often differs in a dozen other ways, and one of those — not X — may drive the outcome",
       "Diagnostic questions — which way the arrow runs, what the confounder could be, dose-response, mechanism, and timing — tell you how seriously to take a causal reading",
       "Causation is established by breaking the link between cause and confounders: randomized trials, natural experiments, and convergence across independent methods",
-      "On a well-built argument map the correlation and the causal claim get separate confidence scores — the gap between them is where the real uncertainty lives",
+      "On a well-built argument map a well-measured correlation still counts for little toward a causal claim until the rivals are ruled out — the gap between the two is where the real uncertainty lives",
     ],
     furtherReading: [
       { title: "The Book of Why", author: "Judea Pearl & Dana Mackenzie" },
@@ -1926,11 +1894,11 @@ The stakes are rising. As the [truth-collapse debate](/topics/ai-deepfakes-truth
 
 2. **Trace independence before counting agreement.** Three voices that trace to one source are one voice. [Triangulate](/guides/triangulation).
 
-3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. Read the [confidence scores](/concepts/confidence-calibration) as probabilities, not verdicts.
+3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. On a map, read "largely converges" and "still divided" as descriptions of the [evidence](/concepts/confidence-calibration), not verdicts.
 
 4. **Demand a stated falsification condition.** If the doubt can't name what would change its mind, it isn't skepticism.
 
-This is exactly what an Argumend map is built to provide: instead of a shouting match where the loudest doubt wins, it lays out each claim with its [weighted evidence](/concepts/evidence-weighting) and an honest [confidence score](/concepts/confidence-calibration), so manufactured doubt has nowhere to hide. The strongest objections get their due; the manufactured ones get scored for what they're worth. Engaging seriously with real uncertainty while refusing to be paralyzed by fake uncertainty — that is the balance the whole [methodology](/methodology) is built to strike, and the recurring terms are defined in the [glossary](/glossary).`,
+This is exactly what an Argumend map is built to provide: instead of a shouting match where the loudest doubt wins, it lays out each claim with its [weighted evidence](/concepts/evidence-weighting) and an honest [reading of where that evidence stands](/concepts/confidence-calibration), so manufactured doubt has nowhere to hide. The strongest objections get their due; the manufactured ones get weighed for what they're worth. Engaging seriously with real uncertainty while refusing to be paralyzed by fake uncertainty — that is the balance the whole [methodology](/methodology) is built to strike, and the recurring terms are defined in the [glossary](/glossary).`,
       },
     ],
     keyTakeaways: [
