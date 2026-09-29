@@ -10,7 +10,8 @@
  *   6. the positions, compact, full case folded
  *   7. a one-tap reflection (local only, never graded)
  *   8. Save · Share · Embed
- *   9. folds: the numbers, how the evidence weighs, researcher mode
+ *   9. folds: the numbers, how the evidence weighs, researcher mode,
+ *      common questions
  *  10. related maps and how the map was made
  *
  * Desktop keeps the same order in one reading column, with a sticky rail that
@@ -519,17 +520,18 @@ export function TopicFolds({ folds }: { folds: TopicFold[] }) {
           className="group/fold surface-card rounded-lg"
         >
           <summary className="cursor-pointer list-none rounded-lg p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
-            <span className="flex items-start gap-3">
-              <span className="font-serif text-lg leading-snug text-stone-900 dark:text-stone-100">
-                {fold.title}
-              </span>
+            {/* An h2, a direct child of <summary> (the one place its content
+                model allows a heading), so the fold's own h3/h4s sit under
+                it instead of under the reflection's h2 before it. */}
+            <h2 className="flex items-start gap-3 font-serif text-lg font-normal leading-snug text-stone-900 dark:text-stone-100">
+              <span>{fold.title}</span>
               <span
                 aria-hidden="true"
-                className="ml-auto shrink-0 text-xl leading-none text-muted transition-transform group-open/fold:rotate-90 motion-reduce:transition-none dark:text-stone-400"
+                className="ml-auto shrink-0 font-sans text-xl leading-none text-muted transition-transform group-open/fold:rotate-90 motion-reduce:transition-none dark:text-stone-400"
               >
                 ›
               </span>
-            </span>
+            </h2>
             {fold.hint && (
               <span className="mt-1 block text-sm text-muted dark:text-stone-400">{fold.hint}</span>
             )}
@@ -540,6 +542,32 @@ export function TopicFolds({ folds }: { folds: TopicFold[] }) {
         </details>
       ))}
     </section>
+  );
+}
+
+/**
+ * A map's authored questions and the context behind each, as the content of
+ * a "Common questions" fold. They are also the page's FAQPage structured
+ * data, which Google only accepts when the questions are visible on the page.
+ */
+export function CommonQuestions({
+  questions,
+}: {
+  questions: ReadonlyArray<{ id: string; title: string; content: string }>;
+}) {
+  return (
+    <ul className="space-y-5">
+      {questions.map((question) => (
+        <li key={question.id}>
+          <h3 className="font-serif text-[1.0625rem] font-medium leading-snug text-stone-900 dark:text-stone-100">
+            {question.title}
+          </h3>
+          <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
+            {question.content}
+          </p>
+        </li>
+      ))}
+    </ul>
   );
 }
 

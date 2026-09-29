@@ -5,7 +5,8 @@
  * rendered by components/topic/TopicPage.tsx, the same template the
  * ArgumentGraph maps use. What this file adds is only what is specific to the
  * legacy data: its evidence cards (without score bars), its tests, the
- * "How the evidence weighs" fold and the link to the diagram.
+ * "How the evidence weighs" and "Common questions" folds and the link to the
+ * diagram.
  *
  * Server-safe: no hooks, no client directive.
  */
@@ -18,7 +19,12 @@ import {
   type LegacyWeighing,
 } from "@/lib/topicPage/legacy";
 import type { RelatedMap } from "@/lib/topicPage/model";
-import { TopicPage, type CruxEntryView, type TopicFold } from "@/components/topic/TopicPage";
+import {
+  CommonQuestions,
+  TopicPage,
+  type CruxEntryView,
+  type TopicFold,
+} from "@/components/topic/TopicPage";
 import { DetailBlock, SOURCE_LINK } from "@/components/topic/cruxPrimitives";
 import { FragileVerdictNote } from "@/components/FragileVerdictNote";
 import { CitationCard } from "@/components/CitationCard";
@@ -63,6 +69,16 @@ export function ReadModeView({ topic }: { topic: Topic }) {
       content: <LegacyResearcher topic={topic} cruxes={cruxes} references={references} />,
     },
   ];
+  // The route also ships these as FAQPage structured data, which must be
+  // visible on the page.
+  if (topic.questions?.length) {
+    folds.push({
+      id: "questions",
+      title: "Common questions",
+      hint: "What people ask about this, and the context behind each question.",
+      content: <CommonQuestions questions={topic.questions} />,
+    });
+  }
 
   return (
     <TopicPage
