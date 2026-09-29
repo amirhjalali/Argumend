@@ -27,10 +27,10 @@ describe("shared navigation touch-target contract", () => {
   });
 
   it.each([
-    "app/questions/page.tsx",
-    "app/concepts/page.tsx",
-    "app/blog/page.tsx",
-    "app/blog/[slug]/page.tsx",
+    // The Learn indexes (/learn, /blog, /fallacies, /questions) draw their
+    // chips and rows through CollectionIndex, whose link chips are <Chip href>.
+    "components/learn/CollectionIndex.tsx",
+    "components/ui/Chip.tsx",
     "app/topics/tag/[slug]/page.tsx",
   ])("keeps interactive taxonomy chips touch-sized in %s", (file) => {
     expect(source(file)).toContain("min-h-11");

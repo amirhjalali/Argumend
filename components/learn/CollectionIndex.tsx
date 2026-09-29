@@ -185,7 +185,7 @@ export function CollectionRows({
                 {item.title}
               </span>
               {item.description ? (
-                <span className="mt-1 line-clamp-2 block font-sans text-sm leading-relaxed text-secondary">
+                <span className="mt-1 line-clamp-2 font-sans text-sm leading-relaxed text-secondary">
                   {item.description}
                 </span>
               ) : null}

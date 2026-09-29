@@ -18,9 +18,17 @@ const LEARN_COMPONENTS = readdirSync(join(process.cwd(), "components", "learn"))
 
 const LEARN_FILES = [
   ...LEARN_COMPONENTS,
+  "app/learn/page.tsx",
   "app/questions/page.tsx",
   "app/questions/[slug]/page.tsx",
   "app/questions/QuestionsSearch.tsx",
+  "app/blog/page.tsx",
+  "app/blog/[slug]/page.tsx",
+  "app/guides/[id]/page.tsx",
+  "app/concepts/[slug]/page.tsx",
+  "app/fallacies/page.tsx",
+  "app/fallacies/[slug]/page.tsx",
+  "components/TableOfContents.tsx",
 ];
 
 const stripComments = (src: string): string =>

@@ -3,33 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { renderMarkdown } from "@/lib/markdown";
-import {
-  Calendar,
-  Clock,
-  Tag,
-  User,
-} from "lucide-react";
-import {
-  articles,
-  getArticleBySlug,
-  categoryToSlug,
-  tagToSlug,
-} from "@/data/blog";
+import { articles, getArticleBySlug, categoryToSlug } from "@/data/blog";
 import { articleSummaries, type ArticleSummary } from "@/data/blogIndex";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
-import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import { guides } from "@/data/guides";
-import { ShareButtons } from "@/components/ShareButtons";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import {
-  TableOfContents,
-  slugifyHeading,
-  type TocHeading,
-} from "@/components/TableOfContents";
-import { BlogArticleClient } from "./client";
-import { formatLongDate } from "@/lib/formatDate";
+import { ArticleLayout, type RelatedItem } from "@/components/learn/ArticleLayout";
+import { slugifyHeading, type TocHeading } from "@/components/TableOfContents";
+import { ReadingProgressBar } from "./client";
 import { buildGenericOgUrl } from "@/lib/og";
+import { pickNextMap } from "@/lib/learn/nextStep";
+import { monthYear } from "@/lib/learn/readTime";
 
 // ---------------------------------------------------------------------------
 // Heading anchors + TOC collection
@@ -73,18 +57,12 @@ function withHeadingAnchors(markdownHtml: string): {
 }
 
 // ---------------------------------------------------------------------------
-// Related reading (cross-type internal linking)
+// Related reading
 // ---------------------------------------------------------------------------
-// Surface a small, on-brand set of related content sourced ONLY from the
-// lightweight indexes (`articleSummaries` / `topicSummaries` / `guides`) — never
-// the heavy `data/blog` bodies — ranked by keyword overlap with the current
-// post's tags + category + title. Server-rendered for SEO + internal linking.
-type RelatedItem = {
-  kind: "Article" | "Topic" | "Guide";
-  href: string;
-  title: string;
-  label: string;
-};
+// At most three items, sourced ONLY from the lightweight indexes
+// (`articleSummaries` / `guides`), never the heavy `data/blog` bodies, and
+// ranked by keyword overlap with the post's tags, category and title. Maps
+// are left out: the next step above already names one.
 
 // Generic connectors + the blog's boilerplate phrasing. Stripping these keeps
 // overlap scoring on meaningful domain terms (we keep short but meaningful tokens
@@ -121,37 +99,12 @@ function relatedOverlap(a: Set<string>, b: Set<string>): number {
 function getRelatedReading(current: ArticleSummary): RelatedItem[] {
   const want = relatedKeywords(current.title, current.category, ...current.tags);
 
-  // Related posts — tag/title overlap + a same-category bonus; recency tiebreak.
-  const relatedPosts: RelatedItem[] = articleSummaries
-    .filter((p) => p.slug !== current.slug)
-    .map((p) => ({
-      p,
-      score:
-        relatedOverlap(want, relatedKeywords(...p.tags, p.title)) +
-        (p.category.toLowerCase() === current.category.toLowerCase() ? 2 : 0),
-    }))
-    .sort(
-      (a, b) =>
-        b.score - a.score ||
-        +new Date(b.p.publishedAt) - +new Date(a.p.publishedAt),
-    )
-    .slice(0, 3)
-    .map(({ p }) => ({
-      kind: "Article",
-      href: `/blog/${p.slug}`,
-      title: p.title,
-      label: p.category,
-    }));
-
-  // Related guide — guides carry no tags, so match on title/subtitle/description.
-  // Optional: only surfaced when there's genuine overlap.
+  // A guide only when it genuinely overlaps; guides carry no tags, so match
+  // on title, subtitle and description.
   const bestGuide = guides
     .map((g) => ({
       g,
-      score: relatedOverlap(
-        want,
-        relatedKeywords(g.title, g.subtitle, g.description),
-      ),
+      score: relatedOverlap(want, relatedKeywords(g.title, g.subtitle, g.description)),
     }))
     .sort((a, b) => b.score - a.score)[0];
   const guideItem: RelatedItem | null =
@@ -160,27 +113,29 @@ function getRelatedReading(current: ArticleSummary): RelatedItem[] {
           kind: "Guide",
           href: `/guides/${bestGuide.g.id}`,
           title: bestGuide.g.title,
-          label: bestGuide.g.subtitle,
+          description: bestGuide.g.subtitle,
         }
       : null;
 
-  // Related topics — tag/title overlap; evidence-rich topics as stable fallback.
-  // Keep the whole section to ~5 items: 1 topic when a guide is shown, else 2.
-  const topicItems: RelatedItem[] = topicSummaries
-    .map((t) => ({
-      t,
-      score: relatedOverlap(want, relatedKeywords(...t.tags, t.title)),
+  // Posts: tag/title overlap plus a same-category bonus; recency breaks ties.
+  const posts: RelatedItem[] = articleSummaries
+    .filter((p) => p.slug !== current.slug)
+    .map((p) => ({
+      p,
+      score:
+        relatedOverlap(want, relatedKeywords(...p.tags, p.title)) +
+        (p.category.toLowerCase() === current.category.toLowerCase() ? 2 : 0),
     }))
-    .sort((a, b) => b.score - a.score || b.t.evidenceCount - a.t.evidenceCount)
-    .slice(0, guideItem ? 1 : 2)
-    .map(({ t }) => ({
-      kind: "Topic",
-      href: `/topics/${t.id}`,
-      title: t.title,
-      label: CATEGORY_LABELS[t.category] ?? "Topic",
+    .sort((a, b) => b.score - a.score || +new Date(b.p.publishedAt) - +new Date(a.p.publishedAt))
+    .slice(0, guideItem ? 2 : 3)
+    .map(({ p }) => ({
+      kind: "Essay",
+      href: `/blog/${p.slug}`,
+      title: p.title,
+      description: p.description,
     }));
 
-  return [...relatedPosts, ...topicItems, ...(guideItem ? [guideItem] : [])];
+  return [...posts, ...(guideItem ? [guideItem] : [])];
 }
 
 // ---------------------------------------------------------------------------
@@ -247,13 +202,8 @@ export async function generateMetadata(
 }
 
 // ---------------------------------------------------------------------------
-// Markdown → HTML (simple, no external deps)
-// ---------------------------------------------------------------------------
-// Markdown rendering moved to lib/markdown.ts (shared with guides; adds list
-// support + consolidates the link-href hardening so it can't drift).
-
-// ---------------------------------------------------------------------------
-// Page
+// Page: the Learn article template. Markdown rendering lives in
+// lib/markdown.ts (shared with guides).
 // ---------------------------------------------------------------------------
 export default async function BlogArticlePage({ params }: PageProps) {
   const { slug } = await params;
@@ -261,10 +211,8 @@ export default async function BlogArticlePage({ params }: PageProps) {
   if (!article) notFound();
 
   const media = getGeneratedMedia("blog", article.slug);
-  const relatedReading = getRelatedReading(article);
-  const { html: contentHtml, headings } = withHeadingAnchors(
-    renderMarkdown(article.content),
-  );
+  const { html: contentHtml, headings } = withHeadingAnchors(renderMarkdown(article.content));
+  const published = monthYear(article.publishedAt);
 
   // Word count for structured data
   const wordCount = article.content
@@ -272,7 +220,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
     .split(/\s+/)
     .filter(Boolean).length;
 
-  // JSON-LD structured data (BlogPosting for richer search results)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -282,19 +229,13 @@ export default async function BlogArticlePage({ params }: PageProps) {
       "@type": "Organization",
       name: article.author,
       url: "https://argumend.org",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://argumend.org/icon.png",
-      },
+      logo: { "@type": "ImageObject", url: "https://argumend.org/icon.png" },
     },
     publisher: {
       "@type": "Organization",
       name: "ARGUMEND",
       url: "https://argumend.org",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://argumend.org/icon.png",
-      },
+      logo: { "@type": "ImageObject", url: "https://argumend.org/icon.png" },
     },
     datePublished: article.publishedAt,
     dateModified: article.publishedAt,
@@ -309,156 +250,57 @@ export default async function BlogArticlePage({ params }: PageProps) {
       width: media?.hero.width ?? 1200,
       height: media?.hero.height ?? 630,
     },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://argumend.org/blog/${article.slug}`,
-    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://argumend.org/blog/${article.slug}` },
     keywords: article.tags.join(", "),
-    isPartOf: {
-      "@type": "Blog",
-      name: "ARGUMEND Blog",
-      url: "https://argumend.org/blog",
-    },
+    isPartOf: { "@type": "Blog", name: "ARGUMEND Blog", url: "https://argumend.org/blog" },
   };
 
   return (
-    <BlogArticleClient>
-      <div className="min-h-[100svh] bg-canvas dark:bg-[var(--bg-canvas)]">
-        {/* JSON-LD (placed early for crawlers) */}
-        <JsonLd data={jsonLd} />
-
-        {/* Breadcrumb + article header */}
-        <div className="bg-[#faf8f5]/60 border-b border-stone-200/60 dark:border-[var(--border-default)] dark:bg-[#1a1916]/60">
-          <div className="mx-auto max-w-3xl px-4 md:px-8 pt-6 md:pt-10 pb-8 md:pb-12">
-            {/* Breadcrumb with BreadcrumbList JSON-LD */}
-            <Breadcrumbs
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Blog", href: "/blog" },
-                { label: article.title },
-              ]}
+    <ArticleLayout
+      kind="essay"
+      title={article.title}
+      lede={article.description}
+      meta={
+        <>
+          {article.readingTime}
+          {" · "}
+          <Link
+            href={`/blog/category/${categoryToSlug(article.category)}`}
+            className="underline decoration-divider underline-offset-2 transition-colors hover:text-accent-text"
+          >
+            {article.category}
+          </Link>
+          {published ? ` · Published ${published}` : null}
+        </>
+      }
+      headings={headings}
+      hero={
+        media?.hero ? (
+          <div className="relative aspect-[1672/941] overflow-hidden rounded-lg border border-divider bg-subtle">
+            <Image
+              src={media.hero.src}
+              alt={media.hero.alt}
+              fill
+              priority
+              sizes="(min-width: 768px) 704px, 100vw"
+              className="object-cover"
             />
-
-            {/* Category */}
-            <Link
-              href={`/blog/category/${categoryToSlug(article.category)}`}
-              className="mb-4 inline-flex min-h-11 items-center rounded-full border border-deep/20 bg-deep/10 px-3 py-2 text-xs font-medium text-deep transition-colors hover:bg-deep/20 dark:border-deep-light/25 dark:bg-deep-light/10 dark:text-accent-text dark:hover:bg-deep-light/20"
-            >
-              {article.category}
-            </Link>
-
-            {/* Title */}
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
-              {article.title}
-            </h1>
-
-            {/* Description / lede */}
-            {article.description && (
-              <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-6 max-w-2xl">
-                {article.description}
-              </p>
-            )}
-
-            {/* Meta row */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted dark:text-stone-400">
-              <span className="flex items-center gap-1.5">
-                <User className="h-3.5 w-3.5" />
-                {article.author}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5" />
-                {formatLongDate(article.publishedAt)}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5" />
-                {article.readingTime}
-              </span>
-            </div>
-
-            {/* Share */}
-            <div className="mt-5">
-              <ShareButtons
-                title={article.title}
-                url={`https://argumend.org/blog/${article.slug}`}
-                description={article.description}
-              />
-            </div>
-
-            {media?.hero && (
-              <div className="relative mt-8 aspect-[1672/941] overflow-hidden rounded-xl border border-stone-200/70 bg-stone-100 shadow-sm dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]">
-                <Image
-                  src={media.hero.src}
-                  alt={media.hero.alt}
-                  fill
-                  priority
-                  sizes="(min-width: 768px) 768px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            )}
           </div>
-        </div>
-
-        {/* Article body */}
-        <div className="relative mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-14">
-          <TableOfContents headings={headings} />
-
-          <article
-            className="prose-custom"
-            dangerouslySetInnerHTML={{ __html: contentHtml }}
-          />
-
-          {/* Tags */}
-          <div className="mt-14 pt-8 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-medium text-muted dark:text-stone-400 mr-1">
-                Tags:
-              </span>
-              {article.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/blog/tag/${tagToSlug(tag)}`}
-                  className="inline-flex min-h-11 items-center gap-1 rounded-full bg-stone-100 px-2.5 py-2 text-xs text-stone-600 transition-colors hover:bg-deep/10 hover:text-deep dark:bg-[var(--bg-card)] dark:text-stone-400 dark:hover:bg-deep-light/10 dark:hover:text-accent-text"
-                >
-                  <Tag className="h-2.5 w-2.5" />
-                  {tag}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Related reading — cross-type internal linking (posts + topics + guide) */}
-          {relatedReading.length > 0 && (
-            <div className="mt-14">
-              <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-3">
-                Related reading
-              </h3>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {relatedReading.map((item, idx) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="group block animate-card-fade-in"
-                    style={{ animationDelay: `${idx * 80}ms` }}
-                  >
-                    <div className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 dark:hover:border-deep-light/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 h-full">
-                      <span className="text-[10px] font-medium text-deep dark:text-accent-text uppercase tracking-wide">
-                        {item.kind}
-                      </span>
-                      <h4 className="font-serif text-sm text-primary dark:text-stone-200 mt-2 mb-2 leading-snug group-hover:text-deep dark:group-hover:text-deep-light transition-colors">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-muted dark:text-stone-400">
-                        {item.label}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </BlogArticleClient>
+        ) : undefined
+      }
+      nextMap={pickNextMap({
+        text: article.content,
+        keywords: [article.title, article.category, ...article.tags].join(" "),
+      })}
+      related={getRelatedReading(article)}
+      chrome={
+        <>
+          <JsonLd data={jsonLd} />
+          <ReadingProgressBar />
+        </>
+      }
+    >
+      <div className="prose-custom" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    </ArticleLayout>
   );
 }

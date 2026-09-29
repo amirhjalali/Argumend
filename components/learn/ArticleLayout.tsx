@@ -164,14 +164,16 @@ export function NextStep({ map, label }: { map: MapLink; label: string }) {
 export function RelatedReading({
   items,
   title = "Related reading",
+  id = "related",
   className,
 }: {
   items: readonly RelatedItem[];
   title?: string;
+  id?: string;
   className?: string;
 }) {
   return (
-    <Section id="related" title={title} className={cx("mt-12", className)}>
+    <Section id={id} title={title} className={cx("mt-12", className)}>
       <ul className="border-b border-divider">
         {items.map((item, index) => (
           <li key={item.href} className={index > 0 ? "border-t border-divider" : undefined}>
@@ -182,7 +184,7 @@ export function RelatedReading({
                   {item.title}
                 </span>
                 {item.description ? (
-                  <span className="mt-1 line-clamp-2 block font-sans text-sm leading-relaxed text-secondary">
+                  <span className="mt-1 line-clamp-2 font-sans text-sm leading-relaxed text-secondary">
                     {item.description}
                   </span>
                 ) : null}

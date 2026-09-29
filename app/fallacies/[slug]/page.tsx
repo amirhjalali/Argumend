@@ -1,13 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ArrowRight, Quote, Eye, ShieldCheck } from "lucide-react";
 import { fallacies, getFallacyBySlug, getAllFallacySlugs } from "@/data/fallacies";
-import { topicSummaries } from "@/data/topicIndex";
-import { AppShell } from "@/components/AppShell";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import { getFallacyFamily, getFallacyIcon } from "@/lib/fallacyMeta";
+import { ArticleLayout, RelatedReading, type RelatedItem } from "@/components/learn/ArticleLayout";
+import { mapLinkFor, pickNextMap } from "@/lib/learn/nextStep";
+import { readTime } from "@/lib/learn/readTime";
 import { buildGenericOgUrl } from "@/lib/og";
 
 // ---------------------------------------------------------------------------
@@ -64,7 +61,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 // ---------------------------------------------------------------------------
-// Page component (server)
+// Page: the Learn article template, with the fallacy skeleton: definition →
+// example → why it misleads → how to respond → maps where it shows up.
 // ---------------------------------------------------------------------------
 export default async function FallacyDetailPage({ params }: PageProps) {
   const { slug } = await params;
@@ -72,23 +70,18 @@ export default async function FallacyDetailPage({ params }: PageProps) {
   if (!fallacy) notFound();
 
   const paragraphs = fallacy.longDescription.split("\n\n");
-  const family = getFallacyFamily(fallacy.slug);
-  // Kept as a member-expression access (`specimen.Icon`), not a hoisted
-  // `const Icon = ...`, so react-hooks/static-components doesn't mistake the
-  // lookup for a component defined during render (matches the `style.Icon`
-  // pattern already used in components/nodes/RichNode.tsx).
-  const specimen = { Icon: getFallacyIcon(fallacy.slug) };
-  const catalogNumber = fallacies.findIndex((f) => f.slug === fallacy.slug) + 1;
 
-  // Resolve related fallacies to full objects
-  const relatedFallacies = (fallacy.relatedFallacies ?? [])
-    .map((s) => fallacies.find((f) => f.slug === s))
-    .filter((f): f is NonNullable<typeof f> => Boolean(f));
+  const related: RelatedItem[] = (fallacy.relatedFallacies ?? []).flatMap((s) => {
+    const other = fallacies.find((f) => f.slug === s);
+    return other
+      ? [{ kind: "Fallacy", href: `/fallacies/${other.slug}`, title: other.name, description: other.shortDefinition }]
+      : [];
+  });
 
-  // Resolve related topics from the lightweight topic index
-  const relatedTopics = (fallacy.relatedTopicIds ?? [])
-    .map((id) => topicSummaries.find((t) => t.id === id))
-    .filter((t): t is NonNullable<typeof t> => Boolean(t));
+  const maps: RelatedItem[] = (fallacy.relatedTopicIds ?? []).flatMap((id) => {
+    const link = mapLinkFor(id);
+    return link ? [{ kind: "Map", href: link.href, title: link.title }] : [];
+  });
 
   const url = `https://argumend.org/fallacies/${fallacy.slug}`;
 
@@ -108,209 +101,49 @@ export default async function FallacyDetailPage({ params }: PageProps) {
     },
   };
 
+  const meta = [
+    readTime(fallacy.longDescription, fallacy.example, fallacy.whyItMisleads, fallacy.howToCounter),
+    fallacy.aliases.length > 0 ? `Also called ${fallacy.aliases.join(", ")}` : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+
   return (
-    <AppShell>
-      <JsonLd data={jsonLd} />
+    <ArticleLayout
+      kind="fallacy"
+      title={fallacy.name}
+      lede={fallacy.shortDefinition}
+      meta={meta}
+      nextMap={pickNextMap({ topicIds: fallacy.relatedTopicIds ?? [], keywords: fallacy.name })}
+      related={related}
+      chrome={<JsonLd data={jsonLd} />}
+    >
+      <div className="prose-custom">
+        {paragraphs.map((paragraph) => (
+          <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+        ))}
 
-      <div className="min-h-full">
-        <div className="mx-auto max-w-3xl px-4 md:px-8 py-8 md:py-16">
-          {/* Breadcrumb with BreadcrumbList JSON-LD */}
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Fallacies", href: "/fallacies" },
-              { label: fallacy.name },
-            ]}
-          />
+        <h2 id="example" className="scroll-mt-24">
+          Example
+        </h2>
+        <blockquote>
+          <p>{fallacy.example}</p>
+        </blockquote>
 
-          {/* Hero */}
-          <header className="mb-12 md:mb-16">
-            <div className="flex items-center gap-3 mb-5">
-              <div
-                className={`flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full ${family.iconBg}`}
-              >
-                <specimen.Icon className={`h-6 w-6 ${family.iconText}`} strokeWidth={1.8} />
-              </div>
-              <Link
-                href={`/fallacies#${family.id}`}
-                className={`inline-flex min-h-10 items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-medium ${family.chip}`}
-              >
-                {family.numeral}. {family.label}
-              </Link>
-              <span className="ml-auto text-[11px] font-mono tabular-nums text-muted/70 dark:text-stone-500/70">
-                No. {String(catalogNumber).padStart(2, "0")}
-              </span>
-            </div>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
-              {fallacy.name}
-            </h1>
-            <p className="text-lg md:text-xl text-secondary dark:text-stone-400 leading-relaxed">
-              {fallacy.shortDefinition}
-            </p>
-            {fallacy.aliases.length > 0 && (
-              <div className="mt-6 flex flex-wrap gap-2">
-                {fallacy.aliases.map((alias) => (
-                  <span
-                    key={alias}
-                    className="text-[11px] text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-[var(--bg-muted)] px-2.5 py-1 rounded-full"
-                  >
-                    {alias}
-                  </span>
-                ))}
-              </div>
-            )}
-          </header>
+        <h2 id="why-it-misleads" className="scroll-mt-24">
+          Why it misleads
+        </h2>
+        <p>{fallacy.whyItMisleads}</p>
 
-          {/* Long description */}
-          <section className="mb-12 md:mb-16">
-            <div className="space-y-5 text-base md:text-[17px] text-primary dark:text-stone-200 leading-[1.8]">
-              {paragraphs.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
-            </div>
-          </section>
-
-          {/* Example */}
-          <section className="mb-12 md:mb-16">
-            <div className="flex items-center gap-2 mb-4">
-              <Quote className="h-5 w-5 text-rust-600 dark:text-rust-400" strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">Example</h2>
-            </div>
-            <blockquote className="bg-white/80 dark:bg-card/80 rounded-xl border-l-4 border-rust-500 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
-              <p className="text-primary dark:text-stone-200 leading-[1.8] italic">{fallacy.example}</p>
-            </blockquote>
-          </section>
-
-          {/* Why it misleads — colored by family, ties the diagnosis back to the taxonomy */}
-          <section className="mb-12 md:mb-16">
-            <div className="flex items-center gap-2 mb-4">
-              <specimen.Icon className={`h-5 w-5 ${family.iconText}`} strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">
-                Why It Misleads
-              </h2>
-            </div>
-            <div
-              className={`bg-white/80 dark:bg-card/80 rounded-xl border-l-4 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8 ${family.borderAccent}`}
-            >
-              <p className="text-primary dark:text-stone-200 leading-[1.8]">{fallacy.whyItMisleads}</p>
-            </div>
-          </section>
-
-          {/* How to counter — deep teal is the constant "resolution" color across every fallacy */}
-          <section className="mb-12 md:mb-16">
-            <div className="flex items-center gap-2 mb-4">
-              <ShieldCheck className="h-5 w-5 text-deep dark:text-[#9bc7c3]" strokeWidth={1.8} />
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">
-                How to Counter It
-              </h2>
-            </div>
-            <div className="bg-white/80 dark:bg-card/80 rounded-xl border-l-4 border-deep/40 border-y border-r border-stone-200/60 dark:border-[var(--border-default)] p-6 md:p-8">
-              <p className="text-primary dark:text-stone-200 leading-[1.8]">{fallacy.howToCounter}</p>
-            </div>
-          </section>
-
-          {/* Related topics */}
-          {relatedTopics.length > 0 && (
-            <section className="mb-12 md:mb-16">
-              <div className="flex items-center gap-2 mb-4">
-                <Eye className="h-5 w-5 text-deep dark:text-[#9bc7c3]" strokeWidth={1.8} />
-                <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200">
-                  See It in Real Debates
-                </h2>
-              </div>
-              <p className="text-secondary dark:text-stone-400 mb-6 leading-relaxed">
-                This fallacy frequently shows up in arguments about these topics.
-                Explore the structured argument maps to see the reasoning laid bare.
-              </p>
-              <div className="grid gap-3">
-                {relatedTopics.map((topic) => (
-                  <Link
-                    key={topic.id}
-                    href={`/topics/${topic.id}`}
-                    className="group flex items-center justify-between p-4 rounded-xl bg-white/80 dark:bg-card/80 border border-stone-200/60 dark:border-[var(--border-default)] hover:border-deep/30 hover:shadow-sm transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-deep" />
-                      <span className="text-primary dark:text-stone-200 font-medium group-hover:text-deep dark:group-hover:text-[#9bc7c3] transition-colors">
-                        {topic.title}
-                      </span>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-stone-300 dark:text-stone-600 group-hover:text-deep group-hover:translate-x-0.5 transition-all duration-200" />
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Related fallacies */}
-          {relatedFallacies.length > 0 && (
-            <section className="mb-12 md:mb-16">
-              <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
-                Related Fallacies
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {relatedFallacies.map((related) => {
-                  const relatedFamily = getFallacyFamily(related.slug);
-                  const RelatedIcon = getFallacyIcon(related.slug);
-                  return (
-                    <Link
-                      key={related.slug}
-                      href={`/fallacies/${related.slug}`}
-                      className={`group bg-white/80 dark:bg-card/80 rounded-xl p-5 border border-stone-200/60 dark:border-[var(--border-default)] hover:shadow-sm transition-all duration-200 ${relatedFamily.hoverBorder}`}
-                    >
-                      <div
-                        className={`flex items-center justify-center w-8 h-8 rounded-full mb-3 ${relatedFamily.iconBg}`}
-                      >
-                        <RelatedIcon className={`h-4 w-4 ${relatedFamily.iconText}`} strokeWidth={1.8} />
-                      </div>
-                      <h3 className="font-serif text-lg text-primary dark:text-stone-200 group-hover:text-deep dark:group-hover:text-[#9bc7c3] transition-colors mb-1">
-                        {related.name}
-                      </h3>
-                      <p className="text-sm text-secondary dark:text-stone-400 line-clamp-2">
-                        {related.shortDefinition}
-                      </p>
-                    </Link>
-                  );
-                })}
-              </div>
-            </section>
-          )}
-
-          {/* CTA */}
-          <section className="text-center py-10 border-t border-stone-200/60 dark:border-[var(--border-default)]">
-            <h3 className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 mb-3">
-              Strengthen your reasoning
-            </h3>
-            <p className="text-secondary dark:text-stone-400 mb-7 leading-relaxed">
-              The best defense against fallacies is steel-manning — engaging the
-              strongest version of every argument. See how it works in practice.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link
-                href="/topics"
-                className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Explore Argument Maps
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link
-                href="/fallacies"
-                className="inline-flex min-h-11 items-center px-5 py-2.5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] text-primary dark:text-stone-200 text-sm font-medium hover:border-deep/30 hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] transition-all duration-200"
-              >
-                All Fallacies
-              </Link>
-            </div>
-          </section>
-
-          {/* Footer */}
-          <div className="pt-6 border-t border-stone-200/60 dark:border-[var(--border-default)] mt-4">
-            <p className="text-sm text-muted dark:text-stone-400 italic text-center">
-              A fallacious argument can still reach a true conclusion — the issue
-              is always the reasoning path.
-            </p>
-          </div>
-        </div>
+        <h2 id="how-to-respond" className="scroll-mt-24">
+          How to respond
+        </h2>
+        <p>{fallacy.howToCounter}</p>
       </div>
-    </AppShell>
+
+      {maps.length > 0 ? (
+        <RelatedReading id="on-a-map" title="Where it shows up" items={maps} />
+      ) : null}
+    </ArticleLayout>
   );
 }
