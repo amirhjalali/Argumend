@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { topicSummaries, CATEGORY_ORDER } from "@/data/topicIndex";
+import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { aiPageAsOf } from "./ai/loadAiMaps";
 import {
@@ -10,11 +10,6 @@ import {
 } from "@/lib/site";
 
 export const revalidate = 86400;
-
-/** Mirror of the tag-page slug scheme (lowercase, spaces → hyphens). */
-function tagToTopicSlug(tag: string): string {
-  return tag.toLowerCase().trim().replace(/\s+/g, "-").replace(/-+/g, "-");
-}
 
 /**
  * The sitemap advertises only the pruned CORE surface (see
@@ -112,29 +107,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.3,
   }));
 
-  // ── Topic category landing pages (priority 0.7) ───────────────────────
-  const topicCategoryPages: MetadataRoute.Sitemap = CATEGORY_ORDER.map(
-    (cat) => ({
-      url: `${baseUrl}/topics/category/${cat}`,
-      lastModified: contentLastUpdated,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    }),
-  );
-
-  // ── Topic tag landing pages (priority 0.6) ────────────────────────────
-  const topicTagSlugs = Array.from(
-    new Set(
-      topicSummaries.flatMap((t) => (t.tags ?? []).map(tagToTopicSlug)),
-    ),
-  ).filter(Boolean);
-  const topicTagPages: MetadataRoute.Sitemap = topicTagSlugs.map((slug) => ({
-    url: `${baseUrl}/topics/tag/${slug}`,
-    lastModified: contentLastUpdated,
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
-
   return [
     ...homepage,
     ...listingPages,
@@ -143,7 +115,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...aiPage,
     ...aboutPage,
     ...legalPages,
-    ...topicCategoryPages,
-    ...topicTagPages,
   ];
 }

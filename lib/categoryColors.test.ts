@@ -119,10 +119,6 @@ describe("category/status color SOT consolidation (repo guard)", () => {
   const migratedFiles = [
     "app/dashboard/page.tsx",
     "app/saved/SavedClient.tsx",
-    "app/topics/tag/[slug]/page.tsx",
-    "app/topics/category/[slug]/page.tsx",
-    "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
-    "app/topics/compare/CompareIndexView.tsx",
     "components/MobileArgumentList.tsx",
   ];
 
@@ -275,7 +271,6 @@ describe("off-palette color guard (app + components source trees)", () => {
 describe("dark-mode pairing guard for text-primary / text-secondary", () => {
   const pairedFiles = [
     "components/ReadModeView.tsx",
-    "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
     "app/community/page.tsx",
     "components/JudgingResults.tsx",
     "components/FlagshipIntro.tsx",

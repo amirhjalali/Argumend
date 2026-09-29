@@ -15,8 +15,6 @@ const routesThatMustNotLoadTheFullCorpus = [
   "app/topics/TopicsPageClient.tsx",
   "app/topics/[id]/page.tsx",
   "app/topics/[id]/TopicPageClient.tsx",
-  "app/topics/compare/page.tsx",
-  "app/topics/compare/[id1]/vs/[id2]/page.tsx",
   "components/AppShell.tsx",
   "components/Sidebar.tsx",
   "components/TopBar.tsx",
