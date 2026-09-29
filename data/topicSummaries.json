@@ -2,6 +2,7 @@
   {
     "id": "sports-betting-legalization",
     "title": "Legalizing Sports Betting",
+    "question": "Should states legalize and regulate mobile sports betting?",
     "meta_claim": "States should legalize and regulate mobile sports betting rather than ban it",
     "confidence_score": 47,
     "balance": 47,
@@ -21,6 +22,7 @@
   {
     "id": "pfas-forever-chemicals",
     "title": "PFAS \"Forever Chemicals\"",
+    "question": "Are PFAS causing enough harm to justify costly bans and water cleanup?",
     "meta_claim": "PFAS are causing widespread human health harm and warrant aggressive, costly bans and water cleanup",
     "confidence_score": 68,
     "balance": 68,
@@ -78,6 +80,7 @@
   {
     "id": "tipping-culture",
     "title": "Should Tipping Be Abolished?",
+    "question": "Should the US replace tipping with service-included wages?",
     "meta_claim": "The United States should abolish tipping and the subminimum tipped wage in favor of service-included wages",
     "confidence_score": 57,
     "balance": 57,
@@ -154,6 +157,7 @@
   {
     "id": "vertical-farming-viability",
     "title": "Is Vertical Farming the Future of Food?",
+    "question": "Will vertical farms become a major, profitable source of the world's food?",
     "meta_claim": "Indoor vertical farms will become a major, economically viable pillar of how the world produces food",
     "confidence_score": 38,
     "balance": 38,
@@ -192,6 +196,7 @@
   {
     "id": "scott-cost-disease",
     "title": "The Cost Disease",
+    "question": "Have US health, school and infrastructure costs soared without matching gains?",
     "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
     "confidence_score": 85,
     "balance": 85,
@@ -211,6 +216,7 @@
   {
     "id": "moloch",
     "title": "Meditations on Moloch",
+    "question": "Does competition erode human values unless strong coordination stops it?",
     "meta_claim": "Competition and coordination failure — Scott Alexander's 'Moloch' — systematically push civilization toward equilibria that sacrifice human values for competitive advantage, and durably escaping those multipolar traps requires a coordination mechanism strong enough to override the incentives that create them.",
     "confidence_score": 46,
     "balance": 46,
@@ -249,6 +255,7 @@
   {
     "id": "jones-act",
     "title": "Repealing the Jones Act",
+    "question": "Should the Jones Act be repealed or substantially reformed?",
     "meta_claim": "The Jones Act's requirement that cargo moving between U.S. ports travel on ships that are U.S.-built, U.S.-flagged, and U.S.-crewed imposes large and measurable economic costs — inflated domestic shipping prices, a shrunken merchant fleet, freight pushed onto trucks and rail, and disproportionate harm to Puerto Rico, Hawaii, Alaska, and Guam — that outweigh its claimed national-security and maritime-industry benefits, so it should be repealed or substantially reformed.",
     "confidence_score": 73,
     "balance": 73,
@@ -269,6 +276,7 @@
   {
     "id": "nuclear-energy-safety",
     "title": "Nuclear Energy for Climate",
+    "question": "Should nuclear power be expanded to help decarbonize electricity?",
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
     "confidence_score": 54,
     "balance": 54,
@@ -288,6 +296,7 @@
   {
     "id": "universal-healthcare",
     "title": "Universal Healthcare in the US",
+    "question": "Should the US replace employer-based insurance with universal healthcare?",
     "meta_claim": "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
     "confidence_score": 71,
     "balance": 71,
@@ -327,6 +336,7 @@
   {
     "id": "minimum-wage-effects",
     "title": "Raising the Minimum Wage",
+    "question": "Would a $15 federal minimum wage help workers without costing many jobs?",
     "meta_claim": "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
     "confidence_score": 61,
     "balance": 61,
@@ -385,6 +395,7 @@
   {
     "id": "police-reform",
     "title": "Policing Reform in America",
+    "question": "Should US policing be restructured, with funds shifted to social services?",
     "meta_claim": "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
     "confidence_score": 79,
     "balance": 79,
@@ -404,6 +415,7 @@
   {
     "id": "mandatory-voting",
     "title": "Mandatory Voting",
+    "question": "Should more democracies make voting compulsory?",
     "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
     "confidence_score": 86,
     "balance": 86,
@@ -423,6 +435,7 @@
   {
     "id": "reparations-slavery",
     "title": "Reparations for Slavery",
+    "question": "Should the US provide reparations to descendants of enslaved Black Americans?",
     "meta_claim": "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
     "confidence_score": 78,
     "balance": 78,
@@ -462,6 +475,7 @@
   {
     "id": "open-borders",
     "title": "The Case for Open Borders",
+    "question": "Should immigration restrictions be greatly relaxed or eliminated?",
     "meta_claim": "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
     "confidence_score": 62,
     "balance": 62,
@@ -481,6 +495,7 @@
   {
     "id": "universal-basic-income",
     "title": "Universal Basic Income",
+    "question": "Should developed nations adopt a universal basic income?",
     "meta_claim": "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
     "confidence_score": 70,
     "balance": 70,
@@ -501,6 +516,7 @@
   {
     "id": "wealth-tax",
     "title": "Wealth Tax on Billionaires",
+    "question": "Would an annual wealth tax on billionaires be effective and reduce inequality?",
     "meta_claim": "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
     "confidence_score": 48,
     "balance": 48,
@@ -558,6 +574,7 @@
   {
     "id": "surveillance-public-safety",
     "title": "Surveillance and Public Safety",
+    "question": "Does expanding government surveillance meaningfully reduce crime?",
     "meta_claim": "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
     "confidence_score": 19,
     "balance": 19,
@@ -577,6 +594,7 @@
   {
     "id": "us-iran-conflict",
     "title": "The US-Iran Conflict",
+    "question": "Has US pressure on Iran made the Middle East safer and served US interests?",
     "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
     "confidence_score": 23,
     "balance": 23,
@@ -616,6 +634,7 @@
   {
     "id": "tiktok-ban",
     "title": "Should TikTok Be Banned?",
+    "question": "Is TikTok enough of a security threat to justify a ban or forced sale?",
     "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
     "confidence_score": 53,
     "balance": 53,
@@ -654,6 +673,7 @@
   {
     "id": "social-media-elections",
     "title": "Social Media's Impact on Elections",
+    "question": "Has social media fundamentally undermined democratic elections?",
     "meta_claim": "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
     "confidence_score": 69,
     "balance": 69,
@@ -673,6 +693,7 @@
   {
     "id": "nuclear-weapons-abolition",
     "title": "Should Nuclear Weapons Be Abolished?",
+    "question": "Does nuclear deterrence keep the world safer than abolition would?",
     "meta_claim": "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
     "confidence_score": 30,
     "balance": 30,
@@ -693,6 +714,7 @@
   {
     "id": "school-phone-bans",
     "title": "Should Schools Ban Smartphones?",
+    "question": "Do school phone bans improve students' learning and mental health?",
     "meta_claim": "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
     "confidence_score": 66,
     "balance": 66,
@@ -712,6 +734,7 @@
   {
     "id": "pandemic-preparedness",
     "title": "Pandemic Preparedness Investment",
+    "question": "Should governments invest heavily in pandemic preparedness?",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
     "confidence_score": 65,
     "balance": 65,
@@ -731,6 +754,7 @@
   {
     "id": "iran-war-justification",
     "title": "Is Military Action Against Iran Justified?",
+    "question": "Is military action against Iran justified?",
     "meta_claim": "Military strikes against Iran's nuclear and military infrastructure are a justified response to regional aggression and nuclear proliferation risks.",
     "confidence_score": 50,
     "balance": 50,
@@ -788,6 +812,7 @@
   {
     "id": "sugar-tax-effectiveness",
     "title": "Do Sugar Taxes Actually Reduce Obesity?",
+    "question": "Do sugar taxes meaningfully reduce sugar consumption and obesity?",
     "meta_claim": "Sugar taxes on sweetened beverages are an effective public health intervention that meaningfully reduces sugar consumption and obesity rates.",
     "confidence_score": 69,
     "balance": 69,
@@ -807,6 +832,7 @@
   {
     "id": "social-media-age-limits",
     "title": "Social Media Age Limits",
+    "question": "Should children under 16 be legally barred from social media?",
     "meta_claim": "Children under 16 should be legally prohibited from using social media platforms.",
     "confidence_score": 59,
     "balance": 59,
@@ -826,6 +852,7 @@
   {
     "id": "social-media-mental-health",
     "title": "Social Media and Teen Mental Health",
+    "question": "Is social media a primary cause of the teen mental health crisis?",
     "meta_claim": "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
     "confidence_score": 47,
     "balance": 47,
@@ -921,6 +948,7 @@
   {
     "id": "media-bias-democracy",
     "title": "Media Bias and Democracy",
+    "question": "Is mainstream media bias a significant threat to democracy?",
     "meta_claim": "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
     "confidence_score": 79,
     "balance": 79,
@@ -940,6 +968,7 @@
   {
     "id": "space-colonization-feasibility",
     "title": "Space Colonization Feasibility",
+    "question": "Can we build self-sustaining colonies on Mars or the Moon within 50 years?",
     "meta_claim": "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
     "confidence_score": 55,
     "balance": 55,
@@ -959,6 +988,7 @@
   {
     "id": "lab-grown-meat-adoption",
     "title": "Lab-Grown Meat Adoption",
+    "question": "Will lab-grown meat be cost-competitive and widely adopted in 15 years?",
     "meta_claim": "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
     "confidence_score": 54,
     "balance": 54,
@@ -1092,6 +1122,7 @@
   {
     "id": "nuclear-renaissance-smr",
     "title": "Can Small Modular Reactors Save Nuclear Energy?",
+    "question": "Can small modular reactors deliver clean power at scale within a decade?",
     "meta_claim": "Small modular reactors represent a viable path to carbon-free baseload power that can be deployed at meaningful scale within the next decade — a proposition advocates treat as imminent and skeptics regard as perennially deferred.",
     "confidence_score": 46,
     "balance": 46,
@@ -1111,6 +1142,7 @@
   {
     "id": "tiktok-brain-rot",
     "title": "Is Short-Form Video Causing Cognitive Decline?",
+    "question": "Is habitual short-form video degrading attention and deep thinking?",
     "meta_claim": "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
     "confidence_score": 63,
     "balance": 63,
@@ -1149,6 +1181,7 @@
   {
     "id": "privacy-vs-convenience",
     "title": "Have We Already Lost the Battle for Digital Privacy?",
+    "question": "Have we already lost the battle for digital privacy?",
     "meta_claim": "Meaningful digital privacy is no longer achievable for ordinary citizens — the surveillance infrastructure is too embedded in daily life to resist.",
     "confidence_score": 51,
     "balance": 51,
@@ -1225,6 +1258,7 @@
   {
     "id": "organic-food-health",
     "title": "Is Organic Food Healthier?",
+    "question": "Is organic food healthier than conventional food?",
     "meta_claim": "Organic food is significantly healthier and more nutritious than conventionally grown food.",
     "confidence_score": 61,
     "balance": 61,
@@ -1263,6 +1297,7 @@
   {
     "id": "space-exploration-value",
     "title": "Is Space Exploration Worth It?",
+    "question": "Is government-funded space exploration worth its cost?",
     "meta_claim": "Government-funded space exploration provides sufficient scientific, economic, and strategic returns to justify its cost.",
     "confidence_score": 61,
     "balance": 61,
@@ -1282,6 +1317,7 @@
   {
     "id": "veganism-environmental-impact",
     "title": "Veganism for Environmental Impact",
+    "question": "Would widespread vegan diets significantly reduce environmental damage?",
     "meta_claim": "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, including greenhouse gas emissions, land use, and water pollution.",
     "confidence_score": 63,
     "balance": 63,
@@ -1301,6 +1337,7 @@
   {
     "id": "psychedelics-mental-health",
     "title": "Psychedelics for Mental Health",
+    "question": "Should psychedelics be approved to treat depression, PTSD and addiction?",
     "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
     "confidence_score": 74,
     "balance": 74,
@@ -1339,6 +1376,7 @@
   {
     "id": "ultra-processed-food",
     "title": "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
+    "question": "Are ultra-processed foods the main driver of obesity and chronic disease?",
     "meta_claim": "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
     "confidence_score": 62,
     "balance": 62,
@@ -1358,6 +1396,7 @@
   {
     "id": "longevity-science",
     "title": "The Science of Life Extension",
+    "question": "Will longevity research significantly extend healthy lifespan in 20 years?",
     "meta_claim": "Recent breakthroughs in longevity research — including senolytics, epigenetic reprogramming, and caloric restriction mimetics — will significantly extend healthy human lifespan within the next 20 years.",
     "confidence_score": 65,
     "balance": 65,
@@ -1396,6 +1435,7 @@
   {
     "id": "microplastics-health-crisis",
     "title": "The Microplastics Health Crisis",
+    "question": "Are microplastics in our bodies a health crisis on the scale of lead?",
     "meta_claim": "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public health crisis comparable to lead exposure, not merely an environmental nuisance.",
     "confidence_score": 66,
     "balance": 66,
@@ -1453,6 +1493,7 @@
   {
     "id": "lithium-mining-ev-impact",
     "title": "Lithium Mining & EV Environmental Impact",
+    "question": "Are EVs clearly greener than gas cars once mining is counted?",
     "meta_claim": "Electric vehicles are significantly better for the environment than gas cars when mining impacts are included",
     "confidence_score": 44,
     "balance": 44,
@@ -1472,6 +1513,7 @@
   {
     "id": "seed-oils-health",
     "title": "Are Seed Oils Harmful to Human Health?",
+    "question": "Are seed oils a major driver of inflammation, obesity and metabolic disease?",
     "meta_claim": "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
     "confidence_score": 40,
     "balance": 40,
@@ -1491,6 +1533,7 @@
   {
     "id": "obesity-personal-responsibility",
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
+    "question": "Is obesity mainly a matter of personal choice?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
     "confidence_score": 18,
     "balance": 18,
@@ -1510,6 +1553,7 @@
   {
     "id": "loneliness-epidemic",
     "title": "Is Loneliness a Public Health Crisis?",
+    "question": "Is loneliness a public health crisis?",
     "meta_claim": "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
     "confidence_score": 57,
     "balance": 57,
@@ -1529,6 +1573,7 @@
   {
     "id": "remote-work-permanence",
     "title": "The Future of Remote Work",
+    "question": "Will remote and hybrid work permanently replace the five-day office week?",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
     "confidence_score": 74,
     "balance": 74,
@@ -1719,6 +1764,7 @@
   {
     "id": "student-debt-forgiveness",
     "title": "Student Debt Forgiveness",
+    "question": "Is broad student debt forgiveness justified and economically beneficial?",
     "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
     "confidence_score": 70,
     "balance": 70,
@@ -1777,6 +1823,7 @@
   {
     "id": "us-national-debt-crisis",
     "title": "Is the US National Debt a Ticking Time Bomb?",
+    "question": "Will the US national debt cause a fiscal crisis within a generation?",
     "meta_claim": "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability — though whether it triggers a genuine fiscal crisis within a generation, or proves manageable for a sovereign issuer of the world's reserve currency, is sharply contested.",
     "confidence_score": 59,
     "balance": 59,
@@ -1796,6 +1843,7 @@
   {
     "id": "return-to-office-productivity",
     "title": "Does Return-to-Office Actually Improve Productivity?",
+    "question": "Do return-to-office mandates improve productivity and innovation?",
     "meta_claim": "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
     "confidence_score": 27,
     "balance": 27,
@@ -1815,6 +1863,7 @@
   {
     "id": "lab-diamonds-ethics",
     "title": "Are Lab-Grown Diamonds More Ethical Than Mined Diamonds?",
+    "question": "Are lab-grown diamonds more ethical than mined diamonds?",
     "meta_claim": "Lab-grown diamonds are the ethical choice — they avoid the human rights abuses and environmental destruction of diamond mining.",
     "confidence_score": 52,
     "balance": 52,
@@ -1834,6 +1883,7 @@
   {
     "id": "rent-control-effectiveness",
     "title": "Does Rent Control Help or Hurt Renters?",
+    "question": "Does rent control make housing less affordable in the long run?",
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
     "confidence_score": 58,
     "balance": 58,
@@ -1891,6 +1941,7 @@
   {
     "id": "simulation-hypothesis",
     "title": "The Simulation Hypothesis",
+    "question": "Are we living in a computer simulation?",
     "meta_claim": "Bostrom's simulation argument shows that at least one of three propositions holds: near-universal extinction before a post-human stage, near-universal disinterest in running ancestor-simulations, or our almost certainly living in one. Whether the third disjunct in particular is true, and whether the claim is even testable, remains contested.",
     "confidence_score": 51,
     "balance": 51,
@@ -1910,6 +1961,7 @@
   {
     "id": "moon-landing",
     "title": "The Moon Landing",
+    "question": "Did the Moon landings happen?",
     "meta_claim": "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
     "confidence_score": 76,
     "balance": 76,
@@ -1931,6 +1983,7 @@
   {
     "id": "minneapolis-shooting",
     "title": "Minneapolis ICE Shooting",
+    "question": "Did federal agents use excessive force in the fatal Minneapolis shooting?",
     "meta_claim": "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account.",
     "confidence_score": 86,
     "balance": 86,
@@ -1969,6 +2022,7 @@
   {
     "id": "meaning-without-religion",
     "title": "Meaning of Life Without Religion",
+    "question": "Can a life be fully meaningful without religion?",
     "meta_claim": "A meaningful, fulfilling human life is fully achievable without religious belief, and secular philosophical frameworks provide adequate foundations for purpose, ethics, and existential satisfaction.",
     "confidence_score": 66,
     "balance": 66,
@@ -1988,6 +2042,7 @@
   {
     "id": "meritocracy-myth",
     "title": "Is Meritocracy a Myth?",
+    "question": "Is meritocracy a myth?",
     "meta_claim": "The belief that success is primarily determined by individual talent and effort is a myth that legitimizes systemic inequality.",
     "confidence_score": 70,
     "balance": 70,
@@ -2160,6 +2215,7 @@
   {
     "id": "masculinity-crisis",
     "title": "The Modern Masculinity Crisis",
+    "question": "Are young men in a crisis that neither left nor right adequately addresses?",
     "meta_claim": "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
     "confidence_score": 59,
     "balance": 59,
@@ -2217,6 +2273,7 @@
   {
     "id": "longevity-anti-aging",
     "title": "Anti-Aging & Radical Life Extension",
+    "question": "Could human lifespans pass 120 within our lifetimes?",
     "meta_claim": "Recent advances in longevity science — including rapamycin, senolytics, epigenetic reprogramming, and caloric restriction mimetics — suggest that meaningful human lifespan extension beyond 120 years is achievable within our lifetimes.",
     "confidence_score": 52,
     "balance": 52,
@@ -2236,6 +2293,7 @@
   {
     "id": "nuclear-proliferation-new-arms-race",
     "title": "The New Nuclear Arms Race",
+    "question": "Has a new arms race made nuclear war likelier than at any time since 1962?",
     "meta_claim": "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
     "confidence_score": 60,
     "balance": 60,
@@ -2255,6 +2313,7 @@
   {
     "id": "transgender-athletes-sports",
     "title": "Transgender Athletes in Competitive Sports",
+    "question": "Should transgender women on hormone therapy compete in women's sports?",
     "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
     "confidence_score": 36,
     "balance": 36,
@@ -2312,6 +2371,7 @@
   {
     "id": "psychedelic-therapy-hype",
     "title": "Psychedelic Therapy: Revolution or Overhype?",
+    "question": "Is psychedelic therapy a genuine revolution in mental health care?",
     "meta_claim": "The psychedelic therapy renaissance — with psilocybin, MDMA, and ketamine treatments gaining clinical validation — represents a genuine paradigm shift in mental health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
     "confidence_score": 45,
     "balance": 45,
@@ -2350,6 +2410,7 @@
   {
     "id": "ukraine-peace-terms",
     "title": "How the Russia-Ukraine War Should End",
+    "question": "Would a deal freezing current lines end the war on acceptable terms?",
     "meta_claim": "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
     "confidence_score": 38,
     "balance": 38,
@@ -2369,6 +2430,7 @@
   {
     "id": "trump-tariffs",
     "title": "Trump's Tariffs & Protectionist Trade Policy",
+    "question": "Have Trump's tariffs revived US manufacturing and helped American workers?",
     "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
     "confidence_score": 29,
     "balance": 29,
@@ -2389,6 +2451,7 @@
   {
     "id": "rfk-health-policy",
     "title": "RFK Jr's Health Policy Agenda (MAHA)",
+    "question": "Will RFK Jr.'s 'Make America Healthy Again' agenda improve US health?",
     "meta_claim": "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
     "confidence_score": 39,
     "balance": 39,
@@ -2428,6 +2491,7 @@
   {
     "id": "open-weight-ai-models",
     "title": "Releasing Open-Weight Frontier AI Models",
+    "question": "Does publishing the weights of frontier AI models do more good than harm?",
     "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
     "confidence_score": 51,
     "balance": 51,
@@ -2494,6 +2558,7 @@
   {
     "id": "right-to-repair",
     "title": "Right to Repair",
+    "question": "Do right-to-repair laws help consumers without harming innovation or safety?",
     "meta_claim": "Right-to-repair laws benefit consumers without significantly harming innovation or safety.",
     "confidence_score": 77,
     "balance": 77,
@@ -2542,6 +2607,7 @@
   {
     "id": "second-amendment-individual-right",
     "title": "The Second Amendment: Individual Right?",
+    "question": "Does the Second Amendment protect an individual right to bear arms?",
     "meta_claim": "The Second Amendment protects an individual right to bear arms, not merely a collective/militia right.",
     "confidence_score": 52,
     "balance": 52,
@@ -2565,6 +2631,7 @@
   {
     "id": "self-driving-car-safety",
     "title": "Self-Driving Car Safety",
+    "question": "Are self-driving cars already safer than humans and ready for broad use?",
     "meta_claim": "Autonomous vehicles are already safer than human drivers and should be deployed broadly.",
     "confidence_score": 43,
     "balance": 43,
@@ -2589,6 +2656,7 @@
   {
     "id": "net-neutrality",
     "title": "Net Neutrality",
+    "question": "Are net-neutrality rules needed to keep the internet open and competitive?",
     "meta_claim": "Net-neutrality regulation is necessary to protect an open, competitive internet.",
     "confidence_score": 57,
     "balance": 57,
@@ -2685,6 +2753,7 @@
   {
     "id": "nuclear-fusion-timeline",
     "title": "Fusion Power Within Two Decades",
+    "question": "Will fusion power be a meaningful part of the energy mix within 20 years?",
     "meta_claim": "Commercial fusion power will be a meaningful part of the energy mix within the next two decades.",
     "confidence_score": 47,
     "balance": 47,
@@ -2709,6 +2778,7 @@
   {
     "id": "vaccine-mandates",
     "title": "Government Vaccine Mandates",
+    "question": "Are government vaccine mandates a justified public-health measure?",
     "meta_claim": "Government vaccine mandates are a justified public-health measure.",
     "confidence_score": 59,
     "balance": 59,
@@ -2733,6 +2803,7 @@
   {
     "id": "ssri-antidepressant-efficacy",
     "title": "Do Antidepressants Beat Placebo?",
+    "question": "Do antidepressants help depression meaningfully more than placebo?",
     "meta_claim": "SSRI antidepressants provide clinically meaningful benefit beyond placebo for depression.",
     "confidence_score": 58,
     "balance": 58,
@@ -2757,6 +2828,7 @@
   {
     "id": "social-security-retirement-age",
     "title": "Raising the Retirement Age",
+    "question": "Is raising the retirement age a fair, necessary fix for Social Security?",
     "meta_claim": "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
     "confidence_score": 43,
     "balance": 43,
@@ -2805,6 +2877,7 @@
   {
     "id": "occupational-licensing-reform",
     "title": "Occupational Licensing Reform",
+    "question": "Does occupational licensing do more economic harm than good?",
     "meta_claim": "Occupational licensing does more economic harm than good and should be rolled back.",
     "confidence_score": 64,
     "balance": 64,
@@ -2853,6 +2926,7 @@
   {
     "id": "section-230-reform",
     "title": "Reforming Section 230",
+    "question": "Should Section 230 be significantly reformed or repealed?",
     "meta_claim": "Section 230 should be significantly reformed or repealed.",
     "confidence_score": 42,
     "balance": 42,
@@ -2949,6 +3023,7 @@
   {
     "id": "vaping-harm-reduction",
     "title": "Vaping as Harm Reduction",
+    "question": "Is vaping an effective and acceptable way to reduce smoking's harm?",
     "meta_claim": "E-cigarettes are an effective and acceptable harm-reduction tool for smokers.",
     "confidence_score": 52,
     "balance": 52,
@@ -2973,6 +3048,7 @@
   {
     "id": "sex-work-decriminalization",
     "title": "Decriminalizing Sex Work",
+    "question": "Does fully decriminalizing sex work make sex workers safer and healthier?",
     "meta_claim": "Full decriminalization of sex work improves health and safety outcomes.",
     "confidence_score": 69,
     "balance": 69,
@@ -3068,6 +3144,7 @@
   {
     "id": "modern-monetary-theory",
     "title": "Modern Monetary Theory",
+    "question": "Is Modern Monetary Theory a sound basis for spending and deficit policy?",
     "meta_claim": "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
     "confidence_score": 47,
     "balance": 47,
