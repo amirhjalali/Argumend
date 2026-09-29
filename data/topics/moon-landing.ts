@@ -5,7 +5,7 @@ export const moonLandingData = {
   meta_claim:
     "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
   status: "settled" as const,
-  category: "philosophy" as const,
+  category: "science" as const,
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
