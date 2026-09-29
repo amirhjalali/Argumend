@@ -52,9 +52,10 @@ export interface PrefilterOptions {
 /**
  * Common English plus the words that appear in almost every map's framing
  * ("should", "policy", "people"), which otherwise pull every query toward the
- * same handful of topics.
+ * same handful of topics. Exported so the paste lane's own index
+ * (lib/paste/terms.ts) drops the same words.
  */
-const STOPWORDS = new Set([
+export const STOPWORDS: ReadonlySet<string> = new Set([
   "a", "about", "above", "actually", "after", "again", "against", "all", "also", "am", "an",
   "and", "another", "any", "anyone", "are", "argue", "argument", "around", "as", "at", "back",
   "be", "because", "been", "before", "being", "below", "best", "better", "between", "both",
