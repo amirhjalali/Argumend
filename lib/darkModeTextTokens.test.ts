@@ -49,9 +49,8 @@ const CANONICAL_DARK = {
 /**
  * The CSS-variable form (`dark:text-[var(--text-primary)]`) is also a valid
  * pairing — `globals.css` redefines `--text-primary`/`--text-secondary` for
- * `.dark`, so it adapts correctly. A couple of migrated files (e.g.
- * `components/nodes/MetaNode.tsx`) use this form instead of the stone-class
- * shorthand; both are accepted as "paired" for coverage purposes, but only
+ * `.dark`, so it adapts correctly. Some files use this form instead of the
+ * stone-class shorthand; both are accepted as "paired" for coverage purposes, but only
  * the stone-class form is the *canonical* one enforced by the consistency
  * check below.
  */
@@ -96,18 +95,17 @@ const read = (relPath: string) =>
 const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "app/saved/SavedClient.tsx" },
   { path: "app/blog/category/[category]/page.tsx" },
-  { path: "components/nodes/MetaNode.tsx" },
   { path: "app/topics/TopicsPageClient.tsx" },
   { path: "app/methodology/page.tsx" },
   { path: "components/FeaturedTopicHero.tsx" },
   { path: "components/SearchModal.tsx" },
-  { path: "components/nodes/RichNode.tsx" },
-  { path: "components/nodes/EvidenceNode.tsx" },
   { path: "app/embed/[topicId]/page.tsx" },
   { path: "app/about/page.tsx" },
   { path: "app/dashboard/page.tsx" },
   { path: "app/not-found.tsx" },
   { path: "components/MobileArgumentList.tsx" },
+  { path: "components/nodes/DiagramNode.tsx" },
+  { path: "components/DiagramDetail.tsx" },
   { path: "components/ZoomIndicator.tsx" },
   { path: "app/blog/tag/[tag]/page.tsx" },
   { path: "components/TableOfContents.tsx" },
@@ -116,12 +114,8 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "app/questions/QuestionsSearch.tsx" },
   { path: "app/auth/signin/page.tsx" },
   { path: "components/BalanceWeightReadout.tsx" },
-  { path: "components/InteractiveContent.tsx" },
   { path: "components/CitationCard.tsx" },
-  { path: "components/MapLegend.tsx" },
   { path: "components/HeroAnalyze.tsx" },
-  { path: "components/CruxModal.tsx" },
-  { path: "components/TopicIntroPanel.tsx" },
   { path: "components/SaveTopicButton.tsx" },
   { path: "components/SubscribeButton.tsx" },
   { path: "components/RouteErrorState.tsx" },

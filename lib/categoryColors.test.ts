@@ -100,66 +100,11 @@ describe("toneStyles (the one tone map)", () => {
   });
 });
 
-/**
- * Regression guard for the category/status color consolidation.
- *
- * These pages each used to declare their OWN local category/status color maps
- * with off-brand emerald — so the `science` category rendered green and the
- * `settled` STATUS badge rendered green, reintroducing the "green = this claim
- * is true" verdict signal that this module exists to kill. They were migrated
- * to import the canonical maps. This guard fails if any of them regresses by
- * (a) dropping the canonical import, (b) redeclaring a local color map, or
- * (c) reintroducing an emerald/green verdict-signal token.
- *
- * Intentionally scoped to these files rather than a full app/** scan: other
- * (un-migrated) files still legitimately use green for unrelated purposes, and
- * a repo-wide assertion would false-positive on code outside this migration.
- */
-describe("category/status color SOT consolidation (repo guard)", () => {
-  // app/dashboard/page.tsx and app/saved/SavedClient.tsx left this list on
-  // 2026-09-29: neither draws category or status colors at all any more
-  // (saved maps are plain hairline rows, as on /topics).
-  const migratedFiles = [
-    "components/MobileArgumentList.tsx",
-  ];
-
-  // Read relative to the repo root (vitest cwd); split so the literal
-  // bracketed segments like `[slug]` are passed as path parts, not globs.
-  const readSource = (rel: string) =>
-    readFileSync(join(process.cwd(), ...rel.split("/")), "utf8");
-
-  it.each(migratedFiles)(
-    "%s imports the canonical color maps from @/lib/categoryColors",
-    (file) => {
-      expect(readSource(file)).toMatch(
-        /from\s+["']@\/lib\/categoryColors["']/,
-      );
-    },
-  );
-
-  it.each(migratedFiles)(
-    "%s declares no local category/status color map (must use the SOT)",
-    (file) => {
-      const localColorMap =
-        /\bconst\s+(categoryColors|statusColors|categoryBgColors|categoryTopBorder)\b/;
-      expect(
-        localColorMap.test(readSource(file)),
-        `${file} redeclares a local category/status color map`,
-      ).toBe(false);
-    },
-  );
-
-  it.each(migratedFiles)(
-    "%s contains no emerald/green verdict-signal color token",
-    (file) => {
-      const offBrandGreen = /(emerald|green)-\d/;
-      expect(
-        offBrandGreen.test(readSource(file)),
-        `${file} reintroduced an off-brand emerald/green token`,
-      ).toBe(false);
-    },
-  );
-});
+// The category/status colour-consolidation guard that stood here covered
+// pages that once declared their own emerald category/status maps. Its last
+// file, components/MobileArgumentList.tsx, stopped drawing category or status
+// colours on 2026-09-29 (it is now the diagram outline, no status chip), so the
+// guard went with it. The truth-signal guard below still covers the outline.
 
 /**
  * Truth-signal guard: surfaces that label sides, statuses and verification
@@ -170,6 +115,8 @@ describe("category/status color SOT consolidation (repo guard)", () => {
 describe("no green/red truth signals on side and status surfaces", () => {
   const signalFiles = [
     "components/MobileArgumentList.tsx",
+    "components/nodes/DiagramNode.tsx",
+    "components/DiagramDetail.tsx",
     "app/api/og/[id]/route.tsx",
   ];
   const readSource = (rel: string) =>

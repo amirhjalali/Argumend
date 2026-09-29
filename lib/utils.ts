@@ -23,36 +23,3 @@ export function buildSearchParams(
 
   return searchParams;
 }
-
-/**
- * Regex pattern for matching bracketed keywords in content.
- * Used for interactive concept linking.
- *
- * Issue #13: Centralized regex pattern from InteractiveContent.tsx
- */
-export const BRACKETED_KEYWORD_PATTERN = /(\{.*?\})/g;
-
-/**
- * Extract keyword from bracketed text (e.g., "{Keyword}" -> "Keyword").
- */
-export function extractBracketedKeyword(text: string): string | null {
-  if (text.startsWith("{") && text.endsWith("}")) {
-    return text.slice(1, -1);
-  }
-  return null;
-}
-
-/**
- * Split content by bracketed keywords.
- */
-export function splitByBracketedKeywords(content: string): string[] {
-  return content.split(BRACKETED_KEYWORD_PATTERN);
-}
-
-/**
- * Check if a string is a bracketed keyword.
- */
-export function isBracketedKeyword(part: string): boolean {
-  return part.startsWith("{") && part.endsWith("}");
-}
-
