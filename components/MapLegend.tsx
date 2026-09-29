@@ -91,7 +91,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
           {...pillMotion}
           onClick={onFindCrux}
           aria-label="Find the crux — jump to what would settle the debate"
-          className="flex items-center gap-1.5 rounded-xl border bg-[#faf8f5]/95 dark:bg-card/95 backdrop-blur-sm px-3 py-2 text-xs shadow-lg transition-all hover:shadow-xl focus:outline-none focus-visible:ring-2"
+          className="flex items-center gap-1.5 rounded-xl border bg-[#faf8f5]/95 dark:bg-card/95 backdrop-blur-sm px-3 py-2 text-xs shadow-lg transition-all hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-focus"
           style={{
             color: crux.accentColor,
             borderColor: `${crux.accentColor}40`,
@@ -117,7 +117,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
               </h3>
               <button
                 onClick={closeLegend}
-                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                className="rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] hover:text-stone-600 dark:hover:text-stone-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-focus"
                 aria-label="Collapse legend"
                 aria-controls={legendPanelId}
                 aria-expanded="true"

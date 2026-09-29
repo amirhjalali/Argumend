@@ -23,10 +23,10 @@ const BUTTON_SIZES: Record<ButtonSize, string> = {
  */
 const BUTTON_VARIANTS: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-to-b from-rust-600 to-rust-700 text-white shadow-sm hover:from-rust-700 hover:to-rust-800 focus-visible:ring-rust-600/60",
+    "bg-gradient-to-b from-rust-600 to-rust-700 text-white shadow-sm hover:from-rust-700 hover:to-rust-800 focus-visible:ring-focus",
   secondary:
-    "border border-stone-300/80 bg-card text-primary hover:border-stone-400 hover:bg-subtle focus-visible:ring-deep/40 dark:border-divider dark:hover:border-stone-500",
-  quiet: "text-secondary hover:bg-subtle hover:text-primary focus-visible:ring-deep/40",
+    "border border-stone-300/80 bg-card text-primary hover:border-stone-400 hover:bg-subtle focus-visible:ring-focus dark:border-divider dark:hover:border-stone-500",
+  quiet: "text-secondary hover:bg-subtle hover:text-primary focus-visible:ring-focus",
 };
 
 /** The class string behind `<Button>`, for the rare element that cannot be one. */
@@ -83,7 +83,7 @@ export function Button(props: ButtonProps) {
 
 const TEXT_ACTION =
   "inline-flex min-h-11 items-center rounded-sm font-sans text-sm text-deep underline underline-offset-2 transition-colors " +
-  "hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 " +
+  "hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus " +
   "disabled:cursor-not-allowed disabled:opacity-60 dark:text-accent-text dark:hover:text-stone-200";
 
 /** The class string behind `<TextAction>`. */

@@ -239,7 +239,7 @@ export default async function GuidePage({ params }: PageProps) {
                     rel="noopener noreferrer"
                     aria-label={`Open ${item.title} in a new tab`}
                     title={`Open ${item.title} in a new tab`}
-                    className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg text-deep transition-colors hover:bg-deep/10 hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text"
+                    className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg text-deep transition-colors hover:bg-deep/10 hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text"
                   >
                     <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   </a>

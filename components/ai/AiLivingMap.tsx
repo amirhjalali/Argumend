@@ -312,7 +312,7 @@ function FilterLink({
       href={href}
       scroll={false}
       aria-current={current ? "page" : undefined}
-      className={`inline-flex min-h-11 items-center rounded-full border px-3.5 text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e] ${
+      className={`inline-flex min-h-11 items-center rounded-full border px-3.5 text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
         current
           ? "border-stone-800 bg-stone-800 text-[#f7f4ee] dark:border-stone-200 dark:bg-stone-200 dark:text-stone-900"
           : "border-stone-300 text-stone-700 hover:border-stone-500 hover:text-stone-900 dark:border-stone-600 dark:text-stone-300 dark:hover:border-stone-400 dark:hover:text-stone-100"

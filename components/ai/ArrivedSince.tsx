@@ -150,7 +150,7 @@ function EvidenceItem({ node }: { node: Evidence }) {
 function Sources({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <details className="group/source -mb-2 mt-0.5">
-      <summary className="-ml-1 inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded px-1 text-[12.5px] font-medium text-stone-700 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-300 dark:hover:text-stone-100 dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
+      <summary className="-ml-1 inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded px-1 text-[12.5px] font-medium text-stone-700 hover:text-stone-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-stone-300 dark:hover:text-stone-100 [&::-webkit-details-marker]:hidden">
         <span
           aria-hidden="true"
           className="inline-block text-[11px] transition-transform group-open/source:rotate-90 motion-reduce:transition-none"

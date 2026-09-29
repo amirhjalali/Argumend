@@ -142,7 +142,7 @@ export function TopicIntroPanel({ userInteracted = false }: TopicIntroPanelProps
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="flex h-9 w-9 items-center justify-center rounded-full text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:text-stone-400 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-stone-400 dark:hover:bg-[var(--bg-muted)] dark:hover:text-stone-200"
                 aria-label={isMinimized ? "Show topic details" : "Hide topic details"}
                 aria-expanded={!isMinimized}
                 aria-controls={contentId}

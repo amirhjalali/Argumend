@@ -33,4 +33,22 @@ describe("ShareTopicButton", () => {
     });
     expect(view.getByRole("group", { name: "Share this map" })).toBeTruthy();
   });
+
+  it("hands focus back to Share when Escape closes the panel from inside it", async () => {
+    const view = render(<ShareTopicButton title="A map" url="https://argumend.org/topics/x" />);
+    const share = view.getByRole("button", { name: "Share" });
+    await act(async () => {
+      fireEvent.click(share);
+    });
+    const panel = view.getByRole("group", { name: "Share this map" });
+    const first = panel.querySelector<HTMLElement>("a, button");
+    expect(first).toBeTruthy();
+    first!.focus();
+    await act(async () => {
+      fireEvent.keyDown(document, { key: "Escape" });
+    });
+    expect(view.queryByRole("group", { name: "Share this map" })).toBeNull();
+    // Not dropped on <body>, where the next Tab starts the page over.
+    expect(document.activeElement).toBe(share);
+  });
 });

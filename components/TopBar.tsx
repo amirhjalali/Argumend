@@ -29,14 +29,14 @@ const MENU_ID = "site-menu";
 const DESKTOP_QUERY = "(min-width: 768px)";
 
 const NAV_LINK =
-  "inline-flex min-h-11 items-center rounded-md px-2.5 font-sans text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 lg:px-3";
+  "inline-flex min-h-11 items-center rounded-md px-2.5 font-sans text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus lg:px-3";
 const NAV_LINK_IDLE =
   "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100";
 const NAV_LINK_CURRENT =
   "text-stone-900 underline decoration-deep/50 decoration-2 underline-offset-[6px] dark:text-stone-100 dark:decoration-accent-text/60";
 
 const ICON_BUTTON =
-  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-stone-500 transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-stone-400 dark:hover:text-stone-200";
+  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-stone-500 transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-stone-400 dark:hover:text-stone-200";
 
 /**
  * The site header, and the only navigation on the site.
@@ -122,7 +122,7 @@ export function TopBar() {
       >
         <div className="flex h-14 w-full items-center gap-2 px-4 md:gap-3 md:px-6">
           {/* Wordmark */}
-          <Link href="/" prefetch={false} className="flex min-h-11 min-w-0 shrink-0 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40">
+          <Link href="/" prefetch={false} className="flex min-h-11 min-w-0 shrink-0 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus">
             <span className="flex min-w-0 flex-col">
               <span className="font-serif text-[1.0625rem] font-medium leading-none tracking-[0.08em] text-primary dark:text-stone-200 sm:text-lg md:text-xl">
                 ARGUMEND
@@ -167,7 +167,7 @@ export function TopBar() {
               onClick={openSearch}
               aria-label="Search"
               aria-haspopup="dialog"
-              className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-lg px-2.5 text-secondary dark:text-stone-400 transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:hover:text-stone-200"
+              className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-lg px-2.5 text-secondary dark:text-stone-400 transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:hover:text-stone-200"
             >
               <Search className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
               <span className="hidden font-sans text-sm lg:inline">Search</span>

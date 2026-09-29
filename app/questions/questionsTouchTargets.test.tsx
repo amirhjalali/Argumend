@@ -43,7 +43,9 @@ describe("/questions index", () => {
 
   it("lists one primary question per map, paginated", async () => {
     const view = render(await QuestionsIndexPage({ searchParams: Promise.resolve({}) }));
-    expect(view.getByRole("status").textContent).toMatch(/Showing 1–24 of \d+ questions/);
+    // Two status regions: the page count, and the (empty) search announcer.
+    const counts = view.getAllByRole("status").map((el) => el.textContent ?? "");
+    expect(counts.some((text) => /Showing 1–24 of \d+ questions/.test(text))).toBe(true);
     expect(view.getByRole("link", { name: "Next" }).getAttribute("href")).toBe("/questions?page=2");
     // A secondary phrasing is not a row of its own.
     expect(view.container.querySelector('a[href="/questions/should-we-build-more-nuclear-power-plants"]')).toBeNull();
@@ -56,7 +58,9 @@ describe("/questions index", () => {
     const current = view
       .getByRole("navigation", { name: "Question categories" })
       .querySelector('[aria-current="page"]');
-    expect(current?.textContent).toBe("Science");
+    // aria-current sits on the chip link, whose text is the label and count.
+    expect(current?.tagName).toBe("A");
+    expect(current?.textContent).toMatch(/^Science \d+$/);
     const metadata = await generateMetadata({
       searchParams: Promise.resolve({ category: "science", page: "2" }),
     });
