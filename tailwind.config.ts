@@ -30,9 +30,17 @@ const config: Config = {
         paper: "rgb(var(--bg-paper-rgb) / <alpha-value>)", // Lightweight paper for nodes
         overlay: "rgb(var(--bg-overlay-rgb) / <alpha-value>)",
 
-        primary: "#3d3a36",
-        secondary: "#564d45",
-        muted: "#6d6058", // Darkened from #7a7068 for WCAG AA 4.5:1 on parchment (#f4f1eb)
+        // Brand text tokens adapt with the theme through RGB channels
+        // (light: #3d3a36 / #564d45 / #6d6058; dark: #e8e4de / #b0a99f / #9a9189).
+        // A bare `text-primary` is therefore safe on dark surfaces; existing
+        // `dark:text-stone-*` pairs still win as explicit overrides.
+        primary: "rgb(var(--text-primary-rgb) / <alpha-value>)",
+        secondary: "rgb(var(--text-secondary-rgb) / <alpha-value>)",
+        muted: "rgb(var(--text-muted-rgb) / <alpha-value>)", // #6d6058 light: WCAG AA 4.5:1 on parchment
+        // Surfaces behind CSS variables that also need opacity modifiers.
+        card: "rgb(var(--bg-card-rgb) / <alpha-value>)",
+        subtle: "rgb(var(--bg-subtle-rgb) / <alpha-value>)",
+        divider: "rgb(var(--border-divider-rgb) / <alpha-value>)",
 
         deep: {
           DEFAULT: "#3a6965", // Deep teal — primary accent (darkened for WCAG AA 4.5:1 on parchment)
@@ -60,12 +68,41 @@ const config: Config = {
           warn: "#d4805f", // Soft rust warning
           link: "#b05434", // Rust-600 link
           error: "#c4584d",
+          // Theme-aware teal for text: #3a6965 light, #8bb5b1 dark (globals.css
+          // --accent-text). `text-accent-text`, `decoration-accent-text/40`.
+          text: "rgb(var(--accent-text-rgb) / <alpha-value>)",
+        },
+
+        // Category-only hues, never a signal. Plum is philosophy (crimson is
+        // reserved for cruxes); slate ink is technology (stone is reserved for
+        // status chips). Text contrast on their chip tints: plum 5.90:1 light /
+        // 6.20:1 dark (plum.light), ink 5.61:1 light / 6.63:1 dark (ink.light).
+        plum: {
+          DEFAULT: "#6b4768",
+          light: "#c9a2c5",
+        },
+        ink: {
+          DEFAULT: "#4a5868",
+          light: "#aab6c4",
+        },
+
+        // Error state. DEFAULT #c4584d is accent.error, for borders, icons and
+        // tints (3.84:1 on the canvas, enough for non-text). Error TEXT uses the
+        // theme-aware `text-error-text` (--error-text: #ab4a40 light, 4.92:1 on
+        // the canvas; #e8897f dark, 6.96:1). Never crux crimson for an error:
+        // crimson means a crux.
+        error: {
+          DEFAULT: "#c4584d",
+          text: "rgb(var(--error-text-rgb) / <alpha-value>)",
         },
 
         // Bold semantic colors for graph elements
         crux: {
           DEFAULT: "#a23b3b", // Deep crimson for cruxes
           light: "#c45c5c",
+          // Theme-aware crimson for text: #a23b3b light, #d97373 dark (4.61:1 on
+          // dark paper). `text-crux-text`.
+          text: "rgb(var(--crux-text-rgb) / <alpha-value>)",
           dark: "#7a2929",
         },
         evidence: {

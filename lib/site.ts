@@ -2,8 +2,9 @@
 export const SITE_URL = "https://argumend.org";
 export const SITE_NAME = "ARGUMEND";
 
+/** The site in one line, in the voice of the footer and home's lede. */
 export const SITE_DESCRIPTION =
-  "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.";
+  "Maps of hard questions, built around what would change a mind, never around who won.";
 
 /** Honest corpus-level dates for records without their own editorial dates. */
 export const CONTENT_FIRST_PUBLISHED = "2025-01-01";

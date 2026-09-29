@@ -12,6 +12,8 @@
 
 import summaries from "./topicSummaries.json";
 
+// Data-only module (no imports of its own): safe for the proxy and clients.
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 import type { TopicCategory, TopicStatus, Verdict } from "@/lib/schemas/topic";
 
 // ---------------------------------------------------------------------------
@@ -47,6 +49,17 @@ export const TOPIC_COUNT = topicSummaries.length;
  */
 export const TOPIC_COUNT_LABEL = `${Math.floor(TOPIC_COUNT / 10) * 10}+`;
 
+/**
+ * Every map on the site: the pillar maps above plus the new-model
+ * (ArgumentGraph) maps, which are not in `topicSummaries`. This is what
+ * "N maps" means in copy (home, site description, /topics); TOPIC_COUNT is
+ * only the older pillar maps.
+ */
+export const MAP_COUNT = TOPIC_COUNT + argumentTopicIds.length;
+
+/** Rounded-down MAP_COUNT for copy that should not go stale, e.g. "150+". */
+export const MAP_COUNT_LABEL = `${Math.floor(MAP_COUNT / 10) * 10}+`;
+
 // ---------------------------------------------------------------------------
 // Category constants (inlined to avoid importing topics.ts)
 // ---------------------------------------------------------------------------
@@ -66,13 +79,6 @@ export const CATEGORY_ORDER: TopicCategory[] = [
   "economics",
   "philosophy",
 ];
-
-/** Rotate this ID weekly to feature a different debate on the homepage. */
-export const featuredTopicId = "consciousness-ai-systems";
-
-/** Short editorial hook explaining why this topic is featured right now. */
-export const featuredReason =
-  "Anthropic now studies model welfare. Could today's AI already have a stake in how we treat it? Where the evidence actually lands.";
 
 // ---------------------------------------------------------------------------
 // Cross-category related topics (summaries-only)

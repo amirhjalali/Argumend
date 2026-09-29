@@ -15,17 +15,17 @@ export type MeterTone = "teal" | "rust" | "brown" | "crux" | "stone";
 /** Static class strings so Tailwind's content scanner can see every variant. */
 const TONE_FILL: Record<MeterTone, string> = {
   teal: "bg-deep dark:bg-deep-light",
-  rust: "bg-rust-500 dark:bg-rust-400",
+  rust: "bg-rust-500",
   brown: "bg-skeptic dark:bg-skeptic-light",
   crux: "bg-crux dark:bg-crux-light",
   stone: "bg-stone-400 dark:bg-stone-500",
 };
 
 const TONE_TEXT: Record<MeterTone, string> = {
-  teal: "text-deep dark:text-deep-light",
-  rust: "text-rust-600 dark:text-rust-400",
+  teal: "text-deep dark:text-accent-text",
+  rust: "text-rust-600 dark:text-rust-500",
   brown: "text-skeptic dark:text-skeptic-light",
-  crux: "text-crux dark:text-crux-light",
+  crux: "text-crux dark:text-crux-text",
   stone: "text-[var(--text-muted)]",
 };
 

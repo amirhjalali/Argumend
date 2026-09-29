@@ -4,17 +4,23 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
+import { Button, TextAction } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Sign In",
-  description:
-    "Sign in to Argumend to save your analyses, track debates, and join the community of critical thinkers.",
+  title: "Sign in",
+  description: "Sign in to Argumend to keep your saved maps across devices.",
   robots: { index: false, follow: false },
   alternates: {
     canonical: "https://argumend.org/auth/signin",
   },
 };
 
+/**
+ * Sign-in, shown only when NEXT_PUBLIC_ENABLE_AUTH is on. The copy is written
+ * for the product as it is: an account keeps saved maps across devices, and
+ * nothing else needs one. No "Welcome back" (most visitors here are new), and
+ * no rust button competing with the sign-in itself.
+ */
 export default async function SignInPage() {
   // Account-backed sessions are opt-in. In the default offline experience,
   // send direct sign-in links to the fully on-device saved-topics page instead
@@ -31,26 +37,23 @@ export default async function SignInPage() {
       id="main-content"
       className="flex min-h-[100svh] items-center justify-center bg-canvas px-4"
     >
-      <div className="w-full max-w-sm space-y-10">
-        {/* Logo / Wordmark */}
+      <div className="w-full max-w-sm space-y-8">
         <div className="text-center">
-          <Link href="/" className="inline-block group">
-            <h1 className="font-serif text-3xl font-medium tracking-[0.08em] text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-teal-300">
-              ARGUMEND
-            </h1>
+          <Link
+            href="/"
+            className="inline-flex min-h-11 items-center font-serif text-2xl font-medium tracking-[0.08em] text-primary dark:text-stone-200 transition-colors hover:text-deep dark:hover:text-accent-text"
+          >
+            ARGUMEND
           </Link>
-          <p className="mx-auto mt-3 max-w-[280px] text-sm leading-relaxed text-secondary dark:text-stone-400">
-            Map arguments. Find cruxes. Think better together.
-          </p>
+          <p className="label-caps mt-1">Disagree better.</p>
         </div>
 
-        {/* Sign-in card */}
-        <div className="bg-white/80 dark:bg-[var(--bg-card)]/80 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] p-6 sm:p-8 shadow-card">
-          <h2 className="font-serif text-xl text-primary dark:text-stone-200 text-center mb-2">
-            Welcome back
-          </h2>
-          <p className="text-sm text-secondary dark:text-stone-400 text-center mb-6">
-            Sign in to save your analyses and debates
+        <div className="surface-card rounded-lg p-6 sm:p-8">
+          <h1 className="font-serif text-2xl text-primary dark:text-stone-200 text-center">
+            Sign in
+          </h1>
+          <p className="mt-2 mb-6 text-center font-serif text-[1.0625rem] leading-snug text-secondary dark:text-stone-400">
+            Sign in to keep your saved maps across devices.
           </p>
 
           <form
@@ -59,10 +62,7 @@ export default async function SignInPage() {
               await signIn("google", { redirectTo: "/" });
             }}
           >
-            <button
-              type="submit"
-              className="flex w-full items-center justify-center gap-3 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white dark:bg-[var(--bg-card)] px-4 py-3.5 text-sm font-medium text-primary dark:text-stone-200 shadow-sm transition-all hover:bg-stone-50 dark:hover:bg-[var(--bg-muted)] hover:border-stone-300 dark:hover:border-[#4a4640] hover:shadow-md hover:-translate-y-0.5 duration-200"
-            >
+            <Button type="submit" variant="secondary" size="lg" className="w-full gap-3">
               <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
@@ -82,37 +82,30 @@ export default async function SignInPage() {
                 />
               </svg>
               Continue with Google
-            </button>
+            </Button>
           </form>
 
-          {/* Security note */}
-          <div className="mt-5 flex items-start gap-2 text-xs text-muted dark:text-stone-400">
-            <ShieldCheck className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />
-            <span>
-              We only request your name and email. Your data stays private.
-            </span>
-          </div>
-        </div>
-
-        {/* Guest CTA */}
-        <div className="text-center space-y-3">
-          <p className="text-sm text-secondary dark:text-stone-400">
-            No account needed to explore.
+          <p className="mt-5 flex items-start gap-2 text-xs leading-relaxed text-muted dark:text-stone-400">
+            <ShieldCheck className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
+            <span>We only ask Google for your name and email address.</span>
           </p>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-semibold font-serif shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-          >
-            Continue as Guest
-          </Link>
         </div>
 
-        {/* Footer note */}
-        <p className="pt-2 text-center text-[11px] text-secondary dark:text-stone-400">
+        <div className="text-center text-sm text-secondary dark:text-stone-400">
+          <p>You do not need an account to read maps, or to save them on this device.</p>
+          <TextAction href="/topics">Continue without signing in</TextAction>
+        </div>
+
+        <p className="text-center text-xs text-secondary dark:text-stone-400">
           By signing in, you agree to our{" "}
-          <Link href="/about" className="text-deep underline underline-offset-2 transition-colors hover:text-deep-dark dark:text-teal-300 dark:hover:text-teal-200">
-            terms of use
-          </Link>
+          <TextAction href="/terms" className="text-xs">
+            terms
+          </TextAction>{" "}
+          and{" "}
+          <TextAction href="/privacy" className="text-xs">
+            privacy policy
+          </TextAction>
+          .
         </p>
       </div>
     </main>

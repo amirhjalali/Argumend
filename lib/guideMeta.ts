@@ -10,7 +10,7 @@
  *
  * Palette discipline (see CLAUDE.md "Design System"): track colors reuse the
  * same four on-brand tokens as `lib/categoryColors.ts` and `lib/fallacyMeta.ts`
- * — deep teal, rust, crux crimson, skeptic brown. The previous per-guide hex
+ * — deep teal, rust, plum, skeptic brown, via `toneStyles`. The previous per-guide hex
  * colors included off-brand indigo (#5b6abf), amber (#b37d1e) and slate
  * (#4a6b8a); those are deliberately gone. Never amber/tangerine/indigo/violet/sky.
  */
@@ -34,6 +34,7 @@ import {
   CloudFog,
 } from "lucide-react";
 import type { Guide } from "@/data/guides";
+import { toneStyles } from "@/lib/categoryColors";
 
 export type GuideTrackId = "reading" | "evidence" | "uncertainty" | "distortion";
 
@@ -63,12 +64,12 @@ export const guideTracks: Record<GuideTrackId, GuideTrackMeta> = {
     label: "Reading Arguments",
     description:
       "Start here — how to navigate an argument map, find the claim that actually decides the disagreement, and state the other side at its strongest.",
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-deep-light border-deep/20 dark:border-deep/40",
-    iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-deep-light",
-    hoverBorder: "hover:border-deep/40",
-    borderAccent: "border-l-deep/50",
-    dotBg: "bg-deep",
+    chip: toneStyles.teal.chip,
+    iconBg: toneStyles.teal.iconBg,
+    iconText: toneStyles.teal.iconText,
+    hoverBorder: toneStyles.teal.hoverBorder,
+    borderAccent: toneStyles.teal.borderAccent,
+    dotBg: toneStyles.teal.dot,
   },
   evidence: {
     id: "evidence",
@@ -76,12 +77,12 @@ export const guideTracks: Record<GuideTrackId, GuideTrackMeta> = {
     label: "Judging Evidence",
     description:
       "How to rank kinds of proof, cross-check independent sources, size up who is talking, and decide what to do when good studies disagree.",
-    chip: "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
-    iconBg: "bg-rust-50 dark:bg-rust-900/30",
-    iconText: "text-rust-600 dark:text-rust-300",
-    hoverBorder: "hover:border-rust-300/60",
-    borderAccent: "border-l-rust-400",
-    dotBg: "bg-rust-500",
+    chip: toneStyles.rust.chip,
+    iconBg: toneStyles.rust.iconBg,
+    iconText: toneStyles.rust.iconText,
+    hoverBorder: toneStyles.rust.hoverBorder,
+    borderAccent: toneStyles.rust.borderAccent,
+    dotBg: toneStyles.rust.dot,
   },
   uncertainty: {
     id: "uncertainty",
@@ -89,12 +90,12 @@ export const guideTracks: Record<GuideTrackId, GuideTrackMeta> = {
     label: "Reasoning Under Uncertainty",
     description:
       "Working with degrees of belief instead of verdicts — updating on new evidence, reading probabilities honestly, and separating correlation from cause.",
-    chip: "bg-crux/10 dark:bg-crux/20 text-crux dark:text-crux-light border-crux/25 dark:border-crux/40",
-    iconBg: "bg-crux/10 dark:bg-crux/20",
-    iconText: "text-crux dark:text-crux-light",
-    hoverBorder: "hover:border-crux/40",
-    borderAccent: "border-l-crux/50",
-    dotBg: "bg-crux",
+    chip: toneStyles.plum.chip,
+    iconBg: toneStyles.plum.iconBg,
+    iconText: toneStyles.plum.iconText,
+    hoverBorder: toneStyles.plum.hoverBorder,
+    borderAccent: toneStyles.plum.borderAccent,
+    dotBg: toneStyles.plum.dot,
   },
   distortion: {
     id: "distortion",
@@ -102,12 +103,12 @@ export const guideTracks: Record<GuideTrackId, GuideTrackMeta> = {
     label: "Resisting Distortion",
     description:
       "The adversarial layer — the biases you bring yourself, and the doubt other people manufacture on purpose.",
-    chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-light border-skeptic/25 dark:border-skeptic/40",
-    iconBg: "bg-skeptic/10 dark:bg-skeptic/20",
-    iconText: "text-skeptic-dark dark:text-skeptic-light",
-    hoverBorder: "hover:border-skeptic/40",
-    borderAccent: "border-l-skeptic/50",
-    dotBg: "bg-skeptic",
+    chip: toneStyles.brown.chip,
+    iconBg: toneStyles.brown.iconBg,
+    iconText: toneStyles.brown.iconText,
+    hoverBorder: toneStyles.brown.hoverBorder,
+    borderAccent: toneStyles.brown.borderAccent,
+    dotBg: toneStyles.brown.dot,
   },
 };
 

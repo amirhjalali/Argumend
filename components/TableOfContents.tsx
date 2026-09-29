@@ -46,7 +46,7 @@ function TocLinks({
         <li key={`${keyPrefix}-${h.id}`} className={h.level === 3 ? "pl-3.5" : ""}>
           <a
             href={`#${h.id}`}
-            className={`flex min-h-11 items-center rounded-sm leading-snug transition-colors hover:text-deep dark:hover:text-deep-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep ${
+            className={`flex min-h-11 items-center rounded-sm leading-snug transition-colors hover:text-deep dark:hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep ${
               h.level === 3
                 ? "text-muted dark:text-stone-400"
                 : "text-secondary dark:text-stone-400"
@@ -63,12 +63,12 @@ function TocLinks({
 /**
  * Renders BOTH wayfinding affordances and lets responsive utilities decide
  * which is visible:
- *  - `<details>` "in this article" disclosure, in normal flow, up to 2xl.
- *  - A sticky rail in the right margin at 2xl+ (absolutely positioned so it
+ *  - `<details>` "in this article" disclosure, in normal flow, below xl.
+ *  - A sticky rail in the right margin from xl (absolutely positioned so it
  *    never shrinks the reading column). The parent must be `relative`.
  *
- * Gated at 2xl because both blog and guides render inside AppShell, whose
- * sidebar (260px) eats the margin space a rail would otherwise use at xl.
+ * Learn articles (components/learn/ArticleLayout) sit in the 44rem reading
+ * column with no sidebar, so from xl the right margin holds the 13rem rail.
  */
 export function TableOfContents({
   headings,
@@ -82,11 +82,11 @@ export function TableOfContents({
 
   return (
     <>
-      {/* Mobile → large-desktop: collapsible disclosure, in flow. */}
-      <details className="group mb-10 rounded-xl border border-stone-200/60 bg-[#faf8f5] dark:border-[var(--border-default)] dark:bg-[var(--bg-card)] 2xl:hidden">
+      {/* Phone → desktop: collapsible disclosure, in flow. */}
+      <details className="group mb-10 rounded-lg border border-divider bg-panel xl:hidden">
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 font-sans text-sm font-medium text-primary dark:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep [&::-webkit-details-marker]:hidden">
           <span className="flex items-center gap-2">
-            <List className="h-4 w-4 text-deep dark:text-deep-light" strokeWidth={1.75} />
+            <List className="h-4 w-4 text-muted" strokeWidth={1.75} aria-hidden="true" />
             {label}
           </span>
           <ChevronDown className="h-4 w-4 text-muted dark:text-stone-400 transition-transform duration-200 group-open:rotate-180" />
@@ -96,15 +96,13 @@ export function TableOfContents({
         </nav>
       </details>
 
-      {/* Wide desktop (2xl+): sticky rail in the right margin. */}
-      <div className="pointer-events-none absolute left-full top-0 hidden h-full 2xl:block">
+      {/* Wide desktop (xl+): sticky rail in the right margin. */}
+      <div className="pointer-events-none absolute left-full top-0 hidden h-full xl:block">
         <nav
           aria-label="Table of contents"
           className="pointer-events-auto sticky top-24 ml-6 max-h-[calc(100vh-8rem)] w-52 overflow-y-auto"
         >
-          <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-wide text-muted dark:text-stone-400">
-            On this page
-          </p>
+          <p className="label-caps mb-3">On this page</p>
           <TocLinks headings={headings} keyPrefix="d" />
         </nav>
       </div>

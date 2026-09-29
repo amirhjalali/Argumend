@@ -2,7 +2,7 @@ import "@/test/setup-dom";
 import { useState } from "react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
-import { useModalAccessibility } from "./useModalAccessibility";
+import { lockPageScroll, useModalAccessibility } from "./useModalAccessibility";
 
 function ModalHarness() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,11 +38,13 @@ function ModalHarness() {
 describe("useModalAccessibility", () => {
   beforeEach(() => {
     document.body.style.overflow = "clip";
+    document.documentElement.style.overflow = "";
   });
 
   afterEach(() => {
     cleanup();
     document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
   });
 
   it("preserves an open modal across callback identity changes", async () => {
@@ -58,6 +60,9 @@ describe("useModalAccessibility", () => {
       ),
     );
     expect(document.body.style.overflow).toBe("hidden");
+    // The window scrolls the page, and html's `overflow-x: clip` keeps body's
+    // overflow from reaching it, so the lock must be on <html> as well.
+    expect(document.documentElement.style.overflow).toBe("hidden");
 
     fireEvent.click(view.getByRole("button", { name: "Rerender 0" }));
 
@@ -68,6 +73,18 @@ describe("useModalAccessibility", () => {
 
     await waitFor(() => expect(view.queryByRole("dialog")).toBeNull());
     await waitFor(() => expect(document.activeElement).toBe(trigger));
+    expect(document.body.style.overflow).toBe("clip");
+    expect(document.documentElement.style.overflow).toBe("");
+  });
+
+  it("unwinds nested locks in order", () => {
+    const unlockOuter = lockPageScroll();
+    const unlockInner = lockPageScroll();
+    unlockInner();
+    expect(document.documentElement.style.overflow).toBe("hidden");
+    expect(document.body.style.overflow).toBe("hidden");
+    unlockOuter();
+    expect(document.documentElement.style.overflow).toBe("");
     expect(document.body.style.overflow).toBe("clip");
   });
 });

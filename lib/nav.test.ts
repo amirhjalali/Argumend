@@ -2,211 +2,168 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import {
-  navItems,
-  primaryNav,
-  learnNav,
-  metaNav,
+  ANALYZE_HREF,
+  LEARN_HREF,
+  SAVED_HREF,
   footerColumns,
-  getVisiblePrimaryNav,
+  getActivePrimaryHref,
+  learnNav,
+  legalLinks,
+  primaryNav,
 } from "./nav";
 
-describe("navItems (the single source of truth)", () => {
-  it("declares every href exactly once", () => {
-    const hrefs = navItems.map((i) => i.href);
-    const dupes = hrefs.filter((h, idx) => hrefs.indexOf(h) !== idx);
-    expect(dupes, `duplicate hrefs: ${dupes.join(", ")}`).toEqual([]);
-  });
+const read = (file: string) => readFileSync(join(process.cwd(), ...file.split("/")), "utf8");
 
-  it("declares every label exactly once", () => {
-    const labels = navItems.map((i) => i.label);
-    const dupes = labels.filter((l, idx) => labels.indexOf(l) !== idx);
-    expect(dupes, `duplicate labels: ${dupes.join(", ")}`).toEqual([]);
-  });
-
-  it("uses root-relative hrefs only (no external or relative links)", () => {
-    for (const item of navItems) {
-      expect(item.href.startsWith("/"), `${item.label} -> ${item.href}`).toBe(true);
-      expect(item.href).not.toMatch(/^\/\//);
-    }
-  });
-
-  it("gives every item a non-empty label and a valid group", () => {
-    for (const item of navItems) {
-      expect(item.label.trim().length).toBeGreaterThan(0);
-      expect(["primary", "learn", "meta"]).toContain(item.group);
-    }
-  });
-});
-
-describe("derived sidebar groups", () => {
-  const expectedPrimaryHrefs = [
-    "/",
-    "/topics",
-    "/analyze",
-    "/saved",
-    "/about",
-    "/dashboard",
-  ];
-
-  it("partitions navItems exactly — no item lost or duplicated", () => {
-    expect(primaryNav.length + learnNav.length + metaNav.length).toBe(navItems.length);
-    const derived = [...primaryNav, ...learnNav, ...metaNav].map((i) => i.href).sort();
-    expect(derived).toEqual(navItems.map((i) => i.href).sort());
-  });
-
-  it("filters to the right group", () => {
-    expect(primaryNav.every((i) => i.group === "primary")).toBe(true);
-    expect(learnNav.every((i) => i.group === "learn")).toBe(true);
-    expect(metaNav.every((i) => i.group === "meta")).toBe(true);
-  });
-
-  it("declares the pruned primary hrefs in the approved order", () => {
-    expect(primaryNav.map((item) => item.href)).toEqual(expectedPrimaryHrefs);
-  });
-
-  it("renames /topics to Explore", () => {
-    expect(primaryNav.find((item) => item.href === "/topics")).toMatchObject({
-      href: "/topics",
-      label: "Explore",
-    });
-  });
-
-  it("keeps learn and meta groups empty after the Argumend 1.0 nav pruning", () => {
-    expect(learnNav).toEqual([]);
-    expect(metaNav).toEqual([]);
-  });
-
-  it("guarantees an icon on every primary and learn item (NavItemWithIcon)", () => {
-    for (const item of [...primaryNav, ...learnNav]) {
-      expect(item.icon, `${item.label} is missing its icon`).toBeTruthy();
-    }
-  });
-
-  it("preserves declaration order within each group", () => {
-    const declaredPrimary = navItems.filter((i) => i.group === "primary").map((i) => i.href);
-    expect(primaryNav.map((i) => i.href)).toEqual(declaredPrimary);
-  });
-
-  it("includes Home as the first primary item", () => {
-    expect(primaryNav[0]).toMatchObject({ href: "/", label: "Home" });
-  });
-
-  it("marks only Analyze Text as the highlighted CTA", () => {
-    const highlighted = navItems.filter((i) => i.highlight);
-    expect(highlighted.map((i) => i.href)).toEqual(["/analyze"]);
-    expect(highlighted[0]).toMatchObject({ href: "/analyze", label: "Analyze Text" });
-  });
-
-  it("opts auth-gated and saved routes out of prefetch", () => {
-    const noPrefetch = navItems.filter((i) => i.noPrefetch).map((i) => i.href).sort();
-    expect(noPrefetch).toEqual(["/dashboard", "/saved"]);
-  });
-
-  it("keeps the dashboard item auth-gated exactly as the hidden account entry", () => {
-    expect(primaryNav.find((item) => item.href === "/dashboard")).toMatchObject({
-      label: "Dashboard",
-      href: "/dashboard",
-      group: "primary",
-      noPrefetch: true,
-      requiresAuth: true,
-    });
-  });
-
-  it("does not tease the dashboard in the default offline experience", () => {
-    expect(getVisiblePrimaryNav(false).map((item) => item.href)).toEqual([
-      "/",
-      "/topics",
-      "/analyze",
-      "/saved",
-      "/about",
+describe("primary navigation (the header, phone sheet and footer all read it)", () => {
+  it("is exactly Maps · Paste an argument · Learn · About, in that order", () => {
+    expect(primaryNav.map(({ label, href }) => ({ label, href }))).toEqual([
+      { label: "Maps", href: "/topics" },
+      { label: "Paste an argument", href: ANALYZE_HREF },
+      { label: "Learn", href: LEARN_HREF },
+      { label: "About", href: "/about" },
     ]);
   });
 
-  it("exposes the dashboard after account features are enabled", () => {
-    expect(getVisiblePrimaryNav(true).map((item) => item.href)).toEqual(expectedPrimaryHrefs);
-  });
-});
-
-describe("footerColumns", () => {
-  it("resolves every declared href to a real NavItem (none dropped)", () => {
-    // The builder silently filters out unresolvable hrefs, so a typo in
-    // FOOTER_COLUMN_HREFS would vanish from the footer with no error. Compare
-    // against the raw source declaration to catch that.
-    const source = readFileSync(join(process.cwd(), "lib", "nav.ts"), "utf8");
-    const block = source.slice(
-      source.indexOf("FOOTER_COLUMN_HREFS"),
-      source.indexOf("export interface FooterColumn"),
-    );
-    const declared = [...block.matchAll(/"(\/[^"]*)"/g)].map((m) => m[1]);
-    const resolved = footerColumns.flatMap((c) => c.links.map((l) => l.href));
-
-    expect(declared.length).toBeGreaterThan(0);
-    expect(resolved.length, "a footer href failed to resolve against navItems").toBe(
-      declared.length,
-    );
-    expect(resolved.sort()).toEqual(declared.sort());
+  it("routes the paste tool and the learn hub through the shared constants", () => {
+    expect(ANALYZE_HREF).toBe("/analyze");
+    expect(LEARN_HREF).toBe("/learn");
   });
 
-  it("takes labels from navItems so the footer cannot drift from the sidebar", () => {
-    const canonical = new Map(navItems.map((i) => [i.href, i.label]));
-    for (const column of footerColumns) {
-      for (const link of column.links) {
-        expect(link.label).toBe(canonical.get(link.href));
+  it("keeps Saved, the dashboard and Home out of the primary nav", () => {
+    const hrefs = primaryNav.map((item) => item.href);
+    expect(hrefs).not.toContain(SAVED_HREF);
+    expect(hrefs).not.toContain("/dashboard");
+    expect(hrefs).not.toContain("/");
+  });
+
+  it("uses sentence-case labels and root-relative hrefs", () => {
+    for (const item of [...primaryNav, ...learnNav]) {
+      expect(item.href.startsWith("/"), `${item.label} -> ${item.href}`).toBe(true);
+      expect(item.href).not.toMatch(/^\/\//);
+      const [, ...rest] = item.label.split(" ");
+      for (const word of rest) {
+        expect(word, `${item.label} is not sentence case`).toBe(word.toLowerCase());
       }
     }
   });
 
-  it("has the approved pruned footer columns", () => {
-    expect(footerColumns.map((column) => ({
-      title: column.title,
-      hrefs: column.links.map((link) => link.href),
-    }))).toEqual([
-      { title: "Explore", hrefs: ["/topics", "/saved"] },
-      { title: "About", hrefs: ["/about"] },
-    ]);
-    for (const column of footerColumns) {
-      expect(column.links.length, `${column.title} column is empty`).toBeGreaterThan(0);
-    }
-  });
-
-  it("lists no destination in more than one column", () => {
-    const hrefs = footerColumns.flatMap((c) => c.links.map((l) => l.href));
+  it("declares no href or label twice", () => {
+    const hrefs = primaryNav.map((i) => i.href);
+    const labels = primaryNav.map((i) => i.label);
     expect(new Set(hrefs).size).toBe(hrefs.length);
+    expect(new Set(labels).size).toBe(labels.length);
+  });
+});
+
+describe("learn group (phone menu sheet and footer)", () => {
+  it("lists the /learn hub's main sections", () => {
+    expect(learnNav.map((item) => [item.label, item.href])).toEqual([
+      ["Core ideas", "/learn#ideas"],
+      ["Guides", "/learn#guides"],
+      ["Fallacies", "/fallacies"],
+      ["Glossary", "/glossary"],
+      ["Essays", "/blog"],
+      ["For teachers", "/for-educators"],
+    ]);
   });
 
-  it("keeps hidden routes de-linked from canonical navigation", () => {
-    const hiddenRouteHrefs = [
-      "/analyses",
-      "/topics/compare",
-      "/is",
-      "/how-it-works",
-      "/blog",
-      "/research",
-      "/guides",
-      "/fallacies",
-      "/concepts",
-      "/perspectives",
-      "/library",
-      "/questions",
-      "/lessons-from-the-deep",
-      "/community",
-      "/for-educators",
-      "/methodology",
-      "/glossary",
-      "/faq",
-    ];
-    const linkedHrefs = new Set(navItems.map((item) => item.href));
-    for (const href of hiddenRouteHrefs) {
-      expect(linkedHrefs.has(href), `${href} should remain de-linked`).toBe(false);
+  it("never repeats the hub itself, which is the primary Learn item", () => {
+    expect(learnNav.map((item) => item.href)).not.toContain(LEARN_HREF);
+  });
+
+  it("points only at section anchors the hub renders", () => {
+    const hub = read("lib/learn/sections.ts");
+    for (const item of learnNav) {
+      const anchor = item.href.split("#")[1];
+      if (anchor) expect(hub).toContain(`id: "${anchor}"`);
     }
   });
 });
 
-describe("no local nav link arrays in Sidebar/Footer (SOT regression guard)", () => {
-  const files = ["components/Sidebar.tsx", "components/Footer.tsx"];
+describe("getActivePrimaryHref", () => {
+  it.each([
+    ["/topics", "/topics"],
+    ["/topics/ai-mass-unemployment", "/topics"],
+    ["/analyze", ANALYZE_HREF],
+    ["/faq", "/about"],
+    ["/reply", ANALYZE_HREF],
+    ["/d/some-report", ANALYZE_HREF],
+    ["/learn", LEARN_HREF],
+    ["/guides/crux-test", LEARN_HREF],
+    ["/concepts/cruxes", LEARN_HREF],
+    ["/fallacies/straw-man", LEARN_HREF],
+    ["/glossary", LEARN_HREF],
+    ["/questions/is-nuclear-energy-safe", LEARN_HREF],
+    ["/blog/some-post", LEARN_HREF],
+    ["/research", LEARN_HREF],
+    ["/for-educators/worksheets/crux-finder", LEARN_HREF],
+    ["/about", "/about"],
+    ["/methodology", "/about"],
+  ])("marks %s as part of %s", (pathname, expected) => {
+    expect(getActivePrimaryHref(pathname)).toBe(expected);
+  });
 
-  it.each(files)("%s imports from @/lib/nav", (file) => {
-    const source = readFileSync(join(process.cwd(), ...file.split("/")), "utf8");
-    expect(source).toMatch(/from\s+["']@\/lib\/nav["']/);
+  it.each(["/", "/saved", "/is/nuclear-energy-safe", "/analysis/abc", "/topicsx"])(
+    "marks nothing current on %s",
+    (pathname) => {
+      expect(getActivePrimaryHref(pathname)).toBeUndefined();
+    },
+  );
+});
+
+describe("footerColumns", () => {
+  it("has the Argumend, Learn and More columns", () => {
+    expect(
+      footerColumns.map((column) => ({
+        title: column.title,
+        labels: column.links.map((link) => link.label),
+      })),
+    ).toEqual([
+      { title: "Argumend", labels: ["Maps", "Paste an argument", "Learn", "About"] },
+      {
+        title: "Learn",
+        labels: ["Core ideas", "Guides", "Fallacies", "Glossary", "Essays", "For teachers"],
+      },
+      { title: "More", labels: ["FAQ", "Methodology", "Saved", "GitHub"] },
+    ]);
+  });
+
+  it("reuses the primary items so the footer cannot drift from the header", () => {
+    expect(footerColumns[0].links).toBe(primaryNav);
+    expect(footerColumns[1].links).toBe(learnNav);
+  });
+
+  it("marks only GitHub as external", () => {
+    const external = footerColumns.flatMap((c) => c.links).filter((l) => l.external);
+    expect(external.map((l) => l.label)).toEqual(["GitHub"]);
+    expect(external[0].href).toMatch(/^https:\/\/github\.com\//);
+  });
+
+  it("keeps the legal links out of the columns", () => {
+    const hrefs = footerColumns.flatMap((c) => c.links.map((l) => l.href));
+    for (const link of legalLinks) expect(hrefs).not.toContain(link.href);
+    expect(new Set(hrefs).size).toBe(hrefs.length);
+  });
+});
+
+describe("no local nav link arrays in the shell (SOT regression guard)", () => {
+  it.each(["components/TopBar.tsx", "components/Footer.tsx"])(
+    "%s imports from @/lib/nav",
+    (file) => {
+      expect(read(file)).toMatch(/from\s+["']@\/lib\/nav["']/);
+    },
+  );
+
+  it.each([
+    "components/TopBar.tsx",
+    "components/Footer.tsx",
+    "components/HeroAnalyze.tsx",
+    "app/not-found.tsx",
+    "components/paste/PasteClient.tsx",
+    "components/paste/MapResult.tsx",
+    "app/analysis/[id]/page.tsx",
+  ])("%s links the paste tool through ANALYZE_HREF, never a literal", (file) => {
+    const source = read(file);
+    expect(source).not.toMatch(/["'`]\/analyze(?:-v2)?["'`]/);
   });
 });

@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import {
   Search,
   X,
-  MessageSquare,
   FileText,
   Lightbulb,
   File,
@@ -17,12 +16,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import MiniSearch from "minisearch";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
-import { categoryColors } from "@/lib/categoryColors";
+import { categoryColors, toneStyles } from "@/lib/categoryColors";
+import { ANALYZE_HREF } from "@/lib/nav";
 import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
-import { BalanceWeightChip } from "@/components/BalanceWeightChip";
-import { BALANCE } from "@/lib/constants";
-import type { Verdict } from "@/lib/schemas/topic";
 import { useModalAccessibility } from "@/hooks/useModalAccessibility";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 
@@ -40,9 +37,6 @@ interface SearchResult {
   href: string;
   // Topic-specific fields
   category?: TopicCategory;
-  balance?: number;
-  weight?: number;
-  verdict?: Verdict;
   // Extra searchable text (not rendered) — indexed by MiniSearch
   meta_claim?: string;
   categoryText?: string;
@@ -60,25 +54,53 @@ interface SearchGroup {
 // Static pages available in search
 // ---------------------------------------------------------------------------
 
+/** The two shortcuts shown on an empty query, and findable by name. */
+const PASTE_PAGE: SearchResult = {
+  id: "page-paste",
+  title: "Paste an argument",
+  subtitle: "Find what a disagreement actually turns on",
+  type: "page",
+  href: ANALYZE_HREF,
+};
+
+const ALL_MAPS_PAGE: SearchResult = {
+  id: "page-all-maps",
+  title: "All maps",
+  subtitle: "Every question Argumend has mapped",
+  type: "page",
+  href: "/topics",
+};
+
 const STATIC_PAGES: SearchResult[] = [
-  {
-    id: "page-how-it-works",
-    title: "How It Works",
-    subtitle: "Learn about Argumend's methodology and approach",
-    type: "page",
-    href: "/how-it-works",
-  },
+  PASTE_PAGE,
+  ALL_MAPS_PAGE,
+  // Sections that used to be pages link to their section, not to the old
+  // path: a redirect drops the #anchor on client navigation.
   {
     id: "page-about",
     title: "About",
-    subtitle: "Our mission to map the truth",
+    subtitle: "Why Argumend exists and the principles behind it",
     type: "page",
     href: "/about",
   },
   {
+    id: "page-read-a-map",
+    title: "How to read a map",
+    subtitle: "How it works: the question, the cruxes, and what would settle each",
+    type: "page",
+    href: "/about#read-a-map",
+  },
+  {
+    id: "page-contribute",
+    title: "Contribute",
+    subtitle: "Suggest a correction or a new map on GitHub",
+    type: "page",
+    href: "/about#contribute",
+  },
+  {
     id: "page-methodology",
-    title: "Methodology",
-    subtitle: "Evidence weighting, scoring, and verification",
+    title: "How maps are made",
+    subtitle: "The methodology: positions, evidence, and what would settle each crux",
     type: "page",
     href: "/methodology",
   },
@@ -90,101 +112,98 @@ const STATIC_PAGES: SearchResult[] = [
     href: "/faq",
   },
   {
-    id: "page-analyze",
-    title: "Analyze",
-    subtitle: "Paste text and extract positions, cruxes, and fallacies",
+    id: "page-learn",
+    title: "Learn",
+    subtitle: "Core ideas, guides, fallacies, the glossary and essays",
     type: "page",
-    href: "/analyze",
+    href: "/learn",
   },
   {
-    id: "page-library",
-    title: "Library",
-    subtitle: "Curated books, papers, and tools",
+    id: "page-core-ideas",
+    title: "Core ideas",
+    subtitle: "Cruxes, steel-manning, evidence weighting and other concepts",
     type: "page",
-    href: "/library",
+    href: "/learn#ideas",
   },
   {
-    id: "page-concepts",
-    title: "Concepts",
-    subtitle: "Core critical thinking concepts and definitions",
+    id: "page-guides",
+    title: "Guides",
+    subtitle: "Step-by-step guides to reading and weighing an argument",
     type: "page",
-    href: "/concepts",
+    href: "/learn#guides",
+  },
+  {
+    id: "page-research",
+    title: "Research",
+    subtitle: "The research behind Argumend: the perception gap and what helps",
+    type: "page",
+    href: "/research",
+  },
+  {
+    id: "page-reading-list",
+    title: "Reading list",
+    subtitle: "Books and papers on disagreement and reasoning (the old library)",
+    type: "page",
+    href: "/research#reading",
   },
   {
     id: "page-blog",
-    title: "Blog",
-    subtitle: "Articles on critical thinking and epistemology",
+    title: "Essays",
+    subtitle: "The blog: essays on disagreement, evidence and reasoning",
     type: "page",
     href: "/blog",
   },
   {
-    id: "page-community",
-    title: "Community",
-    subtitle: "Join the Argumend community",
-    type: "page",
-    href: "/community",
-  },
-  {
     id: "page-for-educators",
-    title: "For Educators",
-    subtitle: "Teaching critical thinking with Argumend",
+    title: "For teachers",
+    subtitle: "Teaching critical thinking with argument maps",
     type: "page",
     href: "/for-educators",
   },
 ];
 
 // ---------------------------------------------------------------------------
-// Featured suggestions (shown when input is empty)
+// Empty-query suggestions: the two flagship maps, then the two ways in.
+// Hand-picked, not "popular": nothing here measures popularity.
 // ---------------------------------------------------------------------------
 
-const FEATURED_TOPIC_IDS = [
-  "climate-change",
-  "ai-risk",
-  "free-will",
-  "moon-landing",
-  "simulation-hypothesis",
-];
+const FLAGSHIP_MAP_IDS = ["ai-mass-unemployment", "capitalism-after-ai"];
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
-function getLeanInfo(balance: number): { label: string; color: string } {
-  const d = Math.abs(balance - 50);
-  if (d < BALANCE.EVEN_D) return { label: "Draw", color: "text-stone-500" };
-  return balance >= 50
-    ? { label: "For", color: "text-rust-600" }
-    : { label: "Against", color: "text-deep" };
-}
-
 const TYPE_CONFIG: Record<
   ResultType,
-  { icon: typeof Search; label: string; badgeClasses: string }
+  { icon: typeof Search; label: string; badge: string }
 > = {
   map: {
     icon: Network,
-    label: "Debate Maps",
-    badgeClasses: "bg-rust-50 text-rust-700 dark:bg-rust-900/30 dark:text-rust-300",
+    label: "Maps",
+    badge: "Map",
   },
+  // Pillar-model maps. Same kind of thing as `map` to a reader, so the same
+  // label and badge, and they share the "Maps" group (see the grouping below).
   topic: {
-    icon: MessageSquare,
-    label: "Topics",
-    badgeClasses: "bg-deep/10 text-deep",
+    icon: Network,
+    label: "Maps",
+    badge: "Map",
   },
+  // The Learn library's words (lib/learn/sections.ts): essays and ideas.
   blog: {
     icon: FileText,
-    label: "Blog",
-    badgeClasses: "bg-deep/5 text-deep/80",
+    label: "Essays",
+    badge: "Essay",
   },
   concept: {
     icon: Lightbulb,
-    label: "Concepts",
-    badgeClasses: "bg-rust-50 text-rust-600",
+    label: "Core ideas",
+    badge: "Idea",
   },
   page: {
     icon: File,
     label: "Pages",
-    badgeClasses: "bg-stone-100 text-stone-500",
+    badge: "Page",
   },
 };
 
@@ -234,9 +253,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
         type: "topic" as const,
         href: `/topics/${t.id}`,
         category: t.category,
-        balance: t.balance,
-        weight: t.weight,
-        verdict: t.verdict,
         meta_claim: t.meta_claim,
         categoryText: `${t.category} ${CATEGORY_LABELS[t.category]}`,
         tags: (extra.tags ?? []).join(" "),
@@ -311,28 +327,17 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const groups = useMemo<SearchGroup[]>(() => {
     const trimmed = query.trim();
 
-    // Empty query: lead with the flagship debate maps, then familiar topics.
-    // `allItems` keeps the result shape identical to searched map results and
-    // preserves one keyboard-order source of truth through `flatResults`.
+    // Empty query: the two flagship maps, then the two ways in (paste an
+    // argument, browse every map). Taken from `allItems` so the result shape
+    // matches searched results and `flatResults` stays the one keyboard order.
     if (!trimmed) {
-      const debateMaps = allItems.filter((item) => item.type === "map");
-      const featured = topicSummaries
-        .filter((t) => FEATURED_TOPIC_IDS.includes(t.id))
-        .map((t) => ({
-          id: `topic-${t.id}`,
-          title: t.title,
-          subtitle: t.meta_claim,
-          type: "topic" as ResultType,
-          href: `/topics/${t.id}`,
-          category: t.category,
-          balance: t.balance,
-          weight: t.weight,
-          verdict: t.verdict,
-        }));
+      const flagships = FLAGSHIP_MAP_IDS.map((id) => itemsById.get(`map-${id}`)).filter(
+        (item): item is SearchResult => item != null,
+      );
 
       return [
-        { label: "Debate Maps", type: "map", results: debateMaps },
-        { label: "Popular Topics", type: "topic", results: featured },
+        { label: "Maps", type: "map", results: flagships },
+        { label: "Go to", type: "page", results: [PASTE_PAGE, ALL_MAPS_PAGE] },
       ];
     }
 
@@ -342,12 +347,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       .map((r) => itemsById.get(r.id as string))
       .filter((item): item is SearchResult => item != null);
 
-    // Group by type
-    const typeOrder: ResultType[] = ["map", "topic", "blog", "concept", "page"];
+    // Group by type; both map models share one "Maps" group, in score order.
+    const typeOrder: ResultType[] = ["map", "blog", "concept", "page"];
     const grouped: SearchGroup[] = [];
 
     for (const type of typeOrder) {
-      const results = matched.filter((r) => r.type === type).slice(0, MAX_PER_GROUP);
+      const results = matched
+        .filter((r) => (r.type === "topic" ? "map" : r.type) === type)
+        .slice(0, MAX_PER_GROUP);
       if (results.length > 0) {
         grouped.push({
           label: TYPE_CONFIG[type].label,
@@ -358,7 +365,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
 
     return grouped;
-  }, [query, miniSearch, itemsById, allItems]);
+  }, [query, miniSearch, itemsById]);
 
   // Flat list of all visible results for keyboard navigation
   const flatResults = useMemo(
@@ -480,7 +487,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               type="text"
               value={query}
               onChange={(e) => updateQuery(e.target.value)}
-              placeholder="Search debate maps, topics, articles, concepts..."
+              placeholder="Search maps, articles, concepts…"
               className="flex-1 bg-transparent text-lg text-primary dark:text-stone-200 placeholder:text-stone-500 outline-none font-sans"
               autoComplete="off"
               spellCheck={false}
@@ -523,7 +530,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               ? flatResults.length > 0
                 ? `${flatResults.length} result${flatResults.length !== 1 ? "s" : ""} for “${query.trim()}”`
                 : `No results for “${query.trim()}”`
-              : `${groups[0]?.results.length ?? 0} debate maps and ${groups[1]?.results.length ?? 0} popular topics`}
+              : `${groups[0]?.results.length ?? 0} maps and ${groups[1]?.results.length ?? 0} shortcuts`}
           </div>
 
           {/* Results */}
@@ -554,7 +561,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                     }}
                     className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"
                   >
-                    browse all topics
+                    browse all maps
                   </button>
                 </div>
               </div>
@@ -577,9 +584,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   const config = TYPE_CONFIG[result.type];
                   const Icon = config.icon;
                   const isTopic = result.type === "topic";
-                  const verdict = isTopic && result.balance != null
-                    ? getLeanInfo(result.balance)
-                    : null;
 
                   return (
                     <button
@@ -590,7 +594,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       onMouseEnter={() => setActiveIndex(idx)}
                       className={`
                         w-full flex items-center gap-3 px-5 py-3 text-left transition-colors duration-100
-                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500 ring-2 ring-deep/20" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-[var(--bg-muted)]/60 border-l-2 border-l-transparent"}
+                        ${isActive ? "bg-rust-50/60 dark:bg-rust-900/30 border-l-2 border-l-rust-500 ring-2 ring-deep/20" : "bg-transparent hover:bg-stone-50/60 dark:hover:bg-subtle/60 border-l-2 border-l-transparent"}
                       `}
                       role="option"
                       aria-selected={isActive}
@@ -634,23 +638,16 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         </div>
                       </div>
 
-                      {/* Topic metadata: balance/weight chip + lean */}
-                      {isTopic && result.balance != null && result.weight != null && result.verdict ? (
-                        <div className="flex-shrink-0 flex flex-col items-end gap-0.5">
-                          <BalanceWeightChip balance={result.balance} weight={result.weight} verdict={result.verdict} />
-                          <div className={`text-[10px] font-medium ${verdict!.color}`}>{verdict!.label}</div>
-                        </div>
-                      ) : (
-                        /* Non-topic badge */
-                        <span
-                          className={`
-                            flex-shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full
-                            ${config.badgeClasses}
-                          `}
-                        >
-                          {config.label.slice(0, -1)}
-                        </span>
-                      )}
+                      {/* Type badge. No lean or score: search is a way in,
+                          not a scoreboard (2026-09-29 overhaul). */}
+                      <span
+                        className={`
+                          flex-shrink-0 whitespace-nowrap text-center min-w-[3.25rem] text-[10px] font-medium px-2 py-0.5 rounded-full border
+                          ${toneStyles.neutral.chip}
+                        `}
+                      >
+                        {config.badge}
+                      </span>
 
                       {/* Arrow for active */}
                       {isActive && (
@@ -667,7 +664,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[var(--border-divider)] bg-[#f4f1eb]/50 dark:bg-[var(--bg-canvas)]/50">
+          <div className="flex items-center justify-between px-5 py-2.5 border-t border-stone-200/60 dark:border-[var(--border-divider)] bg-[#f4f1eb]/50 dark:bg-canvas/50">
             <div className="flex items-center gap-4 text-[11px] text-muted dark:text-stone-400">
               <span className="flex items-center gap-1">
                 <kbd className="inline-flex h-4 items-center rounded border border-stone-200 dark:border-[var(--border-divider)] bg-white dark:bg-[var(--bg-muted)] px-1 font-mono text-[10px]">

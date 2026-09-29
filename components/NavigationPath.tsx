@@ -78,7 +78,7 @@ export function NavigationPath() {
 
   return (
     <nav aria-label="Argument path" className="absolute top-4 left-1/2 -translate-x-1/2 z-50 max-w-[600px]">
-      <ol className="flex items-center gap-1 rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] bg-[#fefcf9]/90 dark:bg-[var(--bg-card)]/90 backdrop-blur-sm px-3 py-2 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
+      <ol className="flex items-center gap-1 rounded-lg border border-stone-200/60 dark:border-[var(--border-default)] bg-[#fefcf9]/90 dark:bg-card/90 backdrop-blur-sm px-3 py-2 shadow-[0_2px_8px_rgba(120,100,80,0.08)]">
         <li className="flex items-center" aria-hidden="true">
           <Home className="h-3.5 w-3.5 text-rust-500 flex-shrink-0" />
         </li>

@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { auth } from "@/lib/auth";
 import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
-import { recordTopicView, getTrendingTopics } from "@/lib/db/queries";
-import { isDatabaseConfigured } from "@/lib/db";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
+
+// The database stack (and auth, which sits on it) is imported inside each
+// handler, not at module load. Loading it pulls in the postgres driver, and a
+// driver that cannot load would otherwise fail the whole route with a 500
+// before any fallback runs. View counts are optional: with no usable
+// database the route answers as if there were no views.
 
 const TopicViewRequestSchema = z.object({
   topicId: z.string().min(1, "topicId is required").max(200),
@@ -38,7 +41,15 @@ export async function POST(req: NextRequest) {
     // View analytics are optional. In the default offline product there is no
     // persistence to contact and no reason to initialize auth just to discard
     // the result.
-    if (!isDatabaseConfigured()) {
+    let recordTopicView: typeof import("@/lib/db/queries").recordTopicView;
+    try {
+      const { isDatabaseConfigured } = await import("@/lib/db");
+      if (!isDatabaseConfigured()) {
+        return NextResponse.json({ ok: true });
+      }
+      ({ recordTopicView } = await import("@/lib/db/queries"));
+    } catch {
+      // The database stack could not load. The view is accepted and dropped.
       return NextResponse.json({ ok: true });
     }
 
@@ -46,6 +57,7 @@ export async function POST(req: NextRequest) {
     // must remain anonymous/offline-safe when the auth backend is unavailable.
     let userId: string | undefined;
     try {
+      const { auth } = await import("@/lib/auth");
       const session = await auth();
       userId = session?.user?.id;
     } catch {
@@ -90,11 +102,12 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  if (!isDatabaseConfigured()) {
-    return NextResponse.json({ trending: [] });
-  }
-
   try {
+    const { isDatabaseConfigured } = await import("@/lib/db");
+    if (!isDatabaseConfigured()) {
+      return NextResponse.json({ trending: [] });
+    }
+    const { getTrendingTopics } = await import("@/lib/db/queries");
     const trending = await getTrendingTopics(pageLimit);
     return NextResponse.json({ trending });
   } catch (error) {

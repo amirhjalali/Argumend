@@ -206,3 +206,38 @@ describe("tagToSlug", () => {
     expect(tagToSlug("Steel Man Argument")).toBe("steel-man-argument");
   });
 });
+
+describe("posts describe the product as it works today", () => {
+  const postText = (a: (typeof articles)[number]) =>
+    [a.title, a.description, a.content].join("\n");
+
+  it("never mentions the retired judge council or confidence scores", () => {
+    const retired = /judge council|multi-judge|AI judges?\b|confidence scores?\b/i;
+    for (const a of articles) {
+      expect(postText(a), a.slug).not.toMatch(retired);
+    }
+  });
+
+  it("does not describe maps as opening on an interactive graph", () => {
+    // Maps open as a page; the graph is a secondary view on some of them.
+    const graphFirst = /as an interactive (graph|map)|on an interactive graph|visual logic graph/i;
+    for (const a of articles) {
+      expect(postText(a), a.slug).not.toMatch(graphFirst);
+    }
+  });
+
+  it("never calls a question 'settled' in the same breath as linking its map", () => {
+    // A map's own reading (largely converges / still divided / still thin) is
+    // the label; a post must not contradict it with 'settled'.
+    const settledMapLink = /settled[^.\n]{0,60}\]\(\/topics\//i;
+    for (const a of articles) {
+      expect(a.content, a.slug).not.toMatch(settledMapLink);
+    }
+  });
+
+  it("does not send readers to the retired 'Is it true?' verdict directory", () => {
+    for (const a of articles) {
+      expect(a.content, a.slug).not.toMatch(/\]\(\/is(\/[^)]*)?\)/);
+    }
+  });
+});

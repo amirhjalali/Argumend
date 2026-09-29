@@ -11,11 +11,11 @@ export default function TopicDetailError({
 }) {
   return (
     <RouteErrorState
-      title="This topic could not load"
-      message="We could not load this topic. The page may have encountered an unexpected error."
+      title="This map could not load"
+      message="We could not load this map. Please try again or return to the other maps."
       reset={reset}
       backHref="/topics"
-      backLabel="Back to Topics"
+      backLabel="Back to maps"
     />
   );
 }

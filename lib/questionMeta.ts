@@ -14,7 +14,7 @@
  *      color the page would read as a rainbow.
  *
  * Palette discipline (see CLAUDE.md "Design System"): stone/parchment, deep
- * teal (#3a6965), rust (#C4613C), brown (#8B5A3C), crux crimson (#a23b3b).
+ * teal (#3a6965), rust (#C4613C), brown (#8B5A3C), plum (#6b4768), slate ink (#4a5868), via `toneStyles`.
  * Never amber/tangerine/indigo/violet/sky.
  */
 import type { LucideIcon } from "lucide-react";
@@ -30,7 +30,7 @@ import {
   GitBranch,
 } from "lucide-react";
 import type { TopicCategory } from "@/lib/schemas/topic";
-import { categoryColors, categoryTopBorder } from "@/lib/categoryColors";
+import { categoryColors, categoryTopBorder, toneStyles } from "@/lib/categoryColors";
 
 // ---------------------------------------------------------------------------
 // Axis 1 — category (color)
@@ -58,50 +58,50 @@ export const questionCategories: Record<TopicCategory, QuestionCategoryMeta> = {
     id: "policy",
     icon: Landmark,
     chip: categoryColors.policy,
-    iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-deep-light",
-    accentText: "text-deep dark:text-deep-light",
-    ruleBorder: "border-deep/25",
+    iconBg: toneStyles.teal.iconBg,
+    iconText: toneStyles.teal.iconText,
+    accentText: toneStyles.teal.accentText,
+    ruleBorder: toneStyles.teal.rule,
     topBorder: categoryTopBorder.policy,
   },
   technology: {
     id: "technology",
     icon: Cpu,
     chip: categoryColors.technology,
-    iconBg: "bg-stone-100 dark:bg-stone-800/40",
-    iconText: "text-stone-600 dark:text-stone-300",
-    accentText: "text-stone-600 dark:text-stone-300",
-    ruleBorder: "border-stone-300/70",
+    iconBg: toneStyles.ink.iconBg,
+    iconText: toneStyles.ink.iconText,
+    accentText: toneStyles.ink.accentText,
+    ruleBorder: toneStyles.ink.rule,
     topBorder: categoryTopBorder.technology,
   },
   science: {
     id: "science",
     icon: Microscope,
     chip: categoryColors.science,
-    iconBg: "bg-skeptic/10 dark:bg-skeptic/20",
-    iconText: "text-skeptic-dark dark:text-skeptic-light",
-    accentText: "text-skeptic-dark dark:text-skeptic-light",
-    ruleBorder: "border-skeptic/25",
+    iconBg: toneStyles.brown.iconBg,
+    iconText: toneStyles.brown.iconText,
+    accentText: toneStyles.brown.accentText,
+    ruleBorder: toneStyles.brown.rule,
     topBorder: categoryTopBorder.science,
   },
   economics: {
     id: "economics",
     icon: LineChart,
     chip: categoryColors.economics,
-    iconBg: "bg-rust-50 dark:bg-rust-900/30",
-    iconText: "text-rust-600 dark:text-rust-300",
-    accentText: "text-rust-700 dark:text-rust-300",
-    ruleBorder: "border-rust-200",
+    iconBg: toneStyles.rust.iconBg,
+    iconText: toneStyles.rust.iconText,
+    accentText: toneStyles.rust.accentText,
+    ruleBorder: toneStyles.rust.rule,
     topBorder: categoryTopBorder.economics,
   },
   philosophy: {
     id: "philosophy",
     icon: BrainCircuit,
     chip: categoryColors.philosophy,
-    iconBg: "bg-crux/10 dark:bg-crux/20",
-    iconText: "text-crux dark:text-crux-light",
-    accentText: "text-crux dark:text-crux-light",
-    ruleBorder: "border-crux/25",
+    iconBg: toneStyles.plum.iconBg,
+    iconText: toneStyles.plum.iconText,
+    accentText: toneStyles.plum.accentText,
+    ruleBorder: toneStyles.plum.rule,
     topBorder: categoryTopBorder.philosophy,
   },
 };
@@ -128,6 +128,8 @@ export type QuestionKindId =
 export interface QuestionKindMeta {
   readonly id: QuestionKindId;
   readonly label: string;
+  /** The kind in plain words, as a question page's opening line: "A question of fact." */
+  readonly plain: string;
   /** One line explaining what kind of answer this question can even have. */
   readonly description: string;
   readonly icon: LucideIcon;
@@ -136,6 +138,7 @@ export interface QuestionKindMeta {
 export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
   empirical: {
     id: "empirical",
+    plain: "A question of fact.",
     label: "Empirical",
     description:
       "Asks what is true. Evidence can in principle settle it — the fight is over which evidence counts.",
@@ -143,6 +146,7 @@ export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
   },
   normative: {
     id: "normative",
+    plain: "A question of value.",
     label: "Normative",
     description:
       "Asks what we should do. Evidence constrains the answer but never fully decides it — values do the rest.",
@@ -150,6 +154,7 @@ export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
   },
   predictive: {
     id: "predictive",
+    plain: "A question about the future.",
     label: "Predictive",
     description:
       "Asks what will happen. No evidence closes it yet; the disagreement is about how the future resolves.",
@@ -157,6 +162,7 @@ export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
   },
   explanatory: {
     id: "explanatory",
+    plain: "A question of cause.",
     label: "Explanatory",
     description:
       "Asks why or how something happens. Rival causal stories usually fit the same facts.",

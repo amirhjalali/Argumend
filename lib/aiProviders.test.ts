@@ -6,7 +6,7 @@ import {
   ANALYZE_SOURCE_PROVIDER_IDS,
   DIAGNOSIS_PROVIDER_IDS,
   MAP_REPLY_PROVIDER_IDS,
-  analyzeSourceBadge,
+  buildPasteConsentLine,
   buildConsentLine,
   buildMapReplyConsentLine,
   formatProviderList,
@@ -74,8 +74,15 @@ describe("formatProviderList", () => {
 describe("providerDisclosure", () => {
   it("names the providers and the shared processing region", () => {
     expect(providerDisclosure(DIAGNOSIS_PROVIDER_IDS)).toBe(
-      "TypeSafe AI or Anthropic, processed in the United States",
+      "Anthropic, processed in the United States",
     );
+  });
+
+  it("names only the providers the diagnosis lane calls", () => {
+    // createDisagreementProvider's hosted lane is Anthropic; TypeSafe AI is
+    // the map-reply lane's provider, never the diagnosis lane's.
+    expect(DIAGNOSIS_PROVIDER_IDS).toEqual(["anthropic"]);
+    expect(MAP_REPLY_PROVIDER_IDS).toEqual(["typesafe"]);
   });
 
   it("refuses to flatten providers that process in different regions", () => {
@@ -97,7 +104,7 @@ describe("buildConsentLine", () => {
   it("is the approved disclosure sentence for the diagnosis lane", () => {
     expect(line.text).toBe(
       "By analyzing, you agree that this text is sent to our AI provider " +
-        "(TypeSafe AI or Anthropic, processed in the United States) and is not stored. " +
+        "(Anthropic, processed in the United States) and is not stored. " +
         "Don't paste private information about other people.",
     );
   });
@@ -134,7 +141,7 @@ describe("buildMapReplyConsentLine", () => {
   it("claims the redaction the analyze lanes cannot claim, and only there", () => {
     expect(line.text).toContain("Identifiers are removed first.");
     expect(buildConsentLine().text).not.toContain("Identifiers are removed");
-    expect(analyzeSourceBadge()).not.toContain("Identifiers are removed");
+    expect(buildPasteConsentLine(["anthropic"]).text).not.toContain("Identifiers are removed");
   });
 
   it("names one provider outright rather than hedging behind a disjunction", () => {
@@ -150,11 +157,30 @@ describe("buildMapReplyConsentLine", () => {
   });
 });
 
-describe("analyzeSourceBadge", () => {
-  it("names the provider instead of saying 'the configured AI provider'", () => {
-    expect(analyzeSourceBadge()).toBe(
-      "Source text isn’t stored; live mode sends it to Anthropic, processed in the United States",
+describe("buildPasteConsentLine", () => {
+  it("says nothing leaves the server when only the offline map lane runs", () => {
+    const line = buildPasteConsentLine([]);
+    expect(line.text).toBe(
+      "Nothing you paste leaves our server. It is matched against Argumend’s maps there and is not stored. Privacy.",
     );
-    expect(analyzeSourceBadge()).not.toContain("configured AI provider");
+    expect(line.text).not.toMatch(/you agree|sent to/);
+  });
+
+  it("names exactly the providers the running lane sends to", () => {
+    const line = buildPasteConsentLine(["anthropic"]);
+    expect(line.text).toBe(
+      "By submitting, you agree that this text is sent to Anthropic (processed in the United States) and is not stored. " +
+        "It is also matched against Argumend’s maps on our server. " +
+        "Don't paste private information about other people. Privacy.",
+    );
+    // The diagnosis lane never calls TypeSafe AI, so the paste line never names it.
+    expect(line.text).not.toContain("TypeSafe");
+  });
+
+  it("splits around the linked phrase without changing a character", () => {
+    for (const line of [buildPasteConsentLine([]), buildPasteConsentLine(["anthropic"])]) {
+      expect(`${line.before}${line.linkText}${line.after}`).toBe(line.text);
+      expect(line.linkText).toBe("Privacy");
+    }
   });
 });

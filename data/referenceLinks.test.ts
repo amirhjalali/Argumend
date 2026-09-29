@@ -5,10 +5,17 @@ import { fallacies } from "./fallacies";
 import { glossaryPageTerms } from "./glossaryPageTerms";
 import { guides } from "./guides";
 import { topicSummaries } from "./topicIndex";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 
 const knownStaticRoutes = new Set([
-  "/how-it-works",
+  "/about#read-a-map",
+  "/analyze",
+  "/fallacies",
+  "/glossary",
+  "/learn",
   "/methodology",
+  "/questions",
+  "/research",
   "/topics",
 ]);
 
@@ -19,6 +26,8 @@ const knownRoutes = new Set([
   ...fallacies.map((fallacy) => `/fallacies/${fallacy.slug}`),
   ...guides.map((guide) => `/guides/${guide.id}`),
   ...topicSummaries.map((topic) => `/topics/${topic.id}`),
+  // Flagship maps built on the ArgumentGraph model (e.g. ai-mass-unemployment).
+  ...argumentTopicIds.map((id) => `/topics/${id}`),
 ]);
 
 describe("reference-surface internal links", () => {

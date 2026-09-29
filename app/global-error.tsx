@@ -92,7 +92,7 @@ export default function GlobalError({
                 }}
               >
                 <svg
-                  style={{ height: "1.5rem", width: "1.5rem", color: "#ef4444" }}
+                  style={{ height: "1.5rem", width: "1.5rem", color: "#c4584d" }}
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}

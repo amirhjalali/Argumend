@@ -5,7 +5,7 @@
  * Two independent adjudication passes over the library found that on a 12–16
  * card map one ordinary card moves `balance` by 8–12 points, while the
  * "settled" quadrant only needs a 20-point gap from even. A published
- * "Settled — evidence strongly favors the counterclaim" that one defensible
+ * "Evidence largely converges on the counterclaim" (the settled quadrant) that one defensible
  * relabel would erase is a stronger public claim than the map can carry.
  *
  * Everything here is pure and deterministic over the authored cards.

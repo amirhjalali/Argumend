@@ -23,7 +23,7 @@ export function MapReplyProgress({ step }: { step: number }) {
   const active = Math.min(step, STAGES.length - 1);
 
   return (
-    <div className="surface-card p-5">
+    <div className="border-l-2 border-[var(--border-divider)] py-1 pl-5">
       <p className="sr-only" aria-live="polite">
         {STAGES[active]}
       </p>
@@ -37,9 +37,9 @@ export function MapReplyProgress({ step }: { step: number }) {
                 aria-hidden="true"
                 className={`h-2 w-2 shrink-0 rounded-full ${
                   done
-                    ? "bg-deep dark:bg-deep-light"
+                    ? "bg-deep/40 dark:bg-deep-light/50"
                     : current
-                      ? "animate-pulse bg-rust-500 dark:bg-rust-400"
+                      ? "animate-pulse bg-deep motion-reduce:animate-none dark:bg-deep-light"
                       : "bg-[var(--bg-overlay)]"
                 }`}
               />

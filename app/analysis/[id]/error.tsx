@@ -15,7 +15,7 @@ export default function AnalysisDetailError({
       message="We could not retrieve this analysis right now. Try again or return to the analyzer."
       reset={reset}
       backHref="/analyze"
-      backLabel="Back to Analyze"
+      backLabel="Back to the paste tool"
     />
   );
 }

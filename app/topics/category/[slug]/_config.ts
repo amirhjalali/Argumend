@@ -1,1 +1,0 @@
-export const TOPIC_CATEGORY_PAGE_SIZE = 18;

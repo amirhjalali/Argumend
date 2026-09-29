@@ -5,8 +5,7 @@ import {
   getArticleSummaryCategories,
   getArticleSummaryTags,
 } from "@/data/blogIndex";
-import { isClaims } from "@/data/is-claims";
-import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
+import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { isAnalysisId } from "@/lib/analysisId";
 import { getAllQuestionVariations } from "@/lib/questions";
@@ -73,18 +72,9 @@ export const WORKSHEET_ROUTE_IDS = [
 ] as const;
 
 const topicIds = new Set(topicSummaries.map((topic) => topic.id));
-// New-model (ArgumentGraph) topics render via DebateView on /topics/:id ONLY.
-// Kept separate from topicIds: embed/compare routes serve legacy topics alone,
-// so argument ids must not leak into their allowlists.
+// New-model (ArgumentGraph) topics: served by /topics/:id and by the embed
+// widget /embed/:topicId, which reads both models.
 const debateTopicIds = new Set(argumentTopicIds);
-const topicCategories = new Set<string>(CATEGORY_ORDER);
-const topicTags = new Set(
-  topicSummaries.flatMap((topic) =>
-    (topic.tags ?? []).map((tag) =>
-      tag.toLowerCase().trim().replace(/\s+/g, "-").replace(/-+/g, "-"),
-    ),
-  ),
-);
 const articleSlugs = new Set(articleSummaries.map((article) => article.slug));
 const blogCategories = new Set(
   getArticleSummaryCategories().map(blogCategoryToSlug),
@@ -96,10 +86,8 @@ const fallacySlugs = new Set<string>(FALLACY_ROUTE_SLUGS);
 const questionSlugs = new Set(
   getAllQuestionVariations(topicSummaries).map((variation) => variation.slug),
 );
-const isClaimSlugs = new Set(isClaims.map((claim) => claim.slug));
 const worksheetIds = new Set<string>(WORKSHEET_ROUTE_IDS);
 
-const RESERVED_TOPIC_SEGMENTS = new Set(["category", "compare", "tag"]);
 const RESERVED_BLOG_SEGMENTS = new Set(["category", "tag"]);
 
 function pathnameSegments(pathname: string): string[] | null {
@@ -109,6 +97,38 @@ function pathnameSegments(pathname: string): string[] | null {
   } catch {
     return null;
   }
+}
+
+const DIAGRAM_VIEWS = new Set(["graph", "logic-map"]);
+
+/**
+ * Where an old home-canvas link (`/?topic=<id>[&view=…]`) lives now, as a
+ * path with query, for a request to `/` that carries `topic`.
+ *
+ * - `view=graph|logic-map` on a legacy map: its diagram, /topics/<id>/map.
+ * - any other view, or a new-model map (which has no diagram): /topics/<id>.
+ * - an empty or unknown id: the library, /topics.
+ *
+ * `topic` and `view` are dropped; any other parameter (utm_*, ref) is kept.
+ * The proxy does this rather than next.config.js redirects(), which merge the
+ * whole incoming query into the destination and so cannot drop them.
+ */
+export function legacyHomeTopicPath(searchParams: URLSearchParams): string | null {
+  const id = searchParams.get("topic");
+  if (id === null) return null;
+  const view = searchParams.get("view");
+
+  const rest = new URLSearchParams(searchParams);
+  rest.delete("topic");
+  rest.delete("view");
+  const query = rest.size > 0 ? `?${rest.toString()}` : "";
+
+  if (topicIds.has(id)) {
+    const diagram = view !== null && DIAGRAM_VIEWS.has(view) ? "/map" : "";
+    return `/topics/${encodeURIComponent(id)}${diagram}${query}`;
+  }
+  if (debateTopicIds.has(id)) return `/topics/${encodeURIComponent(id)}${query}`;
+  return `/topics${query}`;
 }
 
 /**
@@ -131,35 +151,14 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
     return false;
   }
 
+  // /topics/category/*, /topics/tag/* and /topics/compare/* are 301s to
+  // /topics (next.config.js, "maps library"); redirects run before the proxy.
   if (segments.length === 2 && segments[0] === "topics") {
-    return (
-      !RESERVED_TOPIC_SEGMENTS.has(segments[1]) &&
-      !topicIds.has(segments[1]) &&
-      !debateTopicIds.has(segments[1])
-    );
+    return !topicIds.has(segments[1]) && !debateTopicIds.has(segments[1]);
   }
-  if (
-    segments.length === 3 &&
-    segments[0] === "topics" &&
-    segments[1] === "category"
-  ) {
-    return !topicCategories.has(segments[2]);
-  }
-  if (
-    segments.length === 3 &&
-    segments[0] === "topics" &&
-    segments[1] === "tag"
-  ) {
-    return !topicTags.has(segments[2]);
-  }
-  if (
-    segments.length === 5 &&
-    segments[0] === "topics" &&
-    segments[1] === "compare" &&
-    segments[3] === "vs"
-  ) {
-    const [, , id1, , id2] = segments;
-    return id1 === id2 || !topicIds.has(id1) || !topicIds.has(id2);
+  // The diagram of a legacy map (/topics/:id/map). New-model maps have none.
+  if (segments.length === 3 && segments[0] === "topics" && segments[2] === "map") {
+    return !topicIds.has(segments[1]);
   }
 
   if (segments.length === 2 && segments[0] === "blog") {
@@ -192,8 +191,11 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
   if (segments.length === 2 && segments[0] === "questions") {
     return !questionSlugs.has(segments[1]);
   }
+  // The /is pages are retired (2026-09-29). Every known /is/:slug is a
+  // permanent redirect in next.config.js, which runs before this proxy, so
+  // any /is/:slug that reaches it is unknown.
   if (segments.length === 2 && segments[0] === "is") {
-    return !isClaimSlugs.has(segments[1]);
+    return true;
   }
   if (
     segments.length === 3 &&
@@ -203,7 +205,7 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
     return !worksheetIds.has(segments[2]);
   }
   if (segments.length === 2 && segments[0] === "embed") {
-    return !topicIds.has(segments[1]);
+    return !topicIds.has(segments[1]) && !debateTopicIds.has(segments[1]);
   }
   if (segments.length === 2 && segments[0] === "analysis") {
     return !isAnalysisId(segments[1]);

@@ -3,7 +3,11 @@
 // ============================================================================
 //
 // Maps URL slugs to topic IDs, question text, and the central claim.
-// Each entry generates a programmatic landing page at /is/[slug].
+// The /is/[slug] pages were retired on 2026-09-29: each slug now redirects
+// to the crux-first /questions page for the same map (next.config.js, the
+// "learn" block, via lib/learn/isToQuestions.json). The entries stay because
+// the map-reply prefilter (lib/mapReply/prefilter.ts) reads them as search
+// phrasings, and the redirect table is tested against them.
 
 export interface IsClaim {
   /** URL-safe slug, e.g. "climate-change-real" → /is/climate-change-real */

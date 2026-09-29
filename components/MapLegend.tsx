@@ -91,7 +91,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
           {...pillMotion}
           onClick={onFindCrux}
           aria-label="Find the crux — jump to what would settle the debate"
-          className="flex items-center gap-1.5 rounded-xl border bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm px-3 py-2 text-xs shadow-lg transition-all hover:shadow-xl focus:outline-none focus-visible:ring-2"
+          className="flex items-center gap-1.5 rounded-xl border bg-[#faf8f5]/95 dark:bg-card/95 backdrop-blur-sm px-3 py-2 text-xs shadow-lg transition-all hover:shadow-xl focus:outline-none focus-visible:ring-2"
           style={{
             color: crux.accentColor,
             borderColor: `${crux.accentColor}40`,
@@ -108,7 +108,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
             key="legend"
             id={legendPanelId}
             {...cardMotion}
-            className="w-48 md:w-56 lg:w-64 rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm p-4 md:p-5 shadow-2xl max-h-[45vh] md:max-h-none overflow-y-auto"
+            className="w-48 md:w-56 lg:w-64 rounded-2xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-card/95 backdrop-blur-sm p-4 md:p-5 shadow-2xl max-h-[45vh] md:max-h-none overflow-y-auto"
           >
             {/* Header */}
             <div className="mb-4 flex items-center justify-between">
@@ -175,7 +175,7 @@ export function MapLegend({ onFindCrux }: MapLegendProps) {
             aria-label="Show map legend"
             aria-controls={legendPanelId}
             aria-expanded="false"
-            className="flex items-center gap-1.5 rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-[var(--bg-card)]/95 backdrop-blur-sm px-3 py-2 text-xs text-stone-500 dark:text-[var(--text-muted)] shadow-lg hover:border-stone-300 dark:hover:border-[#4a4640] hover:shadow-xl transition-all"
+            className="flex items-center gap-1.5 rounded-xl border border-stone-200/40 dark:border-[var(--border-default)] bg-[#faf8f5]/95 dark:bg-card/95 backdrop-blur-sm px-3 py-2 text-xs text-stone-500 dark:text-[var(--text-muted)] shadow-lg hover:border-stone-300 dark:hover:border-[#4a4640] hover:shadow-xl transition-all"
           >
             <Info className="h-3.5 w-3.5 text-deep" aria-hidden="true" />
             <span className="font-medium">Legend</span>

@@ -18,14 +18,14 @@ describe("CitationCard keyboard access", () => {
     const citation = view.getByRole("link", { name: /A careful source/ });
 
     fireEvent.focus(citation);
-    const action = view.getByRole("link", { name: "View Source" });
+    const action = view.getByRole("link", { name: "Open the source" });
     expect(action.getAttribute("href")).toBe(reference.url);
 
     fireEvent.blur(citation, { relatedTarget: action });
     fireEvent.focus(action);
-    expect(view.getByRole("link", { name: "View Source" })).toBeTruthy();
+    expect(view.getByRole("link", { name: "Open the source" })).toBeTruthy();
 
     fireEvent.blur(action, { relatedTarget: null });
-    expect(view.queryByRole("link", { name: "View Source" })).toBeNull();
+    expect(view.queryByRole("link", { name: "Open the source" })).toBeNull();
   });
 });

@@ -30,7 +30,7 @@ describe("modal accessibility source contract", () => {
       "components/CruxModal.tsx",
       "components/EmbedButton.tsx",
       "components/SearchModal.tsx",
-      "components/ShareVerdictCard.tsx",
+      "components/TopBar.tsx",
     ]);
   });
 
@@ -47,28 +47,17 @@ describe("modal accessibility source contract", () => {
     },
   );
 
-  it("keeps every modal mobile-sidebar caller on the shared drawer lifecycle", () => {
-    const callers = [
-      "components/AppShell.tsx",
-      "components/HomeClient.tsx",
-      "app/analyze/page.tsx",
-    ];
-    for (const file of callers) {
+  it("keeps one scroll lock, on <html> as well as <body>", () => {
+    // The window scrolls the page, and html's `overflow-x: clip` stops body's
+    // overflow from reaching it, so a body-only lock leaves the page
+    // scrolling behind a dialog. Every dialog above goes through the hook;
+    // nothing else may lock the page on its own.
+    const hook = readFileSync(join(process.cwd(), "hooks/useModalAccessibility.ts"), "utf8");
+    expect(hook).toContain('html.style.overflow = "hidden"');
+    expect(hook).toContain('body.style.overflow = "hidden"');
+    for (const file of auditedSources) {
       const source = readFileSync(join(process.cwd(), file), "utf8");
-      expect(source, `${file} must delegate mobile drawer behavior`).toContain(
-        "useMobileSidebarA11y({",
-      );
+      expect(source, file).not.toMatch(/\.style\.overflow\s*=/);
     }
-
-    const hook = readFileSync(
-      join(process.cwd(), "hooks/useMobileSidebarA11y.ts"),
-      "utf8",
-    );
-    expect(hook).toContain('setAttribute("role", "dialog")');
-    expect(hook).toContain('setAttribute("aria-modal", "true")');
-    expect(hook).toContain('document.body.style.overflow = "hidden"');
-    expect(hook).toContain('event.key === "Escape"');
-    expect(hook).toContain('event.key !== "Tab"');
-    expect(hook).toContain("triggerRef.current?.focus()");
   });
 });

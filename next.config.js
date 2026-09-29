@@ -48,6 +48,20 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone', // Required for Docker deployments
   serverExternalPackages: ['postgres'],
+  // Crux ledgers are read from disk by lib/argument/ledgerFile.ts (a missing
+  // file is an empty ledger, so they cannot be static imports). Flagship topic
+  // pages are prerendered, but /topics (dynamic) loads every flagship at
+  // request time, so keep the files in the standalone trace or a runtime
+  // render silently sees an empty ledger. Keys are picomatch globs matched
+  // with `contains`, so '/topics' covers /topics and /topics/[id]. /ai reads
+  // the AI maps' ledgers on every request (its ?map=/?since= links make it
+  // dynamic), and the revalidated sitemap dates /ai by them, so both need the
+  // same files.
+  outputFileTracingIncludes: {
+    '/topics': ['./data/argument/**/*.json'],
+    '/ai': ['./data/argument/**/*.json'],
+    '/sitemap.xml': ['./data/argument/**/*.json'],
+  },
   devIndicators: {
     appIsrStatus: false,
     buildActivity: false,
@@ -93,6 +107,89 @@ const nextConfig = {
         destination: '/topics',
         permanent: true,
       },
+      // ── Maps library (2026-09-29) ─────────────────────────────────────
+      // /topics is the one library. The category and tag pages duplicated
+      // it with different cards and verdict chips; compare ranked unrelated
+      // debates against each other. All three are gone. A query string on
+      // the old URL (?page=2) is carried over by Next.
+      {
+        source: '/topics/category/:slug',
+        destination: '/topics?category=:slug',
+        statusCode: 301,
+      },
+      {
+        source: '/topics/tag/:slug',
+        destination: '/topics?q=:slug',
+        statusCode: 301,
+      },
+      {
+        source: '/topics/compare',
+        destination: '/topics',
+        statusCode: 301,
+      },
+      {
+        source: '/topics/compare/:path+',
+        destination: '/topics',
+        statusCode: 301,
+      },
+      // ── end maps library ──────────────────────────────────────────────
+      // ── home + story (ux/home-story, 2026-09-29) ─────────────────────────
+      // Home no longer hosts the legacy canvas. Its links, `/?topic=:id`
+      // with any `view`, are redirected by proxy.ts (legacyHomeTopicPath in
+      // lib/dynamicRoutePolicy.ts), not here: a rule here would carry the
+      // stale `topic`/`view` query onto the map's URL, and it would run
+      // before the proxy could drop them. `view=graph|logic-map` goes to
+      // the diagram, /topics/:id/map; anything else to /topics/:id.
+      // The story lives on one page. /how-it-works and /community were
+      // folded into /about.
+      {
+        source: '/how-it-works',
+        destination: '/about#read-a-map',
+        permanent: true,
+      },
+      {
+        source: '/community',
+        destination: '/about#contribute',
+        permanent: true,
+      },
+      // ── end home + story ────────────────────────────────────────────────
+      // ── paste flow (2026-09-29) ──────────────────────────────────────────
+      // One paste tool at /analyze. /analyze-v2 was the flagged diagnosis
+      // page, now a lane of /analyze; /analyses was a public list of saved
+      // extractions, which the paste flow no longer makes. 308s.
+      // /reply stays until its thread lane is folded into /analyze.
+      {
+        source: '/analyze-v2',
+        destination: '/analyze',
+        permanent: true,
+      },
+      {
+        source: '/analyses',
+        destination: '/analyze',
+        permanent: true,
+      },
+      // ── end paste flow ───────────────────────────────────────────────────
+      // ── learn (ux/learn, 2026-09-29) ──────────────────────────────────
+      // One /learn hub replaces the separate library indexes; see
+      // docs/reviews/2026-09-29-learn.md. Detail pages keep their URLs.
+      { source: '/concepts', destination: '/learn#ideas', permanent: true },
+      { source: '/guides', destination: '/learn#guides', permanent: true },
+      // The library's reading list now lives on /research.
+      { source: '/library', destination: '/research#reading', permanent: true },
+      { source: '/lessons-from-the-deep', destination: '/blog', permanent: true },
+      // The /is verdict pages are retired: each goes to the crux-first
+      // question page for the same map. The map is a legacy table built from
+      // data/is-claims.ts; lib/learn/isToQuestions.test.ts fails if any entry
+      // stops pointing at a real /questions page.
+      { source: '/is', destination: '/questions', permanent: true },
+      ...Object.entries(require('./lib/learn/isToQuestions.json')).map(
+        ([from, to]) => ({
+          source: `/is/${from}`,
+          destination: `/questions/${to}`,
+          permanent: true,
+        })
+      ),
+      // ── end learn ───────────────────────────────────────────────────────
     ];
   },
   async headers() {

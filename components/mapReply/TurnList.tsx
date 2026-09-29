@@ -1,18 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { MapReplyThresholds, MapReplyTurn } from "@/lib/mapReply/types";
 import { Meter, percentLabel } from "./meters";
 import { ResultSection } from "./ResultSection";
 
 /**
- * Every probed turn, with the numbers that placed it.
+ * Every probed turn, with the numbers that placed it. It comes last in the
+ * reply because it is the evidence for everything above it: a reader who
+ * doubts "most of this thread is arguing about X" scrolls here to check.
  *
- * Three outcomes, and the chip says which. A `confident` placement cleared the
- * pipeline's section floor and counts toward a section. A `tentative` one is a
- * placement the model made but not firmly enough to assert: it is drawn dashed
- * and labelled, its probability is still shown, and it is counted as unplaced
- * rather than dropped, because "we could not tell which section this belongs
- * to" is a finding. A turn composed as "not an argument" is dimmed and says
- * which of the two rules caught it, because that is a claim about a person and
- * it has to show its work.
+ * Three outcomes, and the placement line says which. A `confident` placement
+ * cleared the pipeline's section floor and counts toward a section. A
+ * `tentative` one is a placement the model made but not firmly enough to
+ * assert: it is marked with a dashed "not placed" tag, its probability is
+ * still shown, and it is counted as unplaced rather than dropped, because "we
+ * could not tell which section this belongs to" is a finding. A turn composed
+ * as "not an argument" is dimmed and says which of the two rules caught it,
+ * because that is a claim about a move and it has to show its work.
+ *
+ * Turns are numbered, never attributed: the list sits under "How this was
+ * read" and describes moves, not the people who made them, so no speaker's
+ * name is printed and no meter can be read as a score for a person.
+ *
+ * On a phone the turns sit behind a native disclosure whose summary gives the
+ * count, because eight probed turns are several screens of receipts under a
+ * reply that has already said what they add up to. From 640px up the list is
+ * simply open, and the summary is not drawn.
  *
  * The floor itself is not hard-coded here. It arrives on every result as
  * `thresholds.sectionConfidence`, so the wording cannot drift from the gate.
@@ -24,16 +38,19 @@ const STANCE_LABEL: Record<string, string> = {
   neither: "Neither",
 };
 
-const STANCE_CHIP: Record<string, string> = {
-  for: "border-rust-500/40 bg-rust-50 text-rust-700 dark:border-rust-400/40 dark:bg-transparent dark:text-rust-400",
-  against:
-    "border-skeptic/40 bg-[var(--bg-paper)] text-skeptic dark:border-skeptic-light/40 dark:bg-transparent dark:text-skeptic-light",
-  neither:
-    "border-[var(--border-default)] bg-[var(--bg-paper)] text-[var(--text-muted)]",
+/** Side colours as text only: rust for, brown against, stone for neither. */
+const STANCE_TEXT: Record<string, string> = {
+  for: "text-rust-700 dark:text-rust-500",
+  against: "text-skeptic dark:text-skeptic-light",
+  neither: "text-[var(--text-muted)]",
 };
 
-function stanceChip(stance: string): string {
-  return STANCE_CHIP[stance] ?? STANCE_CHIP.neither;
+const DESKTOP_QUERY = "(min-width: 640px)";
+
+function isDesktop(): boolean {
+  return typeof window !== "undefined" && typeof window.matchMedia === "function"
+    ? window.matchMedia(DESKTOP_QUERY).matches
+    : false;
 }
 
 function notAnArgumentReason(turn: MapReplyTurn): string {
@@ -45,10 +62,10 @@ function notAnArgumentReason(turn: MapReplyTurn): string {
   )}).`;
 }
 
-function TurnChips({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
+function Placement({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
   if (turn.placement === "none") {
     return (
-      <span className="inline-flex items-center rounded-full border border-[var(--border-default)] bg-[var(--bg-overlay)] px-2.5 py-1 font-sans text-xs text-[var(--text-muted)]">
+      <span className="inline-flex items-center rounded-full border border-[var(--border-default)] px-2 py-0.5 font-sans text-xs text-[var(--text-muted)]">
         Not an argument
       </span>
     );
@@ -64,54 +81,59 @@ function TurnChips({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
             ? `Below the ${percentLabel(floor)} section floor, so this placement is not counted.`
             : undefined
         }
-        className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-sans text-xs ${
-          tentative
-            ? "border border-dashed border-deep/50 text-deep dark:border-deep-light/50 dark:text-deep-light"
-            : "border border-deep/30 bg-deep/10 text-deep dark:border-deep-light/30 dark:text-deep-light"
+        className={`inline-flex items-baseline gap-1.5 ${
+          tentative ? "text-[var(--text-secondary)]" : "text-deep dark:text-accent-text"
         }`}
       >
-        {turn.sectionTitle ?? turn.section}
-        <span className="tabular-nums opacity-70">{percentLabel(turn.sectionConfidence)}</span>
-        {tentative ? <span className="font-medium">not placed</span> : null}
+        <span>{turn.sectionTitle ?? turn.section}</span>
+        <span className="tabular-nums opacity-80">{percentLabel(turn.sectionConfidence)}</span>
+        {tentative ? (
+          <span className="rounded-full border border-dashed border-[var(--text-muted)] px-2 text-xs font-medium text-[var(--text-secondary)]">
+            not placed
+          </span>
+        ) : null}
       </span>
-      <span
-        className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-sans text-xs ${stanceChip(
-          turn.stance,
-        )}`}
-      >
-        {STANCE_LABEL[turn.stance] ?? turn.stance}
-        <span className="tabular-nums opacity-70">{percentLabel(turn.stanceConfidence)}</span>
+      <span className={`inline-flex items-baseline gap-1.5 ${STANCE_TEXT[turn.stance] ?? STANCE_TEXT.neither}`}>
+        <span>{STANCE_LABEL[turn.stance] ?? turn.stance}</span>
+        <span className="tabular-nums opacity-80">{percentLabel(turn.stanceConfidence)}</span>
       </span>
     </>
   );
 }
 
-function TurnCard({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
+function ProbeMeter({ label, value, tone }: { label: string; value: number; tone: "brown" | "teal" }) {
   return (
-    <li
-      className={`surface-card p-4 sm:p-5 ${turn.placement === "none" ? "opacity-70" : ""}`}
-    >
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <span className="font-sans text-sm font-medium text-[var(--text-primary)]">
-          {turn.speaker}
-        </span>
-        <div className="flex flex-wrap items-center gap-2">
-          <TurnChips turn={turn} floor={floor} />
-        </div>
+    <div>
+      <div className="flex items-baseline justify-between gap-2 font-sans text-xs">
+        <span className="text-[var(--text-muted)]">{label}</span>
+        <span className="tabular-nums text-[var(--text-secondary)]">{percentLabel(value)}</span>
       </div>
+      <Meter className="mt-1" value={value} tone={tone} />
+    </div>
+  );
+}
 
-      <p className="mt-3 font-serif text-base leading-relaxed text-[var(--text-secondary)]">
+function TurnItem({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
+  return (
+    <li className={`py-6 first:pt-0 ${turn.placement === "none" ? "opacity-70" : ""}`}>
+      <p className="font-sans text-sm font-semibold text-[var(--text-primary)]">Turn {turn.index + 1}</p>
+
+      <p className="mt-1.5 max-w-[36rem] font-serif text-lg leading-relaxed text-[var(--text-primary)]">
         {turn.text}
       </p>
 
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-sans text-sm">
+        <Placement turn={turn} floor={floor} />
+      </div>
+
       {turn.placement === "none" ? (
-        <p className="mt-3 font-sans text-xs text-[var(--text-muted)]">
+        <p className="mt-2 font-sans text-[0.8125rem] leading-relaxed text-[var(--text-muted)]">
           {notAnArgumentReason(turn)}
         </p>
       ) : null}
 
       {turn.placement === "tentative" ? (
-        <p className="mt-3 font-sans text-xs text-[var(--text-muted)]">
+        <p className="mt-2 max-w-[36rem] font-sans text-[0.8125rem] leading-relaxed text-[var(--text-muted)]">
           The best guess is {turn.sectionTitle ?? turn.section} at{" "}
           {percentLabel(turn.sectionConfidence)}, under the{" "}
           {percentLabel(floor)} floor, so the reply does not count it as arguing about
@@ -119,23 +141,9 @@ function TurnCard({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
         </p>
       ) : null}
 
-      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <div className="flex items-center gap-3">
-          <span className="w-24 shrink-0 font-sans text-xs text-[var(--text-muted)]">Fallacy</span>
-          <Meter value={turn.fallacy} tone="brown" />
-          <span className="w-10 shrink-0 text-right font-sans text-xs tabular-nums text-[var(--text-muted)]">
-            {percentLabel(turn.fallacy)}
-          </span>
-        </div>
-        <div className="flex items-center gap-3">
-          <span className="w-24 shrink-0 font-sans text-xs text-[var(--text-muted)]">
-            Checkable
-          </span>
-          <Meter value={turn.factual} tone="teal" />
-          <span className="w-10 shrink-0 text-right font-sans text-xs tabular-nums text-[var(--text-muted)]">
-            {percentLabel(turn.factual)}
-          </span>
-        </div>
+      <div className="mt-4 grid max-w-md grid-cols-2 gap-x-6">
+        <ProbeMeter label="Fallacy" value={turn.fallacy} tone="brown" />
+        <ProbeMeter label="Checkable" value={turn.factual} tone="teal" />
       </div>
     </li>
   );
@@ -143,18 +151,28 @@ function TurnCard({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
 
 export function TurnList({
   turns,
-  notArguing,
-  notArguingInProbedTurns,
   thresholds,
 }: {
   turns: MapReplyTurn[];
-  notArguing: string[];
-  /** Speakers who also said things the pipeline never looked at. */
-  notArguingInProbedTurns: string[];
   thresholds: MapReplyThresholds;
 }) {
   const floor = thresholds.sectionConfidence;
   const tentativeCount = turns.filter((turn) => turn.placement === "tentative").length;
+  const offTopic = turns.filter((turn) => turn.placement === "none").length;
+  // The reply only renders after a client-side submit, so reading the media
+  // query in the initializer cannot mismatch a server render.
+  const [open, setOpen] = useState(isDesktop);
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const query = window.matchMedia(DESKTOP_QUERY);
+    // Widening past the breakpoint hides the summary, so the list must open.
+    const onChange = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(true);
+    };
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
 
   return (
     <ResultSection
@@ -167,30 +185,30 @@ export function TurnList({
           : `every placement above the ${percentLabel(floor)} floor`
       }
     >
-      {notArguing.length > 0 ? (
-        <p className="text-[var(--text-secondary)]">
-          <span className="font-medium text-[var(--text-primary)]">
-            {notArguing.join(", ")}
-          </span>{" "}
-          made no argument about the topic in any turn.
+      {offTopic > 0 ? (
+        <p className="max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+          {offTopic} of the {turns.length} checked {turns.length === 1 ? "turn" : "turns"}{" "}
+          {offTopic === 1 ? "was not an argument" : "were not arguments"} about the topic.
         </p>
       ) : null}
 
-      {notArguingInProbedTurns.length > 0 ? (
-        <p className="text-[var(--text-secondary)]">
-          <span className="font-medium text-[var(--text-primary)]">
-            {notArguingInProbedTurns.join(", ")}
-          </span>{" "}
-          made no argument in the turns that were checked, but also said things that were
-          never checked.
-        </p>
-      ) : null}
-
-      <ul className="space-y-3">
-        {turns.map((turn) => (
-          <TurnCard key={turn.index} turn={turn} floor={floor} />
-        ))}
-      </ul>
+      <details
+        open={open}
+        onToggle={(event) => setOpen(event.currentTarget.open)}
+        className="group"
+      >
+        <summary className="flex min-h-11 cursor-pointer items-center gap-1.5 font-sans text-[0.9375rem] text-deep marker:content-none dark:text-accent-text sm:hidden [&::-webkit-details-marker]:hidden">
+          <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">
+            ›
+          </span>
+          {open ? "Hide" : "Show"} all {turns.length} {turns.length === 1 ? "turn" : "turns"}
+        </summary>
+        <ul className="divide-y divide-[var(--border-divider)] pt-4 sm:pt-0">
+          {turns.map((turn) => (
+            <TurnItem key={turn.index} turn={turn} floor={floor} />
+          ))}
+        </ul>
+      </details>
     </ResultSection>
   );
 }

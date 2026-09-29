@@ -4,10 +4,10 @@ import { SavedClient } from "./SavedClient";
 
 export const metadata: Metadata = {
   // Plain string — the root layout's title template ("%s | ARGUMEND") adds the
-  // suffix; including it here too produced "Saved Topics | ARGUMEND | ARGUMEND".
-  title: "Saved Topics",
+  // suffix; including it here too doubled it.
+  title: "Saved maps",
   description:
-    "Topics you've bookmarked on this device — pick up any argument map right where you left off.",
+    "Maps you have bookmarked on this device, to pick up where you left off.",
   // Utility page: keep it out of the index, but let crawlers follow its links.
   robots: { index: false, follow: true },
   alternates: {

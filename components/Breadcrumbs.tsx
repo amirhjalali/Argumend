@@ -8,13 +8,15 @@ export interface BreadcrumbItem {
 
 interface BreadcrumbsProps {
   items: BreadcrumbItem[];
+  /** Keep the trail on one line and truncate the current page's label. */
+  singleLine?: boolean;
 }
 
 /**
  * Breadcrumb trail with Schema.org BreadcrumbList JSON-LD structured data.
  * The last item is rendered as plain text (current page); all others are links.
  */
-export function Breadcrumbs({ items }: BreadcrumbsProps) {
+export function Breadcrumbs({ items, singleLine = false }: BreadcrumbsProps) {
   if (items.length === 0) return null;
 
   const jsonLd = {
@@ -32,16 +34,26 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
     <>
       <JsonLd data={jsonLd} />
       <nav aria-label="Breadcrumb" className="mb-4">
-        <ol className="flex items-center gap-1.5 text-sm">
+        <ol
+          className={`flex items-center gap-x-1.5 text-sm ${singleLine ? "flex-nowrap" : "flex-wrap"}`}
+        >
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (
-              <li key={index} className="flex min-h-11 items-center gap-1.5">
-                {index > 0 && (
-                  <span className="text-stone-300 dark:text-[#3d3a36] select-none">/</span>
-                )}
+              // The separator trails its item instead of leading the next,
+              // so when a long last label wraps onto its own line the "/"
+              // stays at the end of the line above rather than dangling at
+              // the start of the new one.
+              <li
+                key={index}
+                className={`flex min-h-11 min-w-0 items-center gap-1.5 ${singleLine && !isLast ? "shrink-0" : ""}`}
+              >
                 {isLast || !item.href ? (
-                  <span className="text-stone-600 dark:text-[var(--text-secondary)]">{item.label}</span>
+                  <span
+                    className={`min-w-0 text-stone-600 dark:text-[var(--text-secondary)] ${singleLine ? "truncate" : ""}`}
+                  >
+                    {item.label}
+                  </span>
                 ) : (
                   <Link
                     href={item.href}
@@ -49,6 +61,9 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
                   >
                     {item.label}
                   </Link>
+                )}
+                {!isLast && (
+                  <span aria-hidden="true" className="text-stone-300 dark:text-[#3d3a36] select-none">/</span>
                 )}
               </li>
             );

@@ -215,7 +215,9 @@ describe("runMapReply and turns it never probed", () => {
     // downgraded to one about the turns that were actually checked.
     expect(result.notArguing).toEqual([]);
     expect(result.notArguingInProbedTurns).toEqual(["gary_1962"]);
-    expect(result.markdown).toContain("in the turns we could check");
+    // The reply counts turns out of those it checked and names nobody.
+    expect(result.markdown).toContain("of the 9 turns we could check");
+    expect(result.markdown).not.toContain("gary_1962");
     expect(result.markdown).toContain("1 shorter turn was too brief to check.");
   });
 

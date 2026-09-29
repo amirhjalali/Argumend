@@ -107,7 +107,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
           isCompact ? "text-xs mb-3" : "text-sm mb-5"
         }`}
       >
-        Weekly debates, new topics, and critical thinking insights. No spam.
+        New maps, and cruxes that moved. No spam.
       </p>
 
       {/* Form */}
@@ -130,14 +130,16 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
             disabled={loading}
             className={`min-h-11 w-full bg-white dark:bg-[var(--bg-card)] border border-stone-300 dark:border-[var(--border-default)] rounded-lg text-primary dark:text-stone-200 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
-            } ${error ? "border-red-400 focus:ring-red-400/30 focus:border-red-400/50" : ""} ${loading ? "opacity-60" : ""}`}
+            } ${error ? "border-error focus:ring-error/30 focus:border-error/50" : ""} ${loading ? "opacity-60" : ""}`}
           />
         </div>
         <button
           type="submit"
           disabled={loading}
           aria-label={loading ? "Subscribing…" : "Subscribe"}
-          className={`min-h-11 flex-shrink-0 bg-gradient-to-r from-rust-500 to-rust-600 hover:from-rust-600 hover:to-rust-700 text-white font-medium rounded-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed ${
+          // Ink, like the home paste box's Analyze button: a page keeps rust
+          // for its one primary action, and a signup is never that.
+          className={`min-h-11 flex-shrink-0 bg-primary text-canvas hover:bg-primary/90 font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/50 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:opacity-60 disabled:cursor-not-allowed ${
             isCompact ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"
           }`}
         >
@@ -151,7 +153,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
 
       {/* Error message */}
       {error && (
-        <p id={errorId} className="mt-2 text-xs text-red-500" role="alert">{error}</p>
+        <p id={errorId} className="mt-2 text-xs text-error-text" role="alert">{error}</p>
       )}
     </div>
   );

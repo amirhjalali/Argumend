@@ -10,8 +10,12 @@ import {
   primaryKey,
   index,
   uniqueIndex,
+  varchar,
+  date,
+  pgEnum,
+  check,
 } from "drizzle-orm/pg-core";
-import { relations } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import type { DebatePersistenceStatus } from "@/lib/debate/status";
 import type { AdapterAccountType } from "next-auth/adapters";
 import type {
@@ -458,3 +462,56 @@ export const disagreementFeedbackRelations = relations(disagreementFeedback, ({ 
     references: [disagreementReports.id],
   }),
 }));
+
+// ─── North-star gap metric (docs/GAP_METRIC.md) ─────────────────────────────
+// One row per map-reply / analyze-v2 reply. COUNTS AND IDS ONLY: there is no
+// `text` column, and the three short varchar id columns are pinned to slug /
+// version shapes by CHECK constraints, so a paste cannot land here even by a
+// bug upstream. `lib/gapMetric/schema.test.ts` enforces both.
+
+export const gapLaneEnum = pgEnum("gap_lane", ["map-reply", "analyze-v2"]);
+export const gapConfidenceBucketEnum = pgEnum("gap_confidence_bucket", [
+  "none",
+  "tentative",
+  "low",
+  "medium",
+  "high",
+]);
+
+export const gapObservations = pgTable(
+  "gap_observations",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    lane: gapLaneEnum("lane").notNull(),
+    topicId: varchar("topic_id", { length: 80 }),
+    propositionCount: integer("proposition_count").notNull(),
+    talkingPastCount: integer("talking_past_count").notNull(),
+    definitionalCount: integer("definitional_count").notNull(),
+    undisputedCount: integer("undisputed_count").notNull(),
+    contestedCount: integer("contested_count").notNull(),
+    unmatchedCount: integer("unmatched_count").notNull(),
+    speakerCount: integer("speaker_count").notNull(),
+    cruxTouchedCount: integer("crux_touched_count").notNull(),
+    cruxClaimIds: varchar("crux_claim_ids", { length: 80 }).array().notNull().default(sql`'{}'::varchar[]`),
+    confidenceBucket: gapConfidenceBucketEnum("confidence_bucket").notNull(),
+    modelId: varchar("model_id", { length: 64 }).notNull(),
+    promptVersion: varchar("prompt_version", { length: 64 }).notNull(),
+    /** Day precision on purpose: no timestamp to correlate with request logs. */
+    observedOn: date("observed_on", { mode: "string" }).notNull(),
+  },
+  (table) => [
+    index("gap_observations_observed_on_idx").on(table.observedOn),
+    check("gap_observations_topic_id_slug", sql`${table.topicId} IS NULL OR ${table.topicId} ~ '^[a-z0-9]+(-[a-z0-9]+)*$'`),
+    // Every crux id a slug: joined on a space, the whole array must read as slugs.
+    check(
+      "gap_observations_crux_claim_ids_slugs",
+      sql`cardinality(${table.cruxClaimIds}) <= 32 AND array_to_string(${table.cruxClaimIds}, ' ') ~ '^([a-z0-9]+(-[a-z0-9]+)*( [a-z0-9]+(-[a-z0-9]+)*)*)?$'`,
+    ),
+    check("gap_observations_model_id_shape", sql`${table.modelId} ~ '^[A-Za-z0-9][A-Za-z0-9._:@/-]*$'`),
+    check("gap_observations_prompt_version_shape", sql`${table.promptVersion} ~ '^[A-Za-z0-9][A-Za-z0-9._:@/-]*$'`),
+    check(
+      "gap_observations_labels_partition",
+      sql`${table.talkingPastCount} + ${table.definitionalCount} + ${table.undisputedCount} + ${table.contestedCount} = ${table.propositionCount}`,
+    ),
+  ],
+);

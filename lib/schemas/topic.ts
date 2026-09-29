@@ -219,11 +219,10 @@ function favoredSide(balance: number): string {
 /** Human label for the lean magnitude alone (no weight information). */
 export function getLeanLabel(balance: number): string {
   const d = Math.abs(balance - 50);
-  if (d < BALANCE.EVEN_D) return "Evenly balanced";
-  if (d < BALANCE.LEAN_D)
-    return balance >= 50 ? "Leans toward the claim" : "Leans toward the counterclaim";
-  if (d < BALANCE.CLEAR_D) return `Clearly favors ${favoredSide(balance)}`;
-  return `Strongly favors ${favoredSide(balance)}`;
+  if (d < BALANCE.EVEN_D) return "Evidence evenly balanced";
+  if (d < BALANCE.LEAN_D) return `Evidence leans toward ${favoredSide(balance)}`;
+  if (d < BALANCE.CLEAR_D) return `Evidence clearly leans toward ${favoredSide(balance)}`;
+  return `Evidence leans strongly toward ${favoredSide(balance)}`;
 }
 
 /**
@@ -235,31 +234,29 @@ export function getVerdict(balance: number, weight: number): Verdict {
   const quadrant = verdictQuadrant(balance, weight);
   if (quadrant === "settled") {
     return {
-      label: `Settled — evidence strongly favors ${favoredSide(balance)}`,
+      label: `Evidence largely converges on ${favoredSide(balance)}`,
       quadrant,
     };
   }
   if (quadrant === "contested") {
-    return { label: "Well-mapped, genuinely contested", quadrant };
+    return { label: "Well-mapped, evidence still divided", quadrant };
   }
   if (quadrant === "moderate") {
     const d = Math.abs(balance - 50);
     const lean =
       d < BALANCE.EVEN_D
-        ? "Balanced"
-        : balance >= 50
-          ? "Leans toward the claim"
-          : "Leans toward the counterclaim";
+        ? "Evidence roughly balanced"
+        : `Evidence leans toward ${favoredSide(balance)}`;
     return { label: `${lean} — moderately evidenced`, quadrant };
   }
-  return { label: "Open question — limited evidence so far", quadrant };
+  return { label: "Evidence still thin — an open question", quadrant };
 }
 
 /**
  * Guard the displayed verdict against measurement noise in the evidence
  * `side` labels.
  *
- * "Settled" is a strong public claim; on a 12–16 card map one ordinary card
+ * "Settled" (displayed as "Evidence largely converges on …") is a strong public claim; on a 12–16 card map one ordinary card
  * moves balance by 8–12 points against a 20-point settled threshold, so a
  * single defensible relabel can create or destroy it. A map keeps the word on
  * its own evidence only when no single flip could take it away and it carries
@@ -375,12 +372,12 @@ export const computeConfidenceScore = computeBalance;
  */
 export function getVerdictSentence(confidenceScore: number): string {
   if (confidenceScore >= 95)
-    return "The evidence establishes this claim beyond reasonable doubt";
+    return "The evidence mapped here converges strongly on this claim";
   if (confidenceScore >= 75)
-    return "The weight of evidence supports this claim";
+    return "Most of the weighted evidence points toward this claim";
   if (confidenceScore >= 50)
-    return "The evidence leans toward this claim, but it stays genuinely contested";
-  return "There's too little evidence to settle this claim";
+    return "The evidence leans toward this claim, but it is still divided";
+  return "The evidence mapped here does not lean toward this claim";
 }
 
 // ============================================================================

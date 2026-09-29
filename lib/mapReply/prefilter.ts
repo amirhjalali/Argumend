@@ -32,10 +32,21 @@ export interface PrefilterCandidate {
   score: number;
 }
 
+/**
+ * The fields the index reads. A full `TopicSummary` satisfies it; so does a
+ * flagship (ArgumentGraph) map described from `lib/argument/topicIds.ts`,
+ * which is how the paste flow makes those maps findable too.
+ */
+export type PrefilterDocument = Pick<TopicSummary, "id" | "title" | "meta_claim" | "tags">;
+
 export interface PrefilterOptions {
   limit?: number;
-  /** Defaults to the full topic index; tests pass a small slice. */
-  summaries?: readonly TopicSummary[];
+  /**
+   * Defaults to the full topic index; tests pass a small slice. The index
+   * built for an array is cached by identity, so pass the same array each
+   * call rather than a fresh copy.
+   */
+  summaries?: readonly PrefilterDocument[];
 }
 
 /**
@@ -129,7 +140,7 @@ function phrasingsByTopic(): Map<string, string> {
 }
 
 /** The title counts twice: it is the shortest, most on-topic field a map has. */
-function documentTokens(summary: TopicSummary): string[] {
+function documentTokens(summary: PrefilterDocument): string[] {
   const title = tokenize(summary.title);
   return [
     ...title,
@@ -141,7 +152,7 @@ function documentTokens(summary: TopicSummary): string[] {
 }
 
 interface IndexedDocument {
-  summary: TopicSummary;
+  summary: PrefilterDocument;
   termFrequency: Map<string, number>;
   length: number;
 }
@@ -152,7 +163,7 @@ interface Index {
   averageLength: number;
 }
 
-function buildIndex(summaries: readonly TopicSummary[]): Index {
+function buildIndex(summaries: readonly PrefilterDocument[]): Index {
   const documentFrequency = new Map<string, number>();
   const documents = summaries.map((summary) => {
     const tokens = documentTokens(summary);
@@ -174,12 +185,15 @@ function buildIndex(summaries: readonly TopicSummary[]): Index {
   };
 }
 
-let defaultIndex: Index | null = null;
+const indexCache = new WeakMap<readonly PrefilterDocument[], Index>();
 
-function indexFor(summaries: readonly TopicSummary[] | undefined): Index {
-  if (summaries) return buildIndex(summaries);
-  defaultIndex ??= buildIndex(topicSummaries);
-  return defaultIndex;
+function indexFor(summaries: readonly PrefilterDocument[] = topicSummaries): Index {
+  let index = indexCache.get(summaries);
+  if (!index) {
+    index = buildIndex(summaries);
+    indexCache.set(summaries, index);
+  }
+  return index;
 }
 
 const K1 = 1.4;

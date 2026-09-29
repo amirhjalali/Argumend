@@ -5,9 +5,9 @@ export default function EducatorResourceNotFound() {
     <RouteNotFound
       eyebrow="Resource unavailable"
       title="We could not find this educator resource"
-      description="The worksheet link may be incomplete or outdated. Return to the educator hub for classroom-ready resources."
+      description="The worksheet link may be incomplete or outdated. Return to the page for teachers for the lesson plans and worksheets."
       primaryHref="/for-educators"
-      primaryLabel="Educator Resources"
+      primaryLabel="Resources for teachers"
     />
   );
 }

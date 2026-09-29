@@ -3,12 +3,13 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { cleanup, render, within } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { analyzeSourceBadge, buildConsentLine } from "@/lib/aiProviders";
+import { buildConsentLine, buildPasteConsentLine } from "@/lib/aiProviders";
 import { AiConsentLine } from "./AiConsentLine";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
-import { DisagreementAnalyzeClient } from "./disagreement/DisagreementAnalyzeClient";
+import { PasteClient } from "./paste/PasteClient";
+import type { PasteLanes } from "@/lib/paste/types";
 
 describe("AiConsentLine", () => {
   afterEach(cleanup);
@@ -39,36 +40,43 @@ describe("AiConsentLine", () => {
   });
 });
 
-describe("/analyze-v2 consent at the point of submit", () => {
+const OFFLINE: PasteLanes = { maps: true, diagnosis: { enabled: false } };
+const HOSTED: PasteLanes = {
+  maps: true,
+  diagnosis: { enabled: true, providerIds: ["anthropic"], fixtures: false },
+};
+
+describe("/analyze consent at the point of submit", () => {
   afterEach(() => {
     cleanup();
     vi.unstubAllGlobals();
   });
 
-  it("shows the disclosure before anything can be submitted", () => {
+  it.each([
+    ["the offline map lane", OFFLINE, buildPasteConsentLine([]).text],
+    ["the hosted diagnosis lane", HOSTED, buildPasteConsentLine(["anthropic"]).text],
+  ])("shows the disclosure for %s before anything can be submitted", (_lane, lanes, text) => {
     vi.stubGlobal("fetch", vi.fn());
-    const view = render(<DisagreementAnalyzeClient />);
+    const view = render(<PasteClient lanes={lanes} />);
 
-    expect(view.getByRole("note", { name: "How your text is handled" }).textContent).toBe(
-      buildConsentLine().text,
-    );
+    expect(view.getByRole("note", { name: "How your text is handled" }).textContent).toBe(text);
   });
 
   it("announces the disclosure with the submit button", () => {
     vi.stubGlobal("fetch", vi.fn());
-    const view = render(<DisagreementAnalyzeClient />);
+    const view = render(<PasteClient lanes={HOSTED} />);
     const submit = view.getByRole("button", { name: "Find what it turns on" });
     const describedBy = submit.getAttribute("aria-describedby");
 
     expect(describedBy).toBeTruthy();
     expect(document.getElementById(describedBy as string)?.textContent).toBe(
-      buildConsentLine().text,
+      buildPasteConsentLine(["anthropic"]).text,
     );
   });
 
   it("puts the disclosure above the button, not below it", () => {
     vi.stubGlobal("fetch", vi.fn());
-    const view = render(<DisagreementAnalyzeClient />);
+    const view = render(<PasteClient lanes={OFFLINE} />);
     const note = view.getByRole("note", { name: "How your text is handled" });
     const submit = view.getByRole("button", { name: "Find what it turns on" });
 
@@ -77,12 +85,19 @@ describe("/analyze-v2 consent at the point of submit", () => {
   });
 });
 
-describe("/analyze privacy badge", () => {
-  const source = readFileSync(join(process.cwd(), "app", "analyze", "page.tsx"), "utf8");
+describe("/analyze consent line", () => {
+  const source = readFileSync(join(process.cwd(), "components", "paste", "PasteClient.tsx"), "utf8");
 
-  it("names the provider instead of an anonymous 'configured AI provider'", () => {
-    expect(source).toContain("analyzeSourceBadge()");
+  it("is built for the lanes that will run, not a fixed roster", () => {
+    expect(source).toContain("buildPasteConsentLine(providerIds)");
     expect(source).not.toContain("the configured AI provider");
-    expect(analyzeSourceBadge()).toContain("Anthropic");
+  });
+
+  it("renders the offline line when only the map lane runs", () => {
+    const view = render(<AiConsentLine consent={buildPasteConsentLine([])} />);
+    const text = view.getByRole("note", { name: "How your text is handled" }).textContent;
+
+    expect(text).toBe(buildPasteConsentLine([]).text);
+    expect(text).toContain("Nothing you paste leaves our server");
   });
 });

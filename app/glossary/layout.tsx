@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
+import { glossaryPageTerms } from "@/data/glossaryPageTerms";
 
 export const metadata: Metadata = {
   title: "Glossary — Critical Thinking & Argument Mapping Terms",
   description:
-    "Definitions of 20+ key terms in critical thinking and argument mapping: steel-manning, crux, logical fallacies, confidence scores, Bayesian reasoning, evidence weighting, and more.",
+    `Definitions of ${glossaryPageTerms.length} key terms in critical thinking and argument mapping, A to Z: steel-manning, crux, balance and weight, logical fallacies, Bayesian reasoning, evidence weighting, and more.`,
   keywords: [
     "critical thinking glossary",
     "argument mapping terms",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Glossary — Critical Thinking & Argument Mapping Terms",
-    description: "Clear definitions for steel-manning, cruxes, logical fallacies, confidence scores, and more.",
+    description: "Clear definitions for steel-manning, cruxes, balance and weight, logical fallacies, and more.",
     url: "https://argumend.org/glossary",
     images: [DEFAULT_SOCIAL_IMAGE],
   },

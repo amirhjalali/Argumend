@@ -261,7 +261,7 @@
    "statement": "Firms facing improved AI capability respond primarily by reducing hiring and headcount growth rather than by expanding output or redesigning jobs to use the freed-up capacity.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "This is an unstated mechanism assumption underlying the causal-attribution case: the observable data (hiring rates, headcount) cannot by itself distinguish 'AI reduced labor demand' from 'AI raised output per worker and firms chose to expand.' The corpus's own firm-level bridge evidence (Hampole et al.-style reallocation) is not decisive either way.",
+   "statusBasis": "This is an unstated mechanism assumption underlying the causal-attribution case: the observable data (hiring rates, headcount) cannot by itself distinguish 'AI reduced labor demand' from 'AI raised output per worker and firms chose to expand.' The corpus's own firm-level bridge evidence (Hampole et al.-style reallocation) is not decisive either way. The three challenging evidence edges (Hampole, the Danish register study, the Census BTOS AI supplement) do not make this a one-sided record: the supporting side is U.S. adopter-level evidence of slower junior hiring, which the Danish data do not reproduce, so the live dispute sits on that margin.",
    "implicit": true,
    "tags": [
     "hidden-assumption",
@@ -277,6 +277,7 @@
     "condition": "firm-level panels linking AI adoption to headcount, output, and pricing decisions over multiple years"
    },
    "createdAt": "2026-08-11T00:00:00Z",
+   "updatedAt": "2026-09-22T00:00:00Z",
    "modelVersion": 2,
    "summary": "When AI makes a firm more productive, does it hire fewer people \u2014 or just sell more?"
   },
@@ -1398,12 +1399,13 @@
   {
    "id": "e-stanford-adp-16pct",
    "type": "evidence",
-   "finding": "Workers aged 22-25 in the most AI-exposed occupations experienced a 16% relative employment decline after controlling for firm-level shocks, concentrated in software development, customer service, and clerical occupations.",
+   "finding": "In the study's November 2025 version (ADP payroll data through September 2025), workers aged 22-25 in the most AI-exposed occupations experienced a 16% employment decline relative to less-exposed peers after controlling for firm-level shocks, with software developers and customer service among the most affected occupations.",
    "source": {
-    "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence",
-    "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+    "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence (November 2025 version)",
+    "url": "https://digitaleconomy.stanford.edu/app/uploads/2025/11/CanariesintheCoalMine_Nov25.pdf",
     "author": "Brynjolfsson, Chandar, Chen",
     "institution": "Stanford Digital Economy Lab",
+    "publishedAt": "2025-11-13",
     "kind": "institutional",
     "verification": "verified-live",
     "interest": "Research lab whose flagship finding is the result under dispute; the follow-up defends the team's own prior work."
@@ -1423,7 +1425,7 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "statement": "Workers aged 22-25 in the most AI-exposed occupations experienced a 16% relative employment decline after controlling for firm-level shocks, concentrated in software development, customer service, and clerical occupations."
+   "statement": "In the study's November 2025 version (ADP payroll data through September 2025), workers aged 22-25 in the most AI-exposed occupations experienced a 16% employment decline relative to less-exposed peers after controlling for firm-level shocks, with software developers and customer service among the most affected occupations."
   },
   {
    "id": "e-stanford-followup-rates",
@@ -1730,9 +1732,11 @@
    "type": "evidence",
    "finding": "A one-standard-deviation increase in AI exposure has little effect on wage growth for occupations with median experience premia, but is associated with a 0.28 percentage-point reduction in wage growth for occupations with zero experience premium.",
    "source": {
-    "title": "AI Exposure and Wage Growth",
+    "title": "AI is simultaneously aiding and replacing workers, wage data suggest",
     "url": "https://www.dallasfed.org/research/economics/2026/0224",
+    "author": "Scott Davis",
     "institution": "Federal Reserve Bank of Dallas",
+    "publishedAt": "2026-02-24",
     "kind": "government",
     "verification": "verified-live"
    },
@@ -2770,6 +2774,362 @@
     "directness": 8,
     "weightBasis": "Official BLS macro series are highly reliable and replicable for unemployment, participation, and productivity; directness is lower only because these aggregate indicators cannot attribute changes specifically to AI."
    }
+  },
+  {
+   "id": "e-humlum-vestergaard-denmark",
+   "type": "evidence",
+   "finding": "Linking representative Danish adoption surveys to administrative records, a difference-in-differences study finds null effects of AI chatbot adoption on earnings and recorded hours, ruling out effects above 2% two years after ChatGPT's launch; adopting workplaces show no differential change in employment, hires, separations, or early-career employment share, while employers reorganize tasks around the tools.",
+   "source": {
+    "title": "Still Waters, Rapid Currents: Early Labor Market Transformation under Generative AI (NBER Working Paper 33777)",
+    "url": "https://www.nber.org/papers/w33777",
+    "author": "Anders Humlum; Emilie Vestergaard",
+    "institution": "National Bureau of Economic Research",
+    "publishedAt": "2026-03-16",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Challenges the claim that firms respond to AI mainly by cutting hiring: Danish workplaces that adopted chatbots show no differential hiring or early-career employment change and absorb the tools through task reorganization instead. Denmark's flexible labor market and chatbot-era adoption may not carry over to U.S. firms or later agentic tools.",
+   "tags": [
+    "firm-behavior",
+    "hiring",
+    "early-career",
+    "denmark"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "Linking representative Danish adoption surveys to administrative records, a difference-in-differences study finds null effects of AI chatbot adoption on earnings and recorded hours, ruling out effects above 2% two years after ChatGPT's launch; adopting workplaces show no differential change in employment, hires, separations, or early-career employment share, while employers reorganize tasks around the tools.",
+   "weight": {
+    "sourceReliability": 8,
+    "independence": 8,
+    "replicability": 7,
+    "directness": 7,
+    "weightBasis": "Administrative register data linked to representative adoption surveys, with precise nulls; directness is reduced because it measures Danish chatbot adoption through about 2024, not U.S. firms or later agentic tools, and it is an unrefereed working paper (first issued May 2025, revised March 2026)."
+   }
+  },
+  {
+   "id": "e-hosseini-lichtinger-seniority",
+   "type": "evidence",
+   "finding": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment did not fall, with the junior decline driven mainly by slower hiring rather than more separations.",
+   "source": {
+    "title": "Generative AI as Seniority-Biased Technological Change: Evidence from U.S. R\u00e9sum\u00e9 and Job Posting Data",
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555",
+    "author": "Seyed Mahdi Hosseini Maasoum; Guy Lichtinger",
+    "publishedAt": "2025-09-01",
+    "kind": "other",
+    "verification": "bot-blocked-assumed-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Supports the hiring-reduction mechanism at the firm level: adopting firms slowed junior hiring rather than separating workers. It does not measure output, so it cannot say whether adopters also expanded, and adoption is inferred from integrator job postings.",
+   "tags": [
+    "firm-behavior",
+    "hiring",
+    "early-career"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "Using U.S. r\u00e9sum\u00e9 and job-posting data covering about 62 million workers at 285,000 firms from 2015 to 2025, firms that began posting dedicated generative-AI integrator roles saw junior employment decline sharply relative to non-adopters from early 2023 while senior employment did not fall, with the junior decline driven mainly by slower hiring rather than more separations.",
+   "weight": {
+    "sourceReliability": 6,
+    "independence": 7,
+    "replicability": 5,
+    "directness": 7,
+    "weightBasis": "Very large firm-level panel directly about adopters' hiring by seniority, but an unrefereed working paper whose adoption proxy (integrator postings) may flag firms already restructuring; a Danish register study finds no such adopter-level effect."
+   },
+   "unverifiedFlags": [
+    "SSRN abstract page was bot-blocked on 2026-09-22; the finding is taken from the Stanford Digital Economy Lab seminar abstract (event dated 2025-09-22) and the co-author's announcement post, not from the paper text. Effect magnitudes are deliberately omitted. The seminar abstract says senior employment 'continued to rise'; the SSRN abstract, as quoted in search snippets on 2026-09-22, says it 'remains largely unchanged', so the finding says only that it did not fall.",
+    "publishedAt is the co-author's public announcement date (2025-09-01, from the post id); the SSRN posting date itself was not confirmed."
+   ]
+  },
+  {
+   "id": "e-census-btos-ai-supplement-2026",
+   "type": "evidence",
+   "finding": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and about 95% of AI-using firms reported no AI-related change in employment, with decreases at about 2% of AI-using firms (increases slightly more common), though broader functional deployment and operational investment were associated with employment decreases.",
+   "source": {
+    "title": "The Microstructure of AI Diffusion: Evidence from Firms, Business Functions, and Worker Tasks (CES Working Paper 26-25)",
+    "url": "https://www.census.gov/library/working-papers/2026/adrm/CES-WP-26-25.html",
+    "author": "Kathryn Bonney; Cory Breaux; Emin Dinlersoz; Lucia Foster; John Haltiwanger; Aditya Pande",
+    "institution": "U.S. Census Bureau, Center for Economic Studies",
+    "publishedAt": "2026-04",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Challenges the claim at the level of the whole firm population: most AI-using firms report augmenting tasks and few report AI-related headcount cuts. It also marks where the claim could still hold, since firms with the broadest deployment are the ones more likely to report decreases.",
+   "tags": [
+    "firm-behavior",
+    "adoption",
+    "employment"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "In the Census Bureau's 2026 AI supplement to the Business Trends and Outlook Survey (reference period November 2025 to January 2026), 18% of firms used AI in a business function; 66% of users relied on AI solely to augment tasks, and about 95% of AI-using firms reported no AI-related change in employment, with decreases at about 2% of AI-using firms (increases slightly more common), though broader functional deployment and operational investment were associated with employment decreases.",
+   "weight": {
+    "sourceReliability": 9,
+    "independence": 9,
+    "replicability": 7,
+    "directness": 6,
+    "weightBasis": "Nationally representative federal business survey; directness is limited because employment effects are firm self-reports over a short window early in diffusion, and the paper has not had full Census publication review."
+   }
+  },
+  {
+   "id": "e-mdrc-workadvance-10yr",
+   "type": "evidence",
+   "finding": "A 10-year random-assignment evaluation of four WorkAdvance sector-training programs found that each raised earnings at some point (Per Scholas in years 2-5 and 7-8, St. Nicks Alliance in years 8-10), but only St. Nicks Alliance still had an impact in year 10, raising average earnings by 32%; the other three had no year-10 impact on either confirmatory outcome.",
+   "source": {
+    "title": "Effects of Sector-Focused Training After 10 Years: Findings from the WorkAdvance Evaluation",
+    "url": "https://www.mdrc.org/work/publications/effects-sector-focused-training-after-10-years",
+    "author": "Aleksandra Yusim; Kelsey Schaberg; Betsy Tessler; Alexandra Ubalijoro",
+    "institution": "MDRC",
+    "publishedAt": "2025-09-15",
+    "kind": "institutional",
+    "interest": "Long-term follow-up funded by Arnold Ventures.",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Supports the claim that targeted, employer-linked sector programs can raise earnings, while showing the gains are uneven over time; the authors say gains may not persist without later upskilling, particularly in fast-evolving industries. Participants were low-income adults enrolled in 2011-2013, not AI-displaced workers.",
+   "tags": [
+    "retraining",
+    "sectoral-training",
+    "randomized-evaluation"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "A 10-year random-assignment evaluation of four WorkAdvance sector-training programs found that each raised earnings at some point (Per Scholas in years 2-5 and 7-8, St. Nicks Alliance in years 8-10), but only St. Nicks Alliance still had an impact in year 10, raising average earnings by 32%; the other three had no year-10 impact on either confirmatory outcome.",
+   "weight": {
+    "sourceReliability": 9,
+    "independence": 8,
+    "replicability": 7,
+    "directness": 5,
+    "weightBasis": "Random assignment with ten years of administrative earnings data; directness is limited because participants were low-income job seekers, not workers displaced by AI, and the follow-up spans the COVID-19 disruption."
+   }
+  },
+  {
+   "id": "e-hyman-wioa-ai-retraining",
+   "type": "evidence",
+   "finding": "Across WIOA-funded occupational training spells from 2012 to 2024, compared with matched job seekers who received only job-search assistance, quarterly earnings returns for trainees from highly AI-exposed occupations rose from about $1,000 before 2020 to about $3,000 by 2022-2024, mainly through moves into less AI-exposed occupations; the period coincided with historically tight labor markets.",
+   "source": {
+    "title": "How Retrainable are AI-Exposed Workers? (NBER Working Paper 34174, revised August 2026)",
+    "url": "https://www.nber.org/papers/w34174",
+    "author": "Benjamin G. Hyman; Benjamin Lahey; Karen Ni; Laura Pilossoph",
+    "institution": "National Bureau of Economic Research",
+    "publishedAt": "2026-08-28",
+    "kind": "institutional",
+    "interest": "Research supported by Schmidt Sciences; NBER notes that at least one co-author disclosed additional relationships of potential relevance.",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Bears on whether AI-exposed displaced workers can retrain at acceptable cost: measured returns are positive and national in scale, but they come mostly from leaving exposed work rather than moving into new AI tasks, rest on matching rather than random assignment, and were earned in a tight labor market.",
+   "tags": [
+    "retraining",
+    "ai-exposure",
+    "workforce-programs"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "Across WIOA-funded occupational training spells from 2012 to 2024, compared with matched job seekers who received only job-search assistance, quarterly earnings returns for trainees from highly AI-exposed occupations rose from about $1,000 before 2020 to about $3,000 by 2022-2024, mainly through moves into less AI-exposed occupations; the period coincided with historically tight labor markets.",
+   "weight": {
+    "sourceReliability": 8,
+    "independence": 8,
+    "replicability": 6,
+    "directness": 7,
+    "weightBasis": "National administrative training records with a matched comparison group; selection on unobservables cannot be ruled out, headline estimates changed between the August 2025 and August 2026 versions, and a tight-market period may not represent an AI-displacement downturn."
+   }
+  },
+  {
+   "id": "e-manning-aguirre-adaptive-capacity",
+   "type": "evidence",
+   "finding": "An occupation-level adaptive-capacity index built from savings, skill transferability, local labor-market density, and age, covering 356 occupations, finds that 26.5 million of the 37.1 million workers in the top quartile of AI exposure are in occupations with above-median adaptive capacity, while 6.1 million workers are in highly exposed, low-capacity occupations concentrated in clerical and administrative roles, 86% of them women.",
+   "source": {
+    "title": "Measuring US workers' capacity to adapt to AI-driven job displacement",
+    "url": "https://www.brookings.edu/articles/measuring-us-workers-capacity-to-adapt-to-ai-driven-job-displacement/",
+    "author": "Sam Manning; Tom\u00e1s Aguirre; Mark Muro; Shriya Methkupally",
+    "institution": "Brookings Institution",
+    "publishedAt": "2026-01-21",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Qualifies the costless-retraining claim: most highly exposed workers have relatively strong means to manage a transition, but a defined group of about 6.1 million, mostly clerical, does not. The index predicts capacity; it does not observe actual adjustment costs.",
+   "tags": [
+    "retraining",
+    "adaptive-capacity",
+    "clerical-work"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "An occupation-level adaptive-capacity index built from savings, skill transferability, local labor-market density, and age, covering 356 occupations, finds that 26.5 million of the 37.1 million workers in the top quartile of AI exposure are in occupations with above-median adaptive capacity, while 6.1 million workers are in highly exposed, low-capacity occupations concentrated in clerical and administrative roles, 86% of them women.",
+   "weight": {
+    "sourceReliability": 7,
+    "independence": 7,
+    "replicability": 6,
+    "directness": 5,
+    "weightBasis": "Transparent index from public survey data, also issued as NBER Working Paper 34705; it measures predicted capacity at the occupation level rather than realized reemployment costs, and the authors note capacity varies within occupations."
+   }
+  },
+  {
+   "id": "e-stanford-canaries-2026-update",
+   "type": "evidence",
+   "finding": "The August 2026 update of the Stanford/ADP payroll study, with data through June 2026, finds employment of workers aged 22-25 in AI-exposed occupations 19% below where it would be had it kept pace with less-exposed peers, operating mainly through reduced hiring, with no comparable gap for experienced workers; the estimates attenuate when controlling for occupational education levels.",
+   "source": {
+    "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence (August 2026 update)",
+    "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+    "author": "Erik Brynjolfsson; Bharat Chandar; Ruyu Chen",
+    "institution": "Stanford Digital Economy Lab",
+    "publishedAt": "2026-08-12",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Supports the credential-pathway claim at its first link: the entry-level gap in exposed occupations widened while experienced workers were unaffected. The authors read the education attenuation as either the channel itself (AI substitutes for codified, schooled knowledge) or an alternative explanation, and call the results descriptive rather than causal.",
+   "tags": [
+    "early-career",
+    "credentials",
+    "payroll-data"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "The August 2026 update of the Stanford/ADP payroll study, with data through June 2026, finds employment of workers aged 22-25 in AI-exposed occupations 19% below where it would be had it kept pace with less-exposed peers, operating mainly through reduced hiring, with no comparable gap for experienced workers; the estimates attenuate when controlling for occupational education levels.",
+   "weight": {
+    "sourceReliability": 8,
+    "independence": 6,
+    "replicability": 6,
+    "directness": 6,
+    "weightBasis": "Large administrative payroll panel, extended to June 2026; same research team as the original 2025 finding, descriptive by the authors' own account, more pronounced in ADP than in national survey benchmarks, and it measures entry employment rather than the lifetime wage premium."
+   }
+  },
+  {
+   "id": "e-eig-young-grads-exposure",
+   "type": "evidence",
+   "finding": "An analysis of Current Population Survey data from 2022 into 2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
+   "source": {
+    "title": "AI and Jobs: The Final Word (Until the Next One)",
+    "url": "https://eig.org/ai-and-jobs-the-final-word/",
+    "author": "Sarah Eckhardt; Nathan Goldschlag",
+    "institution": "Economic Innovation Group",
+    "publishedAt": "2025-08-10",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Challenges the credential-pathway claim's early signal: rising unemployment among young graduates shows up in less-exposed occupations too, which points to a general entry-level squeeze rather than an AI-specific narrowing. Unemployment rates can miss hiring and wage effects, and the data end in 2025.",
+   "tags": [
+    "early-career",
+    "credentials",
+    "unemployment"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "An analysis of Current Population Survey data from 2022 into 2025, using five AI-exposure measures, found unemployment rates rising for young workers and recent college graduates in both more and less AI-exposed occupations, and no meaningful AI impact in the labor market by any of its cuts of the data.",
+   "weight": {
+    "sourceReliability": 6,
+    "independence": 7,
+    "replicability": 7,
+    "directness": 5,
+    "weightBasis": "Public CPS microdata with results checked across five exposure measures; directness is limited because unemployment rates by occupation of young entrants are noisy, the authors acknowledge no causal identification, and the data end in 2025."
+   }
+  },
+  {
+   "id": "e-kcfed-industry-productivity-ai",
+   "type": "evidence",
+   "finding": "An industry-level analysis finds U.S. labor productivity has risen notably above its pre-pandemic trend since late 2022, with a small set of industries (retail trade, information, professional and technical services, real estate) accounting for most gains; higher AI adoption is associated with faster within-industry productivity growth but explains little of the shift in aggregate contributions, and manufacturing's contribution rose more than information's despite lower reported AI use.",
+   "source": {
+    "title": "A New U.S. Productivity Chapter? What Industry Data Say About AI",
+    "url": "https://www.kansascityfed.org/research/economic-bulletin/a-new-us-productivity-chapter-what-industry-data-say-about-ai/",
+    "author": "Nida \u00c7ak\u0131r Melek; Sydney Miller",
+    "institution": "Federal Reserve Bank of Kansas City",
+    "publishedAt": "2026-02-11",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Challenges the reading that the above-trend productivity is already AI-driven in the aggregate: AI adoption tracks within-industry gains, but the industry mix of the pickup is not explained by adoption. It is an early, partial version of the decomposition the claim's resolution calls for.",
+   "tags": [
+    "productivity-paradox",
+    "macro",
+    "industry-data"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "An industry-level analysis finds U.S. labor productivity has risen notably above its pre-pandemic trend since late 2022, with a small set of industries (retail trade, information, professional and technical services, real estate) accounting for most gains; higher AI adoption is associated with faster within-industry productivity growth but explains little of the shift in aggregate contributions, and manufacturing's contribution rose more than information's despite lower reported AI use.",
+   "weight": {
+    "sourceReliability": 8,
+    "independence": 8,
+    "replicability": 7,
+    "directness": 7,
+    "weightBasis": "Regional Federal Reserve analysis of official industry productivity data; directness is limited because it relates self-reported AI adoption to industry contributions over a short window rather than estimating an AI-attributable share directly."
+   }
+  },
+  {
+   "id": "e-sffed-productivity-regime-2026",
+   "type": "evidence",
+   "finding": "A regime-switching analysis of U.S. business-sector productivity puts the probability of a high-growth regime at about 57% using labor productivity but about 21% using utilization-adjusted total factor productivity as of 2025 Q4; labor productivity has diverged upward from TFP since 2022, which the authors read as better tools for workers (capital deepening) rather than a broad efficiency gain so far.",
+   "source": {
+    "title": "Have We Entered an Era of High Productivity Growth? (FRBSF Economic Letter 2026-14)",
+    "url": "https://www.frbsf.org/wp-content/uploads/el2026-14.pdf",
+    "author": "Hamza Abdelrahman; Andrew Foerster",
+    "institution": "Federal Reserve Bank of San Francisco",
+    "publishedAt": "2026-05-26",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22"
+   },
+   "relevance": "Qualifies the productivity claim: the above-trend gain shows up in labor productivity, which AI investment can raise through capital deepening, but not yet in TFP, the measure a durable AI-driven acceleration would eventually move. The authors compare the pattern to the early 1990s surge.",
+   "tags": [
+    "productivity-paradox",
+    "macro",
+    "tfp"
+   ],
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-ai-unemployment-ledger-sources.md"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "A regime-switching analysis of U.S. business-sector productivity puts the probability of a high-growth regime at about 57% using labor productivity but about 21% using utilization-adjusted total factor productivity as of 2025 Q4; labor productivity has diverged upward from TFP since 2022, which the authors read as better tools for workers (capital deepening) rather than a broad efficiency gain so far.",
+   "weight": {
+    "sourceReliability": 8,
+    "independence": 8,
+    "replicability": 7,
+    "directness": 6,
+    "weightBasis": "Regional Federal Reserve letter using standard productivity series and a published regime-switching model; it does not attribute any share of growth to AI specifically, and regime probabilities are model outputs that move with each data vintage."
+   }
   }
  ],
  "edges": [
@@ -3738,6 +4098,83 @@
    "to": "c-productivity-above-trend",
    "type": "evidences",
    "polarity": "supporting"
+  },
+  {
+   "id": "edge-147",
+   "from": "e-humlum-vestergaard-denmark",
+   "to": "c-firms-cut-hiring-not-output",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-148",
+   "from": "e-hosseini-lichtinger-seniority",
+   "to": "c-firms-cut-hiring-not-output",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-149",
+   "from": "e-census-btos-ai-supplement-2026",
+   "to": "c-firms-cut-hiring-not-output",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-150",
+   "from": "e-mdrc-workadvance-10yr",
+   "to": "c-targeted-programs-can-help",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-151",
+   "from": "e-hyman-wioa-ai-retraining",
+   "to": "c-targeted-programs-can-help",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-152",
+   "from": "e-hyman-wioa-ai-retraining",
+   "to": "c-displaced-workers-can-retrain-costlessly",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-153",
+   "from": "e-manning-aguirre-adaptive-capacity",
+   "to": "c-displaced-workers-can-retrain-costlessly",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-154",
+   "from": "e-stanford-canaries-2026-update",
+   "to": "c-credential-pathway-narrows",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-155",
+   "from": "e-eig-young-grads-exposure",
+   "to": "c-credential-pathway-narrows",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-156",
+   "from": "e-kcfed-industry-productivity-ai",
+   "to": "c-productivity-above-trend",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-157",
+   "from": "e-sffed-productivity-regime-2026",
+   "to": "c-productivity-above-trend",
+   "type": "evidences",
+   "polarity": "qualifying"
   }
  ]
 }

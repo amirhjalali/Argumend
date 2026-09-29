@@ -1,107 +1,123 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { AppShell } from "@/components/AppShell";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import { ArrowRight, FileText, Printer } from "lucide-react";
+import { Button, TextAction } from "@/components/ui/Button";
+import { PageContainer } from "@/components/ui/PageContainer";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Section } from "@/components/ui/Section";
+import { ANALYZE_HREF } from "@/lib/nav";
+import { LEARN_HUB_HREF } from "@/lib/learn/sections";
+import { mapLinkFor, type MapLink } from "@/lib/learn/nextStep";
 
+/** What students practise. Each is something the maps are built around. */
 const benefits = [
   {
-    title: "Visual Argument Mapping",
+    title: "Reading both sides",
     description:
-      "Students see both sides of a debate visually, making abstract reasoning concrete. No more \"I feel that...\" \u2014 every claim links to evidence.",
+      "Students see the strongest case on each side of a question laid out together, with every claim tied to evidence. No more “I feel that…” without a reason.",
   },
   {
-    title: "Steel-Manning Practice",
+    title: "Steel-manning",
     description:
-      "Students learn to articulate the strongest version of views they disagree with. This builds empathy and sharper thinking.",
+      "Students learn to state the strongest version of a view they disagree with, well enough that someone who holds it would agree.",
   },
   {
-    title: "Crux Identification",
+    title: "Finding the crux",
     description:
-      "Instead of talking past each other, students learn to find the specific question that would change minds. This is the skill that transfers beyond the classroom.",
+      "Instead of talking past each other, students look for the specific question that would change minds. It is the skill that travels beyond the classroom.",
   },
   {
-    title: "Calibrated Confidence",
+    title: "Saying what would change their mind",
     description:
-      "Students practice saying \"I'm 70% sure\" instead of \"I'm right.\" Understanding uncertainty is essential for navigating a complex world.",
+      "Students name the evidence that would move them before they argue. A belief you can name a test for is a belief; one you cannot is a loyalty.",
   },
 ];
 
-const lessonPlans = [
+interface LessonPlan {
+  title: string;
+  duration: string;
+  steps: readonly ReactNode[];
+}
+
+// `py-3` on an inline link: a 44px hit area that takes no space in the line.
+const INLINE_LINK = "py-3 text-deep underline decoration-deep/30 underline-offset-2 dark:text-accent-text";
+
+/** Seven lessons. None ends with a winner: each ends with what would settle it. */
+const lessonPlans: readonly LessonPlan[] = [
   {
-    number: "01",
-    title: "Introduction to Argument Mapping",
+    title: "Introduction to argument maps",
     duration: "1 class period",
     steps: [
-      "Explore the Nuclear Energy topic together as a class",
-      "Identify the meta claim, skeptic position, proponent response, and crux",
-      "Students discuss: What evidence would change your mind?",
+      "Read the nuclear energy map together as a class",
+      "Identify the claim, the strongest case on each side, and the crux",
+      "Students discuss: what evidence would change your mind?",
     ],
   },
   {
-    number: "02",
-    title: "The Steel-Man Challenge",
+    title: "The steel-man challenge",
     duration: "2 class periods",
     steps: [
       "Students pick a topic they have strong opinions about",
-      "Write the strongest argument FOR the other side",
-      "Compare with Argumend\u2019s steel-manned positions",
-      "Reflection: Did this change how you see the issue?",
+      "Write the strongest argument for the other side",
+      "Compare it with the steel-manned case on the Argumend map",
+      "Reflection: did this change how you see the issue?",
     ],
   },
   {
-    number: "03",
-    title: "Analyze Your Own Debate",
-    duration: "2\u20133 class periods",
+    title: "Map your own disagreement",
+    duration: "2–3 class periods",
     steps: [
-      "Students bring in an article, podcast, or transcript",
-      "Use the Analyze tool to extract positions and cruxes",
-      "Create their own argument map",
-      "Present findings to the class",
+      "Students bring in an article, podcast transcript or thread they disagree with",
+      <>
+        Paste it into the{" "}
+        <Link href={ANALYZE_HREF} className={INLINE_LINK}>
+          paste tool
+        </Link>{" "}
+        to see the positions and what they turn on
+      </>,
+      "Draw their own argument map from what they find",
+      "Present the crux they found to the class",
     ],
   },
   {
-    number: "04",
-    title: "Evidence Weighting Workshop",
-    duration: "1\u20132 class periods",
+    title: "Evidence weighting workshop",
+    duration: "1–2 class periods",
     steps: [
-      "Introduce the 4-dimension evidence scale: reliability, independence, replicability, directness",
-      "Students pick 3 evidence items from any topic and score them on each dimension",
-      "Compare scores across the class \u2014 discuss where and why scores diverge",
-      "Reflection: How does weighting evidence change the conclusion?",
+      "Introduce the four evidence questions: reliability, independence, replicability, directness",
+      "Students pick three evidence cards from any map and score each question from 0 to 10",
+      "Compare scores across the class and discuss where and why they diverge",
+      "Reflection: does weighting the evidence change which question matters most?",
     ],
   },
   {
-    number: "05",
-    title: "The Crux Debate",
+    title: "Arguing only the crux",
     duration: "2 class periods",
     steps: [
-      "Two teams are assigned a contested topic from Argumend",
-      "Each team identifies what they believe is the crux \u2014 the single question that would resolve the debate",
-      "Teams debate ONLY the crux, not peripheral arguments",
-      "Class votes on which team better identified and argued the crux",
+      "Two teams take opposite sides of a contested question from an Argumend map",
+      "Each team writes down what it believes is the crux: the single question that would settle the disagreement",
+      "Teams argue only the crux, not the side arguments",
+      "Each team states what evidence would move it; the class checks whether both teams named the same crux",
     ],
   },
   {
-    number: "06",
-    title: "Media Literacy Through Argument Mapping",
-    duration: "2\u20133 class periods",
+    title: "Media literacy through argument maps",
+    duration: "2–3 class periods",
     steps: [
-      "Students bring a news article, opinion piece, or social media thread on a controversial topic",
-      "Map the article\u2019s argument structure: What is the main claim? What evidence supports it?",
-      "Identify missing perspectives, logical gaps, and unstated assumptions",
-      "Compare the article\u2019s argument map with Argumend\u2019s balanced analysis of the same topic",
+      "Students bring a news article, opinion piece or social media thread on a contested question",
+      "Map its argument: what is the main claim, and what evidence supports it?",
+      "Identify missing perspectives, logical gaps and unstated assumptions",
+      "Compare it with the Argumend map on the same question",
     ],
   },
   {
-    number: "07",
-    title: "Confidence Calibration",
-    duration: "1\u20132 class periods",
+    title: "What would change your mind?",
+    duration: "1–2 class periods",
     steps: [
-      "Students assign a confidence score (0\u2013100%) to 5 contested claims before reviewing any evidence",
-      "Review the evidence on Argumend for each claim, noting which evidence changed their thinking",
-      "Assign a new confidence score after reviewing evidence and track how beliefs updated",
-      "Class discussion: Who updated the most? Who updated the least? What does that tell us?",
+      "Before reading any evidence, students write where they stand on five contested questions and what would change their mind on each",
+      "Read the map for each question, noting which cruxes and evidence cards bear on what they wrote",
+      "Students revisit each answer: did the evidence they named turn up, and did their view move?",
+      "Class discussion: which questions turned on facts and which on values, and what would settle each?",
     ],
   },
 ];
@@ -109,66 +125,53 @@ const lessonPlans = [
 const worksheets = [
   {
     id: "argument-map-template",
-    title: "Argument Map Template",
+    title: "Argument map template",
     description:
-      "Blank template with spaces for meta-claim, pillars, evidence for/against, and crux. Perfect for students to map any debate from scratch.",
-    icon: "map",
+      "A blank template with space for the claim, the pillars, the evidence on each side and the crux. Students can map any argument from scratch.",
   },
   {
     id: "steel-man-challenge",
-    title: "Steel-Man Challenge Worksheet",
+    title: "Steel-man challenge",
     description:
-      "Structured prompts that guide students through steel-manning an opposing view. Includes sections for identifying the strongest version of an argument they disagree with.",
-    icon: "shield",
+      "Prompts that walk students through stating the strongest version of a view they disagree with.",
   },
   {
     id: "evidence-evaluation-rubric",
-    title: "Evidence Evaluation Rubric",
+    title: "Evidence evaluation rubric",
     description:
-      "Table with the four weight dimensions (reliability, independence, replicability, directness) for students to score evidence items on a 0\u201310 scale.",
-    icon: "scale",
+      "A table of the four evidence questions (reliability, independence, replicability, directness) for scoring evidence from 0 to 10.",
   },
   {
     id: "crux-finder",
-    title: "Crux Finder Worksheet",
+    title: "Crux finder",
     description:
-      "Guided questions to help students identify the crux of any disagreement \u2014 the single question whose answer would change both sides\u2019 minds.",
-    icon: "target",
+      "Guided questions for finding the crux of any disagreement: the question whose answer would change both sides’ minds.",
   },
 ];
 
+const mapsFor = (ids: readonly string[]): MapLink[] =>
+  ids.flatMap((id) => {
+    const link = mapLinkFor(id);
+    return link ? [link] : [];
+  });
+
 const gradeLevels = [
   {
-    label: "Middle School (Grades 6\u20138)",
+    label: "Middle school (grades 6–8)",
     description:
-      "Accessible, relatable topics that connect to students\u2019 daily lives. Great for introducing structured thinking and evidence evaluation.",
-    topics: [
-      { id: "school-phone-bans", title: "School Phone Bans" },
-      { id: "social-media-age-limits", title: "Social Media Age Limits" },
-      { id: "space-exploration-value", title: "Space Exploration Value" },
-    ],
+      "Questions that touch students’ own lives. A good way to introduce structured thinking and evidence.",
+    maps: mapsFor(["school-phone-bans", "social-media-age-limits", "space-exploration-value"]),
   },
   {
-    label: "High School (Grades 9\u201312)",
-    description:
-      "Policy-relevant debates with real-world stakes. Ideal for government, economics, and science courses.",
-    topics: [
-      { id: "ai-job-displacement", title: "AI Job Displacement" },
-      { id: "nuclear-energy-safety", title: "Nuclear Energy" },
-      { id: "climate-change", title: "Climate Change" },
-      { id: "gun-control-effectiveness", title: "Gun Control" },
-    ],
+    label: "High school (grades 9–12)",
+    description: "Policy questions with real stakes, for government, economics and science courses.",
+    maps: mapsFor(["ai-job-displacement", "nuclear-energy-safety", "climate-change", "gun-control-effectiveness"]),
   },
   {
-    label: "Advanced / AP",
+    label: "Advanced and AP",
     description:
-      "Deep philosophical and empirical questions suited for IB TOK, AP Seminar, and advanced critical thinking courses.",
-    topics: [
-      { id: "free-will", title: "Free Will" },
-      { id: "simulation-hypothesis", title: "Simulation Hypothesis" },
-      { id: "consciousness-hard-problem", title: "Consciousness" },
-      { id: "reparations-slavery", title: "Reparations" },
-    ],
+      "Deep philosophical and empirical questions for IB TOK, AP Seminar and advanced critical thinking courses.",
+    maps: mapsFor(["free-will", "simulation-hypothesis", "consciousness-hard-problem", "reparations-slavery"]),
   },
 ];
 
@@ -176,32 +179,44 @@ const subjects = [
   {
     label: "IB Theory of Knowledge",
     description:
-      "Perfect for TOK exhibitions and essays. Students examine knowledge claims, explore real-world examples, and practice distinguishing evidence from opinion.",
-    topics: ["/topics/simulation-hypothesis", "/topics/free-will"],
-    topicLabels: ["Simulation Hypothesis", "Free Will"],
+      "For TOK exhibitions and essays: students examine knowledge claims, explore real examples, and tell evidence from opinion.",
+    maps: mapsFor(["simulation-hypothesis", "free-will"]),
   },
   {
-    label: "AP Government / Civics",
-    description:
-      "Analyze real policy debates with structured evidence. Students map competing claims on gun control, UBI, and wealth tax.",
-    topics: ["/topics/gun-control-effectiveness", "/topics/universal-basic-income"],
-    topicLabels: ["Gun Control", "Universal Basic Income"],
+    label: "AP Government and civics",
+    description: "Real policy questions with structured evidence: students map the competing claims.",
+    maps: mapsFor(["gun-control-effectiveness", "universal-basic-income"]),
   },
   {
-    label: "A-Level Critical Thinking / Science",
+    label: "A-Level critical thinking and science",
     description:
-      "Examine contested empirical claims. Students evaluate evidence quality, identify logical fallacies, and calibrate confidence.",
-    topics: ["/topics/nuclear-energy-safety", "/topics/lab-leak-theory"],
-    topicLabels: ["Nuclear Energy", "Lab Leak Theory"],
+      "Contested empirical claims: students weigh evidence quality, spot fallacies and name what would change their mind.",
+    maps: mapsFor(["nuclear-energy-safety", "lab-leak-theory"]),
   },
   {
-    label: "English / Media Literacy",
+    label: "English and media literacy",
     description:
-      "Identify rhetorical techniques, spot straw-man arguments, and practice steel-manning opposing views in written analysis.",
-    topics: ["/topics/social-media-mental-health", "/topics/cancel-culture"],
-    topicLabels: ["Social Media & Mental Health", "Cancel Culture"],
+      "Students identify rhetorical moves, spot straw men, and practise steel-manning in written analysis.",
+    maps: mapsFor(["social-media-mental-health", "cancel-culture"]),
   },
 ];
+
+const MAP_LINK =
+  "inline-flex min-h-11 items-center rounded-sm font-sans text-sm text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text";
+
+function MapLinks({ maps }: { maps: readonly MapLink[] }) {
+  return (
+    <ul className="mt-1 flex flex-wrap gap-x-5">
+      {maps.map((map) => (
+        <li key={map.href}>
+          <Link href={map.href} className={MAP_LINK}>
+            {map.title}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function ForEducatorsPage() {
   return (
@@ -210,265 +225,129 @@ export default function ForEducatorsPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "Argumend for Educators",
+          name: "Argumend for teachers",
           description:
-            "Teach students how to disagree without destroying the conversation. Lesson plans, subject integration, and critical thinking resources for IB TOK, AP Government, and more.",
+            "Teach students how to disagree without destroying the conversation. Lesson plans, printable worksheets and maps for IB TOK, AP Government and more.",
           url: "https://argumend.org/for-educators",
-          audience: {
-            "@type": "EducationalAudience",
-            educationalRole: "teacher",
-          },
-          isPartOf: {
-            "@type": "WebSite",
-            name: "ARGUMEND",
-            url: "https://argumend.org",
-          },
+          audience: { "@type": "EducationalAudience", educationalRole: "teacher" },
+          isPartOf: { "@type": "WebSite", name: "ARGUMEND", url: "https://argumend.org" },
         }}
       />
-      <div className="mx-auto max-w-4xl px-4 md:px-8">
-        {/* Hero */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#252420]/80 -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-10 md:mb-14">
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "For Educators" },
-            ]}
-          />
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 mb-7 leading-[1.08]">
-            Teach students how to disagree{" "}<br />
-            <span className="text-stone-500">without destroying the conversation</span>
-          </h1>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
-            Argumend helps students move beyond &ldquo;I feel that...&rdquo; to
-            evidence-based reasoning. Built for IB Theory of Knowledge, AP Government,
-            A-Level Critical Thinking, and any class where students need to think clearly
-            about contested questions.
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="#printable-worksheets"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:from-rust-600 hover:to-rust-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2"
-            >
-              <Printer className="h-4 w-4" aria-hidden="true" />
-              Get printable worksheets
-            </Link>
-            <Link
-              href="/topics"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:bg-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:border-[var(--border-divider)] dark:text-stone-300 dark:hover:bg-[var(--bg-card)]"
-            >
-              Browse classroom topics
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+      <PageContainer>
+        <PageHeader
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Learn", href: LEARN_HUB_HREF },
+            { label: "For teachers" },
+          ]}
+          eyebrow="Learn"
+          title="For teachers"
+          lede="Teach students how to disagree without destroying the conversation. Lesson plans and printable worksheets take them from “I feel that…” to the crux: the question that would change their mind."
+          meta="Free, for any class that argues about contested questions."
+        >
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Button href="#printable-worksheets">Get printable worksheets</Button>
+            <TextAction href="/topics">Browse classroom maps</TextAction>
           </div>
-        </div>
+        </PageHeader>
 
-        {/* Blockquote */}
-        <blockquote className="mb-16 md:mb-24 py-6 border-l-4 border-deep/30 pl-6 md:pl-7 bg-deep/[0.02] rounded-r-xl">
-          <p className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 italic leading-[1.6]">
-            &ldquo;The goal is not to teach students what to think, but how to
-            think &mdash; and how to disagree without destroying the
-            conversation.&rdquo;
-          </p>
-        </blockquote>
+        <div className="max-w-[44rem] space-y-14">
+          <Section id="what-students-practise" title="What students practise">
+            <dl className="grid gap-x-10 gap-y-6 sm:grid-cols-2">
+              {benefits.map((benefit) => (
+                <div key={benefit.title}>
+                  <dt className="font-serif text-xl text-primary">{benefit.title}</dt>
+                  <dd className="mt-1 font-sans text-[0.9375rem] leading-relaxed text-secondary">
+                    {benefit.description}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </Section>
 
-        {/* Why Argumend for the Classroom */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
-            Why Argumend for the classroom
-          </h2>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-8 max-w-2xl">
-            What students actually practice when they use Argumend.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[var(--border-divider)]"
-              >
-                <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-[14px] md:text-[15px] text-secondary dark:text-stone-400 leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Ready-Made Lesson Plans */}
-        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1916]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
-            Ready-made lesson plans
-          </h2>
-          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Start using Argumend in your classroom today. Each lesson plan is
-            designed for immediate use with minimal preparation.
-          </p>
-
-          <div className="space-y-4">
-            {lessonPlans.map((plan) => (
-              <div
-                key={plan.number}
-                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-5 md:p-6"
-              >
-                <div className="flex items-baseline gap-3 mb-1">
-                  <span className="font-mono text-sm font-bold text-muted dark:text-stone-400">{plan.number}</span>
-                  <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200">
+          <Section
+            id="lesson-plans"
+            title="Lesson plans"
+            lede="Seven lessons, ready to use with little preparation. Each ends with what would settle the question, never with a winner."
+          >
+            <ol className="border-b border-divider">
+              {lessonPlans.map((plan, index) => (
+                <li key={plan.title} className="border-t border-divider py-5 first:border-t-0 first:pt-0">
+                  <h3 className="font-serif text-xl text-primary">
+                    <span className="mr-2 text-muted">{index + 1}.</span>
                     {plan.title}
                   </h3>
-                </div>
-                <p className="text-xs text-muted dark:text-stone-400 font-mono mb-3">{plan.duration}</p>
-                <ul className="space-y-2">
-                  {plan.steps.map((step, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-stone-400 mt-2 flex-shrink-0" />
-                      <span className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
-                        {step}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
+                  <p className="mt-0.5 font-sans text-xs text-muted">{plan.duration}</p>
+                  <ul className="mt-2 list-disc space-y-1.5 pl-5 font-sans text-[0.9375rem] leading-relaxed text-secondary marker:text-muted">
+                    {plan.steps.map((step, stepIndex) => (
+                      <li key={stepIndex}>{step}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
+          </Section>
 
-        {/* Printable Worksheets */}
-        <section id="printable-worksheets" className="mb-16 scroll-mt-8 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
-            Printable worksheets
-          </h2>
-          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Open and print these structured templates for classroom use.
-            Each worksheet is designed for clean, ink-friendly printing.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {worksheets.map((ws) => (
-              <div
-                key={ws.id}
-                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-5 md:p-6 flex flex-col"
-              >
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-deep/10 flex items-center justify-center">
-                    <FileText className="h-4.5 w-4.5 text-deep" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 leading-snug">
-                    {ws.title}
-                  </h3>
-                </div>
-                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed mb-4 flex-1">
-                  {ws.description}
-                </p>
-                <Link
-                  href={`/for-educators/worksheets/${ws.id}`}
-                  className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-deep hover:text-deep-dark transition-colors dark:text-[#7fb5b0] dark:hover:text-[#a7d0cc]"
-                >
-                  <Printer className="h-3.5 w-3.5" />
-                  View &amp; Print
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Recommended Topics by Grade Level */}
-        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[#1a1916]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
-            Recommended topics by grade level
-          </h2>
-          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Not sure where to start? Here are our recommended topics organized
-            by student level, from accessible introductions to advanced analysis.
-          </p>
-
-          <div className="space-y-6">
-            {gradeLevels.map((level) => (
-              <div
-                key={level.label}
-                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-divider)] p-5 md:p-6"
-              >
-                <h3 className="font-serif text-lg font-semibold text-primary dark:text-stone-200 mb-1">
-                  {level.label}
-                </h3>
-                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed mb-4">
-                  {level.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {level.topics.map((topic) => (
-                    <Link
-                      key={topic.id}
-                      href={`/topics/${topic.id}`}
-                      className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-deep/10 bg-deep/5 px-3 py-1.5 text-sm font-medium text-deep transition-colors hover:border-deep/20 hover:bg-deep/10 dark:border-[#3d5754] dark:bg-[#243330] dark:text-[#9bc7c3] dark:hover:bg-[#2b403c]"
-                    >
-                      {topic.title}
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Subject Integration */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
-            Fits into the subjects you teach
-          </h2>
-          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Argument mapping is a cross-curricular skill. Here&apos;s how Argumend
-            integrates with your existing syllabus.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-3">
-            {subjects.map((subject) => (
-              <div
-                key={subject.label}
-                className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-divider)]"
-              >
-                <h3 className="font-semibold text-primary dark:text-stone-200 mb-1">
-                  {subject.label}
-                </h3>
-                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed mb-2">
-                  {subject.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {subject.topics.map((topic, i) => (
-                    <Link
-                      key={topic}
-                      href={topic}
-                      className="inline-flex min-h-11 items-center text-xs font-medium text-deep transition-colors hover:text-deep-dark hover:underline dark:text-[#9bc7c3] dark:hover:text-[#b7d9d6]"
-                    >
-                      {subject.topicLabels[i]} &rarr;
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Simple inline CTA */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-12 mb-8">
-          <Link
-            href="/topics"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
+          <Section
+            id="printable-worksheets"
+            title="Printable worksheets"
+            lede="Open one and print it: each is laid out for clean, ink-friendly printing."
           >
-            Browse topics (free)
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-          <Link
-            href="/how-it-works"
-            className="inline-flex items-center px-6 py-3 rounded-lg border border-stone-300 dark:border-[var(--border-divider)] text-stone-600 dark:text-stone-400 hover:border-deep/30 text-sm font-medium hover:bg-white/60 dark:hover:bg-[var(--bg-muted)] transition-colors"
-          >
-            How it works
-          </Link>
+            <ul className="border-y border-divider">
+              {worksheets.map((ws, index) => (
+                <li key={ws.id} className={index > 0 ? "border-t border-divider" : undefined}>
+                  <Link
+                    href={`/for-educators/worksheets/${ws.id}`}
+                    className="group block min-h-11 rounded-sm py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                  >
+                    <span className="block font-serif text-lg leading-snug text-primary transition-colors group-hover:text-accent-text">
+                      {ws.title}
+                    </span>
+                    <span className="mt-1 block font-sans text-sm leading-relaxed text-secondary">
+                      {ws.description}
+                    </span>
+                    <span className="mt-1 block font-sans text-xs text-muted">Printable worksheet</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Section>
+
+          <Section id="maps-by-level" title="Maps by grade level" lede="Where to start, from accessible questions to advanced ones.">
+            <div className="space-y-6">
+              {gradeLevels.map((level) => (
+                <div key={level.label}>
+                  <h3 className="font-serif text-xl text-primary">{level.label}</h3>
+                  <p className="mt-1 font-sans text-[0.9375rem] leading-relaxed text-secondary">{level.description}</p>
+                  <MapLinks maps={level.maps} />
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          <Section id="subjects" title="Fits the subjects you teach">
+            <div className="space-y-6">
+              {subjects.map((subject) => (
+                <div key={subject.label}>
+                  <h3 className="font-serif text-xl text-primary">{subject.label}</h3>
+                  <p className="mt-1 font-sans text-[0.9375rem] leading-relaxed text-secondary">{subject.description}</p>
+                  <MapLinks maps={subject.maps} />
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          <Section id="next" title="Next step">
+            <p className="font-sans text-[0.9375rem] leading-relaxed text-secondary">
+              Every map is free and needs no account.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-x-6">
+              <TextAction href="/about#read-a-map">How to read a map</TextAction>
+              <TextAction href={ANALYZE_HREF}>Try the paste tool on an argument</TextAction>
+            </div>
+          </Section>
         </div>
-      </div>
+      </PageContainer>
     </AppShell>
   );
 }

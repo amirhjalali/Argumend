@@ -6,12 +6,17 @@ function readSource(relativePath: string) {
   return readFileSync(join(process.cwd(), relativePath), "utf8");
 }
 
+/**
+ * Every Learn page is built from the two templates, whose rows, chips and
+ * next-step links are 44px tall (components/learn/templates.test.tsx renders
+ * them). These source checks cover what sits outside the templates.
+ */
 describe("learning resource touch targets", () => {
   it.each([
+    ["article rows and next step", "components/learn/ArticleLayout.tsx"],
+    ["index rows and chips", "components/learn/CollectionIndex.tsx"],
     ["educator topic recommendations", "app/for-educators/page.tsx"],
-    ["guide track index", "app/guides/page.tsx"],
-    ["guide track backlink", "app/guides/[id]/page.tsx"],
-    ["concept stage backlink", "app/concepts/[slug]/page.tsx"],
+    ["glossary terms", "app/glossary/page.tsx"],
   ])("keeps %s at least 44px tall", (_label, path) => {
     expect(readSource(path)).toContain("min-h-11");
   });
@@ -20,14 +25,5 @@ describe("learning resource touch targets", () => {
     const source = readSource("components/TableOfContents.tsx");
 
     expect(source).toContain("flex min-h-11 items-center rounded-sm");
-  });
-
-  it("preserves meaningful spaces in learning-resource accessible names", () => {
-    expect(readSource("app/for-educators/page.tsx")).toContain(
-      'disagree{" "}<br />',
-    );
-    expect(readSource("app/guides/page.tsx")).toContain(
-      'aria-label={`${track.numeral}. ${track.label}, ${count}',
-    );
   });
 });

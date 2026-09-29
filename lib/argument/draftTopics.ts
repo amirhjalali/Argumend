@@ -9,6 +9,9 @@
 import { parseArgumentGraph } from "@/lib/schemas/argument";
 import { identifyCruxes, type CruxResult } from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
+import type { CruxLedgerEntry } from "@/types/cruxLedger";
+import { loadCruxLedger, type LedgerReader } from "@/lib/argument/ledgerFile";
+import { currentLedgerEntries } from "@/lib/argument/ledger";
 import aiMassUnemploymentDraft from "@/data/topics/drafts/ai-mass-unemployment.draft.json";
 import capitalismAfterAiDraft from "@/data/topics/drafts/capitalism-after-ai.draft.json";
 import usIsraelSupportDraft from "@/data/topics/drafts/us-israel-support.draft.json";
@@ -33,6 +36,13 @@ export interface ArgumentTopicMeta {
   contextNote?: string;
   /** The payoff paragraph: what the map reveals about the SHAPE of the fight. */
   tldr: string;
+  /**
+   * "What every camp already accepts": ids of claims this map's graph marks
+   * uncontested or broadly accepted, shown near the top of the page in the
+   * graph's own words. The perceived-vs-actual disagreement gap, stated up
+   * front. Omitted: the block does not render.
+   */
+  agreementClaims?: string[];
   /**
    * An optional related voice or evidence source per position, keyed by
    * position id. This illustrates one argument stream; it must not imply the
@@ -75,11 +85,16 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         alt: "Two crowds of office workers stand on opposite sides of a widening crack in the ground; one side's floor stays level, the other tilts away.",
       },
       tagline:
-        "Employment among 22–25-year-olds in the most AI-exposed occupations fell 16% while unemployment sat near 4%. Which number matters? The whole fight in five questions.",
-      hook: "Among 22–25-year-olds in the most AI-exposed occupations, employment fell 16% relative to late 2022 after controlling for firm-level shocks — while overall U.S. unemployment sat near 4%. Both numbers are real. The fight is over what they mean.",
+        "Employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers while unemployment sat near 4%. Which number matters? The whole fight in five questions.",
+      hook: "Among 22–25-year-olds in the most AI-exposed occupations, employment fell 16% relative to less-exposed peers since late 2022, after controlling for firm-level shocks — while overall U.S. unemployment sat near 4%. Both numbers are real. The fight is over what they mean.",
       contextNote:
         "“AI-exposed” means jobs whose everyday tasks overlap most with what current AI systems do — software, clerical, customer service, analysis.",
       tldr: "This is three fights in a trench coat: whether AI is what broke entry-level hiring (the data can't yet say), whether the harm arrives as unemployment or as worse jobs (history mostly says worse jobs), and who gets to set the pace of deployment (no dataset settles that). Five questions carry almost all of it.",
+      agreementClaims: [
+        "c-aggregate-unemployment-normal",
+        "c-ai-increases-output-per-worker",
+        "c-exposure-not-displacement",
+      ],
       advocates: {
         "p-displacement-now": {
           name: "Erik Brynjolfsson",
@@ -142,10 +157,10 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
           { camp: "Not fewer jobs — worse ones", reading: "both are true and both miss it — the damage shows up in wages and career ladders, which neither number tracks." },
           { camp: "Wrong question — who decides?", reading: "neither number settles anything; deployment terms are set in contracts and law, not forecasts." },
         ],
-        take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to late 2022. Both are real. Which one you think is the story is which camp you're in — and the honest answer is that firm-level data to settle attribution doesn't exist yet.",
+        take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers since late 2022. Both are real. Which one you think is the story is which camp you're in — and the honest answer is that firm-level data to settle attribution doesn't exist yet.",
       },
       takeaways: [
-        "Employment among early-career workers in AI-exposed jobs fell ~16% — but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
+        "Employment among early-career workers in AI-exposed jobs fell ~16% relative to less-exposed peers — but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
         "Klarna's famous “AI replaced 700 agents” was the company's workload math, not evidence of 700 layoffs. Headline AI-layoff numbers rarely mean what they seem.",
         "America's biggest projected job growth is home-health care at ~$35K. Whether growth centered in jobs like that counts as the economy “adjusting” is a value question no dataset can settle.",
       ],
@@ -154,17 +169,17 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
           fight:
             "Everyone agrees AI makes some teams faster. Nobody has the firm-level data showing what bosses then do with the slack — hire fewer, or sell more.",
           soWhat:
-            "If it's “hire fewer,” the displacement case is right on the mechanism. If it's “sell more,” history repeats and the jobs come back somewhere else.",
+            "If it's “hire fewer,” the displacement case gains its mechanism. If it's “sell more,” the historical pattern holds and the jobs can come back somewhere else.",
         },
         "c-targeted-programs-can-help": {
           fight:
             "America's flagship retraining program left participants earning less than workers who got nothing. Defenders say that indicts the design, not the idea — better-funded, employer-linked programs do show gains.",
           soWhat:
-            "If serious retraining works, displacement is a budget problem. If it doesn't, the main proposed remedy is theatre.",
+            "If serious retraining works, displacement is a budget problem. If it doesn't, the main proposed remedy cannot carry the load.",
         },
         "c-displaced-workers-can-retrain-costlessly": {
           fight:
-            "Optimists assume displaced workers move on without lasting damage. The displacement data says otherwise — earnings still down 25% a decade later, and Black and non-degree workers 67% more likely to be displaced at all.",
+            "Optimists assume displaced workers move on without lasting damage. The displacement data cuts against that — earnings still down 25% a decade later, and Black and non-degree workers 67% more likely to be displaced at all.",
           soWhat:
             "This assumption is doing silent work under every “the economy always adjusts” argument. If it's false, the aggregate story hides real, durable harm.",
         },
@@ -196,8 +211,13 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "Labor's share of income has declined globally over four decades, and the U.S. index is down since 2000. Four camps ask what AI means for the wage channel — and what “survive” even means.",
       hook: "Capitalism pays most people through wages. AI could automate a wider range of tasks while labor's share has already declined globally since the 1980s and the U.S. nonfarm-business index has fallen since 2000. The dispute is whether AI extends that trend or changes its scale.",
       tldr: "Almost nobody argues markets stop working. The real fight is narrower and stranger: whether the wage channel keeps distributing enough income to sustain demand and consent — and whether a system that keeps markets but pays people through dividends or transfers still counts as the thing we're defending. Two of the five cruxes are assumptions nobody states out loud; a third is a definition.",
+      agreementClaims: [
+        "c-historical-automation-preserved-markets",
+        "c-labor-share-declining-global",
+        "c-model-market-concentrated",
+      ],
       shareCard: {
-        left: { value: "−19.3", label: "Index-point change in U.S. nonfarm labor share, Q1 2000 → Q2 2026" },
+        left: { value: "−19.4", label: "Index-point change in U.S. nonfarm labor share, Q1 2000 → Q2 2026" },
         right: { value: "40%", label: "Estimated share of 2025 U.S. enterprise LLM spend attributed to one provider" },
         line: "Falling wage share, high AI-provider concentration. Whether that ends capitalism depends on what you think capitalism is.",
         attribution: "BLS/FRED · Menlo Ventures — argumend.org",
@@ -208,7 +228,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "p-breaks-fundamentally": { name: "Loukas Karabarbounis & Brent Neiman", affiliation: "Chicago Booth", line: "document a global decline in labor's share since the 1980s associated with the falling price of capital. This camp uses that finding as a precedent; their study does not itself establish the AI forecast." },
       },
       highlights: [
-        { fact: "−19.3", context: "Index-point decline in U.S. nonfarm business labor share from Q1 2000 (112.828) to Q2 2026 (93.547) — a 17.1% relative drop.", source: "BLS via FRED, series PRS85006173" },
+        { fact: "−19.4", context: "Index-point decline in U.S. nonfarm business labor share from Q1 2000 (112.828) to Q2 2026 (93.446, revised) — a 17.2% relative drop.", source: "BLS via FRED, series PRS85006173" },
         { fact: "40% / 27%", context: "Estimated shares of 2025 U.S. enterprise LLM spend attributed to the two leading providers, based on a decision-maker survey and bottom-up market model.", source: "Menlo Ventures" },
         { fact: "€11.2B", context: "Mondragon's 2024 sales with more than 70,000 employees — a large live test of an alternative ownership structure at industrial scale.", source: "Mondragon 2024 annual report" },
         { fact: "$1,000/mo", context: "The largest U.S. guaranteed-income RCT: three years, 1,000 adults — real evidence on transfers, in an economy where jobs still existed.", source: "NBER / OpenResearch" },
@@ -257,7 +277,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         },
         "c-wage-channel-loses-primacy": {
           fight:
-            "Wages can lose share without disappearing. The argument is over when that decline becomes a change in kind: when most non-owners can no longer rely on work as their main claim on output.",
+            "Wages can lose share without disappearing. The argument is about when that decline becomes a change in kind: when most non-owners can no longer rely on work as their main claim on output.",
           soWhat:
             "If wages remain primary, capitalism mostly adapts. If dividends or transfers have to replace them, the system needs structural redesign even if markets and private firms remain.",
         },
@@ -277,6 +297,11 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         "$38 billion pledged for FY2019–28, 100+ military sales reported from October 2023 through early March 2024, and four positions split by leverage, legal accountability, and civilian harm.",
       hook: "This is the argument where people are least likely to grant that the other side is arguing in good faith. So this map separates what is documented from what remains uncertain: the reported direct-death total; identification, undercount, indirect deaths, and civilian–combatant classification; what the May 2024 NSM-20 review actually said; and which statutes still apply after that memorandum was rescinded in February 2025.",
       tldr: "Almost nobody disputes the 2016 MOU's $38 billion pledge for FY2019–28 or the 100+ military sales reported from October 7, 2023 through early March 2024. The fight is what follows: how the unresolved parts of the casualty record change the moral and legal analysis, whether U.S. aid creates usable leverage, and how current arms-transfer statutes are applied. The May 2024 NSM-20 review documented serious concerns while accepting assurances sufficient for aid to continue; NSM-20 itself was rescinded in February 2025.",
+      agreementClaims: [
+        "c-mou-38b",
+        "c-hamas-fto-iran-backed",
+        "c-nsm20-finding-ambiguous",
+      ],
       shareCard: {
         left: {
           value: "Concerns found",
@@ -371,15 +396,32 @@ export interface ArgumentTopic {
   meta: ArgumentTopicMeta;
   graph: ArgumentGraph;
   cruxes: CruxResult[];
+  /**
+   * Validated crux-ledger entries from data/argument/<id>.ledger.json, or []
+   * when the file does not exist. Includes review-queue entries: pass through
+   * `publicLedgerEntries` (lib/argument/ledger) before rendering. The current
+   * public entry per claim feeds `cruxes` (spec §1.3); review-queue entries
+   * never do, and an empty ledger ranks exactly as before.
+   */
+  ledger: CruxLedgerEntry[];
+}
+
+export interface LoadArgumentTopicOptions {
+  /** Test seam: supply ledger text instead of reading the disk. Bypasses the cache. */
+  readLedger?: LedgerReader;
 }
 
 const cache = new Map<string, ArgumentTopic>();
 
-export function loadArgumentTopic(id: string): ArgumentTopic | null {
+export function loadArgumentTopic(
+  id: string,
+  options: LoadArgumentTopicOptions = {},
+): ArgumentTopic | null {
   const entry = DRAFTS[id];
   if (!entry) return null;
 
-  const cached = cache.get(id);
+  const useCache = options.readLedger === undefined;
+  const cached = useCache ? cache.get(id) : undefined;
   if (cached) return cached;
 
   const parsed = parseArgumentGraph(entry.raw);
@@ -393,11 +435,13 @@ export function loadArgumentTopic(id: string): ArgumentTopic | null {
     );
   }
 
+  const ledger = loadCruxLedger(id, parsed.graph, options.readLedger);
   const topic: ArgumentTopic = {
     meta: entry.meta,
     graph: parsed.graph,
-    cruxes: identifyCruxes(parsed.graph),
+    cruxes: identifyCruxes(parsed.graph, { ledgerStatus: currentLedgerEntries(ledger) }),
+    ledger,
   };
-  cache.set(id, topic);
+  if (useCache) cache.set(id, topic);
   return topic;
 }
