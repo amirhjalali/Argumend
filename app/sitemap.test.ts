@@ -91,7 +91,10 @@ describe("sitemap", () => {
       "/fallacies",
       "/questions",
       "/is",
+      // Folded into /topics (301s in next.config.js, "maps library").
       "/topics/compare",
+      "/topics/category",
+      "/topics/tag",
       "/for-educators",
       "/community",
       "/perspectives",

@@ -107,6 +107,32 @@ const nextConfig = {
         destination: '/topics',
         permanent: true,
       },
+      // ── Maps library (2026-09-29) ─────────────────────────────────────
+      // /topics is the one library. The category and tag pages duplicated
+      // it with different cards and verdict chips; compare ranked unrelated
+      // debates against each other. All three are gone. A query string on
+      // the old URL (?page=2) is carried over by Next.
+      {
+        source: '/topics/category/:slug',
+        destination: '/topics?category=:slug',
+        statusCode: 301,
+      },
+      {
+        source: '/topics/tag/:slug',
+        destination: '/topics?q=:slug',
+        statusCode: 301,
+      },
+      {
+        source: '/topics/compare',
+        destination: '/topics',
+        statusCode: 301,
+      },
+      {
+        source: '/topics/compare/:path+',
+        destination: '/topics',
+        statusCode: 301,
+      },
+      // ── end maps library ──────────────────────────────────────────────
       // ── home + story (ux/home-story, 2026-09-29) ─────────────────────────
       // Home no longer hosts the legacy canvas. `/?topic=:id` (with any
       // `view`) opened it; every map lives at /topics/:id. Next merges the
