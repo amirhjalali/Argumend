@@ -130,6 +130,22 @@ describe("pickPillar", () => {
 });
 
 describe("findMaps", () => {
+  it("opens the rent-control map for a rent-control paste, not the broader housing map", async () => {
+    // The standalone smoke test's paste. Both maps discuss rent control and
+    // score close; the paste uses the rent-control map's own name words and
+    // none that only the housing map's name has.
+    const result = await findMaps(
+      "Rent control protects tenants from being priced out. Economists answer that it reduces supply and landlords stop maintaining buildings.",
+    );
+    expect(result.match?.id).toBe("rent-control-effectiveness");
+    expect(result.related.map((map) => map.id)).toContain("housing-affordability-crisis");
+  });
+
+  it("keeps a nuclear-power article on the nuclear map although it mentions small modular reactors", async () => {
+    const result = await findMaps(EXAMPLE_ANALYSIS_TEXT);
+    expect(result.match?.id).toBe("nuclear-energy-safety");
+  });
+
   // The first paste in a process reads every map to build the index.
   beforeAll(() => getMapIndex(), 60_000);
 

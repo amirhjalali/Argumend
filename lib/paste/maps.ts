@@ -46,7 +46,7 @@ import {
   type MapRanking,
   type RankedMap,
 } from "./mapIndex";
-import { pasteTerms } from "./terms";
+import { pasteTerms, termPairs } from "./terms";
 import type {
   PasteMapCandidate,
   PasteMapCard,
@@ -87,6 +87,16 @@ export const MAP_MATCH = {
   shownShare: 0.5,
   /** Maps named in any one answer, the match and its neighbours included. */
   maxMaps: 3,
+  /**
+   * Among siblings, the one whose own name (title, question, phrasings)
+   * covers more of the paste's words is the one the paste is about: a
+   * rent-control paste opens the rent-control map, not the broader housing
+   * map that also discusses rent control. It must still score this share of
+   * the top map.
+   */
+  siblingNameShare: 0.6,
+  /** …and the paste must use at least this many words of its name that the top map's name lacks. */
+  siblingNameMargin: 2,
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -143,6 +153,7 @@ export interface MapDecision {
 export function decideMatch(
   ranking: Pick<MapRanking, "ranked" | "ceiling" | "exclusiveLead">,
   isSibling: (a: string, b: string) => boolean,
+  nameMatch: (id: string) => ReadonlySet<string> = () => new Set(),
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -172,6 +183,33 @@ export function decideMatch(
   const shown = (map: RankedMap) => map.score >= MAP_MATCH.shownShare * top.score;
 
   if (enough && clear) {
+    // Which of the sibling maps the paste is about: the one whose own name
+    // it uses most, if that sibling is close enough on score.
+    // Only when the paste uses none of the top map's own name words beyond
+    // those it shares with the sibling, and at least two of the sibling's:
+    // a rent-control paste opens the rent-control map, while a nuclear-power
+    // article that mentions small modular reactors stays on the nuclear map
+    // (it uses "climate", which only the nuclear map's name has).
+    const topName = nameMatch(top.id);
+    const contenders = siblings.filter((map) => {
+      if (map.score < MAP_MATCH.siblingNameShare * top.score) return false;
+      const siblingName = nameMatch(map.id);
+      const topOnly = [...topName].filter((term) => !siblingName.has(term)).length;
+      const siblingOnly = [...siblingName].filter((term) => !topName.has(term)).length;
+      return topOnly === 0 && siblingOnly >= MAP_MATCH.siblingNameMargin;
+    });
+    const named = contenders.reduce(
+      (best, map) => (nameMatch(map.id).size > nameMatch(best.id).size ? map : best),
+      top,
+    );
+    if (named !== top) {
+      const others = [top, ...siblings.filter((map) => map !== named)].filter(shown);
+      const related = others.slice(0, MAP_MATCH.maxMaps - 1);
+      const closest = rest
+        .filter((map) => !siblingIds.has(map.id) && shown(map))
+        .slice(0, MAP_MATCH.maxMaps - 1 - related.length);
+      return { named, related, closest, top, rival, lead, exclusiveLead, coverage };
+    }
     const related = siblings.filter(shown).slice(0, MAP_MATCH.maxMaps - 1);
     const closest = rest
       .filter((map) => !siblingIds.has(map.id) && shown(map))
@@ -373,14 +411,40 @@ async function buildMatch(map: RankedMap, kind: "map" | "flagship", text: string
 const round = (value: number | null, places = 2) =>
   value === null || !Number.isFinite(value) ? null : Math.round(value * 10 ** places) / 10 ** places;
 
+const nameTermCache = new WeakMap<MapIndex, Map<string, Set<string>>>();
+
+/**
+ * The paste's words and word pairs that appear in a map's short name: its
+ * title, question and id (the first three name entries), not the longer
+ * "also asked as" phrasings and claims, which would favour wordy siblings.
+ */
+function nameMatches(index: MapIndex, id: string, pasteTermSet: ReadonlySet<string>): Set<string> {
+  let perIndex = nameTermCache.get(index);
+  if (!perIndex) {
+    perIndex = new Map();
+    nameTermCache.set(index, perIndex);
+  }
+  let nameTerms = perIndex.get(id);
+  if (!nameTerms) {
+    const names = (index.byId.get(id)?.document.fields.name ?? []).slice(0, 3);
+    const words = pasteTerms(names.join(" . "));
+    nameTerms = new Set([...words, ...termPairs(words)]);
+    perIndex.set(id, nameTerms);
+  }
+  return new Set([...pasteTermSet].filter((term) => nameTerms.has(term)));
+}
+
 export async function findMaps(text: string): Promise<PasteMapsResult> {
   const started = performance.now();
   const index = await getMapIndex();
   const indexed = performance.now();
   const ranking = rankMaps(index, text);
+  const pasteWords = pasteTerms(text);
+  const pasteTermSet = new Set([...pasteWords, ...termPairs(pasteWords)]);
   const decision = decideMatch(
     ranking,
     (a, b) => mapSimilarity(index, a, b) >= MAP_MATCH.siblingSimilarity,
+    (id) => nameMatches(index, id, pasteTermSet),
   );
   const matchedMs = performance.now() - indexed;
 
