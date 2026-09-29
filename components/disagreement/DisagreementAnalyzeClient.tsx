@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { AiConsentLine } from "@/components/AiConsentLine";
+import { Button, TextAction } from "@/components/ui/Button";
 import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE, DISAGREEMENT_LIMITS } from "@/lib/disagreement/constants";
 import { characterBucket, latencyBucket } from "@/lib/disagreement/labels";
@@ -159,13 +159,7 @@ export function DisagreementAnalyzeClient() {
           <p className="font-sans text-sm text-[var(--text-muted)]">
             Source submitted, {content.length.toLocaleString()} characters
           </p>
-          <button
-            type="button"
-            className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
-            onClick={() => setInputCollapsed(false)}
-          >
-            Edit
-          </button>
+          <TextAction onClick={() => setInputCollapsed(false)}>Edit</TextAction>
         </div>
       ) : (
         <div className="mt-8 max-w-3xl space-y-6">
@@ -181,26 +175,23 @@ export function DisagreementAnalyzeClient() {
           <AiConsentLine id={CONSENT_ID} className="max-w-[36rem]" />
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-            <button
-              type="button"
+            <Button
+              size="lg"
               onClick={submit}
               aria-describedby={CONSENT_ID}
               disabled={status === "loading" || tooShort}
-              className="inline-flex min-h-11 items-center rounded-full bg-rust-600 px-6 font-sans text-base font-medium text-white transition-colors hover:bg-rust-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
               Find what it turns on
-            </button>
-            <button
-              type="button"
+            </Button>
+            <TextAction
               disabled={status === "loading"}
               onClick={() => {
                 setContentType("conversation");
                 setContent(DISAGREEMENT_EXAMPLE_SOURCE);
               }}
-              className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark disabled:opacity-60 dark:text-accent-text dark:hover:text-stone-200"
             >
               See an example
-            </button>
+            </TextAction>
           </div>
           {tooShort && content.length > 0 ? (
             <p className="font-sans text-sm text-[var(--text-muted)]" role="status">
@@ -223,9 +214,7 @@ export function DisagreementAnalyzeClient() {
           className="mt-8 max-w-3xl space-y-2 border-l-2 border-[var(--text-muted)] pl-4"
         >
           <p className="text-[var(--text-primary)]">{error}</p>
-          <Link className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 dark:text-accent-text" href={ANALYZE_HREF}>
-            Try the limited local parser
-          </Link>
+          <TextAction href={ANALYZE_HREF}>Try the limited local parser</TextAction>
         </div>
       ) : null}
 
@@ -244,13 +233,7 @@ export function DisagreementAnalyzeClient() {
                   unavailableReason={unavailableReason}
                   surface="session"
                 />
-                <button
-                  type="button"
-                  className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
-                  onClick={startOver}
-                >
-                  Analyze another
-                </button>
+                <TextAction onClick={startOver}>Analyze another</TextAction>
               </>
             }
           />
