@@ -4,7 +4,7 @@ import {
   ENTRY_GRID,
   MARGIN_RULE,
   SettleAnswer,
-} from "@/components/argument/DebateView";
+} from "@/components/topic/cruxPrimitives"; // not DebateView: that pulls the topic page's client islands into home
 import { CruxMovementTrack } from "@/components/argument/CruxMovement";
 import { numberWord, type HomeCrux } from "@/components/home/homeModel";
 import { Section, TextAction } from "@/components/ui";
