@@ -10,6 +10,7 @@ import {
   X,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
 import type { TopicCategory, Verdict } from "@/lib/schemas/topic";
 import { categoryColors } from "@/lib/categoryColors";
 import { BalanceWeightChip } from "@/components/BalanceWeightChip";
@@ -48,6 +49,8 @@ interface TopicItem {
 interface CompareIndexViewProps {
   featuredPairs: FeaturedPair[];
   allTopics: TopicItem[];
+  /** Rendered inside the shell, above the header (never above the top bar). */
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 // ---------------------------------------------------------------------------
@@ -472,6 +475,7 @@ function TopicPicker({
 export default function CompareIndexView({
   featuredPairs,
   allTopics,
+  breadcrumbs,
 }: CompareIndexViewProps) {
   const [searchPairs, setSearchPairs] = useState("");
   const hasMounted = useRef(false);
@@ -524,6 +528,7 @@ export default function CompareIndexView({
     <AppShell>
       <div className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#121210] overflow-x-hidden">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+          {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
           {/* Header */}
           <header className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-[var(--bg-muted)] rounded-full text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider border border-stone-200/50 dark:border-[var(--border-divider)] mb-4">

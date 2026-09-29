@@ -10,12 +10,13 @@
  * don't need a specimen index.
  *
  * Palette discipline (see CLAUDE.md "Design System"): stage colors reuse the
- * on-brand tokens — rust, deep teal, crux crimson. Never amber/tangerine/
+ * on-brand tokens — rust, deep teal, plum (from `toneStyles`; crimson means a crux). Never amber/tangerine/
  * indigo/violet/sky.
  */
 import type { LucideIcon } from "lucide-react";
 import { BookOpen, Shield, Columns3, Scale, Gauge, Target, SearchX } from "lucide-react";
 import type { Concept } from "@/data/concepts";
+import { toneStyles } from "@/lib/categoryColors";
 
 export type ConceptStageId = "framing" | "weighing" | "testing";
 
@@ -43,11 +44,11 @@ export const conceptStages: Record<ConceptStageId, ConceptStageMeta> = {
     label: "Framing the Disagreement",
     description:
       "How a debate gets represented before anything is judged — the strongest version of each side, split into the arguments that actually carry the weight.",
-    chip: "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
-    iconBg: "bg-rust-50 dark:bg-rust-900/30",
-    iconText: "text-rust-600 dark:text-rust-300",
-    hoverBorder: "hover:border-rust-300/60",
-    borderAccent: "border-l-rust-400",
+    chip: toneStyles.rust.chip,
+    iconBg: toneStyles.rust.iconBg,
+    iconText: toneStyles.rust.iconText,
+    hoverBorder: toneStyles.rust.hoverBorder,
+    borderAccent: toneStyles.rust.borderAccent,
   },
   weighing: {
     id: "weighing",
@@ -55,11 +56,11 @@ export const conceptStages: Record<ConceptStageId, ConceptStageMeta> = {
     label: "Weighing the Evidence",
     description:
       "How evidence becomes an auditable number — scoring each source on its own merits, then turning the balance into a confidence you can check.",
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
-    iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-accent-text",
-    hoverBorder: "hover:border-deep/40",
-    borderAccent: "border-l-deep/50",
+    chip: toneStyles.teal.chip,
+    iconBg: toneStyles.teal.iconBg,
+    iconText: toneStyles.teal.iconText,
+    hoverBorder: toneStyles.teal.hoverBorder,
+    borderAccent: toneStyles.teal.borderAccent,
   },
   testing: {
     id: "testing",
@@ -67,11 +68,11 @@ export const conceptStages: Record<ConceptStageId, ConceptStageMeta> = {
     label: "Stress-Testing the Reasoning",
     description:
       "What would settle the question — and what should never have counted as evidence in the first place.",
-    chip: "bg-crux/10 dark:bg-crux/20 text-crux dark:text-crux-light border-crux/25 dark:border-crux/40",
-    iconBg: "bg-crux/10 dark:bg-crux/20",
-    iconText: "text-crux dark:text-crux-light",
-    hoverBorder: "hover:border-crux/40",
-    borderAccent: "border-l-crux/50",
+    chip: toneStyles.plum.chip,
+    iconBg: toneStyles.plum.iconBg,
+    iconText: toneStyles.plum.iconText,
+    hoverBorder: toneStyles.plum.hoverBorder,
+    borderAccent: toneStyles.plum.borderAccent,
   },
 };
 

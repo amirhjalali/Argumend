@@ -4,7 +4,7 @@
  * Single source of truth for the small "pill" chips that label a topic's
  * category (policy / technology / science / economics / philosophy) and its
  * status (settled / contested / highly_speculative). Previously these maps were
- * duplicated across SearchModal, /topics, ReadModeView, and TopicDetailView
+ * duplicated across SearchModal, /topics, ReadModeView, and the old topic detail view
  * with conflicting palettes — including an off-brand indigo/sky/violet rainbow
  * in search — so the same category rendered different colors in different views.
  *
@@ -28,24 +28,141 @@
  */
 import type { TopicCategory, TopicStatus } from "@/lib/schemas/topic";
 
+/**
+ * The ONE tone map. Every chip, icon badge, accent rule and category colour in
+ * the site resolves to one of these six tones, so a colour means the same thing
+ * wherever it appears. `components/ui/Chip` renders `toneStyles[tone].chip`;
+ * the `lib/*Meta.ts` taxonomies spread the same fields.
+ *
+ * There is deliberately no "crux" tone: crimson means a crux, and a crux is
+ * drawn by the crux components, never by a category or a label chip.
+ *
+ *   neutral  stone        tags, kinds, anything without a family
+ *   teal     deep #3a6965 institutional, evidence-adjacent families
+ *   rust     #C4613C      warm families (never the CTA fill: that is Button)
+ *   brown    #8B5A3C      empirical families (the skeptic token)
+ *   plum     #6b4768      reflective families (philosophy)
+ *   ink      #4a5868      machine families (technology)
+ *
+ * Brown's dark-mode TEXT is #cfa88a (6.7:1 on its dark tint); skeptic-light
+ * #A67350 is 3.6:1 there, so it is kept for icons only.
+ */
+export type Tone = "neutral" | "teal" | "rust" | "brown" | "plum" | "ink";
+
+export const TONES: readonly Tone[] = ["neutral", "teal", "rust", "brown", "plum", "ink"];
+
+export interface ToneStyle {
+  /** Chip: bg + text + border colour (the consumer supplies `border`). */
+  readonly chip: string;
+  /** Icon badge background. */
+  readonly iconBg: string;
+  /** Icon colour (non-text: 3:1 is enough). */
+  readonly iconText: string;
+  /** Small text in the tone (AA on the canvas in both themes). */
+  readonly accentText: string;
+  /** Hover border tint for cards in this tone. */
+  readonly hoverBorder: string;
+  /** Static left-border accent. */
+  readonly borderAccent: string;
+  /** Hairline rule colour. */
+  readonly rule: string;
+  /** Top-accent border colour. */
+  readonly topBorder: string;
+  /** Solid dot / marker fill. */
+  readonly dot: string;
+}
+
+export const toneStyles: Record<Tone, ToneStyle> = {
+  neutral: {
+    chip: "bg-stone-100 dark:bg-stone-800/40 text-stone-700 dark:text-stone-300 border-stone-300/70 dark:border-stone-600/60",
+    iconBg: "bg-stone-100 dark:bg-stone-800/40",
+    iconText: "text-stone-600 dark:text-stone-300",
+    accentText: "text-stone-600 dark:text-stone-300",
+    hoverBorder: "hover:border-stone-400/60",
+    borderAccent: "border-l-stone-400",
+    rule: "border-stone-300/70",
+    topBorder: "border-t-stone-400",
+    dot: "bg-stone-400",
+  },
+  teal: {
+    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
+    iconBg: "bg-deep/10 dark:bg-deep/20",
+    iconText: "text-deep dark:text-accent-text",
+    accentText: "text-deep dark:text-accent-text",
+    hoverBorder: "hover:border-deep/40",
+    borderAccent: "border-l-deep/50",
+    rule: "border-deep/25",
+    topBorder: "border-t-deep",
+    dot: "bg-deep",
+  },
+  rust: {
+    chip: "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
+    iconBg: "bg-rust-50 dark:bg-rust-900/30",
+    iconText: "text-rust-600 dark:text-rust-300",
+    accentText: "text-rust-700 dark:text-rust-300",
+    hoverBorder: "hover:border-rust-300/60",
+    borderAccent: "border-l-rust-400",
+    rule: "border-rust-200",
+    topBorder: "border-t-rust-400",
+    dot: "bg-rust-500",
+  },
+  brown: {
+    chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-[#cfa88a] border-skeptic/25 dark:border-skeptic/40",
+    iconBg: "bg-skeptic/10 dark:bg-skeptic/20",
+    iconText: "text-skeptic-dark dark:text-skeptic-light",
+    accentText: "text-skeptic-dark dark:text-[#cfa88a]",
+    hoverBorder: "hover:border-skeptic/40",
+    borderAccent: "border-l-skeptic/50",
+    rule: "border-skeptic/25",
+    topBorder: "border-t-skeptic",
+    dot: "bg-skeptic",
+  },
+  // Plum (#6b4768): 5.90:1 light, 6.20:1 dark on its tint.
+  plum: {
+    chip: "bg-plum/10 dark:bg-plum/20 text-plum dark:text-plum-light border-plum/25 dark:border-plum/40",
+    iconBg: "bg-plum/10 dark:bg-plum/20",
+    iconText: "text-plum dark:text-plum-light",
+    accentText: "text-plum dark:text-plum-light",
+    hoverBorder: "hover:border-plum/40",
+    borderAccent: "border-l-plum/50",
+    rule: "border-plum/25",
+    topBorder: "border-t-plum",
+    dot: "bg-plum",
+  },
+  // Slate ink (#4a5868): 5.61:1 light, 6.63:1 dark on its tint. Cool where
+  // stone status chips are warm, so it can't be read as a status.
+  ink: {
+    chip: "bg-ink/10 dark:bg-ink/20 text-ink dark:text-ink-light border-ink/25 dark:border-ink/40",
+    iconBg: "bg-ink/10 dark:bg-ink/20",
+    iconText: "text-ink dark:text-ink-light",
+    accentText: "text-ink dark:text-ink-light",
+    hoverBorder: "hover:border-ink/40",
+    borderAccent: "border-l-ink/50",
+    rule: "border-ink/25",
+    topBorder: "border-t-ink",
+    dot: "bg-ink",
+  },
+};
+
+/**
+ * Which tone each topic category wears. Teal is institutional / governance,
+ * ink is machine, brown is empirical (NOT green, see the decoupling note),
+ * rust is markets, plum is reflective (not crimson: crimson means a crux).
+ */
+export const categoryTone: Record<TopicCategory, Tone> = {
+  policy: "teal",
+  technology: "ink",
+  science: "brown",
+  economics: "rust",
+  philosophy: "plum",
+};
+
 export const categoryColors: Record<TopicCategory, string> = {
-  // Deep teal — institutional / governance
-  policy:
-    "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
-  // Slate ink (#4a5868) — machine. Cool where stone status chips are warm, so
-  // it can't be read as a status. 5.61:1 light, 6.63:1 dark on its tint.
-  technology:
-    "bg-ink/10 dark:bg-ink/20 text-ink dark:text-ink-light border-ink/25 dark:border-ink/40",
-  // Brown (skeptic = #8B5A3C) — empirical / earthy. NOT green (see decoupling note).
-  science:
-    "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-[#cfa88a] border-skeptic/25 dark:border-skeptic/40",
-  // Rust — markets / warmth
-  economics:
-    "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
-  // Plum (#6b4768) — reflective. Not crimson: crimson means a crux.
-  // 5.90:1 light, 6.20:1 dark on its tint.
-  philosophy:
-    "bg-plum/10 dark:bg-plum/20 text-plum dark:text-plum-light border-plum/25 dark:border-plum/40",
+  policy: toneStyles[categoryTone.policy].chip,
+  technology: toneStyles[categoryTone.technology].chip,
+  science: toneStyles[categoryTone.science].chip,
+  economics: toneStyles[categoryTone.economics].chip,
+  philosophy: toneStyles[categoryTone.philosophy].chip,
 };
 
 /**
@@ -74,11 +191,11 @@ export const statusColors: Record<TopicStatus, string> = {
  * the same category reads as the same color everywhere.
  */
 export const categoryTopBorder: Record<TopicCategory, string> = {
-  policy: "border-t-deep",
-  technology: "border-t-ink",
-  science: "border-t-skeptic", // brown #8B5A3C
-  economics: "border-t-rust-400",
-  philosophy: "border-t-plum",
+  policy: toneStyles[categoryTone.policy].topBorder,
+  technology: toneStyles[categoryTone.technology].topBorder,
+  science: toneStyles[categoryTone.science].topBorder,
+  economics: toneStyles[categoryTone.economics].topBorder,
+  philosophy: toneStyles[categoryTone.philosophy].topBorder,
 };
 
 /** Tailwind class string for a category chip (bg + text + border color, with dark variants). */

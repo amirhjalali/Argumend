@@ -150,29 +150,14 @@ describe("content-route graph import boundaries", () => {
   });
 
   it("does not speculatively prefetch every shared-shell destination", () => {
-    const topBarSource = readFileSync(
-      resolve(process.cwd(), "components/TopBar.tsx"),
-      "utf8",
-    );
-    const sidebarSource = readFileSync(
-      resolve(process.cwd(), "components/Sidebar.tsx"),
-      "utf8",
-    );
-    const footerSource = readFileSync(
-      resolve(process.cwd(), "components/Footer.tsx"),
-      "utf8",
-    );
-    const trendingSource = readFileSync(
-      resolve(process.cwd(), "components/TrendingTopics.tsx"),
-      "utf8",
-    );
-
-    expect(topBarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
-    expect(sidebarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
-    // Wordmark, the curated columns, and the legal links — the last of which
-    // are on every page and almost never followed, so they must not prefetch.
-    expect(footerSource.match(/prefetch=\{false\}/g)).toHaveLength(3);
-    expect(trendingSource.match(/prefetch=\{false\}/g)).toHaveLength(1);
+    // The header and footer are on every page, so every link in them opts out
+    // of prefetch: one <Link> per `prefetch={false}`, no exceptions.
+    for (const file of ["components/TopBar.tsx", "components/Footer.tsx"]) {
+      const source = readFileSync(resolve(process.cwd(), file), "utf8");
+      const links = source.match(/<Link\b/g) ?? [];
+      expect(links.length, `${file} renders no links`).toBeGreaterThan(0);
+      expect(source.match(/prefetch=\{false\}/g), file).toHaveLength(links.length);
+    }
   });
 });
 

@@ -3,11 +3,14 @@ import { useCallback, useState } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
+import { ANALYZE_HREF } from "@/lib/nav";
+import { articleSummaries } from "@/data/blogIndex";
+
+const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const push = vi.hoisted(() => vi.fn());
 
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push }) }));
-vi.mock("@/components/BalanceWeightChip", () => ({ BalanceWeightChip: () => null }));
 
 import { SearchModal } from "./SearchModal";
 
@@ -87,33 +90,68 @@ describe("SearchModal keyboard lifecycle", () => {
     expect(push).not.toHaveBeenCalled();
   });
 
-  it("shows every debate map before popular topics in the empty-state keyboard order", async () => {
+  it("opens on the two flagship maps, then paste-an-argument and all maps", async () => {
     const view = render(<SearchHarness />);
     fireEvent.click(view.getByRole("button", { name: "Open search" }));
     const input = view.getByRole("combobox", { name: "Search Argumend" });
     await waitFor(() => expect(document.activeElement).toBe(input));
 
     const options = view.getAllByRole("option");
-    expect(options).toHaveLength(argumentTopicIndex.length + 5);
-    argumentTopicIndex.forEach((topic, index) => {
+    const flagships = argumentTopicIndex.filter((topic) =>
+      ["ai-mass-unemployment", "capitalism-after-ai"].includes(topic.id),
+    );
+    expect(options).toHaveLength(4);
+    flagships.forEach((topic, index) => {
       expect(options[index].textContent).toContain(topic.title);
-      expect(options[index].textContent).toContain("Debate Map");
+      expect(options[index].textContent).toContain("Map");
     });
-    expect(options[argumentTopicIndex.length].textContent).not.toContain("Debate Map");
+    expect(options[2].textContent).toContain("Paste an argument");
+    expect(options[3].textContent).toContain("All maps");
+    // No hand-picked "popular" list, and no group called that.
+    expect(view.queryByText(/popular/i)).toBeNull();
+    expect(view.getByText("Maps")).toBeTruthy();
     expect(input.getAttribute("aria-activedescendant")).toBe(
-      `search-result-map-${argumentTopicIndex[0].id}`,
+      "search-result-map-ai-mass-unemployment",
     );
-    expect(view.getByRole("status").textContent).toBe(
-      `${argumentTopicIndex.length} debate maps and 5 popular topics`,
-    );
+    expect(view.getByRole("status").textContent).toBe("2 maps and 2 shortcuts");
 
     fireEvent.keyDown(input, { key: "ArrowDown" });
+    fireEvent.keyDown(input, { key: "ArrowDown" });
     fireEvent.keyDown(input, { key: "Enter" });
-    expect(push).toHaveBeenLastCalledWith(`/topics/${argumentTopicIndex[1].id}`);
+    expect(push).toHaveBeenLastCalledWith(ANALYZE_HREF);
+  });
+
+  it("never labels a result with a lean or a score (For / Against / Draw)", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    for (const query of ["free will", "climate", "nuclear"]) {
+      fireEvent.change(input, { target: { value: query } });
+      for (const option of view.getAllByRole("option")) {
+        expect(option.textContent).not.toMatch(/\b(For|Against|Draw)$/);
+      }
+    }
+    expect(view.container.textContent).not.toMatch(/Debate Map/);
+  });
+
+  it("spells every type badge out in full (\"Blog\", not \"Blo\")", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    const article = articleSummaries[0];
+    fireEvent.change(input, { target: { value: article.title } });
+    const option = view.getByRole("option", { name: new RegExp(escapeRegExp(article.title)) });
+    const badge = option.querySelector("span.whitespace-nowrap");
+    expect(badge?.textContent).toBe("Blog");
+    expect(option.textContent).toMatch(/Blog$/);
   });
 
   it.each(argumentTopicIndex)(
-    "finds the lightweight debate-map entry for $id without loading its graph",
+    "finds the lightweight map entry for $id without loading its graph",
     async (topic) => {
       const view = render(<SearchHarness />);
       fireEvent.click(view.getByRole("button", { name: "Open search" }));
@@ -122,7 +160,7 @@ describe("SearchModal keyboard lifecycle", () => {
 
       fireEvent.change(input, { target: { value: topic.title } });
       const result = view.getByRole("option", { name: new RegExp(topic.title) });
-      expect(result.textContent).toContain("Debate Map");
+      expect(result.textContent).toMatch(/Map$/);
 
       fireEvent.click(result);
       expect(push).toHaveBeenLastCalledWith(`/topics/${topic.id}`);

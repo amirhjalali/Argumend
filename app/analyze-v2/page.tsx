@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Footer } from "@/components/Footer";
-import { TopBar } from "@/components/TopBar";
+import { AppShell } from "@/components/AppShell";
 import { DisagreementAnalyzeClient } from "@/components/disagreement/DisagreementAnalyzeClient";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Find what the argument turns on — ARGUMEND",
+  // The root layout's template appends "| ARGUMEND"; no suffix here.
+  title: "Find what the argument turns on",
   robots: { index: false, follow: false },
 };
 
@@ -17,12 +17,8 @@ export default function AnalyzeV2Page() {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--bg-canvas)]">
-      <TopBar />
-      <main>
-        <DisagreementAnalyzeClient />
-      </main>
-      <Footer />
-    </div>
+    <AppShell>
+      <DisagreementAnalyzeClient />
+    </AppShell>
   );
 }
