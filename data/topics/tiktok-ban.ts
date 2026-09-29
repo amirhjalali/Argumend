@@ -33,6 +33,16 @@ export const tiktokBanData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Independent security audit requiring cleared personnel and full source code access)",
+        falsification: {
+          supporter_flip:
+            "If a fully independent technical audit mapped every data flow between US servers and Beijing-based systems and found isolation complete — no backdoors, and no covert channel through the recommendation algorithm — the national-security case for a ban or forced sale would weaken substantially.",
+          skeptic_flip:
+            "A skeptic who calls the threat speculative should weigh that ByteDance confirmed in 2022 that employees in China used TikTok data to track US journalists' locations, and that China's 2017 National Intelligence Law requires organizations to cooperate with intelligence work. If an audit finds access channels still open after $1.5 billion in mitigation, the risk is structural, not hypothetical.",
+          common_ground:
+            "Both sides agree TikTok holds extensive data on its 170 million American users, and that Project Texas spent $1.5 billion moving that data onto Oracle-hosted US servers.",
+          live_disagreement:
+            "Whether Project Texas actually closes every access channel to Beijing — including the recommendation algorithm, which is maintained there — or whether China's intelligence law leaves a structural risk that no data-hosting arrangement can remove.",
+        },
       },
       evidence: [
         {
@@ -165,6 +175,16 @@ export const tiktokBanData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Longitudinal study of creator migration outcomes)",
+        falsification: {
+          supporter_flip:
+            "If creators tracked after losing TikTok kept far less of their audience, engagement and income on Instagram Reels, YouTube Shorts or other platforms, the law would be removing a distinct speech forum rather than moving speech elsewhere, and the 'no one is silenced' defense would weaken.",
+          skeptic_flip:
+            "A skeptic who calls the law censorship should weigh that the Supreme Court upheld it 9-0 as content-neutral, that Congress offered divestiture as a way to keep the platform running, and that identical content can still be posted on Instagram Reels or YouTube Shorts.",
+          common_ground:
+            "Both sides accept that the Supreme Court upheld the law unanimously in January 2025 under intermediate scrutiny, and that some 170 million Americans use TikTok for speech, business and creative work.",
+          live_disagreement:
+            "Whether TikTok's algorithm and community make it a distinct speech forum other platforms can't replace, or one channel among many — which decides whether the law is an ownership rule or a real loss of speech.",
+        },
       },
       evidence: [
         {
@@ -280,6 +300,16 @@ export const tiktokBanData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$100K-300K (Market analysis using publicly available financial data and lobbying disclosures)",
+        falsification: {
+          supporter_flip:
+            "If market concentration measurably rose after a ban — higher Meta and Google shares of users and ad revenue, slower innovation — the law's main effect would be anticompetitive whatever its stated purpose, and the fair-competition defense would weaken.",
+          skeptic_flip:
+            "A skeptic who sees protectionism should weigh that the law offers a sale to a non-adversary owner as the alternative to a ban, which would keep TikTok's technology and users in the market, and that China blocks Facebook, Instagram, YouTube and Google while TikTok operates freely in the US.",
+          common_ground:
+            "Both sides agree TikTok is the strongest rival to Meta and Google in short-form video, and that American platforms such as Facebook, Instagram and YouTube are blocked in China.",
+          live_disagreement:
+            "Whether the law's main effect is to hand TikTok's users and ad revenue to Meta and Google, or whether a forced sale keeps competition intact while setting ownership rules for platforms controlled by a foreign adversary.",
+        },
       },
       evidence: [
         {
@@ -361,6 +391,16 @@ export const tiktokBanData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$150K-400K (Multi-jurisdiction comparative policy analysis requiring access to classified threat assessments and economic data)",
+        falsification: {
+          supporter_flip:
+            "If comparing actions across the US, India, the EU and others showed that moves against foreign platforms mainly served trade retaliation or protectionism and produced no measurable drop in intelligence risk, the principled data-sovereignty case would weaken toward the 'pretext' reading.",
+          skeptic_flip:
+            "A skeptic who wants harm shown first should weigh that for most of the dispute the recommendation algorithm shaping what 170 million Americans see was developed and maintained in Beijing, and that after India banned TikTok in 2020, domestic alternatives absorbed its roughly 200 million users within 18 months.",
+          common_ground:
+            "Both sides agree other governments have already acted on TikTok: India banned it in 2020, and the EU required European data centers and algorithmic-transparency audits.",
+          live_disagreement:
+            "Whether a foreign adversary's structural control of a mass platform justifies action on its own, or whether acting without demonstrated abuse sets a precedent for governments to control which information platforms citizens can use.",
+        },
       },
       evidence: [
         {

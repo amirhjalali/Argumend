@@ -33,6 +33,16 @@ export const usIranConflictData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 (IAEA reports and diplomatic records are publicly available)",
+        falsification: {
+          supporter_flip:
+            "If the full timeline of IAEA reports and Iranian escalations confirmed that every escalation followed a US action, and the June 2025 strikes left Iran's enrichment knowledge and underground capacity largely intact, the case that pressure prevented breakout would weaken.",
+          skeptic_flip:
+            "A skeptic who blames the withdrawal should weigh that the JCPOA's sunset clauses would have allowed unrestricted enrichment by 2030 and never covered ballistic missiles, and that by 2025 Iran held 408 kg of 60% enriched uranium, with the IAEA detecting particles at 83.7%.",
+          common_ground:
+            "Both sides agree Iran went from 3.67% enrichment to 60% and amassed about 408 kg of 60% uranium, and that its breaches of JCPOA limits began after the US withdrew in 2018.",
+          live_disagreement:
+            "Whether Iran's escalation was caused by the US leaving a deal Iran was complying with, or would have come anyway as the sunset clauses expired — and whether the 2025 strikes set the program back years or left capacity the IAEA can no longer see.",
+        },
       },
       evidence: [
         {
@@ -131,6 +141,16 @@ export const usIranConflictData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Comprehensive multi-country conflict analysis requiring classified and open-source intelligence fusion)",
+        falsification: {
+          supporter_flip:
+            "If proxy metrics across 2015-2018, 2018-2024 and 2025-2026 — Hezbollah's rocket inventory, Houthi anti-ship launches, militia attacks on US bases — showed capacity growing under maximum pressure, the policy would have failed on its own terms.",
+          skeptic_flip:
+            "A skeptic who sees the proxy network strengthened should weigh that during the February 2026 strikes Iran's proxies largely failed to mobilize in its defense — the Houthis refrained from major action and Hezbollah launched only limited salvos — exposing the network's fragility.",
+          common_ground:
+            "Both sides agree Iran funds Hezbollah at an estimated $700 million to $1 billion a year, and that its proxies struck hard in 2023-2024, with 170+ attacks on US bases and Red Sea attacks that rerouted global shipping.",
+          live_disagreement:
+            "Whether maximum pressure and the 2025-2026 strikes have degraded Iran's proxy network, as its absence in February 2026 suggests, or whether the network grew under pressure as a rational deterrent to US encirclement.",
+        },
       },
       evidence: [
         {
@@ -229,6 +249,16 @@ export const usIranConflictData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Comprehensive independent epidemiological study requiring on-ground access in Iran)",
+        falsification: {
+          supporter_flip:
+            "If tracking OFAC license approvals against actual imports showed permitted medicine and food largely failing to arrive because banks over-comply, and civilian health worsened after each sanctions escalation, the sanctions would amount to economic warfare on civilians whatever the exemptions say on paper.",
+          skeptic_flip:
+            "A skeptic who sees only collective punishment should weigh that food and medicine are explicitly exempt under OFAC guidelines, that the regime diverts resources to proxies and its nuclear program, and that Iran agreed in April 2025 to resume nuclear talks, leading to five rounds brokered by Oman.",
+          common_ground:
+            "Both sides agree sanctions have badly damaged Iran's economy — GDP from about $600 billion to $356 billion, the rial from 42,000 to over 1.4 million per dollar — and that Iranian civilians are suffering, whoever bears the blame.",
+          live_disagreement:
+            "Whether sanctions coerce the regime, bringing it to talks, or mainly punish civilians while it keeps enriching and funding proxies — which turns on whether humanitarian exemptions actually deliver in practice.",
+        },
       },
       evidence: [
         {

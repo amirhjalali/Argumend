@@ -33,6 +33,16 @@ export const nuclearWeaponsAbolitionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Archival research across US, Russian, and Indian declassified records with quantitative analysis)",
+        falsification: {
+          supporter_flip:
+            "If declassified war planning showed Soviet and American leaders rejecting military options for reasons other than nuclear risk, and nuclear dyads proved no less war-prone than comparable conventional ones, the case that deterrence caused the Long Peace would shrink to coincidence.",
+          skeptic_flip:
+            "A skeptic who calls the nuclear peace post hoc should weigh that Soviet archives show leaders citing nuclear consequences as the reason for restraint in the 1948 and 1961 Berlin crises, and that India and Pakistan fought three full-scale wars before their 1998 tests and none since.",
+          common_ground:
+            "Both sides agree nuclear-armed great powers have not fought a direct war since 1945, and that whether deterrence caused this cannot be proven, only argued from counterfactuals.",
+          live_disagreement:
+            "Whether the threat of annihilation kept the superpowers from war, or the UN, trade, democracy and exhausted imperial rivalries would have done so anyway — and how much weight near-misses like Cuba and Able Archer should carry.",
+        },
       },
       evidence: [
         {
@@ -131,6 +141,16 @@ export const nuclearWeaponsAbolitionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-20M (Multi-institutional technical verification feasibility study)",
+        falsification: {
+          supporter_flip:
+            "If an independent technical study found that environmental sampling, satellite imagery and xenon detection could catch clandestine enrichment or weapon assembly well within the breakout timeline, disarmed states would not be left vulnerable, and the claim that abolition makes the world less safe would weaken.",
+          skeptic_flip:
+            "A skeptic who favors abolition should weigh that the knowledge to build weapons cannot be un-invented, that verifying zero means proving a negative rather than counting weapons, and that every nuclear-armed state has refused to join the TPNW.",
+          common_ground:
+            "Both sides agree the knowledge to build nuclear weapons cannot be erased, and that no nuclear-armed state has joined the TPNW, which entered into force in 2021.",
+          live_disagreement:
+            "Whether a verification regime could detect a secret rebuild fast enough to respond, making abolition workable through latent deterrence as the chemical and biological weapons bans suggest, or whether the first state to cheat would gain a decisive advantage.",
+        },
       },
       evidence: [
         {
@@ -212,6 +232,16 @@ export const nuclearWeaponsAbolitionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-center climate modeling study with agricultural impact assessment)",
+        falsification: {
+          supporter_flip:
+            "If independent earth-system models confirmed that even a regional exchange of 100 weapons would cut global food production enough to kill billions, the permanent nonzero chance of use would be hard to outweigh with any deterrence benefit, and the case for keeping the weapons would weaken.",
+          skeptic_flip:
+            "A skeptic who sees only catastrophic risk should weigh that nuclear weapons have not been used in conflict for over 80 years across the Cold War and many crises, and that conventional great-power wars killed 80+ million people in the first half of the 20th century.",
+          common_ground:
+            "Both sides agree any nuclear use would be a humanitarian catastrophe — the ICRC says no adequate response exists for a detonation in a populated area — and that this horror sits at the center of the argument either way.",
+          live_disagreement:
+            "Whether nuclear winter models are right that even a limited exchange would cause global famine, making the tail risk outweigh any deterrence benefit, or overstated, leaving the record of non-use as the weightier fact.",
+        },
       },
       evidence: [
         {

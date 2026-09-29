@@ -31,6 +31,16 @@ export const secondAmendmentIndividualRightData = {
           "Apply 18th-century rules of grammar and legal drafting to the two-clause structure; survey contemporaneous state constitutional arms provisions (some explicitly individual, some militia-linked); and weigh founding-era usage of 'the people,' 'keep,' and 'bear arms' against ratification-era commentary (e.g., the Federalist, state ratifying debates).",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0 (textual and historical analysis)",
+        falsification: {
+          supporter_flip:
+            "If 18th-century drafting conventions and contemporaneous state arms provisions showed that prefatory clauses like 'A well regulated Militia' were understood to restrict the operative clause, the individual-right reading would lose its textual footing, whatever Heller holds as precedent.",
+          skeptic_flip:
+            "A skeptic who stresses the long militia-tied consensus should weigh that Heller read the prefatory clause as announcing a purpose rather than limiting the right, that McDonald applied the individual right to the states in 2010, and that the Fifth Circuit had already adopted the individual reading in Emerson (2001) after an extensive review of text and founding history.",
+          common_ground:
+            "Both sides agree the individual right is binding precedent under Heller (2008) and McDonald (2010), both decided 5-4, and that for decades after Miller (1939) appeals courts mostly read the right as militia-tied.",
+          live_disagreement:
+            "Whether the prefatory militia clause restricts 'the right of the people to keep and bear Arms' or only states why it was protected — which decides whether Heller corrected the Miller-era reading or departed from it.",
+        },
       },
       evidence: [
         {
@@ -128,6 +138,16 @@ export const secondAmendmentIndividualRightData = {
           "Query large founding-era corpora (COFEA, 1760-1799; COEME) for every instance of 'bear arms'/'keep arms', code each as military-idiomatic, literal-individual, or ambiguous, and report inter-coder reliability. Sensitivity-test results by including vs. excluding constitutional/legal texts and by re-coding plural uses.",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (public corpora; data analysis)",
+        falsification: {
+          supporter_flip:
+            "If sensitivity-tested corpus work — including constitutional texts and re-coding plural uses — still found literal individual carrying rare, and 'keep arms' and the state provisions offered no independent support, the historical case for an individual right would shrink to precedent alone.",
+          skeptic_flip:
+            "A skeptic who relies on the corpus counts should weigh that re-analyses including constitutional texts find roughly a fifth of founding-era 'bear arms' uses were literal individual carrying, that the Amendment also protects the right to 'keep' arms, and that several founding-era state constitutions secured arms expressly for personal defense.",
+          common_ground:
+            "Both sides agree 'bear arms' carried a military meaning in most founding-era uses, and that contemporaneous state constitutions varied, some securing arms for personal defense and some tying them to the militia.",
+          live_disagreement:
+            "Whether founding-era readers understood arms-bearing chiefly as militia duty or also as a private right of self-defense — which turns on how the corpus is coded and how much weight 'keep arms' and the state provisions carry.",
+        },
       },
       evidence: [
         {
