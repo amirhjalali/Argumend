@@ -151,3 +151,28 @@ Open from round 2: `immigration-national-identity` supporters' text says "progre
 demographic change" (an unsupported motive claim; left as that side's voice for the founder);
 `/questions` ships ~8 KB of unused client code; the flagship's closed "Researcher mode" fold is 161 KB
 of markup; `/topics` renders client-side; warming the paste index at boot.
+
+## Round 3 (2026-09-29, 21:35–22:15 UTC, same branch)
+
+A fresh cold review (`docs/reviews/2026-09-29-r3-fresh-review.md`) put the main path at ~80–85% of the
+vision and named the next problems; three of its top issues and several smaller ones are fixed:
+
+- **One name per map** (`lib/mapNaming.ts` `mapDisplayTitle` = the question) on every surface a reader
+  sees: breadcrumb, search, paste, diagram, /questions, Learn links, library, saved, embed, OG/feed.
+- **Sides answer the question:** legacy maps read "Says yes" / "Says no"; mind-change lines and
+  evidence labels say yes/no to the map's question.
+- **Search** ranks by question and "Also asked as" phrasings: "is nuclear power safe" and 8 other
+  obvious queries open the right map first (tests pin them).
+- **Flips finished:** the side audit's suspect pillars now address their own side (one left:
+  central-bank-digital-currency 3, where the map contradicts itself).
+- **Library cards** = question + first crux + "turns on N questions" (no status words, no "pillars");
+  reflection shows what would settle the chosen crux and links to it; the paste result's next step
+  sits under the crux box on phones; home's button higher on phones; Moon landing filed under Science.
+
+Verified on the final tip: vitest 3,071, tsc, lint, `bun run build`, e2e 32 passed / 2 skipped,
+866-path link crawl clean, the live-site nuclear paste matches.
+
+Still open from the fresh review: "What would settle it" lines that restate the dispute (~430 to audit,
+use "Nothing does, and here is why" where evidence can't settle it); an offline no-match state for
+personal arguments; Learn's crux/pillar vocabulary; flagship AI-jobs crux 2/3 share one settle test
+and crux 5's settle line lacks its antecedent; About length; /questions leading with its crux.
