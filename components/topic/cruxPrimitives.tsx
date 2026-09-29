@@ -7,7 +7,7 @@
 import type { ArgumentNode, Claim, ResolutionKind } from "@/types/argument";
 import type { CruxResult } from "@/lib/crux";
 import type { CruxLedgerEntry, CruxLedgerStatus } from "@/types/cruxLedger";
-import { claimMovement } from "@/lib/argument/ledger";
+import { claimMovement } from "@/lib/argument/ledgerProjection"; // zod-free: the diagram imports this file on the client
 import { numberWord, type SettleMode } from "@/lib/topicPage/model";
 import { standingLineFor } from "@/components/argument/CruxMovement";
 

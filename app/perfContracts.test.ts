@@ -20,6 +20,18 @@ describe("performance contracts", () => {
     }
   });
 
+  it("keeps zod out of the crux primitives the diagram ships to the browser", () => {
+    // components/topic/cruxPrimitives.tsx is imported by client components on
+    // /topics/[id]/map (DiagramDetail, MobileArgumentList). lib/argument/ledger.ts
+    // holds the zod schemas; importing it from here put ~66KB gzip of zod in
+    // that route's first load.
+    const primitives = read("components/topic/cruxPrimitives.tsx");
+    expect(primitives).not.toMatch(/from "@\/lib\/argument\/ledger"/);
+    const projection = read("lib/argument/ledgerProjection.ts");
+    expect(projection).not.toMatch(/from "zod"/);
+    expect(projection).not.toMatch(/from "\.\/ledger"|from "@\/lib\/argument\/ledger"/);
+  });
+
   it("preloads only the upright font faces", () => {
     const layout = read("app/layout.tsx");
     const calls = [...layout.matchAll(/= (EB_Garamond|Plus_Jakarta_Sans)\(\{([\s\S]*?)\}\);/g)];
