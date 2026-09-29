@@ -1,6 +1,8 @@
 export const immigrationBorderCrisisData = {
   id: "immigration-border-crisis",
   title: "The US Immigration & Border Crisis",
+  question:
+    "Is enforcement plus asylum limits the best way to manage US immigration?",
   meta_claim:
     "The current approach to US immigration — combining border enforcement, asylum restrictions, and deportation — is the most effective way to manage immigration and protect national interests.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const immigrationBorderCrisisData = {
       crux: {
         id: "enforcement-deterrence-causation",
         title: "The Enforcement-Deterrence Correlation Test",
+        question:
+          "Did border crossings fall because of enforcement, or because of other factors?",
         description:
           "If enforcement is the primary driver of border crossing reductions, we should see sharp declines correlated with specific enforcement actions (wall construction, policy changes, troop deployments) rather than external factors (economic conditions in origin countries, Mexican enforcement cooperation, seasonal patterns). A rigorous causal analysis can distinguish enforcement effects from confounding variables.",
         methodology:
@@ -118,6 +122,8 @@ export const immigrationBorderCrisisData = {
       crux: {
         id: "wage-impact-analysis",
         title: "The Distributional Wage Impact Assessment",
+        question:
+          "Does immigration meaningfully depress wages for low-skill native-born workers?",
         description:
           "If immigration primarily depresses wages for native-born low-skill workers, enforcement and restriction are economically justified for protecting vulnerable American workers. If wage effects are negligible or offset by complementary economic benefits (lower consumer prices, business creation, social security contributions), the economic case for restriction collapses.",
         methodology:
@@ -197,6 +203,8 @@ export const immigrationBorderCrisisData = {
       crux: {
         id: "asylum-grant-rate-analysis",
         title: "The Asylum Merits Assessment",
+        question:
+          "Would most asylum seekers at the southern border qualify for protection under fair adjudication?",
         description:
           "If the majority of asylum seekers at the southern border have legitimate persecution claims that would be granted under fair adjudication, then restrictions are denying protection to refugees. If most claims lack merit and would be denied even under generous adjudication, the system is being used as a backdoor for economic migration.",
         methodology:

@@ -1,6 +1,8 @@
 export const autonomousWeaponsBanData = {
   id: "autonomous-weapons-ban",
   title: "Banning Killer Robots",
+  question:
+    "Should lethal autonomous weapons be banned by international treaty?",
   meta_claim:
     "Lethal autonomous weapons should be banned by international treaty.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const autonomousWeaponsBanData = {
       crux: {
         id: "responsibility-gap-test",
         title: "The Responsibility-Gap Test",
+        question:
+          "Could an autonomous weapon commit a war crime for which no human can be held responsible?",
         description:
           "Does delegating target selection to software actually leave a war-crime with no accountable human, or can existing command-responsibility and weapons-review law always trace liability back to a person?",
         methodology:
@@ -127,6 +131,8 @@ export const autonomousWeaponsBanData = {
       crux: {
         id: "verification-test",
         title: "The Verification Test",
+        question:
+          "Would a treaty without verification change how major powers build and field these weapons?",
         description:
           "Can compliance with a ban on autonomous targeting be verified — by inspection, observable behavior, or hardware controls — to a degree that great powers would accept, or is the software nature of autonomy fundamentally unverifiable?",
         methodology:

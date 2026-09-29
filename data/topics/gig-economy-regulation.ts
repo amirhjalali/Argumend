@@ -1,6 +1,7 @@
 export const gigEconomyRegulationData = {
   id: "gig-economy-regulation",
   title: "Gig Economy Regulation",
+  question: "Should gig platforms have to classify their workers as employees?",
   meta_claim:
     "Gig economy platforms (Uber, Lyft, DoorDash, etc.) should be required to classify their workers as employees rather than independent contractors, providing full labor protections.",
   status: "contested" as const,
@@ -34,6 +35,8 @@ export const gigEconomyRegulationData = {
       crux: {
         id: "algorithmic-control-measurement",
         title: "Measuring Algorithmic Control vs. Worker Autonomy",
+        question:
+          "How much control do platform algorithms really exert, compared with employers and true contractors?",
         description:
           "Quantifying the degree to which platform algorithms control gig worker behavior compared to traditional employment relationships, to determine if the 'independent contractor' classification is factually accurate.",
         methodology:
@@ -118,6 +121,8 @@ export const gigEconomyRegulationData = {
       crux: {
         id: "reclassification-impact-study",
         title: "Reclassification Impact on Worker Welfare and Market Size",
+        question:
+          "Would employee status leave gig workers better off overall, once pay, hours and market size are counted?",
         description:
           "Measuring the net effect of employee reclassification on worker total compensation, platform prices, market size, and consumer welfare.",
         methodology:

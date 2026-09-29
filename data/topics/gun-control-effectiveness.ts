@@ -1,6 +1,8 @@
 export const gunControlEffectivenessData = {
   id: "gun-control-effectiveness",
   title: "Gun Control Effectiveness",
+  question:
+    "Do stricter gun laws significantly reduce gun violence and mass shootings?",
   meta_claim:
     "Stricter gun control laws significantly reduce gun violence and mass shootings.",
   status: "contested" as const,
@@ -35,6 +37,8 @@ export const gunControlEffectivenessData = {
       crux: {
         id: "natural-experiment",
         title: "Policy Change Natural Experiments",
+        question:
+          "How much of the US firearm death rate comes from gun availability and laws versus other factors?",
         description:
           "Study jurisdictions before and after significant gun law changes to measure causal impact.",
         methodology:
@@ -142,6 +146,8 @@ export const gunControlEffectivenessData = {
       crux: {
         id: "assault-weapon-lethality",
         title: "Weapon Type and Casualty Analysis",
+        question:
+          "Do limits on assault weapons and large magazines cut mass-shooting casualties, or do attackers substitute?",
         description:
           "Do mass shootings with assault-style weapons result in more casualties than those with other firearms?",
         methodology:

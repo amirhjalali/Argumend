@@ -1,6 +1,7 @@
 export const alcoholNoSafeLevelData = {
   id: "alcohol-no-safe-level",
   title: "Alcohol's Safe Level",
+  question: "Is any amount of drinking harmful to health?",
   meta_claim:
     "There is no safe level of alcohol consumption for health.",
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const alcoholNoSafeLevelData = {
       crux: {
         id: "carcinogen-threshold",
         title: "The Carcinogenic Threshold Test",
+        question:
+          "Does cancer risk rise from the first drink, or could a small threshold hide below what studies can detect?",
         description:
           "Whether there exists any daily dose of ethanol below which cancer risk does not rise above the lifetime-abstainer baseline. If the dose-response curve passes through the origin with positive slope, the meta-claim holds for cancer.",
         methodology:
@@ -107,6 +110,8 @@ export const alcoholNoSafeLevelData = {
       crux: {
         id: "confounding-vs-causation",
         title: "Confounding vs. Causation at Low Doses",
+        question:
+          "Is the apparent dip in deaths at low doses real, or an artifact of who counts as a non-drinker?",
         description:
           "Whether the apparent flatness (or dip) in all-cause mortality at low intake is a true causal floor or an artifact of 'abstainer bias' — sick ex-drinkers and the unwell being misclassified into the non-drinking reference group, making light drinkers look healthier than they are.",
         methodology:
@@ -213,6 +218,8 @@ export const alcoholNoSafeLevelData = {
       crux: {
         id: "reference-group-test",
         title: "The Reference-Group Test",
+        question:
+          "How much apparent benefit of light drinking remains when compared only with healthy lifelong non-drinkers?",
         description:
           "Whether the J-curve survives when the comparison group is restricted to healthy lifetime abstainers (excluding 'sick quitters'). If the protective dip disappears under a clean reference group, it was an artifact; if it persists, a safe/beneficial low dose may be real.",
         methodology:

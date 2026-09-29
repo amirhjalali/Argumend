@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const artificialReproductionEthicsData = {
   id: "artificial-reproduction-ethics",
   title: "Artificial Wombs & Synthetic Embryos",
+  question:
+    "Will artificial wombs and lab-made eggs and sperm remake reproduction in 15 years?",
   meta_claim:
     "Ectogenesis (artificial womb technology) and in-vitro gametogenesis (creating eggs/sperm from skin cells) will fundamentally alter human reproduction within 15 years, raising profound ethical questions about parenthood, consent, and biological boundaries.",
   status: "contested" as const,
@@ -60,6 +62,8 @@ export const artificialReproductionEthicsData = {
       crux: {
         id: "biobag-human-translation",
         title: "The Human Biobag Translation Trial",
+        question:
+          "Can artificial wombs sustain fetuses below 22–23 weeks with outcomes as good as neonatal intensive care?",
         description:
           "The decisive question is whether artificial womb technology can successfully sustain human fetuses at gestational ages below current viability thresholds (22-23 weeks) with outcomes comparable to or better than conventional NICU care. If human trials demonstrate safety and efficacy, the medical necessity argument becomes unassailable.",
         methodology:
@@ -156,6 +160,8 @@ export const artificialReproductionEthicsData = {
       crux: {
         id: "right-to-terminate-vs-evacuate",
         title: "The Evacuation vs. Termination Distinction",
+        question:
+          "Is the abortion right about ending a pregnancy, or about not becoming a genetic parent?",
         description:
           "The crux is whether the right to abortion is fundamentally about ending a pregnancy (bodily autonomy) or ending a potential life (reproductive self-determination). If courts and ethicists conclude that bodily autonomy is the core right, ectogenesis provides a satisfactory alternative. If reproductive self-determination — the right not to become a genetic parent — is the core right, ectogenesis does not resolve the fundamental disagreement.",
         methodology:
@@ -218,6 +224,8 @@ export const artificialReproductionEthicsData = {
       crux: {
         id: "regulatory-capacity-test",
         title: "The Governance Feasibility Assessment",
+        question:
+          "Can international rules prevent eugenic uses of these technologies while keeping therapeutic ones?",
         description:
           "The crux is whether international regulatory frameworks can be designed and enforced to prevent eugenic applications of combined ectogenesis/IVG/genetic selection technology while preserving therapeutic uses. If effective governance is feasible, the commodification risk is manageable. If regulation cannot keep pace with technological capability, the risk of misuse may justify moratoriums.",
         methodology:

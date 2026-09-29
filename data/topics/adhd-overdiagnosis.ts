@@ -1,6 +1,7 @@
 export const adhdOverdiagnosisData = {
   id: "adhd-overdiagnosis",
   title: "Is ADHD Overdiagnosed?",
+  question: "Is ADHD overdiagnosed?",
   meta_claim: "ADHD is substantially overdiagnosed.",
   status: "contested" as const,
   category: "science" as const,
@@ -35,6 +36,8 @@ export const adhdOverdiagnosisData = {
       crux: {
         id: "true-vs-diagnosed-prevalence",
         title: "True Prevalence vs. Diagnosed Prevalence Gap",
+        question:
+          "Does the gap between diagnosed and community ADHD rates reflect false positives or previously missed cases?",
         description:
           "Whether the rising diagnosed rate is overshooting the true population rate of impairing ADHD, or merely catching up to a true rate that was always under-served.",
         methodology:
@@ -103,6 +106,8 @@ export const adhdOverdiagnosisData = {
       crux: {
         id: "relative-age-artifact",
         title: "The Relative-Age Natural Experiment",
+        question:
+          "How many ADHD diagnoses reflect being the youngest in class rather than a genuine disorder?",
         description:
           "School-entry cutoff dates randomly make some children the youngest in their class. If being relatively young (not biologically different) raises diagnosis odds, that increment is overdiagnosis driven by context rather than disorder.",
         methodology:
@@ -172,6 +177,8 @@ export const adhdOverdiagnosisData = {
       crux: {
         id: "net-harm-of-marginal-diagnosis",
         title: "Net Effect of the Marginal Diagnosis",
+        question:
+          "For milder cases, does treatment do more good or more harm than watchful waiting over the long run?",
         description:
           "For the additional, milder cases at the diagnostic margin, does receiving the diagnosis (and any treatment) produce net benefit or net harm over the long run?",
         methodology:

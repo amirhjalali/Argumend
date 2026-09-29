@@ -1,6 +1,7 @@
 export const congressionalTermLimitsData = {
   id: "congressional-term-limits",
   title: "Congressional Term Limits",
+  question: "Would congressional term limits improve American governance?",
   meta_claim:
     "Congressional term limits would improve American governance.",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const congressionalTermLimitsData = {
       crux: {
         id: "competition-after-limits",
         title: "Did Open Seats Become More Competitive?",
+        question:
+          "Do forced open seats bring more competitive races and new kinds of legislators, or reshuffle similar ones?",
         description:
           "If term limits improve governance through accountability, the open seats they create should produce measurably more competitive elections and meaningfully different (e.g. more diverse, less entrenched) winners than the incumbent-held seats they replace.",
         methodology:
@@ -144,6 +147,8 @@ export const congressionalTermLimitsData = {
       crux: {
         id: "where-power-goes",
         title: "Who Gains Power When Legislators Lose Tenure?",
+        question:
+          "Do term limits shift power to governors, agencies and lobbyists, or loosen entrenched interests?",
         description:
           "The load-bearing disagreement: does forced turnover empower citizen-legislators and weaken entrenched interests, or does it hollow out legislative capacity and hand power to governors, agencies, and lobbyists who outlast every term-limited member?",
         methodology:
@@ -232,6 +237,8 @@ export const congressionalTermLimitsData = {
       crux: {
         id: "amendment-pathway",
         title: "Is There a Realistic Path to Enactment?",
+        question:
+          "Is there a realistic path to enactment when the officials being limited control the process?",
         description:
           "Because Thornton forecloses statutory term limits, the claim that they 'would improve governance' is partly counterfactual unless an enactment path exists. The crux is whether the Article V process can plausibly deliver congressional term limits given that the gatekeepers are the officials being limited.",
         methodology:

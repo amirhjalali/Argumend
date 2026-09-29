@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const centralBankDigitalCurrencyData = {
   id: "central-bank-digital-currency",
   title: "Central Bank Digital Currencies",
+  question:
+    "Would central bank digital currencies enable unprecedented surveillance?",
   meta_claim:
     "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
   status: "contested" as const,
@@ -76,6 +78,8 @@ export const centralBankDigitalCurrencyData = {
       crux: {
         id: "privacy-architecture-test",
         title: "The Architectural Privacy Assessment",
+        question:
+          "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
         description:
           "The crux is whether CBDC systems can be designed with privacy protections that are architecturally enforced (technically impossible to surveil) rather than merely policy-enforced (prohibited by rules that can be changed). If cryptographic techniques like zero-knowledge proofs can provide transaction privacy that not even the central bank can break, the surveillance concern is addressed. If all proposed designs retain the technical capability for surveillance, privacy protections are only as durable as political will.",
         methodology:
@@ -165,6 +169,8 @@ export const centralBankDigitalCurrencyData = {
       crux: {
         id: "cbdc-vs-existing-inclusion",
         title: "The CBDC vs. Existing Solutions Comparison",
+        question:
+          "Do CBDCs expand financial inclusion beyond what existing mobile-money systems already do?",
         description:
           "The crux is whether a CBDC provides financial inclusion benefits that cannot be achieved through existing mobile money and digital payment systems. If a CBDC's unique characteristics (central bank backing, programmability, interoperability) provide measurable improvements in inclusion, access, and cost over existing alternatives, the case for CBDCs is strengthened. If existing systems already achieve comparable results, the CBDC adds risk without proportionate benefit.",
         methodology:
@@ -237,6 +243,8 @@ export const centralBankDigitalCurrencyData = {
       crux: {
         id: "cbdc-sanctions-evasion-capacity",
         title: "The Sanctions Evasion Capacity Test",
+        question:
+          "Can cross-border CBDC payments grow large enough to meaningfully blunt US sanctions?",
         description:
           "The crux is whether CBDC-based cross-border payment systems can provide a viable alternative to SWIFT and dollar settlement at sufficient scale to meaningfully reduce the effectiveness of US financial sanctions. If countries under sanctions can route significant trade volumes through CBDC bridges without using the dollar, US sanctions power is genuinely threatened. If CBDC bridges remain limited by network effects, liquidity constraints, and geopolitical risks, they represent marginal alternatives at best.",
         methodology:

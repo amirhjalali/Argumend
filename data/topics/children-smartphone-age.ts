@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const childrenSmartphoneAgeData = {
   id: "children-smartphone-age",
   title: "Smartphone Age Restrictions for Children",
+  question: "Should children under 14 be barred from owning smartphones?",
   meta_claim:
     "Children under 14 should be prohibited from owning smartphones, as the developmental harms of constant connectivity, social media, and algorithmic content outweigh the benefits of access and safety.",
   status: "contested" as const,
@@ -60,6 +61,8 @@ export const childrenSmartphoneAgeData = {
       crux: {
         id: "causal-mechanism-identification",
         title: "The Causal Mechanism Study",
+        question:
+          "Do specific smartphone features cause harm to teens, or does the correlation reflect other factors?",
         description:
           "The crux is whether specific smartphone features — algorithmic feeds, notification interruptions, social comparison dynamics, sleep disruption from blue light and engagement — causally harm adolescent development, or whether the observed correlation reflects confounding variables. Identifying or ruling out specific causal mechanisms would resolve the core scientific disagreement.",
         methodology:
@@ -139,6 +142,8 @@ export const childrenSmartphoneAgeData = {
       crux: {
         id: "cross-national-natural-experiment",
         title: "The Cross-National Adoption Timing Analysis",
+        question:
+          "Does teen mental-health decline track smartphone adoption across countries, or vary independently?",
         description:
           "The crux is whether countries with different smartphone adoption timelines show mental health deterioration that tracks with smartphone adoption rather than other potential causal factors. If countries that adopted smartphones later show later-onset mental health decline, the causal case strengthens substantially. If the timing of mental health decline varies independently of smartphone adoption, alternative explanations are more plausible.",
         methodology:
@@ -201,6 +206,8 @@ export const childrenSmartphoneAgeData = {
       crux: {
         id: "voluntary-vs-mandate-effectiveness",
         title: "The Voluntary vs. Mandate Comparison",
+        question:
+          "Can voluntary pledges reach enough families to work, or does it take a mandate?",
         description:
           "The crux is whether voluntary community-based approaches can achieve sufficient participation to solve the collective action problem, or whether government mandates are necessary. If voluntary programs can achieve 70%+ adoption in communities (creating a critical mass that eliminates the social exclusion penalty), mandates are unnecessary. If voluntary adoption plateaus below effective thresholds, mandates become the only viable solution.",
         methodology:

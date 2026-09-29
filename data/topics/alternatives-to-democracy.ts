@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const alternativesToDemocracyData = {
   id: "alternatives-to-democracy",
   title: "Are There Better Systems Than Democracy?",
+  question:
+    "Do alternatives to liberal democracy deserve serious consideration?",
   meta_claim:
     "Liberal democracy, while historically successful, may be structurally incapable of addressing long-term existential challenges like climate change, AI governance, and pandemics, and alternative governance models deserve serious consideration.",
   status: "contested" as const,
@@ -60,6 +62,8 @@ export const alternativesToDemocracyData = {
       crux: {
         id: "democratic-reform-capacity",
         title: "The Reform Capacity Test",
+        question:
+          "Can democracies reform themselves fast enough to meet long-horizon challenges?",
         description:
           "The crux is whether democratic systems can reform themselves quickly enough to address existential challenges within the required timeframes. If democratic institutions demonstrate the capacity for rapid, sustained policy change on multi-generational issues (as some argue they did for the ozone layer), the dysfunction case weakens. If the track record shows systematic failure on long-horizon problems, alternative governance models become more compelling.",
         methodology:
@@ -122,6 +126,8 @@ export const alternativesToDemocracyData = {
       crux: {
         id: "sortition-scale-test",
         title: "The Sortition Scaling Experiment",
+        question:
+          "Can randomly selected citizen panels hold binding power without losing their deliberative quality?",
         description:
           "The crux is whether sortition (randomly selected citizen panels) can scale from advisory bodies to binding decision-making authority without losing the deliberative quality that makes them effective. If a large-scale sortition body with real legislative power produces better outcomes than an elected legislature on measurable metrics, it becomes a viable democratic reform rather than a theoretical alternative.",
         methodology:
@@ -184,6 +190,8 @@ export const alternativesToDemocracyData = {
       crux: {
         id: "error-correction-comparison",
         title: "The Comparative Error-Correction Assessment",
+        question:
+          "Do democracies correct policy mistakes better over time than other systems do?",
         description:
           "The crux is whether democracy's error-correction mechanisms — elections, free press, independent courts, civil society — produce measurably better policy outcomes over time compared to alternative governance systems with different feedback mechanisms. If democracies consistently outperform alternatives in recovering from policy errors and adapting to changing conditions, the Churchill defense is empirically validated.",
         methodology:

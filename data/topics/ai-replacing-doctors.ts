@@ -1,6 +1,7 @@
 export const aiReplacingDoctorsData = {
   id: "ai-replacing-doctors",
   title: "Will AI Replace Doctors Within a Decade?",
+  question: "Will AI replace doctors within a decade?",
   meta_claim:
     "AI systems will be capable of diagnosing and treating most medical conditions better than human physicians within 10 years, fundamentally disrupting healthcare.",
   status: "contested" as const,
@@ -98,6 +99,8 @@ export const aiReplacingDoctorsData = {
       crux: {
         id: "generalization-benchmark",
         title: "The Clinical Generalization Benchmark",
+        question:
+          "Does AI's benchmark accuracy hold up on messy real-world clinical data across populations?",
         description:
           "Test whether AI diagnostic accuracy on controlled imaging tasks generalizes to real-world clinical settings with messy, incomplete data.",
         methodology:
@@ -261,6 +264,8 @@ export const aiReplacingDoctorsData = {
       crux: {
         id: "patient-outcome-comparison",
         title: "The Patient Outcome Comparison Trial",
+        question:
+          "Can AI-led care match physician-led care on real patient outcomes?",
         description:
           "Compare health outcomes in AI-primary care vs. human-primary care across diverse patient populations including mental health and chronic disease management.",
         methodology:
@@ -369,6 +374,8 @@ export const aiReplacingDoctorsData = {
       crux: {
         id: "regulatory-timeline-analysis",
         title: "The Regulatory Pathway Feasibility Analysis",
+        question:
+          "Will regulators and liability law allow unsupervised AI diagnosis within about ten years?",
         description:
           "Determine whether existing or evolving regulatory frameworks can approve autonomous AI diagnostic systems within a 10-year window.",
         methodology:

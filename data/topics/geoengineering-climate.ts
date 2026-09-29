@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const geoengineeringClimateData = {
   id: "geoengineering-climate",
   title: "Geoengineering & Carbon Capture",
+  question:
+    "Is geoengineering now a necessary complement to cutting emissions?",
   meta_claim:
     "Geoengineering interventions — particularly stratospheric aerosol injection and direct air carbon capture — are now a necessary complement to emissions reduction, not a dangerous distraction from it.",
   status: "contested" as const,
@@ -75,6 +77,8 @@ export const geoengineeringClimateData = {
       crux: {
         id: "carbon-budget-arithmetic",
         title: "The Carbon Budget Reality Check",
+        question:
+          "Can natural sinks plus feasible cuts stay within the carbon budget without technological removal?",
         description:
           "The crux is whether the remaining carbon budget for 1.5 or 2 degrees Celsius can be stayed within through emissions reduction alone, or whether the math requires carbon dioxide removal at scale regardless of how aggressively emissions are cut. If the arithmetic shows removal is physically necessary to meet any safe warming target, the necessity argument is settled. If aggressive emissions cuts alone can stay within budget, geoengineering becomes optional.",
         methodology:
@@ -164,6 +168,8 @@ export const geoengineeringClimateData = {
       crux: {
         id: "regional-impact-modeling",
         title: "The Regional Impact Comparison",
+        question:
+          "Would solar geoengineering benefit every major region, or leave some regions worse off?",
         description:
           "The crux is whether the regional side effects of geoengineering (particularly SRM's impact on monsoon patterns and precipitation) are smaller than the regional impacts of unmitigated climate change. If modeling shows that SRM produces net benefits across all major regions compared to a no-intervention baseline, the risk-benefit calculus favors deployment. If some regions are made significantly worse off by SRM, the governance challenge becomes paramount.",
         methodology:
@@ -236,6 +242,8 @@ export const geoengineeringClimateData = {
       crux: {
         id: "political-will-displacement",
         title: "The Political Will Displacement Test",
+        question:
+          "Does the option of geoengineering weaken public support for cutting emissions?",
         description:
           "The crux is whether investment in and public communication about geoengineering measurably reduces political support for emission reduction policies. If survey experiments and natural experiments show that exposure to geoengineering messaging decreases willingness to pay for carbon taxes or support emission regulations, the moral hazard is empirically real. If support for emission cuts is unaffected by awareness of geoengineering options, the moral hazard is theoretical.",
         methodology:

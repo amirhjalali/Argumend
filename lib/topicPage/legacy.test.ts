@@ -92,7 +92,10 @@ describe("legacyTopicPage", () => {
 
     expect(page.agreement).toEqual([]);
     expect(page.hook).toBeUndefined();
-    expect(cruxes.map((c) => c.question)).toEqual(topic.pillars.map((p) => p.crux.title));
+    // The heading is the authored crux question, else the crux title.
+    expect(cruxes.map((c) => c.question)).toEqual(
+      topic.pillars.map((p) => p.crux.question ?? p.crux.title),
+    );
     for (const crux of cruxes) {
       expect(crux.flips).toBeUndefined();
       expect(crux.settle.condition!.length).toBeGreaterThan(0);

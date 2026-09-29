@@ -1,6 +1,8 @@
 export const inflationMonetaryPolicyData = {
   id: "inflation-monetary-policy",
   title: "Inflation & Monetary Policy",
+  question:
+    "Was post-pandemic inflation driven mainly by spending and money growth?",
   meta_claim:
     "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply chain disruptions.",
   status: "contested" as const,
@@ -85,6 +87,8 @@ export const inflationMonetaryPolicyData = {
       crux: {
         id: "m2-cpi-lag-correlation",
         title: "The M2-CPI Lag Correlation Test",
+        question:
+          "How much of the 2021–22 price rise did monetary and fiscal expansion cause, versus merely allow?",
         description:
           "Measure whether the timing and magnitude of M2 expansion predict subsequent CPI increases with an 18-month lag.",
         methodology:
@@ -190,6 +194,8 @@ export const inflationMonetaryPolicyData = {
       crux: {
         id: "supply-vs-demand-decomposition",
         title: "The Inflation Decomposition Analysis",
+        question:
+          "How much of the inflation came from supply, how much from demand, and how much from expectations?",
         description:
           "Decompose observed inflation into supply-side and demand-side components using sectoral price data.",
         methodology:
@@ -297,6 +303,8 @@ export const inflationMonetaryPolicyData = {
       crux: {
         id: "counterfactual-early-tightening",
         title: "The Counterfactual Early-Tightening Test",
+        question:
+          "Would earlier central-bank tightening have lowered peak inflation without a recession?",
         description:
           "Model what would have happened if the Fed had begun tightening in Q3 2021 instead of Q1 2022.",
         methodology:
