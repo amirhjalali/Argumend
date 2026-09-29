@@ -1127,8 +1127,8 @@ Argumend's maps are written with calibration in mind. "The evidence leans toward
   {
     id: "argument-audit",
     title: "The argument audit",
-    subtitle: "Fact-check any claim in 10 minutes",
-    description: "A step-by-step operational guide for evaluating any claim you encounter — on social media, in the news, or in conversation. The actual workflow used by fact-checkers and analysts, simplified for everyone.",
+    subtitle: "Find what a claim rests on in 10 minutes",
+    description: "A step-by-step guide to checking what any claim you meet rests on — on social media, in the news, or in conversation: what kind of claim it is, where it came from, whether independent sources agree, and how much confidence it has earned.",
     readTime: "10 min read",
     sections: [
       {

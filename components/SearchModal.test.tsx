@@ -136,7 +136,7 @@ describe("SearchModal keyboard lifecycle", () => {
     expect(view.container.textContent).not.toMatch(/Debate Map/);
   });
 
-  it("spells every type badge out in full (\"Blog\", not \"Blo\")", async () => {
+  it("spells every type badge out in full (\"Essay\", not \"Ess\")", async () => {
     const view = render(<SearchHarness />);
     fireEvent.click(view.getByRole("button", { name: "Open search" }));
     const input = view.getByRole("combobox", { name: "Search Argumend" });
@@ -146,8 +146,8 @@ describe("SearchModal keyboard lifecycle", () => {
     fireEvent.change(input, { target: { value: article.title } });
     const option = view.getByRole("option", { name: new RegExp(escapeRegExp(article.title)) });
     const badge = option.querySelector("span.whitespace-nowrap");
-    expect(badge?.textContent).toBe("Blog");
-    expect(option.textContent).toMatch(/Blog$/);
+    expect(badge?.textContent).toBe("Essay");
+    expect(option.textContent).toMatch(/Essay$/);
   });
 
   it.each(argumentTopicIndex)(
@@ -178,18 +178,20 @@ describe("SearchModal keyboard lifecycle", () => {
     expect(text).toMatch(/Maps/);
     expect(text).not.toMatch(/Topics|Topic\b/);
 
-    // Redirected paths lose their #anchor on client navigation, and these
-    // duplicated About. Neither comes back as a result.
-    fireEvent.change(input, { target: { value: "how it works" } });
-    expect(view.queryByRole("option", { name: /^How it works/ })).toBeNull();
-    fireEvent.change(input, { target: { value: "community" } });
-    expect(view.queryByRole("option", { name: /^Community/ })).toBeNull();
-
-    // About is still found, and says what the page holds now.
-    fireEvent.change(input, { target: { value: "contribute" } });
-    const about = view.getByRole("option", { name: /^About/ });
-    fireEvent.click(about);
-    expect(push).toHaveBeenLastCalledWith("/about");
+    // Folded pages are found by their old names but link to the section
+    // itself: a redirect drops the #anchor on client navigation.
+    for (const [query, name, href] of [
+      ["how it works", /^How to read a map/, "/about#read-a-map"],
+      ["contribute", /^Contribute/, "/about#contribute"],
+      ["library", /^Reading list/, "/research#reading"],
+      ["core ideas", /^Core ideas/, "/learn#ideas"],
+      ["learn", /^Learn/, "/learn"],
+    ] as const) {
+      fireEvent.change(input, { target: { value: query } });
+      fireEvent.click(view.getByRole("option", { name }));
+      expect(push).toHaveBeenLastCalledWith(href);
+      fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    }
   });
 
   it("indexes useful aliases for the flagship maps", async () => {
