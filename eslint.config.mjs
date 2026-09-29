@@ -13,6 +13,8 @@ export default tseslint.config(
       "drizzle/**",
       ".claude/worktrees/**",
       ".playwright-mcp/**",
+      "playwright-report/**",
+      "test-results/**",
       "next-env.d.ts",
       ".work/**",
     ],
