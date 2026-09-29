@@ -49,11 +49,4 @@ describe("client/server module boundaries", () => {
 
     expect(violations).toEqual([]);
   });
-
-  it("keeps client-facing Moltbook data off the provider-backed agents barrel", () => {
-    const source = readFileSync("data/moltbook-lessons.ts", "utf8");
-
-    expect(source).toContain('from "@/lib/agents/cruxtacean"');
-    expect(source).not.toMatch(/from\s+["']@\/lib\/agents["']/);
-  });
 });

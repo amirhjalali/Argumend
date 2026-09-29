@@ -14,8 +14,8 @@ export default function ConceptError({
       title="This concept could not load"
       message="This concept could not be loaded. Please try again or return to the concepts index."
       reset={reset}
-      backHref="/concepts"
-      backLabel="Back to Concepts"
+      backHref="/learn#ideas"
+      backLabel="Back to core ideas"
     />
   );
 }

@@ -5,7 +5,6 @@ import {
   getArticleSummaryCategories,
   getArticleSummaryTags,
 } from "@/data/blogIndex";
-import { isClaims } from "@/data/is-claims";
 import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { isAnalysisId } from "@/lib/analysisId";
@@ -87,7 +86,6 @@ const fallacySlugs = new Set<string>(FALLACY_ROUTE_SLUGS);
 const questionSlugs = new Set(
   getAllQuestionVariations(topicSummaries).map((variation) => variation.slug),
 );
-const isClaimSlugs = new Set(isClaims.map((claim) => claim.slug));
 const worksheetIds = new Set<string>(WORKSHEET_ROUTE_IDS);
 
 const RESERVED_BLOG_SEGMENTS = new Set(["category", "tag"]);
@@ -193,8 +191,11 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
   if (segments.length === 2 && segments[0] === "questions") {
     return !questionSlugs.has(segments[1]);
   }
+  // The /is pages are retired (2026-09-29). Every known /is/:slug is a
+  // permanent redirect in next.config.js, which runs before this proxy, so
+  // any /is/:slug that reaches it is unknown.
   if (segments.length === 2 && segments[0] === "is") {
-    return !isClaimSlugs.has(segments[1]);
+    return true;
   }
   if (
     segments.length === 3 &&

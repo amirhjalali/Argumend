@@ -7,9 +7,10 @@
  */
 
 /**
- * Category taxonomy for the full /glossary page. Distinct from the inline
- * tooltip glossary above: these are the long-form encyclopedia entries, grouped
- * into four chapters and rendered with per-term icons by `lib/glossaryMeta.ts`.
+ * Category taxonomy for the long-form glossary entries. Distinct from the
+ * inline tooltip glossary: these are the /glossary entries. Since 2026-09-29
+ * the page lists them A to Z (lib/learn/glossary.ts), so the category is
+ * editorial metadata only.
  */
 export type GlossaryCategory = "core" | "reasoning" | "fallacies" | "methodology";
 
@@ -41,7 +42,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
       "A visual method of structuring the premises, evidence, and conclusions of a debate to reveal its logical structure. Unlike linear debate, argument maps make it possible to see the full landscape of a disagreement at once.",
     example: "See this in action on our Nuclear Energy map",
     exampleHref: "/topics/nuclear-energy-safety",
-    learnMoreHref: "/how-it-works",
+    learnMoreHref: "/about#read-a-map",
     learnMoreText: "How Argumend maps arguments",
     category: "core",
   },

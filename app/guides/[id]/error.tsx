@@ -12,10 +12,10 @@ export default function GuideError({
   return (
     <RouteErrorState
       title="This guide could not load"
-      message="This guide could not be loaded. Please try again or return to the guides index."
+      message="This guide could not be loaded. Please try again or return to the guides."
       reset={reset}
-      backHref="/guides"
-      backLabel="Back to Guides"
+      backHref="/learn#guides"
+      backLabel="Back to guides"
     />
   );
 }
