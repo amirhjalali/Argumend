@@ -4,11 +4,14 @@ import { useEffect, useId, useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { Button, TextAction } from "@/components/ui";
 import { copyTextToClipboard } from "@/lib/copyToClipboard";
-import { trackEvent } from "@/lib/analytics";
+import { CHANGED_CHOICES, CHANGED_QUESTION, type ChangedAnswer } from "@/lib/changedQuestion";
 
 /**
- * What to do with a paste result: open the map at the crux (the page's one
- * rust action), copy a plain summary, and answer the north-star question.
+ * What to do with a paste result: copy a plain summary, and answer the
+ * north-star question, in the same words and with the same answers as the
+ * question under every map (lib/changedQuestion). The page's one rust
+ * action, opening the map at its crux, sits under the crux box itself
+ * (components/paste/MapResult.tsx).
  *
  * The one-tap answer stays in this component for now. The gap-metric path
  * (lib/gapMetric) only accepts per-reply records with a fixed strict schema,
@@ -17,19 +20,14 @@ import { trackEvent } from "@/lib/analytics";
  * docs/reviews/2026-09-29-paste-flow.md.
  */
 export function NextStep({
-  mapHref,
-  mapLabel,
   summary,
 }: {
-  /** Absent when no map was matched: the rust action then does not render. */
-  mapHref?: string;
-  mapLabel?: string;
   /** Absent when there is nothing worth copying. */
   summary?: string;
 }) {
   const [copied, setCopied] = useState(false);
   const [copyFailed, setCopyFailed] = useState(false);
-  const [answer, setAnswer] = useState<"yes" | "no" | null>(null);
+  const [answer, setAnswer] = useState<ChangedAnswer | null>(null);
   const questionId = useId();
 
   useEffect(() => {
@@ -52,15 +50,6 @@ export function NextStep({
   return (
     <section aria-label="Next step" className="space-y-6 border-t border-[var(--border-divider)] pt-8">
       <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-        {mapHref ? (
-          <Button
-            href={mapHref}
-            size="lg"
-            onClick={() => trackEvent({ action: "cta_click", ctaName: "open_map_at_crux", location: "analyze" })}
-          >
-            {mapLabel ?? "Open the map at this crux"}
-          </Button>
-        ) : null}
         {summary ? (
           <TextAction onClick={copy} className="gap-2">
             {copied ? (
@@ -93,17 +82,18 @@ export function NextStep({
 
       <div role="group" aria-labelledby={questionId} className="space-y-2">
         <p id={questionId} className="font-serif text-lg leading-snug text-[var(--text-heading)]">
-          Did this change what you thought you were arguing about?
+          {CHANGED_QUESTION}
         </p>
         {answer ? (
           <p role="status" className="font-sans text-sm text-[var(--text-secondary)]">
-            Thanks. You answered {answer === "yes" ? "yes" : "no"}.
+            Thanks. You answered{" "}
+            {CHANGED_CHOICES.find((choice) => choice.id === answer)?.label.toLowerCase()}.
           </p>
         ) : (
-          <div className="flex gap-3">
-            {(["yes", "no"] as const).map((value) => (
-              <Button key={value} variant="secondary" onClick={() => setAnswer(value)} className="min-w-16">
-                {value === "yes" ? "Yes" : "No"}
+          <div className="flex flex-wrap gap-3">
+            {CHANGED_CHOICES.map((choice) => (
+              <Button key={choice.id} variant="secondary" onClick={() => setAnswer(choice.id)} className="min-w-16">
+                {choice.label}
               </Button>
             ))}
           </div>
