@@ -3,7 +3,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import { FeaturedTopicHero } from "@/components/FeaturedTopicHero";
 import { HomePasteBox } from "@/components/home/HomePasteBox";
 import { Button, PageHeader, Section, TextAction } from "@/components/ui";
-import { TOPIC_COUNT } from "@/data/topicIndex";
+import { MAP_COUNT } from "@/data/topicIndex";
 import { ANALYZE_HREF } from "@/lib/nav";
 import {
   HOME_EVIDENCE_HREF,
@@ -156,7 +156,7 @@ function HomeMaps({ maps }: { maps: HomeMap[] }) {
 
       <p className="mt-4 md:mt-8">
         <TextAction href="/topics" className="gap-1">
-          All {TOPIC_COUNT} maps
+          All {MAP_COUNT} maps
           <span aria-hidden="true">&rarr;</span>
         </TextAction>
       </p>

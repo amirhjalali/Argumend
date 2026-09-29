@@ -29,7 +29,7 @@ describe("SavedClient empty and unavailable states", () => {
 
     expect(view.getByRole("heading", { name: "Nothing saved yet" })).toBeTruthy();
     expect(view.queryByRole("alert")).toBeNull();
-    const explore = view.getByRole("link", { name: "Explore Topics" });
+    const explore = view.getByRole("link", { name: "Browse maps" });
     expect(explore.className).toContain("min-h-11");
     expect(explore.className).toContain("focus-visible:ring-2");
   });

@@ -152,7 +152,7 @@ export function TopicHeader({ page }: { page: TopicPageData }) {
         singleLine
         items={[
           { label: "Home", href: "/" },
-          { label: "Topics", href: "/topics" },
+          { label: "Maps", href: "/topics" },
           { label: page.crumb },
         ]}
       />
@@ -602,7 +602,7 @@ function TopicFooter({
                 href="/topics"
                 className="inline-flex min-h-11 items-center link-underline text-stone-800 dark:text-stone-200"
               >
-                Browse all topics →
+                Browse all maps →
               </Link>
             </li>
           </ul>

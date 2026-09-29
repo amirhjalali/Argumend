@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { TOPIC_COUNT_LABEL } from "@/data/topicIndex";
+import { MAP_COUNT_LABEL } from "@/data/topicIndex";
 import { buildPageHref, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
 import TopicsPageClient from "./TopicsPageClient";
 import {
@@ -19,8 +19,8 @@ export async function generateMetadata({ searchParams }: TopicsPageProps): Promi
 
   return {
     title: state.page > 1
-      ? `Explore Topics — Page ${state.page}`
-      : `Explore Topics — ${TOPIC_COUNT_LABEL} Controversial Issues Analyzed`,
+      ? `Maps — page ${state.page}`
+      : `Maps — ${MAP_COUNT_LABEL} contested questions`,
     alternates: {
       canonical: buildPageHref("https://argumend.org/topics", state.page, filters),
     },

@@ -276,7 +276,7 @@ describe("DebateView", () => {
       name: "Related maps",
     });
     expect(within(relatedMaps).getAllByRole("link")).toHaveLength(4);
-    expect(within(relatedMaps).getByRole("link", { name: "Browse all topics →" }))
+    expect(within(relatedMaps).getByRole("link", { name: "Browse all maps →" }))
       .not.toBeNull();
 
     // Native details/summary disclosure stays keyboard-reachable with

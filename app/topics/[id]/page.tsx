@@ -54,7 +54,8 @@ export async function generateMetadata({
       title: argumentTopic.meta.title,
       subtitle: argumentTopic.meta.tagline,
     });
-    const pageTitle = `${argumentTopic.meta.title} — Debate Map`;
+    // The question alone; the layout's title template adds "| ARGUMEND".
+    const pageTitle = argumentTopic.meta.title;
     const url = `https://argumend.org/topics/${argumentTopic.meta.id}`;
     return {
       title: pageTitle,

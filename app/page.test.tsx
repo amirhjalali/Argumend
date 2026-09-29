@@ -2,7 +2,8 @@ import "@/test/setup-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, within } from "@testing-library/react";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
-import { TOPIC_COUNT } from "@/data/topicIndex";
+import { MAP_COUNT, TOPIC_COUNT } from "@/data/topicIndex";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { articles } from "@/data/blog";
 import {
@@ -94,7 +95,9 @@ describe("home: one argument, two doors", () => {
     for (const topic of argumentTopicIndex) {
       expect(section.textContent).not.toContain(topic.tagline);
     }
-    const all = within(section).getByRole("link", { name: new RegExp(`All ${TOPIC_COUNT} maps`) });
+    // Every map, flagships included: the same total /topics lists.
+    expect(MAP_COUNT).toBe(TOPIC_COUNT + argumentTopicIds.length);
+    const all = within(section).getByRole("link", { name: new RegExp(`All ${MAP_COUNT} maps`) });
     expect(all.getAttribute("href")).toBe("/topics");
   });
 
