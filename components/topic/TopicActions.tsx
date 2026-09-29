@@ -68,8 +68,11 @@ export function ShareTopicButton({
       try {
         await navigator.share({ title, url });
         return;
-      } catch {
-        // Cancelled or refused: fall through to the panel.
+      } catch (error) {
+        // The visitor closed the share sheet: an answer, not a failure, so
+        // no panel pops up in its place.
+        if ((error as { name?: string } | null)?.name === "AbortError") return;
+        // Refused or failed (no user activation, data rejected): offer the panel.
       }
     }
     setOpen((value) => !value);
