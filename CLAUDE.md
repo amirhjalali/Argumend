@@ -48,8 +48,7 @@ components/             # React components
   paste/, learn/, home/ # Paste flow, ArticleLayout/CollectionIndex, home beats
   nodes/                # Custom React Flow nodes (RichNode, EvidenceNode, MetaNode)
 hooks/
-  useLogicGraph.ts      # Core state management (Zustand store) — graph nodes/edges
-  useDebateOrchestrator.ts  # Debate session state
+  useLogicGraph.ts      # Diagram state (Zustand store) — graph nodes/edges for /topics/[id]/map
 lib/
   analyze/              # Argument extraction (offline.ts for static, extractor.ts for live)
   debate/               # Debate generation
