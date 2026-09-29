@@ -31,9 +31,9 @@ export const congressionalTermLimitsData = {
         "Congressional incumbents win re-election roughly 90%+ of the time, and term limits are meant to break that entrenchment and force regular turnover.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Elections are supposed to be the term limit. House incumbents win re-election above 90% in most cycles and almost never below 85%, which proponents read as a captured system where name recognition, fundraising advantage, and gerrymandered districts shield careerists from accountability. Hard caps would guarantee regular turnover, open seats, and fresh competition that voters demonstrably want but cannot reliably produce at the ballot box.",
-      proponent_rebuttal:
         "High re-election rates can reflect satisfied constituents and the natural advantage of competent, experienced representatives rather than a rigged system — and term limits do not actually fix the underlying drivers. Studies of term-limited state legislatures find that open-seat races were not consistently more competitive after limits than before, and that limits 'have virtually no effect on the types of people elected to office' by demographics or ideology. Capping terms removes good and bad legislators alike, including the ones voters explicitly want to keep, substituting a blunt rule for voter choice.",
+      proponent_rebuttal:
+        "Elections are supposed to be the term limit. House incumbents win re-election above 90% in most cycles and almost never below 85%, which proponents read as a captured system where name recognition, fundraising advantage, and gerrymandered districts shield careerists from accountability. Hard caps would guarantee regular turnover, open seats, and fresh competition that voters demonstrably want but cannot reliably produce at the ballot box.",
       crux: {
         id: "competition-after-limits",
         title: "Did Open Seats Become More Competitive?",
@@ -141,9 +141,9 @@ export const congressionalTermLimitsData = {
         "Term limits force out experienced legislators, and state-level evidence shows the lost institutional knowledge shifts power to governors, bureaucrats, and lobbyists.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Career legislators accumulate not just policy expertise but also entanglements — donors, lobbyists, and a personal stake in the status quo. Forcing regular turnover, proponents argue, dilutes those captured relationships, brings in citizens closer to ordinary life, and prevents the build-up of unaccountable seniority-based power. A legislature of relative newcomers is harder for any single interest to permanently own.",
-      proponent_rebuttal:
         "The best natural experiment — 15 states that adopted legislative term limits — points the opposite way. The multi-organization Joint Project on Term Limits found the most significant effect was a decline in the legislature's power relative to the governor and executive agencies, with legislative adjustments to governors' budgets falling significantly. Inexperienced members rely more on the very actors term limits were meant to weaken: lobbyists and career staff who hold the institutional knowledge. Removing experience does not remove influence — it relocates it to unelected hands.",
+      proponent_rebuttal:
+        "Career legislators accumulate not just policy expertise but also entanglements — donors, lobbyists, and a personal stake in the status quo. Forcing regular turnover, proponents argue, dilutes those captured relationships, brings in citizens closer to ordinary life, and prevents the build-up of unaccountable seniority-based power. A legislature of relative newcomers is harder for any single interest to permanently own.",
       crux: {
         id: "where-power-goes",
         title: "Who Gains Power When Legislators Lose Tenure?",

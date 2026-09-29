@@ -37,7 +37,7 @@ export const rfkHealthPolicyData = {
           supporter_flip:
             "If large linked-database studies such as the Vaccine Safety Datalink, self-controlled case series and cross-country comparisons kept finding no schedule-wide harm — as the 2011 Institute of Medicine review of more than 1,000 studies did — while preventable diseases like measles returned, restructuring the schedule would cost health rather than improve it.",
           skeptic_flip:
-            "A skeptic who treats the schedule as beyond question should weigh that no large modern randomized trial has compared the full schedule with a lighter one, that a 2022 CDC-authored study found an association between cumulative vaccine aluminum and persistent asthma (its authors flagged possible confounding), and that past advisory bodies had documented industry ties.",
+            "A skeptic who trusts the current schedule should weigh that no large modern randomized trial has compared the full schedule with a lighter one, that a 2022 CDC-authored study found an association between cumulative vaccine aluminum and persistent asthma (its authors flagged possible confounding), and that past advisory bodies had documented industry ties.",
           common_ground:
             "Both sides agree individual vaccines are well studied, that no randomized trial has compared the full schedule with a lighter one, and that MMR is safe and effective for most people — Kennedy said so in April 2026 testimony.",
           live_disagreement:
@@ -231,7 +231,7 @@ export const rfkHealthPolicyData = {
       id: "fluoridation",
       title: "Water Fluoridation",
       short_summary:
-        "MAHA moved to end the CDC's recommendation of community water fluoridation, citing neurodevelopmental risk and a shrinking dental benefit. The science shows clear harm only at concentrations roughly twice the US level, so the real dispute is about the margin of safety at the 0.7 mg/L US dose, where evidence is genuinely thin.",
+        "MAHA moved to end the CDC's recommendation of community water fluoridation, citing neurodevelopmental risk and a shrinking dental benefit. The evidence links fluoride to harm only at concentrations roughly twice the US level, so the real dispute is about the margin of safety at the 0.7 mg/L US dose, where evidence is genuinely thin.",
       icon_name: "Microscope" as const,
       skeptic_premise:
         "Community water fluoridation at the US level of 0.7 mg/L is a long-standing, cost-effective public-health measure, and the evidence MAHA invokes does not apply to that dose. The 2024 National Toxicology Program monograph found neurodevelopmental harm only with 'moderate confidence' at exposures above 1.5 mg/L — more than double the US recommendation — and no US studies were in the IQ meta-analysis. Ending the recommendation risks reversing decades of cavity prevention, especially for low-income children with limited dental access. Even the acting CDC head walked back the messaging in March 2026 House testimony, calling fluoride 'essential for oral health.'",
