@@ -14,13 +14,19 @@ function mockViewport(desktop: boolean) {
 afterEach(() => vi.unstubAllGlobals());
 
 describe("useSidebarState", () => {
-  it("opens on desktop by default", () => {
+  it("starts closed on desktop by default: the header owns navigation now", () => {
     mockViewport(true);
     const { result } = renderHook(() => useSidebarState());
+    expect(result.current.isOpen).toBe(false);
+  });
+
+  it("still opens on desktop when a caller asks for the old default", () => {
+    mockViewport(true);
+    const { result } = renderHook(() => useSidebarState({ desktopDefaultOpen: true }));
     expect(result.current.isOpen).toBe(true);
   });
 
-  it("starts closed on desktop for reading routes, and the reader can open it", () => {
+  it("can be toggled open and closed", () => {
     mockViewport(true);
     const { result } = renderHook(() => useSidebarState({ desktopDefaultOpen: false }));
     expect(result.current.isOpen).toBe(false);
