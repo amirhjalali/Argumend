@@ -12,7 +12,13 @@ const SOCIAL_DESCRIPTION =
   "Argument maps of contested questions: each side's case, the evidence, and what would settle it.";
 
 export const metadata: Metadata = {
-  title: `Maps — ${L} contested questions`,
+  // A plain string here would reset the root "%s | ARGUMEND" template for
+  // every page under /topics/, which is why map titles went out bare. The
+  // default is /topics' own title; its children keep the site suffix.
+  title: {
+    default: `Maps — ${L} contested questions`,
+    template: "%s | ARGUMEND",
+  },
   description:
     `Browse ${L} argument maps of contested questions, from AI and jobs to climate change: each side's strongest case, the evidence weighed, and the questions the argument turns on.`,
   keywords: [

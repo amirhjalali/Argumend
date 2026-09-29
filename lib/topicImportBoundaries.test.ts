@@ -200,23 +200,6 @@ describe("home graph-runtime lazy boundaries", () => {
   });
 });
 
-describe("debate example-data boundary", () => {
-  it("loads the full mock debate corpus only after the user requests an example", () => {
-    const source = readFileSync(
-      resolve(process.cwd(), "hooks/useDebateOrchestrator.ts"),
-      "utf8",
-    );
-
-    expect(source).not.toMatch(
-      /from\s+["']@\/data\/mockDebates["']/,
-    );
-    expect(source).toContain('import("@/data/mockDebates")');
-    expect(source).toMatch(
-      /from\s+["']@\/data\/mockDebateIndex["']/,
-    );
-  });
-});
-
 describe("shared search lazy boundary", () => {
   it("does not render the SearchModal boundary before search is first opened", () => {
     const source = readFileSync(

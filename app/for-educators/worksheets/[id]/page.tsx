@@ -330,7 +330,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const canonical = `https://argumend.org/for-educators/worksheets/${ws.id}`;
-  const title = `${ws.title} — Argumend for Educators`;
+  // The layout's template adds "| ARGUMEND"; the name here would repeat it.
+  const title = `${ws.title} — for teachers`;
 
   return {
     title,

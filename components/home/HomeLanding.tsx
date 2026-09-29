@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { FeaturedTopicHero } from "@/components/FeaturedTopicHero";
 import { HomePasteBox } from "@/components/home/HomePasteBox";
-import { Button, PageHeader, Section, TextAction } from "@/components/ui";
+import { Button, PAGE_GUTTER, PageHeader, Section, TextAction } from "@/components/ui";
 import { MAP_COUNT } from "@/data/topicIndex";
 import { ANALYZE_HREF } from "@/lib/nav";
 import {
@@ -28,9 +28,10 @@ import {
  * A server component: the crux and the map rows are computed from the maps'
  * own graphs at build time. Only the paste box ships client JS.
  *
- * Frame: each beat is `px-4 md:px-8` around a `max-w-5xl` column, the frame
- * the paste box (components/HeroAnalyze.tsx) draws itself, so all four beats
- * share one left edge. Move both to `PageContainer` together.
+ * Frame: each beat is a `max-w-5xl` column with `PAGE_GUTTER` inside it, the
+ * frame the paste box (components/HeroAnalyze.tsx) draws too and the one
+ * `PageContainer` draws on every hub page, so all four beats share the site's
+ * left edge.
  */
 export function HomeLanding() {
   const crux = loadHomeCrux();
@@ -52,13 +53,13 @@ export function HomeLanding() {
   );
 }
 
-/** The home frame: HeroAnalyze's gutter around the default page width. */
+/**
+ * The home frame: the default page width with the page gutter inside it,
+ * as PageContainer draws it (without its vertical rhythm), so home's h1
+ * starts where /topics' and /learn's do.
+ */
 function HomeBeat({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="px-4 md:px-8">
-      <div className="mx-auto max-w-5xl">{children}</div>
-    </div>
-  );
+  return <div className={`mx-auto max-w-5xl ${PAGE_GUTTER}`}>{children}</div>;
 }
 
 /** Pads a home Section like the paste box below it. */
@@ -87,7 +88,7 @@ function HomeHero() {
               the question in its title.{" "}
               <Link
                 href={HOME_EVIDENCE_HREF}
-                className="text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"
+                className="py-3 text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"
               >
                 How we measured it
               </Link>

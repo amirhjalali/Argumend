@@ -49,7 +49,7 @@ export function AiConsentLine({
       {line.before}
       <Link
         href="/privacy"
-        className="text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
+        className="py-3 text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
       >
         {line.linkText}
       </Link>

@@ -227,7 +227,7 @@ function LegacyResearcher({
       </DetailBlock>
       {references.length > 0 && (
         <DetailBlock label="Further reading">
-          <ul className="list-none space-y-2.5 p-0">
+          <ul className="list-none space-y-4 p-0">
             {references.map((ref, i) => (
               <li key={ref.url}>
                 <CitationCard reference={ref} index={i + 1} />

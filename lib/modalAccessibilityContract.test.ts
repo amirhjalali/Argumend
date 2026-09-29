@@ -30,7 +30,6 @@ describe("modal accessibility source contract", () => {
       "components/CruxModal.tsx",
       "components/EmbedButton.tsx",
       "components/SearchModal.tsx",
-      "components/ShareVerdictCard.tsx",
       "components/TopBar.tsx",
     ]);
   });

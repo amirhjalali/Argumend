@@ -32,7 +32,7 @@ describe("SaveTopicButton", () => {
 
   it("saves entirely on-device without network work in offline mode", async () => {
     const view = render(<SaveTopicButton topicId="ai-risk" />);
-    fireEvent.click(await view.findByRole("button", { name: /save topic on this device/i }));
+    fireEvent.click(await view.findByRole("button", { name: /save this map on this device/i }));
 
     expect(fetch).not.toHaveBeenCalled();
     expect(JSON.parse(window.localStorage.getItem(SAVED_TOPICS_KEY) ?? "[]"))
@@ -49,7 +49,7 @@ describe("SaveTopicButton", () => {
     vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 200 }));
     const view = render(<SaveTopicButton topicId="ai-risk" />);
 
-    fireEvent.click(await view.findByRole("button", { name: /save topic on this device/i }));
+    fireEvent.click(await view.findByRole("button", { name: /save this map on this device/i }));
 
     await waitFor(() => expect(fetch).toHaveBeenCalledOnce());
     expect(fetch).toHaveBeenCalledWith(
@@ -64,7 +64,7 @@ describe("SaveTopicButton", () => {
     vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 503 }));
     const view = render(<SaveTopicButton topicId="ai-risk" />);
 
-    fireEvent.click(await view.findByRole("button", { name: /save topic on this device/i }));
+    fireEvent.click(await view.findByRole("button", { name: /save this map on this device/i }));
 
     await waitFor(() => {
       expect(view.getByRole("alert").textContent).toMatch(/saved on this device/i);

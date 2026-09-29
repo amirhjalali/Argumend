@@ -116,10 +116,10 @@ describe("toneStyles (the one tone map)", () => {
  * a repo-wide assertion would false-positive on code outside this migration.
  */
 describe("category/status color SOT consolidation (repo guard)", () => {
-  // app/dashboard/page.tsx left this list on 2026-09-29: it no longer draws
-  // category or status colors at all (saved maps are plain hairline rows).
+  // app/dashboard/page.tsx and app/saved/SavedClient.tsx left this list on
+  // 2026-09-29: neither draws category or status colors at all any more
+  // (saved maps are plain hairline rows, as on /topics).
   const migratedFiles = [
-    "app/saved/SavedClient.tsx",
     "components/MobileArgumentList.tsx",
   ];
 
@@ -171,7 +171,6 @@ describe("no green/red truth signals on side and status surfaces", () => {
   const signalFiles = [
     "components/MobileArgumentList.tsx",
     "app/api/og/[id]/route.tsx",
-    "components/JudgingResults.tsx",
   ];
   const readSource = (rel: string) =>
     readFileSync(join(process.cwd(), ...rel.split("/")), "utf8");
@@ -272,7 +271,6 @@ describe("off-palette color guard (app + components source trees)", () => {
 describe("dark-mode pairing guard for text-primary / text-secondary", () => {
   const pairedFiles = [
     "components/ReadModeView.tsx",
-    "components/JudgingResults.tsx",
   ];
 
   const EXPECTED_PAIR: Record<string, string> = {

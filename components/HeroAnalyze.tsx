@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
+import { PAGE_GUTTER } from "@/components/ui/PageContainer";
 
 interface HeroAnalyzeProps {
   onTopicSelect: (id: string) => void;
@@ -52,8 +53,8 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
   // primary action (opening the featured map), and a second rust button this
   // far down competed with it.
   return (
-    <section aria-labelledby="home-paste-heading" className="px-4 md:px-8">
-      <div className="mx-auto grid max-w-5xl gap-8 border-t border-stone-300/70 py-14 dark:border-divider md:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] md:gap-12 md:py-20">
+    <section aria-labelledby="home-paste-heading" className={`mx-auto max-w-5xl ${PAGE_GUTTER}`}>
+      <div className="grid gap-8 border-t border-stone-300/70 py-14 dark:border-divider md:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] md:gap-12 md:py-20">
         <div>
           <h2
             id="home-paste-heading"

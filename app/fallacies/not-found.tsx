@@ -7,7 +7,7 @@ export default function FallacyNotFound() {
       title="We could not find this fallacy"
       description="The entry may have moved or the link may be incomplete. Browse the fallacy catalog to find the reasoning pattern you need."
       primaryHref="/fallacies"
-      primaryLabel="Browse Fallacies"
+      primaryLabel="Browse fallacies"
     />
   );
 }

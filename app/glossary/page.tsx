@@ -63,7 +63,7 @@ export default function GlossaryPage() {
   const entries = letters.flatMap((group) => group.entries);
 
   return (
-    <AppShell layout="reading">
+    <AppShell>
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -82,7 +82,9 @@ export default function GlossaryPage() {
           })),
         }}
       />
-      <PageContainer width="reading">
+      {/* An index, so the index width like /learn, /fallacies and /blog: the
+          h1 does not jump between them. The list keeps the reading column. */}
+      <PageContainer>
         <PageHeader
           breadcrumbs={indexCrumbs("Glossary")}
           eyebrow="Learn"
@@ -106,7 +108,7 @@ export default function GlossaryPage() {
           </nav>
         </PageHeader>
 
-        <div className="border-t border-divider">
+        <div className="max-w-[44rem] border-t border-divider">
           {letters.map(({ letter, entries: group }) => (
             <section
               key={letter}
