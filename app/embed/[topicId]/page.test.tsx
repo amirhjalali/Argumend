@@ -79,7 +79,8 @@ describe("embed widget: an older (pillar) map", () => {
     const text = view.container.textContent ?? "";
 
     expect(view.queryByRole("heading", { name: /agree/ })).toBeNull();
-    expect(text).toContain(topic.pillars[0].crux.title);
+    // The authored crux question when there is one, else the crux test's title.
+    expect(text).toContain(topic.pillars[0].crux.question ?? topic.pillars[0].crux.title);
     expect(text).toContain(topic.pillars[0].crux.description);
     expectNoScoreboard(text, (await loadEmbedModel("epstein-files"))!);
   });
