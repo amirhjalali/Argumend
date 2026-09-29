@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback, type ReactNode, type Ref } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bookmark, Home, Search, X } from "lucide-react";
+import { Bookmark, Search, X } from "lucide-react";
 import { MenuIcon } from "@/components/icons/MenuIcon";
 import { useModalAccessibility } from "@/hooks/useModalAccessibility";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -28,26 +28,6 @@ const authEntryEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === "true";
 const MENU_ID = "site-menu";
 const DESKTOP_QUERY = "(min-width: 768px)";
 
-interface TopBarProps {
-  /** Legacy home canvas only: a "Home" button back to the landing view. */
-  showBackToHero?: boolean;
-  onBackToHero?: () => void;
-  /** Legacy home canvas only: the Map/Scales toggle. */
-  viewToggle?: ReactNode;
-  /**
-   * @deprecated The header owns its phone menu now; there is no sidebar to
-   * toggle. Accepted (and ignored) so the two private shells that still pass
-   * it (HomeClient, /analyze) compile until they move onto AppShell.
-   */
-  onMenuClick?: () => void;
-  /** @deprecated See `onMenuClick`. */
-  sidebarId?: string;
-  /** @deprecated See `onMenuClick`. */
-  sidebarOpen?: boolean;
-  /** @deprecated See `onMenuClick`. */
-  menuButtonRef?: Ref<HTMLButtonElement>;
-}
-
 const NAV_LINK =
   "inline-flex min-h-11 items-center rounded-md px-2.5 font-sans text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 lg:px-3";
 const NAV_LINK_IDLE =
@@ -70,7 +50,7 @@ const ICON_BUTTON =
  * come from lib/nav.ts. Sticky: `html, body { overflow-x: clip }` in
  * globals.css keeps the window as the scroll container so it can stick.
  */
-export function TopBar({ showBackToHero, onBackToHero, viewToggle }: TopBarProps) {
+export function TopBar() {
   const pathname = usePathname();
   const activeHref = getActivePrimaryHref(pathname);
   const { ids: savedIds, hydrated: savedHydrated } = useSavedTopicIds();
@@ -83,11 +63,33 @@ export function TopBar({ showBackToHero, onBackToHero, viewToggle }: TopBarProps
 
   const [menuOpen, setMenuOpen] = useState(false);
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
-  // The sheet is a phone affordance: widening the window past the breakpoint
-  // takes it away (the inline nav is there instead) without an effect.
+  // The sheet is a phone affordance. Widening the window past the breakpoint
+  // closes it for good (state adjusted during render, not in an effect), so
+  // narrowing again does not reopen it unasked.
+  const [wasDesktop, setWasDesktop] = useState(isDesktop);
+  if (wasDesktop !== isDesktop) {
+    setWasDesktop(isDesktop);
+    if (isDesktop) setMenuOpen(false);
+  }
   const sheetOpen = menuOpen && !isDesktop;
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   const sheetRef = useModalAccessibility<HTMLDivElement>({ isOpen: sheetOpen, onClose: closeMenu });
+
+  // Focus was inside the sheet when it closed on widening, and the menu
+  // button it would return to is hidden on desktop: hand it to the inline
+  // nav that replaced the sheet (its current item, else its first).
+  const mainNavRef = useRef<HTMLElement>(null);
+  const sheetWasOpen = useRef(false);
+  useEffect(() => {
+    if (!isDesktop || !sheetWasOpen.current) return;
+    const nav = mainNavRef.current;
+    const target =
+      nav?.querySelector<HTMLElement>('[aria-current="page"]') ?? nav?.querySelector<HTMLElement>("a");
+    target?.focus();
+  }, [isDesktop]);
+  useEffect(() => {
+    sheetWasOpen.current = sheetOpen;
+  }, [sheetOpen]);
 
   const openSearch = useCallback(() => {
     setMenuOpen(false);
@@ -131,22 +133,8 @@ export function TopBar({ showBackToHero, onBackToHero, viewToggle }: TopBarProps
             </span>
           </Link>
 
-          {showBackToHero && onBackToHero ? (
-            <button
-              type="button"
-              onClick={onBackToHero}
-              className="flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg px-3 text-sm text-stone-500 transition-colors hover:bg-subtle hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200"
-              aria-label="Home"
-            >
-              <Home className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden="true" />
-              <span>Home</span>
-            </button>
-          ) : null}
-
-          {viewToggle ? <div className="hidden md:block">{viewToggle}</div> : null}
-
           {/* Primary navigation (≥768px) */}
-          <nav aria-label="Main" className="ml-2 hidden items-center gap-0.5 md:flex lg:ml-6">
+          <nav ref={mainNavRef} aria-label="Main" className="ml-2 hidden items-center gap-0.5 md:flex lg:ml-6">
             {primaryNav.map((item) => (
               <HeaderLink
                 key={item.href}
@@ -172,12 +160,14 @@ export function TopBar({ showBackToHero, onBackToHero, viewToggle }: TopBarProps
               </Link>
             ) : null}
 
+            {/* text-secondary, not stone-500: "Search" is a text label, and
+                stone-500 was 4.26:1 on the canvas. */}
             <button
               type="button"
               onClick={openSearch}
               aria-label="Search"
               aria-haspopup="dialog"
-              className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-lg px-2.5 text-stone-500 transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-stone-400 dark:hover:text-stone-200"
+              className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-lg px-2.5 text-secondary transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:hover:text-stone-200"
             >
               <Search className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
               <span className="hidden font-sans text-sm lg:inline">Search</span>
