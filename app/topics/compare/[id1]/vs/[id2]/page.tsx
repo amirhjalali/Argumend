@@ -4,7 +4,6 @@ import { topicSummaries } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
 import { calculateEvidenceScore } from "@/lib/schemas/topic";
 import type { Topic } from "@/lib/schemas/topic";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { COMPARISON_PAIRS } from "@/app/topics/compare/comparisonPairs";
 import ComparisonView from "./ComparisonView";
@@ -209,19 +208,17 @@ export default async function ComparisonPage({ params }: PageProps) {
     <>
       <JsonLd data={jsonLd} />
       <JsonLd data={itemListJsonLd} />
-      <Breadcrumbs
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Topics", href: "/topics" },
-          { label: "Compare", href: "/topics/compare" },
-          { label: `${topic1.title} vs ${topic2.title}` },
-        ]}
-      />
       <ComparisonView
         topic1={topic1}
         topic2={topic2}
         stats1={stats1}
         stats2={stats2}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Topics", href: "/topics" },
+          { label: "Compare", href: "/topics/compare" },
+          { label: `${topic1.title} vs ${topic2.title}` },
+        ]}
       />
     </>
   );

@@ -3,11 +3,13 @@
 import { useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
+import { ANALYZE_HREF } from "@/lib/nav";
 
 interface HeroAnalyzeProps {
   onTopicSelect: (id: string) => void;
 }
 
+// Copy only: where the paste goes is ANALYZE_HREF (lib/nav.ts), not this flag.
 const V2 = process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true";
 
 export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps) {
@@ -22,8 +24,8 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
       "argumend-analyze-prefill",
       JSON.stringify({ content, contentType })
     );
-    // During the disagreement-diagnosis alpha, the home hero feeds V2.
-    router.push(V2 ? "/analyze-v2" : "/analyze");
+    // The canonical paste tool is chosen in one place: lib/nav.ts.
+    router.push(ANALYZE_HREF);
   }, [content, contentType, router]);
 
   const handleTryExample = useCallback(() => {

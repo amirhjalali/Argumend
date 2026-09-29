@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
+import { Section } from "@/components/ui/Section";
 
 /**
- * One section of the diagnosis. Every section opens the same way: a hairline,
- * a serif heading, and at most one line of plain explanation. The shared
- * shell is what makes six sections read as one document instead of six
- * components, and it keeps the heading order a usable outline.
+ * One section of the diagnosis: the shared `Section` primitive (hairline,
+ * serif h2, one line of explanation). Kept under this name so the report's
+ * call sites read as the report; the look lives in components/ui/Section.
  */
 export function ReportSection({
   id,
@@ -17,22 +17,10 @@ export function ReportSection({
   lede?: ReactNode;
   children: ReactNode;
 }) {
-  const headingId = `${id}-heading`;
   return (
-    <section id={id} aria-labelledby={headingId} className="scroll-mt-24 border-t border-[var(--border-divider)] pt-8">
-      <h2
-        id={headingId}
-        className="font-serif text-[1.75rem] leading-tight text-[var(--text-heading)] sm:text-[2rem]"
-      >
-        {title}
-      </h2>
-      {lede ? (
-        <p className="mt-2 max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-          {lede}
-        </p>
-      ) : null}
-      <div className="mt-6">{children}</div>
-    </section>
+    <Section id={id} title={title} lede={lede}>
+      {children}
+    </Section>
   );
 }
 

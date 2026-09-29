@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { Verdict } from "@/lib/schemas/topic";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { COMPARISON_PAIRS } from "./comparisonPairs";
 import CompareIndexView from "./CompareIndexView";
@@ -136,14 +135,15 @@ export default function CompareIndexPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <Breadcrumbs
-        items={[
+      <CompareIndexView
+        featuredPairs={featuredPairs}
+        allTopics={allTopics}
+        breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Topics", href: "/topics" },
           { label: "Compare" },
         ]}
       />
-      <CompareIndexView featuredPairs={featuredPairs} allTopics={allTopics} />
     </>
   );
 }

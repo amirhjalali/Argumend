@@ -1,131 +1,128 @@
 /**
  * Single source of truth for site navigation.
  *
- * Argumend 1.0 pruning collapses public navigation to Explore · Analyze ·
- * About. Hidden routes still serve when visited directly, but they are
- * deliberately de-linked from the canonical nav.
+ * One header, no sidebar (2026-09-29 site overhaul). The header, its phone
+ * menu sheet and the footer all read the lists below; no component declares a
+ * link array of its own.
  *
- * To add, remove, rename, or re-group a destination, edit `navItems` (and, for
- * the footer's curated columns, `footerColumns`). Do not reintroduce local link
- * arrays in the components.
+ *   Header      Maps · Paste an argument · Learn · About   (+ search, theme)
+ *   Phone menu  the same four, then the Learn group, then theme
+ *   Footer      "Argumend" (the same four) · "More" · legal
+ *
+ * Saved is a utility, not a destination: it lives in the footer, and the
+ * header shows a bookmark icon only once the visitor has saved something.
+ * The dashboard is auth-gated and reached from the account menu, never here.
+ *
+ * `ANALYZE_HREF` and `LEARN_HREF` are the two destinations still being
+ * decided (which paste tool is canonical, where the learn hub lives). Every
+ * shell-level link to them goes through these constants, so repointing is a
+ * one-line change here.
  */
 
-import type { LucideIcon } from "lucide-react";
-import {
-  Bookmark,
-  Brain,
-  Compass,
-  HelpCircle,
-  LayoutDashboard,
-  ListChecks,
-} from "lucide-react";
+/** The paste tool. Repoint here when the canonical paste route is chosen. */
+export const ANALYZE_HREF = "/analyze";
 
-/**
- * Where an item lives in the SIDEBAR:
- * - "primary" — the main, always-visible navigation list.
- * - "learn"   — the collapsible "Learn & Explore" section.
- * - "meta"    — small utility links pinned to the sidebar footer (e.g. FAQ).
- */
-export type NavGroup = "primary" | "learn" | "meta";
+/** The learn hub. Repoint here when the learn hub moves. */
+export const LEARN_HREF = "/guides";
 
-export interface NavItem {
+export const SAVED_HREF = "/saved";
+
+export const GITHUB_URL = "https://github.com/amirhjalali/Argumend";
+
+export interface NavLink {
   label: string;
   href: string;
-  /** Lucide icon. Present for "primary"/"learn"; optional for "meta" links. */
-  icon?: LucideIcon;
-  group: NavGroup;
-  /** Opt out of Next.js prefetch for heavier/auth-gated routes. */
+  /** Opt out of Next.js prefetch for heavier or storage-backed routes. */
   noPrefetch?: boolean;
-  /** Only expose this destination when account-backed features are enabled. */
-  requiresAuth?: boolean;
+  /** Off-site link: rendered as a plain anchor that opens a new tab. */
+  external?: boolean;
+  /**
+   * Other route prefixes that count as "being in" this section, so the
+   * header can mark it current (e.g. /fallacies is part of Learn).
+   */
+  activePrefixes?: readonly string[];
 }
 
-/** A NavItem that is guaranteed to carry an icon (primary/learn groups). */
-export interface NavItemWithIcon extends NavItem {
-  icon: LucideIcon;
-}
-
-/**
- * THE canonical list — every linked navigation destination, declared exactly
- * once. Order within a group defines render order in the sidebar.
- */
-export const navItems: NavItem[] = [
-  // --- Primary (sidebar main list) ---
-  { label: "Home", href: "/", icon: Compass, group: "primary" },
-  { label: "Explore", href: "/topics", icon: ListChecks, group: "primary" },
-  { label: "Analyze Text", href: "/analyze", icon: Brain, group: "primary" },
-  { label: "Saved", href: "/saved", icon: Bookmark, group: "primary", noPrefetch: true },
-  { label: "About", href: "/about", icon: HelpCircle, group: "primary" },
-  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard, group: "primary", noPrefetch: true, requiresAuth: true },
+/** The four primary destinations, in header order. */
+export const primaryNav: readonly NavLink[] = [
+  { label: "Maps", href: "/topics" },
+  {
+    label: "Paste an argument",
+    href: ANALYZE_HREF,
+    activePrefixes: ["/analyze", "/analyze-v2", "/reply", "/d"],
+  },
+  {
+    label: "Learn",
+    href: LEARN_HREF,
+    activePrefixes: ["/guides", "/fallacies", "/glossary", "/blog", "/concepts"],
+  },
+  {
+    label: "About",
+    href: "/about",
+    activePrefixes: ["/how-it-works", "/methodology", "/faq", "/community"],
+  },
 ];
 
-/** Lookup by href, used to resolve the footer's curated columns. */
-const byHref = new Map(navItems.map((item) => [item.href, item]));
-
-/** Sidebar primary navigation (icon-bearing). */
-export const primaryNav = navItems.filter(
-  (item): item is NavItemWithIcon => item.group === "primary",
-);
-
-export function getVisiblePrimaryNav(authEnabled: boolean): NavItemWithIcon[] {
-  return primaryNav.filter((item) => authEnabled || !item.requiresAuth);
-}
-
-/** Sidebar "Learn & Explore" section (icon-bearing). */
-export const learnNav = navItems.filter(
-  (item): item is NavItemWithIcon => item.group === "learn",
-);
-
-/** Sidebar footer utility links (e.g. FAQ). */
-export const metaNav = navItems.filter((item) => item.group === "meta");
-
-/**
- * Footer columns. These are a curated PRESENTATION grouping (independent of the
- * sidebar's primary/learn split) that references destinations by href, so the
- * canonical label for each link still comes from `navItems` — no drift. Adding
- * a destination to `navItems` and listing its href here surfaces it in the
- * footer; both surfaces always agree on the label.
- */
-const FOOTER_COLUMN_HREFS: { title: string; hrefs: string[] }[] = [
-  {
-    title: "Explore",
-    hrefs: ["/topics", "/saved"],
-  },
-  {
-    title: "About",
-    hrefs: ["/about"],
-  },
+/** The "Learn" group in the phone menu sheet. */
+export const learnNav: readonly NavLink[] = [
+  { label: "Guides", href: "/guides" },
+  { label: "Fallacies", href: "/fallacies" },
+  { label: "Glossary", href: "/glossary" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export interface FooterColumn {
   title: string;
-  links: NavItem[];
+  links: readonly NavLink[];
 }
 
-/** Footer columns resolved to canonical NavItems (label/href from `navItems`). */
-export const footerColumns: FooterColumn[] = FOOTER_COLUMN_HREFS.map(({ title, hrefs }) => ({
-  title,
-  links: hrefs
-    .map((href) => byHref.get(href))
-    .filter((item): item is NavItem => item !== undefined),
-}));
+/** Footer columns: the primary four, then the secondary pages. */
+export const footerColumns: readonly FooterColumn[] = [
+  { title: "Argumend", links: primaryNav },
+  {
+    title: "More",
+    links: [
+      { label: "FAQ", href: "/faq" },
+      { label: "Methodology", href: "/methodology" },
+      { label: "Saved", href: SAVED_HREF, noPrefetch: true },
+      { label: "GitHub", href: GITHUB_URL, external: true },
+    ],
+  },
+];
 
 /**
- * Legal destinations, deliberately kept out of `navItems`.
- *
- * `navItems` is the pruned product navigation — the places we actively send
- * people. /privacy and /terms are neither pruned nor promoted: they have to be
- * reachable from every page, but they do not belong in the sidebar or in a
- * footer discovery column. Declaring them here keeps the footer free of a
- * local link array of its own while leaving the pruned-column contract tests
- * meaning exactly what they say.
+ * Legal destinations. Reachable from every page, but they are neither a
+ * product destination nor a discovery column, so they sit in the footer's
+ * bottom line.
  */
 export interface LegalLink {
   label: string;
   href: string;
 }
 
-export const legalLinks: LegalLink[] = [
+export const legalLinks: readonly LegalLink[] = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
 ];
+
+function isWithin(pathname: string, prefix: string): boolean {
+  if (prefix === "/") return pathname === "/";
+  return pathname === prefix || pathname.startsWith(`${prefix}/`);
+}
+
+/**
+ * The primary item the current route belongs to, or undefined. The longest
+ * matching prefix wins, so a nested route never lights up two items.
+ */
+export function getActivePrimaryHref(pathname: string | null | undefined): string | undefined {
+  if (!pathname) return undefined;
+  let best: { href: string; length: number } | undefined;
+  for (const item of primaryNav) {
+    for (const prefix of [item.href, ...(item.activePrefixes ?? [])]) {
+      if (isWithin(pathname, prefix) && (!best || prefix.length > best.length)) {
+        best = { href: item.href, length: prefix.length };
+      }
+    }
+  }
+  return best?.href;
+}

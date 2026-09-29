@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Footer } from "@/components/Footer";
-import { TopBar } from "@/components/TopBar";
+import { AppShell } from "@/components/AppShell";
 import { DisagreementReportView } from "@/components/disagreement/DisagreementReportView";
 import { PublicShareControls } from "@/components/disagreement/PublicShareControls";
 import { RepresentationFeedback } from "@/components/disagreement/RepresentationFeedback";
+import { TextAction } from "@/components/ui/Button";
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
+import { ANALYZE_HREF } from "@/lib/nav";
 
 /**
  * Loads a published report, treating every failure path the same way: an
@@ -56,9 +56,8 @@ export default async function PublicDisagreementPage({ params }: PageProps) {
   const sourceUrl = row.sourceUrl && /^https?:\/\//.test(row.sourceUrl) ? row.sourceUrl : null;
 
   return (
-    <div className="min-h-screen bg-[var(--bg-canvas)]">
-      <TopBar />
-      <main className="px-4 py-10">
+    <AppShell layout="reading">
+      <div className="px-4 pb-16 pt-8 sm:px-6 sm:pt-12 lg:px-8">
         <p className="mx-auto mb-6 max-w-3xl text-sm text-[var(--text-muted)]">
           Generated {row.publishedAt.toISOString().slice(0, 10)} · Source-only AI assembly
           {sourceUrl ? (
@@ -85,17 +84,11 @@ export default async function PublicDisagreementPage({ params }: PageProps) {
                 publicUrl={`https://argumend.org/d/${slug}`}
                 headline={row.report.diagnosis.headline}
               />
-              <Link
-                href="/analyze-v2"
-                className="min-h-11 text-sm underline"
-              >
-                Analyze another disagreement
-              </Link>
+              <TextAction href={ANALYZE_HREF}>Analyze another disagreement</TextAction>
             </>
           }
         />
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </AppShell>
   );
 }

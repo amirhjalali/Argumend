@@ -29,7 +29,7 @@ const GLOSSARY: Array<GlossaryEntry & { aliases?: string[] }> = [
   {
     term: "Crux",
     definition:
-      "The specific question whose answer would actually change minds and settle the disagreement.",
+      "The specific question whose answer would change minds, on one side or the other.",
     aliases: ["cruxes"],
   },
   {
@@ -45,10 +45,12 @@ const GLOSSARY: Array<GlossaryEntry & { aliases?: string[] }> = [
     aliases: ["verification-status"],
   },
   {
-    term: "Confidence score",
+    term: "Balance and weight",
     definition:
-      "A 0–100 balance showing which way the weighted evidence tips (50 is even), read together with weight: how much evidence there is. Not the probability that the claim is true.",
-    aliases: ["confidence-score"],
+      "Balance (0–100) shows which way the weighed evidence tips, 50 being even; weight shows how much good evidence there is. Read together, they say whether the evidence largely converges, is still divided, or is still thin. Not the probability that the claim is true.",
+    // Older pages called this a "confidence score"; the alias keeps those
+    // lookups resolving to the current explanation.
+    aliases: ["balance & weight", "balance-and-weight", "confidence score", "confidence-score"],
   },
   {
     term: "Meta-claim",

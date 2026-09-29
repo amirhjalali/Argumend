@@ -136,3 +136,35 @@ describe("getGuideById", () => {
     });
   });
 });
+
+describe("guides describe the product as it works today", () => {
+  const guideText = (g: (typeof guides)[number]) =>
+    [
+      g.title,
+      g.subtitle,
+      g.description,
+      ...g.keyTakeaways,
+      ...g.sections.flatMap((s) => [
+        s.title,
+        s.content,
+        ...(s.subsections ?? []).flatMap((sub) => [sub.title, sub.content]),
+      ]),
+    ].join("\n");
+
+  it("never mentions the retired judge council, confidence scores or account-only features", () => {
+    const retired =
+      /judge council|multi-judge|AI judges?\b|confidence scores?|evidence nodes?|saving and sharing results requires|your analyses are saved to your library/i;
+    for (const g of guides) {
+      expect(guideText(g), g.id).not.toMatch(retired);
+    }
+  });
+
+  it("keeps the paste-tool guide on the tool that ships", () => {
+    const guide = guides.find((g) => g.id === "running-your-first-analysis");
+    expect(guide).toBeDefined();
+    const text = guideText(guide!);
+    expect(text).toMatch(/\(\/analyze\)/);
+    expect(text).toMatch(/does not say who is right/i);
+    expect(text).toMatch(/not stored/i);
+  });
+});

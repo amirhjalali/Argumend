@@ -12,6 +12,7 @@ import {
   ArrowLeftRight,
 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
 import { BalanceWeightChip, QUADRANT_STYLE } from "@/components/BalanceWeightChip";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import type {
@@ -76,6 +77,8 @@ interface ComparisonViewProps {
   topic2: Topic;
   stats1: TopicStats;
   stats2: TopicStats;
+  /** Rendered inside the shell, above the header (never above the top bar). */
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 // ---------------------------------------------------------------------------
@@ -304,11 +307,13 @@ export default function ComparisonView({
   topic2,
   stats1,
   stats2,
+  breadcrumbs,
 }: ComparisonViewProps) {
   return (
     <AppShell>
       <div className="min-h-[100svh] bg-[#f4f1eb] dark:bg-[#121210] overflow-x-hidden">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+          {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
           {/* Header */}
           <header className="text-center mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-stone-100/80 dark:bg-[var(--bg-muted)] rounded-full text-xs font-medium text-stone-600 dark:text-stone-400 uppercase tracking-wider border border-stone-200/50 dark:border-[var(--border-divider)] mb-4">

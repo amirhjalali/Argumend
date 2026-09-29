@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Footer } from "@/components/Footer";
-import { TopBar } from "@/components/TopBar";
+import { AppShell } from "@/components/AppShell";
 import { MapReplyClient } from "@/components/mapReply/MapReplyClient";
 
 /**
@@ -33,29 +32,25 @@ export default function ReplyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--bg-canvas)]">
-      <TopBar />
-      <main id="main-content">
-        <div className="mx-auto w-full max-w-3xl space-y-8 px-4 pb-16 pt-10 sm:px-6 sm:pt-14">
-          <header>
-            <h1 className="font-serif text-[2.375rem] leading-[1.1] text-[var(--text-heading)] sm:text-5xl">
-              Reply with the map
-            </h1>
-            <p className="mt-4 max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
-              Paste an argument you are in. Argumend finds the map it belongs to and shows what
-              the thread is actually arguing about, which of the map&rsquo;s cruxes it reached,
-              and the strongest evidence on each side.
-            </p>
-            <p className="mt-3 max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">
-              It never says who is right. Every line is either a number from the model or a
-              sentence that already exists on the map.
-            </p>
-          </header>
+    <AppShell layout="reading">
+      <div className="mx-auto w-full max-w-3xl space-y-8 px-4 pb-16 pt-10 sm:px-6 sm:pt-14">
+        <header>
+          <h1 className="font-serif text-[2.375rem] leading-[1.1] text-[var(--text-heading)] sm:text-5xl">
+            Reply with the map
+          </h1>
+          <p className="mt-4 max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
+            Paste an argument you are in. Argumend finds the map it belongs to and shows what
+            the thread is actually arguing about, which of the map&rsquo;s cruxes it reached,
+            and the strongest evidence on each side.
+          </p>
+          <p className="mt-3 max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-muted)]">
+            It never says who is right. Every line is either a number from the model or a
+            sentence that already exists on the map.
+          </p>
+        </header>
 
-          <MapReplyClient />
-        </div>
-      </main>
-      <Footer />
-    </div>
+        <MapReplyClient />
+      </div>
+    </AppShell>
   );
 }

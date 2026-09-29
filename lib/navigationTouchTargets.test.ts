@@ -17,12 +17,13 @@ describe("shared navigation touch-target contract", () => {
       'className="inline-flex min-h-11 items-center',
     );
     expect(source("components/Footer.tsx")).toContain(
-      'className="inline-flex min-h-11 items-center rounded-md text-sm',
-    );
-    expect(source("components/Sidebar.tsx")).toContain(
-      'className="inline-flex min-h-11 items-center rounded-md px-1',
+      '"inline-flex min-h-11 items-center rounded-md text-sm',
     );
     expect(source("components/ThemeToggle.tsx")).toContain("h-11 w-11");
+    // Header nav links, icon buttons and the phone sheet's links.
+    expect(source("components/TopBar.tsx")).toContain("inline-flex min-h-11 items-center rounded-md px-2.5");
+    expect(source("components/TopBar.tsx")).toContain("inline-flex h-11 w-11 shrink-0");
+    expect(source("components/TopBar.tsx")).toContain("flex min-h-12 items-center");
   });
 
   it.each([

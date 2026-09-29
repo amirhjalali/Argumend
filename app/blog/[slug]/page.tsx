@@ -19,7 +19,6 @@ import { articleSummaries, type ArticleSummary } from "@/data/blogIndex";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import { guides } from "@/data/guides";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -426,11 +425,6 @@ export default async function BlogArticlePage({ params }: PageProps) {
                 </Link>
               ))}
             </div>
-          </div>
-
-          {/* Newsletter Signup */}
-          <div className="mt-10">
-            <NewsletterSignup variant="compact" />
           </div>
 
           {/* Related reading — cross-type internal linking (posts + topics + guide) */}

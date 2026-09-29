@@ -31,6 +31,7 @@ describe("modal accessibility source contract", () => {
       "components/EmbedButton.tsx",
       "components/SearchModal.tsx",
       "components/ShareVerdictCard.tsx",
+      "components/TopBar.tsx",
     ]);
   });
 
@@ -48,8 +49,9 @@ describe("modal accessibility source contract", () => {
   );
 
   it("keeps every modal mobile-sidebar caller on the shared drawer lifecycle", () => {
+    // AppShell no longer has a drawer: the header's phone menu is a dialog on
+    // useModalAccessibility (covered above). These two legacy shells remain.
     const callers = [
-      "components/AppShell.tsx",
       "components/HomeClient.tsx",
     ];
     for (const file of callers) {
