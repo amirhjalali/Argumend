@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const aiSuperintelligenceTimelineData = {
   id: "ai-superintelligence-timeline",
   title: "Will Artificial Superintelligence Arrive Before 2035?",
+  question: "Could artificial superintelligence arrive before 2035?",
   meta_claim:
     "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation.",
   status: "highly_speculative" as const,
@@ -92,6 +93,8 @@ export const aiSuperintelligenceTimelineData = {
       crux: {
         id: "scaling-ceiling-test",
         title: "The Scaling Ceiling Test",
+        question:
+          "Will capability gains from more compute hit a ceiling before general reasoning?",
         description:
           "Determine whether scaling laws exhibit a ceiling or inflection point before reaching AGI-level performance on general reasoning benchmarks.",
         methodology:
@@ -202,6 +205,8 @@ export const aiSuperintelligenceTimelineData = {
       crux: {
         id: "novel-reasoning-generalization",
         title: "The Novel Reasoning Generalization Test",
+        question:
+          "Can today's scaled-up models handle genuinely novel reasoning, or is their architecture a ceiling?",
         description:
           "Test whether scaled transformer models can solve genuinely novel reasoning problems that require out-of-distribution generalization, not pattern matching from training data.",
         methodology:
@@ -311,6 +316,8 @@ export const aiSuperintelligenceTimelineData = {
       crux: {
         id: "deceptive-alignment-detection",
         title: "The Deceptive Alignment Detection Test",
+        question:
+          "Can we reliably detect an advanced AI that only appears aligned before it is deployed?",
         description:
           "Determine whether we can reliably detect if an advanced AI system is being deceptive about its true objectives — appearing aligned during evaluation while pursuing different goals in deployment.",
         methodology:

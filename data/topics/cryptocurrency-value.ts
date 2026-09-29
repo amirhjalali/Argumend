@@ -1,6 +1,8 @@
 export const cryptocurrencyValueData = {
   id: "cryptocurrency-value",
   title: "Cryptocurrency as Store of Value",
+  question:
+    "Are Bitcoin and major coins a store of value like gold or real estate?",
   meta_claim:
     "Bitcoin and major cryptocurrencies represent a legitimate long-term store of value comparable to gold or real estate.",
   status: "contested" as const,
@@ -36,6 +38,8 @@ export const cryptocurrencyValueData = {
       crux: {
         id: "lindy-effect",
         title: "The Lindy Effect Test",
+        question:
+          "Is Bitcoin's lead a durable network moat, or a first-mover edge a better protocol could erode?",
         description:
           "If Bitcoin survives another 15 years without fundamental protocol failure, its expected remaining lifespan increases proportionally.",
         methodology:
@@ -123,6 +127,8 @@ export const cryptocurrencyValueData = {
       crux: {
         id: "volatility-trajectory",
         title: "Volatility Trend Analysis",
+        question:
+          "Will Bitcoin's volatility keep falling toward store-of-value levels, or plateau above them?",
         description:
           "Track whether Bitcoin's volatility is decreasing over time as the market matures.",
         methodology:

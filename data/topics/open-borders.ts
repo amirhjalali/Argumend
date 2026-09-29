@@ -1,6 +1,7 @@
 export const openBordersData = {
   id: "open-borders",
   title: "The Case for Open Borders",
+  question: "Should immigration restrictions be greatly relaxed or eliminated?",
   meta_claim:
     "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
   status: "highly_speculative" as const,
@@ -19,6 +20,8 @@ export const openBordersData = {
       crux: {
         id: "gdp-gains-estimation",
         title: "Global GDP Gains from Labor Mobility",
+        question:
+          "How large would the real gains from freer migration be once fiscal, wage and transition costs are counted?",
         description:
           "Estimating the actual economic gains from substantially liberalizing global labor mobility, accounting for fiscal impacts, wage effects, and transition costs.",
         methodology:
@@ -115,6 +118,8 @@ export const openBordersData = {
       crux: {
         id: "moral-framework-analysis",
         title: "Moral Framework for Freedom of Movement",
+        question:
+          "Is moving across borders a basic human right, or do states have a strong right to exclude?",
         description:
           "Evaluating whether freedom of movement across borders is a fundamental human right that should be limited only by compelling state interests, or whether states have strong prima facie rights to exclude.",
         methodology:

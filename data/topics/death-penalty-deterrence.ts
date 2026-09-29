@@ -1,6 +1,7 @@
 export const deathPenaltyDeterrenceData = {
   id: "death-penalty-deterrence",
   title: "The Death Penalty",
+  question: "Is the death penalty a justified punishment?",
   meta_claim:
     "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
   status: "contested" as const,
@@ -32,6 +33,8 @@ export const deathPenaltyDeterrenceData = {
       crux: {
         id: "deterrence-causal-identification",
         title: "Causal Identification of Deterrence",
+        question:
+          "Without proof that it deters, can possible deterrence plus retribution still justify the death penalty?",
         description:
           "Can a causal (not merely correlational) deterrent effect of the death penalty on murder rates be established?",
         methodology:
@@ -138,6 +141,8 @@ export const deathPenaltyDeterrenceData = {
       crux: {
         id: "wrongful-execution-rate",
         title: "Wrongful Execution Rate Estimation",
+        question:
+          "Can safeguards make wrongful executions rare enough, or is any irreversible error too many?",
         description:
           "What is the actual rate of wrongful execution, and can it be reduced to an acceptable level with modern forensic science?",
         methodology:

@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const chinaTaiwanInvasionData = {
   id: "china-taiwan-invasion",
   title: "Will China Invade Taiwan Before 2030?",
+  question: "Will China invade Taiwan before 2030?",
   meta_claim:
     "China will attempt military reunification with Taiwan within this decade, fundamentally reshaping the global order.",
   status: "highly_speculative" as const,
@@ -74,6 +75,8 @@ export const chinaTaiwanInvasionData = {
       crux: {
         id: "amphibious-capacity-assessment",
         title: "PLA Amphibious Sealift Capacity Assessment",
+        question:
+          "Does China have the sealift to carry and supply forces across a contested Taiwan Strait?",
         description:
           "Determine whether China's combined military and dual-use sealift capacity is sufficient to transport and sustain the forces needed for a contested Taiwan Strait crossing.",
         methodology:
@@ -175,6 +178,8 @@ export const chinaTaiwanInvasionData = {
       crux: {
         id: "sanctions-resilience-test",
         title: "China Sanctions Resilience Assessment",
+        question:
+          "Could China's economy withstand five or more years of comprehensive Western sanctions?",
         description:
           "Evaluate whether China has built sufficient economic self-sufficiency and sanctions-proofing to withstand a comprehensive Western sanctions regime lasting 5+ years.",
         methodology:
@@ -276,6 +281,8 @@ export const chinaTaiwanInvasionData = {
       crux: {
         id: "us-commitment-signal-analysis",
         title: "U.S. Commitment Credibility Signal Analysis",
+        question:
+          "Would US commitments to Taiwan hold up under the pressure of an actual crisis?",
         description:
           "Assess whether U.S. military posture, alliance commitments, and political signals constitute a credible deterrent that would survive the decision pressure of an actual Taiwan crisis.",
         methodology:

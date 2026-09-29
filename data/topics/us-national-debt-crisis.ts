@@ -1,6 +1,8 @@
 export const usNationalDebtCrisisData = {
   id: "us-national-debt-crisis",
   title: "Is the US National Debt a Ticking Time Bomb?",
+  question:
+    "Will the US national debt cause a fiscal crisis within a generation?",
   meta_claim:
     "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability — though whether it triggers a genuine fiscal crisis within a generation, or proves manageable for a sovereign issuer of the world's reserve currency, is sharply contested.",
   status: "contested" as const,
@@ -85,6 +87,8 @@ export const usNationalDebtCrisisData = {
       crux: {
         id: "r-vs-g-sustainability",
         title: "The r vs g Sustainability Test",
+        question:
+          "Can the US keep its borrowing rate below its growth rate over decades?",
         description:
           "Compare the effective interest rate on government debt (r) against nominal GDP growth (g) to determine whether the debt ratio will stabilize, shrink, or explode over time.",
         methodology:
@@ -196,6 +200,8 @@ export const usNationalDebtCrisisData = {
       crux: {
         id: "interest-rate-rollover-risk",
         title: "The Debt Rollover Stress Test",
+        question:
+          "As existing debt rolls over at new rates, will interest costs stabilize or keep escalating?",
         description:
           "Model the trajectory of net interest costs as pandemic-era low-rate debt matures and is refinanced at current and projected market rates.",
         methodology:
@@ -307,6 +313,8 @@ export const usNationalDebtCrisisData = {
       crux: {
         id: "reserve-currency-erosion-rate",
         title: "The Dollar Dominance Trajectory Test",
+        question:
+          "Is the dollar's erosion a slow, self-limiting drift, or could it tip suddenly past a confidence threshold?",
         description:
           "Track the rate of change in the dollar's share of global reserves, cross-border payments, and commodity pricing to determine whether erosion is accelerating or stabilizing.",
         methodology:

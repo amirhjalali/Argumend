@@ -1,6 +1,7 @@
 export const globalWaterCrisisData = {
   id: "global-water-crisis",
   title: "Is the World Heading for Water Wars?",
+  question: "Is the world heading for water wars?",
   meta_claim:
     "Freshwater scarcity will become the defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const globalWaterCrisisData = {
       crux: {
         id: "aquifer-depletion-timeline",
         title: "The Aquifer Depletion Timeline Test",
+        question:
+          "Can adaptation keep pace with aquifer depletion before farming in key regions collapses?",
         description:
           "The core disagreement is whether major aquifer depletion will reach critical thresholds within decades, forcing sudden agricultural collapse and displacement, or whether gradual price signals, efficiency gains, and technological substitution will allow smooth adaptation. If depletion outpaces adaptation, regions dependent on fossil water face catastrophic supply failure.",
         methodology:
@@ -150,6 +153,8 @@ export const globalWaterCrisisData = {
       crux: {
         id: "scarcity-conflict-threshold",
         title: "The Scarcity-to-Conflict Threshold Test",
+        question:
+          "Is there a level of water scarcity beyond which cooperation breaks down into war?",
         description:
           "The key question is whether there exists a threshold of absolute water scarcity beyond which the historical pattern of cooperation breaks down and armed conflict becomes probable. If cooperation holds even under extreme scarcity, 'water wars' are a myth. If scarcity beyond a critical threshold overwhelms institutional capacity for cooperation, the historical record provides false comfort.",
         methodology:
@@ -265,6 +270,8 @@ export const globalWaterCrisisData = {
       crux: {
         id: "technology-deployment-gap",
         title: "The Technology Deployment Gap Test",
+        question:
+          "Can water technology reach the poorest, most stressed regions before their tipping points?",
         description:
           "The decisive question is whether desalination, water recycling, and precision agriculture can be deployed at sufficient scale and speed in the most water-stressed regions — particularly South Asia, Sub-Saharan Africa, and the Middle East — before aquifer depletion and climate disruption trigger irreversible agricultural collapse and mass displacement. If technology scales fast enough, the water crisis is a solvable engineering problem. If the deployment gap persists, technology will save wealthy nations while the poorest face catastrophe.",
         methodology:

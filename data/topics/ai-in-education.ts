@@ -1,6 +1,8 @@
 export const aiInEducationData = {
   id: "ai-in-education",
   title: "AI in Education: Revolution or Risk?",
+  question:
+    "Will AI in education close achievement gaps and outweigh its risks?",
   meta_claim:
     "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const aiInEducationData = {
       crux: {
         id: "ai-achievement-gap-rct",
         title: "The At-Scale Achievement Gap Trial",
+        question:
+          "Does AI tutoring help disadvantaged students most, or the already advantaged?",
         description:
           "If AI tutoring genuinely closes achievement gaps rather than widening them, a large-scale randomized trial in diverse school districts should show that low-performing and disadvantaged students gain proportionally more from AI tutoring than high-performing students. If gains are uniform or favor already-advantaged students, AI tutoring is an amplifier of existing inequality, not an equalizer.",
         methodology:
@@ -143,6 +147,8 @@ export const aiInEducationData = {
       crux: {
         id: "ai-cognitive-outsourcing",
         title: "The Cognitive Outsourcing Threshold",
+        question:
+          "Do students who learn with AI do better or worse when tested without it?",
         description:
           "If AI use in education crosses from augmentation to substitution — meaning students develop less ability to think independently when AI is removed — the net effect on learning is negative regardless of performance gains during AI-assisted tasks. The critical test is whether students who learn with AI perform better or worse than non-AI students on assessments where AI is not available.",
         methodology:
@@ -232,6 +238,7 @@ export const aiInEducationData = {
       crux: {
         id: "ai-teacher-complement",
         title: "The Teacher Augmentation vs. Replacement Test",
+        question: "Will schools use AI to support teachers or to replace them?",
         description:
           "If AI in education succeeds by augmenting teacher capabilities — freeing them for higher-value interactions — then schools deploying AI should show improvements in both learning outcomes and teacher satisfaction/retention. If AI is deployed primarily as a cost-cutting substitute for teachers (larger class sizes, fewer hires), it will degrade education regardless of the technology's potential. The implementation model, not the technology itself, is the crux.",
         methodology:

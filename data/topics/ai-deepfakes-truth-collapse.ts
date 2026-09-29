@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const aiDeepfakesTruthCollapseData = {
   id: "ai-deepfakes-truth-collapse",
   title: "AI Deepfakes & the Collapse of Shared Truth",
+  question: "Have AI deepfakes made it impossible to trust any digital media?",
   meta_claim:
     "AI-generated deepfake audio, video, and images have advanced to the point where no digital media can be trusted as authentic, fundamentally undermining evidence-based discourse, journalism, and democratic accountability.",
   status: "contested" as const,
@@ -75,6 +76,8 @@ export const aiDeepfakesTruthCollapseData = {
       crux: {
         id: "liars-dividend-impact-measurement",
         title: "The Accountability Impact Assessment",
+        question:
+          "Does calling real evidence a deepfake actually let powerful people escape accountability?",
         description:
           "The crux is whether the liar's dividend measurably reduces accountability for powerful actors. If analysis shows that the 'it's a deepfake' defense has successfully deflected genuine accountability in a significant number of documented cases, the threat is concrete. If the defense rarely succeeds because forensic analysis, contextual evidence, and public judgment can distinguish real from fake, the threat is more theoretical than practical.",
         methodology:
@@ -164,6 +167,8 @@ export const aiDeepfakesTruthCollapseData = {
       crux: {
         id: "detection-reliability-threshold",
         title: "The Detection Reliability Threshold",
+        question:
+          "Can deepfake detection stay reliable as generators improve, or must trust shift to provenance?",
         description:
           "The crux is whether deepfake detection can maintain sufficient reliability for its most critical use cases: legal evidence authentication, intelligence analysis, and journalism. If detection accuracy for high-stakes deepfakes (when combined with contextual analysis and forensic investigation) remains above 90%, the information integrity crisis is manageable. If detection becomes unreliable even with maximum effort, the shift to provenance-based trust becomes urgent.",
         methodology:
@@ -236,6 +241,8 @@ export const aiDeepfakesTruthCollapseData = {
       crux: {
         id: "provenance-adoption-timeline",
         title: "The Provenance Adoption Race",
+        question:
+          "Will trusted content-provenance tools spread faster than deepfake-driven distrust?",
         description:
           "The crux is whether content provenance infrastructure can achieve sufficient adoption among trusted sources (news organizations, government, professional photography) before the deepfake detection gap becomes so severe that public trust in all media collapses irreversibly. If provenance adoption outpaces deepfake generation capability for consequential content, the information integrity crisis is manageable. If deepfake-driven distrust becomes the default before provenance is widespread, rebuilding trust will be extraordinarily difficult.",
         methodology:

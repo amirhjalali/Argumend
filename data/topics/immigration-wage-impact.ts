@@ -1,6 +1,8 @@
 export const immigrationWageImpactData = {
   id: "immigration-wage-impact",
   title: "Immigration and Wages",
+  question:
+    "Does large-scale immigration significantly cut low-skilled native wages?",
   meta_claim:
     "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
   status: "contested" as const,
@@ -35,6 +37,8 @@ export const immigrationWageImpactData = {
       crux: {
         id: "wage-elasticity-immigration",
         title: "Labor Demand Elasticity for Low-Skill Workers",
+        question:
+          "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
         description:
           "Determining the precise wage elasticity — how much a 1% increase in immigrant labor supply at a given skill level changes wages for competing native workers.",
         methodology:
@@ -141,6 +145,8 @@ export const immigrationWageImpactData = {
       crux: {
         id: "distributional-impact",
         title: "Distributional Analysis of Immigration Benefits and Costs",
+        question:
+          "Do long-run growth gains outweigh short-term costs for low-skill native workers?",
         description:
           "Who specifically gains and who loses from immigration — broken down by income quintile, skill level, geographic area, and timeframe.",
         methodology:

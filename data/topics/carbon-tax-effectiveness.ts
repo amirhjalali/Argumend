@@ -1,6 +1,7 @@
 export const carbonTaxEffectivenessData = {
   id: "carbon-tax-effectiveness",
   title: "Carbon Tax Effectiveness",
+  question: "Is a carbon tax an effective, efficient way to cut emissions?",
   meta_claim:
     "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const carbonTaxEffectivenessData = {
       crux: {
         id: "causal-emission-effect",
         title: "Causal Emission Effect vs. Counterfactual",
+        question:
+          "How much of the observed emission cuts did carbon taxes actually cause?",
         description:
           "The load-bearing question is whether observed emission drops are caused by the carbon price or by coincident factors (recessions, other regulations, technology trends). Resolving it requires a credible counterfactual — what emissions would have been without the tax.",
         methodology:
@@ -141,6 +144,8 @@ export const carbonTaxEffectivenessData = {
       crux: {
         id: "price-vs-required-level",
         title: "Price Gap vs. Required Level",
+        question:
+          "Would raising carbon prices to recommended levels deliver deep cuts, or do responses level off?",
         description:
           "The decisive disagreement is whether carbon taxes underperform because pricing is the wrong tool or because the price has simply been set too low. If raising the price closes the gap, efficiency is vindicated; if not, the instrument itself is at fault.",
         methodology:
@@ -211,6 +216,8 @@ export const carbonTaxEffectivenessData = {
       crux: {
         id: "net-global-effect",
         title: "Net Global vs. Territorial Effect",
+        question:
+          "Do carbon taxes cut global emissions, or do leakage and repeal erase the benefit?",
         description:
           "The crux is whether a carbon tax reduces global emissions or merely relocates them. If leakage offsets only a small share and policies survive politically, territorial cuts are real global cuts; if leakage is large or taxes get repealed, the global benefit evaporates.",
         methodology:

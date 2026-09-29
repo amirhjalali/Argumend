@@ -1,6 +1,7 @@
 export const effectiveAltruismData = {
   id: "effective-altruism",
   title: "Effective Altruism",
+  question: "Is effective altruism a sound framework for doing good?",
   meta_claim: "Effective altruism is a sound framework for doing good.",
   status: "contested" as const,
   category: "philosophy" as const,
@@ -35,6 +36,8 @@ export const effectiveAltruismData = {
       crux: {
         id: "rct-generalizability",
         title: "Do the RCT Estimates Hold at Scale?",
+        question:
+          "Do effects measured in small trials hold at national scale and over years?",
         description:
           "EA's claim of doing exceptional good per dollar depends on whether effect sizes measured in randomized trials persist when an intervention is scaled to millions and run for years — and whether the things easiest to measure are actually the highest-impact things to fund.",
         methodology:
@@ -142,6 +145,8 @@ export const effectiveAltruismData = {
       crux: {
         id: "method-vs-execution",
         title: "Are the Failures the Method or the Execution?",
+        question:
+          "Do EA's failures follow from its core principles, or from contingent choices of people and metrics?",
         description:
           "The load-bearing disagreement: do EA's harms (measurement bias, neglect of systemic change, the SBF debacle) flow necessarily from its maximizing, impartial-good principle — or are they contingent execution failures the principle itself can diagnose and correct?",
         methodology:

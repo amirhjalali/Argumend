@@ -1,6 +1,8 @@
 export const aiWhiteCollarDisplacementData = {
   id: "ai-white-collar-displacement",
   title: "AI White-Collar Job Displacement",
+  question:
+    "Will AI eliminate more white-collar jobs than it creates in a decade?",
   meta_claim:
     "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade, requiring fundamental restructuring of the knowledge economy.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const aiWhiteCollarDisplacementData = {
       crux: {
         id: "professional-task-parity",
         title: "The Professional Task Parity Test",
+        question:
+          "Can AI match professionals on complete real-world deliverables, not just standardized tests?",
         description:
           "The core empirical question is whether AI systems can perform the full scope of professional tasks — not just standardized-test proxies — at a quality level that satisfies clients and meets regulatory standards. If AI achieves parity on genuine end-to-end professional deliverables (briefs, diagnoses, audits, architectural plans), displacement accelerates. If a persistent quality gap remains on high-stakes judgment calls, augmentation dominates.",
         methodology:
@@ -135,6 +139,8 @@ export const aiWhiteCollarDisplacementData = {
       crux: {
         id: "new-job-category-emergence",
         title: "The New Job Category Emergence Test",
+        question:
+          "Will AI create enough new kinds of work to employ more people than it displaces?",
         description:
           "The historical argument hinges on whether AI creates genuinely new categories of work — not just 'AI prompt engineer' but entire new industries employing millions. If by 2030, new job categories that did not exist in 2023 employ more people than AI has displaced, the historical pattern holds. If net employment in knowledge work declines despite economic growth, the pattern has broken.",
         methodology:
@@ -231,6 +237,8 @@ export const aiWhiteCollarDisplacementData = {
       crux: {
         id: "total-cost-of-ai-replacement",
         title: "The Total Cost of AI Substitution Audit",
+        question:
+          "Once integration, oversight and liability are counted, is AI still cheaper than human labor?",
         description:
           "The debate hinges on whether AI's cost advantage survives contact with real-world deployment costs. If the total cost of ownership for AI performing professional tasks — including integration, monitoring, error correction, liability insurance, and human oversight — is meaningfully lower than equivalent human labor, economic pressure will drive substitution. If hidden costs close the gap, adoption will stall at augmentation.",
         methodology:
@@ -344,6 +352,8 @@ export const aiWhiteCollarDisplacementData = {
       crux: {
         id: "augmentation-to-displacement-transition",
         title: "The Augmentation-to-Displacement Transition Point",
+        question:
+          "Do firms that adopt AI grow their knowledge-worker headcount, or shrink it?",
         description:
           "If augmentation genuinely expands output and creates new demand faster than it reduces headcount, the historical job-creation pattern holds. If firms capture productivity gains primarily through headcount reduction rather than output expansion, augmentation becomes displacement. The critical metric is whether organizations that adopt AI grow their knowledge-worker headcount or shrink it over a 3-5 year period.",
         methodology:

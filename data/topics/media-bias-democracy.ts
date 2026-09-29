@@ -1,6 +1,7 @@
 export const mediaBiasDemocracyData = {
   id: "media-bias-democracy",
   title: "Media Bias and Democracy",
+  question: "Is mainstream media bias a significant threat to democracy?",
   meta_claim:
     "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
   status: "contested" as const,
@@ -51,6 +52,8 @@ export const mediaBiasDemocracyData = {
       crux: {
         id: "quantitative-bias-measurement",
         title: "Quantitative Media Bias Measurement",
+        question:
+          "Can media bias be measured reliably, and which direction does it run?",
         description:
           "Systematic, replicable methodology for measuring bias in media coverage across outlets, topics, and time periods.",
         methodology:
@@ -150,6 +153,8 @@ export const mediaBiasDemocracyData = {
       crux: {
         id: "echo-chamber-effect",
         title: "Echo Chamber Causation Analysis",
+        question:
+          "Do media echo chambers cause political polarization, or reflect divisions that already existed?",
         description:
           "Determining whether media echo chambers cause political polarization or merely reflect pre-existing divisions.",
         methodology:

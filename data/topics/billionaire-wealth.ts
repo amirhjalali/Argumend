@@ -1,6 +1,8 @@
 export const billionaireWealthData = {
   id: "billionaire-wealth",
   title: "Should Billionaires Exist?",
+  question:
+    "Should taxes or structural reform prevent billionaire-scale wealth?",
   meta_claim:
     "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
   status: "contested" as const,
@@ -19,6 +21,8 @@ export const billionaireWealthData = {
       crux: {
         id: "wealth-concentration-mobility",
         title: "Wealth Concentration vs. Social Mobility",
+        question:
+          "Does extreme wealth concentration cause declining social mobility, or do both share other causes?",
         description:
           "Is there a causal relationship between extreme wealth concentration and declining social mobility, or are both symptoms of other structural factors?",
         methodology:
@@ -117,6 +121,8 @@ export const billionaireWealthData = {
       crux: {
         id: "policy-responsiveness-test",
         title: "Policy Responsiveness to Wealth vs. Median Voter",
+        question:
+          "Does US policy systematically favor the preferences of the wealthy over the median voter?",
         description:
           "Does US policy systematically favor the preferences of wealthy elites over the median voter?",
         methodology:

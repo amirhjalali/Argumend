@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const carbonCaptureViabilityData = {
   id: "carbon-capture-viability",
   title: "Is Carbon Capture a Viable Climate Solution?",
+  question:
+    "Is carbon capture a necessary and viable tool for reaching net zero?",
   meta_claim:
     "Carbon capture and removal is a necessary and viable tool for reaching net-zero climate targets",
   status: "contested" as const,
@@ -40,6 +42,8 @@ export const carbonCaptureViabilityData = {
       crux: {
         id: "residual-emissions-floor",
         title: "The Residual-Emissions Floor Test",
+        question:
+          "Are hard-to-cut emissions and overshoot large enough to require carbon removal at gigatonne scale?",
         description:
           "Whether there is a genuine floor of hard-to-abate residual emissions (and a legacy overshoot) that only carbon removal can neutralize, or whether deep decarbonization plus electrification can drive emissions close enough to zero that large-scale removal is unnecessary. If sectors like cement, steel, and aviation retain large unavoidable emissions through mid-century, removal is required to reach net zero. If clean alternatives mature fast enough to drive those sectors near zero, removal becomes a marginal cleanup tool rather than a pillar.",
         methodology:
@@ -157,6 +161,8 @@ export const carbonCaptureViabilityData = {
       crux: {
         id: "scaling-trajectory-test",
         title: "The Scaling-Trajectory Test",
+        question:
+          "Are carbon capture's failures early teething problems, or a structural ceiling?",
         description:
           "Whether capture-side underperformance reflects correctable early-of-a-kind problems that improve with deployment, or a persistent structural failure mode. If newer, purpose-built capture facilities reliably hit high capture rates (90%+) and availability while costs fall along a learning curve, the technology is on a viable scaling path. If projects keep missing targets and stalling regardless of generation and funding, the gigatonne-scale assumptions in climate pathways are unfounded.",
         methodology:
@@ -293,6 +299,8 @@ export const carbonCaptureViabilityData = {
       crux: {
         id: "cost-learning-curve-floor",
         title: "The Cost Learning-Curve Floor Test",
+        question:
+          "Will capture costs fall steeply toward $100–300 a tonne, or hit a stubborn floor?",
         description:
           "Whether carbon capture and direct air capture costs fall steeply along a learning curve toward $100-300 per tonne as deployment scales, or whether thermodynamic and engineering limits impose a stubborn floor that keeps capture far more expensive than emission reductions. If observed costs decline at solar-like learning rates as cumulative capacity grows, capture becomes affordable for residual emissions. If costs plateau well above the social cost of carbon despite scaling, capture remains a niche tool that diverts resources from cheaper mitigation.",
         methodology:

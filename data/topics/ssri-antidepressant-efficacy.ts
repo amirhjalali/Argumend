@@ -1,6 +1,8 @@
 export const ssriAntidepressantEfficacyData = {
   id: "ssri-antidepressant-efficacy",
   title: "Do Antidepressants Beat Placebo?",
+  question:
+    "Do antidepressants help depression meaningfully more than placebo?",
   meta_claim:
     "SSRI antidepressants provide clinically meaningful benefit beyond placebo for depression.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const ssriAntidepressantEfficacyData = {
       crux: {
         id: "clinical-significance-threshold",
         title: "What Counts as 'Clinically Meaningful'?",
+        question:
+          "Should the benefit be judged by the average patient, or by a subgroup who truly respond to the drug?",
         description:
           "Both sides agree on the numbers: the average drug-placebo difference is real but small (~2 Hamilton points, SMD ~0.3). The disagreement is whether that average — or instead the responder subgroup hidden inside it — is the right thing to judge.",
         methodology:
@@ -124,6 +128,8 @@ export const ssriAntidepressantEfficacyData = {
       crux: {
         id: "depressed-mood-item-test",
         title: "The Symptom-Specificity Test",
+        question:
+          "Is the drug-placebo gap real pharmacology, or an artifact of patients guessing they got the drug?",
         description:
           "If antidepressants merely exploit broken blinding, the drug-placebo gap should be diffuse across all symptoms. If it is real pharmacology, the gap should concentrate on core mood symptoms and track dose. Item-level analysis distinguishes these.",
         methodology:
@@ -193,6 +199,8 @@ export const ssriAntidepressantEfficacyData = {
       crux: {
         id: "withdrawal-vs-relapse",
         title: "Withdrawal Effect vs. True Relapse",
+        question:
+          "How much of the benefit of staying on antidepressants is relapse prevention versus avoided withdrawal?",
         description:
           "Discontinuation trials switch stabilized patients to placebo and count later depression as 'relapse.' If much of that is drug-withdrawal symptoms rather than the original illness returning, the maintenance benefit is overstated. Disentangling the two is the load-bearing question.",
         methodology:

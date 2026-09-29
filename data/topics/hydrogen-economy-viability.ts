@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const hydrogenEconomyViabilityData = {
   id: "hydrogen-economy-viability",
   title: "Is the Hydrogen Economy Viable?",
+  question: "Is green hydrogen viable enough to scale across the economy?",
   meta_claim:
     "Green hydrogen is a viable clean-energy vector that should be scaled across the economy",
   status: "contested" as const,
@@ -39,6 +40,8 @@ export const hydrogenEconomyViabilityData = {
       crux: {
         id: "no-electric-substitute-test",
         title: "The No-Electric-Substitute Test",
+        question:
+          "In hard-to-electrify sectors, can other decarbonization routes undercut hydrogen?",
         description:
           "Whether a given sector genuinely has no viable direct-electrification or alternative-decarbonization path — making hydrogen the only option — or whether cheaper substitutes exist. If steel, ammonia, and long-haul shipping truly cannot be decarbonized any other way at scale, hydrogen's value is locked in regardless of its cost penalty. If competing routes (electric arc furnaces with scrap, biomethane, e-methanol, batteries for short-sea shipping) can do much of the job more cheaply, hydrogen's 'indispensable' claim shrinks to a narrower slice.",
         methodology:
@@ -157,6 +160,8 @@ export const hydrogenEconomyViabilityData = {
       crux: {
         id: "efficiency-vs-value-test",
         title: "The Useful-Energy-Per-Clean-Kilowatt-Hour Test",
+        question:
+          "Do hydrogen's density and storage advantages justify its energy losses in aviation, shipping and grids?",
         description:
           "Whether, for a given end use, direct electrification delivers more useful service per unit of clean electricity than the hydrogen pathway — and whether efficiency is the binding constraint at all. If a heat pump or battery delivers the same service with a fraction of the renewable input, hydrogen is a poor allocation of scarce clean power for that use. If the binding constraint is instead energy density (aviation) or seasonal storage duration (grid balancing), where hydrogen has no electric competitor, the efficiency penalty is a price worth paying.",
         methodology:
@@ -274,6 +279,8 @@ export const hydrogenEconomyViabilityData = {
       crux: {
         id: "cost-decline-trajectory-test",
         title: "The Cost-Decline Trajectory Test",
+        question:
+          "Will green hydrogen costs fall like solar and batteries did, or stay above parity without subsidies?",
         description:
           "Whether green hydrogen follows a solar/battery-like cost-decline curve to genuine competitiveness with grey hydrogen (and with electrification alternatives) within the 2030s, or whether it plateaus well above parity and remains dependent on permanent subsidy. If electrolyzer and clean-electricity costs fall as projected and unsubsidized green hydrogen approaches ~$1-2/kg, the viability case is largely won for the right sectors. If costs stall and the announcement-to-FID gap persists, the 'hydrogen economy' remains a perennially-deferred promise.",
         methodology:

@@ -1,6 +1,7 @@
 export const mandatoryVotingData = {
   id: "mandatory-voting",
   title: "Mandatory Voting",
+  question: "Should more democracies make voting compulsory?",
   meta_claim:
     "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
   status: "contested" as const,
@@ -35,6 +36,8 @@ export const mandatoryVotingData = {
       crux: {
         id: "turnout-representation-link",
         title: "Turnout–Representation Correlation",
+        question:
+          "Do the extra voters compulsion brings make policy more representative, or just add noise?",
         description:
           "Does higher turnout from compulsory voting actually produce more representative policy outcomes, or does it just inflate numbers?",
         methodology:
@@ -140,6 +143,8 @@ export const mandatoryVotingData = {
       crux: {
         id: "enforcement-cost-benefit",
         title: "Enforcement Cost–Benefit Analysis",
+        question:
+          "Are compulsory voting's democratic benefits worth its enforcement cost and liberty trade-off?",
         description:
           "Does the administrative cost and civil liberty trade-off of compulsory voting justify the democratic gains?",
         methodology:

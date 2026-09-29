@@ -1,6 +1,8 @@
 export const affirmativeActionMeritocracyData = {
   id: "affirmative-action-meritocracy",
   title: "Affirmative Action & Meritocracy",
+  question:
+    "Are race-conscious admissions and hiring needed for equal opportunity?",
   meta_claim:
     "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const affirmativeActionMeritocracyData = {
       crux: {
         id: "merit-measurement-validity",
         title: "The Merit Measurement Validity Test",
+        question:
+          "Do test scores and credentials measure individual ability, or accumulated advantage?",
         description:
           "Whether standardized measures of merit accurately reflect individual capability independent of systemic advantage. If test scores and credentials primarily measure accumulated advantage rather than innate ability or effort, then 'merit-based' selection systematically excludes capable individuals from disadvantaged backgrounds.",
         methodology:
@@ -118,6 +122,8 @@ export const affirmativeActionMeritocracyData = {
       crux: {
         id: "race-neutral-diversity-outcomes",
         title: "The Race-Neutral Equivalence Test",
+        question:
+          "Can race-neutral policies match the diversity that race-conscious policies achieve?",
         description:
           "Whether race-neutral policies can achieve comparable diversity outcomes to race-conscious policies at selective institutions. If race-neutral alternatives produce equivalent representation within a reasonable timeframe, the case for race-conscious policies weakens. If they consistently produce lower representation that compounds over time, race-neutral mandates effectively entrench racial stratification.",
         methodology:
@@ -231,6 +237,8 @@ export const affirmativeActionMeritocracyData = {
       crux: {
         id: "net-social-cohesion-effect",
         title: "The Social Cohesion Net Impact Assessment",
+        question:
+          "Do race-conscious policies strengthen or strain social cohesion between groups?",
         description:
           "Whether race-conscious policies produce net positive or negative effects on social cohesion and intergroup relations. If affirmative action reduces prejudice, builds cross-racial networks, and creates role models that inspire future generations, the social benefits outweigh resentment costs. If it primarily generates backlash, stigmatizes beneficiaries, and entrenches racial categorization, it undermines its own goals.",
         methodology:

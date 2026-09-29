@@ -167,8 +167,8 @@ describe("findMaps", () => {
     const result = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
     const match = result.match;
     expect(match?.id).toBe("immigration-wage-impact");
-    // Worded as the topic page words it: the pillar's live disagreement.
-    expect(match?.crux?.question).toMatch(/^The true wage elasticity for the most directly-competing workers/);
+    // Worded as the topic page words it: the pillar's authored crux question.
+    expect(match?.crux?.question).toMatch(/^Does immigration barely move the wages of directly competing workers/);
     expect(match?.crux?.href).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
     expect(match?.cards.length).toBe(2);
   });

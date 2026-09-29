@@ -1,6 +1,7 @@
 export const animalConsciousnessRightsData = {
   id: "animal-consciousness-rights",
   title: "Animal Consciousness & Moral Rights",
+  question: "Does animal consciousness demand far stronger rights for animals?",
   meta_claim:
     "Scientific evidence increasingly demonstrates that many animals possess rich subjective experiences and consciousness, which morally obligates humanity to extend rights protections far beyond current legal frameworks.",
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const animalConsciousnessRightsData = {
       crux: {
         id: "consciousness-detection-method",
         title: "The Cross-Species Consciousness Detection Challenge",
+        question:
+          "Can consciousness be detected without a human template, and in which species would it show up?",
         description:
           "If a rigorous, non-anthropocentric method for detecting consciousness can be developed and validated — one that reliably distinguishes conscious from non-conscious systems without assuming human-like consciousness as the template — and this method detects consciousness across a broad range of animal taxa, the case for widespread animal consciousness becomes compelling. If no such method can be developed, the question may remain permanently underdetermined.",
         methodology:
@@ -177,6 +180,8 @@ export const animalConsciousnessRightsData = {
       crux: {
         id: "suffering-moral-status-link",
         title: "The Suffering-to-Rights Bridge Test",
+        question:
+          "Can any single moral framework link animal suffering to rights without contradiction in hard cases?",
         description:
           "If a coherent moral framework can be articulated that extends rights to conscious animals without generating absurd conclusions (e.g., requiring intervention against predation, or granting rights to bacteria), and if this framework commands broad philosophical support, then the moral case for animal rights is strong. If every proposed framework generates unacceptable implications when applied consistently, the moral case remains contested.",
         methodology:
@@ -266,6 +271,8 @@ export const animalConsciousnessRightsData = {
       crux: {
         id: "alternative-viability-test",
         title: "The Alternative Systems Viability Assessment",
+        question:
+          "Can alternatives to animal use match it on nutrition, medicine and cost at global scale in about 20 years?",
         description:
           "If plant-based proteins, cultivated meat, and non-animal research methods can match the nutritional output, medical progress, and economic productivity of current animal-dependent systems within 20 years at comparable or lower cost, then the practical objection to animal rights loses its force. If alternatives remain substantially inferior in nutrition, research outcomes, or affordability, the practical case for continued animal use (under improved welfare conditions) remains strong.",
         methodology:

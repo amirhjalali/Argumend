@@ -212,7 +212,9 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
     kind: "legacy",
     title: topic.question?.trim() || topic.title,
     crumb: topic.title,
-    subtitle: { lead: "The claim", text: topic.meta_claim },
+    // A question headline already states the claim; repeating it as "The
+    // claim: …" underneath reads as an echo. Label-titled maps keep it.
+    subtitle: topic.question?.trim() ? undefined : { lead: "The claim", text: topic.meta_claim },
     reviewedOn: topic.last_updated,
     sourceCount: countSources(topic),
     hook: topic.keystone_fact

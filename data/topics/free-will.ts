@@ -1,6 +1,7 @@
 export const freeWillData = {
   id: "free-will",
   title: "Free Will",
+  question: "Do humans have free will, the ability to have done otherwise?",
   meta_claim:
     "Human beings possess genuine free will—the ability to have done otherwise in any given situation.",
   status: "contested" as const,
@@ -84,6 +85,8 @@ export const freeWillData = {
       crux: {
         id: "veto-power",
         title: "The Veto Power Test",
+        question:
+          "Is the brain signal before a conscious choice a fixed commitment, or preparation consciousness can still veto?",
         description:
           "If subjects can consistently abort actions after readiness potential but before motor execution, this preserves a meaningful role for conscious will.",
         methodology:
@@ -193,6 +196,8 @@ export const freeWillData = {
       crux: {
         id: "quantum-mind",
         title: "The Quantum Mind Hypothesis",
+        question:
+          "Do quantum effects play any real role in how the brain makes decisions?",
         description:
           "If quantum effects play a functional role in neural decision-making (Penrose-Hameroff microtubules), true randomness could break causal determination.",
         methodology:
@@ -304,6 +309,8 @@ export const freeWillData = {
       crux: {
         id: "manipulation-argument",
         title: "The Manipulation Argument",
+        question:
+          "Do people judge a manipulated agent differently from one determined by ordinary causes?",
         description:
           "Thought experiments: If a scientist could control your neural states to guarantee an action, you would not be responsible. But how is this different from nature doing the same through genes and environment?",
         methodology:

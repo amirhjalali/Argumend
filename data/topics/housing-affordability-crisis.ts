@@ -1,6 +1,8 @@
 export const housingAffordabilityCrisisData = {
   id: "housing-affordability-crisis",
   title: "The Housing Affordability Crisis",
+  question:
+    "Does fixing housing affordability require government intervention?",
   meta_claim:
     "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, as the free market alone cannot provide adequate affordable housing.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const housingAffordabilityCrisisData = {
       crux: {
         id: "upzoning-affordability-impact",
         title: "The Upzoning Affordability Test",
+        question:
+          "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
         description:
           "If upzoning produces measurable decreases in rents across all income levels within 5-10 years — not just at the luxury tier — then supply-side reform is sufficient. If rents decline only at the top while remaining unaffordable at the median and below, demand-side or public-supply interventions are necessary.",
         methodology:
@@ -143,6 +147,8 @@ export const housingAffordabilityCrisisData = {
       crux: {
         id: "modern-rent-stabilization-effects",
         title: "The Modern Rent Stabilization Impact Test",
+        question:
+          "Do soft rent caps like Oregon's prevent displacement without reducing construction?",
         description:
           "The key question is whether modern rent stabilization designs (inflation-indexed caps with new-construction exemptions) avoid the supply-reducing effects of traditional hard rent ceilings while still protecting tenants. If Oregon-style soft caps demonstrably prevent displacement without reducing construction starts, modern rent control is viable; if supply effects emerge even under soft caps, the policy is counterproductive.",
         methodology:
@@ -249,6 +255,8 @@ export const housingAffordabilityCrisisData = {
       crux: {
         id: "public-housing-quality-at-scale",
         title: "The Public Housing Quality-at-Scale Test",
+        question:
+          "Did Vienna and Singapore's public housing succeed through transferable design, or conditions unique to them?",
         description:
           "If government-built housing can achieve high resident satisfaction, physical quality, and mixed-income integration at scale — as Vienna and Singapore claim — then public housing is a viable solution to the affordability crisis. If these international models depend on unique cultural or political conditions that cannot transfer to the US context, public housing is not a generalizable answer.",
         methodology:

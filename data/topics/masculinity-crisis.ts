@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const masculinityCrisisData = {
   id: "masculinity-crisis",
   title: "The Modern Masculinity Crisis",
+  question:
+    "Are young men in a crisis that neither left nor right adequately addresses?",
   meta_claim:
     "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
   status: "contested" as const,
@@ -60,6 +62,8 @@ export const masculinityCrisisData = {
       crux: {
         id: "gendered-vs-class-analysis",
         title: "The Gender vs. Class Attribution Study",
+        question:
+          "Are men's worse outcomes driven by gender itself, or by class and economic factors that hit more men?",
         description:
           "The crux is whether the negative outcomes disproportionately affecting men (suicide, educational decline, deaths of despair) are primarily driven by gender-specific factors or by class and economic factors that happen to affect more men. If controlling for socioeconomic status eliminates most gender differences in these outcomes, the crisis is primarily economic. If gender gaps persist within the same socioeconomic brackets, the crisis has irreducibly gendered dimensions.",
         methodology:
@@ -156,6 +160,8 @@ export const masculinityCrisisData = {
       crux: {
         id: "economic-vs-cultural-intervention",
         title: "The Intervention Type Comparison",
+        question:
+          "Would economic help alone improve struggling men's lives, or is cultural change also needed?",
         description:
           "The crux is whether economic interventions (job creation, trade school investment, wage support) or cultural interventions (mentorship programs, positive masculinity frameworks, community building) produce better outcomes for struggling men. If economic interventions alone substantially improve male mental health, social connection, and life satisfaction, the crisis is primarily structural. If economic improvement without cultural change leaves men still struggling, the crisis has irreducibly cultural dimensions.",
         methodology:
@@ -235,6 +241,8 @@ export const masculinityCrisisData = {
       crux: {
         id: "framework-effectiveness-test",
         title: "The Masculinity Framework Effectiveness Comparison",
+        question:
+          "Do traditional, progressive or blended masculinity frameworks produce better outcomes for men?",
         description:
           "The crux is whether men respond better to (a) conservative/traditional masculinity frameworks that emphasize responsibility, discipline, and purpose, (b) progressive frameworks that critique harmful norms while offering expanded definitions of strength, or (c) synthesized frameworks that honor traditionally valued traits while discarding genuinely harmful ones. If longitudinal outcomes show one approach produces significantly better mental health, social connection, and life satisfaction among participating men, the debate can move from ideology to evidence.",
         methodology:

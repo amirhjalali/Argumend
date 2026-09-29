@@ -1,6 +1,7 @@
 export const simulationHypothesisData = {
   id: "simulation-hypothesis",
   title: "The Simulation Hypothesis",
+  question: "Are we living in a computer simulation?",
   meta_claim:
     "Bostrom's simulation argument shows that at least one of three propositions holds: near-universal extinction before a post-human stage, near-universal disinterest in running ancestor-simulations, or our almost certainly living in one. Whether the third disjunct in particular is true, and whether the claim is even testable, remains contested.",
   status: "contested" as const,
@@ -78,6 +79,8 @@ export const simulationHypothesisData = {
       crux: {
         id: "whole-brain-emulation",
         title: "The OpenWorm Test",
+        question:
+          "Can simulating a brain's wiring reproduce its behavior, and would that say anything about experience?",
         description:
           "The C. elegans nematode has exactly 302 neurons with a fully mapped connectome. If a digital model were to reproduce the worm's full behavioral repertoire (chemotaxis, avoidance, learning) from the connectome alone, functionalism about behavior would gain support. As of the 2014 OpenWorm overview, only basic locomotion has been demonstrated; chemotaxis remains a future goal, so this is a proposed test rather than a settled result.",
         methodology:
@@ -187,6 +190,8 @@ export const simulationHypothesisData = {
       crux: {
         id: "fraction-calculation",
         title: "The Fraction Calculation",
+        question:
+          "If simulated minds would outnumber real ones, does that make it reasonable to believe we are simulated?",
         description:
           "If post-human civilizations run N ancestor simulations each with M conscious observers, and the base reality has B observers, then f_sim = (N×M) / (N×M + B). Conditional on the first two disjuncts failing (civilizations usually reach a post-human stage AND a non-trivial fraction run ancestor-simulations), large N drives f_sim toward 1. That conditional is exactly what the first two propositions of the trilemma may block, so the high f_sim is one disjunct, not a forced conclusion.",
         methodology:
@@ -296,6 +301,8 @@ export const simulationHypothesisData = {
       crux: {
         id: "cosmic-ray-anisotropy",
         title: "The GZK Cutoff Test",
+        question:
+          "Can high-energy cosmic-ray data rule out the universe being simulated on a cubic grid?",
         description:
           "Beane, Davoudi and Savage note that if spacetime were a cubic simulation lattice, the highest-energy cosmic rays should show rotational-symmetry breaking aligned with the lattice axes. The Pierre Auger Observatory can search for such a signature. Importantly, the large-scale dipole Auger has actually detected (above 8 EeV) points to an extragalactic astrophysical origin and is not a lattice-orientation pattern, so it is not evidence for a simulated lattice.",
         methodology:

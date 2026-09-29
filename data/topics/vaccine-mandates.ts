@@ -1,6 +1,8 @@
 export const vaccineMandatesData = {
   id: "vaccine-mandates",
   title: "Government Vaccine Mandates",
+  question:
+    "Are government vaccine mandates a justified public-health measure?",
   meta_claim:
     "Government vaccine mandates are a justified public-health measure.",
   status: "contested" as const,
@@ -33,6 +35,8 @@ export const vaccineMandatesData = {
       crux: {
         id: "counterfactual-uptake",
         title: "The Counterfactual Uptake Test",
+        question:
+          "How much of the uptake after a mandate is caused by the mandate, rather than the maturing rollout?",
         description:
           "The load-bearing empirical question is how many additional people get vaccinated because of the mandate, versus those who would have been vaccinated anyway as the rollout matured.",
         methodology:
@@ -121,6 +125,8 @@ export const vaccineMandatesData = {
       crux: {
         id: "transmission-externality",
         title: "The Transmission Externality Test",
+        question:
+          "Does a given vaccine reduce spread to others enough, and for long enough, to justify compulsion?",
         description:
           "Whether a mandate is ethically justified by the harm principle turns on a measurable quantity: how much a vaccinated person's reduced infectiousness lowers risk to others, and for how long.",
         methodology:
@@ -208,6 +214,8 @@ export const vaccineMandatesData = {
       crux: {
         id: "net-trust-effect",
         title: "The Net Legitimacy Test",
+        question:
+          "Does lost trust in institutions from mandates outweigh the lives they save, and is that loss real?",
         description:
           "A mandate is justified only if its public-health gains exceed its costs to legal legitimacy and institutional trust — the question is whether coercion's downstream erosion of cooperation outweighs the lives saved.",
         methodology:

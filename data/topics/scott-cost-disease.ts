@@ -1,6 +1,8 @@
 export const scottCostDiseaseData = {
   id: "scott-cost-disease",
   title: "The Cost Disease",
+  question:
+    "Have US health, school and infrastructure costs soared without matching gains?",
   meta_claim:
     "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
   status: "contested" as const,
@@ -54,6 +56,8 @@ export const scottCostDiseaseData = {
       crux: {
         id: "wage-decomposition",
         title: "The Wage-Decomposition Test",
+        question:
+          "How much of the cost rise is just rising wages in work that can't be automated?",
         description:
           "Split each sector's real cost growth into the part explained by (labor share × economy-wide relative wage growth) versus a residual. If Baumol is the primary driver, the residual is small; if the residual is large, other mechanisms dominate.",
         methodology:
@@ -147,6 +151,8 @@ export const scottCostDiseaseData = {
       crux: {
         id: "cross-national-admin-gap",
         title: "The Cross-National Admin-Share Gap",
+        question:
+          "How much of the cost gap is administrative overhead from complex, third-party payment?",
         description:
           "Compare systems that produce similar health outcomes but differ in payment structure (U.S. multi-payer vs. Canada/single-payer). The administrative-cost delta at equal outcomes is the bloat attributable to payment complexity.",
         methodology:
@@ -220,6 +226,8 @@ export const scottCostDiseaseData = {
       crux: {
         id: "subsidy-natural-experiment",
         title: "The Subsidy Natural Experiment",
+        question:
+          "When aid or insurance rises, do providers raise prices to capture it rather than expanding access?",
         description:
           "Measure how list prices respond to exogenous changes in aid caps or loan-eligibility rules. A high pass-through coefficient means subsidies are being captured as price rather than expanding real access.",
         methodology:
@@ -296,6 +304,8 @@ export const scottCostDiseaseData = {
       crux: {
         id: "matched-project-ratio",
         title: "The Matched-Project Cost Ratio",
+        question:
+          "Do US projects cost more than comparable ones abroad after wages and ground conditions are controlled for?",
         description:
           "Compare like-for-like projects (e.g., bored subway tunnels of similar geology and length) across countries, controlling for wages and ground conditions. A persistent multiple isolates institutional/process cost from physical cost.",
         methodology:
@@ -370,6 +380,8 @@ export const scottCostDiseaseData = {
       crux: {
         id: "outcome-adjusted-index",
         title: "The Outcome-Adjusted Price Index",
+        question:
+          "Do costs still rise when measured per outcome, like per healthy life-year or per point of test score?",
         description:
           "Rebuild each sector's price series on a per-outcome basis — cost per QALY, cost per NAEP point, cost per passenger-mile. If outcome-adjusted prices are flat, the disease is measurement; if they still rise, it's real.",
         methodology:

@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const decliningBirthRatesData = {
   id: "declining-birth-rates",
   title: "The Global Fertility Collapse",
+  question:
+    "Is falling fertility an existential crisis that demands policy action?",
   meta_claim:
     "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
   status: "contested" as const,
@@ -75,6 +77,8 @@ export const decliningBirthRatesData = {
       crux: {
         id: "economic-sustainability-modeling",
         title: "The Sub-Replacement Sustainability Model",
+        question:
+          "Is there a fertility level below which falling income per person becomes self-reinforcing?",
         description:
           "The crux is whether economies can sustain or grow per capita prosperity at fertility rates significantly below replacement (1.0-1.5 TFR) over multi-generational timeframes. If economic modeling shows that productivity gains, capital deepening, and institutional reforms can maintain living standards during the demographic transition, the crisis framing is overblown. If models show that below a certain fertility threshold, economic contraction becomes self-reinforcing, the crisis is real.",
         methodology:
@@ -164,6 +168,8 @@ export const decliningBirthRatesData = {
       crux: {
         id: "fertility-gap-causation",
         title: "The Fertility Gap Decomposition",
+        question:
+          "Is the gap between desired and actual family size mostly removable barriers, or shifting preferences?",
         description:
           "The crux is whether the gap between desired and actual fertility (people wanting more children than they have) is primarily caused by removable structural barriers (cost, childcare, workplace flexibility) or by irreducible preference shifts that surveys fail to capture (stated preferences for children may not reflect revealed preferences). If removing structural barriers closes most of the fertility gap, policy intervention can meaningfully raise birth rates. If the gap persists even after removing barriers, declining fertility is a deeper preference shift that policy cannot reverse.",
         methodology:
@@ -236,6 +242,8 @@ export const decliningBirthRatesData = {
       crux: {
         id: "ai-demographic-offset-capacity",
         title: "The AI Productivity Offset Model",
+        question:
+          "Can AI productivity gains grow fast enough to offset shrinking workforces?",
         description:
           "The crux is whether AI-driven productivity gains can grow fast enough to offset declining worker populations in maintaining or growing per capita GDP. If realistic AI adoption scenarios show that productivity growth per worker exceeds the rate of workforce decline, population reduction is economically manageable. If AI productivity gains are insufficient, concentrated in non-essential sectors, or create more problems than they solve (unemployment, inequality), demographic decline remains an economic crisis.",
         methodology:

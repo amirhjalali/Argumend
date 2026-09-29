@@ -1,6 +1,7 @@
 export const encryptionBackdoorsData = {
   id: "encryption-backdoors",
   title: "Encryption Backdoors",
+  question: "Should governments be able to compel encryption backdoors?",
   meta_claim:
     'Governments should be able to compel lawful-access ("backdoor") capabilities in encrypted communications.',
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const encryptionBackdoorsData = {
       crux: {
         id: "exceptional-access-design",
         title: "A Demonstrably Secure Exceptional-Access Design",
+        question:
+          "Can a lawful-access design exist whose added security risk is acceptably small?",
         description:
           "The load-bearing disagreement: does there exist a deployable exceptional-access design whose risk is acceptably bounded, or does every such mechanism necessarily increase systemic risk more than it helps? If a secure design were demonstrated, much of the skeptic case dissolves; if not, the proponent case rests on hope.",
         methodology:
@@ -124,6 +127,8 @@ export const encryptionBackdoorsData = {
       crux: {
         id: "marginal-cases-solved",
         title: "Marginal Serious Cases Solved Only via a Mandated Backdoor",
+        question:
+          "How many serious crimes could be solved only with a mandated backdoor?",
         description:
           "The decisive empirical question: how many serious crimes are actually solved that could NOT have been solved by lawful hacking, metadata, device forensics, or compelled-credential methods — i.e. the marginal value a universal backdoor adds over existing tools — weighed against the security cost it imposes on everyone.",
         methodology:
@@ -212,6 +217,8 @@ export const encryptionBackdoorsData = {
       crux: {
         id: "containability",
         title: "Containability of a Lawful-Access Capability",
+        question:
+          "Can a mandated access capability be confined to legitimate use, or will it spread to others?",
         description:
           "The pivotal question of governance: can an exceptional-access capability be reliably confined to legitimate, court-authorized use within rights-respecting limits — or does building it inevitably hand the same power to authoritarian governments and thieves, making misuse a matter of when, not if?",
         methodology:

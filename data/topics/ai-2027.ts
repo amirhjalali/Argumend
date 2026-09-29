@@ -1,6 +1,8 @@
 export const ai2027Data = {
   id: "ai-2027",
   title: "AI 2027: The Recursive-Automation Timeline",
+  question:
+    "Will automating AI research bring superintelligence by the late 2020s?",
   meta_claim:
     "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s — making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
   status: "highly_speculative" as const,
@@ -54,6 +56,8 @@ export const ai2027Data = {
       crux: {
         id: "task-horizon-trajectory",
         title: "The METR Task-Horizon Trajectory",
+        question:
+          "Will the length of tasks AI can complete on its own keep doubling at its recent pace, or plateau?",
         description:
           "The single most load-bearing measurement in the whole scenario: the '50%-task-completion time horizon' — the human-clock length of task at which a frontier model succeeds half the time. If this horizon keeps doubling on its recent cadence, short timelines follow almost mechanically; if it plateaus, the intelligence-explosion loop never ignites and the timeline stretches out for decades.",
         methodology:
@@ -147,6 +151,8 @@ export const ai2027Data = {
       crux: {
         id: "effective-compute-extrapolation",
         title: "The Effective-Compute Extrapolation",
+        question:
+          "Can compute and algorithmic progress stay on trend until AI can automate AI research?",
         description:
           "Combine hardware compute growth and algorithmic-efficiency growth into a single 'effective compute' curve and ask whether it reaches the level the scenario needs for research automation before any input wall (data, energy, capital) forces it to bend.",
         methodology:
@@ -259,6 +265,8 @@ export const ai2027Data = {
       crux: {
         id: "software-intelligence-explosion",
         title: "The Software-Intelligence-Explosion Test",
+        question:
+          "Once AI automates much of AI research, does progress leap ahead in months or ramp up over decades?",
         description:
           "Measure the R&D acceleration factor: once AI automates a given fraction of research labor, how many months of prior human-paced algorithmic progress does the automated system compress into one calendar month? A factor near 1 means slow takeoff; a factor that climbs steeply as automation deepens means fast takeoff.",
         methodology:
@@ -353,6 +361,8 @@ export const ai2027Data = {
       crux: {
         id: "coordination-vs-race",
         title: "The Observable-Racing Indicators",
+        question:
+          "Will the leading AI developers and governments keep racing, or coordinate to slow down?",
         description:
           "Rather than argue about intentions, track whether the leading actors behave like racers or coordinators: the ratio of safety-to-capability spending, compliance with (or defection from) any compute or evaluation agreements, and whether frontier compute buildout accelerates or pauses after major capability jumps.",
         methodology:
@@ -447,6 +457,8 @@ export const ai2027Data = {
       crux: {
         id: "forecast-calibration-scorecard",
         title: "The Milestone Calibration Scorecard",
+        question:
+          "Are aggressive AI forecasts like this one well calibrated, or systematically too early?",
         description:
           "Turn the debate into a resolvable bet: extract the AI 2027 scenario's datable, checkable milestones (capability thresholds, automation fractions, compute levels) and score them against reality as each date passes. A running Brier-style scorecard reveals whether this forecasting method is well-calibrated or systematically early.",
         methodology:

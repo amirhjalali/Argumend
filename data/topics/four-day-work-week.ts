@@ -1,6 +1,7 @@
 export const fourDayWorkWeekData = {
   id: "four-day-work-week",
   title: "The Four-Day Work Week",
+  question: "Should a four-day week with no pay cut be adopted broadly?",
   meta_claim:
     "A four-day work week with no reduction in pay leads to equal or higher productivity, improved worker wellbeing, and should be adopted broadly across industries.",
   status: "contested" as const,
@@ -38,6 +39,8 @@ export const fourDayWorkWeekData = {
       crux: {
         id: "four-day-rct-diverse",
         title: "The Cross-Industry Randomized Trial",
+        question:
+          "Is maintained productivity a real effect of the schedule, or of self-selected, motivated firms?",
         description:
           "The decisive test is whether a four-day work week maintains productivity in a properly randomized trial across diverse industries — not just knowledge work, but manufacturing, healthcare, retail, and services. If the effect holds only in white-collar office environments, the policy cannot be 'broadly adopted' as claimed. If it holds across sectors, the case for broad adoption is strong.",
         methodology:
@@ -127,6 +130,8 @@ export const fourDayWorkWeekData = {
       crux: {
         id: "wellbeing-persistence",
         title: "The Long-Term Wellbeing Persistence Test",
+        question:
+          "Do the wellbeing gains last beyond two years, once habits stabilize and the trials end?",
         description:
           "If four-day week wellbeing improvements persist beyond two years — after the novelty effect fades and compressed habits stabilize — the benefits are real. If improvements revert to baseline or are offset by increased daily intensity, the wellbeing case collapses. Currently, virtually no trial has measured wellbeing outcomes beyond 24 months.",
         methodology:
@@ -216,6 +221,8 @@ export const fourDayWorkWeekData = {
       crux: {
         id: "four-day-labor-cost",
         title: "The Macroeconomic Labor Cost Test",
+        question:
+          "How much of the 20% cut in hours can productivity absorb across sectors?",
         description:
           "If a four-day work week with maintained pay can be implemented broadly without significant inflation, unemployment increases, or GDP reduction, the economic feasibility case is strong. If broad adoption leads to measurable macroeconomic harm — rising prices, reduced output, or increased inequality between four-day and five-day workers — it remains a niche benefit for privileged sectors.",
         methodology:
