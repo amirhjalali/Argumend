@@ -96,7 +96,8 @@ function HomeHero() {
           </aside>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-1 md:col-start-1 md:row-start-1">
-            <Button href={HOME_FLAGSHIP_HREF} size="lg">
+            {/* The e2e suite (e2e/maps.spec.ts) follows this button by its test id. */}
+            <Button href={HOME_FLAGSHIP_HREF} size="lg" data-testid="home-primary-cta">
               See it on AI and jobs
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
@@ -129,7 +130,7 @@ function HomeMaps({ maps }: { maps: HomeMap[] }) {
           <li key={map.id} className="border-t border-divider">
             <Link
               href={map.href}
-              className="group flex h-full flex-col py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 md:pb-2"
+              className="group flex h-full flex-col py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus md:pb-2"
             >
               <h3 className="font-serif text-[1.375rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
                 {map.title}

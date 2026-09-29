@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
 import { TextAction, textActionClasses } from "@/components/ui";
+import { toneStyles } from "@/lib/categoryColors";
 import type {
   PasteMapCandidate,
   PasteMapCard,
@@ -25,9 +26,11 @@ const SIDE_LABEL: Record<PasteMapCard["side"], string> = {
   against: "Cuts against it",
 };
 
+// The tone map's small-text pairs: rust-500 and skeptic-light were 4.28:1
+// and 4.34:1 on the dark canvas, under AA for 14px text.
 const SIDE_TEXT: Record<PasteMapCard["side"], string> = {
-  for: "text-rust-700 dark:text-rust-500",
-  against: "text-skeptic dark:text-skeptic-light",
+  for: toneStyles.rust.accentText,
+  against: toneStyles.brown.accentText,
 };
 
 function Card({ card }: { card: PasteMapCard }) {

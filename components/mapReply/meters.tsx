@@ -10,6 +10,8 @@
  * certain than it is.
  */
 
+import { toneStyles } from "@/lib/categoryColors";
+
 export type MeterTone = "teal" | "rust" | "brown" | "crux" | "stone";
 
 /** Static class strings so Tailwind's content scanner can see every variant. */
@@ -23,8 +25,10 @@ const TONE_FILL: Record<MeterTone, string> = {
 
 const TONE_TEXT: Record<MeterTone, string> = {
   teal: "text-deep dark:text-accent-text",
-  rust: "text-rust-600 dark:text-rust-500",
-  brown: "text-skeptic dark:text-skeptic-light",
+  // The tone map's small-text pairs (rust-500 / skeptic-light were under
+  // 4.5:1 on the dark canvas).
+  rust: toneStyles.rust.accentText,
+  brown: toneStyles.brown.accentText,
   crux: "text-crux dark:text-crux-text",
   stone: "text-[var(--text-muted)]",
 };

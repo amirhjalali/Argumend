@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { toneStyles } from "@/lib/categoryColors";
 import type { MapReplyThresholds, MapReplyTurn } from "@/lib/mapReply/types";
 import { Meter, percentLabel } from "./meters";
 import { ResultSection } from "./ResultSection";
@@ -40,8 +41,8 @@ const STANCE_LABEL: Record<string, string> = {
 
 /** Side colours as text only: rust for, brown against, stone for neither. */
 const STANCE_TEXT: Record<string, string> = {
-  for: "text-rust-700 dark:text-rust-500",
-  against: "text-skeptic dark:text-skeptic-light",
+  for: toneStyles.rust.accentText,
+  against: toneStyles.brown.accentText,
   neither: "text-[var(--text-muted)]",
 };
 

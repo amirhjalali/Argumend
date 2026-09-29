@@ -8,7 +8,7 @@ import { glossaryByLetter, type GlossaryEntry } from "@/lib/learn/glossary";
 import { indexCrumbs } from "@/lib/learn/sections";
 
 const LINK =
-  "inline-flex min-h-11 items-center rounded-sm font-sans text-sm text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text";
+  "inline-flex min-h-11 items-center rounded-sm font-sans text-sm text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text";
 
 function Entry({ entry }: { entry: GlossaryEntry }) {
   const hasMore = Boolean(entry.rest || entry.example || entry.readMore);
@@ -26,7 +26,7 @@ function Entry({ entry }: { entry: GlossaryEntry }) {
       ))}
       {hasMore ? (
         <details className="group">
-          <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-3 rounded-sm py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 [&::-webkit-details-marker]:hidden">
+          <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-3 rounded-sm py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus [&::-webkit-details-marker]:hidden">
             {line}
             <ChevronDown
               className="mt-1.5 h-4 w-4 shrink-0 text-muted transition-transform group-open:rotate-180"
@@ -98,7 +98,7 @@ export default function GlossaryPage() {
                 <li key={letter}>
                   <a
                     href={`#letter-${letter}`}
-                    className="flex h-11 min-w-8 items-center justify-center rounded-md font-serif text-lg text-secondary transition-colors hover:bg-subtle hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                    className="flex h-11 min-w-8 items-center justify-center rounded-md font-serif text-lg text-secondary transition-colors hover:bg-subtle hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
                   >
                     {letter}
                   </a>

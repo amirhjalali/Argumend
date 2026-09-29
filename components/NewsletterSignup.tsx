@@ -92,14 +92,15 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
         isCompact ? "p-5" : "p-8"
       }`}
     >
-      {/* Heading */}
-      <h3
+      {/* An h2: the card sits in the footer, beside the page's own sections,
+          and an h3 skipped a level on pages whose last heading is the h1. */}
+      <h2
         className={`font-serif text-primary leading-snug ${
           isCompact ? "text-base mb-1" : "text-xl mb-2"
         }`}
       >
         {isCompact ? "Stay curious" : "Get new arguments in your inbox"}
-      </h3>
+      </h2>
 
       {/* Subtitle */}
       <p
@@ -128,9 +129,9 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
             aria-invalid={error ? true : undefined}
             aria-describedby={error ? errorId : undefined}
             disabled={loading}
-            className={`min-h-11 w-full bg-white dark:bg-[var(--bg-card)] border border-stone-300 dark:border-[var(--border-default)] rounded-lg text-primary dark:text-stone-200 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-rust-500/30 focus:border-rust-500/50 transition-colors ${
+            className={`min-h-11 w-full bg-white dark:bg-[var(--bg-card)] border border-stone-300 dark:border-[var(--border-default)] rounded-lg text-primary dark:text-stone-200 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-focus focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
-            } ${error ? "border-error focus:ring-error/30 focus:border-error/50" : ""} ${loading ? "opacity-60" : ""}`}
+            } ${error ? "border-error focus:ring-error focus:border-error/50" : ""} ${loading ? "opacity-60" : ""}`}
           />
         </div>
         <button
@@ -139,7 +140,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
           aria-label={loading ? "Subscribing…" : "Subscribe"}
           // Ink, like the home paste box's Analyze button: a page keeps rust
           // for its one primary action, and a signup is never that.
-          className={`min-h-11 flex-shrink-0 bg-primary text-canvas hover:bg-primary/90 font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/50 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:opacity-60 disabled:cursor-not-allowed ${
+          className={`min-h-11 flex-shrink-0 bg-primary text-canvas hover:bg-primary/90 font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:opacity-60 disabled:cursor-not-allowed ${
             isCompact ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"
           }`}
         >

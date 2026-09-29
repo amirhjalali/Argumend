@@ -133,6 +133,11 @@ function formatScore(value: number | null): string {
   return value === null ? "none" : value.toFixed(1);
 }
 
+/** Ends a title with a full stop unless it already ends a sentence ("…Nuclear Energy?"). */
+function asSentence(text: string): string {
+  return /[.?!]$/.test(text) ? text : `${text}.`;
+}
+
 /** The map lane's numbers in one paragraph, for "How this was read". */
 function mapReadingLine(reading: PasteMapReading): string {
   if (reading.topScore === null) {
@@ -342,12 +347,40 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const report = diagnosis.status === "done" ? diagnosis.report : null;
   const summary = match || report ? buildPasteSummary({ maps, report }) : undefined;
 
+  // What a screen reader hears when the result lands. Focus moves to the
+  // result region too, but "Result, region" alone does not say what came back.
+  // The diagnosis lane's progress line announces its own steps.
+  const announcement = busy
+    ? diagnosisOn
+      ? ""
+      : "Looking through the maps…"
+    : done
+      ? match
+        ? [
+            `Result below. This argument is already mapped: ${asSentence(match.title)}`,
+            related.length > 0
+              ? `Closely related: ${asSentence(related.map((map) => map.title).join("; "))}`
+              : "",
+          ]
+            .filter(Boolean)
+            .join(" ")
+        : maps?.status === "closest"
+          ? "Result below. No map matches it closely; the closest maps are listed."
+          : maps
+            ? "Result below. No map on the site came close."
+            : "Result below."
+      : "";
+
   const lede = diagnosisOn
     ? "Paste a conversation, an article or your own draft. Argumend separates what the sides agree on from what they don’t, finds the question it turns on, and takes you to the map that lays out both sides’ best evidence."
     : "Paste a conversation, an article or your own draft. Argumend finds the map it is already on, the question it turns on, and the strongest evidence on each side.";
 
   return (
     <PageContainer width="default">
+      {/* Always in the page, so its first text is announced. */}
+      <div role="status" className="sr-only">
+        {announcement}
+      </div>
       {done ? (
         // After a submit the title steps down, so the result starts on the
         // first screen of a phone; PageHeader has no size that small.
@@ -404,10 +437,12 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
               See an example
             </TextAction>
           </div>
+          {/* The count is hidden from the live region: it changed on every
+              keystroke, so a screen reader re-read the whole line per key. */}
           {tooShort && content.length > 0 ? (
             <p className="font-sans text-sm text-muted" role="status">
-              Add a little more: Argumend needs at least {minChars} characters to work with (
-              {minChars - trimmedLength} to go).
+              Add a little more: Argumend needs at least {minChars} characters to work with
+              <span aria-hidden="true"> ({minChars - trimmedLength} to go)</span>.
             </p>
           ) : null}
         </div>
@@ -418,7 +453,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           {diagnosisOn ? (
             <AnalysisProgress step={step} />
           ) : (
-            <p className="font-serif text-lg italic text-[var(--text-secondary)]" aria-live="polite">
+            <p className="font-serif text-lg italic text-[var(--text-secondary)]">
               Looking through the maps…
             </p>
           )}

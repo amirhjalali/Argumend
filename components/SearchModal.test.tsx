@@ -85,7 +85,7 @@ describe("SearchModal keyboard lifecycle", () => {
     fireEvent.change(input, { target: { value: "climate" } });
     expect(view.getByRole("status").textContent).toMatch(/^\d+ results? for “climate”$/);
 
-    const close = view.getByRole("button", { name: "Close search" });
+    const close = view.getByRole("button", { name: "Close search (Esc)" });
     fireEvent.keyDown(close, { key: "Enter" });
     expect(push).not.toHaveBeenCalled();
   });
