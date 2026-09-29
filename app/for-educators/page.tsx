@@ -239,9 +239,10 @@ export default function ForEducatorsPage() {
             { label: "Learn", href: LEARN_HUB_HREF },
             { label: "For teachers" },
           ]}
-          eyebrow="For teachers"
-          title="Teach students how to disagree without destroying the conversation"
-          lede="Lesson plans and printable worksheets that move students from “I feel that…” to finding the crux: the question that would change their mind. Free, for any class that argues about contested questions."
+          eyebrow="Learn"
+          title="For teachers"
+          lede="Teach students how to disagree without destroying the conversation. Lesson plans and printable worksheets take them from “I feel that…” to the crux: the question that would change their mind."
+          meta="Free, for any class that argues about contested questions."
         >
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Button href="#printable-worksheets">Get printable worksheets</Button>
