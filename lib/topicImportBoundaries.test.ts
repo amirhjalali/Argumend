@@ -19,8 +19,6 @@ const routesThatMustNotLoadTheFullCorpus = [
   "app/topics/[id]/map/TopicDiagram.tsx",
   "components/ReadModeView.tsx",
   "components/topic/TopicPage.tsx",
-  "app/topics/compare/page.tsx",
-  "app/topics/compare/[id1]/vs/[id2]/page.tsx",
   "components/AppShell.tsx",
   "components/Sidebar.tsx",
   "components/TopBar.tsx",

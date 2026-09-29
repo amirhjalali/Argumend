@@ -5,7 +5,7 @@ import {
   getArticleSummaryCategories,
   getArticleSummaryTags,
 } from "@/data/blogIndex";
-import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
+import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { isAnalysisId } from "@/lib/analysisId";
 import { getAllQuestionVariations } from "@/lib/questions";
@@ -72,18 +72,9 @@ export const WORKSHEET_ROUTE_IDS = [
 ] as const;
 
 const topicIds = new Set(topicSummaries.map((topic) => topic.id));
-// New-model (ArgumentGraph) topics render via DebateView on /topics/:id ONLY.
-// Kept separate from topicIds: embed/compare routes serve legacy topics alone,
-// so argument ids must not leak into their allowlists.
+// New-model (ArgumentGraph) topics: served by /topics/:id and by the embed
+// widget /embed/:topicId, which reads both models.
 const debateTopicIds = new Set(argumentTopicIds);
-const topicCategories = new Set<string>(CATEGORY_ORDER);
-const topicTags = new Set(
-  topicSummaries.flatMap((topic) =>
-    (topic.tags ?? []).map((tag) =>
-      tag.toLowerCase().trim().replace(/\s+/g, "-").replace(/-+/g, "-"),
-    ),
-  ),
-);
 const articleSlugs = new Set(articleSummaries.map((article) => article.slug));
 const blogCategories = new Set(
   getArticleSummaryCategories().map(blogCategoryToSlug),
@@ -97,7 +88,6 @@ const questionSlugs = new Set(
 );
 const worksheetIds = new Set<string>(WORKSHEET_ROUTE_IDS);
 
-const RESERVED_TOPIC_SEGMENTS = new Set(["category", "compare", "tag"]);
 const RESERVED_BLOG_SEGMENTS = new Set(["category", "tag"]);
 
 function pathnameSegments(pathname: string): string[] | null {
@@ -129,44 +119,14 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
     return false;
   }
 
+  // /topics/category/*, /topics/tag/* and /topics/compare/* are 301s to
+  // /topics (next.config.js, "maps library"); redirects run before the proxy.
   if (segments.length === 2 && segments[0] === "topics") {
-    return (
-      !RESERVED_TOPIC_SEGMENTS.has(segments[1]) &&
-      !topicIds.has(segments[1]) &&
-      !debateTopicIds.has(segments[1])
-    );
+    return !topicIds.has(segments[1]) && !debateTopicIds.has(segments[1]);
   }
   // The diagram of a legacy map (/topics/:id/map). New-model maps have none.
-  if (
-    segments.length === 3 &&
-    segments[0] === "topics" &&
-    segments[2] === "map" &&
-    !RESERVED_TOPIC_SEGMENTS.has(segments[1])
-  ) {
+  if (segments.length === 3 && segments[0] === "topics" && segments[2] === "map") {
     return !topicIds.has(segments[1]);
-  }
-  if (
-    segments.length === 3 &&
-    segments[0] === "topics" &&
-    segments[1] === "category"
-  ) {
-    return !topicCategories.has(segments[2]);
-  }
-  if (
-    segments.length === 3 &&
-    segments[0] === "topics" &&
-    segments[1] === "tag"
-  ) {
-    return !topicTags.has(segments[2]);
-  }
-  if (
-    segments.length === 5 &&
-    segments[0] === "topics" &&
-    segments[1] === "compare" &&
-    segments[3] === "vs"
-  ) {
-    const [, , id1, , id2] = segments;
-    return id1 === id2 || !topicIds.has(id1) || !topicIds.has(id2);
   }
 
   if (segments.length === 2 && segments[0] === "blog") {
@@ -213,7 +173,7 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
     return !worksheetIds.has(segments[2]);
   }
   if (segments.length === 2 && segments[0] === "embed") {
-    return !topicIds.has(segments[1]);
+    return !topicIds.has(segments[1]) && !debateTopicIds.has(segments[1]);
   }
   if (segments.length === 2 && segments[0] === "analysis") {
     return !isAnalysisId(segments[1]);

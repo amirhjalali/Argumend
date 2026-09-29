@@ -3,7 +3,6 @@ import { NextRequest } from "next/server";
 import { concepts } from "@/data/concepts";
 import { fallacies } from "@/data/fallacies";
 import { guides } from "@/data/guides";
-import { topicSummaries } from "@/data/topicIndex";
 import {
   CONCEPT_ROUTE_SLUGS,
   FALLACY_ROUTE_SLUGS,
@@ -19,9 +18,6 @@ const invalidDynamicRoutes = [
   "/topics/definitely-missing/map",
   // New-model maps have no diagram; their page is the outline.
   "/topics/ai-mass-unemployment/map",
-  "/topics/category/definitely-missing",
-  "/topics/tag/definitely-missing",
-  "/topics/compare/definitely-missing/vs/also-missing",
   "/blog/definitely-missing",
   "/blog/category/definitely-missing",
   "/blog/tag/definitely-missing",
@@ -43,9 +39,6 @@ const validDynamicRoutes = [
   "/topics/climate-change/map",
   // New-model (ArgumentGraph) topic — served by DebateView, must clear the proxy.
   "/topics/ai-mass-unemployment",
-  "/topics/category/science",
-  "/topics/tag/policy",
-  "/topics/compare/climate-change/vs/nuclear-energy-safety",
   "/blog/why-steel-manning-makes-you-smarter",
   "/blog/category/critical-thinking",
   "/blog/tag/critical-thinking",
@@ -55,6 +48,8 @@ const validDynamicRoutes = [
   "/questions/is-nuclear-energy-safe",
   "/for-educators/worksheets/argument-map-template",
   "/embed/climate-change",
+  // New-model maps embed too (they used to 404 here).
+  "/embed/ai-mass-unemployment",
   "/analysis/123e4567-e89b-12d3-a456-426614174000",
 ] as const;
 
@@ -70,7 +65,6 @@ describe("early dynamic-route 404 policy", () => {
   it.each([
     "/",
     "/topics",
-    "/topics/compare",
     "/blog",
     "/api/analysis/not-a-uuid",
     "/api/auth/session",
@@ -92,17 +86,11 @@ describe("early dynamic-route 404 policy", () => {
     expect(shouldServeNamedNotFound(pathname)).toBe(true);
   });
 
-  it("rejects same-topic comparisons while allowing arbitrary distinct known pairs", () => {
-    expect(
-      shouldServeNamedNotFound(
-        "/topics/compare/climate-change/vs/climate-change",
-      ),
-    ).toBe(true);
-    expect(
-      shouldServeNamedNotFound(
-        "/topics/compare/climate-change/vs/free-will",
-      ),
-    ).toBe(false);
+  it("no longer reserves the retired library sub-routes (they are 301s now)", () => {
+    // next.config.js redirects /topics/{category,tag,compare}/* before the
+    // proxy runs; a bare segment that slips past is not a topic, so 404.
+    expect(shouldServeNamedNotFound("/topics/category")).toBe(true);
+    expect(shouldServeNamedNotFound("/topics/tag")).toBe(true);
   });
 
   it("preserves the public URL query while rewriting to a truthful 404", () => {
@@ -129,18 +117,6 @@ describe("early dynamic-route 404 policy", () => {
 });
 
 describe("compact proxy catalogs", () => {
-  it("keeps the topic-tag pass-through fixture backed by the live index", () => {
-    expect(
-      topicSummaries.some((topic) =>
-        (topic.tags ?? []).some(
-          (tag) =>
-            tag.toLowerCase().trim().replace(/\s+/g, "-").replace(/-+/g, "-") ===
-            "policy",
-        ),
-      ),
-    ).toBe(true);
-  });
-
   it("stays aligned with the prose-heavy guide catalog", () => {
     expect([...GUIDE_ROUTE_IDS].sort()).toEqual(guides.map((guide) => guide.id).sort());
   });
