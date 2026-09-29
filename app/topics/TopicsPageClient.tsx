@@ -278,8 +278,8 @@ export default function TopicsPageClient({
                 aria-pressed={savedFilterOn}
                 className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-lg px-1 text-sm underline-offset-2 transition-colors ${
                   savedFilterOn
-                    ? "font-medium text-primary underline decoration-deep decoration-2 dark:text-stone-200 dark:decoration-accent-text"
-                    : "text-secondary hover:text-primary dark:text-stone-400 dark:hover:text-stone-200"
+                    ? "font-medium text-primary dark:text-stone-200 underline decoration-deep decoration-2 dark:decoration-accent-text"
+                    : "text-secondary dark:text-stone-400 hover:text-primary dark:hover:text-stone-200"
                 }`}
               >
                 Saved on this device ({savedCount})
@@ -403,7 +403,7 @@ function StartHere() {
               href={map.href}
               className="group flex h-full flex-col py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 md:py-5"
             >
-              <h3 className="font-serif text-[1.375rem] leading-snug text-primary transition-colors group-hover:text-deep dark:text-stone-200 dark:group-hover:text-accent-text">
+              <h3 className="font-serif text-[1.375rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
                 {map.title}
               </h3>
               <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-secondary dark:text-stone-400 md:line-clamp-3">
