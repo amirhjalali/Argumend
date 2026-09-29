@@ -114,7 +114,7 @@ describe("one crux-first template for every map", () => {
     const questions = [...view.container.querySelectorAll("#cruxes [data-crux-sheet] > li h3 > span:first-child")].map((h) =>
       h.textContent?.trim(),
     );
-    expect(questions).toEqual(topic.pillars.map((p) => p.crux.title));
+    expect(questions).toEqual(topic.pillars.map((p) => p.crux.question ?? p.crux.title));
   });
 
   it("shows every FAQPage question on the page, in a Common questions fold", async () => {
