@@ -11,7 +11,10 @@ import type { Claim, ResolutionKind } from "@/types/argument";
 import { loadArgumentTopic } from "@/lib/argument/draftTopics";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { claimMovement, isPublicEntry, type CruxMovementEntry } from "@/lib/argument/ledger";
-import { settleMode, type SettleMode } from "@/components/argument/DebateView";
+// From the primitives module, not DebateView: importing DebateView pulls the
+// whole topic page's client islands (save/share/embed, reflection) into
+// home's bundle even though home renders none of them.
+import { settleMode, type SettleMode } from "@/components/topic/cruxPrimitives";
 
 /** The map home's primary button opens, and whose first crux beat 2 works through. */
 export const HOME_FLAGSHIP_ID = "ai-mass-unemployment";
