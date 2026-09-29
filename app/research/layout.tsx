@@ -4,11 +4,11 @@ import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 export const metadata: Metadata = {
   title: "Research — The Science Behind Argument Mapping",
   description:
-    "The peer-reviewed science behind Argumend: polarization research, deliberative reasoning, and misinformation studies that inform our argument mapping methodology.",
-  keywords: ["polarization research", "deliberative reasoning", "misinformation studies", "argument mapping research", "cognitive science"],
+    "Why Argumend exists: people on opposite sides usually disagree less than they think. The research on that perception gap, on polarization and misinformation, and on what helps, with a reading list.",
+  keywords: ["perception gap", "polarization research", "deliberative reasoning", "misinformation studies", "argument mapping research", "cognitive science"],
   openGraph: {
     title: "Research — The Science Behind Argument Mapping",
-    description: "Peer-reviewed polarization research, deliberative reasoning, and misinformation studies behind Argumend.",
+    description: "The perception gap, polarization and misinformation research behind Argumend, with a reading list.",
     url: "https://argumend.org/research",
     images: [DEFAULT_SOCIAL_IMAGE],
   },
