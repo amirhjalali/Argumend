@@ -28,6 +28,7 @@ import {
   Microscope,
   Scale,
 } from "lucide-react";
+import { toneStyles } from "@/lib/categoryColors";
 
 export type LibraryShelfId = "foundations" | "evidence" | "judgment";
 
@@ -75,10 +76,10 @@ export const libraryShelves: Record<LibraryShelfId, LibraryShelfMeta> = {
     description:
       "Where the vocabulary comes from — what counts as an argument, a premise, or a good reason in the first place.",
     icon: Compass,
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
-    iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-accent-text",
-    hoverBorder: "hover:border-deep/40",
+    chip: toneStyles.teal.chip,
+    iconBg: toneStyles.teal.iconBg,
+    iconText: toneStyles.teal.iconText,
+    hoverBorder: toneStyles.teal.hoverBorder,
   },
   evidence: {
     id: "evidence",
@@ -87,10 +88,10 @@ export const libraryShelves: Record<LibraryShelfId, LibraryShelfMeta> = {
     description:
       "How claims get tested against the world — falsification, systematic review, and the data that survives both.",
     icon: Microscope,
-    chip: "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
-    iconBg: "bg-rust-50 dark:bg-rust-900/30",
-    iconText: "text-rust-600 dark:text-rust-300",
-    hoverBorder: "hover:border-rust-300/60",
+    chip: toneStyles.rust.chip,
+    iconBg: toneStyles.rust.iconBg,
+    iconText: toneStyles.rust.iconText,
+    hoverBorder: toneStyles.rust.hoverBorder,
   },
   judgment: {
     id: "judgment",
@@ -99,10 +100,10 @@ export const libraryShelves: Record<LibraryShelfId, LibraryShelfMeta> = {
     description:
       "Why your own reasoning goes wrong, and what measurably reduces the error — bias, motivation, and forecasting track records.",
     icon: Scale,
-    chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-light border-skeptic/25 dark:border-skeptic/40",
-    iconBg: "bg-skeptic/10 dark:bg-skeptic/20",
-    iconText: "text-skeptic-dark dark:text-skeptic-light",
-    hoverBorder: "hover:border-skeptic/40",
+    chip: toneStyles.brown.chip,
+    iconBg: toneStyles.brown.iconBg,
+    iconText: toneStyles.brown.iconText,
+    hoverBorder: toneStyles.brown.hoverBorder,
   },
 };
 

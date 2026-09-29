@@ -5,7 +5,7 @@
  *
  * Palette discipline (see CLAUDE.md "Design System"): family colors reuse the
  * same four on-brand tokens as `lib/categoryColors.ts` — deep teal, rust,
- * skeptic brown, crux crimson. Never amber/tangerine/indigo/violet/sky.
+ * skeptic brown, plum, via `toneStyles` (crimson means a crux, never a family). Never amber/tangerine/indigo/violet/sky.
  */
 import type { LucideIcon } from "lucide-react";
 import {
@@ -34,6 +34,7 @@ import {
   Anchor,
 } from "lucide-react";
 import type { Fallacy } from "@/data/fallacies";
+import { toneStyles } from "@/lib/categoryColors";
 
 export type FallacyFamilyId = "diversion" | "evidence" | "structure" | "unfalsifiable";
 
@@ -61,11 +62,11 @@ export const fallacyFamilies: Record<FallacyFamilyId, FallacyFamilyMeta> = {
     label: "Diversion",
     description:
       "Dodges the argument — attacking, distracting, or appealing to feeling instead of engaging the claim.",
-    chip: "bg-rust-50 dark:bg-rust-900/30 text-rust-700 dark:text-rust-300 border-rust-200/60 dark:border-rust-800/40",
-    iconBg: "bg-rust-50 dark:bg-rust-900/30",
-    iconText: "text-rust-600 dark:text-rust-300",
-    hoverBorder: "hover:border-rust-300/60",
-    borderAccent: "border-l-rust-400",
+    chip: toneStyles.rust.chip,
+    iconBg: toneStyles.rust.iconBg,
+    iconText: toneStyles.rust.iconText,
+    hoverBorder: toneStyles.rust.hoverBorder,
+    borderAccent: toneStyles.rust.borderAccent,
   },
   evidence: {
     id: "evidence",
@@ -73,11 +74,11 @@ export const fallacyFamilies: Record<FallacyFamilyId, FallacyFamilyMeta> = {
     label: "Authority & Evidence",
     description:
       "Misuses sources, samples, or data — treating weak or selective evidence as if it settled the question.",
-    chip: "bg-deep/10 dark:bg-deep/20 text-deep dark:text-accent-text border-deep/20 dark:border-deep/40",
-    iconBg: "bg-deep/10 dark:bg-deep/20",
-    iconText: "text-deep dark:text-accent-text",
-    hoverBorder: "hover:border-deep/40",
-    borderAccent: "border-l-deep/50",
+    chip: toneStyles.teal.chip,
+    iconBg: toneStyles.teal.iconBg,
+    iconText: toneStyles.teal.iconText,
+    hoverBorder: toneStyles.teal.hoverBorder,
+    borderAccent: toneStyles.teal.borderAccent,
   },
   structure: {
     id: "structure",
@@ -85,11 +86,11 @@ export const fallacyFamilies: Record<FallacyFamilyId, FallacyFamilyMeta> = {
     label: "False Structure",
     description:
       "Rigs the logical architecture itself — false choices, closed loops, and definitions that shift mid-argument.",
-    chip: "bg-crux/10 dark:bg-crux/20 text-crux dark:text-crux-light border-crux/25 dark:border-crux/40",
-    iconBg: "bg-crux/10 dark:bg-crux/20",
-    iconText: "text-crux dark:text-crux-light",
-    hoverBorder: "hover:border-crux/40",
-    borderAccent: "border-l-crux/50",
+    chip: toneStyles.plum.chip,
+    iconBg: toneStyles.plum.iconBg,
+    iconText: toneStyles.plum.iconText,
+    hoverBorder: toneStyles.plum.hoverBorder,
+    borderAccent: toneStyles.plum.borderAccent,
   },
   unfalsifiable: {
     id: "unfalsifiable",
@@ -97,11 +98,11 @@ export const fallacyFamilies: Record<FallacyFamilyId, FallacyFamilyMeta> = {
     label: "Moving Targets",
     description:
       "Dodges falsification — redefining terms or shifting the standard of proof whenever it's actually met.",
-    chip: "bg-skeptic/10 dark:bg-skeptic/20 text-skeptic-dark dark:text-skeptic-light border-skeptic/25 dark:border-skeptic/40",
-    iconBg: "bg-skeptic/10 dark:bg-skeptic/20",
-    iconText: "text-skeptic-dark dark:text-skeptic-light",
-    hoverBorder: "hover:border-skeptic/40",
-    borderAccent: "border-l-skeptic/50",
+    chip: toneStyles.brown.chip,
+    iconBg: toneStyles.brown.iconBg,
+    iconText: toneStyles.brown.iconText,
+    hoverBorder: toneStyles.brown.hoverBorder,
+    borderAccent: toneStyles.brown.borderAccent,
   },
 };
 

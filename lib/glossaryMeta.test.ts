@@ -64,19 +64,21 @@ describe("glossaryMeta", () => {
     expect(groups.map((g) => g.chapter.id)).toEqual(["core"]);
   });
 
-  it("keeps every chapter on the four on-brand color tokens", () => {
+  it("keeps every chapter on the shared tone map, never crux crimson", () => {
     const banned = /amber|tangerine|indigo|violet|sky|blue|purple|emerald/;
     for (const id of glossaryChapterOrder) {
       const c = glossaryChapters[id];
       const classes = [c.chip, c.iconBg, c.iconText, c.hoverBorder, c.borderAccent].join(" ");
       expect(classes).not.toMatch(banned);
-      expect(classes).toMatch(/deep|rust|crux|skeptic/);
+      expect(classes).toMatch(/deep|rust|plum|skeptic/);
+      // Crimson means a crux; it never labels a chapter.
+      expect(classes).not.toMatch(/crux/);
     }
   });
 
   it("assigns each chapter a different color family", () => {
     const families = glossaryChapterOrder.map(
-      (id) => glossaryChapters[id].iconBg.match(/deep|rust|crux|skeptic/)?.[0]
+      (id) => glossaryChapters[id].iconBg.match(/deep|rust|plum|skeptic/)?.[0]
     );
     expect(new Set(families).size).toBe(glossaryChapterOrder.length);
   });
