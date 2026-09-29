@@ -66,11 +66,11 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     category: "core",
   },
   {
-    term: "Confidence Score",
+    term: "Balance and Weight",
     definition:
-      "Argumend reads evidence on two separate axes rather than one number. Balance (0-100) shows which way the weighted evidence tips: 50 is even, above 50 favors the claim, below 50 the counterclaim. Weight shows how much evidence there is, combining evidential mass, source quality, and how resolvable the cruxes are. Read together: high weight with a strong lean means the evidence largely converges on the claim (or the counterclaim); high weight near 50 means well-mapped, evidence still divided; low weight means evidence still thin, an open question whatever the lean. Neither number is the probability that a claim is true.",
-    example: "Compare balance and weight across all topics",
-    exampleHref: "/topics",
+      "The two readings behind a map's description of its evidence. Balance (0-100) shows which way the weighed evidence tips: 50 is even, above 50 favors the claim, below 50 the counterclaim. Weight shows how much good evidence there is, combining how much there is, how good the sources are, and how testable the cruxes are. Read together they give the plain-language reading a map shows: a lot of evidence mostly pointing one way means it largely converges; a lot of evidence pointing both ways means it is still divided; little evidence means it is still thin, an open question whatever the lean. Neither number is the probability that a claim is true, and neither names a winner.",
+    example: "See the reading on the Nuclear Energy map",
+    exampleHref: "/topics/nuclear-energy-safety",
     learnMoreHref: "/concepts/confidence-calibration",
     learnMoreText: "How balance and weight work",
     category: "core",
@@ -86,7 +86,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Pillar",
     definition:
-      "A major axis of disagreement within a debate, containing opposing arguments and a decisive crux. Each Argumend topic is structured around three pillars representing the most important lines of argument, with steel-manned positions, weighted evidence, and crux questions.",
+      "A major axis of disagreement within a debate, containing opposing arguments and a decisive crux. Most Argumend maps are organized into two to five pillars, the most important lines of argument, each with steel-manned positions, weighed evidence, and a crux question.",
     example: "See how pillars structure the COVID Origins analysis",
     exampleHref: "/topics/lab-leak-theory",
     learnMoreHref: "/concepts/pillars",
@@ -193,7 +193,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     term: "Logical Fallacy",
     definition:
       "An error in reasoning that undermines the logic of an argument, such as ad hominem, straw man, or false dichotomy. Recognizing fallacies is essential for evaluating whether a conclusion actually follows from its premises.",
-    example: "See how we identify fallacies on the TikTok Ban analysis",
+    example: "See each side's reasoning laid out on the TikTok Ban map",
     exampleHref: "/topics/tiktok-ban",
     category: "fallacies",
   },
@@ -201,7 +201,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     term: "Ad Hominem",
     definition:
       "Attacking the person making an argument rather than addressing the argument itself. 'You're wrong because you're biased' is ad hominem. 'Your argument fails because the evidence contradicts it' is not. The source of an argument is relevant to credibility but doesn't determine validity.",
-    example: "See how we separate person from argument on the Immigration debate",
+    example: "See arguments weighed apart from who makes them on the Immigration map",
     exampleHref: "/topics/immigration-border-crisis",
     category: "fallacies",
   },
@@ -289,7 +289,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     term: "Calibration",
     definition:
       "The degree to which stated confidence matches actual accuracy. A perfectly calibrated person is right about 70% of the time when they say they are 70% confident — and wrong half the time when they say 50%. Calibration is distinct from being right more often: it is about your confidence meaning exactly what it claims, which is why being occasionally wrong at high confidence is a feature, not a failure.",
-    example: "Read confidence as probability on the AI Risk topic",
+    example: "See uncertainty stated plainly on the AI Risk map",
     exampleHref: "/topics/ai-risk",
     learnMoreHref: "/guides/reading-confidence-like-a-forecaster",
     learnMoreText: "Read: Reading Confidence Like a Forecaster",
@@ -339,7 +339,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     term: "Red Herring",
     definition:
       "An irrelevant point introduced to divert attention from the actual question. Instead of answering the argument on the table, the speaker raises a different, often emotionally charged issue, and the original point quietly gets dropped. The distraction can even be true and still be a red herring, because its truth does nothing to settle the matter being debated. The cure is to name the switch and return to the original claim.",
-    example: "See the real issue kept in focus on the Immigration debate",
+    example: "See the real issue kept in focus on the Immigration map",
     exampleHref: "/topics/immigration-border-crisis",
     learnMoreHref: "/fallacies/red-herring",
     learnMoreText: "See the red herring fallacy",
@@ -378,11 +378,79 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Epistemic Humility",
     definition:
-      "Holding beliefs in proportion to the evidence — confident where it is strong, uncertain where it is weak, and willing to update when it shifts. It is not relativism; some questions really are settled. It simply means separating how sure you feel from how sure the evidence warrants, which is exactly what a calibrated confidence score expresses: '60% confident, and here is why' is more honest than manufactured certainty.",
+      "Holding beliefs in proportion to the evidence — confident where it is strong, uncertain where it is weak, and willing to update when it shifts. It is not relativism; some questions really are answered. It simply means separating how sure you feel from how sure the evidence warrants. 'The evidence is still divided, and here is what would settle it' is more honest than manufactured certainty.",
     example: "See uncertainty stated honestly on the Consciousness topic",
     exampleHref: "/topics/consciousness-hard-problem",
     learnMoreHref: "/concepts/confidence-calibration",
-    learnMoreText: "How balance and weight work",
+    learnMoreText: "How a map describes its evidence",
     category: "reasoning",
+  },
+  // Reference entries moved here from /faq (2026-09-29), which now answers
+  // only questions about Argumend itself.
+  {
+    term: "Facts and Values",
+    definition:
+      "A factual claim can be checked against evidence and is true or false whoever believes it: 'the average temperature has risen since 1900.' A value claim says what matters more or what ought to be done: 'we should put jobs ahead of emissions.' Many arguments blur the two, treating a contested factual question as if it were already answered, or a choice between values as if it were a matter of fact. Pulling them apart shows which part of a disagreement evidence could settle and which part it cannot.",
+    example: "See factual and value cruxes side by side on the AI unemployment map",
+    exampleHref: "/topics/ai-mass-unemployment",
+    learnMoreHref: "/concepts/cruxes",
+    learnMoreText: "Understanding cruxes",
+    category: "core",
+  },
+  {
+    term: "Validity and Soundness",
+    definition:
+      "Validity is about structure; soundness is structure plus truth. An argument is valid if its conclusion follows from its premises, even when the premises are false: 'All cats are robots; my pet is a cat; so my pet is a robot' is valid but not sound. An argument is sound only when it is valid and its premises are true. That is why checking that an argument flows is not enough: you also have to check that what it starts from is so.",
+    learnMoreHref: "/guides/argument-audit",
+    learnMoreText: "Guide: auditing an argument",
+    category: "reasoning",
+  },
+  {
+    term: "Deductive and Inductive Reasoning",
+    definition:
+      "Deduction runs from general premises to a conclusion that must be true if the premises are; it guarantees the conclusion but adds nothing the premises did not already contain. Induction runs from particular observations to a general pattern that is probably, not certainly, true; it extends what we know but can always be overturned by new evidence. Most real-world reasoning, science included, is inductive, which is why its conclusions come with degrees of support rather than proofs.",
+    learnMoreHref: "/guides/bayesian-thinking",
+    learnMoreText: "Guide: Bayesian thinking",
+    category: "reasoning",
+  },
+  {
+    term: "Anecdotal Evidence",
+    definition:
+      "A personal story or single striking case offered as evidence for a general claim. It persuades because it is vivid, but it is weak because it is not representative: one person who recovered after a treatment says little about how it works across thousands, and we hear the dramatic cases, not the quiet typical ones. Anecdotes are useful for raising a question or illustrating a point; they cannot establish a general claim on their own, which is why replicated, systematic data outweighs a memorable story.",
+    learnMoreHref: "/fallacies/hasty-generalization",
+    learnMoreText: "See the hasty generalization fallacy",
+    category: "reasoning",
+  },
+  {
+    term: "Denialism",
+    definition:
+      "Skepticism and denialism both begin by doubting a claim, but they behave differently when evidence arrives. A skeptic withholds judgment until the evidence is in, says what would change their mind, and updates when it does. A denier has fixed the conclusion first and moves the goalposts to protect it, so no evidence is ever quite enough. The test is to ask: what specific finding would change your view? A skeptic can answer; a denier either cannot or keeps changing the answer.",
+    learnMoreHref: "/guides/spotting-manufactured-doubt",
+    learnMoreText: "Guide: spotting manufactured doubt",
+    category: "reasoning",
+  },
+  {
+    term: "Cognitive Bias",
+    definition:
+      "A systematic flaw in how a mind takes in and weighs information, such as confirmation bias or anchoring. It differs from a logical fallacy, which is a flaw in the argument itself: a straw man is on the page whether or not anyone is fooled, while a bias lives in the thinker and can shape which evidence you notice with no explicit argument at all. The two interact, because biases lead people to make and accept fallacies. Spotting fallacies improves the arguments you make; recognizing biases improves the judgments you reach.",
+    learnMoreHref: "/guides/cognitive-bias-field-guide",
+    learnMoreText: "Field guide: 12 biases that distort debate",
+    category: "fallacies",
+  },
+  {
+    term: "False Equivalence",
+    definition:
+      "Treating two things as comparable when the differences that matter are large: equating a minor lapse with a major one, or presenting 'both sides' as evenly matched when the evidence is lopsided. It hides behind a surface symmetry ('they both made mistakes') while ignoring scale, intent, or how well each side is supported, and so manufactures a fake balance. To spot it, ask whether the two cases really are alike on the dimension that counts.",
+    learnMoreHref: "/guides/spotting-manufactured-doubt",
+    learnMoreText: "Guide: spotting manufactured doubt",
+    category: "fallacies",
+  },
+  {
+    term: "Fallacy Fallacy",
+    definition:
+      "Concluding that a claim must be false because the argument made for it contains a fallacy. A bad argument for a true claim does not make the claim untrue; it only means that argument fails to support it. Someone can defend a correct conclusion with a sloppy appeal to authority, and the conclusion can still be right for other reasons. Spotting a fallacy is a reason to set that argument aside and look for better evidence, not to flip to the opposite belief.",
+    learnMoreHref: "/fallacies",
+    learnMoreText: "The fallacy catalogue",
+    category: "fallacies",
   },
 ];
