@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useLogicGraph, getLoadedTopics } from "@/hooks/useLogicGraph";
+import { useLogicGraph, useLoadedTopic } from "@/hooks/useLogicGraph";
 import { MiniGraphPreview } from "@/components/MiniGraphPreview";
 import { calculateEvidenceScore } from "@/types/logic";
 import { statusColors } from "@/lib/categoryColors";
@@ -159,9 +159,6 @@ function PillarSection({
   const [showCrux, setShowCrux] = useState(false);
 
   const evidence = pillar.evidence || [];
-  const forEvidence = evidence.filter((e) => e.side === "for");
-  const againstEvidence = evidence.filter((e) => e.side === "against");
-
   return (
     <div className="border border-stone-200/60 dark:border-[var(--border-default)] rounded-xl overflow-hidden bg-white/50 dark:bg-[var(--bg-card)]">
       {/* Pillar header */}
@@ -223,8 +220,7 @@ function PillarSection({
           {evidence.length > 0 && (
             <div className="space-y-2">
               <p className="text-[11px] font-medium text-muted dark:text-stone-400 uppercase tracking-wide">
-                Evidence ({forEvidence.length} for, {againstEvidence.length}{" "}
-                against)
+                Evidence on each side
               </p>
               <div className="space-y-1.5">
                 {evidence.map((e) => (
@@ -241,7 +237,7 @@ function PillarSection({
               className="flex items-center gap-1.5 py-2 min-h-[44px] text-[13px] text-crux dark:text-crux-text font-medium hover:text-crux-dark dark:hover:text-[#e6a3a3] transition-colors"
             >
               <FlaskConical className="h-3.5 w-3.5" />
-              Decisive Test: {pillar.crux.title}
+              What would settle it: {pillar.crux.title}
               {showCrux ? (
                 <ChevronDown className="h-3 w-3" />
               ) : (
@@ -277,15 +273,20 @@ function PillarSection({
  * tabs, the verdict label, or per-card scores.
  */
 export function MobileArgumentList({ outlineOnly = false }: { outlineOnly?: boolean } = {}) {
-  const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setView = useLogicGraph((state) => state.setView);
   const storeView = useLogicGraph((state) => state.currentView);
   const currentView = outlineOnly ? "logic-map" : storeView;
   const pillarListRef = useRef<HTMLDivElement>(null);
-  const topics = getLoadedTopics();
-  const topic = topics?.find((t) => t.id === currentTopicId);
+  // Re-renders when the topic module lands; `setTopic` sets the id first.
+  const topic = useLoadedTopic();
 
-  if (!topic) return null;
+  if (!topic) {
+    return (
+      <p role="status" className="px-4 py-10 text-center font-sans text-sm text-muted dark:text-stone-400">
+        Loading the map…
+      </p>
+    );
+  }
 
   const scrollToPillars = () => {
     pillarListRef.current?.scrollIntoView({
@@ -373,7 +374,7 @@ export function MobileArgumentList({ outlineOnly = false }: { outlineOnly?: bool
         {currentView === "logic-map" && (
           <div ref={pillarListRef} className="space-y-3 scroll-mt-4">
             <p className="text-[11px] font-medium text-muted dark:text-stone-400 uppercase tracking-wide">
-              {topic.pillars.length} Key Arguments
+              {topic.pillars.length} key arguments
             </p>
             {topic.pillars.map((pillar, i) => (
               <PillarSection key={pillar.id} pillar={pillar} index={i} showScores={!outlineOnly} />

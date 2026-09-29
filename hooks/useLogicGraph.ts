@@ -18,12 +18,14 @@ async function loadAndRememberTopic(topicId: string): Promise<Topic | null> {
 }
 
 /**
- * Public synchronous access for lazy-loaded components (DebateView,
- * ScalesOfEvidence, etc.). Only individually requested topics are retained.
+ * Synchronous access to the topics loaded so far. Only individually requested
+ * topics are retained. Not reactive: a component that renders the selected
+ * topic should use `useLoadedTopic()` (end of file) instead.
  */
 export function getLoadedTopics() {
   return Array.from(loadedTopics.values());
 }
+
 import {
   COLLISION_HORIZONTAL_GAP,
   COLLISION_PADDING,
@@ -74,6 +76,8 @@ type GraphStore = {
   focusTargets: string[];
   sequence: number;
   currentTopicId: string;
+  /** The topic whose module has loaded and whose graph is in `nodes`. */
+  loadedTopicId: string | null;
   currentView: ArgumentView;
   _initialized: boolean;
 
@@ -265,6 +269,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
   focusTargets: [],
   sequence: 0,
   currentTopicId: "moon-landing",
+  loadedTopicId: null,
   currentView: "logic-map" as ArgumentView,
   _initialized: false,
 
@@ -292,6 +297,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
       nodes: [rootNode],
       focusTargets: ["root"],
       currentTopicId: moonLanding.id,
+      loadedTopicId: moonLanding.id,
       _initialized: true,
     });
     // Auto-expand the root so the first canvas paint shows the pillar tree,
@@ -332,6 +338,7 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
 
       set({
         currentTopicId: topic.id,
+        loadedTopicId: topic.id,
         nodes: [newRootNode],
         edges: [],
         expandedNodes: {},
@@ -604,3 +611,18 @@ export const useLogicGraph = create<GraphStore>((set, get) => ({
 
   setFocusTargets: (targets: string[]) => set({ focusTargets: targets }),
 }));
+
+/**
+ * The selected topic once its module has loaded, else `undefined`.
+ *
+ * `setTopic` sets `currentTopicId` before the topic module arrives, and the
+ * module cache is not reactive, so a component that reads the cache while
+ * watching only `currentTopicId` renders nothing and never re-renders. This
+ * hook also watches `loadedTopicId`, which changes when the load lands.
+ */
+export function useLoadedTopic(): Topic | undefined {
+  const currentTopicId = useLogicGraph((state) => state.currentTopicId);
+  const loadedTopicId = useLogicGraph((state) => state.loadedTopicId);
+  if (!loadedTopicId || loadedTopicId !== currentTopicId) return undefined;
+  return loadedTopics.get(loadedTopicId);
+}
