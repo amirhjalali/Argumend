@@ -107,6 +107,31 @@ const nextConfig = {
         destination: '/topics',
         permanent: true,
       },
+      // ── home + story (ux/home-story, 2026-09-29) ─────────────────────────
+      // Home no longer hosts the legacy canvas. `/?topic=:id` (with any
+      // `view`) opened it; every map lives at /topics/:id. Next merges the
+      // incoming query into the destination, so `view=read` is set here to
+      // override a `view=logic-map`, which the legacy topic page would
+      // otherwise bounce straight back to `/?topic=` (a redirect loop).
+      {
+        source: '/',
+        has: [{ type: 'query', key: 'topic', value: '(?<id>.*)' }],
+        destination: '/topics/:id?view=read',
+        permanent: true,
+      },
+      // The story lives on one page. /how-it-works and /community were
+      // folded into /about.
+      {
+        source: '/how-it-works',
+        destination: '/about#read-a-map',
+        permanent: true,
+      },
+      {
+        source: '/community',
+        destination: '/about#contribute',
+        permanent: true,
+      },
+      // ── end home + story ────────────────────────────────────────────────
     ];
   },
   async headers() {
