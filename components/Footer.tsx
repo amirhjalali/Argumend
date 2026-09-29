@@ -23,7 +23,8 @@ function FooterLink({ link }: { link: NavLink }) {
 
 /**
  * The site footer: the one newsletter signup on every page, the primary
- * destinations again ("Argumend"), the secondary ones ("More"), and the legal
+ * destinations again ("Argumend"), the Learn sections ("Learn"), the
+ * secondary ones ("More"), and the legal
  * line. Columns come from lib/nav.ts.
  */
 export function Footer() {
@@ -42,7 +43,7 @@ export function Footer() {
               would change a mind, never around who won.
             </p>
 
-            <nav aria-label="Footer navigation" className="mt-8 grid max-w-md grid-cols-2 gap-x-8 gap-y-6">
+            <nav aria-label="Footer navigation" className="mt-8 grid max-w-xl grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3">
               {footerColumns.map((column) => {
                 const headingId = `footer-${column.title.toLowerCase()}`;
                 return (
