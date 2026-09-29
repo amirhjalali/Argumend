@@ -311,9 +311,11 @@ html {
     @apply px-5 py-2.5;
   }
 
-  /* Pinned ink: `primary` flips light in dark mode, a filled button must not. */
+  /* The brand CTA, one per page: the rust 600→700 gradient with white text
+     (5.0:1 on rust-600), in both themes. Same look as <Button variant="primary">
+     in components/ui. Never amber/tangerine. */
   .btn-primary {
-    @apply bg-[#3d3a36] text-white hover:bg-[#3d3a36]/90 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-200/90;
+    @apply bg-gradient-to-b from-rust-600 to-rust-700 text-white shadow-sm hover:from-rust-700 hover:to-rust-800 focus-visible:ring-rust-600/60;
   }
 
   .btn-crux {

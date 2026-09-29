@@ -1,11 +1,10 @@
 import type { ReactNode } from "react";
+import { Section } from "@/components/ui/Section";
 
 /**
- * One block of the reply. Every block gets the same heading treatment so the
- * reply reads as a single document rather than a stack of widgets, and so the
- * heading order stays a usable outline for a screen reader. It matches the
- * section shell of the /analyze-v2 report on purpose: the two paste lanes are
- * one kind of document.
+ * One block of the reply: the shared `Section` primitive at h3 (the reply
+ * sits under the page's h2), so the reply and the /analyze-v2 report open
+ * every section the same way. The two paste lanes are one kind of document.
  */
 export function ResultSection({
   title,
@@ -17,16 +16,8 @@ export function ResultSection({
   children: ReactNode;
 }) {
   return (
-    <section className="border-t border-[var(--border-divider)] pt-8">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 className="font-serif text-[1.75rem] leading-tight text-[var(--text-heading)] sm:text-[2rem]">
-          {title}
-        </h3>
-        {aside ? (
-          <div className="font-sans text-sm text-[var(--text-muted)]">{aside}</div>
-        ) : null}
-      </div>
-      <div className="mt-6 space-y-5">{children}</div>
-    </section>
+    <Section title={title} aside={aside} level={3}>
+      <div className="space-y-5">{children}</div>
+    </Section>
   );
 }
