@@ -234,7 +234,6 @@ describe("off-palette color guard (app + components source trees)", () => {
  */
 describe("dark-mode pairing guard for text-primary / text-secondary", () => {
   const pairedFiles = [
-    "app/topics/[id]/TopicDetailView.tsx",
     "components/ReadModeView.tsx",
     "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
     "app/community/page.tsx",

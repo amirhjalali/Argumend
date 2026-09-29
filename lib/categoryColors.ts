@@ -4,7 +4,7 @@
  * Single source of truth for the small "pill" chips that label a topic's
  * category (policy / technology / science / economics / philosophy) and its
  * status (settled / contested / highly_speculative). Previously these maps were
- * duplicated across SearchModal, /topics, ReadModeView, and TopicDetailView
+ * duplicated across SearchModal, /topics, ReadModeView, and the old topic detail view
  * with conflicting palettes — including an off-brand indigo/sky/violet rainbow
  * in search — so the same category rendered different colors in different views.
  *
