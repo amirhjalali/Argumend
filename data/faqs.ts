@@ -25,7 +25,7 @@ export const faqs: FAQ[] = [
   {
     question: "What is a crux?",
     answer:
-      "A crux is a question that would change someone’s mind if it were answered. On the map of whether AI will cause mass unemployment, one crux is whether the drop in hiring of young workers in AI-exposed jobs is caused by AI, or by interest rates, the tech downturn and offshoring. Each crux on a map comes with what would settle it (here, data that links each firm’s AI adoption to who it hires) and whether that test has been run, could be run, or cannot be run yet. A crux is narrower than a big question like “what is the best economic policy?”, which no single finding could answer.",
+      "A crux is a question that would change someone’s mind if it were answered. On the map of whether AI will cause mass unemployment, one crux is whether firms that get better AI mostly cut hiring, or mostly use it to produce more and redesign jobs. Each crux comes with what would settle it (here, several years of firm-level data linking AI adoption to headcount and output) and whether that test has been run, could be run, or cannot be run yet. A crux is narrower than a big question like “what is the best economic policy?”, which no single finding could answer.",
     linkText: "More on cruxes",
     linkHref: "/concepts/cruxes",
   },
@@ -37,7 +37,7 @@ export const faqs: FAQ[] = [
   {
     question: "How is evidence weighed, and where does it come from?",
     answer:
-      "Evidence comes from peer-reviewed research, primary data, official records, expert statements and reputable reporting, and each card names its source. Every card is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. A person scores each from 0 to 10, using the same four questions whichever side the card helps, and the card shows a plain word for the result: Established, Strong, Contested or Thin. Cards are filed by what they show, not by who cites them.",
+      "Evidence comes from peer-reviewed research, primary data, official records, expert statements and reputable reporting, and each card names its source. Every card is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. Each is scored from 0 to 10, with the same four questions asked whichever side the card helps, and the card shows a plain word for the result: Established, Strong, Contested or Thin. Cards are filed by what they show, not by who cites them.",
     linkText: "How maps are made",
     linkHref: "/methodology",
   },
@@ -66,7 +66,7 @@ export const faqs: FAQ[] = [
   {
     question: "Who makes the maps, and how is AI used?",
     answer:
-      "Maps are researched and drafted with help from AI models, then checked against their sources and edited by people before they are published. The weights on evidence cards are set by a person, not a model. On the flagship AI maps, a model can propose that a crux has moved, but nothing reaches the page until a person has reviewed it. The paste tool is different: there, a model reads your text and the report comes straight back to you, which is why it only describes what the text says.",
+      "Maps are researched and drafted with help from AI models, then checked against their sources and edited by people before they are published. On most maps, a person scored every evidence card by hand. On the flagship AI maps, the first scores were drafted with a model and every score carries a written reason you can read; a model can also propose that a crux has moved, but nothing reaches the page until a person has reviewed it. The paste tool is different: there, a model reads your text and the report comes straight back to you, which is why it only describes what the text says.",
     linkText: "How maps are made",
     linkHref: "/methodology",
   },

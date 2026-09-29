@@ -599,7 +599,7 @@ Each card has a few things worth reading:`,
           },
           {
             title: "Weight and source",
-            content: `Each card is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. A person scores each from 0 to 10, and the card shows a plain word for the result (Established, Strong, Contested or Thin) and a bar for its total. The detailed view shows all four scores. Every card names its source, with a link where one exists, so you can read the original yourself. The weights are a starting point for your own judgment, not a replacement for it.`,
+            content: `Each card is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. Each is scored from 0 to 10, and the card shows a plain word for the result (Established, Strong, Contested or Thin) and a bar for its total. The detailed view shows all four scores. Every card names its source, with a link where one exists, so you can read the original yourself. The weights are a starting point for your own judgment, not a replacement for it.`,
           },
         ],
       },
@@ -758,7 +758,7 @@ Think of these four dimensions as separate filters. A piece of evidence might sc
 
 The power of the framework comes from evaluating all four dimensions together. Evidence that scores high on all four is the gold standard — you can update your beliefs substantially based on it. Evidence that scores low on all four should barely move the needle. Most real-world evidence falls somewhere in between, and the framework helps you calibrate appropriately.
 
-On Argumend's maps, a person scores every evidence card on these four dimensions. The card shows a plain word for the result (Established, Strong, Contested or Thin), and the detailed view shows all four scores, which gives you a starting point without researching every source yourself.`,
+On Argumend's maps, every evidence card is scored on these four dimensions. The card shows a plain word for the result (Established, Strong, Contested or Thin), and the detailed view shows all four scores, which gives you a starting point without researching every source yourself.`,
       },
       {
         title: "Source reliability: what makes a source trustworthy",

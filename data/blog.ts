@@ -1317,7 +1317,7 @@ This is a design problem, not an inherent limitation. But it requires careful ar
 
 Argumend's answer to these pitfalls is to give AI the jobs it is good at and keep people on the parts that need judgment.
 
-On the maps, AI helps research and draft, but people check the evidence against its sources and edit each map before it is published. The weight on every evidence card, its score for source reliability, independence, replication and directness, is set by a person, not a model. On the flagship AI maps, a model can propose that a crux has moved when new evidence arrives, but nothing reaches the page until a person has reviewed it. Every card names its source, with a link where one exists, so a reader can check it too.
+On the maps, AI helps research and draft, but people check the evidence against its sources and edit each map before it is published. Every evidence card is scored for source reliability, independence, replication and directness. On most maps a person did that scoring by hand; on the flagship AI maps a model drafted the first scores, and every score carries a written reason a reader can check. On the flagship AI maps, a model can propose that a crux has moved when new evidence arrives, but nothing reaches the page until a person has reviewed it. Every card names its source, with a link where one exists, so a reader can check it too.
 
 On the paste tool, a model reads the text you paste and returns a structured reading of it: the positions, what the sides already agree on, and what the disagreement turns on. It works only from your text. It does not fact-check, it does not guess at motives, and it does not say who is right.
 
