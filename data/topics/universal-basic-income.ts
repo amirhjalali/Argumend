@@ -1,6 +1,7 @@
 export const universalBasicIncomeData = {
   id: "universal-basic-income",
   title: "Universal Basic Income",
+  question: "Should developed nations adopt a universal basic income?",
   meta_claim:
     "Universal Basic Income (UBI) would be economically beneficial and should be implemented in developed nations.",
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const universalBasicIncomeData = {
       crux: {
         id: "fiscal-sustainability-test",
         title: "The Fiscal Sustainability Assessment",
+        question:
+          "Can any realistic funding plan pay for UBI without growth-damaging debt or tax rates?",
         description:
           "If a national UBI can be funded through a realistic combination of new revenue sources and program consolidation without increasing the national debt-to-GDP ratio beyond sustainable levels (generally considered below 120%), the fiscal feasibility objection is overcome. If all realistic funding models require either economy-damaging tax rates or unsustainable borrowing, the fiscal objection stands.",
         methodology:
@@ -143,6 +146,8 @@ export const universalBasicIncomeData = {
       crux: {
         id: "permanent-ubi-labor-supply",
         title: "The Permanent-Program Labor Supply Test",
+        question:
+          "Would a permanent UBI reduce work more than the small effects seen in temporary pilots?",
         description:
           "If a permanent, nationwide UBI at a meaningful level ($1,000/month) causes aggregate labor force participation to decline by more than 3-5%, the economic costs likely outweigh the benefits. If labor participation remains stable or shifts toward higher-quality employment (more education, entrepreneurship, caregiving), the work disincentive objection is empirically refuted.",
         methodology:
@@ -283,6 +288,8 @@ export const universalBasicIncomeData = {
       crux: {
         id: "wellbeing-vs-targeted-programs",
         title: "The UBI vs. Targeted Programs Comparison",
+        question:
+          "Does universal cash beat well-designed targeted programs, dollar for dollar?",
         description:
           "If UBI produces measurably better social outcomes (poverty reduction, health, education, crime reduction) per dollar spent than an equivalent investment in targeted programs, the case for universality is strong. If targeted programs achieve equal or better outcomes with less spending, the efficiency argument favors the existing approach.",
         methodology:

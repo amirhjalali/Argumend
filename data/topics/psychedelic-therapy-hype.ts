@@ -1,6 +1,8 @@
 export const psychedelicTherapyHypeData = {
   id: "psychedelic-therapy-hype",
   title: "Psychedelic Therapy: Revolution or Overhype?",
+  question:
+    "Is psychedelic therapy a genuine revolution in mental health care?",
   meta_claim:
     "The psychedelic therapy renaissance — with psilocybin, MDMA, and ketamine treatments gaining clinical validation — represents a genuine paradigm shift in mental health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const psychedelicTherapyHypeData = {
       crux: {
         id: "placebo-controlled-replication",
         title: "The Blinding-Controlled Replication Test",
+        question:
+          "Do psychedelic therapy's large effects hold up in trials with better blinding?",
         description:
           "If psychedelic therapy trials using enhanced blinding protocols (active placebos that produce subjective effects without the therapeutic mechanism, or designs that compare different doses rather than drug vs. placebo) replicate the large effect sizes seen in earlier trials, then the therapeutic effects are real and not primarily driven by expectancy. If effect sizes shrink substantially under better-blinded conditions, the therapeutic revolution is overstated.",
         methodology:
@@ -118,6 +122,8 @@ export const psychedelicTherapyHypeData = {
       crux: {
         id: "expectancy-effect-magnitude",
         title: "The Expectancy Effect Quantification",
+        question:
+          "How much of psychedelic trials' response comes from patients' expectations rather than the drug?",
         description:
           "If studies using enhanced blinding or active placebos show that expectancy effects account for more than 50% of the observed treatment response in psychedelic trials, the clinical evidence is substantially weaker than it appears. If expectancy effects are measurably present but account for less than 25% of the response, the therapeutic effects are robust enough to survive methodological scrutiny.",
         methodology:
@@ -180,6 +186,8 @@ export const psychedelicTherapyHypeData = {
       crux: {
         id: "simplified-protocol-efficacy",
         title: "The Protocol Simplification Test",
+        question:
+          "Can psychedelic therapy be simplified to scale without losing its effect?",
         description:
           "If simplified psychedelic therapy protocols (fewer sessions, group formats, reduced therapist time, or non-hallucinogenic analogs) maintain the therapeutic efficacy of the full protocol at a fraction of the cost and time, scalable psychedelic mental health care is feasible. If the full therapeutic protocol with extensive preparation and integration is essential to the treatment effect, psychedelic therapy will remain a boutique service for the privileged few.",
         methodology:

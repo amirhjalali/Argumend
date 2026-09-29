@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const verticalFarmingViabilityData = {
   id: "vertical-farming-viability",
   title: "Is Vertical Farming the Future of Food?",
+  question:
+    "Will vertical farms become a major, profitable source of the world's food?",
   meta_claim:
     "Indoor vertical farms will become a major, economically viable pillar of how the world produces food",
   status: "contested" as const,
@@ -39,6 +41,8 @@ export const verticalFarmingViabilityData = {
       crux: {
         id: "renewable-energy-breakeven",
         title: "The Renewable-Powered Cost-and-Carbon Test",
+        question:
+          "Is vertical farming's high electricity use an engineering problem cheap power can fix, or a physical limit?",
         description:
           "Whether falling renewable-electricity prices and improving LED efficiency can drive the all-in cost and carbon footprint of vertically farmed produce below that of field and greenhouse produce. If clean electricity gets cheap enough and LEDs efficient enough that grid-parity is reached for a meaningful crop range, the energy objection dissolves. If the ~1-2% electricity-to-biomass conversion efficiency is a near-hard physical ceiling, no price of electricity makes vertical farming competitive for anything but premium niche crops.",
         methodology:
@@ -156,6 +160,8 @@ export const verticalFarmingViabilityData = {
       crux: {
         id: "unit-economics-at-scale",
         title: "The Sustained Profitability Test",
+        question:
+          "Are vertical-farm bankruptcies a temporary shakeout, or a sign the business can't turn a real profit?",
         description:
           "Whether vertical-farming operators can achieve durable, positive unit economics at commercial scale — covering energy, labor, capital, and overhead from produce revenue — for a meaningful crop range, or whether the model is permanently confined to a money-losing or razor-thin premium niche. If a cohort of post-shakeout operators sustains profitability across multiple years and crops, the bankruptcies were a financing shakeout. If even the disciplined survivors cannot consistently turn an operating profit without subsidy, the model is structurally unviable beyond luxury produce.",
         methodology:
@@ -272,6 +278,8 @@ export const verticalFarmingViabilityData = {
       crux: {
         id: "addressable-share-of-food-system",
         title: "The Addressable-Share Test",
+        question:
+          "Can vertical farming supply a meaningful share of fresh produce, or will it stay a premium niche?",
         description:
           "Whether vertical farming's economically viable crop range can grow to a meaningful share of any major food category — and whether displacing field production of water-intensive perishables yields a net resource and resilience benefit — or whether it remains a premium garnish business with negligible food-system impact. If indoor production can profitably capture a large fraction of, say, fresh leafy greens and soft fruit in water-stressed or import-dependent regions, the 'transformative for a category' claim holds. If it stays confined to luxury SKUs, the 'future of food' framing is marketing.",
         methodology:

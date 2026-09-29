@@ -1,6 +1,8 @@
 export const trumpTariffsData = {
   id: "trump-tariffs",
   title: "Trump's Tariffs & Protectionist Trade Policy",
+  question:
+    "Have Trump's tariffs revived US manufacturing and helped American workers?",
   meta_claim:
     "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const trumpTariffsData = {
       crux: {
         id: "tariff-incidence-split",
         title: "The Tariff Incidence Split Test",
+        question:
+          "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
         description:
           "The load-bearing empirical question is what share of the tariff cost is ultimately paid by US consumers and importers versus absorbed by foreign exporters. If the lion's share lands domestically, 'China pays' is refuted and tariffs function as a domestic consumption tax. If exporters absorb a large share, the policy genuinely shifts costs abroad. Real-time price-matching studies can resolve this with high precision.",
         methodology:
@@ -118,6 +122,8 @@ export const trumpTariffsData = {
       crux: {
         id: "manufacturing-net-employment",
         title: "The Net Manufacturing Employment Test",
+        question:
+          "Do tariffs create more manufacturing jobs than they cost through higher input prices and retaliation?",
         description:
           "Tariffs protect jobs in upstream sectors (steel, aluminum) but raise input costs for the far larger set of downstream manufacturers that use those inputs. The decisive question is whether tariffs create more domestic manufacturing jobs than they destroy once you count (a) downstream input-cost job losses, (b) jobs lost to retaliation against US exporters, and (c) capital reallocation costs.",
         methodology:
@@ -214,6 +220,8 @@ export const trumpTariffsData = {
       crux: {
         id: "decoupling-tool-effectiveness",
         title: "The Decoupling Instrument Test",
+        question:
+          "Do broad tariffs slow China's technology gains more than they speed its self-sufficiency push?",
         description:
           "The decisive question is whether broad tariffs slow Chinese technology acquisition more than they accelerate Beijing's import-substitution. If targeted export controls slow critical-technology transfer while broad tariffs mainly trigger symmetric retaliation and faster indigenization, the broad-tariff instrument is counterproductive on its own national-security terms.",
         methodology:
@@ -310,6 +318,8 @@ export const trumpTariffsData = {
       crux: {
         id: "deficit-causation-and-alliance-cost",
         title: "The Deficit-Causation and Alliance-Cost Test",
+        question:
+          "Can tariffs fix trade deficits, and are their gains worth the friction with allies?",
         description:
           "Two linked questions decide this pillar. First, are bilateral trade deficits caused by unfair foreign practices (addressable by tariffs) or by macroeconomic savings-investment imbalances (not addressable by tariffs)? Second, does the geopolitical cost of tariff friction with allies — lost China-policy cooperation, weakened burden-sharing, eroded dollar trust — exceed the concessions tariffs extract?",
         methodology:

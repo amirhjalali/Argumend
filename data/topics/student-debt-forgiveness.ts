@@ -1,6 +1,8 @@
 export const studentDebtForgivenessData = {
   id: "student-debt-forgiveness",
   title: "Student Debt Forgiveness",
+  question:
+    "Is broad student debt forgiveness justified and economically beneficial?",
   meta_claim:
     "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const studentDebtForgivenessData = {
       crux: {
         id: "fiscal-multiplier-analysis",
         title: "The Fiscal Multiplier Comparison Test",
+        question:
+          "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
         description:
           "If student debt forgiveness has a high fiscal multiplier — generating significantly more economic activity per dollar than the cost to the treasury — it is an effective stimulus. If the multiplier is low compared to alternatives (infrastructure spending, targeted transfers, tax credits), the same money would be better spent elsewhere regardless of the moral arguments.",
         methodology:
@@ -101,6 +105,8 @@ export const studentDebtForgivenessData = {
       crux: {
         id: "comparative-fairness-analysis",
         title: "The Comparative Government Forgiveness Assessment",
+        question:
+          "Does forgiving student debt reward irresponsible borrowing more than debt relief for businesses or homeowners?",
         description:
           "If the government routinely forgives or absorbs debt for other constituencies (businesses, banks, farmers, homeowners) without comparable 'moral hazard' objections, the selective application of moral hazard arguments to student borrowers reflects inconsistency rather than principle. If student debt forgiveness is genuinely unique in creating moral hazard, the objection has merit.",
         methodology:
@@ -180,6 +186,8 @@ export const studentDebtForgivenessData = {
       crux: {
         id: "forgiveness-tuition-feedback",
         title: "The Forgiveness-Tuition Feedback Loop Test",
+        question:
+          "Would forgiveness lead colleges to raise tuition faster, in expectation of future relief?",
         description:
           "If student debt forgiveness causes universities to raise tuition faster (because they anticipate future forgiveness will absorb the cost), forgiveness is self-defeating and creates a cycle of debt accumulation. If forgiveness is paired with effective tuition controls or does not measurably affect tuition-setting behavior, the feedback loop concern is overstated.",
         methodology:

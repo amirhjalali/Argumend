@@ -1,6 +1,8 @@
 export const modernMonetaryTheoryData = {
   id: "modern-monetary-theory",
   title: "Modern Monetary Theory",
+  question:
+    "Is Modern Monetary Theory a sound basis for spending and deficit policy?",
   meta_claim:
     "Modern Monetary Theory provides a sound basis for government spending and deficit policy.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const modernMonetaryTheoryData = {
       crux: {
         id: "default-vs-inflation-constraint",
         title: "Solvency vs. the Real Resource Constraint",
+        question:
+          "Does 'a currency issuer can't be forced to default' guide spending policy, or hide the inflation limit?",
         description:
           "The load-bearing disagreement is whether 'a currency-issuer cannot be forced to default' is a useful operating principle for spending policy, or a trivially-true statement that ignores the binding inflation/real-resource constraint.",
         methodology:
@@ -107,6 +111,8 @@ export const modernMonetaryTheoryData = {
       crux: {
         id: "can-fiscal-tools-tame-inflation",
         title: "Can Fiscal Tools Anchor Inflation as Reliably as the Central Bank?",
+        question:
+          "Can taxes and a job guarantee control inflation as quickly and credibly as central-bank rate policy?",
         description:
           "The pivotal question: can discretionary taxation plus a job-guarantee buffer stock control inflation as reliably and promptly as independent central-bank interest-rate policy — or does fiscal-led inflation control fail on timing, political economy, and credibility?",
         methodology:
@@ -197,6 +203,8 @@ export const modernMonetaryTheoryData = {
       crux: {
         id: "strawman-vs-substance",
         title: "Is the Expert Rejection Aimed at MMT or a Caricature?",
+        question:
+          "When economists reject MMT in surveys, are they rejecting MMT itself or a caricature of it?",
         description:
           "The decisive question is whether the near-unanimous expert rejection targets MMT's actual claims (inflation-constrained, job-guarantee-anchored fiscal policy) or a caricature ('print unlimited money, deficits never matter') that MMT scholars say they never asserted.",
         methodology:

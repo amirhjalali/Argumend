@@ -1,6 +1,8 @@
 export const nuclearProliferationNewArmsRaceData = {
   id: "nuclear-proliferation-new-arms-race",
   title: "The New Nuclear Arms Race",
+  question:
+    "Has a new arms race made nuclear war likelier than at any time since 1962?",
   meta_claim:
     "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const nuclearProliferationNewArmsRaceData = {
       crux: {
         id: "verification-regime-value",
         title: "The Verification Regime Impact Assessment",
+        question:
+          "Can satellites and signals intelligence replace lost treaty inspections, or does losing them fuel buildups?",
         description:
           "If the loss of treaty verification mechanisms (on-site inspections, data exchanges, notification requirements) demonstrably increases uncertainty about adversary force posture and leads to compensatory force buildup, then treaty collapse directly increases nuclear risk. If states can maintain adequate intelligence about each other's arsenals through national technical means (satellites, signals intelligence) alone, the loss of treaty verification is manageable.",
         methodology:
@@ -118,6 +122,8 @@ export const nuclearProliferationNewArmsRaceData = {
       crux: {
         id: "warhead-count-trajectory",
         title: "The Global Warhead Trajectory Analysis",
+        question:
+          "Are nuclear states escalating their arsenals, or just replacing aging weapons with modern ones?",
         description:
           "If total global nuclear warhead counts increase significantly over the next decade (reversing the post-Cold War decline from 70,000 to ~12,500), and if new weapon types create first-strike capabilities or undermine second-strike survivability, then a genuine arms race is underway. If warhead counts remain roughly stable while aging systems are replaced with modern equivalents, this is modernization rather than escalation.",
         methodology:
@@ -214,6 +220,8 @@ export const nuclearProliferationNewArmsRaceData = {
       crux: {
         id: "ai-decision-timeline-compression",
         title: "The Decision Timeline Compression Analysis",
+        question:
+          "Do hypersonic weapons and AI shrink decision time below what leaders need to deliberate?",
         description:
           "If hypersonic weapons and AI-enabled targeting demonstrably compress nuclear decision timelines below the threshold for reliable human deliberation (estimated at 10-15 minutes minimum for heads of state), and if this compression creates pressure for automated or pre-delegated launch authority, then AI integration genuinely increases nuclear risk. If human-in-the-loop decision-making remains feasible despite faster delivery systems, the AI concern is overstated.",
         methodology:

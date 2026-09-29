@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const lonelinessEpidemicData = {
   id: "loneliness-epidemic",
   title: "Is Loneliness a Public Health Crisis?",
+  question: "Is loneliness a public health crisis?",
   meta_claim:
     "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
   status: "contested" as const,
@@ -39,6 +40,8 @@ export const lonelinessEpidemicData = {
       crux: {
         id: "loneliness-mortality-causation",
         title: "The Loneliness-Mortality Causation Test",
+        question:
+          "Does loneliness itself cause early death, or is it a marker of existing disadvantage?",
         description:
           "Whether loneliness and social isolation causally increase mortality risk or primarily reflect confounding by pre-existing illness, disability, and socioeconomic disadvantage. If loneliness independently drives biological pathways (inflammation, immune suppression, cardiovascular stress) that accelerate disease and death, it is a legitimate public health target. If the association is largely explained by reverse causation and residual confounding, interventions targeting loneliness will have minimal health impact.",
         methodology:
@@ -155,6 +158,8 @@ export const lonelinessEpidemicData = {
       crux: {
         id: "displacement-vs-supplement",
         title: "The Displacement vs Supplementation Test",
+        question:
+          "Does heavy technology use crowd out face-to-face contact, or mostly add to existing relationships?",
         description:
           "Whether digital communication displaces in-person social interaction (net increase in loneliness) or supplements it (net decrease in loneliness for those who would otherwise be isolated). If heavy technology use causally reduces face-to-face interaction and deepens loneliness, platform design regulation is warranted. If technology primarily supplements existing relationships and provides essential connection for isolated populations, restricting access would be counterproductive.",
         methodology:
@@ -269,6 +274,8 @@ export const lonelinessEpidemicData = {
       crux: {
         id: "structural-intervention-effectiveness",
         title: "The Structural Intervention Effectiveness Test",
+        question:
+          "Can policy changes like walkable neighborhoods lower loneliness, or is it driven by culture and choice?",
         description:
           "Whether structural changes — urban design, work policy, public space investment, community infrastructure — can measurably reduce population-level loneliness, or whether loneliness is primarily driven by cultural and individual-level factors beyond the reach of policy. If 'social infrastructure' investments (third places, walkable neighborhoods, shorter work weeks) produce measurable reductions in loneliness, structural intervention is justified. If loneliness persists regardless of structural conditions, the problem is cultural and individual.",
         methodology:

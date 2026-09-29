@@ -1,6 +1,8 @@
 export const policeReformData = {
   id: "police-reform",
   title: "Policing Reform in America",
+  question:
+    "Should US policing be restructured, with funds shifted to social services?",
   meta_claim:
     "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
   status: "contested" as const,
@@ -19,6 +21,8 @@ export const policeReformData = {
       crux: {
         id: "accountability-use-of-force-link",
         title: "Accountability–Use of Force Causal Link",
+        question:
+          "Do accountability measures like body cameras reduce police use of force without raising officer risk?",
         description:
           "Does increased accountability (body cameras, civilian oversight, qualified immunity reform) causally reduce police use of force without increasing officer risk?",
         methodology:
@@ -110,6 +114,8 @@ export const policeReformData = {
       crux: {
         id: "alternative-response-scalability",
         title: "Scalability of Non-Police Response Models",
+        question:
+          "Can non-police response teams like Denver's STAR scale to large, high-crime cities safely?",
         description:
           "Can programs like CAHOOTS and STAR scale to large, high-crime cities while maintaining safety outcomes?",
         methodology:

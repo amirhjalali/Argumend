@@ -1,6 +1,7 @@
 export const meaningWithoutReligionData = {
   id: "meaning-without-religion",
   title: "Meaning of Life Without Religion",
+  question: "Can a life be fully meaningful without religion?",
   meta_claim:
     "A meaningful, fulfilling human life is fully achievable without religious belief, and secular philosophical frameworks provide adequate foundations for purpose, ethics, and existential satisfaction.",
   status: "highly_speculative" as const,
@@ -19,6 +20,8 @@ export const meaningWithoutReligionData = {
       crux: {
         id: "secular-wellbeing-longitudinal",
         title: "Longitudinal Study of Secular vs. Religious Wellbeing",
+        question:
+          "Do committed secular people fare as well as committed believers on meaning, resilience and community?",
         description:
           "A rigorous longitudinal comparison of life satisfaction, meaning, resilience, and community connection between committed secular humanists and committed religious practitioners, controlling for socioeconomic status and social support.",
         methodology:
@@ -97,6 +100,8 @@ export const meaningWithoutReligionData = {
       crux: {
         id: "moral-foundation-independence",
         title: "Empirical Test of Moral Behavior vs. Religious Belief",
+        question:
+          "Does religious belief predict more moral behavior than secular commitment, once community is accounted for?",
         description:
           "Determining whether religious belief actually predicts more moral behavior (charity, honesty, prosocial action) than secular moral commitments, after controlling for community engagement.",
         methodology:

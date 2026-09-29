@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const meritocracyMythData = {
   id: "meritocracy-myth",
   title: "Is Meritocracy a Myth?",
+  question: "Is meritocracy a myth?",
   meta_claim:
     "The belief that success is primarily determined by individual talent and effort is a myth that legitimizes systemic inequality.",
   status: "contested" as const,
@@ -62,6 +63,8 @@ export const meritocracyMythData = {
       crux: {
         id: "mobility-measurement",
         title: "The Intergenerational Elasticity Test",
+        question:
+          "How strongly does parents' income predict their children's adult income?",
         description:
           "Measure the correlation between parental income and children's adult income across generations to determine how much economic status is inherited versus earned.",
         methodology:
@@ -163,6 +166,8 @@ export const meritocracyMythData = {
       crux: {
         id: "structural-decomposition",
         title: "The Structural Advantage Decomposition",
+        question:
+          "How much of income variation comes from background (wealth, zip code, schools) versus effort and talent?",
         description:
           "Quantify how much of adult income variation is explained by structural factors (parental wealth, zip code, school quality, social networks) versus individual factors (effort, talent, choices).",
         methodology:
@@ -263,6 +268,8 @@ export const meritocracyMythData = {
       crux: {
         id: "meritocratic-belief-effects",
         title: "The Meritocratic Belief Effects Test",
+        question:
+          "Does believing in meritocracy increase or decrease support for equal-opportunity policies?",
         description:
           "Determine whether belief in meritocracy on net increases or decreases support for policies that promote genuine equal opportunity.",
         methodology:

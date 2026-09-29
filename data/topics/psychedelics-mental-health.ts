@@ -1,6 +1,8 @@
 export const psychedelicsMentalHealthData = {
   id: "psychedelics-mental-health",
   title: "Psychedelics for Mental Health",
+  question:
+    "Should psychedelics be approved to treat depression, PTSD and addiction?",
   meta_claim:
     "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
   status: "contested" as const,
@@ -34,6 +36,8 @@ export const psychedelicsMentalHealthData = {
       crux: {
         id: "phase-3-psilocybin-approval",
         title: "Psilocybin Phase III Trial Results and FDA Decision",
+        question:
+          "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
         description:
           "An FDA advisory committee voted against MDMA-assisted therapy in 2024 (2-9 on efficacy, 1-10 on benefit-risk) and the FDA issued a Complete Response Letter citing functional unblinding and expectancy effects. Whether psilocybin's Phase III program can survive the same scrutiny is the open question.",
         methodology:
@@ -118,6 +122,8 @@ export const psychedelicsMentalHealthData = {
       crux: {
         id: "state-level-outcome-data",
         title: "Oregon Psilocybin Service Center Outcomes",
+        question:
+          "Does supervised state-level access like Oregon's deliver real benefit at acceptable risk?",
         description:
           "Evaluating real-world outcomes from Oregon's pioneering psilocybin service centers, which began operating in 2023.",
         methodology:

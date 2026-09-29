@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const tiktokBrainRotData = {
   id: "tiktok-brain-rot",
   title: "Is Short-Form Video Causing Cognitive Decline?",
+  question:
+    "Is habitual short-form video degrading attention and deep thinking?",
   meta_claim:
     "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
   status: "contested" as const,
@@ -24,6 +26,8 @@ export const tiktokBrainRotData = {
       crux: {
         id: "sustained-attention-task-performance",
         title: "The Sustained Attention Task Performance Test",
+        question:
+          "Do heavy short-form video users show weaker sustained attention than matched non-users?",
         description:
           "Measure whether habitual short-form video consumers show measurably reduced sustained attention compared to matched controls using validated cognitive tasks.",
         methodology:
@@ -120,6 +124,8 @@ export const tiktokBrainRotData = {
       crux: {
         id: "variable-reward-compulsion-test",
         title: "The Variable Reward Compulsion Test",
+        question:
+          "Do algorithmic video feeds produce compulsive use that differs from ordinary entertainment?",
         description:
           "Determine whether algorithmic short-form video feeds produce compulsive use patterns distinguishable from normal entertainment engagement, using behavioral and neuroimaging measures.",
         methodology:
@@ -218,6 +224,8 @@ export const tiktokBrainRotData = {
       crux: {
         id: "natural-experiment-restriction",
         title: "The Natural Experiment Restriction Test",
+        question:
+          "When short-form video use is restricted, do academic outcomes measurably improve?",
         description:
           "Use natural experiments — policy changes, platform bans, or access restrictions — to measure whether reducing short-form video consumption improves academic outcomes in a causally identifiable way.",
         methodology:

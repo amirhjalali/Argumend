@@ -1,6 +1,8 @@
 export const sexWorkDecriminalizationData = {
   id: "sex-work-decriminalization",
   title: "Decriminalizing Sex Work",
+  question:
+    "Does fully decriminalizing sex work make sex workers safer and healthier?",
   meta_claim:
     "Full decriminalization of sex work improves health and safety outcomes.",
   status: "contested" as const,
@@ -21,6 +23,8 @@ export const sexWorkDecriminalizationData = {
       crux: {
         id: "decrim-vs-legalization-effect",
         title: "Decriminalization vs. Legalization, and the Counterfactual",
+        question:
+          "Do decriminalization and legalization differ on safety, and are changes due to the law or other factors?",
         description:
           "The load-bearing disagreement: does 'full decriminalization' (NZ model — no criminal penalties, labor-law coverage) produce different safety outcomes than 'legalization' (Germany/Netherlands — licensed, regulated)? And when violence or trafficking changes, is it caused by the legal regime or by confounders (reporting rates, migration, enforcement priorities)?",
         methodology:
@@ -138,6 +142,8 @@ export const sexWorkDecriminalizationData = {
       crux: {
         id: "causal-vs-modeled-health",
         title: "Measured STI Declines vs. Modeled HIV Projections",
+        question:
+          "Do measured STI declines under decriminalization generalize, and do modeled HIV gains hold up?",
         description:
           "Health advocates lean on a Lancet *model* (33-46% HIV averted) and a Rhode Island *natural experiment* (~40% gonorrhea drop). The crux: do the measured, causal STI declines generalize beyond indoor/off-street markets and short windows — and do the modeled HIV gains hold once you stress-test the assumption that violence and policing actually fall under decriminalization?",
         methodology:

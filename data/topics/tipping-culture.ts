@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const tippingCultureData = {
   id: "tipping-culture",
   title: "Should Tipping Be Abolished?",
+  question: "Should the US replace tipping with service-included wages?",
   meta_claim:
     "The United States should abolish tipping and the subminimum tipped wage in favor of service-included wages",
   status: "contested" as const,
@@ -39,6 +40,8 @@ export const tippingCultureData = {
       crux: {
         id: "net-income-after-abolition",
         title: "The Net Take-Home Income Test",
+        question:
+          "Would ending tips raise or lower the typical server's total take-home pay?",
         description:
           "Whether abolishing tips (replacing them with service-included flat wages) raises or lowers the actual take-home pay of typical tipped workers. If servers in equal-wage jurisdictions end up with higher and more stable total earnings, abolition helps the workers it targets. If high-earning tipped workers lose income when tips disappear — as many report when tip credits are removed — abolition redistributes from successful servers to the employer or the lowest earners, and the headline 'workers benefit' claim collapses.",
         methodology:
@@ -153,6 +156,8 @@ export const tippingCultureData = {
       crux: {
         id: "does-abolition-reduce-bias",
         title: "The Discrimination-Reduction Test",
+        question:
+          "Would abolishing tips shrink pay gaps, or move the bias from customers to managers?",
         description:
           "Whether eliminating tips actually reduces race- and gender-based income disparities among service workers, or merely relocates discrimination into less visible channels. If front-of-house earnings disparities by race and gender shrink under service-included wages, the anti-discrimination case for abolition holds. If disparities persist or shift into hiring, scheduling, and promotion, then abolition treats a symptom while leaving the disease — and the bias argument for ending tips is weakened.",
         methodology:
@@ -267,6 +272,8 @@ export const tippingCultureData = {
       crux: {
         id: "coordination-vs-unworkable",
         title: "The Coordinated-Transition Test",
+        question:
+          "Were service-included failures fixable coordination problems, or a lasting rejection by US workers and diners?",
         description:
           "Whether no-tipping models fail because of fixable coordination problems (one restaurant can't unilaterally drop tips when competitors keep them) or because service-included pricing is fundamentally rejected by workers and customers even when adopted broadly. If jurisdiction-wide elimination of the tip credit leaves restaurants healthy and workers no worse off — as proponents say the equal-wage states show — abolition is workable with the right scope. If even broad, mandatory transitions trigger sustained worker income losses, customer flight, and political reversal (as in D.C.), the model is unworkable in U.S. dining culture.",
         methodology:

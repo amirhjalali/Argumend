@@ -1,6 +1,8 @@
 export const usIranConflictData = {
   id: "us-iran-conflict",
   title: "The US-Iran Conflict",
+  question:
+    "Has US pressure on Iran made the Middle East safer and served US interests?",
   meta_claim:
     "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const usIranConflictData = {
       crux: {
         id: "jcpoa-compliance-causation",
         title: "The JCPOA Compliance-Causation Test",
+        question:
+          "Did Iran's nuclear escalation result from the US leaving the nuclear deal, or would it have happened anyway?",
         description:
           "The core question is whether Iran's nuclear escalation was caused by US withdrawal from the JCPOA or would have occurred regardless. If the IAEA's 11 consecutive compliance reports were accurate, and Iran only began exceeding limits after the US withdrew and reimposed sanctions, the causal chain points to US policy as the driver of proliferation risk rather than its solution.",
         methodology:
@@ -118,6 +122,8 @@ export const usIranConflictData = {
       crux: {
         id: "proxy-network-degradation",
         title: "The Proxy Network Capacity Assessment",
+        question:
+          "Have Iran's proxy forces weakened or grown stronger during the period of maximum pressure?",
         description:
           "If US policy has genuinely degraded Iran's proxy capabilities, we should see measurable declines in proxy armament, operational tempo, and territorial control over the period of maximum pressure. If proxy capabilities have instead grown, US policy has failed on its own terms.",
         methodology:
@@ -214,6 +220,8 @@ export const usIranConflictData = {
       crux: {
         id: "sanctions-civilian-impact",
         title: "The Civilian Impact Assessment",
+        question:
+          "Do humanitarian exemptions to Iran sanctions work in practice, or does bank over-compliance nullify them?",
         description:
           "If sanctions cause civilian mortality and suffering comparable to armed conflict — through denial of medicine, food insecurity, and economic collapse — they constitute de facto economic warfare regardless of humanitarian exemptions on paper. The definitive test is whether humanitarian exemptions function in practice or are nullified by banking over-compliance.",
         methodology:

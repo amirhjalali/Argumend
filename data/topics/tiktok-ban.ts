@@ -1,6 +1,8 @@
 export const tiktokBanData = {
   id: "tiktok-ban",
   title: "Should TikTok Be Banned?",
+  question:
+    "Is TikTok enough of a security threat to justify a ban or forced sale?",
   meta_claim:
     "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const tiktokBanData = {
       crux: {
         id: "data-access-evidence",
         title: "The Data Access Audit",
+        question:
+          "Can ByteDance staff in China still access Americans' TikTok data despite Project Texas safeguards?",
         description:
           "The decisive question is whether ByteDance employees in China can currently access individualized US user data despite Project Texas safeguards. If a fully independent technical audit shows that data isolation is complete and no backdoors exist, the national security argument weakens substantially. If access channels remain, even after $1.5 billion in mitigation, the structural risk is confirmed.",
         methodology:
@@ -152,6 +156,8 @@ export const tiktokBanData = {
       crux: {
         id: "first-amendment-precedent",
         title: "The Platform Substitutability Test",
+        question:
+          "Could TikTok users move their speech and audiences to other platforms without real loss?",
         description:
           "If TikTok users can migrate their content, audiences, and economic activity to alternative platforms without significant loss, the free speech harm of a ban is minimal. If TikTok's unique algorithm and community create speech opportunities that cannot be replicated elsewhere, the ban destroys a distinct speech forum.",
         methodology:
@@ -265,6 +271,8 @@ export const tiktokBanData = {
       crux: {
         id: "market-concentration-test",
         title: "The Post-Ban Market Concentration Analysis",
+        question:
+          "Would a TikTok ban mainly entrench Meta and Google, or would competition stay robust?",
         description:
           "If a TikTok ban leads to measurably increased market concentration in social media — higher Meta/Google market share, reduced ad competition, slower innovation — it would confirm that the ban's primary effect was anticompetitive regardless of its stated rationale. If alternative platforms absorb TikTok's users and competition remains robust, the anticompetitive concern is overstated.",
         methodology:
@@ -344,6 +352,8 @@ export const tiktokBanData = {
       crux: {
         id: "data-sovereignty-framework-test",
         title: "The Sovereign Platform Control Assessment",
+        question:
+          "Does foreign-adversary control of a major platform justify action by itself, or must harm be shown first?",
         description:
           "The decisive question is whether a nation-state has a legitimate interest in preventing foreign adversary control over mass communication platforms used by a significant percentage of its population, even absent proof of specific abuse. If the structural risk alone justifies regulatory action, then the TikTok ban is a principled application of data sovereignty. If action requires demonstrated harm, then the ban is premature and sets a dangerous precedent for government control of information platforms.",
         methodology:

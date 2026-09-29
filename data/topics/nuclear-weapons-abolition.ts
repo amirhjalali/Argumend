@@ -1,6 +1,8 @@
 export const nuclearWeaponsAbolitionData = {
   id: "nuclear-weapons-abolition",
   title: "Should Nuclear Weapons Be Abolished?",
+  question:
+    "Does nuclear deterrence keep the world safer than abolition would?",
   meta_claim:
     "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const nuclearWeaponsAbolitionData = {
       crux: {
         id: "nuclear-peace-causation",
         title: "The Nuclear Peace Counterfactual Test",
+        question:
+          "Did nuclear weapons cause the Long Peace, or would the superpowers have avoided war anyway?",
         description:
           "The core dispute is whether nuclear weapons caused the Long Peace or merely coincided with it. This is fundamentally a counterfactual question: would the US and Soviet Union have fought a major war between 1945 and 1991 absent nuclear weapons? If the answer is yes, nuclear deterrence has prevented the deadliest wars in human history. If no, nuclear weapons are an unnecessary existential risk.",
         methodology:
@@ -118,6 +122,8 @@ export const nuclearWeaponsAbolitionData = {
       crux: {
         id: "breakout-verification",
         title: "The Verification and Breakout Problem",
+        question:
+          "Could inspections catch a country secretly rebuilding nuclear weapons in time for others to respond?",
         description:
           "The feasibility of abolition hinges on whether a verification regime can be designed that would detect clandestine nuclear weapons rebuilding with sufficient speed and confidence to allow a response before the cheating state gains decisive advantage. If verification can guarantee detection within the 'breakout timeline' (the time needed to assemble a weapon from hidden materials), abolition is feasible. If not, disarmed states would be permanently vulnerable.",
         methodology:
@@ -197,6 +203,8 @@ export const nuclearWeaponsAbolitionData = {
       crux: {
         id: "nuclear-winter-lethality",
         title: "The Nuclear Winter Severity Assessment",
+        question:
+          "Are nuclear winter models right that even a limited exchange would cause global famine?",
         description:
           "If nuclear winter models are accurate — even a limited exchange would cause global famine killing billions — then the humanitarian risk of nuclear weapons outweighs any conceivable deterrence benefit, because the weapons' existence creates a permanent nonzero probability of civilizational collapse. If nuclear winter models are significantly overstated, the humanitarian argument weakens and the deterrence calculus shifts.",
         methodology:

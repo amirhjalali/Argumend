@@ -1,6 +1,7 @@
 export const sugarTaxEffectivenessData = {
   id: "sugar-tax-effectiveness",
   title: "Do Sugar Taxes Actually Reduce Obesity?",
+  question: "Do sugar taxes meaningfully reduce sugar consumption and obesity?",
   meta_claim:
     "Sugar taxes on sweetened beverages are an effective public health intervention that meaningfully reduces sugar consumption and obesity rates.",
   status: "contested" as const,
@@ -81,6 +82,8 @@ export const sugarTaxEffectivenessData = {
       crux: {
         id: "net-consumption-reduction",
         title: "Net Consumption Reduction Test",
+        question:
+          "Do sugar taxes cut total sugar intake, or do people switch products and shop across the border?",
         description:
           "Measure whether sugar tax jurisdictions show genuine net reductions in sugar intake from beverages, accounting for substitution and cross-border leakage.",
         methodology:
@@ -191,6 +194,8 @@ export const sugarTaxEffectivenessData = {
       crux: {
         id: "obesity-rate-attribution",
         title: "Obesity Rate Attribution Study",
+        question:
+          "Will lower soda consumption translate into measurably less obesity and diabetes?",
         description:
           "Determine whether jurisdictions with sugar taxes show statistically significant reductions in obesity or type 2 diabetes incidence compared to matched controls.",
         methodology:
@@ -303,6 +308,8 @@ export const sugarTaxEffectivenessData = {
       crux: {
         id: "net-welfare-distribution",
         title: "Net Welfare Distribution Analysis",
+        question:
+          "Do the health gains for low-income people outweigh the tax's heavier financial burden on them?",
         description:
           "Calculate whether the combined financial burden and health benefit of sugar taxes produces a net positive or negative outcome for low-income populations compared to high-income populations.",
         methodology:

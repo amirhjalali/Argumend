@@ -1,6 +1,7 @@
 export const organicFoodHealthData = {
   id: "organic-food-health",
   title: "Is Organic Food Healthier?",
+  question: "Is organic food healthier than conventional food?",
   meta_claim:
     "Organic food is significantly healthier and more nutritious than conventionally grown food.",
   status: "contested" as const,
@@ -35,6 +36,8 @@ export const organicFoodHealthData = {
       crux: {
         id: "health-outcome-organic-diet",
         title: "Health Outcomes from Long-Term Organic Diet",
+        question:
+          "Is organic buyers' lower cancer rate due to the food, or to their healthier, wealthier lifestyles?",
         description:
           "The French NutriNet-Santé cohort (Baudry et al. 2018, ~69,000 adults) found ~25% lower overall cancer incidence among the highest organic-food consumers (HR ~0.75). But organic buyers also exercise more, smoke less, and eat more produce — residual confounding or selection bias could explain much or all of it.",
         methodology:
@@ -140,6 +143,8 @@ export const organicFoodHealthData = {
       crux: {
         id: "chronic-low-dose-effects",
         title: "Chronic Low-Dose Pesticide Exposure Health Effects",
+        question:
+          "Do decades of low-dose exposure to mixed pesticide residues carry real risk, especially for children?",
         description:
           "Each individual residue is below the safety threshold. Nobody has tested what happens when you eat 20 different 'safe' residues daily for 40 years.",
         methodology:
