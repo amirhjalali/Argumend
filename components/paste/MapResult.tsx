@@ -14,6 +14,7 @@ import type {
   PasteMapMatch,
   PasteMapsResult,
 } from "@/lib/paste/types";
+import { ReadItYourself } from "./ReadItYourself";
 
 /**
  * "This argument is already mapped": the part of a paste result that takes
@@ -269,7 +270,25 @@ export function MapMatch({
   );
 }
 
-export function MapNoMatch({ maps }: { maps: PasteMapsResult }) {
+/**
+ * "No map, rather than the wrong map", and what the reader gets instead:
+ * the closest maps when several on the text's subject competed, then three
+ * questions to read the argument themselves (ReadItYourself). The guide is
+ * left out when the diagnosis lane has already read the text above.
+ */
+export function MapNoMatch({
+  maps,
+  text = "",
+  diagnosisOn = false,
+  guide = true,
+}: {
+  maps: PasteMapsResult;
+  /** The submitted paste, for the guide's word cues. */
+  text?: string;
+  diagnosisOn?: boolean;
+  /** False when a diagnosis of the text is already on the page. */
+  guide?: boolean;
+}) {
   const closest = maps.status === "closest";
   return (
     <section aria-labelledby="map-match-heading" className="scroll-mt-24 space-y-8">
@@ -280,12 +299,12 @@ export function MapNoMatch({ maps }: { maps: PasteMapsResult }) {
           tabIndex={-1}
           className="font-serif text-[2rem] leading-[1.1] text-[var(--text-heading)] focus:outline-none sm:text-[2.5rem]"
         >
-          {closest ? "No map, rather than the wrong map" : "No map on the site came close"}
+          No map, rather than the wrong map
         </h2>
         <p className="max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
           {closest
             ? "None of Argumend’s maps stood out for this text, so none is named as its map."
-            : `Nothing here overlaps enough with any of Argumend’s ${maps.reading.mapsSearched} maps. It may be an argument nobody has mapped yet.`}
+            : `None of Argumend’s ${maps.reading.mapsSearched} maps is about this, so none is named.`}
         </p>
       </header>
       <ClosestMaps
@@ -294,7 +313,11 @@ export function MapNoMatch({ maps }: { maps: PasteMapsResult }) {
         lede="These share the most words with your text. One of them may still be what you are arguing about."
         maps={maps.closest}
       />
-      <TextAction href="/topics">Browse every map</TextAction>
+      {guide ? (
+        <ReadItYourself text={text} diagnosisOn={diagnosisOn} />
+      ) : (
+        <TextAction href="/topics">Browse all maps</TextAction>
+      )}
     </section>
   );
 }

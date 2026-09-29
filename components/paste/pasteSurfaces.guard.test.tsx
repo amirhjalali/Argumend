@@ -10,6 +10,7 @@ import { FakeDisagreementProvider } from "@/lib/disagreement/model/fake";
 import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "@/lib/disagreement/prompts/v1/examples";
 import { findMaps } from "@/lib/paste/maps";
 import { buildPasteSummary } from "@/lib/paste/summary";
+import { ASSISTED_LIVING_PASTE } from "@/lib/paste/testPastes";
 import type { PasteLanes, PasteMapsResult } from "@/lib/paste/types";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
@@ -118,6 +119,14 @@ describe("paste surfaces never score sides or name a winner", () => {
 
   it("the no-map answer", () => {
     const view = render(<MapNoMatch maps={unmatched} />);
+    expect(forbiddenWords(view.container.textContent ?? "")).toEqual([]);
+  });
+
+  it("the no-map answer's read-it-yourself guide, with cues from the reader's text", async () => {
+    const view = render(
+      <MapNoMatch maps={await findMaps(ASSISTED_LIVING_PASTE)} text={ASSISTED_LIVING_PASTE} />,
+    );
+    expect(view.getByText("Simple cues from your words")).toBeTruthy();
     expect(forbiddenWords(view.container.textContent ?? "")).toEqual([]);
   });
 
