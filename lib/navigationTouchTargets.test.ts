@@ -31,7 +31,6 @@ describe("shared navigation touch-target contract", () => {
     "app/concepts/page.tsx",
     "app/blog/page.tsx",
     "app/blog/[slug]/page.tsx",
-    "app/topics/tag/[slug]/page.tsx",
   ])("keeps interactive taxonomy chips touch-sized in %s", (file) => {
     expect(source(file)).toContain("min-h-11");
   });

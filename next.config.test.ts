@@ -31,6 +31,30 @@ describe("offline account routing", () => {
   });
 });
 
+describe("maps library redirects", () => {
+  it("folds the category, tag and compare pages into /topics with 301s", async () => {
+    const redirects = (await nextConfig.redirects()) as unknown as Array<{
+      source: string;
+      destination: string;
+      statusCode?: number;
+    }>;
+    const bySource = new Map(redirects.map((rule) => [rule.source, rule]));
+    expect(bySource.get("/topics/category/:slug")).toEqual({
+      source: "/topics/category/:slug",
+      destination: "/topics?category=:slug",
+      statusCode: 301,
+    });
+    expect(bySource.get("/topics/tag/:slug")).toEqual({
+      source: "/topics/tag/:slug",
+      destination: "/topics?q=:slug",
+      statusCode: 301,
+    });
+    for (const source of ["/topics/compare", "/topics/compare/:path+"]) {
+      expect(bySource.get(source)).toEqual({ source, destination: "/topics", statusCode: 301 });
+    }
+  });
+});
+
 describe("home + story redirects", () => {
   it("sends every legacy home-canvas URL to the map's own page", async () => {
     const redirects = (await nextConfig.redirects()) as Array<{
