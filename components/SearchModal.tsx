@@ -13,10 +13,12 @@ import {
   CornerDownLeft,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import MiniSearch from "minisearch";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
-import { categoryColors, toneStyles } from "@/lib/categoryColors";
+import { toneStyles } from "@/lib/categoryColors";
+import { mapDisplayTitle } from "@/lib/mapNaming";
+import { getTopicQuestionPhrasings } from "@/lib/questions";
+import { createSiteSearch } from "@/lib/siteSearch";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
@@ -37,11 +39,15 @@ interface SearchResult {
   href: string;
   // Topic-specific fields
   category?: TopicCategory;
-  // Extra searchable text (not rendered) — indexed by MiniSearch
+  // Extra searchable text (not rendered) — indexed by lib/siteSearch.ts.
+  /** Other names for a map: its old short title and "Also asked as" phrasings. */
+  altNames?: string;
   meta_claim?: string;
   categoryText?: string;
   tags?: string;
   aliases?: string;
+  /** A flagship map: a small lift in ranking (lib/siteSearch.ts). */
+  flagship?: boolean;
 }
 
 interface SearchGroup {
@@ -240,6 +246,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       meta_claim: topic.tagline,
       tags: "argument map debate map flagship cruxes positions",
       aliases: topic.aliases.join(" "),
+      flagship: true,
     }));
 
     const topicResults: SearchResult[] = topicSummaries.map((t) => {
@@ -248,7 +255,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       const extra = t as typeof t & { tags?: string[]; aliases?: string[] };
       return {
         id: `topic-${t.id}`,
-        title: t.title,
+        // One name per map: the question its page asks (lib/mapNaming.ts).
+        // The old short title still finds it, as one of its other names.
+        title: mapDisplayTitle(t),
+        altNames: [t.title, ...getTopicQuestionPhrasings(t.id)].join(" | "),
         subtitle: t.meta_claim,
         type: "topic" as const,
         href: `/topics/${t.id}`,
@@ -294,24 +304,12 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   }, []);
 
   // -----------------------------------------------------------------------
-  // Build the MiniSearch index from allItems (memoized — built once on the
-  // client). SearchModal is a client component, so this is SSR-safe.
+  // Build the search index from allItems (memoized — built once on the
+  // client). Ranking lives in lib/siteSearch.ts: names (question, old title,
+  // "Also asked as") over body text, question words ignored.
   // -----------------------------------------------------------------------
 
-  const miniSearch = useMemo(() => {
-    const ms = new MiniSearch<SearchResult>({
-      idField: "id",
-      fields: ["title", "meta_claim", "categoryText", "tags", "aliases"],
-      storeFields: ["id"],
-      searchOptions: {
-        boost: { title: 3, aliases: 2 },
-        fuzzy: 0.2,
-        prefix: true,
-      },
-    });
-    ms.addAll(allItems);
-    return ms;
-  }, [allItems]);
+  const search = useMemo(() => createSiteSearch(allItems), [allItems]);
 
   // Fast lookup from result id back to the full SearchResult for rendering.
   const itemsById = useMemo(() => {
@@ -341,11 +339,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       ];
     }
 
-    // Ranked fuzzy search via MiniSearch — results come back ordered by score.
-    const matched = miniSearch
-      .search(trimmed)
-      .map((r) => itemsById.get(r.id as string))
-      .filter((item): item is SearchResult => item != null);
+    // Ranked search — results come back best first.
+    const matched = search(trimmed);
 
     // Group by type; both map models share one "Maps" group, in score order.
     const typeOrder: ResultType[] = ["map", "blog", "concept", "page"];
@@ -365,7 +360,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     }
 
     return grouped;
-  }, [query, miniSearch, itemsById]);
+  }, [query, search, itemsById]);
 
   // Flat list of all visible results for keyboard navigation
   const flatResults = useMemo(
@@ -584,6 +579,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   const config = TYPE_CONFIG[result.type];
                   const Icon = config.icon;
                   const isTopic = result.type === "topic";
+                  // The "Maps" group header already says what these are.
+                  const isMap = result.type === "topic" || result.type === "map";
 
                   return (
                     <button
@@ -612,21 +609,23 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         />
                       </div>
 
-                      {/* Text */}
+                      {/* Text. Titles wrap: a map's name is a whole question. */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                           <span
-                            className={`text-sm font-medium truncate ${
+                            className={`text-sm font-medium break-words ${
                               isActive ? "text-rust-700 dark:text-rust-300" : "text-primary dark:text-stone-200"
                             }`}
                           >
                             {result.title}
                           </span>
+                          {/* One neutral chip for every category: colour
+                              would read as a ranking or a side. */}
                           {isTopic && result.category && (
                             <span
                               className={`
                                 flex-shrink-0 text-[10px] font-medium px-1.5 py-0.5 rounded-full border
-                                ${categoryColors[result.category]}
+                                ${toneStyles.neutral.chip}
                               `}
                             >
                               {CATEGORY_LABELS[result.category]}
@@ -639,15 +638,19 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       </div>
 
                       {/* Type badge. No lean or score: search is a way in,
-                          not a scoreboard (2026-09-29 overhaul). */}
-                      <span
-                        className={`
-                          flex-shrink-0 whitespace-nowrap text-center min-w-[3.25rem] text-[10px] font-medium px-2 py-0.5 rounded-full border
-                          ${toneStyles.neutral.chip}
-                        `}
-                      >
-                        {config.badge}
-                      </span>
+                          not a scoreboard (2026-09-29 overhaul). None on
+                          maps: the group header names them, and at 390 the
+                          pill only squeezed the question. */}
+                      {!isMap && (
+                        <span
+                          className={`
+                            flex-shrink-0 whitespace-nowrap text-center min-w-[3.25rem] text-[10px] font-medium px-2 py-0.5 rounded-full border
+                            ${toneStyles.neutral.chip}
+                          `}
+                        >
+                          {config.badge}
+                        </span>
+                      )}
 
                       {/* Arrow for active */}
                       {isActive && (

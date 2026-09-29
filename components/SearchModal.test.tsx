@@ -5,6 +5,7 @@ import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { articleSummaries } from "@/data/blogIndex";
+import { topicSummaries } from "@/data/topicIndex";
 
 const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -103,7 +104,8 @@ describe("SearchModal keyboard lifecycle", () => {
     expect(options).toHaveLength(4);
     flagships.forEach((topic, index) => {
       expect(options[index].textContent).toContain(topic.title);
-      expect(options[index].textContent).toContain("Map");
+      // No "Map" pill: the "Maps" group header already says it.
+      expect(options[index].querySelector("span.whitespace-nowrap")).toBeNull();
     });
     expect(options[2].textContent).toContain("Paste an argument");
     expect(options[3].textContent).toContain("All maps");
@@ -160,7 +162,7 @@ describe("SearchModal keyboard lifecycle", () => {
 
       fireEvent.change(input, { target: { value: topic.title } });
       const result = view.getByRole("option", { name: new RegExp(topic.title) });
-      expect(result.textContent).toMatch(/Map$/);
+      expect(result.textContent).not.toMatch(/Map$/);
 
       fireEvent.click(result);
       expect(push).toHaveBeenLastCalledWith(`/topics/${topic.id}`);
@@ -207,5 +209,62 @@ describe("SearchModal keyboard lifecycle", () => {
         name: /Should the U\.S\. reduce its support for Israel\?/,
       }),
     ).toBeTruthy();
+  });
+});
+
+describe("SearchModal finds the obvious map first", () => {
+  beforeEach(() => {
+    Object.defineProperty(HTMLElement.prototype, "scrollIntoView", {
+      configurable: true,
+      value: vi.fn(),
+    });
+  });
+  afterEach(() => cleanup());
+
+  // What a reader types, and the map that has to come first. Before the
+  // 2026-09-29 round-3 fix "is nuclear power safe" led with nuclear weapons.
+  const OBVIOUS: ReadonlyArray<readonly [string, string]> = [
+    ["is nuclear power safe", "/topics/nuclear-energy-safety"],
+    ["nuclear energy safe", "/topics/nuclear-energy-safety"],
+    ["rent control", "/topics/rent-control-effectiveness"],
+    ["minimum wage", "/topics/minimum-wage-effects"],
+    ["vaccines mandate", "/topics/vaccine-mandates"],
+    ["AI jobs", "/topics/ai-mass-unemployment"],
+    ["climate change human caused", "/topics/climate-change"],
+    ["UBI", "/topics/universal-basic-income"],
+    ["universal basic income", "/topics/universal-basic-income"],
+  ];
+
+  it.each(OBVIOUS)("“%s” opens %s first", async (query, href) => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    fireEvent.change(input, { target: { value: query } });
+    fireEvent.keyDown(input, { key: "Enter" });
+    expect(push).toHaveBeenLastCalledWith(href);
+  });
+
+  it("names a legacy map by its question, never its old Title-Case label", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    const rent = topicSummaries.find((t) => t.id === "rent-control-effectiveness")!;
+    // The old label still finds it…
+    fireEvent.change(input, { target: { value: rent.title } });
+    const first = view.getAllByRole("option")[0];
+    // …but the result is named by the question the page asks.
+    expect(first.textContent).toContain(rent.question!);
+    const list = view.getByRole("listbox");
+    expect(list.textContent).not.toContain(rent.title);
+    // No Title-Case map names anywhere in the list for a broad query either.
+    fireEvent.change(input, { target: { value: "nuclear" } });
+    const oldTitles = topicSummaries.filter((t) => t.question && t.question !== t.title);
+    for (const option of view.getAllByRole("option")) {
+      for (const t of oldTitles) expect(option.textContent).not.toContain(t.title);
+    }
   });
 });

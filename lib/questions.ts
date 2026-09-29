@@ -578,6 +578,11 @@ export function getQuestionVariations(topic: QuestionTopic): QuestionVariation[]
   }));
 }
 
+/** Every phrasing of a topic's question ("Also asked as"), primary first. */
+export function getTopicQuestionPhrasings(topicId: string): readonly string[] {
+  return TOPIC_QUESTIONS[topicId] ?? [];
+}
+
 /**
  * The slug of a topic's primary question, or undefined when the topic has no
  * question page. Needs only the id, so config-time code can call it.
