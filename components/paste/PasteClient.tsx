@@ -15,11 +15,16 @@ import { bandLabel, characterBucket, latencyBucket } from "@/lib/disagreement/la
 import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
 import { minCharactersFor, PASTE_LIMITS } from "@/lib/paste/limits";
 import { buildPasteSummary } from "@/lib/paste/summary";
-import type { PasteContentType, PasteLanes, PasteMapsResult } from "@/lib/paste/types";
+import type {
+  PasteContentType,
+  PasteLanes,
+  PasteMapReading,
+  PasteMapsResult,
+} from "@/lib/paste/types";
 import type { ArgumentGraph } from "@/types/argument";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 import { HowThisWasRead, ReadingNote } from "./HowThisWasRead";
-import { MapMatch, MapNoMatch } from "./MapResult";
+import { MapMatch, MapNoMatch, RelatedMaps } from "./MapResult";
 import { NextStep } from "./NextStep";
 
 /**
@@ -126,6 +131,30 @@ async function fetchDiagnosis(content: string, contentType: PasteContentType): P
 
 function formatScore(value: number | null): string {
   return value === null ? "none" : value.toFixed(1);
+}
+
+/** Ends a title with a full stop unless it already ends a sentence ("…Nuclear Energy?"). */
+function asSentence(text: string): string {
+  return /[.?!]$/.test(text) ? text : `${text}.`;
+}
+
+/** The map lane's numbers in one paragraph, for "How this was read". */
+function mapReadingLine(reading: PasteMapReading): string {
+  if (reading.topScore === null) {
+    return `No map shares a scoreable word with your text. Took ${reading.matchMs} ms.`;
+  }
+  const times = (value: number | null) => (value === null ? "without limit" : `${value.toFixed(1)} times`);
+  const lead =
+    reading.rivalScore === null
+      ? "No map on a different subject shares a word with it."
+      : `The best map on a different subject scores ${formatScore(reading.rivalScore)}: a lead of ${times(reading.lead)}, and ${times(reading.exclusiveLead)} on the words where the two differ.`;
+  const coverage =
+    reading.coverage === null ? "" : ` The best match accounts for ${Math.round(reading.coverage * 100)}% of your words.`;
+  return [
+    `Best match ${formatScore(reading.topScore)}. ${lead}${coverage}`,
+    `A map is named only when it leads every map on a different subject by ${reading.minLead} times, and by ${reading.minExclusiveLead} times on the words where they differ, with a score of at least ${reading.minScore} (or, for a short text, ${Math.round(reading.minCoverage * 100)}% of its words). Maps on the same subject are shown as closely related rather than counted against it.`,
+    `These are keyword scores, comparable within one paste only. Took ${reading.matchMs} ms.`,
+  ].join(" ");
 }
 
 /** "Read by Anthropic (model m, prompt v) in 3.2 s. The text was not stored." */
@@ -314,6 +343,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const busy = phase === "loading";
   const consent = buildPasteConsentLine(providerIds);
   const match = maps?.match ?? null;
+  const related = match ? (maps?.related ?? []) : [];
   const report = diagnosis.status === "done" ? diagnosis.report : null;
   const summary = match || report ? buildPasteSummary({ maps, report }) : undefined;
 
@@ -326,10 +356,19 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
       : "Looking through the maps…"
     : done
       ? match
-        ? `Result below. This argument is already mapped: ${match.title}.`
-        : maps
+        ? [
+            `Result below. This argument is already mapped: ${asSentence(match.title)}`,
+            related.length > 0
+              ? `Closely related: ${asSentence(related.map((map) => map.title).join("; "))}`
+              : "",
+          ]
+            .filter(Boolean)
+            .join(" ")
+        : maps?.status === "closest"
           ? "Result below. No map matches it closely; the closest maps are listed."
-          : "Result below."
+          : maps
+            ? "Result below. No map on the site came close."
+            : "Result below."
       : "";
 
   const lede = diagnosisOn
@@ -470,7 +509,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
           {maps ? (
             match ? (
-              <MapMatch match={match} />
+              <MapMatch match={match} related={related} />
             ) : (
               <MapNoMatch maps={maps} />
             )
@@ -488,6 +527,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
             />
           ) : null}
 
+          {match && related.length > 0 ? <RelatedMaps maps={related} /> : null}
           {match ? <ClosestMaps title="Closest other maps" level={2} maps={maps?.closest ?? []} /> : null}
 
           <div className="space-y-6">
@@ -507,17 +547,12 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
             {maps ? (
               <ReadingNote label="Finding the map">
                 <p>
-                  Matched on Argumend&rsquo;s server by the words your text shares with the titles,
-                  claims and everyday phrasings of its {maps.reading.mapsSearched} maps. No AI model
-                  reads it for this step, and it is not stored.
+                  Matched on Argumend&rsquo;s server by the words your text shares with each of its{" "}
+                  {maps.reading.mapsSearched} maps: titles and everyday phrasings count most, then
+                  claims and cruxes, then evidence. No AI model reads it for this step, and it is not
+                  stored.
                 </p>
-                <p>
-                  Best match {formatScore(maps.reading.topScore)}, next{" "}
-                  {formatScore(maps.reading.runnerUpScore)}, the pack below them{" "}
-                  {formatScore(maps.reading.packScore)}. A map is named only when it scores at least{" "}
-                  {maps.reading.minScore} and at least {maps.reading.leadRatio} times the pack. These
-                  are keyword scores, comparable within one paste only. Took {maps.reading.elapsedMs} ms.
-                </p>
+                <p>{mapReadingLine(maps.reading)}</p>
               </ReadingNote>
             ) : null}
             {diagnosis.status === "done" ? (

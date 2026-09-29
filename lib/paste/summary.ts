@@ -55,6 +55,8 @@ export function buildPasteSummary({
       if (match.crux.skepticFlip) lines.push(`What would change a skeptic's mind: ${match.crux.skepticFlip}`);
     }
     lines.push(`Both sides' best evidence: ${SITE_URL}${match.crux?.href ?? match.href}`);
+    const sibling = maps.related?.[0];
+    if (sibling) lines.push(`Closely related map: ${sibling.title}, ${SITE_URL}${sibling.href}`);
   } else if (maps && maps.closest.length > 0) {
     lines.push("", `Closest map: ${maps.closest[0].title}, ${SITE_URL}${maps.closest[0].href}`);
   }

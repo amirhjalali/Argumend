@@ -1,8 +1,8 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
-import { MAP_MATCH } from "@/lib/paste/maps";
+import { getMapIndex, MAP_MATCH } from "@/lib/paste/maps";
 import type { PasteMapsResult } from "@/lib/paste/types";
 import * as route from "./route";
 
@@ -27,10 +27,13 @@ async function mapsFor(content: string): Promise<PasteMapsResult> {
 }
 
 function mapCount(maps: PasteMapsResult): number {
-  return (maps.match ? 1 : 0) + maps.closest.length;
+  return (maps.match ? 1 : 0) + maps.related.length + maps.closest.length;
 }
 
 describe("POST /api/analyze (the paste flow's map lane)", () => {
+  // The first paste in a process reads every map to build the index.
+  beforeAll(() => getMapIndex(), 60_000);
+
   beforeEach(() => {
     vi.spyOn(console, "error").mockImplementation(() => {});
     // No network, ever: any fetch from the lane fails the test.
@@ -59,8 +62,17 @@ describe("POST /api/analyze (the paste flow's map lane)", () => {
     expect(fetch).not.toHaveBeenCalled();
   });
 
-  it("maps the nuclear example to the nuclear map", async () => {
+  it("maps the nuclear example to the nuclear map, with the small-reactor map closely related", async () => {
     const maps = await mapsFor(EXAMPLE_ANALYSIS_TEXT);
+    expect(maps.match?.id).toBe("nuclear-energy-safety");
+    expect(maps.related.map((map) => map.id)).toContain("nuclear-renaissance-smr");
+  });
+
+  it("names the nuclear-safety map for the paste the live site refused on 2026-09-29", async () => {
+    const maps = await mapsFor(
+      "A: Nuclear power is too dangerous, look at Chernobyl and Fukushima. B: Per terawatt-hour nuclear kills fewer people than coal or gas, and new plants are safer. A: Even so, the waste lasts thousands of years and new reactors are years late and billions over budget.",
+    );
+    expect(maps.status).toBe("matched");
     expect(maps.match?.id).toBe("nuclear-energy-safety");
   });
 

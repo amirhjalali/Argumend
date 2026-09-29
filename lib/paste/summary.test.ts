@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
-import { findMaps } from "./maps";
+import { findMaps, getMapIndex } from "./maps";
 import { buildPasteSummary, withoutNames } from "./summary";
 
 describe("withoutNames", () => {
@@ -17,6 +17,8 @@ describe("withoutNames", () => {
 });
 
 describe("buildPasteSummary", () => {
+  beforeAll(() => getMapIndex(), 60_000);
+
   it("names the map and its crux, links the crux, and carries no scores", async () => {
     const maps = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
     const summary = buildPasteSummary({ maps, report: null });
