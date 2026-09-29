@@ -1,6 +1,7 @@
 export const congestionPricingData = {
   id: "congestion-pricing",
   title: "Congestion Pricing",
+  question: "Does congestion pricing cut traffic and fund transit effectively?",
   meta_claim:
     "Congestion pricing is an effective policy for cutting urban traffic and funding transit.",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const congestionPricingData = {
       crux: {
         id: "cordon-traffic-elasticity",
         title: "Does the Traffic Cut Persist?",
+        question:
+          "Over the years, what lasts: the drop in cars entering the zone, or faster journey times?",
         description:
           "Whether the reduction in vehicles entering a priced zone is durable, or whether traffic rebounds and congestion benefits decay once behavior re-adapts.",
         methodology:
@@ -124,6 +127,8 @@ export const congestionPricingData = {
       crux: {
         id: "net-revenue-durability",
         title: "Is the Net Revenue Large and Durable?",
+        question:
+          "Is net toll revenue large and stable enough to matter for transit funding?",
         description:
           "Whether congestion charges generate net (post-collection-cost) revenue that is both materially large relative to transit needs and stable enough to bond against for decades.",
         methodology:

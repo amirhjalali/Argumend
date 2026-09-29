@@ -1,6 +1,7 @@
 export const estateInheritanceTaxData = {
   id: "estate-inheritance-tax",
   title: "The Estate Tax",
+  question: "Is the estate tax fair and economically sound?",
   meta_claim:
     "The estate (inheritance) tax is a fair and economically sound policy.",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const estateInheritanceTaxData = {
       crux: {
         id: "share-never-taxed",
         title: "How Much Estate Wealth Was Never Taxed During Life",
+        question:
+          "How much of the wealth in taxable estates was never taxed during the owner's life?",
         description:
           "The core fairness dispute is empirical: is the estate tax 'double taxation' of already-taxed income, or is it a backstop catching unrealized gains that escaped income tax entirely via stepped-up basis at death?",
         methodology:
@@ -143,6 +146,8 @@ export const estateInheritanceTaxData = {
       crux: {
         id: "net-revenue-vs-deadweight",
         title: "Does Avoidance Cancel Out the Revenue?",
+        question:
+          "Once avoidance, saving and lock-in effects are counted, is the estate tax a net fiscal and economic gain?",
         description:
           "The load-bearing efficiency question: do the behavioral responses (reduced saving, avoidance, income-tax erosion) offset enough of estate tax revenue to make it a net loser, or is the net fiscal and efficiency effect positive once stepped-up-basis lock-in is counted?",
         methodology:

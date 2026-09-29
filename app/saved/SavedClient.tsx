@@ -5,7 +5,8 @@ import Link from "next/link";
 import { AlertCircle, X } from "lucide-react";
 import { useSavedTopicIds } from "@/hooks/useSavedTopics";
 import { Button, PageContainer, PageHeader, TextAction } from "@/components/ui";
-import { LIBRARY_ENTRIES, STATUS_LABELS, type LibraryEntry } from "@/app/topics/_query";
+import { LIBRARY_ENTRIES, type LibraryEntry } from "@/app/topics/_query";
+import { MapCardText } from "@/app/topics/MapCardText";
 
 const ENTRIES_BY_ID = new Map(LIBRARY_ENTRIES.map((entry) => [entry.id, entry]));
 
@@ -109,23 +110,18 @@ function SavedRow({ map, onRemove }: { map: LibraryEntry; onRemove: (id: string)
     <li className="relative border-t border-stone-300/70 dark:border-divider">
       <Link
         href={map.href}
-        className="group block py-5 pr-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50"
+        className="group block py-5 pr-12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
       >
         <h2 className="font-serif text-[1.3125rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
           {map.title}
         </h2>
-        <p className="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-          {map.summary}
-        </p>
-        {map.status && (
-          <p className="mt-2 text-[0.8125rem] text-muted">{STATUS_LABELS[map.status]}</p>
-        )}
+        <MapCardText map={map} />
       </Link>
       <button
         type="button"
         onClick={() => onRemove(map.id)}
         aria-label={`Remove "${map.title}" from saved`}
-        className="absolute right-0 top-3 flex h-11 w-11 items-center justify-center rounded-lg text-muted transition-colors hover:bg-subtle hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/50 dark:text-stone-400 dark:hover:text-stone-200"
+        className="absolute right-0 top-3 flex h-11 w-11 items-center justify-center rounded-lg text-muted transition-colors hover:bg-subtle hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-stone-400 dark:hover:text-stone-200"
       >
         <X className="h-4 w-4" aria-hidden="true" />
       </button>

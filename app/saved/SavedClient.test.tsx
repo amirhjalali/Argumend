@@ -49,7 +49,7 @@ describe("SavedClient empty and unavailable states", () => {
     const view = render(<SavedClient />);
 
     const remove = view.getByRole("button", {
-      name: 'Remove "Climate Change" from saved',
+      name: 'Remove "Is climate change primarily caused by human activity?" from saved',
     });
     expect(remove.className).toContain("h-11");
     expect(remove.className).toContain("w-11");
@@ -62,22 +62,23 @@ describe("SavedClient empty and unavailable states", () => {
 
     const debate = view.getByRole("link", { name: /Will AI cause mass unemployment\?/ });
     expect(debate.getAttribute("href")).toBe("/topics/ai-mass-unemployment");
-    expect(view.getByRole("link", { name: /Climate Change/ })).toBeTruthy();
+    expect(view.getByRole("link", { name: /Is climate change primarily caused by human activity\?/ })).toBeTruthy();
     expect(view.getByText("2 saved, in the order you saved them")).toBeTruthy();
     expect(
       view.getByRole("button", { name: 'Remove "Will AI cause mass unemployment?" from saved' }),
     ).toBeTruthy();
   });
 
-  it("lists saved maps as /topics rows: the question, one line, one muted status word", () => {
+  it("lists saved maps as /topics rows: the question, its first crux, how many questions it turns on", () => {
     savedState.ids = ["climate-change"];
     const view = render(<SavedClient />);
 
     expect(view.getByRole("heading", { level: 1, name: "Saved maps" })).toBeTruthy();
-    const row = view.getByRole("link", { name: /Climate Change/ });
-    expect(row.textContent).toMatch(/Evidence (largely converges|still divided|still thin)/);
-    // No balance chip, verdict label or status/category pills.
-    expect(view.container.textContent).not.toMatch(/verdict|leans|toward|balance/i);
+    const row = view.getByRole("link", { name: /Is climate change primarily caused by human activity\?/ });
+    expect(row.textContent).toMatch(/Turns on \w+ questions/);
+    // No evidence status, balance chip, verdict label or status/category pills.
+    expect(view.container.textContent).not.toMatch(/Evidence (largely converges|still divided|still thin)/);
+    expect(view.container.textContent).not.toMatch(/verdict|leans|toward|balance|pillar/i);
     expect(view.container.querySelector(".rounded-full")).toBeNull();
   });
 });

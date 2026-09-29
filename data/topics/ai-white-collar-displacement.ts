@@ -1,6 +1,8 @@
 export const aiWhiteCollarDisplacementData = {
   id: "ai-white-collar-displacement",
   title: "AI White-Collar Job Displacement",
+  question:
+    "Will AI eliminate more white-collar jobs than it creates in a decade?",
   meta_claim:
     "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade, requiring fundamental restructuring of the knowledge economy.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const aiWhiteCollarDisplacementData = {
       crux: {
         id: "professional-task-parity",
         title: "The Professional Task Parity Test",
+        question:
+          "Can AI match professionals on complete real-world deliverables, not just standardized tests?",
         description:
           "The core empirical question is whether AI systems can perform the full scope of professional tasks — not just standardized-test proxies — at a quality level that satisfies clients and meets regulatory standards. If AI achieves parity on genuine end-to-end professional deliverables (briefs, diagnoses, audits, architectural plans), displacement accelerates. If a persistent quality gap remains on high-stakes judgment calls, augmentation dominates.",
         methodology:
@@ -29,6 +33,16 @@ export const aiWhiteCollarDisplacementData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-5M (Multi-disciplinary blinded evaluation requiring professional participants, expert panels, and longitudinal tracking)",
+        falsification: {
+          supporter_flip:
+            "If blinded evaluations of real deliverables in law, medicine, accounting and software found AI alone falling persistently short of junior professionals on high-stakes judgment, liability exposure or client satisfaction, augmentation rather than displacement would dominate, and the net-job-loss claim would weaken.",
+          skeptic_flip:
+            "A skeptic who dismisses benchmarks should weigh that AI has moved from test-taking toward work itself: agentic systems in 2025-2026 carry out multi-step professional workflows with reduced human intervention, and GitHub reported Copilot generating 46% of code for developers who use it.",
+          common_ground:
+            "Both sides agree frontier models now pass professional exams — GPT-4 scored in the 90th percentile on the bar in 2023 — and that a test score is not the same as a complete professional deliverable.",
+          live_disagreement:
+            "Whether AI can deliver complete professional work — briefs, diagnoses, audits — at a quality that satisfies clients and regulators, or whether a gap persists on high-stakes judgment calls that keeps it an assistant rather than a replacement.",
+        },
       },
       evidence: [
         {
@@ -131,10 +145,12 @@ export const aiWhiteCollarDisplacementData = {
       skeptic_premise:
         "The historical pattern is remarkably consistent across 250 years of industrialization: automation destroys specific tasks, but creates entirely new categories of work that could not have been foreseen. The ATM did not eliminate bank tellers — it made branches cheaper to operate, so banks opened more branches and tellers shifted to relationship management. Spreadsheets did not eliminate accountants — they made financial analysis faster, which increased demand for financial analysis. The US economy had 60 million jobs in 1950 and 160 million in 2024, despite wave after wave of automation. The 'this time is different' argument has been made about every major technology — mechanical looms, electricity, automobiles, computers, the internet — and has been wrong every time. The burden of proof lies with those claiming the pattern has finally broken.",
       proponent_rebuttal:
-        "Historical analogies break down because previous automation waves targeted physical or routine cognitive tasks, leaving the vast domain of non-routine cognitive work as an escape valve for displaced workers. AI is different because it targets the escape valve itself. When factory jobs disappeared, workers moved into offices. When routine office work was automated, workers moved into creative, analytical, and interpersonal roles. But LLMs and AI agents now perform creative writing, legal analysis, financial modeling, medical diagnosis, software development, and customer interaction — the very tasks that were supposed to be automation-proof. There is no obvious 'next frontier' for displaced knowledge workers to migrate to. The International Labour Organization estimated in 2024 that generative AI could affect 300 million full-time equivalent jobs globally. Even if new jobs emerge eventually, the transition period could last 15-20 years — long enough to devastate a generation of professionals.",
+        "Historical analogies break down because previous automation waves targeted physical or routine cognitive tasks, leaving the vast domain of non-routine cognitive work as an escape valve for displaced workers. AI is different because it targets the escape valve itself. When factory jobs disappeared, workers moved into offices. When routine office work was automated, workers moved into creative, analytical, and interpersonal roles. But LLMs and AI agents now perform creative writing, legal analysis, financial modeling, medical diagnosis, software development, and customer interaction — the very tasks that were supposed to be automation-proof. There is no obvious 'next frontier' for displaced knowledge workers to migrate to. Goldman Sachs economists estimated in 2023 that generative AI could expose the equivalent of 300 million full-time jobs globally to automation. Even if new jobs emerge eventually, the transition period could last 15-20 years — long enough to devastate a generation of professionals.",
       crux: {
         id: "new-job-category-emergence",
         title: "The New Job Category Emergence Test",
+        question:
+          "Will AI create enough new kinds of work to employ more people than it displaces?",
         description:
           "The historical argument hinges on whether AI creates genuinely new categories of work — not just 'AI prompt engineer' but entire new industries employing millions. If by 2030, new job categories that did not exist in 2023 employ more people than AI has displaced, the historical pattern holds. If net employment in knowledge work declines despite economic growth, the pattern has broken.",
         methodology:
@@ -142,6 +158,16 @@ export const aiWhiteCollarDisplacementData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 (BLS data is publicly available, but the test requires waiting until 2030 for conclusive results)",
+        falsification: {
+          supporter_flip:
+            "If BLS data from 2023 to 2030 showed new occupations that did not exist in 2023 employing more people than AI displaced, and knowledge-work employment kept growing with the economy, the historical pattern would have held and the displacement claim would fail.",
+          skeptic_flip:
+            "A skeptic who trusts the historical pattern should weigh that earlier waves left non-routine cognitive work as an escape valve, while AI now targets that work directly — Goldman Sachs estimates the equivalent of 300 million full-time jobs worldwide are exposed to generative AI, with legal and financial work among the most exposed.",
+          common_ground:
+            "Both sides agree past automation waves ended up creating more jobs than they destroyed: U.S. employment grew from about 60 million in 1950 to 160 million in 2024.",
+          live_disagreement:
+            "Whether AI, by targeting the non-routine cognitive work that absorbed displaced workers before, breaks the historical pattern — and whether new job categories arrive fast enough to avoid a transition lasting 15-20 years.",
+        },
       },
       evidence: [
         {
@@ -231,6 +257,8 @@ export const aiWhiteCollarDisplacementData = {
       crux: {
         id: "total-cost-of-ai-replacement",
         title: "The Total Cost of AI Substitution Audit",
+        question:
+          "Once integration, oversight and liability are counted, is AI still cheaper than human labor?",
         description:
           "The debate hinges on whether AI's cost advantage survives contact with real-world deployment costs. If the total cost of ownership for AI performing professional tasks — including integration, monitoring, error correction, liability insurance, and human oversight — is meaningfully lower than equivalent human labor, economic pressure will drive substitution. If hidden costs close the gap, adoption will stall at augmentation.",
         methodology:
@@ -238,6 +266,16 @@ export const aiWhiteCollarDisplacementData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-2M (Cross-industry TCO analysis requiring access to proprietary enterprise deployment data and actuarial modeling)",
+        falsification: {
+          supporter_flip:
+            "If total-cost-of-ownership audits across law, accounting, software, financial analysis and customer service found integration, oversight, error remediation and liability insurance closing most of AI's cost gap, adoption would stall at augmentation and the substitution pressure behind the claim would fade.",
+          skeptic_flip:
+            "A skeptic who stresses switching costs should weigh that OpenAI's API pricing fell 96% in four years while a fully loaded U.S. professional costs $150,000-$300,000 a year, and that Klarna said in 2024 its AI assistant did the work of 700 full-time agents, even if it partly reversed course in 2025.",
+          common_ground:
+            "Both sides agree AI inference costs have fallen steeply — about 96% in four years — while the fully loaded cost of professional knowledge workers has kept rising.",
+          live_disagreement:
+            "Whether AI's raw cost advantage survives integration, monitoring, liability and regulatory costs — with 70-80% of enterprise AI pilots never reaching production — or is wide enough that firms restructure anyway.",
+        },
       },
       evidence: [
         {
@@ -344,6 +382,8 @@ export const aiWhiteCollarDisplacementData = {
       crux: {
         id: "augmentation-to-displacement-transition",
         title: "The Augmentation-to-Displacement Transition Point",
+        question:
+          "Do firms that adopt AI grow their knowledge-worker headcount, or shrink it?",
         description:
           "If augmentation genuinely expands output and creates new demand faster than it reduces headcount, the historical job-creation pattern holds. If firms capture productivity gains primarily through headcount reduction rather than output expansion, augmentation becomes displacement. The critical metric is whether organizations that adopt AI grow their knowledge-worker headcount or shrink it over a 3-5 year period.",
         methodology:
@@ -351,6 +391,16 @@ export const aiWhiteCollarDisplacementData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-4M (Longitudinal enterprise study requiring proprietary HR and financial data across 500 firms over 5 years)",
+        falsification: {
+          supporter_flip:
+            "If tracking large enterprises over 2024-2029 showed AI-intensive firms growing knowledge-worker headcount as output expanded, augmentation would be creating demand faster than it cuts jobs, and the displacement claim would fail.",
+          skeptic_flip:
+            "A skeptic who sees augmentation should weigh that a 40% productivity gain lets firms produce the same output with fewer workers unless demand grows as fast, and that tech companies laid off over 260,000 workers in 2023 and about 150,000 in 2024 while revenue and output grew.",
+          common_ground:
+            "Both sides agree AI raises individual productivity — BCG consultants using GPT-4 finished 25.1% faster with 40% higher-quality work — and that the gains so far have come mostly as augmentation.",
+          live_disagreement:
+            "Whether firms turn those productivity gains into more output and new demand or into fewer workers — that is, whether augmentation is the endpoint or displacement with a delay.",
+        },
       },
       evidence: [
         {

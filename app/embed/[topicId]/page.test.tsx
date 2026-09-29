@@ -6,6 +6,23 @@ import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { loadArgumentTopic } from "@/lib/argument/draftTopics";
 import { topicSummaries } from "@/data/topicIndex";
 
+// The embed loads maps by id, so the no-falsification fallback is exercised
+// through a fixture id the loader resolves to a real map with its
+// falsification blocks taken out. Every other id loads as normal.
+const NO_FALSIFICATION_FIXTURE = "fixture-without-falsification";
+vi.mock("@/data/topicLoader", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/data/topicLoader")>();
+  const { withoutFalsification } = await import("@/test/fixtures/legacyTopics");
+  return {
+    ...actual,
+    loadTopicById: async (id: string) => {
+      if (id !== "fixture-without-falsification") return actual.loadTopicById(id);
+      const topic = await actual.loadTopicById("epstein-files");
+      return topic ? withoutFalsification(topic) : topic;
+    },
+  };
+});
+
 vi.mock("next/link", () => ({
   default: ({ children, href, prefetch: _prefetch, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string; prefetch?: boolean }) => (
     <a href={href} {...props}>{children}</a>
@@ -56,12 +73,17 @@ describe("embed widget: an older (pillar) map", () => {
     const view = await renderEmbed("nuclear-energy-safety");
     const text = view.container.textContent ?? "";
 
-    expect(view.getByRole("heading", { level: 1 }).textContent).toBe(topic.title);
-    expect(text).toContain(topic.meta_claim);
+    expect(view.getByRole("heading", { level: 1 }).textContent).toBe(
+      topic.question ?? topic.title,
+    );
     expect(view.getByRole("heading", { name: "What both sides already agree on" })).toBeTruthy();
     expect(text).toContain(topic.pillars[0].crux.falsification!.common_ground!);
     expect(view.getByRole("heading", { name: "The question it turns on" })).toBeTruthy();
-    expect(text).toContain(topic.pillars[0].crux.falsification!.live_disagreement!);
+    // The first crux as the map page words it: the authored question, else
+    // the live disagreement.
+    expect(text).toContain(
+      topic.pillars[0].crux.question ?? topic.pillars[0].crux.falsification!.live_disagreement!,
+    );
     expect(text).toContain("What would settle it");
     expect(text).toContain(topic.pillars[0].crux.description);
 
@@ -73,15 +95,18 @@ describe("embed widget: an older (pillar) map", () => {
   });
 
   it("falls back to the crux test on maps without falsification data, with no agreement block", async () => {
-    const topic = (await loadTopicById("epstein-files"))!;
+    // Every shipped map has falsification data now, so this renders a fixture
+    // (see the loader mock above): a real map with the blocks taken out.
+    const topic = (await loadTopicById(NO_FALSIFICATION_FIXTURE))!;
     expect(topic.pillars.some((pillar) => pillar.crux.falsification)).toBe(false);
-    const view = await renderEmbed("epstein-files");
+    const view = await renderEmbed(NO_FALSIFICATION_FIXTURE);
     const text = view.container.textContent ?? "";
 
     expect(view.queryByRole("heading", { name: /agree/ })).toBeNull();
-    expect(text).toContain(topic.pillars[0].crux.title);
+    // The authored crux question when there is one, else the crux test's title.
+    expect(text).toContain(topic.pillars[0].crux.question ?? topic.pillars[0].crux.title);
     expect(text).toContain(topic.pillars[0].crux.description);
-    expectNoScoreboard(text, (await loadEmbedModel("epstein-files"))!);
+    expectNoScoreboard(text, (await loadEmbedModel(NO_FALSIFICATION_FIXTURE))!);
   });
 });
 

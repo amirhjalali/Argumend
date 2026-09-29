@@ -1,6 +1,7 @@
 export const occupationalLicensingReformData = {
   id: "occupational-licensing-reform",
   title: "Occupational Licensing Reform",
+  question: "Does occupational licensing do more economic harm than good?",
   meta_claim:
     "Occupational licensing does more economic harm than good and should be rolled back.",
   status: "contested" as const,
@@ -30,12 +31,14 @@ export const occupationalLicensingReformData = {
         "Licensing reliably raises prices and practitioner wages, but the evidence that it raises service quality is thin — except in a few high-stakes health fields.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Licensing functions largely as a cartel: it restricts entry, raises prices, and transfers surplus to incumbents without delivering the quality consumers are told they are paying for. A peer-reviewed welfare analysis estimates an average welfare loss of ~12% of occupational surplus, with workers bearing ~70% of the burden. When researchers compare consumer ratings across neighboring states with different licensing regimes, stricter licensing shows no quality advantage — and in some pairings the more lightly-licensed state scores higher. If the core justification (protecting consumers from low quality) doesn't hold up empirically, the regime is mostly a barrier to opportunity and should be rolled back.",
-      proponent_rebuttal:
         "The 'no quality benefit' finding is real for low-stakes trades (barbers, interior designers, manicurists) but does not generalize to fields where mistakes kill people. The same welfare model that finds a 12% loss also finds consumers' higher willingness-to-pay offsets ~80% of the price increase — i.e., consumers are largely getting quality they value. And for health-critical occupations there is causal evidence of durable benefits: exposure to historical midwifery licensing laws is associated with a 2.5% reduction in cumulative adult mortality. 'Roll it back' is too blunt: the costs are concentrated in over-licensed cosmetic trades, not in medicine or skilled construction.",
+      proponent_rebuttal:
+        "Licensing functions largely as a cartel: it restricts entry, raises prices, and transfers surplus to incumbents without delivering the quality consumers are told they are paying for. A peer-reviewed welfare analysis estimates an average welfare loss of ~12% of occupational surplus, with workers bearing ~70% of the burden. When researchers compare consumer ratings across neighboring states with different licensing regimes, stricter licensing shows no quality advantage — and in some pairings the more lightly-licensed state scores higher. If the core justification (protecting consumers from low quality) doesn't hold up empirically, the regime is mostly a barrier to opportunity and should be rolled back.",
       crux: {
         id: "quality-causal-test",
         title: "Does Licensing Causally Raise Quality?",
+        question:
+          "Does stricter licensing raise service quality enough to justify higher prices, occupation by occupation?",
         description:
           "The load-bearing disagreement is whether licensing actually improves service quality/safety, or merely raises prices. If it raises quality enough to justify the price, rollback harms consumers; if not, the regime is mostly an entry barrier.",
         methodology:
@@ -46,7 +49,7 @@ export const occupationalLicensingReformData = {
           supporter_flip:
             "If well-identified studies (border discontinuities, difference-in-differences on adoption/repeal) showed licensed occupations deliver measurably better quality and safety outcomes that justify the higher prices — even in low-stakes trades — the 'mostly a cartel' rollback case would collapse into 'consumers are paying for quality they get.'",
           skeptic_flip:
-            "A skeptic confident licensing is pure rent-seeking should weigh that the same Kleiner-Soltas model finds higher willingness-to-pay offsets ~80% of the price increase, and that causal work on midwifery licensing links it to a 2.5% drop in cumulative adult mortality — so at least in some fields the quality benefit is real, not illusory.",
+            "A skeptic who defends licensing on quality grounds should weigh that in 7 of 9 border comparisons of Yelp ratings for occupations such as barbers, manicurists and interior designers, stricter licensing showed no significant quality difference, and in the other 2 the less-licensed state scored higher; the same Kleiner-Soltas model puts the average welfare loss at ~12% of occupational surplus. If clean border-discontinuity or staggered-adoption studies found no quality or safety gain in health-critical occupations either, the case that 'roll it back' is too blunt would lose its footing.",
           common_ground:
             "Both sides agree licensing raises prices and practitioner wages, and that the quality justification is far weaker for cosmetic trades (barbers, interior designers, manicurists) than for health-critical occupations.",
           live_disagreement:
@@ -136,12 +139,14 @@ export const occupationalLicensingReformData = {
         "State-by-state licensing locks workers into states and shuts low-income and mobile workers out of jobs — but careful reform (reciprocity) can fix that without abolishing licensing.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Because licenses don't transfer across state lines, licensing measurably suppresses interstate migration: workers in state-specific licensed occupations are markedly less likely to move between states, trapping them away from better opportunities. It also imposes upfront fees and hundreds of hours of training that fall hardest on lower-income workers, immigrants, and military spouses (who move frequently). When boards dominated by incumbents wield this power, they sometimes use it to crush legitimate competitors outright. The mobility and access costs are real and avoidable — a strong reason to roll licensing back.",
-      proponent_rebuttal:
         "Mobility frictions are a design flaw, not proof licensing should be abolished. The same research shows licensing explains only a small part of the overall decline in US labor mobility, and the fix is targeted: universal-recognition and reciprocity laws (now adopted by many states) let licensed workers carry credentials across state lines while keeping the consumer protections intact. Rolling back licensing wholesale to solve a portability problem throws away genuine safeguards in medicine, law, and skilled trades when narrower reforms achieve the mobility gains.",
+      proponent_rebuttal:
+        "Because licenses don't transfer across state lines, licensing measurably suppresses interstate migration: workers in state-specific licensed occupations are markedly less likely to move between states, trapping them away from better opportunities. It also imposes upfront fees and hundreds of hours of training that fall hardest on lower-income workers, immigrants, and military spouses (who move frequently). When boards dominated by incumbents wield this power, they sometimes use it to crush legitimate competitors outright. The mobility and access costs are real and avoidable — a strong reason to roll licensing back.",
       crux: {
         id: "reform-vs-rollback",
         title: "Reciprocity vs. Rollback",
+        question:
+          "Do license-recognition laws deliver most of the mobility gains, or is deeper rollback needed?",
         description:
           "The decisive question is whether the documented mobility and access harms require ABOLISHING licenses or merely making them PORTABLE. If portability/recognition reforms capture most of the mobility gain, the case for rollback weakens sharply.",
         methodology:

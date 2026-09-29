@@ -423,7 +423,7 @@ function RenderGrid({
         Swipe the table left to see every column.
       </p>
       <div
-        className="worksheet-table-wrap mt-2 overflow-x-auto rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 sm:mt-3"
+        className="worksheet-table-wrap mt-2 overflow-x-auto rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus sm:mt-3"
         role="region"
         aria-label={`${label} table`}
         tabIndex={0}
@@ -488,7 +488,7 @@ function RenderTable({
         Swipe the table left to see every column.
       </p>
       <div
-        className="worksheet-table-wrap mt-2 overflow-x-auto rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 sm:mt-3"
+        className="worksheet-table-wrap mt-2 overflow-x-auto rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus sm:mt-3"
         role="region"
         aria-label={`${label} table`}
         tabIndex={0}
@@ -596,7 +596,7 @@ export default async function WorksheetPage({ params }: PageProps) {
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Link
             href="/for-educators#printable-worksheets"
-            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:text-accent-text"
+            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text"
           >
             &larr; All worksheets
           </Link>

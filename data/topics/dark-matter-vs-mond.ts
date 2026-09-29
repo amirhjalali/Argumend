@@ -1,6 +1,8 @@
 export const darkMatterVsMondData = {
   id: "dark-matter-vs-mond",
   title: "Dark Matter vs. MOND",
+  question:
+    "Does dark matter, not modified gravity, explain how galaxies move?",
   meta_claim:
     "Dark matter, rather than modified gravity (MOND), is the correct explanation for galactic dynamics.",
   status: "contested" as const,
@@ -43,6 +45,8 @@ export const darkMatterVsMondData = {
       crux: {
         id: "rar-universality",
         title: "Is the Radial Acceleration Relation Truly Universal?",
+        question:
+          "Is the link between visible matter and galactic motion exact, or does it vary slightly from galaxy to galaxy?",
         description:
           "Whether the link between observed and baryonic acceleration is an exact law with zero intrinsic scatter (favoring a modified force) or a tight-but-imperfect correlation with residual halo-to-halo variation (favoring dark matter).",
         methodology:
@@ -53,9 +57,9 @@ export const darkMatterVsMondData = {
         cost_to_verify: "$2M (Deep multi-wavelength galaxy survey + reanalysis)",
         falsification: {
           supporter_flip:
-            "A MOND supporter should change their mind if a large, homogeneous galaxy survey resolved a statistically significant intrinsic scatter in the radial acceleration relation — or showed the residuals correlate with a galaxy property (formation time, environment, halo mass) — since a genuinely modified force should produce an exact law with no halo-to-halo variation.",
+            "A dark-matter supporter should weigh that the observed scatter is already only ~0.13 dex (and ~0.057 dex galaxy-by-galaxy), with intrinsic scatter consistent with zero and a single universal a0 ≈ 1.2 × 10⁻¹⁰ m/s², which Milgrom predicted before the data existed — a tightness that requires CDM halos to finely track the visible disk in every galaxy.",
           skeptic_flip:
-            "A dark-matter skeptic of MOND should weigh that the observed scatter is already only ~0.13 dex (and ~0.057 dex galaxy-by-galaxy), with intrinsic scatter consistent with zero and a single universal a0 ≈ 1.2 × 10⁻¹⁰ m/s², which Milgrom predicted before the data existed — a tightness that requires CDM halos to finely track the visible disk in every galaxy.",
+            "A skeptic who favors MOND should change their mind if a large, homogeneous galaxy survey resolved a statistically significant intrinsic scatter in the radial acceleration relation — or showed the residuals correlate with a galaxy property (formation time, environment, halo mass) — since a genuinely modified force should produce an exact law with no halo-to-halo variation.",
           common_ground:
             "Both sides agree the radial acceleration relation is real, tight, and has a characteristic acceleration scale; the dispute is whether that regularity is a fundamental law or an emergent outcome of galaxy formation.",
           live_disagreement:
@@ -126,12 +130,14 @@ export const darkMatterVsMondData = {
         "On the largest scales — colliding clusters and the cosmic microwave background — the evidence points hard at a non-baryonic mass component, and MOND alone falls short by roughly a factor of two.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Even granting MOND's galaxy-scale wins, the standard cold-dark-matter (Lambda-CDM) model is extraordinarily successful where MOND struggles. The CMB acoustic peaks — especially the height of the third peak relative to the second — require a non-baryonic matter component, and the six-parameter Lambda-CDM fit to Planck data is excellent. In the Bullet Cluster, two clusters collided and the gravitational-lensing mass cleanly separated from the X-ray gas at high significance, exactly as collisionless dark matter predicts and hard for modified gravity to mimic. And MOND itself fails inside galaxy clusters, where it still needs roughly twice the observed baryonic mass — i.e., extra unseen matter.",
-      proponent_rebuttal:
         "These are genuine successes for dark matter, but relativistic extensions of MOND (e.g. TeVeS-type and more recent covariant theories) can fit CMB and lensing data, and the cluster residual mass could be ordinary baryons we have not yet detected or light neutrinos rather than cold dark matter. The Bullet Cluster offset shows that *some* collisionless mass is present, which constrains pure-baryon modified gravity, but does not by itself pin down the particle nature of that mass. The decisive point for MOND advocates is that no dark-matter particle has ever been detected directly despite decades of increasingly sensitive experiments.",
+      proponent_rebuttal:
+        "Even granting MOND's galaxy-scale wins, the standard cold-dark-matter (Lambda-CDM) model is extraordinarily successful where MOND struggles. The CMB acoustic peaks — especially the height of the third peak relative to the second — require a non-baryonic matter component, and the six-parameter Lambda-CDM fit to Planck data is excellent. In the Bullet Cluster, two clusters collided and the gravitational-lensing mass cleanly separated from the X-ray gas at high significance, exactly as collisionless dark matter predicts and hard for modified gravity to mimic. And MOND itself fails inside galaxy clusters, where it still needs roughly twice the observed baryonic mass — i.e., extra unseen matter.",
       crux: {
         id: "cmb-third-peak",
         title: "The CMB Third Acoustic Peak",
+        question:
+          "Is the missing mass at large scales a new particle, or ordinary matter and neutrinos under modified gravity?",
         description:
           "The relative heights of the acoustic peaks in the cosmic microwave background encode the ratio of dark matter to baryons. A third peak nearly as high as the second indicates a substantial non-baryonic matter component that drove gravitational collapse without participating in photon-baryon oscillations.",
         methodology:

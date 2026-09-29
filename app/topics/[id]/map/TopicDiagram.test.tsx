@@ -1,6 +1,9 @@
-import { Suspense, lazy, type ComponentType } from "react";
-import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { loadTopicById } from "@/data/topicLoader";
+import { buildDiagram, type DiagramModel } from "@/lib/diagram/model";
+import { legacyTopicPage } from "@/lib/topicPage/legacy";
+import type { Topic } from "@/lib/schemas/topic";
 
 // Phone session, after hydration.
 vi.mock("@/hooks/useMediaQuery", () => ({
@@ -9,73 +12,53 @@ vi.mock("@/hooks/useMediaQuery", () => ({
   useMediaQuery: () => false,
 }));
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
-
-// next/dynamic as React.lazy, so the outline mounts asynchronously the way its
-// chunk does in the browser.
-vi.mock("next/dynamic", () => ({
-  default: (loader: () => Promise<unknown>) => {
-    const Lazy = lazy(async () => {
-      const loaded = (await loader()) as { default?: ComponentType } | ComponentType;
-      const component =
-        typeof loaded === "function" ? loaded : (loaded as { default: ComponentType }).default;
-      return { default: component };
-    });
-    return function DynamicComponent(props: Record<string, unknown>) {
-      return (
-        <Suspense fallback={null}>
-          <Lazy {...props} />
-        </Suspense>
-      );
-    };
-  },
-}));
-
-// Hold the topic module back until the test releases it: the order that left
-// the phone diagram blank (outline mounted, topic not yet loaded).
-let releaseTopic: () => void = () => {};
-const topicGate = new Promise<void>((resolve) => {
-  releaseTopic = resolve;
-});
-vi.mock("@/data/topicLoader", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@/data/topicLoader")>();
-  return {
-    ...actual,
-    loadTopicById: vi.fn(async (id: string) => {
-      await topicGate;
-      return actual.loadTopicById(id);
-    }),
-  };
-});
+// The canvas is desktop-only; on a phone it must never render.
+vi.mock("@/components/DesktopCanvas", () => ({ default: () => <div data-testid="canvas" /> }));
 
 import { TopicDiagram } from "./TopicDiagram";
+
+let topic: Topic;
+let diagram: DiagramModel;
+
+beforeAll(async () => {
+  topic = (await loadTopicById("climate-change"))!;
+  diagram = buildDiagram(topic);
+});
 
 describe("TopicDiagram on a phone", () => {
   afterEach(cleanup);
 
-  it("renders the pillar outline once the topic loads after the outline mounted", async () => {
-    render(<TopicDiagram topicId="climate-change" title="Climate change" />);
-
-    // The outline chunk has mounted and is waiting on the topic module.
-    expect((await screen.findByRole("status")).textContent).toContain("Loading the map");
-
-    await act(async () => {
-      releaseTopic();
-      await topicGate;
-    });
-
-    const diagram = screen.getByTestId("topic-diagram");
-    const pillars = await vi.waitFor(() => {
-      const buttons = diagram.querySelectorAll("button[aria-expanded]");
-      expect(buttons.length).toBeGreaterThan(0);
-      return buttons;
-    });
+  it("renders the outline straight from the model: no loading state, no canvas", () => {
+    render(<TopicDiagram diagram={diagram} />);
+    const outline = screen.getByTestId("topic-diagram");
     expect(screen.queryByRole("status")).toBeNull();
+    expect(within(outline).queryByTestId("canvas")).toBeNull();
 
-    // Neutral outline copy: no tally, no scoreboard phrasing.
-    fireEvent.click(pillars[0]);
-    const text = diagram.textContent ?? "";
-    expect(text).toContain("key arguments");
-    expect(text).toContain("What would settle it:");
-    expect(text).not.toMatch(/Decisive Test|Key Arguments|\d+ for, \d+ against/);
+    const { page, cruxes } = legacyTopicPage(topic);
+    expect(within(outline).getByRole("heading", { level: 2 }).textContent).toBe(page.title);
+    const toggles = outline.querySelectorAll("button[aria-expanded]");
+    expect(toggles).toHaveLength(cruxes.length);
+    cruxes.forEach((crux, i) => expect(toggles[i].textContent).toContain(crux.question));
+  });
+
+  it("opens a crux onto its two sides and their evidence, in the page's words", () => {
+    render(<TopicDiagram diagram={diagram} />);
+    const outline = screen.getByTestId("topic-diagram");
+    const first = outline.querySelector<HTMLButtonElement>("button[aria-expanded]")!;
+    expect(first.disabled).toBe(false);
+    fireEvent.click(first);
+    expect(first.getAttribute("aria-expanded")).toBe("true");
+
+    const panel = document.getElementById(first.getAttribute("aria-controls")!)!;
+    const text = panel.textContent ?? "";
+    const { cruxes } = legacyTopicPage(topic);
+    expect(text).toContain("What would settle it");
+    expect(text).toContain("Says yes");
+    expect(text).toContain("Says no");
+    for (const item of cruxes[0].evidence) expect(text).toContain(item.title);
+
+    // Neutral outline: no tally, no scores, no scoreboard phrasing.
+    const all = outline.textContent ?? "";
+    expect(all).not.toMatch(/\/40\b|\/100\b|Decisive Test|Key Arguments|\d+ for, \d+ against/);
   });
 });

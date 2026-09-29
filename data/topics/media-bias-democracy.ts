@@ -1,6 +1,7 @@
 export const mediaBiasDemocracyData = {
   id: "media-bias-democracy",
   title: "Media Bias and Democracy",
+  question: "Is mainstream media bias a significant threat to democracy?",
   meta_claim:
     "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
   status: "contested" as const,
@@ -51,6 +52,8 @@ export const mediaBiasDemocracyData = {
       crux: {
         id: "quantitative-bias-measurement",
         title: "Quantitative Media Bias Measurement",
+        question:
+          "Can media bias be measured reliably, and which direction does it run?",
         description:
           "Systematic, replicable methodology for measuring bias in media coverage across outlets, topics, and time periods.",
         methodology:
@@ -59,6 +62,16 @@ export const mediaBiasDemocracyData = {
           "\\text{Bias Score} = \\frac{\\sum (\\text{Framing}_{i} + \\text{Source Selection}_{i} + \\text{Story Choice}_{i})}{N_{\\text{articles}}}",
         verification_status: "verified" as const,
         cost_to_verify: "$150K (Large-scale content analysis)",
+        falsification: {
+          supporter_flip:
+            "If a replicable content analysis comparing coverage of identical events across outlets found little systematic deviation in story selection, framing or source choice, the claim of systemic bias would shrink to readers disagreeing with accurate reporting.",
+          skeptic_flip:
+            "A skeptic who reads 'bias' as disagreement with facts should weigh that different methods converge on detectable slant — Groseclose & Milyo found all but two of 20 outlets left of the median member of Congress, and blind cross-partisan ratings place CNN and MSNBC left and Fox right — and that story selection can shape perception even when every fact is accurate.",
+          common_ground:
+            "Both sides agree mainstream outlets keep real editorial standards — multi-source verification, corrections, a growing number of fact-checkers — and that the leading bias measures, from Groseclose & Milyo to AllSides, have contested methods.",
+          live_disagreement:
+            "Whether story selection, framing and expert choice add up to a systemic slant that distorts what citizens know, or whether professional standards keep that slant small next to unvetted misinformation elsewhere.",
+        },
       },
       evidence: [
         {
@@ -150,6 +163,8 @@ export const mediaBiasDemocracyData = {
       crux: {
         id: "echo-chamber-effect",
         title: "Echo Chamber Causation Analysis",
+        question:
+          "Do media echo chambers cause political polarization, or reflect divisions that already existed?",
         description:
           "Determining whether media echo chambers cause political polarization or merely reflect pre-existing divisions.",
         methodology:
@@ -158,6 +173,16 @@ export const mediaBiasDemocracyData = {
           "\\Delta\\text{Polarization} = \\beta_1(\\text{Echo Chamber Exposure}) + \\beta_2(\\text{Pre-existing Ideology}) + \\epsilon",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1M (Large-scale RCT)",
+        falsification: {
+          supporter_flip:
+            "If a randomized trial that exposed people to cross-cutting news for six months produced no change in polarization, factual knowledge or engagement relative to a control group, the case that media drives democratic division would weaken toward media merely reflecting it.",
+          skeptic_flip:
+            "A skeptic who sees only modest online segregation should weigh that from 2017 Facebook's feed weighted 'angry' reactions five times more than 'likes', that a peer-reviewed audit by Twitter's ML team found systematic political amplification, and that trust in mass media sits at a trend low of 31% and splits sharply by party.",
+          common_ground:
+            "Both sides agree trust in mass media is at a trend low — 31% in Gallup's 2024 survey — and that people today can reach a wider range of viewpoints than ever before.",
+          live_disagreement:
+            "Whether echo chambers and algorithmic amplification cause polarization, or mostly reflect partisan sorting and socioeconomic divisions that were already there.",
+        },
       },
       evidence: [
         {

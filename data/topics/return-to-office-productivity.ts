@@ -1,6 +1,7 @@
 export const returnToOfficeProductivityData = {
   id: "return-to-office-productivity",
   title: "Does Return-to-Office Actually Improve Productivity?",
+  question: "Do return-to-office mandates improve productivity and innovation?",
   meta_claim:
     "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const returnToOfficeProductivityData = {
       crux: {
         id: "rto-productivity-rct",
         title: "The RTO Productivity Randomized Trial",
+        question:
+          "Does fully remote work lower total output once coordination and knowledge transfer are counted?",
         description:
           "A properly randomized experiment assigning comparable teams within the same organization to fully remote, hybrid, and fully in-office conditions, measuring both individual output and team-level coordination metrics over 12+ months.",
         methodology:
@@ -48,9 +51,9 @@ export const returnToOfficeProductivityData = {
           "$5-10M (Multi-firm randomized controlled trial with objective productivity instrumentation)",
         falsification: {
           supporter_flip:
-            "A remote-work supporter should change their mind if a multi-firm randomized trial showed that teams assigned to fully remote work had measurably lower team-level output — slower project completion, more errors, fewer shipped features — even when individual task metrics held steady, demonstrating that the productivity loss is real but lives in coordination rather than in any single worker's numbers.",
-          skeptic_flip:
             "An RTO supporter should weigh that the strongest causal evidence (the Trip.com Nature RCT) found hybrid work matched in-office performance grades and promotions while cutting attrition, and that the Pittsburgh S&P 500 study found mandates produced no measurable financial improvement — so presence-based intuitions about declining productivity have not survived the few controlled tests that exist.",
+          skeptic_flip:
+            "A skeptic who favors remote work should change their mind if a multi-firm randomized trial showed that teams assigned to fully remote work had measurably lower team-level output — slower project completion, more errors, fewer shipped features — even when individual task metrics held steady, demonstrating that the productivity loss is real but lives in coordination rather than in any single worker's numbers.",
           common_ground:
             "Both sides agree that individual task output (code commits, tickets closed) is roughly comparable remotely, and that the real uncertainty is about harder-to-measure team-level coordination and knowledge transfer.",
           live_disagreement:
@@ -146,12 +149,14 @@ export const returnToOfficeProductivityData = {
         "The 'water cooler effect' hypothesis: does physical co-location generate creative breakthroughs and serendipitous idea exchange that cannot be replicated in distributed teams?",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "The strongest argument for in-person work is not routine productivity but innovation — the unexpected conversation in a hallway that sparks a new product idea, the whiteboard session where visual thinking unlocks a solution, the lunch where an engineer and a designer realize their projects overlap. Steve Jobs famously designed Pixar's headquarters to force serendipitous encounters. A 2022 study in Nature found that remote collaboration produced fewer breakthrough ideas than in-person collaboration, with virtual pairs generating 15% fewer creative ideas in a controlled experiment. Innovation is inherently social and embodied — body language, energy, and shared physical context create conditions for creative leaps that video calls flatten.",
-      proponent_rebuttal:
         "The serendipity argument is the most romanticized and least empirically supported case for RTO. The Nature study (Lin et al., 2022) tested pairs brainstorming over video vs. in-person for 5 minutes — an artificial setup that doesn't reflect how modern distributed teams actually collaborate using tools like Miro, Figma, and async video. US utility-patent application volumes did not collapse during the remote-work era — they stayed in the same broad range (roughly 600,000+ per year) as immediately before the pandemic — though filings lag R&D by years and are a blunt proxy. Many of history's greatest innovations emerged from written correspondence (Watson and Crick built on Rosalind Franklin's X-ray data), distributed collaboration (Linux, Wikipedia), or solitary deep work (Einstein's miracle year). The 'water cooler' narrative also ignores the documented cost of interruptions on focused work — Gloria Mark's UC Irvine research finds workers take on average about 23 minutes to fully return to an interrupted task, and compensate by working faster at the cost of higher stress. Innovation requires both divergent thinking (which benefits from diverse inputs) and convergent deep work (which benefits from quiet, uninterrupted time).",
+      proponent_rebuttal:
+        "The strongest argument for in-person work is not routine productivity but innovation — the unexpected conversation in a hallway that sparks a new product idea, the whiteboard session where visual thinking unlocks a solution, the lunch where an engineer and a designer realize their projects overlap. Steve Jobs famously designed Pixar's headquarters to force serendipitous encounters. A 2022 study in Nature found that remote collaboration produced fewer breakthrough ideas than in-person collaboration, with virtual pairs generating 15% fewer creative ideas in a controlled experiment. Innovation is inherently social and embodied — body language, energy, and shared physical context create conditions for creative leaps that video calls flatten.",
       crux: {
         id: "serendipity-innovation-measurement",
         title: "The Serendipity-to-Innovation Pipeline Test",
+        question:
+          "Do chance in-person encounters produce more innovation than structured remote collaboration?",
         description:
           "Measuring whether in-person serendipitous encounters actually convert to measurable innovation output at a higher rate than structured remote collaboration, or whether the water cooler effect is a compelling narrative with weak empirical backing.",
         methodology:
@@ -264,6 +269,8 @@ export const returnToOfficeProductivityData = {
       crux: {
         id: "rto-motive-analysis",
         title: "The RTO Motive Decomposition Test",
+        question:
+          "Are office mandates driven by productivity needs, or by leases, layoffs and management style?",
         description:
           "Separating the stated rationale (productivity, culture, innovation) from revealed preferences (real estate, control, attrition management) by analyzing whether RTO mandate intensity correlates with productivity metrics or with financial and organizational control variables.",
         methodology:
@@ -275,9 +282,9 @@ export const returnToOfficeProductivityData = {
           "$500K (Econometric analysis of public company data with supplemental surveys)",
         falsification: {
           supporter_flip:
-            "Someone who believes RTO mandates are mostly a cover for control, real estate, and stealth layoffs should change their mind if an econometric decomposition showed mandate strictness is predicted by pre-mandate productivity gaps and industry collaboration needs rather than by commercial-real-estate obligations or recent layoff timing — meaning the stated productivity and culture rationale is the real driver.",
+            "A supporter who takes companies' productivity rationale at face value should weigh that 25% of executives in the BambooHR survey admitted hoping a mandate would drive voluntary turnover, that nearly a third of managers cited monitoring as a goal, and that mandates are associated with a ~14% rise in turnover concentrated among senior, skilled, and female staff — patterns that fit control and attrition motives better than a clean productivity story.",
           skeptic_flip:
-            "Someone who takes companies' productivity rationale at face value should weigh that 25% of executives in the BambooHR survey admitted hoping a mandate would drive voluntary turnover, that nearly a third of managers cited monitoring as a goal, and that mandates are associated with a ~14% rise in turnover concentrated among senior, skilled, and female staff — patterns that fit control and attrition motives better than a clean productivity story.",
+            "A skeptic who believes RTO mandates are mostly a cover for control, real estate, and stealth layoffs should change their mind if an econometric decomposition showed mandate strictness is predicted by pre-mandate productivity gaps and industry collaboration needs rather than by commercial-real-estate obligations or recent layoff timing — meaning the stated productivity and culture rationale is the real driver.",
           common_ground:
             "Both sides agree that multiple motives coexist — genuine culture and mentorship concerns alongside real estate costs, control preferences, and attrition management — and that surveys of self-reported intent are imperfect evidence of true organizational motive.",
           live_disagreement:

@@ -8,6 +8,7 @@ import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { AppShell } from "@/components/AppShell";
 import { PageContainer, PageHeader, TextAction } from "@/components/ui";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 export const metadata: Metadata = {
   // Plain string — the root title template ("%s | ARGUMEND") adds the suffix;
@@ -37,7 +38,7 @@ function resolveSavedMaps(ids: string[]): SavedMap[] {
   }
   for (const topic of topicSummaries) {
     if (!byId.has(topic.id)) {
-      byId.set(topic.id, { id: topic.id, title: topic.title, line: topic.meta_claim });
+      byId.set(topic.id, { id: topic.id, title: mapDisplayTitle(topic), line: topic.meta_claim });
     }
   }
   return ids.flatMap((id) => {
@@ -86,7 +87,7 @@ export default async function DashboardPage() {
               <li key={map.id}>
                 <Link
                   href={`/topics/${map.id}`}
-                  className="group flex items-start justify-between gap-4 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50"
+                  className="group flex items-start justify-between gap-4 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                 >
                   <span className="min-w-0">
                     <span className="block font-serif text-[1.25rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">

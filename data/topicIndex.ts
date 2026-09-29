@@ -23,6 +23,8 @@ import type { TopicCategory, TopicStatus, Verdict } from "@/lib/schemas/topic";
 export interface TopicSummary {
   id: string;
   title: string;
+  /** The map's headline as a question, when authored; lists prefer it. */
+  question?: string;
   meta_claim: string;
   /** @deprecated — always equal to balance; do not display */
   confidence_score: number;
@@ -33,6 +35,8 @@ export interface TopicSummary {
   category: TopicCategory;
   pillarCount: number;
   evidenceCount: number;
+  /** The question the map's first crux asks, as the map page heads it. */
+  firstCrux?: string;
   tags: string[];
   addedAt?: string;
 }

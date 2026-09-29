@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const alternativesToDemocracyData = {
   id: "alternatives-to-democracy",
   title: "Are There Better Systems Than Democracy?",
+  question:
+    "Do alternatives to liberal democracy deserve serious consideration?",
   meta_claim:
     "Liberal democracy, while historically successful, may be structurally incapable of addressing long-term existential challenges like climate change, AI governance, and pandemics, and alternative governance models deserve serious consideration.",
   status: "contested" as const,
@@ -60,6 +62,8 @@ export const alternativesToDemocracyData = {
       crux: {
         id: "democratic-reform-capacity",
         title: "The Reform Capacity Test",
+        question:
+          "Can democracies reform themselves fast enough to meet long-horizon challenges?",
         description:
           "The crux is whether democratic systems can reform themselves quickly enough to address existential challenges within the required timeframes. If democratic institutions demonstrate the capacity for rapid, sustained policy change on multi-generational issues (as some argue they did for the ozone layer), the dysfunction case weakens. If the track record shows systematic failure on long-horizon problems, alternative governance models become more compelling.",
         methodology:
@@ -67,6 +71,16 @@ export const alternativesToDemocracyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1.5M (Comparative governance analysis across 50+ countries over 30 years)",
+        falsification: {
+          supporter_flip:
+            "If comparing democratic and non-democratic governments on emissions, pandemic preparedness, infrastructure, debt and education — controlling for GDP, geography and development — showed no systematic democratic shortfall on long-horizon problems, the case that democracy is structurally short-termist would weaken.",
+          skeptic_flip:
+            "A skeptic who trusts democratic reform should weigh that satisfaction with democracy across 12 high-income democracies fell from 49% in 2021 to 36% in 2024, and that climate targets — halving emissions by 2030, net zero by 2050 — leave little time for slow institutional evolution.",
+          common_ground:
+            "Both sides agree today's democracies show real dysfunction: polarization, gridlock, and satisfaction falling to 36% across 12 high-income democracies by 2024.",
+          live_disagreement:
+            "Whether short-termism and gridlock come from fixable design choices — two-party systems, gerrymandering, campaign spending — or are the inherent result of aggregating short-term preferences into decisions about long-term threats.",
+        },
       },
       evidence: [
         {
@@ -116,12 +130,14 @@ export const alternativesToDemocracyData = {
         "Proposals including epistocracy (weighted voting by knowledge), sortition (random citizen selection), liquid democracy (delegable proxy voting), and futarchy (prediction market governance) offer theoretical improvements over electoral democracy. The question is whether any has been tested at sufficient scale to evaluate seriously.",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Alternative governance models have actually been tested — and they work. Ireland's Citizens' Assembly, composed of randomly selected citizens, resolved the decades-long abortion deadlock in 2018 by recommending repeal of the constitutional ban, which voters then approved by a two-thirds majority. France's Citizens' Convention on Climate proposed 149 measures in 2020, of which 146 were accepted by the government. These sortition-based bodies produced better policy outcomes than elected legislatures on the same issues because randomly selected citizens, given time and expert testimony, are more deliberative and less partisan than elected officials accountable to interest groups and media cycles.",
-      proponent_rebuttal:
         "Citizens' assemblies are advisory bodies that derive their legitimacy from the democratic system they operate within — they are supplements to democracy, not alternatives. Ireland's Citizens' Assembly was convened by elected officials, its recommendations required approval through a democratic referendum, and its members had no accountability if their advice proved disastrous. The French Citizens' Convention had most of its proposals diluted or abandoned by the Macron government, demonstrating that advisory bodies without electoral power cannot overcome entrenched interests. As for epistocracy and technocracy, who selects the experts? Every 'neutral' selection process embeds the values of its designers. Singapore's technocratic success coincides with authoritarian control of media, restrictions on assembly, and political detention — successes that cannot be separated from the coercion that enables them.",
+      proponent_rebuttal:
+        "Alternative governance models have actually been tested — and they work. Ireland's Citizens' Assembly, composed of randomly selected citizens, resolved the decades-long abortion deadlock in 2018 by recommending repeal of the constitutional ban, which voters then approved by a two-thirds majority. France's Citizens' Convention on Climate proposed 149 measures in 2020, of which 146 were accepted by the government. These sortition-based bodies produced better policy outcomes than elected legislatures on the same issues because randomly selected citizens, given time and expert testimony, are more deliberative and less partisan than elected officials accountable to interest groups and media cycles.",
       crux: {
         id: "sortition-scale-test",
         title: "The Sortition Scaling Experiment",
+        question:
+          "Can randomly selected citizen panels hold binding power without losing their deliberative quality?",
         description:
           "The crux is whether sortition (randomly selected citizen panels) can scale from advisory bodies to binding decision-making authority without losing the deliberative quality that makes them effective. If a large-scale sortition body with real legislative power produces better outcomes than an elected legislature on measurable metrics, it becomes a viable democratic reform rather than a theoretical alternative.",
         methodology:
@@ -129,6 +145,16 @@ export const alternativesToDemocracyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Multi-city experimental comparison of governance models)",
+        falsification: {
+          supporter_flip:
+            "If municipal-level comparisons found sortition bodies with binding power producing policy no better than elected legislatures, or losing their deliberative quality and resistance to lobbying once they held real authority, the case for sortition as a serious alternative would weaken.",
+          skeptic_flip:
+            "A skeptic who sees citizen assemblies as mere supplements should weigh that Ireland's assembly of 99 randomly selected citizens broke a decades-long abortion deadlock with a recommendation voters then approved by a two-thirds majority, and that France's Citizens' Convention on Climate produced 149 proposed measures.",
+          common_ground:
+            "Both sides agree the citizen assemblies tried so far have been advisory and convened by elected officials, and that Ireland's recommendation took effect only through a referendum.",
+          live_disagreement:
+            "Whether sortition can move from advisory panels to binding authority and still deliberate better than elected legislatures, or only works as a supplement that borrows democracy's legitimacy — and whether any expert-selection scheme escapes its designers' values.",
+        },
       },
       evidence: [
         {
@@ -184,6 +210,8 @@ export const alternativesToDemocracyData = {
       crux: {
         id: "error-correction-comparison",
         title: "The Comparative Error-Correction Assessment",
+        question:
+          "Do democracies correct policy mistakes better over time than other systems do?",
         description:
           "The crux is whether democracy's error-correction mechanisms — elections, free press, independent courts, civil society — produce measurably better policy outcomes over time compared to alternative governance systems with different feedback mechanisms. If democracies consistently outperform alternatives in recovering from policy errors and adapting to changing conditions, the Churchill defense is empirically validated.",
         methodology:
@@ -191,6 +219,16 @@ export const alternativesToDemocracyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Historical comparative analysis of governance responses to crises)",
+        falsification: {
+          supporter_flip:
+            "If comparing recovery from financial crises, environmental disasters, health emergencies and wars showed democracies consistently correcting failed policies faster than other systems, the Churchill defense would be empirically validated and the case for alternatives would weaken.",
+          skeptic_flip:
+            "A skeptic who trusts democratic error-correction should weigh that the V-Dem Institute reports 15 consecutive years of global democratic backsliding, with elected leaders using democratic mechanisms to weaken democratic institutions, and that democracies took two decades after scientific consensus to begin seriously addressing climate change.",
+          common_ground:
+            "Both sides agree democracy's error-correction — elections, a free press, independent courts — is real but slow and imperfect.",
+          live_disagreement:
+            "Whether democracy's redundant feedback channels recover from mistakes better than faster-deciding systems, or whether voters' poor attribution of blame and populists' subversion from within make that advantage more theoretical than practical.",
+        },
       },
       evidence: [
         {

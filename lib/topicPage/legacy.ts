@@ -16,6 +16,7 @@
  */
 import type { Evidence, Pillar, Topic, Verdict } from "@/lib/schemas/topic";
 import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
+import { mapDisplayTitle, sideWords, type SideWords } from "@/lib/mapNaming";
 import type {
   CruxEntryData,
   PositionCardData,
@@ -142,19 +143,19 @@ function weighing(verdict: Verdict, topic: Topic): LegacyWeighing {
   return { label: verdict.label, fragile: Boolean(verdict.fragile), heaviest: heaviest(topic) };
 }
 
-function positionCards(pillars: Pillar[]): PositionCardData[] {
+function positionCards(pillars: Pillar[], words: SideWords): PositionCardData[] {
   if (pillars.length === 0) return [];
   return [
     {
       id: "supporters",
-      label: "Supporters",
+      label: words.yes,
       summary: firstSentence(pillars[0].proponent_rebuttal),
       accent: SUPPORTER_ACCENT,
       full: pillars.map((p) => ({ lead: `${p.title}.`, text: p.proponent_rebuttal })),
     },
     {
       id: "skeptics",
-      label: "Skeptics",
+      label: words.no,
       summary: firstSentence(pillars[0].skeptic_premise),
       accent: SKEPTIC_ACCENT,
       full: pillars.map((p) => ({ lead: `${p.title}.`, text: p.skeptic_premise })),
@@ -163,6 +164,9 @@ function positionCards(pillars: Pillar[]): PositionCardData[] {
 }
 
 export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): LegacyTopicPage {
+  // Sides are named by the answer to the question the reader sees ("Says
+  // yes" / "Says no"); a map without a question keeps "Supporters" / "Skeptics".
+  const words = sideWords(topic);
   // What both sides already agree on: each crux's common ground, in pillar
   // order, deduplicated. Any beyond the first three stay inside their crux.
   const agreement: string[] = [];
@@ -178,10 +182,12 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
     const f = crux.falsification;
     const live = f?.live_disagreement?.trim();
     const ground = f?.common_ground?.trim();
+    const authored = crux.question?.trim();
+    const liveRunIn = authored && live ? [{ lead: "Where the fight is.", text: live }] : [];
     return {
       anchor: `crux-${pillar.id}`,
       pillarId: pillar.id,
-      question: live || crux.title,
+      question: authored || live || crux.title,
       shortLabel: pillar.title,
       kicker: pillar.title,
       settle: {
@@ -191,8 +197,18 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
         label: "What would settle it",
         note: TESTABILITY[crux.verification_status],
       },
-      runIns: ground && !agreement.includes(ground) ? [{ lead: "Both agree.", text: ground }] : [],
-      flips: f ? { supporter: f.supporter_flip, skeptic: f.skeptic_flip } : undefined,
+      runIns: [
+        ...liveRunIn,
+        ...(ground && !agreement.includes(ground) ? [{ lead: "Both agree.", text: ground }] : []),
+      ],
+      flips: f
+        ? {
+            supporter: f.supporter_flip,
+            skeptic: f.skeptic_flip,
+            supporterLead: words.yesChangesMind,
+            skepticLead: words.noChangesMind,
+          }
+        : undefined,
       evidence: evidenceItems(pillar.evidence),
       test: {
         title: crux.title,
@@ -205,9 +221,13 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
   const page: TopicPageData = {
     id: topic.id,
     kind: "legacy",
-    title: topic.title,
-    crumb: topic.title,
-    subtitle: { lead: "The claim", text: topic.meta_claim },
+    title: mapDisplayTitle(topic),
+    // The same name as the H1 (the breadcrumb truncates it on one line):
+    // two names for one map read as two maps.
+    crumb: mapDisplayTitle(topic),
+    // A question headline already states the claim; repeating it as "The
+    // claim: …" underneath reads as an echo. Label-titled maps keep it.
+    subtitle: topic.question?.trim() ? undefined : { lead: "The claim", text: topic.meta_claim },
     reviewedOn: topic.last_updated,
     sourceCount: countSources(topic),
     hook: topic.keystone_fact
@@ -220,7 +240,7 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
     agreement,
     cruxLede: topic.simple_case?.length ? topic.simple_case.join(" ") : undefined,
     positionsHeading: "The two sides",
-    positions: positionCards(topic.pillars),
+    positions: positionCards(topic.pillars, words),
     related,
     diagramHref: topic.pillars.length > 0 ? `/topics/${topic.id}/map` : undefined,
     embeddable: true,

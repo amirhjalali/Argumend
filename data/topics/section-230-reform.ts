@@ -1,6 +1,7 @@
 export const section230ReformData = {
   id: "section-230-reform",
   title: "Reforming Section 230",
+  question: "Should Section 230 be significantly reformed or repealed?",
   meta_claim:
     "Section 230 should be significantly reformed or repealed.",
   status: "contested" as const,
@@ -30,12 +31,14 @@ export const section230ReformData = {
         "Section 230(c)(1) bars treating platforms as the 'publisher or speaker' of user content, and courts have read it broadly enough that victims of algorithmically amplified harms often cannot sue.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Section 230's near-absolute immunity now shields trillion-dollar companies that profit from engagement-optimized recommendation systems, not the fledgling 1996 message boards Congress had in mind. When a platform's own algorithm pushes a lethal 'challenge' to a 10-year-old, or amplifies hate and self-harm content to teenagers, the people harmed frequently have no defendant to sue, because courts have extended 230 to cover the platform's own ranking and recommendation choices. The 2023 US Surgeon General advisory found algorithmic design pushes harmful content to minors and concluded there is not yet enough evidence that social media is safe for children. Reform would restore the ordinary tort principle that those who design and profit from a dangerous product can be held accountable for it.",
-      proponent_rebuttal:
         "Section 230's exceptions already preserve liability for the worst conduct — federal crimes, sex-trafficking claims (18 U.S.C. 1591/1595/2421A after FOSTA), intellectual property, and ECPA all override the shield. Courts are also already narrowing immunity where a platform's own conduct is at issue: in Anderson v. TikTok (3d Cir. 2024) the court held 230 does not bar claims that TikTok's algorithm itself recommended the deadly 'Blackout Challenge,' treating the recommendation as the platform's own expressive activity. The doctrine is evolving case-by-case without a blunt statutory repeal that would also sweep away protection for moderating ordinary speech. The harm from amplification is real, but causation between any single platform's ranking and a given injury is contested and hard to prove.",
+      proponent_rebuttal:
+        "Section 230's near-absolute immunity now shields trillion-dollar companies that profit from engagement-optimized recommendation systems, not the fledgling 1996 message boards Congress had in mind. When a platform's own algorithm pushes a lethal 'challenge' to a 10-year-old, or amplifies hate and self-harm content to teenagers, the people harmed frequently have no defendant to sue, because courts have extended 230 to cover the platform's own ranking and recommendation choices. The 2023 US Surgeon General advisory found algorithmic design pushes harmful content to minors and concluded there is not yet enough evidence that social media is safe for children. Reform would restore the ordinary tort principle that those who design and profit from a dangerous product can be held accountable for it.",
       crux: {
         id: "amplification-causation",
         title: "Does Algorithmic Amplification Cause Compensable Harm?",
+        question:
+          "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
         description:
           "The load-bearing disagreement is whether a platform's own recommendation system is conduct distinct from hosting third-party speech, such that it can cause legally cognizable harm that Section 230 should not shield.",
         methodology:
@@ -125,6 +128,8 @@ export const section230ReformData = {
       crux: {
         id: "over-removal-vs-deterrence",
         title: "Would Reform Suppress Lawful Speech More Than It Deters Harm?",
+        question:
+          "Can a reform deter targeted harms without a net loss of lawful speech?",
         description:
           "The decisive question is the net effect: does narrowing platform immunity chill more lawful speech (over-removal, abandoned moderation) than the harm it deters — and can a reform be drafted to avoid FOSTA's documented backfire?",
         methodology:
@@ -133,9 +138,9 @@ export const section230ReformData = {
         cost_to_verify: "$0 (analysis of existing GAO data and takedown audits)",
         falsification: {
           supporter_flip:
-            "A supporter of the 'collateral damage' worry should update if a narrowly drafted reform (conditioning immunity on a duty of care, or stripping it only for paid/algorithmically amplified content) were enacted and audited to deter measurable harm WITHOUT the over-removal and abandoned-screening pattern FOSTA produced — showing the moderator's dilemma is avoidable, not inherent to any reform.",
+            "A supporter of reform who doubts the over-removal worry should weigh GAO-21-385: the FOSTA carve-out yielded one prosecution in three years with no restitution while platforms preemptively shut down screening tools — concrete evidence that even well-intentioned narrowing of 230 can backfire into less safety and more suppression.",
           skeptic_flip:
-            "A skeptic of the over-removal worry should weigh GAO-21-385: the FOSTA carve-out yielded one prosecution in three years with no restitution while platforms preemptively shut down screening tools — concrete evidence that even well-intentioned narrowing of 230 can backfire into less safety and more suppression.",
+            "A skeptic who holds the 'collateral damage' worry should update if a narrowly drafted reform (conditioning immunity on a duty of care, or stripping it only for paid/algorithmically amplified content) were enacted and audited to deter measurable harm WITHOUT the over-removal and abandoned-screening pattern FOSTA produced — showing the moderator's dilemma is avoidable, not inherent to any reform.",
           common_ground:
             "Both sides agree FOSTA was poorly drafted and is the cleanest natural experiment available, that the First Amendment independently protects most lawful speech regardless of 230, and that full repeal would revive the Stratton Oakmont 'moderator's dilemma.'",
           live_disagreement:
@@ -205,12 +210,14 @@ export const section230ReformData = {
         "Industry-funded analyses estimate Section 230 underpins large investment and job effects; critics counter that the burden of repeal would fall hardest on small platforms, entrenching incumbents.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Even granting economic value, the cost of the status quo is externalized onto harmed users while the benefits accrue to platforms — and economic-value estimates come largely from industry-funded studies with obvious incentives. A liability regime that internalizes the cost of harmful design could redirect investment toward safer products rather than maximally engaging ones.",
-      proponent_rebuttal:
         "Removing 230 would not primarily punish Big Tech — incumbents can absorb litigation costs and armies of lawyers, while startups and small forums cannot. An industry analysis (NERA/Internet Association) projected hundreds of billions in GDP and millions of jobs tied to intermediary-liability protections, and warned a large majority of investors would hesitate to fund intermediaries without them. The likely result of blunt repeal is entrenchment of the very giants reformers want to check, plus a litigation tax on every comment section and review site.",
+      proponent_rebuttal:
+        "Even granting economic value, the cost of the status quo is externalized onto harmed users while the benefits accrue to platforms — and economic-value estimates come largely from industry-funded studies with obvious incentives. A liability regime that internalizes the cost of harmful design could redirect investment toward safer products rather than maximally engaging ones.",
       crux: {
         id: "who-bears-repeal-cost",
         title: "Who Actually Bears the Cost of Repeal — Incumbents or Startups?",
+        question:
+          "Would removing immunity burden small platforms most, or meaningfully constrain dominant ones?",
         description:
           "The competition crux is whether stripping immunity disproportionately burdens small platforms (entrenching incumbents) or meaningfully constrains dominant platforms' harmful practices.",
         methodology:
@@ -219,9 +226,9 @@ export const section230ReformData = {
         cost_to_verify: "$500K (cross-jurisdiction econometric study)",
         falsification: {
           supporter_flip:
-            "A supporter of the 'repeal entrenches incumbents' argument should update if cross-jurisdiction data (e.g., startups under the stricter EU eCommerce Directive regime) showed small platforms survived and attracted investment at rates comparable to those under broad 230 immunity — indicating litigation exposure does not scale punishingly with smallness.",
+            "A supporter of reform should weigh that defending even meritless suits is a fixed cost incumbents can absorb with in-house legal teams while a forum or startup cannot, so a blunt repeal could plausibly hit small players hardest — even if the headline economic-loss figures come from conflicted industry-funded modeling.",
           skeptic_flip:
-            "A skeptic should weigh that defending even meritless suits is a fixed cost incumbents can absorb with in-house legal teams while a forum or startup cannot, so a blunt repeal could plausibly hit small players hardest — even if the headline economic-loss figures come from conflicted industry-funded modeling.",
+            "A skeptic who holds that repeal entrenches incumbents should update if cross-jurisdiction data (e.g., startups under the stricter EU eCommerce Directive regime) showed small platforms survived and attracted investment at rates comparable to those under broad 230 immunity — indicating litigation exposure does not scale punishingly with smallness.",
           common_ground:
             "Both sides agree the NERA/Internet Association GDP and jobs projections are industry-commissioned with strong conflict-of-interest incentives, and that litigation-cost exposure per user is the right quantity to measure across platform size tiers.",
           live_disagreement:

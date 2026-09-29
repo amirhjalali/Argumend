@@ -1,6 +1,8 @@
 export const spaceColonizationFeasibilityData = {
   id: "space-colonization-feasibility",
   title: "Space Colonization Feasibility",
+  question:
+    "Can we build self-sustaining colonies on Mars or the Moon within 50 years?",
   meta_claim:
     "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
   status: "contested" as const,
@@ -34,6 +36,8 @@ export const spaceColonizationFeasibilityData = {
       crux: {
         id: "starship-mars-landing",
         title: "Successful Uncrewed Mars Landing",
+        question:
+          "Will Starship-class transport, with orbital refueling and Mars landings, be demonstrated this decade?",
         description:
           "Demonstrating that Starship can successfully land on Mars with a full cargo payload, proving the transportation link is viable.",
         methodology:
@@ -123,6 +127,8 @@ export const spaceColonizationFeasibilityData = {
       crux: {
         id: "isru-demonstration",
         title: "Mars In-Situ Resource Utilization at Scale",
+        question:
+          "Can a Mars settlement become self-sufficient enough to survive being cut off from Earth?",
         description:
           "Demonstrating that water extraction, oxygen production, and construction materials can be produced from Martian resources at a scale sufficient to support a small crew.",
         methodology:

@@ -1,6 +1,8 @@
 export const usNationalDebtCrisisData = {
   id: "us-national-debt-crisis",
   title: "Is the US National Debt a Ticking Time Bomb?",
+  question:
+    "Will the US national debt cause a fiscal crisis within a generation?",
   meta_claim:
     "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability — though whether it triggers a genuine fiscal crisis within a generation, or proves manageable for a sovereign issuer of the world's reserve currency, is sharply contested.",
   status: "contested" as const,
@@ -79,12 +81,14 @@ export const usNationalDebtCrisisData = {
         "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=60",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Federal debt held by the public is around 100% of GDP, and CBO's March 2025 baseline projects it rising to 156% by 2055 under current law (its 'current policy' scenario reaches ~175%). Higher debt loads are associated with slower average growth and reduced fiscal space when shocks hit, even if no single hard threshold reliably triggers crisis. The underlying trajectory is structurally adverse — mandatory spending on entitlements grows on autopilot while revenues remain insufficient to match it. These are 30-year projections, not certainties, but closing the gap still requires major policy changes that no scenario achieves on autopilot.",
-      proponent_rebuttal:
         "Japan has maintained gross debt-to-GDP above 200% for over a decade — now around 250% — without a fiscal crisis, because it borrows in its own currency from domestic savers and maintains institutional credibility. The single most cited danger threshold — Reinhart and Rogoff's claim of a growth 'cliff' above 90% debt-to-GDP — was substantially undermined by Herndon, Ash, and Pollin (2014): correcting a spreadsheet error and selective data exclusion, average growth above 90% was 2.2%, not the −0.1% originally reported. A modest negative debt-growth correlation survives, but the sharp cliff does not. What matters most is the trajectory of interest rates relative to growth rates (r vs g): when r stays below g, debt-to-GDP can stabilize even with primary deficits. The US adds deep capital markets, strong institutions, and the ability to adjust fiscal policy. And the headline CBO numbers are baseline projections under unchanged current law — a scenario, not an inevitability — which Congress can and historically does alter.",
+      proponent_rebuttal:
+        "Federal debt held by the public is around 100% of GDP, and CBO's March 2025 baseline projects it rising to 156% by 2055 under current law (its 'current policy' scenario reaches ~175%). Higher debt loads are associated with slower average growth and reduced fiscal space when shocks hit, even if no single hard threshold reliably triggers crisis. The underlying trajectory is structurally adverse — mandatory spending on entitlements grows on autopilot while revenues remain insufficient to match it. These are 30-year projections, not certainties, but closing the gap still requires major policy changes that no scenario achieves on autopilot.",
       crux: {
         id: "r-vs-g-sustainability",
         title: "The r vs g Sustainability Test",
+        question:
+          "Can the US keep its borrowing rate below its growth rate over decades?",
         description:
           "Compare the effective interest rate on government debt (r) against nominal GDP growth (g) to determine whether the debt ratio will stabilize, shrink, or explode over time.",
         methodology:
@@ -190,12 +194,14 @@ export const usNationalDebtCrisisData = {
         "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=60",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Net interest on the federal debt reached about $882 billion in fiscal year 2024 — up 34% from FY2023 and enough to surpass discretionary national defense outlays (~$874 billion) for the first time. As pandemic-era low-rate debt matures and reprices, interest costs threaten to consume an ever-larger share of the budget. This risks a self-reinforcing dynamic: higher interest costs widen deficits, which require more borrowing, which raises interest costs further. CBO's March 2025 baseline projects net interest rising to 5.4% of GDP and roughly 28% of federal revenue by 2055 — a scenario in which interest crowds out other spending and leaves little fiscal room for emergencies.",
-      proponent_rebuttal:
         "Nominal interest payments are misleading without context: what matters is the real (inflation-adjusted) rate relative to growth. When the safe interest rate stays below the nominal growth rate (r < g), debt can be rolled over with little or no fiscal cost — a configuration Blanchard's 2019 AEA address argues has been the historical norm, not the exception. The weighted average rate on outstanding US debt remains moderate because much was issued in the low-rate era, and the 5.4%-of-GDP figure is a 2055 baseline scenario, not a locked-in path. The Federal Reserve also retains tools to manage long-term rates if a genuine spiral threatened — it is both central bank and lender of last resort for a currency-sovereign nation that cannot be forced into involuntary default. The 'doom loop' framing assumes markets demand ever-rising risk premiums, yet Treasuries remain the global safe asset. And interest is largely a transfer to bondholders — increasingly domestic ones — not money leaving the economy, making much of the burden distributional rather than existential. The real risk is a self-fulfilling confidence shock (multiple-equilibria), not arithmetic inevitability.",
+      proponent_rebuttal:
+        "Net interest on the federal debt reached about $882 billion in fiscal year 2024 — up 34% from FY2023 and enough to surpass discretionary national defense outlays (~$874 billion) for the first time. As pandemic-era low-rate debt matures and reprices, interest costs threaten to consume an ever-larger share of the budget. This risks a self-reinforcing dynamic: higher interest costs widen deficits, which require more borrowing, which raises interest costs further. CBO's March 2025 baseline projects net interest rising to 5.4% of GDP and roughly 28% of federal revenue by 2055 — a scenario in which interest crowds out other spending and leaves little fiscal room for emergencies.",
       crux: {
         id: "interest-rate-rollover-risk",
         title: "The Debt Rollover Stress Test",
+        question:
+          "As existing debt rolls over at new rates, will interest costs stabilize or keep escalating?",
         description:
           "Model the trajectory of net interest costs as pandemic-era low-rate debt matures and is refinanced at current and projected market rates.",
         methodology:
@@ -301,12 +307,14 @@ export const usNationalDebtCrisisData = {
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The dollar's reserve currency status means the US enjoys an 'exorbitant privilege' — global demand for dollars and Treasury securities keeps borrowing costs artificially low and allows the US to run deficits that would cripple any other nation. This creates a dangerous complacency. However, this privilege is not permanent: de-dollarization efforts by BRICS nations, China's yuan internationalization, and the rise of central bank digital currencies could gradually erode dollar dominance. If foreign demand for Treasuries declines, the US would face a sudden repricing of its debt sustainability.",
-      proponent_rebuttal:
         "Reports of the dollar's demise have been greatly exaggerated for decades. The dollar's share of global reserves has declined slowly from ~70% to ~58% since 2000, but no credible alternative exists. The euro has structural governance issues, the yuan lacks capital account openness, and Bitcoin is too volatile. The dollar's dominance rests on deep, liquid capital markets, rule of law, military power, and network effects — not just economic size. BRICS de-dollarization announcements are mostly political theater; actual cross-border transactions remain overwhelmingly dollar-denominated. Even in a multipolar currency world, the dollar would likely remain first among equals. The privilege endures because there is literally no other asset that can absorb the scale of global savings demand.",
+      proponent_rebuttal:
+        "The dollar's reserve currency status means the US enjoys an 'exorbitant privilege' — global demand for dollars and Treasury securities keeps borrowing costs artificially low and allows the US to run deficits that would cripple any other nation. This creates a dangerous complacency. However, this privilege is not permanent: de-dollarization efforts by BRICS nations, China's yuan internationalization, and the rise of central bank digital currencies could gradually erode dollar dominance. If foreign demand for Treasuries declines, the US would face a sudden repricing of its debt sustainability.",
       crux: {
         id: "reserve-currency-erosion-rate",
         title: "The Dollar Dominance Trajectory Test",
+        question:
+          "Is the dollar's erosion a slow, self-limiting drift, or could it tip suddenly past a confidence threshold?",
         description:
           "Track the rate of change in the dollar's share of global reserves, cross-border payments, and commodity pricing to determine whether erosion is accelerating or stabilizing.",
         methodology:
@@ -318,9 +326,9 @@ export const usNationalDebtCrisisData = {
           "$0 (IMF COFER and SWIFT data are publicly available quarterly)",
         falsification: {
           supporter_flip:
-            "A supporter who counts on enduring dollar privilege would reconsider if COFER, SWIFT, and commodity-pricing data showed the dollar's reserve share falling at an accelerating rate — and if a credible deep, liquid alternative (or a working multilateral settlement system like mBridge at scale) began absorbing meaningful global savings demand.",
+            "A supporter forecasting de-dollarization should weigh that the dollar still holds ~58% of allocated reserves versus the euro's ~20%, that the ~$28-30T Treasury market is unmatched in depth and liquidity, and that mBridge's cumulative volume was only ~$55B by late 2025 — political intent without displacement of dollar flows.",
           skeptic_flip:
-            "A skeptic forecasting de-dollarization should weigh that the dollar still holds ~58% of allocated reserves versus the euro's ~20%, that the ~$28-30T Treasury market is unmatched in depth and liquidity, and that mBridge's cumulative volume was only ~$55B by late 2025 — political intent without displacement of dollar flows.",
+            "A skeptic who counts on enduring dollar privilege would reconsider if COFER, SWIFT, and commodity-pricing data showed the dollar's reserve share falling at an accelerating rate — and if a credible deep, liquid alternative (or a working multilateral settlement system like mBridge at scale) began absorbing meaningful global savings demand.",
           common_ground:
             "Both sides agree the dollar's reserve share has drifted down slowly from ~70% in 2000 to ~58% and that no rival currency currently offers comparable depth, liquidity, and safety at the scale global reserves require.",
           live_disagreement:

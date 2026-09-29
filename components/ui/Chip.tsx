@@ -19,6 +19,8 @@ interface ChipProps {
   icon?: LucideIcon;
   /** Makes the chip a link, with a 44px touch target. */
   href?: string;
+  /** A link chip for the page being shown: sets aria-current on the link. */
+  current?: boolean;
   className?: string;
   children: ReactNode;
 }
@@ -28,7 +30,7 @@ interface ChipProps {
  * a crux (crimson belongs to the crux components). Tones come from
  * `toneStyles`, so a chip is the same colour wherever that family appears.
  */
-export function Chip({ tone = "neutral", size = "sm", icon: Icon, href, className, children }: ChipProps) {
+export function Chip({ tone = "neutral", size = "sm", icon: Icon, href, current, className, children }: ChipProps) {
   const classes = cx(
     CHIP_BASE,
     CHIP_SIZES[size],
@@ -44,7 +46,7 @@ export function Chip({ tone = "neutral", size = "sm", icon: Icon, href, classNam
   );
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} aria-current={current ? "page" : undefined} className={classes}>
         {content}
       </Link>
     );

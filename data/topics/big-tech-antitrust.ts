@@ -1,6 +1,7 @@
 export const bigTechAntitrustData = {
   id: "big-tech-antitrust",
   title: "Breaking Up Big Tech",
+  question: "Should Big Tech be broken up or heavily regulated?",
   meta_claim:
     "Major technology companies (Google, Apple, Amazon, Meta) should be broken up or heavily regulated to restore competition and protect consumers.",
   status: "contested" as const,
@@ -35,6 +36,8 @@ export const bigTechAntitrustData = {
       crux: {
         id: "consumer-harm-measurement",
         title: "Measuring Consumer Harm in Zero-Price Markets",
+        question:
+          "Are users of free platforms net harmed once privacy, innovation and attention costs are weighed?",
         description:
           "Determining whether consumers are harmed by tech monopolies when the services are free, requiring new frameworks beyond the traditional price-based antitrust analysis.",
         methodology:
@@ -142,6 +145,8 @@ export const bigTechAntitrustData = {
       crux: {
         id: "informed-consent-data-economy",
         title: "Meaningful Consent in the Data Economy",
+        question:
+          "Is clicking 'agree' on unread terms meaningful consent to data collection?",
         description:
           "The average terms of service is 7,000 words. Nobody reads them. Can you consent to something you have never read?",
         methodology:

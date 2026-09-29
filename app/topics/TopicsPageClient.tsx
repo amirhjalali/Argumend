@@ -15,7 +15,6 @@ import {
   DEBATE_MAP_ENTRIES,
   LIBRARY_ENTRIES,
   SORT_OPTIONS,
-  STATUS_LABELS,
   filterLibrary,
   queryForTopicsState,
   showsStartHere,
@@ -23,6 +22,7 @@ import {
   type SortOption,
   type TopicsQueryState,
 } from "./_query";
+import { MapCardText } from "./MapCardText";
 
 export type { SortOption, TopicsQueryState } from "./_query";
 
@@ -227,7 +227,7 @@ export default function TopicsPageClient({
               onChange={(e) => updateSearch(e.target.value)}
               placeholder="Search the maps"
               aria-label="Search maps"
-              className="min-h-11 w-full rounded-lg border border-stone-300/80 bg-card py-2.5 pl-9 pr-12 text-base text-primary dark:text-stone-200 placeholder:text-muted/80 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider dark:placeholder:text-stone-500 sm:text-sm [&::-webkit-search-cancel-button]:hidden"
+              className="min-h-11 w-full rounded-lg border border-stone-300/80 bg-card py-2.5 pl-9 pr-12 text-base text-primary dark:text-stone-200 placeholder:text-muted/80 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider dark:placeholder:text-stone-500 sm:text-sm [&::-webkit-search-cancel-button]:hidden"
             />
             {search && (
               <button
@@ -246,7 +246,7 @@ export default function TopicsPageClient({
               id="topics-sort-select"
               value={sortBy}
               onChange={(e) => { setPage(1); setSortBy(e.target.value as SortOption); }}
-              className="min-h-11 flex-1 rounded-lg border border-stone-300/80 bg-card px-3 py-2.5 text-sm text-primary dark:text-stone-200 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider sm:flex-none"
+              className="min-h-11 flex-1 rounded-lg border border-stone-300/80 bg-card px-3 py-2.5 text-sm text-primary dark:text-stone-200 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider sm:flex-none"
             >
               {SORT_OPTIONS.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -338,28 +338,12 @@ export default function TopicsPageClient({
                       <li key={topic.id} className="border-t border-stone-300/70 dark:border-divider">
                         <Link
                           href={topic.href}
-                          className="group block py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50"
+                          className="group block py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                         >
                           <TitleTag className="font-serif text-[1.3125rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
                             {topic.title}
                           </TitleTag>
-                          <p className="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                            {topic.summary}
-                          </p>
-                          {/* No "kind" chip: every row is a map. A new-model
-                              row under a category shelf has no meta at all. */}
-                          {(!group.category || topic.status || topic.pillarCount !== undefined) && (
-                            <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-muted">
-                              {!group.category && <span>{CATEGORY_LABELS[topic.category]}</span>}
-                              {topic.status && <span>{STATUS_LABELS[topic.status]}</span>}
-                              {topic.pillarCount !== undefined && topic.evidenceCount !== undefined && (
-                                <span>
-                                  {topic.pillarCount} {topic.pillarCount === 1 ? "pillar" : "pillars"},{" "}
-                                  {topic.evidenceCount} evidence {topic.evidenceCount === 1 ? "card" : "cards"}
-                                </span>
-                              )}
-                            </p>
-                          )}
+                          <MapCardText map={topic} showCategory={!group.category} />
                         </Link>
                       </li>
                     ))}
@@ -404,14 +388,12 @@ function StartHere() {
           <li key={map.id} className="border-t border-stone-300/80 dark:border-divider">
             <Link
               href={map.href}
-              className="group flex h-full flex-col py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 md:py-5"
+              className="group flex h-full flex-col py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus md:py-5"
             >
               <h3 className="font-serif text-[1.375rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
                 {map.title}
               </h3>
-              <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-secondary dark:text-stone-400 md:line-clamp-3">
-                {map.summary}
-              </p>
+              <MapCardText map={map} />
             </Link>
           </li>
         ))}

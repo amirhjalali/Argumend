@@ -1,6 +1,8 @@
 export const affirmativeActionMeritocracyData = {
   id: "affirmative-action-meritocracy",
   title: "Affirmative Action & Meritocracy",
+  question:
+    "Are race-conscious admissions and hiring needed for equal opportunity?",
   meta_claim:
     "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const affirmativeActionMeritocracyData = {
       crux: {
         id: "merit-measurement-validity",
         title: "The Merit Measurement Validity Test",
+        question:
+          "Do test scores and credentials measure individual ability, or accumulated advantage?",
         description:
           "Whether standardized measures of merit accurately reflect individual capability independent of systemic advantage. If test scores and credentials primarily measure accumulated advantage rather than innate ability or effort, then 'merit-based' selection systematically excludes capable individuals from disadvantaged backgrounds.",
         methodology:
@@ -29,6 +33,16 @@ export const affirmativeActionMeritocracyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Multi-decade longitudinal cohort study requiring institutional partnerships and sustained funding)",
+        falsification: {
+          supporter_flip:
+            "If a long-run study following 50,000+ students from kindergarten to careers, controlling for family wealth, school quality and test prep, found test scores predicting later success as well for disadvantaged students as for advantaged ones, 'merit' measures would reflect capability rather than accumulated advantage, and the case for race-conscious correction would weaken.",
+          skeptic_flip:
+            "A skeptic who favors race-blind evaluation should weigh the University of California's finding that family income, parental education and race explain over 40% of the variance in SAT/ACT scores but less than 10% in high school grades, and that legacy applicants from top-1% families have more than a five-fold admissions advantage.",
+          common_ground:
+            "Both sides agree disadvantage starts long before the university gate — median white family wealth was $171,000 versus $17,600 for Black families in 2022 — and that K-12 opportunity matters.",
+          live_disagreement:
+            "Whether test scores and credentials measure individual ability or encode accumulated advantage — and so whether the remedy belongs at admission or earlier, in schools and neighborhoods.",
+        },
       },
       evidence: [
         {
@@ -118,6 +132,8 @@ export const affirmativeActionMeritocracyData = {
       crux: {
         id: "race-neutral-diversity-outcomes",
         title: "The Race-Neutral Equivalence Test",
+        question:
+          "Can race-neutral policies match the diversity that race-conscious policies achieve?",
         description:
           "Whether race-neutral policies can achieve comparable diversity outcomes to race-conscious policies at selective institutions. If race-neutral alternatives produce equivalent representation within a reasonable timeframe, the case for race-conscious policies weakens. If they consistently produce lower representation that compounds over time, race-neutral mandates effectively entrench racial stratification.",
         methodology:
@@ -125,6 +141,16 @@ export const affirmativeActionMeritocracyData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 (IPEDS enrollment data is publicly available; state-level analyses exist)",
+        falsification: {
+          supporter_flip:
+            "If selective universities in states that banned affirmative action, and all of them after SFFA, reached representation and graduation outcomes comparable to race-conscious admissions within a reasonable time through income-based preferences, percentage plans and outreach, the claim that race-conscious policies are necessary would weaken.",
+          skeptic_flip:
+            "A skeptic who backs race-neutral alternatives should weigh that after Proposition 209 underrepresented minority enrollment fell 50% at UC Berkeley and 43% at UCLA, that Bleemer found the ban lowered minority students' graduation odds and wages, and that Stanford simulations found income-based preferences fall well short of the diversity lost.",
+          common_ground:
+            "Both sides agree minority enrollment at the most selective campuses fell after bans like California's Proposition 209, and that race-neutral tools such as Texas's Top 10% rule restore some diversity.",
+          live_disagreement:
+            "Whether race-neutral strategies can fully recover that diversity given enough time and institutional commitment, or only partially, leaving representation lower in ways that compound.",
+        },
       },
       evidence: [
         {
@@ -225,12 +251,14 @@ export const affirmativeActionMeritocracyData = {
         "Critics argue that racial preferences increase resentment, stigmatize beneficiaries, and undermine social cohesion. Proponents counter that diversity in institutions builds cross-racial understanding and that the 'stigma' and 'mismatch' arguments are empirically weak. International comparisons with India, Brazil, and South Africa offer mixed lessons.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Racial preferences generate resentment among non-beneficiary groups, fuel perceptions of unfairness, and stigmatize the very minorities they aim to help by creating doubt about whether they earned their positions. The 'mismatch hypothesis,' advanced by UCLA law professor Richard Sander, argues that affirmative action places students in academic environments where they are underprepared relative to peers, leading to higher dropout rates, lower GPAs, and fewer graduates in STEM fields. Public opinion consistently shows majorities of all racial groups opposing race-based preferences — a 2023 Pew Research poll found 74% of Americans disapprove of considering race in admissions. International examples reinforce concerns: India's reservation system (quotas for Scheduled Castes, Scheduled Tribes, and Other Backward Classes covering up to 50% of seats) has been in place for 75 years but has not closed socioeconomic gaps and has generated persistent intercaste resentment.",
+        "Racial preferences generate resentment among non-beneficiary groups, fuel perceptions of unfairness, and stigmatize the very minorities they aim to help by creating doubt about whether they earned their positions. The 'mismatch hypothesis,' advanced by UCLA law professor Richard Sander, argues that affirmative action places students in academic environments where they are underprepared relative to peers, leading to higher dropout rates, lower GPAs, and fewer graduates in STEM fields. Public opinion leans against race-based preferences — a June 2023 Pew Research poll found 50% of Americans disapprove of considering race in admissions, against 33% who approve. International examples reinforce concerns: India's reservation system (quotas for Scheduled Castes, Scheduled Tribes, and Other Backward Classes covering up to 50% of seats) has been in place for 75 years but has not closed socioeconomic gaps and has generated persistent intercaste resentment.",
       proponent_rebuttal:
         "The mismatch hypothesis has been extensively tested and largely refuted. A 2016 study by Arcidiacono and Lovenheim in the Annual Review of Economics found that while affirmative action admits attend more selective schools, their graduation rates and long-term outcomes are equal to or better than they would have been at less selective institutions — the 'fit' argument does not hold empirically. The stigma argument assumes that the alternative to affirmative action is a perception of pure merit, but in practice, legacy admits, donor children, and athletes face no equivalent stigma despite receiving larger admissions advantages. Research on diversity's benefits is substantial: diverse teams produce more innovative research (Freeman & Huang, 2015), diverse corporate boards improve financial performance (McKinsey, 2020), and students exposed to racial diversity in college show greater civic engagement and reduced prejudice (Gurin et al., 2002). Brazil's racial quotas, implemented in 2012, have increased Black and mixed-race enrollment at federal universities from 33% to 50% with no measurable decline in academic quality.",
       crux: {
         id: "net-social-cohesion-effect",
         title: "The Social Cohesion Net Impact Assessment",
+        question:
+          "Do race-conscious policies strengthen or strain social cohesion between groups?",
         description:
           "Whether race-conscious policies produce net positive or negative effects on social cohesion and intergroup relations. If affirmative action reduces prejudice, builds cross-racial networks, and creates role models that inspire future generations, the social benefits outweigh resentment costs. If it primarily generates backlash, stigmatizes beneficiaries, and entrenches racial categorization, it undermines its own goals.",
         methodology:
@@ -238,6 +266,16 @@ export const affirmativeActionMeritocracyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$3-8M (Multi-site longitudinal study with survey and qualitative components)",
+        falsification: {
+          supporter_flip:
+            "If long-run surveys of 10,000 students at 50 universities, plus attitude data from states with and without bans, found race-conscious policies mainly producing backlash and stigma rather than cross-racial friendships and reduced prejudice, the social case for them would weaken.",
+          skeptic_flip:
+            "A skeptic who fears resentment should weigh that multiple reanalyses have challenged the mismatch hypothesis, that students exposed to racial diversity in college show greater civic engagement and reduced prejudice, and that Brazil's 2012 quotas raised Black and mixed-race federal university enrollment from 33% to 50% with no measurable decline in academic quality.",
+          common_ground:
+            "Both sides agree more Americans disapprove than approve of considering race in admissions — 50% to 33% in a June 2023 Pew survey — and that international cases from India to Brazil offer mixed lessons.",
+          live_disagreement:
+            "Whether race-conscious policies build cross-racial understanding and role models, or generate resentment and stigma that undercut their own goals — which long-run attitude data from states with and without bans could show.",
+        },
       },
       evidence: [
         {
@@ -383,7 +421,7 @@ export const affirmativeActionMeritocracyData = {
       id: "q3",
       title: "Does diversity in institutions reduce or deepen racial division?",
       content:
-        "74% of Americans oppose race-based admissions, yet diverse teams produce higher-impact research and students exposed to diversity show reduced prejudice. India's 75-year reservation system created a Dalit middle class but also entrenched caste politics. Does the path to a post-racial society run through race-conscious policy, or does racial classification perpetuate the very divisions it aims to heal?",
+        "Half of Americans oppose race-based admissions (50% to 33% in a 2023 Pew survey), yet diverse teams produce higher-impact research and students exposed to diversity show reduced prejudice. India's 75-year reservation system created a Dalit middle class but also entrenched caste politics. Does the path to a post-racial society run through race-conscious policy, or does racial classification perpetuate the very divisions it aims to heal?",
     },
   ],
 };

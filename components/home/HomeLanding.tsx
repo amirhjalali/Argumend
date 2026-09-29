@@ -75,9 +75,20 @@ function HomeHero() {
         lede="Most arguments are not about what they seem. Argumend maps the few questions a fight really turns on, and what would change each side’s mind. It never names a winner."
         className="!mb-0 pb-10 pt-7 md:pb-16 md:pt-14"
       >
-        {/* Phone order: evidence, then the two doors. From md the evidence
-            moves to a right-hand column beside the doors. */}
+        {/* Phone order: the two doors, then the evidence, so the rust
+            button sits high on the first screen. From md the evidence moves
+            to a right-hand column beside the doors (placed by grid
+            position, so the desktop layout does not depend on this order). */}
         <div className="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(15rem,0.7fr)] md:items-start md:gap-x-14">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 md:col-start-1 md:row-start-1">
+            {/* The e2e suite (e2e/maps.spec.ts) follows this button by its test id. */}
+            <Button href={HOME_FLAGSHIP_HREF} size="lg" data-testid="home-primary-cta">
+              See it on AI and jobs
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Button>
+            <TextAction href={ANALYZE_HREF}>Paste an argument you&rsquo;re in</TextAction>
+          </div>
+
           <aside
             aria-label="What we measured"
             className="border-t border-divider pt-3 md:col-start-2 md:row-start-1"
@@ -94,14 +105,6 @@ function HomeHero() {
               </Link>
             </p>
           </aside>
-
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 md:col-start-1 md:row-start-1">
-            <Button href={HOME_FLAGSHIP_HREF} size="lg">
-              See it on AI and jobs
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Button>
-            <TextAction href={ANALYZE_HREF}>Paste an argument you&rsquo;re in</TextAction>
-          </div>
         </div>
       </PageHeader>
     </HomeBeat>
@@ -129,7 +132,7 @@ function HomeMaps({ maps }: { maps: HomeMap[] }) {
           <li key={map.id} className="border-t border-divider">
             <Link
               href={map.href}
-              className="group flex h-full flex-col py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 md:pb-2"
+              className="group flex h-full flex-col py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus md:pb-2"
             >
               <h3 className="font-serif text-[1.375rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
                 {map.title}

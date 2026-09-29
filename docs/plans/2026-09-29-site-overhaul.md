@@ -115,3 +115,64 @@ First crux on topic pages: ~4–5 phone screens → 1.5–2. Small tap targets o
    is connected — delete or keep.
 9. **Diagram route** (`/topics/[id]/map`) still has placeholder nodes, stock photos, "/40" badges and
    some overlap at 1440 — it is noindexed and linked quietly; needs its own pass or removal.
+
+## Round 2 (2026-09-29, 19:20–21:35 UTC, branch `ux/round2-2026-09-29`, not deployed)
+
+Founder: "can we do some more rounds of improvement here? have some extra tokens to burn for the next
+7 hours". Off `main` f9e9db9; 16 first-parent merges/commits, 326 files, +10.5k / −5.0k. Reports:
+`docs/reviews/2026-09-29-r2-*.md`.
+
+- **Map questions** (all 156 legacy maps): `topic.question` headlines (h1, lists, `<title>`) and a short
+  `crux.question` on every pillar (≈ 430 cruxes; median heading 188–240 → ~90–96 chars). The echoed
+  "The claim:" line is dropped under a question headline. A test enforces format on every map.
+- **Agreement and mind-change lines** for the 46 maps that had none (140 pillars), grounded in each
+  map's own text; every legacy map now has them on every pillar.
+- **Side audit:** 47 pillars in 23 maps had their side texts filed backwards (the argument for the
+  claim filed as "skeptic"); moved verbatim and pinned by a regression test. Two self-contradicting
+  figures fixed; neutrality pass on five sensitive maps. Open: see the audit report's suspect list.
+- **Paste matching:** rebuilt index + decision rule, eval set of 153 labelled pastes
+  (`data/evals/paste-matching/`): right map named 51% → 86%, wrong map 11.6% → 1.2%, off-topic named
+  0; siblings shown as "Closely related". Mind-change lines are kept out of the index.
+- **Accessibility / dark mode:** axe clean on 32 routes × 390/1440 × light/dark (42 violating nodes
+  → 0); one theme-aware focus ring (`ring-focus`) passing 3:1 everywhere, guarded by a test; live
+  announcements for paste results.
+- **Performance:** Lighthouse mobile 84–87 → 89–93 on nine pages, LCP −0.5 to −1.1 s (upright fonts
+  only preloaded, a 36 KB phone background, home and diagram bundles trimmed).
+- **Diagram view** rebuilt from the topic page's model (question → crux questions → sides →
+  evidence), no overlaps on any map, fitted on load (74–94% zoom), keyboard operable; old canvas code
+  and the katex packages removed.
+- **E2E:** 30+ Playwright tests (phone and desktop) in a new CI job.
+- **Links to a crux** now open that crux's fold.
+
+Verified on the final tip: vitest 3,003, tsc, lint, `bun run build`, e2e 32 passed / 2 skipped against
+the standalone server, link crawl 866 paths with none broken, the live-site nuclear paste now matches.
+
+Open from round 2: `immigration-national-identity` supporters' text says "progressives want
+demographic change" (an unsupported motive claim; left as that side's voice for the founder);
+`/questions` ships ~8 KB of unused client code; the flagship's closed "Researcher mode" fold is 161 KB
+of markup; `/topics` renders client-side; warming the paste index at boot.
+
+## Round 3 (2026-09-29, 21:35–22:15 UTC, same branch)
+
+A fresh cold review (`docs/reviews/2026-09-29-r3-fresh-review.md`) put the main path at ~80–85% of the
+vision and named the next problems; three of its top issues and several smaller ones are fixed:
+
+- **One name per map** (`lib/mapNaming.ts` `mapDisplayTitle` = the question) on every surface a reader
+  sees: breadcrumb, search, paste, diagram, /questions, Learn links, library, saved, embed, OG/feed.
+- **Sides answer the question:** legacy maps read "Says yes" / "Says no"; mind-change lines and
+  evidence labels say yes/no to the map's question.
+- **Search** ranks by question and "Also asked as" phrasings: "is nuclear power safe" and 8 other
+  obvious queries open the right map first (tests pin them).
+- **Flips finished:** the side audit's suspect pillars now address their own side (one left:
+  central-bank-digital-currency 3, where the map contradicts itself).
+- **Library cards** = question + first crux + "turns on N questions" (no status words, no "pillars");
+  reflection shows what would settle the chosen crux and links to it; the paste result's next step
+  sits under the crux box on phones; home's button higher on phones; Moon landing filed under Science.
+
+Verified on the final tip: vitest 3,071, tsc, lint, `bun run build`, e2e 32 passed / 2 skipped,
+866-path link crawl clean, the live-site nuclear paste matches.
+
+Still open from the fresh review: "What would settle it" lines that restate the dispute (~430 to audit,
+use "Nothing does, and here is why" where evidence can't settle it); an offline no-match state for
+personal arguments; Learn's crux/pillar vocabulary; flagship AI-jobs crux 2/3 share one settle test
+and crux 5's settle line lacks its antecedent; About length; /questions leading with its crux.

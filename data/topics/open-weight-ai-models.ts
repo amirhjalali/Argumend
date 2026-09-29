@@ -1,6 +1,8 @@
 export const openWeightAiModelsData = {
   id: "open-weight-ai-models",
   title: "Releasing Open-Weight Frontier AI Models",
+  question:
+    "Does publishing the weights of frontier AI models do more good than harm?",
   meta_claim:
     "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const openWeightAiModelsData = {
       crux: {
         id: "marginal-uplift-test",
         title: "The Marginal-Uplift Test",
+        question:
+          "Do safety-stripped open models give bad actors real help on dangerous tasks beyond what search provides?",
         description:
           "The decisive question is whether an open-weight model measurably increases a malicious actor's ability to cause mass-casualty harm relative to a control group with access to search engines, textbooks, and existing closed models. If a stripped-safety open model provides no statistically significant uplift on end-to-end dangerous tasks over that baseline, the misuse argument against release collapses; if it does, irreversibility (see Pillar 2) makes release uniquely dangerous.",
         methodology:
@@ -160,6 +164,8 @@ export const openWeightAiModelsData = {
       crux: {
         id: "reversibility-test",
         title: "The Recall Test",
+        question:
+          "Since released weights can't be recalled, should release face a higher bar, or should rules target misuse?",
         description:
           "The question is empirically decidable: once a set of open weights has been released and mirrored, is there any technical or legal mechanism by which the original developer or a government can render those specific weights non-functional or inaccessible to a determined actor? If no such mechanism exists — and the evidence says it does not — then release is irreversible, and the live dispute is purely about whether irreversibility justifies caution-at-release or a pivot to use-based regulation.",
         methodology:
@@ -169,9 +175,9 @@ export const openWeightAiModelsData = {
           "$0 (Established by the NTIA report, the documented LLaMA leak, and the structural fact that copied files cannot be un-copied)",
         falsification: {
           supporter_flip:
-            "A supporter of the irreversibility claim should reconsider if some mechanism — robust license revocation, hosting takedowns, or model-'unlearning' patches — were shown to actually remove capability from an actor who already downloaded the weights and runs them offline; no such mechanism has been demonstrated.",
+            "A supporter of open release should weigh the documented LLaMA leak (a gated March 2023 release that spread uncontrollably across torrents within about a week) and the NTIA report's own acknowledgment that openly released weights cannot be recalled.",
           skeptic_flip:
-            "Someone arguing irreversibility is overstated should weigh the documented LLaMA leak (a gated March 2023 release that spread uncontrollably across torrents within about a week) and the NTIA report's own acknowledgment that openly released weights cannot be recalled.",
+            "A skeptic who rests the case for caution on irreversibility should reconsider if some mechanism — robust license revocation, hosting takedowns, or model-'unlearning' patches — were shown to actually remove capability from an actor who already downloaded the weights and runs them offline; no such mechanism has been demonstrated.",
           common_ground:
             "Both sides agree that once weights are released and mirrored they cannot be technically recalled, and that downstream fine-tuning can restore removed capabilities; the dispute is the policy implication, not the technical fact.",
           live_disagreement:
@@ -260,12 +266,14 @@ export const openWeightAiModelsData = {
         "Open weights distribute economic and research opportunity, prevent a handful of labs from controlling a transformative technology, and give external safety researchers the deep model access closed APIs deny them. Critics argue these benefits are real but do not net out against catastrophic tail risk.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Open-weight release is the only credible check on the concentration of AI power in a few well-capitalized labs. Yann LeCun argues no individual should have unilateral power over how AI affects society; Andrew Ng warns that incumbents may 'exploit safety rhetoric for regulatory capture' to entrench themselves. Open weights let startups, academics, and developing nations build on frontier capability without rent-seeking gatekeepers, and they give independent safety researchers the white-box access — activations, gradients, fine-tuning — that interpretability and alignment work require but that closed APIs structurally withhold.",
-      proponent_rebuttal:
         "Democratization is a genuine good, but it is not unconditional: distributing a dual-use capability also democratizes its misuse, and the benefits accrue mostly to legitimate actors while the worst tail risks are driven by a small number of malicious ones. Restrictionists note that much of the claimed safety-research benefit can be delivered through structured access — researcher API tiers, gated model-internals access, and staged release — without putting downloadable weights into every actor's hands. The strongest pro-open arguments rest on op-eds and venture-capital advocacy, while the catastrophic-risk case rests on a smaller but more peer-reviewed literature; a naive citation count flatters the safety camp, but the asymmetry of consequences favors caution.",
+      proponent_rebuttal:
+        "Open-weight release is the only credible check on the concentration of AI power in a few well-capitalized labs. Yann LeCun argues no individual should have unilateral power over how AI affects society; Andrew Ng warns that incumbents may 'exploit safety rhetoric for regulatory capture' to entrench themselves. Open weights let startups, academics, and developing nations build on frontier capability without rent-seeking gatekeepers, and they give independent safety researchers the white-box access — activations, gradients, fine-tuning — that interpretability and alignment work require but that closed APIs structurally withhold.",
       crux: {
         id: "structured-access-substitution-test",
         title: "The Structured-Access Substitution Test",
+        question:
+          "How much of open models' benefit needs fully downloadable weights rather than gated access?",
         description:
           "The benefit side of the ledger hinges on whether the democratization, competition, and safety-research gains attributed to open weights can be substantially captured through intermediate options — structured/researcher access, capability-gated release, and downloadable-but-export-controlled tiers — without full open release. If those intermediate regimes deliver most of the benefit at lower tail risk, the case for fully open weights weakens; if deep capability genuinely requires unrestricted local weights, the benefit case holds.",
         methodology:
@@ -366,12 +374,14 @@ export const openWeightAiModelsData = {
         "Even if restrictions were desirable, capable open models already ship from Chinese labs outside U.S. jurisdiction. The crux: does restricting American open releases reduce global risk, or merely cede the open-weight field to actors the U.S. cannot regulate?",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "U.S. open-weight restrictions are largely unenforceable and may be strategically self-defeating. By April 2026, DeepSeek V4 and Qwen 3.6 demonstrated that frontier-approaching open models ship from Chinese labs the U.S. cannot regulate. The July 2025 AI Action Plan concluded that restricting American open releases would simply cede the global open-weight ecosystem — and the standards, tooling, and developer mindshare that come with it — to China. On this view, banning U.S. open weights restricts only the actors who would comply, while the capability remains globally available.",
-      proponent_rebuttal:
         "The fact that China releases capable open weights does not make additional U.S. releases safe — it raises the global risk floor, and adding more powerful open models to that floor makes the equilibrium worse, not better, as Yoshua Bengio argues. 'They'll do it anyway' is a race-to-the-bottom rationale that abandons the precautionary principle precisely where the stakes are highest. Moreover, the policy menu is not binary: capability-gating, staged release, structured access, and export-controlled-but-downloadable tiers let the U.S. preserve competitiveness and safety-research access without matching every Chinese release weight-for-weight at the frontier.",
+      proponent_rebuttal:
+        "U.S. open-weight restrictions are largely unenforceable and may be strategically self-defeating. By April 2026, DeepSeek V4 and Qwen 3.6 demonstrated that frontier-approaching open models ship from Chinese labs the U.S. cannot regulate. The July 2025 AI Action Plan concluded that restricting American open releases would simply cede the global open-weight ecosystem — and the standards, tooling, and developer mindshare that come with it — to China. On this view, banning U.S. open weights restricts only the actors who would comply, while the capability remains globally available.",
       crux: {
         id: "differential-availability-test",
         title: "The Differential-Availability Test",
+        question:
+          "Does a US open release add real access to dangerous capability beyond comparable foreign open models?",
         description:
           "The geopolitical crux reduces to a counterfactual: does a given U.S. open release meaningfully increase total global access to dangerous capability beyond what comparable Chinese (or other foreign) open models already provide? If foreign open models of equivalent capability are already freely downloadable, a matching U.S. release adds little marginal global risk while preserving competitive and research benefits; if the U.S. model is materially more capable on dangerous tasks, restraint reduces the global risk floor even if it does not eliminate foreign availability.",
         methodology:
@@ -383,7 +393,7 @@ export const openWeightAiModelsData = {
           supporter_flip:
             "A supporter of matching foreign releases should change their mind if benchmarking showed a proposed U.S. model is materially more capable than the best already-public foreign open model on misuse-relevant tasks specifically — meaning restraint would actually lower the global risk floor rather than merely cede ground.",
           skeptic_flip:
-            "A skeptic who treats foreign availability as decisive should weigh Bengio's argument that adding further frontier open releases raises the global risk equilibrium regardless of who ships them, and that 'they'll do it anyway' is a race-to-the-bottom rationale rather than a safety argument.",
+            "A skeptic who holds that every added U.S. release raises the global risk floor should change their mind if benchmarking showed a proposed U.S. model is no more capable on misuse-relevant tasks than the best foreign open model already freely downloadable (DeepSeek V4, Qwen 3.6) — in which case restraint would restrict only the actors who comply while the capability stays globally available, adding little marginal global risk to offset the competitive and research benefits it gives up.",
           common_ground:
             "Both sides agree frontier-approaching open weights already ship from outside U.S. jurisdiction (DeepSeek, Qwen, Mistral) and that the realistic policy menu spans staged, structured-access, and capability-gated options, not a binary ban-or-release choice.",
           live_disagreement:

@@ -1,6 +1,8 @@
 export const veganismEnvironmentalData = {
   id: "veganism-environmental-impact",
   title: "Veganism for Environmental Impact",
+  question:
+    "Would widespread vegan diets significantly reduce environmental damage?",
   meta_claim:
     "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, including greenhouse gas emissions, land use, and water pollution.",
   status: "contested" as const,
@@ -34,6 +36,8 @@ export const veganismEnvironmentalData = {
       crux: {
         id: "global-dietary-shift-modeling",
         title: "Global Dietary Shift Impact Modeling",
+        question:
+          "How much of veganism's per-person footprint cut would hold at global scale, after land and rebound effects?",
         description:
           "Comprehensive modeling of what would happen to global emissions, land use, water use, and biodiversity if varying percentages of the global population shifted to plant-based diets.",
         methodology:
@@ -120,6 +124,8 @@ export const veganismEnvironmentalData = {
       crux: {
         id: "population-nutrition-outcomes",
         title: "Large-Scale Vegan Population Health Outcomes",
+        question:
+          "Would a population-wide vegan shift carry any net health cost once deficiencies are covered by supplements?",
         description:
           "Tracking long-term health outcomes (mortality, chronic disease, nutritional deficiencies) in large vegan populations compared to omnivores, controlling for socioeconomic status.",
         methodology:

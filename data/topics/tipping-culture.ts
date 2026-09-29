@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const tippingCultureData = {
   id: "tipping-culture",
   title: "Should Tipping Be Abolished?",
+  question: "Should the US replace tipping with service-included wages?",
   meta_claim:
     "The United States should abolish tipping and the subminimum tipped wage in favor of service-included wages",
   status: "contested" as const,
@@ -33,12 +34,14 @@ export const tippingCultureData = {
         "The federal cash wage for tipped workers has been frozen at $2.13 since 1991, and tipped workers in subminimum-wage states have markedly higher poverty rates. Abolitionists argue this is an indefensible, unstable, employer-subsidizing arrangement. Defenders counter that federal law already guarantees the full minimum when tips fall short, that the median server earns far above minimum wage including tips, and that many tipped workers oppose reform because flat wages would cut their pay.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Tipping outsources the employer's payroll obligation onto the customer and leaves workers' income at the mercy of weather, shift assignments, and customer whims. The federal cash wage for tipped workers has been stuck at $2.13 per hour since 1991 — Congress severed it from the regular minimum wage in a 1996 amendment to the Fair Labor Standards Act and has never raised it, so inflation has eroded roughly half its real value. The result is measurable hardship: poverty rates among waitstaff and bartenders run around 18% in states that allow the $2.13 subminimum, versus about 11% in the handful of states that pay tipped workers the full minimum wage, and tipped workers are more than twice as likely as non-tipped workers to live in poverty. A flat, predictable wage would end this volatility, stop wage theft (the make-up requirement is widely under-enforced), and let workers budget like everyone else.",
-      proponent_rebuttal:
         "The $2.13 figure is real but misleading as a picture of what tipped workers earn. Federal law already requires that if a worker's tips plus the $2.13 cash wage do not reach the full $7.25 minimum in any week, the employer must make up the entire difference — so $2.13 is a floor on the employer's cash contribution, not on the worker's pay. In practice tipped workers earn well above the minimum: BLS data put the median U.S. server at about $16.23 an hour including tips in 2024, with bartenders similar, and top earners in busy restaurants make far more. This is precisely why many tipped workers fight reform: when Washington, D.C. began phasing out its tip credit, numerous servers reported their take-home pay fell as customers tipped less. The honest problem is enforcement of the existing make-up rule and the indefensible $2.13 headline number — not the existence of tips, which for skilled servers is a raise, not a wage cut.",
+      proponent_rebuttal:
+        "Tipping outsources the employer's payroll obligation onto the customer and leaves workers' income at the mercy of weather, shift assignments, and customer whims. The federal cash wage for tipped workers has been stuck at $2.13 per hour since 1991 — Congress severed it from the regular minimum wage in a 1996 amendment to the Fair Labor Standards Act and has never raised it, so inflation has eroded roughly half its real value. The result is measurable hardship: poverty rates among waitstaff and bartenders run around 18% in states that allow the $2.13 subminimum, versus about 11% in the handful of states that pay tipped workers the full minimum wage, and tipped workers are more than twice as likely as non-tipped workers to live in poverty. A flat, predictable wage would end this volatility, stop wage theft (the make-up requirement is widely under-enforced), and let workers budget like everyone else.",
       crux: {
         id: "net-income-after-abolition",
         title: "The Net Take-Home Income Test",
+        question:
+          "Would ending tips raise or lower the typical server's total take-home pay?",
         description:
           "Whether abolishing tips (replacing them with service-included flat wages) raises or lowers the actual take-home pay of typical tipped workers. If servers in equal-wage jurisdictions end up with higher and more stable total earnings, abolition helps the workers it targets. If high-earning tipped workers lose income when tips disappear — as many report when tip credits are removed — abolition redistributes from successful servers to the employer or the lowest earners, and the headline 'workers benefit' claim collapses.",
         methodology:
@@ -147,12 +150,14 @@ export const tippingCultureData = {
         "Tipping is defended as a market mechanism that rewards good service, but decades of research show tip size barely correlates with service quality and reliably tracks a server's race and gender instead. Abolitionists argue this makes tipping a discriminatory, ineffective incentive. Defenders counter that tips still give workers control and motivation, and that bias exists in flat-wage hiring and promotion too — so removing tips does not remove discrimination.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "The central justification for tipping — that it lets customers reward good service and discipline bad service — does not survive the evidence. Michael Lynn's meta-analysis of 14 studies covering 2,645 dining parties found the correlation between tip size and rated service quality averages only about 0.11, explaining a mere 1-5% of the variation in tips. What does predict tips is the server's identity: Lynn's 2008 research found white customers tipped Black servers roughly four percentage points less than otherwise-identical white servers, and Black servers saw essentially no tip increase for excellent versus mediocre service. Tipping also concentrates sexual harassment, because workers dependent on customer goodwill for income tolerate behavior they otherwise would not. A pay system that doesn't actually measure service and does encode racial and gender bias is not a meritocratic market — it is a discrimination machine with a customer-service veneer.",
-      proponent_rebuttal:
         "The weak tip-quality correlation is real but proves less than abolitionists claim. Tips still give workers direct control over their income and a tangible reason to hustle — managers and customers both report that the prospect of a good tip changes behavior at the margin even if the average correlation is modest, and the alternative (a fixed wage) offers no service signal at all. On bias, the finding is genuinely troubling, but discrimination does not vanish under flat wages: it migrates into hiring, scheduling, promotion, and which sections a manager assigns — channels with far less transparency than a customer's tip. Abolitionists also overstate harassment as uniquely tip-driven; harassment is pervasive across low-wage service work regardless of pay model. The honest position is that tipping's incentive value is overstated by its defenders and its bias is real, but eliminating tips does not eliminate either problem; it relocates them.",
+      proponent_rebuttal:
+        "The central justification for tipping — that it lets customers reward good service and discipline bad service — does not survive the evidence. Michael Lynn's meta-analysis of 14 studies covering 2,645 dining parties found the correlation between tip size and rated service quality averages only about 0.11, explaining a mere 1-5% of the variation in tips. What does predict tips is the server's identity: Lynn's 2008 research found white customers tipped Black servers roughly four percentage points less than otherwise-identical white servers, and Black servers saw essentially no tip increase for excellent versus mediocre service. Tipping also concentrates sexual harassment, because workers dependent on customer goodwill for income tolerate behavior they otherwise would not. A pay system that doesn't actually measure service and does encode racial and gender bias is not a meritocratic market — it is a discrimination machine with a customer-service veneer.",
       crux: {
         id: "does-abolition-reduce-bias",
         title: "The Discrimination-Reduction Test",
+        question:
+          "Would abolishing tips shrink pay gaps, or move the bias from customers to managers?",
         description:
           "Whether eliminating tips actually reduces race- and gender-based income disparities among service workers, or merely relocates discrimination into less visible channels. If front-of-house earnings disparities by race and gender shrink under service-included wages, the anti-discrimination case for abolition holds. If disparities persist or shift into hiring, scheduling, and promotion, then abolition treats a symptom while leaving the disease — and the bias argument for ending tips is weakened.",
         methodology:
@@ -267,6 +272,8 @@ export const tippingCultureData = {
       crux: {
         id: "coordination-vs-unworkable",
         title: "The Coordinated-Transition Test",
+        question:
+          "Were service-included failures fixable coordination problems, or a lasting rejection by US workers and diners?",
         description:
           "Whether no-tipping models fail because of fixable coordination problems (one restaurant can't unilaterally drop tips when competitors keep them) or because service-included pricing is fundamentally rejected by workers and customers even when adopted broadly. If jurisdiction-wide elimination of the tip credit leaves restaurants healthy and workers no worse off — as proponents say the equal-wage states show — abolition is workable with the right scope. If even broad, mandatory transitions trigger sustained worker income losses, customer flight, and political reversal (as in D.C.), the model is unworkable in U.S. dining culture.",
         methodology:

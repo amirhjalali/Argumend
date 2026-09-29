@@ -1,6 +1,7 @@
 export const congressionalTermLimitsData = {
   id: "congressional-term-limits",
   title: "Congressional Term Limits",
+  question: "Would congressional term limits improve American governance?",
   meta_claim:
     "Congressional term limits would improve American governance.",
   status: "contested" as const,
@@ -30,12 +31,14 @@ export const congressionalTermLimitsData = {
         "Congressional incumbents win re-election roughly 90%+ of the time, and term limits are meant to break that entrenchment and force regular turnover.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Elections are supposed to be the term limit. House incumbents win re-election above 90% in most cycles and almost never below 85%, which proponents read as a captured system where name recognition, fundraising advantage, and gerrymandered districts shield careerists from accountability. Hard caps would guarantee regular turnover, open seats, and fresh competition that voters demonstrably want but cannot reliably produce at the ballot box.",
-      proponent_rebuttal:
         "High re-election rates can reflect satisfied constituents and the natural advantage of competent, experienced representatives rather than a rigged system — and term limits do not actually fix the underlying drivers. Studies of term-limited state legislatures find that open-seat races were not consistently more competitive after limits than before, and that limits 'have virtually no effect on the types of people elected to office' by demographics or ideology. Capping terms removes good and bad legislators alike, including the ones voters explicitly want to keep, substituting a blunt rule for voter choice.",
+      proponent_rebuttal:
+        "Elections are supposed to be the term limit. House incumbents win re-election above 90% in most cycles and almost never below 85%, which proponents read as a captured system where name recognition, fundraising advantage, and gerrymandered districts shield careerists from accountability. Hard caps would guarantee regular turnover, open seats, and fresh competition that voters demonstrably want but cannot reliably produce at the ballot box.",
       crux: {
         id: "competition-after-limits",
         title: "Did Open Seats Become More Competitive?",
+        question:
+          "Do forced open seats bring more competitive races and new kinds of legislators, or reshuffle similar ones?",
         description:
           "If term limits improve governance through accountability, the open seats they create should produce measurably more competitive elections and meaningfully different (e.g. more diverse, less entrenched) winners than the incumbent-held seats they replace.",
         methodology:
@@ -138,12 +141,14 @@ export const congressionalTermLimitsData = {
         "Term limits force out experienced legislators, and state-level evidence shows the lost institutional knowledge shifts power to governors, bureaucrats, and lobbyists.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Career legislators accumulate not just policy expertise but also entanglements — donors, lobbyists, and a personal stake in the status quo. Forcing regular turnover, proponents argue, dilutes those captured relationships, brings in citizens closer to ordinary life, and prevents the build-up of unaccountable seniority-based power. A legislature of relative newcomers is harder for any single interest to permanently own.",
-      proponent_rebuttal:
         "The best natural experiment — 15 states that adopted legislative term limits — points the opposite way. The multi-organization Joint Project on Term Limits found the most significant effect was a decline in the legislature's power relative to the governor and executive agencies, with legislative adjustments to governors' budgets falling significantly. Inexperienced members rely more on the very actors term limits were meant to weaken: lobbyists and career staff who hold the institutional knowledge. Removing experience does not remove influence — it relocates it to unelected hands.",
+      proponent_rebuttal:
+        "Career legislators accumulate not just policy expertise but also entanglements — donors, lobbyists, and a personal stake in the status quo. Forcing regular turnover, proponents argue, dilutes those captured relationships, brings in citizens closer to ordinary life, and prevents the build-up of unaccountable seniority-based power. A legislature of relative newcomers is harder for any single interest to permanently own.",
       crux: {
         id: "where-power-goes",
         title: "Who Gains Power When Legislators Lose Tenure?",
+        question:
+          "Do term limits shift power to governors, agencies and lobbyists, or loosen entrenched interests?",
         description:
           "The load-bearing disagreement: does forced turnover empower citizen-legislators and weaken entrenched interests, or does it hollow out legislative capacity and hand power to governors, agencies, and lobbyists who outlast every term-limited member?",
         methodology:
@@ -152,7 +157,7 @@ export const congressionalTermLimitsData = {
         cost_to_verify: "$0-$200K (existing JPTL surveys + budget-data analysis)",
         falsification: {
           supporter_flip:
-            "If post-limit data showed term-limited legislatures held or strengthened their power over the executive — altering as much of the governor's proposed budget as before, with no measured rise in lobbyist or staff influence — the 'power relocates to unelected hands' rebuttal would collapse, and forced turnover could plausibly be diluting captured relationships as proponents claim.",
+            "A supporter who expects forced turnover to dilute captured relationships should update if before-and-after tracking showed term-limited legislatures altering a smaller share of the governor's proposed budget and leaning more on lobbyists and career staff — the pattern the Joint Project on Term Limits reported — since that would mean influence had moved to unelected hands rather than shrunk. The 50-state survey's finding that power shifted toward governors, and Olson & Rogowski's (2020) finding of higher polarization under limits, bear on the same question.",
           skeptic_flip:
             "A skeptic citing the JPTL and Carey-Niemi findings should weigh that the authoring bodies (NCSL, CSG, legislative-leader groups) represent legislatures and thus have an institutional stake in opposing limits — so part of the 'power shifts to the governor' narrative could reflect the surveyed legislators' own perspective rather than an objective loss.",
           common_ground:
@@ -226,12 +231,14 @@ export const congressionalTermLimitsData = {
         "The Supreme Court held in 1995 that congressional term limits require a federal constitutional amendment — states cannot impose them by statute.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Even granting the legal hurdle, proponents argue the path is clear: a constitutional amendment under Article V, which the founders provided precisely for popular structural reforms. Overwhelming, bipartisan public support (consistently two-thirds to four-fifths in polling) is exactly the kind of mandate the amendment process is meant to channel, and an Article V convention or congressional proposal could deliver durable, uniform limits.",
-      proponent_rebuttal:
         "The bar is far higher than popularity suggests. In U.S. Term Limits v. Thornton (1995), the Supreme Court held 5-4 that neither states nor Congress may add qualifications beyond those in Article I, so limits cannot be enacted by ordinary law — only by a constitutional amendment requiring two-thirds of both houses (the very members who would be limited) or an unprecedented Article V convention, then ratification by 38 states. No amendment has cleared that bar since 1992, and self-limitation by incumbents is a steep collective-action problem regardless of public opinion.",
+      proponent_rebuttal:
+        "Even granting the legal hurdle, proponents argue the path is clear: a constitutional amendment under Article V, which the founders provided precisely for popular structural reforms. Overwhelming, bipartisan public support (consistently two-thirds to four-fifths in polling) is exactly the kind of mandate the amendment process is meant to channel, and an Article V convention or congressional proposal could deliver durable, uniform limits.",
       crux: {
         id: "amendment-pathway",
         title: "Is There a Realistic Path to Enactment?",
+        question:
+          "Is there a realistic path to enactment when the officials being limited control the process?",
         description:
           "Because Thornton forecloses statutory term limits, the claim that they 'would improve governance' is partly counterfactual unless an enactment path exists. The crux is whether the Article V process can plausibly deliver congressional term limits given that the gatekeepers are the officials being limited.",
         methodology:
@@ -240,9 +247,9 @@ export const congressionalTermLimitsData = {
         cost_to_verify: "$0 (court opinion + congressional and state records)",
         falsification: {
           supporter_flip:
-            "If a term-limits amendment cleared two-thirds of both houses of Congress, or if the live Article V convention applications reached the 34-state threshold and produced a ratifiable proposal, the 'no realistic path' rebuttal would be falsified — enactment would have moved from hypothetical to in-progress despite the gatekeepers being the officials limited.",
+            "A supporter who reads overwhelming public support as a clear path to enactment should weigh that no constitutional amendment has been ratified since 1992, that incumbents must vote to limit themselves (a steep collective-action problem), and that an Article V convention has never successfully been triggered in U.S. history — so popularity has repeatedly failed to clear the procedural bar.",
           skeptic_flip:
-            "A skeptic who assumes overwhelming public support makes enactment inevitable should weigh that no constitutional amendment has been ratified since 1992, that incumbents must vote to limit themselves (a steep collective-action problem), and that an Article V convention has never successfully been triggered in U.S. history — so popularity has repeatedly failed to clear the procedural bar.",
+            "A skeptic who doubts there is any realistic path should reconsider if a term-limits amendment cleared two-thirds of both houses of Congress, or if the live Article V convention applications reached the 34-state threshold and produced a ratifiable proposal: the 'no realistic path' objection would be falsified, and enactment would have moved from hypothetical to in-progress despite the gatekeepers being the officials limited.",
           common_ground:
             "Both sides agree that after Thornton, congressional term limits cannot be imposed by ordinary statute and require a constitutional amendment under Article V — either two-thirds of Congress or a convention, then ratification by 38 states.",
           live_disagreement:

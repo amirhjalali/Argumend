@@ -1,6 +1,8 @@
 export const generativeAiArtCopyrightData = {
   id: "generative-ai-art-copyright",
   title: "AI Training & Copyright",
+  question:
+    "Should training AI on copyrighted work without permission be unlawful?",
   meta_claim:
     "Training generative AI on copyrighted works without permission is unfair and should be unlawful.",
   status: "contested" as const,
@@ -31,12 +33,14 @@ export const generativeAiArtCopyrightData = {
         "Was ingesting copyrighted works without asking permission an unfair taking, or the same kind of unlicensed 'reading' the law has long tolerated?",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Models are built by copying hundreds of thousands of authors' and artists' works without consent, credit, or payment, then sold commercially. When the underlying copies are pirated, even courts that bless training call it infringement: Anthropic agreed to pay roughly $1.5B over books it downloaded from LibGen/PiLiMi — one of the largest publicly reported copyright recoveries in US history. Creators argue that taking the fruit of someone's labor to build a competing commercial product, without offering them the chance to say no or be paid, is the textbook definition of unfair.",
-      proponent_rebuttal:
         "Copyright never granted a right to control all learning from a work — humans read, study, and are influenced by copyrighted material without a license, and intermediate copying for a new purpose has repeatedly been held lawful (e.g., Google's full-text book scanning). The harm the law recognizes is unauthorized acquisition (piracy) and substitution, not learning itself: the same Anthropic judge who approved the $1.5B piracy settlement separately held that training on lawfully obtained books was 'exceedingly transformative' fair use. A fast-growing licensing market shows consent can be obtained without an outright ban.",
+      proponent_rebuttal:
+        "Models are built by copying hundreds of thousands of authors' and artists' works without consent, credit, or payment, then sold commercially. When the underlying copies are pirated, even courts that bless training call it infringement: Anthropic agreed to pay roughly $1.5B over books it downloaded from LibGen/PiLiMi — one of the largest publicly reported copyright recoveries in US history. Creators argue that taking the fruit of someone's labor to build a competing commercial product, without offering them the chance to say no or be paid, is the textbook definition of unfair.",
       crux: {
         id: "acquisition-vs-learning",
         title: "Acquisition vs. Learning",
+        question:
+          "Is the wrong in how training data was acquired, or in training on it at all?",
         description:
           "Is the objectionable act acquiring the works (which can be done lawfully by purchase or license) or the act of statistical training itself? Courts so far punish the former and largely permit the latter.",
         methodology:
@@ -121,12 +125,14 @@ export const generativeAiArtCopyrightData = {
         "Does training-fueled AI demonstrably displace creators' income and markets — the decisive 'fourth factor' in fair-use law?",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Generative models trained on creators' work now flood the same markets those creators sell into, depressing demand for human work. Surveys of professional creators already report lost commissions and falling rates, and the US Copyright Office concluded that AI training 'threatens significant potential harm to the market for or value of copyrighted works,' including lost sales, lost licensing revenue, and 'market dilution' by AI outputs in the style of the training data.",
-      proponent_rebuttal:
         "Copyright protects against substitution of specific works, not against new competition or stylistic influence — styles and ideas are not copyrightable. Self-reported survey losses conflate AI training with broader market shifts and AI tools generally, and cannot isolate the effect of unlicensed training. The remedy for market harm the law actually recognizes is licensing (now emerging) and output controls, not a blanket prohibition on learning from works.",
+      proponent_rebuttal:
+        "Generative models trained on creators' work now flood the same markets those creators sell into, depressing demand for human work. Surveys of professional creators already report lost commissions and falling rates, and the US Copyright Office concluded that AI training 'threatens significant potential harm to the market for or value of copyrighted works,' including lost sales, lost licensing revenue, and 'market dilution' by AI outputs in the style of the training data.",
       crux: {
         id: "market-substitution-test",
         title: "The Market-Substitution Test",
+        question:
+          "Are creators losing income because of unlicensed training, or because of AI tools and markets generally?",
         description:
           "Fair use turns on whether the use usurps demand for the original or its licensing market. The load-bearing question is whether observed creator income losses are caused by unlicensed training specifically, versus AI tools and market dynamics generally.",
         methodology:
@@ -208,12 +214,14 @@ export const generativeAiArtCopyrightData = {
         "Under existing copyright law, is unlicensed training infringement that should be banned, or transformative fair use courts are increasingly affirming?",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "At least one federal court has already rejected the fair-use defense for AI training: in Thomson Reuters v. Ross (2025), the court held that copying Westlaw headnotes to train an AI competitor was not transformative and not fair use. Where models memorize and regurgitate inputs verbatim — as the New York Times demonstrated with GPT-4 outputs — the 'learning, not copying' framing collapses, supporting a clear rule that unlicensed training is unlawful.",
-      proponent_rebuttal:
         "The leading generative-AI rulings cut the other way: Bartz v. Anthropic and Kadrey v. Meta both held that training large language models on copyrighted text was transformative fair use, and the Copyright Office itself says highly transformative, general-purpose training often favors fair use. Thomson Reuters involved a direct market competitor copying a curated database — not general-purpose generative training — and memorization/regurgitation is an output problem the law already addresses as infringement, without banning training itself.",
+      proponent_rebuttal:
+        "At least one federal court has already rejected the fair-use defense for AI training: in Thomson Reuters v. Ross (2025), the court held that copying Westlaw headnotes to train an AI competitor was not transformative and not fair use. Where models memorize and regurgitate inputs verbatim — as the New York Times demonstrated with GPT-4 outputs — the 'learning, not copying' framing collapses, supporting a clear rule that unlicensed training is unlawful.",
       crux: {
         id: "transformative-use-test",
         title: "The Transformativeness Test",
+        question:
+          "Is training general-purpose AI on copyrighted work transformative fair use, or unlawful copying?",
         description:
           "Fair use hinges on whether training serves a new, non-substitutive purpose. The split between Thomson Reuters (not fair use) and Bartz/Kadrey (fair use) is the load-bearing legal disagreement that would actually move the outcome.",
         methodology:

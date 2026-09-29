@@ -1,6 +1,7 @@
 export const openBordersData = {
   id: "open-borders",
   title: "The Case for Open Borders",
+  question: "Should immigration restrictions be greatly relaxed or eliminated?",
   meta_claim:
     "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
   status: "highly_speculative" as const,
@@ -19,6 +20,8 @@ export const openBordersData = {
       crux: {
         id: "gdp-gains-estimation",
         title: "Global GDP Gains from Labor Mobility",
+        question:
+          "How large would the real gains from freer migration be once fiscal, wage and transition costs are counted?",
         description:
           "Estimating the actual economic gains from substantially liberalizing global labor mobility, accounting for fiscal impacts, wage effects, and transition costs.",
         methodology:
@@ -27,6 +30,16 @@ export const openBordersData = {
           "\\Delta\\text{GDP}_{\\text{world}} = \\sum_{i,j} (\\text{MPL}_j - \\text{MPL}_i) \\times \\Delta L_{i \\to j} - \\text{Transition Costs}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$5M (Global economic modeling)",
+        falsification: {
+          supporter_flip:
+            "If models extending EU free movement to a global scenario showed fiscal, wage, housing and integration costs — or erosion of the institutions that make destination economies productive — consuming most of the productivity gain, the economic case for relaxing restrictions at scale would weaken.",
+          skeptic_flip:
+            "A skeptic who expects breakdown should weigh that when EU free movement expanded east in 2004-2007, only 2-3% of Eastern Europeans moved West and both sending and receiving countries grew, and that even a fraction of the 50-150% of world GDP in Clemens's survey would dwarf any other available anti-poverty intervention.",
+          common_ground:
+            "Both sides agree the 50-150% of world GDP figures are theoretical extrapolations from marginal changes, and that the gains depend on destination economies keeping the institutions that make workers more productive there.",
+          live_disagreement:
+            "Whether destination countries' institutions, public services and housing can absorb flows at open-borders scale — and how far low-skilled native wages would fall, a size Borjas and Card dispute.",
+        },
       },
       evidence: [
         {
@@ -115,6 +128,8 @@ export const openBordersData = {
       crux: {
         id: "moral-framework-analysis",
         title: "Moral Framework for Freedom of Movement",
+        question:
+          "Is moving across borders a basic human right, or do states have a strong right to exclude?",
         description:
           "Evaluating whether freedom of movement across borders is a fundamental human right that should be limited only by compelling state interests, or whether states have strong prima facie rights to exclude.",
         methodology:
@@ -123,6 +138,16 @@ export const openBordersData = {
           "\\text{Moral Permissibility} = f(\\text{Rights Restricted}, \\text{Harm Prevented}, \\text{Alternatives Available})",
         verification_status: "theoretical" as const,
         cost_to_verify: "N/A (Normative philosophical question)",
+        falsification: {
+          supporter_flip:
+            "If controlled borders proved measurably better than open alternatives at their stated goals — security, fiscal sustainability, social cohesion — and rapid inflows reliably eroded social trust, the case that restrictions are arbitrary discrimination would weaken even for those who hold movement to be a strong right.",
+          skeptic_flip:
+            "A skeptic who stresses self-determination should weigh that birthplace is among the largest determinants of lifetime income, that remittances to low- and middle-income countries (~$626B in 2022) are roughly 3x official aid, and that US border enforcement above $20B a year coexists with an estimated 10-11 million undocumented residents.",
+          common_ground:
+            "Both sides accept that states may restrict entry for compelling reasons such as security screening; the dispute is whether the right to exclude is the default or the exception.",
+          live_disagreement:
+            "Whether crossing borders is a basic right that only compelling state interests can limit, or whether a political community's right to decide who joins is itself strong — and whether controlled borders deliver the security, fiscal and cohesion goals claimed for them.",
+        },
       },
       evidence: [
         {

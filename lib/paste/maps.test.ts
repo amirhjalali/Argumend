@@ -1,18 +1,36 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
-import type { PrefilterCandidate } from "@/lib/mapReply/prefilter";
 import type { Pillar } from "@/lib/schemas/topic";
-import { findMaps, isClearMatch, MAP_MATCH, PASTE_MAP_COUNT, pickPillar } from "./maps";
+import { EXPECTED_MAP_COUNT } from "./mapDocuments";
+import type { RankedMap } from "./mapIndex";
+import { decideMatch, findMaps, getMapIndex, MAP_MATCH, pickPillar } from "./maps";
 
-function candidates(scores: number[]): PrefilterCandidate[] {
-  return scores.map((score, index) => ({
+/**
+ * A ranking with the given scores. Every word of the paste is scored, so
+ * coverage follows `ceiling`. Unless `exclusive` says otherwise, the maps
+ * share no words, so the lead on the words where two maps differ is the plain
+ * ratio of their scores.
+ */
+function ranking(scores: number[], ceiling = 100, exclusive?: (a: string, b: string) => number) {
+  const ranked: RankedMap[] = scores.map((score, index) => ({
     id: `map-${index}`,
     title: `Map ${index}`,
-    metaClaim: "A claim.",
+    claim: "A claim.",
     score,
+    wordScore: score,
+    wordsMatched: 3,
   }));
+  const byId = new Map(ranked.map((map) => [map.id, map.score]));
+  const exclusiveLead =
+    exclusive ?? ((a: string, b: string) => (byId.get(a) ?? 0) / (byId.get(b) ?? 1));
+  return { ranked, ceiling, exclusiveLead };
 }
+
+const noSiblings = () => false;
+/** map-0 and map-1 are siblings (the two nuclear-power maps, say). */
+const zeroAndOne = (a: string, b: string) =>
+  a !== b && [a, b].every((id) => id === "map-0" || id === "map-1");
 
 function pillar(id: string, text: string): Pillar {
   return {
@@ -33,21 +51,69 @@ function pillar(id: string, text: string): Pillar {
   };
 }
 
-describe("isClearMatch", () => {
-  it("needs the absolute floor", () => {
-    expect(isClearMatch(candidates([MAP_MATCH.minScore - 0.1]))).toBe(false);
-    expect(isClearMatch(candidates([MAP_MATCH.minScore]))).toBe(true);
+describe("decideMatch", () => {
+  it("names the top map when it leads the best map on a different subject", () => {
+    const decision = decideMatch(ranking([40, 20, 12, 10]), noSiblings);
+    expect(decision.named?.id).toBe("map-0");
+    expect(decision.lead).toBe(2);
   });
 
-  it("needs a lead over the pack, but lets a sibling map tie at rank two", () => {
-    // Two nuclear maps tie; the rest trail well behind.
-    expect(isClearMatch(candidates([50, 49.8, 31, 29, 20, 18]))).toBe(true);
-    // Long unrelated text: everything rises together.
-    expect(isClearMatch(candidates([26.5, 26.4, 26.1, 22.6, 21, 20]))).toBe(false);
+  it("refuses a top map whose lead comes from the words it shares with the rival", () => {
+    // 40 against 25 overall, but on the words where the two differ, 1.5 to 1.
+    const decision = decideMatch(ranking([40, 25, 10], 100, () => 1.5), noSiblings);
+    expect(decision.named).toBeNull();
+    expect(decision.exclusiveLead).toBe(1.5);
+    // The same scores, the rival's words all shared with the top map: named.
+    expect(decideMatch(ranking([40, 25, 10], 100, () => Infinity), noSiblings).named?.id).toBe("map-0");
   });
 
-  it("is false with no candidates", () => {
-    expect(isClearMatch([])).toBe(false);
+  it("never names a near tie, however the words split", () => {
+    expect(decideMatch(ranking([30, 25, 10], 100, () => Infinity), noSiblings).named).toBeNull();
+  });
+
+  it("refuses a top map that barely leads, and offers the closest maps instead", () => {
+    const decision = decideMatch(ranking([26.5, 26.4, 26.1, 22.6, 21, 20]), noSiblings);
+    expect(decision.named).toBeNull();
+    expect(decision.closest.map((map) => map.id)).toEqual(["map-0", "map-1", "map-2"]);
+  });
+
+  it("does not count a sibling against the top map, and shows it as closely related", () => {
+    // The live-site failure: two nuclear maps close together, the rest well behind.
+    const scores = [24, 23, 11, 10];
+    expect(decideMatch(ranking(scores), noSiblings).named).toBeNull();
+    const decision = decideMatch(ranking(scores), zeroAndOne);
+    expect(decision.named?.id).toBe("map-0");
+    expect(decision.related.map((map) => map.id)).toEqual(["map-1"]);
+    expect(decision.rival?.id).toBe("map-2");
+  });
+
+  it("needs enough of the paste behind the map: a score floor, or a share of its words", () => {
+    const low = MAP_MATCH.minScore - 2;
+    expect(low).toBeGreaterThanOrEqual(MAP_MATCH.minShortScore);
+    // Leads clearly, but a low score on a long paste: not named.
+    expect(decideMatch(ranking([low, 3], 100), noSiblings).named).toBeNull();
+    // The same score on a short paste it mostly accounts for: named.
+    expect(decideMatch(ranking([low, 3], low / MAP_MATCH.minCoverage), noSiblings).named?.id).toBe("map-0");
+  });
+
+  it("never names a map on one borrowed word, however much of a short paste it covers", () => {
+    const tiny = MAP_MATCH.minShortScore - 1;
+    expect(decideMatch(ranking([tiny, 1], tiny), noSiblings).named).toBeNull();
+  });
+
+  it("names nothing and lists nothing when the best overlap is a word or two", () => {
+    const decision = decideMatch(ranking([4, 3, 2], 100), noSiblings);
+    expect(decision.named).toBeNull();
+    expect(decision.closest).toEqual([]);
+  });
+
+  it("never shows more than three maps", () => {
+    const decision = decideMatch(ranking([60, 55, 50, 30, 29, 28]), (a, b) => a !== b && [a, b].every((id) => ["map-0", "map-1", "map-2"].includes(id)));
+    expect(1 + decision.related.length + decision.closest.length).toBeLessThanOrEqual(MAP_MATCH.maxMaps);
+  });
+
+  it("is empty for an empty ranking", () => {
+    expect(decideMatch({ ranked: [], ceiling: 0, exclusiveLead: () => 0 }, noSiblings).named).toBeNull();
   });
 });
 
@@ -64,6 +130,25 @@ describe("pickPillar", () => {
 });
 
 describe("findMaps", () => {
+  it("opens the rent-control map for a rent-control paste, not the broader housing map", async () => {
+    // The standalone smoke test's paste. Both maps discuss rent control and
+    // score close; the paste uses the rent-control map's own name words and
+    // none that only the housing map's name has.
+    const result = await findMaps(
+      "Rent control protects tenants from being priced out. Economists answer that it reduces supply and landlords stop maintaining buildings.",
+    );
+    expect(result.match?.id).toBe("rent-control-effectiveness");
+    expect(result.related.map((map) => map.id)).toContain("housing-affordability-crisis");
+  });
+
+  it("keeps a nuclear-power article on the nuclear map although it mentions small modular reactors", async () => {
+    const result = await findMaps(EXAMPLE_ANALYSIS_TEXT);
+    expect(result.match?.id).toBe("nuclear-energy-safety");
+  });
+
+  // The first paste in a process reads every map to build the index.
+  beforeAll(() => getMapIndex(), 60_000);
+
   beforeEach(() => {
     vi.stubGlobal(
       "fetch",
@@ -76,14 +161,18 @@ describe("findMaps", () => {
 
   it("searches the pillar maps and the flagship maps", async () => {
     const result = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
-    expect(result.reading.mapsSearched).toBe(PASTE_MAP_COUNT);
-    expect(PASTE_MAP_COUNT).toBeGreaterThan(150);
+    expect(result.reading.mapsSearched).toBe(EXPECTED_MAP_COUNT);
+    expect(EXPECTED_MAP_COUNT).toBeGreaterThan(150);
   });
 
   it("returns at most three maps and never repeats the match as a closest map", async () => {
     for (const text of [DISAGREEMENT_EXAMPLE_SOURCE, EXAMPLE_ANALYSIS_TEXT]) {
       const result = await findMaps(text);
-      const ids = [result.match?.id, ...result.closest.map((map) => map.id)].filter(Boolean);
+      const ids = [
+        result.match?.id,
+        ...result.related.map((map) => map.id),
+        ...result.closest.map((map) => map.id),
+      ].filter(Boolean);
       expect(ids.length).toBeLessThanOrEqual(MAP_MATCH.maxMaps);
       expect(new Set(ids).size).toBe(ids.length);
     }
@@ -94,8 +183,8 @@ describe("findMaps", () => {
     const result = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
     const match = result.match;
     expect(match?.id).toBe("immigration-wage-impact");
-    // Worded as the topic page words it: the pillar's live disagreement.
-    expect(match?.crux?.question).toMatch(/^The true wage elasticity for the most directly-competing workers/);
+    // Worded as the topic page words it: the pillar's authored crux question.
+    expect(match?.crux?.question).toMatch(/^Does immigration barely move the wages of directly competing workers/);
     expect(match?.crux?.href).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
     expect(match?.cards.length).toBe(2);
   });

@@ -1,6 +1,7 @@
 export const adhdOverdiagnosisData = {
   id: "adhd-overdiagnosis",
   title: "Is ADHD Overdiagnosed?",
+  question: "Is ADHD overdiagnosed?",
   meta_claim: "ADHD is substantially overdiagnosed.",
   status: "contested" as const,
   category: "science" as const,
@@ -29,12 +30,14 @@ export const adhdOverdiagnosisData = {
         "Diagnosed ADHD has climbed steeply — but is that catching missed cases, or sweeping in milder cases the diagnosis was never meant to label?",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Diagnosed ADHD keeps rising faster than any plausible change in underlying biology: CDC parent-survey data put ever-diagnosed ADHD at 11.4% of US children aged 3-17 in 2022 (about 7 million kids, up roughly 1 million since 2016), and an estimated 15.5 million US adults had a current diagnosis by late 2023, with most of those first diagnosed as adults. A 2021 JAMA Network Open scoping review of 334 studies found 'convincing evidence that ADHD is overdiagnosed in children and adolescents,' driven by successive broadenings of the diagnostic criteria that pull in milder, less-impaired cases — and for those milder cases the harms of a diagnosis may outweigh the benefits.",
-      proponent_rebuttal:
         "Rising diagnosis rates are exactly what improving recognition of a real, previously-missed disorder looks like. Rigorous epidemiology puts true ADHD prevalence near 5% in children and ~2.5-3% in adults — but historically far fewer were diagnosed, especially girls, women, and adults, so a diagnosed rate climbing toward the true rate is closing an underdiagnosis gap, not manufacturing disease. ADHD lies on a continuum (like blood pressure) with no sharp natural cutoff, so a count of diagnoses alone cannot establish that the additional cases are false positives rather than genuine impairment that was previously ignored.",
+      proponent_rebuttal:
+        "Diagnosed ADHD keeps rising faster than any plausible change in underlying biology: CDC parent-survey data put ever-diagnosed ADHD at 11.4% of US children aged 3-17 in 2022 (about 7 million kids, up roughly 1 million since 2016), and an estimated 15.5 million US adults had a current diagnosis by late 2023, with most of those first diagnosed as adults. A 2021 JAMA Network Open scoping review of 334 studies found 'convincing evidence that ADHD is overdiagnosed in children and adolescents,' driven by successive broadenings of the diagnostic criteria that pull in milder, less-impaired cases — and for those milder cases the harms of a diagnosis may outweigh the benefits.",
       crux: {
         id: "true-vs-diagnosed-prevalence",
         title: "True Prevalence vs. Diagnosed Prevalence Gap",
+        question:
+          "Does the gap between diagnosed and community ADHD rates reflect false positives or previously missed cases?",
         description:
           "Whether the rising diagnosed rate is overshooting the true population rate of impairing ADHD, or merely catching up to a true rate that was always under-served.",
         methodology:
@@ -97,12 +100,14 @@ export const adhdOverdiagnosisData = {
         "Does ADHD pick out a real, biologically grounded condition, or a label applied to context-dependent behavior like simply being the youngest kid in class?",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "ADHD has no biomarker and is diagnosed entirely from subjective behavior ratings, which makes the boundary porous and context-driven. The clearest demonstration is the relative-age effect: across a 2024 meta-analysis, the youngest children in a school year are about 38% more likely to be diagnosed (pooled relative risk 1.38) and more likely to be medicated than their oldest classmates — and the effect shows up in teacher ratings but not parent ratings, and does not predict ADHD persistence at follow-up. Normal immaturity relative to classmates is being read as disorder, which is overdiagnosis almost by definition.",
-      proponent_rebuttal:
         "Lacking a single blood test does not make a disorder invalid — migraine and most psychiatric conditions are also diagnosed clinically. ADHD is among the most heritable psychiatric conditions: twin studies converge on roughly 74% heritability, with replicated genome-wide significant risk loci and consistent (if subtle) differences in brain development. The relative-age effect reveals a real but bounded measurement problem at the margin — better-calibrated, age-adjusted assessment fixes it — not that the core construct is fictitious. The vast majority of diagnoses are not borderline relative-age cases.",
+      proponent_rebuttal:
+        "ADHD has no biomarker and is diagnosed entirely from subjective behavior ratings, which makes the boundary porous and context-driven. The clearest demonstration is the relative-age effect: across a 2024 meta-analysis, the youngest children in a school year are about 38% more likely to be diagnosed (pooled relative risk 1.38) and more likely to be medicated than their oldest classmates — and the effect shows up in teacher ratings but not parent ratings, and does not predict ADHD persistence at follow-up. Normal immaturity relative to classmates is being read as disorder, which is overdiagnosis almost by definition.",
       crux: {
         id: "relative-age-artifact",
         title: "The Relative-Age Natural Experiment",
+        question:
+          "How many ADHD diagnoses reflect being the youngest in class rather than a genuine disorder?",
         description:
           "School-entry cutoff dates randomly make some children the youngest in their class. If being relatively young (not biologically different) raises diagnosis odds, that increment is overdiagnosis driven by context rather than disorder.",
         methodology:
@@ -166,12 +171,14 @@ export const adhdOverdiagnosisData = {
         "Which error is the field actually making at the margin — over-labeling kids who would be fine, or leaving genuinely impaired people untreated?",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "An ADHD label is not harmless. For milder cases the JAMA review describes 'diminishing returns,' where labeling can lower self-concept, invite unnecessary stimulant exposure, and lock in a clinical identity with little academic or functional benefit — benefits that were clearest only for severe cases. If a large share of the diagnostic growth is concentrated in exactly these milder, lower-benefit cases, the system is over-treating people the diagnosis cannot help.",
-      proponent_rebuttal:
         "The asymmetry runs the other way: the documented harms of untreated ADHD are severe and well-replicated, while the population-level harms of overdiagnosis remain comparatively unproven. A Danish nationwide cohort of nearly 2 million people found a mortality rate ratio of 2.07 for people with ADHD — driven heavily by accidents and highest for those diagnosed in adulthood — and untreated ADHD, especially in undiagnosed girls and women, is linked to elevated self-harm, suicidality, and secondary anxiety and depression. Erring toward recognition catches people the old system left to fail.",
+      proponent_rebuttal:
+        "An ADHD label is not harmless. For milder cases the JAMA review describes 'diminishing returns,' where labeling can lower self-concept, invite unnecessary stimulant exposure, and lock in a clinical identity with little academic or functional benefit — benefits that were clearest only for severe cases. If a large share of the diagnostic growth is concentrated in exactly these milder, lower-benefit cases, the system is over-treating people the diagnosis cannot help.",
       crux: {
         id: "net-harm-of-marginal-diagnosis",
         title: "Net Effect of the Marginal Diagnosis",
+        question:
+          "For milder cases, does treatment do more good or more harm than watchful waiting over the long run?",
         description:
           "For the additional, milder cases at the diagnostic margin, does receiving the diagnosis (and any treatment) produce net benefit or net harm over the long run?",
         methodology:
@@ -182,7 +189,7 @@ export const adhdOverdiagnosisData = {
           supporter_flip:
             "If long-term follow-up of borderline-eligible people showed that diagnosing and treating them produced clear net benefit on hard outcomes (attainment, accidents, self-harm, employment), the 'overdiagnosis does net harm at the margin' claim would fail — the extra diagnoses would be helping the people who get them.",
           skeptic_flip:
-            "A skeptic worried about over-labeling should weigh that untreated ADHD carries documented severe harms — a Danish cohort found a mortality rate ratio of 2.07 — and that the harm-of-diagnosis evidence for milder cases rests on only about five studies the JAMA authors themselves call thin.",
+            "A skeptic who reads the harms of untreated ADHD as decisive should update if long-term follow-up of borderline-eligible people showed that diagnosing and treating them produced no net benefit on hard outcomes (attainment, accidents, self-harm, employment), matching the 'diminishing returns' the JAMA review describes for milder cases — and should weigh that the Danish cohort's mortality rate ratio of 2.07 was measured across people with ADHD as a whole, not specifically the milder cases at the diagnostic margin.",
           common_ground:
             "Both sides agree severe ADHD treatment has clear benefits and that the long-term net effect specifically for milder, borderline cases is poorly studied.",
           live_disagreement:

@@ -19,6 +19,7 @@ import {
   type LegacyWeighing,
 } from "@/lib/topicPage/legacy";
 import type { RelatedMap } from "@/lib/topicPage/model";
+import { ANSWER_SIDES, mapDisplayTitle } from "@/lib/mapNaming";
 import {
   CommonQuestions,
   TopicPage,
@@ -42,7 +43,7 @@ function relatedMaps(topic: Topic): RelatedMap[] {
     sameCategory.length >= 3
       ? []
       : getCrossCategoryRelatedSummaries(topic.id, topic.category, 3 - sameCategory.length);
-  return [...sameCategory, ...cross].map((t) => ({ id: t.id, title: t.title }));
+  return [...sameCategory, ...cross].map((t) => ({ id: t.id, title: mapDisplayTitle(t) }));
 }
 
 export function ReadModeView({ topic }: { topic: Topic }) {
@@ -52,7 +53,7 @@ export function ReadModeView({ topic }: { topic: Topic }) {
     ...crux,
     evidenceLabel:
       crux.evidence.length > 0 ? "Show the evidence on each side and the test" : "Show the test",
-    evidence: <LegacyCruxEvidence crux={crux} />,
+    evidence: <LegacyCruxEvidence crux={crux} labels={evidenceLabels(topic)} />,
   }));
 
   const folds: TopicFold[] = [
@@ -104,14 +105,33 @@ const SIDE = {
   against: { label: "Challenges the claim", glyph: "−", className: "text-[#8B5A3C] dark:text-[#cfa88a]" },
 } as const;
 
+/**
+ * The evidence blocks' labels. A map with a question names them by the
+ * answer they point to, qualified because they sit under a crux question
+ * that may be worded the other way round (lib/mapNaming.ts).
+ */
+function evidenceLabels(topic: Topic): Record<"for" | "against", string> {
+  if (!topic.question?.trim()) return { for: SIDE.for.label, against: SIDE.against.label };
+  return {
+    for: `${ANSWER_SIDES.yesEvidence} on the map’s question`,
+    against: `${ANSWER_SIDES.noEvidence} on the map’s question`,
+  };
+}
+
 /** One pillar's evidence, grouped by side, strongest first. No score bars. */
-function LegacyCruxEvidence({ crux }: { crux: LegacyCrux }) {
+function LegacyCruxEvidence({
+  crux,
+  labels,
+}: {
+  crux: LegacyCrux;
+  labels: Record<"for" | "against", string>;
+}) {
   const bySide = (side: "for" | "against") => crux.evidence.filter((e) => e.side === side);
   return (
     <>
       {(["for", "against"] as const).map((side) =>
         bySide(side).length > 0 ? (
-          <DetailBlock key={side} label={SIDE[side].label}>
+          <DetailBlock key={side} label={labels[side]}>
             <ul className="space-y-2.5">
               {bySide(side).map((item) => (
                 <LegacyEvidenceRow key={item.id} item={item} />

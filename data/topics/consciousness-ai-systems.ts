@@ -1,6 +1,8 @@
 export const aiConsciousnessData = {
   id: "consciousness-ai-systems",
   title: "Consciousness in AI Systems",
+  question:
+    "Could AI systems be conscious in ways that create moral obligations?",
   meta_claim:
     "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
   status: "highly_speculative" as const,
@@ -31,6 +33,8 @@ export const aiConsciousnessData = {
       crux: {
         id: "consciousness-detection-test",
         title: "Reliable Consciousness Detection in Non-Biological Systems",
+        question:
+          "Does consciousness require biology, or only the right information processing?",
         description:
           "Developing and validating a test that can reliably determine whether an AI system has subjective experience, analogous to clinical tests for consciousness in brain-injured patients.",
         methodology:
@@ -201,6 +205,8 @@ export const aiConsciousnessData = {
       crux: {
         id: "moral-framework-design",
         title: "AI Moral Status Framework",
+        question:
+          "Does the mere possibility of AI consciousness create moral obligations now?",
         description:
           "Developing a coherent ethical framework for determining what moral obligations (if any) we have toward AI systems of varying sophistication.",
         methodology:

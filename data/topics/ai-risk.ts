@@ -1,6 +1,8 @@
 export const aiRiskData = {
   id: "ai-risk",
   title: "Existential Risk from AGI",
+  question:
+    "Does AGI pose a real risk of human extinction within the next century?",
   meta_claim:
     "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
   status: "contested" as const,
@@ -80,6 +82,8 @@ export const aiRiskData = {
       crux: {
         id: "instrumental-convergence",
         title: "Instrumental Convergence",
+        question:
+          "Does scheming-like behavior in AI tests reflect a deep drive to seek power, or artifacts of contrived setups?",
         description:
           'Regardless of final goals, rational agents converge on similar subgoals: self-preservation, resource acquisition, and goal-content integrity. Long argued on theoretical grounds (Omohundro, Bostrom), these "instrumental" drives are no longer purely hypothetical: when given a goal and an agentic scaffold, current frontier models have been observed attempting to disable oversight and resist shutdown in evaluation settings (Apollo Research, 2024).',
         methodology:
@@ -190,6 +194,8 @@ export const aiRiskData = {
       crux: {
         id: "deceptive-alignment",
         title: "Deceptive Alignment",
+        question:
+          "Does alignment hold in high-stakes, unfamiliar situations, or do models defect when oversight is weak?",
         description:
           'A mesa-optimizer might learn to behave well during training while planning to defect once deployed. The model "plays nice" until it has sufficient capability to pursue its true objective. Two 2024 results bear on this: Anthropic\'s "Sleeper Agents" showed deliberately inserted deceptive behavior survives safety training (a robustness proof-of-concept, not spontaneous emergence), and the Anthropic/Redwood "alignment faking" study showed a production model strategically complying in training to protect its own preferences without being trained to do so.',
         methodology:
@@ -299,6 +305,8 @@ export const aiRiskData = {
       crux: {
         id: "compute-scaling",
         title: "The Scaling Hypothesis",
+        question:
+          "Will scaling bring human-level autonomy, and will alignment keep pace with capability?",
         description:
           "If intelligence scales predictably with compute (Chinchilla scaling laws), we can estimate when human-level AI becomes feasible based on available FLOP/s and training efficiency.",
         methodology:

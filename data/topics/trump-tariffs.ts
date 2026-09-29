@@ -1,6 +1,8 @@
 export const trumpTariffsData = {
   id: "trump-tariffs",
   title: "Trump's Tariffs & Protectionist Trade Policy",
+  question:
+    "Have Trump's tariffs revived US manufacturing and helped American workers?",
   meta_claim:
     "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const trumpTariffsData = {
       crux: {
         id: "tariff-incidence-split",
         title: "The Tariff Incidence Split Test",
+        question:
+          "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
         description:
           "The load-bearing empirical question is what share of the tariff cost is ultimately paid by US consumers and importers versus absorbed by foreign exporters. If the lion's share lands domestically, 'China pays' is refuted and tariffs function as a domestic consumption tax. If exporters absorb a large share, the policy genuinely shifts costs abroad. Real-time price-matching studies can resolve this with high precision.",
         methodology:
@@ -29,6 +33,16 @@ export const trumpTariffsData = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 (Retail scanner data, BLS price indices, and published academic decompositions are available)",
+        falsification: {
+          supporter_flip:
+            "If product-level price-matching studies converged on the New York Fed's estimate — foreign exporters absorbing only about 6-14% — rather than the roughly 20% Harvard Business School found, and tariff revenue were not used to offset the burden, the claim that tariffs shift real costs onto trading partners would fail.",
+          skeptic_flip:
+            "A skeptic who calls tariffs a pure tax on Americans should weigh that even the critical estimates have foreign exporters absorbing part of the cost, and that $171-207 billion in FY2026 tariff revenue could fund offsetting tax cuts that change the net distributional picture, especially if structured progressively.",
+          common_ground:
+            "Both sides' own figures put most of the tariff cost on US consumers and importing firms, with foreign exporters absorbing somewhere between about 6% and 20%.",
+          live_disagreement:
+            "How large the foreign-exporter share really is and whether it holds over time — and whether a one-time price-level bump, partly offset by tariff revenue, is a cost worth paying or a regressive consumption tax.",
+        },
       },
       evidence: [
         {
@@ -118,6 +132,8 @@ export const trumpTariffsData = {
       crux: {
         id: "manufacturing-net-employment",
         title: "The Net Manufacturing Employment Test",
+        question:
+          "Do tariffs create more manufacturing jobs than they cost through higher input prices and retaliation?",
         description:
           "Tariffs protect jobs in upstream sectors (steel, aluminum) but raise input costs for the far larger set of downstream manufacturers that use those inputs. The decisive question is whether tariffs create more domestic manufacturing jobs than they destroy once you count (a) downstream input-cost job losses, (b) jobs lost to retaliation against US exporters, and (c) capital reallocation costs.",
         methodology:
@@ -125,6 +141,16 @@ export const trumpTariffsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (Comprehensive input-output employment modeling plus investment-announcement tracking and validation against BLS microdata)",
+        falsification: {
+          supporter_flip:
+            "If replicating the USITC input-output method on the 2025-2026 tariffs again showed downstream and export-sector job losses matching or exceeding gains in protected sectors, and announced capex failed to turn into payroll over the years supporters say it needs, the reshoring case would weaken.",
+          skeptic_flip:
+            "A skeptic reading flat payrolls should weigh that reshoring shows up first in capital-expenditure commitments and greenfield plants — semiconductor fabs, aerospace and metals capacity — that take years to become jobs. If those announcements convert to payroll without offsetting downstream losses, the revival claim holds.",
+          common_ground:
+            "Both sides agree BLS payroll data do not yet show a manufacturing jobs boom, and that the capacity tariffs may attract — semiconductor fabs, aerospace, metals — is capital-intensive.",
+          live_disagreement:
+            "Whether net manufacturing employment rises once downstream input costs and retaliation are counted, and whether headcount over months or strategic capacity over a decade is the right measure.",
+        },
       },
       evidence: [
         {
@@ -214,6 +240,8 @@ export const trumpTariffsData = {
       crux: {
         id: "decoupling-tool-effectiveness",
         title: "The Decoupling Instrument Test",
+        question:
+          "Do broad tariffs slow China's technology gains more than they speed its self-sufficiency push?",
         description:
           "The decisive question is whether broad tariffs slow Chinese technology acquisition more than they accelerate Beijing's import-substitution. If targeted export controls slow critical-technology transfer while broad tariffs mainly trigger symmetric retaliation and faster indigenization, the broad-tariff instrument is counterproductive on its own national-security terms.",
         methodology:
@@ -221,6 +249,16 @@ export const trumpTariffsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (Multi-year supply-chain and capability tracking across semiconductor, AI-hardware, and rare-earth sectors with classified and open-source fusion)",
+        falsification: {
+          supporter_flip:
+            "If comparing controlled and broadly tariffed sectors showed that targeted export controls did the work of slowing Chinese technology gains while broad tariffs mainly drew symmetric retaliation and faster indigenization, the broad-tariff instrument would be counterproductive on its own national-security terms.",
+          skeptic_flip:
+            "A skeptic who favors export controls alone should weigh that layered duties on China (a 25% baseline, 50% on semiconductors, 100% on EVs) raise the cost of Chinese market access and push supply toward allies, and that the November 2025 truce held bilateral rates at 10%, down from peaks above 125%, rather than escalating.",
+          common_ground:
+            "Both sides agree export controls on dual-use technology such as advanced semiconductors belong in the toolkit, and that China is working to indigenize that technology.",
+          live_disagreement:
+            "Whether broad tariffs on top of export controls buy years of delay in China's technology gains, or mainly fracture the allied coalition and speed Beijing's import-substitution drive.",
+        },
       },
       evidence: [
         {
@@ -310,6 +348,8 @@ export const trumpTariffsData = {
       crux: {
         id: "deficit-causation-and-alliance-cost",
         title: "The Deficit-Causation and Alliance-Cost Test",
+        question:
+          "Can tariffs fix trade deficits, and are their gains worth the friction with allies?",
         description:
           "Two linked questions decide this pillar. First, are bilateral trade deficits caused by unfair foreign practices (addressable by tariffs) or by macroeconomic savings-investment imbalances (not addressable by tariffs)? Second, does the geopolitical cost of tariff friction with allies — lost China-policy cooperation, weakened burden-sharing, eroded dollar trust — exceed the concessions tariffs extract?",
         methodology:
@@ -317,6 +357,16 @@ export const trumpTariffsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Macroeconomic deficit decomposition plus structured diplomatic cost-benefit audit across major allies)",
+        falsification: {
+          supporter_flip:
+            "If the aggregate US trade deficit stayed flat under tariffs and merely shifted to other surplus countries, and the documented costs of retaliation and lost cooperation with allies outweighed the deals signed, both halves of the trade-deficit rationale would weaken.",
+          skeptic_flip:
+            "A skeptic who calls the deficit rationale an accounting error should weigh that tariff threats were followed by reciprocal deals with Indonesia, El Salvador, Argentina, Guatemala, Bangladesh and Taiwan, and that the EU suspended its €26 billion of countermeasures under a framework agreement rather than escalating.",
+          common_ground:
+            "Both sides accept that reciprocal deals were closed with six trading partners by April 2026, and that allies also retaliated: the EU imposed €26 billion of countermeasures before suspending them under a framework agreement.",
+          live_disagreement:
+            "Whether bilateral deficits come from unfair foreign practices tariffs can fix or from a savings-investment gap they cannot, and whether the concessions extracted outweigh the cost of friction with the allies needed to contain China.",
+        },
       },
       evidence: [
         {

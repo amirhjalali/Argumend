@@ -1,6 +1,8 @@
 export const geneEditingEmbryosData = {
   id: "gene-editing-embryos",
   title: "Gene Editing Human Embryos",
+  question:
+    "Should editing embryos to prevent serious genetic disease be allowed?",
   meta_claim:
     "Germline gene editing of human embryos (using CRISPR or similar) should be permitted for preventing serious genetic diseases.",
   status: "highly_speculative" as const,
@@ -35,6 +37,8 @@ export const geneEditingEmbryosData = {
       crux: {
         id: "crispr-precision-threshold",
         title: "CRISPR Precision Sufficient for Germline Application",
+        question:
+          "Can gene editing become precise enough to be safe for changes passed to future generations?",
         description:
           "Determining whether CRISPR and related gene editing tools have achieved sufficient precision (low off-target rates) to be considered safe for heritable human germline modifications.",
         methodology:
@@ -138,6 +142,8 @@ export const geneEditingEmbryosData = {
       crux: {
         id: "therapy-enhancement-boundary",
         title: "Enforceability of Therapy vs. Enhancement Boundary",
+        question:
+          "Can a 'serious disease only' line hold across countries, or will it erode toward enhancement?",
         description:
           "Is fixing severe myopia 'therapy' or 'enhancement'? Regulators will have to draw a line somewhere. Every proposed line has edge cases.",
         methodology:

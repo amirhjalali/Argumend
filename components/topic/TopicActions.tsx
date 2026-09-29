@@ -84,7 +84,13 @@ export function ShareTopicButton({
       if (panelRef.current && !panelRef.current.contains(event.target as Node)) setOpen(false);
     };
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key !== "Escape") return;
+      // Focus was on a link in the panel, which is about to unmount: hand it
+      // back to the Share button instead of dropping it on <body>.
+      const wrap = panelRef.current;
+      const focusWasInside = Boolean(wrap?.contains(document.activeElement));
+      setOpen(false);
+      if (focusWasInside) wrap?.querySelector<HTMLButtonElement>("button")?.focus();
     };
     document.addEventListener("mousedown", onPointer);
     document.addEventListener("keydown", onKey);

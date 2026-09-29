@@ -16,20 +16,46 @@ import {
 } from "@/lib/site";
 import "./globals.css";
 
+// Each family is declared twice: the upright faces, which paint the first
+// screen and are preloaded, and the italic faces, which are not. Preloading
+// all four put ~77KB of italics (used on a few pages, rarely above the fold)
+// ahead of the page's own CSS and scripts on a phone connection. Turbopack
+// emits both calls' @font-face rules under the same family name ("EB
+// Garamond", "Plus Jakarta Sans"), so `font-style: italic` still resolves to
+// the real italic face; the browser fetches it when italic text is laid out.
+// The italic calls' variables are unused; the class is set so their CSS ships.
 const serif = EB_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   variable: "--font-serif",
   display: "swap",
+});
+
+const serifItalic = EB_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["italic"],
+  variable: "--font-serif-italic",
+  display: "swap",
+  preload: false,
 });
 
 const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   variable: "--font-sans",
   display: "swap",
+});
+
+const sansItalic = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["italic"],
+  variable: "--font-sans-italic",
+  display: "swap",
+  preload: false,
 });
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
@@ -119,7 +145,9 @@ export default function RootLayout({
           href="/feed.xml"
         />
       </head>
-      <body className={`${serif.variable} ${sans.variable} antialiased`}>
+      <body
+        className={`${serif.variable} ${serifItalic.variable} ${sans.variable} ${sansItalic.variable} antialiased`}
+      >
         {GA_MEASUREMENT_ID ? (
           <>
             <Script

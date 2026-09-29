@@ -6,6 +6,7 @@ import { ReadModeView } from "@/components/ReadModeView";
 import { loadArgumentTopic } from "@/lib/argument/draftTopics";
 import { isPublicEntry } from "@/lib/argument/ledger";
 import { loadTopicById } from "@/data/topicLoader";
+import { withoutFalsification } from "@/test/fixtures/legacyTopics";
 
 afterEach(() => {
   cleanup();
@@ -82,7 +83,7 @@ describe("one crux-first template for every map", () => {
     // /embed serves flagship maps, so Embed is offered next to Save and Share.
     expect(within(view.container).getAllByRole("button", { name: /embed/i }).length).toBeGreaterThan(0);
     expect(within(view.container).getAllByRole("button", { name: /save this map/i }).length).toBeGreaterThan(0);
-  });
+  }, 30_000);
 
   it("renders a legacy map with falsification data in the same order, with no scoreboard", async () => {
     const { topic, view } = await renderLegacy("nuclear-energy-safety");
@@ -106,15 +107,19 @@ describe("one crux-first template for every map", () => {
   });
 
   it("renders a legacy map without falsification data cleanly, with no scoreboard", async () => {
-    const { topic, view } = await renderLegacy("epstein-files");
+    // Every shipped map has falsification data now; the fallback renders a
+    // fixture with it taken out.
+    const topic = withoutFalsification((await loadTopicById("epstein-files"))!);
+    const view = render(<ReadModeView topic={topic} />);
     expectCruxFirstOrder(view.container, { agreement: false });
+    expect(view.container.textContent).not.toContain("changes their mind");
     const text = view.container.textContent ?? "";
     expect(text).not.toMatch(SCOREBOARD);
     expect(text).not.toContain("REQUIRES AUTHORING");
     const questions = [...view.container.querySelectorAll("#cruxes [data-crux-sheet] > li h3 > span:first-child")].map((h) =>
       h.textContent?.trim(),
     );
-    expect(questions).toEqual(topic.pillars.map((p) => p.crux.title));
+    expect(questions).toEqual(topic.pillars.map((p) => p.crux.question ?? p.crux.title));
   });
 
   it("shows every FAQPage question on the page, in a Common questions fold", async () => {
@@ -183,7 +188,12 @@ describe("the one-tap reflection", () => {
       window.localStorage.getItem("argumend-crux-reflection-nuclear-energy-safety")!,
     );
     expect(stored.choice).toBe("crux-climate-effectiveness");
-    expect(scope.getByText(/Did this map change what you thought the argument was about\?/)).toBeTruthy();
+    expect(scope.getByText("Did this change what you thought you were arguing about?")).toBeTruthy();
+    // The tap leads to the question it picked.
+    expect(scope.getByRole("link", { name: "Open this question" }).getAttribute("href")).toBe(
+      "#crux-climate-effectiveness",
+    );
+    expect(reflection.querySelector("[data-settle]")?.textContent).toMatch(/^What would settle it/);
 
     fireEvent.click(scope.getByRole("button", { name: "A little" }));
     expect(

@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const governmentPlatformBansData = {
   id: "government-platform-bans",
   title: "Government Bans on Social Media Platforms",
+  question:
+    "Can national security justify banning foreign-owned apps like TikTok?",
   meta_claim:
     "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms like TikTok on national security grounds, even at the cost of restricting free expression for millions of citizens.",
   status: "contested" as const,
@@ -60,6 +62,8 @@ export const governmentPlatformBansData = {
       crux: {
         id: "adversary-access-verification",
         title: "The Adversary Access Audit",
+        question:
+          "Can an adversary government compel data access or algorithm changes despite company safeguards?",
         description:
           "The decisive question is whether adversary governments can compel access to user data or algorithmic manipulation on platforms owned by entities under their jurisdiction, despite corporate safeguards. If independent audits demonstrate that data isolation and algorithmic independence are technically achievable and verifiable, the security case weakens. If structural access persists despite mitigation, bans may be justified.",
         methodology:
@@ -67,6 +71,16 @@ export const governmentPlatformBansData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$10-30M (Multi-platform independent security audit requiring cleared personnel)",
+        falsification: {
+          supporter_flip:
+            "If security-cleared independent audits mapped every data flow between domestic and foreign servers and found data isolation and algorithmic independence technically achievable and verifiable, even under legal compulsion in the home jurisdiction, the security case for bans would weaken.",
+          skeptic_flip:
+            "A skeptic who calls the security case pretextual should weigh that China's 2017 National Intelligence Law compels organizations to cooperate with intelligence work, that ByteDance employees in China accessed US journalists' location data in 2022, and that the US, the European Commission, Canada, the UK and Australia all restricted TikTok on government devices.",
+          common_ground:
+            "Both sides agree US companies and data brokers collect as much data on Americans as TikTok does, or more.",
+          live_disagreement:
+            "Whether an adversary state's legal power to compel a platform's owner creates a structural risk that no corporate safeguard can close, or whether audited data isolation could close it and make a ban unnecessary.",
+        },
       },
       evidence: [
         {
@@ -139,6 +153,8 @@ export const governmentPlatformBansData = {
       crux: {
         id: "precedent-expansion-test",
         title: "The Precedent Containment Assessment",
+        question:
+          "Can a ban on a foreign-owned platform stay limited to real security threats, or will it expand?",
         description:
           "The crux is whether the legal and political precedent of banning a foreign-owned platform can be contained to genuine adversary-nation security threats, or will inevitably expand to justify government restrictions on any platform the state finds inconvenient. If historical analysis shows that narrow security exceptions tend to stay narrow, the precedent concern is manageable. If they consistently expand, the free speech risk may outweigh the security benefit.",
         methodology:
@@ -146,6 +162,16 @@ export const governmentPlatformBansData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$200K-500K (Historical legal analysis with comparative international study)",
+        falsification: {
+          supporter_flip:
+            "If historical analysis showed national-security powers consistently outgrowing their original scope despite sunset provisions and judicial review — as FISA grew from a narrow tool against foreign spies into mass surveillance — the free-speech risk of a platform-ban precedent could outweigh its security benefit.",
+          skeptic_flip:
+            "A skeptic who sees censorship should weigh that the law targets foreign-adversary ownership rather than speech content and offers divestiture instead of a ban, and that FCC limits on foreign ownership of broadcast licenses have held at 25% for 90 years without sliding into broader censorship.",
+          common_ground:
+            "Both sides agree the Supreme Court unanimously upheld the ban-or-sell law, deferring to the government's national-security rationale.",
+          live_disagreement:
+            "Whether a ban aimed at foreign-adversary ownership can stay that narrow, like foreign-ownership limits on broadcasters, or will expand into a general power over inconvenient platforms, as FISA outgrew its original scope.",
+        },
       },
       evidence: [
         {
@@ -218,6 +244,8 @@ export const governmentPlatformBansData = {
       crux: {
         id: "competitive-motive-test",
         title: "The Competitive Motive Analysis",
+        question:
+          "Is the ban driven mainly by national security, or by protection of domestic tech companies?",
         description:
           "The crux is whether the platform ban is primarily motivated by genuine national security concerns or by economic protectionism serving domestic tech companies. If lobbying records, legislative history, and post-ban market outcomes show that the primary beneficiaries are domestic competitors rather than national security, the selective enforcement critique is validated.",
         methodology:
@@ -225,6 +253,16 @@ export const governmentPlatformBansData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$300K-800K (Lobbying analysis, market study, and cleared intelligence review)",
+        falsification: {
+          supporter_flip:
+            "If lobbying records, personnel links and post-ban market data showed domestic competitors such as Meta, Google and Snap as the main beneficiaries, with little in the intelligence record to support the security rationale, the protectionism reading would be validated and the ban's justification would weaken.",
+          skeptic_flip:
+            "A skeptic who sees protectionism should weigh that the security concern turns on who can compel access — the Chinese state can compel ByteDance, but not Meta — and that China blocks Facebook, Instagram, YouTube and Google while TikTok operates freely in the US.",
+          common_ground:
+            "Both sides agree Congress should also pass comprehensive privacy legislation that covers data collection by domestic companies.",
+          live_disagreement:
+            "Whether the ban's selectivity — adversary-owned platforms restricted, domestic data collectors untouched — reveals a protectionist motive, or reflects a real difference in who can compel access to the data.",
+        },
       },
       evidence: [
         {

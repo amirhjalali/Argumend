@@ -1,6 +1,8 @@
 export const selfDrivingCarSafetyData = {
   id: "self-driving-car-safety",
   title: "Self-Driving Car Safety",
+  question:
+    "Are self-driving cars already safer than humans and ready for broad use?",
   meta_claim:
     "Autonomous vehicles are already safer than human drivers and should be deployed broadly.",
   status: "contested" as const,
@@ -36,6 +38,8 @@ export const selfDrivingCarSafetyData = {
       crux: {
         id: "benchmark-validity",
         title: "Is the Human Benchmark Apples-to-Apples?",
+        question:
+          "Does self-driving cars' safety edge survive a truly like-for-like, independently audited comparison?",
         description:
           "Whether the measured safety advantage reflects a real reduction in risk or an artifact of comparing a narrow, favorable autonomous domain against a broader, underreported human baseline.",
         methodology:
@@ -123,6 +127,8 @@ export const selfDrivingCarSafetyData = {
       crux: {
         id: "tail-risk-accounting",
         title: "Do the Long-Tail Failures Erase the Average Advantage?",
+        question:
+          "Do rare but severe self-driving failures erase the average safety advantage?",
         description:
           "Whether rare but severe autonomous failure modes (mis-handled post-collision maneuvers, blindness in fog/glare) net out below the human baseline once fairly weighted, or whether averages mask unacceptable tail risk at scale.",
         methodology:
@@ -192,6 +198,8 @@ export const selfDrivingCarSafetyData = {
       crux: {
         id: "proof-vs-deployment",
         title: "Can Broad Deployment Be Justified Before Open-Road Proof Exists?",
+        question:
+          "Can simulation and step-by-step expansion justify broad deployment before road miles prove it safer?",
         description:
           "Whether staged rollout plus simulation can ethically substitute for the impractically large road-mileage needed to prove general superiority, or whether 'deploy broadly' demands proof that does not yet exist.",
         methodology:

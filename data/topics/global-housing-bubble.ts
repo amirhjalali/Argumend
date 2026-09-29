@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const globalHousingBubbleData = {
   id: "global-housing-bubble",
   title: "Is There a Global Housing Bubble About to Burst?",
+  question: "Is there a global housing bubble about to burst?",
   meta_claim:
     "Major housing markets worldwide are in an unsustainable bubble driven by low interest rates, speculation, and foreign investment, and a correction is imminent.",
   status: "contested" as const,
@@ -86,6 +87,8 @@ export const globalHousingBubbleData = {
       crux: {
         id: "affordability-threshold",
         title: "The Affordability Threshold Test",
+        question:
+          "Do record price-to-income ratios force prices down, or can tight supply keep them high?",
         description:
           "Determine whether current price-to-income ratios exceed the sustainable ceiling beyond which buyer pools contract and prices must correct.",
         methodology:
@@ -198,6 +201,8 @@ export const globalHousingBubbleData = {
       crux: {
         id: "institutional-exit-risk",
         title: "The Institutional Exit Risk Assessment",
+        question:
+          "Would large investors sell fast enough in a downturn to deepen price falls?",
         description:
           "Evaluate whether concentrated institutional holdings in specific market segments create systemic risk of accelerated sell-offs during downturns.",
         methodology:
@@ -308,6 +313,8 @@ export const globalHousingBubbleData = {
       crux: {
         id: "mortgage-renewal-stress",
         title: "The Mortgage Renewal Stress Test",
+        question:
+          "Will mortgage renewals at higher rates force enough sales to push prices down?",
         description:
           "Model the impact of upcoming mortgage renewals at higher rates on household finances and forced selling pressure.",
         methodology:

@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const tiktokBrainRotData = {
   id: "tiktok-brain-rot",
   title: "Is Short-Form Video Causing Cognitive Decline?",
+  question:
+    "Is habitual short-form video degrading attention and deep thinking?",
   meta_claim:
     "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
   status: "contested" as const,
@@ -24,6 +26,8 @@ export const tiktokBrainRotData = {
       crux: {
         id: "sustained-attention-task-performance",
         title: "The Sustained Attention Task Performance Test",
+        question:
+          "Do heavy short-form video users show weaker sustained attention than matched non-users?",
         description:
           "Measure whether habitual short-form video consumers show measurably reduced sustained attention compared to matched controls using validated cognitive tasks.",
         methodology:
@@ -32,6 +36,16 @@ export const tiktokBrainRotData = {
           "d' = z(\\text{Hit Rate}) - z(\\text{False Alarm Rate})",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (large-sample longitudinal cognitive testing with neuroimaging)",
+        falsification: {
+          supporter_flip:
+            "If a large sample stratified by daily use, controlled for age, education, sleep and ADHD, showed heavy short-form viewers doing no worse on the SART and CPT than light users, the claim of measurable attention damage would lose its individual-level footing.",
+          skeptic_flip:
+            "A skeptic who calls this a moral panic should weigh that Lorenz-Spreen et al. found collective attention cycles accelerating across Twitter, Google Books, Reddit and movie tickets over decades, and that laboratory SART studies link heavier short-form viewing to more commission errors and greater reaction-time variability.",
+          common_ground:
+            "Both sides agree the '8-second, below a goldfish' statistic is bogus, and that the lab studies linking heavy use to weaker sustained attention are largely correlational.",
+          live_disagreement:
+            "Whether heavy viewers show a real drop in sustained-attention capacity, or only a shift in how they choose to spend attention in low-stakes browsing — a line the pro side argues habitual use blurs.",
+        },
       },
       evidence: [
         {
@@ -120,12 +134,24 @@ export const tiktokBrainRotData = {
       crux: {
         id: "variable-reward-compulsion-test",
         title: "The Variable Reward Compulsion Test",
+        question:
+          "Do algorithmic video feeds produce compulsive use that differs from ordinary entertainment?",
         description:
           "Determine whether algorithmic short-form video feeds produce compulsive use patterns distinguishable from normal entertainment engagement, using behavioral and neuroimaging measures.",
         methodology:
           "Randomly assign participants to three conditions: (1) algorithmic TikTok-style feed with infinite scroll and autoplay, (2) same content but with chronological ordering, visible progress indicators, and no autoplay, (3) long-form video control. Measure session duration vs. intended duration (loss of control), craving ratings during abstinence periods, and striatal activation patterns via fMRI. Compare compulsive use indicators across conditions to isolate the effect of algorithmic design features from content itself.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$800K (randomized controlled trial with fMRI component)",
+        falsification: {
+          supporter_flip:
+            "If participants randomly assigned to an algorithmic infinite-scroll feed showed no more loss of control, craving or striatal activation than those given the same content in chronological order without autoplay, the claim that feed design itself drives compulsive use would weaken.",
+          skeptic_flip:
+            "A skeptic who calls 'dopamine hijacking' pop neuroscience should weigh that Su et al. (2021) found personalized TikTok clips activating the ventral tegmental area more than generalized ones, and that TikTok documents quoted in the October 2024 attorneys-general lawsuits, which TikTok disputes, indicate it tracked compulsive-use metrics.",
+          common_ground:
+            "Both sides agree most users self-regulate — Su et al. estimated roughly 5.9% of TikTok users show significant problematic use — and that the slot-machine comparison is an analogy, not a measured equivalence.",
+          live_disagreement:
+            "Whether variable rewards, autoplay and missing stopping cues make short-form feeds compulsive in a way ordinary entertainment is not, or whether 'addiction' pathologizes normal media use by a majority who manage fine.",
+        },
       },
       evidence: [
         {
@@ -218,12 +244,24 @@ export const tiktokBrainRotData = {
       crux: {
         id: "natural-experiment-restriction",
         title: "The Natural Experiment Restriction Test",
+        question:
+          "When short-form video use is restricted, do academic outcomes measurably improve?",
         description:
           "Use natural experiments — policy changes, platform bans, or access restrictions — to measure whether reducing short-form video consumption improves academic outcomes in a causally identifiable way.",
         methodology:
           "Identify jurisdictions implementing short-form video restrictions for minors (e.g., China's Douyin time limits, Australia's proposed social media age restrictions). Collect standardized test scores, reading comprehension metrics, and homework completion rates before and after implementation. Use difference-in-differences design comparing restricted jurisdictions to unrestricted controls, controlling for COVID recovery, economic conditions, and educational policy changes. Supplement with screen time tracking data from consenting families.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1.5M (multi-jurisdiction longitudinal quasi-experiment)",
+        falsification: {
+          supporter_flip:
+            "If difference-in-differences studies of restrictions such as China's Douyin time limits for under-14s found no gain in test scores, reading comprehension or homework completion against unrestricted controls, the link between short-form video and academic decline would look like correlation, not cause.",
+          skeptic_flip:
+            "A skeptic who blames COVID should weigh that PISA 2022 reading fell about 10 points across OECD countries, roughly twice any previous between-cycle change, and that the OECD notes reading and science scores were already declining before the pandemic.",
+          common_ground:
+            "Both sides agree PISA reading fell about 10 points in 2022, that COVID disruption explains a large share, and that the social-media link to grades (r ≈ -0.07) is small and mostly cross-sectional.",
+          live_disagreement:
+            "Whether short-form video contributes to a decline that began before TikTok and deepened with COVID, or is a coping outlet for students already struggling — which restriction natural experiments could test.",
+        },
       },
       evidence: [
         {

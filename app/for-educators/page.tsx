@@ -202,7 +202,7 @@ const subjects = [
 ];
 
 const MAP_LINK =
-  "inline-flex min-h-11 items-center rounded-sm font-sans text-sm text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text";
+  "inline-flex min-h-11 items-center rounded-sm font-sans text-sm text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text";
 
 function MapLinks({ maps }: { maps: readonly MapLink[] }) {
   return (
@@ -298,7 +298,7 @@ export default function ForEducatorsPage() {
                 <li key={ws.id} className={index > 0 ? "border-t border-divider" : undefined}>
                   <Link
                     href={`/for-educators/worksheets/${ws.id}`}
-                    className="group block min-h-11 rounded-sm py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                    className="group block min-h-11 rounded-sm py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
                   >
                     <span className="block font-serif text-lg leading-snug text-primary transition-colors group-hover:text-accent-text">
                       {ws.title}

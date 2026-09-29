@@ -1,6 +1,8 @@
 export const autonomousWeaponsBanData = {
   id: "autonomous-weapons-ban",
   title: "Banning Killer Robots",
+  question:
+    "Should lethal autonomous weapons be banned by international treaty?",
   meta_claim:
     "Lethal autonomous weapons should be banned by international treaty.",
   status: "contested" as const,
@@ -31,12 +33,14 @@ export const autonomousWeaponsBanData = {
         "Whether delegating kill decisions to software creates a 'responsibility gap' that no existing legal framework can close — and whether a ban is the only way to keep a human meaningfully in the loop.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "A machine cannot form criminal intent, so when an autonomous weapon commits what would otherwise be a war crime — striking civilians, a surrendering combatant, or a disproportionate target — there may be no human who can be held responsible. The operator did not choose the specific target; the programmer did not foresee the specific situation; the commander did not pull the trigger. Robert Sparrow argues this 'responsibility gap' means deploying such weapons can be inherently wrong, because the laws of war presuppose an accountable human author of each lethal act. The ICRC, the UN Secretary-General, and 120+ states conclude that the only reliable fix is a treaty that prohibits anti-personnel and unpredictable systems outright.",
-      proponent_rebuttal:
         "Existing international humanitarian law already assigns responsibility to the humans who design, field, and order the use of a weapon — exactly as it does for landmines, cruise missiles, or any other system that acts after a human releases it. The US codifies this in DoD Directive 3000.09, which requires 'appropriate levels of human judgment over the use of force' rather than a ban. A commander who deploys a weapon they cannot adequately predict or control is already liable under the principles of distinction and proportionality. A new prohibition is therefore redundant at best, and at worst freezes out beneficial systems while the states most likely to abuse them simply refuse to sign.",
+      proponent_rebuttal:
+        "A machine cannot form criminal intent, so when an autonomous weapon commits what would otherwise be a war crime — striking civilians, a surrendering combatant, or a disproportionate target — there may be no human who can be held responsible. The operator did not choose the specific target; the programmer did not foresee the specific situation; the commander did not pull the trigger. Robert Sparrow argues this 'responsibility gap' means deploying such weapons can be inherently wrong, because the laws of war presuppose an accountable human author of each lethal act. The ICRC, the UN Secretary-General, and 120+ states conclude that the only reliable fix is a treaty that prohibits anti-personnel and unpredictable systems outright.",
       crux: {
         id: "responsibility-gap-test",
         title: "The Responsibility-Gap Test",
+        question:
+          "Could an autonomous weapon commit a war crime for which no human can be held responsible?",
         description:
           "Does delegating target selection to software actually leave a war-crime with no accountable human, or can existing command-responsibility and weapons-review law always trace liability back to a person?",
         methodology:
@@ -127,6 +131,8 @@ export const autonomousWeaponsBanData = {
       crux: {
         id: "verification-test",
         title: "The Verification Test",
+        question:
+          "Would a treaty without verification change how major powers build and field these weapons?",
         description:
           "Can compliance with a ban on autonomous targeting be verified — by inspection, observable behavior, or hardware controls — to a degree that great powers would accept, or is the software nature of autonomy fundamentally unverifiable?",
         methodology:

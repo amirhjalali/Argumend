@@ -1,10 +1,11 @@
 export const moonLandingData = {
   id: "moon-landing",
   title: "The Moon Landing",
+  question: "Did the Moon landings happen?",
   meta_claim:
     "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
   status: "settled" as const,
-  category: "philosophy" as const,
+  category: "science" as const,
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
@@ -80,6 +81,8 @@ export const moonLandingData = {
       crux: {
         id: "apache-point",
         title: "The Apache Point Operation",
+        question:
+          "Do laser echoes from the Moon need astronaut-placed reflectors, or could natural features explain them?",
         description:
           "The retroreflectors placed on the Moon by Apollo astronauts can be pinged with lasers from Earth, providing physical proof of human activity on the lunar surface.",
         methodology:
@@ -187,6 +190,8 @@ export const moonLandingData = {
       crux: {
         id: "dosimeter-audit",
         title: "The Dosimeter Audit",
+        question:
+          "Do Apollo's flight paths and speeds explain the low radiation doses its dosimeters recorded?",
         description:
           "By reviewing telemetry data from radiation measurements during the Apollo missions and cross-referencing with unmanned probe data, we can calculate exact exposure.",
         methodology:

@@ -1,6 +1,7 @@
 export const cancelCultureData = {
   id: "cancel-culture",
   title: "Cancel Culture",
+  question: "Does cancel culture do more harm than good to public discourse?",
   meta_claim:
     "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
   status: "contested" as const,
@@ -19,6 +20,8 @@ export const cancelCultureData = {
       crux: {
         id: "chilling-effect-measurement",
         title: "Quantifying the Chilling Effect on Public Discourse",
+        question:
+          "Does fear of online backlash measurably narrow what people are willing to say in public?",
         description:
           "Measuring whether fear of social media backlash measurably reduces the diversity and honesty of publicly expressed viewpoints across institutional and public settings.",
         methodology:
@@ -27,6 +30,16 @@ export const cancelCultureData = {
           "\\text{Chilling Index} = 1 - \\frac{\\text{Expressed View Diversity}_{t}}{\\text{Privately Held View Diversity}_{t}}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$500K (Multi-year survey and behavioral tracking study)",
+        falsification: {
+          supporter_flip:
+            "If behavioral measures — op-ed submissions, the range of topics in academic papers, public-comment participation — showed no narrowing over time once political climate and platform changes are controlled for, the self-censorship surveys would describe discomfort rather than a chilling effect, and the harm case would weaken.",
+          skeptic_flip:
+            "A skeptic who sees only accountability should weigh that the 2020 Cato/YouGov survey found 62% of Americans say the political climate stops them sharing what they believe, up from 58% in 2017 and spanning the political spectrum, and that FIRE found about a quarter of college students self-censor fairly or very often.",
+          common_ground:
+            "Both sides agree some speech warrants social consequences, and that many high-profile targets — J.K. Rowling, Dave Chappelle, Joe Rogan — kept their platforms after cancellation attempts.",
+          live_disagreement:
+            "Whether the self-censorship people report reflects a real narrowing of public discourse caused by fear of backlash, or ordinary social consequences for speech, which have always existed, felt more sharply online.",
+        },
       },
       evidence: [
         {
@@ -113,6 +126,8 @@ export const cancelCultureData = {
       crux: {
         id: "ordinary-vs-powerful-impact",
         title: "Differential Impact on Ordinary vs. Powerful People",
+        question:
+          "Do public shaming campaigns fall harder on ordinary people than on powerful public figures?",
         description:
           "Measuring whether public shaming campaigns disproportionately affect ordinary individuals compared to powerful public figures, and whether outcomes differ based on the target's resources.",
         methodology:
@@ -121,6 +136,16 @@ export const cancelCultureData = {
           "\\text{Impact Ratio} = \\frac{P(\\text{lasting harm} | \\text{ordinary})}{P(\\text{lasting harm} | \\text{powerful})}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$300K (Social media analysis and longitudinal follow-up study)",
+        falsification: {
+          supporter_flip:
+            "If tracking shaming campaigns by target showed ordinary people recovering from job loss and pile-ons about as well as celebrities and executives, and most campaigns aimed at people with real power, the claim that cancel culture falls hardest on those least able to defend themselves would weaken.",
+          skeptic_flip:
+            "A skeptic who sees a tool for the marginalized should weigh that non-public figures such as data analyst David Shor have lost jobs with no platform to mount a defense, and that FIRE found conservative students self-censor far more than liberal peers (38% vs. 19% in conversations with other students) — a sign of uneven conformity pressure rather than changed minds.",
+          common_ground:
+            "Both sides agree that prominent figures with audiences and legal teams usually keep their platforms after a cancellation attempt.",
+          live_disagreement:
+            "Whether public shaming mostly reaches powerful people who once escaped consequences, as with #MeToo, or falls hardest on ordinary people with no platform to defend themselves.",
+        },
       },
       evidence: [
         {

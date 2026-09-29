@@ -1,6 +1,8 @@
 export const reparationsSlaveryData = {
   id: "reparations-slavery",
   title: "Reparations for Slavery",
+  question:
+    "Should the US provide reparations to descendants of enslaved Black Americans?",
   meta_claim:
     "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
   status: "contested" as const,
@@ -19,6 +21,8 @@ export const reparationsSlaveryData = {
       crux: {
         id: "causal-chain-measurement",
         title: "Measuring the Causal Chain from Slavery to Present Disparities",
+        question:
+          "How much of today's racial wealth gap traces to slavery, Jim Crow and discriminatory policy?",
         description:
           "Quantifying how much of the current racial wealth and income gap is directly attributable to slavery, Jim Crow, and discriminatory federal policies versus other factors.",
         methodology:
@@ -27,6 +31,16 @@ export const reparationsSlaveryData = {
           "\\text{Reparations Debt} = \\sum_{t=1619}^{2024} \\text{Value Extracted}_t \\times (1 + r)^{2024-t}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$2M (Historical economic modeling with multiple methodologies)",
+        falsification: {
+          supporter_flip:
+            "If decomposition modeling of wealth pathways — land denied, GI Bill and Social Security exclusion, FHA redlining — found that only a small share of today's gap traces to slavery, Jim Crow and federal policy, the case for reparations as an institutional debt would weaken toward general anti-poverty policy.",
+          skeptic_flip:
+            "A skeptic who rejects inherited guilt should weigh that the claim is a debt of the federal government as an enduring institution, not of individuals: its GI Bill, FHA mortgage insurance and original Social Security Act excluded most Black Americans by design, harms whose direct victims are often still alive, and the US has already paid interned Japanese Americans under the 1988 Civil Liberties Act.",
+          common_ground:
+            "Both sides accept the size of the gap — median white wealth about $285,000 versus roughly $45,000 for Black families in the Federal Reserve's 2022 survey — and that some Black Americans are recent immigrants with no lineage to US slavery.",
+          live_disagreement:
+            "How much of today's gap is caused by slavery, Jim Crow and federal policy rather than other factors — and whether a debt owed by the federal government as an institution justifies payments that today's taxpayers fund.",
+        },
       },
       evidence: [
         {
@@ -118,6 +132,8 @@ export const reparationsSlaveryData = {
       crux: {
         id: "reparations-program-design",
         title: "Optimal Reparations Program Design and Cost-Benefit",
+        question:
+          "Is there a reparations design that would close the wealth gap and be politically and economically viable?",
         description:
           "Determining which reparations model (direct payments, baby bonds, housing/education grants, community investment) would most effectively close the racial wealth gap while being politically and economically viable.",
         methodology:
@@ -126,6 +142,16 @@ export const reparationsSlaveryData = {
           "\\text{ROI}_{\\text{reparations}} = \\frac{\\Delta \\text{GDP} + \\Delta \\text{Tax Revenue} + \\Delta \\text{Social Savings}}{\\text{Program Cost}}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$5M (Comprehensive economic modeling study — essentially what HR 40 proposes)",
+        falsification: {
+          supporter_flip:
+            "If microsimulations of direct payments, baby bonds and housing or education grants showed that none would close much of the wealth gap over 10, 25 or 50 years at a sustainable cost, or that lineage-based eligibility could not be administered fairly, the case for a federal program would weaken.",
+          skeptic_flip:
+            "A skeptic focused on cost should weigh that Darity and Mullen's $10-12 trillion spread over a 10-year program is roughly $1 trillion a year, on the scale of recent pandemic relief, that H.R. 40 asks only for a commission to study remedies, and that baby-bond programs suggest large transfers can run through existing fiscal machinery.",
+          common_ground:
+            "Both sides work from the same order of magnitude — roughly $10-14 trillion in leading estimates — and agree that who qualifies and what form payment takes are still undecided.",
+          live_disagreement:
+            "Whether a payment program keyed to documented lineage can be designed fairly and afforded at that scale, or whether universal, means-tested programs would help more people with broader and more durable political support.",
+        },
       },
       evidence: [
         {

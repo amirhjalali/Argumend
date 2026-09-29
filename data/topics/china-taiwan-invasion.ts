@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const chinaTaiwanInvasionData = {
   id: "china-taiwan-invasion",
   title: "Will China Invade Taiwan Before 2030?",
+  question: "Will China invade Taiwan before 2030?",
   meta_claim:
     "China will attempt military reunification with Taiwan within this decade, fundamentally reshaping the global order.",
   status: "highly_speculative" as const,
@@ -74,6 +75,8 @@ export const chinaTaiwanInvasionData = {
       crux: {
         id: "amphibious-capacity-assessment",
         title: "PLA Amphibious Sealift Capacity Assessment",
+        question:
+          "Does China have the sealift to carry and supply forces across a contested Taiwan Strait?",
         description:
           "Determine whether China's combined military and dual-use sealift capacity is sufficient to transport and sustain the forces needed for a contested Taiwan Strait crossing.",
         methodology:
@@ -81,6 +84,16 @@ export const chinaTaiwanInvasionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5M (satellite imagery analysis + classified intelligence assessment)",
+        falsification: {
+          supporter_flip:
+            "If an inventory of PLA amphibious ships and convertible civilian ferries showed first-wave capacity far below the roughly 300,000 troops analysts cite as the low end for a contested landing and occupation, capability would remain a binding constraint and an attempt this decade would look much less likely.",
+          skeptic_flip:
+            "A skeptic who sees a defensive buildup should weigh that the PLA Navy is now the world's largest fleet, with over 370 ships and submarines, that China has built several Type 075/076 assault ships since 2019 while adding dual-use roll-on/roll-off ferries, and that U.S. officials say Xi directed the PLA to be capable of taking Taiwan by 2027.",
+          common_ground:
+            "Both sides agree 2027 is a readiness benchmark rather than a decision to invade, and that a contested Strait crossing would be among the most complex amphibious operations ever attempted.",
+          live_disagreement:
+            "Whether China's growing fleet and dual-use sealift can carry and sustain the hundreds of thousands of troops a contested landing needs, given Taiwan's roughly 14 usable beaches and weather windows around April and October.",
+        },
       },
       evidence: [
         {
@@ -175,6 +188,8 @@ export const chinaTaiwanInvasionData = {
       crux: {
         id: "sanctions-resilience-test",
         title: "China Sanctions Resilience Assessment",
+        question:
+          "Could China's economy withstand five or more years of comprehensive Western sanctions?",
         description:
           "Evaluate whether China has built sufficient economic self-sufficiency and sanctions-proofing to withstand a comprehensive Western sanctions regime lasting 5+ years.",
         methodology:
@@ -182,6 +197,16 @@ export const chinaTaiwanInvasionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2M (economic modeling + supply chain analysis)",
+        falsification: {
+          supporter_flip:
+            "If mapping China's dependencies in energy, food, semiconductors and industrial components showed stockpiles and substitutes far too thin to survive a G7 embargo and SWIFT cut-off for 5+ years, economic self-interest would stand as a strong brake on an attempt this decade.",
+          skeptic_flip:
+            "A skeptic who trusts economic deterrence should weigh that Russia invaded Ukraine in 2022 while supplying ~45% of EU gas imports, and that China's 'dual circulation' strategy is deliberately reducing its exposure through stockpiles, overland energy links, domestic chipmaking and the CIPS payment system.",
+          common_ground:
+            "Both sides agree an invasion would bring enormous economic costs — on the order of $3 trillion in trade and financial flows at immediate risk by one estimate — and that China is working to reduce its exposure to sanctions.",
+          live_disagreement:
+            "Whether sanctions-proofing lets China absorb years of Western sanctions for a strategic prize, as Russia chose to, or whether its far larger trade exposure and the likely loss of TSMC's fabs make invasion irrational.",
+        },
       },
       evidence: [
         {
@@ -276,6 +301,8 @@ export const chinaTaiwanInvasionData = {
       crux: {
         id: "us-commitment-signal-analysis",
         title: "U.S. Commitment Credibility Signal Analysis",
+        question:
+          "Would US commitments to Taiwan hold up under the pressure of an actual crisis?",
         description:
           "Assess whether U.S. military posture, alliance commitments, and political signals constitute a credible deterrent that would survive the decision pressure of an actual Taiwan crisis.",
         methodology:
@@ -283,6 +310,16 @@ export const chinaTaiwanInvasionData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$10M (wargaming + polling + classified intelligence review)",
+        falsification: {
+          supporter_flip:
+            "If U.S. force posture, congressional authorization and alliance commitments were shown to hold under realistic crisis pressure — including nuclear escalation risk — so that China could not expect a fait accompli, deterrence would make an attempt this decade far less likely.",
+          skeptic_flip:
+            "A skeptic who trusts U.S. deterrence should weigh that strategic ambiguity has never formally committed the U.S. to Taiwan's defense — the White House clarified after each of Biden's four statements that policy was unchanged — and that CSIS's 2023 wargame typically had the U.S. losing about 2 aircraft carriers and 200-400 aircraft within roughly three weeks, even while repelling the invasion in most runs.",
+          common_ground:
+            "Both sides agree the Taiwan Relations Act obliges the U.S. to supply defensive arms but not to intervene, and that a U.S.-China war over Taiwan would be enormously costly for both.",
+          live_disagreement:
+            "Whether U.S. posture, alliances and presidential statements would survive the pressure of a real crisis, or whether China could bet on the U.S. choosing self-preservation over an island 7,000 miles away.",
+        },
       },
       evidence: [
         {

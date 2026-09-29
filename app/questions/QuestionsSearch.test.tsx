@@ -45,19 +45,28 @@ describe("QuestionsSearch", () => {
     const view = render(<QuestionsSearch questions={questions} />);
     const input = view.getByRole("searchbox", { name: "Search questions" });
 
+    // The live region is in the page before the first keystroke, so its
+    // first text is announced.
+    const status = view.getByRole("status");
+    expect(status.textContent).toBe("");
+    expect(input.getAttribute("aria-controls")).toBeNull();
+
     fireEvent.change(input, { target: { value: "no match" } });
 
-    await view.findByText("No questions found for “no match”");
-    expect(view.getByRole("status").textContent).toBe(
-      "No questions found for “no match”",
+    await waitFor(() =>
+      expect(status.textContent).toBe("No questions found for “no match”"),
     );
+    expect(input.getAttribute("aria-controls")).toBe("question-search-results");
+    expect(document.getElementById("question-search-results")).toBeTruthy();
     expect(window.location.search).toBe("?q=no+match");
 
     fireEvent.click(view.getByRole("button", { name: "Clear search" }));
 
     await waitFor(() => expect(document.activeElement).toBe(input));
     expect(window.location.search).toBe("");
-    expect(view.queryByRole("status")).toBeNull();
+    expect(view.getByRole("status").textContent).toBe("");
+    // No results region, so nothing for aria-controls to point at.
+    expect(input.getAttribute("aria-controls")).toBeNull();
   });
 
   it("restores URL state on mount and browser history navigation", async () => {

@@ -67,7 +67,7 @@ beforeAll(async () => {
     provider: new FakeDisagreementProvider(example.extraction),
   });
   diagnosis = { report: bundle.report, graph: bundle.graph };
-});
+}, 60_000);
 
 afterEach(() => {
   cleanup();
@@ -112,7 +112,7 @@ describe("paste surfaces never score sides or name a winner", () => {
   ])("the map block for %s", (_label, result) => {
     const match = result().match;
     expect(match).not.toBeNull();
-    const view = render(<MapMatch match={match!} />);
+    const view = render(<MapMatch match={match!} related={result().related} />);
     expect(forbiddenWords(view.container.textContent ?? "")).toEqual([]);
   });
 

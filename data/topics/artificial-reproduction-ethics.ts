@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const artificialReproductionEthicsData = {
   id: "artificial-reproduction-ethics",
   title: "Artificial Wombs & Synthetic Embryos",
+  question:
+    "Will artificial wombs and lab-made eggs and sperm remake reproduction in 15 years?",
   meta_claim:
     "Ectogenesis (artificial womb technology) and in-vitro gametogenesis (creating eggs/sperm from skin cells) will fundamentally alter human reproduction within 15 years, raising profound ethical questions about parenthood, consent, and biological boundaries.",
   status: "contested" as const,
@@ -60,6 +62,8 @@ export const artificialReproductionEthicsData = {
       crux: {
         id: "biobag-human-translation",
         title: "The Human Biobag Translation Trial",
+        question:
+          "Can artificial wombs sustain fetuses below 22–23 weeks with outcomes as good as neonatal intensive care?",
         description:
           "The decisive question is whether artificial womb technology can successfully sustain human fetuses at gestational ages below current viability thresholds (22-23 weeks) with outcomes comparable to or better than conventional NICU care. If human trials demonstrate safety and efficacy, the medical necessity argument becomes unassailable.",
         methodology:
@@ -67,6 +71,16 @@ export const artificialReproductionEthicsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$50-200M (Multi-site clinical trial with long-term follow-up)",
+        falsification: {
+          supporter_flip:
+            "If phased trials at 21-22 weeks found artificial womb support no better than conventional NICU care on survival and 2-year neurodevelopment, the medical path by which ectogenesis would enter reproduction would stall, and a 15-year transformation would look unlikely.",
+          skeptic_flip:
+            "A skeptic who separates therapeutic from elective use should weigh that CHOP's Biobag sustained fetal lambs at the equivalent of 23 weeks' gestation for up to 28 days in 2017, and that the technology for a 22-week infant arguably differs from earlier-stage support only in degree.",
+          common_ground:
+            "Both sides agree preterm birth is a leading cause of death in young children, and that NICU care still hits a hard limit near 22 weeks, where survival is roughly 25-35% with active care.",
+          live_disagreement:
+            "Whether a therapeutic artificial womb for extremely premature infants is separable from elective full-term ectogenesis, or the same engineering differing only in degree — and whether its cost would save more lives through basic maternal care.",
+        },
       },
       evidence: [
         {
@@ -156,6 +170,8 @@ export const artificialReproductionEthicsData = {
       crux: {
         id: "right-to-terminate-vs-evacuate",
         title: "The Evacuation vs. Termination Distinction",
+        question:
+          "Is the abortion right about ending a pregnancy, or about not becoming a genetic parent?",
         description:
           "The crux is whether the right to abortion is fundamentally about ending a pregnancy (bodily autonomy) or ending a potential life (reproductive self-determination). If courts and ethicists conclude that bodily autonomy is the core right, ectogenesis provides a satisfactory alternative. If reproductive self-determination — the right not to become a genetic parent — is the core right, ectogenesis does not resolve the fundamental disagreement.",
         methodology:
@@ -163,6 +179,16 @@ export const artificialReproductionEthicsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$150K-400K (Legal analysis plus large-scale public opinion research)",
+        falsification: {
+          supporter_flip:
+            "If a 5,000-person survey found support for abortion rights unchanged when extraction without termination is available, and courts grounded abortion protections in reproductive self-determination, artificial wombs would leave the abortion debate largely where it is, weakening the claim that they will reshape reproductive ethics.",
+          skeptic_flip:
+            "A skeptic who says ectogenesis changes nothing should weigh Thomson's 1971 argument framing abortion as bodily autonomy: if that is the core right, artificial wombs would mean no one is forced to stay pregnant while fetal life is preserved.",
+          common_ground:
+            "Both sides agree ectogenesis would not resolve the abortion debate: it separates ending a pregnancy from ending a fetal life, and the answer turns on which of those rights is fundamental.",
+          live_disagreement:
+            "Whether the core abortion right is ending a pregnancy, which extraction would satisfy, or not becoming a genetic parent, which it would not — and so whether artificial wombs expand options or become a legal tool to restrict abortion.",
+        },
       },
       evidence: [
         {
@@ -218,6 +244,8 @@ export const artificialReproductionEthicsData = {
       crux: {
         id: "regulatory-capacity-test",
         title: "The Governance Feasibility Assessment",
+        question:
+          "Can international rules prevent eugenic uses of these technologies while keeping therapeutic ones?",
         description:
           "The crux is whether international regulatory frameworks can be designed and enforced to prevent eugenic applications of combined ectogenesis/IVG/genetic selection technology while preserving therapeutic uses. If effective governance is feasible, the commodification risk is manageable. If regulation cannot keep pace with technological capability, the risk of misuse may justify moratoriums.",
         methodology:
@@ -225,6 +253,16 @@ export const artificialReproductionEthicsData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$2-5M (International regulatory analysis and expert panel convening)",
+        falsification: {
+          supporter_flip:
+            "If a comparative analysis found frameworks such as cloning bans and non-proliferation failing to constrain dual-use technologies, while polygenic embryo ranking spread beyond disease prevention, the case that proactive governance can manage the eugenics risk would weaken and the case for moratoriums would grow.",
+          skeptic_flip:
+            "A skeptic who fears consumer eugenics should weigh that no confirmed human reproductive cloning has occurred in 25+ years despite the capability, with roughly 30-50 countries banning it, and that historical eugenics was coercive state policy while these technologies expand individual choice.",
+          common_ground:
+            "Both sides agree the component technologies already exist in some form — mouse pups have been born from skin-cell-derived eggs, and embryo screening already ranks embryos by polygenic risk — and that some governance is needed.",
+          live_disagreement:
+            "Whether international rules like the cloning bans can hold back eugenic and commercial uses while preserving therapeutic ones, or whether combined IVG, embryo selection and artificial wombs will outpace regulation and widen a biological class divide.",
+        },
       },
       evidence: [
         {

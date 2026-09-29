@@ -19,6 +19,7 @@ import {
   CONTENT_FIRST_PUBLISHED,
   CONTENT_LAST_UPDATED,
 } from "@/lib/site";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 // ---------------------------------------------------------------------------
 // Static Generation
@@ -92,11 +93,14 @@ export async function generateMetadata({
   const socialImage = media?.hero
     ? absoluteMediaUrl(media.hero.src)
     : buildTopicOgUrl(topic.id);
+  // The question the map answers when one is authored (what the h1 shows);
+  // otherwise the short label.
+  const pageTitle = mapDisplayTitle(topic);
 
   return {
-    // The map's title alone, as on the flagship maps: the /topics layout's
+    // The map's headline alone, as on the flagship maps: the /topics layout's
     // template adds "| ARGUMEND", like every other page title on the site.
-    title: topic.title,
+    title: pageTitle,
     description,
     keywords: [
       topic.title,
@@ -112,7 +116,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      title: `${topic.title} | ARGUMEND`,
+      title: `${pageTitle} | ARGUMEND`,
       description,
       url: `https://argumend.org/topics/${topic.id}`,
       siteName: "ARGUMEND",
@@ -121,13 +125,13 @@ export async function generateMetadata({
           url: socialImage,
           width: media?.hero.width ?? 1200,
           height: media?.hero.height ?? 630,
-          alt: media?.hero.alt ?? topic.title,
+          alt: media?.hero.alt ?? pageTitle,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: topic.title,
+      title: pageTitle,
       description,
       images: [socialImage],
     },
@@ -245,7 +249,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
         data={{
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: topic.title,
+          headline: mapDisplayTitle(topic),
           description: topic.meta_claim,
           url: `https://argumend.org/topics/${topic.id}`,
           image: socialImage,

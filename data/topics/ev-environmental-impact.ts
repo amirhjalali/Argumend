@@ -1,6 +1,8 @@
 export const evEnvironmentalImpactData = {
   id: "ev-environmental-impact",
   title: "Electric Vehicles vs. ICE Cars",
+  question:
+    "Are EVs significantly greener than gas cars over their full lifecycle?",
   meta_claim:
     "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
   status: "contested" as const,
@@ -35,6 +37,8 @@ export const evEnvironmentalImpactData = {
       crux: {
         id: "lifecycle-breakeven",
         title: "Lifecycle Emissions Breakeven Point",
+        question:
+          "How fast does an EV make up its battery's emissions, and how much do mining harms weigh?",
         description:
           "The exact point (in miles or years of driving) at which an EV's total lifecycle emissions drop below those of an equivalent ICE vehicle, across different grid mixes and vehicle classes.",
         methodology:
@@ -140,6 +144,8 @@ export const evEnvironmentalImpactData = {
       crux: {
         id: "grid-carbon-threshold",
         title: "Grid Carbon Intensity Threshold for EV Advantage",
+        question:
+          "Will the grids where EVs are driven decarbonize fast enough, or lock in coal-powered charging?",
         description:
           "The grid carbon intensity (gCO2/kWh) above which an EV no longer has a lifecycle emission advantage over the best available ICE or hybrid vehicle.",
         methodology:

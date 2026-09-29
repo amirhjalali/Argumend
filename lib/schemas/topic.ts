@@ -48,6 +48,11 @@ export const EvidenceSchema = z.object({
 export const CruxSchema = z.object({
   id: z.string(),
   title: z.string(), // e.g., "The Retroreflector Test"
+  // The crux as a short question a reader can hold in their head (≤ ~110
+  // chars), e.g. "Do nuclear's tail risks outweigh the deaths it prevents?".
+  // Rendered as the crux heading on the topic page; `live_disagreement`
+  // then reads as the explanation beneath it. Rephrases the map's own text.
+  question: z.string().optional(),
   description: z.string(), // The explanation of the test
   methodology: z.string(), // Step-by-step verification method
   equation: z.string().optional(), // LaTeX string if applicable
@@ -297,6 +302,10 @@ export function applyVerdictRobustness(
 export const TopicSchema = z.object({
   id: z.string(),
   title: z.string(), // e.g., "The Moon Landing"
+  // The map's headline as a question, e.g. "Did the Moon landings happen?".
+  // Used as the page h1 and on map lists; `title` stays the short label for
+  // breadcrumbs and related links.
+  question: z.string().optional(),
   meta_claim: z.string(),
   confidence_score: z.number().min(0).max(100), // @deprecated — always = balance; kept for JSON-LD ratingValue
   balance: z.number().min(0).max(100), // which way the evidence tips (50 = even)

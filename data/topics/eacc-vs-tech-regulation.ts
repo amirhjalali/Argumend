@@ -1,6 +1,8 @@
 export const eaccVsTechRegulationData = {
   id: "eacc-vs-tech-regulation",
   title: "E/acc vs. Tech Regulation",
+  question:
+    "Does rapid, unregulated technological progress do more good than harm?",
   meta_claim:
     "Rapid, unregulated technological advancement creates more benefit than harm",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const eaccVsTechRegulationData = {
       crux: {
         id: "capability-adaptation-rate",
         title: "The Capability-Adaptation Rate Comparison",
+        question:
+          "Does technological capability outpace society's ability to adapt, or does adaptation keep up?",
         description:
           "If technological capability growth consistently outpaces societal adaptation mechanisms (legal frameworks, safety research, institutional response), then proactive regulation is necessary to prevent catastrophic harm. If adaptation mechanisms keep pace or market forces provide sufficient correction, regulation imposes net costs without proportional safety benefits.",
         methodology:
@@ -29,6 +33,16 @@ export const eaccVsTechRegulationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$100K-300K (Historical policy analysis and cross-domain comparative study)",
+        falsification: {
+          supporter_flip:
+            "If measuring the lag from capability to first harm to effective governance across ten major technologies showed harm routinely accumulating for decades before any correction — as with leaded gasoline, phased out in the US 73 years after 1923 — the claim that unregulated progress nets out positive would weaken for high-stakes domains.",
+          skeptic_flip:
+            "A skeptic who favors precaution should weigh the costs regulation itself imposes — about $2.6 billion and 10-15 years per approved drug, U.S. nuclear construction stretching from roughly 7 years to 15+ — while computing delivered 50 years of Moore's Law progress in a largely unregulated market.",
+          common_ground:
+            "Both sides accept the record at each end: leaded gasoline took 73 years to phase out despite early warnings, and FDA-regulated drugs now average about $2.6 billion and 10-15 years to reach market.",
+          live_disagreement:
+            "Whether capability now outpaces society's ability to adapt — frontier AI, accessible synthetic biology — so proactive rules are needed, or whether adaptation and liability keep up and regulation mostly adds cost and delay.",
+        },
       },
       evidence: [
         {
@@ -135,6 +149,8 @@ export const eaccVsTechRegulationData = {
       crux: {
         id: "market-welfare-alignment",
         title: "The Market-Welfare Alignment Test",
+        question:
+          "Do markets correct harmful technology outcomes faster than regulators can?",
         description:
           "If market incentives systematically diverge from public welfare in high-stakes technology domains — producing persistent negative externalities that markets fail to self-correct within a reasonable timeframe — then regulatory intervention is necessary. If markets correct harmful outcomes faster and more efficiently than regulatory processes, the case for deregulation holds.",
         methodology:
@@ -142,6 +158,16 @@ export const eaccVsTechRegulationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$150K-400K (Cross-industry case study analysis requiring domain expertise in multiple sectors)",
+        falsification: {
+          supporter_flip:
+            "If a study of 20 technology harms found market-driven corrections — lawsuits, reputational damage, consumer exit — arriving later than regulatory ones or not at all, especially where harms are diffuse and users are the product, the case that markets self-correct would weaken.",
+          skeptic_flip:
+            "A skeptic who sees systemic market failure should weigh that U.S. traffic deaths per 100 million vehicle-miles fell from 24.09 in 1921 to 1.10 in 2019, with many safety innovations driven by competition and liability, and that the market punished Boeing over the 737 MAX immediately while the FAA took months to ground the plane.",
+          common_ground:
+            "Both sides agree auto safety improved through a mix of government standards and manufacturer competition: deaths per 100 million vehicle-miles fell from 24.09 in 1921 to 1.10 in 2019.",
+          live_disagreement:
+            "Whether markets correct technology harms quickly enough through lawsuits, reputation and consumer choice, or systematically fail when harms are diffuse, delayed or borne by users who are the product rather than the customer.",
+        },
       },
       evidence: [
         {
@@ -232,6 +258,8 @@ export const eaccVsTechRegulationData = {
       crux: {
         id: "governance-outcome-quality",
         title: "The Democratic vs. Expert Governance Outcome Test",
+        question:
+          "Does democratic oversight of technology produce better long-run outcomes than expert or market governance?",
         description:
           "If democratic deliberation produces better long-term outcomes than expert-driven development in technology governance — measured by safety, innovation, equitable distribution of benefits, and public trust — then democratic governance is justified despite its slower pace. If expert-driven or market-governed development consistently produces superior outcomes, the efficiency argument for technocratic governance holds.",
         methodology:
@@ -239,6 +267,16 @@ export const eaccVsTechRegulationData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$500K-1M (Multi-jurisdiction comparative policy study requiring international collaboration)",
+        falsification: {
+          supporter_flip:
+            "If comparing democratic-regulatory, technocratic-state and market-driven models across AI, gene editing, nuclear energy, internet governance and autonomous vehicles found the democratic model matching the others on innovation while doing better on safety, equity and public trust, the case against democratic oversight would weaken.",
+          skeptic_flip:
+            "A skeptic who wants democratic control should weigh that the EU AI Act took three years to negotiate and was criticized as outdated on arrival, having missed the generative AI wave that came during its drafting, and that fewer than 10% of U.S. senators have technical backgrounds.",
+          common_ground:
+            "Both sides agree the EU AI Act, adopted in 2024 after three years of negotiation, is the world's first comprehensive AI law; one side reads it as proof democracies can govern technology, the other as proof they are too slow.",
+          live_disagreement:
+            "Whether democratic deliberation, slow as it is, yields better long-run outcomes in safety, equity and trust, or whether technologies evolve too fast for legislators and expert or market governance serves better.",
+        },
       },
       evidence: [
         {

@@ -137,14 +137,30 @@ describe("content-route graph import boundaries", () => {
   });
 
   it("keeps React Flow on the diagram route, loaded only for desktop sessions", () => {
-    const diagram = readFileSync(
-      resolve(process.cwd(), "app/topics/[id]/map/TopicDiagram.tsx"),
-      "utf8",
-    );
+    const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
+    const diagram = read("app/topics/[id]/map/TopicDiagram.tsx");
     expect(diagram).toContain('import("@/components/DesktopCanvas")');
-    expect(diagram).toContain('import("@/components/MobileArgumentList")');
+    expect(diagram).not.toMatch(/from\s+["']@\/components\/DesktopCanvas["']/);
+    // The phone outline is server-rendered from the same model, not a chunk.
+    expect(diagram).toMatch(/from\s+["']@\/components\/MobileArgumentList["']/);
     expect(diagram).not.toMatch(/from\s+["']@xyflow\/react["']/);
     expect(diagram).not.toMatch(/ScalesOfEvidence|DebateView|ViewToggle/);
+    // Neither the outline nor the model pulls in the graph runtime.
+    for (const path of [
+      "components/MobileArgumentList.tsx",
+      "lib/diagram/model.ts",
+      "lib/diagram/layout.ts",
+    ]) {
+      expect(read(path), path).not.toMatch(/from\s+["']@xyflow\/react["']/);
+    }
+  });
+
+  it("builds the diagram on the server from the topic page's own model", () => {
+    const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
+    const route = read("app/topics/[id]/map/page.tsx");
+    expect(route).toMatch(/from\s+["']@\/lib\/diagram\/model["']/);
+    expect(route).toContain("loadTopicById");
+    expect(read("lib/diagram/model.ts")).toMatch(/from\s+["']@\/lib\/topicPage\/legacy["']/);
   });
 
   it("does not speculatively prefetch every shared-shell destination", () => {
@@ -159,24 +175,14 @@ describe("content-route graph import boundaries", () => {
   });
 });
 
-describe("home graph-runtime lazy boundaries", () => {
-  it("keeps React Flow runtime code inside the desktop canvas chunk", () => {
-    const storeSource = readFileSync(
-      resolve(process.cwd(), "hooks/useLogicGraph.ts"),
-      "utf8",
-    );
+describe("diagram runtime lazy boundaries", () => {
+  it("keeps React Flow and its stylesheet inside the desktop canvas chunk", () => {
     const canvasSource = readFileSync(
       resolve(process.cwd(), "components/DesktopCanvas.tsx"),
       "utf8",
     );
-
-    expect(storeSource).not.toMatch(
-      /import\s+\{[^}]+\}\s+from\s+["']@xyflow\/react["']/,
-    );
-    expect(storeSource).toMatch(
-      /import\s+type\s+\{[^}]+\}\s+from\s+["']@xyflow\/react["']/,
-    );
-    expect(canvasSource).toContain("applyNodeChanges");
+    expect(canvasSource).toMatch(/from\s+["']@xyflow\/react["']/);
+    expect(canvasSource).toContain('import "@xyflow/react/dist/style.css"');
   });
 
   it("loads topic validation only when an individual topic is requested", () => {
@@ -184,19 +190,9 @@ describe("home graph-runtime lazy boundaries", () => {
       resolve(process.cwd(), "data/topicLoader.ts"),
       "utf8",
     );
-    const blueprintSource = readFileSync(
-      resolve(process.cwd(), "data/logicBlueprint.ts"),
-      "utf8",
-    );
 
     expect(loaderSource).not.toMatch(/import\s+\{\s*buildTopic\s*\}\s+from/);
     expect(loaderSource).toContain('import("./buildTopic")');
-    expect(blueprintSource).toMatch(
-      /from\s+["']@\/lib\/evidenceMetrics["']/,
-    );
-    expect(blueprintSource).not.toMatch(
-      /from\s+["']@\/lib\/schemas\/topic["']/,
-    );
   });
 });
 

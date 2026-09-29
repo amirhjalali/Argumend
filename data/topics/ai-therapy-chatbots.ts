@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const aiTherapyChatbotsData = {
   id: "ai-therapy-chatbots",
   title: "Can AI Chatbots Replace Therapists?",
+  question: "Can AI chatbots replace therapists?",
   meta_claim:
     "AI chatbots can substitute for human therapists in delivering effective, safe mental-health care",
   status: "contested" as const,
@@ -39,6 +40,8 @@ export const aiTherapyChatbotsData = {
       crux: {
         id: "head-to-head-noninferiority",
         title: "The Head-to-Head Non-Inferiority Trial",
+        question:
+          "Do chatbots' short-term symptom gains hold up against human therapists and last beyond a few months?",
         description:
           "Whether a generative-AI chatbot can match a licensed human therapist in a properly controlled trial with durable outcomes. The decisive test is not chatbot-vs-waitlist but a large, pre-registered non-inferiority RCT that randomizes patients to an AI chatbot versus active human therapy (e.g. CBT delivered by a clinician), measures validated symptom scales at 6- and 12-month follow-up, and stratifies by severity. If the chatbot is statistically non-inferior with lasting gains, the substitution claim is supported. If it underperforms — especially for moderate-to-severe cases — the chatbot is a supplement, not a replacement.",
         methodology:
@@ -152,6 +155,8 @@ export const aiTherapyChatbotsData = {
       crux: {
         id: "crisis-detection-benchmark",
         title: "The Adversarial Crisis-Detection Benchmark",
+        question:
+          "Can chatbots detect crises as reliably as clinicians, or are they unsafe without a human in the loop?",
         description:
           "Whether a therapeutic chatbot can reliably detect and safely handle crisis situations — suicidal ideation, self-harm, psychosis, abuse disclosure — at a rate that matches or exceeds trained clinicians, under adversarial and indirect prompting. The decisive test is a standardized, red-teamed benchmark of crisis scenarios (including oblique cues like the 'tall bridges' case) scored on whether the system recognizes risk, avoids facilitating harm, and escalates appropriately. If purpose-built bots clear a clinician-level bar reliably, the safety objection weakens; if even the best systems fail on indirect or adversarial cues, unsupervised deployment is unsafe.",
         methodology:
@@ -268,6 +273,8 @@ export const aiTherapyChatbotsData = {
       crux: {
         id: "alliance-mediates-outcome",
         title: "The Alliance-Mediation Test",
+        question:
+          "Does a bond with a chatbot drive lasting recovery the way a human relationship does?",
         description:
           "Whether a measured patient-chatbot alliance actually mediates clinical improvement the way a human alliance does — and whether the relationship helps rather than harms over time. The decisive test is to measure working-alliance scores (e.g. the WAI) in chatbot therapy and statistically test whether alliance predicts and mediates symptom change, while tracking longer-term effects on real-world human connection and dependence. If a chatbot alliance mediates outcomes comparably to human therapy without fostering harmful dependence, the bond does genuine clinical work. If alliance scores are high but do not mediate durable improvement, or if reliance on the bot erodes human relationships, the 'felt bond' is a hollow proxy.",
         methodology:

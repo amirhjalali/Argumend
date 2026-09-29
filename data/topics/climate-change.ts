@@ -1,6 +1,7 @@
 export const climateChangeData = {
   id: "climate-change",
   title: "Climate Change",
+  question: "Is climate change primarily caused by human activity?",
   meta_claim: "Climate change is primarily caused by human activity.",
   status: "settled" as const,
   category: "science" as const,
@@ -87,6 +88,8 @@ export const climateChangeData = {
       crux: {
         id: "suess-effect",
         title: "The Suess Effect Measurement",
+        question:
+          "Does the falling carbon-isotope ratio in the air confirm that the added CO₂ comes from fossil fuels?",
         description:
           "Measure the decline in atmospheric δ¹³C ratio over time to confirm fossil fuel origin.",
         methodology:
@@ -193,6 +196,8 @@ export const climateChangeData = {
       crux: {
         id: "fingerprint-detection",
         title: "The Fingerprint Detection Test",
+        question:
+          "Do short-term swings like the 1998–2014 slowdown reflect model error or natural variability?",
         description:
           "Detect greenhouse-specific warming patterns vs solar/volcanic patterns.",
         methodology:
@@ -301,6 +306,8 @@ export const climateChangeData = {
       crux: {
         id: "energy-budget-closure",
         title: "The Energy Budget Closure Test",
+        question:
+          "Could an under-measured natural factor be large enough to matter for the warming?",
         description:
           "Account for all energy inputs and outputs to identify the forcing source.",
         methodology:

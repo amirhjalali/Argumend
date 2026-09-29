@@ -12,6 +12,7 @@ import {
   ogErrorResponse,
   truncateOgText,
 } from "@/lib/og";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 export const runtime = "edge";
 
@@ -63,7 +64,7 @@ export async function GET(
   }
 
   const scoreColor = QUADRANT_COLORS[topic.verdict.quadrant];
-  const title = truncateOgText(topic.title, 96);
+  const title = truncateOgText(mapDisplayTitle(topic), 96);
   const verdict = truncateOgText(topic.verdict.label, 140);
   const metaClaim = truncateOgText(topic.meta_claim, 150);
   const statusLabel = getStatusLabel(topic.status);

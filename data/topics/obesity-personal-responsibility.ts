@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const obesityPersonalResponsibilityData = {
   id: "obesity-personal-responsibility",
   title: "Is Obesity a Personal Choice or a Systemic Failure?",
+  question: "Is obesity mainly a matter of personal choice?",
   meta_claim:
     "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
   status: "contested" as const,
@@ -15,15 +16,17 @@ export const obesityPersonalResponsibilityData = {
       id: "food-environment-design",
       title: "Food Environment Design",
       short_summary:
-        "Ultra-processed foods now constitute roughly 60% of calories consumed in the US, engineered for hyper-palatability and often sold more cheaply than whole foods. A 2009 USDA report estimated about 23.5 million Americans live in low-income areas far from a supermarket ('food deserts'), though research finds physical distance matters less than the relative price of healthy versus unhealthy food. Proponents of the systemic view argue the food environment is engineered to override satiety signals; the strongest evidence is a controlled NIH trial showing people overeat on ultra-processed diets. Skeptics counter that personal agency still determines what people eat, and that framing the environment as inescapable infantilizes individuals.",
+        "Ultra-processed foods now constitute roughly 60% of calories consumed in the US, engineered for hyper-palatability and often sold more cheaply than whole foods. A 2009 USDA report estimated about 23.5 million Americans live in low-income areas far from a supermarket ('food deserts'), though research finds physical distance matters less than the relative price of healthy versus unhealthy food. Proponents of the systemic view argue the food environment is engineered to override satiety signals; the strongest evidence is a controlled NIH trial showing people overeat on ultra-processed diets. Skeptics of that view counter that personal agency still determines what people eat, and that framing the environment as inescapable infantilizes individuals.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "People make food choices every day, and millions of individuals in the same food environment maintain healthy weights. The existence of ultra-processed foods does not compel anyone to eat them. Personal responsibility advocates point out that calorie information is widely available, that affordable staple foods (rice, beans, frozen vegetables) exist even in low-income areas, and that cultural attitudes toward food shape overconsumption alongside corporate marketing. Countries with similar access to global food corporations (Japan, South Korea) have far lower obesity rates, which skeptics read as evidence that norms and individual behavior matter — though proponents note those countries also have stronger food policy and walkable infrastructure. Blaming the food environment alone, skeptics argue, risks a victim mentality that discourages the behavioral changes shown to reduce weight.",
-      proponent_rebuttal:
         "The food environment is not a neutral marketplace of free choice — it is an engineered system optimized for overconsumption. Research by Kevin Hall at the NIH (2019) demonstrated in a randomized controlled trial that people consumed about 500 more calories per day on an ultra-processed diet compared to an unprocessed diet matched for available calories, macronutrients, sugar, fat, and fiber. Participants were not told to overeat — the ultra-processed foods overrode their satiety signals. The systemic barriers are less about physical distance to a store — studies find supermarket proximity is not the decisive factor once prices are controlled — and more about affordability and marketing: in low-income neighborhoods the relative price of healthy versus junk food predicts obesity, and the food industry spends roughly $14 billion per year on advertising, with about $2 billion aimed at children and the heaviest targeting directed at low-income and minority communities. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable, fresh-food-oriented infrastructure that the US lacks — their lower obesity rates point to systemic factors, not merely greater individual virtue.",
+      proponent_rebuttal:
+        "People make food choices every day, and millions of individuals in the same food environment maintain healthy weights. The existence of ultra-processed foods does not compel anyone to eat them. Personal responsibility advocates point out that calorie information is widely available, that affordable staple foods (rice, beans, frozen vegetables) exist even in low-income areas, and that cultural attitudes toward food shape overconsumption alongside corporate marketing. Countries with similar access to global food corporations (Japan, South Korea) have far lower obesity rates, which supporters read as evidence that norms and individual behavior matter — though critics note those countries also have stronger food policy and walkable infrastructure. Blaming the food environment alone, supporters argue, risks a victim mentality that discourages the behavioral changes shown to reduce weight.",
       crux: {
         id: "food-environment-causation",
         title: "The Ultra-Processed Food Causation Test",
+        question:
+          "Does the ultra-processed food environment drive obesity, or does personal choice still dominate?",
         description:
           "Determine whether the ultra-processed food environment causally drives obesity independent of individual choice, or whether personal agency remains the dominant factor in weight outcomes.",
         methodology:
@@ -31,6 +34,16 @@ export const obesityPersonalResponsibilityData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-15M (Multi-site RCTs with metabolic ward and free-living phases, plus policy natural experiment analysis)",
+        falsification: {
+          supporter_flip:
+            "If trials extending Hall et al. to 6-12 months kept showing people overeating on ultra-processed diets, and policy natural experiments such as Chile's junk-food rules or Mexico's sugary drink tax cut population obesity, the case that obesity is mainly a matter of individual choice would weaken.",
+          skeptic_flip:
+            "A skeptic who sees an engineered food environment should weigh that millions of people in that same environment maintain healthy weights, that calorie information is widely available, and that affordable staples such as rice, beans and frozen vegetables exist even in low-income areas.",
+          common_ground:
+            "Both sides agree Japan and South Korea have far lower obesity than the US despite access to many of the same global food companies, and that both norms and food policy differ there.",
+          live_disagreement:
+            "Whether an environment engineered for overconsumption drives obesity in ways individual choice cannot easily override, or whether personal agency still decides what people eat within it.",
+        },
       },
       evidence: [
         {
@@ -121,15 +134,17 @@ export const obesityPersonalResponsibilityData = {
       id: "genetics-and-biology",
       title: "Genetics and Biology",
       short_summary:
-        "Twin studies consistently show that BMI heritability is 40-70%, and over 1,000 genetic variants associated with obesity have been identified through GWAS. The gut microbiome, hormonal regulation (leptin, ghrelin, insulin), and metabolic adaptation all influence body weight in ways that cannot be overridden by willpower alone. Skeptics argue that genes have not changed in 50 years while obesity tripled, suggesting environment and behavior remain the primary drivers.",
+        "Twin studies consistently show that BMI heritability is 40-70%, and over 1,000 genetic variants associated with obesity have been identified through GWAS. The gut microbiome, hormonal regulation (leptin, ghrelin, insulin), and metabolic adaptation all influence body weight in ways that cannot be overridden by willpower alone. Skeptics of the biological explanation argue that genes have not changed in 50 years while obesity tripled, suggesting environment and behavior remain the primary drivers.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "While genetics clearly influence body weight predisposition, the obesity epidemic is a recent phenomenon — US adult obesity roughly tripled from about 13% in the early 1960s to over 42% by 2017-18 (NHANES). Human genetics did not change meaningfully in two generations. What changed was the environment and behavior: average caloric intake rose by several hundred calories per day, occupational physical activity declined dramatically, and sedentary screen time exploded. Twin studies showing 40-70% heritability mean that within a given environment, genetics explain much of the variation — but when the entire environment shifts toward overconsumption, the population distribution shifts with it. Genetics set the range; choices determine where individuals fall within that range. Overemphasizing biology creates fatalism that discourages the dietary and exercise changes that have been proven to reduce weight.",
-      proponent_rebuttal:
         "The biological case is far stronger than 'genetics set a range.' Leptin, the primary satiety hormone, was discovered in 1994 — and subsequent research showed that obese individuals develop leptin resistance, meaning their brains cannot properly register satiety signals regardless of willpower. Metabolic adaptation studies (Fothergill et al. 2016, published in Obesity) tracked Biggest Loser contestants and found that six years after dramatic weight loss, their metabolisms had slowed by an average of 500 kcal/day below predicted levels, and their leptin levels remained suppressed. This means the body actively fights to regain lost weight through hormonal and metabolic mechanisms. Gut microbiome research has shown that transplanting gut bacteria from obese mice into germ-free lean mice causes weight gain without any change in diet. The 40-70% heritability figure means genetics are the single largest determinant of body weight — larger than any individual behavioral factor. The obesity epidemic reflects gene-environment interaction: susceptible genotypes existed for millennia but were only exposed to the modern hypercaloric environment recently.",
+      proponent_rebuttal:
+        "While genetics clearly influence body weight predisposition, the obesity epidemic is a recent phenomenon — US adult obesity roughly tripled from about 13% in the early 1960s to over 42% by 2017-18 (NHANES). Human genetics did not change meaningfully in two generations. What changed was the environment and behavior: average caloric intake rose by several hundred calories per day, occupational physical activity declined dramatically, and sedentary screen time exploded. Twin studies showing 40-70% heritability mean that within a given environment, genetics explain much of the variation — but when the entire environment shifts toward overconsumption, the population distribution shifts with it. Genetics set the range; choices determine where individuals fall within that range. Overemphasizing biology creates fatalism that discourages the dietary and exercise changes that have been proven to reduce weight.",
       crux: {
         id: "biological-determinism-threshold",
         title: "The Biological Override Threshold Test",
+        question:
+          "How far do genes and the body's set point limit what diet and willpower can achieve?",
         description:
           "Determine the degree to which biological factors (genetics, hormones, microbiome, metabolic adaptation) constrain an individual's ability to maintain a healthy weight through behavioral changes alone. If biological factors create a 'set point' that the body defends through metabolic and hormonal adaptation, willpower-based interventions are fundamentally limited.",
         methodology:
@@ -137,6 +152,16 @@ export const obesityPersonalResponsibilityData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$10-25M (Multi-year longitudinal metabolic study with comprehensive biomarker tracking across behavioral and pharmacological cohorts)",
+        falsification: {
+          supporter_flip:
+            "If 5-year metabolic studies of people who lose weight through diet and exercise alone found metabolism and appetite hormones defending the old weight so strongly that few keep off more than 10%, behavior-based change would be fundamentally limited and the personal-choice claim would weaken.",
+          skeptic_flip:
+            "A skeptic who stresses biology should weigh that US adult obesity rose from 13.4% in 1960-62 to 42.4% in 2017-18 while the human genome did not change meaningfully, so something in environment and behavior shifted the whole population.",
+          common_ground:
+            "Both sides agree BMI is substantially heritable — twin studies put it at 40-70% — and that the recent rise reflects susceptible genes meeting a changed environment, not genes changing.",
+          live_disagreement:
+            "Whether genes and metabolic adaptation set a range within which choices decide where people land, or defend a set point strongly enough that diet and willpower alone rarely overcome it.",
+        },
       },
       evidence: [
         {
@@ -214,7 +239,7 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://doi.org/10.1016/S0140-6736(11)60813-1",
           reasoning:
-            "NHANES is the gold standard for US population health surveillance, and the obesity trend is among the most replicated findings in public health. The argument that genes cannot explain a 50-year population shift is logically sound. However, proponents counter that the gene-environment interaction framework explains precisely this: genetically susceptible individuals were always present but only became obese when exposed to the modern food environment, which is itself a systemic (not individual choice) argument.",
+            "NHANES is the gold standard for US population health surveillance, and the obesity trend is among the most replicated findings in public health. The argument that genes cannot explain a 50-year population shift is logically sound. However, proponents of the biological view counter that the gene-environment interaction framework explains precisely this: genetically susceptible individuals were always present but only became obese when exposed to the modern food environment, which is itself a systemic (not individual choice) argument.",
         },
       ],
     },
@@ -226,15 +251,17 @@ export const obesityPersonalResponsibilityData = {
       id: "glp1-revolution",
       title: "The GLP-1 Revolution",
       short_summary:
-        "Semaglutide (Ozempic/Wegovy) produced about 15% mean weight loss in its pivotal trial and tirzepatide (Mounjaro/Zepbound) about 22%, by mimicking gut hormones that regulate appetite and satiety. Proponents argue that the dramatic success of pharmacological intervention proves obesity is a biological disease requiring medical treatment, not a moral failing. Skeptics contend that GLP-1 drugs are an expensive crutch that medicalizes lifestyle problems, can create long-term pharmaceutical dependency, and diverts attention from addressing root causes.",
+        "Semaglutide (Ozempic/Wegovy) produced about 15% mean weight loss in its pivotal trial and tirzepatide (Mounjaro/Zepbound) about 22%, by mimicking gut hormones that regulate appetite and satiety. Proponents of the disease model argue that the dramatic success of pharmacological intervention proves obesity is a biological disease requiring medical treatment, not a moral failing. Its skeptics contend that GLP-1 drugs are an expensive crutch that medicalizes lifestyle problems, can create long-term pharmaceutical dependency, and diverts attention from addressing root causes.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "GLP-1 drugs work by suppressing appetite — they do not fix any underlying 'disease.' They are essentially pharmaceutical willpower substitutes carrying US list prices of roughly $1,000-1,350 per month, and stopping them brings most of the weight back (about two-thirds of the loss returns within a year), implying long-term dependency while generating large profits for manufacturers. The medicalization of obesity through GLP-1 drugs, skeptics argue, diverts attention from cheaper, more sustainable solutions: better nutrition education, food policy reform, urban design for walkability, and cultural shifts toward healthier eating. And if obesity were a uniform biological disease, it would not be so heavily concentrated among low-income populations — that gradient, skeptics say, points to environmental and behavioral drivers. Meeting a cheap, hyper-palatable food environment with an expensive lifelong prescription, on this view, treats the symptom rather than the cause.",
-      proponent_rebuttal:
         "The success of GLP-1 drugs is the strongest evidence that obesity is a biological condition, not a character flaw. Semaglutide 2.4mg (Wegovy) produced 14.9% weight loss in the STEP 1 trial (Wilding et al., NEJM 2021) — more than any behavioral intervention has ever consistently achieved. Tirzepatide produced 22.5% weight loss in SURMOUNT-1 (Jastreboff et al., NEJM 2022). These drugs work by correcting the impaired gut-brain signaling that drives overeating, not by creating artificial willpower. The weight regain upon discontinuation actually proves the biological argument: if obesity were merely a behavioral choice, people who learned healthier habits during treatment would maintain their weight loss. Instead, the body's biological drive to restore its previous weight overwhelms behavioral changes once the pharmacological correction is removed — exactly as occurs when insulin is discontinued in Type 2 diabetes. The SELECT trial (Lincoff et al., NEJM 2023) showed semaglutide reduced major adverse cardiovascular events by 20% independent of weight loss, revealing metabolic disease pathways that transcend body weight. Socioeconomic disparities in obesity reflect disparities in the food environment, stress, and healthcare access — not proof that obesity is a choice.",
+      proponent_rebuttal:
+        "GLP-1 drugs work by suppressing appetite — they do not fix any underlying 'disease.' They are essentially pharmaceutical willpower substitutes carrying US list prices of roughly $1,000-1,350 per month, and stopping them brings most of the weight back (about two-thirds of the loss returns within a year), implying long-term dependency while generating large profits for manufacturers. The medicalization of obesity through GLP-1 drugs, supporters argue, diverts attention from cheaper, more sustainable solutions: better nutrition education, food policy reform, urban design for walkability, and cultural shifts toward healthier eating. And if obesity were a uniform biological disease, it would not be so heavily concentrated among low-income populations — that gradient, supporters say, points to environmental and behavioral drivers. Meeting a cheap, hyper-palatable food environment with an expensive lifelong prescription, on this view, treats the symptom rather than the cause.",
       crux: {
         id: "glp1-disease-model-validation",
         title: "The GLP-1 Disease Model Validation Test",
+        question:
+          "Do GLP-1 drugs work by correcting a biological defect, or simply by suppressing appetite?",
         description:
           "Determine whether GLP-1 drug efficacy validates the disease model of obesity or merely demonstrates that pharmacological appetite suppression can override behavioral patterns. If GLP-1 drugs correct specific biological deficits (impaired incretin signaling, leptin resistance, disrupted gut-brain communication) that cause obesity independent of food environment and behavior, the disease model is validated. If they primarily function as appetite suppressants that work regardless of biological status, they are treating a symptom, not a disease.",
         methodology:
@@ -242,6 +269,16 @@ export const obesityPersonalResponsibilityData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$20-50M (Large stratified RCT with comprehensive biomarker profiling across pharmacological and behavioral arms)",
+        falsification: {
+          supporter_flip:
+            "If trials stratified by biological markers found GLP-1 response tracking the severity of impaired gut-brain signaling or leptin resistance, the drugs would be correcting a specific deficit, and the case that obesity is mainly a matter of choice would weaken.",
+          skeptic_flip:
+            "A skeptic who sees obesity as a disease should weigh that GLP-1 drugs work by suppressing appetite, that about two-thirds of the lost weight returns within a year of stopping, and that obesity is heavily concentrated among low-income populations, a gradient that points to environment and behavior.",
+          common_ground:
+            "Both sides accept the trial results — about 15% mean weight loss on semaglutide and 22% on tirzepatide — and that most of the weight comes back after the drugs are stopped.",
+          live_disagreement:
+            "Whether weight regain after stopping shows a biological drive the drugs correct, as insulin does in Type 2 diabetes, or dependence on an appetite suppressant that treats the symptom rather than the cause.",
+        },
       },
       evidence: [
         {
@@ -287,7 +324,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "67% of Weight Regained Within One Year of GLP-1 Discontinuation",
           description:
-            "The STEP 1 trial extension (Wilding et al., Diabetes, Obesity and Metabolism 2022) followed a representative subset of participants who discontinued semaglutide and lifestyle intervention after 68 weeks for an additional year. One year after withdrawal, participants regained about two-thirds (~67%) of their prior weight loss, with cardiometabolic variables reverting in parallel. Proponents argue this reflects the body's biological defense of a higher weight; skeptics argue it shows pharmaceutical dependency rather than cure.",
+            "The STEP 1 trial extension (Wilding et al., Diabetes, Obesity and Metabolism 2022) followed a representative subset of participants who discontinued semaglutide and lifestyle intervention after 68 weeks for an additional year. One year after withdrawal, participants regained about two-thirds (~67%) of their prior weight loss, with cardiometabolic variables reverting in parallel. Proponents of the disease model argue this reflects the body's biological defense of a higher weight; its skeptics argue it shows pharmaceutical dependency rather than cure.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -319,7 +356,7 @@ export const obesityPersonalResponsibilityData = {
           sourceUrl:
             "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
           reasoning:
-            "List-price data is publicly verifiable, and limited obesity-indication coverage is documented by KFF. The prior draft's specific '$15,000/year' and '$100B JP Morgan addressable-market' figures were removed because they could not be primary-source verified and the pricing/coverage landscape is shifting quickly (cash prices have fallen well below list). Directness lowered: cost and equity are implementation concerns, not evidence against the disease model itself — proponents note insulin is also costly and creates dependency, yet diabetes is not deemed a mere lifestyle choice.",
+            "List-price data is publicly verifiable, and limited obesity-indication coverage is documented by KFF. The prior draft's specific '$15,000/year' and '$100B JP Morgan addressable-market' figures were removed because they could not be primary-source verified and the pricing/coverage landscape is shifting quickly (cash prices have fallen well below list). Directness lowered: cost and equity are implementation concerns, not evidence against the disease model itself — proponents of the disease model note insulin is also costly and creates dependency, yet diabetes is not deemed a mere lifestyle choice.",
         },
       ],
     },

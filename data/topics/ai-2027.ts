@@ -1,6 +1,8 @@
 export const ai2027Data = {
   id: "ai-2027",
   title: "AI 2027: The Recursive-Automation Timeline",
+  question:
+    "Will automating AI research bring superintelligence by the late 2020s?",
   meta_claim:
     "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s — making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
   status: "highly_speculative" as const,
@@ -54,6 +56,8 @@ export const ai2027Data = {
       crux: {
         id: "task-horizon-trajectory",
         title: "The METR Task-Horizon Trajectory",
+        question:
+          "Will the length of tasks AI can complete on its own keep doubling at its recent pace, or plateau?",
         description:
           "The single most load-bearing measurement in the whole scenario: the '50%-task-completion time horizon' — the human-clock length of task at which a frontier model succeeds half the time. If this horizon keeps doubling on its recent cadence, short timelines follow almost mechanically; if it plateaus, the intelligence-explosion loop never ignites and the timeline stretches out for decades.",
         methodology:
@@ -63,6 +67,16 @@ export const ai2027Data = {
         verification_status: "verified" as const,
         cost_to_verify:
           "$0 to track (METR maintains the series; the open question is extrapolation, not measurement)",
+        falsification: {
+          supporter_flip:
+            "If METR's 50%-completion time horizon stopped doubling across new model generations — or kept rising on software benchmarks but not on messy real-world research tasks — the intelligence-explosion loop would never ignite and the timeline would stretch out for decades.",
+          skeptic_flip:
+            "A skeptic who stresses serial bottlenecks should weigh that METR finds the length of task frontier models complete on their own has doubled roughly every seven months since 2019, and that success on real GitHub issue-resolution tasks rose from a few percent to a majority within about two years.",
+          common_ground:
+            "Both sides agree the autonomous task horizon has been doubling roughly every seven months, and that training runs, chip supply and experiment latency still constrain how fast research can go.",
+          live_disagreement:
+            "Whether that doubling carries over to real research tasks and lets AI reallocate around compute and experiment bottlenecks, or whether those serial steps cap the loop's speed however fast the thinking gets.",
+        },
       },
       evidence: [
         {
@@ -147,6 +161,8 @@ export const ai2027Data = {
       crux: {
         id: "effective-compute-extrapolation",
         title: "The Effective-Compute Extrapolation",
+        question:
+          "Can compute and algorithmic progress stay on trend until AI can automate AI research?",
         description:
           "Combine hardware compute growth and algorithmic-efficiency growth into a single 'effective compute' curve and ask whether it reaches the level the scenario needs for research automation before any input wall (data, energy, capital) forces it to bend.",
         methodology:
@@ -155,6 +171,16 @@ export const ai2027Data = {
           "C_{\\text{eff}}(t) = C_{\\text{hardware}}(t) \\cdot A(t), \\quad C \\sim 4\\text{–}5\\times/\\text{yr}",
         verification_status: "verified" as const,
         cost_to_verify: "$0 (public Epoch AI trend data; extrapolation is the contested step)",
+        falsification: {
+          supporter_flip:
+            "If projecting Epoch AI's effective-compute curve against explicit ceilings — high-quality data, fab and power buildout, benchmark gains per FLOP on reasoning tasks — showed a binding wall arriving before the automation threshold, the scenario's timeline would fail.",
+          skeptic_flip:
+            "A skeptic who sees every input bending should weigh that frontier training compute has grown roughly 4–5× per year, that algorithmic efficiency compounds on top of it, and that the scenario needs the trend to hold only for a few more orders of magnitude, not forever.",
+          common_ground:
+            "Both sides agree frontier training compute has grown roughly 4–5× a year, and that Chinchilla-style scaling makes the finite stock of high-quality human text a real constraint.",
+          live_disagreement:
+            "Whether workarounds like synthetic data, self-play and RL on verifiable tasks keep effective compute on trend until the automation threshold, or whether data, energy and capital limits bend the curve first.",
+        },
       },
       evidence: [
         {
@@ -259,6 +285,8 @@ export const ai2027Data = {
       crux: {
         id: "software-intelligence-explosion",
         title: "The Software-Intelligence-Explosion Test",
+        question:
+          "Once AI automates much of AI research, does progress leap ahead in months or ramp up over decades?",
         description:
           "Measure the R&D acceleration factor: once AI automates a given fraction of research labor, how many months of prior human-paced algorithmic progress does the automated system compress into one calendar month? A factor near 1 means slow takeoff; a factor that climbs steeply as automation deepens means fast takeoff.",
         methodology:
@@ -268,6 +296,16 @@ export const ai2027Data = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "Effectively only observable near the threshold; no clean pre-registration exists today",
+        falsification: {
+          supporter_flip:
+            "If measurements holding hardware fixed found the R&D acceleration factor staying near 1, or rising only sub-linearly as automation deepened, takeoff would be the slow, economically visible ramp Christiano describes rather than a few-month explosion.",
+          skeptic_flip:
+            "A skeptic who expects a slow ramp should weigh that Davidson's compute-centric model finds a plausible path compressed into months once the loop closes, because the software side has no fab-construction latency, and that AlphaTensor and related systems already improve the tools of their own field.",
+          common_ground:
+            "Both sides grant that a feedback loop exists — AI already improves parts of its own stack — and that some of its output must flow through fabs, power and deployment.",
+          live_disagreement:
+            "How much of the loop is software-limited and able to run in months, versus hardware-limited by fabs, power and slow experiments — which decides whether takeoff is an abrupt explosion or a years-long, visible ramp.",
+        },
       },
       evidence: [
         {
@@ -353,6 +391,8 @@ export const ai2027Data = {
       crux: {
         id: "coordination-vs-race",
         title: "The Observable-Racing Indicators",
+        question:
+          "Will the leading AI developers and governments keep racing, or coordinate to slow down?",
         description:
           "Rather than argue about intentions, track whether the leading actors behave like racers or coordinators: the ratio of safety-to-capability spending, compliance with (or defection from) any compute or evaluation agreements, and whether frontier compute buildout accelerates or pauses after major capability jumps.",
         methodology:
@@ -360,6 +400,16 @@ export const ai2027Data = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$0 to monitor disclosures, but resolves only as the geopolitical situation unfolds",
+        falsification: {
+          supporter_flip:
+            "If frontier labs' safety share of spending grew after capability jumps, compute buildout paused after major milestones, and actors complied with compute or evaluation agreements, the premise that race dynamics remove every brake would fail.",
+          skeptic_flip:
+            "A skeptic who expects coordination should weigh that frontier labs and their backers have committed tens to hundreds of billions of dollars to compute, and that AI progress is far harder to verify than fissile material, which strains the arms-control analogy.",
+          common_ground:
+            "Both sides agree verification is what made past restraint between rivals possible, and that frontier AI is already being treated as a race between labs and between the US and China.",
+          live_disagreement:
+            "Whether a hard-to-verify technology with enormous commercial upside can still be slowed by agreements, export controls, liability or backlash, or whether a national-security framing makes unilateral slowdown look like surrender.",
+        },
       },
       evidence: [
         {
@@ -447,12 +497,24 @@ export const ai2027Data = {
       crux: {
         id: "forecast-calibration-scorecard",
         title: "The Milestone Calibration Scorecard",
+        question:
+          "Are aggressive AI forecasts like this one well calibrated, or systematically too early?",
         description:
           "Turn the debate into a resolvable bet: extract the AI 2027 scenario's datable, checkable milestones (capability thresholds, automation fractions, compute levels) and score them against reality as each date passes. A running Brier-style scorecard reveals whether this forecasting method is well-calibrated or systematically early.",
         methodology:
           "Pre-register the scenario's concrete milestones with resolution dates and criteria, then compare against the METR task-horizon series, benchmark results, and observed lab behavior at each checkpoint. Aggregate hits and misses into a calibration score, and update the timeline distribution accordingly rather than treating 2027 as fixed.",
         verification_status: "theoretical" as const,
         cost_to_verify: "$0, but resolves only with the passage of time",
+        falsification: {
+          supporter_flip:
+            "If a pre-registered scorecard of the scenario's datable milestones — capability thresholds, automation fractions, compute levels — kept coming in late as each date passed, the method would look systematically early and the late-2020s timeline should be discounted.",
+          skeptic_flip:
+            "A skeptic who remembers the AI winters should weigh that the recent base rate runs the other way — forecasters were repeatedly surprised by GPT-scale jumps, and surveyed ML researchers moved many milestone dates earlier — and that Kokotajlo's 2021 'What 2026 Looks Like' anticipated much of what followed.",
+          common_ground:
+            "Both sides agree the AI 2027 authors flag deep uncertainty themselves — 2027 is an aggressive mode and some give a later median — so the scenario is not a point forecast.",
+          live_disagreement:
+            "Whether the recent record of too-conservative forecasts or the older record of AI winters is the better guide to this one — which a running scorecard of the scenario's milestones would test.",
+        },
       },
       evidence: [
         {

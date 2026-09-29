@@ -41,6 +41,11 @@ const config: Config = {
         card: "rgb(var(--bg-card-rgb) / <alpha-value>)",
         subtle: "rgb(var(--bg-subtle-rgb) / <alpha-value>)",
         divider: "rgb(var(--border-divider-rgb) / <alpha-value>)",
+        // The one keyboard-focus colour: `focus-visible:ring-focus`. Teal in
+        // both themes, at full strength so the ring clears 3:1 against the
+        // surface (light #3a6965, 5.5:1 on the canvas; dark #7fb5b0, 7.6:1).
+        // A faded `ring-deep/40` was 1.8:1 light and 1.4:1 dark.
+        focus: "rgb(var(--focus-ring-rgb) / <alpha-value>)",
 
         deep: {
           DEFAULT: "#3a6965", // Deep teal — primary accent (darkened for WCAG AA 4.5:1 on parchment)

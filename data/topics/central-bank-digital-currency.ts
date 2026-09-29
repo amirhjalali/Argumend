@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const centralBankDigitalCurrencyData = {
   id: "central-bank-digital-currency",
   title: "Central Bank Digital Currencies",
+  question:
+    "Would central bank digital currencies enable unprecedented surveillance?",
   meta_claim:
     "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
   status: "contested" as const,
@@ -76,6 +78,8 @@ export const centralBankDigitalCurrencyData = {
       crux: {
         id: "privacy-architecture-test",
         title: "The Architectural Privacy Assessment",
+        question:
+          "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
         description:
           "The crux is whether CBDC systems can be designed with privacy protections that are architecturally enforced (technically impossible to surveil) rather than merely policy-enforced (prohibited by rules that can be changed). If cryptographic techniques like zero-knowledge proofs can provide transaction privacy that not even the central bank can break, the surveillance concern is addressed. If all proposed designs retain the technical capability for surveillance, privacy protections are only as durable as political will.",
         methodology:
@@ -165,6 +169,8 @@ export const centralBankDigitalCurrencyData = {
       crux: {
         id: "cbdc-vs-existing-inclusion",
         title: "The CBDC vs. Existing Solutions Comparison",
+        question:
+          "Do CBDCs expand financial inclusion beyond what existing mobile-money systems already do?",
         description:
           "The crux is whether a CBDC provides financial inclusion benefits that cannot be achieved through existing mobile money and digital payment systems. If a CBDC's unique characteristics (central bank backing, programmability, interoperability) provide measurable improvements in inclusion, access, and cost over existing alternatives, the case for CBDCs is strengthened. If existing systems already achieve comparable results, the CBDC adds risk without proportionate benefit.",
         methodology:
@@ -174,9 +180,9 @@ export const centralBankDigitalCurrencyData = {
           "$500K-1.5M (Multi-country comparative financial inclusion study)",
         falsification: {
           supporter_flip:
-            "If a controlled multi-country comparison showed that existing mobile-money and instant-payment rails (M-Pesa, India's UPI) already reach the unbanked and cut remittance costs just as well as a CBDC — with no inclusion gap a CBDC uniquely closes — the inclusion rationale would shrink to redundancy, leaving the CBDC's added surveillance and bank-disintermediation risks without an offsetting benefit.",
+            "A supporter who points to M-Pesa should weigh that mobile-money networks are privately controlled, fragmented across providers, and often non-interoperable, whereas a central-bank-backed, universally interoperable unit could in principle deliver crisis stimulus to every citizen in seconds — something the US visibly failed to do when COVID checks took weeks and missed millions of unbanked people.",
           skeptic_flip:
-            "A skeptic who points to M-Pesa should weigh that mobile-money networks are privately controlled, fragmented across providers, and often non-interoperable, whereas a central-bank-backed, universally interoperable unit could in principle deliver crisis stimulus to every citizen in seconds — something the US visibly failed to do when COVID checks took weeks and missed millions of unbanked people.",
+            "A skeptic who rests the case for CBDCs on inclusion should change their mind if a controlled multi-country comparison showed that existing mobile-money and instant-payment rails (M-Pesa, India's UPI) already reach the unbanked and cut remittance costs just as well as a CBDC, with no inclusion gap a CBDC uniquely closes: the inclusion rationale would then shrink to redundancy, leaving the CBDC's added surveillance and bank-disintermediation risks without an offsetting benefit.",
           common_ground:
             "Both sides agree that financial inclusion is a real and valuable goal and that the unbanked are largely excluded by poverty, missing ID, and distrust rather than by a lack of digital-currency technology.",
           live_disagreement:
@@ -231,12 +237,14 @@ export const centralBankDigitalCurrencyData = {
         "Cross-border CBDC settlement systems like mBridge could enable countries to trade without using the US dollar or SWIFT, potentially undermining America's sanctions power and the dollar's reserve currency status. The question is whether this represents an existential threat to US financial hegemony or an incremental development.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "CBDCs pose a genuine threat to dollar dominance. China's digital yuan had roughly 180 million personal wallets by mid-2024 and is being integrated into cross-border payment projects including mBridge — a multi-CBDC platform developed with the BIS that enables direct currency-to-currency settlement without routing through SWIFT or the dollar. If major trading partners can settle oil, commodity, and trade payments in digital yuan or through CBDC bridges, the US loses its most powerful geopolitical tool: the ability to exclude adversaries from the global financial system through sanctions. Russia's partial exclusion from SWIFT after invading Ukraine has accelerated interest in CBDC alternatives among countries that fear similar treatment, including India, Saudi Arabia, Brazil, and South Africa.",
-      proponent_rebuttal:
         "The de-dollarization narrative is vastly overstated. The US dollar accounts for roughly 58% of global foreign exchange reserves, around 88% of foreign exchange transactions (one side of nearly nine in ten trades), and is the invoicing currency for roughly half of global trade — a dominance built over 80 years of institutional trust, deep capital markets, rule of law, and military power. No CBDC can replicate these foundations. China's digital yuan is primarily used domestically for small retail transactions, not international trade settlement. The mBridge project is a pilot with limited participants, and even its full deployment would not change the fundamental reasons countries hold dollar reserves: US Treasury market depth, the legal enforceability of dollar-denominated contracts, and the Federal Reserve's role as global lender of last resort. CBDCs may nibble at the margins of dollar dominance, but the structural advantages of the dollar system are not technical — they are institutional.",
+      proponent_rebuttal:
+        "CBDCs pose a genuine threat to dollar dominance. China's digital yuan had roughly 180 million personal wallets by mid-2024 and is being integrated into cross-border payment projects including mBridge — a multi-CBDC platform developed with the BIS that enables direct currency-to-currency settlement without routing through SWIFT or the dollar. If major trading partners can settle oil, commodity, and trade payments in digital yuan or through CBDC bridges, the US loses its most powerful geopolitical tool: the ability to exclude adversaries from the global financial system through sanctions. Russia's partial exclusion from SWIFT after invading Ukraine has accelerated interest in CBDC alternatives among countries that fear similar treatment, including India, Saudi Arabia, Brazil, and South Africa.",
       crux: {
         id: "cbdc-sanctions-evasion-capacity",
         title: "The Sanctions Evasion Capacity Test",
+        question:
+          "Can cross-border CBDC payments grow large enough to meaningfully blunt US sanctions?",
         description:
           "The crux is whether CBDC-based cross-border payment systems can provide a viable alternative to SWIFT and dollar settlement at sufficient scale to meaningfully reduce the effectiveness of US financial sanctions. If countries under sanctions can route significant trade volumes through CBDC bridges without using the dollar, US sanctions power is genuinely threatened. If CBDC bridges remain limited by network effects, liquidity constraints, and geopolitical risks, they represent marginal alternatives at best.",
         methodology:

@@ -1,6 +1,7 @@
 export const surveillancePublicSafetyData = {
   id: "surveillance-public-safety",
   title: "Surveillance and Public Safety",
+  question: "Does expanding government surveillance meaningfully reduce crime?",
   meta_claim:
     "Expanding government surveillance technology (facial recognition, CCTV, license plate readers, predictive policing) meaningfully reduces crime and improves public safety—a claim weighed here against the best evidence on effectiveness, which is real but modest and context-dependent, and against documented costs to accuracy, civil liberties, and equal treatment.",
   status: "contested" as const,
@@ -35,6 +36,8 @@ export const surveillancePublicSafetyData = {
       crux: {
         id: "surveillance-crime-rct",
         title: "Randomized Controlled Trial of Surveillance Expansion",
+        question:
+          "Does surveillance prevent crime, or push it to nearby areas?",
         description:
           "A rigorous experimental evaluation of surveillance technology deployment in matched communities, measuring crime rates, crime displacement, civil liberties impacts, and community trust.",
         methodology:
@@ -123,6 +126,8 @@ export const surveillancePublicSafetyData = {
       crux: {
         id: "surveillance-oversight-framework",
         title: "Effective Surveillance Oversight Model",
+        question:
+          "Can oversight reliably limit surveillance harms, or does the infrastructure inevitably drift toward abuse?",
         description:
           "Determining whether surveillance technology can be deployed with oversight mechanisms sufficient to prevent civil liberties abuses while maintaining public safety benefits.",
         methodology:

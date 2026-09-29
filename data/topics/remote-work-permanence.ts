@@ -1,6 +1,8 @@
 export const remoteWorkPermanenceData = {
   id: "remote-work-permanence",
   title: "The Future of Remote Work",
+  question:
+    "Will remote and hybrid work permanently replace the five-day office week?",
   meta_claim:
     "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
   status: "contested" as const,
@@ -19,6 +21,8 @@ export const remoteWorkPermanenceData = {
       crux: {
         id: "innovation-output-measurement",
         title: "Remote vs. In-Office Innovation Output",
+        question:
+          "Do remote teams produce as much innovation as comparable in-office teams?",
         description:
           "Controlled comparison of innovation metrics (patents, new products, revenue from new initiatives) between matched remote and in-office teams.",
         methodology:
@@ -27,6 +31,16 @@ export const remoteWorkPermanenceData = {
           "\\Delta I = I_{remote} - I_{office} \\pm \\text{confounders}",
         verification_status: "theoretical" as const,
         cost_to_verify: "$2M (Multi-year controlled study across firms)",
+        falsification: {
+          supporter_flip:
+            "If controlled comparisons across companies with different remote policies — matched on industry, size and prior innovation — showed hybrid teams, not just fully remote ones, producing fewer patents, launches and breakthroughs, the productivity case for a permanent shift would weaken.",
+          skeptic_flip:
+            "A skeptic citing lost collaboration should weigh that Bloom's randomized experiment found a 13% productivity gain for remote call-center staff, that his later work finds well-run hybrid does not hurt productivity while sharply cutting attrition, and that US utility patent filings stayed broadly flat across 2020-2024.",
+          common_ground:
+            "Both sides accept that sudden, firm-wide remote work carried real collaboration costs: Microsoft's study of 61,182 employees found its collaboration networks grew more siloed.",
+          live_disagreement:
+            "Whether hybrid work with periodic in-person time keeps the mentorship and spontaneous collaboration that drive breakthroughs, or whether distributed teams produce fewer disruptive ideas however they are designed.",
+        },
       },
       evidence: [
         {
@@ -118,6 +132,8 @@ export const remoteWorkPermanenceData = {
       crux: {
         id: "urban-economic-adaptation",
         title: "Urban Economic Adaptation Timeline",
+        question:
+          "How quickly can cities adapt to emptier offices through conversions, rezoning and new uses?",
         description:
           "Measuring how quickly urban economies can adapt to reduced office occupancy through conversion, rezoning, and new economic models.",
         methodology:
@@ -126,6 +142,16 @@ export const remoteWorkPermanenceData = {
           "T_{adapt} = f(\\text{vacancy rate}, \\text{conversion cost}, \\text{zoning flexibility})",
         verification_status: "theoretical" as const,
         cost_to_verify: "$1M (Multi-city longitudinal economic study)",
+        falsification: {
+          supporter_flip:
+            "If tracking conversions, downtown foot traffic and new business formation showed major cities failing to absorb emptier offices for years — vacancy stuck near record highs and maturing commercial real estate debt going bad — the costs of the shift would look permanent rather than transitional.",
+          skeptic_flip:
+            "A skeptic focused on downtown decline should weigh that remote or hybrid postings stood at 7.8% of US job ads in October 2024, roughly 3x the 2.6% pre-pandemic share, and that office-to-residential conversions are accelerating where zoning allows.",
+          common_ground:
+            "Both sides agree US office vacancy hit a record 19.8% in Q1 2024 and that the office segment of commercial real estate is under real stress.",
+          live_disagreement:
+            "Whether cities can repurpose emptied offices and rebuild downtown economies fast enough to make the costs transitional, or whether strained tax bases and lost commuter spending leave lasting damage.",
+        },
       },
       evidence: [
         {

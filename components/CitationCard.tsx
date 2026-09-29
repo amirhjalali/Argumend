@@ -96,7 +96,7 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
         rel="noopener noreferrer"
         className="group -my-[13px] inline-flex items-start gap-1.5 py-[13px] font-sans text-xs text-secondary dark:text-stone-400 transition-colors hover:text-deep dark:hover:text-accent-text"
       >
-        <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-stone-100 text-[10px] font-bold text-stone-500 group-hover:bg-deep/10 group-hover:text-deep transition-colors flex-shrink-0 mt-0.5">
+        <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-subtle text-[10px] font-bold text-muted group-hover:bg-deep/10 group-hover:text-deep dark:group-hover:text-accent-text transition-colors flex-shrink-0 mt-0.5">
           {index}
         </span>
         <span className="leading-tight">{reference.title}</span>

@@ -22,6 +22,7 @@ import { legacyTopicPage } from "@/lib/topicPage/legacy";
 import { numberWord, type SettleView } from "@/lib/topicPage/model";
 import { settleMode } from "@/components/topic/cruxPrimitives";
 import type { Topic } from "@/lib/schemas/topic";
+import { mapDisplayTitle } from "@/lib/mapNaming";
 
 /**
  * How many agreed facts the widget shows, so it stays one screen tall. A
@@ -63,7 +64,7 @@ export function embedMeta(id: string): { title: string; description: string } | 
   const map = argumentTopicIndex.find((topic) => topic.id === id);
   if (map) return { title: map.title, description: map.tagline };
   const topic = topicSummaries.find((summary) => summary.id === id);
-  return topic ? { title: topic.title, description: topic.meta_claim } : null;
+  return topic ? { title: mapDisplayTitle(topic), description: topic.meta_claim } : null;
 }
 
 export async function loadEmbedModel(id: string): Promise<EmbedModel | null> {

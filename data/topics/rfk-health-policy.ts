@@ -1,6 +1,8 @@
 export const rfkHealthPolicyData = {
   id: "rfk-health-policy",
   title: "RFK Jr's Health Policy Agenda (MAHA)",
+  question:
+    "Will RFK Jr.'s 'Make America Healthy Again' agenda improve US health?",
   meta_claim:
     "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const rfkHealthPolicyData = {
       crux: {
         id: "full-schedule-trial",
         title: "The Whole-Schedule Comparative Trial Test",
+        question:
+          "Does the childhood vaccine schedule as a whole carry harms that studies of single vaccines miss?",
         description:
           "The disagreement turns on whether the cumulative current schedule — total adjuvant load, dose timing, and shot-stacking — carries net harms not captured by component-level studies. The decisive question is purely methodological: whether a prospective randomized 'full schedule vs lighter schedule' trial can be run ethically. It cannot, because withholding established vaccines from a control group would expose children to known, preventable disease. Critically, the absence of such an RCT does not mean schedule-wide safety is unresolved: large linked-database surveillance (the Vaccine Safety Datalink) and the 2011/2013 IOM reviews already provide the consensus answer that the schedule is safe. The missing trial is an ethics artifact, not an open evidentiary question.",
         methodology:
@@ -29,6 +33,16 @@ export const rfkHealthPolicyData = {
         verification_status: "impossible" as const,
         cost_to_verify:
           "Ethically prohibited as an RCT; ~$10-50M for the strongest observational alternative (large linked-cohort study)",
+        falsification: {
+          supporter_flip:
+            "If large linked-database studies such as the Vaccine Safety Datalink, self-controlled case series and cross-country comparisons kept finding no schedule-wide harm — as the 2011 Institute of Medicine review of more than 1,000 studies did — while preventable diseases like measles returned, restructuring the schedule would cost health rather than improve it.",
+          skeptic_flip:
+            "A skeptic who trusts the current schedule should weigh that no large modern randomized trial has compared the full schedule with a lighter one, that a 2022 CDC-authored study found an association between cumulative vaccine aluminum and persistent asthma (its authors flagged possible confounding), and that past advisory bodies had documented industry ties.",
+          common_ground:
+            "Both sides agree individual vaccines are well studied, that no randomized trial has compared the full schedule with a lighter one, and that MMR is safe and effective for most people — Kennedy said so in April 2026 testimony.",
+          live_disagreement:
+            "Whether the missing whole-schedule trial is an ethics artifact, with surveillance data already answering the safety question, or a real evidence gap that justifies redesigning the schedule and demoting vaccines like hepatitis B at birth.",
+        },
       },
       evidence: [
         {
@@ -118,6 +132,8 @@ export const rfkHealthPolicyData = {
       crux: {
         id: "upf-causality-trial",
         title: "The Scaled Ultra-Processed Food Causality Trial",
+        question:
+          "How much chronic disease is caused by food processing itself, versus the calories, sugar and salt it carries?",
         description:
           "The question is how much of US chronic disease is causally attributable to ultra-processed food itself — versus the calories, sugar, and salt it delivers, plus lifestyle and genetics. Hall's 20-person inpatient trial showed a causal calorie-intake effect over two weeks, but settling the long-term disease question requires a much larger, longer controlled-feeding study that isolates processing from nutrient content.",
         methodology:
@@ -125,6 +141,16 @@ export const rfkHealthPolicyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$20-100M (large multi-year inpatient/controlled-feeding trial; the smaller pilot protocol has repeatedly lacked sustained NIH funding)",
+        falsification: {
+          supporter_flip:
+            "If a scaled-up controlled-feeding trial matching calories, macronutrients, sugar and sodium found no difference in metabolic or cardiovascular outcomes between ultra-processed and minimally processed diets, and the dye phase-out stayed a non-binding industry understanding, MAHA's food agenda would do little to change chronic disease.",
+          skeptic_flip:
+            "A skeptic who sees symbolism should weigh that Hall's NIH inpatient trial found people ate roughly 500 extra calories a day on an ultra-processed diet, that large cohorts such as NutriNet-Santé link ultra-processed intake to cardiovascular and all-cause mortality, and that the GRAS loophole genuinely lets companies declare their own additives safe.",
+          common_ground:
+            "Both sides agree the GRAS self-affirmation pathway lets companies add ingredients without FDA review, and that even critics like Marion Nestle share MAHA's concerns about Big Food.",
+          live_disagreement:
+            "How much chronic disease is caused by processing itself rather than calories, sugar, salt, lifestyle and genetics — and whether MAHA's food actions are binding policy or announcements without enforcement.",
+        },
       },
       evidence: [
         {
@@ -205,7 +231,7 @@ export const rfkHealthPolicyData = {
       id: "fluoridation",
       title: "Water Fluoridation",
       short_summary:
-        "MAHA moved to end the CDC's recommendation of community water fluoridation, citing neurodevelopmental risk and a shrinking dental benefit. The science shows clear harm only at concentrations roughly twice the US level, so the real dispute is about the margin of safety at the 0.7 mg/L US dose, where evidence is genuinely thin.",
+        "MAHA moved to end the CDC's recommendation of community water fluoridation, citing neurodevelopmental risk and a shrinking dental benefit. The evidence links fluoride to harm only at concentrations roughly twice the US level, so the real dispute is about the margin of safety at the 0.7 mg/L US dose, where evidence is genuinely thin.",
       icon_name: "Microscope" as const,
       skeptic_premise:
         "Community water fluoridation at the US level of 0.7 mg/L is a long-standing, cost-effective public-health measure, and the evidence MAHA invokes does not apply to that dose. The 2024 National Toxicology Program monograph found neurodevelopmental harm only with 'moderate confidence' at exposures above 1.5 mg/L — more than double the US recommendation — and no US studies were in the IQ meta-analysis. Ending the recommendation risks reversing decades of cavity prevention, especially for low-income children with limited dental access. Even the acting CDC head walked back the messaging in March 2026 House testimony, calling fluoride 'essential for oral health.'",
@@ -214,6 +240,8 @@ export const rfkHealthPolicyData = {
       crux: {
         id: "low-dose-dose-response",
         title: "The 0.7 mg/L Dose-Response Test",
+        question:
+          "At the US level of 0.7 mg/L, does fluoridation do net good, net harm, or too little to call?",
         description:
           "Harm is established above 1.5 mg/L and the dental benefit has shrunk in the toothpaste era — but the decisive question is what happens at the actual US fluoridation level of 0.7 mg/L. The crux is whether rigorous dose-response evidence in the 0.5-1.0 mg/L range shows a meaningful net benefit, net harm, or a margin too thin to call.",
         methodology:
@@ -221,6 +249,16 @@ export const rfkHealthPolicyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$5-20M (large prospective biomarker cohort at low-dose exposure; existing dose-response data at 0.5-1.0 mg/L is sparse)",
+        falsification: {
+          supporter_flip:
+            "If biomarker-based studies at 0.5-1.0 mg/L found no neurodevelopmental harm and a meaningful cavity benefit, especially for low-income children, ending the CDC recommendation would cost dental health for no gain, and this part of the agenda would fail.",
+          skeptic_flip:
+            "A skeptic who defends fluoridation should weigh the October 2024 Cochrane review finding the cavity benefit has shrunk since fluoride toothpaste spread — about 0.24 fewer decayed baby teeth per child in post-1975 studies — and the NTP and JAMA Pediatrics evidence of an inverse fluoride-IQ association at higher doses.",
+          common_ground:
+            "Both sides agree harm is established only above 1.5 mg/L, more than twice the US level of 0.7 mg/L, and that direct evidence at 0.7 mg/L itself is thin.",
+          live_disagreement:
+            "Whether fluoridation at 0.7 mg/L still clears the benefit-harm line now that toothpaste supplies much of the protection, or whether ending it would reverse decades of cavity prevention for children with little dental access.",
+        },
       },
       evidence: [
         {
@@ -311,6 +349,8 @@ export const rfkHealthPolicyData = {
       crux: {
         id: "capture-decision-distortion",
         title: "The Capture Decision-Distortion Test",
+        question:
+          "Did industry ties distort specific health recommendations enough to justify dismissing expert panels?",
         description:
           "Documenting individual industry ties is easy; the decisive question is whether those ties distorted specific health recommendations enough to justify the bulk dismissal of expert panels. The crux is whether identifiable agency decisions can be shown to diverge from what the underlying evidence supported, in a direction that benefits industry, beyond what conflict-free expert judgment would produce.",
         methodology:
@@ -318,6 +358,16 @@ export const rfkHealthPolicyData = {
         verification_status: "theoretical" as const,
         cost_to_verify:
           "$1-3M (multi-decision regulatory forensic audit cross-referencing financial-disclosure and evidence records)",
+        falsification: {
+          supporter_flip:
+            "If an audit of contested ACIP recommendations, GRAS determinations and accelerated approvals found decisions tracking the evidence available at the time, no more industry-favoring than those of conflict-free panels or foreign regulators, the capture rationale for dismissing expert panels would fail.",
+          skeptic_flip:
+            "A skeptic who calls capture unproven should weigh research, including Prasad's, showing that drugs approved on surrogate endpoints often fail or never complete their confirmatory trials yet stay on the market for years, alongside the revolving door between regulators and industry and the GRAS self-affirmation gap.",
+          common_ground:
+            "Both sides agree transparency and conflict-of-interest disclosure are legitimate goals, and that MAHA contains competing factions: Prasad's push for stricter approvals and Makary's move to loosen them.",
+          live_disagreement:
+            "Whether documented industry ties distorted specific recommendations enough to justify dismissing expert panels wholesale, or whether the restructuring damaged institutional capacity without delivering coherent reform.",
+        },
       },
       evidence: [
         {

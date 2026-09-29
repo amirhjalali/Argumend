@@ -67,6 +67,16 @@ describe("home: one argument, two doors", () => {
     expect(post?.content).toMatch(/\b36 minutes\b/);
   });
 
+  it("puts the two doors before the evidence, so the rust button is high on a phone", () => {
+    const view = renderHome();
+    const primary = view.getByRole("link", { name: /See it on AI and jobs/ });
+    const evidence = view.getByRole("complementary", { name: "What we measured" });
+    // Node.DOCUMENT_POSITION_FOLLOWING === 4. From md the grid places the
+    // evidence in its own right-hand column, whatever the source order.
+    expect(primary.compareDocumentPosition(evidence) & 4).toBe(4);
+    expect(evidence.className).toContain("md:col-start-2");
+  });
+
   it("works through crux #1 of the same map the button opens", () => {
     const crux = loadHomeCrux();
     expect(crux).not.toBeNull();

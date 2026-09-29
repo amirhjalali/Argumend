@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const daylightSavingTimeAbolitionData = {
   id: "daylight-saving-time-abolition",
   title: "Should We Abolish Daylight Saving Time?",
+  question:
+    "Should the US make standard time permanent, rather than daylight time?",
   meta_claim:
     "The US should end the twice-yearly clock change by adopting permanent standard time rather than permanent daylight saving time",
   status: "contested" as const,
@@ -39,6 +41,8 @@ export const daylightSavingTimeAbolitionData = {
       crux: {
         id: "circadian-vs-evening-light-tradeoff",
         title: "The Morning-Light vs Evening-Light Tradeoff",
+        question:
+          "Do the benefits of bright morning light outweigh the value of an extra hour of evening light?",
         description:
           "Whether the circadian-health benefit of bright morning light (favoring permanent standard time) outweighs the well-being, activity, and economic benefit of an extra hour of evening daylight (favoring permanent DST). Both clocks shift an hour of daylight from one end of the day to the other; the dispute is which end produces more net human benefit across health, safety, mood, and behavior.",
         methodology:
@@ -155,6 +159,8 @@ export const daylightSavingTimeAbolitionData = {
       crux: {
         id: "harvesting-vs-net-harm",
         title: "The Harvesting vs Net-Harm Test",
+        question:
+          "Is the spike in harm after the spring switch new harm, or harm shifted forward in time?",
         description:
           "Whether the documented post-transition spikes in heart attacks, strokes, and fatal crashes represent net new harm caused by the clock change, or merely a short-term forward-shift in the timing of events that would have occurred anyway ('harvesting'). If a clean accounting over the full week-or-two window around each transition shows a true excess of events with no compensating deficit, abolition prevents real harm; if the spring excess is largely offset by a fall deficit or by a lull in the surrounding days, the net public-health cost is small.",
         methodology:
@@ -270,6 +276,8 @@ export const daylightSavingTimeAbolitionData = {
       crux: {
         id: "evening-light-net-value",
         title: "The Net Value of Shifting Daylight to the Evening",
+        question:
+          "Do the gains from evening daylight survive a full-day, full-year accounting?",
         description:
           "Whether moving an hour of daylight from morning to evening (permanent DST) produces a net gain once energy, crime, activity, mood, and morning-safety effects are all counted — or whether the morning costs (darker, higher-risk commutes; suppressed circadian wake signal) and negligible/negative energy savings cancel the evening benefits. The question is the full-day, full-year ledger, not just the popular evening upside.",
         methodology:

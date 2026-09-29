@@ -10,6 +10,7 @@
  * that lays out both sides.
  */
 import { SITE_URL } from "@/lib/site";
+import { ANSWER_SIDES, CLAIM_SIDES } from "@/lib/mapNaming";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 import type { PasteMapsResult } from "./types";
 
@@ -48,13 +49,17 @@ export function buildPasteSummary({
 
   const match = maps?.match;
   if (match) {
-    lines.push("", `It is already mapped: ${match.title}. ${match.claim}`);
+    const named = /[.?!]$/.test(match.title) ? match.title : `${match.title}.`;
+    lines.push("", `It is already mapped: ${named} ${match.claim}`);
     if (match.crux) {
+      const words = match.cardsAbout === "map-question" ? ANSWER_SIDES : CLAIM_SIDES;
       lines.push(`The question the map says it turns on: ${match.crux.question}`);
-      if (match.crux.supporterFlip) lines.push(`What would change a supporter's mind: ${match.crux.supporterFlip}`);
-      if (match.crux.skepticFlip) lines.push(`What would change a skeptic's mind: ${match.crux.skepticFlip}`);
+      if (match.crux.supporterFlip) lines.push(`${words.yesChangesMind} ${match.crux.supporterFlip}`);
+      if (match.crux.skepticFlip) lines.push(`${words.noChangesMind} ${match.crux.skepticFlip}`);
     }
     lines.push(`Both sides' best evidence: ${SITE_URL}${match.crux?.href ?? match.href}`);
+    const sibling = maps.related?.[0];
+    if (sibling) lines.push(`Closely related map: ${sibling.title}, ${SITE_URL}${sibling.href}`);
   } else if (maps && maps.closest.length > 0) {
     lines.push("", `Closest map: ${maps.closest[0].title}, ${SITE_URL}${maps.closest[0].href}`);
   }

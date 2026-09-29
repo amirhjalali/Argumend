@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const decliningBirthRatesData = {
   id: "declining-birth-rates",
   title: "The Global Fertility Collapse",
+  question:
+    "Is falling fertility an existential crisis that demands policy action?",
   meta_claim:
     "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
   status: "contested" as const,
@@ -69,12 +71,14 @@ export const decliningBirthRatesData = {
         "Below-replacement fertility creates a self-reinforcing cycle: fewer workers supporting more retirees, higher taxes on the working population, which further discourages childbearing. Japan's 1.2 TFR and shrinking economy provide a preview, while South Korea at 0.72 TFR represents the most extreme case of a society contracting faster than it can adapt.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The demographic doom loop is not theoretical — it is happening now in East Asia and will reach the West within a decade. South Korea's total fertility rate of 0.72 (2023) means each generation is roughly one-third the size of its predecessor. Japan's population has already shrunk by over 3 million since its 2008 peak and is projected to fall from 125 million to 87 million by 2070. Every pension and social insurance system in the developed world was designed for population growth or stability — they become mathematically insolvent below replacement fertility. The old-age dependency ratio in the OECD is projected to rise from roughly 31% in 2023 to about 52% by 2060, meaning the number of retirees per working-age person increases by more than half. No combination of productivity gains, immigration, or retirement age increases can fully offset a demographic contraction of this magnitude.",
-      proponent_rebuttal:
         "The 'doom loop' framing confuses a challenging transition with civilizational collapse. Population growth is not inherently necessary for economic prosperity — per capita GDP can rise even as total GDP stagnates. Japan's per capita GDP has actually grown at rates comparable to the US over the past two decades despite population decline, because productivity gains offset the smaller workforce. Pension systems can be reformed through gradually increasing retirement ages (in line with increasing healthy lifespan), shifting from defined-benefit to defined-contribution models, and drawing on the massive wealth accumulated during the high-growth era. The demographic transition is a one-time shift from high-fertility/high-mortality to low-fertility/low-mortality equilibrium — once the bulge of elderly dependents passes (over approximately 50-70 years), the population stabilizes at a smaller, more sustainable size.",
+      proponent_rebuttal:
+        "The demographic doom loop is not theoretical — it is happening now in East Asia and will reach the West within a decade. South Korea's total fertility rate of 0.72 (2023) means each generation is roughly one-third the size of its predecessor. Japan's population has already shrunk by over 3 million since its 2008 peak and is projected to fall from 125 million to 87 million by 2070. Every pension and social insurance system in the developed world was designed for population growth or stability — they become mathematically insolvent below replacement fertility. The old-age dependency ratio in the OECD is projected to rise from roughly 31% in 2023 to about 52% by 2060, meaning the number of retirees per working-age person increases by more than half. No combination of productivity gains, immigration, or retirement age increases can fully offset a demographic contraction of this magnitude.",
       crux: {
         id: "economic-sustainability-modeling",
         title: "The Sub-Replacement Sustainability Model",
+        question:
+          "Is there a fertility level below which falling income per person becomes self-reinforcing?",
         description:
           "The crux is whether economies can sustain or grow per capita prosperity at fertility rates significantly below replacement (1.0-1.5 TFR) over multi-generational timeframes. If economic modeling shows that productivity gains, capital deepening, and institutional reforms can maintain living standards during the demographic transition, the crisis framing is overblown. If models show that below a certain fertility threshold, economic contraction becomes self-reinforcing, the crisis is real.",
         methodology:
@@ -164,6 +168,8 @@ export const decliningBirthRatesData = {
       crux: {
         id: "fertility-gap-causation",
         title: "The Fertility Gap Decomposition",
+        question:
+          "Is the gap between desired and actual family size mostly removable barriers, or shifting preferences?",
         description:
           "The crux is whether the gap between desired and actual fertility (people wanting more children than they have) is primarily caused by removable structural barriers (cost, childcare, workplace flexibility) or by irreducible preference shifts that surveys fail to capture (stated preferences for children may not reflect revealed preferences). If removing structural barriers closes most of the fertility gap, policy intervention can meaningfully raise birth rates. If the gap persists even after removing barriers, declining fertility is a deeper preference shift that policy cannot reverse.",
         methodology:
@@ -236,6 +242,8 @@ export const decliningBirthRatesData = {
       crux: {
         id: "ai-demographic-offset-capacity",
         title: "The AI Productivity Offset Model",
+        question:
+          "Can AI productivity gains grow fast enough to offset shrinking workforces?",
         description:
           "The crux is whether AI-driven productivity gains can grow fast enough to offset declining worker populations in maintaining or growing per capita GDP. If realistic AI adoption scenarios show that productivity growth per worker exceeds the rate of workforce decline, population reduction is economically manageable. If AI productivity gains are insufficient, concentrated in non-essential sectors, or create more problems than they solve (unemployment, inequality), demographic decline remains an economic crisis.",
         methodology:

@@ -77,7 +77,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
             placeholder="Paste text here"
             aria-label="Text to analyze"
             rows={6}
-            className="block min-h-[9rem] w-full resize-y rounded-lg border border-stone-300/80 bg-card px-4 py-3 text-base leading-relaxed text-primary dark:text-stone-200 placeholder:text-muted/80 transition-colors focus:border-deep/50 sm:text-[0.9375rem] focus:outline-none focus:ring-2 focus:ring-deep/20 dark:border-divider dark:placeholder:text-stone-500"
+            className="block min-h-[9rem] w-full resize-y rounded-lg border border-stone-300/80 bg-card px-4 py-3 text-base leading-relaxed text-primary dark:text-stone-200 placeholder:text-muted/80 transition-colors focus:border-deep/50 sm:text-[0.9375rem] focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider dark:placeholder:text-stone-500"
           />
 
           <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
@@ -92,7 +92,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
               type="button"
               onClick={handleAnalyze}
               disabled={!ready}
-              className={`inline-flex min-h-11 items-center rounded-lg px-5 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/50 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas ${
+              className={`inline-flex min-h-11 items-center rounded-lg px-5 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas ${
                 ready
                   ? "bg-primary text-canvas hover:bg-primary/90"
                   : "cursor-not-allowed border border-stone-300/80 text-muted dark:border-divider dark:text-stone-500"

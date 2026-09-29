@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
-import { findMaps } from "./maps";
+import { findMaps, getMapIndex } from "./maps";
 import { buildPasteSummary, withoutNames } from "./summary";
 
 describe("withoutNames", () => {
@@ -17,12 +17,18 @@ describe("withoutNames", () => {
 });
 
 describe("buildPasteSummary", () => {
+  beforeAll(() => getMapIndex(), 60_000);
+
   it("names the map and its crux, links the crux, and carries no scores", async () => {
     const maps = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
     const summary = buildPasteSummary({ maps, report: null });
 
-    expect(summary).toContain("It is already mapped: Immigration and Wages.");
-    expect(summary).toContain("What would change a supporter's mind:");
+    // Named by the map's question, as its page heading is; sides by the answer.
+    expect(summary).toContain(
+      "It is already mapped: Does large-scale immigration significantly cut low-skilled native wages?",
+    );
+    expect(summary).not.toContain("Immigration and Wages");
+    expect(summary).toContain("Someone who says yes to the map’s question would change their mind if…");
     expect(summary).toContain(
       "https://argumend.org/topics/immigration-wage-impact#crux-labor-market-economics",
     );
