@@ -62,7 +62,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
   return (
     <div className="mt-8 rounded-md border border-[var(--border-divider)] border-t-[3px] border-t-crux bg-[var(--bg-paper)] px-5 pb-6 pt-5 dark:border-t-crux-light sm:px-8 sm:pb-8 sm:pt-6">
       <h3 className="label-caps text-crux dark:text-crux-text">What the map says it turns on</h3>
-      <p className="mt-3 font-serif text-[1.5rem] leading-[1.25] text-[var(--text-heading)] sm:text-[1.875rem]">
+      <p className="mt-3 font-serif text-[1.3125rem] leading-[1.3] text-[var(--text-heading)] sm:text-[1.625rem]">
         {crux.question}
       </p>
       {flips ? (
