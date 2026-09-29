@@ -1,6 +1,9 @@
 # Paste an argument: finding the right map (round 2, 2026-09-29)
 
-Branch `r2/paste-matching`. The integration branch `ux/round2-2026-09-29` is merged in at 64f9dbd, including the authored `topic.question` and `crux.question` fields. Scope: `lib/paste/*`, `components/paste/*`, `data/evals/paste-matching/*`, their tests and the route test. The one shared file touched is `lib/mapReply/prefilter.ts`, which now exports its stopword list and nothing else. `/reply`'s shortlist is unchanged and its tests pass.
+Branch `r2/paste-matching`. The integration branch `ux/round2-2026-09-29` is merged in twice:
+
+- at 64f9dbd, which brought the authored `topic.question` and `crux.question` fields;
+- at 12b7f80, which brought the a11y/dark changes. The only conflicts were in the paste result, and both sides' changes are kept. Scope: `lib/paste/*`, `components/paste/*`, `data/evals/paste-matching/*`, their tests and the route test. The one shared file touched is `lib/mapReply/prefilter.ts`, which now exports its stopword list and nothing else. `/reply`'s shortlist is unchanged and its tests pass.
 
 ## The problem
 
@@ -110,6 +113,8 @@ For most of these the right map is still listed first under "Closest maps".
 - "No map, rather than the wrong map" is unchanged for true negatives.
 - "How this was read" now states the new rule and this paste's numbers: lead, lead on differing words, and share of words.
 - The copied summary adds "Closely related map: …" when there is one.
+- The screen-reader announcement (added on the integration branch) now names the closely related map: "Result below. This argument is already mapped: X. Closely related: Y." It also no longer says "the closest maps are listed" when none are.
+- The new UI adds no focus-ring classes. It reuses `textActionClasses` and `ClosestMaps`.
 
 **Tests**:
 
