@@ -19,6 +19,7 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     "/topics/:id",
+    "/topics/:id/map",
     "/topics/category/:slug",
     "/topics/tag/:slug",
     "/topics/compare/:id1/vs/:id2",
