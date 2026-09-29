@@ -119,6 +119,26 @@ describe("legacyTopicPage", () => {
     }
   });
 
+  it("gives every pillar of every legacy map the agreement and mind-change lines", async () => {
+    // "What both sides already agree on" and "A supporter / a skeptic changes
+    // their mind if…" are the heart of the page; no map ships without them.
+    const missing: string[] = [];
+    for (const summary of topicSummaries) {
+      const topic = (await loadTopicById(summary.id))!;
+      for (const pillar of topic.pillars) {
+        const f = pillar.crux.falsification;
+        const fields = [f?.supporter_flip, f?.skeptic_flip, f?.common_ground, f?.live_disagreement];
+        if (!fields.every((text) => typeof text === "string" && text.trim().length > 0)) {
+          missing.push(`${summary.id}/${pillar.id}`);
+        }
+      }
+      const { page, cruxes } = legacyTopicPage(topic);
+      expect(page.agreement.length, summary.id).toBeGreaterThan(0);
+      for (const crux of cruxes) expect(crux.flips, `${summary.id}/${crux.anchor}`).toBeDefined();
+    }
+    expect(missing).toEqual([]);
+  }, 30_000);
+
   it("never emits placeholder or invented copy across the whole library", async () => {
     for (const summary of topicSummaries) {
       const topic = (await loadTopicById(summary.id))!;
