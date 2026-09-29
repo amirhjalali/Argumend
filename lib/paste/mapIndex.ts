@@ -64,6 +64,12 @@ export interface MapIndex {
   maps: IndexedMap[];
   byId: Map<string, IndexedMap>;
   documentFrequency: Map<string, number>;
+  /**
+   * Per term, the maps that use it: flat pairs of [position in `maps`,
+   * saturated frequency]. A paste is scored by walking only its own terms'
+   * lists, so a long paste costs its distinct words, not words times maps.
+   */
+  postings: Map<string, number[]>;
   /** Unit-length vector per map over its single words, for telling siblings apart. */
   profiles: Map<string, Map<string, number>>;
   similarities: Map<string, number>;
@@ -134,8 +140,9 @@ export function buildMapIndex(
       if (terms.length === 0) continue;
       const norm = 1 - params.b[field] + (params.b[field] * terms.length) / averageLength[field];
       const scale = params.weights[field] / norm;
-      for (const term of [...terms, ...pairsPerField[field]]) {
-        weightedFrequency.set(term, (weightedFrequency.get(term) ?? 0) + scale);
+      for (const term of terms) weightedFrequency.set(term, (weightedFrequency.get(term) ?? 0) + scale);
+      for (const pair of pairsPerField[field]) {
+        weightedFrequency.set(pair, (weightedFrequency.get(pair) ?? 0) + scale);
       }
     }
     for (const term of weightedFrequency.keys()) {
@@ -163,11 +170,24 @@ export function buildMapIndex(
     profiles.set(document.id, vector);
   }
 
+  const postings = new Map<string, number[]>();
+  maps.forEach(({ weightedFrequency }, position) => {
+    for (const [term, frequency] of weightedFrequency) {
+      let list = postings.get(term);
+      if (!list) {
+        list = [];
+        postings.set(term, list);
+      }
+      list.push(position, frequency / (params.k1 + frequency));
+    }
+  });
+
   return {
     params,
     maps,
     byId: new Map(maps.map((entry) => [entry.document.id, entry])),
     documentFrequency,
+    postings,
     profiles,
     similarities: new Map(),
   };
@@ -237,25 +257,37 @@ export function rankMaps(index: MapIndex, text: string): MapRanking {
     if (gain > 0) weights.push([pair, pairWeight * gain * (1 + Math.log(count))]);
   }
 
-  const ranked: RankedMap[] = [];
-  for (const { document, weightedFrequency } of index.maps) {
-    let score = 0;
-    let wordScore = 0;
-    let wordsMatched = 0;
-    for (const [term, weight] of weights) {
-      const frequency = weightedFrequency.get(term);
-      if (!frequency) continue;
-      const contribution = weight * (frequency / (k1 + frequency));
-      score += contribution;
-      if (!term.includes("_")) {
-        wordScore += contribution;
-        wordsMatched += 1;
+  const count = index.maps.length;
+  const scores = new Float64Array(count);
+  const wordScores = new Float64Array(count);
+  const wordsMatched = new Uint32Array(count);
+  for (const [term, weight] of weights) {
+    const list = index.postings.get(term);
+    if (!list) continue;
+    const isWord = !term.includes("_");
+    for (let at = 0; at < list.length; at += 2) {
+      const position = list[at];
+      const contribution = weight * list[at + 1];
+      scores[position] += contribution;
+      if (isWord) {
+        wordScores[position] += contribution;
+        wordsMatched[position] += 1;
       }
     }
-    if (score > 0) {
-      ranked.push({ id: document.id, title: document.title, claim: document.claim, score, wordScore, wordsMatched });
-    }
   }
+
+  const ranked: RankedMap[] = [];
+  index.maps.forEach(({ document }, position) => {
+    if (scores[position] <= 0) return;
+    ranked.push({
+      id: document.id,
+      title: document.title,
+      claim: document.claim,
+      score: scores[position],
+      wordScore: wordScores[position],
+      wordsMatched: wordsMatched[position],
+    });
+  });
   ranked.sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
 
   const exclusiveLead = (firstId: string, secondId: string): number => {

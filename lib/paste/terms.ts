@@ -157,26 +157,37 @@ export function porterStem(input: string): string {
  * readers type and map titles spell out; never a topic's own vocabulary
  * guessed from a paste.
  */
-const ABBREVIATIONS: ReadonlyArray<readonly [RegExp, string]> = [
-  [/\bevs?\b/g, "electric vehicles"],
-  [/\bubi\b/g, "universal basic income"],
-  [/\bsmrs?\b/g, "small modular reactors"],
-  [/\bagi\b/g, "artificial general intelligence"],
-  [/\basi\b/g, "artificial superintelligence"],
-  [/\bllms?\b/g, "large language models"],
-  [/\bgmos?\b/g, "genetically modified organisms"],
-  [/\brto\b/g, "return to office"],
-  [/\bwfh\b/g, "work from home remote"],
-  [/\bdst\b/g, "daylight saving time"],
-  [/\bcbdcs?\b/g, "central bank digital currencies"],
-  [/\bmmt\b/g, "modern monetary theory"],
-  [/\bssris?\b/g, "ssri antidepressants"],
-  [/\bglp-1\b/g, "glp1"],
-  [/\bnukes?\b/g, "nuclear weapons"],
-  [/\b2a\b/g, "second amendment"],
-  [/\bco2\b/g, "carbon dioxide"],
-  [/\bu\.s\.(?=\s|$|[,;:)])/g, "united states"],
-];
+const ABBREVIATIONS: Readonly<Record<string, string>> = {
+  ev: "electric vehicles",
+  ubi: "universal basic income",
+  smr: "small modular reactors",
+  agi: "artificial general intelligence",
+  asi: "artificial superintelligence",
+  llm: "large language models",
+  gmo: "genetically modified organisms",
+  rto: "return to office",
+  wfh: "work from home remote",
+  dst: "daylight saving time",
+  cbdc: "central bank digital currencies",
+  mmt: "modern monetary theory",
+  ssri: "ssri antidepressants",
+  "glp-1": "glp1",
+  nuke: "nuclear weapons",
+  "2a": "second amendment",
+  co2: "carbon dioxide",
+  "u.s.": "united states",
+};
+
+/** One pass over the text for every short form, plural "s" included where one is used. */
+const ABBREVIATION_PATTERN =
+  /\b(?:evs?|ubi|smrs?|agi|asi|llms?|gmos?|rto|wfh|dst|cbdcs?|mmt|ssris?|glp-1|nukes?|2a|co2)\b|\bu\.s\.(?=\s|$|[,;:)])/g;
+
+function expandAbbreviations(lowered: string): string {
+  return lowered.replace(
+    ABBREVIATION_PATTERN,
+    (form) => ABBREVIATIONS[form] ?? ABBREVIATIONS[form.slice(0, -1)] ?? form,
+  );
+}
 
 /**
  * Chat filler that the map-reply list does not carry, and the vocabulary of
@@ -217,10 +228,7 @@ function stemOf(token: string): string {
  * dropped. "AI" survives as "ai".
  */
 export function pasteTerms(text: string): string[] {
-  let lowered = text.toLowerCase().replace(/[‘’]/g, "'");
-  for (const [pattern, expansion] of ABBREVIATIONS) {
-    lowered = lowered.replace(pattern, expansion);
-  }
+  const lowered = expandAbbreviations(text.toLowerCase().replace(/[‘’]/g, "'"));
   const terms: string[] = [];
   for (const raw of lowered.split(/[^a-z0-9']+/)) {
     // Possessives and quote marks go; contractions collapse ("don't" to "dont").
