@@ -69,15 +69,16 @@ describe("SavedClient empty and unavailable states", () => {
     ).toBeTruthy();
   });
 
-  it("lists saved maps as /topics rows: the question, one line, one muted status word", () => {
+  it("lists saved maps as /topics rows: the question, its first crux, how many questions it turns on", () => {
     savedState.ids = ["climate-change"];
     const view = render(<SavedClient />);
 
     expect(view.getByRole("heading", { level: 1, name: "Saved maps" })).toBeTruthy();
     const row = view.getByRole("link", { name: /Is climate change primarily caused by human activity\?/ });
-    expect(row.textContent).toMatch(/Evidence (largely converges|still divided|still thin)/);
-    // No balance chip, verdict label or status/category pills.
-    expect(view.container.textContent).not.toMatch(/verdict|leans|toward|balance/i);
+    expect(row.textContent).toMatch(/Turns on \w+ questions/);
+    // No evidence status, balance chip, verdict label or status/category pills.
+    expect(view.container.textContent).not.toMatch(/Evidence (largely converges|still divided|still thin)/);
+    expect(view.container.textContent).not.toMatch(/verdict|leans|toward|balance|pillar/i);
     expect(view.container.querySelector(".rounded-full")).toBeNull();
   });
 });

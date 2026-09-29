@@ -24,7 +24,7 @@ import type {
 import type { ArgumentGraph } from "@/types/argument";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 import { HowThisWasRead, ReadingNote } from "./HowThisWasRead";
-import { MapMatch, MapNoMatch, RelatedMaps } from "./MapResult";
+import { MapMatch, MapNoMatch } from "./MapResult";
 import { NextStep } from "./NextStep";
 
 /**
@@ -520,14 +520,9 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           ) : null}
 
           {match || report ? (
-            <NextStep
-              mapHref={match ? (match.crux?.href ?? match.href) : undefined}
-              mapLabel={match && !match.crux ? "Open the map" : undefined}
-              summary={summary}
-            />
+            <NextStep summary={summary} />
           ) : null}
 
-          {match && related.length > 0 ? <RelatedMaps maps={related} /> : null}
           {match ? <ClosestMaps title="Closest other maps" level={2} maps={maps?.closest ?? []} /> : null}
 
           <div className="space-y-6">

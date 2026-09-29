@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { Fragment, useEffect, useId, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
-import { TextAction, textActionClasses } from "@/components/ui";
+import { Button, TextAction, textActionClasses } from "@/components/ui";
+import { trackEvent } from "@/lib/analytics";
 import { toneStyles } from "@/lib/categoryColors";
 import { ANSWER_SIDES, CLAIM_SIDES, type SideWords } from "@/lib/mapNaming";
 import type {
@@ -20,6 +24,10 @@ import type {
  * strongest card on each side. The cards carry no weight score here. Two
  * scores side by side read as a side ahead on points, and the map page is
  * where a reader can see what a weight weighs.
+ *
+ * The page's one rust action, "Open the map at this crux", sits directly
+ * under the crux box, so on a phone it is not several screens below the
+ * question it opens.
  */
 
 /** Sides by the answer to the map's question, else by the claim (lib/mapNaming.ts). */
@@ -38,6 +46,48 @@ const SIDE_TEXT: Record<PasteMapCard["side"], string> = {
   against: toneStyles.brown.accentText,
 };
 
+/**
+ * Evidence text held to three lines, with "Read more" when it runs longer, so
+ * the two cards do not push the rest of the result screens down on a phone.
+ * The button appears only when the text is actually cut.
+ */
+function ClampedText({ text, className }: { text: string; className: string }) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const [open, setOpen] = useState(false);
+  const [cut, setCut] = useState(false);
+  const id = useId();
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || open) return;
+    const measure = () => setCut(element.scrollHeight > element.clientHeight + 1);
+    measure();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [open, text]);
+
+  return (
+    <>
+      <p id={id} ref={ref} className={`${className} ${open ? "" : "line-clamp-3"}`}>
+        {text}
+      </p>
+      {cut || open ? (
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls={id}
+          onClick={() => setOpen((value) => !value)}
+          className={textActionClasses("mt-1 self-start text-sm")}
+        >
+          {open ? "Show less" : "Read more"}
+        </button>
+      ) : null}
+    </>
+  );
+}
+
 function Card({ card, words }: { card: PasteMapCard; words: SideWords }) {
   return (
     <li className="flex flex-col border-t-2 border-[var(--border-divider)] pt-4">
@@ -45,9 +95,10 @@ function Card({ card, words }: { card: PasteMapCard; words: SideWords }) {
       <h4 className="mt-2 font-serif text-[1.25rem] leading-snug text-[var(--text-heading)]">
         {card.title}
       </h4>
-      <p className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-        {card.description}
-      </p>
+      <ClampedText
+        text={card.description}
+        className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]"
+      />
       {card.source ? (
         <p className="mt-3 font-serif text-base italic text-[var(--text-muted)]">{card.source}</p>
       ) : null}
@@ -119,22 +170,28 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
 }
 
 /**
- * A pointer to the matched map's siblings, right under its claim, so a reader
- * whose argument is really about the neighbouring map sees it on the first
- * screen. The full entries follow the next step (`RelatedMaps`).
+ * The matched map's siblings (maps on the same subject that scored close to
+ * it), named once, right under its claim, so a reader whose argument is
+ * really about the neighbouring map sees it on the first screen. Which one
+ * the argument is really about is the reader's call.
  */
 function RelatedLine({ related }: { related: readonly PasteMapCandidate[] }) {
   if (related.length === 0) return null;
   return (
     <p className="mt-4 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
       Closely related:{" "}
+      {/* Each link carries its own ";" in one box: the links are inline-flex,
+          so a free-standing separator could wrap to the start of a line. */}
       {related.map((map, index) => (
-        <span key={map.id}>
-          {index > 0 ? "; " : null}
-          <Link href={map.href} className={textActionClasses("text-[0.9375rem]")}>
-            {map.title}
-          </Link>
-        </span>
+        <Fragment key={map.id}>
+          <span className="inline-flex items-center">
+            <Link href={map.href} className={textActionClasses("text-[0.9375rem]")}>
+              {map.title}
+            </Link>
+            {index < related.length - 1 ? ";" : null}
+          </span>
+          {index < related.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </p>
   );
@@ -181,12 +238,22 @@ export function MapMatch({
 
       <CruxPanel match={match} />
 
+      <div className="mt-6">
+        <Button
+          href={match.crux?.href ?? match.href}
+          size="lg"
+          onClick={() => trackEvent({ action: "cta_click", ctaName: "open_map_at_crux", location: "analyze" })}
+        >
+          {match.crux ? "Open the map at this crux" : "Open the map"}
+        </Button>
+      </div>
+
       {cards.length > 0 ? (
         <div className="mt-10">
           <h3 className="label-caps">The strongest card on each side</h3>
           <p className="mt-1 max-w-[36rem] font-sans text-[0.9375rem] text-[var(--text-secondary)]">
             {match.cardsAbout === "map-question"
-              ? "Yes and no answer the map’s question, the link above, not the crux."
+              ? "Yes and no answer the map’s question at the top, not the crux."
               : match.cardsAbout === "map-claim"
                 ? "Each card is read against the map’s claim above."
                 : "Each card is read against the claim behind this question."}
@@ -199,27 +266,6 @@ export function MapMatch({
         </div>
       ) : null}
     </section>
-  );
-}
-
-/**
- * The matched map's siblings: maps on the same subject that scored close to
- * it. Shown after the next step, above any other closest maps, because a
- * paste that fits one sibling often fits the other, and which one the
- * argument is really about is the reader's call.
- */
-export function RelatedMaps({ maps }: { maps: readonly PasteMapCandidate[] }) {
-  return (
-    <ClosestMaps
-      title="Closely related"
-      level={2}
-      lede={
-        maps.length === 1
-          ? "Argumend also maps a neighbouring question on the same subject. If your argument is more about this one, start here."
-          : "Argumend also maps neighbouring questions on the same subject. If your argument is more about one of these, start there."
-      }
-      maps={maps}
-    />
   );
 }
 

@@ -35,6 +35,8 @@ export interface TopicSummary {
   category: TopicCategory;
   pillarCount: number;
   evidenceCount: number;
+  /** The question the map's first crux asks, as the map page heads it. */
+  firstCrux?: string;
   tags: string[];
   addedAt?: string;
 }

@@ -19,7 +19,7 @@ vi.mock("@/components/AppShell", () => ({
 }));
 
 import RetiredAnalysisPage from "@/app/analysis/[id]/page";
-import { MapMatch, MapNoMatch, RelatedMaps } from "./MapResult";
+import { MapMatch, MapNoMatch } from "./MapResult";
 import { PasteClient } from "./PasteClient";
 
 /**
@@ -113,12 +113,6 @@ describe("paste surfaces never score sides or name a winner", () => {
     const match = result().match;
     expect(match).not.toBeNull();
     const view = render(<MapMatch match={match!} related={result().related} />);
-    expect(forbiddenWords(view.container.textContent ?? "")).toEqual([]);
-  });
-
-  it("the closely related maps", () => {
-    expect(matched.related.length).toBeGreaterThan(0);
-    const view = render(<RelatedMaps maps={matched.related} />);
     expect(forbiddenWords(view.container.textContent ?? "")).toEqual([]);
   });
 

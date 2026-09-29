@@ -86,6 +86,14 @@ describe("authored map questions", () => {
       expect(byId.get(topic.id)?.question, topic.id).toBe(topic.question);
     }
   });
+
+  it("the library's first crux matches the map page's first crux heading", () => {
+    // Regenerate with `npx tsx scripts/regen-summaries.ts` when this fails.
+    const byId = new Map(topicSummaries.map((s) => [s.id, s]));
+    for (const topic of topics) {
+      expect(byId.get(topic.id)?.firstCrux, topic.id).toBe(legacyTopicPage(topic).cruxes[0]?.question);
+    }
+  });
 });
 
 describe("legacyTopicPage with authored questions", () => {
