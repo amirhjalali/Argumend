@@ -57,7 +57,10 @@ export function PageHeader({
 }: PageHeaderProps) {
   return (
     <header className={cx("mb-10 sm:mb-12", className)}>
-      {breadcrumbs && breadcrumbs.length > 0 ? <Breadcrumbs items={breadcrumbs} /> : null}
+      {/* One line, as on the topic pages: the h1 below already carries a long
+          title in full, so the trail's last crumb truncates instead of
+          wrapping into a second copy of it. */}
+      {breadcrumbs && breadcrumbs.length > 0 ? <Breadcrumbs items={breadcrumbs} singleLine /> : null}
       {eyebrow ? <p className="label-caps">{eyebrow}</p> : null}
       <h1
         id={titleId}
