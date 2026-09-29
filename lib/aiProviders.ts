@@ -17,12 +17,13 @@
  * builds its line with `buildPasteConsentLine` from exactly those providers,
  * or says that nothing leaves the server when only the offline map lane runs.
  *
- * Which lane uses which provider (verified 2026-09-21):
- * - `DIAGNOSIS_PROVIDER_IDS` — `/analyze-v2` posts to `/api/disagreements/analyze`,
- *   which builds a provider via `createDisagreementProvider` in
- *   `lib/disagreement/model/index.ts`. The hosted lane is Anthropic. TypeSafe AI
- *   is listed because the Jev lane is the reason this disclosure exists; the
- *   sentence is a disjunction, so it stays true before that lane lands.
+ * Which lane uses which provider (verified 2026-09-29):
+ * - `DIAGNOSIS_PROVIDER_IDS` — the diagnosis lane of `/analyze` posts to
+ *   `/api/disagreements/analyze`, which builds a provider via
+ *   `createDisagreementProvider` in `lib/disagreement/model/index.ts`. The
+ *   hosted lane is Anthropic and nothing else; the `cli` lane is a local
+ *   developer tool that is refused in production, and `fake` sends nothing.
+ *   TypeSafe AI is not on it: that lane never calls TypeSafe.
  * - `MAP_REPLY_PROVIDER_IDS` — `/reply` posts to `/api/map-reply`, which builds
  *   a provider via `getJevProvider()` in `lib/jev/client.ts`. The only live
  *   lane is TypeSafe AI's Jev; the other lane is local fixtures and sends
@@ -96,13 +97,11 @@ export const ALL_AI_PROVIDER_IDS: readonly AiProviderId[] = [
 ];
 
 /**
- * Providers a paste on `/analyze-v2` — and, once it ships, the map-reply
- * tool — may be sent to.
+ * Providers a paste on `/analyze` may be sent to when its diagnosis lane is
+ * switched on (`lib/paste/lanes.ts`): Anthropic only. The map-reply tool has
+ * its own roster below.
  */
-export const DIAGNOSIS_PROVIDER_IDS: readonly AiProviderId[] = [
-  "typesafe",
-  "anthropic",
-];
+export const DIAGNOSIS_PROVIDER_IDS: readonly AiProviderId[] = ["anthropic"];
 
 /**
  * Providers a paste on `/reply` may be sent to.
@@ -165,7 +164,7 @@ export function sharedProcessingRegion(ids: readonly AiProviderId[]): string {
 
 /**
  * The parenthetical used in consent copy:
- * "TypeSafe AI or Anthropic, processed in the United States".
+ * "Anthropic, processed in the United States".
  */
 export function providerDisclosure(ids: readonly AiProviderId[]): string {
   return `${formatProviderList(ids)}, processed in ${sharedProcessingRegion(ids)}`;
@@ -240,8 +239,8 @@ export function buildMapReplyConsentLine(
  * the maps on our own server, sent nowhere and kept nowhere, and the line says
  * exactly that instead of asking for consent to a transfer that never
  * happens. With providers it names them outright, as the map-reply line does,
- * because the page knows which one it is: the diagnosis sentence above hedges
- * with a vendor the diagnosis lane never calls.
+ * because the page knows which one it is, rather than linking the phrase
+ * "our AI provider" as the older diagnosis sentence above does.
  */
 export function buildPasteConsentLine(ids: readonly AiProviderId[]): ConsentLine {
   const before =

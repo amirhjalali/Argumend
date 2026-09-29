@@ -30,7 +30,9 @@ describe(".env.example", () => {
       expect(example[`NEXT_PUBLIC_ENABLE_LIVE_${feature}_API`]).toBe("false");
     }
     expect(example.ENABLE_DISAGREEMENT_V2).toBe("false");
-    expect(example.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2).toBe("false");
+    // The diagnosis is a lane of /analyze, gated on the server; no client
+    // bundle reads a public diagnosis flag any more.
+    expect(example.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2).toBeUndefined();
     expect(example.ENABLE_DISAGREEMENT_PUBLISHING).toBe("false");
     expect(example.ARGUMEND_DISAGREEMENT_MODEL).toBe("");
     expect(example.REPORT_PUBLICATION_SECRET).toBe("");
