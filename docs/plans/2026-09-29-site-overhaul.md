@@ -73,3 +73,45 @@ About              /about       why · principles · reading a map · how maps a
 - Turn on the diagnosis lane in production (`ENABLE_DISAGREEMENT_V2` + provider key).
 - Legacy map authoring (falsification blocks for 46 maps; one crux question per pillar).
 - Push / PR.
+
+## Outcome (2026-09-29, ~08:00 UTC)
+
+Nine branches merged into `ux/site-overhaul-2026-09-29` (first-parent: copy-sweep, shell-foundation,
+topic-template, home-story, paste-flow, maps-library, learn, fixups-1, polish), plus a citation fix
+and CLAUDE.md updates. 402 files, +18.8k / −31.3k (net ~12.5k lines removed). Every branch had
+screenshots before/after; an independent code review ran on the first five merges and its findings
+(one blocker: diagram blank on phones) were fixed in `fixups-1`. Reports per branch:
+`docs/reviews/2026-09-29-{copy-sweep,topic-template,home-story,paste-flow,maps-library,learn,fixups-1,polish}.md`.
+
+Verified on the final tip: `bunx vitest run`, `bunx tsc --noEmit`, `bun run lint`, `bun run build`
+(main checkout), standalone server with production flags (all AI lanes off): 866 internal paths
+crawled, no broken links, every retired URL resolves in one hop.
+
+Phone page heights at 390 (before → after): home 5,626 → 3,945; nuclear map 9,558 → 4,701;
+climate map 12,838 → 5,203; glossary 20,868 → 4,984; /questions 12,158 → 4,294; FAQ 7,821 → 2,778.
+First crux on topic pages: ~4–5 phone screens → 1.5–2. Small tap targets on the flagship map 60 → 2.
+
+## Open for the founder (ranked)
+
+1. **Push / PR.** Everything is local. The branch sits on `north-star/ledger-v1` (itself unpushed,
+   on PR #7 → PR #6). Deploy prerequisites from those PRs still apply (`TRUSTED_PROXY_HOPS=2`).
+2. **`/ai` exposure.** Not in nav or on home, per the 09-22 note; the maps-library pass added one
+   quiet link under "Start here" on `/topics`. Keep, remove, or promote to nav.
+3. **Diagnosis lane in production** (`ENABLE_DISAGREEMENT_V2` + provider key). Off = the paste tool
+   gives the offline map match only. The "Did this change what you thought you were arguing about?"
+   answer is not recorded (the gap-metric schema doesn't accept it).
+4. **Legacy map authoring.** 110 legacy titles are labels, not questions; legacy crux headings are
+   long `live_disagreement` sentences (median ~236 chars); 46 maps have no falsification block (no
+   agreement, hook or mind-change lines). The template renders what exists; this is writing work.
+5. **Sitemap.** Learn/content routes are still out of the sitemap (08-21 pruning). Recommendation in
+   `docs/reviews/2026-09-29-learn.md`: add `/learn`, concepts, guides, fallacies, glossary,
+   research, for-educators, perspectives, blog, and primary `/questions/*`.
+6. **Blog titles** remain Title Case (search titles); 18 authored question texts use "verdict",
+   "winner" or "settled" (listed in `docs/reviews/2026-09-29-fixups-1.md`).
+7. **Server code with no UI** (candidates to delete): `api/debate`, `api/judge`, `api/verdict-card`,
+   `lib/judge`, `lib/debate/offline`, mock debate/verdict data, `BalanceWeightReadout`.
+8. **Match thresholds** for the paste map lane (15, 1.5×, 8) come from ~15 test pastes; re-check on
+   real ones. Rows saved by the retired analyzer are still served by `GET /api/analysis/[id]` when a DB
+   is connected — delete or keep.
+9. **Diagram route** (`/topics/[id]/map`) still has placeholder nodes, stock photos, "/40" badges and
+   some overlap at 1440 — it is noindexed and linked quietly; needs its own pass or removal.
