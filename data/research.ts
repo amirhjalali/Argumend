@@ -168,7 +168,7 @@ export const citations: Citation[] = [
 export const researchSections: ResearchSection[] = [
   {
     id: "polarization-crisis",
-    title: "The Polarization Crisis",
+    title: "The polarization crisis",
     subtitle: "We are not merely disagreeing — we are forgetting how to disagree.",
     paragraphs: [
       {
@@ -191,7 +191,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "information-weaponization",
-    title: "Information Weaponization",
+    title: "Information weaponization",
     subtitle:
       "Falsehood flies, and the truth comes limping after it.",
     paragraphs: [
@@ -211,7 +211,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "echo-chambers",
-    title: "Echo Chambers & Filter Bubbles",
+    title: "Echo chambers and filter bubbles",
     subtitle:
       "Algorithms optimize for engagement. Engagement rewards outrage.",
     paragraphs: [
@@ -231,7 +231,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "cost-of-bad-arguments",
-    title: "The Cost of Bad Arguments",
+    title: "The cost of bad arguments",
     subtitle: "Poor epistemics are not an abstract problem — they are a public health crisis.",
     paragraphs: [
       {
@@ -250,7 +250,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "what-works",
-    title: "What Works",
+    title: "What works",
     subtitle: "The research is clear: structured thinking produces better outcomes.",
     paragraphs: [
       {
@@ -269,7 +269,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "where-argumend-fits",
-    title: "Where Argumend Fits",
+    title: "Where Argumend fits",
     subtitle:
       "We translate research into a tool anyone can use.",
     paragraphs: [
@@ -278,7 +278,7 @@ export const researchSections: ResearchSection[] = [
         citationIds: ["fishkin-2018", "galef-2021"],
       },
       {
-        text: "Our calibrated confidence scores draw directly from Tetlock's research on superforecasting. Rather than presenting binary conclusions, we estimate uncertainty honestly — because admitting what we don't know is the first step toward knowing more.",
+        text: "Tetlock's research on superforecasting shaped how our maps talk about uncertainty. Instead of a verdict or a single percentage, a map says whether the evidence largely converges, is still divided, or is still thin, and flags a reading that one evidence card could overturn — because admitting what we don't know is the first step toward knowing more.",
         citationIds: ["tetlock-2015"],
       },
       {
