@@ -4,12 +4,15 @@ import { useCallback, useId, useState } from "react";
 import { Bookmark } from "lucide-react";
 
 import { useSavedTopics } from "@/hooks/useSavedTopics";
+import { buttonClasses } from "@/components/ui";
 
 interface SaveTopicButtonProps {
   topicId: string;
+  /** Show the text label at every width (topic-page action row). */
+  labelled?: boolean;
 }
 
-export function SaveTopicButton({ topicId }: SaveTopicButtonProps) {
+export function SaveTopicButton({ topicId, labelled = false }: SaveTopicButtonProps) {
   const { saved, hydrated, error, toggle } = useSavedTopics(topicId);
   const [syncing, setSyncing] = useState(false);
   const [syncError, setSyncError] = useState<string | null>(null);
@@ -63,7 +66,12 @@ export function SaveTopicButton({ topicId }: SaveTopicButtonProps) {
         aria-pressed={hydrated ? saved : undefined}
         aria-label={label}
         aria-describedby={message ? statusId : undefined}
-        className={`inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)] disabled:cursor-wait disabled:opacity-60 ${
+        className={labelled
+          ? buttonClasses({
+              variant: "secondary",
+              className: `!px-4 disabled:cursor-wait ${saved ? "!border-deep/50 text-deep dark:text-accent-text" : ""}`,
+            })
+          : `inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)] disabled:cursor-wait disabled:opacity-60 ${
           saved
             ? "bg-[#b05434] text-white border-[#b05434] hover:bg-[#8b3f27] hover:border-[#8b3f27]"
             : error
@@ -77,7 +85,7 @@ export function SaveTopicButton({ topicId }: SaveTopicButtonProps) {
           fill={saved ? "currentColor" : "none"}
           aria-hidden="true"
         />
-        <span className="hidden sm:inline">
+        <span className={labelled ? undefined : "hidden sm:inline"}>
           {!hydrated
             ? "Loading…"
             : syncing

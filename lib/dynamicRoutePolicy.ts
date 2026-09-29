@@ -126,6 +126,10 @@ export function shouldServeNamedNotFound(pathname: string): boolean {
   if (segments.length === 2 && segments[0] === "topics") {
     return !topicIds.has(segments[1]) && !debateTopicIds.has(segments[1]);
   }
+  // The diagram of a legacy map (/topics/:id/map). New-model maps have none.
+  if (segments.length === 3 && segments[0] === "topics" && segments[2] === "map") {
+    return !topicIds.has(segments[1]);
+  }
 
   if (segments.length === 2 && segments[0] === "blog") {
     return !RESERVED_BLOG_SEGMENTS.has(segments[1]) && !articleSlugs.has(segments[1]);

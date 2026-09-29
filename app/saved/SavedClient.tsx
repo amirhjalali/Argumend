@@ -13,6 +13,7 @@ import {
 import { useSavedTopicIds } from "@/hooks/useSavedTopics";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicStatus } from "@/data/topicIndex";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import {
   categoryColors,
   statusColors,
@@ -36,6 +37,10 @@ const statusLabels: Record<TopicStatus, string> = {
   highly_speculative: "Evidence thin",
 };
 
+type SavedCard =
+  | { kind: "legacy"; topic: (typeof topicSummaries)[number] }
+  | { kind: "debate"; topic: (typeof argumentTopicIndex)[number] };
+
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
@@ -44,13 +49,17 @@ export function SavedClient() {
   const { ids, hydrated, error, remove } = useSavedTopicIds();
 
   // Resolve saved IDs to summaries, preserving save order. IDs that no longer
-  // map to a topic (e.g. removed from the dataset) are silently dropped.
+  // map to a topic (e.g. removed from the dataset) are silently dropped. The
+  // debate maps (ArgumentGraph topics) live in their own lightweight index.
   const savedTopics = useMemo(() => {
     if (ids.length === 0) return [];
-    const byId = new Map(topicSummaries.map((t) => [t.id, t]));
+    const byId = new Map<string, SavedCard>([
+      ...topicSummaries.map((t): [string, SavedCard] => [t.id, { kind: "legacy", topic: t }]),
+      ...argumentTopicIndex.map((t): [string, SavedCard] => [t.id, { kind: "debate", topic: t }]),
+    ]);
     return ids
       .map((id) => byId.get(id))
-      .filter((t): t is (typeof topicSummaries)[number] => t !== undefined);
+      .filter((card): card is SavedCard => card !== undefined);
   }, [ids]);
 
   return (
@@ -130,7 +139,11 @@ export function SavedClient() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {savedTopics.map((topic) => {
+              {savedTopics.map((card) => {
+                if (card.kind === "debate") {
+                  return <DebateMapCard key={card.topic.id} topic={card.topic} onRemove={remove} />;
+                }
+                const topic = card.topic;
                 const StatusIcon = statusIcons[topic.status];
 
                 return (
@@ -212,6 +225,45 @@ export function SavedClient() {
           </p>
         )}
       </div>
+    </div>
+  );
+}
+
+/** A saved debate map (new-model topic): title and tagline, no verdict chip. */
+function DebateMapCard({
+  topic,
+  onRemove,
+}: {
+  topic: (typeof argumentTopicIndex)[number];
+  onRemove: (id: string) => void;
+}) {
+  return (
+    <div className="group relative flex flex-col rounded-xl border border-t-2 border-stone-200/60 border-t-deep bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-deep/30 hover:shadow-md dark:border-[var(--border-default)] dark:bg-[var(--bg-card)] dark:hover:border-deep/50">
+      <button
+        type="button"
+        onClick={() => onRemove(topic.id)}
+        aria-label={`Remove "${topic.title}" from saved`}
+        className="absolute right-1.5 top-1.5 z-20 flex h-11 w-11 items-center justify-center rounded-lg text-muted transition-colors hover:bg-rust-50 hover:text-rust-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:text-stone-400 dark:hover:bg-rust-900/40 dark:focus-visible:ring-offset-[var(--bg-card)]"
+      >
+        <X className="h-4 w-4" />
+      </button>
+      <Link
+        href={`/topics/${topic.id}`}
+        className="flex flex-1 flex-col rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+      >
+        <h2 className="mb-1.5 pr-8 font-serif text-base leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep">
+          {topic.title}
+        </h2>
+        <p className="mb-4 line-clamp-3 flex-1 text-xs leading-relaxed text-stone-500 dark:text-[var(--text-muted)]">
+          {topic.tagline}
+        </p>
+        <div className="mt-auto flex items-center justify-between gap-2">
+          <span className="inline-flex items-center rounded-full border border-deep/30 px-2 py-0.5 text-[11px] font-medium text-deep dark:text-[#8fc0bb]">
+            Debate map
+          </span>
+          <ArrowRight className="h-3.5 w-3.5 flex-shrink-0 text-stone-300 transition-all group-hover:translate-x-0.5 group-hover:text-deep dark:text-[var(--text-muted)]" />
+        </div>
+      </Link>
     </div>
   );
 }

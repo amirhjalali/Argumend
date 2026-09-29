@@ -15,6 +15,9 @@ import { proxy } from "@/proxy";
 
 const invalidDynamicRoutes = [
   "/topics/definitely-missing",
+  "/topics/definitely-missing/map",
+  // New-model maps have no diagram; their page is the outline.
+  "/topics/ai-mass-unemployment/map",
   "/blog/definitely-missing",
   "/blog/category/definitely-missing",
   "/blog/tag/definitely-missing",
@@ -30,6 +33,7 @@ const invalidDynamicRoutes = [
 
 const validDynamicRoutes = [
   "/topics/climate-change",
+  "/topics/climate-change/map",
   // New-model (ArgumentGraph) topic — served by DebateView, must clear the proxy.
   "/topics/ai-mass-unemployment",
   "/blog/why-steel-manning-makes-you-smarter",

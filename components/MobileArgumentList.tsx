@@ -58,7 +58,7 @@ function VerificationBadge({
   );
 }
 
-function EvidenceItem({ evidence }: { evidence: Evidence }) {
+function EvidenceItem({ evidence, showScore }: { evidence: Evidence; showScore: boolean }) {
   const [expanded, setExpanded] = useState(false);
   const score = calculateEvidenceScore(evidence.weight);
   const isFor = evidence.side === "for";
@@ -88,9 +88,11 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
               <p className="text-[13px] font-medium text-stone-700 dark:text-stone-200 leading-snug">
                 {evidence.title}
               </p>
-              <span className="flex-shrink-0 text-[11px] font-mono text-muted dark:text-stone-400">
-                {score}/40
-              </span>
+              {showScore && (
+                <span className="flex-shrink-0 text-[11px] font-mono text-muted dark:text-stone-400">
+                  {score}/40
+                </span>
+              )}
             </div>
 
             {expanded && (
@@ -100,6 +102,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                 </p>
 
                 {/* Weight bars */}
+                {showScore && (
                 <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
                   {(
                     [
@@ -127,6 +130,7 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
                     </div>
                   ))}
                 </div>
+                )}
 
                 {evidence.source && (
                   <p className="text-[11px] text-muted dark:text-stone-400 italic">
@@ -142,7 +146,15 @@ function EvidenceItem({ evidence }: { evidence: Evidence }) {
   );
 }
 
-function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
+function PillarSection({
+  pillar,
+  index,
+  showScores,
+}: {
+  pillar: Pillar;
+  index: number;
+  showScores: boolean;
+}) {
   const [expanded, setExpanded] = useState(false);
   const [showCrux, setShowCrux] = useState(false);
 
@@ -216,7 +228,7 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
               </p>
               <div className="space-y-1.5">
                 {evidence.map((e) => (
-                  <EvidenceItem key={e.id} evidence={e} />
+                  <EvidenceItem key={e.id} evidence={e} showScore={showScores} />
                 ))}
               </div>
             </div>
@@ -259,10 +271,16 @@ function PillarSection({ pillar, index }: { pillar: Pillar; index: number }) {
   );
 }
 
-export function MobileArgumentList() {
+/**
+ * `outlineOnly` is the phone view of the diagram route (/topics/[id]/map):
+ * the pillar outline alone, without the Evidence (points tally) and Debate
+ * tabs, the verdict label, or per-card scores.
+ */
+export function MobileArgumentList({ outlineOnly = false }: { outlineOnly?: boolean } = {}) {
   const currentTopicId = useLogicGraph((state) => state.currentTopicId);
   const setView = useLogicGraph((state) => state.setView);
-  const currentView = useLogicGraph((state) => state.currentView);
+  const storeView = useLogicGraph((state) => state.currentView);
+  const currentView = outlineOnly ? "logic-map" : storeView;
   const pillarListRef = useRef<HTMLDivElement>(null);
   const topics = getLoadedTopics();
   const topic = topics?.find((t) => t.id === currentTopicId);
@@ -284,6 +302,7 @@ export function MobileArgumentList() {
       <div className="px-4 py-5 space-y-5 max-w-lg mx-auto">
         {/* Topic header */}
         <div className="space-y-3">
+          {!outlineOnly && (
           <div className="flex items-center gap-2">
             <span
               className={`px-2.5 py-1 rounded-full border text-[11px] font-medium ${
@@ -296,10 +315,17 @@ export function MobileArgumentList() {
               {topic.verdict.label}
             </span>
           </div>
+          )}
 
-          <h1 className="font-serif text-xl font-medium text-stone-900 dark:text-stone-100 leading-snug">
-            {topic.title}
-          </h1>
+          {outlineOnly ? (
+            <h2 className="font-serif text-xl font-medium text-stone-900 dark:text-stone-100 leading-snug">
+              {topic.title}
+            </h2>
+          ) : (
+            <h1 className="font-serif text-xl font-medium text-stone-900 dark:text-stone-100 leading-snug">
+              {topic.title}
+            </h1>
+          )}
 
           <p className="text-[13px] text-stone-500 dark:text-stone-400 leading-relaxed">
             {topic.meta_claim}
@@ -307,6 +333,7 @@ export function MobileArgumentList() {
         </div>
 
         {/* View switcher (mobile-optimized) */}
+        {!outlineOnly && (
         <div className="flex gap-1 p-1 rounded-lg bg-stone-100/80 dark:bg-stone-800/80" role="group" aria-label="View mode">
           {(
             [
@@ -330,6 +357,7 @@ export function MobileArgumentList() {
             </button>
           ))}
         </div>
+        )}
 
         {/* Mini-graph preview — the product's signature map shape, shown before
             the accordion so phone users see it first. Static, non-interactive. */}
@@ -348,7 +376,7 @@ export function MobileArgumentList() {
               {topic.pillars.length} Key Arguments
             </p>
             {topic.pillars.map((pillar, i) => (
-              <PillarSection key={pillar.id} pillar={pillar} index={i} />
+              <PillarSection key={pillar.id} pillar={pillar} index={i} showScores={!outlineOnly} />
             ))}
           </div>
         )}
