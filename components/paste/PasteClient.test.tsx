@@ -42,11 +42,12 @@ function stubFetch(routes: Record<string, () => Promise<Response>>) {
 }
 
 beforeAll(async () => {
+  // The first paste in a process reads every map to build the index.
   matched = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
   unmatched = await findMaps(
     "Pineapple on pizza is great, the sweetness balances the salty ham. It's an abomination, fruit does not belong on pizza.",
   );
-});
+}, 60_000);
 
 describe("PasteClient with every lane off (production today)", () => {
   beforeEach(() => sessionStorage.clear());
@@ -93,6 +94,25 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(fetchMock.mock.calls.map(([url]) => url)).toEqual(["/api/analyze"]);
   });
 
+  it("names the map first, then its closely related sibling after the next step", async () => {
+    const sibling = { id: "open-borders", title: "The Case for Open Borders", claim: "A claim.", href: "/topics/open-borders" };
+    stubFetch({ "/api/analyze": () => jsonResponse({ maps: { ...matched, related: [sibling], closest: [] } }) });
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+
+    const mapHeading = await waitFor(() => view.getByRole("heading", { name: "This argument is already mapped" }));
+    const cta = view.getByRole("link", { name: "Open the map at this crux" });
+    const relatedHeading = view.getByRole("heading", { name: "Closely related" });
+    // Node.DOCUMENT_POSITION_FOLLOWING === 4: map, then the crux action, then the sibling.
+    expect(mapHeading.compareDocumentPosition(cta) & 4).toBe(4);
+    expect(cta.compareDocumentPosition(relatedHeading) & 4).toBe(4);
+    // The sibling is also pointed to under the map's claim, on the first screen.
+    const links = view.getAllByRole("link", { name: /^The Case for Open Borders/ });
+    expect(links).toHaveLength(2);
+    expect(links.every((link) => link.getAttribute("href") === "/topics/open-borders")).toBe(true);
+  });
+
   it("answers 'no map' with the closest maps rather than a wrong map", async () => {
     stubFetch({ "/api/analyze": () => jsonResponse({ maps: unmatched }) });
     const view = render(<PasteClient lanes={OFFLINE} />);
@@ -103,6 +123,7 @@ describe("PasteClient with every lane off (production today)", () => {
 
     await waitFor(() => view.getByRole("heading", { name: /^No map/ }));
     expect(view.queryByRole("link", { name: "Open the map at this crux" })).toBeNull();
+    expect(view.queryByRole("heading", { name: "Closely related" })).toBeNull();
   });
 
   it("submits the home page's paste on arrival, once, under Strict Mode", async () => {
