@@ -82,7 +82,7 @@ export function TopicPage({
   madeBy,
 }: TopicPageProps) {
   const url = `${SITE}/topics/${page.id}`;
-  const reflectionOptions = cruxes.map((crux) => ({ id: crux.anchor, label: crux.shortLabel }));
+  const reflectionOptions = cruxes.map((crux) => ({ id: crux.anchor, label: crux.question }));
 
   return (
     // The route wraps this in AppShell, which owns <main id="main-content">
@@ -167,7 +167,7 @@ export function TopicHeader({ page }: { page: TopicPageData }) {
           </>
         )}
       </p>
-      <h1 className="mt-2 text-balance font-serif text-[2.25rem] leading-[1.08] tracking-[-0.02em] text-stone-900 dark:text-stone-100 sm:text-5xl">
+      <h1 className="mt-2 text-balance font-serif text-[2.25rem] leading-[1.08] tracking-[-0.02em] text-stone-900 dark:text-stone-100 sm:text-[2.75rem]">
         {page.title}
       </h1>
       {page.subtitle && (
@@ -179,8 +179,8 @@ export function TopicHeader({ page }: { page: TopicPageData }) {
         </p>
       )}
       {hook && (
-        <div className="mt-5">
-          <p className="font-serif text-[1.25rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.3125rem]">
+        <div className="mt-4">
+          <p className="font-serif text-[1.1875rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.25rem]">
             {hook.text}
           </p>
           {hook.note && (
@@ -219,7 +219,7 @@ export function AgreementBlock({ heading, items }: { heading: string; items: str
     <section
       id="agreement"
       aria-labelledby="agreement-heading"
-      className="mt-7 scroll-mt-20 surface-paper rounded-lg border-l-[3px] border-l-deep/70 p-4 dark:border-l-[#8bb5b1]/60 sm:p-5"
+      className="mt-6 scroll-mt-20 surface-paper rounded-lg border-l-[3px] border-l-deep/70 p-4 dark:border-l-[#8bb5b1]/60 sm:px-5 sm:py-4"
     >
       <h2
         id="agreement-heading"
@@ -227,11 +227,11 @@ export function AgreementBlock({ heading, items }: { heading: string; items: str
       >
         {heading}
       </h2>
-      <ul className="mt-3 space-y-2.5">
+      <ul className="mt-2.5 space-y-2">
         {items.map((item) => (
           <li
             key={item}
-            className="flex gap-3 font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200"
+            className="flex gap-3 font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1rem]"
           >
             <span aria-hidden="true" className="mt-[0.7rem] h-px w-3 shrink-0 bg-deep/70 dark:bg-[#8bb5b1]/70" />
             <span>{item}</span>
@@ -249,7 +249,7 @@ export function AgreementBlock({ heading, items }: { heading: string; items: str
 export function CruxSheet({ page, cruxes }: { page: TopicPageData; cruxes: CruxEntryView[] }) {
   if (cruxes.length === 0) return null;
   return (
-    <section id="cruxes" aria-labelledby="cruxes-heading" className="mt-10 scroll-mt-20">
+    <section id="cruxes" aria-labelledby="cruxes-heading" className="mt-9 scroll-mt-20">
       <h2
         id="cruxes-heading"
         className="font-serif text-[1.625rem] leading-tight text-stone-900 dark:text-stone-100"

@@ -43,7 +43,7 @@ export function TopicDiagram({ topicId, title }: { topicId: string; title: strin
         </p>
       </div>
       <div
-        className="relative w-full border-t border-stone-200/70 dark:border-[var(--border-divider)] md:h-[calc(100svh-15rem)] md:min-h-[520px]"
+        className="relative w-full border-t border-stone-200/70 dark:border-[var(--border-divider)] md:h-[calc(100svh-17.5rem)] md:min-h-[480px]"
         data-testid="topic-diagram"
       >
         {hydrated && (isMobile ? <MobileArgumentList outlineOnly /> : <DesktopCanvas showIntroPanel={false} />)}
