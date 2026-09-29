@@ -48,21 +48,17 @@ describe("modal accessibility source contract", () => {
     },
   );
 
-  it("keeps the shared drawer lifecycle intact for any future caller", () => {
-    // AppShell no longer has a drawer: the header's phone menu is a dialog on
-    // useModalAccessibility (covered above). The two legacy private shells,
-    // HomeClient and the old /analyze page, are both gone (home and /analyze
-    // are server pages in AppShell), so no caller remains; the hook itself
-    // stays covered here and by its own test.
-    const hook = readFileSync(
-      join(process.cwd(), "hooks/useMobileSidebarA11y.ts"),
-      "utf8",
-    );
-    expect(hook).toContain('setAttribute("role", "dialog")');
-    expect(hook).toContain('setAttribute("aria-modal", "true")');
-    expect(hook).toContain('document.body.style.overflow = "hidden"');
-    expect(hook).toContain('event.key === "Escape"');
-    expect(hook).toContain('event.key !== "Tab"');
-    expect(hook).toContain("triggerRef.current?.focus()");
+  it("keeps one scroll lock, on <html> as well as <body>", () => {
+    // The window scrolls the page, and html's `overflow-x: clip` stops body's
+    // overflow from reaching it, so a body-only lock leaves the page
+    // scrolling behind a dialog. Every dialog above goes through the hook;
+    // nothing else may lock the page on its own.
+    const hook = readFileSync(join(process.cwd(), "hooks/useModalAccessibility.ts"), "utf8");
+    expect(hook).toContain('html.style.overflow = "hidden"');
+    expect(hook).toContain('body.style.overflow = "hidden"');
+    for (const file of auditedSources) {
+      const source = readFileSync(join(process.cwd(), file), "utf8");
+      expect(source, file).not.toMatch(/\.style\.overflow\s*=/);
+    }
   });
 });

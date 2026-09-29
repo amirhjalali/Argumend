@@ -85,7 +85,7 @@ describe("getActivePrimaryHref", () => {
     ["/topics", "/topics"],
     ["/topics/ai-mass-unemployment", "/topics"],
     ["/analyze", ANALYZE_HREF],
-    ["/analyze-v2", ANALYZE_HREF],
+    ["/faq", "/about"],
     ["/reply", ANALYZE_HREF],
     ["/d/some-report", ANALYZE_HREF],
     ["/learn", LEARN_HREF],

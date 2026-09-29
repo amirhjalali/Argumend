@@ -49,7 +49,7 @@ export const primaryNav: readonly NavLink[] = [
   {
     label: "Paste an argument",
     href: ANALYZE_HREF,
-    activePrefixes: ["/analyze", "/analyze-v2", "/reply", "/d"],
+    activePrefixes: ["/analyze", "/reply", "/d"],
   },
   {
     label: "Learn",
@@ -69,7 +69,7 @@ export const primaryNav: readonly NavLink[] = [
   {
     label: "About",
     href: "/about",
-    activePrefixes: ["/how-it-works", "/methodology", "/faq", "/community"],
+    activePrefixes: ["/methodology", "/faq"],
   },
 ];
 

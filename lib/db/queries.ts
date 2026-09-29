@@ -275,14 +275,6 @@ export async function unsaveTopic(userId: string, topicId: string) {
     );
 }
 
-export async function listUserDebates(userId: string, limit = 20) {
-  return getDb().query.debates.findMany({
-    where: eq(debates.userId, userId),
-    orderBy: desc(debates.createdAt),
-    limit,
-  });
-}
-
 // ============================================================================
 // Topic Views
 // ============================================================================

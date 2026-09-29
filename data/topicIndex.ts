@@ -80,13 +80,6 @@ export const CATEGORY_ORDER: TopicCategory[] = [
   "philosophy",
 ];
 
-/** Rotate this ID weekly to feature a different debate on the homepage. */
-export const featuredTopicId = "consciousness-ai-systems";
-
-/** Short editorial hook explaining why this topic is featured right now. */
-export const featuredReason =
-  "Anthropic now studies model welfare. Could today's AI already have a stake in how we treat it? Where the evidence actually lands.";
-
 // ---------------------------------------------------------------------------
 // Cross-category related topics (summaries-only)
 // ---------------------------------------------------------------------------

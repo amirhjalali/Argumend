@@ -20,7 +20,6 @@ const routesThatMustNotLoadTheFullCorpus = [
   "components/ReadModeView.tsx",
   "components/topic/TopicPage.tsx",
   "components/AppShell.tsx",
-  "components/Sidebar.tsx",
   "components/TopBar.tsx",
 ] as const;
 
@@ -78,7 +77,6 @@ const contentRouteClientShells = [
   "components/topic/CruxReflection.tsx",
   "components/topic/TopicActions.tsx",
   "components/AppShell.tsx",
-  "components/Sidebar.tsx",
   "components/TopBar.tsx",
 ] as const;
 
