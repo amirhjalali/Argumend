@@ -155,11 +155,12 @@ export const citations: Citation[] = [
     accessDate: "2025-12-01",
   },
   {
-    id: "cook-2023",
-    authors: ["Cook, J.", "Lewandowsky, S.", "Ecker, U. K. H."],
-    title: "Misinformation and Its Correction: Cognitive Mechanisms and Recommendations for Mass Communication",
-    source: "Psychological Science in the Public Interest",
-    year: 2023,
+    id: "lewandowsky-2012",
+    authors: ["Lewandowsky, S.", "Ecker, U. K. H.", "Seifert, C. M.", "Schwarz, N.", "Cook, J."],
+    title: "Misinformation and Its Correction: Continued Influence and Successful Debiasing",
+    source: "Psychological Science in the Public Interest, 13(3), 106–131",
+    year: 2012,
+    url: "https://doi.org/10.1177/1529100612451018",
   },
   {
     id: "perception-gap-2019",
