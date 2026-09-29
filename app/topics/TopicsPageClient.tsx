@@ -268,7 +268,7 @@ export default function TopicsPageClient({
             </span>{" "}
             {startHere
               ? `of ${filteredTopics.length} maps, plus the ${DEBATE_MAP_ENTRIES.length} above`
-              : `of ${filteredTopics.length} matching maps (${LIBRARY_ENTRIES.length} total)`}
+              : `of ${filteredTopics.length} matching ${filteredTopics.length === 1 ? "map" : "maps"} (${LIBRARY_ENTRIES.length} total)`}
           </p>
           <div className="flex items-center gap-4">
             {savedCount > 0 && (
