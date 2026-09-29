@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CollectionIndex, type CollectionItem } from "@/components/learn/CollectionIndex";
+import { CollectionIndex } from "@/components/learn/CollectionIndex";
 import { CollectionPagination } from "@/components/CollectionPagination";
 import { JsonLd } from "@/components/JsonLd";
-import { articleSummaries, getArticleSummaryCategoryFacets } from "@/data/blogIndex";
-import { getGeneratedMedia } from "@/data/generatedMedia";
+import { articleSummaries } from "@/data/blogIndex";
 import { buildPageHref, paginate, parsePageParam } from "@/lib/collectionPagination";
 import { indexCrumbs } from "@/lib/learn/sections";
-import { BLOG_CATEGORY_CHIPS, BLOG_PAGE_SIZE } from "./_config";
+import { BLOG_PAGE_SIZE } from "./_config";
+import { essayCategoryChips, essayRow } from "./_rows";
 
 type BlogPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -43,18 +43,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   // The largest categories only. Every category page still serves, and each
   // post links its own category; tags stay off the index head.
-  const categories = getArticleSummaryCategoryFacets().slice(0, BLOG_CATEGORY_CHIPS);
-
-  const items: CollectionItem[] = pagination.items.map((article) => {
-    const hero = getGeneratedMedia("blog", article.slug)?.hero;
-    return {
-      href: `/blog/${article.slug}`,
-      title: article.title,
-      description: article.description,
-      meta: `${article.category} · ${article.readingTime}`,
-      image: hero ? { src: hero.src, alt: hero.alt, width: hero.width, height: hero.height } : undefined,
-    };
-  });
+  const items = pagination.items.map(essayRow);
 
   const blogJsonLd = {
     "@context": "https://schema.org",
@@ -96,11 +85,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           </Link>
         </>
       }
-      chips={categories.map((category) => ({
-        href: `/blog/category/${category.slug}`,
-        label: category.label,
-        count: category.count,
-      }))}
+      chips={essayCategoryChips()}
       chipsLabel="Top blog categories"
       chrome={<JsonLd data={blogJsonLd} />}
       groups={[{ id: "essays", items }]}
