@@ -27,7 +27,6 @@ const migratedCopy = {
   "app/glossary/error.tsx": ["The glossary could not be loaded."],
   "app/guides/[id]/error.tsx": ["This guide could not be loaded.", 'backHref="/guides"', 'backLabel="Back to Guides"'],
   "app/guides/error.tsx": ["The guides could not be loaded."],
-  "app/how-it-works/error.tsx": ["This page could not be loaded."],
   "app/lessons-from-the-deep/error.tsx": ["Lessons from the Deep could not be loaded."],
   "app/library/error.tsx": ["The library could not be loaded."],
   "app/methodology/error.tsx": ["The methodology page could not be loaded."],

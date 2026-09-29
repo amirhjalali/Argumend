@@ -1,236 +1,330 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ArrowRight } from "lucide-react";
-import { quotes as allQuotes } from "@/data/quotes";
+import {
+  OnThisPage,
+  PROSE,
+  PROSE_LINK,
+  RuledList,
+  STORY_CONTAINER,
+  StoryHeader,
+  StorySection,
+  TEXT_ACTION,
+} from "@/components/story/StoryParts";
+import {
+  HOME_EVIDENCE_HREF,
+  HOME_FLAGSHIP_HREF,
+} from "@/components/home/homeModel";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 
-const principles = [
+/**
+ * /about is the site's only story page. It absorbed /how-it-works
+ * (#read-a-map) and /community (#contribute); both redirect here.
+ *
+ * Every number on this page is one Argumend has already published (the
+ * 2026-09-17 blog post linked from #why). Nothing here describes a feature
+ * that does not run by default.
+ */
+
+const GITHUB_URL = "https://github.com/amirhjalali/Argumend";
+
+const flagshipTitle =
+  argumentTopicIndex.find((topic) => `/topics/${topic.id}` === HOME_FLAGSHIP_HREF)?.title ??
+  "the AI jobs map";
+
+const SECTIONS = [
+  { id: "why", label: "Why it exists" },
+  { id: "principles", label: "Principles" },
+  { id: "read-a-map", label: "Reading a map" },
+  { id: "how-maps-are-made", label: "How maps are made" },
+  { id: "faq", label: "Questions" },
+  { id: "contribute", label: "Contribute" },
+];
+
+const MEASURED = [
   {
-    title: "Steel-Manning",
-    description: "We present the strongest version of every argument. If you can't articulate why intelligent people hold a position, you don't understand it well enough to disagree.",
+    key: "rent",
+    title: "A rent-control thread",
+    body: (
+      <p>
+        Written to mirror a real city-forum fight before a vote. The people in
+        it agreed on every fact in the thread, and disagreed on one value and
+        one policy detail.
+      </p>
+    ),
   },
   {
-    title: "Crux Identification",
-    description: "Every disagreement has a crux—the specific evidence that would change minds. We find it and make it explicit. This is where understanding happens.",
+    key: "panel",
+    title: "A four-minute TV panel on immigration",
+    body: (
+      <p>
+        A calibrated model put the chance that the two guests meant different
+        things by one word, &ldquo;culture&rdquo;, at 89%. Almost everything
+        else they said was common ground neither of them noticed.
+      </p>
+    ),
   },
   {
-    title: "Balance & Weight",
-    description: "We report uncertainty honestly, on two axes. Balance shows which way the evidence tips; weight shows how much of it there is. A 50/50 balance with high weight is genuinely contested—not the same as a 50/50 balance with barely any evidence.",
+    key: "debate",
+    title: "A 36-minute TV debate on trans athletes",
+    body: (
+      <p>
+        88 of 114 turns were not about the question in the title. The claim
+        the evidence actually turns on was never argued.
+      </p>
+    ),
   },
   {
-    title: "Source Transparency",
-    description: "Every claim links to its evidence. We show our work so you can verify independently—and correct us when we're wrong.",
+    key: "library",
+    title: "Our own library",
+    body: (
+      <p>
+        Three maps had their evidence labelled for and against the wrong
+        framing of the claim. The team frame was in our own data too. We fixed
+        them, and built a check for every card we add.
+      </p>
+    ),
   },
 ];
 
-const stakes = [
+const PRINCIPLES = [
   {
-    title: "Relationships fracture",
-    description: "When we can't discuss hard topics honestly, we retreat to our corners. Families split. Friendships end. Communities fragment.",
+    key: "crux",
+    title: "Crux over verdict.",
+    body: (
+      <p>
+        Wisdom is knowing what would change your mind. The spine of every map
+        is the crux, a question that would move one side or the other once it
+        is answered, and what would settle it. A ruling on a hard question can
+        rest on one judgment call about one piece of evidence. A record of
+        which cruxes moved, and what moved them, is more honest and more
+        useful.
+      </p>
+    ),
   },
   {
-    title: "Decisions suffer",
-    description: "From climate policy to medical choices, poor epistemics lead to poor decisions. The cost is measured in lives, not just arguments.",
+    key: "winner",
+    title: "Never a winner, always the other side’s best card.",
+    body: (
+      <p>
+        No map and no tool on this site names a winner. Each map sets the
+        strongest evidence one side reads beside the strongest the other side
+        reads, and writes every position so that the people who hold it would
+        say: yes, that is what we believe. This is a rule, not a setting. The
+        pull toward naming a winner is strongest exactly when a tool feels
+        most sure.
+      </p>
+    ),
   },
   {
-    title: "Trust erodes",
-    description: "When every institution is accused of bias and every expert dismissed, we lose the ability to coordinate on anything.",
+    key: "voluntary",
+    title: "Voluntary before imposed.",
+    body: (
+      <p>
+        Argumend works on the arguments people bring to it: the maps here, or a
+        thread you paste because you are in it. It does not reach into other
+        people&rsquo;s conversations to tell them what they are really fighting
+        about.
+      </p>
+    ),
   },
 ];
 
-// Pick a curated subset from the shared quotes for the about page
-const quotes = allQuotes.slice(0, 6);
+// The four steps /how-it-works carried, in its own words (steps 1–3), with
+// "topic" read as "map" and step 4 pointed at the diagram as it now exists.
+const STEPS = [
+  {
+    key: "pick",
+    title: "Pick a map",
+    body: (
+      <p>
+        Browse the <Link href="/topics" className={PROSE_LINK}>maps</Link> and
+        choose a question. Each one opens as a page you can read top to bottom.
+      </p>
+    ),
+  },
+  {
+    key: "cruxes",
+    title: "Read the cruxes",
+    body: (
+      <p>
+        Each map lists its cruxes: the specific questions the sides actually
+        disagree about. Under each one, &ldquo;What would settle it&rdquo;
+        names the evidence or test that could move it.
+      </p>
+    ),
+  },
+  {
+    key: "moved",
+    title: "See how it has moved",
+    body: (
+      <p>
+        Where a crux has a history, &ldquo;How this has moved&rdquo; is a dated
+        record of it: open, narrowed, resolved, or unresolvable by evidence,
+        and what changed each time. It records movement, not a winner.
+      </p>
+    ),
+  },
+  {
+    key: "diagram",
+    title: "Open the diagram if you want more",
+    body: (
+      <p>
+        Most maps also have an interactive diagram. Pan and zoom through
+        positions, objections, and evidence, and trace each claim to its
+        source.
+      </p>
+    ),
+  },
+];
+
+const CONTRIBUTE = [
+  {
+    key: "correction",
+    title: "Suggest a correction",
+    body: (
+      <p>
+        A card filed on the wrong side, a source that does not say what its
+        card says, a position its own holders would not recognise, or a crux
+        that has moved. Open an issue with the map&rsquo;s address and your
+        source.
+      </p>
+    ),
+  },
+  {
+    key: "weighting",
+    title: "Challenge a weighting",
+    body: (
+      <p>
+        Think a card carries too much weight, or too little? Say which of the
+        four measures is off and why, with citations.
+      </p>
+    ),
+  },
+  {
+    key: "map",
+    title: "Suggest a map",
+    body: (
+      <p>
+        A contested question with serious arguments on more than one side, and
+        a crux you could actually test.
+      </p>
+    ),
+  },
+];
 
 export default function AboutPage() {
   return (
-    <AppShell>
-      <div className="mx-auto max-w-3xl px-4 md:px-8">
-        {/* Hero — no label, heading-first */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#1a1917]/80 -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-16 md:mb-24">
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "About" },
-            ]}
-          />
-          <h1 className="text-balance font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 mb-7 leading-[1.08]">
-            What if we could disagree without destroying each other?
-          </h1>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
-            Most debates generate heat, not light. We yell past each other, strawman positions we don&apos;t understand,
-            and walk away more certain than before. Also more divided. That&apos;s not a coincidence.
-          </p>
-        </div>
+    <AppShell layout="reading">
+      <article className={STORY_CONTAINER}>
+        <StoryHeader
+          breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
+          eyebrow="About Argumend"
+          title="Disagree better."
+          lede="Argumend maps hard questions around what would change a mind, never around who won. This page is the whole story: why it exists, the rules it keeps, how to read a map, how maps are made, and how to help."
+        >
+          <OnThisPage items={SECTIONS} />
+        </StoryHeader>
 
-        {/* Why It Matters — flows directly from hero, no blockquote */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">Why this matters</h2>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-8">
-            Bad epistemics aren&apos;t just intellectually frustrating. They cause real harm.
-          </p>
-
-          <div className="grid gap-3">
-            {stakes.map((stake) => (
-              <div
-                key={stake.title}
-                className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
-              >
-                <h3 className="font-semibold text-primary dark:text-stone-200 mb-1.5">{stake.title}</h3>
-                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed">{stake.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Our Approach — whitespace separation, no divider */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">A different approach</h2>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-7">
-            Argumend maps controversial topics visually, breaking each one into:
-          </p>
-          <ul className="space-y-4 text-base md:text-lg text-secondary dark:text-stone-400 mb-6">
-            <li className="flex items-start gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#8B5A3C] mt-2 flex-shrink-0" />
-              <span><strong className="text-primary dark:text-stone-200">The strongest objection</strong> — steel-manned, not strawmanned</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#C4613C] mt-2 flex-shrink-0" />
-              <span><strong className="text-primary dark:text-stone-200">The best response</strong> — with evidence, not rhetoric</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#a23b3b] mt-2 flex-shrink-0" />
-              <span><strong className="text-primary dark:text-stone-200">The crux</strong> — the question that would actually resolve the debate</span>
-            </li>
-          </ul>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed">
-            You leave not just knowing what people believe, but <em>why</em> they believe it—and what
-            evidence would change your own mind.
-          </p>
-        </section>
-
-        {/* Principles — whitespace separation, no divider */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">Core principles</h2>
-          <p className="text-lg text-secondary dark:text-stone-400 mb-8 md:mb-10">These aren&apos;t aspirational. They&apos;re how we actually work.</p>
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {principles.map((principle) => (
-              <div
-                key={principle.title}
-                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[var(--border-default)]"
-              >
-                <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">{principle.title}</h3>
-                <p className="text-[14px] md:text-[15px] text-secondary dark:text-stone-400 leading-relaxed">{principle.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Philosophy */}
-        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-canvas/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">Philosophy</h2>
-          <div className="space-y-5 text-base md:text-lg text-secondary dark:text-stone-400 leading-[1.75]">
+        <StorySection id="why" title="Why it exists">
+          <div className={PROSE}>
             <p>
-              We draw from the rationalist tradition&mdash;Socratic questioning, Bayesian updating, the principle
-              of charity. But this isn&apos;t a worldview pitch. It&apos;s a tool that helps you think more clearly.
+              Most arguments are not about what they seem. Two people who sound
+              as if they disagree about the world often agree on nearly every
+              fact in front of them. What splits them is one value, one word
+              used two ways, or one question neither has said out loud.
             </p>
             <p>
-              Our core belief: <strong className="text-primary dark:text-stone-200">You are not your ideas.</strong>
-            </p>
-            <p>
-              Ideas are lenses to pick up, examine, and set down. When someone challenges your idea,
-              they&apos;re not attacking you—they&apos;re offering a different lens. Maybe theirs is better.
-              Maybe yours is. The only way to find out is to examine both honestly.
-            </p>
-            <p>
-              That&apos;s harder than it sounds. Most of us aren&apos;t naturally good at it. It takes practice,
-              and a willingness to say &ldquo;I don&apos;t know&rdquo; or &ldquo;I was wrong&rdquo;&mdash;two
-              of the most useful sentences in any language.
-            </p>
-            <p className="font-medium text-primary dark:text-stone-200">
-              Argumend is for people who want to do that work.
+              Argumend exists to close that gap: between how much people think
+              they disagree and how much they actually do. It is the gap outrage
+              feeds on, and it can be measured.
             </p>
           </div>
-        </section>
 
-        {/* Balance & Weight Explainer */}
-        <section className="bg-[#faf8f5] dark:bg-[var(--bg-card)] rounded-2xl p-6 md:p-8 mb-16 md:mb-24 border border-stone-200/60 dark:border-[var(--border-default)]">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">Understanding balance and weight</h2>
-          <p className="text-sm text-secondary dark:text-stone-400 mb-6">
-            We don&apos;t claim to know the truth. Balance shows which way the evidence tips; weight shows how much of it there is&mdash;together they let you decide.
+          <h3 className="label-caps mt-8">What we found when we measured it</h3>
+          <div className="mt-2">
+            <RuledList items={MEASURED} />
+          </div>
+          <p className="mt-2">
+            <Link href={HOME_EVIDENCE_HREF} className={TEXT_ACTION}>
+              The full write-up, with its caveats
+            </Link>
           </p>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-deep text-sm font-bold w-24 text-center">
-                high weight
-                <br />
-                strong lean
-              </span>
-              <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence largely converges</strong> — on the claim or on the counterclaim
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-deep text-sm font-bold w-24 text-center">
-                high weight
-                <br />
-                weak lean
-              </span>
-              <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Well-mapped, evidence still divided</strong> — richly evidenced, still split
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-rust-500 text-sm font-bold w-24 text-center">
-                medium weight
-              </span>
-              <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence leans / roughly balanced</strong> — moderately evidenced
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="font-mono tabular-nums text-score-low dark:text-[#c49a7c] text-sm font-bold w-24 text-center">
-                low weight
-              </span>
-              <p className="text-sm text-stone-600 dark:text-stone-400">
-                <strong className="text-stone-900 dark:text-[var(--text-heading)]">Evidence still thin</strong> — an open question
-              </p>
-            </div>
-          </div>
-        </section>
 
-        {/* Voices of Reason — 2-column masonry for visual variety */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-8">Voices of reason</h2>
-          <div className="columns-1 md:columns-2 gap-4 [&>*]:mb-4">
-            {quotes.map((quote, i) => (
-              <div
-                key={i}
-                className="break-inside-avoid p-5 rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] bg-white/50 dark:bg-canvas/50"
-              >
-                <p className="font-serif text-lg text-primary dark:text-stone-200 italic leading-relaxed mb-3">
-                  &ldquo;{quote.text}&rdquo;
-                </p>
-                <p className="text-sm text-secondary dark:text-stone-400">
-                  <span className="font-semibold text-primary dark:text-stone-200">{quote.author}</span>
-                  {quote.role && <span> &mdash; {quote.role}</span>}
-                </p>
-              </div>
-            ))}
+          <div className={`${PROSE} mt-6`}>
+            <p>
+              The goal is not to end argument. Arguments are how a society finds
+              things out. The goal is to end the counterfeit one: the argument
+              that feels like a disagreement about the world and is not.
+            </p>
+            <p>
+              That is what the name means. It reads both ways, argum-end and
+              argu-mend: end the counterfeit argument, and mend how we talk to
+              each other, so that people can look for wisdom rather than a side.
+            </p>
           </div>
-        </section>
+        </StorySection>
 
-        {/* Gentle close — inline link, no big CTA box */}
-        <div className="text-center py-12 mb-8">
-          <p className="text-secondary dark:text-stone-400 mb-4">Question everything — including this.</p>
-          <Link
-            href="/topics"
-            className="inline-flex items-center gap-2 text-sm font-medium text-rust-500 hover:text-rust-600 transition-colors"
-          >
-            Explore topics
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
-      </div>
+        <StorySection id="principles" title="Three principles">
+          <RuledList items={PRINCIPLES} numbered />
+        </StorySection>
+
+        <StorySection id="read-a-map" title="How to read a map" lede="No account needed.">
+          <RuledList items={STEPS} numbered />
+          <p className="mt-4">
+            <Link href={HOME_FLAGSHIP_HREF} className={TEXT_ACTION}>
+              Try it on {flagshipTitle}
+            </Link>
+          </p>
+        </StorySection>
+
+        <StorySection id="how-maps-are-made" title="How maps are made">
+          <div className={PROSE}>
+            <p>
+              Every card of evidence is weighed on four things: how reliable its
+              source is, how independent it is, whether it has been replicated,
+              and how directly it bears on the claim. It is filed by what it
+              shows, not by who cites it. On the newer maps, a deterministic
+              engine ranks the cruxes by asking which claims, if settled, would
+              move the positions furthest apart. Each crux says what would
+              settle it, or says plainly that no evidence can.
+            </p>
+          </div>
+          <p className="mt-4">
+            <Link href="/methodology" className={TEXT_ACTION}>
+              How maps are made, step by step
+            </Link>
+          </p>
+        </StorySection>
+
+        <StorySection id="faq" title="Questions">
+          <div className={PROSE}>
+            <p>Short answers to the questions people ask most.</p>
+          </div>
+          <p className="mt-2">
+            <Link href="/faq" className={TEXT_ACTION}>
+              Read the questions
+            </Link>
+          </p>
+        </StorySection>
+
+        <StorySection id="contribute" title="Contribute">
+          <div className={PROSE}>
+            <p>
+              Argumend is open source, and any map can be wrong. Contributions
+              happen on GitHub.
+            </p>
+          </div>
+          <div className="mt-6">
+            <RuledList items={CONTRIBUTE} />
+          </div>
+          <p className="mt-4">
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className={TEXT_ACTION}>
+              Open Argumend on GitHub
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
+        </StorySection>
+      </article>
     </AppShell>
   );
 }

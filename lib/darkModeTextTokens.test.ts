@@ -107,7 +107,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   // exemption.
   { path: "components/VerdictVoting.tsx" },
   { path: "app/methodology/page.tsx" },
-  { path: "app/how-it-works/page.tsx" },
   { path: "app/lessons-from-the-deep/page.tsx" },
   { path: "app/analysis/[id]/AnalysisView.tsx" },
   { path: "app/analyze/page.tsx" },

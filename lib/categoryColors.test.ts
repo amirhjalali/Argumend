@@ -237,7 +237,6 @@ describe("dark-mode pairing guard for text-primary / text-secondary", () => {
     "app/topics/[id]/TopicDetailView.tsx",
     "components/ReadModeView.tsx",
     "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
-    "app/community/page.tsx",
     "components/JudgingResults.tsx",
     "components/FlagshipIntro.tsx",
   ];
