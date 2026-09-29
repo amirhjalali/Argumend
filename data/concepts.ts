@@ -10,7 +10,7 @@ export interface Concept {
 export const concepts: Concept[] = [
   {
     id: "steel-manning",
-    title: "Steel-Manning",
+    title: "Steel-manning",
     description:
       "Steel-manning is the practice of presenting the strongest possible version of an opposing argument before attempting to refute it. Rather than attacking a weak or distorted version of what someone believes (a straw man), steel-manning requires you to articulate the position so well that an actual proponent would say, \"Yes, that's exactly what I mean.\"\n\nThis principle is foundational to Argumend's approach. Every pillar in our argument maps includes both the strongest skeptic position and the strongest proponent rebuttal. We apply what we call the Ideological Turing Test: could a true believer read our summary and feel represented? If not, we haven't done our job.\n\nSteel-manning isn't about being nice or fair for its own sake. It's about being epistemically honest. If you can only defeat a weak version of an argument, you haven't actually learned anything. The real test of your position is whether it survives contact with the strongest counterargument.",
     keyPoints: [
@@ -40,7 +40,7 @@ export const concepts: Concept[] = [
   },
   {
     id: "evidence-weighting",
-    title: "Evidence Weighting",
+    title: "Evidence weighting",
     description:
       "Not all evidence is created equal. A peer-reviewed meta-analysis carries more weight than an anecdote. An independent replication is more persuasive than a single study funded by an interested party. Evidence weighting is the systematic process of scoring how much a given piece of evidence should count toward a claim.\n\nArgumend scores every piece of evidence on four independent dimensions, each rated 0-10 by a person, who asks the same four questions whichever side the card helps. Source Reliability measures the track record, peer review status, and recognized expertise of the source. Independence assesses whether the evidence is free from conflicts of interest and independently corroborated. Replicability asks whether others can verify the result and whether it has been successfully reproduced. Directness evaluates how directly the evidence addresses the specific claim in question. The total evidence score is the sum of all four dimensions, yielding a maximum of 40.\n\nThis scoring system makes evidence quality visible. Instead of vaguely saying \"the evidence supports this,\" a map shows each card's weight and the plain word it earns (Established, Strong, Contested or Thin), and the detailed view shows all four scores. You can see which dimension a piece of evidence is strong or weak on, and check the map's foundations for yourself rather than taking our word for it.",
     keyPoints: [
@@ -70,7 +70,7 @@ export const concepts: Concept[] = [
   },
   {
     id: "fallacies",
-    title: "Logical Fallacies",
+    title: "Logical fallacies",
     description:
       "Logical fallacies are errors in reasoning that undermine the logical validity of an argument. They are patterns of bad reasoning that can appear persuasive on the surface but don't actually support the conclusion they claim to. Recognizing fallacies is essential for evaluating arguments honestly, whether they come from others or from ourselves.\n\nThe common ones have names: an ad hominem attacks the person rather than the argument, an appeal to authority treats expertise as proof rather than evidence, a false dichotomy presents only two options when more exist. Spotting one doesn't mean the conclusion is wrong -- a fallacious argument can still reach a true conclusion -- but it means that particular reasoning path is unreliable. Argumend's paste tool deliberately does not label fallacies in what you paste: a fallacy label is too easily used to score a point, and the tool's job is to find what the disagreement turns on. The catalogue is here so you can recognize them yourself.\n\nUnderstanding fallacies is particularly important in conjunction with steel-manning. When we strengthen an argument, we strip out the fallacies and rebuild it on solid logical foundations. The goal isn't to play \"gotcha\" with bad reasoning but to separate the signal from the noise: what is the actual evidence, and what is rhetorical decoration?",
     keyPoints: [

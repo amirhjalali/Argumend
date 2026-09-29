@@ -236,7 +236,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     example: "See motivated reasoning confronted on the Gun Control topic",
     exampleHref: "/topics/gun-control-effectiveness",
     learnMoreHref: "/guides/understanding-bias",
-    learnMoreText: "Read: Understanding Bias",
+    learnMoreText: "Read: Understanding bias",
     category: "reasoning",
   },
   {
@@ -292,7 +292,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     example: "See uncertainty stated plainly on the AI Risk map",
     exampleHref: "/topics/ai-risk",
     learnMoreHref: "/guides/reading-confidence-like-a-forecaster",
-    learnMoreText: "Read: Reading Confidence Like a Forecaster",
+    learnMoreText: "Read: Reading confidence like a forecaster",
     category: "reasoning",
   },
   {
