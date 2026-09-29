@@ -30,6 +30,9 @@ const invalidDynamicRoutes = [
   "/fallacies/definitely-missing",
   "/questions/definitely-missing",
   "/is/definitely-missing",
+  // Known /is slugs redirect in next.config.js before the proxy runs, so the
+  // proxy only ever sees unknown ones.
+  "/is/climate-change-real",
   "/for-educators/worksheets/definitely-missing",
   "/embed/definitely-missing",
   "/analysis/definitely-missing",
@@ -50,7 +53,6 @@ const validDynamicRoutes = [
   "/concepts/steel-manning",
   "/fallacies/straw-man",
   "/questions/is-nuclear-energy-safe",
-  "/is/climate-change-real",
   "/for-educators/worksheets/argument-map-template",
   "/embed/climate-change",
   "/analysis/123e4567-e89b-12d3-a456-426614174000",

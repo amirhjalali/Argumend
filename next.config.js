@@ -132,6 +132,27 @@ const nextConfig = {
         permanent: true,
       },
       // ── end home + story ────────────────────────────────────────────────
+      // ── learn (ux/learn, 2026-09-29) ──────────────────────────────────
+      // One /learn hub replaces the separate library indexes; see
+      // docs/reviews/2026-09-29-learn.md. Detail pages keep their URLs.
+      { source: '/concepts', destination: '/learn#ideas', permanent: true },
+      { source: '/guides', destination: '/learn#guides', permanent: true },
+      // The library's reading list now lives on /research.
+      { source: '/library', destination: '/research#reading', permanent: true },
+      { source: '/lessons-from-the-deep', destination: '/blog', permanent: true },
+      // The /is verdict pages are retired: each goes to the crux-first
+      // question page for the same map. The map is a legacy table built from
+      // data/is-claims.ts; lib/learn/isToQuestions.test.ts fails if any entry
+      // stops pointing at a real /questions page.
+      { source: '/is', destination: '/questions', permanent: true },
+      ...Object.entries(require('./lib/learn/isToQuestions.json')).map(
+        ([from, to]) => ({
+          source: `/is/${from}`,
+          destination: `/questions/${to}`,
+          permanent: true,
+        })
+      ),
+      // ── end learn ───────────────────────────────────────────────────────
     ];
   },
   async headers() {
