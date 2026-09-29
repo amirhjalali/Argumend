@@ -92,11 +92,14 @@ export async function generateMetadata({
   const socialImage = media?.hero
     ? absoluteMediaUrl(media.hero.src)
     : buildTopicOgUrl(topic.id);
+  // The question the map answers when one is authored (what the h1 shows);
+  // otherwise the short label.
+  const pageTitle = topic.question ?? topic.title;
 
   return {
-    // The map's title alone, as on the flagship maps: the /topics layout's
+    // The map's headline alone, as on the flagship maps: the /topics layout's
     // template adds "| ARGUMEND", like every other page title on the site.
-    title: topic.title,
+    title: pageTitle,
     description,
     keywords: [
       topic.title,
@@ -112,7 +115,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      title: `${topic.title} | ARGUMEND`,
+      title: `${pageTitle} | ARGUMEND`,
       description,
       url: `https://argumend.org/topics/${topic.id}`,
       siteName: "ARGUMEND",
@@ -127,7 +130,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: topic.title,
+      title: pageTitle,
       description,
       images: [socialImage],
     },
