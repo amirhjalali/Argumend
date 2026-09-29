@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { HowThisWasRead, ReadingNote } from "@/components/paste/HowThisWasRead";
 import type { MapReplyMatch } from "@/lib/mapReply/types";
-import { CruxLists } from "./CruxLists";
+import { CruxLists, CruxNumbers } from "./CruxLists";
 import { DISPLAY_CONFIDENCE_HEDGE, isHedged } from "./confidence";
-import { EvidenceCards } from "./EvidenceCards";
-import { MapReplyFooter } from "./MapReplyFooter";
+import { EvidenceCards, EvidenceWeights } from "./EvidenceCards";
+import { ExecutionNote, MapReplyFooter } from "./MapReplyFooter";
 import { Meter, percentLabel } from "./meters";
-import { PatternSignals } from "./PatternSignals";
+import { PatternNumbers, PatternSignals } from "./PatternSignals";
 import { renderInlineBold, replyLede } from "./replyLede";
 import { SectionBar } from "./SectionBar";
 import { TurnList } from "./TurnList";
@@ -13,13 +14,17 @@ import { TurnList } from "./TurnList";
 /**
  * The composed reply, laid out as a short report.
  *
- * The order is the order a reader needs it in: which map this is and how sure
- * we are; the reply's own opening paragraph (what the thread is actually
- * arguing about, and whether people are talking past each other); where the
- * turns landed; what kind of disagreement it is; which cruxes it reached; the
- * best evidence on each side; and last, turn by turn, the receipts every line
- * above rests on. Nothing here is generated prose — every sentence is either
- * a number from the pipeline or a string that already exists on the map.
+ * The order is the order a reader needs it in: which map this is; the
+ * reply's own opening paragraph (what the thread is actually arguing about,
+ * and whether it talks past itself); where the turns landed; what kind of
+ * disagreement it is; which cruxes it reached; the best evidence on each
+ * side. It describes turns, never people, and it shows no probabilities.
+ *
+ * Every number the reply rests on (the map confidence, the pattern and
+ * signal probabilities, each crux's touch against its bar, the evidence
+ * weights, the turn-by-turn receipts and the execution line) is kept in one
+ * collapsed "How this was read" disclosure at the end. Nothing is hidden,
+ * and nothing there is needed to read the reply.
  */
 
 function MapReplyHeader({ match }: { match: MapReplyMatch }) {
@@ -40,32 +45,11 @@ function MapReplyHeader({ match }: { match: MapReplyMatch }) {
         {topic.metaClaim}
       </p>
 
-      <div className="mt-6 max-w-sm">
-        <div className="flex items-baseline justify-between gap-3">
-          <span className="font-sans text-sm text-[var(--text-secondary)]">
-            Confidence this is the map
-          </span>
-          <span
-            className={`font-sans text-sm font-medium tabular-nums ${
-              hedged ? "text-skeptic dark:text-skeptic-light" : "text-deep dark:text-accent-text"
-            }`}
-          >
-            {percentLabel(topicChoice.confidence)}
-          </span>
-        </div>
-        <Meter
-          className="mt-1.5"
-          value={topicChoice.confidence}
-          tone={hedged ? "brown" : "teal"}
-          threshold={topicChoice.threshold}
-        />
-      </div>
-
       {hedged ? (
         <p className="mt-4 max-w-[36rem] border-l-2 border-skeptic pl-4 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)] dark:border-skeptic-light">
-          Below {percentLabel(DISPLAY_CONFIDENCE_HEDGE)}, treat the map itself as a guess.
-          Everything under this heading is read off this map and no other, so check it is the
-          argument you meant before you use the reply.
+          This is not a confident match, so treat the map itself as a guess. Everything below is
+          read off this map and no other: check it is the argument you meant before you use the
+          reply.
         </p>
       ) : null}
 
@@ -84,6 +68,7 @@ export function MapReplyResult({
   onReset: () => void;
 }) {
   const lede = replyLede(match.markdown);
+  const { topicChoice } = match;
 
   return (
     <article className="space-y-12">
@@ -103,27 +88,52 @@ export function MapReplyResult({
         thread={match.thread}
       />
 
-      <PatternSignals pattern={match.pattern} signals={match.signals} />
+      <PatternSignals pattern={match.pattern} />
 
-      <CruxLists cruxes={match.cruxes} thresholds={match.thresholds} />
+      <CruxLists cruxes={match.cruxes} />
 
       <EvidenceCards
         evidence={match.evidence}
         sectionTitle={match.dominantSection?.title ?? null}
       />
 
-      <TurnList
-        turns={match.turns}
-        notArguing={match.notArguing}
-        notArguingInProbedTurns={match.notArguingInProbedTurns}
-        thresholds={match.thresholds}
-      />
+      <MapReplyFooter markdown={match.markdown} onReset={onReset} />
 
-      <MapReplyFooter
-        markdown={match.markdown}
-        execution={match.execution}
-        onReset={onReset}
-      />
+      <HowThisWasRead>
+        <ReadingNote label="Which map">
+          <div className="max-w-md">
+            <div className="flex items-baseline justify-between gap-3">
+              <span>Confidence this is the map</span>
+              <span className="tabular-nums">{percentLabel(topicChoice.confidence)}</span>
+            </div>
+            <Meter
+              className="mt-1.5"
+              value={topicChoice.confidence}
+              tone={isHedged(topicChoice.confidence) ? "brown" : "teal"}
+              threshold={topicChoice.threshold}
+            />
+          </div>
+          <p>
+            No map is shown below {percentLabel(topicChoice.threshold)}; below{" "}
+            {percentLabel(DISPLAY_CONFIDENCE_HEDGE)} the page calls it a guess.
+          </p>
+        </ReadingNote>
+        <ReadingNote label="What kind of disagreement">
+          <PatternNumbers pattern={match.pattern} signals={match.signals} />
+        </ReadingNote>
+        <ReadingNote label="Which cruxes it reached">
+          <CruxNumbers cruxes={match.cruxes} thresholds={match.thresholds} />
+        </ReadingNote>
+        {match.evidence.length > 0 ? (
+          <ReadingNote label="Why these cards">
+            <EvidenceWeights evidence={match.evidence} />
+          </ReadingNote>
+        ) : null}
+        <TurnList turns={match.turns} thresholds={match.thresholds} />
+        <ReadingNote label="The run">
+          <ExecutionNote execution={match.execution} />
+        </ReadingNote>
+      </HowThisWasRead>
     </article>
   );
 }

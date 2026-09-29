@@ -17,7 +17,11 @@ import { ResultSection } from "./ResultSection";
  * still shown, and it is counted as unplaced rather than dropped, because "we
  * could not tell which section this belongs to" is a finding. A turn composed
  * as "not an argument" is dimmed and says which of the two rules caught it,
- * because that is a claim about a person and it has to show its work.
+ * because that is a claim about a move and it has to show its work.
+ *
+ * Turns are numbered, never attributed: the list sits under "How this was
+ * read" and describes moves, not the people who made them, so no speaker's
+ * name is printed and no meter can be read as a score for a person.
  *
  * On a phone the turns sit behind a native disclosure whose summary gives the
  * count, because eight probed turns are several screens of receipts under a
@@ -112,7 +116,7 @@ function ProbeMeter({ label, value, tone }: { label: string; value: number; tone
 function TurnItem({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
   return (
     <li className={`py-6 first:pt-0 ${turn.placement === "none" ? "opacity-70" : ""}`}>
-      <p className="font-sans text-sm font-semibold text-[var(--text-primary)]">{turn.speaker}</p>
+      <p className="font-sans text-sm font-semibold text-[var(--text-primary)]">Turn {turn.index + 1}</p>
 
       <p className="mt-1.5 max-w-[36rem] font-serif text-lg leading-relaxed text-[var(--text-primary)]">
         {turn.text}
@@ -147,18 +151,14 @@ function TurnItem({ turn, floor }: { turn: MapReplyTurn; floor: number }) {
 
 export function TurnList({
   turns,
-  notArguing,
-  notArguingInProbedTurns,
   thresholds,
 }: {
   turns: MapReplyTurn[];
-  notArguing: string[];
-  /** Speakers who also said things the pipeline never looked at. */
-  notArguingInProbedTurns: string[];
   thresholds: MapReplyThresholds;
 }) {
   const floor = thresholds.sectionConfidence;
   const tentativeCount = turns.filter((turn) => turn.placement === "tentative").length;
+  const offTopic = turns.filter((turn) => turn.placement === "none").length;
   // The reply only renders after a client-side submit, so reading the media
   // query in the initializer cannot mismatch a server render.
   const [open, setOpen] = useState(isDesktop);
@@ -185,22 +185,10 @@ export function TurnList({
           : `every placement above the ${percentLabel(floor)} floor`
       }
     >
-      {notArguing.length > 0 ? (
+      {offTopic > 0 ? (
         <p className="max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-          <span className="font-semibold text-[var(--text-primary)]">
-            {notArguing.join(", ")}
-          </span>{" "}
-          made no argument about the topic in any turn.
-        </p>
-      ) : null}
-
-      {notArguingInProbedTurns.length > 0 ? (
-        <p className="max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-          <span className="font-semibold text-[var(--text-primary)]">
-            {notArguingInProbedTurns.join(", ")}
-          </span>{" "}
-          made no argument in the turns that were checked, but also said things that were
-          never checked.
+          {offTopic} of the {turns.length} checked {turns.length === 1 ? "turn" : "turns"}{" "}
+          {offTopic === 1 ? "was not an argument" : "were not arguments"} about the topic.
         </p>
       ) : null}
 

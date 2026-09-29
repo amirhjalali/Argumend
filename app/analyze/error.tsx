@@ -11,8 +11,8 @@ export default function AnalyzePageError({
 }) {
   return (
     <RouteErrorState
-      title="The analyzer could not load"
-      message="This is usually temporary. Try loading the analyzer again or return home to keep browsing."
+      title="The paste page could not load"
+      message="This is usually temporary. Try loading it again or return home to keep browsing."
       reset={reset}
     />
   );

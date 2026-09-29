@@ -13,7 +13,6 @@ function sourceFiles(directory: string): string[] {
 
 describe("client/server module boundaries", () => {
   it.each([
-    "app/analysis/[id]/AnalysisView.tsx",
     "components/JudgingResults.tsx",
   ])("keeps provider-backed extraction code out of %s", (file) => {
     const source = readFileSync(file, "utf8");

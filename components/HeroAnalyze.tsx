@@ -4,13 +4,11 @@ import { useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { ANALYZE_HREF } from "@/lib/nav";
+import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
 
 interface HeroAnalyzeProps {
   onTopicSelect: (id: string) => void;
 }
-
-// Copy only: where the paste goes is ANALYZE_HREF (lib/nav.ts), not this flag.
-const V2 = process.env.NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2 === "true";
 
 export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps) {
   const router = useRouter();
@@ -20,10 +18,9 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
 
   const handleAnalyze = useCallback(() => {
     if (!content.trim()) return;
-    sessionStorage.setItem(
-      "argumend-analyze-prefill",
-      JSON.stringify({ content, contentType })
-    );
+    // /analyze reads this once and, when nothing leaves the server, submits
+    // it straight away (lib/paste/handoff.ts): one press, not two.
+    sessionStorage.setItem(PASTE_PREFILL_KEY, JSON.stringify({ content, contentType }));
     // The canonical paste tool is chosen in one place: lib/nav.ts.
     router.push(ANALYZE_HREF);
   }, [content, contentType, router]);
@@ -62,12 +59,11 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
             id="home-paste-heading"
             className="text-balance font-serif text-[2rem] leading-[1.08] tracking-[-0.01em] text-primary dark:text-stone-200 md:text-[2.5rem]"
           >
-            {V2 ? "What is the argument really resting on?" : "Bring your own argument"}
+            Bring your own argument
           </h2>
           <p className="mt-4 max-w-md text-base leading-relaxed text-secondary dark:text-stone-400">
-            {V2
-              ? "Paste a disagreement and find the hinge."
-              : "Paste an article, a thread, or your own draft. You get the positions in it, the claims each one rests on, and the question they turn on."}
+            Paste an article, a thread, or your own draft. See which map it is already on,
+            the question it turns on, and the strongest evidence on each side.
           </p>
         </div>
 
@@ -101,7 +97,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
                   : "cursor-not-allowed border border-stone-300/80 text-muted dark:border-divider dark:text-stone-500"
               }`}
             >
-              {V2 ? "Find what it turns on" : "Analyze"}
+              Find what it turns on
             </button>
           </div>
         </div>

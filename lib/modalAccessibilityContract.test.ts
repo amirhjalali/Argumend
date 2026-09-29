@@ -48,20 +48,12 @@ describe("modal accessibility source contract", () => {
     },
   );
 
-  it("keeps every modal mobile-sidebar caller on the shared drawer lifecycle", () => {
+  it("keeps the shared drawer lifecycle intact for any future caller", () => {
     // AppShell no longer has a drawer: the header's phone menu is a dialog on
-    // useModalAccessibility (covered above). HomeClient's private shell is
-    // gone (home is a server page in AppShell); one legacy shell remains.
-    const callers = [
-      "app/analyze/page.tsx",
-    ];
-    for (const file of callers) {
-      const source = readFileSync(join(process.cwd(), file), "utf8");
-      expect(source, `${file} must delegate mobile drawer behavior`).toContain(
-        "useMobileSidebarA11y({",
-      );
-    }
-
+    // useModalAccessibility (covered above). The two legacy private shells,
+    // HomeClient and the old /analyze page, are both gone (home and /analyze
+    // are server pages in AppShell), so no caller remains; the hook itself
+    // stays covered here and by its own test.
     const hook = readFileSync(
       join(process.cwd(), "hooks/useMobileSidebarA11y.ts"),
       "utf8",

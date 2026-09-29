@@ -22,7 +22,7 @@ export function PositionBriefs({
     <ReportSection
       id="positions"
       title="The positions"
-      lede="Each position is stated at its strongest. Inclusion is not endorsement, and a steelman is the report’s reconstruction, not a quote."
+      lede="Each position is put at its strongest. Showing it is not endorsing it, and the strongest version is the report’s own wording, not a quote."
     >
       <div className="divide-y divide-[var(--border-divider)]">
         {report.positions.map((position) => {
@@ -47,8 +47,9 @@ export function PositionBriefs({
                   {position.steelman}
                 </p>
                 <p className="mt-3 font-sans text-[0.8125rem] text-[var(--text-muted)]">
-                  {position.explicitness === "explicit" ? "Stated in source" : "Reconstructed (inferred)"},{" "}
-                  {position.confidence} confidence
+                  {position.explicitness === "explicit"
+                    ? "Stated in the text"
+                    : "Inferred: pieced together from the text, not stated in it"}
                 </p>
                 <SourceNotes quotes={position.grounding} />
                 {renderFeedback?.(position.id)}

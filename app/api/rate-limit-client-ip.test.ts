@@ -44,7 +44,7 @@ vi.mock("@/lib/rate-limit", async (importOriginal) => {
 });
 
 import { GET as analysisGet } from "./analysis/[id]/route";
-import { GET as analyzeGet, POST as analyzePost } from "./analyze/route";
+import { POST as analyzePost } from "./analyze/route";
 import { POST as debatePost } from "./debate/route";
 import { POST as debatePersistPost } from "./debate/persist/route";
 import { POST as debateStreamPost } from "./debate/stream/route";
@@ -93,19 +93,11 @@ interface Route {
 const routes: Route[] = [
   {
     label: "POST /api/analyze",
-    maxRequests: 10,
+    maxRequests: 60,
     buckets: 1,
     refusedStatus: 429,
     trustedIp: "198.51.100.11",
     call: (xff) => analyzePost(post("/api/analyze", xff)),
-  },
-  {
-    label: "GET /api/analyze",
-    maxRequests: 30,
-    buckets: 1,
-    refusedStatus: 429,
-    trustedIp: "198.51.100.12",
-    call: (xff) => analyzeGet(get("/api/analyze", xff)),
   },
   {
     label: "GET /api/analysis/[id]",
