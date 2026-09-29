@@ -80,7 +80,7 @@ Corpus last reviewed: ${CONTENT_LAST_UPDATED}.
 
   // These pages use the richer ArgumentGraph model and intentionally are not
   // represented as balance/verdict records in the legacy v1 topics API.
-  const debateMaps = `## Flagship debate maps
+  const debateMaps = `## Flagship maps
 These maps show multiple positions and their load-bearing cruxes without reducing the debate to a single balance or verdict score.
 Flagship maps last reviewed: ${ARGUMENT_TOPICS_LAST_UPDATED}.
 ${argumentTopicIndex
@@ -94,7 +94,7 @@ ${argumentTopicIndex
 - About (why Argumend exists, its principles, how to read a map): ${BASE}/about
 - How maps are made: ${BASE}/methodology
 - Glossary of terms (cruxes, pillars, steel-manning): ${BASE}/glossary
-- All topics: ${BASE}/topics
+- All maps: ${BASE}/topics
 - Blog: ${BASE}/blog
 
 ## Machine-readable interfaces

@@ -54,7 +54,8 @@ export async function generateMetadata({
       title: argumentTopic.meta.title,
       subtitle: argumentTopic.meta.tagline,
     });
-    const pageTitle = `${argumentTopic.meta.title} — Debate Map`;
+    // The question alone; the layout's title template adds "| ARGUMEND".
+    const pageTitle = argumentTopic.meta.title;
     const url = `https://argumend.org/topics/${argumentTopic.meta.id}`;
     return {
       title: pageTitle,
@@ -236,7 +237,8 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
       {/* No ClaimReview: Argumend's confidence-spectrum verdicts aren't binary
           fact-checks and the brand isn't a registered fact-checker (Google
           restricts ClaimReview rich results). Article + FAQPage cover the page;
-          /is pages use QAPage. Consistent with the cycle-4 schema decision. */}
+          the FAQPage questions are visible in the "Common questions" fold
+          (ReadModeView), as Google requires. */}
       <JsonLd
         data={{
           "@context": "https://schema.org",

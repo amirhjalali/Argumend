@@ -107,7 +107,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
           isCompact ? "text-xs mb-3" : "text-sm mb-5"
         }`}
       >
-        Weekly debates, new topics, and critical thinking insights. No spam.
+        New maps, and cruxes that moved. No spam.
       </p>
 
       {/* Form */}

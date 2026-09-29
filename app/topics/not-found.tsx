@@ -3,11 +3,11 @@ import { RouteNotFound } from "@/components/RouteNotFound";
 export default function TopicsNotFound() {
   return (
     <RouteNotFound
-      eyebrow="Topic unavailable"
-      title="We could not find this argument map"
-      description="The topic link may be incomplete, or this debate may not have been mapped yet. Browse the topic catalog to keep exploring."
+      eyebrow="Map unavailable"
+      title="We could not find this map"
+      description="The link may be incomplete, or this question may not have been mapped yet. Browse the maps to keep exploring."
       primaryHref="/topics"
-      primaryLabel="Browse Topics"
+      primaryLabel="Browse maps"
     />
   );
 }

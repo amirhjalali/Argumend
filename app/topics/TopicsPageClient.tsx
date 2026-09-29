@@ -8,7 +8,7 @@ import type { TopicCategory } from "@/data/topicIndex";
 import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
 import { CollectionPagination } from "@/components/CollectionPagination";
-import { Chip, PageContainer, PageHeader, TextAction } from "@/components/ui";
+import { PageContainer, PageHeader, TextAction } from "@/components/ui";
 import { useSavedTopicIds } from "@/hooks/useSavedTopics";
 import { paginate, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
 import {
@@ -346,17 +346,20 @@ export default function TopicsPageClient({
                           <p className="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
                             {topic.summary}
                           </p>
-                          <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-muted">
-                            {topic.kind === "debate-map" && <Chip tone="teal">Debate map</Chip>}
-                            {!group.category && <span>{CATEGORY_LABELS[topic.category]}</span>}
-                            {topic.status && <span>{STATUS_LABELS[topic.status]}</span>}
-                            {topic.pillarCount !== undefined && topic.evidenceCount !== undefined && (
-                              <span>
-                                {topic.pillarCount} {topic.pillarCount === 1 ? "pillar" : "pillars"},{" "}
-                                {topic.evidenceCount} evidence {topic.evidenceCount === 1 ? "card" : "cards"}
-                              </span>
-                            )}
-                          </p>
+                          {/* No "kind" chip: every row is a map. A new-model
+                              row under a category shelf has no meta at all. */}
+                          {(!group.category || topic.status || topic.pillarCount !== undefined) && (
+                            <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem] text-muted">
+                              {!group.category && <span>{CATEGORY_LABELS[topic.category]}</span>}
+                              {topic.status && <span>{STATUS_LABELS[topic.status]}</span>}
+                              {topic.pillarCount !== undefined && topic.evidenceCount !== undefined && (
+                                <span>
+                                  {topic.pillarCount} {topic.pillarCount === 1 ? "pillar" : "pillars"},{" "}
+                                  {topic.evidenceCount} evidence {topic.evidenceCount === 1 ? "card" : "cards"}
+                                </span>
+                              )}
+                            </p>
+                          )}
                         </Link>
                       </li>
                     ))}

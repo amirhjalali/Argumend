@@ -84,21 +84,16 @@ ENABLE_LIVE_DEBATE_API=true
 NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true
 
 ENABLE_DISAGREEMENT_V2=true
-NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2=true
 ARGUMEND_DISAGREEMENT_MODEL=claude-sonnet-4-20250514
 ```
 
-Disagreement Diagnosis V2 is a separate, source-only Analyze loop at `/analyze-v2`.
-It stays off unless both flags are true and `ARGUMEND_DISAGREEMENT_MODEL` is set.
+Disagreement Diagnosis is a source-only lane of the one paste tool at `/analyze`
+(`/analyze-v2` redirects there). It stays off unless `ENABLE_DISAGREEMENT_V2` is true
+and a provider can run: the default Anthropic lane needs `ARGUMEND_DISAGREEMENT_MODEL`
+and `ANTHROPIC_API_KEY` (see `lib/paste/lanes.ts`). It is a runtime server variable;
+no build-time flag is involved. Without it, `/analyze` runs only the offline map match.
 Publishing unlisted `/d/<slug>` reports also requires `ENABLE_DISAGREEMENT_PUBLISHING`,
-`REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`. The old `/analyze` path is unchanged.
-
-During the V2 alpha, setting `NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2=true` (a build-time
-flag) also points the top-bar Analyze link and the home hero at `/analyze-v2`, with
-the hero CTA reading "Find what it turns on". Docker builds must pass it as
-`--build-arg NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2=true` for that navigation to exist
-in the client bundle; the server-side `ENABLE_DISAGREEMENT_V2` remains a runtime
-variable and gates the route itself.
+`REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`.
 
 The unprefixed `ENABLE_LIVE_*` flags are the server-side authorization boundary
 for provider calls. Their matching `NEXT_PUBLIC_ENABLE_LIVE_*` flags only expose

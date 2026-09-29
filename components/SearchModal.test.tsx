@@ -136,7 +136,7 @@ describe("SearchModal keyboard lifecycle", () => {
     expect(view.container.textContent).not.toMatch(/Debate Map/);
   });
 
-  it("spells every type badge out in full (\"Blog\", not \"Blo\")", async () => {
+  it("spells every type badge out in full (\"Essay\", not \"Ess\")", async () => {
     const view = render(<SearchHarness />);
     fireEvent.click(view.getByRole("button", { name: "Open search" }));
     const input = view.getByRole("combobox", { name: "Search Argumend" });
@@ -146,8 +146,8 @@ describe("SearchModal keyboard lifecycle", () => {
     fireEvent.change(input, { target: { value: article.title } });
     const option = view.getByRole("option", { name: new RegExp(escapeRegExp(article.title)) });
     const badge = option.querySelector("span.whitespace-nowrap");
-    expect(badge?.textContent).toBe("Blog");
-    expect(option.textContent).toMatch(/Blog$/);
+    expect(badge?.textContent).toBe("Essay");
+    expect(option.textContent).toMatch(/Essay$/);
   });
 
   it.each(argumentTopicIndex)(
@@ -166,6 +166,33 @@ describe("SearchModal keyboard lifecycle", () => {
       expect(push).toHaveBeenLastCalledWith(`/topics/${topic.id}`);
     },
   );
+
+  it("lists both map models under one Maps group, and no retired pages", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    fireEvent.change(input, { target: { value: "nuclear" } });
+    const text = view.container.textContent ?? "";
+    expect(text).toMatch(/Maps/);
+    expect(text).not.toMatch(/Topics|Topic\b/);
+
+    // Folded pages are found by their old names but link to the section
+    // itself: a redirect drops the #anchor on client navigation.
+    for (const [query, name, href] of [
+      ["how it works", /^How to read a map/, "/about#read-a-map"],
+      ["contribute", /^Contribute/, "/about#contribute"],
+      ["library", /^Reading list/, "/research#reading"],
+      ["core ideas", /^Core ideas/, "/learn#ideas"],
+      ["learn", /^Learn/, "/learn"],
+    ] as const) {
+      fireEvent.change(input, { target: { value: query } });
+      fireEvent.click(view.getByRole("option", { name }));
+      expect(push).toHaveBeenLastCalledWith(href);
+      fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    }
+  });
 
   it("indexes useful aliases for the flagship maps", async () => {
     const view = render(<SearchHarness />);

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 /** Which providers can see which kind of material, for the processor table. */
 const PROVIDER_ROLES: Record<string, string> = {
-  typesafe: "Disagreement diagnosis and map replies (when that lane is enabled)",
+  typesafe: "Map replies only, when that tool is switched on — after identifiers are removed",
   anthropic:
     "Disagreement diagnosis (when that lane is enabled) and one seat on the debate tools’ judge council",
   openai: "Judge council only — receives extracted arguments, not your raw text",

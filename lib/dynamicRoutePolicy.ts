@@ -99,6 +99,38 @@ function pathnameSegments(pathname: string): string[] | null {
   }
 }
 
+const DIAGRAM_VIEWS = new Set(["graph", "logic-map"]);
+
+/**
+ * Where an old home-canvas link (`/?topic=<id>[&view=…]`) lives now, as a
+ * path with query, for a request to `/` that carries `topic`.
+ *
+ * - `view=graph|logic-map` on a legacy map: its diagram, /topics/<id>/map.
+ * - any other view, or a new-model map (which has no diagram): /topics/<id>.
+ * - an empty or unknown id: the library, /topics.
+ *
+ * `topic` and `view` are dropped; any other parameter (utm_*, ref) is kept.
+ * The proxy does this rather than next.config.js redirects(), which merge the
+ * whole incoming query into the destination and so cannot drop them.
+ */
+export function legacyHomeTopicPath(searchParams: URLSearchParams): string | null {
+  const id = searchParams.get("topic");
+  if (id === null) return null;
+  const view = searchParams.get("view");
+
+  const rest = new URLSearchParams(searchParams);
+  rest.delete("topic");
+  rest.delete("view");
+  const query = rest.size > 0 ? `?${rest.toString()}` : "";
+
+  if (topicIds.has(id)) {
+    const diagram = view !== null && DIAGRAM_VIEWS.has(view) ? "/map" : "";
+    return `/topics/${encodeURIComponent(id)}${diagram}${query}`;
+  }
+  if (debateTopicIds.has(id)) return `/topics/${encodeURIComponent(id)}${query}`;
+  return `/topics${query}`;
+}
+
 /**
  * Returns true only for known user-facing dynamic URLs that can be rejected
  * without loading page data. The proxy rewrites these to the global named 404

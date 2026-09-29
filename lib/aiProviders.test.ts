@@ -74,8 +74,15 @@ describe("formatProviderList", () => {
 describe("providerDisclosure", () => {
   it("names the providers and the shared processing region", () => {
     expect(providerDisclosure(DIAGNOSIS_PROVIDER_IDS)).toBe(
-      "TypeSafe AI or Anthropic, processed in the United States",
+      "Anthropic, processed in the United States",
     );
+  });
+
+  it("names only the providers the diagnosis lane calls", () => {
+    // createDisagreementProvider's hosted lane is Anthropic; TypeSafe AI is
+    // the map-reply lane's provider, never the diagnosis lane's.
+    expect(DIAGNOSIS_PROVIDER_IDS).toEqual(["anthropic"]);
+    expect(MAP_REPLY_PROVIDER_IDS).toEqual(["typesafe"]);
   });
 
   it("refuses to flatten providers that process in different regions", () => {
@@ -97,7 +104,7 @@ describe("buildConsentLine", () => {
   it("is the approved disclosure sentence for the diagnosis lane", () => {
     expect(line.text).toBe(
       "By analyzing, you agree that this text is sent to our AI provider " +
-        "(TypeSafe AI or Anthropic, processed in the United States) and is not stored. " +
+        "(Anthropic, processed in the United States) and is not stored. " +
         "Don't paste private information about other people.",
     );
   });

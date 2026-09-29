@@ -98,10 +98,12 @@ describe("/topics: Start here", () => {
       <TopicsPageClient initialState={{ ...defaultState, category: "technology" }} />,
     );
     expect(view.queryByRole("heading", { name: "Start here" })).toBeNull();
-    // The technology shelf holds its debate map first, marked as one.
+    // The technology shelf holds its new-model map first. Every row is a map,
+    // so no row carries a "Debate map" (or "Map") chip.
     const firstRow = view.container.querySelector("ul li a")!;
     expect(firstRow.getAttribute("href")).toBe("/topics/ai-mass-unemployment");
-    expect(firstRow.textContent).toContain("Debate map");
+    expect(firstRow.textContent).not.toMatch(/Debate map/i);
+    expect([...firstRow.querySelectorAll("p")].filter((p) => !p.textContent?.trim())).toHaveLength(0);
   });
 
   it("files every registered map on a shelf", () => {
@@ -263,7 +265,7 @@ describe("/topics metadata", () => {
     expect(metadata.alternates?.canonical).toBe(
       "https://argumend.org/topics?category=science&sort=title-asc&page=2",
     );
-    expect(metadata.title).toBe("Explore Topics — Page 2");
+    expect(metadata.title).toBe("Maps — page 2");
     expect(metadata.pagination).toEqual({
       previous: "https://argumend.org/topics?category=science&sort=title-asc",
       next: null,

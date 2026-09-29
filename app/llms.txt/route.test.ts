@@ -32,7 +32,7 @@ describe("GET /llms.txt", () => {
 
   it("discovers every flagship map without inventing legacy scores", async () => {
     const body = await (await GET()).text();
-    const flagshipSection = body.split("## Flagship debate maps")[1].split("\n## ")[0];
+    const flagshipSection = body.split("## Flagship maps")[1].split("\n## ")[0];
 
     for (const topic of argumentTopicIndex) {
       expect(flagshipSection).toContain(

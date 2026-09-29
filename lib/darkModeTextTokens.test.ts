@@ -131,7 +131,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/SaveTopicButton.tsx" },
   { path: "components/SubscribeButton.tsx" },
   { path: "components/RouteErrorState.tsx" },
-  { path: "components/Sidebar.tsx" },
   { path: "components/ThemeToggle.tsx" },
   { path: "components/ViewToggle.tsx" },
   { path: "app/embed/[topicId]/layout.tsx" },

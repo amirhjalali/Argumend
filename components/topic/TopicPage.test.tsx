@@ -117,6 +117,35 @@ describe("one crux-first template for every map", () => {
     expect(questions).toEqual(topic.pillars.map((p) => p.crux.title));
   });
 
+  it("shows every FAQPage question on the page, in a Common questions fold", async () => {
+    const { topic, view } = await renderLegacy("ai-in-education");
+    expect(topic.questions?.length).toBeGreaterThan(0);
+    const fold = view.container.querySelector("details#questions")!;
+    expect(fold).not.toBeNull();
+    expect(fold.querySelector("summary > h2")?.textContent).toContain("Common questions");
+    for (const question of topic.questions!) {
+      expect(fold.textContent).toContain(question.title);
+      expect(fold.textContent).toContain(question.content);
+    }
+    // No fold when the map has no questions (and so no FAQPage data).
+    cleanup();
+    const { topic: plainTopic, view: plain } = await renderLegacy("nuclear-energy-safety");
+    expect(plainTopic.questions ?? []).toHaveLength(0);
+    expect(plain.container.querySelector("details#questions")).toBeNull();
+  });
+
+  it("titles every fold with an h2, so the fold's own headings nest under it", async () => {
+    const { view } = await renderLegacy("nuclear-energy-safety");
+    const folds = view.container.querySelectorAll("section[aria-label='More about this map'] > details");
+    expect(folds.length).toBeGreaterThan(0);
+    for (const fold of folds) {
+      const heading = fold.querySelector(":scope > summary > h2");
+      expect(heading, fold.id).not.toBeNull();
+      // Any deeper heading inside the fold is h3 or below.
+      expect(fold.querySelectorAll(":scope > div h1, :scope > div h2"), fold.id).toHaveLength(0);
+    }
+  });
+
   it("gives every source link inside a crux fold a 44px hit area", async () => {
     const { view } = await renderLegacy("nuclear-energy-safety");
     const links = view.container.querySelectorAll<HTMLAnchorElement>('#cruxes a[target="_blank"]');

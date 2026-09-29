@@ -2116,7 +2116,7 @@ Everything we have discussed — the Principle of Charity, finding cruxes, epist
 
 This is precisely what Argumend is built to do. Each map takes a complex, multi-sided argument and lays it out so that every claim is linked to its supporting evidence, the weight of that evidence is explicit, and the strongest arguments on every side are visible at a glance. It is the Principle of Charity, the Socratic method, and crux-finding, operationalized as a tool.
 
-To see how argument mapping works in practice, visit our [how it works page](/how-it-works) and explore any of our mapped topics. You may find that seeing an argument — rather than just hearing it — changes the way you think about disagreement entirely.
+To see how argument mapping works in practice, read [how to read a map](/about#read-a-map) and explore any of our mapped topics. You may find that seeing an argument — rather than just hearing it — changes the way you think about disagreement entirely.
 
 ## Arguing Well Is a Form of Respect
 

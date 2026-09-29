@@ -159,7 +159,7 @@ export const generatedMedia = [
     hero: {
       src: "/images/generated/blog/nuclear-energy-what-both-sides-get-right/hero.jpg",
       ...IMAGE_DIMENSIONS,
-      alt: "Balanced nuclear energy debate map with benefit and risk paths.",
+      alt: "Balanced nuclear energy argument map with benefit and risk paths.",
       prompt: `${basePrompt} Balanced energy debate map with reactor-core symbol, grid lines, climate benefit path, waste and safety risk path, and central crux node.`,
     },
   },

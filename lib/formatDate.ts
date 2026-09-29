@@ -49,7 +49,7 @@ export function formatLongDate(value: string | Date): string {
   return format(value, LONG_OPTIONS);
 }
 
-/** "Jan 15, 2026" — dense list rows (dashboard, /analyses). */
+/** "Jan 15, 2026" — dense list rows (dashboard). */
 export function formatShortDate(value: string | Date): string {
   return format(value, SHORT_OPTIONS);
 }

@@ -29,6 +29,31 @@ function mockViewport(desktop: boolean) {
   }));
 }
 
+/** A viewport whose width can cross the 768px breakpoint mid-test. */
+function mockResizableViewport(initialDesktop: boolean) {
+  let desktop = initialDesktop;
+  const listeners = new Set<() => void>();
+  vi.spyOn(window, "matchMedia").mockImplementation(
+    (query: string) =>
+      ({
+        get matches() {
+          return query === "(min-width: 768px)" ? desktop : false;
+        },
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: (_type: string, listener: () => void) => listeners.add(listener),
+        removeEventListener: (_type: string, listener: () => void) => listeners.delete(listener),
+        dispatchEvent: vi.fn(),
+      }) as unknown as MediaQueryList,
+  );
+  return (next: boolean) => {
+    desktop = next;
+    act(() => listeners.forEach((listener) => listener()));
+  };
+}
+
 describe("TopBar (the site header)", () => {
   beforeEach(() => {
     pathname = "/topics";
@@ -64,15 +89,14 @@ describe("TopBar (the site header)", () => {
   });
 
   it("has one search button and one theme button, never a sidebar toggle", () => {
-    const view = render(<TopBar onMenuClick={vi.fn()} sidebarId="legacy" sidebarOpen />);
+    const view = render(<TopBar />);
     expect(view.getAllByRole("button", { name: "Search" })).toHaveLength(1);
     expect(view.queryByRole("button", { name: /toggle sidebar/i })).toBeNull();
     expect(view.queryByRole("radiogroup")).toBeNull();
   });
 
   it("opens its own phone menu: primary items, the Learn group, then theme", async () => {
-    const onMenuClick = vi.fn();
-    const view = render(<TopBar onMenuClick={onMenuClick} />);
+    const view = render(<TopBar />);
     const menuButton = view.getByRole("button", { name: "Open menu" });
     expect(menuButton.getAttribute("aria-expanded")).toBe("false");
 
@@ -82,8 +106,6 @@ describe("TopBar (the site header)", () => {
     const sheet = view.getByRole("dialog", { name: "Menu" });
     expect(menuButton.getAttribute("aria-expanded")).toBe("true");
     expect(menuButton.getAttribute("aria-controls")).toBe(sheet.id);
-    // A legacy handler is never needed to open the menu.
-    expect(onMenuClick).not.toHaveBeenCalled();
 
     const labels = within(sheet)
       .getAllByRole("link")
@@ -107,6 +129,27 @@ describe("TopBar (the site header)", () => {
     const sheet = view.getByRole("dialog", { name: "Menu" });
     fireEvent.click(within(sheet).getByRole("link", { name: "Maps" }));
     expect(view.queryByRole("dialog")).toBeNull();
+  });
+
+  it("closes the sheet for good when the window widens past the breakpoint", () => {
+    const setDesktop = mockResizableViewport(false);
+    const view = render(<TopBar />);
+    fireEvent.click(view.getByRole("button", { name: "Open menu" }));
+    expect(view.getByRole("dialog", { name: "Menu" })).toBeTruthy();
+
+    setDesktop(true);
+    expect(view.queryByRole("dialog")).toBeNull();
+    // The menu button is hidden on desktop, so focus goes to the inline nav
+    // that replaced the sheet: its current item.
+    const maps = within(view.getByRole("navigation", { name: "Main" })).getByRole("link", {
+      name: "Maps",
+    });
+    expect(document.activeElement).toBe(maps);
+
+    // Narrowing again does not reopen it unasked.
+    setDesktop(false);
+    expect(view.queryByRole("dialog")).toBeNull();
+    expect(view.getByRole("button", { name: "Open menu" }).getAttribute("aria-expanded")).toBe("false");
   });
 
   it("does not show the phone sheet on desktop, where the nav is inline", () => {

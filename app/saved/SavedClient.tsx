@@ -123,7 +123,7 @@ export function SavedClient() {
               href="/topics"
               className="inline-flex min-h-11 items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-600 to-rust-700 text-white text-sm font-medium hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--bg-card)]"
             >
-              Explore Topics
+              Browse maps
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -209,7 +209,7 @@ export function SavedClient() {
                 href="/topics"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-deep hover:text-deep-dark transition-colors"
               >
-                Browse all topics
+                Browse all maps
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
@@ -229,7 +229,7 @@ export function SavedClient() {
   );
 }
 
-/** A saved debate map (new-model topic): title and tagline, no verdict chip. */
+/** A saved new-model map: title and tagline, no verdict chip. */
 function DebateMapCard({
   topic,
   onRemove,
@@ -259,7 +259,7 @@ function DebateMapCard({
         </p>
         <div className="mt-auto flex items-center justify-between gap-2">
           <span className="inline-flex items-center rounded-full border border-deep/30 px-2 py-0.5 text-[11px] font-medium text-deep dark:text-[#8fc0bb]">
-            Debate map
+            Map
           </span>
           <ArrowRight className="h-3.5 w-3.5 flex-shrink-0 text-stone-300 transition-all group-hover:translate-x-0.5 group-hover:text-deep dark:text-[var(--text-muted)]" />
         </div>

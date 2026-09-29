@@ -5,7 +5,7 @@ import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { GAPageView } from "@/components/GAPageView";
-import { TOPIC_COUNT_LABEL as L } from "@/data/topicIndex";
+import { MAP_COUNT_LABEL as L } from "@/data/topicIndex";
 import {
   ORGANIZATION_ID,
   SITE_DESCRIPTION,

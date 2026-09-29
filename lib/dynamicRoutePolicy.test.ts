@@ -8,10 +8,11 @@ import {
   FALLACY_ROUTE_SLUGS,
   GUIDE_ROUTE_IDS,
   WORKSHEET_ROUTE_IDS,
+  legacyHomeTopicPath,
   shouldServeNamedNotFound,
 } from "@/lib/dynamicRoutePolicy";
 import { generateStaticParams as generateWorksheetParams } from "@/app/for-educators/worksheets/[id]/page";
-import { proxy } from "@/proxy";
+import { config as proxyConfig, proxy } from "@/proxy";
 
 const invalidDynamicRoutes = [
   "/topics/definitely-missing",
@@ -134,5 +135,62 @@ describe("compact proxy catalogs", () => {
     expect([...WORKSHEET_ROUTE_IDS].sort()).toEqual(
       generateWorksheetParams().map(({ id }) => id).sort(),
     );
+  });
+});
+
+describe("legacy home-canvas links (/?topic=)", () => {
+  const path = (query: string) => legacyHomeTopicPath(new URLSearchParams(query));
+
+  it("sends the canvas's Map views of a legacy map to its diagram", () => {
+    expect(path("topic=nuclear-energy-safety&view=logic-map")).toBe("/topics/nuclear-energy-safety/map");
+    expect(path("topic=nuclear-energy-safety&view=graph")).toBe("/topics/nuclear-energy-safety/map");
+  });
+
+  it("sends every other view to the map's page, without topic/view", () => {
+    expect(path("topic=nuclear-energy-safety")).toBe("/topics/nuclear-energy-safety");
+    expect(path("topic=nuclear-energy-safety&view=scales")).toBe("/topics/nuclear-energy-safety");
+    expect(path("topic=nuclear-energy-safety&view=read")).toBe("/topics/nuclear-energy-safety");
+  });
+
+  it("never sends a new-model map to a diagram it does not have", () => {
+    expect(path("topic=ai-mass-unemployment&view=logic-map")).toBe("/topics/ai-mass-unemployment");
+  });
+
+  it("sends empty and unknown ids to the library", () => {
+    expect(path("topic=")).toBe("/topics");
+    expect(path("topic=definitely-missing&view=graph")).toBe("/topics");
+  });
+
+  it("keeps unrelated parameters", () => {
+    expect(path("topic=climate-change&view=graph&utm_source=x")).toBe(
+      "/topics/climate-change/map?utm_source=x",
+    );
+  });
+
+  it("ignores home requests without a topic", () => {
+    expect(path("")).toBeNull();
+    expect(path("view=graph")).toBeNull();
+  });
+
+  it("redirects once from the proxy, with a 308", () => {
+    const response = proxy(
+      new NextRequest("https://argumend.org/?topic=climate-change&view=logic-map&ref=x"),
+    );
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe(
+      "https://argumend.org/topics/climate-change/map?ref=x",
+    );
+    // The destination passes straight through: no chain, no loop.
+    const next = proxy(new NextRequest("https://argumend.org/topics/climate-change/map?ref=x"));
+    expect(next.headers.get("x-middleware-next")).toBe("1");
+  });
+
+  it("only runs on home requests that carry ?topic=", () => {
+    expect(proxyConfig.matcher).toContainEqual({
+      source: "/",
+      has: [{ type: "query", key: "topic" }],
+    });
+    const response = proxy(new NextRequest("https://argumend.org/?ref=x"));
+    expect(response.headers.get("x-middleware-next")).toBe("1");
   });
 });

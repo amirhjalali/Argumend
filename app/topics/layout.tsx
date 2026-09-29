@@ -1,16 +1,20 @@
 import { Metadata } from "next";
-import { TOPIC_COUNT_LABEL as L } from "@/data/topicIndex";
+import { MAP_COUNT_LABEL as L } from "@/data/topicIndex";
 import { buildGenericOgUrl } from "@/lib/og";
 
 const SOCIAL_IMAGE = buildGenericOgUrl({
-  title: "Explore Topics",
-  subtitle: `${L} controversial issues analyzed with argument maps`,
+  title: "Maps",
+  subtitle: `${L} contested questions, mapped to what they turn on`,
 });
 
+const SOCIAL_TITLE = `Maps — ${L} contested questions | ARGUMEND`;
+const SOCIAL_DESCRIPTION =
+  "Argument maps of contested questions: each side's case, the evidence, and what would settle it.";
+
 export const metadata: Metadata = {
-  title: `Explore Topics — ${L} Controversial Issues Analyzed`,
+  title: `Maps — ${L} contested questions`,
   description:
-    `Browse ${L} controversial topics with visual argument maps. From AI regulation to climate change, see steel-manned arguments, weighted evidence, and crux questions for each side.`,
+    `Browse ${L} argument maps of contested questions, from AI and jobs to climate change: each side's strongest case, the evidence weighed, and the questions the argument turns on.`,
   keywords: [
     "controversial topics",
     "argument mapping",
@@ -20,8 +24,8 @@ export const metadata: Metadata = {
     "critical thinking topics",
   ],
   openGraph: {
-    title: `Explore ${L} Controversial Topics — Argumend`,
-    description: "Visual argument maps for the most debated issues. See both sides, weigh the evidence, find what actually matters.",
+    title: SOCIAL_TITLE,
+    description: SOCIAL_DESCRIPTION,
     url: "https://argumend.org/topics",
     siteName: "ARGUMEND",
     images: [
@@ -29,14 +33,14 @@ export const metadata: Metadata = {
         url: SOCIAL_IMAGE,
         width: 1200,
         height: 630,
-        alt: `Explore ${L} Controversial Topics on Argumend`,
+        alt: `${L} maps of contested questions on Argumend`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Explore ${L} Controversial Topics — Argumend`,
-    description: "Visual argument maps for the most debated issues. See both sides.",
+    title: SOCIAL_TITLE,
+    description: SOCIAL_DESCRIPTION,
     images: [SOCIAL_IMAGE],
   },
   alternates: {

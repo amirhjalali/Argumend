@@ -56,26 +56,18 @@ describe("maps library redirects", () => {
 });
 
 describe("home + story redirects", () => {
-  it("sends every legacy home-canvas URL to the map's own page", async () => {
+  it("leaves legacy home-canvas URLs to the proxy", async () => {
+    // `/?topic=:id` is redirected by proxy.ts (covered in
+    // lib/dynamicRoutePolicy.test.ts). A rule here would run first and merge
+    // the stale `topic`/`view` query into the map's URL.
     const redirects = (await nextConfig.redirects()) as Array<{
       source: string;
-      destination: string;
-      permanent: boolean;
-      has?: Array<{ type: string; key?: string; value?: string }>;
+      has?: Array<{ type: string; key?: string }>;
     }>;
-    const canvas = redirects.find(
-      (rule) => rule.source === "/" && rule.has?.some((c) => c.type === "query" && c.key === "topic"),
+    const home = redirects.filter(
+      (rule) => rule.source === "/" && !rule.has?.some((c) => c.type === "host"),
     );
-    expect(canvas).toBeDefined();
-    expect(canvas?.permanent).toBe(true);
-    expect(canvas?.has).toEqual([{ type: "query", key: "topic", value: "(?<id>.*)" }]);
-    expect(canvas?.destination.startsWith("/topics/:id")).toBe(true);
-    // The incoming query is merged into the destination. The destination
-    // must pin `view` to something other than the legacy page's canvas
-    // values, or `/?topic=x&view=logic-map` would bounce between the two.
-    const view = new URLSearchParams(canvas?.destination.split("?")[1] ?? "").get("view");
-    expect(view).not.toBeNull();
-    expect(["logic-map", "graph"]).not.toContain(view);
+    expect(home).toEqual([]);
   });
 
   it("folds /how-it-works and /community into /about", async () => {
