@@ -3,35 +3,46 @@
 /**
  * The one-tap reflection that replaced the for/against vote on topic pages.
  *
- * It asks which question would change the reader's mind, then whether the
- * map changed what they thought the argument was about. That is the north
- * star's "did this change what you thought you were arguing about?" answer,
- * asked of the reader about themselves.
+ * It asks which question would change the reader's mind, then shows what
+ * would settle that question with a link to open it on the page, so the tap
+ * leads somewhere. Then it asks whether the map changed what they thought
+ * they were arguing about: the north star's question, asked of the reader
+ * about themselves, in the same words the paste result uses.
  *
  * Never graded: it does not compare the answer with the map, with a score, or
  * with other readers. Stored in this browser only; nothing is sent or counted.
  */
 import { useCallback, useEffect, useState } from "react";
-import { TextAction } from "@/components/ui";
+import { TextAction, textActionClasses } from "@/components/ui";
+import { SettleAnswer } from "@/components/topic/cruxPrimitives";
+import { CHANGED_CHOICES, CHANGED_QUESTION, type ChangedAnswer } from "@/lib/changedQuestion";
+import type { SettleView } from "@/lib/topicPage/model";
 
 export interface ReflectionOption {
+  /** The crux's anchor on the page (`crux-…`). */
   id: string;
   label: string;
+  /** What would settle it, shown once the reader picks this question. */
+  settle?: SettleView;
 }
 
 interface StoredReflection {
   choice: string;
-  changed?: "yes" | "somewhat" | "no";
+  changed?: ChangedAnswer;
 }
 
 const KEY_PREFIX = "argumend-crux-reflection-";
 export const NONE_OF_THEM = "none";
 
-const CHANGED_CHOICES = [
-  { id: "yes", label: "Yes" },
-  { id: "somewhat", label: "A little" },
-  { id: "no", label: "No" },
-] as const;
+/**
+ * Open the crux's fold before the browser scrolls to it. OpenCruxFromHash
+ * does this on `hashchange`, which does not fire when the hash is already
+ * the one this link points at.
+ */
+function openCrux(anchor: string) {
+  const details = document.getElementById(anchor)?.querySelector("details");
+  if (details && !details.open) details.open = true;
+}
 
 function read(topicId: string): StoredReflection | null {
   try {
@@ -95,6 +106,9 @@ export function CruxReflection({
     [topicId],
   );
 
+  // The picked crux, or undefined for "None of these would".
+  const picked = answer ? options.find((option) => option.id === answer.choice) : undefined;
+
   const clear = useCallback(() => {
     setAnswer(null);
     write(topicId, null);
@@ -133,19 +147,40 @@ export function CruxReflection({
                 >
                   {numbered ? index + 1 : ""}
                 </span>
-                <span className="line-clamp-2">{option.label}</span>
+                {/* Wraps in full: a question cut off mid-clause is not one
+                    a reader can choose. */}
+                <span className="min-w-0 break-words">{option.label}</span>
               </button>
             </li>
           );
         })}
       </ul>
 
+      {picked?.settle && (
+        <div className="mt-5 border-t border-stone-200 pt-1 dark:border-[var(--border-divider)]">
+          <SettleAnswer
+            mode={picked.settle.mode}
+            kind={picked.settle.kind}
+            condition={picked.settle.condition}
+            resolved={picked.settle.resolved}
+            label={picked.settle.label}
+          />
+          <a
+            href={`#${picked.id}`}
+            onClick={() => openCrux(picked.id)}
+            className={textActionClasses("mt-2")}
+          >
+            Open this question
+          </a>
+        </div>
+      )}
+
       {answer && (
         <div className="mt-5 border-t border-stone-200 pt-4 dark:border-[var(--border-divider)]">
           <p className="font-serif text-[1.0625rem] leading-snug text-stone-900 dark:text-stone-100">
-            Did this map change what you thought the argument was about?
+            {CHANGED_QUESTION}
           </p>
-          <div role="group" aria-label="Did this map change what you thought the argument was about?" className="mt-3 flex flex-wrap gap-2">
+          <div role="group" aria-label={CHANGED_QUESTION} className="mt-3 flex flex-wrap gap-2">
             {CHANGED_CHOICES.map((choice) => {
               const chosen = answer.changed === choice.id;
               return (
@@ -178,7 +213,7 @@ export function CruxReflection({
         {answer
           ? answer.changed
             ? "Kept in this browser only."
-            : "Noted in this browser only. One more question below: did this map change what you thought the argument was about?"
+            : `Noted in this browser only. ${picked?.settle ? "What would settle it is shown below, then one more question" : "One more question below"}: ${CHANGED_QUESTION.charAt(0).toLowerCase()}${CHANGED_QUESTION.slice(1)}`
           : ""}
       </div>
     </section>

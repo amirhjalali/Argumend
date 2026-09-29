@@ -5,7 +5,8 @@ import Link from "next/link";
 import { AlertCircle, X } from "lucide-react";
 import { useSavedTopicIds } from "@/hooks/useSavedTopics";
 import { Button, PageContainer, PageHeader, TextAction } from "@/components/ui";
-import { LIBRARY_ENTRIES, STATUS_LABELS, type LibraryEntry } from "@/app/topics/_query";
+import { LIBRARY_ENTRIES, type LibraryEntry } from "@/app/topics/_query";
+import { MapCardText } from "@/app/topics/MapCardText";
 
 const ENTRIES_BY_ID = new Map(LIBRARY_ENTRIES.map((entry) => [entry.id, entry]));
 
@@ -114,12 +115,7 @@ function SavedRow({ map, onRemove }: { map: LibraryEntry; onRemove: (id: string)
         <h2 className="font-serif text-[1.3125rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">
           {map.title}
         </h2>
-        <p className="mt-1.5 line-clamp-2 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-          {map.summary}
-        </p>
-        {map.status && (
-          <p className="mt-2 text-[0.8125rem] text-muted">{STATUS_LABELS[map.status]}</p>
-        )}
+        <MapCardText map={map} />
       </Link>
       <button
         type="button"

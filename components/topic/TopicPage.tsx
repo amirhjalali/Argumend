@@ -85,7 +85,11 @@ export function TopicPage({
   madeBy,
 }: TopicPageProps) {
   const url = `${SITE}/topics/${page.id}`;
-  const reflectionOptions = cruxes.map((crux) => ({ id: crux.anchor, label: crux.question }));
+  const reflectionOptions = cruxes.map((crux) => ({
+    id: crux.anchor,
+    label: crux.question,
+    settle: crux.settle,
+  }));
 
   return (
     // The route wraps this in AppShell, which owns <main id="main-content">

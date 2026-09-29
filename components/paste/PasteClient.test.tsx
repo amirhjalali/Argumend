@@ -90,11 +90,15 @@ describe("PasteClient with every lane off (production today)", () => {
     ).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
     expect(view.getByRole("button", { name: "Copy a summary" })).toBeTruthy();
     expect(view.getByText("Did this change what you thought you were arguing about?")).toBeTruthy();
+    // The same answers the question has under every map.
+    for (const answer of ["Yes", "A little", "No"]) {
+      expect(view.getByRole("button", { name: answer })).toBeTruthy();
+    }
     expect(view.getByText("How this was read")).toBeTruthy();
     expect(fetchMock.mock.calls.map(([url]) => url)).toEqual(["/api/analyze"]);
   });
 
-  it("names the map first, then its closely related sibling after the next step", async () => {
+  it("names the map, its sibling once, then the crux with its action right under it", async () => {
     const sibling = { id: "open-borders", title: "The Case for Open Borders", claim: "A claim.", href: "/topics/open-borders" };
     stubFetch({ "/api/analyze": () => jsonResponse({ maps: { ...matched, related: [sibling], closest: [] } }) });
     const view = render(<PasteClient lanes={OFFLINE} />);
@@ -102,15 +106,20 @@ describe("PasteClient with every lane off (production today)", () => {
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
     const mapHeading = await waitFor(() => view.getByRole("heading", { name: "This argument is already mapped" }));
+    const cruxHeading = view.getByRole("heading", { name: "What the map says it turns on" });
     const cta = view.getByRole("link", { name: "Open the map at this crux" });
-    const relatedHeading = view.getByRole("heading", { name: "Closely related" });
-    // Node.DOCUMENT_POSITION_FOLLOWING === 4: map, then the crux action, then the sibling.
-    expect(mapHeading.compareDocumentPosition(cta) & 4).toBe(4);
-    expect(cta.compareDocumentPosition(relatedHeading) & 4).toBe(4);
-    // The sibling is also pointed to under the map's claim, on the first screen.
+    const cardsHeading = view.getByRole("heading", { name: "The strongest card on each side" });
+    // Node.DOCUMENT_POSITION_FOLLOWING === 4: map, crux, its action, then the cards.
+    expect(mapHeading.compareDocumentPosition(cruxHeading) & 4).toBe(4);
+    expect(cruxHeading.compareDocumentPosition(cta) & 4).toBe(4);
+    expect(cta.compareDocumentPosition(cardsHeading) & 4).toBe(4);
+    // The sibling is named once, under the map's claim, on the first screen.
+    const visible = view.getAllByText(/Closely related/).filter((el) => !el.closest(".sr-only"));
+    expect(visible).toHaveLength(1);
     const links = view.getAllByRole("link", { name: /^The Case for Open Borders/ });
-    expect(links).toHaveLength(2);
-    expect(links.every((link) => link.getAttribute("href") === "/topics/open-borders")).toBe(true);
+    expect(links).toHaveLength(1);
+    expect(links[0].getAttribute("href")).toBe("/topics/open-borders");
+    expect(view.queryByRole("heading", { name: "Closely related" })).toBeNull();
     // The announcement names the sibling too.
     const announcer = view.getAllByRole("status").find((el) => el.className.includes("sr-only"));
     expect(announcer?.textContent).toBe(

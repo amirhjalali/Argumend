@@ -58,6 +58,27 @@ describe("/topics: no scoreboard", () => {
     expect(view.queryByText("Filters")).toBeNull();
   });
 
+  it("shows each map as its question, its first crux and how many questions it turns on", () => {
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    const text = view.container.textContent ?? "";
+    // The evidence reading lives inside the map, and "pillars" is not a word
+    // the interface uses.
+    for (const banned of [/Evidence (still divided|largely converges|still thin)/, /\bpillars?\b/i, /evidence cards?/i]) {
+      expect(text).not.toMatch(banned);
+    }
+    const [first] = legacyTopicLinks(view.container);
+    const summary = topicSummaries.find((t) => first.getAttribute("href") === `/topics/${t.id}`)!;
+    expect(summary.firstCrux).toBeTruthy();
+    expect(first.textContent).toContain(summary.question ?? summary.title);
+    expect(first.textContent).toContain(summary.firstCrux);
+    expect(first.textContent).toMatch(/Turns on (two|three|four|five|six) questions/);
+    // The pinned new-model maps carry their top crux too.
+    for (const map of argumentTopicIndex) {
+      const link = view.container.querySelector(`a[href="/topics/${map.id}"]`);
+      expect(link?.textContent, map.id).toMatch(/Turns on \w+ questions/);
+    }
+  });
+
   it("drops the old scoreboard parameters from shared URLs", () => {
     expect(parseTopicsQuery({
       category: "unknown",
@@ -266,6 +287,9 @@ describe("/topics metadata", () => {
       "https://argumend.org/topics?category=science&sort=title-asc&page=2",
     );
     expect(metadata.title).toBe("Maps — page 2");
+    const first = await generateMetadata({ searchParams: Promise.resolve({}) });
+    // The real count, not a rounded "150+".
+    expect(first.title).toBe(`Maps — ${LIBRARY_ENTRIES.length} contested questions`);
     expect(metadata.pagination).toEqual({
       previous: "https://argumend.org/topics?category=science&sort=title-asc",
       next: null,
@@ -278,5 +302,18 @@ describe("/topics metadata", () => {
       searchParams: Promise.resolve({ q: "policy" }),
     });
     expect(metadata.robots).toEqual({ index: false, follow: true });
+  });
+});
+
+describe("/topics summaries", () => {
+  it("carries each new-model map's top crux as the map page ranks it", async () => {
+    // Regenerate with `npx tsx scripts/regen-summaries.ts` when this fails.
+    const { loadHomeCrux } = await import("@/components/home/homeModel");
+    const { DEBATE_MAP_ENTRIES } = await import("./_query");
+    for (const entry of DEBATE_MAP_ENTRIES) {
+      const crux = loadHomeCrux(entry.id);
+      expect(entry.firstCrux, entry.id).toBe(crux?.question);
+      expect(entry.cruxCount, entry.id).toBe(crux?.cruxCount);
+    }
   });
 });
