@@ -46,7 +46,7 @@ const scenes: Scene[] = [
       <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
         A busy street corner. Two people. One shoves the other to the ground.
         <br /><br />
-        <span className="text-primary font-semibold">The aggressor. The victim.</span>
+        <span className="text-primary dark:text-stone-200 font-semibold">The aggressor. The victim.</span>
         <br />
         It&apos;s obvious who&apos;s at fault.
       </p>
@@ -65,9 +65,9 @@ const scenes: Scene[] = [
         Rewind. The &ldquo;victim&rdquo; had grabbed the other person&apos;s bag.
         They were trying to take something.
         <br /><br />
-        The shove wasn&apos;t aggression—<span className="text-primary font-semibold">it was defense</span>.
+        The shove wasn&apos;t aggression—<span className="text-primary dark:text-stone-200 font-semibold">it was defense</span>.
         <br /><br />
-        <span className="text-secondary italic">Who&apos;s the aggressor now?</span>
+        <span className="text-secondary dark:text-stone-400 italic">Who&apos;s the aggressor now?</span>
       </p>
     ),
     imageSrc: "/images/perspectives/rewind.jpg",
@@ -84,7 +84,7 @@ const scenes: Scene[] = [
         Two minutes before. The &ldquo;thief&rdquo; is actually the original owner.
         Their bag was snatched. They spotted the thief and grabbed it back.
         <br /><br />
-        <span className="text-primary font-semibold">They weren&apos;t stealing. They were recovering.</span>
+        <span className="text-primary dark:text-stone-200 font-semibold">They weren&apos;t stealing. They were recovering.</span>
         <br /><br />
         The &ldquo;defender&rdquo; was the actual thief, reacting to being caught.
       </p>
@@ -102,7 +102,7 @@ const scenes: Scene[] = [
         A third person saw the incident. They arrived mid-scene.
         <br /><br />
         To them, both people were fighting over a bag.
-        <span className="text-primary font-semibold"> Mutual combat. Both at fault.</span>
+        <span className="text-primary dark:text-stone-200 font-semibold"> Mutual combat. Both at fault.</span>
         <br /><br />
         They didn&apos;t see who started it. They didn&apos;t see the pickpocket.
         They saw exactly what happened—and understood none of it.
@@ -120,13 +120,13 @@ const scenes: Scene[] = [
       <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
         The story travels. Each retelling adds, removes, embellishes.
         <br /><br />
-        <span className="text-secondary italic">&ldquo;I heard someone got attacked...&rdquo;</span>
+        <span className="text-secondary dark:text-stone-400 italic">&ldquo;I heard someone got attacked...&rdquo;</span>
         <br />
-        <span className="text-secondary italic">&ldquo;My friend said it was a robbery gone wrong...&rdquo;</span>
+        <span className="text-secondary dark:text-stone-400 italic">&ldquo;My friend said it was a robbery gone wrong...&rdquo;</span>
         <br />
-        <span className="text-secondary italic">&ldquo;Apparently there was a knife involved...&rdquo;</span>
+        <span className="text-secondary dark:text-stone-400 italic">&ldquo;Apparently there was a knife involved...&rdquo;</span>
         <br /><br />
-        <span className="text-primary font-semibold">None of this happened.</span> But now it&apos;s part of the story.
+        <span className="text-primary dark:text-stone-200 font-semibold">None of this happened.</span> But now it&apos;s part of the story.
       </p>
     ),
     imageSrc: "/images/perspectives/rumors.jpg",
@@ -147,7 +147,7 @@ const scenes: Scene[] = [
         <br />
         The <span className="font-semibold">shop owner</span> wants them both gone: &ldquo;Troublemakers, both of them.&rdquo;
         <br /><br />
-        <span className="text-secondary italic">None are lying, exactly. All are selecting.</span>
+        <span className="text-secondary dark:text-stone-400 italic">None are lying, exactly. All are selecting.</span>
       </p>
     ),
     imageSrc: "/images/perspectives/motivated.jpg",
@@ -159,15 +159,15 @@ const scenes: Scene[] = [
     subtitle: "The lesson",
     content: (
       <div className="text-center">
-        <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed mb-8 text-primary">
+        <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed mb-8 text-primary dark:text-stone-200">
           Every witness told the truth—<em>their</em> truth.
           <br />
           Shaped by when they arrived, what they noticed, who they knew, what they needed.
         </p>
-        <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-secondary mb-8">
+        <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-secondary dark:text-stone-400 mb-8">
           Ideas aren&apos;t identities. They&apos;re lenses.
           <br />
-          <span className="font-semibold text-primary">Pick them up. Set them down. Trade them for better ones.</span>
+          <span className="font-semibold text-primary dark:text-stone-200">Pick them up. Set them down. Trade them for better ones.</span>
         </p>
         <p className="text-lg md:text-xl text-muted">
           When someone disagrees with you, they&apos;re not attacking <em>you</em>.
@@ -279,7 +279,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
           )}
 
           <motion.h2
-            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-primary mb-4"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-primary dark:text-stone-200 mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -289,7 +289,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
 
           {scene.subtitle && (
             <motion.p
-              className="text-base md:text-xl lg:text-2xl text-secondary mb-8"
+              className="text-base md:text-xl lg:text-2xl text-secondary dark:text-stone-400 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -299,7 +299,7 @@ function Scene({ scene, index }: { scene: Scene; index: number }) {
           )}
 
           <motion.div
-            className="text-secondary"
+            className="text-secondary dark:text-stone-400"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
             transition={{ duration: 0.5, delay: 0.3 }}
