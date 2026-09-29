@@ -1,0 +1,306 @@
+{
+  "version": 1,
+  "set": "holdout",
+  "description": "Held-out pastes for the map lane at /analyze, written on 2026-09-29 after the scorer was tuned on pastes.json and run once, untuned, to check that the tuning generalises. Same schema as pastes.json: `expected` = right answers (empty = no map should be named), `related` = near siblings that are fair to show but are not the answer.",
+  "cases": [
+    {
+      "id": "hold-nuclear-banana",
+      "form": "rant",
+      "text": "Living next to a nuclear plant gives you less radiation than eating a banana a day. Meanwhile coal plants kill thousands every year through air pollution and nobody marches against them.",
+      "expected": ["nuclear-energy-safety"],
+      "related": ["nuclear-renaissance-smr"]
+    },
+    {
+      "id": "hold-mini-reactors",
+      "form": "conversation",
+      "text": "A: Why is everyone suddenly excited about mini reactors? B: Because they can be built in a factory and shipped, so you don't get the Hinkley Point overruns. A: Every design so far has come in more expensive per kilowatt than the big ones.",
+      "expected": ["nuclear-renaissance-smr"],
+      "related": ["nuclear-energy-safety"]
+    },
+    {
+      "id": "hold-translator",
+      "form": "reply",
+      "text": "I'm a translator. Two years ago I had more work than I could handle, now agencies send me machine output to 'post-edit' at a third of the rate. Don't tell me AI isn't taking jobs.",
+      "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"],
+      "related": ["capitalism-after-ai"]
+    },
+    {
+      "id": "hold-who-owns-compute",
+      "form": "rant",
+      "text": "If the only thing that matters in an AI economy is who owns the compute, then workers have no bargaining power left. Either we spread ownership of capital or we get neo-feudalism.",
+      "expected": ["capitalism-after-ai"],
+      "related": ["universal-basic-income", "billionaire-wealth", "ai-mass-unemployment"]
+    },
+    {
+      "id": "hold-finland-trial",
+      "form": "article",
+      "text": "Finland's basic income trial gave 2,000 unemployed people 560 euros a month with no conditions. They did not work much more than the control group, but they reported being happier and less stressed. Supporters called it a success; critics said it proved nothing about employment.",
+      "expected": ["universal-basic-income"],
+      "related": []
+    },
+    {
+      "id": "hold-israel-conditions",
+      "form": "conversation",
+      "text": "A: Sending more weapons to Israel right now makes America complicit in what's happening in Gaza. B: Israel has a right to defend itself, and cutting aid mid-war rewards Hamas. A: Nobody said cut it all, attach conditions like we do with every other country.",
+      "expected": ["us-israel-support"],
+      "related": []
+    },
+    {
+      "id": "hold-wall-fentanyl",
+      "form": "conversation",
+      "text": "A: Walls work, look at the drop in crossings in the sectors where it was built. B: Most fentanyl comes through legal ports of entry, in cars driven by US citizens. A wall does nothing about that.",
+      "expected": ["immigration-border-crisis"],
+      "related": []
+    },
+    {
+      "id": "hold-census-wages",
+      "form": "article",
+      "text": "A new analysis of census data finds that wages for native-born workers without a high school diploma grew more slowly in metro areas that received the largest inflows of immigrant labor during the 2010s, though the effect disappears for workers with some college.",
+      "expected": ["immigration-wage-impact"],
+      "related": ["immigration-border-crisis"]
+    },
+    {
+      "id": "hold-warming-hoax",
+      "form": "reply",
+      "text": "Global warming is a hoax pushed by grant-hungry scientists. Temperatures were higher in the 1930s.",
+      "expected": ["climate-change"],
+      "related": []
+    },
+    {
+      "id": "hold-net-zero-capture",
+      "form": "conversation",
+      "text": "A: We can't hit net zero without pulling carbon out of the air. B: Carbon capture has failed at almost every coal plant that tried it, it's just a license to keep burning. A: Cement and steel have no other option.",
+      "expected": ["carbon-capture-viability", "geoengineering-climate"],
+      "related": []
+    },
+    {
+      "id": "hold-berlin-rent-freeze",
+      "form": "article",
+      "text": "Berlin froze rents in 2020, and within a year the number of apartments advertised for rent had fallen by half while prices in the uncapped market jumped. The constitutional court threw the law out anyway.",
+      "expected": ["rent-control-effectiveness"],
+      "related": ["housing-affordability-crisis"]
+    },
+    {
+      "id": "hold-min-wage-kiosks",
+      "form": "short",
+      "text": "Raising the minimum wage just gets people replaced by kiosks.",
+      "expected": ["minimum-wage-effects"],
+      "related": []
+    },
+    {
+      "id": "hold-instagram-anxiety",
+      "form": "conversation",
+      "text": "A: My kid's anxiety got way better once we took Instagram away. B: That's one kid. The big studies find tiny effects of screen time on wellbeing.",
+      "expected": ["social-media-mental-health"],
+      "related": ["children-smartphone-age", "social-media-age-limits"]
+    },
+    {
+      "id": "hold-flip-phone-pact",
+      "form": "reply",
+      "text": "We made a pact with the other parents in our class that nobody gets a smartphone before 14. Flip phones only. It only works if everyone does it.",
+      "expected": ["children-smartphone-age"],
+      "related": ["school-phone-bans", "social-media-age-limits"]
+    },
+    {
+      "id": "hold-robotaxi-cruise",
+      "form": "conversation",
+      "text": "A: A robotaxi dragged a pedestrian in San Francisco and Cruise got shut down. These things aren't ready. B: Human drivers kill 40,000 Americans a year. One awful incident doesn't beat that record.",
+      "expected": ["self-driving-car-safety"],
+      "related": []
+    },
+    {
+      "id": "hold-school-vaccines",
+      "form": "short",
+      "text": "Mandating vaccines for schoolchildren is government overreach.",
+      "expected": ["vaccine-mandates"],
+      "related": []
+    },
+    {
+      "id": "hold-calgary-fluoride",
+      "form": "conversation",
+      "text": "A: My town voted to stop fluoridating the water. B: Calgary did that and cavities in kids went up, so they put it back.",
+      "expected": ["fluoride-water-supplies"],
+      "related": ["rfk-health-policy"]
+    },
+    {
+      "id": "hold-cultivated-meat",
+      "form": "reply",
+      "text": "Cultivated meat is never going to be as cheap as chicken. The bioreactors are tiny and the growth medium costs a fortune.",
+      "expected": ["lab-grown-meat-adoption"],
+      "related": []
+    },
+    {
+      "id": "hold-background-checks",
+      "form": "rant",
+      "text": "Every other rich country has universal background checks and a fraction of our gun deaths. Thoughts and prayers aren't a policy.",
+      "expected": ["gun-control-effectiveness"],
+      "related": ["second-amendment-individual-right"]
+    },
+    {
+      "id": "hold-murder-rates",
+      "form": "reply",
+      "text": "States with the death penalty don't have lower murder rates than states without it. If it deterred anyone, you'd see it in the numbers.",
+      "expected": ["death-penalty-deterrence"],
+      "related": []
+    },
+    {
+      "id": "hold-tax-wealth-short",
+      "form": "short",
+      "text": "Tax billionaires' wealth, not just their income.",
+      "expected": ["wealth-tax"],
+      "related": ["billionaire-wealth", "estate-inheritance-tax"]
+    },
+    {
+      "id": "hold-loans-handout",
+      "form": "reply",
+      "text": "Forgiving student loans is a handout to future doctors and lawyers, paid for by people who never went to college.",
+      "expected": ["student-debt-forgiveness"],
+      "related": ["college-value-proposition"]
+    },
+    {
+      "id": "hold-remote-here-to-stay",
+      "form": "rant",
+      "text": "Remote work is here to stay. Office occupancy in big cities is still stuck around half of what it was in 2019, and the companies forcing people back are losing their best staff.",
+      "expected": ["remote-work-permanence", "return-to-office-productivity"],
+      "related": []
+    },
+    {
+      "id": "hold-sec-crypto",
+      "form": "reply",
+      "text": "The SEC treating every token like a security just pushes crypto companies offshore. After FTX, though, pretending the industry can police itself is a joke.",
+      "expected": ["cryptocurrency-regulation"],
+      "related": ["cryptocurrency-value"]
+    },
+    {
+      "id": "hold-ancestor-simulations",
+      "form": "reply",
+      "text": "If a civilization can run ancestor simulations, simulated minds would outnumber real ones, so odds are we're in one.",
+      "expected": ["simulation-hypothesis"],
+      "related": []
+    },
+    {
+      "id": "hold-psilocybin-trial",
+      "form": "reply",
+      "text": "Psilocybin therapy got people out of depression that nothing else touched, in the trial I read about. The FDA rejecting MDMA therapy was a disaster.",
+      "expected": ["psychedelics-mental-health", "psychedelic-therapy-hype"],
+      "related": []
+    },
+    {
+      "id": "hold-four-days-nurses",
+      "form": "reply",
+      "text": "Working four days for the same pay sounds great until you're a nurse or a teacher. It only works for office jobs.",
+      "expected": ["four-day-work-week"],
+      "related": []
+    },
+    {
+      "id": "hold-puberty-blockers",
+      "form": "rant",
+      "text": "Puberty blockers for kids are an experiment. The Cass Review found the evidence was weak, and several European countries have pulled back.",
+      "expected": ["gender-affirming-care-minors"],
+      "related": []
+    },
+    {
+      "id": "hold-google-default",
+      "form": "rant",
+      "text": "Google paying Apple twenty billion a year to be the default search engine is the definition of a monopoly. Break them up.",
+      "expected": ["big-tech-antitrust"],
+      "related": []
+    },
+    {
+      "id": "hold-taiwan-short",
+      "form": "short",
+      "text": "China will take Taiwan before 2030, mark my words.",
+      "expected": ["china-taiwan-invasion"],
+      "related": []
+    },
+    {
+      "id": "hold-neg-roast-potatoes",
+      "form": "article",
+      "text": "Preheat the oven to 200C, toss the potatoes in olive oil and rosemary, and roast for 40 minutes, turning halfway.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-lebron-jordan",
+      "form": "conversation",
+      "text": "A: LeBron is the GOAT, four rings with three different teams. B: Jordan went 6-0 in the Finals. Case closed.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-thank-you",
+      "form": "short",
+      "text": "Thank you so much for the lovely flowers, they brightened up the whole kitchen. See you at Christmas!",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-iphone-android",
+      "form": "conversation",
+      "text": "A: iPhones just work, and the resale value is way better. B: Android lets you actually customize things and the chargers are cheaper.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-scottish-independence",
+      "form": "reply",
+      "text": "Scotland should have another independence referendum. Brexit changed everything, and Scots voted to remain.",
+      "expected": [],
+      "related": [],
+      "note": "Politics the library does not cover."
+    },
+    {
+      "id": "hold-neg-tomatoes",
+      "form": "short",
+      "text": "My tomatoes keep splitting after heavy rain. Should I water less, or is it the variety?",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-thermostat",
+      "form": "conversation",
+      "text": "A: It's freezing in here, can we turn the AC down? B: It's 24 degrees, you're just sitting under the vent.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-book-club",
+      "form": "reply",
+      "text": "I thought the ending of the novel was rushed. The whole middle section built up the sister's story and then it just stopped.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-refinance",
+      "form": "reply",
+      "text": "We're thinking about refinancing our mortgage now that rates dropped a bit. Is it worth paying the closing costs again?",
+      "expected": [],
+      "related": [],
+      "note": "Hard negative: mortgage and rate vocabulary near global-housing-bubble."
+    },
+    {
+      "id": "hold-neg-ml-laptop",
+      "form": "reply",
+      "text": "Can someone recommend a good laptop for machine learning? I need at least 32GB of RAM and a decent GPU.",
+      "expected": [],
+      "related": [],
+      "note": "Hard negative: AI vocabulary, no argument."
+    },
+    {
+      "id": "hold-neg-council-race",
+      "form": "rant",
+      "text": "Our city council race was decided by twelve votes. Every vote really does count, go vote on Tuesday!",
+      "expected": [],
+      "related": [],
+      "note": "Hard negative: voting vocabulary near mandatory-voting."
+    },
+    {
+      "id": "hold-neg-headache",
+      "form": "short",
+      "text": "I've had a headache for three days and ibuprofen isn't helping. Should I see a doctor?",
+      "expected": [],
+      "related": [],
+      "note": "Hard negative: medical vocabulary near ai-replacing-doctors."
+    }
+  ]
+}

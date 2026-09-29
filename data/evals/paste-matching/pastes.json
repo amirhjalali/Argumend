@@ -1,0 +1,797 @@
+{
+  "version": 1,
+  "set": "dev",
+  "description": "Paste-matching eval for the map lane at /analyze (lib/paste/maps.ts). Each case is a paste written to read like a real person (a conversation, an article paragraph, a rant, a reply, or a very short line), not like the map's own text. `expected` lists the map ids that are a correct answer when one map is named (first = the best one); an empty list means no map should be named. `related` lists near-sibling maps that are defensible to show beside the answer but are not the answer: naming one counts as a sibling miss, not a correct answer. Written on 2026-09-29 before the scorer was tuned; the holdout set in holdout.json was written after tuning and was not tuned against. Nothing here may depend on topic.question or crux.question, which are being authored in parallel.",
+  "cases": [
+    {
+      "id": "nuclear-live-site",
+      "form": "conversation",
+      "text": "A: Nuclear power is too dangerous, look at Chernobyl and Fukushima. B: Per terawatt-hour nuclear kills fewer people than coal or gas, and new plants are safer. A: Even so, the waste lasts thousands of years and new reactors are years late and billions over budget.",
+      "expected": ["nuclear-energy-safety"],
+      "related": ["nuclear-renaissance-smr"],
+      "note": "Returned status closest, match null on argumend.org on 2026-09-29."
+    },
+    {
+      "id": "nuclear-germany",
+      "form": "article",
+      "text": "Germany switched off its last three reactors in April 2023, and critics were quick to point out that lignite plants kept running through the following winter. Supporters of the shutdown argue renewables filled most of the gap and that the country no longer carries the risk of a Fukushima-style accident; opponents say the decision cost tens of millions of tonnes of avoidable CO2.",
+      "expected": ["nuclear-energy-safety"],
+      "related": []
+    },
+    {
+      "id": "nuclear-waste-short",
+      "form": "short",
+      "text": "Nuclear waste is the dealbreaker for me, honestly.",
+      "expected": ["nuclear-energy-safety"],
+      "related": ["nuclear-renaissance-smr"]
+    },
+    {
+      "id": "smr-vaporware",
+      "form": "reply",
+      "text": "SMRs have been 'five years away' for twenty years. NuScale's flagship project in Idaho got cancelled when the price per megawatt-hour went up by more than half. Show me one small modular reactor running on a Western grid and then we can talk.",
+      "expected": ["nuclear-renaissance-smr"],
+      "related": ["nuclear-energy-safety"]
+    },
+    {
+      "id": "smr-vs-big-reactors",
+      "form": "conversation",
+      "text": "A: The big reactors are dinosaurs. Vogtle was seven years late. The future is small factory-built units you can drop onto old coal sites. B: Factory-built only saves money if you build hundreds of them, and nobody has an order book like that. A: Ontario is building BWRX-300s right now.",
+      "expected": ["nuclear-renaissance-smr"],
+      "related": ["nuclear-energy-safety"]
+    },
+    {
+      "id": "fusion-thirty-years",
+      "form": "reply",
+      "text": "Fusion has been thirty years away since my dad was in school. NIF 'ignition' counted only the laser energy hitting the target, not the power drawn from the wall, and nobody has bred tritium at scale. Commonwealth Fusion can say 2030s all it wants.",
+      "expected": ["nuclear-fusion-timeline"],
+      "related": []
+    },
+    {
+      "id": "nuclear-deterrence",
+      "form": "conversation",
+      "text": "A: The only reason the US and the Soviets never fought directly is that both had the bomb. B: Or we got lucky. Cuban missile crisis, Petrov, Able Archer. One bad day and that's hundreds of millions dead. A: Getting rid of them just makes the world safe for big conventional wars again.",
+      "expected": ["nuclear-weapons-abolition"],
+      "related": ["nuclear-proliferation-new-arms-race"]
+    },
+    {
+      "id": "new-start-silos",
+      "form": "article",
+      "text": "With New START expired and no follow-on talks scheduled, Washington and Moscow face no limits on deployed strategic warheads for the first time in half a century. Meanwhile satellite imagery shows China filling hundreds of new missile silos in its western deserts, and analysts warn of a three-way race that Cold War arms control was never designed to handle.",
+      "expected": ["nuclear-proliferation-new-arms-race"],
+      "related": ["nuclear-weapons-abolition"]
+    },
+    {
+      "id": "ai-jobs-graduates",
+      "form": "conversation",
+      "text": "A: My nephew graduated in computer science and can't get a single interview. Companies are just using Copilot instead of hiring juniors. B: Unemployment is barely over 4%. Tech hiring crashed because of interest rates, not ChatGPT. A: Then why is it the entry-level jobs in the most exposed fields that dropped the most?",
+      "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"],
+      "related": ["capitalism-after-ai"]
+    },
+    {
+      "id": "ai-jobs-rant",
+      "form": "rant",
+      "text": "Every CEO on earth is on earnings calls bragging about how many roles AI lets them 'not backfill.' Paralegals, copywriters, customer support, junior analysts. Pretending this ends with everyone getting a nicer job is a fairy tale. The jobs are going and they are not coming back.",
+      "expected": ["ai-mass-unemployment", "ai-white-collar-displacement", "ai-job-displacement"],
+      "related": ["capitalism-after-ai"]
+    },
+    {
+      "id": "ai-jobs-atm",
+      "form": "reply",
+      "text": "People said the same about ATMs and bank tellers, and teller jobs grew for decades after. Spreadsheets didn't kill accountants. Automation changes tasks inside jobs; it rarely deletes whole occupations. I'll believe mass unemployment from AI when the unemployment rate actually moves.",
+      "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"],
+      "related": ["capitalism-after-ai"]
+    },
+    {
+      "id": "capitalism-who-buys",
+      "form": "conversation",
+      "text": "A: If AI and robots do most of the work, who buys anything? Wages are how money gets from companies to consumers. B: Same as always, whoever owns the machines gets richer and the rest of us rent. Labor's share of income has been falling for forty years already. A: So capitalism eats itself, or we end up with everyone owning a slice of the AI companies.",
+      "expected": ["capitalism-after-ai"],
+      "related": ["universal-basic-income", "ai-mass-unemployment"]
+    },
+    {
+      "id": "ubi-stockton",
+      "form": "conversation",
+      "text": "A: Just give everyone $1,000 a month, no strings. It's cheaper than the whole welfare bureaucracy. B: Where does the money come from? That's trillions a year. And people will stop working. A: The Stockton pilot found people who got the cash were more likely to land full-time jobs, not less.",
+      "expected": ["universal-basic-income"],
+      "related": []
+    },
+    {
+      "id": "ubi-after-ai",
+      "form": "reply",
+      "text": "Once AI takes the office jobs, a basic income funded by taxing the AI companies isn't radical, it's the only way the economy keeps running. Otherwise you get a few trillionaires and everyone else on food stamps.",
+      "expected": ["universal-basic-income", "capitalism-after-ai", "ai-mass-unemployment"],
+      "related": ["billionaire-wealth"],
+      "note": "Genuinely spans three maps; any of them is a fair answer."
+    },
+    {
+      "id": "ai-risk-alignment",
+      "form": "conversation",
+      "text": "A: Nobody knows how to make a superintelligent system actually want what we want. If it's smarter than us and misaligned, that's game over. B: That's science fiction. These are text predictors. A: Half the people building them put the odds of catastrophe above ten percent. That's not sci-fi, that's the builders.",
+      "expected": ["ai-risk"],
+      "related": ["ai-superintelligence-timeline", "ai-regulation", "ai-2027"]
+    },
+    {
+      "id": "agi-timeline-skeptic",
+      "form": "reply",
+      "text": "Superintelligence by 2030? Scaling is already hitting a data wall, and the models still can't do basic novel reasoning outside what they were trained on. Every forecast of human-level AI 'in five years' since the 1960s has been wrong.",
+      "expected": ["ai-superintelligence-timeline"],
+      "related": ["ai-2027", "ai-risk"]
+    },
+    {
+      "id": "immigration-wages-mariel",
+      "form": "conversation",
+      "text": "A: Bringing in millions of low-skilled workers obviously pushes down pay for Americans without degrees. It's supply and demand. B: Card's Mariel boatlift study found basically no wage effect on Miami workers. A: Borjas reanalyzed the same data and found wages for high school dropouts fell a lot.",
+      "expected": ["immigration-wage-impact"],
+      "related": ["immigration-border-crisis", "open-borders"]
+    },
+    {
+      "id": "border-rant",
+      "form": "rant",
+      "text": "Record numbers of crossings at the southern border, cartels running the smuggling, people released into the interior with court dates years away. Asylum was meant for persecution, not for economic migration. Finish the wall and end catch and release.",
+      "expected": ["immigration-border-crisis"],
+      "related": ["open-borders"]
+    },
+    {
+      "id": "immigration-identity",
+      "form": "reply",
+      "text": "It's not about the economy. Towns change beyond recognition in ten years and nobody ever voted for that. Integration is failing in parts of Europe and saying so out loud gets you called a racist.",
+      "expected": ["immigration-national-identity"],
+      "related": ["immigration-border-crisis"]
+    },
+    {
+      "id": "open-borders-gdp",
+      "form": "article",
+      "text": "Economists who study migration keep arriving at the same startling number: removing barriers to labor mobility could raise world output by something like 50 to 150 percent, because a worker moving from Haiti to the US can become several times more productive overnight. Advocates call it the trillion-dollar bill on the sidewalk; critics say the models ignore what happens to institutions when that many people move at once.",
+      "expected": ["open-borders"],
+      "related": ["immigration-wage-impact"]
+    },
+    {
+      "id": "immigration-construction",
+      "form": "conversation",
+      "text": "A: They come in illegally and work cash jobs in construction for half the rate, so of course citizens can't compete. B: Construction has a labor shortage. Deport those workers and houses just don't get built.",
+      "expected": ["immigration-wage-impact", "immigration-border-crisis"],
+      "related": ["open-borders", "immigration-national-identity"]
+    },
+    {
+      "id": "climate-denial-rant",
+      "form": "rant",
+      "text": "The climate has always changed. There were vineyards in medieval England. CO2 is plant food and the models have been wrong every time. It's the sun, and the whole thing is a scam to raise taxes.",
+      "expected": ["climate-change"],
+      "related": []
+    },
+    {
+      "id": "climate-how-do-they-know",
+      "form": "conversation",
+      "text": "A: How do they even know the warming is from us and not natural cycles? B: The extra carbon in the air has the isotope signature of fossil fuels, and the upper atmosphere is cooling while the surface warms. If it were the sun, both would warm.",
+      "expected": ["climate-change"],
+      "related": []
+    },
+    {
+      "id": "direct-air-capture",
+      "form": "reply",
+      "text": "Direct air capture is a fig leaf for oil companies. The biggest plant in Iceland pulls out a few thousand tonnes a year, which is a rounding error against 37 billion. Occidental literally markets it as a way to keep pumping oil.",
+      "expected": ["carbon-capture-viability", "geoengineering-climate"],
+      "related": []
+    },
+    {
+      "id": "solar-geoengineering",
+      "form": "conversation",
+      "text": "A: Spraying sulfur into the stratosphere could cool the planet in a couple of years for a few billion dollars. B: And if you stop, the warming comes back all at once. Plus who decides the thermostat, the US? India? A: The monsoon could shift and a billion people would blame whoever did it.",
+      "expected": ["geoengineering-climate"],
+      "related": ["carbon-capture-viability"]
+    },
+    {
+      "id": "carbon-dividend",
+      "form": "reply",
+      "text": "Put a price on carbon and give the money back as a dividend. Economists across the spectrum agree it's the cheapest way to cut emissions. BC did it for years and the economy was fine. The only reason it died in Canada is the politics, not the policy.",
+      "expected": ["carbon-tax-effectiveness"],
+      "related": []
+    },
+    {
+      "id": "degrowth-rant",
+      "form": "rant",
+      "text": "Infinite growth on a finite planet is the ideology of a cancer cell. Green growth is a myth, rich countries have never cut emissions fast enough while growing GDP. We need to consume less, full stop.",
+      "expected": ["degrowth-economics"],
+      "related": []
+    },
+    {
+      "id": "ev-battery-coal",
+      "form": "conversation",
+      "text": "A: EVs aren't green, the battery production alone is worse than driving a gas car for years, and the power comes from coal anyway. B: The lifecycle studies say the battery carbon debt pays back in a year or two of driving, even on a dirty grid.",
+      "expected": ["ev-environmental-impact", "lithium-mining-ev-impact"],
+      "related": []
+    },
+    {
+      "id": "cobalt-lithium",
+      "form": "reply",
+      "text": "Nobody who cheers for electric cars wants to look at the cobalt mines in the Congo or the lithium brine ponds draining the Atacama. Green for rich suburbs, toxic for everyone else.",
+      "expected": ["lithium-mining-ev-impact", "ev-environmental-impact"],
+      "related": []
+    },
+    {
+      "id": "rent-control-sf",
+      "form": "conversation",
+      "text": "A: Rent control is the only thing keeping families in this city. B: Landlords in San Francisco converted rent-controlled buildings to condos and the rental supply dropped fifteen percent. It helps whoever is already in the apartment and screws everyone looking. A: So we just let rents double?",
+      "expected": ["rent-control-effectiveness"],
+      "related": ["housing-affordability-crisis"]
+    },
+    {
+      "id": "rent-control-short",
+      "form": "short",
+      "text": "Rent control just makes housing scarcer, period.",
+      "expected": ["rent-control-effectiveness"],
+      "related": ["housing-affordability-crisis"]
+    },
+    {
+      "id": "yimby-zoning",
+      "form": "rant",
+      "text": "It is illegal to build anything but a detached single-family house on most residential land in America. Then people act shocked that a home costs a fortune. Legalize apartments near transit and stop letting neighborhood meetings block every project.",
+      "expected": ["housing-affordability-crisis"],
+      "related": ["rent-control-effectiveness"]
+    },
+    {
+      "id": "toronto-bubble",
+      "form": "reply",
+      "text": "Toronto homes are selling at twelve times income and half the mortgages renew at double the rate in the next two years. That is not a market, that's a bubble waiting for a pin.",
+      "expected": ["global-housing-bubble"],
+      "related": ["housing-affordability-crisis"]
+    },
+    {
+      "id": "minimum-wage-seattle",
+      "form": "conversation",
+      "text": "A: A $15 minimum wage will kill jobs for teenagers and small restaurants. B: That's what they said in Seattle and restaurant employment kept growing. A: The UW study found hours cut so much that low-wage workers took home less.",
+      "expected": ["minimum-wage-effects"],
+      "related": []
+    },
+    {
+      "id": "tipping-kiosk",
+      "form": "rant",
+      "text": "Why am I being asked to tip 25% at a self-checkout kiosk? Just pay your staff a real wage and put the price on the menu like the rest of the world does.",
+      "expected": ["tipping-culture"],
+      "related": []
+    },
+    {
+      "id": "wealth-tax-france",
+      "form": "conversation",
+      "text": "A: A 2% annual tax on fortunes over $50 million would raise a fortune and only hit a few thousand families. B: France had one and repealed it because the rich left and it raised almost nothing. A: France let people move to Belgium. An exit tax fixes that.",
+      "expected": ["wealth-tax"],
+      "related": ["billionaire-wealth", "estate-inheritance-tax"]
+    },
+    {
+      "id": "billionaires-policy-failure",
+      "form": "reply",
+      "text": "No one earns a billion dollars. You only get there by owning what other people's work produces and then buying politicians to keep it that way. Every billionaire is a policy failure.",
+      "expected": ["billionaire-wealth"],
+      "related": ["wealth-tax", "meritocracy-myth"]
+    },
+    {
+      "id": "student-debt-plumber",
+      "form": "conversation",
+      "text": "A: Why should a plumber who never went to college pay off a lawyer's loans? B: Because we told eighteen-year-olds that borrowing was the responsible thing to do and then let tuition triple. A: Then fix tuition. Cancelling the debt just lets colleges raise prices again.",
+      "expected": ["student-debt-forgiveness"],
+      "related": ["college-value-proposition"]
+    },
+    {
+      "id": "inflation-printing",
+      "form": "conversation",
+      "text": "A: The government printed trillions in 2020 and 2021 and then everyone acts surprised prices went up. B: Prices rose everywhere in the world, including in countries with no stimulus. It was shipping, energy, and the war. A: The US had higher core inflation than Europe because of the checks.",
+      "expected": ["inflation-monetary-policy"],
+      "related": ["us-national-debt-crisis", "modern-monetary-theory"]
+    },
+    {
+      "id": "debt-interest",
+      "form": "reply",
+      "text": "We now spend more on interest on the national debt than on the military. At some point bond buyers stop showing up and the dollar isn't special anymore.",
+      "expected": ["us-national-debt-crisis"],
+      "related": ["modern-monetary-theory"]
+    },
+    {
+      "id": "tariffs-steel",
+      "form": "conversation",
+      "text": "A: Tariffs are a tax on Americans. Importers pass the cost straight through to shelf prices. B: They brought back steel jobs and forced China to the table. A: Steel employment barely moved and manufacturers that buy steel lost more jobs than the mills gained.",
+      "expected": ["trump-tariffs"],
+      "related": []
+    },
+    {
+      "id": "return-to-office-rant",
+      "form": "rant",
+      "text": "My company forced everyone back to the office five days a week, claimed it was for 'collaboration,' and then half the team spent the day on Zoom calls with the other office. It was about control and quietly getting people to quit.",
+      "expected": ["return-to-office-productivity", "remote-work-permanence"],
+      "related": []
+    },
+    {
+      "id": "four-day-pilot",
+      "form": "reply",
+      "text": "The UK four-day week pilot had 61 companies and almost all of them kept it afterwards. Revenue held steady and sick days dropped. Seems like the five-day week is just habit.",
+      "expected": ["four-day-work-week"],
+      "related": []
+    },
+    {
+      "id": "bitcoin-digital-gold",
+      "form": "conversation",
+      "text": "A: Bitcoin is digital gold, there will only ever be 21 million. B: Gold doesn't drop 70% in a year. Something that volatile can't hold value. A: Zoom out, it's beaten every asset over any four-year window.",
+      "expected": ["cryptocurrency-value"],
+      "related": ["cryptocurrency-regulation"]
+    },
+    {
+      "id": "college-electrician",
+      "form": "reply",
+      "text": "College isn't worth it for most kids anymore. My cousin became an electrician, has no debt and makes more than my friends with humanities degrees.",
+      "expected": ["college-value-proposition"],
+      "related": ["student-debt-forgiveness"]
+    },
+    {
+      "id": "haidt-teen-girls",
+      "form": "article",
+      "text": "Jonathan Haidt's argument is that rates of depression and self-harm among teenage girls started climbing around 2012, right as smartphones and Instagram became universal. His critics, including several psychologists who study screen time, reply that the correlations in the data are tiny, about the same size as eating potatoes, and that the timing could reflect many other changes.",
+      "expected": ["social-media-mental-health"],
+      "related": ["social-media-age-limits", "children-smartphone-age", "school-phone-bans"]
+    },
+    {
+      "id": "school-phone-pouches",
+      "form": "conversation",
+      "text": "A: Our school locks phones in pouches from first bell to last and the lunchroom is loud again, kids actually talk. B: My daughter can't reach me if there's a lockdown. That's the first thing every parent thinks of. A: Test scores went up though.",
+      "expected": ["school-phone-bans"],
+      "related": ["children-smartphone-age"]
+    },
+    {
+      "id": "australia-under-16",
+      "form": "reply",
+      "text": "Australia banned under-16s from social media. Good luck enforcing that, every teenager knows how to use a VPN and nobody wants to upload their ID to Meta.",
+      "expected": ["social-media-age-limits"],
+      "related": ["children-smartphone-age", "government-platform-bans"]
+    },
+    {
+      "id": "tiktok-sale",
+      "form": "conversation",
+      "text": "A: TikTok is owned by a company that has to hand over data to the Chinese government if asked. Ban it or force a sale. B: Then ban Facebook too, it has leaked more data than anyone. This is about protecting American competitors, not security.",
+      "expected": ["tiktok-ban", "government-platform-bans"],
+      "related": []
+    },
+    {
+      "id": "ai-art-scraping",
+      "form": "rant",
+      "text": "Midjourney scraped millions of artists' work without asking or paying and now sells a machine that imitates them. Calling that 'learning like a human does' is a joke.",
+      "expected": ["generative-ai-art-copyright"],
+      "related": []
+    },
+    {
+      "id": "waymo-miles",
+      "form": "reply",
+      "text": "Waymo has done tens of millions of driverless miles with far fewer injury crashes than human drivers in the same cities. The robots are already better than the average driver on their home turf.",
+      "expected": ["self-driving-car-safety"],
+      "related": []
+    },
+    {
+      "id": "deepfake-senator",
+      "form": "conversation",
+      "text": "A: That video of the senator is obviously fake. B: How do you know? Anything can be faked now. A: Exactly, so now every real scandal gets waved away as AI. The liars win either way.",
+      "expected": ["ai-deepfakes-truth-collapse"],
+      "related": []
+    },
+    {
+      "id": "chatgpt-water",
+      "form": "reply",
+      "text": "Every time you ask ChatGPT something it drinks a bottle of water, and the new data centers are going to need as much power as whole countries. Nobody is talking about this.",
+      "expected": ["ai-energy-water-footprint"],
+      "related": []
+    },
+    {
+      "id": "apple-uk-encryption",
+      "form": "article",
+      "text": "The UK government has reportedly ordered Apple to build a way for investigators to reach encrypted iCloud backups, prompting Apple to withdraw its Advanced Data Protection feature from British users. Security researchers warn that any access mechanism built for police would eventually be found and exploited by criminals and hostile states.",
+      "expected": ["encryption-backdoors"],
+      "related": []
+    },
+    {
+      "id": "no-jab-no-job",
+      "form": "conversation",
+      "text": "A: No jab, no job was coercion, plain and simple. B: Hospitals have required flu shots for decades. If you work with sick people, you get vaccinated. A: The covid shots didn't stop transmission, so the 'protect others' argument fell apart.",
+      "expected": ["vaccine-mandates"],
+      "related": []
+    },
+    {
+      "id": "fluoride-iq",
+      "form": "reply",
+      "text": "The government's own toxicology program found that fluoride exposure above 1.5 mg/L is linked to lower IQ in kids. Why are we still putting it in the tap water?",
+      "expected": ["fluoride-water-supplies"],
+      "related": ["rfk-health-policy"]
+    },
+    {
+      "id": "seed-oils-tallow",
+      "form": "rant",
+      "text": "Seed oils are industrial solvents they used to put in machines. Canola, soybean, sunflower, all of it. Chronic inflammation exploded when we switched from butter and tallow. Cook in beef fat.",
+      "expected": ["seed-oils-health"],
+      "related": []
+    },
+    {
+      "id": "ozempic-cheating",
+      "form": "conversation",
+      "text": "A: Ozempic is cheating. Just eat less and move more. B: That advice has a 95 percent failure rate over five years. These drugs work. A: Until you stop taking them and the weight comes back.",
+      "expected": ["glp1-weight-loss-drugs"],
+      "related": ["obesity-personal-responsibility"]
+    },
+    {
+      "id": "lab-leak-wuhan",
+      "form": "reply",
+      "text": "The pandemic started in the one city in the world with a lab doing coronavirus research, and the virus had a furin cleavage site nothing else in its family has. The wet market story never added up.",
+      "expected": ["lab-leak-theory"],
+      "related": ["gain-of-function-research-ban"]
+    },
+    {
+      "id": "moon-flag-stars",
+      "form": "conversation",
+      "text": "A: The flag is waving and there are no stars in the photos. B: The flag had a rod along the top, and cameras set for a sunlit surface can't pick up stars. A: And how did they get through the Van Allen belts?",
+      "expected": ["moon-landing"],
+      "related": []
+    },
+    {
+      "id": "red-wine-heart",
+      "form": "reply",
+      "text": "A glass of red wine a day is good for your heart. That's been known for decades.",
+      "expected": ["alcohol-no-safe-level"],
+      "related": []
+    },
+    {
+      "id": "ssri-kirsch",
+      "form": "conversation",
+      "text": "A: Antidepressants barely beat placebo. Kirsch looked at the FDA trials and the difference was a couple of points on the Hamilton scale. B: That's an average. Some people respond massively and some not at all, so the average hides it.",
+      "expected": ["ssri-antidepressant-efficacy"],
+      "related": []
+    },
+    {
+      "id": "adhd-youngest-in-class",
+      "form": "rant",
+      "text": "Every third kid in my son's class has an ADHD diagnosis and a prescription. The youngest kids in the grade are the most likely to be diagnosed. That tells you it's just immaturity being medicated.",
+      "expected": ["adhd-overdiagnosis"],
+      "related": []
+    },
+    {
+      "id": "vape-quit",
+      "form": "reply",
+      "text": "Vapes got me off a pack a day after twenty years of failed attempts with patches and gum. Treating them like cigarettes is going to push people back to smoking.",
+      "expected": ["vaping-harm-reduction"],
+      "related": []
+    },
+    {
+      "id": "gmo-roundup",
+      "form": "conversation",
+      "text": "A: GMO food isn't safe, Monsanto hid that Roundup causes cancer. B: Glyphosate isn't the same thing as genetic modification. And every major science body says GM crops are safe to eat.",
+      "expected": ["gmo-crops-safety"],
+      "related": []
+    },
+    {
+      "id": "fasting-question",
+      "form": "short",
+      "text": "Is intermittent fasting actually better than just eating fewer calories, or is it hype?",
+      "expected": ["intermittent-fasting-efficacy"],
+      "related": []
+    },
+    {
+      "id": "australia-buyback",
+      "form": "conversation",
+      "text": "A: Australia banned semi-automatics after Port Arthur and hasn't had a mass shooting like it since. B: Australia never had many to begin with, and the US has 400 million guns. A buyback here is fantasy.",
+      "expected": ["gun-control-effectiveness"],
+      "related": ["second-amendment-individual-right"]
+    },
+    {
+      "id": "second-amendment-heller",
+      "form": "reply",
+      "text": "'The right of the people to keep and bear arms shall not be infringed.' It says the people, not the militia. Heller settled it.",
+      "expected": ["second-amendment-individual-right"],
+      "related": ["gun-control-effectiveness"]
+    },
+    {
+      "id": "death-row-exonerations",
+      "form": "conversation",
+      "text": "A: Some crimes are so evil that execution is the only just answer. B: We have exonerated more than 190 people from death row. How many innocent people did we kill? A: Then require DNA evidence.",
+      "expected": ["death-penalty-deterrence"],
+      "related": []
+    },
+    {
+      "id": "electoral-college-wyoming",
+      "form": "rant",
+      "text": "A candidate can win the popular vote by millions and still lose. A vote in Wyoming counts nearly four times as much as one in California. Abolish the Electoral College.",
+      "expected": ["electoral-college-reform"],
+      "related": []
+    },
+    {
+      "id": "ukraine-crimea-deal",
+      "form": "conversation",
+      "text": "A: Ukraine should accept losing Crimea and the Donbas and sign a deal. Every month of fighting kills thousands. B: Reward an invasion and Putin comes back in five years for the rest. A: Then give them real security guarantees, not NATO membership.",
+      "expected": ["ukraine-peace-terms"],
+      "related": []
+    },
+    {
+      "id": "taiwan-amphibious",
+      "form": "reply",
+      "text": "China won't invade Taiwan this decade. An amphibious landing across a hundred miles of water is the hardest operation in warfare, and the sanctions would wreck their economy.",
+      "expected": ["china-taiwan-invasion"],
+      "related": []
+    },
+    {
+      "id": "iran-fordow",
+      "form": "conversation",
+      "text": "A: Bombing Fordow was the only way to stop Iran getting the bomb. B: Diplomacy was working until we tore up the nuclear deal in 2018. A: They were enriching to 60 percent, there's no civilian reason for that.",
+      "expected": ["iran-war-justification", "us-iran-conflict"],
+      "related": ["nuclear-proliferation-new-arms-race"]
+    },
+    {
+      "id": "social-workers-not-cops",
+      "form": "conversation",
+      "text": "A: Send social workers to mental health calls instead of armed cops. B: Denver's program worked for low-level calls, but somebody still has to show up when there's a gun. A: Nobody is saying abolish the police.",
+      "expected": ["police-reform"],
+      "related": []
+    },
+    {
+      "id": "stop-changing-clocks",
+      "form": "short",
+      "text": "Please just stop changing the clocks. Pick one time and leave it alone.",
+      "expected": ["daylight-saving-time-abolition"],
+      "related": []
+    },
+    {
+      "id": "trans-athletes-puberty",
+      "form": "conversation",
+      "text": "A: Male puberty gives a permanent edge in height, bone density and muscle that testosterone suppression doesn't undo. B: Trans women are a tiny number of athletes and banning them all to stop a couple of winners is cruel. A: Then make an open category.",
+      "expected": ["transgender-athletes-sports"],
+      "related": []
+    },
+    {
+      "id": "grandmother-assisted-dying",
+      "form": "reply",
+      "text": "My grandmother begged for weeks at the end. If someone is dying, of sound mind, and wants to go, the state has no business making them suffer.",
+      "expected": ["assisted-dying-euthanasia"],
+      "related": []
+    },
+    {
+      "id": "libet-free-will",
+      "form": "conversation",
+      "text": "A: Libet showed the brain decides before you're aware of it, so free will is an illusion. B: Libet's readiness potential is noise that builds up anyway, and people could still veto the movement.",
+      "expected": ["free-will"],
+      "related": []
+    },
+    {
+      "id": "manhattan-congestion",
+      "form": "reply",
+      "text": "Congestion pricing in Manhattan cut traffic noticeably in the first months and buses are faster. Every city that tried it kept it.",
+      "expected": ["congestion-pricing"],
+      "related": []
+    },
+    {
+      "id": "doge-savings",
+      "form": "conversation",
+      "text": "A: DOGE found billions in waste. B: Most of the 'savings' on the website were double-counted or contracts that were already ending. And they fired people who look after the nuclear stockpile and then had to rehire them.",
+      "expected": ["doge-federal-cuts"],
+      "related": []
+    },
+    {
+      "id": "israel-aid-leahy",
+      "form": "conversation",
+      "text": "A: We give Israel almost four billion a year in military aid and then act surprised when those bombs land on Gaza. Condition it or stop. B: They're an ally fighting a terrorist group that massacred civilians on October 7. Conditioning aid in the middle of a war tells Iran we've abandoned them. A: The Leahy law already says no aid to units that commit gross violations of human rights. Just enforce it.",
+      "expected": ["us-israel-support"],
+      "related": ["iran-war-justification"]
+    },
+    {
+      "id": "israel-arms-rant",
+      "form": "rant",
+      "text": "Why are my taxes paying for 2,000-pound bombs dropped on refugee camps? Every poll says young Americans want the weapons shipments stopped. Stop arming Netanyahu.",
+      "expected": ["us-israel-support"],
+      "related": []
+    },
+    {
+      "id": "tipping-short",
+      "form": "short",
+      "text": "Tipping culture has gotten totally out of hand.",
+      "expected": ["tipping-culture"],
+      "related": []
+    },
+    {
+      "id": "moon-uncle-short",
+      "form": "short",
+      "text": "Was the moon landing faked? My uncle swears it was.",
+      "expected": ["moon-landing"],
+      "related": []
+    },
+    {
+      "id": "bitcoin-tulips-short",
+      "form": "short",
+      "text": "Bitcoin is just digital tulips, honestly.",
+      "expected": ["cryptocurrency-value"],
+      "related": ["cryptocurrency-regulation"]
+    },
+    {
+      "id": "ubi-short",
+      "form": "short",
+      "text": "UBI would just make people stop working.",
+      "expected": ["universal-basic-income"],
+      "related": []
+    },
+    {
+      "id": "neg-carbonara",
+      "form": "conversation",
+      "text": "A: Real carbonara never has cream in it. Eggs, pecorino, guanciale, pepper. That's it. B: My nonna put cream in hers and she was from Rome. A: Then your nonna was making something else.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-football-score",
+      "form": "reply",
+      "text": "Arsenal 2-1 Chelsea. Saka with the winner in the 89th minute after Palmer equalised from the spot. We are so back.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-birthday",
+      "form": "short",
+      "text": "Happy birthday Sam!! Hope your day is as amazing as you are. Can't wait to celebrate this weekend, drinks are on me 🎉",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-pineapple-pizza",
+      "form": "conversation",
+      "text": "A: Pineapple on pizza is a crime. B: Sweet and salty is a classic combination, it's the same reason people like ham with honey. A: Ham with honey isn't on a pizza.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-brexit",
+      "form": "conversation",
+      "text": "A: Britain should rejoin the EU. Brexit has cost us around four percent of GDP and exports to Europe have fallen. B: We voted to leave, and forcing another referendum spits on democracy. A: People were lied to about the money for the NHS.",
+      "expected": [],
+      "related": [],
+      "note": "Politics the library does not cover."
+    },
+    {
+      "id": "neg-abortion",
+      "form": "conversation",
+      "text": "A: Life begins at conception and abortion ends a human life. B: A woman has the right to decide what happens to her own body. A: Rights don't include ending someone else's life. B: A fetus at eight weeks isn't a someone.",
+      "expected": [],
+      "related": [],
+      "note": "No abortion map. artificial-reproduction-ethics touches abortion in one pillar but is about artificial wombs; naming it would be the wrong map."
+    },
+    {
+      "id": "neg-rust-vs-go",
+      "form": "reply",
+      "text": "Rust's borrow checker is worth the pain; you trade compile-time friction for never debugging a use-after-free at 3am. Go is simpler, sure, but its error handling is just if err != nil copy-pasted forever.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-star-wars",
+      "form": "rant",
+      "text": "The sequel trilogy had no plan. The Last Jedi threw out everything The Force Awakens set up, and then Rise of Skywalker threw out everything The Last Jedi did. Somehow Palpatine returned.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-landlord-boiler",
+      "form": "reply",
+      "text": "My landlord still hasn't fixed the boiler after three weeks. I've emailed, called, and sent photos. Is it legal for me to withhold rent until it's repaired, or will that get me evicted?",
+      "expected": [],
+      "related": [],
+      "note": "Hard negative: renting vocabulary, but a tenancy question, not the rent-control argument."
+    },
+    {
+      "id": "neg-monarchy",
+      "form": "rant",
+      "text": "The monarchy costs taxpayers a fortune and the idea that someone is born to be head of state is absurd in 2026. Republicans in the UK should be pushing for a referendum now.",
+      "expected": [],
+      "related": [],
+      "note": "Politics the library does not cover."
+    },
+    {
+      "id": "neg-ranked-choice",
+      "form": "reply",
+      "text": "Ranked choice voting in Alaska let a moderate win the House seat. The people complaining about it just don't like who won. Every city should switch to RCV so you never have to vote for the lesser evil.",
+      "expected": [],
+      "related": [],
+      "note": "Hard negative: voting-system vocabulary near electoral-college-reform and mandatory-voting, but neither map is about ranked choice."
+    },
+    {
+      "id": "neg-school-uniforms",
+      "form": "short",
+      "text": "Should schools make kids wear uniforms? It stops the brand-name competition and bullying over clothes, but it costs parents more and kids hate them.",
+      "expected": [],
+      "related": [],
+      "note": "Hard negative: school-policy vocabulary near school-phone-bans."
+    },
+    {
+      "id": "neg-messi-ronaldo",
+      "form": "reply",
+      "text": "Messi has eight Ballon d'Ors and a World Cup. Ronaldo has more goals, sure, but a lot of them are penalties. It's not even close.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-package-refund",
+      "form": "article",
+      "text": "Hi, my order #48213 was supposed to arrive on Tuesday and tracking hasn't updated in five days. Can you tell me whether it's lost and whether I can get a refund or a replacement?",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-dogs-vs-cats",
+      "form": "conversation",
+      "text": "A: Dogs are just better pets, they're loyal and they actually want to be around you. B: Cats are independent and you don't have to walk them at 6am in the rain. A: Independence is a nice word for ignoring you.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-weather",
+      "form": "short",
+      "text": "Looks like rain again tomorrow, bring an umbrella if you're heading out to the market.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-wedding-guests",
+      "form": "conversation",
+      "text": "A: We have to invite your cousins if we're inviting mine. B: Your cousins are twelve people, mine are two. A: Then we cut the plus-ones for everyone who isn't married.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-birthday-short",
+      "form": "short",
+      "text": "Happy birthday Sam, have a great one!!!!",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-tabs-spaces",
+      "form": "short",
+      "text": "Tabs are better than spaces and I will die on this hill.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-metric",
+      "form": "reply",
+      "text": "America should just switch to metric. Everyone else uses kilometers and Celsius, and it's so much easier to teach kids.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "neg-nvda-calls",
+      "form": "reply",
+      "text": "NVDA to 200 by Friday, loading calls. Earnings are going to be massive, data center revenue is going vertical.",
+      "expected": [],
+      "related": [],
+      "note": "Hard negative: 'data center' is AI-footprint vocabulary, but this is a stock tip."
+    },
+    {
+      "id": "neg-long-match-report",
+      "form": "article",
+      "text": "City went into the derby knowing a win would take them top for the first time since August, and for forty minutes they played like it. The pressing was relentless, the full-backs pushed high, and the home side barely completed a pass out of their own half. The breakthrough came from a set piece: a corner whipped to the near post, a flick-on, and the centre-back arriving late to bury it. United changed shape at half-time, moving to a back three and bringing on their teenage winger, and the game turned. He beat his man twice in the first ten minutes, won a penalty that the captain sent the wrong way, and then set up the winner with a cut-back that left the keeper stranded. The manager said afterwards that his side had shown character, and that the table does not lie in October. His opposite number was less diplomatic, complaining about the penalty decision and the amount of stoppage time. Both sides now face a congested run of fixtures before the international break, with injuries piling up in midfield and the transfer window still months away.",
+      "expected": [],
+      "related": [],
+      "note": "Added during tuning to test long unrelated text, where every map's score rises together (the failure mode the 2026-09-29 paste-flow review flagged)."
+    },
+    {
+      "id": "neg-long-recipe-blog",
+      "form": "article",
+      "text": "I have been making this lasagne every Sunday for about three years now, and I finally think it is ready to share. The secret is patience: the ragu needs at least three hours on the lowest heat, and it is worth making the day before so the flavours settle. Start with a soffritto of onion, carrot and celery, cooked slowly in butter and olive oil until soft and sweet. Add the mince in batches so it browns rather than steams, then a glass of red wine, a spoonful of tomato paste and two tins of good tomatoes. For the bechamel, whisk flour into melted butter, cook it out for a minute, and add warm milk a little at a time with a grating of nutmeg. Layer fresh pasta sheets, ragu, bechamel and parmesan, finishing with a thick layer of sauce and cheese on top. Bake until the edges are crisp and bubbling, then, and this is the hard part, let it rest for twenty minutes before you cut it. My kids argue every week about who gets the corner pieces.",
+      "expected": [],
+      "related": [],
+      "note": "Added during tuning, as above."
+    },
+    {
+      "id": "neg-long-product-review",
+      "form": "article",
+      "text": "I bought these headphones for my commute after my old pair died, and after two months of daily use I have mixed feelings. The noise cancelling is genuinely excellent on the train; the low rumble disappears and I can listen at half the volume I used to. Battery life is as advertised, around thirty hours, and the quick charge gets you a few hours from ten minutes on the cable. Comfort is where they fall down. The clamping force is strong enough that I get a headache after about two hours, and the ear pads get warm in summer. The companion app is cluttered and keeps asking me to create an account, which I refuse to do for a pair of headphones. Call quality is fine indoors but poor in wind. Customer support replaced a faulty hinge quickly, which I appreciated. For the price there are better options if comfort matters most to you, but if you mainly want silence on a noisy train, these are hard to beat.",
+      "expected": [],
+      "related": [],
+      "note": "Added during tuning, as above."
+    },
+    {
+      "id": "neg-long-politics-uncovered",
+      "form": "article",
+      "text": "The debate over lowering the voting age to sixteen has returned to Westminster after a cross-party group of MPs published a report arguing that teenagers who can work, pay tax and join the army should also have a say at the ballot box. Scotland and Wales already allow sixteen and seventeen year olds to vote in devolved and local elections, and supporters point to turnout figures suggesting that people who vote early keep voting for life. Opponents counter that most sixteen year olds are still in full-time education and living with their parents, that civic education in schools is patchy, and that the change is being pushed by parties who expect to benefit from younger voters. Polling suggests the public is split, with older voters more sceptical. The government has said it will consider the proposals as part of a wider elections bill, which is also expected to address voter identification rules and the registration of overseas electors.",
+      "expected": [],
+      "related": [],
+      "note": "Added during tuning, as above. Voting-age reform: an argument the library does not map, with election vocabulary near mandatory-voting and electoral-college-reform."
+    }
+  ]
+}
