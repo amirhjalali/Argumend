@@ -87,8 +87,8 @@ const worksheets: Record<string, Worksheet> = {
         lines: 3,
       },
       {
-        heading: "7. Your Confidence Score",
-        description: "After reviewing all evidence, how confident are you in the main claim? (0-100%)",
+        heading: "7. What Would Change Your Mind",
+        description: "After reviewing all the evidence, where do you stand, and what evidence would move you?",
         type: "lines",
         lines: 2,
       },
@@ -141,11 +141,12 @@ const worksheets: Record<string, Worksheet> = {
         description: "Answer honestly:",
         type: "numbered-list",
         items: [
-          "Did this exercise change your confidence in your original position? How?",
+          "Did this exercise change how you see your original position? How?",
           "_______________________________________________",
           "What is the strongest point the other side makes that you find genuinely difficult to counter?",
           "_______________________________________________",
-          "On a scale of 0-100%, how confident are you now in your original position? (Before: ___% / After: ___%)",
+          "What evidence would change your mind about your original position?",
+          "_______________________________________________",
         ],
       },
     ],
@@ -545,7 +546,7 @@ export default async function WorksheetPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-[100svh] bg-white dark:bg-[#1a1916]">
+    <div className="min-h-[100svh] bg-white dark:bg-canvas">
       {/* Print-optimized styles */}
       <style>{`
         @page { margin: 0.55in; }
@@ -590,13 +591,13 @@ export default async function WorksheetPage({ params }: PageProps) {
       `}</style>
 
       {/* Navigation bar (hidden when printing) */}
-      <nav aria-label="Worksheet controls" className="worksheet-nav bg-[#f4f1eb] dark:bg-[#121210] border-b border-stone-200 dark:border-[var(--border-divider)] px-4 py-2.5">
+      <nav aria-label="Worksheet controls" className="worksheet-nav bg-canvas border-b border-stone-200 dark:border-[var(--border-divider)] px-4 py-2.5">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Link
-            href="/for-educators"
-            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:text-[#7fb5b0]"
+            href="/for-educators#printable-worksheets"
+            className="inline-flex min-h-11 items-center rounded-md text-sm text-deep transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/60 dark:text-accent-text"
           >
-            &larr; Back to Educator Resources
+            &larr; All worksheets
           </Link>
           <PrintWorksheetButton />
         </div>

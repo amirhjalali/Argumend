@@ -110,8 +110,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/nodes/EvidenceNode.tsx" },
   { path: "app/embed/[topicId]/page.tsx" },
   { path: "app/about/page.tsx" },
-  { path: "app/for-educators/page.tsx" },
-  { path: "app/glossary/page.tsx" },
   { path: "app/dashboard/page.tsx" },
   { path: "app/not-found.tsx" },
   { path: "app/topics/compare/CompareIndexView.tsx" },

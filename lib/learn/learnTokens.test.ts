@@ -29,6 +29,9 @@ const LEARN_FILES = [
   "app/fallacies/page.tsx",
   "app/fallacies/[slug]/page.tsx",
   "components/TableOfContents.tsx",
+  "app/glossary/page.tsx",
+  "app/research/page.tsx",
+  "app/for-educators/page.tsx",
 ];
 
 const stripComments = (src: string): string =>
