@@ -126,7 +126,7 @@ function enrichedWorkedExampleGraph(): ArgumentGraph {
 }
 
 describe("DebateView", () => {
-  it("leads with hook and tldr instead of inventory, renders camps, numbers, cruxes, evidence, and disclosure affordances", () => {
+  it("leads with the question, hook, agreement and crux sheet, then camps, folds and disclosure affordances", () => {
     const graph = enrichedWorkedExampleGraph();
     const cruxes = identifyCruxes(graph);
     const claimById = new Map(
@@ -149,12 +149,13 @@ describe("DebateView", () => {
       TEST_META.title,
     );
     expect(screen.getByText(graph.question.statement)).not.toBeNull();
-    expect(screen.getByText("Reviewed Aug 12, 2026")).not.toBeNull();
-    const cruxJump = screen.getByRole("link", {
-      name: "Jump to the five crux questions ↓",
-    });
-    expect(cruxJump.getAttribute("href")).toBe("#cruxes");
-    expect(screen.getByLabelText("Cruxes").id).toBe("cruxes");
+    expect(screen.getByTestId("topic-kicker").textContent).toMatch(
+      /^Map · reviewed Aug 12, 2026 · \d+ sources$/,
+    );
+    const cruxSection = view.container.querySelector<HTMLElement>("#cruxes")!;
+    expect(within(cruxSection).getByRole("heading", { level: 2 }).textContent).toBe(
+      `This turns on ${["zero", "one", "two", "three", "four", "five", "six"][cruxes.length]} questions`,
+    );
     expect(screen.getByText(TEST_META.hook)).not.toBeNull();
     expect(screen.getByText(TEST_META.tldr)).not.toBeNull();
     expect(view.container.textContent).not.toContain("pieces of evidence ·");
@@ -162,14 +163,16 @@ describe("DebateView", () => {
     // The screenshot card remains understandable as a labeled landmark and
     // associates each value with its label through native description-list
     // semantics instead of visual proximity alone.
+    // It now sits folded under "The numbers", after the camps.
     const shareCard = screen.getByRole("complementary", {
       name: "Key comparison",
     });
+    expect(shareCard.closest("details")?.id).toBe("numbers");
     expect(shareCard.querySelectorAll("dl")).toHaveLength(1);
     expect(shareCard.querySelectorAll("dt")).toHaveLength(2);
     expect(shareCard.querySelectorAll("dd")).toHaveLength(2);
 
-    const positionsSection = screen.getByLabelText("Positions");
+    const positionsSection = view.container.querySelector<HTMLElement>("#positions")!;
     const positionHeadings = within(positionsSection).getAllByRole("heading", {
       level: 3,
     });
@@ -180,7 +183,7 @@ describe("DebateView", () => {
       positions.map((position) => position.label),
     );
     for (const [index, position] of positions.entries()) {
-      const card = positionHeadings[index].closest("div");
+      const card = positionHeadings[index].closest("li");
       // Statement and constituency stay reachable (inside the expand) even
       // when a one-line summary leads the card.
       expect(card?.textContent).toContain(position.statement);
@@ -199,9 +202,7 @@ describe("DebateView", () => {
     // Crux headlines carry at most the two meaningful chips — never the
     // epistemic/status tag soup the critique flagged.
     const cruxSummaries = [
-      ...screen
-        .getByLabelText("Cruxes")
-        .querySelectorAll<HTMLElement>("ol > li > details > summary"),
+      ...cruxSection.querySelectorAll<HTMLElement>("[data-crux-sheet] > li > details > summary"),
     ];
     expect(cruxSummaries.length).toBe(cruxes.length);
     for (const [index, summary] of cruxSummaries.entries()) {
@@ -266,15 +267,15 @@ describe("DebateView", () => {
     }
 
     // Researcher mode wraps the remaining claims behind one disclosure.
-    const researcherSection = screen.getByLabelText("All claims");
+    const researcherSection = view.container.querySelector<HTMLElement>("details#researcher")!;
     expect(
       within(researcherSection).getByText(/Researcher mode/),
     ).not.toBeNull();
 
     const relatedMaps = screen.getByRole("navigation", {
-      name: "Related debate maps",
+      name: "Related maps",
     });
-    expect(within(relatedMaps).getAllByRole("link")).toHaveLength(3);
+    expect(within(relatedMaps).getAllByRole("link")).toHaveLength(4);
     expect(within(relatedMaps).getByRole("link", { name: "Browse all topics →" }))
       .not.toBeNull();
 
@@ -301,7 +302,7 @@ describe("DebateView", () => {
     // blocks, and source-interest disclosures no longer put <details> inside
     // an invalid phrasing-only <span> wrapper.
     expect(
-      within(screen.getByLabelText("Cruxes")).getAllByRole("heading", {
+      within(cruxSection).getAllByRole("heading", {
         level: 3,
       }),
     ).toHaveLength(cruxes.length);
@@ -389,7 +390,7 @@ describe("DebateView registry contract", () => {
       expect(staticContainer.querySelector("main")).toBeNull();
       expect(staticContainer.querySelector("h1")?.textContent?.trim()).toBe(meta.title);
       expect(staticText).toContain(`Scope: ${graph.question.statement}`);
-      expect(staticText).toContain("Reviewed Aug 12, 2026");
+      expect(staticText).toContain("reviewed Aug 12, 2026");
       expect(html).not.toMatch(
         /\b(?:src|href|alt|class|aria-label)="(?:undefined|null)"/i,
       );
@@ -405,7 +406,8 @@ describe("DebateView registry contract", () => {
       expect(staticText.match(/not yet specified\./g)?.length ?? 0).toBe(
         missingResolutionCount,
       );
-      expect(html).not.toContain("<script");
+      // Structured data only (the breadcrumb trail); no executable script.
+      expect(html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "")).not.toContain("<script");
 
       const detailCount = html.match(/<details(?:\s|>)/g)?.length ?? 0;
       const summaryCount = html.match(/<summary(?:\s|>)/g)?.length ?? 0;

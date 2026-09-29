@@ -4,7 +4,6 @@ import { memo } from "react";
 import Image from "next/image";
 import { InteractiveContent } from "@/components/InteractiveContent";
 import { CitationCard } from "@/components/CitationCard";
-import { ConfidenceGauge } from "@/components/ConfidenceGauge";
 import { useLogicGraph } from "@/hooks/useLogicGraph";
 import type { LogicNodeData } from "@/types/graph";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
@@ -102,11 +101,9 @@ export const MetaNode = memo(function MetaNode({ id, data }: NodeProps<Node<Logi
           </div>
         )}
 
-        {/* Footer: Score & Action */}
-        <div className="flex items-center justify-between border-t border-stone-100 dark:border-[#302e2a] pt-4">
-          {typeof data.score === "number" && (
-            <ConfidenceGauge score={data.score} size={100} label="Balance" />
-          )}
+        {/* Footer: action only. The root used to carry a "54% BALANCE"
+            gauge ring; the diagram shows the structure, not a score. */}
+        <div className="flex items-center justify-end border-t border-stone-100 dark:border-[#302e2a] pt-4">
 
           {data.hasChildren ? (
             <button

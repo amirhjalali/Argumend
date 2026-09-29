@@ -14,7 +14,10 @@ const routesThatMustNotLoadTheFullCorpus = [
   "app/sitemap.ts",
   "app/topics/TopicsPageClient.tsx",
   "app/topics/[id]/page.tsx",
-  "app/topics/[id]/TopicPageClient.tsx",
+  "app/topics/[id]/map/page.tsx",
+  "app/topics/[id]/map/TopicDiagram.tsx",
+  "components/ReadModeView.tsx",
+  "components/topic/TopicPage.tsx",
   "app/topics/compare/page.tsx",
   "app/topics/compare/[id1]/vs/[id2]/page.tsx",
   "components/AppShell.tsx",
@@ -69,7 +72,12 @@ describe("analyze client bundle boundary", () => {
 const contentRouteClientShells = [
   "app/blog/[slug]/client.tsx",
   "app/topics/TopicsPageClient.tsx",
-  "app/topics/[id]/TopicPageClient.tsx",
+  "app/topics/[id]/page.tsx",
+  "components/ReadModeView.tsx",
+  "components/argument/DebateView.tsx",
+  "components/topic/TopicPage.tsx",
+  "components/topic/CruxReflection.tsx",
+  "components/topic/TopicActions.tsx",
   "components/AppShell.tsx",
   "components/Sidebar.tsx",
   "components/TopBar.tsx",
@@ -110,19 +118,35 @@ describe("content-route graph import boundaries", () => {
     expect(homeSource).toContain("viewToggle={<ViewToggle />}");
   });
 
-  it("keeps the legacy topic reader asynchronous on the shared topic route", () => {
-    const routeSource = readFileSync(
-      resolve(process.cwd(), "app/topics/[id]/page.tsx"),
-      "utf8",
-    );
-    const loaderSource = readFileSync(
-      resolve(process.cwd(), "app/topics/[id]/LegacyTopicPageLoader.tsx"),
-      "utf8",
-    );
+  it("server-renders both topic shapes through one template, with no client graph", () => {
+    const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
+    const routeSource = read("app/topics/[id]/page.tsx");
 
-    expect(routeSource).not.toMatch(/import\s+TopicPageClient\s+from/);
-    expect(routeSource).toMatch(/import\s+LegacyTopicPageLoader\s+from/);
-    expect(loaderSource).toContain('import("./TopicPageClient")');
+    // Legacy maps render server-side like the flagship maps: no client loader,
+    // no canvas, the same TopicPage template underneath.
+    expect(routeSource).toMatch(/from\s+["']@\/components\/ReadModeView["']/);
+    expect(routeSource).not.toMatch(/LegacyTopicPageLoader|TopicPageClient/);
+    for (const path of [
+      "components/ReadModeView.tsx",
+      "components/argument/DebateView.tsx",
+      "components/topic/TopicPage.tsx",
+    ]) {
+      const source = read(path);
+      expect(source, path).not.toMatch(/^["']use client["']/m);
+      expect(source, path).toMatch(/TopicPage/);
+      expect(source, path).not.toMatch(/DesktopCanvas|MobileArgumentList|ScalesOfEvidence/);
+    }
+  });
+
+  it("keeps React Flow on the diagram route, loaded only for desktop sessions", () => {
+    const diagram = readFileSync(
+      resolve(process.cwd(), "app/topics/[id]/map/TopicDiagram.tsx"),
+      "utf8",
+    );
+    expect(diagram).toContain('import("@/components/DesktopCanvas")');
+    expect(diagram).toContain('import("@/components/MobileArgumentList")');
+    expect(diagram).not.toMatch(/from\s+["']@xyflow\/react["']/);
+    expect(diagram).not.toMatch(/ScalesOfEvidence|DebateView|ViewToggle/);
   });
 
   it("does not speculatively prefetch every shared-shell destination", () => {

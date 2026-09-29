@@ -55,4 +55,17 @@ describe("SavedClient empty and unavailable states", () => {
     expect(remove.className).toContain("w-11");
     expect(remove.className).toContain("focus-visible:ring-2");
   });
+
+  it("resolves saved debate maps (ArgumentGraph topics) alongside legacy maps", () => {
+    savedState.ids = ["ai-mass-unemployment", "climate-change"];
+    const view = render(<SavedClient />);
+
+    const debate = view.getByRole("link", { name: /Will AI cause mass unemployment\?/ });
+    expect(debate.getAttribute("href")).toBe("/topics/ai-mass-unemployment");
+    expect(view.getByRole("link", { name: /Climate Change/ })).toBeTruthy();
+    expect(view.getByText("2")).toBeTruthy();
+    expect(
+      view.getByRole("button", { name: 'Remove "Will AI cause mass unemployment?" from saved' }),
+    ).toBeTruthy();
+  });
 });

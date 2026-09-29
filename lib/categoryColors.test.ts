@@ -278,7 +278,6 @@ describe("dark-mode pairing guard for text-primary / text-secondary", () => {
     "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
     "app/community/page.tsx",
     "components/JudgingResults.tsx",
-    "components/FlagshipIntro.tsx",
   ];
 
   const EXPECTED_PAIR: Record<string, string> = {
