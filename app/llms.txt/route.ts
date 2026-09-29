@@ -91,8 +91,8 @@ ${argumentTopicIndex
   .join("\n")}`;
 
   const footer = `\n## More
-- Methodology: ${BASE}/methodology
-- How it works: ${BASE}/how-it-works
+- About (why Argumend exists, its principles, how to read a map): ${BASE}/about
+- How maps are made: ${BASE}/methodology
 - Glossary of terms (cruxes, pillars, steel-manning): ${BASE}/glossary
 - All topics: ${BASE}/topics
 - Blog: ${BASE}/blog

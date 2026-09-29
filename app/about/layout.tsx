@@ -3,23 +3,25 @@ import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 import { JsonLd } from "@/components/JsonLd";
 import { ORGANIZATION_ID, SITE_NAME, SITE_URL } from "@/lib/site";
 
+const DESCRIPTION =
+  "Most arguments are not about what they seem. Why Argumend exists, the three rules it keeps (crux over verdict, never a winner, voluntary before imposed), how to read a map, how maps are made, and how to help.";
+
 export const metadata: Metadata = {
   title: {
-    absolute: "About ARGUMEND — Our Mission to Transform How People Disagree",
+    absolute: "About ARGUMEND — why it exists and how to read a map",
   },
-  description:
-    "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and two-axis balance and weight scoring. Learn about our mission to transform how people disagree.",
-  keywords: ["about argumend", "argument mapping platform", "critical thinking tool", "evidence-based reasoning"],
+  description: DESCRIPTION,
+  keywords: ["about argumend", "argument mapping", "crux", "what would change your mind", "disagree better"],
   openGraph: {
-    title: "About ARGUMEND — Our Mission",
-    description: "We map controversial topics visually so you can see both sides, weigh the evidence, and find what matters.",
+    title: "About ARGUMEND — Disagree better.",
+    description: DESCRIPTION,
     url: "https://argumend.org/about",
     images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "About ARGUMEND",
-    description: "Our mission to transform how people disagree — with evidence, not volume.",
+    description: "Maps of hard questions, built around what would change a mind, never around who won.",
     images: [DEFAULT_SOCIAL_IMAGE_URL],
   },
   alternates: {
@@ -36,9 +38,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           "@context": "https://schema.org",
           "@type": "AboutPage",
           name: "About Argumend",
-          headline: "About ARGUMEND",
-          description:
-            "ARGUMEND maps controversial topics visually with steel-manned arguments, crux identification, and two-axis balance and weight scoring.",
+          headline: "Disagree better.",
+          description: DESCRIPTION,
           url: "https://argumend.org/about",
           mainEntity: {
             "@type": "Organization",

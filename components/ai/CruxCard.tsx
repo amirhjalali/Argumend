@@ -16,7 +16,7 @@ import {
   SettleAnswer,
   settleMode,
   type SettleMode,
-} from "@/components/argument/DebateView";
+} from "@/components/topic/cruxPrimitives";
 import { domId, formatDay } from "./format";
 import { claimOf, cruxQuestion, type IndexedMap } from "./types";
 

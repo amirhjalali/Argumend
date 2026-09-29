@@ -96,17 +96,12 @@ const read = (relPath: string) =>
 const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "app/saved/SavedClient.tsx" },
   { path: "app/blog/category/[category]/page.tsx" },
-  { path: "components/SynopticTable.tsx" },
   { path: "components/nodes/MetaNode.tsx" },
   { path: "app/topics/TopicsPageClient.tsx" },
   // ShareVerdictCard's rasterized title pins literal ink (`text-[#3d3a36]`)
   // since 2026-09-22: the brand tokens now flip in dark mode, so a bare token
-  // there would go light-on-light. VerdictVoting's "compare" card gained a
-  // dark surface instead, so it uses the canonical pair. Neither needs an
-  // exemption.
-  { path: "components/VerdictVoting.tsx" },
+  // there would go light-on-light, and it needs no exemption.
   { path: "app/methodology/page.tsx" },
-  { path: "app/how-it-works/page.tsx" },
   { path: "app/lessons-from-the-deep/page.tsx" },
   { path: "components/FeaturedTopicHero.tsx" },
   { path: "components/ShareVerdictCard.tsx" },
@@ -126,7 +121,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "app/dashboard/page.tsx" },
   { path: "app/not-found.tsx" },
   { path: "app/topics/compare/CompareIndexView.tsx" },
-  { path: "components/FalsificationCrux.tsx" },
   { path: "components/MobileArgumentList.tsx" },
   { path: "components/ZoomIndicator.tsx" },
   { path: "app/blog/tag/[tag]/page.tsx" },
@@ -134,8 +128,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/TableOfContents.tsx" },
   { path: "app/faq/page.tsx" },
   { path: "components/DebateView.tsx" },
-  { path: "components/HomeClient.tsx" },
-  { path: "components/ReadGraphToggle.tsx" },
   { path: "components/TopBar.tsx" },
   { path: "app/is/page.tsx" },
   { path: "app/is/IsHubClient.tsx" },
