@@ -46,7 +46,7 @@ function TocLinks({
         <li key={`${keyPrefix}-${h.id}`} className={h.level === 3 ? "pl-3.5" : ""}>
           <a
             href={`#${h.id}`}
-            className={`flex min-h-11 items-center rounded-sm leading-snug transition-colors hover:text-deep dark:hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep ${
+            className={`flex min-h-11 items-center rounded-sm leading-snug transition-colors hover:text-deep dark:hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
               h.level === 3
                 ? "text-muted dark:text-stone-400"
                 : "text-secondary dark:text-stone-400"
@@ -84,7 +84,7 @@ export function TableOfContents({
     <>
       {/* Phone → desktop: collapsible disclosure, in flow. */}
       <details className="group mb-10 rounded-lg border border-divider bg-panel xl:hidden">
-        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 font-sans text-sm font-medium text-primary dark:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep [&::-webkit-details-marker]:hidden">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 font-sans text-sm font-medium text-primary dark:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus [&::-webkit-details-marker]:hidden">
           <span className="flex items-center gap-2">
             <List className="h-4 w-4 text-muted" strokeWidth={1.75} aria-hidden="true" />
             {label}

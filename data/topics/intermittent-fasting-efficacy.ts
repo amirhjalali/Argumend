@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const intermittentFastingEfficacyData = {
   id: "intermittent-fasting-efficacy",
   title: "Does Intermittent Fasting Work?",
+  question: "Does intermittent fasting work better than plain calorie cutting?",
   meta_claim:
     "Intermittent fasting produces meaningfully better weight and metabolic outcomes than plain calorie restriction",
   status: "contested" as const,
@@ -40,6 +41,8 @@ export const intermittentFastingEfficacyData = {
       crux: {
         id: "isocaloric-head-to-head",
         title: "The Calorie-Matched Head-to-Head Test",
+        question:
+          "Does fasting win when calories are matched, or only by making it easier to eat less?",
         description:
           "Whether time-restricted or intermittent eating produces more weight or fat loss than continuous calorie restriction when total energy intake is held equal. If matched-calorie trials consistently show no difference, then fasting's benefits are entirely a function of eating less. If fasting wins even when calories are equalized — via metabolic effects, better fat-vs-lean partitioning, or genuinely higher real-world adherence — then the timing matters in its own right.",
         methodology:
@@ -153,6 +156,8 @@ export const intermittentFastingEfficacyData = {
       crux: {
         id: "weight-independent-metabolic-signal",
         title: "The Weight-Clamped Metabolic Test",
+        question:
+          "With weight held steady, does eating in a daytime window carry a real metabolic benefit?",
         description:
           "Whether time-restricted eating improves metabolic markers (insulin sensitivity, glycemic control, blood pressure) when body weight is held constant. If supervised, weight-stable feeding studies reliably show metabolic gains under matched calories, then circadian eating has a genuine weight-independent effect. If those gains disappear or fail to replicate when weight is clamped and samples are larger, the metabolic story is really just a weight-loss story in disguise.",
         methodology:
@@ -271,6 +276,8 @@ export const intermittentFastingEfficacyData = {
       crux: {
         id: "long-term-adherence-comparison",
         title: "The Long-Term Adherence Test",
+        question:
+          "Are milder fasting windows easier to stick with than daily calorie counting?",
         description:
           "Whether intermittent-fasting protocols achieve higher real-world adherence and lower dropout than continuous calorie restriction over 12+ months. If pragmatic, free-living trials show people stick to a fasting window better than to daily calorie counting, fasting earns a real-world edge regardless of its metabolic equivalence. If dropout and adherence are similar — or worse for the stricter fasting variants — then 'easier to follow' is protocol-specific marketing rather than a general truth.",
         methodology:

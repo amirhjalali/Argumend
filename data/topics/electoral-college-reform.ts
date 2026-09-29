@@ -1,6 +1,7 @@
 export const electoralCollegeReformData = {
   id: "electoral-college-reform",
   title: "Electoral College Reform",
+  question: "Should a national popular vote replace the Electoral College?",
   meta_claim:
     "The Electoral College should be replaced with a national popular vote for electing the President of the United States.",
   status: "contested" as const,
@@ -34,6 +35,8 @@ export const electoralCollegeReformData = {
       crux: {
         id: "npvic-enactment",
         title: "National Popular Vote Interstate Compact Reaching 270 EVs",
+        question:
+          "Can the National Popular Vote compact realistically reach 270 electoral votes?",
         description:
           "The NPVIC needs states totaling 270 electoral votes to take effect. As of 2026 it has 222 (18 states plus DC), leaving it 48 short. The remaining states needed lean Republican, and Republican policymakers—who benefited from the Electoral College in 2000 and 2016—have so far shown little incentive to enact it; no state with a Republican trifecta has done so.",
         methodology:
@@ -123,6 +126,8 @@ export const electoralCollegeReformData = {
       crux: {
         id: "scotus-constitutionality",
         title: "Supreme Court Ruling on NPVIC Constitutionality",
+        question:
+          "Would the National Popular Vote compact survive a Supreme Court challenge?",
         description:
           "The Compact Clause may require Congressional approval for interstate agreements. The Supreme Court has never ruled on the NPVIC specifically.",
         methodology:

@@ -1,6 +1,7 @@
 export const socialMediaElectionsData = {
   id: "social-media-elections",
   title: "Social Media's Impact on Elections",
+  question: "Has social media fundamentally undermined democratic elections?",
   meta_claim:
     "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
   status: "contested" as const,
@@ -22,6 +23,8 @@ export const socialMediaElectionsData = {
       crux: {
         id: "algorithm-vs-human-sorting",
         title: "The Algorithm Attribution Test",
+        question:
+          "Do engagement algorithms drive election misinformation, or would human biases spread it on any platform?",
         description:
           "The definitive question is whether engagement-maximizing algorithms are a necessary condition for the scale of electoral misinformation — or whether human cognitive biases alone would produce similar misinformation spread on any platform. If algorithmic amplification is the driver, then regulating recommendation algorithms would reduce misinformation. If human psychology is the driver, platform regulation will have minimal effect.",
         methodology:
@@ -118,6 +121,8 @@ export const socialMediaElectionsData = {
       crux: {
         id: "foreign-influence-vote-impact",
         title: "The Electoral Impact Measurement Test",
+        question:
+          "Do foreign social media influence campaigns measurably change how targeted voters vote or turn out?",
         description:
           "The key question is whether foreign social media influence campaigns have measurable effects on voter behavior — turnout, vote switching, or abstention — in the specific swing populations they target. If exposure to foreign influence content produces no behavioral change, these campaigns are a security concern but not an electoral threat. If they produce even small effects in targeted populations, they could be decisive in close elections.",
         methodology:
@@ -199,6 +204,8 @@ export const socialMediaElectionsData = {
       crux: {
         id: "micro-targeting-marginal-effect",
         title: "The Micro-Targeting Marginal Effect Test",
+        question:
+          "Do micro-targeted political ads move votes by more than the margins that decide close elections?",
         description:
           "If micro-targeted political ads produce persuasion or turnout effects larger than the margins that decide competitive elections (typically 0.5-2%), social media advertising represents a genuine democratic threat. If effects are below this threshold — as most experimental evidence suggests — micro-targeting is a campaign efficiency tool, not an existential threat to democracy.",
         methodology:

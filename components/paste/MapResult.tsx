@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
 import { TextAction, textActionClasses } from "@/components/ui";
-import type { PasteMapCard, PasteMapMatch, PasteMapsResult } from "@/lib/paste/types";
+import { toneStyles } from "@/lib/categoryColors";
+import type {
+  PasteMapCandidate,
+  PasteMapCard,
+  PasteMapMatch,
+  PasteMapsResult,
+} from "@/lib/paste/types";
 
 /**
  * "This argument is already mapped": the part of a paste result that takes
@@ -20,9 +26,11 @@ const SIDE_LABEL: Record<PasteMapCard["side"], string> = {
   against: "Cuts against it",
 };
 
+// The tone map's small-text pairs: rust-500 and skeptic-light were 4.28:1
+// and 4.34:1 on the dark canvas, under AA for 14px text.
 const SIDE_TEXT: Record<PasteMapCard["side"], string> = {
-  for: "text-rust-700 dark:text-rust-500",
-  against: "text-skeptic dark:text-skeptic-light",
+  for: toneStyles.rust.accentText,
+  against: toneStyles.brown.accentText,
 };
 
 function Card({ card }: { card: PasteMapCard }) {
@@ -104,7 +112,36 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
   );
 }
 
-export function MapMatch({ match }: { match: PasteMapMatch }) {
+/**
+ * A pointer to the matched map's siblings, right under its claim, so a reader
+ * whose argument is really about the neighbouring map sees it on the first
+ * screen. The full entries follow the next step (`RelatedMaps`).
+ */
+function RelatedLine({ related }: { related: readonly PasteMapCandidate[] }) {
+  if (related.length === 0) return null;
+  return (
+    <p className="mt-4 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+      Closely related:{" "}
+      {related.map((map, index) => (
+        <span key={map.id}>
+          {index > 0 ? "; " : null}
+          <Link href={map.href} className={textActionClasses("text-[0.9375rem]")}>
+            {map.title}
+          </Link>
+        </span>
+      ))}
+    </p>
+  );
+}
+
+export function MapMatch({
+  match,
+  related = [],
+}: {
+  match: PasteMapMatch;
+  /** Maps on the same subject, from `PasteMapsResult.related`. */
+  related?: readonly PasteMapCandidate[];
+}) {
   // Supporting card first, then the challenge: a fixed order, not a ranking.
   const cards = [...match.cards].sort((a, b) => (a.side === b.side ? 0 : a.side === "for" ? -1 : 1));
 
@@ -133,6 +170,7 @@ export function MapMatch({ match }: { match: PasteMapMatch }) {
         <p className="mt-2 font-serif text-lg italic leading-relaxed text-[var(--text-secondary)]">
           {match.claim}
         </p>
+        <RelatedLine related={related} />
       </div>
 
       <CruxPanel match={match} />
@@ -153,6 +191,27 @@ export function MapMatch({ match }: { match: PasteMapMatch }) {
         </div>
       ) : null}
     </section>
+  );
+}
+
+/**
+ * The matched map's siblings: maps on the same subject that scored close to
+ * it. Shown after the next step, above any other closest maps, because a
+ * paste that fits one sibling often fits the other, and which one the
+ * argument is really about is the reader's call.
+ */
+export function RelatedMaps({ maps }: { maps: readonly PasteMapCandidate[] }) {
+  return (
+    <ClosestMaps
+      title="Closely related"
+      level={2}
+      lede={
+        maps.length === 1
+          ? "Argumend also maps a neighbouring question on the same subject. If your argument is more about this one, start here."
+          : "Argumend also maps neighbouring questions on the same subject. If your argument is more about one of these, start there."
+      }
+      maps={maps}
+    />
   );
 }
 

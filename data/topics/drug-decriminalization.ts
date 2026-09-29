@@ -1,6 +1,8 @@
 export const drugDecriminalizationData = {
   id: "drug-decriminalization",
   title: "Drug Decriminalization",
+  question:
+    "Does decriminalizing drug use, with treatment, improve public health?",
   meta_claim:
     "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
   status: "contested" as const,
@@ -35,6 +37,8 @@ export const drugDecriminalizationData = {
       crux: {
         id: "decrim-use-rates",
         title: "Use Rates Under Decriminalization vs. Criminalization",
+        question:
+          "How much of Portugal's improvement came from decriminalization versus treatment investment?",
         description:
           "Rigorous comparison of drug use prevalence, problematic use rates, and overdose deaths in jurisdictions that decriminalized vs. those that maintained criminal penalties, controlling for other policy differences.",
         methodology:
@@ -141,6 +145,8 @@ export const drugDecriminalizationData = {
       crux: {
         id: "coerced-vs-voluntary-treatment",
         title: "Coerced vs. Voluntary Treatment Outcomes",
+        question:
+          "Does court-mandated treatment work enough better than voluntary referral to justify arrests?",
         description:
           "Court-mandated rehab has high completion rates but lower long-term success. Voluntary treatment has more dropouts but better outcomes for those who stay.",
         methodology:

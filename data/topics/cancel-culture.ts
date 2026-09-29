@@ -1,6 +1,7 @@
 export const cancelCultureData = {
   id: "cancel-culture",
   title: "Cancel Culture",
+  question: "Does cancel culture do more harm than good to public discourse?",
   meta_claim:
     "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
   status: "contested" as const,
@@ -19,6 +20,8 @@ export const cancelCultureData = {
       crux: {
         id: "chilling-effect-measurement",
         title: "Quantifying the Chilling Effect on Public Discourse",
+        question:
+          "Does fear of online backlash measurably narrow what people are willing to say in public?",
         description:
           "Measuring whether fear of social media backlash measurably reduces the diversity and honesty of publicly expressed viewpoints across institutional and public settings.",
         methodology:
@@ -113,6 +116,8 @@ export const cancelCultureData = {
       crux: {
         id: "ordinary-vs-powerful-impact",
         title: "Differential Impact on Ordinary vs. Powerful People",
+        question:
+          "Do public shaming campaigns fall harder on ordinary people than on powerful public figures?",
         description:
           "Measuring whether public shaming campaigns disproportionately affect ordinary individuals compared to powerful public figures, and whether outcomes differ based on the target's resources.",
         methodology:

@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const cryptocurrencyRegulationData = {
   id: "cryptocurrency-regulation",
   title: "Cryptocurrency Regulation",
+  question:
+    "Should crypto be regulated like traditional financial instruments?",
   meta_claim:
     "Cryptocurrencies should be regulated like traditional financial instruments",
   status: "contested" as const,
@@ -95,6 +97,8 @@ export const cryptocurrencyRegulationData = {
       crux: {
         id: "regulation-innovation-tradeoff",
         title: "The Regulation-Innovation Tradeoff Assessment",
+        question:
+          "Can crypto rules deter fraud without driving compliant builders offshore?",
         description:
           "The crux is whether crypto-specific consumer protection regulation can be designed that prevents fraud and protects retail investors without driving legitimate innovation offshore. If regulation can target fraudulent actors while providing clear rules for compliant builders, the innovation concern is addressed. If any meaningful regulation causes measurable capital and talent flight to less regulated jurisdictions, the tradeoff is real and must be weighed against consumer protection benefits.",
         methodology:
@@ -218,6 +222,8 @@ export const cryptocurrencyRegulationData = {
       crux: {
         id: "systemic-risk-threshold",
         title: "The Systemic Risk Threshold Assessment",
+        question:
+          "Could a future crypto crash now spread into the traditional financial system?",
         description:
           "The crux is whether the crypto industry's interconnection with traditional finance has crossed the threshold where a crypto market crisis could trigger broader financial instability. If crypto market shocks remain contained within the crypto ecosystem (as the 2022 crash largely was), systemic risk regulation is premature. If growing institutional exposure and stablecoin integration create transmission channels that could amplify crypto shocks into the traditional financial system, proactive regulation is warranted.",
         methodology:
@@ -341,6 +347,8 @@ export const cryptocurrencyRegulationData = {
       crux: {
         id: "securities-law-applicability",
         title: "The Howey Test Applicability Assessment",
+        question:
+          "Do enough tokens fall outside existing securities law to require new, crypto-specific rules?",
         description:
           "The crux is whether the Howey test accurately captures the economic reality of crypto token transactions, or whether the unique characteristics of decentralized protocols genuinely require a new legal framework. If most crypto tokens, at the point of sale, meet all four Howey prongs (investment of money, common enterprise, expectation of profits, from efforts of others), then existing securities law applies and the industry's objections are strategic rather than substantive. If genuinely decentralized protocols create situations where no identifiable 'other' drives profits, a new framework is needed.",
         methodology:

@@ -1,6 +1,7 @@
 export const glp1WeightLossDrugsData = {
   id: "glp1-weight-loss-drugs",
   title: "GLP-1 Weight Loss Drugs",
+  question: "Are GLP-1 drugs like Ozempic a safe, lasting answer to obesity?",
   meta_claim:
     "GLP-1 receptor agonists like Ozempic and Mounjaro represent a safe, effective long-term solution to the obesity epidemic that should be widely accessible, not a dangerous shortcut that medicalizes a lifestyle problem.",
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const glp1WeightLossDrugsData = {
       crux: {
         id: "long-term-safety-profile",
         title: "The Long-Term Safety & Discontinuation Test",
+        question:
+          "Does ten or more years of continuous use stay net-beneficial, or reveal cumulative risks?",
         description:
           "The definitive question is whether GLP-1 agonists remain safe and effective over 10+ years of continuous use, and whether the metabolic benefits persist or reverse upon discontinuation. If long-term use reveals cumulative risks (thyroid cancer, pancreatic disease, irreversible gastroparesis) that rival the morbidity of untreated obesity, the risk-benefit calculus changes fundamentally.",
         methodology:
@@ -143,6 +146,8 @@ export const glp1WeightLossDrugsData = {
       crux: {
         id: "cost-effectiveness-analysis",
         title: "The Population-Level Cost-Effectiveness Test",
+        question:
+          "Do prevented hospitalizations and illnesses offset the drugs' cost over ten years?",
         description:
           "If providing GLP-1 drugs to the eligible obese population reduces total healthcare expenditure over a 10-year horizon — factoring in drug costs, reduced hospitalizations, prevented comorbidities, and productivity gains — then broad coverage is economically justified regardless of the per-unit drug price. If total spending increases without proportional health gains, the drugs represent a net cost that diverts resources from other interventions.",
         methodology:
@@ -249,6 +254,8 @@ export const glp1WeightLossDrugsData = {
       crux: {
         id: "lifestyle-vs-pharmacotherapy",
         title: "The Lifestyle Intervention Ceiling Test",
+        question:
+          "Can intensive lifestyle programs match drug-level weight loss durably and at scale?",
         description:
           "If the best available lifestyle interventions (intensive behavioral therapy, dietary counseling, supervised exercise) can produce and sustain comparable weight loss and health outcomes to GLP-1 drugs over 5+ years in real-world conditions, then pharmacotherapy is unnecessary medicalization. If lifestyle interventions consistently fail to match pharmacotherapy outcomes at the population level, this confirms that obesity has a neurobiological component that requires medical treatment.",
         methodology:
@@ -355,6 +362,8 @@ export const glp1WeightLossDrugsData = {
       crux: {
         id: "off-label-cosmetic-use",
         title: "The Off-Label Use & Indication Creep Assessment",
+        question:
+          "What share of prescriptions are clinically appropriate, and what share cosmetic?",
         description:
           "If a substantial portion of GLP-1 prescriptions (>25%) are for patients who do not meet clinical obesity criteria and are driven by cosmetic desire rather than medical necessity, this represents indication creep that distorts clinical evidence, strains drug supply, increases costs, and normalizes pharmaceutical weight management for healthy individuals. If prescribing remains clinically appropriate, the concern is overblown.",
         methodology:

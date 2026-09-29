@@ -54,7 +54,7 @@ function write(topicId: string, value: StoredReflection | null) {
 }
 
 const OPTION_BASE =
-  "flex min-h-11 w-full items-start gap-3 rounded-lg border px-3 py-2.5 text-left text-sm leading-snug transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e]";
+  "flex min-h-11 w-full items-start gap-3 rounded-lg border px-3 py-2.5 text-left text-sm leading-snug transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus";
 const OPTION_IDLE =
   "border-stone-300/80 bg-white/60 text-stone-800 hover:border-deep/60 hover:bg-deep/[0.04] dark:border-[var(--border-divider)] dark:bg-transparent dark:text-stone-200 dark:hover:border-[#8bb5b1]/60";
 const OPTION_CHOSEN =
@@ -154,7 +154,7 @@ export function CruxReflection({
                   type="button"
                   aria-pressed={chosen}
                   onClick={() => setChanged(choice.id)}
-                  className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep ${
+                  className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
                     chosen ? OPTION_CHOSEN : OPTION_IDLE
                   }`}
                 >
@@ -163,7 +163,7 @@ export function CruxReflection({
               );
             })}
           </div>
-          <p role="status" className="mt-3 text-xs text-muted dark:text-stone-400">
+          <p className="mt-3 text-xs text-muted dark:text-stone-400">
             {answer.changed ? "Kept in this browser only." : "Noted in this browser only."}{" "}
             <TextAction onClick={clear} className="!text-xs">
               Clear my answer
@@ -171,6 +171,16 @@ export function CruxReflection({
           </p>
         </div>
       )}
+      {/* Always in the page, so the first answer is announced: a status
+          mounted together with its text is often missed, and a tap on an
+          option otherwise says nothing about the question that appears. */}
+      <div role="status" className="sr-only">
+        {answer
+          ? answer.changed
+            ? "Kept in this browser only."
+            : "Noted in this browser only. One more question below: did this map change what you thought the argument was about?"
+          : ""}
+      </div>
     </section>
   );
 }

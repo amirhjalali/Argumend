@@ -1,6 +1,8 @@
 export const ultraProcessedFoodData = {
   id: "ultra-processed-food",
   title: "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
+  question:
+    "Are ultra-processed foods the main driver of obesity and chronic disease?",
   meta_claim:
     "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
   status: "contested" as const,
@@ -36,6 +38,8 @@ export const ultraProcessedFoodData = {
       crux: {
         id: "upf-calorie-mechanism",
         title: "The Caloric Overconsumption Mechanism Test",
+        question:
+          "Do people overeat because food is processed, or because of its energy density, taste and eating speed?",
         description:
           "If ultra-processed foods cause obesity through mechanisms beyond simple caloric content — such as disrupted satiety signaling, accelerated eating rate, or gut microbiome alteration — then controlled studies matching UPF and whole-food diets for calories, macronutrients, and fiber should still show metabolic differences. If weight outcomes are identical when calories are strictly controlled, the NOVA classification adds nothing beyond what caloric accounting already explains.",
         methodology:
@@ -142,6 +146,8 @@ export const ultraProcessedFoodData = {
       crux: {
         id: "upf-independent-mechanisms",
         title: "The Processing-Independent Harm Test",
+        question:
+          "Do additives and processing cause disease on their own, apart from obesity and nutrient content?",
         description:
           "The decisive question is whether ultra-processed foods cause chronic disease through mechanisms beyond their nutrient profile. If matched-nutrient studies show that UPFs produce worse metabolic outcomes (inflammation, gut barrier disruption, insulin resistance) than nutritionally identical whole foods, then processing itself is harmful. If outcomes are identical, the problem is nutrients, not processing.",
         methodology:
@@ -231,6 +237,8 @@ export const ultraProcessedFoodData = {
       crux: {
         id: "upf-regulation-effectiveness",
         title: "The Regulatory Impact Assessment",
+        question:
+          "Would labels, taxes and ad limits on ultra-processed food improve health within a decade?",
         description:
           "If UPF-targeted regulations (taxes, labeling, advertising restrictions) lead to measurable reductions in obesity and chronic disease incidence within 5-10 years of implementation, the public health case for regulation is validated. If countries with UPF regulations show no better health outcomes than comparable countries without them, regulatory resources would be better directed at other interventions.",
         methodology:

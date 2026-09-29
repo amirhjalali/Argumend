@@ -1,6 +1,8 @@
 export const vapingHarmReductionData = {
   id: "vaping-harm-reduction",
   title: "Vaping as Harm Reduction",
+  question:
+    "Is vaping an effective and acceptable way to reduce smoking's harm?",
   meta_claim:
     "E-cigarettes are an effective and acceptable harm-reduction tool for smokers.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const vapingHarmReductionData = {
       crux: {
         id: "abstinence-rate-vs-standard-care",
         title: "Quit Rate vs. Standard Cessation Care",
+        question:
+          "Does vaping's quit-rate advantage in trials hold up in the real-world market of flavored disposables?",
         description:
           "The load-bearing disagreement is whether e-cigarettes produce more sustained smoking abstinence than the best available alternative (nicotine-replacement therapy), measured at 6+ months with biochemical verification.",
         methodology:
@@ -126,6 +130,8 @@ export const vapingHarmReductionData = {
       crux: {
         id: "complete-switch-vs-dual-use",
         title: "Complete Switch vs. Persistent Dual Use",
+        question:
+          "Does the harm switchers avoid outweigh harm from long-term dual use and new nicotine users?",
         description:
           "Whether the population using e-cigarettes mostly switches completely (capturing the harm reduction) or mostly becomes long-term dual users / never-smoking initiates (diluting or reversing the benefit) determines net acceptability.",
         methodology:

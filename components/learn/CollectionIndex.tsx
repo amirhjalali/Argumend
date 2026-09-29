@@ -99,12 +99,19 @@ export function CollectionIndex({
                   <li key={chip.href}>
                     <Chip
                       href={chip.href}
+                      current={chip.current}
                       tone={chip.current ? "teal" : "neutral"}
                       className={cx("px-3.5 text-[0.8125rem]", chip.current ? "ring-1 ring-deep/30" : null)}
                     >
-                      <span aria-current={chip.current ? "page" : undefined}>{chip.label}</span>
+                      <span>{chip.label}</span>
+                      {/* Lighter weight, not opacity: a 70% count was 2.9–4.1:1
+                          on the chip tints (axe color-contrast). The space keeps
+                          the link's name "Science 31", not "Science31". */}
                       {chip.count !== undefined ? (
-                        <span className="tabular-nums opacity-70">{chip.count}</span>
+                        <>
+                          {" "}
+                          <span className="tabular-nums font-normal">{chip.count}</span>
+                        </>
                       ) : null}
                     </Chip>
                   </li>
@@ -151,7 +158,7 @@ function MoreLink({ href, label }: { href: string; label: string }) {
     <p className="mt-2">
       <Link
         href={href}
-        className="inline-flex min-h-11 items-center gap-1 rounded-sm font-sans text-sm text-deep underline underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text dark:hover:text-stone-200"
+        className="inline-flex min-h-11 items-center gap-1 rounded-sm font-sans text-sm text-deep underline underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text dark:hover:text-stone-200"
       >
         {label}
         <span aria-hidden="true">&rarr;</span>
@@ -178,7 +185,7 @@ export function CollectionRows({
         <li key={item.href} className="border-b border-divider">
           <Link
             href={item.href}
-            className="group flex min-h-11 items-start gap-4 rounded-sm py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+            className="group flex min-h-11 items-start gap-4 rounded-sm py-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
           >
             <span className="min-w-0 flex-1">
               <span className="block font-serif text-lg leading-snug text-primary transition-colors group-hover:text-accent-text">

@@ -1,6 +1,8 @@
 export const rfkHealthPolicyData = {
   id: "rfk-health-policy",
   title: "RFK Jr's Health Policy Agenda (MAHA)",
+  question:
+    "Will RFK Jr.'s 'Make America Healthy Again' agenda improve US health?",
   meta_claim:
     "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const rfkHealthPolicyData = {
       crux: {
         id: "full-schedule-trial",
         title: "The Whole-Schedule Comparative Trial Test",
+        question:
+          "Does the childhood vaccine schedule as a whole carry harms that studies of single vaccines miss?",
         description:
           "The disagreement turns on whether the cumulative current schedule — total adjuvant load, dose timing, and shot-stacking — carries net harms not captured by component-level studies. The decisive question is purely methodological: whether a prospective randomized 'full schedule vs lighter schedule' trial can be run ethically. It cannot, because withholding established vaccines from a control group would expose children to known, preventable disease. Critically, the absence of such an RCT does not mean schedule-wide safety is unresolved: large linked-database surveillance (the Vaccine Safety Datalink) and the 2011/2013 IOM reviews already provide the consensus answer that the schedule is safe. The missing trial is an ethics artifact, not an open evidentiary question.",
         methodology:
@@ -118,6 +122,8 @@ export const rfkHealthPolicyData = {
       crux: {
         id: "upf-causality-trial",
         title: "The Scaled Ultra-Processed Food Causality Trial",
+        question:
+          "How much chronic disease is caused by food processing itself, versus the calories, sugar and salt it carries?",
         description:
           "The question is how much of US chronic disease is causally attributable to ultra-processed food itself — versus the calories, sugar, and salt it delivers, plus lifestyle and genetics. Hall's 20-person inpatient trial showed a causal calorie-intake effect over two weeks, but settling the long-term disease question requires a much larger, longer controlled-feeding study that isolates processing from nutrient content.",
         methodology:
@@ -214,6 +220,8 @@ export const rfkHealthPolicyData = {
       crux: {
         id: "low-dose-dose-response",
         title: "The 0.7 mg/L Dose-Response Test",
+        question:
+          "At the US level of 0.7 mg/L, does fluoridation do net good, net harm, or too little to call?",
         description:
           "Harm is established above 1.5 mg/L and the dental benefit has shrunk in the toothpaste era — but the decisive question is what happens at the actual US fluoridation level of 0.7 mg/L. The crux is whether rigorous dose-response evidence in the 0.5-1.0 mg/L range shows a meaningful net benefit, net harm, or a margin too thin to call.",
         methodology:
@@ -311,6 +319,8 @@ export const rfkHealthPolicyData = {
       crux: {
         id: "capture-decision-distortion",
         title: "The Capture Decision-Distortion Test",
+        question:
+          "Did industry ties distort specific health recommendations enough to justify dismissing expert panels?",
         description:
           "Documenting individual industry ties is easy; the decisive question is whether those ties distorted specific health recommendations enough to justify the bulk dismissal of expert panels. The crux is whether identifiable agency decisions can be shown to diverge from what the underlying evidence supported, in a direction that benefits industry, beyond what conflict-free expert judgment would produce.",
         methodology:

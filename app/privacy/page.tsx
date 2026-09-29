@@ -394,7 +394,7 @@ export default function PrivacyPage() {
           </Section>
         </div>
 
-        <p className="mt-12 border-t border-divider pt-6 text-sm text-muted dark:text-stone-500">
+        <p className="mt-12 border-t border-divider pt-6 text-sm text-muted">
           See also our <Link className={LINK} href="/terms">Terms of Service</Link> and{" "}
           <Link className={LINK} href="/about">what Argumend is for</Link>.
         </p>

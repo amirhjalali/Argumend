@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { textActionClasses } from "@/components/ui";
+import { toneStyles } from "@/lib/categoryColors";
 import type { MapReplyEvidenceItem } from "@/lib/mapReply/types";
 import { ResultSection } from "./ResultSection";
 
@@ -24,8 +25,8 @@ const SIDE_LABEL: Record<MapReplyEvidenceItem["side"], string> = {
 };
 
 const SIDE_TEXT: Record<MapReplyEvidenceItem["side"], string> = {
-  for: "text-rust-700 dark:text-rust-500",
-  against: "text-skeptic dark:text-skeptic-light",
+  for: toneStyles.rust.accentText,
+  against: toneStyles.brown.accentText,
 };
 
 function EvidenceItem({ item }: { item: MapReplyEvidenceItem }) {

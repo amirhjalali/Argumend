@@ -56,12 +56,17 @@ describe("embed widget: an older (pillar) map", () => {
     const view = await renderEmbed("nuclear-energy-safety");
     const text = view.container.textContent ?? "";
 
-    expect(view.getByRole("heading", { level: 1 }).textContent).toBe(topic.title);
-    expect(text).toContain(topic.meta_claim);
+    expect(view.getByRole("heading", { level: 1 }).textContent).toBe(
+      topic.question ?? topic.title,
+    );
     expect(view.getByRole("heading", { name: "What both sides already agree on" })).toBeTruthy();
     expect(text).toContain(topic.pillars[0].crux.falsification!.common_ground!);
     expect(view.getByRole("heading", { name: "The question it turns on" })).toBeTruthy();
-    expect(text).toContain(topic.pillars[0].crux.falsification!.live_disagreement!);
+    // The first crux as the map page words it: the authored question, else
+    // the live disagreement.
+    expect(text).toContain(
+      topic.pillars[0].crux.question ?? topic.pillars[0].crux.falsification!.live_disagreement!,
+    );
     expect(text).toContain("What would settle it");
     expect(text).toContain(topic.pillars[0].crux.description);
 
@@ -79,7 +84,8 @@ describe("embed widget: an older (pillar) map", () => {
     const text = view.container.textContent ?? "";
 
     expect(view.queryByRole("heading", { name: /agree/ })).toBeNull();
-    expect(text).toContain(topic.pillars[0].crux.title);
+    // The authored crux question when there is one, else the crux test's title.
+    expect(text).toContain(topic.pillars[0].crux.question ?? topic.pillars[0].crux.title);
     expect(text).toContain(topic.pillars[0].crux.description);
     expectNoScoreboard(text, (await loadEmbedModel("epstein-files"))!);
   });

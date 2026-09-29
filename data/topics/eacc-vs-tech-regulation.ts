@@ -1,6 +1,8 @@
 export const eaccVsTechRegulationData = {
   id: "eacc-vs-tech-regulation",
   title: "E/acc vs. Tech Regulation",
+  question:
+    "Does rapid, unregulated technological progress do more good than harm?",
   meta_claim:
     "Rapid, unregulated technological advancement creates more benefit than harm",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const eaccVsTechRegulationData = {
       crux: {
         id: "capability-adaptation-rate",
         title: "The Capability-Adaptation Rate Comparison",
+        question:
+          "Does technological capability outpace society's ability to adapt, or does adaptation keep up?",
         description:
           "If technological capability growth consistently outpaces societal adaptation mechanisms (legal frameworks, safety research, institutional response), then proactive regulation is necessary to prevent catastrophic harm. If adaptation mechanisms keep pace or market forces provide sufficient correction, regulation imposes net costs without proportional safety benefits.",
         methodology:
@@ -135,6 +139,8 @@ export const eaccVsTechRegulationData = {
       crux: {
         id: "market-welfare-alignment",
         title: "The Market-Welfare Alignment Test",
+        question:
+          "Do markets correct harmful technology outcomes faster than regulators can?",
         description:
           "If market incentives systematically diverge from public welfare in high-stakes technology domains — producing persistent negative externalities that markets fail to self-correct within a reasonable timeframe — then regulatory intervention is necessary. If markets correct harmful outcomes faster and more efficiently than regulatory processes, the case for deregulation holds.",
         methodology:
@@ -232,6 +238,8 @@ export const eaccVsTechRegulationData = {
       crux: {
         id: "governance-outcome-quality",
         title: "The Democratic vs. Expert Governance Outcome Test",
+        question:
+          "Does democratic oversight of technology produce better long-run outcomes than expert or market governance?",
         description:
           "If democratic deliberation produces better long-term outcomes than expert-driven development in technology governance — measured by safety, innovation, equitable distribution of benefits, and public trust — then democratic governance is justified despite its slower pace. If expert-driven or market-governed development consistently produces superior outcomes, the efficiency argument for technocratic governance holds.",
         methodology:

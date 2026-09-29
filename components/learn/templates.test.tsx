@@ -148,8 +148,9 @@ describe("CollectionIndex", () => {
     );
     const [all, science] = view.getAllByRole("link");
     expect(all.className).toMatch(/text-deep|teal|deep/);
-    expect(all.querySelector('[aria-current="page"]')).toBeTruthy();
-    expect(science.querySelector("[aria-current]")).toBeNull();
+    // On the link itself, where a screen reader announces it.
+    expect(all.getAttribute("aria-current")).toBe("page");
+    expect(science.getAttribute("aria-current")).toBeNull();
     expect(science.className).toContain("stone");
   });
 });

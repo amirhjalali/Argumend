@@ -1,6 +1,8 @@
 export const reparationsSlaveryData = {
   id: "reparations-slavery",
   title: "Reparations for Slavery",
+  question:
+    "Should the US provide reparations to descendants of enslaved Black Americans?",
   meta_claim:
     "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
   status: "contested" as const,
@@ -19,6 +21,8 @@ export const reparationsSlaveryData = {
       crux: {
         id: "causal-chain-measurement",
         title: "Measuring the Causal Chain from Slavery to Present Disparities",
+        question:
+          "How much of today's racial wealth gap traces to slavery, Jim Crow and discriminatory policy?",
         description:
           "Quantifying how much of the current racial wealth and income gap is directly attributable to slavery, Jim Crow, and discriminatory federal policies versus other factors.",
         methodology:
@@ -118,6 +122,8 @@ export const reparationsSlaveryData = {
       crux: {
         id: "reparations-program-design",
         title: "Optimal Reparations Program Design and Cost-Benefit",
+        question:
+          "Is there a reparations design that would close the wealth gap and be politically and economically viable?",
         description:
           "Determining which reparations model (direct payments, baby bonds, housing/education grants, community investment) would most effectively close the racial wealth gap while being politically and economically viable.",
         methodology:

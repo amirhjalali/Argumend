@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const governmentPlatformBansData = {
   id: "government-platform-bans",
   title: "Government Bans on Social Media Platforms",
+  question:
+    "Can national security justify banning foreign-owned apps like TikTok?",
   meta_claim:
     "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms like TikTok on national security grounds, even at the cost of restricting free expression for millions of citizens.",
   status: "contested" as const,
@@ -60,6 +62,8 @@ export const governmentPlatformBansData = {
       crux: {
         id: "adversary-access-verification",
         title: "The Adversary Access Audit",
+        question:
+          "Can an adversary government compel data access or algorithm changes despite company safeguards?",
         description:
           "The decisive question is whether adversary governments can compel access to user data or algorithmic manipulation on platforms owned by entities under their jurisdiction, despite corporate safeguards. If independent audits demonstrate that data isolation and algorithmic independence are technically achievable and verifiable, the security case weakens. If structural access persists despite mitigation, bans may be justified.",
         methodology:
@@ -139,6 +143,8 @@ export const governmentPlatformBansData = {
       crux: {
         id: "precedent-expansion-test",
         title: "The Precedent Containment Assessment",
+        question:
+          "Can a ban on a foreign-owned platform stay limited to real security threats, or will it expand?",
         description:
           "The crux is whether the legal and political precedent of banning a foreign-owned platform can be contained to genuine adversary-nation security threats, or will inevitably expand to justify government restrictions on any platform the state finds inconvenient. If historical analysis shows that narrow security exceptions tend to stay narrow, the precedent concern is manageable. If they consistently expand, the free speech risk may outweigh the security benefit.",
         methodology:
@@ -218,6 +224,8 @@ export const governmentPlatformBansData = {
       crux: {
         id: "competitive-motive-test",
         title: "The Competitive Motive Analysis",
+        question:
+          "Is the ban driven mainly by national security, or by protection of domestic tech companies?",
         description:
           "The crux is whether the platform ban is primarily motivated by genuine national security concerns or by economic protectionism serving domestic tech companies. If lobbying records, legislative history, and post-ban market outcomes show that the primary beneficiaries are domestic competitors rather than national security, the selective enforcement critique is validated.",
         methodology:

@@ -187,7 +187,7 @@ export default async function QuestionPage({ params }: PageProps) {
               <li key={v.slug} className={index > 0 ? "border-t border-divider" : undefined}>
                 <Link
                   href={`/questions/${v.slug}`}
-                  className="flex min-h-11 items-center rounded-sm py-2.5 font-serif text-lg leading-snug text-primary transition-colors hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                  className="flex min-h-11 items-center rounded-sm py-2.5 font-serif text-lg leading-snug text-primary transition-colors hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
                 >
                   {v.question}
                 </Link>

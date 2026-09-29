@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const sportsBettingLegalizationData = {
   id: "sports-betting-legalization",
   title: "Legalizing Sports Betting",
+  question: "Should states legalize and regulate mobile sports betting?",
   meta_claim:
     "States should legalize and regulate mobile sports betting rather than ban it",
   status: "contested" as const,
@@ -39,6 +40,8 @@ export const sportsBettingLegalizationData = {
       crux: {
         id: "induced-vs-displaced-demand",
         title: "The Induced-vs-Displaced Demand Test",
+        question:
+          "Does legal betting mostly replace illegal betting, or create new betting that would not have happened?",
         description:
           "Whether legal mobile sports betting mostly relocates wagering that was already happening illegally (displacement) or mostly creates large new volumes of betting that would not otherwise have occurred (induced demand). If most legal handle is displaced black-market money, the net social cost is small and the tax/consumer-protection upside is nearly free. If most legal handle is induced — new bettors, new dollars, new addicts — then the harm metrics are caused by legalization itself, not merely revealed by it, and the cost-benefit calculus flips.",
         methodology:
@@ -157,6 +160,8 @@ export const sportsBettingLegalizationData = {
       crux: {
         id: "regulatory-toolkit-efficacy",
         title: "The Harm-Reduction Toolkit Efficacy Test",
+        question:
+          "Can mandatory safeguards break the link between betting volume and harm, or do heavy losers evade them?",
         description:
           "Whether mandated consumer-protection tools — deposit/loss limits, affordability checks, self-exclusion, advertising limits, and operator duty-of-care obligations — can measurably reduce the bankruptcy, savings-depletion, and debt outcomes documented in the household-finance studies. If well-designed mandates demonstrably lower harm metrics relative to a lightly regulated baseline, the regulate-don't-ban case is vindicated. If harm tracks total betting volume regardless of safeguards (because the heaviest losers route around opt-in tools), then legalization's harms are structural, not fixable at the margin.",
         methodology:
@@ -273,6 +278,8 @@ export const sportsBettingLegalizationData = {
       crux: {
         id: "monitoring-vs-manufacture",
         title: "The Net-Externality Test",
+        question:
+          "Does legal betting's monitoring and treatment prevent more harm than its added betting volume creates?",
         description:
           "Whether the regulated market's monitoring and treatment infrastructure net-reduces the social externalities of sports betting (match-fixing detection, helpline routing, funded treatment) by more than the legal market's expanded volume and prop-bet liquidity net-increases them (new addiction, new manipulation incentives, IPV). If legal monitoring catches more integrity threats than legal liquidity creates, and treatment infrastructure helps more people than the volume harms, the regulate case wins. If legalization manufactures more addiction and manipulation than its oversight catches, the externalities are net-negative versus prohibition.",
         methodology:

@@ -1,6 +1,7 @@
 export const socialMediaMentalHealthData = {
   id: "social-media-mental-health",
   title: "Social Media and Teen Mental Health",
+  question: "Is social media a primary cause of the teen mental health crisis?",
   meta_claim:
     "Social media use is a primary cause of the teen mental health crisis that began around 2012.",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const socialMediaMentalHealthData = {
       crux: {
         id: "dose-response",
         title: "Dose-Response Relationship",
+        question:
+          "Is social media's harm a small average effect, or a large one concentrated in heavy-using girls?",
         description:
           "If social media causes harm, we should see linear or threshold effects correlating usage hours with mental health outcomes.",
         methodology:
@@ -141,6 +144,8 @@ export const socialMediaMentalHealthData = {
       crux: {
         id: "algorithm-experiment",
         title: "The Algorithm Experiment",
+        question:
+          "Does the harm come from engagement-driven feeds specifically, or from social media use in general?",
         description:
           "Randomized trial comparing engagement-optimized feeds vs. chronological/curated feeds on mental health outcomes.",
         methodology:

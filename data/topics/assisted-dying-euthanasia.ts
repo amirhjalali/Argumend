@@ -1,6 +1,8 @@
 export const assistedDyingEuthanasiaData = {
   id: "assisted-dying-euthanasia",
   title: "The Right to Assisted Dying",
+  question:
+    "Do terminally ill, competent adults have a right to assisted dying?",
   meta_claim:
     "Terminally ill, mentally competent adults have a moral right to medically assisted dying.",
   status: "contested" as const,
@@ -21,6 +23,8 @@ export const assistedDyingEuthanasiaData = {
       crux: {
         id: "autonomy-vs-state-interest",
         title: "Does Autonomy Extend to the Timing of Death?",
+        question:
+          "Does a competent adult's autonomy extend to choosing the timing of an inevitable death?",
         description:
           "The load-bearing disagreement is whether a competent adult's authority over their own body includes choosing the manner and timing of an imminent, inevitable death — or whether society's interest in protecting life sets a limit autonomy cannot cross.",
         methodology:
@@ -99,6 +103,8 @@ export const assistedDyingEuthanasiaData = {
       crux: {
         id: "can-care-relieve-all-suffering",
         title: "Can Palliative Care Relieve All Suffering Without Coercion?",
+        question:
+          "Is some suffering beyond palliative care, and can a law help those patients without pressuring the vulnerable?",
         description:
           "The decisive question is empirical: does there remain a class of terminally ill, competent patients whose suffering cannot be relieved by even the best palliative care — and can a legal regime grant them a way out without pressuring the vulnerable into it?",
         methodology:

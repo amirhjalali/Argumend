@@ -1,6 +1,8 @@
 export const gmoCropsSafetyData = {
   id: "gmo-crops-safety",
   title: "GMO Crops: Safe and Beneficial?",
+  question:
+    "Are genetically modified crops safe to eat and good for agriculture?",
   meta_claim:
     "Genetically modified crops are safe to eat and beneficial for agriculture.",
   status: "contested" as const,
@@ -35,6 +37,8 @@ export const gmoCropsSafetyData = {
       crux: {
         id: "health-outcome-comparison",
         title: "Population Health Outcome Comparison",
+        question:
+          "Does finding no harm reflect real safety, or how hard subtle long-term effects are to detect?",
         description:
           "Whether populations that adopted GE foods early and heavily (e.g. the US since 1996) show any divergence in diet-linked disease rates versus populations that largely avoided them (e.g. the EU), after controlling for confounders.",
         methodology:
@@ -106,6 +110,8 @@ export const gmoCropsSafetyData = {
       crux: {
         id: "net-agronomic-ledger",
         title: "Net Agronomic Ledger by Trait",
+        question:
+          "Across yield, inputs, profit and resistance, are GM crops a net gain, and does it differ by trait?",
         description:
           "Whether, summed across yield, input use, profit, and resistance costs, the net effect of GE adoption is positive — and whether that net differs sharply between insect-resistant (Bt) traits and herbicide-tolerant traits.",
         methodology:
@@ -215,6 +221,8 @@ export const gmoCropsSafetyData = {
       crux: {
         id: "hazard-vs-risk",
         title: "Hazard Classification vs Real-World Exposure Risk",
+        question:
+          "Are real-world glyphosate exposures high enough to raise cancer risk?",
         description:
           "Whether dietary and occupational glyphosate exposures from GE-crop agriculture occur at doses high enough to raise cancer risk — the load-bearing disagreement between IARC's hazard call and regulators' risk-based 'safe at label rates' findings.",
         methodology:

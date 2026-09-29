@@ -1,6 +1,7 @@
 export const aiRegulationData = {
   id: "ai-regulation",
   title: "Should AI Be Regulated Like Drugs or Nuclear Energy?",
+  question: "Should AI be regulated like drugs or nuclear energy?",
   meta_claim:
     "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
   status: "contested" as const,
@@ -37,6 +38,8 @@ export const aiRegulationData = {
       crux: {
         id: "capability-trajectory-assessment",
         title: "The Capability Trajectory Extrapolation Test",
+        question:
+          "Will AI capabilities keep scaling toward catastrophe-relevant thresholds, or plateau?",
         description:
           "If AI capabilities continue scaling on current trajectories — improving on benchmarks at the current exponential rate — we can project when systems will reach capability thresholds relevant to catastrophic risk (autonomous weapons design, cyber-offense capabilities, ability to resist shutdown). If scaling plateaus or hits diminishing returns, the timeline for catastrophic-capable AI extends dramatically, reducing the urgency for preemptive regulation.",
         methodology:
@@ -126,6 +129,8 @@ export const aiRegulationData = {
       crux: {
         id: "regulatory-innovation-tradeoff",
         title: "The Regulation-Innovation Impact Assessment",
+        question:
+          "Does safety regulation meaningfully slow AI innovation, or channel it with little loss?",
         description:
           "If pharmaceutical-style regulation has demonstrably slowed drug innovation (fewer drugs per dollar spent, longer time-to-market, critical treatments delayed), the analogy warns against applying the same framework to AI. If pharmaceutical regulation maintained high innovation rates while preventing harm, the model may be transferable.",
         methodology:
@@ -249,6 +254,8 @@ export const aiRegulationData = {
       crux: {
         id: "geopolitical-coordination-feasibility",
         title: "The International Regime Feasibility Assessment",
+        question:
+          "Will China and other non-aligned states accept binding, not just symbolic, AI governance?",
         description:
           "If China and other non-aligned nations are willing to participate in binding AI governance frameworks (as they did at Bletchley Park for non-binding discussions), international coordination is feasible. If China's participation is purely performative and it continues unrestrained AI development domestically, unilateral Western regulation becomes a competitive handicap.",
         methodology:

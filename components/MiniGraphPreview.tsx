@@ -128,7 +128,7 @@ export function MiniGraphPreview({
           type="button"
           onClick={onTap}
           aria-label="View the full argument list below"
-          className="w-full block min-h-[44px] rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4f7b77]/50"
+          className="w-full block min-h-[44px] rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-focus"
         >
           {content}
         </button>

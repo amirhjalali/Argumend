@@ -86,7 +86,7 @@ export default async function DashboardPage() {
               <li key={map.id}>
                 <Link
                   href={`/topics/${map.id}`}
-                  className="group flex items-start justify-between gap-4 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50"
+                  className="group flex items-start justify-between gap-4 py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
                 >
                   <span className="min-w-0">
                     <span className="block font-serif text-[1.25rem] leading-snug text-primary dark:text-stone-200 transition-colors group-hover:text-deep dark:group-hover:text-accent-text">

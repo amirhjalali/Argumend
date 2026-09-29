@@ -1,6 +1,8 @@
 export const dogeFederalCutsData = {
   id: "doge-federal-cuts",
   title: "DOGE & Federal Spending Cuts",
+  question:
+    "Did DOGE's cuts eliminate waste and make government more effective?",
   meta_claim:
     "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const dogeFederalCutsData = {
       crux: {
         id: "savings-reconciliation-audit",
         title: "The Savings Reconciliation Audit",
+        question:
+          "How much of DOGE's claimed savings survives a line-by-line reconciliation?",
         description:
           "The central empirical question is whether DOGE's claimed savings survive line-by-line reconciliation against actual contract values, obligations, and outlays. If the verified total is a small fraction of the claimed total — and if revenue losses from IRS and other cuts exceed verified savings — then the 'efficiency' claim fails on its own accounting terms.",
         methodology:
@@ -118,6 +122,8 @@ export const dogeFederalCutsData = {
       crux: {
         id: "transitional-vs-permanent-degradation",
         title: "Transitional Disruption vs. Permanent Capacity Loss",
+        question:
+          "Is the drop in federal service quality a temporary cost of restructuring, or a lasting loss?",
         description:
           "Both sides agree service metrics worsened after the cuts. The crux is whether the degradation is transitional (a temporary cost of restructuring that normalizes) or structural (a permanent loss of capacity that a future administration will struggle to rebuild). The rehiring pattern is the key test: it can be read as healthy self-correction or as proof the cutter could not identify what was load-bearing.",
         methodology:
@@ -214,6 +220,8 @@ export const dogeFederalCutsData = {
       crux: {
         id: "impoundment-removal-authority",
         title: "The Impoundment & Removal Authority Test",
+        question:
+          "Can a president refuse to spend appropriated funds and fire officials Congress protected?",
         description:
           "The decisive legal question is whether the unitary-executive theory reaches Article I's appropriations power — i.e., whether a President may decline to spend appropriated funds and fire officials Congress insulated from removal. Unlike the empirical cruxes, this is partly a normative legal commitment, but it has concrete arbiters: the binding force of Train v. City of New York and the Impoundment Control Act on the spending side, and the Supreme Court's pending Trump v. Slaughter ruling on the removal side.",
         methodology:
@@ -310,6 +318,8 @@ export const dogeFederalCutsData = {
       crux: {
         id: "process-reform-vs-headcount-cut",
         title: "Process Reform vs. Headcount Cut",
+        question:
+          "Did DOGE change the dysfunctional personnel process, or only reduce headcount?",
         description:
           "Both reformers and DOGE agree the underlying personnel process is dysfunctional. The crux is whether DOGE changed the dysfunctional process or merely removed the people while leaving the process intact. If the broken procedures remain and only headcount fell, the result is reduced capacity to perform the same unproductive work — the opposite of efficiency. If procedures were genuinely streamlined, the smaller workforce can do more.",
         methodology:

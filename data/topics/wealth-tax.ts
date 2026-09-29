@@ -1,6 +1,8 @@
 export const wealthTaxData = {
   id: "wealth-tax",
   title: "Wealth Tax on Billionaires",
+  question:
+    "Would an annual wealth tax on billionaires be effective and reduce inequality?",
   meta_claim:
     "An annual wealth tax on billionaires would be effective, economically sound, and reduce inequality.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const wealthTaxData = {
       crux: {
         id: "european-experience",
         title: "European Wealth Tax Analysis",
+        question:
+          "Did Europe's wealth taxes fail due to fixable design flaws, or problems inherent in taxing wealth yearly?",
         description:
           "Why did most European wealth taxes fail, and can the US avoid those pitfalls?",
         methodology:
@@ -147,6 +151,8 @@ export const wealthTaxData = {
       crux: {
         id: "investment-impact",
         title: "Investment Impact Analysis",
+        question:
+          "Would a modest annual wealth tax meaningfully reduce investment and entrepreneurship?",
         description: "Does wealth taxation reduce productive investment?",
         methodology:
           "Study investment rates in countries with/without wealth taxes, controlling for other factors. Analyze billionaire behavior after wealth tax implementation.",

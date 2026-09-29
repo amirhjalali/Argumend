@@ -1,6 +1,8 @@
 export const transgenderAthletesSportsData = {
   id: "transgender-athletes-sports",
   title: "Transgender Athletes in Competitive Sports",
+  question:
+    "Should transgender women on hormone therapy compete in women's sports?",
   meta_claim:
     "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const transgenderAthletesSportsData = {
       crux: {
         id: "sport-specific-advantage-data",
         title: "The Sport-Specific Advantage Quantification",
+        question:
+          "After two-plus years on hormones, do retained advantages exceed normal variation among women in that sport?",
         description:
           "If comprehensive, sport-specific studies show that transgender women who have completed 2+ years of hormone therapy retain performance advantages that exceed the natural variation within elite cisgender women in that sport, then inclusion policies undermine competitive fairness. If retained advantages fall within the range of natural variation among cisgender women, the fairness objection is weakened.",
         methodology:
@@ -101,6 +105,8 @@ export const transgenderAthletesSportsData = {
       crux: {
         id: "harm-balancing-test",
         title: "The Comparative Harm Assessment",
+        question:
+          "Is the harm of excluding transgender athletes greater than the competitive harm of including them?",
         description:
           "If excluding transgender athletes from gender-consistent competition produces demonstrably greater harm (psychological, social, physical health) than the competitive fairness harm to cisgender athletes from inclusion, then inclusion policies are justified on balance. If the competitive harm to cisgender athletes — including lost scholarships, records, and podium positions — is substantial and quantifiable, exclusion (or alternative categories) may be warranted despite the inclusion harm.",
         methodology:
@@ -163,6 +169,8 @@ export const transgenderAthletesSportsData = {
       crux: {
         id: "open-category-feasibility",
         title: "The Open Category Pilot Test",
+        question:
+          "Would splitting sports into an open and a restricted female category work and be accepted?",
         description:
           "If pilot programs of the open/restricted category model in specific sports demonstrate that (1) transgender athletes participate in meaningful numbers, (2) competitive quality in the restricted category is maintained, and (3) participants in both categories report satisfaction with the framework, then the model is a viable compromise. If transgender athletes reject the open category as stigmatizing, or if the logistics prove unworkable, alternative approaches are needed.",
         methodology:

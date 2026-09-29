@@ -3,6 +3,7 @@ import type { TopicCategory } from "@/lib/schemas/topic";
 export const epsteinFilesData = {
   id: "epstein-files",
   title: "The Epstein Files",
+  question: "Does the Epstein case reveal a systemic institutional failure?",
   meta_claim:
     "The Jeffrey Epstein case reveals systemic institutional failure \u2014 law enforcement, prosecutors, and political figures enabled or ignored sex trafficking for decades, and full accountability has still not been achieved.",
   status: "contested" as const,
@@ -78,6 +79,8 @@ export const epsteinFilesData = {
       crux: {
         id: "npa-co-conspirator-immunity",
         title: "The Co-Conspirator Immunity Clause",
+        question:
+          "Was immunity for Epstein's unnamed co-conspirators standard practice, or an extraordinary concession?",
         description:
           "The 2007 non-prosecution agreement included a clause granting immunity to unnamed \u2018potential co-conspirators\u2019 of Epstein. If this clause was standard prosecutorial practice, the deal reflects normal (if aggressive) defense lawyering. If it was extraordinary and unprecedented, it constitutes evidence of institutional capture \u2014 a system bending to protect the powerful.",
         methodology:
@@ -181,6 +184,8 @@ export const epsteinFilesData = {
       crux: {
         id: "redaction-justification",
         title: "The Redaction Audit",
+        question:
+          "Do the DOJ's redactions protect legitimate interests, or conceal wrongdoing by powerful people?",
         description:
           "The central dispute is whether the DOJ\u2019s redactions protect legitimate interests (ongoing investigations, national security, victim privacy) or conceal evidence of wrongdoing by powerful individuals. An independent audit of redaction decisions would resolve this question.",
         methodology:
@@ -285,6 +290,8 @@ export const epsteinFilesData = {
       crux: {
         id: "co-conspirator-prosecution-test",
         title: "The Co-Conspirator Prosecution Test",
+        question:
+          "Will any identified co-conspirators or facilitators be prosecuted on the released evidence?",
         description:
           "The definitive test of systemic accountability is whether any of the eight FBI-identified co-conspirators, or any other individuals who participated in or facilitated the trafficking, face criminal prosecution based on the 3.5 million pages of released evidence. If the evidence is sufficient to name co-conspirators in FBI documents but insufficient to indict, the gap between identification and prosecution is itself evidence of systemic failure.",
         methodology:

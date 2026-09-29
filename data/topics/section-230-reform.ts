@@ -1,6 +1,7 @@
 export const section230ReformData = {
   id: "section-230-reform",
   title: "Reforming Section 230",
+  question: "Should Section 230 be significantly reformed or repealed?",
   meta_claim:
     "Section 230 should be significantly reformed or repealed.",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const section230ReformData = {
       crux: {
         id: "amplification-causation",
         title: "Does Algorithmic Amplification Cause Compensable Harm?",
+        question:
+          "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
         description:
           "The load-bearing disagreement is whether a platform's own recommendation system is conduct distinct from hosting third-party speech, such that it can cause legally cognizable harm that Section 230 should not shield.",
         methodology:
@@ -125,6 +128,8 @@ export const section230ReformData = {
       crux: {
         id: "over-removal-vs-deterrence",
         title: "Would Reform Suppress Lawful Speech More Than It Deters Harm?",
+        question:
+          "Can a reform deter targeted harms without a net loss of lawful speech?",
         description:
           "The decisive question is the net effect: does narrowing platform immunity chill more lawful speech (over-removal, abandoned moderation) than the harm it deters — and can a reform be drafted to avoid FOSTA's documented backfire?",
         methodology:
@@ -211,6 +216,8 @@ export const section230ReformData = {
       crux: {
         id: "who-bears-repeal-cost",
         title: "Who Actually Bears the Cost of Repeal — Incumbents or Startups?",
+        question:
+          "Would removing immunity burden small platforms most, or meaningfully constrain dominant ones?",
         description:
           "The competition crux is whether stripping immunity disproportionately burdens small platforms (entrenching incumbents) or meaningfully constrains dominant platforms' harmful practices.",
         methodology:

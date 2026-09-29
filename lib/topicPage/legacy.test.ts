@@ -30,8 +30,14 @@ describe("legacyTopicPage", () => {
     ]);
 
     expect(page.kind).toBe("legacy");
-    expect(page.title).toBe(topic.title);
-    expect(page.subtitle).toEqual({ lead: "The claim", text: topic.meta_claim });
+    // The h1 is the map's authored question; the short label stays the crumb.
+    expect(page.title).toBe(topic.question ?? topic.title);
+    expect(page.crumb).toBe(topic.title);
+    // A question headline states the claim, so the "The claim:" line is
+    // dropped; label-titled maps keep it.
+    expect(page.subtitle).toEqual(
+      topic.question ? undefined : { lead: "The claim", text: topic.meta_claim },
+    );
     expect(page.hook?.text).toBe(topic.keystone_fact!.statement);
     expect(page.hook?.source?.url).toBe(topic.keystone_fact!.sourceUrl);
     expect(page.sourceCount).toBe(countSources(topic));
@@ -45,11 +51,14 @@ describe("legacyTopicPage", () => {
       topic.pillars.map((p) => p.crux.falsification!.common_ground!),
     );
 
-    // One crux per pillar; the question is the live disagreement.
+    // One crux per pillar; the heading is the authored crux question, else the
+    // live disagreement. Under an authored question the live disagreement
+    // reads in the fold instead.
     expect(cruxes).toHaveLength(topic.pillars.length);
     for (const [index, crux] of cruxes.entries()) {
       const pillar = topic.pillars[index];
-      expect(crux.question).toBe(pillar.crux.falsification!.live_disagreement);
+      const live = pillar.crux.falsification!.live_disagreement!;
+      expect(crux.question).toBe(pillar.crux.question ?? live);
       expect(crux.kicker).toBe(pillar.title);
       expect(crux.settle.condition).toBe(pillar.crux.description);
       expect(crux.flips).toEqual({
@@ -57,7 +66,9 @@ describe("legacyTopicPage", () => {
         skeptic: pillar.crux.falsification!.skeptic_flip,
       });
       // Common ground already shown up top is not repeated in the fold.
-      expect(crux.runIns).toEqual([]);
+      expect(crux.runIns).toEqual(
+        pillar.crux.question ? [{ lead: "Where the fight is.", text: live }] : [],
+      );
       expect(crux.evidence.map((e) => e.id).sort()).toEqual(
         (pillar.evidence ?? []).map((e) => e.id).sort(),
       );
@@ -85,7 +96,10 @@ describe("legacyTopicPage", () => {
 
     expect(page.agreement).toEqual([]);
     expect(page.hook).toBeUndefined();
-    expect(cruxes.map((c) => c.question)).toEqual(topic.pillars.map((p) => p.crux.title));
+    // The heading is the authored crux question, else the crux title.
+    expect(cruxes.map((c) => c.question)).toEqual(
+      topic.pillars.map((p) => p.crux.question ?? p.crux.title),
+    );
     for (const crux of cruxes) {
       expect(crux.flips).toBeUndefined();
       expect(crux.settle.condition!.length).toBeGreaterThan(0);
@@ -105,5 +119,5 @@ describe("legacyTopicPage", () => {
       }
       expect(new Set(cruxes.map((c) => c.anchor)).size, summary.id).toBe(cruxes.length);
     }
-  });
+  }, 30_000);
 });

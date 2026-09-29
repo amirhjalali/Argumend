@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const gainOfFunctionResearchBanData = {
   id: "gain-of-function-research-ban",
   title: "Should Gain-of-Function Research Be Banned?",
+  question:
+    "Should research that enhances pandemic pathogens be banned worldwide?",
   meta_claim:
     "Gain-of-function research that enhances the transmissibility or pathogenicity of potential pandemic pathogens poses an existential biosecurity risk that outweighs its scientific benefits and should be permanently banned worldwide.",
   status: "contested" as const,
@@ -76,6 +78,8 @@ export const gainOfFunctionResearchBanData = {
       crux: {
         id: "lab-leak-probability-assessment",
         title: "The Cumulative Lab Accident Probability Model",
+        question:
+          "How likely is a pandemic-capable pathogen to escape over time, given modern containment and more labs?",
         description:
           "The crux is the actual probability of a catastrophic pathogen release from GOF research over the relevant time horizon. If rigorous analysis shows that cumulative leak probability is negligibly small given modern containment standards, the existential risk argument is overblown. If the probability is non-negligible when multiplied by the number of labs and years of operation, the precautionary case is strong.",
         methodology:
@@ -165,6 +169,8 @@ export const gainOfFunctionResearchBanData = {
       crux: {
         id: "counterfactual-knowledge-test",
         title: "The Counterfactual Knowledge Assessment",
+        question:
+          "Did any major gain-of-function finding produce knowledge safer methods couldn't have?",
         description:
           "The crux is whether GOF research has produced knowledge that could not have been obtained through safer alternative methods. If a rigorous systematic review shows that every major GOF finding has been independently confirmed or could have been predicted through non-GOF approaches, the scientific necessity argument collapses. If there are irreplaceable insights, the risk-benefit calculation becomes genuinely difficult.",
         methodology:
@@ -237,6 +243,8 @@ export const gainOfFunctionResearchBanData = {
       crux: {
         id: "enforcement-effectiveness-test",
         title: "The Enforcement Feasibility Analysis",
+        question:
+          "Could funding limits, screening and inspections cut dangerous research worldwide by a large margin?",
         description:
           "The crux is whether a GOF ban can be made effective enough to substantially reduce the volume of dangerous research worldwide, even if it cannot achieve perfect compliance. If enforcement mechanisms — funding restrictions, synthesis screening, international inspection — can reduce GOF research by 80%+, the ban has significant value. If determined actors can easily circumvent all controls, the ban may be counterproductive.",
         methodology:

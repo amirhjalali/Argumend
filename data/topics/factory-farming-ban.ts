@@ -1,6 +1,7 @@
 export const factoryFarmingBanData = {
   id: "factory-farming-ban",
   title: "Should We Ban Factory Farming?",
+  question: "Should factory farming be banned or drastically reformed?",
   meta_claim:
     "Industrial animal agriculture (factory farming) should be banned or drastically reformed due to its ethical, environmental, and public health costs.",
   status: "contested" as const,
@@ -34,6 +35,8 @@ export const factoryFarmingBanData = {
       crux: {
         id: "sentience-threshold",
         title: "Animal Sentience and Moral Status",
+        question:
+          "How much moral weight does farmed-animal suffering carry against the cost of changing the system?",
         description:
           "Determining the level of conscious experience and suffering in farmed animals, and whether this triggers moral obligations that override economic considerations.",
         methodology:
@@ -141,6 +144,8 @@ export const factoryFarmingBanData = {
       crux: {
         id: "ghg-antibiotic-impact",
         title: "Comprehensive Environmental & Health Cost Accounting",
+        question:
+          "Are factory farming's harms large enough to justify a ban rather than taxes or reform?",
         description:
           "Full externality accounting of factory farming including GHG emissions, antibiotic resistance costs, water pollution, and pandemic risk.",
         methodology:

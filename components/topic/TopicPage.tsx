@@ -33,6 +33,7 @@ import {
   SettleAnswer,
 } from "./cruxPrimitives";
 import { CruxReflection } from "./CruxReflection";
+import { OpenCruxFromHash } from "./OpenCruxFromHash";
 import { TopicActions } from "./TopicActions";
 import {
   cruxSheetHeading,
@@ -106,6 +107,7 @@ export function TopicPage({
           cards={page.positions}
         />
         {afterPositions}
+        <OpenCruxFromHash />
         {reflectionOptions.length > 0 && (
           <CruxReflection topicId={page.id} options={reflectionOptions} />
         )}
@@ -289,7 +291,7 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
     <li id={crux.anchor} className={MARGIN_RULE}>
       <details className="group/crux">
         <summary
-          className={`${ENTRY_GRID} cursor-pointer list-none py-5 pr-4 transition-colors hover:bg-stone-900/[0.018] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep motion-reduce:transition-none dark:hover:bg-white/[0.025] dark:focus-visible:ring-[#6fa39e] sm:py-6 [&::-webkit-details-marker]:hidden`}
+          className={`${ENTRY_GRID} cursor-pointer list-none py-5 pr-4 transition-colors hover:bg-stone-900/[0.018] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus motion-reduce:transition-none dark:hover:bg-white/[0.025] sm:py-6 [&::-webkit-details-marker]:hidden`}
         >
           <span aria-hidden="true" className={MARGIN_NUMERAL}>
             {index + 1}
@@ -519,7 +521,7 @@ export function TopicFolds({ folds }: { folds: TopicFold[] }) {
           id={fold.id}
           className="group/fold surface-card rounded-lg"
         >
-          <summary className="cursor-pointer list-none rounded-lg p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep dark:focus-visible:ring-[#6fa39e] [&::-webkit-details-marker]:hidden">
+          <summary className="cursor-pointer list-none rounded-lg p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus [&::-webkit-details-marker]:hidden">
             {/* An h2, a direct child of <summary> (the one place its content
                 model allows a heading), so the fold's own h3/h4s sit under
                 it instead of under the reflection's h2 before it. */}

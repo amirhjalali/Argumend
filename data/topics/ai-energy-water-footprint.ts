@@ -1,6 +1,8 @@
 export const aiEnergyWaterFootprintData = {
   id: "ai-energy-water-footprint",
   title: "AI's Energy & Water Footprint",
+  question:
+    "Is AI's energy and water use serious enough to warrant intervention?",
   meta_claim:
     "AI's energy and water footprint is a serious environmental problem that warrants intervention.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const aiEnergyWaterFootprintData = {
       crux: {
         id: "marginal-grid-emissions",
         title: "Marginal vs. Average Grid Emissions",
+        question:
+          "Is new data-center demand met by clean power, or by new gas and delayed coal retirements?",
         description:
           "Does new AI demand get met by clean generation (low marginal emissions) or by keeping fossil plants online and building new gas (high marginal emissions)? This determines whether AI growth is an environmental problem or a neutral load on a decarbonizing grid.",
         methodology:
@@ -126,6 +130,8 @@ export const aiEnergyWaterFootprintData = {
       crux: {
         id: "local-water-stress",
         title: "Aggregate Share vs. Local Watershed Stress",
+        question:
+          "Where data centers cluster, is their water use a meaningful share of local supply?",
         description:
           "Is the relevant metric national freshwater share (tiny) or the marginal draw on specific stressed watersheds where data centers cluster (potentially significant)? This is the load-bearing disagreement on whether water intervention is justified.",
         methodology:
@@ -215,6 +221,8 @@ export const aiEnergyWaterFootprintData = {
       crux: {
         id: "rebound-vs-efficiency",
         title: "Do Efficiency Gains Outrun Demand Growth?",
+        question:
+          "Is AI getting more efficient fast enough to shrink its total footprint as usage grows?",
         description:
           "Does per-unit efficiency improvement (energy/water per token) outpace total demand growth, so absolute AI energy and water use falls without intervention — or does Jevons-style rebound mean absolute consumption keeps rising regardless?",
         methodology:

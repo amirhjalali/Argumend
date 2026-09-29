@@ -1,6 +1,7 @@
 export const spaceExplorationValueData = {
   id: "space-exploration-value",
   title: "Is Space Exploration Worth It?",
+  question: "Is government-funded space exploration worth its cost?",
   meta_claim:
     "Government-funded space exploration provides sufficient scientific, economic, and strategic returns to justify its cost.",
   status: "contested" as const,
@@ -34,6 +35,8 @@ export const spaceExplorationValueData = {
       crux: {
         id: "space-economy-roi",
         title: "Space Investment ROI Calculation",
+        question:
+          "Do the returns on government space spending beat what the same money would do on Earth?",
         description:
           "Comprehensive analysis of direct and indirect economic returns from government space spending, including spin-off technologies, commercial sector growth, and opportunity costs.",
         methodology:
@@ -137,6 +140,8 @@ export const spaceExplorationValueData = {
       crux: {
         id: "human-vs-robotic-value",
         title: "Human vs. Robotic Mission Value Comparison",
+        question:
+          "Do crewed missions' inspiration and long-run value justify their far higher cost than robotic ones?",
         description:
           "Systematic comparison of scientific output, cost-effectiveness, and strategic value between human and robotic space missions.",
         methodology:

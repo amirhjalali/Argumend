@@ -1,6 +1,7 @@
 export const facialRecognitionPolicingData = {
   id: "facial-recognition-policing",
   title: "Facial Recognition in Policing",
+  question: "Does police use of facial recognition do more harm than good?",
   meta_claim:
     "Police use of facial-recognition technology does more harm than good and should be restricted.",
   status: "contested" as const,
@@ -43,6 +44,8 @@ export const facialRecognitionPolicingData = {
       crux: {
         id: "operational-bias-test",
         title: "The Operational-Threshold Bias Test",
+        question:
+          "Are the systems police actually use, at their real settings, equally accurate across race and sex?",
         description:
           "Whether facial recognition is unacceptably biased is not answerable in the abstract: it depends entirely on which algorithm is deployed and at what confidence threshold. A controlled demographic differential test on the exact system and settings an agency uses in the field settles it.",
         methodology:
@@ -132,6 +135,8 @@ export const facialRecognitionPolicingData = {
       crux: {
         id: "sole-basis-test",
         title: "The Sole-Basis Test",
+        question:
+          "Do police actually follow rules against arresting someone on a face match alone?",
         description:
           "The load-bearing disagreement is procedural, not technical: nearly all documented harm occurred when a match was used as the sole or primary basis for arrest. If matches are reliably confined to leads that require independent corroboration, the wrongful-arrest harm largely disappears; if that rule is routinely ignored in practice, restriction is justified.",
         methodology:
@@ -222,6 +227,8 @@ export const facialRecognitionPolicingData = {
       crux: {
         id: "oversight-sufficiency",
         title: "The Oversight-Sufficiency Test",
+        question:
+          "Once safeguards are enacted, are they actually followed, and do they reduce wrongful arrests?",
         description:
           "The decisive question is whether enforceable safeguards — mandatory training, civil-rights policies, defendant disclosure, corroboration requirements, and audit — can be implemented and actually followed. If they can and are, harm is contained; if agencies routinely deploy without them and ignore them in practice, the case for hard restriction strengthens.",
         methodology:

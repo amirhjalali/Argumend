@@ -1,6 +1,8 @@
 export const secondAmendmentIndividualRightData = {
   id: "second-amendment-individual-right",
   title: "The Second Amendment: Individual Right?",
+  question:
+    "Does the Second Amendment protect an individual right to bear arms?",
   meta_claim:
     "The Second Amendment protects an individual right to bear arms, not merely a collective/militia right.",
   status: "contested" as const,
@@ -21,6 +23,8 @@ export const secondAmendmentIndividualRightData = {
       crux: {
         id: "operative-vs-prefatory-clause",
         title: "Does the Militia Clause Limit the Right?",
+        question:
+          "Does the amendment's militia clause limit the right, or only explain its purpose?",
         description:
           "The whole dispute turns on whether the prefatory clause ('A well regulated Militia...') restricts the operative clause ('the right of the people to keep and bear Arms...') or merely states its motivating purpose. If it restricts, the right is militia-bound; if it only announces a purpose, the right is individual.",
         methodology:
@@ -116,6 +120,8 @@ export const secondAmendmentIndividualRightData = {
       crux: {
         id: "bear-arms-corpus-meaning",
         title: "The Founding-Era 'Bear Arms' Test",
+        question:
+          "Did 'bear arms' in the 1700s mean mainly military service, or also private carrying for self-defense?",
         description:
           "Did 'bear arms,' as ordinary 18th-century Americans used it, refer chiefly to military/collective service, or did it commonly include private individual carrying for self-defense? Frequency of actual usage is the most measurable proxy for original public meaning.",
         methodology:

@@ -127,7 +127,7 @@ export function KeyTakeaways({ items }: { items: readonly string[] }) {
 
 const ROW_LINK =
   "group flex min-h-11 items-center justify-between gap-4 py-4 transition-colors " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 rounded-sm";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-sm";
 
 /** One map, then the paste tool. The only call to action on an article. */
 export function NextStep({ map, label }: { map: MapLink; label: string }) {
