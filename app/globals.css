@@ -202,6 +202,13 @@ body::after {
   pointer-events: none;
 }
 
+/* Dark mode: the illustrations are painted on parchment, and at full
+   brightness they glare on the #1a1917 canvas. Take the edge off every
+   raster image in the page body; `data-no-dim` opts one out. */
+.dark main img:not([data-no-dim]) {
+  filter: brightness(0.86);
+}
+
 /* In dark mode, hide the watercolor background image */
 .dark body::after {
   opacity: 0;
@@ -629,6 +636,16 @@ html {
   rx: 2;
   ry: 2;
   stroke-width: 0;
+}
+
+/* React Flow's attribution badge ships a half-white background, a pale box
+   in the corner of the dark diagram. Keep the credit, in the theme's colours. */
+.dark .react-flow__attribution {
+  background: rgb(var(--bg-canvas-rgb) / 0.7);
+}
+
+.dark .react-flow__attribution a {
+  color: rgb(var(--text-muted-rgb));
 }
 
 /* Controls */
