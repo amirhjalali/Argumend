@@ -94,7 +94,6 @@ const read = (relPath: string) =>
  * paired.
  */
 const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
-  { path: "app/analyses/page.tsx" },
   { path: "app/saved/SavedClient.tsx" },
   { path: "app/blog/category/[category]/page.tsx" },
   { path: "components/nodes/MetaNode.tsx" },
@@ -104,8 +103,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   // there would go light-on-light, and it needs no exemption.
   { path: "app/methodology/page.tsx" },
   { path: "app/lessons-from-the-deep/page.tsx" },
-  { path: "app/analysis/[id]/AnalysisView.tsx" },
-  { path: "app/analyze/page.tsx" },
   { path: "components/FeaturedTopicHero.tsx" },
   { path: "components/ShareVerdictCard.tsx" },
   { path: "components/ScalesOfEvidence.tsx" },
@@ -155,7 +152,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/Sidebar.tsx" },
   { path: "components/ThemeToggle.tsx" },
   { path: "components/ViewToggle.tsx" },
-  { path: "app/analysis/[id]/not-found.tsx" },
   { path: "app/embed/[topicId]/layout.tsx" },
   // components/NewsletterSignup.tsx intentionally excluded: fixed-light
   // `bg-[#faf8f5]` card with no dark surface, so bare text-primary/secondary

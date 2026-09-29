@@ -4,8 +4,6 @@ import { AppShell } from "@/components/AppShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LegalDraftNotice } from "@/components/LegalDraftNotice";
 import {
-  ANALYZE_JUDGING_PROVIDER_IDS,
-  ANALYZE_SOURCE_PROVIDER_IDS,
   ALL_AI_PROVIDER_IDS,
   DIAGNOSIS_PROVIDER_IDS,
   AI_PROVIDERS,
@@ -37,7 +35,7 @@ export const metadata: Metadata = {
 const PROVIDER_ROLES: Record<string, string> = {
   typesafe: "Disagreement diagnosis and map replies (when that lane is enabled)",
   anthropic:
-    "Disagreement diagnosis, live argument extraction, and one seat on the judge council",
+    "Disagreement diagnosis (when that lane is enabled) and one seat on the debate tools’ judge council",
   openai: "Judge council only — receives extracted arguments, not your raw text",
   google: "Judge council only — receives extracted arguments, not your raw text",
   xai: "Judge council, only when a request explicitly asks for it",
@@ -135,44 +133,34 @@ export default function PrivacyPage() {
 
         <Section id="pasted-text" heading="Text you paste into Argumend">
           <p>
-            Three surfaces accept text from you. They behave differently, and each one tells you
+            Two surfaces accept text from you. They behave differently, and each one tells you
             which mode it is running in before you submit.
           </p>
 
           <h3 className="pt-2 font-semibold text-primary dark:text-stone-200">
-            /analyze — the argument extractor
+            /analyze — the paste tool
           </h3>
           <p>
-            By default Argumend runs offline: a programmatic parser on our own server reads the
-            text, and nothing is sent to any AI model. The badge under the box says so. When live
-            analysis is switched on by configuration, the text is sent to{" "}
-            {formatProviderList(ANALYZE_SOURCE_PROVIDER_IDS)} for extraction, and the badge changes
-            to say that too.
+            By default it runs entirely on our own server. It matches your text against
+            Argumend&rsquo;s maps by the words they share, sends it to no AI model, and keeps
+            nothing: the text is discarded when the request ends, and no result is saved. The line
+            above the button says so.
           </p>
           <p>
-            Either way we do not store the text itself. When a database is connected, we do store
-            the <em>result</em> of the extraction — the topic, a summary, the positions with their
-            claims and evidence, the cruxes, any flagged fallacies, and the confidence and strength
-            scores. Those fields can contain wording close to your original. Recent results are
-            listed publicly at <Link className={LINK} href="/analyses">/analyses</Link>,
-            without any link to who submitted them.
+            When the diagnosis is switched on by configuration, the text is also sent to an AI
+            provider — {formatProviderList(DIAGNOSIS_PROVIDER_IDS)} — which returns a structured
+            reading of it. Argumend holds the text only for as long as the request takes and then
+            discards it; the report comes back to your browser. The line above the button then
+            names the provider, at the moment you submit.
           </p>
           <p>
-            If you tick &ldquo;Include AI Judgment&rdquo; and live judging is switched on, the
-            extracted arguments — not your raw text — go to the judge council:{" "}
-            {formatProviderList(ANALYZE_JUDGING_PROVIDER_IDS)}.
+            Until 29 September 2026 this page ran an older analyzer. When a database was connected
+            it saved the result of each extraction — the topic, a summary, the positions with their
+            claims and evidence, the cruxes, any flagged fallacies, and scores for each side — and
+            listed recent results publicly. It no longer saves anything, the public list is gone,
+            and old result links show a retirement notice instead of the result.
           </p>
-
-          <h3 className="pt-2 font-semibold text-primary dark:text-stone-200">
-            /analyze-v2 — the disagreement diagnosis
-          </h3>
-          <p>
-            This tool sends your text to an AI provider —{" "}
-            {formatProviderList(DIAGNOSIS_PROVIDER_IDS)} — which returns a structured reading of
-            it. Argumend holds the text only for as long as the request takes and then discards it;
-            the report comes back to your browser. The consent line above the button says the same
-            thing at the moment you submit.
-          </p>
+          <Pending>Decide whether to delete the extraction results saved before that date.</Pending>
           <p>
             The report quotes your text. Those quotes are short excerpts checked back against what
             you submitted, and they sit inside the report rather than in a stored copy of the

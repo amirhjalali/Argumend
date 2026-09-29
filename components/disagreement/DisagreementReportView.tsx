@@ -26,12 +26,15 @@ export function DisagreementReportView({
   footer,
   renderPositionFeedback,
   headlineAs,
+  showConfidence = true,
 }: {
   report: DisagreementReportV1;
   footer?: ReactNode;
   renderPositionFeedback?: (positionId: string) => ReactNode;
   /** Pass "h2" when the page already has an h1. */
   headlineAs?: "h1" | "h2";
+  /** See ReportProvenance: false when the page has its own "How this was read". */
+  showConfidence?: boolean;
 }) {
   const hasStakes = Boolean(report.accountability?.stakes.length);
 
@@ -51,7 +54,11 @@ export function DisagreementReportView({
         <div className="contents lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:block lg:border-l lg:border-[var(--border-divider)] lg:pl-10">
           <div className="contents lg:sticky lg:top-24 lg:block lg:space-y-8">
             <ReportContents report={report} className="order-1 lg:order-none" />
-            <ReportProvenance report={report} className="order-3 lg:order-none" />
+            <ReportProvenance
+              report={report}
+              className="order-3 lg:order-none"
+              showConfidence={showConfidence}
+            />
           </div>
         </div>
         {footer ? (

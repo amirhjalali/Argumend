@@ -111,21 +111,21 @@ try {
     },
     body: JSON.stringify({
       content:
-        "Supporters argue the proposal has measurable benefits. Critics counter that implementation creates material risks.",
-      contentType: "freeform",
+        "Rent control protects tenants from being priced out. Economists answer that it reduces supply and landlords stop maintaining buildings.",
+      contentType: "conversation",
     }),
   });
   if (!analyzeResponse.ok) {
-    throw new Error(`Standalone offline analysis returned ${analyzeResponse.status}.`);
+    throw new Error(`Standalone map lane returned ${analyzeResponse.status}.`);
   }
+  // The paste flow's map lane: offline keyword matching, nothing stored.
   const analysis = await analyzeResponse.json();
   if (
-    analysis.id !== undefined ||
-    analysis.execution?.analysis?.actual !== "offline" ||
-    analysis.execution?.judging?.actual !== "disabled" ||
-    !Array.isArray(analysis.extracted?.positions)
+    analysis.maps?.status !== "matched" ||
+    analysis.maps?.match?.id !== "rent-control-effectiveness" ||
+    !Array.isArray(analysis.maps?.closest)
   ) {
-    throw new Error(`Unexpected offline analysis payload: ${JSON.stringify(analysis)}`);
+    throw new Error(`Unexpected map lane payload: ${JSON.stringify(analysis)}`);
   }
 
   const debateResponse = await fetch(`${origin}/api/debate`, {

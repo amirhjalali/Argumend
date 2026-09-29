@@ -1,10 +1,10 @@
 import type { CruxBranch, DisagreementReportV1, EvidenceState } from "@/types/disagreement";
 
-/** Spec 6.6: the three evidence states, in the spec's own words. */
+/** Spec 6.6: the three evidence states, said plainly. */
 const EVIDENCE_STATE_COPY: Record<EvidenceState, string> = {
-  "not-independently-checked": "No independent verification performed",
-  "asserted-in-source": "Evidence was asserted in the source",
-  "no-evidence-provided": "No evidence was supplied in the source",
+  "not-independently-checked": "Argumend has not checked this against outside sources.",
+  "asserted-in-source": "The text asserts evidence; Argumend has not checked it.",
+  "no-evidence-provided": "The text gives no evidence for it.",
 };
 
 /**
@@ -86,7 +86,7 @@ export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
 
       {secondary.length > 0 ? (
         <div className="mt-6">
-          <h3 className="label-caps">Also load-bearing</h3>
+          <h3 className="label-caps">It also turns on</h3>
           <ul className="mt-2 space-y-3">
             {secondary.map((crux) => (
               <li

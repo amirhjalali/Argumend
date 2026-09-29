@@ -13,6 +13,9 @@ import { ResultSection } from "./ResultSection";
  * wherever it lands, and is the only one drawn in crux crimson, because "you
  * never reached the question your own argument turns on" is exactly the case
  * worth spelling out.
+ *
+ * The list is words only. How strongly each crux came up, and the bar it had
+ * to clear, are in `CruxNumbers` under "How this was read".
  */
 
 function CruxItem({ crux }: { crux: MapReplyCruxTouch }) {
@@ -30,21 +33,10 @@ function CruxItem({ crux }: { crux: MapReplyCruxTouch }) {
           The crux for the section this thread spent most of its turns in
         </p>
       ) : null}
-      <div className="flex items-baseline justify-between gap-3">
-        <h5 className="font-serif text-[1.1875rem] leading-snug text-[var(--text-heading)]">
-          {crux.cruxTitle}
-        </h5>
-        <span className="shrink-0 font-sans text-sm tabular-nums text-[var(--text-secondary)]">
-          {percentLabel(crux.touched)}
-        </span>
-      </div>
+      <h5 className="font-serif text-[1.1875rem] leading-snug text-[var(--text-heading)]">
+        {crux.cruxTitle}
+      </h5>
       <p className="mt-0.5 font-sans text-[0.8125rem] text-[var(--text-muted)]">{crux.pillarTitle}</p>
-      <Meter
-        className="mt-2.5"
-        value={crux.touched}
-        tone={dominant ? "crux" : "teal"}
-        threshold={crux.touchedThreshold}
-      />
       {dominant ? (
         <p className="mt-3 max-w-[36rem] font-serif text-[1.0625rem] leading-relaxed text-[var(--text-secondary)]">
           {crux.cruxDescription}
@@ -79,25 +71,19 @@ function CruxColumn({
   );
 }
 
-export function CruxLists({
-  cruxes,
-  thresholds,
-}: {
-  cruxes: MapReplyCruxTouch[];
-  thresholds: MapReplyThresholds;
-}) {
+function split(cruxes: MapReplyCruxTouch[]) {
   const byTouch = [...cruxes].sort((a, b) => b.touched - a.touched);
-  const touched = byTouch.filter((crux) => crux.touched >= crux.touchedThreshold);
-  const missed = byTouch.filter((crux) => crux.touched < crux.touchedThreshold);
-  // Each crux carries its own bar; this is only for the heading, and comes
-  // from the result rather than a copy of the number kept in the UI.
-  const threshold = thresholds.cruxTouched;
+  return {
+    touched: byTouch.filter((crux) => crux.touched >= crux.touchedThreshold),
+    missed: byTouch.filter((crux) => crux.touched < crux.touchedThreshold),
+  };
+}
+
+export function CruxLists({ cruxes }: { cruxes: MapReplyCruxTouch[] }) {
+  const { touched, missed } = split(cruxes);
 
   return (
-    <ResultSection
-      title="Which cruxes it reached"
-      aside={`touched at or above ${percentLabel(threshold)}`}
-    >
+    <ResultSection title="Which cruxes it reached">
       <div className="space-y-10">
         <CruxColumn
           title="This thread touched"
@@ -111,5 +97,37 @@ export function CruxLists({
         />
       </div>
     </ResultSection>
+  );
+}
+
+/** How strongly each crux came up, against its bar, for "How this was read". */
+export function CruxNumbers({
+  cruxes,
+  thresholds,
+}: {
+  cruxes: MapReplyCruxTouch[];
+  thresholds: MapReplyThresholds;
+}) {
+  const byTouch = [...cruxes].sort((a, b) => b.touched - a.touched);
+  return (
+    <div className="space-y-3">
+      <p>A crux counts as touched at or above {percentLabel(thresholds.cruxTouched)}.</p>
+      <ul className="max-w-md space-y-3">
+        {byTouch.map((crux) => (
+          <li key={crux.cruxId}>
+            <div className="flex items-baseline justify-between gap-3">
+              <span>{crux.cruxTitle}</span>
+              <span className="shrink-0 tabular-nums">{percentLabel(crux.touched)}</span>
+            </div>
+            <Meter
+              className="mt-1.5"
+              value={crux.touched}
+              tone={crux.isDominantSection ? "crux" : "teal"}
+              threshold={crux.touchedThreshold}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

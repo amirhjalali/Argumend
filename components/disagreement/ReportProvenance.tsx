@@ -33,7 +33,7 @@ export function ReportContents({
     rows.push({
       href: "#crux",
       label: "What it turns on",
-      value: plural(report.cruxes.length, "crux", "cruxes"),
+      value: plural(report.cruxes.length, "question", "questions"),
     });
   }
   if (accountability && accountability.stakes.length > 0) {
@@ -71,7 +71,7 @@ export function ReportContents({
       label: "Split on",
       value: plural(report.disagreements.length, "question", "questions"),
     },
-    { href: report.cruxes.length > 0 ? "#crux" : "#positions", label: "Turns on", value: plural(report.cruxes.length, "crux", "cruxes") },
+    { href: report.cruxes.length > 0 ? "#crux" : "#positions", label: "Turns on", value: plural(report.cruxes.length, "question", "questions") },
   ];
 
   return (
@@ -115,9 +115,16 @@ export function ReportContents({
 export function ReportProvenance({
   report,
   className = "",
+  showConfidence = true,
 }: {
   report: DisagreementReportV1;
   className?: string;
+  /**
+   * False where the page gathers every reading detail into its own "How this
+   * was read" disclosure (the paste flow at /analyze), so the confidence is
+   * not told twice.
+   */
+  showConfidence?: boolean;
 }) {
   const accountability = report.accountability;
 
@@ -125,27 +132,31 @@ export function ReportProvenance({
     <aside aria-label="Report provenance" className={`space-y-4 font-sans text-sm ${className}`.trim()}>
       {accountability && accountability.gapCount > 0 ? (
         <p className="leading-relaxed text-[var(--text-secondary)]">
-          {plural(accountability.gapCount, "major claim has", "major claims have")} no stated update
-          if it turns out to be wrong.
+          For {plural(accountability.gapCount, "major claim", "major claims")}, the text doesn&rsquo;t
+          say what would change if {accountability.gapCount === 1 ? "it turned" : "they turned"} out
+          to be wrong.
         </p>
       ) : null}
 
       <p className="leading-relaxed text-[var(--text-secondary)]">
-        This is a <span className="font-medium text-[var(--text-primary)]">source-only</span> analysis. It maps
-        what the submitted text says. It does not fact-check claims, identify motives, or judge who is right.
+        This reading maps what the text says,{" "}
+        <span className="font-medium text-[var(--text-primary)]">and only that</span>. It does not
+        fact-check claims, guess at motives, or say who is right.
       </p>
 
-      <details className="group">
-        <summary className="flex min-h-11 cursor-pointer items-center gap-1.5 text-[var(--text-secondary)] marker:content-none [&::-webkit-details-marker]:hidden">
-          <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">
-            ›
-          </span>
-          How confident is Argumend in this representation?
-        </summary>
-        <p className="pb-2 leading-relaxed text-[var(--text-secondary)]">
-          {bandLabel(report.diagnosis.confidence)} — {report.diagnosis.confidenceBasis}
-        </p>
-      </details>
+      {showConfidence ? (
+        <details className="group">
+          <summary className="flex min-h-11 cursor-pointer items-center gap-1.5 text-[var(--text-secondary)] marker:content-none [&::-webkit-details-marker]:hidden">
+            <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">
+              ›
+            </span>
+            How confident is Argumend in this representation?
+          </summary>
+          <p className="pb-2 leading-relaxed text-[var(--text-secondary)]">
+            {bandLabel(report.diagnosis.confidence)} — {report.diagnosis.confidenceBasis}
+          </p>
+        </details>
+      ) : null}
     </aside>
   );
 }

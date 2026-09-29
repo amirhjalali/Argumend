@@ -1,4 +1,4 @@
-import { bandLabel, disagreementTypeLabel } from "@/lib/disagreement/labels";
+import { disagreementAbout, resolvabilitySentence } from "@/lib/disagreement/labels";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 import { ReportSection } from "./ReportSection";
 
@@ -20,9 +20,9 @@ export function DisagreementBriefs({ report }: { report: DisagreementReportV1 })
           <article key={item.id} className="py-6 first:pt-0">
             <p className="font-sans text-[0.8125rem] text-[var(--text-muted)]">
               <span className="font-medium text-[var(--text-secondary)]">
-                {disagreementTypeLabel(item.type)}
+                A question {disagreementAbout(item.type)}.
               </span>{" "}
-              question, {bandLabel(item.resolvability).toLowerCase()} resolvability
+              {resolvabilitySentence(item.resolvability)}
             </p>
             <h3 className="mt-1 max-w-[36rem] font-serif text-[1.375rem] leading-snug text-[var(--text-heading)]">
               {item.question}

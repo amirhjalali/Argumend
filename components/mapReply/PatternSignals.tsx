@@ -1,7 +1,7 @@
 import { MAP_REPLY_PATTERNS, type MapReplyPatternId } from "@/lib/mapReply/constants";
 import type { MapReplyPattern, MapReplySignals } from "@/lib/mapReply/types";
 import { DISPLAY_CONFIDENCE_HEDGE, isHedged } from "./confidence";
-import { LabelledMeter, Meter, percentLabel } from "./meters";
+import { LabelledMeter, percentLabel } from "./meters";
 import { ResultSection } from "./ResultSection";
 import type { MeterTone } from "./meters";
 
@@ -60,42 +60,57 @@ function patternDescription(pattern: string): string | null {
     : null;
 }
 
-export function PatternSignals({
-  pattern,
-  signals,
-}: {
-  pattern: MapReplyPattern;
-  signals: MapReplySignals;
-}) {
+/**
+ * The visible half: the pattern in words. Its probability and the four probe
+ * meters live in `PatternNumbers`, under "How this was read".
+ */
+export function PatternSignals({ pattern }: { pattern: MapReplyPattern }) {
   const description = patternDescription(pattern.pattern);
   const hedged = isHedged(pattern.confidence);
 
   return (
     <ResultSection title="What kind of disagreement it is">
       <div className="max-w-[36rem]">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h4 className="font-serif text-[1.375rem] leading-snug text-[var(--text-heading)]">
-            {pattern.label}
-          </h4>
-          <span className="font-sans text-sm font-medium tabular-nums text-deep dark:text-accent-text">
-            {percentLabel(pattern.confidence)}
-          </span>
-        </div>
+        <h4 className="font-serif text-[1.375rem] leading-snug text-[var(--text-heading)]">
+          {pattern.label}
+        </h4>
         {description ? (
           <p className="mt-1 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
             {description}
           </p>
         ) : null}
-        <Meter className="mt-3" value={pattern.confidence} tone="teal" />
         {hedged ? (
           <p className="mt-2 font-sans text-[0.8125rem] leading-relaxed text-[var(--text-muted)]">
-            Below {percentLabel(DISPLAY_CONFIDENCE_HEDGE)}: the pattern is the most likely of
-            eight, not a settled reading. The pipeline applies no threshold here.
+            The most likely of eight patterns, not a settled reading.
+          </p>
+        ) : null}
+      </div>
+    </ResultSection>
+  );
+}
+
+/** The numbers behind the pattern, for the "How this was read" disclosure. */
+export function PatternNumbers({
+  pattern,
+  signals,
+}: {
+  pattern: MapReplyPattern;
+  signals: MapReplySignals;
+}) {
+  const hedged = isHedged(pattern.confidence);
+  return (
+    <div className="space-y-5">
+      <div className="max-w-md">
+        <LabelledMeter label={`Pattern: ${pattern.label}`} value={pattern.confidence} tone="teal" />
+        {hedged ? (
+          <p className="mt-1.5 text-xs text-[var(--text-muted)]">
+            Below {percentLabel(DISPLAY_CONFIDENCE_HEDGE)}, so the page calls it the most likely
+            pattern rather than the pattern. The pipeline applies no threshold here.
           </p>
         ) : null}
       </div>
 
-      <div className="grid grid-cols-1 gap-x-10 gap-y-5 border-t border-[var(--border-divider)] pt-6 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
         {SIGNAL_ROWS.map((row) => {
           const value = signals[row.key];
           const cleared = value >= signals.threshold;
@@ -122,6 +137,6 @@ export function PatternSignals({
         The tick on each track is the {percentLabel(signals.threshold)} threshold. All four
         signals are shown whether or not they cleared it.
       </p>
-    </ResultSection>
+    </div>
   );
 }

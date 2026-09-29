@@ -24,7 +24,7 @@ describe("HeroAnalyze", () => {
     expect(
       view.getByRole("button", { name: "Try an example" }).className,
     ).toContain("min-h-11");
-    expect(view.getByRole("button", { name: "Analyze" }).className).toContain(
+    expect(view.getByRole("button", { name: "Find what it turns on" }).className).toContain(
       "min-h-11",
     );
   });
@@ -36,7 +36,7 @@ describe("HeroAnalyze", () => {
     fireEvent.change(input, {
       target: { value: "Supporters favor the proposal; critics oppose it." },
     });
-    fireEvent.click(view.getByRole("button", { name: "Analyze" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
     expect(navigation.push).toHaveBeenCalledWith("/analyze");
     expect(JSON.parse(sessionStorage.getItem("argumend-analyze-prefill") ?? "null"))
