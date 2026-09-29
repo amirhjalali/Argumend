@@ -280,7 +280,8 @@ export default function MethodologyPage() {
               cards on the page, not the question in the world, and it never
               names a winner.
             </p>
-            <p>
+            {/* Kept verbatim from the previous methodology page. */}
+            <p data-kept="settled-withheld">
               <strong className="font-semibold text-stone-900 dark:text-stone-100">
                 When &ldquo;settled&rdquo; is withheld.
               </strong>{" "}
