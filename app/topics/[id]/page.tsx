@@ -94,7 +94,9 @@ export async function generateMetadata({
     : buildTopicOgUrl(topic.id);
 
   return {
-    title: `${topic.title} — Argument Analysis`,
+    // The map's title alone, as on the flagship maps: the /topics layout's
+    // template adds "| ARGUMEND", like every other page title on the site.
+    title: topic.title,
     description,
     keywords: [
       topic.title,
@@ -110,7 +112,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "article",
-      title: `${topic.title} — Argument Analysis | ARGUMEND`,
+      title: `${topic.title} | ARGUMEND`,
       description,
       url: `https://argumend.org/topics/${topic.id}`,
       siteName: "ARGUMEND",
@@ -125,7 +127,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${topic.title} — Argument Analysis`,
+      title: topic.title,
       description,
       images: [socialImage],
     },
