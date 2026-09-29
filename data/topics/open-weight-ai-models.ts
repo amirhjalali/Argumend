@@ -175,9 +175,9 @@ export const openWeightAiModelsData = {
           "$0 (Established by the NTIA report, the documented LLaMA leak, and the structural fact that copied files cannot be un-copied)",
         falsification: {
           supporter_flip:
-            "A supporter of the irreversibility claim should reconsider if some mechanism — robust license revocation, hosting takedowns, or model-'unlearning' patches — were shown to actually remove capability from an actor who already downloaded the weights and runs them offline; no such mechanism has been demonstrated.",
+            "A supporter of open release should weigh the documented LLaMA leak (a gated March 2023 release that spread uncontrollably across torrents within about a week) and the NTIA report's own acknowledgment that openly released weights cannot be recalled.",
           skeptic_flip:
-            "Someone arguing irreversibility is overstated should weigh the documented LLaMA leak (a gated March 2023 release that spread uncontrollably across torrents within about a week) and the NTIA report's own acknowledgment that openly released weights cannot be recalled.",
+            "A skeptic who rests the case for caution on irreversibility should reconsider if some mechanism — robust license revocation, hosting takedowns, or model-'unlearning' patches — were shown to actually remove capability from an actor who already downloaded the weights and runs them offline; no such mechanism has been demonstrated.",
           common_ground:
             "Both sides agree that once weights are released and mirrored they cannot be technically recalled, and that downstream fine-tuning can restore removed capabilities; the dispute is the policy implication, not the technical fact.",
           live_disagreement:
@@ -393,7 +393,7 @@ export const openWeightAiModelsData = {
           supporter_flip:
             "A supporter of matching foreign releases should change their mind if benchmarking showed a proposed U.S. model is materially more capable than the best already-public foreign open model on misuse-relevant tasks specifically — meaning restraint would actually lower the global risk floor rather than merely cede ground.",
           skeptic_flip:
-            "A skeptic who treats foreign availability as decisive should weigh Bengio's argument that adding further frontier open releases raises the global risk equilibrium regardless of who ships them, and that 'they'll do it anyway' is a race-to-the-bottom rationale rather than a safety argument.",
+            "A skeptic who holds that every added U.S. release raises the global risk floor should change their mind if benchmarking showed a proposed U.S. model is no more capable on misuse-relevant tasks than the best foreign open model already freely downloadable (DeepSeek V4, Qwen 3.6) — in which case restraint would restrict only the actors who comply while the capability stays globally available, adding little marginal global risk to offset the competitive and research benefits it gives up.",
           common_ground:
             "Both sides agree frontier-approaching open weights already ship from outside U.S. jurisdiction (DeepSeek, Qwen, Mistral) and that the realistic policy menu spans staged, structured-access, and capability-gated options, not a binary ban-or-release choice.",
           live_disagreement:

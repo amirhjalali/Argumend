@@ -157,7 +157,7 @@ export const congressionalTermLimitsData = {
         cost_to_verify: "$0-$200K (existing JPTL surveys + budget-data analysis)",
         falsification: {
           supporter_flip:
-            "If post-limit data showed term-limited legislatures held or strengthened their power over the executive — altering as much of the governor's proposed budget as before, with no measured rise in lobbyist or staff influence — the 'power relocates to unelected hands' rebuttal would collapse, and forced turnover could plausibly be diluting captured relationships as proponents claim.",
+            "A supporter who expects forced turnover to dilute captured relationships should update if before-and-after tracking showed term-limited legislatures altering a smaller share of the governor's proposed budget and leaning more on lobbyists and career staff — the pattern the Joint Project on Term Limits reported — since that would mean influence had moved to unelected hands rather than shrunk. The 50-state survey's finding that power shifted toward governors, and Olson & Rogowski's (2020) finding of higher polarization under limits, bear on the same question.",
           skeptic_flip:
             "A skeptic citing the JPTL and Carey-Niemi findings should weigh that the authoring bodies (NCSL, CSG, legislative-leader groups) represent legislatures and thus have an institutional stake in opposing limits — so part of the 'power shifts to the governor' narrative could reflect the surveyed legislators' own perspective rather than an objective loss.",
           common_ground:
@@ -231,9 +231,9 @@ export const congressionalTermLimitsData = {
         "The Supreme Court held in 1995 that congressional term limits require a federal constitutional amendment — states cannot impose them by statute.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Even granting the legal hurdle, proponents argue the path is clear: a constitutional amendment under Article V, which the founders provided precisely for popular structural reforms. Overwhelming, bipartisan public support (consistently two-thirds to four-fifths in polling) is exactly the kind of mandate the amendment process is meant to channel, and an Article V convention or congressional proposal could deliver durable, uniform limits.",
-      proponent_rebuttal:
         "The bar is far higher than popularity suggests. In U.S. Term Limits v. Thornton (1995), the Supreme Court held 5-4 that neither states nor Congress may add qualifications beyond those in Article I, so limits cannot be enacted by ordinary law — only by a constitutional amendment requiring two-thirds of both houses (the very members who would be limited) or an unprecedented Article V convention, then ratification by 38 states. No amendment has cleared that bar since 1992, and self-limitation by incumbents is a steep collective-action problem regardless of public opinion.",
+      proponent_rebuttal:
+        "Even granting the legal hurdle, proponents argue the path is clear: a constitutional amendment under Article V, which the founders provided precisely for popular structural reforms. Overwhelming, bipartisan public support (consistently two-thirds to four-fifths in polling) is exactly the kind of mandate the amendment process is meant to channel, and an Article V convention or congressional proposal could deliver durable, uniform limits.",
       crux: {
         id: "amendment-pathway",
         title: "Is There a Realistic Path to Enactment?",
@@ -247,9 +247,9 @@ export const congressionalTermLimitsData = {
         cost_to_verify: "$0 (court opinion + congressional and state records)",
         falsification: {
           supporter_flip:
-            "If a term-limits amendment cleared two-thirds of both houses of Congress, or if the live Article V convention applications reached the 34-state threshold and produced a ratifiable proposal, the 'no realistic path' rebuttal would be falsified — enactment would have moved from hypothetical to in-progress despite the gatekeepers being the officials limited.",
+            "A supporter who reads overwhelming public support as a clear path to enactment should weigh that no constitutional amendment has been ratified since 1992, that incumbents must vote to limit themselves (a steep collective-action problem), and that an Article V convention has never successfully been triggered in U.S. history — so popularity has repeatedly failed to clear the procedural bar.",
           skeptic_flip:
-            "A skeptic who assumes overwhelming public support makes enactment inevitable should weigh that no constitutional amendment has been ratified since 1992, that incumbents must vote to limit themselves (a steep collective-action problem), and that an Article V convention has never successfully been triggered in U.S. history — so popularity has repeatedly failed to clear the procedural bar.",
+            "A skeptic who doubts there is any realistic path should reconsider if a term-limits amendment cleared two-thirds of both houses of Congress, or if the live Article V convention applications reached the 34-state threshold and produced a ratifiable proposal: the 'no realistic path' objection would be falsified, and enactment would have moved from hypothetical to in-progress despite the gatekeepers being the officials limited.",
           common_ground:
             "Both sides agree that after Thornton, congressional term limits cannot be imposed by ordinary statute and require a constitutional amendment under Article V — either two-thirds of Congress or a convention, then ratification by 38 states.",
           live_disagreement:

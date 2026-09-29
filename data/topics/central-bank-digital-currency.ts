@@ -180,9 +180,9 @@ export const centralBankDigitalCurrencyData = {
           "$500K-1.5M (Multi-country comparative financial inclusion study)",
         falsification: {
           supporter_flip:
-            "If a controlled multi-country comparison showed that existing mobile-money and instant-payment rails (M-Pesa, India's UPI) already reach the unbanked and cut remittance costs just as well as a CBDC — with no inclusion gap a CBDC uniquely closes — the inclusion rationale would shrink to redundancy, leaving the CBDC's added surveillance and bank-disintermediation risks without an offsetting benefit.",
+            "A supporter who points to M-Pesa should weigh that mobile-money networks are privately controlled, fragmented across providers, and often non-interoperable, whereas a central-bank-backed, universally interoperable unit could in principle deliver crisis stimulus to every citizen in seconds — something the US visibly failed to do when COVID checks took weeks and missed millions of unbanked people.",
           skeptic_flip:
-            "A skeptic who points to M-Pesa should weigh that mobile-money networks are privately controlled, fragmented across providers, and often non-interoperable, whereas a central-bank-backed, universally interoperable unit could in principle deliver crisis stimulus to every citizen in seconds — something the US visibly failed to do when COVID checks took weeks and missed millions of unbanked people.",
+            "A skeptic who rests the case for CBDCs on inclusion should change their mind if a controlled multi-country comparison showed that existing mobile-money and instant-payment rails (M-Pesa, India's UPI) already reach the unbanked and cut remittance costs just as well as a CBDC, with no inclusion gap a CBDC uniquely closes: the inclusion rationale would then shrink to redundancy, leaving the CBDC's added surveillance and bank-disintermediation risks without an offsetting benefit.",
           common_ground:
             "Both sides agree that financial inclusion is a real and valuable goal and that the unbanked are largely excluded by poverty, missing ID, and distrust rather than by a lack of digital-currency technology.",
           live_disagreement:

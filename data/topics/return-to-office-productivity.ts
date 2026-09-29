@@ -51,9 +51,9 @@ export const returnToOfficeProductivityData = {
           "$5-10M (Multi-firm randomized controlled trial with objective productivity instrumentation)",
         falsification: {
           supporter_flip:
-            "A remote-work supporter should change their mind if a multi-firm randomized trial showed that teams assigned to fully remote work had measurably lower team-level output — slower project completion, more errors, fewer shipped features — even when individual task metrics held steady, demonstrating that the productivity loss is real but lives in coordination rather than in any single worker's numbers.",
-          skeptic_flip:
             "An RTO supporter should weigh that the strongest causal evidence (the Trip.com Nature RCT) found hybrid work matched in-office performance grades and promotions while cutting attrition, and that the Pittsburgh S&P 500 study found mandates produced no measurable financial improvement — so presence-based intuitions about declining productivity have not survived the few controlled tests that exist.",
+          skeptic_flip:
+            "A skeptic who favors remote work should change their mind if a multi-firm randomized trial showed that teams assigned to fully remote work had measurably lower team-level output — slower project completion, more errors, fewer shipped features — even when individual task metrics held steady, demonstrating that the productivity loss is real but lives in coordination rather than in any single worker's numbers.",
           common_ground:
             "Both sides agree that individual task output (code commits, tickets closed) is roughly comparable remotely, and that the real uncertainty is about harder-to-measure team-level coordination and knowledge transfer.",
           live_disagreement:
@@ -282,9 +282,9 @@ export const returnToOfficeProductivityData = {
           "$500K (Econometric analysis of public company data with supplemental surveys)",
         falsification: {
           supporter_flip:
-            "Someone who believes RTO mandates are mostly a cover for control, real estate, and stealth layoffs should change their mind if an econometric decomposition showed mandate strictness is predicted by pre-mandate productivity gaps and industry collaboration needs rather than by commercial-real-estate obligations or recent layoff timing — meaning the stated productivity and culture rationale is the real driver.",
+            "A supporter who takes companies' productivity rationale at face value should weigh that 25% of executives in the BambooHR survey admitted hoping a mandate would drive voluntary turnover, that nearly a third of managers cited monitoring as a goal, and that mandates are associated with a ~14% rise in turnover concentrated among senior, skilled, and female staff — patterns that fit control and attrition motives better than a clean productivity story.",
           skeptic_flip:
-            "Someone who takes companies' productivity rationale at face value should weigh that 25% of executives in the BambooHR survey admitted hoping a mandate would drive voluntary turnover, that nearly a third of managers cited monitoring as a goal, and that mandates are associated with a ~14% rise in turnover concentrated among senior, skilled, and female staff — patterns that fit control and attrition motives better than a clean productivity story.",
+            "A skeptic who believes RTO mandates are mostly a cover for control, real estate, and stealth layoffs should change their mind if an econometric decomposition showed mandate strictness is predicted by pre-mandate productivity gaps and industry collaboration needs rather than by commercial-real-estate obligations or recent layoff timing — meaning the stated productivity and culture rationale is the real driver.",
           common_ground:
             "Both sides agree that multiple motives coexist — genuine culture and mentorship concerns alongside real estate costs, control preferences, and attrition management — and that surveys of self-reported intent are imperfect evidence of true organizational motive.",
           live_disagreement:

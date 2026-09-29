@@ -49,7 +49,7 @@ export const occupationalLicensingReformData = {
           supporter_flip:
             "If well-identified studies (border discontinuities, difference-in-differences on adoption/repeal) showed licensed occupations deliver measurably better quality and safety outcomes that justify the higher prices — even in low-stakes trades — the 'mostly a cartel' rollback case would collapse into 'consumers are paying for quality they get.'",
           skeptic_flip:
-            "A skeptic confident licensing is pure rent-seeking should weigh that the same Kleiner-Soltas model finds higher willingness-to-pay offsets ~80% of the price increase, and that causal work on midwifery licensing links it to a 2.5% drop in cumulative adult mortality — so at least in some fields the quality benefit is real, not illusory.",
+            "A skeptic who defends licensing on quality grounds should weigh that in 7 of 9 border comparisons of Yelp ratings for occupations such as barbers, manicurists and interior designers, stricter licensing showed no significant quality difference, and in the other 2 the less-licensed state scored higher; the same Kleiner-Soltas model puts the average welfare loss at ~12% of occupational surplus. If clean border-discontinuity or staggered-adoption studies found no quality or safety gain in health-critical occupations either, the case that 'roll it back' is too blunt would lose its footing.",
           common_ground:
             "Both sides agree licensing raises prices and practitioner wages, and that the quality justification is far weaker for cosmetic trades (barbers, interior designers, manicurists) than for health-critical occupations.",
           live_disagreement:

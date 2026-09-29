@@ -145,7 +145,7 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$300K (multi-jurisdiction case-file audit)",
         falsification: {
           supporter_flip:
-            "A supporter of restriction should update if a representative case-file audit found that wrongful arrests persist even where the match was confined to a lead and independent probable cause was established before arrest — meaning the harm is intrinsic to the tool rather than a procedural failure that corroboration rules can fix.",
+            "A supporter of restriction should update if a representative case-file audit found that where matches were confined to leads and independent probable cause was established before arrest, wrongful arrests largely disappeared — meaning the harm is a procedural failure that corroboration rules can fix rather than something intrinsic to the tool, which could then keep generating leads in robberies, assaults, child-exploitation and cold cases.",
           skeptic_flip:
             "A skeptic who blames only bad procedure should weigh that the same audit might show corroboration rules are routinely ignored in practice — that 'a match is just a lead' is policy on paper while officers arrest on the match alone — in which case the procedural fix is illusory and the practical effect is indistinguishable from arresting on the algorithm.",
           common_ground:
@@ -221,9 +221,9 @@ export const facialRecognitionPolicingData = {
         "Federal auditors found tens of thousands of facial-recognition searches run with no training and no civil-rights policies — a governance vacuum that 'restrict' advocates cite and 'reform' advocates say is fixable.",
       icon_name: "FileText" as const,
       skeptic_premise:
-        "Even a perfectly accurate tool is dangerous without guardrails, and the guardrails are largely absent. The US Government Accountability Office found that seven DHS and DOJ law-enforcement agencies used facial-recognition services with no training requirements — cumulatively running about 60,000 searches before any training was mandated — and that four of the seven had no policy specifically protecting civil rights and civil liberties. Combined with police seldom disclosing FRT use to defendants, this is unaccountable surveillance infrastructure deployed faster than democratic oversight can govern it, which is itself a strong reason to restrict until oversight catches up.",
-      proponent_rebuttal:
         "A governance gap is an argument for governance, not abolition. The GAO did not find the tool ineffective — it found agencies adopted it without the training, policies, and disclosure rules that any powerful investigative tool requires, and it issued ten recommendations the agencies accepted. Jurisdictions are already closing the gap: states like Virginia and California now bar a facial-recognition match from being the sole basis for an arrest or warrant affidavit, while still permitting corroborated leads. Targeted regulation captures the benefits and curbs the harms, which is precisely what restriction-by-statute (as opposed to a ban) looks like in practice.",
+      proponent_rebuttal:
+        "Even a perfectly accurate tool is dangerous without guardrails, and the guardrails are largely absent. The US Government Accountability Office found that seven DHS and DOJ law-enforcement agencies used facial-recognition services with no training requirements — cumulatively running about 60,000 searches before any training was mandated — and that four of the seven had no policy specifically protecting civil rights and civil liberties. Combined with police seldom disclosing FRT use to defendants, this is unaccountable surveillance infrastructure deployed faster than democratic oversight can govern it, which is itself a strong reason to restrict until oversight catches up.",
       crux: {
         id: "oversight-sufficiency",
         title: "The Oversight-Sufficiency Test",
@@ -237,9 +237,9 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$150K (comparative policy and records analysis)",
         falsification: {
           supporter_flip:
-            "A supporter of regulation-not-ban should update if comparative analysis showed that jurisdictions with binding FRT statutes (sole-basis bans, mandatory training, disclosure) had no better disclosure-to-defendant rates, compliance, or wrongful-arrest incidence than those without — meaning the safeguards are unenforceable on paper and a harder restriction is the only thing that actually constrains use.",
+            "A supporter of hard restriction should weigh that the GAO did not find the tool ineffective but found an absence of training and policy that agencies accepted recommendations to fix, and that states like Virginia and California already bar match-only arrests while preserving corroborated leads — so a workable middle path demonstrably exists, even if its effectiveness is not yet measured.",
           skeptic_flip:
-            "A skeptic favoring hard restriction should weigh that the GAO did not find the tool ineffective but found an absence of training and policy that agencies accepted recommendations to fix, and that states like Virginia and California already bar match-only arrests while preserving corroborated leads — so a workable middle path demonstrably exists, even if its effectiveness is not yet measured.",
+            "A skeptic who favors regulation over a ban should update if comparative analysis showed that jurisdictions with binding FRT statutes (sole-basis bans, mandatory training, disclosure) had no better disclosure-to-defendant rates, compliance, or wrongful-arrest incidence than those without — meaning the safeguards are unenforceable on paper and a harder restriction is the only thing that actually constrains use.",
           common_ground:
             "Both sides agree the technology was deployed far faster than oversight could govern it — ~60,000 federal searches before any training mandate, four of seven agencies lacking civil-rights policies — and that enforceable safeguards (training, disclosure, corroboration, audit) are necessary.",
           live_disagreement:
