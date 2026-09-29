@@ -128,27 +128,32 @@ function cruxBranches(input: {
   const { claim, affectedPositionIds, positionLabels } = input;
   if (!claim) return [];
 
-  // A claim that already opens with "If" would otherwise read "If If ...".
+  // The claim is quoted rather than spliced into the sentence: a statement
+  // keeps its own capitals ("If Immigrants grow ... holds" read as a typo),
+  // and a claim that already opens with "If" no longer reads "If If ...".
   const stated = asCondition(claim.statement);
-  const condition = /^if\s/i.test(stated) ? `${stated}, and that holds` : `If ${stated} holds`;
+  const condition = `If “${stated}” holds`;
   const stanceFor = new Map(claim.stanceByPosition.map((stance) => [stance.positionId, stance.relation]));
   const named = affectedPositionIds.filter((id) => stanceFor.has(id));
   const strengthened = named.filter((id) => stanceFor.get(id) === "supports");
   const weakened = named.filter((id) => stanceFor.get(id) === "opposes");
 
-  const label = (id: string) => positionLabels.get(id) ?? id;
+  // Position labels are short noun phrases ("Growth offsets supply"), so they
+  // read as names of cases, not as the subject of a sentence.
+  const cases = (ids: string[]) =>
+    `The case for ${ids.map((id) => `“${positionLabels.get(id) ?? id}”`).join(" and ")}`;
   const branches: Array<{ condition: string; consequence: string }> = [];
 
   if (strengthened.length > 0) {
     branches.push({
       condition,
-      consequence: `${strengthened.map(label).join(" and ")} becomes stronger.`,
+      consequence: `${cases(strengthened)} gets stronger.`,
     });
   }
   if (weakened.length > 0) {
     branches.push({
       condition,
-      consequence: `${weakened.map(label).join(" and ")} becomes weaker.`,
+      consequence: `${cases(weakened)} gets weaker.`,
     });
   }
 
@@ -322,7 +327,8 @@ export function projectDisagreementReport(input: {
       branches: cruxBranches({ claim, affectedPositionIds: affected, positionLabels }),
       resolution: {
         kind: resolutionKind,
-        condition: claim?.resolution?.condition ?? related?.resolutionCondition ?? "Further clarification is required.",
+        condition:
+          claim?.resolution?.condition ?? related?.resolutionCondition ?? "The text doesn’t say what would settle this.",
       },
       evidenceState: "not-independently-checked",
       confidence: (claim?.confidence ?? "medium") as ConfidenceBand,
@@ -356,7 +362,11 @@ export function projectDisagreementReport(input: {
       }
     }
     const related = disagreements.find((item) => item.relatedClaimIds.includes(result.claimId));
-    const claimQuestion = claim ? `Is this true: ${claim.statement}` : undefined;
+    // Statement first, question after: splicing the claim into "Is it true
+    // that ..." would lowercase proper nouns or keep a stray capital.
+    const claimQuestion = claim
+      ? `${asCondition(claim.statement).replace(/[?!]+$/, "")}. Is that true?`
+      : undefined;
     const question = [related?.question, claimQuestion].find(
       (candidate) => candidate && !seenQuestions.has(normalizeQuestion(candidate)),
     );
