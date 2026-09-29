@@ -1,181 +1,54 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { eq } from "drizzle-orm";
-import { getAnalysis } from "@/lib/db/queries";
-import { getDb, isDatabaseConfigured } from "@/lib/db";
-import { judgments } from "@/lib/db/schema";
-import { JsonLd } from "@/components/JsonLd";
-import { AnalysisView } from "./AnalysisView";
-import { buildGenericOgUrl } from "@/lib/og";
-import { isAnalysisId } from "@/lib/analysisId";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { AppShell } from "@/components/AppShell";
 
-interface PageProps {
-  params: Promise<{ id: string }>;
-}
+/**
+ * /analysis/[id]: links to the retired analyzer's saved results.
+ *
+ * The old analyzer saved every paste's extraction and scored the two sides
+ * against each other ("7/10 strong" against "3/10 weak", plus a judge panel).
+ * Argumend no longer names a stronger side, so those pages are not rendered,
+ * not even from rows that still exist. This page answers an old shared link
+ * without reading the database: it says what happened and where the paste
+ * tool is now.
+ */
 
-// ---------- Metadata (Open Graph) ----------
+export const metadata: Metadata = {
+  title: "This older analysis format is retired",
+  robots: { index: false, follow: true },
+};
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { id } = await params;
-  if (!isAnalysisId(id)) {
-    return {
-      title: "Analysis Not Found",
-      robots: { index: false, follow: false },
-    };
-  }
-  if (!isDatabaseConfigured()) {
-    return {
-      title: "Analysis Not Found",
-      robots: { index: false, follow: false },
-    };
-  }
-  const analysis = await getAnalysis(id);
-
-  if (!analysis) {
-    return { title: "Analysis Not Found - ARGUMEND" };
-  }
-
-  const description =
-    analysis.summary.length > 160
-      ? analysis.summary.slice(0, 157) + "..."
-      : analysis.summary;
-
-  return {
-    title: `${analysis.topic} - ARGUMEND Analysis`,
-    description,
-    // Thin DB-backed pages: keep out of the index but let crawlers follow links.
-    robots: { index: false, follow: true },
-    alternates: {
-      canonical: `https://argumend.org/analysis/${id}`,
-    },
-    openGraph: {
-      title: `${analysis.topic} - ARGUMEND Analysis`,
-      description,
-      type: "article",
-      siteName: "ARGUMEND",
-      url: `/analysis/${id}`,
-      images: [
-        {
-          url: buildGenericOgUrl({ title: analysis.topic, subtitle: "Argument Analysis" }),
-          width: 1200,
-          height: 630,
-          alt: analysis.topic,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${analysis.topic} - ARGUMEND`,
-      description,
-      images: [buildGenericOgUrl({ title: analysis.topic, subtitle: "Argument Analysis" })],
-    },
-  };
-}
-
-// ---------- Page Component (Server) ----------
-
-export default async function AnalysisPage({ params }: PageProps) {
-  const { id } = await params;
-
-  // Validate UUID
-  if (!isAnalysisId(id)) {
-    notFound();
-  }
-
-  if (!isDatabaseConfigured()) {
-    notFound();
-  }
-
-  const analysis = await getAnalysis(id);
-  if (!analysis) {
-    notFound();
-  }
-
-  // Fetch associated judgment with verdicts
-  const judgment = await getDb().query.judgments.findFirst({
-    where: eq(judgments.analysisId, id),
-    with: { verdicts: true },
-  });
-
-  // Reconstruct the shape that the JudgingResults component expects.
-  // The DB stores aggregatedScores/disagreements as typed jsonb, and verdicts
-  // come from the relation. We need to rebuild the JudgingResult shape.
-  let judgingResult = null;
-  if (judgment) {
-    judgingResult = {
-      verdicts: (judgment.verdicts ?? []).map((v) => ({
-        judgeId: v.judgeId,
-        judgeName: v.judgeName,
-        model: v.model as import("@/types/logic").LLMModel,
-        forScore: v.forScore,
-        againstScore: v.againstScore,
-        winner: v.winner as "for" | "against" | "draw",
-        overallReasoning: v.overallReasoning,
-        latencyMs: v.latencyMs ?? undefined,
-      })),
-      winner: judgment.winner as "for" | "against" | "draw" | null,
-      hasConsensus: judgment.hasConsensus,
-      aggregatedScores: judgment.aggregatedScores,
-      disagreements: judgment.disagreements,
-      flaggedForReview: judgment.flaggedForReview,
-      timestamp: judgment.createdAt.getTime(),
-    };
-  }
-
-  // Build extracted arguments shape from the DB row.
-  // The jsonb columns are already typed via $type<T>() in the schema.
-  const extracted = {
-    topic: analysis.topic,
-    summary: analysis.summary,
-    positions: analysis.positions,
-    identifiedCruxes: analysis.cruxes,
-    potentialFallacies: analysis.fallacies,
-    confidence: analysis.confidence,
-    detectedBiases: analysis.detectedBiases ?? [],
-    forStrength: analysis.forStrength ?? undefined,
-    againstStrength: analysis.againstStrength ?? undefined,
-  };
-
-  const analysisJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: analysis.topic,
-    description: analysis.summary.length > 160
-      ? analysis.summary.slice(0, 157) + "..."
-      : analysis.summary,
-    url: `https://argumend.org/analysis/${id}`,
-    datePublished: analysis.createdAt.toISOString(),
-    author: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://argumend.org/icon.png",
-      },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://argumend.org/analysis/${id}`,
-    },
-  };
-
+export default function RetiredAnalysisPage() {
   return (
-    <>
-      <JsonLd data={analysisJsonLd} />
-      <AnalysisView
-        id={id}
-        extracted={extracted}
-        judgingResult={judgingResult}
-        createdAt={analysis.createdAt.toISOString()}
-      />
-    </>
+    <AppShell layout="reading">
+      <div className="mx-auto w-full max-w-3xl px-4 pb-16 pt-10 sm:px-6 sm:pt-14">
+        <p className="label-caps">Saved analysis</p>
+        <h1 className="mt-2 font-serif text-[2.375rem] leading-[1.1] text-[var(--text-heading)] sm:text-5xl">
+          This older analysis format is retired
+        </h1>
+        <p className="mt-5 max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
+          It scored the two sides of an argument against each other. Argumend no longer does that:
+          it shows what an argument turns on and the strongest evidence on each side, and it never
+          says who is right.
+        </p>
+        <p className="mt-4 max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+          If you still have the text, paste it again to see which map it is on.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+          <Link
+            href="/analyze"
+            className="inline-flex min-h-11 items-center rounded-full bg-rust-600 px-6 font-sans text-base font-medium text-white transition-colors hover:bg-rust-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-600/40 focus-visible:ring-offset-2"
+          >
+            Paste an argument
+          </Link>
+          <Link
+            href="/topics"
+            className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
+          >
+            Browse the maps
+          </Link>
+        </div>
+      </div>
+    </AppShell>
   );
 }

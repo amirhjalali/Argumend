@@ -107,6 +107,22 @@ const nextConfig = {
         destination: '/topics',
         permanent: true,
       },
+      // ── paste flow (2026-09-29) ──────────────────────────────────────────
+      // One paste tool at /analyze. /analyze-v2 was the flagged diagnosis
+      // page, now a lane of /analyze; /analyses was a public list of saved
+      // extractions, which the paste flow no longer makes. 308s.
+      // /reply stays until its thread lane is folded into /analyze.
+      {
+        source: '/analyze-v2',
+        destination: '/analyze',
+        permanent: true,
+      },
+      {
+        source: '/analyses',
+        destination: '/analyze',
+        permanent: true,
+      },
+      // ── end paste flow ───────────────────────────────────────────────────
     ];
   },
   async headers() {

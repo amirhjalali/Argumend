@@ -16,7 +16,6 @@ const allRouteErrors = findRouteErrorBoundaries(join(process.cwd(), "app")).sort
 
 const migratedCopy = {
   "app/about/error.tsx": ["The about page could not be loaded."],
-  "app/analyses/error.tsx": ["Recent analyses could not be loaded.", 'backHref="/analyze"', 'backLabel="Run an Analysis"'],
   "app/blog/[slug]/error.tsx": ["This article could not be loaded.", 'backHref="/blog"', 'backLabel="Back to Blog"'],
   "app/blog/error.tsx": ["The blog could not be loaded."],
   "app/concepts/[slug]/error.tsx": ["This concept could not be loaded.", 'backHref="/concepts"', 'backLabel="Back to Concepts"'],
