@@ -75,11 +75,12 @@ describe("guideMeta", () => {
     expect(new Set(labels).size).toBe(guideTrackOrder.length);
   });
 
-  it("keeps track styling on the four on-brand color tokens", () => {
-    // CLAUDE.md design system: deep teal, rust, crux crimson, skeptic brown.
+  it("keeps track styling on the shared tone map, never crux crimson", () => {
+    // lib/categoryColors.ts toneStyles: deep teal, rust, plum, skeptic brown.
+    // Crimson means a crux; it never labels a track.
     // Guard against a regression to the old indigo/amber/slate per-guide hexes.
     const banned = /amber|tangerine|indigo|violet|sky|blue|purple|emerald|#5b6abf|#b37d1e|#4a6b8a/i;
-    const tokens = ["deep", "rust", "crux", "skeptic"];
+    const tokens = ["deep", "rust", "plum", "skeptic"];
 
     for (const id of guideTrackOrder) {
       const track = guideTracks[id];
@@ -94,6 +95,7 @@ describe("guideMeta", () => {
       for (const style of styles) {
         expect(style).not.toMatch(banned);
         expect(tokens.some((t) => style.includes(t))).toBe(true);
+        expect(style).not.toMatch(/crux/);
       }
     }
   });

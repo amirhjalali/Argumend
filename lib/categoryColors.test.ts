@@ -1,7 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { categoryColors, statusColors } from "./categoryColors";
+import {
+  TONES,
+  categoryColors,
+  categoryTone,
+  categoryTopBorder,
+  statusColors,
+  toneStyles,
+} from "./categoryColors";
 import { TopicCategorySchema, TopicStatusSchema } from "./schemas/topic";
 
 describe("categoryColors", () => {
@@ -57,6 +64,39 @@ describe("categoryColors", () => {
     expect(statusColors.contested).toMatch(/bg-transparent/);
     expect(statusColors.highly_speculative).toMatch(/border-dashed/);
     expect(statusColors.contested).not.toMatch(/border-dashed/);
+  });
+});
+
+describe("toneStyles (the one tone map)", () => {
+  it("defines exactly the six tones, with no crux tone", () => {
+    expect(Object.keys(toneStyles).sort()).toEqual([...TONES].sort());
+    expect(TONES).not.toContain("crux" as never);
+  });
+
+  it("never uses crux crimson in any tone field", () => {
+    for (const [tone, style] of Object.entries(toneStyles)) {
+      for (const [field, cls] of Object.entries(style)) {
+        expect(cls, `${tone}.${field} uses crux crimson`).not.toMatch(/crux/);
+      }
+    }
+  });
+
+  it("gives every tone a distinct chip", () => {
+    const chips = TONES.map((tone) => toneStyles[tone].chip);
+    expect(new Set(chips).size).toBe(chips.length);
+  });
+
+  it("derives the category chips and top borders from the category's tone", () => {
+    for (const [category, tone] of Object.entries(categoryTone)) {
+      expect(categoryColors[category as keyof typeof categoryColors]).toBe(toneStyles[tone].chip);
+      expect(categoryTopBorder[category as keyof typeof categoryTopBorder]).toBe(
+        toneStyles[tone].topBorder,
+      );
+    }
+  });
+
+  it("keeps the neutral tone for labels, never a category", () => {
+    expect(Object.values(categoryTone)).not.toContain("neutral");
   });
 });
 
@@ -234,7 +274,6 @@ describe("off-palette color guard (app + components source trees)", () => {
  */
 describe("dark-mode pairing guard for text-primary / text-secondary", () => {
   const pairedFiles = [
-    "app/topics/[id]/TopicDetailView.tsx",
     "components/ReadModeView.tsx",
     "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
     "components/JudgingResults.tsx",
