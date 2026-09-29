@@ -118,6 +118,53 @@ describe("flagship debate-map contracts", () => {
     }
   });
 
+  it("gives each crux its own settle condition, readable without its neighbours", () => {
+    // Content-word stems (first five letters), so "program"/"programs" and
+    // "evaluation"/"evaluated" count as one word.
+    const STOP = new Set(["about", "above", "after", "again", "their", "there", "these", "those", "which", "while", "with", "within", "from", "into", "that", "this", "than", "then", "over", "each", "only", "both", "either", "whether", "same"]);
+    const stems = (text: string) =>
+      new Set(
+        text
+          .toLowerCase()
+          .split(/[^a-z]+/)
+          .filter((word) => word.length >= 4 && !STOP.has(word))
+          .map((word) => word.slice(0, 5)),
+      );
+    const overlap = (a: Set<string>, b: Set<string>) =>
+      [...a].filter((stem) => b.has(stem)).length / Math.min(a.size, b.size);
+
+    // The pair this guards against: two flagship cruxes that shared one
+    // national retraining evaluation as their test (r3 fresh review, issue 10).
+    expect(
+      overlap(
+        stems("evaluation of a well-funded, AI-displacement-specific workforce program at national scale"),
+        stems("well-funded, targeted retraining programs evaluated at national AI-displacement scale show earnings and reemployment outcomes comparable to pre-displacement work"),
+      ),
+    ).toBeGreaterThanOrEqual(0.6);
+
+    for (const topicId of argumentTopicIds) {
+      const topic = loadArgumentTopic(topicId)!;
+      const conditions = topic.cruxes.map((crux) => ({
+        claimId: crux.claimId,
+        text: claimFor(topic.graph.nodes, crux.claimId).resolution!.condition.trim(),
+      }));
+      for (const { claimId, text } of conditions) {
+        // A settle line is read on its own card, so it cannot lean on another's.
+        expect(text, `${topicId}/${claimId}`).not.toMatch(/^the same\b/i);
+      }
+      for (let i = 0; i < conditions.length; i++) {
+        for (let j = i + 1; j < conditions.length; j++) {
+          const [a, b] = [conditions[i], conditions[j]];
+          const pair = `${topicId}: ${a.claimId} vs ${b.claimId}`;
+          expect(a.text.toLowerCase().replace(/\W+/g, " ").trim(), pair).not.toBe(
+            b.text.toLowerCase().replace(/\W+/g, " ").trim(),
+          );
+          expect(overlap(stems(a.text), stems(b.text)), pair).toBeLessThan(0.6);
+        }
+      }
+    }
+  });
+
   it("keeps authored crux copy conditional, never a verdict on a side", () => {
     // The ledger's verdict patterns, plus "<a case> is right/wrong", which
     // they leave to topic-specific names ("the displacement case is right").

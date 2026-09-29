@@ -477,7 +477,7 @@
    },
    "resolution": {
     "kind": "existing-evidence",
-    "condition": "well-funded, targeted retraining programs evaluated at national AI-displacement scale show earnings and reemployment outcomes comparable to pre-displacement work"
+    "condition": "realized costs for workers actually displaced by AI: time out of work, and earnings years later against their earlier pay, above all in the clerical jobs with the least capacity to adapt"
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
@@ -928,7 +928,7 @@
    },
    "resolution": {
     "kind": "future-observable",
-    "condition": "the same reemployment earnings and duration data; this claim and its rival reading resolve together"
+    "condition": "reemployment earnings and time out of work for displaced credentialed workers in highly AI-exposed jobs, against displaced workers in less-exposed jobs; the rival reading, that credentials cushion these workers, turns on the same data"
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
@@ -1112,7 +1112,7 @@
    },
    "resolution": {
     "kind": "existing-evidence",
-    "condition": "evaluation of a well-funded, AI-displacement-specific workforce program at national scale"
+    "condition": "randomized evaluations of well-funded, employer-linked programs for AI-displaced workers that follow earnings for years, at national scale and in a slack labor market as well as a tight one"
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
