@@ -72,7 +72,7 @@ export function CruxCard({
         <p className={`${ENTRY_COLUMN} mb-1.5 text-[12.5px] leading-snug text-muted dark:text-stone-400`}>
           <Link
             href={`/topics/${crux.topicId}#cruxes`}
-            className="font-medium text-stone-800 underline decoration-stone-400/60 underline-offset-[3px] hover:decoration-stone-700 dark:text-stone-200 dark:decoration-stone-500 dark:hover:decoration-stone-200"
+            className="py-3.5 font-medium text-stone-800 underline decoration-stone-400/60 underline-offset-[3px] hover:decoration-stone-700 dark:text-stone-200 dark:decoration-stone-500 dark:hover:decoration-stone-200"
           >
             {map.label}
           </Link>

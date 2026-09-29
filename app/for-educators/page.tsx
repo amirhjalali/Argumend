@@ -40,7 +40,8 @@ interface LessonPlan {
   steps: readonly ReactNode[];
 }
 
-const INLINE_LINK = "text-deep underline decoration-deep/30 underline-offset-2 dark:text-accent-text";
+// `py-3` on an inline link: a 44px hit area that takes no space in the line.
+const INLINE_LINK = "py-3 text-deep underline decoration-deep/30 underline-offset-2 dark:text-accent-text";
 
 /** Seven lessons. None ends with a winner: each ends with what would settle it. */
 const lessonPlans: readonly LessonPlan[] = [

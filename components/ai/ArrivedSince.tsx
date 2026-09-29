@@ -35,7 +35,7 @@ export function ArrivedGroupView({
       <p className="text-[12.5px] leading-snug text-muted dark:text-stone-400">
         <Link
           href={`/topics/${group.topicId}#cruxes`}
-          className="font-medium text-stone-800 underline decoration-stone-400/60 underline-offset-[3px] hover:decoration-stone-700 dark:text-stone-200 dark:decoration-stone-500"
+          className="py-3.5 font-medium text-stone-800 underline decoration-stone-400/60 underline-offset-[3px] hover:decoration-stone-700 dark:text-stone-200 dark:decoration-stone-500"
         >
           {map.label}
         </Link>
@@ -128,7 +128,7 @@ function EvidenceItem({ node }: { node: Evidence }) {
             href={source.url}
             rel="noopener noreferrer"
             target="_blank"
-            className="font-medium text-[#3a6965] underline decoration-[#3a6965]/35 underline-offset-2 hover:decoration-[#3a6965] dark:text-[#8fc0bb] dark:decoration-[#8fc0bb]/35"
+            className="py-3.5 font-medium text-[#3a6965] underline decoration-[#3a6965]/35 underline-offset-2 hover:decoration-[#3a6965] dark:text-[#8fc0bb] dark:decoration-[#8fc0bb]/35"
           >
             {source.title}
             <span className="sr-only"> (opens in a new tab)</span>

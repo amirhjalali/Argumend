@@ -88,7 +88,7 @@ function HomeHero() {
               the question in its title.{" "}
               <Link
                 href={HOME_EVIDENCE_HREF}
-                className="text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"
+                className="py-3 text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"
               >
                 How we measured it
               </Link>

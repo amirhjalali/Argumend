@@ -106,7 +106,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
               {index > 0 && (index === indexed.length - 1 ? " and " : ", ")}
               <Link
                 href={`/topics/${map.topicId}`}
-                className="text-stone-800 underline decoration-stone-400/60 underline-offset-[3px] hover:decoration-stone-700 dark:text-stone-200 dark:decoration-stone-500"
+                className="py-3.5 text-stone-800 underline decoration-stone-400/60 underline-offset-[3px] hover:decoration-stone-700 dark:text-stone-200 dark:decoration-stone-500"
               >
                 {map.title}
               </Link>
