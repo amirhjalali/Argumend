@@ -23,10 +23,10 @@ export function SaveTopicButton({ topicId, labelled = false }: SaveTopicButtonPr
   const label = !hydrated
     ? "Loading saved state"
     : error
-      ? "Retry saving topic"
+      ? "Retry saving this map"
       : saved
-        ? "Remove topic from saved"
-        : "Save topic on this device";
+        ? "Remove this map from saved"
+        : "Save this map on this device";
 
   const handleToggle = useCallback(async () => {
     const nextSaved = toggle();

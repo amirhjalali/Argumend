@@ -81,7 +81,7 @@ describe("one crux-first template for every map", () => {
     expect(beforePositions.match(/16%/g)?.length ?? 0).toBe(1);
     // /embed serves flagship maps, so Embed is offered next to Save and Share.
     expect(within(view.container).getAllByRole("button", { name: /embed/i }).length).toBeGreaterThan(0);
-    expect(within(view.container).getAllByRole("button", { name: /save topic/i }).length).toBeGreaterThan(0);
+    expect(within(view.container).getAllByRole("button", { name: /save this map/i }).length).toBeGreaterThan(0);
   });
 
   it("renders a legacy map with falsification data in the same order, with no scoreboard", async () => {
