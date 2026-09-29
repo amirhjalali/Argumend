@@ -4,6 +4,7 @@ import { createJudgeCouncil } from "@/lib/judge/council";
 import { judgeContentOffline, judgeDebateOffline } from "@/lib/judge/offline";
 import { saveJudgment } from "@/lib/db/queries";
 import { isDatabaseConfigured } from "@/lib/db";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { modelsToAgents } from "@/lib/agents/types";
 import type { LLMModel } from "@/types/logic";
@@ -49,7 +50,7 @@ async function hasAuthenticatedUser(): Promise<boolean> {
  */
 export async function POST(request: NextRequest) {
   // Rate limit: 10 requests per hour per IP
-  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(request);
   const limit = rateLimit(`judge:${ip}`, { maxRequests: 10, windowMs: 60 * 60 * 1000 });
   if (!limit.success) {
     return NextResponse.json(

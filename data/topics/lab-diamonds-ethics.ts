@@ -326,7 +326,7 @@ export const labDiamondsEthicsData = {
             "Lab-Grown Diamonds Reached Roughly Half of US Engagement-Ring Sales by 2024",
           description:
             "Per The Knot's 2025 Real Weddings Study, 52% of US couples married in 2024 had an engagement ring featuring a lab-grown center stone — up sharply from a low-single-digit share several years earlier — driven by far lower prices. The Knot reports that in early 2025 an unbranded 1-carat lab-grown diamond averaged roughly $845 versus about $3,895 for a comparable natural diamond, and that lab-grown's success has pushed natural-diamond prices down well beyond what the mining industry expected, reducing revenue for producing nations.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,

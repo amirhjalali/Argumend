@@ -1,15 +1,19 @@
-import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import { citations, researchSections } from "@/data/research";
+import { NextStep } from "@/components/learn/ArticleLayout";
+import { TableOfContents, type TocHeading } from "@/components/TableOfContents";
+import { PageContainer } from "@/components/ui/PageContainer";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Section } from "@/components/ui/Section";
+import { citations, readingList, researchSections } from "@/data/research";
 import type { Citation } from "@/data/research";
-import { BookOpen, ExternalLink, Scale } from "lucide-react";
+import { LEARN_HUB_HREF } from "@/lib/learn/sections";
+import { mapLinkFor, FLAGSHIP_MAP_IDS } from "@/lib/learn/nextStep";
+import { ExternalLink } from "lucide-react";
 
-/** Map citation id to its 1-based display number */
+/** Map citation id to its 1-based display number, in order of first use. */
 function buildCitationIndex(): Map<string, number> {
   const map = new Map<string, number>();
-  // Collect ids in the order they first appear in sections
   const seen: string[] = [];
   for (const section of researchSections) {
     for (const para of section.paragraphs) {
@@ -22,22 +26,26 @@ function buildCitationIndex(): Map<string, number> {
   return map;
 }
 
+/**
+ * Numbered markers with a 44px tap target around a small superscript. The
+ * negative margins give the extra box back to the line, so the text around a
+ * marker sits where it did when the target was 24px.
+ */
 function InlineCitation({ ids, index }: { ids: string[]; index: Map<string, number> }) {
   return (
     <>
-      {ids.map((id, i) => {
+      {ids.map((id) => {
         const num = index.get(id);
         if (!num) return null;
         return (
-          <sup key={id} className="ml-[1px]">
-            <a
-              href={`#ref-${id}`}
-              className="text-deep hover:text-deep-dark text-[11px] font-medium no-underline hover:underline"
-            >
-              [{num}]
-            </a>
-            {i < ids.length - 1 && <span className="text-muted dark:text-stone-400">,</span>}
-          </sup>
+          <a
+            key={id}
+            href={`#ref-${id}`}
+            aria-label={`Reference ${num}`}
+            className="-my-2.5 -ml-1.5 -mr-2 inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm align-super font-sans text-xs font-medium text-deep no-underline hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text"
+          >
+            [{num}]
+          </a>
         );
       })}
     </>
@@ -51,15 +59,11 @@ function formatAuthors(authors: string[]): string {
 
 function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) {
   return (
-    <li id={`ref-${citation.id}`} className="flex gap-3 text-sm leading-relaxed scroll-mt-24">
-      <span className="text-muted dark:text-stone-400 font-mono text-xs mt-0.5 flex-shrink-0 w-6 text-right">
-        [{num}]
-      </span>
-      <div className="text-secondary dark:text-stone-400">
-        <span className="text-primary dark:text-stone-200 font-medium">{formatAuthors(citation.authors)}</span>
-        {" "}({citation.year}).{" "}
-        <em>{citation.title}.</em>{" "}
-        <span className="text-stone-500">{citation.source}.</span>
+    <li id={`ref-${citation.id}`} className="flex gap-3 font-sans text-sm leading-relaxed">
+      <span className="mt-0.5 w-7 shrink-0 text-right font-mono text-xs text-muted">[{num}]</span>
+      <div className="min-w-0 text-secondary">
+        <span className="font-medium text-primary">{formatAuthors(citation.authors)}</span> (
+        {citation.year}). <em>{citation.title}.</em> <span>{citation.source}.</span>
         {citation.url && (
           <>
             {" "}
@@ -67,17 +71,16 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
               href={citation.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-deep hover:text-deep-dark inline-flex items-center gap-1 hover:underline"
+              className="-my-3 inline-flex min-h-11 min-w-11 items-center gap-1 text-deep underline decoration-deep/30 underline-offset-2 hover:text-deep-dark dark:text-accent-text"
             >
               Link
-              <ExternalLink className="h-3 w-3" />
+              <ExternalLink className="h-3 w-3" aria-hidden="true" />
+              <span className="sr-only">(opens in a new tab)</span>
             </a>
           </>
         )}
         {citation.accessDate && (
-          <span className="text-muted dark:text-stone-400 text-xs ml-1">
-            (accessed {citation.accessDate})
-          </span>
+          <span className="ml-1 text-xs text-muted">(accessed {citation.accessDate})</span>
         )}
       </div>
     </li>
@@ -87,31 +90,27 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
 export default function ResearchPage() {
   const citationIndex = buildCitationIndex();
 
-  // Build ordered citation list based on first-appearance order
   const orderedCitations: { citation: Citation; num: number }[] = [];
-  const ordered = [...citationIndex.entries()].sort((a, b) => a[1] - b[1]);
-  for (const [id, num] of ordered) {
+  for (const [id, num] of [...citationIndex.entries()].sort((a, b) => a[1] - b[1])) {
     const c = citations.find((cit) => cit.id === id);
     if (c) orderedCitations.push({ citation: c, num });
   }
 
+  const headings: TocHeading[] = [
+    ...researchSections.map((section) => ({ id: section.id, text: section.title, level: 2 as const })),
+    { id: "reading", text: "Further reading", level: 2 },
+    { id: "references", text: "References", level: 2 },
+  ];
+
   const researchJsonLd = {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    headline: "The Science Behind Better Arguments",
+    headline: "The research behind Argumend",
     description:
-      "Every design decision in Argumend is grounded in peer-reviewed research on polarization, misinformation, and deliberative reasoning.",
+      "People who disagree usually disagree less than they think. The research on that gap, on polarization and misinformation, and on what helps.",
     url: "https://argumend.org/research",
-    author: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "ARGUMEND",
-      url: "https://argumend.org",
-    },
+    author: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
+    publisher: { "@type": "Organization", name: "ARGUMEND", url: "https://argumend.org" },
     citation: orderedCitations.map(({ citation }) => ({
       "@type": "CreativeWork",
       name: citation.title,
@@ -122,120 +121,95 @@ export default function ResearchPage() {
   };
 
   return (
-    <AppShell>
+    <AppShell layout="reading">
       <JsonLd data={researchJsonLd} />
-      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-20">
-        {/* Hero */}
-        <div className="mb-16 md:mb-24">
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Research" },
-            ]}
-          />
-          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
-            Research
-          </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-6 leading-[1.08]">
-            The science behind<br />
-            <span className="text-stone-500">better arguments</span>
-          </h1>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
-            Every design decision in Argumend is grounded in peer-reviewed research on polarization,
-            misinformation, and deliberative reasoning. This page documents the evidence.
-          </p>
-        </div>
+      <PageContainer width="reading" as="article">
+        <PageHeader
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Learn", href: LEARN_HUB_HREF },
+            { label: "Why this exists" },
+          ]}
+          eyebrow="Why this exists"
+          title="The research behind Argumend"
+          lede="People on opposite sides of a question usually disagree less than they think. Argumend exists to close that gap by showing what a disagreement actually turns on. This page gathers the research behind the idea."
+        />
 
-        {/* Pull quote */}
-        <blockquote className="my-12 md:my-16 py-6 border-l-2 border-stone-300 pl-6 md:pl-7">
-          <p className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 italic leading-[1.6]">
-            &ldquo;It is the mark of an educated mind to be able to entertain a thought
-            without accepting it.&rdquo;
-          </p>
-          <cite className="block mt-3 text-sm text-stone-500 not-italic">
-            — Aristotle
-          </cite>
-        </blockquote>
+        <div className="relative">
+          <TableOfContents headings={headings} label="On this page" />
 
-        {/* Sections */}
-        {researchSections.map((section) => (
-          <section key={section.id} id={section.id} className="mb-16 md:mb-24 scroll-mt-16">
-            <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
-              {section.title}
-            </h2>
-            <p className="text-base text-secondary dark:text-stone-400 italic mb-6">
-              {section.subtitle}
-            </p>
-            <div className="space-y-5 text-base md:text-lg text-secondary dark:text-stone-400 leading-[1.75]">
-              {section.paragraphs.map((para, i) => (
-                <p key={i}>
-                  {para.text}
-                  {para.citationIds.length > 0 && (
-                    <InlineCitation ids={para.citationIds} index={citationIndex} />
-                  )}
-                </p>
-              ))}
-            </div>
-          </section>
-        ))}
+          <div className="space-y-12">
+            {researchSections.map((section) => (
+              <Section key={section.id} id={section.id} title={section.title} lede={section.subtitle}>
+                <div className="reading-body space-y-5">
+                  {section.paragraphs.map((para) => (
+                    <p key={para.text.slice(0, 40)}>
+                      {para.text}
+                      {para.citationIds.length > 0 && (
+                        <InlineCitation ids={para.citationIds} index={citationIndex} />
+                      )}
+                    </p>
+                  ))}
+                </div>
+              </Section>
+            ))}
 
-        {/* Section navigation */}
-        <div className="bg-[#faf8f3]/60 border border-stone-200/60 rounded-lg p-5 md:p-6 mb-16 md:mb-24">
-          <div className="flex items-center gap-2.5 mb-4">
-            <BookOpen className="h-4 w-4 text-deep" strokeWidth={1.8} />
-            <h3 className="text-sm font-medium text-primary">In this article</h3>
+            <Section
+              id="reading"
+              title="Further reading"
+              lede="The books, references and tools that shaped how the maps are built."
+            >
+              <div className="space-y-8">
+                {readingList.map((shelf) => (
+                  <div key={shelf.id}>
+                    <h3 className="font-serif text-xl text-primary">{shelf.title}</h3>
+                    <p className="mt-1 max-w-[36rem] font-sans text-sm leading-relaxed text-secondary">
+                      {shelf.description}
+                    </p>
+                    <ul className="mt-3 border-y border-divider">
+                      {shelf.items.map((item, index) => (
+                        <li key={item.title} className={index > 0 ? "border-t border-divider" : undefined}>
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex min-h-11 items-start justify-between gap-4 rounded-sm py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40"
+                          >
+                            <span className="min-w-0">
+                              <span className="block font-serif text-lg leading-snug text-primary transition-colors group-hover:text-accent-text">
+                                {item.title}
+                              </span>
+                              <span className="mt-0.5 block font-sans text-sm leading-relaxed text-secondary">
+                                {item.description}
+                              </span>
+                              <span className="mt-0.5 block font-sans text-xs text-muted">{item.kind}</span>
+                            </span>
+                            <ExternalLink className="mt-1.5 h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
+                            <span className="sr-only">(opens in a new tab)</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            <Section id="references" title="References">
+              <ol className="space-y-3">
+                {orderedCitations.map(({ citation, num }) => (
+                  <ReferenceEntry key={citation.id} citation={citation} num={num} />
+                ))}
+              </ol>
+              <p className="mt-6 font-sans text-sm text-muted">
+                Every claim on this page is cited. If we got something wrong, tell us.
+              </p>
+            </Section>
           </div>
-          <ol className="space-y-2">
-            {researchSections.map((section, i) => (
-              <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
-                  className="text-sm text-stone-500 hover:text-deep transition-colors flex items-start gap-2"
-                >
-                  <span className="text-muted font-mono text-xs mt-0.5">
-                    {i + 1}.
-                  </span>
-                  {section.title}
-                </a>
-              </li>
-            ))}
-          </ol>
         </div>
 
-        {/* References */}
-        <section id="references" className="mb-16 md:mb-24 scroll-mt-16">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">References</h2>
-          <ol className="space-y-4">
-            {orderedCitations.map(({ citation, num }) => (
-              <ReferenceEntry key={citation.id} citation={citation} num={num} />
-            ))}
-          </ol>
-        </section>
-
-        {/* CTA */}
-        <section className="text-center py-10 border-t border-stone-200/80">
-          <h3 className="font-serif text-xl md:text-2xl text-primary dark:text-stone-200 mb-3">
-            See the research in action
-          </h3>
-          <p className="text-secondary dark:text-stone-400 mb-7">
-            Every topic analysis on Argumend implements these evidence-based principles.
-          </p>
-          <Link
-            href="/topics"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-sm"
-          >
-            Explore Topics
-            <Scale className="h-3.5 w-3.5" />
-          </Link>
-        </section>
-
-        {/* Footer tagline */}
-        <div className="pt-6 border-t border-stone-200/60 mt-8">
-          <p className="text-sm text-muted dark:text-stone-400 italic text-center">
-            All claims on this page are cited. If we got something wrong, tell us.
-          </p>
-        </div>
-      </div>
+        <NextStep map={mapLinkFor(FLAGSHIP_MAP_IDS.unemployment)!} label="See it on a map" />
+      </PageContainer>
     </AppShell>
   );
 }

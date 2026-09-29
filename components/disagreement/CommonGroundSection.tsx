@@ -1,41 +1,33 @@
 import type { DisagreementReportV1 } from "@/types/disagreement";
+import { ReportSection, SourceNotes } from "./ReportSection";
 
+/**
+ * What the participants already share. It comes first because it is the
+ * half of the diagnosis people most often do not expect: before the split,
+ * the ground nobody is contesting.
+ */
 export function CommonGroundSection({ report }: { report: DisagreementReportV1 }) {
   return (
-    <section aria-labelledby="common-ground-heading">
-      <h2 id="common-ground-heading" className="font-serif text-2xl text-[var(--text-heading)] sm:text-3xl">
-        What they agree on
-      </h2>
+    <ReportSection id="common-ground" title="What they agree on">
       {report.commonGround.length === 0 ? (
-        <p className="mt-3 max-w-2xl text-[var(--text-secondary)]">
+        <p className="max-w-[36rem] font-serif text-lg leading-relaxed text-[var(--text-secondary)]">
           No reliable shared premise could be established from this text.
         </p>
       ) : (
-        <ul className="mt-5 divide-y divide-[var(--border-divider)] border-t border-[var(--border-divider)]">
+        <ul className="space-y-6">
           {report.commonGround.map((item) => (
-            <li key={item.id} className="py-4">
-              <p className="leading-relaxed text-[var(--text-primary)]">{item.statement}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.14em] text-[var(--text-muted)]">
+            <li key={item.id} className="border-l-2 border-deep/40 pl-4 dark:border-deep-light/50">
+              <p className="max-w-[36rem] font-serif text-[1.25rem] leading-snug text-[var(--text-heading)]">
+                {item.statement}
+              </p>
+              <p className="mt-1.5 font-sans text-[0.8125rem] text-[var(--text-muted)]">
                 {item.basis === "explicit" ? "Stated by all sides" : "Strongly implied"}
               </p>
-              {item.grounding.length > 0 ? (
-                <details className="mt-2">
-                  <summary className="min-h-11 cursor-pointer text-sm text-[#3a6965]">
-                    Source notes ({item.grounding.length})
-                  </summary>
-                  <ul className="mt-2 space-y-2 border-l-2 border-[var(--border-divider)] pl-4">
-                    {item.grounding.map((ref) => (
-                      <li key={ref.id} className="text-sm leading-relaxed text-[var(--text-secondary)]">
-                        &ldquo;{ref.quote}&rdquo;
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              ) : null}
+              <SourceNotes quotes={item.grounding} />
             </li>
           ))}
         </ul>
       )}
-    </section>
+    </ReportSection>
   );
 }

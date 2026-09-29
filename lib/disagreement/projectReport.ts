@@ -1,4 +1,10 @@
-import { identifyCruxes } from "@/lib/crux";
+import {
+  DEFAULT_CANDIDACY_FLOOR,
+  describeProbeSkip,
+  identifyCruxes,
+  jevProjectionGateEnabled,
+  normalizeContestednessOverrides,
+} from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import type {
   ArgumentAccountability,
@@ -122,27 +128,32 @@ function cruxBranches(input: {
   const { claim, affectedPositionIds, positionLabels } = input;
   if (!claim) return [];
 
-  // A claim that already opens with "If" would otherwise read "If If ...".
+  // The claim is quoted rather than spliced into the sentence: a statement
+  // keeps its own capitals ("If Immigrants grow ... holds" read as a typo),
+  // and a claim that already opens with "If" no longer reads "If If ...".
   const stated = asCondition(claim.statement);
-  const condition = /^if\s/i.test(stated) ? `${stated}, and that holds` : `If ${stated} holds`;
+  const condition = `If “${stated}” holds`;
   const stanceFor = new Map(claim.stanceByPosition.map((stance) => [stance.positionId, stance.relation]));
   const named = affectedPositionIds.filter((id) => stanceFor.has(id));
   const strengthened = named.filter((id) => stanceFor.get(id) === "supports");
   const weakened = named.filter((id) => stanceFor.get(id) === "opposes");
 
-  const label = (id: string) => positionLabels.get(id) ?? id;
+  // Position labels are short noun phrases ("Growth offsets supply"), so they
+  // read as names of cases, not as the subject of a sentence.
+  const cases = (ids: string[]) =>
+    `The case for ${ids.map((id) => `“${positionLabels.get(id) ?? id}”`).join(" and ")}`;
   const branches: Array<{ condition: string; consequence: string }> = [];
 
   if (strengthened.length > 0) {
     branches.push({
       condition,
-      consequence: `${strengthened.map(label).join(" and ")} becomes stronger.`,
+      consequence: `${cases(strengthened)} gets stronger.`,
     });
   }
   if (weakened.length > 0) {
     branches.push({
       condition,
-      consequence: `${weakened.map(label).join(" and ")} becomes weaker.`,
+      consequence: `${cases(weakened)} gets weaker.`,
     });
   }
 
@@ -203,6 +214,19 @@ export function projectDisagreementReport(input: {
   provider: string;
   model: string;
   extraWarnings?: string[];
+  /**
+   * Claim id -> 0..1 contestedness measured by a calibrated probe over this
+   * same source (crux engine v1.2). Supplied by the caller; the projection
+   * never calls out to anything. Without the gate flag it is inert.
+   */
+  contestedness?: Readonly<Record<string, number>>;
+  /**
+   * The projection's Jev gate (CRUX_PROJECTION_JEV_GATE, default off). An
+   * explicit value wins over the environment.
+   */
+  jevGate?: boolean;
+  /** Floor the gate compares against; defaults to the engine's 0.25. */
+  contestednessFloor?: number;
 }): DisagreementReportV1 {
   const { extraction, graph, source } = input;
   let dropped = 0;
@@ -303,18 +327,46 @@ export function projectDisagreementReport(input: {
       branches: cruxBranches({ claim, affectedPositionIds: affected, positionLabels }),
       resolution: {
         kind: resolutionKind,
-        condition: claim?.resolution?.condition ?? related?.resolutionCondition ?? "Further clarification is required.",
+        condition:
+          claim?.resolution?.condition ?? related?.resolutionCondition ?? "The text doesn’t say what would settle this.",
       },
       evidenceState: "not-independently-checked",
       confidence: (claim?.confidence ?? "medium") as ConfidenceBand,
     });
   };
 
+  // Projection gate (CRUX_PROJECTION_JEV_GATE, default off): when the caller
+  // supplies calibrated contestedness for this source, a ranked claim the
+  // probe scores below the floor is not presented and the next engine-ranked
+  // claim is taken. Like filter C this is presentation only — the engine's
+  // order is untouched and nothing is re-ranked. It is deliberately separate
+  // from the engine-level `contestednessOverrides`, so the two can be
+  // measured apart.
+  const jevGate = jevProjectionGateEnabled(input.jevGate);
+  // Same validation as the engine: non-finite values are absent rather than
+  // zero, values are clamped to 0..1, and the lookup is a Map so a claim id
+  // like "__proto__" cannot resolve off the prototype chain.
+  const contestedness = normalizeContestednessOverrides(input.contestedness);
+  const contestednessFloor = input.contestednessFloor ?? DEFAULT_CANDIDACY_FLOOR;
+
   for (const result of ranked) {
     if (cruxes.length >= DISAGREEMENT_LIMITS.maxCruxes) break;
     const claim = claimsById.get(result.claimId);
+    if (jevGate && claim) {
+      const probe = contestedness.get(result.claimId);
+      if (probe !== undefined && probe < contestednessFloor) {
+        warnings.push(
+          `Projection skipped engine crux "${claim.id}" (${claim.statement}): ${describeProbeSkip(probe, contestednessFloor)}.`,
+        );
+        continue;
+      }
+    }
     const related = disagreements.find((item) => item.relatedClaimIds.includes(result.claimId));
-    const claimQuestion = claim ? `Is this true: ${claim.statement}` : undefined;
+    // Statement first, question after: splicing the claim into "Is it true
+    // that ..." would lowercase proper nouns or keep a stray capital.
+    const claimQuestion = claim
+      ? `${asCondition(claim.statement).replace(/[?!]+$/, "")}. Is that true?`
+      : undefined;
     const question = [related?.question, claimQuestion].find(
       (candidate) => candidate && !seenQuestions.has(normalizeQuestion(candidate)),
     );

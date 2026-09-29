@@ -4,7 +4,9 @@ import { argumentTopicIds } from "@/lib/argument/topicIds";
 import {
   ARGUMENT_TOPICS_LAST_UPDATED,
   CONTENT_LAST_UPDATED,
+  LEGAL_LAST_UPDATED,
 } from "@/lib/site";
+import { aiPageAsOf } from "./ai/loadAiMaps";
 import sitemap from "./sitemap";
 
 /**
@@ -49,9 +51,34 @@ describe("sitemap", () => {
         "https://argumend.org",
         "https://argumend.org/topics",
         "https://argumend.org/analyze",
+        "https://argumend.org/ai",
         "https://argumend.org/about",
       ]),
     );
+  });
+
+  it("lists /ai once, dated by the latest recorded ledger entry", () => {
+    const matching = entries.filter((entry) => entry.url === "https://argumend.org/ai");
+    expect(matching).toHaveLength(1);
+    expect(new Date(matching[0].lastModified as string | Date).getTime()).toBe(
+      new Date(`${aiPageAsOf()}T00:00:00Z`).getTime(),
+    );
+  });
+
+  it("advertises the legal pages so a policy cannot be unfindable", () => {
+    const expected = new Date(`${LEGAL_LAST_UPDATED}T00:00:00Z`).getTime();
+
+    for (const path of ["/privacy", "/terms"]) {
+      const matching = entries.filter(
+        (entry) => entry.url === `https://argumend.org${path}`,
+      );
+      expect(matching, `expected one sitemap entry for ${path}`).toHaveLength(1);
+      expect(matching[0].changeFrequency).toBe("yearly");
+      expect(matching[0].priority).toBe(0.3);
+      expect(
+        new Date(matching[0].lastModified as string | Date).getTime(),
+      ).toBe(expected);
+    }
   });
 
   it("excludes hidden and merge-pending routes from the pruning audit", () => {
@@ -64,7 +91,10 @@ describe("sitemap", () => {
       "/fallacies",
       "/questions",
       "/is",
+      // Folded into /topics (301s in next.config.js, "maps library").
       "/topics/compare",
+      "/topics/category",
+      "/topics/tag",
       "/for-educators",
       "/community",
       "/perspectives",
@@ -73,6 +103,8 @@ describe("sitemap", () => {
       "/how-it-works",
       "/methodology",
       "/lessons-from-the-deep",
+      // Behind NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY and noindex while flagged.
+      "/reply",
     ];
     for (const prefix of deLinkedPrefixes) {
       const offending = urls.filter((url) =>

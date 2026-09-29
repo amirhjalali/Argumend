@@ -342,7 +342,7 @@ export const rfkHealthPolicyData = {
           title: "Two-Thirds of MAHA Dietary-Guidelines Reviewers Had Industry Ties",
           description:
             "Marion Nestle's January 2026 analysis found that roughly two-thirds of the reviewers for the MAHA dietary guidelines had industry ties — the very conflict-of-interest problem MAHA invokes against prior committees. Combined with the documented industry-funding history of past advisory bodies, this shows that conflicts of interest in health-policy panels are real, but also that MAHA's own process replicated rather than cured them.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,

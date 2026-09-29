@@ -7,7 +7,7 @@
     "balance": 47,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -26,7 +26,7 @@
     "balance": 68,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -45,7 +45,7 @@
     "balance": 41,
     "weight": 78,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -64,7 +64,7 @@
     "balance": 69,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -83,7 +83,7 @@
     "balance": 57,
     "weight": 81,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -102,7 +102,7 @@
     "balance": 39,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -121,7 +121,7 @@
     "balance": 42,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -140,7 +140,7 @@
     "balance": 39,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -159,7 +159,7 @@
     "balance": 38,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -178,7 +178,7 @@
     "balance": 36,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -193,12 +193,12 @@
     "id": "scott-cost-disease",
     "title": "The Cost Disease",
     "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
-    "confidence_score": 67,
-    "balance": 67,
+    "confidence_score": 85,
+    "balance": 85,
     "weight": 81,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
-      "quadrant": "contested"
+      "label": "Evidence largely converges on the claim",
+      "quadrant": "settled"
     },
     "status": "contested",
     "category": "economics",
@@ -216,7 +216,7 @@
     "balance": 46,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -235,7 +235,7 @@
     "balance": 54,
     "weight": 77,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
@@ -254,8 +254,9 @@
     "balance": 73,
     "weight": 77,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
@@ -273,7 +274,7 @@
     "balance": 54,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -292,8 +293,9 @@
     "balance": 71,
     "weight": 76,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -311,7 +313,7 @@
     "balance": 54,
     "weight": 68,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -330,7 +332,7 @@
     "balance": 61,
     "weight": 63,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -349,8 +351,9 @@
     "balance": 75,
     "weight": 65,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -364,11 +367,11 @@
     "id": "death-penalty-deterrence",
     "title": "The Death Penalty",
     "meta_claim": "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
-    "confidence_score": 22,
-    "balance": 22,
+    "confidence_score": 17,
+    "balance": 17,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -387,7 +390,7 @@
     "balance": 79,
     "weight": 58,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -402,11 +405,11 @@
     "id": "mandatory-voting",
     "title": "Mandatory Voting",
     "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
-    "confidence_score": 76,
-    "balance": 76,
+    "confidence_score": 86,
+    "balance": 86,
     "weight": 53,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -425,7 +428,7 @@
     "balance": 78,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -444,8 +447,9 @@
     "balance": 21,
     "weight": 65,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -463,7 +467,7 @@
     "balance": 62,
     "weight": 57,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -482,8 +486,9 @@
     "balance": 70,
     "weight": 73,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -501,7 +506,7 @@
     "balance": 48,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -520,7 +525,7 @@
     "balance": 62,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -539,7 +544,7 @@
     "balance": 68,
     "weight": 58,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -558,7 +563,7 @@
     "balance": 19,
     "weight": 50,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -573,12 +578,13 @@
     "id": "us-iran-conflict",
     "title": "The US-Iran Conflict",
     "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 48,
-    "balance": 48,
+    "confidence_score": 23,
+    "balance": 23,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
-      "quadrant": "contested"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -596,7 +602,7 @@
     "balance": 61,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -615,7 +621,7 @@
     "balance": 53,
     "weight": 80,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -634,7 +640,7 @@
     "balance": 40,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -653,7 +659,7 @@
     "balance": 69,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -672,8 +678,9 @@
     "balance": 30,
     "weight": 70,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -691,7 +698,7 @@
     "balance": 66,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -706,11 +713,11 @@
     "id": "pandemic-preparedness",
     "title": "Pandemic Preparedness Investment",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
-    "confidence_score": 57,
-    "balance": 57,
+    "confidence_score": 65,
+    "balance": 65,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -729,7 +736,7 @@
     "balance": 50,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -748,7 +755,7 @@
     "balance": 47,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
@@ -767,7 +774,7 @@
     "balance": 67,
     "weight": 74,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -786,7 +793,7 @@
     "balance": 69,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -805,7 +812,7 @@
     "balance": 59,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -824,7 +831,7 @@
     "balance": 47,
     "weight": 60,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -843,7 +850,7 @@
     "balance": 59,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -858,11 +865,11 @@
     "id": "ai-content-labeling",
     "title": "Mandatory AI Content Labeling",
     "meta_claim": "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
-    "confidence_score": 63,
-    "balance": 63,
+    "confidence_score": 74,
+    "balance": 74,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -881,7 +888,7 @@
     "balance": 65,
     "weight": 60,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -900,7 +907,7 @@
     "balance": 64,
     "weight": 53,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -919,7 +926,7 @@
     "balance": 79,
     "weight": 62,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -938,7 +945,7 @@
     "balance": 55,
     "weight": 53,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -957,7 +964,7 @@
     "balance": 54,
     "weight": 49,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -976,7 +983,7 @@
     "balance": 51,
     "weight": 77,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -991,11 +998,11 @@
     "id": "ai-in-education",
     "title": "AI in Education: Revolution or Risk?",
     "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
-    "confidence_score": 45,
-    "balance": 45,
+    "confidence_score": 39,
+    "balance": 39,
     "weight": 64,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1010,11 +1017,11 @@
     "id": "ai-regulation",
     "title": "Should AI Be Regulated Like Drugs or Nuclear Energy?",
     "meta_claim": "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
-    "confidence_score": 59,
-    "balance": 59,
+    "confidence_score": 51,
+    "balance": 51,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1033,7 +1040,7 @@
     "balance": 46,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1052,7 +1059,7 @@
     "balance": 63,
     "weight": 74,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1071,7 +1078,7 @@
     "balance": 60,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
@@ -1090,7 +1097,7 @@
     "balance": 46,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1109,7 +1116,7 @@
     "balance": 63,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1128,7 +1135,7 @@
     "balance": 44,
     "weight": 74,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1147,7 +1154,7 @@
     "balance": 51,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1166,7 +1173,7 @@
     "balance": 85,
     "weight": 83,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
+      "label": "Evidence largely converges on the claim",
       "quadrant": "settled"
     },
     "status": "settled",
@@ -1185,7 +1192,7 @@
     "balance": 62,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1204,7 +1211,7 @@
     "balance": 66,
     "weight": 60,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1223,7 +1230,7 @@
     "balance": 61,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1242,7 +1249,7 @@
     "balance": 49,
     "weight": 60,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -1261,7 +1268,7 @@
     "balance": 61,
     "weight": 55,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1280,7 +1287,7 @@
     "balance": 63,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1299,7 +1306,7 @@
     "balance": 74,
     "weight": 52,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1318,7 +1325,7 @@
     "balance": 64,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1337,7 +1344,7 @@
     "balance": 62,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1356,7 +1363,7 @@
     "balance": 65,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1375,7 +1382,7 @@
     "balance": 37,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1394,7 +1401,7 @@
     "balance": 66,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1413,7 +1420,7 @@
     "balance": 48,
     "weight": 77,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1432,7 +1439,7 @@
     "balance": 33,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1451,7 +1458,7 @@
     "balance": 44,
     "weight": 79,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1466,11 +1473,11 @@
     "id": "seed-oils-health",
     "title": "Are Seed Oils Harmful to Human Health?",
     "meta_claim": "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
-    "confidence_score": 46,
-    "balance": 46,
+    "confidence_score": 40,
+    "balance": 40,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1485,12 +1492,12 @@
     "id": "obesity-personal-responsibility",
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
-    "confidence_score": 31,
-    "balance": 31,
+    "confidence_score": 18,
+    "balance": 18,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
-      "quadrant": "contested"
+      "label": "Evidence largely converges on the counterclaim",
+      "quadrant": "settled"
     },
     "status": "contested",
     "category": "science",
@@ -1508,7 +1515,7 @@
     "balance": 57,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1523,11 +1530,11 @@
     "id": "remote-work-permanence",
     "title": "The Future of Remote Work",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 58,
-    "balance": 58,
+    "confidence_score": 74,
+    "balance": 74,
     "weight": 57,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1546,7 +1553,7 @@
     "balance": 61,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1565,7 +1572,7 @@
     "balance": 53,
     "weight": 50,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1580,11 +1587,11 @@
     "id": "billionaire-wealth",
     "title": "Should Billionaires Exist?",
     "meta_claim": "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
-    "confidence_score": 68,
-    "balance": 68,
+    "confidence_score": 66,
+    "balance": 66,
     "weight": 59,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1603,7 +1610,7 @@
     "balance": 40,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1622,7 +1629,7 @@
     "balance": 54,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1641,7 +1648,7 @@
     "balance": 47,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1660,7 +1667,7 @@
     "balance": 67,
     "weight": 54,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1679,7 +1686,7 @@
     "balance": 66,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1698,7 +1705,7 @@
     "balance": 57,
     "weight": 62,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1717,8 +1724,9 @@
     "balance": 70,
     "weight": 71,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
@@ -1736,7 +1744,7 @@
     "balance": 40,
     "weight": 81,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1755,7 +1763,7 @@
     "balance": 68,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1774,7 +1782,7 @@
     "balance": 59,
     "weight": 83,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1789,11 +1797,11 @@
     "id": "return-to-office-productivity",
     "title": "Does Return-to-Office Actually Improve Productivity?",
     "meta_claim": "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
-    "confidence_score": 36,
-    "balance": 36,
+    "confidence_score": 27,
+    "balance": 27,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1808,11 +1816,11 @@
     "id": "lab-diamonds-ethics",
     "title": "Are Lab-Grown Diamonds More Ethical Than Mined Diamonds?",
     "meta_claim": "Lab-grown diamonds are the ethical choice — they avoid the human rights abuses and environmental destruction of diamond mining.",
-    "confidence_score": 60,
-    "balance": 60,
+    "confidence_score": 52,
+    "balance": 52,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1831,7 +1839,7 @@
     "balance": 58,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1850,7 +1858,7 @@
     "balance": 58,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -1869,7 +1877,7 @@
     "balance": 48,
     "weight": 64,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1888,7 +1896,7 @@
     "balance": 51,
     "weight": 64,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1907,8 +1915,10 @@
     "balance": 76,
     "weight": 82,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Evidence largely converges on the claim",
+      "quadrant": "settled",
+      "fragile": true,
+      "pinnedByStatus": true
     },
     "status": "settled",
     "category": "philosophy",
@@ -1926,7 +1936,7 @@
     "balance": 86,
     "weight": 49,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -1945,7 +1955,7 @@
     "balance": 31,
     "weight": 63,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -1964,7 +1974,7 @@
     "balance": 66,
     "weight": 56,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -1983,8 +1993,9 @@
     "balance": 70,
     "weight": 76,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "philosophy",
@@ -2002,7 +2013,7 @@
     "balance": 69,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2021,7 +2032,7 @@
     "balance": 69,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2040,7 +2051,7 @@
     "balance": 63,
     "weight": 68,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2059,7 +2070,7 @@
     "balance": 58,
     "weight": 62,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2078,7 +2089,7 @@
     "balance": 72,
     "weight": 58,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2097,7 +2108,7 @@
     "balance": 49,
     "weight": 61,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2116,7 +2127,7 @@
     "balance": 30,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2135,7 +2146,7 @@
     "balance": 43,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2154,7 +2165,7 @@
     "balance": 59,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2173,7 +2184,7 @@
     "balance": 72,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2192,7 +2203,7 @@
     "balance": 59,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2207,11 +2218,11 @@
     "id": "longevity-anti-aging",
     "title": "Anti-Aging & Radical Life Extension",
     "meta_claim": "Recent advances in longevity science — including rapamycin, senolytics, epigenetic reprogramming, and caloric restriction mimetics — suggest that meaningful human lifespan extension beyond 120 years is achievable within our lifetimes.",
-    "confidence_score": 61,
-    "balance": 61,
+    "confidence_score": 52,
+    "balance": 52,
     "weight": 62,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2230,7 +2241,7 @@
     "balance": 60,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2249,7 +2260,7 @@
     "balance": 36,
     "weight": 66,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2268,7 +2279,7 @@
     "balance": 81,
     "weight": 71,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
+      "label": "Evidence largely converges on the claim",
       "quadrant": "settled"
     },
     "status": "contested",
@@ -2287,7 +2298,7 @@
     "balance": 49,
     "weight": 61,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2306,7 +2317,7 @@
     "balance": 45,
     "weight": 64,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2325,7 +2336,7 @@
     "balance": 78,
     "weight": 77,
     "verdict": {
-      "label": "Settled — evidence strongly favors the claim",
+      "label": "Evidence largely converges on the claim",
       "quadrant": "settled"
     },
     "status": "contested",
@@ -2344,7 +2355,7 @@
     "balance": 38,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2363,8 +2374,9 @@
     "balance": 29,
     "weight": 78,
     "verdict": {
-      "label": "Settled — evidence strongly favors the counterclaim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
@@ -2378,11 +2390,11 @@
     "id": "rfk-health-policy",
     "title": "RFK Jr's Health Policy Agenda (MAHA)",
     "meta_claim": "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
-    "confidence_score": 44,
-    "balance": 44,
+    "confidence_score": 39,
+    "balance": 39,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2397,12 +2409,13 @@
     "id": "doge-federal-cuts",
     "title": "DOGE & Federal Spending Cuts",
     "meta_claim": "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
-    "confidence_score": 31,
-    "balance": 31,
+    "confidence_score": 25,
+    "balance": 25,
     "weight": 78,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
-      "quadrant": "contested"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
@@ -2420,7 +2433,7 @@
     "balance": 51,
     "weight": 75,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2439,7 +2452,7 @@
     "balance": 63,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2462,7 +2475,7 @@
     "balance": 53,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2486,7 +2499,7 @@
     "balance": 77,
     "weight": 55,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2510,7 +2523,7 @@
     "balance": 59,
     "weight": 63,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2534,7 +2547,7 @@
     "balance": 52,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2557,7 +2570,7 @@
     "balance": 43,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2581,7 +2594,7 @@
     "balance": 57,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2605,7 +2618,7 @@
     "balance": 65,
     "weight": 67,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2629,7 +2642,7 @@
     "balance": 51,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2653,7 +2666,7 @@
     "balance": 47,
     "weight": 76,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2677,7 +2690,7 @@
     "balance": 47,
     "weight": 59,
     "verdict": {
-      "label": "Balanced — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "highly_speculative",
@@ -2701,7 +2714,7 @@
     "balance": 59,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2725,7 +2738,7 @@
     "balance": 58,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2749,7 +2762,7 @@
     "balance": 43,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2773,7 +2786,7 @@
     "balance": 70,
     "weight": 64,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2797,7 +2810,7 @@
     "balance": 64,
     "weight": 73,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2821,7 +2834,7 @@
     "balance": 35,
     "weight": 63,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2845,7 +2858,7 @@
     "balance": 42,
     "weight": 61,
     "verdict": {
-      "label": "Leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2869,7 +2882,7 @@
     "balance": 59,
     "weight": 59,
     "verdict": {
-      "label": "Leans toward the claim — moderately evidenced",
+      "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
@@ -2893,7 +2906,7 @@
     "balance": 55,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2917,7 +2930,7 @@
     "balance": 59,
     "weight": 69,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2941,7 +2954,7 @@
     "balance": 52,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2965,7 +2978,7 @@
     "balance": 69,
     "weight": 70,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -2989,7 +3002,7 @@
     "balance": 33,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3013,7 +3026,7 @@
     "balance": 57,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3036,7 +3049,7 @@
     "balance": 59,
     "weight": 71,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3060,7 +3073,7 @@
     "balance": 47,
     "weight": 65,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
@@ -3084,7 +3097,7 @@
     "balance": 46,
     "weight": 72,
     "verdict": {
-      "label": "Well-mapped, genuinely contested",
+      "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",

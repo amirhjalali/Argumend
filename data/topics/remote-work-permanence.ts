@@ -133,7 +133,7 @@ export const remoteWorkPermanenceData = {
           title: "US Office Vacancy Rate Hits Record ~20%",
           description:
             "Moody's Analytics reported the US office vacancy rate hit a record 19.8% in Q1 2024, surpassing the early-1990s peak. Separately, industry estimates put well over $1 trillion of commercial real estate debt maturing in 2025 (with the wall peaking later in the decade), of which the office segment is most stressed. This creates genuine economic disruption in downtown cores.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,

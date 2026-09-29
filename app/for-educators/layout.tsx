@@ -2,7 +2,12 @@ import { Metadata } from "next";
 import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "For Educators — Teach Critical Thinking with Argument Maps",
+  // An object, not a plain string: a string title here resets the root
+  // "%s | ARGUMEND" template for every page below this segment.
+  title: {
+    default: "For Educators — Teach Critical Thinking with Argument Maps",
+    template: "%s | ARGUMEND",
+  },
   description:
     "Bring structured argument mapping to your classroom. Ready-made lesson plans, cross-curricular integration, and tools to teach critical thinking through evidence-based debate analysis. Free for IB, AP, and A-Level courses.",
   keywords: [

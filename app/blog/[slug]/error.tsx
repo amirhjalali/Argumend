@@ -11,11 +11,11 @@ export default function BlogArticleError({
 }) {
   return (
     <RouteErrorState
-      title="This article could not load"
-      message="This article could not be loaded. Please try again or return to the blog."
+      title="This essay could not load"
+      message="This essay could not be loaded. Please try again or return to the essays."
       reset={reset}
       backHref="/blog"
-      backLabel="Back to Blog"
+      backLabel="Back to essays"
     />
   );
 }

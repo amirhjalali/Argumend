@@ -53,7 +53,7 @@ export const usIranConflictData = {
           title: "Iran Amasses 408 kg of 60% Enriched Uranium by 2025",
           description:
             "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium — a roughly 50% increase since the February 2025 report. The IAEA had earlier detected particles enriched to 83.7% at Fordow in January 2023. Experts estimate Iran could produce weapons-grade material for up to 9 weapons within weeks of a political decision.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
@@ -70,7 +70,7 @@ export const usIranConflictData = {
           title: "US-Israel Strikes on Natanz, Fordow, and Isfahan (June 2025)",
           description:
             "On June 13, 2025, Israel launched its opening strikes (Operation Rising Lion) on Iranian nuclear and military targets, with over 200 fighter jets reportedly dropping 330+ munitions on roughly 100 targets. The US joined on June 22 with Operation Midnight Hammer, sending seven B-2 bombers and bunker-buster munitions against Fordow, Natanz, and Isfahan. The strikes destroyed surface infrastructure and centrifuge halls, but damage to the deepest underground enrichment halls was disputed, and a leaked US Defense Intelligence Agency assessment judged the setback to be months rather than years. As of early 2026, the IAEA had lost continuity of knowledge over much of Iran's program, and the extent of residual underground capacity remained contested.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
@@ -132,7 +132,7 @@ export const usIranConflictData = {
           title: "Iran-Backed Militia Kills 3 US Soldiers at Tower 22, Jordan (January 2024)",
           description:
             "An Iranian-backed Iraqi militia drone struck Tower 22, a US military outpost in Jordan near the Syrian border, killing 3 American soldiers and wounding 47. This was one of 170+ attacks on US bases by Iran-aligned groups between October 2023 and January 2024 following the Hamas attack on Israel. The US retaliated with strikes on 85 Iran-affiliated targets across Iraq and Syria.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,

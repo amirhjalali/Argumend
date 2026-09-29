@@ -1,0 +1,1699 @@
+{
+ "topicId": "covid-what-ended",
+ "modelVersion": 2,
+ "question": {
+  "id": "q-covid-what-ended",
+  "type": "question",
+  "statement": "Which Covid-era disagreements did evidence end, and which could it never end?",
+  "provenance": {
+   "origin": "curator",
+   "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md (title question)"
+  },
+  "createdAt": "2026-09-22T00:00:00Z",
+  "modelVersion": 2,
+  "tags": [
+   "covid",
+   "retrospective",
+   "crux-ledger"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "q-covid-what-ended",
+   "type": "question",
+   "statement": "Which Covid-era disagreements did evidence end, and which could it never end?",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md (title question)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "tags": [
+    "covid",
+    "retrospective",
+    "crux-ledger"
+   ]
+  },
+  {
+   "id": "p-tests-answered",
+   "type": "position",
+   "statement": "Where a Covid dispute could be put to measurement, measurement answered it: how the virus travels, whether the vaccines prevent severe disease, whether prior infection protects, and how steeply fatality rises with age. Where requirements arrived at different times in different places, even a policy effect such as vaccine uptake was measured. What stayed open stayed open because the right test was blocked, not because evidence cannot end a dispute.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md Pattern 1"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Where a question could be measured, measurement answered it; the open ones had blocked tests.",
+   "label": "The tests ran and answered",
+   "constituency": "Epidemiologists, trialists and evidence-based-policy researchers who point to the trials, cohorts, seroprevalence surveys and natural experiments that closed questions between 2020 and 2023.",
+   "steelmanBasis": "The four questions the retrospective marks resolved (airborne spread, protection against severe disease, protection from prior infection, fatality by age) were each closed by designed trials, cohorts, surveys or outbreak reconstructions, and staggered policy timing let researchers measure uptake effects that had looked unmeasurable. The position claims no more than those rows show, and it reads the open rows as blocked tests rather than as proof that evidence is idle.",
+   "displayRank": 1
+  },
+  {
+   "id": "p-counterfactuals-unrecoverable",
+   "type": "position",
+   "statement": "The disputes that decided policy were comparisons with a world that did not happen: lockdown against a lighter alternative, closed schools against open ones, a masked public against an unmasked one, public trust with and without the pandemic response. No study could recover that world, and where the settling observation did exist, as with the origin of the virus, it was held by a party that would not release it. Evidence narrowed these disputes; it could not end them.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md Pattern 3; rows 6, 7, 8, 14"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "The questions that decided policy compared us with a world that never happened.",
+   "label": "The counterfactuals were never recoverable",
+   "constituency": "Methodologists, economists and official reviewers who stress confounding, adherence and the absence of clean counterfactuals, whatever their view of the policies themselves.",
+   "steelmanBasis": "The retrospective's open and narrowed rows share one failure: the experiments that could be run measured something next to the crux (mask promotion rather than mask wearing, stringency indices rather than a specified alternative, an outcome whose cause cannot be isolated), and official reviews of the same period frame the lockdown question differently. The position rests on that design limit and on withheld records, not on scepticism about evidence in general.",
+   "displayRank": 2
+  },
+  {
+   "id": "p-values-in-empirical-clothes",
+   "type": "position",
+   "statement": "The fights people cared about most were about values and authority: whether access to work and public life may hang on a medical choice, how much present welfare to trade for statistical lives, how large a benefit to others licenses compulsion. They were argued in the language of epidemiology because empirical claims can be said in public and value weightings are harder to say. Where the empirical half settled, the disagreement carried on, which shows it was never mainly about the evidence.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md Pattern 2; rows 3, 5, 12, 13, 15"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "People fought about liberty, fairness and who decides, in the vocabulary of epidemiology.",
+   "label": "The real dispute was values wearing empirical clothes",
+   "constituency": "Moral and political philosophers, legal scholars, and people on both sides of the mandate fight who say the public argument was about liberty, fairness and who decides.",
+   "steelmanBasis": "In several rows the empirical half settled and the dispute did not end (transmission reduction, learning loss); courts decided who may mandate without deciding whether mandating is right; and the best-known public statements of the welfare-versus-lives fork were written as epidemiology. The position predicts that pattern and does not deny that the empirical halves were answered.",
+   "displayRank": 3
+  },
+  {
+   "id": "c-airborne-room-scale",
+   "type": "claim",
+   "statement": "SARS-CoV-2 spreads through the air at room scale, not mainly through large droplets at close range or through contaminated surfaces.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 1"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Is Covid airborne at room scale, or mainly droplets and surfaces?",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Outbreak reconstructions, agency science briefs from May 2021 on, and a 2024 multi-agency terminology agreement all treat inhalation of airborne particles as a principal route and surfaces as a minor one. The agencies that framed Covid as droplet-borne in 2020 no longer do. The claim had a definitional core: part of the settlement was retiring the droplet/aerosol split itself. The evidence attached is mostly supporting because the question closed, not because the map is incomplete; the 2020 WHO brief records the earlier state.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "Outbreak investigations and agency reviews show whether people are infected by inhaling virus beyond close range, and how much surfaces contribute."
+   }
+  },
+  {
+   "id": "c-vaccines-cut-severe-disease",
+   "type": "claim",
+   "statement": "The mRNA Covid vaccines substantially reduced the risk of severe or fatal Covid.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 2"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Did the vaccines substantially reduce severe disease and death?",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Phase III trials showed about 95% efficacy against symptomatic disease with severe cases concentrated in placebo arms, and a nationwide matched cohort put effectiveness against severe disease at 92%. The trials were powered for symptomatic disease, so the severe-outcome case leans on observational data. Protection against infection waned and varied by variant; that is a different claim.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "Randomised trials and large matched cohorts measure severe disease and death in vaccinated and unvaccinated groups."
+   }
+  },
+  {
+   "id": "c-transmission-justifies-coercion",
+   "type": "claim",
+   "statement": "Covid vaccination cut onward transmission by enough to justify requiring it for the protection of others.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 3"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Was the cut in onward transmission large enough to license compulsion?",
+   "epistemicType": "normative",
+   "status": "contested",
+   "statusBasis": "Mixed claim, kept whole because it is one retrospective row. Its empirical half is settled: vaccination reduced onward transmission of Alpha, Delta and Omicron, modestly and for a limited time. Whether that externality is large enough to license compulsion is a threshold no measurement sets, and it remains contested.",
+   "resolution": {
+    "kind": "value-difference",
+    "condition": "Nothing settles the threshold. Evidence fixes the size and duration of the transmission effect; how large an effect licenses compulsion is a value choice."
+   }
+  },
+  {
+   "id": "c-mandates-raise-uptake",
+   "type": "claim",
+   "statement": "Covid vaccination requirements raised vaccine uptake above what it would otherwise have been.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 4"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Did vaccination requirements actually raise uptake?",
+   "epistemicType": "empirical",
+   "status": "contested",
+   "statusBasis": "Narrowed rather than settled. Staggered timing let two quasi-experimental studies estimate real uptake gains from access certificates, larger where uptake was low, but they disagree about Germany. 'Mandate' covered both access certificates and a general duty to vaccinate, and the one general adult mandate (Austria) was suspended before it was enforced, so the general-duty case was never tested.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "Quasi-experimental estimates of uptake with and without a requirement, reported separately for access certificates and for general duties to vaccinate."
+   }
+  },
+  {
+   "id": "c-school-closures-net-cost",
+   "type": "claim",
+   "statement": "Covid school closures cost children more than they bought in reduced transmission.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 5"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Did school closures cost children more than they bought?",
+   "epistemicType": "normative",
+   "status": "contested",
+   "statusBasis": "Narrowed. The cost side is measured: learning deficits of about 0.14 standard deviations across 15 countries and record test-score falls in the US, larger for poorer children. The benefit side is partial, and setting learning loss against infections averted takes a weighting, so the net claim stays contested. Re-check when the UK inquiry's children's module reports.",
+   "resolution": {
+    "kind": "value-difference",
+    "condition": "The costs and the transmission benefit can each be measured; comparing lost learning with infections averted requires a weighting that no measurement supplies."
+   }
+  },
+  {
+   "id": "c-lockdowns-reduced-total-deaths",
+   "type": "claim",
+   "statement": "Lockdowns as implemented reduced total deaths, counting indirect deaths, compared with lighter alternatives.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 6"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Did lockdowns reduce total deaths relative to lighter alternatives?",
+   "epistemicType": "empirical",
+   "status": "unresolved",
+   "statusBasis": "Unresolved, not merely contested: there is no clean counterfactual. Behaviour changed voluntarily before and alongside mandates, and country comparisons are confounded by demography, households and care-home policy. Official reviews frame the question differently, and none estimates total deaths, indirect ones included, against a specified lighter alternative.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "A comparison against a specified lighter alternative that counts total deaths, indirect ones included, and handles voluntary behaviour change, demography and care-home policy. No review has done this."
+   }
+  },
+  {
+   "id": "c-community-masking-reduced-transmission",
+   "type": "claim",
+   "statement": "Community mask wearing reduced Covid transmission.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 7"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Did community masking reduce transmission?",
+   "epistemicType": "empirical",
+   "status": "contested",
+   "statusBasis": "Open at the population and policy level, which is what this claim states. The randomised trials measured mask promotion with low adherence rather than mask wearing, and found small or uncertain effects; observational studies mostly found benefit. At the individual level the retrospective marks the question narrowed; that finer claim is not split out in this draft.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "A trial or natural experiment that measures mask wearing itself, at adherence high enough to detect an effect, against laboratory-confirmed infection."
+   }
+  },
+  {
+   "id": "c-origin-natural-spillover",
+   "type": "claim",
+   "statement": "SARS-CoV-2 entered the human population through natural zoonotic spillover rather than a research-related incident.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 8"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Did the virus arise from natural spillover or a research-related incident?",
+   "epistemicType": "empirical",
+   "status": "unresolved",
+   "statusBasis": "Unresolved and access-blocked. No intermediate host or progenitor virus has been identified, and official bodies split: an international advisory group reads the weight of evidence as favouring spillover while keeping all hypotheses open, and one US agency leans the other way with low confidence. The settling records and samples are held by a party that has not released them.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "Release of early patient sequences, market-animal sampling data or laboratory records that identify a progenitor virus, an infected intermediate animal, or a laboratory record of the virus."
+   }
+  },
+  {
+   "id": "c-early-dismissals-reputational",
+   "type": "claim",
+   "statement": "Early public dismissals of a laboratory origin reflected reputational concern more than scientific judgment.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 9"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Were early lab-leak dismissals scientific or reputational?",
+   "epistemicType": "empirical",
+   "status": "contested",
+   "statusBasis": "Narrowed. The documentary record of private uncertainty alongside public confidence is now established. Why the gap existed, evolving judgment or reputation management, is contested along institutional lines. This is a claim about institutional process, not about the origin of the virus; the retrospective types it as a trust claim, mapped here to empirical.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "Contemporaneous records that show the reasons for the gap between private uncertainty and public confidence. Released records so far show the gap, not its cause."
+   }
+  },
+  {
+   "id": "c-prior-infection-comparable",
+   "type": "claim",
+   "statement": "Protection from a prior Covid infection was comparable to protection from vaccination.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 10"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Did prior infection protect about as well as vaccination?",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Surveillance cohorts and a 65-study meta-analysis show strong protection from prior infection: about 79% against pre-Omicron reinfection at 40 weeks and about 90% against severe disease for all variants, lower against Omicron reinfection. In the US the policy that turned on this question had already ended when the evidence arrived.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "Cohort and test-negative studies comparing reinfection and severe disease in previously infected and vaccinated groups, by variant and time since infection."
+   }
+  },
+  {
+   "id": "c-fatality-steep-age-gradient",
+   "type": "claim",
+   "statement": "Before vaccines, Covid's fatality per infection rose steeply with age, by roughly four orders of magnitude from school age to 90.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 11"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "How lethal was the virus per infection, by age?",
+   "epistemicType": "empirical",
+   "status": "broadly_accepted",
+   "statusBasis": "Seroprevalence surveys matched to deaths give a J-shaped curve: about 0.002% at age 7, 0.06% at 30, 1% at 60 and 20% at 90. These are population averages by age for the ancestral virus before vaccines, not estimates for healthy people, and per-infection fatality has since changed with immunity and variants.",
+   "resolution": {
+    "kind": "existing-evidence",
+    "condition": "Age-specific seroprevalence surveys matched to deaths, before vaccination changed the denominator."
+   }
+  },
+  {
+   "id": "c-access-conditioned-on-vaccination",
+   "type": "claim",
+   "statement": "Access to work or public places may justly be conditioned on a person's vaccination status.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 12"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "May access to work and public life hang on a medical decision?",
+   "epistemicType": "normative",
+   "status": "contested",
+   "statusBasis": "A standing value disagreement. Courts have allocated who may impose such conditions (upholding a state vaccination law in 1905; in 2022 staying one federal rule and allowing another) without deciding whether imposing them is right. Three rulings from one court bear on this claim; they speak to authority, not to the value question.",
+   "resolution": {
+    "kind": "value-difference",
+    "condition": "Nothing does: this is a standing value disagreement. Courts can allocate who may impose such conditions, which they did, without settling whether imposing them is right."
+   }
+  },
+  {
+   "id": "c-broad-restrictions-right-tradeoff",
+   "type": "claim",
+   "statement": "Society-wide restrictions were a better trade of present welfare for statistical lives than protection focused on the most vulnerable.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 13"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "How much present welfare should be traded for statistical lives, and whose?",
+   "epistemicType": "normative",
+   "status": "contested",
+   "statusBasis": "A question of distributive weights with no empirical form. Its two best-known public statements, both from October 2020, were written largely in epidemiological terms, but what divides them is how to weigh present welfare, whose, against statistical lives.",
+   "resolution": {
+    "kind": "value-difference",
+    "condition": "Nothing does: this is a standing value disagreement about how to weigh present welfare against statistical lives, and whose welfare counts."
+   }
+  },
+  {
+   "id": "c-conduct-reduced-later-compliance",
+   "type": "claim",
+   "statement": "Public-health institutions' Covid-era conduct reduced later public compliance with routine childhood vaccination.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 14"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Did Covid-era conduct damage standing enough to reduce later compliance?",
+   "epistemicType": "empirical",
+   "status": "contested",
+   "statusBasis": "Narrowed. The outcome arrived: US kindergarten MMR coverage fell from 95.2% to about 92.5%, record exemptions, a partisan fall in the importance people attach to childhood vaccines, and similar falls in 52 of 55 countries. The cause is not isolated: service disruption, misinformation, polarisation and 2025 federal changes co-occur. The retrospective types this predictive then causal; the live part is causal.",
+   "resolution": {
+    "kind": "future-observable",
+    "condition": "Studies that separate Covid-era institutional conduct from misinformation, service disruption and later federal changes, for example by comparing places with different mandate regimes over the same years."
+   }
+  },
+  {
+   "id": "c-gof-risk-outweighs-benefit",
+   "type": "claim",
+   "statement": "The risk from gain-of-function research on potential pandemic pathogens outweighs its scientific benefit.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md row 15"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "summary": "Is gain-of-function work worth its risk, and has oversight been fixed?",
+   "epistemicType": "normative",
+   "status": "contested",
+   "statusBasis": "Open. Federal policy changed by executive action in 2025 and 2026, which moved who decides and what is funded without measuring whether risk fell. The value split over scientific freedom and risk tolerance persists, the predictive half can only resolve by the absence of future incidents, and the risk estimate partly depends on the unresolved origin question.",
+   "resolution": {
+    "kind": "value-difference",
+    "condition": "No measurement fixes an acceptable level of catastrophic risk against scientific benefit; the predictive half would resolve only through the presence or absence of future incidents."
+   }
+  },
+  {
+   "id": "e-skagit-choir-outbreak",
+   "type": "evidence",
+   "statement": "Among 61 people at a 2.5-hour choir practice in Skagit County, Washington, in March 2020, with one symptomatic person present, 53 became ill (33 confirmed, 20 probable) and two died. Investigators listed chances for droplet and surface spread and said singing might have spread aerosols.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [1a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Among 61 people at a 2.5-hour choir practice in Skagit County, Washington, in March 2020, with one symptomatic person present, 53 became ill (33 confirmed, 20 probable) and two died. Investigators listed chances for droplet and surface spread and said singing might have spread aerosols.",
+   "source": {
+    "title": "High SARS-CoV-2 Attack Rate Following Exposure at a Choir Practice — Skagit County, Washington, March 2020",
+    "kind": "government",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.cdc.gov/mmwr/volumes/69/wr/mm6919e6.htm",
+    "author": "Hamner et al.",
+    "institution": "CDC (MMWR)",
+    "publishedAt": "2020-05-12"
+   },
+   "relevance": "An attack rate this high in one room over one session is hard to explain by close-range droplets alone, which is why outbreak reconstructions pressed the airborne reading. The investigators kept both readings open, so on its own it narrowed the question rather than closing it. (MMWR page refuses automated fetches; abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-who-brief-july-2020",
+   "type": "evidence",
+   "statement": "WHO's 9 July 2020 scientific brief said short-range aerosol transmission in crowded, inadequately ventilated indoor spaces over prolonged periods 'cannot be ruled out', while adding that droplet and surface transmission could also explain the clusters it reviewed.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [1e] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "WHO's 9 July 2020 scientific brief said short-range aerosol transmission in crowded, inadequately ventilated indoor spaces over prolonged periods 'cannot be ruled out', while adding that droplet and surface transmission could also explain the clusters it reviewed.",
+   "source": {
+    "title": "Transmission of SARS-CoV-2: implications for infection prevention precautions (scientific brief)",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.who.int/news-room/commentaries/detail/transmission-of-sars-cov-2-implications-for-infection-prevention-precautions",
+    "institution": "World Health Organization",
+    "publishedAt": "2020-07-09"
+   },
+   "relevance": "Fixes where the lead agency stood in mid-2020: airborne spread conceded as possible in specific settings, not accepted as a principal route. It dates the question as open at that point.",
+   "status": "current"
+  },
+  {
+   "id": "e-cdc-transmission-brief-2021",
+   "type": "evidence",
+   "statement": "CDC's transmission brief, updated 7 May 2021, named inhalation of very fine respiratory droplets and aerosol particles as one of three principal ways people are infected, and said transmission by inhaling virus in the air farther than six feet from an infectious source can occur.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [1f] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "CDC's transmission brief, updated 7 May 2021, named inhalation of very fine respiratory droplets and aerosol particles as one of three principal ways people are infected, and said transmission by inhaling virus in the air farther than six feet from an infectious source can occur.",
+   "source": {
+    "title": "Scientific Brief: SARS-CoV-2 Transmission (updated 7 May 2021, archived)",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://archive.cdc.gov/www_cdc_gov/coronavirus/2019-ncov/science/science-briefs/sars-cov-2-transmission.html",
+    "institution": "CDC",
+    "publishedAt": "2021-05-07"
+   },
+   "relevance": "A national agency moving inhalation into the principal routes, with infection possible beyond six feet, is the point the resolution condition names: infection by inhalation beyond close range.",
+   "status": "current"
+  },
+  {
+   "id": "e-airborne-terminology-2024",
+   "type": "evidence",
+   "statement": "In April 2024 a WHO-led technical consultation, announced as a joint outline by leading health agencies, recommended the term 'infectious respiratory particles' on a continuous size spectrum with no single cut-off, moving away from the previous 'aerosols' versus 'droplets' dichotomy, and describing spread as 'transmission through the air'.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [1i] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "In April 2024 a WHO-led technical consultation, announced as a joint outline by leading health agencies, recommended the term 'infectious respiratory particles' on a continuous size spectrum with no single cut-off, moving away from the previous 'aerosols' versus 'droplets' dichotomy, and describing spread as 'transmission through the air'.",
+   "source": {
+    "title": "Leading health agencies outline updated terminology for pathogens that transmit through the air",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.who.int/news/item/18-04-2024-leading-health-agencies-outline-updated-terminology-for-pathogens-that-transmit-through-the-air",
+    "institution": "World Health Organization",
+    "publishedAt": "2024-04-18"
+   },
+   "relevance": "Shows the claim's definitional core: part of how the dispute ended was retiring the droplet/aerosol split that the 2020 argument was conducted in.",
+   "status": "current"
+  },
+  {
+   "id": "e-bnt162b2-phase3",
+   "type": "evidence",
+   "statement": "In a placebo-controlled trial of 43,448 people, BNT162b2 was 95% effective against laboratory-confirmed Covid-19 (8 cases versus 162); of 10 severe cases after the first dose, 9 were in the placebo group and 1 in the vaccine group.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [2a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "In a placebo-controlled trial of 43,448 people, BNT162b2 was 95% effective against laboratory-confirmed Covid-19 (8 cases versus 162); of 10 severe cases after the first dose, 9 were in the placebo group and 1 in the vaccine group.",
+   "source": {
+    "title": "Safety and Efficacy of the BNT162b2 mRNA Covid-19 Vaccine",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1056/NEJMoa2034577",
+    "author": "Polack et al.",
+    "institution": "New England Journal of Medicine",
+    "publishedAt": "2020-12-10",
+    "interest": "Funded by BioNTech and Pfizer, the vaccine's developers."
+   },
+   "relevance": "The randomised efficacy result the severe-disease claim starts from. The trial was powered for symptomatic disease, so its severe-case counts are small; that is why the claim also leans on cohort data. (Publisher blocks automated fetches; abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-israel-matched-cohort",
+   "type": "evidence",
+   "statement": "In a nationwide Israeli study of 596,618 vaccinated people matched to unvaccinated controls, estimated BNT162b2 effectiveness 7 or more days after the second dose was 92% against severe disease and 87% against hospitalisation.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [2c] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "In a nationwide Israeli study of 596,618 vaccinated people matched to unvaccinated controls, estimated BNT162b2 effectiveness 7 or more days after the second dose was 92% against severe disease and 87% against hospitalisation.",
+   "source": {
+    "title": "BNT162b2 mRNA Covid-19 Vaccine in a Nationwide Mass Vaccination Setting",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1056/NEJMoa2101765",
+    "author": "Dagan et al.",
+    "institution": "Clalit Research Institute",
+    "publishedAt": "2021-02-24"
+   },
+   "relevance": "Supplies the severe-outcome numbers the trials were too small to pin down, in a real-world population rather than a trial cohort. Observational, so matching quality matters. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-alpha-delta-onward-transmission",
+   "type": "evidence",
+   "statement": "Among 146,243 tested contacts in England, two BNT162b2 doses in the index patient were associated with lower PCR positivity in contacts for Alpha (adjusted rate ratio 0.32) and Delta (0.50); the Delta reduction attenuated substantially within about 12 weeks of the second dose.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [3a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Among 146,243 tested contacts in England, two BNT162b2 doses in the index patient were associated with lower PCR positivity in contacts for Alpha (adjusted rate ratio 0.32) and Delta (0.50); the Delta reduction attenuated substantially within about 12 weeks of the second dose.",
+   "source": {
+    "title": "Effect of Covid-19 Vaccination on Transmission of Alpha and Delta Variants",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1056/NEJMoa2116597",
+    "author": "Eyre et al.",
+    "institution": "University of Oxford / UKHSA",
+    "publishedAt": "2022-01-05"
+   },
+   "relevance": "Settles the size and duration of the externality for Alpha and Delta: real, modest for Delta, and waning. It cannot say whether that is enough to justify compulsion, so it qualifies rather than supports or challenges the claim. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-omicron-prison-infectiousness",
+   "type": "evidence",
+   "statement": "Across 35 California state prisons during the Omicron wave, any vaccination reduced an infected person's risk of transmitting to close contacts by 22%, prior infection alone by 23%, and both by 40%.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [3b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Across 35 California state prisons during the Omicron wave, any vaccination reduced an infected person's risk of transmitting to close contacts by 22%, prior infection alone by 23%, and both by 40%.",
+   "source": {
+    "title": "Infectiousness of SARS-CoV-2 breakthrough infections and reinfections during the Omicron wave",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1038/s41591-022-02138-x",
+    "author": "Tan et al.",
+    "institution": "Nature Medicine",
+    "publishedAt": "2023-01-02"
+   },
+   "relevance": "Extends the transmission evidence to Omicron: a reduction, not elimination, of the same order as prior infection. It sizes the externality; the threshold question stays a value one. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-certificates-six-countries",
+   "type": "evidence",
+   "statement": "A synthetic-control study of six countries found mandatory Covid certification increased vaccinations from about 20 days before implementation to 40 days after, more where prior uptake was below average; it found no effect in Germany and an unclear effect in Denmark.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [4b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "A synthetic-control study of six countries found mandatory Covid certification increased vaccinations from about 20 days before implementation to 40 days after, more where prior uptake was below average; it found no effect in Germany and an unclear effect in Denmark.",
+   "source": {
+    "title": "The effect of mandatory COVID-19 certificates on vaccine uptake: synthetic-control modelling of six countries",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1016/S2468-2667(21)00273-5",
+    "author": "Mills & Rüttenauer",
+    "institution": "Lancet Public Health",
+    "publishedAt": "2021-12-13"
+   },
+   "relevance": "Recovers a counterfactual for access certificates by building a synthetic comparison, the design the uptake question needed. It concerns certificates (vaccinated, tested or recovered), not a general duty to vaccinate. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-certificates-canada-europe",
+   "type": "evidence",
+   "statement": "Using staggered timing across Canadian provinces, announcing proof-of-vaccination requirements for venues was followed by a more-than-60% rise in weekly first doses; simulations put cumulative gains at up to 5 points in Canadian provinces, 4.7 points in Germany, 8 in France and 12 in Italy.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [4a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Using staggered timing across Canadian provinces, announcing proof-of-vaccination requirements for venues was followed by a more-than-60% rise in weekly first doses; simulations put cumulative gains at up to 5 points in Canadian provinces, 4.7 points in Germany, 8 in France and 12 in Italy.",
+   "source": {
+    "title": "COVID-19 vaccination mandates and vaccine uptake",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1038/s41562-022-01363-1",
+    "author": "Karaivanov, Kim, Lu & Shigeoka",
+    "institution": "Nature Human Behaviour",
+    "publishedAt": "2022-06-02"
+   },
+   "relevance": "A second quasi-experimental design reaching the same direction of effect; it disagrees with the six-country study about Germany, which is part of why the claim is narrowed rather than settled. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-austria-mandate-suspended",
+   "type": "evidence",
+   "statement": "Austria's general Covid vaccine mandate for adults, in force from February 2022, was suspended on 9 March 2022 before any fines were imposed.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [4c] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Austria's general Covid vaccine mandate for adults, in force from February 2022, was suspended on 9 March 2022 before any fines were imposed.",
+   "source": {
+    "title": "Austria to suspend its controversial COVID vaccine mandate",
+    "kind": "journalism",
+    "verification": "bot-blocked-assumed-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.euronews.com/2022/03/09/austria-to-suspend-its-controversial-covid-vaccine-mandate",
+    "institution": "Euronews",
+    "publishedAt": "2022-03-09"
+   },
+   "relevance": "The one general adult mandate in the record was never enforced, so the uptake evidence speaks to access certificates only. It is evidence about political durability, not about enforced uptake. (Opened in the 2026-09-22 fact-check; refused an automated re-fetch the same day.)",
+   "status": "current"
+  },
+  {
+   "id": "e-naep-2022-age9",
+   "type": "evidence",
+   "statement": "On the NAEP long-term trend assessment, average scores for US 9-year-olds in 2022 fell 5 points in reading and 7 in mathematics compared with 2020: the largest reading decline since 1990 and the first mathematics decline recorded.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [5a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "On the NAEP long-term trend assessment, average scores for US 9-year-olds in 2022 fell 5 points in reading and 7 in mathematics compared with 2020: the largest reading decline since 1990 and the first mathematics decline recorded.",
+   "source": {
+    "title": "NAEP Long-Term Trend Assessment Results: Reading and Mathematics (2022 highlights, age 9)",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.nationsreportcard.gov/highlights/ltt/2022/",
+    "institution": "National Center for Education Statistics"
+   },
+   "relevance": "Measures the cost side of the claim directly for US children. It does not by itself attribute the fall to closures rather than the pandemic as a whole, and it says nothing about transmission averted.",
+   "status": "current"
+  },
+  {
+   "id": "e-learning-deficit-meta",
+   "type": "evidence",
+   "statement": "A pre-registered meta-analysis of 42 studies in 15 countries found a learning deficit of about 0.14 standard deviations during the pandemic, arising early and persisting, larger for children from low socio-economic backgrounds and in maths.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [5b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "A pre-registered meta-analysis of 42 studies in 15 countries found a learning deficit of about 0.14 standard deviations during the pandemic, arising early and persisting, larger for children from low socio-economic backgrounds and in maths.",
+   "source": {
+    "title": "A systematic review and meta-analysis of the evidence on learning during the COVID-19 pandemic",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1038/s41562-022-01506-4",
+    "author": "Betthäuser, Bach-Mortensen & Engzell",
+    "institution": "Nature Human Behaviour",
+    "publishedAt": "2023-01-30"
+   },
+   "relevance": "Generalises the cost side across countries and shows who bore it. The benefit side of the comparison is not measured here. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-ecdc-schools-2021",
+   "type": "evidence",
+   "statement": "ECDC's July 2021 review said school closures can contribute to a reduction in SARS-CoV-2 transmission but are insufficient alone, that their negative impacts on children would likely outweigh the benefits, and that closure should be a last resort.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [5d] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "ECDC's July 2021 review said school closures can contribute to a reduction in SARS-CoV-2 transmission but are insufficient alone, that their negative impacts on children would likely outweigh the benefits, and that closure should be a last resort.",
+   "source": {
+    "title": "COVID-19 in children and the role of school settings in transmission — second update",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-in-children-and-the-role-of-school-settings-in-transmission-second-update.pdf",
+    "institution": "European Centre for Disease Prevention and Control",
+    "publishedAt": "2021-07-08"
+   },
+   "relevance": "The one source here that speaks to the benefit side: closures do cut transmission somewhat. Its net judgment ('would likely outweigh') is itself a weighing, which is the part of the claim no measurement settles.",
+   "status": "current"
+  },
+  {
+   "id": "e-royal-society-npi-2023",
+   "type": "evidence",
+   "statement": "A Royal Society review (August 2023) found packages of non-pharmaceutical interventions combining complementary measures were 'unequivocally effective' in reducing the spread of infections during the pandemic, largely on observational evidence; it reported that studies consistently, though not universally, found mask wearing and mask mandates effective in reducing infection.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [6a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "A Royal Society review (August 2023) found packages of non-pharmaceutical interventions combining complementary measures were 'unequivocally effective' in reducing the spread of infections during the pandemic, largely on observational evidence; it reported that studies consistently, though not universally, found mask wearing and mask mandates effective in reducing infection.",
+   "source": {
+    "title": "Packages of non-pharmaceutical interventions with complementary effects unequivocally reduced COVID-19 infections",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://royalsociety.org/news/2023/08/npi-report-launch/",
+    "institution": "Royal Society",
+    "publishedAt": "2023-08-23"
+   },
+   "relevance": "Strong on infections, silent on the claim's actual quantity: total deaths, indirect ones included, against a specified lighter alternative. It also bears on community masking, mostly from observational studies.",
+   "status": "current"
+  },
+  {
+   "id": "e-lockdown-mortality-working-paper",
+   "type": "evidence",
+   "statement": "A 2022 working-paper meta-analysis estimated from stringency-index studies that lockdowns in Europe and the United States reduced Covid-19 mortality by 0.2% on average, and shelter-in-place orders by 2.9%.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [6b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "A 2022 working-paper meta-analysis estimated from stringency-index studies that lockdowns in Europe and the United States reduced Covid-19 mortality by 0.2% on average, and shelter-in-place orders by 2.9%.",
+   "source": {
+    "title": "A Literature Review and Meta-Analysis of the Effects of Lockdowns on COVID-19 Mortality (Studies in Applied Economics No. 200)",
+    "kind": "other",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://ideas.repec.org/p/ris/jhisae/0200.html",
+    "author": "Herby, Jonung & Hanke",
+    "institution": "Johns Hopkins Institute for Applied Economics",
+    "publishedAt": "2022-01"
+   },
+   "relevance": "The strongest published estimate against a large mortality effect. It is an unreviewed working paper that other reviews contradict, and it measures Covid mortality by stringency index, not total deaths against a specified alternative.",
+   "status": "current"
+  },
+  {
+   "id": "e-uk-inquiry-module2",
+   "type": "evidence",
+   "statement": "The UK Covid Inquiry's Module 2 report concluded, on modelling, that a mandatory lockdown imposed a week earlier, on 16 March 2020, would have meant about 23,000 fewer first-wave deaths in England, a 48% reduction, and that earlier restrictions might have made the 23 March lockdown shorter or unnecessary.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [6c][6e] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "The UK Covid Inquiry's Module 2 report concluded, on modelling, that a mandatory lockdown imposed a week earlier, on 16 March 2020, would have meant about 23,000 fewer first-wave deaths in England, a 48% reduction, and that earlier restrictions might have made the 23 March lockdown shorter or unnecessary.",
+   "source": {
+    "title": "23,000 COVID deaths could have been avoided with earlier lockdown, inquiry finds",
+    "kind": "journalism",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.bma.org.uk/news-and-opinion/23-000-covid-deaths-could-have-been-avoided-with-earlier-lockdown-inquiry-finds",
+    "institution": "British Medical Association",
+    "publishedAt": "2025-11-21",
+    "interest": "The BMA is a core participant in the inquiry. The inquiry's own site refused automated access, so the finding is read through this report and the Irish Times (20 Nov 2025)."
+   },
+   "relevance": "A modelled timing counterfactual (earlier versus later lockdown), not the claim's comparison of lockdown with a lighter alternative on total deaths. It shows an official body framing the question one way while others frame it differently.",
+   "status": "current"
+  },
+  {
+   "id": "e-bangladesh-mask-rct",
+   "type": "evidence",
+   "statement": "In a cluster-randomised trial of 600 Bangladeshi villages (342,183 adults), mask distribution and promotion raised proper mask wearing from 13.3% to 42.3% and reduced symptomatic seroprevalence (adjusted prevalence ratio 0.91, 0.82 to 1.00), with a larger effect among adults 60 and over where surgical masks were distributed (0.65).",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [7a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "In a cluster-randomised trial of 600 Bangladeshi villages (342,183 adults), mask distribution and promotion raised proper mask wearing from 13.3% to 42.3% and reduced symptomatic seroprevalence (adjusted prevalence ratio 0.91, 0.82 to 1.00), with a larger effect among adults 60 and over where surgical masks were distributed (0.65).",
+   "source": {
+    "title": "Impact of community masking on COVID-19: A cluster-randomized trial in Bangladesh",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1126/science.abi9069",
+    "author": "Abaluck et al.",
+    "institution": "Science",
+    "publishedAt": "2022-01-14"
+   },
+   "relevance": "The largest randomised test of community masking, and a small effect. What was randomised was promotion, with 42% adherence, so it measures something next to the claim rather than mask wearing itself. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-cochrane-physical-interventions-2023",
+   "type": "evidence",
+   "statement": "A Cochrane review of randomised trials found that wearing masks in the community probably makes little or no difference to influenza-like or Covid-like illness (risk ratio 0.95) or to laboratory-confirmed influenza or SARS-CoV-2 (risk ratio 1.01), with low adherence in many studies and mostly high or unclear risk of bias.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [7b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "A Cochrane review of randomised trials found that wearing masks in the community probably makes little or no difference to influenza-like or Covid-like illness (risk ratio 0.95) or to laboratory-confirmed influenza or SARS-CoV-2 (risk ratio 1.01), with low adherence in many studies and mostly high or unclear risk of bias.",
+   "source": {
+    "title": "Physical interventions to interrupt or reduce the spread of respiratory viruses",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1002/14651858.CD006207.pub6",
+    "author": "Jefferson et al.",
+    "institution": "Cochrane",
+    "publishedAt": "2023-01-30"
+   },
+   "relevance": "The pooled randomised evidence runs against a detectable effect, but many trials predate Covid, adherence was low, and the trials randomised interventions to promote masks. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-cochrane-editor-statement",
+   "type": "evidence",
+   "statement": "Cochrane's editor-in-chief said reading the 2023 review as showing 'masks don't work' was 'an inaccurate and misleading interpretation': the review examined interventions to promote mask wearing, its results were inconclusive, and it could not address whether mask wearing itself reduces spread.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [7c] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Cochrane's editor-in-chief said reading the 2023 review as showing 'masks don't work' was 'an inaccurate and misleading interpretation': the review examined interventions to promote mask wearing, its results were inconclusive, and it could not address whether mask wearing itself reduces spread.",
+   "source": {
+    "title": "Statement on 'Physical interventions to interrupt or reduce the spread of respiratory viruses' review",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.cochrane.org/about-us/news/statement-physical-interventions-interrupt-or-reduce-spread-respiratory-viruses-review",
+    "author": "Karla Soares-Weiser",
+    "institution": "Cochrane",
+    "publishedAt": "2023-03-10"
+   },
+   "relevance": "States in the publisher's own words that the randomised evidence measured promotion, not wearing: the measurement block that keeps this claim open.",
+   "status": "current"
+  },
+  {
+   "id": "e-who-sago-origins-2025",
+   "type": "evidence",
+   "statement": "WHO's Scientific Advisory Group for the Origins of Novel Pathogens (June 2025) concluded that 'the weight of available evidence' suggests zoonotic spillover, directly from bats or through an intermediate host; WHO's director-general said all hypotheses, including a lab leak, must remain on the table while China has not shared early sequences, animal data and laboratory information.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [8a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "WHO's Scientific Advisory Group for the Origins of Novel Pathogens (June 2025) concluded that 'the weight of available evidence' suggests zoonotic spillover, directly from bats or through an intermediate host; WHO's director-general said all hypotheses, including a lab leak, must remain on the table while China has not shared early sequences, animal data and laboratory information.",
+   "source": {
+    "title": "WHO Scientific advisory group issues report on origins of COVID-19",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.who.int/news/item/27-06-2025-who-scientific-advisory-group-issues-report-on-origins-of-covid-19",
+    "institution": "World Health Organization",
+    "publishedAt": "2025-06-27"
+   },
+   "relevance": "The most recent international assessment: it leans toward spillover and names the withheld data that would settle the question, which is what makes this claim access-blocked rather than evidence-starved.",
+   "status": "current"
+  },
+  {
+   "id": "e-huanan-market-genetics",
+   "type": "evidence",
+   "statement": "Environmental samples from the Huanan market in early 2020 showed market-linked SARS-CoV-2 genetic diversity consistent with market emergence, increased positivity near and within one wildlife stall, and DNA from civets, bamboo rats and raccoon dogs in all positive samples from that stall.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [8b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Environmental samples from the Huanan market in early 2020 showed market-linked SARS-CoV-2 genetic diversity consistent with market emergence, increased positivity near and within one wildlife stall, and DNA from civets, bamboo rats and raccoon dogs in all positive samples from that stall.",
+   "source": {
+    "title": "Genetic tracing of market wildlife and viruses at the epicenter of the COVID-19 pandemic",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1016/j.cell.2024.08.010",
+    "author": "Crits-Christoph et al.",
+    "institution": "Cell",
+    "publishedAt": "2024-09"
+   },
+   "relevance": "Places virus and susceptible animals in the same stall. It does not identify an infected animal or a progenitor virus, which is what the resolution condition needs. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-cia-low-confidence-2025",
+   "type": "evidence",
+   "statement": "In January 2025 the CIA assessed that a research-related origin of the pandemic is more likely than a natural one, while stating it has 'low confidence' in that assessment.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [8d] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "In January 2025 the CIA assessed that a research-related origin of the pandemic is more likely than a natural one, while stating it has 'low confidence' in that assessment.",
+   "source": {
+    "title": "CIA now says COVID most likely originated from a lab leak but has 'low confidence' in its assessment",
+    "kind": "journalism",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.cbsnews.com/news/cia-covid-likely-originated-lab-low-confidence-assessment/",
+    "institution": "CBS News",
+    "publishedAt": "2025-01-25"
+   },
+   "relevance": "An intelligence agency leaning against the claim, on undisclosed evidence and at low confidence. It shows official bodies split, not new evidence of origin.",
+   "status": "current"
+  },
+  {
+   "id": "e-proximal-origin-slack-release",
+   "type": "evidence",
+   "statement": "Slack messages released by the Senate Homeland Security committee majority on 22 July 2026 show Proximal Origin authors privately putting a lab origin at 30% (Andersen) and 20%, later 10% (Holmes), and Andersen writing of 'less confidence… at this stage', in the period the paper argued the virus was not a laboratory construct.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [9b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Slack messages released by the Senate Homeland Security committee majority on 22 July 2026 show Proximal Origin authors privately putting a lab origin at 30% (Andersen) and 20%, later 10% (Holmes), and Andersen writing of 'less confidence… at this stage', in the period the paper argued the virus was not a laboratory construct.",
+   "source": {
+    "title": "New Doc Drop: Slack Messages Reveal Proximal Origin Authors Privately Doubted the Science Behind Their Own Paper",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.hsgac.senate.gov/media/reps/new-doc-drop-slack-messages-reveal-proximal-origin-authors-privately-doubted-the-science-behind-their-own-paper-coordinated-with-intelligence-community-and-nih/",
+    "institution": "Senate Homeland Security and Governmental Affairs Committee (majority)",
+    "publishedAt": "2026-07-22",
+    "interest": "Released and framed by the committee majority, a party to the dispute; the headline's reading is contested."
+   },
+   "relevance": "Establishes the gap between private uncertainty and public confidence. The paper itself also said other origin theories could not then be proved or disproved, and the messages do not show why the gap existed, which is the claim's actual subject.",
+   "status": "current"
+  },
+  {
+   "id": "e-select-subcommittee-minority-2023",
+   "type": "evidence",
+   "statement": "At the 11 July 2023 House Select Subcommittee hearing with two Proximal Origin authors, the ranking member called the inquiry 'political theater' and said records and testimony showed Fauci and Collins 'played no role in the drafting of the paper'.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [9e] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "At the 11 July 2023 House Select Subcommittee hearing with two Proximal Origin authors, the ranking member called the inquiry 'political theater' and said records and testimony showed Fauci and Collins 'played no role in the drafting of the paper'.",
+   "source": {
+    "title": "Ranking Member Ruiz's Opening Statement at Select Subcommittee Hearing",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://oversightdemocrats.house.gov/news/press-releases/ranking-member-ruiz-s-opening-statement-at-select-subcommittee-hearing-2",
+    "institution": "House Committee on Oversight Democrats",
+    "publishedAt": "2023-07-11",
+    "interest": "Statement by the committee minority, a party to the dispute."
+   },
+   "relevance": "The institutional counter-reading: the record shows ordinary scientific process, not reputation management. That the two readings split along committee lines is why this claim is narrowed, not settled.",
+   "status": "current"
+  },
+  {
+   "id": "e-osha-ets-prior-infection",
+   "type": "evidence",
+   "statement": "OSHA's vaccination-and-testing emergency standard (5 November 2021) declined an exception for previously infected workers, calling protection from prior infection 'an area of ongoing scientific inquiry' and citing scientific uncertainty and testing limits that made such an exception infeasible to operationalise.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [10d] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "OSHA's vaccination-and-testing emergency standard (5 November 2021) declined an exception for previously infected workers, calling protection from prior infection 'an area of ongoing scientific inquiry' and citing scientific uncertainty and testing limits that made such an exception infeasible to operationalise.",
+   "source": {
+    "title": "COVID-19 Vaccination and Testing; Emergency Temporary Standard (86 FR 61402)",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.federalregister.gov/documents/2021/11/05/2021-23643/covid-19-vaccination-and-testing-emergency-temporary-standard",
+    "institution": "Occupational Safety and Health Administration",
+    "publishedAt": "2021-11-05"
+   },
+   "relevance": "Dates the question as open for US policy in late 2021: a regulator treating the evidence as insufficient to act on. The rule was stayed on 13 January 2022 and withdrawn on 26 January 2022.",
+   "status": "current"
+  },
+  {
+   "id": "e-cdc-prior-infection-cohorts",
+   "type": "evidence",
+   "statement": "In California and New York during Delta, by the week of 3 October 2021, Covid case rates relative to unvaccinated people without a prior diagnosis were 29.0-fold (California) and 14.7-fold (New York) lower among unvaccinated people with a prior diagnosis, against 6.2-fold and 4.5-fold lower among vaccinated people without one.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [10a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "In California and New York during Delta, by the week of 3 October 2021, Covid case rates relative to unvaccinated people without a prior diagnosis were 29.0-fold (California) and 14.7-fold (New York) lower among unvaccinated people with a prior diagnosis, against 6.2-fold and 4.5-fold lower among vaccinated people without one.",
+   "source": {
+    "title": "COVID-19 Cases and Hospitalizations by COVID-19 Vaccination Status and Previous COVID-19 Diagnosis — California and New York, May–November 2021",
+    "kind": "government",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.15585/mmwr.mm7104e1",
+    "author": "León et al.",
+    "institution": "CDC (MMWR)",
+    "publishedAt": "2022-01-19"
+   },
+   "relevance": "Surveillance cohorts in two large states showing infection-derived protection at least comparable to vaccination during Delta. Two states and one variant period, so it narrowed the question before the meta-analysis. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-reinfection-meta-analysis",
+   "type": "evidence",
+   "statement": "A meta-analysis of 65 studies from 19 countries put protection from past infection against pre-Omicron reinfection at 78.6% at 40 weeks, against Omicron BA.1 reinfection at 36.1%, and against severe disease at about 90% (ancestral to Delta) and 88.9% (BA.1) at 40 weeks.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [10b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "A meta-analysis of 65 studies from 19 countries put protection from past infection against pre-Omicron reinfection at 78.6% at 40 weeks, against Omicron BA.1 reinfection at 36.1%, and against severe disease at about 90% (ancestral to Delta) and 88.9% (BA.1) at 40 weeks.",
+   "source": {
+    "title": "Past SARS-CoV-2 infection protection against re-infection: a systematic review and meta-analysis",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1016/S0140-6736(22)02465-5",
+    "author": "COVID-19 Forecasting Team",
+    "institution": "The Lancet",
+    "publishedAt": "2023-02-16"
+   },
+   "relevance": "Pools cohort and test-negative studies across variants and time since infection, meeting the resolution condition; it also shows the Omicron-era limit on protection against reinfection. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-ifr-by-age-prevaccine",
+   "type": "evidence",
+   "statement": "Matching 718 age-specific seroprevalence surveys to Covid mortality for the pre-vaccine period (April 2020 to January 2021) gave a J-shaped infection-fatality curve: 0.0023% at age 7, 0.0573% at 30, 1.0035% at 60 and 20.3292% at 90.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [11a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Matching 718 age-specific seroprevalence surveys to Covid mortality for the pre-vaccine period (April 2020 to January 2021) gave a J-shaped infection-fatality curve: 0.0023% at age 7, 0.0573% at 30, 1.0035% at 60 and 20.3292% at 90.",
+   "source": {
+    "title": "Variation in the COVID-19 infection–fatality ratio by age, time, and geography during the pre-vaccine era: a systematic analysis",
+    "kind": "peer-reviewed",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1016/S0140-6736(21)02867-1",
+    "author": "COVID-19 Forecasting Team",
+    "institution": "The Lancet",
+    "publishedAt": "2022-02-24"
+   },
+   "relevance": "The age gradient the claim states, from surveys matched to deaths. Population averages by age for the ancestral virus, not estimates for healthy people. (Abstract read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-jacobson-1905",
+   "type": "evidence",
+   "statement": "In Jacobson v. Massachusetts (decided 20 February 1905) the US Supreme Court upheld a state law requiring smallpox vaccination on pain of a $5 fine.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [12a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "In Jacobson v. Massachusetts (decided 20 February 1905) the US Supreme Court upheld a state law requiring smallpox vaccination on pain of a $5 fine.",
+   "source": {
+    "title": "Jacobson v. Massachusetts, 197 U.S. 11 (1905)",
+    "kind": "primary-document",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.law.cornell.edu/supremecourt/text/197/11",
+    "institution": "Supreme Court of the United States",
+    "publishedAt": "1905-02-20"
+   },
+   "relevance": "Establishes that states may compel vaccination; it allocates authority and does not decide whether conditioning liberty on vaccination is right.",
+   "status": "current"
+  },
+  {
+   "id": "e-nfib-v-osha-stay",
+   "type": "evidence",
+   "statement": "On 13 January 2022 the Supreme Court stayed OSHA's vaccine-or-test rule for large employers, holding the applicants likely to succeed on the argument that the rule exceeded OSHA's statutory authority; it was a stay, not a final merits ruling, and OSHA withdrew the rule effective 26 January 2022.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [12b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "On 13 January 2022 the Supreme Court stayed OSHA's vaccine-or-test rule for large employers, holding the applicants likely to succeed on the argument that the rule exceeded OSHA's statutory authority; it was a stay, not a final merits ruling, and OSHA withdrew the rule effective 26 January 2022.",
+   "source": {
+    "title": "National Federation of Independent Business v. Department of Labor, OSHA, Nos. 21A244 & 21A247 (per curiam, stay granted)",
+    "kind": "primary-document",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf",
+    "institution": "Supreme Court of the United States",
+    "publishedAt": "2022-01-13"
+   },
+   "relevance": "Decides which body may impose a workplace condition, not whether imposing one is right. Read with the ruling allowing the health-care-worker rule the same day, it sorts authority only.",
+   "status": "current"
+  },
+  {
+   "id": "e-biden-v-missouri",
+   "type": "evidence",
+   "statement": "The same day, 13 January 2022, the Supreme Court stayed injunctions against the CMS rule requiring vaccination of staff at Medicare- and Medicaid-funded health-care facilities, letting that rule take effect.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [12c] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "The same day, 13 January 2022, the Supreme Court stayed injunctions against the CMS rule requiring vaccination of staff at Medicare- and Medicaid-funded health-care facilities, letting that rule take effect.",
+   "source": {
+    "title": "Biden v. Missouri, Nos. 21A240 & 21A241 (per curiam)",
+    "kind": "primary-document",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.supremecourt.gov/opinions/21pdf/21a240_d18e.pdf",
+    "institution": "Supreme Court of the United States",
+    "publishedAt": "2022-01-13"
+   },
+   "relevance": "The other half of the split outcome: one federal condition allowed, one blocked, on the same day, by reference to statutory authority. It is what shows the courts deciding who may mandate what.",
+   "status": "current"
+  },
+  {
+   "id": "e-great-barrington-declaration",
+   "type": "evidence",
+   "statement": "The Great Barrington Declaration (4 October 2020) proposed 'Focused Protection': people at minimal risk of death resume normal life while the vulnerable are protected.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [13a] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "The Great Barrington Declaration (4 October 2020) proposed 'Focused Protection': people at minimal risk of death resume normal life while the vulnerable are protected.",
+   "source": {
+    "title": "Great Barrington Declaration",
+    "kind": "advocacy",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://gbdeclaration.org/",
+    "author": "Kulldorff, Gupta & Bhattacharya",
+    "publishedAt": "2020-10-04",
+    "interest": "A signed advocacy statement; the site now promotes a book from MAHA Books and Brownstone Institute."
+   },
+   "relevance": "One horn of the welfare-versus-lives weighting, stated in epidemiological terms. It is a dated statement of a position, not a measurement.",
+   "status": "current"
+  },
+  {
+   "id": "e-john-snow-memorandum",
+   "type": "evidence",
+   "statement": "The John Snow Memorandum (The Lancet, 15 October 2020) argued against allowing a large uncontrolled outbreak in the low-risk population while protecting the vulnerable, calling that approach 'a dangerous fallacy unsupported by scientific evidence'.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [13b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "The John Snow Memorandum (The Lancet, 15 October 2020) argued against allowing a large uncontrolled outbreak in the low-risk population while protecting the vulnerable, calling that approach 'a dangerous fallacy unsupported by scientific evidence'.",
+   "source": {
+    "title": "Scientific consensus on the COVID-19 pandemic: we need to act now",
+    "kind": "primary-document",
+    "verification": "verified-content",
+    "verifiedAt": "2026-09-22",
+    "url": "https://doi.org/10.1016/S0140-6736(20)32153-X",
+    "author": "Alwan et al.",
+    "institution": "The Lancet",
+    "publishedAt": "2020-10-14"
+   },
+   "relevance": "The other horn of the same weighting, also stated as epidemiology. Read together, the two show a value fork argued in empirical vocabulary. (Full text read via Europe PMC.)",
+   "status": "current"
+  },
+  {
+   "id": "e-unicef-vaccine-confidence-2023",
+   "type": "evidence",
+   "statement": "UNICEF reported that the perceived importance of vaccines for children fell during the pandemic in 52 of 55 countries studied, naming several drivers and cautioning that vaccine confidence is 'volatile and time specific'.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [14h] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "UNICEF reported that the perceived importance of vaccines for children fell during the pandemic in 52 of 55 countries studied, naming several drivers and cautioning that vaccine confidence is 'volatile and time specific'.",
+   "source": {
+    "title": "New data indicates declining confidence in childhood vaccines of up to 44 percentage points in some countries during the COVID-19 pandemic",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.unicef.org/press-releases/sowc_2023_immunization",
+    "institution": "UNICEF",
+    "publishedAt": "2023-04-20"
+   },
+   "relevance": "Shows the attitude shift was near-universal and multi-caused, which is exactly why institutional conduct cannot yet be isolated as the cause.",
+   "status": "current"
+  },
+  {
+   "id": "e-gallup-childhood-vaccines-2024",
+   "type": "evidence",
+   "statement": "Gallup found 40% of Americans in 2024 called childhood vaccination extremely important, down from 58% in 2019; among Republicans and Republican leaners the figure was 26%, half the 2019 level, while Democrats changed little. Gallup linked the split to differing trust in pandemic-era guidance from medical authorities.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [14g] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Gallup found 40% of Americans in 2024 called childhood vaccination extremely important, down from 58% in 2019; among Republicans and Republican leaners the figure was 26%, half the 2019 level, while Democrats changed little. Gallup linked the split to differing trust in pandemic-era guidance from medical authorities.",
+   "source": {
+    "title": "Far Fewer in U.S. Regard Childhood Vaccinations as Important",
+    "kind": "industry",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://news.gallup.com/poll/648308/far-fewer-regard-childhood-vaccinations-important.aspx",
+    "author": "Jeffrey M. Jones",
+    "institution": "Gallup",
+    "publishedAt": "2024-08-07"
+   },
+   "relevance": "A partisan attitude split that tracks pandemic-era trust is the pattern the claim predicts. Attitudes are not compliance, and the link is Gallup's reading, not an identified cause.",
+   "status": "current"
+  },
+  {
+   "id": "e-kindergarten-mmr-decline",
+   "type": "evidence",
+   "statement": "US kindergarten MMR coverage fell to 92.5% in the 2024–25 school year, from 92.7% the year before and 95.2% in 2019–20, with the exemption rate at 3.6%.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [14b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "US kindergarten MMR coverage fell to 92.5% in the 2024–25 school year, from 92.7% the year before and 95.2% in 2019–20, with the exemption rate at 3.6%.",
+   "source": {
+    "title": "US childhood vaccination rates continue to fall, CDC data show",
+    "kind": "journalism",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.cidrap.umn.edu/childhood-vaccines/us-childhood-vaccination-rates-continue-fall-cdc-data-show",
+    "institution": "CIDRAP",
+    "publishedAt": "2025-08-01"
+   },
+   "relevance": "The compliance outcome the claim predicts, observed. It does not separate Covid-era conduct from service disruption, misinformation or later policy changes.",
+   "status": "current"
+  },
+  {
+   "id": "e-eo-14292-gof",
+   "type": "evidence",
+   "statement": "Executive Order 14292 (5 May 2025) stated that dangerous gain-of-function research has the potential to significantly endanger American lives, directed suspension of federally funded dangerous gain-of-function research until a new policy is complete, ended federal funding of such research in countries of concern, and ordered federal oversight policy revised.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [15b] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "Executive Order 14292 (5 May 2025) stated that dangerous gain-of-function research has the potential to significantly endanger American lives, directed suspension of federally funded dangerous gain-of-function research until a new policy is complete, ended federal funding of such research in countries of concern, and ordered federal oversight policy revised.",
+   "source": {
+    "title": "Executive Order 14292: Improving the Safety and Security of Biological Research",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://www.whitehouse.gov/presidential-actions/2025/05/improving-the-safety-and-security-of-biological-research/",
+    "institution": "The White House",
+    "publishedAt": "2025-05-05"
+   },
+   "relevance": "Moves decision rights and funding by executive authority. It asserts the risk rather than measuring it, so it changes the policy without settling the claim.",
+   "status": "current"
+  },
+  {
+   "id": "e-usg-high-risk-research-policy-2026",
+   "type": "evidence",
+   "statement": "NIH notice NOT-OD-26-101 (28 July 2026) announced the USG Policy for Stopping High-Risk Life Sciences Research, which explicitly prohibits federal support for dangerous gain-of-function research, with research flagged as potentially dangerous remaining paused until implementation requirements are set.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "docs/research/2026-09-22-covid-crux-retrospective.md [15c] (source re-opened 2026-09-22)"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "finding": "NIH notice NOT-OD-26-101 (28 July 2026) announced the USG Policy for Stopping High-Risk Life Sciences Research, which explicitly prohibits federal support for dangerous gain-of-function research, with research flagged as potentially dangerous remaining paused until implementation requirements are set.",
+   "source": {
+    "title": "USG Policy for Stopping High-Risk Life Sciences Research (NOT-OD-26-101)",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-09-22",
+    "url": "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-26-101.html",
+    "institution": "National Institutes of Health",
+    "publishedAt": "2026-07-28"
+   },
+   "relevance": "The current policy state: authority exercised and research paused. It carries no measurement of risk or benefit, which is what the claim turns on.",
+   "status": "current"
+  }
+ ],
+ "edges": [
+  {
+   "id": "edge-001",
+   "from": "c-airborne-room-scale",
+   "to": "p-tests-answered",
+   "type": "supports",
+   "note": "Cited by this position as a question measurement answered."
+  },
+  {
+   "id": "edge-002",
+   "from": "c-vaccines-cut-severe-disease",
+   "to": "p-tests-answered",
+   "type": "supports",
+   "note": "Cited by this position as a question measurement answered."
+  },
+  {
+   "id": "edge-003",
+   "from": "c-prior-infection-comparable",
+   "to": "p-tests-answered",
+   "type": "supports",
+   "note": "Cited by this position as a question measurement answered."
+  },
+  {
+   "id": "edge-004",
+   "from": "c-fatality-steep-age-gradient",
+   "to": "p-tests-answered",
+   "type": "supports",
+   "note": "Cited by this position as a question measurement answered."
+  },
+  {
+   "id": "edge-005",
+   "from": "c-mandates-raise-uptake",
+   "to": "p-tests-answered",
+   "type": "supports",
+   "note": "Cited by this position as a question measurement answered."
+  },
+  {
+   "id": "edge-006",
+   "from": "c-lockdowns-reduced-total-deaths",
+   "to": "p-counterfactuals-unrecoverable",
+   "type": "supports",
+   "note": "Cited by this position as a question whose settling observation was never recoverable."
+  },
+  {
+   "id": "edge-007",
+   "from": "c-community-masking-reduced-transmission",
+   "to": "p-counterfactuals-unrecoverable",
+   "type": "supports",
+   "note": "Cited by this position as a question whose settling observation was never recoverable."
+  },
+  {
+   "id": "edge-008",
+   "from": "c-origin-natural-spillover",
+   "to": "p-counterfactuals-unrecoverable",
+   "type": "supports",
+   "note": "Cited by this position as a question whose settling observation was never recoverable."
+  },
+  {
+   "id": "edge-009",
+   "from": "c-early-dismissals-reputational",
+   "to": "p-counterfactuals-unrecoverable",
+   "type": "supports",
+   "note": "Cited by this position as a question whose settling observation was never recoverable."
+  },
+  {
+   "id": "edge-010",
+   "from": "c-conduct-reduced-later-compliance",
+   "to": "p-counterfactuals-unrecoverable",
+   "type": "supports",
+   "note": "Cited by this position as a question whose settling observation was never recoverable."
+  },
+  {
+   "id": "edge-011",
+   "from": "c-transmission-justifies-coercion",
+   "to": "p-values-in-empirical-clothes",
+   "type": "supports",
+   "note": "Cited by this position as a value or authority question argued in empirical terms."
+  },
+  {
+   "id": "edge-012",
+   "from": "c-school-closures-net-cost",
+   "to": "p-values-in-empirical-clothes",
+   "type": "supports",
+   "note": "Cited by this position as a value or authority question argued in empirical terms."
+  },
+  {
+   "id": "edge-013",
+   "from": "c-access-conditioned-on-vaccination",
+   "to": "p-values-in-empirical-clothes",
+   "type": "supports",
+   "note": "Cited by this position as a value or authority question argued in empirical terms."
+  },
+  {
+   "id": "edge-014",
+   "from": "c-broad-restrictions-right-tradeoff",
+   "to": "p-values-in-empirical-clothes",
+   "type": "supports",
+   "note": "Cited by this position as a value or authority question argued in empirical terms."
+  },
+  {
+   "id": "edge-015",
+   "from": "c-gof-risk-outweighs-benefit",
+   "to": "p-values-in-empirical-clothes",
+   "type": "supports",
+   "note": "Cited by this position as a value or authority question argued in empirical terms."
+  },
+  {
+   "id": "edge-016",
+   "from": "c-mandates-raise-uptake",
+   "to": "p-counterfactuals-unrecoverable",
+   "type": "opposes",
+   "note": "Staggered timing let researchers build the counterfactual for access certificates, a policy comparison this position says could not be recovered."
+  },
+  {
+   "id": "edge-017",
+   "from": "c-school-closures-net-cost",
+   "to": "p-counterfactuals-unrecoverable",
+   "type": "supports",
+   "note": "The benefit side of the comparison (transmission averted by closures) rests on a counterfactual no study recovered."
+  },
+  {
+   "id": "edge-018",
+   "from": "c-vaccines-cut-severe-disease",
+   "to": "p-values-in-empirical-clothes",
+   "type": "supports",
+   "note": "Efficacy settled while the fight over whether a person had to take a vaccine carried on; this position reads that as the dispute never having been about efficacy."
+  },
+  {
+   "id": "edge-019",
+   "from": "e-skagit-choir-outbreak",
+   "to": "c-airborne-room-scale",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-020",
+   "from": "e-who-brief-july-2020",
+   "to": "c-airborne-room-scale",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-021",
+   "from": "e-cdc-transmission-brief-2021",
+   "to": "c-airborne-room-scale",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-022",
+   "from": "e-airborne-terminology-2024",
+   "to": "c-airborne-room-scale",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-023",
+   "from": "e-bnt162b2-phase3",
+   "to": "c-vaccines-cut-severe-disease",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-024",
+   "from": "e-israel-matched-cohort",
+   "to": "c-vaccines-cut-severe-disease",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-025",
+   "from": "e-alpha-delta-onward-transmission",
+   "to": "c-transmission-justifies-coercion",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-026",
+   "from": "e-omicron-prison-infectiousness",
+   "to": "c-transmission-justifies-coercion",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-027",
+   "from": "e-certificates-six-countries",
+   "to": "c-mandates-raise-uptake",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-028",
+   "from": "e-certificates-canada-europe",
+   "to": "c-mandates-raise-uptake",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-029",
+   "from": "e-austria-mandate-suspended",
+   "to": "c-mandates-raise-uptake",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-030",
+   "from": "e-naep-2022-age9",
+   "to": "c-school-closures-net-cost",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-031",
+   "from": "e-learning-deficit-meta",
+   "to": "c-school-closures-net-cost",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-032",
+   "from": "e-ecdc-schools-2021",
+   "to": "c-school-closures-net-cost",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-033",
+   "from": "e-royal-society-npi-2023",
+   "to": "c-lockdowns-reduced-total-deaths",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-034",
+   "from": "e-lockdown-mortality-working-paper",
+   "to": "c-lockdowns-reduced-total-deaths",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-035",
+   "from": "e-uk-inquiry-module2",
+   "to": "c-lockdowns-reduced-total-deaths",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-036",
+   "from": "e-bangladesh-mask-rct",
+   "to": "c-community-masking-reduced-transmission",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-037",
+   "from": "e-cochrane-physical-interventions-2023",
+   "to": "c-community-masking-reduced-transmission",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-038",
+   "from": "e-cochrane-editor-statement",
+   "to": "c-community-masking-reduced-transmission",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-039",
+   "from": "e-who-sago-origins-2025",
+   "to": "c-origin-natural-spillover",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-040",
+   "from": "e-huanan-market-genetics",
+   "to": "c-origin-natural-spillover",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-041",
+   "from": "e-cia-low-confidence-2025",
+   "to": "c-origin-natural-spillover",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-042",
+   "from": "e-proximal-origin-slack-release",
+   "to": "c-early-dismissals-reputational",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-043",
+   "from": "e-select-subcommittee-minority-2023",
+   "to": "c-early-dismissals-reputational",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-044",
+   "from": "e-osha-ets-prior-infection",
+   "to": "c-prior-infection-comparable",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-045",
+   "from": "e-cdc-prior-infection-cohorts",
+   "to": "c-prior-infection-comparable",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-046",
+   "from": "e-reinfection-meta-analysis",
+   "to": "c-prior-infection-comparable",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-047",
+   "from": "e-ifr-by-age-prevaccine",
+   "to": "c-fatality-steep-age-gradient",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-048",
+   "from": "e-jacobson-1905",
+   "to": "c-access-conditioned-on-vaccination",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-049",
+   "from": "e-nfib-v-osha-stay",
+   "to": "c-access-conditioned-on-vaccination",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-050",
+   "from": "e-biden-v-missouri",
+   "to": "c-access-conditioned-on-vaccination",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-051",
+   "from": "e-great-barrington-declaration",
+   "to": "c-broad-restrictions-right-tradeoff",
+   "type": "evidences",
+   "polarity": "challenging"
+  },
+  {
+   "id": "edge-052",
+   "from": "e-john-snow-memorandum",
+   "to": "c-broad-restrictions-right-tradeoff",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-053",
+   "from": "e-unicef-vaccine-confidence-2023",
+   "to": "c-conduct-reduced-later-compliance",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-054",
+   "from": "e-gallup-childhood-vaccines-2024",
+   "to": "c-conduct-reduced-later-compliance",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-055",
+   "from": "e-kindergarten-mmr-decline",
+   "to": "c-conduct-reduced-later-compliance",
+   "type": "evidences",
+   "polarity": "supporting"
+  },
+  {
+   "id": "edge-056",
+   "from": "e-eo-14292-gof",
+   "to": "c-gof-risk-outweighs-benefit",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-057",
+   "from": "e-usg-high-risk-research-policy-2026",
+   "to": "c-gof-risk-outweighs-benefit",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-058",
+   "from": "e-royal-society-npi-2023",
+   "to": "c-community-masking-reduced-transmission",
+   "type": "evidences",
+   "polarity": "supporting",
+   "note": "The review reports observational studies consistently, though not universally, finding mask wearing and mandates effective."
+  }
+ ]
+}

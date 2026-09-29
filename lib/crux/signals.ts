@@ -1,4 +1,9 @@
 import type { ArgumentEdge, ArgumentGraph, Claim, ResolutionKind } from "@/types/argument";
+import {
+  DEFAULT_CANDIDACY_FLOOR,
+  normalizeContestednessOverrides,
+  overriddenContestedness,
+} from "./contestedness";
 import { buildInfluenceGraph, evidenceWeight, type InfluenceGraph } from "./influence";
 import { propagate } from "./propagate";
 
@@ -10,6 +15,11 @@ export interface DeltaTarget {
 export interface CruxSignal {
   claim: Claim;
   contestedness: number;
+  /**
+   * The calibrated probe value that produced `contestedness`, when one was
+   * supplied. Undefined means contestedness came from the graph as usual.
+   */
+  contestednessOverride?: number;
   directReach: number;
   reach: number;
   directDiscrimination: number;
@@ -26,12 +36,62 @@ export interface CruxSignal {
   affectedClaims: DeltaTarget[];
   affectedSet: Set<string>;
   gatesClaimIds: string[];
+  /**
+   * Claims this one gates that the candidacy floor removed. They are gone
+   * from `gatesClaimIds` and from the scoping bonus by design, but a card
+   * that just printed "Gates: none" would be asserting something false about
+   * the graph, so the removal is carried through to the explanation.
+   */
+  gatesRemovedByProbeIds: string[];
+  /**
+   * Claims this one gates that a `resolved` crux-ledger entry removed from
+   * candidacy (spec §1.3 rule 1). Same reasoning as the probe list: the edge
+   * is still in the graph, so the card names the removal instead of hiding it.
+   */
+  gatesResolvedByLedgerIds: string[];
   cycleWarnings: string[];
 }
 
 export interface CruxSignalResult {
   influenceGraph: InfluenceGraph;
   signals: CruxSignal[];
+  /**
+   * Claim ids that met editorial candidacy but were removed by the probe
+   * floor, sorted. Judgment-as-data: a model-supplied number changed the
+   * candidate set, so the change is reported rather than silent.
+   */
+  droppedByFloorIds: string[];
+  /**
+   * Claim ids out of candidacy because their current public crux-ledger entry
+   * is `resolved`, sorted: removed here, or already out through the graph
+   * status edit the ledger validator requires alongside a `resolved` entry.
+   * Pinned claims are never listed. Empty unless a ledger was supplied.
+   */
+  droppedByLedgerIds: string[];
+}
+
+export interface CruxSignalOptions {
+  /**
+   * Claim id -> 0..1 contestedness measured by a calibrated external probe
+   * over the same source the claims were extracted from (crux engine v1.2;
+   * see `./contestedness.ts`). Where present it replaces the balance-derived
+   * modulator; the editorial status prefactor is kept. Claims absent from the
+   * map keep today's behaviour exactly.
+   */
+  contestednessOverrides?: Readonly<Record<string, number>>;
+  /**
+   * Claims whose override falls below this leave candidacy entirely rather
+   * than merely ranking lower. Pinned claims are never dropped. Defaults to
+   * `DEFAULT_CANDIDACY_FLOOR` (0.25).
+   */
+  candidacyFloor?: number;
+  /**
+   * Claim ids whose current public crux-ledger entry is `resolved` (spec §1.3
+   * rule 1). They leave candidacy exactly as a floor removal does: no slot, no
+   * scoping reach passed to a gate, no redundancy comparison. Pinned claims
+   * are exempt — the curator's override wins over the ledger.
+   */
+  ledgerResolvedIds?: ReadonlySet<string>;
 }
 
 const TRACTABILITY: Record<ResolutionKind | "missing", number> = {
@@ -43,20 +103,43 @@ const TRACTABILITY: Record<ResolutionKind | "missing", number> = {
   "value-difference": 0.65,
 };
 
-export function computeCruxSignals(graph: ArgumentGraph): CruxSignalResult {
+export function computeCruxSignals(
+  graph: ArgumentGraph,
+  options: CruxSignalOptions = {}
+): CruxSignalResult {
+  const overrides = normalizeContestednessOverrides(options.contestednessOverrides);
+  const candidacyFloor = options.candidacyFloor ?? DEFAULT_CANDIDACY_FLOOR;
   const influenceGraph = buildInfluenceGraph(graph);
   const activeClaims = graph.nodes.filter(
     (node): node is Claim =>
       node.type === "claim" && !influenceGraph.excludedNodeIds.has(node.id)
   );
-  const candidates = activeClaims.filter((claim) => isCandidate(claim));
+  const editorialCandidates = activeClaims.filter((claim) => isCandidate(claim));
+  const droppedIds = new Set(
+    editorialCandidates
+      .filter((claim) => belowCandidacyFloor(claim, overrides, candidacyFloor))
+      .map((claim) => claim.id)
+  );
+  // Every active claim the ledger records resolved, not only the editorial
+  // candidates: the ledger validator requires the matching graph edit (status
+  // off contested/unresolved), which usually takes the claim out of candidacy
+  // before the ledger gets to. Reporting only the candidates would leave that
+  // drop silent, which is what rule 1 exists to prevent.
+  const resolvedIds = new Set(
+    activeClaims
+      .filter((claim) => resolvedByLedger(claim, options.ledgerResolvedIds))
+      .map((claim) => claim.id)
+  );
+  const candidates = editorialCandidates.filter(
+    (claim) => !droppedIds.has(claim.id) && !resolvedIds.has(claim.id)
+  );
   const candidateIds = new Set(candidates.map((claim) => claim.id));
   const claimCount = activeClaims.length;
   const positionIds = graph.nodes
     .filter((node) => node.type === "position" && !influenceGraph.excludedNodeIds.has(node.id))
     .map((node) => node.id);
   const rawSignals = candidates.map((claim) =>
-    directSignal(graph, influenceGraph, claim, claimCount, positionIds)
+    directSignal(graph, influenceGraph, claim, claimCount, positionIds, overrides.get(claim.id))
   );
   const rawById = new Map(rawSignals.map((signal) => [signal.claim.id, signal]));
   const directMassById = new Map(
@@ -97,10 +180,17 @@ export function computeCruxSignals(graph: ArgumentGraph): CruxSignalResult {
       directScoreMass,
       baseScore: directScoreMass + 0.15 * scopingBonus,
       gatesClaimIds: gatedIds,
+      gatesRemovedByProbeIds: gatedCandidateIds(graph.edges, signal.claim.id, droppedIds),
+      gatesResolvedByLedgerIds: gatedCandidateIds(graph.edges, signal.claim.id, resolvedIds),
     };
   });
 
-  return { influenceGraph, signals };
+  return {
+    influenceGraph,
+    signals,
+    droppedByFloorIds: [...droppedIds].sort(),
+    droppedByLedgerIds: [...resolvedIds].sort(),
+  };
 }
 
 function isCandidate(claim: Claim): boolean {
@@ -112,12 +202,38 @@ function isCandidate(claim: Claim): boolean {
   );
 }
 
+/**
+ * Mirrors the projection's uncontested filter inside the engine: a claim the
+ * probe says the source never argues over is not a crux candidate at all, so
+ * it cannot occupy a slot, inherit scoping reach, or act as a redundancy
+ * comparison. A pin is an editorial decision and outranks the probe; a claim
+ * with no override is untouched.
+ */
+function belowCandidacyFloor(
+  claim: Claim,
+  overrides: ReadonlyMap<string, number>,
+  floor: number
+): boolean {
+  if (claim.cruxOverride === "pin") return false;
+  const override = overrides.get(claim.id);
+  return override !== undefined && override < floor;
+}
+
+/**
+ * Crux-ledger rule 1: a claim whose current public entry is `resolved` is no
+ * longer a live question. A pin outranks the ledger, as it outranks the probe.
+ */
+function resolvedByLedger(claim: Claim, resolvedIds: ReadonlySet<string> | undefined): boolean {
+  return claim.cruxOverride !== "pin" && resolvedIds?.has(claim.id) === true;
+}
+
 function directSignal(
   graph: ArgumentGraph,
   ig: InfluenceGraph,
   claim: Claim,
   claimCount: number,
-  positionIds: string[]
+  positionIds: string[],
+  contestednessOverride: number | undefined
 ): CruxSignal {
   const directIg = {
     ...ig,
@@ -164,7 +280,7 @@ function directSignal(
   const directReach = Math.min(1, downstreamImpactSum / Math.max(0.15 * claimCount, 0.15));
   const directDiscrimination = discrimination(affectedPositions);
   const evidenceCoverage = evidenceCoverageFor(graph, claim.id);
-  const contestedness = contestednessFor(graph, claim.id, claim.status);
+  const contestedness = contestednessFor(graph, claim.id, claim.status, contestednessOverride);
   const tractability = TRACTABILITY[claim.resolution?.kind ?? "missing"];
   const implicitBoost = claim.implicit === true ? 1.15 : 1;
   const directScoreMass =
@@ -174,6 +290,7 @@ function directSignal(
   return {
     claim,
     contestedness,
+    contestednessOverride,
     directReach,
     reach: directReach,
     directDiscrimination,
@@ -190,6 +307,8 @@ function directSignal(
     affectedClaims,
     affectedSet,
     gatesClaimIds: [],
+    gatesRemovedByProbeIds: [],
+    gatesResolvedByLedgerIds: [],
     cycleWarnings: [...new Set([...plus.cycleWarnings, ...minus.cycleWarnings])],
   };
 }
@@ -197,7 +316,8 @@ function directSignal(
 function contestednessFor(
   graph: ArgumentGraph,
   claimId: string,
-  status: Claim["status"]
+  status: Claim["status"],
+  override: number | undefined
 ): number {
   const statusWeight =
     status === "contested" || status === "unresolved"
@@ -208,8 +328,15 @@ function contestednessFor(
   const { support, opposition } = supportOppositionInflow(graph, claimId);
   const max = Math.max(support, opposition);
   const balance = max > 0 ? Math.min(support, opposition) / max : 0;
+  const balanceContestedness = statusWeight * (0.5 + 0.5 * balance);
 
-  return statusWeight * (0.5 + 0.5 * balance);
+  // v1.2: a calibrated probe of the source replaces the structural balance
+  // proxy, clamped so it can only ever lower the value. The status prefactor
+  // survives, so an editorially uncontested claim still scores zero however
+  // contested the probe thinks it is.
+  return override === undefined
+    ? balanceContestedness
+    : overriddenContestedness(statusWeight, override, balanceContestedness);
 }
 
 function supportOppositionInflow(graph: ArgumentGraph, claimId: string) {

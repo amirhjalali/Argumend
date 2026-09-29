@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { chunkForSse, generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
 import { isAuthConfigured } from "@/lib/auth-config";
@@ -209,7 +210,7 @@ function buildProgrammaticTokens(body: DebateTurnRequest): string[] {
  * Streams a debate argument token-by-token via SSE.
  */
 export async function POST(request: NextRequest) {
-  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(request);
   const limit = rateLimit(`debate:${ip}`, {
     maxRequests: 20,
     windowMs: 60 * 60 * 1000,

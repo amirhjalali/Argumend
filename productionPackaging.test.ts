@@ -87,7 +87,8 @@ describe("production packaging contracts", () => {
     for (const endpoint of ["/api/analyze", "/api/debate", "/api/judge"]) {
       expect(smoke).toContain("`${origin}" + endpoint + "`");
     }
-    expect(smoke).toContain('analysis.execution?.analysis?.actual !== "offline"');
+    // /api/analyze is the paste flow's offline map lane since 2026-09-29.
+    expect(smoke).toContain('analysis.maps?.status !== "matched"');
     expect(smoke).toContain('debate.execution?.actual !== "programmatic"');
     expect(smoke).toContain("judgment.id !== undefined");
   });

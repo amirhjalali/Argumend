@@ -183,7 +183,7 @@ export const dogeFederalCutsData = {
           title: "Congress and Courts Blocked the Deepest Cuts (NPS, NIH)",
           description:
             "Several of DOGE's most aggressive proposals were checked before causing lasting damage: Congress rejected the administration's FY2026 request for a 37% cut to the National Park Service, and a federal court struck down DOGE's proposed cap on NIH 'indirect cost' reimbursements, with the NIH research cuts later reported officially dead. Proponents argue this shows the system contained the excesses while preserving genuine reform.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 6,
             independence: 7,

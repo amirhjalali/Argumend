@@ -15,6 +15,12 @@ export interface QuestionVariation {
   metaDescription: string;
   /** The topic ID this question maps to */
   topicId: string;
+  /**
+   * The topic's first question. Only the primary is a page in its own right:
+   * the other phrasings render the same content, list under "Also asked as"
+   * and point their canonical URL at the primary.
+   */
+  primary: boolean;
 }
 
 // ============================================================================
@@ -466,6 +472,74 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Does psychedelic therapy actually work?",
     "Are the claims about psychedelic therapy exaggerated?",
   ],
+
+  // --- From the retired /is pages (2026-09-29) ---
+  // Each map below had an /is/* "Is it true?" page and no question page. Its
+  // /is question is its primary question here, so every retired /is URL
+  // redirects to a real /questions page (next.config.js, the "learn" block;
+  // lib/learn/isToQuestions.test.ts keeps the two in step).
+  "fluoride-water-supplies": ["Is fluoride in water safe?"],
+  "rent-control-effectiveness": ["Does rent control hurt housing affordability?"],
+  "vaccine-mandates": ["Are government vaccine mandates justified?"],
+  "seed-oils-health": ["Are seed oils harmful to your health?"],
+  "self-driving-car-safety": ["Are self-driving cars safer than human drivers?"],
+  "congestion-pricing": ["Does congestion pricing work?"],
+  "right-to-repair": ["Is right to repair good for consumers?"],
+  "assisted-dying-euthanasia": ["Should terminally ill adults have the right to assisted dying?"],
+  "sex-work-decriminalization": ["Does decriminalizing sex work improve safety?"],
+  "carbon-tax-effectiveness": ["Does a carbon tax reduce emissions?"],
+  "china-taiwan-invasion": ["Will China invade Taiwan before 2030?"],
+  "pandemic-preparedness": ["Should governments invest heavily in pandemic preparedness?"],
+  "global-water-crisis": ["Is the world heading for water wars?"],
+  "sugar-tax-effectiveness": ["Do sugar taxes reduce obesity?"],
+  "eacc-vs-tech-regulation": ["Does rapid, unregulated tech progress do more good than harm?"],
+  "ai-superintelligence-timeline": ["Will superintelligent AI arrive before 2035?"],
+  "nuclear-renaissance-smr": ["Can small modular reactors scale this decade?"],
+  "tiktok-brain-rot": ["Is short-form video rotting our attention spans?"],
+  "ai-replacing-doctors": ["Will AI replace doctors within a decade?"],
+  "privacy-vs-convenience": ["Is digital privacy already dead?"],
+  "obesity-personal-responsibility": ["Is obesity mainly a matter of personal responsibility?"],
+  "loneliness-epidemic": ["Is there really a loneliness epidemic?"],
+  "cryptocurrency-regulation": ["Should cryptocurrency be regulated like traditional finance?"],
+  "inflation-monetary-policy": ["Was post-pandemic inflation caused by government spending?"],
+  "global-housing-bubble": ["Is there a global housing bubble about to burst?"],
+  "us-national-debt-crisis": ["Is the US national debt a ticking time bomb?"],
+  "return-to-office-productivity": ["Does return-to-office improve productivity?"],
+  "lab-diamonds-ethics": ["Are lab-grown diamonds more ethical than mined diamonds?"],
+  "degrowth-economics": ["Do we need degrowth to save the planet?"],
+  "meritocracy-myth": ["Is meritocracy a myth?"],
+  "open-weight-ai-models": ["Should frontier AI models be released open-weight?"],
+  "second-amendment-individual-right": ["Does the Second Amendment protect an individual right?"],
+  "net-neutrality": ["Is net neutrality necessary?"],
+  "generative-ai-art-copyright": ["Is training AI on copyrighted work theft?"],
+  "facial-recognition-policing": ["Should police facial recognition be restricted?"],
+  "nuclear-fusion-timeline": ["Will fusion power arrive within 20 years?"],
+  "ssri-antidepressant-efficacy": ["Do antidepressants (SSRIs) actually work?"],
+  "social-security-retirement-age": ["Should the retirement age be raised?"],
+  "estate-inheritance-tax": ["Is the estate tax fair?"],
+  "occupational-licensing-reform": ["Does occupational licensing do more harm than good?"],
+  "encryption-backdoors": ["Should governments have encryption backdoors?"],
+  "section-230-reform": ["Should Section 230 be reformed or repealed?"],
+  "autonomous-weapons-ban": ["Should lethal autonomous weapons be banned?"],
+  "ai-energy-water-footprint": ["Is AI's energy and water use a serious problem?"],
+  "adhd-overdiagnosis": ["Is ADHD overdiagnosed?"],
+  "vaping-harm-reduction": ["Is vaping a good way to quit smoking?"],
+  "congressional-term-limits": ["Would term limits improve Congress?"],
+  "effective-altruism": ["Is effective altruism a sound way to do good?"],
+  "alcohol-no-safe-level": ["Is any amount of alcohol safe to drink?"],
+  "modern-monetary-theory": ["Is Modern Monetary Theory sound?"],
+  "gmo-crops-safety": ["Are GMO crops safe to eat?"],
+  "lithium-mining-ev-impact": [
+    "Are electric vehicles still better for the environment once lithium mining is counted?",
+  ],
+  "dark-matter-vs-mond": ["Does dark matter actually exist?"],
+  "trump-tariffs": ["Do tariffs strengthen the economy?"],
+  "affirmative-action-meritocracy": ["Is affirmative action necessary for equal opportunity?"],
+  "ukraine-peace-terms": [
+    "Should the Russia-Ukraine war end in a negotiated settlement along current lines?",
+  ],
+  "rfk-health-policy": ["Will RFK Jr's Make America Healthy Again agenda improve US health?"],
+  "doge-federal-cuts": ["Did DOGE actually cut government waste and make Washington leaner?"],
 };
 
 // ============================================================================
@@ -495,12 +569,29 @@ export function getQuestionVariations(topic: QuestionTopic): QuestionVariation[]
   const questions = TOPIC_QUESTIONS[topic.id];
   if (!questions || questions.length === 0) return [];
 
-  return questions.map((question) => ({
+  return questions.map((question, index) => ({
     slug: questionToSlug(question),
     question,
-    metaDescription: `${question} Explore the strongest arguments for and against, backed by weighted evidence. ${topic.meta_claim}`,
+    metaDescription: `${question} What both sides agree on, what the disagreement turns on, and what would settle it. ${topic.meta_claim}`,
     topicId: topic.id,
+    primary: index === 0,
   }));
+}
+
+/**
+ * The slug of a topic's primary question, or undefined when the topic has no
+ * question page. Needs only the id, so config-time code can call it.
+ */
+export function getPrimaryQuestionSlug(topicId: string): string | undefined {
+  const first = TOPIC_QUESTIONS[topicId]?.[0];
+  return first ? questionToSlug(first) : undefined;
+}
+
+/** One question per topic: the primary phrasing of each. */
+export function getPrimaryQuestionVariations(
+  topics: readonly QuestionTopic[],
+): QuestionVariation[] {
+  return getAllQuestionVariations(topics).filter((variation) => variation.primary);
 }
 
 /**

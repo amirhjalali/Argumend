@@ -198,7 +198,7 @@ export const mandatoryVotingData = {
           title: "Voter Suppression Counterfactual Analysis",
           description:
             "The Brennan Center documents that US voter-ID laws, voter-roll purges and polling-place closures depress turnout and fall disproportionately on voters of color. Proponents argue an enforced compulsory-voting regime, which puts the onus on the state to enable every elector to vote, would blunt these tactics.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 5,
             independence: 5,

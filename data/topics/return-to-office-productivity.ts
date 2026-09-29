@@ -329,7 +329,7 @@ export const returnToOfficeProductivityData = {
             "Gallup (2024): Remote and Hybrid Engagement Are Comparable and Above On-Site",
           description:
             "Gallup's 2024 State of the Global Workplace data (U.S./Canada) shows remote and hybrid workers report similar, relatively high engagement — about 36% for fully remote and 35% for hybrid — both above on-site-only workers. Hybrid workers report the highest rate of 'thriving' wellbeing (62%, vs 59% remote and 50% on-site) and less daily loneliness and anger than fully remote or fully on-site workers. Rather than showing that more office time raises engagement, the data suggests that flexibility (remote or hybrid), not strict full-time RTO, tracks with the best engagement and wellbeing outcomes.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,

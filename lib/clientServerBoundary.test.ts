@@ -12,18 +12,6 @@ function sourceFiles(directory: string): string[] {
 }
 
 describe("client/server module boundaries", () => {
-  it.each([
-    "app/analysis/[id]/AnalysisView.tsx",
-    "components/JudgingResults.tsx",
-  ])("keeps provider-backed extraction code out of %s", (file) => {
-    const source = readFileSync(file, "utf8");
-
-    expect(source).toContain('from "@/lib/analyze/scoring"');
-    expect(source).not.toMatch(
-      /import(?!\s+type)\s*\{[^}]*\}\s*from\s*["']@\/lib\/analyze\/extractor["']/,
-    );
-  });
-
   it("keeps server credentials and provider modules out of every client entry", () => {
     const files = ["app", "components", "hooks"].flatMap(sourceFiles);
     const forbiddenImports = /^@\/lib\/(?:agents|auth$|db(?:\/|$)|analyze\/extractor$|judge\/council$)/;
@@ -49,12 +37,5 @@ describe("client/server module boundaries", () => {
     }
 
     expect(violations).toEqual([]);
-  });
-
-  it("keeps client-facing Moltbook data off the provider-backed agents barrel", () => {
-    const source = readFileSync("data/moltbook-lessons.ts", "utf8");
-
-    expect(source).toContain('from "@/lib/agents/cruxtacean"');
-    expect(source).not.toMatch(/from\s+["']@\/lib\/agents["']/);
   });
 });

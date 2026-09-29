@@ -12,6 +12,8 @@ export default defineConfig({
     environment: "happy-dom",
     globals: true,
     include: ["**/*.test.ts", "**/*.test.tsx"],
+    // Agent worktrees and tool artifacts live under .claude/; never collect their copies of the suite.
+    exclude: ["**/node_modules/**", "**/.claude/**", "**/.playwright-mcp/**", "**/.next/**"],
     coverage: {
       reporter: ["text", "html"],
       exclude: [

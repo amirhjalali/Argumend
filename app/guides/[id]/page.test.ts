@@ -22,13 +22,14 @@ describe("guide Open Graph fallback", () => {
     expect(url.searchParams.get("subtitle")).toBe("Critical Thinking Guide");
   });
 
-  it("uses a typographic separator in page and social titles", async () => {
+  it("uses a typographic separator and leaves the brand to the root template", async () => {
     const metadata = await generateMetadata({
       params: Promise.resolve({ id: "triangulation" }),
     });
 
-    expect(metadata.title).toContain(" — Guide | Argumend");
-    expect(metadata.openGraph?.title).toContain(" — Guide | Argumend");
+    expect(metadata.title).toBe("Triangulation — Guide");
+    expect(metadata.openGraph?.title).toBe("Triangulation — Guide");
+    expect(String(metadata.title)).not.toMatch(/argumend/i);
   });
 });
 

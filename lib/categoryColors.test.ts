@@ -1,7 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { categoryColors, statusColors } from "./categoryColors";
+import {
+  TONES,
+  categoryColors,
+  categoryTone,
+  categoryTopBorder,
+  statusColors,
+  toneStyles,
+} from "./categoryColors";
 import { TopicCategorySchema, TopicStatusSchema } from "./schemas/topic";
 
 describe("categoryColors", () => {
@@ -30,6 +37,67 @@ describe("categoryColors", () => {
   it("decouples settled status from the science category (no green-as-verdict)", () => {
     expect(statusColors.settled).not.toBe(categoryColors.science);
   });
+
+  it("keeps status chips in one neutral stone family (no signal hue)", () => {
+    // Status is not a verdict. Rust is the proponent side and the CTA, teal is
+    // evidence, crimson is a crux, brown is the skeptic side: none of them may
+    // colour a status chip that sits beside a category chip.
+    const hue = /(deep|rust|crux|skeptic|proponent|evidence|emerald|green|rose|red|amber|orange|yellow)[-/]/;
+    for (const [status, cls] of Object.entries(statusColors)) {
+      expect(hue.test(cls), `${status} status chip uses a signal hue: ${cls}`).toBe(false);
+      expect(cls, `${status} status chip should be stone`).toMatch(/text-stone-\d/);
+    }
+  });
+
+  it("keeps the reserved colours off category chips", () => {
+    // Crimson means a crux and stone means a status; a category chip in either
+    // reads as a signal it isn't. Every category gets its own hue.
+    for (const [category, cls] of Object.entries(categoryColors)) {
+      expect(cls, `${category} category chip uses crux crimson`).not.toMatch(/crux/);
+      expect(cls, `${category} category chip uses status stone`).not.toMatch(/stone-\d/);
+    }
+    const hues = Object.values(categoryColors).map((cls) => cls.match(/text-([a-z]+)/)?.[1]);
+    expect(new Set(hues).size, "two categories share a hue").toBe(hues.length);
+  });
+
+  it("tells contested from speculative by outline/fill, not only by shade", () => {
+    expect(statusColors.contested).toMatch(/bg-transparent/);
+    expect(statusColors.highly_speculative).toMatch(/border-dashed/);
+    expect(statusColors.contested).not.toMatch(/border-dashed/);
+  });
+});
+
+describe("toneStyles (the one tone map)", () => {
+  it("defines exactly the six tones, with no crux tone", () => {
+    expect(Object.keys(toneStyles).sort()).toEqual([...TONES].sort());
+    expect(TONES).not.toContain("crux" as never);
+  });
+
+  it("never uses crux crimson in any tone field", () => {
+    for (const [tone, style] of Object.entries(toneStyles)) {
+      for (const [field, cls] of Object.entries(style)) {
+        expect(cls, `${tone}.${field} uses crux crimson`).not.toMatch(/crux/);
+      }
+    }
+  });
+
+  it("gives every tone a distinct chip", () => {
+    const chips = TONES.map((tone) => toneStyles[tone].chip);
+    expect(new Set(chips).size).toBe(chips.length);
+  });
+
+  it("derives the category chips and top borders from the category's tone", () => {
+    for (const [category, tone] of Object.entries(categoryTone)) {
+      expect(categoryColors[category as keyof typeof categoryColors]).toBe(toneStyles[tone].chip);
+      expect(categoryTopBorder[category as keyof typeof categoryTopBorder]).toBe(
+        toneStyles[tone].topBorder,
+      );
+    }
+  });
+
+  it("keeps the neutral tone for labels, never a category", () => {
+    expect(Object.values(categoryTone)).not.toContain("neutral");
+  });
 });
 
 /**
@@ -48,13 +116,11 @@ describe("categoryColors", () => {
  * a repo-wide assertion would false-positive on code outside this migration.
  */
 describe("category/status color SOT consolidation (repo guard)", () => {
+  // app/dashboard/page.tsx and app/saved/SavedClient.tsx left this list on
+  // 2026-09-29: neither draws category or status colors at all any more
+  // (saved maps are plain hairline rows, as on /topics).
   const migratedFiles = [
-    "app/dashboard/page.tsx",
-    "app/saved/SavedClient.tsx",
-    "app/topics/tag/[slug]/page.tsx",
-    "app/topics/category/[slug]/page.tsx",
-    "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
-    "app/topics/compare/CompareIndexView.tsx",
+    "components/MobileArgumentList.tsx",
   ];
 
   // Read relative to the repo root (vitest cwd); split so the literal
@@ -93,6 +159,27 @@ describe("category/status color SOT consolidation (repo guard)", () => {
       ).toBe(false);
     },
   );
+});
+
+/**
+ * Truth-signal guard: surfaces that label sides, statuses and verification
+ * must not say "green = true / red = false". Proponent is rust, skeptic is
+ * brown, evidence/verified is teal, status is stone. Error states are not in
+ * these files, so any emerald/green/rose/red here is a verdict signal.
+ */
+describe("no green/red truth signals on side and status surfaces", () => {
+  const signalFiles = [
+    "components/MobileArgumentList.tsx",
+    "app/api/og/[id]/route.tsx",
+  ];
+  const readSource = (rel: string) =>
+    readFileSync(join(process.cwd(), ...rel.split("/")), "utf8");
+  const TRUTH_SIGNAL = /(emerald|green|rose|red)-\d|#(059669|10b981|16a34a|22c55e|dc2626|ef4444|e11d48|f43f5e)\b/i;
+
+  it.each(signalFiles)("%s uses no emerald/green/rose/red token or hex", (file) => {
+    const hit = readSource(file).match(TRUTH_SIGNAL);
+    expect(hit?.[0], `${file} signals truth with ${hit?.[0]}`).toBeUndefined();
+  });
 });
 
 /**
@@ -183,12 +270,7 @@ describe("off-palette color guard (app + components source trees)", () => {
  */
 describe("dark-mode pairing guard for text-primary / text-secondary", () => {
   const pairedFiles = [
-    "app/topics/[id]/TopicDetailView.tsx",
     "components/ReadModeView.tsx",
-    "app/topics/compare/[id1]/vs/[id2]/ComparisonView.tsx",
-    "app/community/page.tsx",
-    "components/JudgingResults.tsx",
-    "components/FlagshipIntro.tsx",
   ];
 
   const EXPECTED_PAIR: Record<string, string> = {

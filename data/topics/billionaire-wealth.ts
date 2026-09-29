@@ -70,7 +70,7 @@ export const billionaireWealthData = {
           title: "European Wealth Tax Outcomes",
           description:
             "Twelve OECD countries levied recurrent net wealth taxes in 1990; only four did as of 2017 (Norway, Spain, Switzerland, and France), with most repeals citing high administrative cost, capital flight, and disappointing revenue. Switzerland and Norway sustain theirs.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
@@ -183,7 +183,7 @@ export const billionaireWealthData = {
           title: "Giving Pledge Outcomes",
           description:
             "Over 230 billionaires have signed the Giving Pledge, a non-binding moral promise to give away the majority of their wealth. An Institute for Policy Studies analysis found that many signatories' wealth has grown far faster than their giving, with the pledge being legally unenforceable.",
-          side: "against" as const,
+          side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 5,

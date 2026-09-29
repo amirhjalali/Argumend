@@ -11,14 +11,15 @@ import {
 } from "@/lib/disagreement/model";
 import { createPublicationToken, digestReportBundle, hashClientKey } from "@/lib/disagreement/publication";
 import { canPublishReport } from "@/lib/disagreement/quality";
+import { logGapObservation } from "@/lib/gapMetric/log";
+import { gapFromDisagreementReport } from "@/lib/gapMetric/record";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
 function clientKey(request: NextRequest): string {
-  const forwarded = request.headers.get("x-forwarded-for") ?? "unknown";
-  const first = forwarded.split(",")[0]?.trim() || "unknown";
-  return hashClientKey(first);
+  return hashClientKey(clientIp(request));
 }
 
 export async function POST(request: NextRequest) {
@@ -105,6 +106,9 @@ export async function POST(request: NextRequest) {
       characterCount: bundle.execution.inputCharacters,
       droppedQuotes: bundle.report.quality.droppedUngroundedQuoteCount,
     });
+
+    // North-star gap metric: counts and ids only, flag-gated, never awaited.
+    void logGapObservation(() => gapFromDisagreementReport(bundle.report));
 
     return NextResponse.json(
       {

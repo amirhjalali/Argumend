@@ -1,138 +1,121 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
-import { Scale, ArrowRight } from "lucide-react";
+import { OnThisPage, PROSE, PROSE_LINK, RuledList, STORY_SECTION } from "@/components/story/StoryParts";
+import { PageContainer, PageHeader, Section, TextAction } from "@/components/ui";
+import { HOME_EVIDENCE_HREF, HOME_FLAGSHIP_HREF, numberWord } from "@/components/home/homeModel";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
+import { evidenceCitationStats } from "@/data/corpusStats";
+import { TOPIC_COUNT } from "@/data/topicIndex";
 
-const chatgptProblems = [
+/**
+ * /methodology: "How maps are made". Every sentence describes something the
+ * code or the data does today. Where to check each one:
+ *
+ *  - positions, claims, evidence, provenance, weight basis:
+ *    docs/ARGUMENT_MODEL.md, data/topics/drafts/*.draft.json
+ *  - the four evidence measures and the 0–40 card score: lib/evidenceMetrics.ts
+ *  - side = for or against the map's claim; the audit:
+ *    docs/reviews/2026-09-21-evidence-side-adjudication.md, scripts/jev-probe/expF-side-audit.ts
+ *  - crux ranking and "what would settle it": docs/CRUX_ENGINE.md, lib/crux,
+ *    components/argument/DebateView.tsx (SettleAnswer)
+ *  - the crux ledger and its review gate: lib/argument/ledger.ts (isPublicEntry)
+ *  - the older maps' reading, and when "settled" is withheld:
+ *    lib/schemas/topic.ts (computeBalance, computeWeight, applyVerdictRobustness)
+ *
+ * The four-judge council, score aggregation and the verdict matrix this page
+ * used to describe are not how any map is made (the judging API is off by
+ * default), so they are gone.
+ */
+
+const newerMapCount = argumentTopicIndex.length;
+const flagshipTitle =
+  argumentTopicIndex.find((topic) => `/topics/${topic.id}` === HOME_FLAGSHIP_HREF)?.title ??
+  "Will AI cause mass unemployment?";
+
+const SECTIONS = [
+  { id: "positions-and-evidence", label: "Positions and evidence" },
+  { id: "weighing", label: "Weighing a card" },
+  { id: "side-audit", label: "Filing a card" },
+  { id: "cruxes", label: "Finding the cruxes" },
+  { id: "ledger", label: "The crux ledger" },
+  { id: "older-maps", label: "The older maps" },
+  { id: "limits", label: "What this cannot do" },
+];
+
+const MEASURES = [
   {
-    title: "Single Point of Failure",
-    description:
-      "One model, one perspective, one set of biases. ChatGPT gives you one answer and presents it with false confidence. You have no way to know if another model would reach a different conclusion.",
+    key: "reliability",
+    title: "Source reliability",
+    body: <p>Track record, peer review, and recognised expertise in the field.</p>,
   },
   {
-    title: "No Evidence Transparency",
-    description:
-      "You get a fluent response but no way to verify claims or see how conclusions were reached. The reasoning is hidden behind a wall of confident prose.",
+    key: "independence",
+    title: "Independence",
+    body: (
+      <p>
+        Free of conflicts of interest, and corroborated by people with no stake
+        in the result.
+      </p>
+    ),
   },
   {
-    title: "Confirmation Bias Risk",
-    description:
-      "AI models tend to agree with the framing of your question. Ask a leading question, get a leading answer. The model optimizes for helpfulness, not truth.",
+    key: "replicability",
+    title: "Replicability",
+    body: <p>Whether others can check the result, and whether anyone has reproduced it.</p>,
   },
   {
-    title: "No Structured Disagreement",
-    description:
-      'A single model can\'t genuinely argue with itself. You get a both-sides-ish summary, not a real debate. The "on the other hand" paragraph is a formality, not a conviction.',
+    key: "directness",
+    title: "Directness",
+    body: <p>How directly the finding bears on the specific claim it is filed under.</p>,
   },
 ];
 
-const methodologySteps = [
+const SETTLE_KINDS = [
   {
-    number: "01",
-    title: "Argument Extraction",
-    color: "#4f7b77",
-    description:
-      "AI identifies all distinct positions, claims, evidence, and sources in the input text. Positions are categorized as supporting or opposing the central claim.",
-    details: [
-      "Every distinct claim is isolated and labeled",
-      'Positions are categorized as "for" or "against"',
-      "Potential logical fallacies are flagged automatically",
-      "Source references are extracted and linked",
-    ],
+    key: "evidence",
+    title: "Evidence that exists, or will",
+    body: (
+      <p>
+        A study, a dataset or an observation that would move the claim, named
+        as concretely as the map can name it.
+      </p>
+    ),
   },
   {
-    number: "02",
-    title: "Steel-Manning",
-    color: "#C4613C",
-    description:
-      "Each position is strengthened to its best possible form. We don't create strawmen — we create the argument that the strongest proponent would make.",
-    details: [
-      "Every argument is presented in its strongest form",
-      "The Ideological Turing Test: Could a believer say \"Yes, that's what I mean\"?",
-      "Weak arguments are upgraded, not dismissed",
-      "Skeptic positions are given the same rigor as mainstream ones",
-    ],
+    key: "terms",
+    title: "Agreement on terms, or on who decides",
+    body: (
+      <p>
+        Some cruxes close only when the sides agree what a word means, or who
+        gets to decide. The map says which.
+      </p>
+    ),
   },
   {
-    number: "03",
-    title: "Multi-Judge Council",
-    color: "#a23b3b",
-    description:
-      "Multiple AI models independently evaluate the arguments. Scores are aggregated to find consensus — or flag genuine disagreement between judges.",
-    details: [
-      "4 AI judges (Claude, GPT-4, Gemini, and more) evaluate independently",
-      "Each judge scores on multiple dimensions",
-      "Scores are aggregated; outliers are flagged",
-      "Judge disagreement is itself treated as information",
-    ],
-  },
-  {
-    number: "04",
-    title: "Evidence Weighting",
-    color: "#b05434",
-    description:
-      "Each piece of evidence is scored on four dimensions. The total evidence score is the sum of all four, giving a transparent, auditable quality measure.",
-    details: [
-      "Source Reliability (0-10): Track record, peer review, expertise",
-      "Independence (0-10): Free from conflicts, independently corroborated",
-      "Replicability (0-10): Can others verify? Has it been reproduced?",
-      "Directness (0-10): How directly does this address the claim?",
-    ],
-  },
-  {
-    number: "05",
-    title: "Balance & Weight",
-    color: "#4f7b77",
-    description:
-      "Two orthogonal scores, not one. Balance shows which way the evidence tips; weight shows how much we actually know. The formulas are transparent and the verdict is calibrated to what the evidence actually supports.",
-    details: [
-      "Balance: forStrength / (forStrength + againstStrength) x 100 — 50 is an even split",
-      "Weight: a composite of evidential mass, source quality, and crux resolvability",
-      "High weight + strong lean = Settled — evidence strongly favors one side",
-      "High weight + weak lean = Well-mapped, genuinely contested",
-      "Low weight = Open question — limited evidence so far, regardless of lean",
-    ],
-  },
-];
-
-const evidenceDimensions = [
-  {
-    name: "Source Reliability",
-    range: "0-10",
-    description: "Track record, peer review, recognized expertise in the domain",
-    color: "#C4613C",
-  },
-  {
-    name: "Independence",
-    range: "0-10",
-    description: "Free from conflicts of interest, independently corroborated by others",
-    color: "#a23b3b",
-  },
-  {
-    name: "Replicability",
-    range: "0-10",
-    description: "Can others verify the result? Has it been successfully reproduced?",
-    color: "#4f7b77",
-  },
-  {
-    name: "Directness",
-    range: "0-10",
-    description: "How directly does this evidence address the specific claim in question?",
-    color: "#b05434",
+    key: "values",
+    title: "Nothing does",
+    body: (
+      <p>
+        A difference in values is not settled by evidence, and the map says so
+        plainly and keeps both sides of it.
+      </p>
+    ),
   },
 ];
 
 export default function MethodologyPage() {
+  const { withUrl, total } = evidenceCitationStats;
+
   return (
-    <AppShell>
+    <AppShell layout="reading">
       <JsonLd
         data={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "Methodology",
+          name: "How maps are made",
           description:
-            "How Argumend analyzes arguments: argument extraction, steel-manning, multi-judge AI council, evidence weighting, and two-axis balance and weight scoring.",
+            "How Argumend maps are made: where positions and evidence come from, how each card is weighed and filed, how cruxes are found, and how their movement is recorded.",
           url: "https://argumend.org/methodology",
           isPartOf: {
             "@type": "WebSite",
@@ -141,350 +124,195 @@ export default function MethodologyPage() {
           },
         }}
       />
-      <div className="mx-auto max-w-4xl px-4 md:px-8">
-        {/* Hero — keep label, omit subtitle (heading is self-explanatory) */}
-        <div className="bg-gradient-to-b from-[#f4f1eb]/80 to-transparent dark:from-[#1a1917]/80 -mx-4 md:-mx-8 px-4 md:px-8 py-12 sm:py-16 lg:py-20 mb-14 md:mb-20 text-center">
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Methodology" },
-            ]}
-          />
-          <p className="text-xs font-medium uppercase tracking-widest text-muted dark:text-stone-400 mb-4">
-            Our Methodology
-          </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] tracking-tight text-primary dark:text-stone-200 leading-[1.08]">
-            Not just another<br />
-            <span className="text-stone-500 dark:text-stone-400">AI opinion</span>
-          </h1>
-        </div>
+      <PageContainer width="reading" as="article">
+        <PageHeader
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "About", href: "/about" },
+            { label: "How maps are made" },
+          ]}
+          eyebrow="Method"
+          title="How maps are made"
+          lede="What happens between a hard question and a map of it: where the positions and evidence come from, how each card is weighed and filed, how the cruxes are found, and how their movement is recorded. Every step is a judgment, written down so you can check it."
+        >
+          <OnThisPage items={SECTIONS} />
+        </PageHeader>
 
-        {/* The Problem */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4">
-            The problem with &ldquo;just ask ChatGPT&rdquo;
-          </h2>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed mb-8">
-            Asking a single AI for its opinion on a controversial topic is like
-            asking one witness to describe an entire crime scene. You get a
-            coherent story, but you have no idea what it&apos;s leaving out.
-          </p>
-
-          <div className="grid gap-3">
-            {chatgptProblems.map((problem) => (
-              <div
-                key={problem.title}
-                className="p-5 rounded-xl bg-[#faf8f5] dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)]"
-              >
-                <h3 className="font-semibold text-primary dark:text-stone-200 mb-1.5">
-                  {problem.title}
-                </h3>
-                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
-                  {problem.description}
-                </p>
-              </div>
-            ))}
+        <Section className={STORY_SECTION} id="positions-and-evidence" title="Positions and evidence">
+          <div className={PROSE}>
+            <p>
+              A map starts from the serious positions on a question: stances real
+              people hold. The newer maps set out four each; the older maps set
+              a skeptic&rsquo;s strongest case against the best reply, section by
+              section. Every position is written in the strongest form its
+              holders would recognise, and on the newer maps each carries a note
+              on why that version is the strongest.
+            </p>
+            <p>
+              On the newer maps, under the positions sit the claims they rest
+              on, each marked as a question of fact, a prediction, a matter of
+              values, a matter of definition, or a question of who decides.
+              Evidence is attached to the claims it bears on. Every card names
+              its source; on the {numberWord(newerMapCount)} newer maps each card also records whether its link
+              was checked and, where it matters, the source’s own stake in
+              the result. {withUrl.toLocaleString("en-US")} of the{" "}
+              {total.toLocaleString("en-US")} cards on the older maps link to
+              their source.
+            </p>
+            <p>
+              A language model drafts the first version of a newer map from a
+              set of research reports on the question, and every node records
+              where it came from. Each draft is then audited before it is
+              published: its source links checked, its headline facts
+              spot-checked against the primary source, its positions read for
+              fairness, and corrected where it was wrong.
+            </p>
           </div>
-        </section>
+        </Section>
 
-        {/* How Argumend Is Different — no divider */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
-            How Argumend is different
-          </h2>
-          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Five steps that turn a messy debate into structured, auditable analysis.
-          </p>
-
-          <div className="relative space-y-4">
-            <div className="absolute left-[2.25rem] top-8 bottom-8 w-px bg-gradient-to-b from-stone-200 via-stone-300 to-stone-200 dark:from-[#3d3a36] dark:via-[#4a4640] dark:to-[#3d3a36] hidden md:block" />
-            {methodologySteps.map((step) => (
-              <div
-                key={step.number}
-                className="relative bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl border border-stone-200/60 dark:border-[var(--border-default)] overflow-hidden"
-                style={{ borderLeftWidth: "4px", borderLeftColor: step.color }}
-              >
-                <div className="p-5 md:p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center"
-                        style={{ backgroundColor: `${step.color}15` }}
-                      >
-                        <span
-                          className="font-serif text-xl font-bold"
-                          style={{ color: step.color }}
-                        >
-                          {step.number}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-serif text-lg text-primary dark:text-stone-200 mb-2">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed mb-4">
-                        {step.description}
-                      </p>
-                      <ul className="space-y-2">
-                        {step.details.map((detail, j) => (
-                          <li key={j} className="flex items-start gap-2.5">
-                            <span
-                              className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                              style={{ backgroundColor: step.color }}
-                            />
-                            <span className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
-                              {detail}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <Section
+          className={STORY_SECTION}
+          id="weighing"
+          title="Weighing a card"
+          lede="Each card is scored from 0 to 10 on four measures, and a card's weight is their sum, out of 40."
+        >
+          <RuledList items={MEASURES} />
+          <div className={`${PROSE} mt-6`}>
+            <p>
+              These are judgments, not measurements. On the older maps one
+              annotator scored every card. On the newer maps a card is weighed
+              only where someone could write down why, and each score carries
+              that written reason.
+            </p>
           </div>
-        </section>
+        </Section>
 
-        {/* Multi-Judge Council Visual — no divider */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
-            The 4-Judge AI Council
-          </h2>
-          <p className="text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            Multiple models, independent evaluation, aggregated results.
-          </p>
-
-          <div className="relative bg-gradient-to-br from-[#f8f5ef] to-[#fefcf9] dark:from-[var(--bg-card)] dark:to-[#302e2a] rounded-2xl border border-stone-200/60 dark:border-[var(--border-default)] p-8 md:p-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {[
-                { name: "Claude", label: "Judge 1" },
-                { name: "GPT-4", label: "Judge 2" },
-                { name: "Gemini", label: "Judge 3" },
-                { name: "Model 4", label: "Judge 4" },
-              ].map((judge) => (
-                <div
-                  key={judge.name}
-                  className="flex flex-col items-center p-4 rounded-xl bg-white dark:bg-[var(--bg-card)] border border-stone-200/60 dark:border-[var(--border-default)] shadow-sm"
-                >
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4f7b77]/20 to-[#4f7b77]/5 flex items-center justify-center mb-2">
-                    <span className="font-serif text-sm font-bold text-deep">{judge.name[0]}</span>
-                  </div>
-                  <p className="text-sm font-semibold text-primary dark:text-stone-200">{judge.name}</p>
-                  <p className="text-[11px] text-muted dark:text-stone-400">{judge.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-center mb-6">
-              <div className="flex flex-col items-center gap-1">
-                <div className="w-px h-6 bg-stone-300 dark:bg-[#3d3a36]" />
-                <div className="text-[11px] text-muted dark:text-stone-400 font-medium tracking-wide">
-                  INDEPENDENT SCORING
-                </div>
-                <div className="w-px h-6 bg-stone-300 dark:bg-[#3d3a36]" />
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <div className="px-6 py-4 rounded-xl bg-gradient-to-r from-[#4f7b77] to-[#5a8a86] text-white shadow-lg">
-                <div className="flex items-center gap-2">
-                  <Scale className="h-5 w-5" strokeWidth={1.5} />
-                  <div>
-                    <p className="font-semibold text-sm">Score Aggregation</p>
-                    <p className="text-[11px] text-white/70">
-                      Consensus or flagged disagreement
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <Section className={STORY_SECTION} id="side-audit" title="Filing a card by what it shows">
+          <div className={PROSE}>
+            <p>
+              Every card is filed for or against the map&rsquo;s central claim by
+              what it shows, not by who cites it. A study one side likes to
+              quote can still cut against that side&rsquo;s claim, and the card
+              goes where the finding points.
+            </p>
+            <p>
+              A calibrated classifier (TypeSafe AI&rsquo;s Jev) checks the filing
+              of every card, and a person reads every card it flags before
+              anything changes. The classifier is a flag, not a ruling. Its first
+              full pass found three maps whose cards had been filed against the
+              wrong framing of the claim; they were corrected, and the check now
+              sits next to the map data, to run on every card we add.{" "}
+              <Link href={HOME_EVIDENCE_HREF} className={PROSE_LINK}>
+                The write-up
+              </Link>{" "}
+              has the details.
+            </p>
           </div>
-        </section>
+        </Section>
 
-        {/* Evidence Weighting */}
-        <section className="mb-16 md:mb-24 bg-white/50 dark:bg-[var(--bg-canvas)]/50 -mx-4 md:-mx-8 px-4 md:px-8 py-10 md:py-14 rounded-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
-            Evidence scoring dimensions
-          </h2>
-          <p className="text-lg text-secondary dark:text-stone-400 text-center mb-3 max-w-xl mx-auto leading-relaxed">
-            Every piece of evidence is scored on four independent dimensions.
-          </p>
-          <p className="text-center mb-10">
-            <span className="font-mono tabular-nums text-deep text-sm font-bold bg-deep/5 px-3 py-1 rounded-full">Total evidence score = sum of all four (max 40)</span>
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {evidenceDimensions.map((dim) => (
-              <div
-                key={dim.name}
-                className="bg-[#fefcf9] dark:bg-[var(--bg-card)] rounded-xl p-5 md:p-6 border border-stone-200/60 dark:border-[var(--border-default)]"
-                style={{ borderLeftWidth: "4px", borderLeftColor: dim.color }}
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-serif text-lg text-primary dark:text-stone-200">{dim.name}</h3>
-                  <span
-                    className="text-xs font-mono tabular-nums font-bold px-2.5 py-1 rounded-full"
-                    style={{
-                      color: dim.color,
-                      backgroundColor: `${dim.color}12`,
-                    }}
-                  >
-                    {dim.range}
-                  </span>
-                </div>
-                <p className="text-[14px] text-secondary dark:text-stone-400 leading-relaxed">
-                  {dim.description}
-                </p>
-              </div>
-            ))}
+        <Section className={STORY_SECTION} id="cruxes" title="Finding the cruxes">
+          <div className={PROSE}>
+            <p>
+              A crux is a claim that is genuinely contested and whose answer
+              would move the positions apart: settle it one way and some
+              positions gain while others lose. Hidden assumptions count too,
+              the claims nobody says out loud but the positions lean on.
+            </p>
+            <p>
+              On the newer maps, a model does not pick the cruxes. A
+              deterministic engine takes each contested claim, supposes it
+              settled true and then false, and measures how far each position
+              would move and whether they would move apart or together. The
+              ranking comes out the same every time it runs. One input is still
+              a judgment: how contested each claim is, which is set when the map
+              is drafted and reviewed. Editors can pin or set aside a crux, and
+              must write down why.
+            </p>
+            <p>Every crux then says what would settle it, in one of three ways:</p>
           </div>
-        </section>
+          <div className="mt-6">
+            <RuledList items={SETTLE_KINDS} />
+          </div>
+          <div className={`${PROSE} mt-6`}>
+            <p>
+              On the older maps, each section names its own crux, written by the
+              editors: the test that would settle it, whether that test has been
+              run, and, on many, what would change each side&rsquo;s mind.
+            </p>
+          </div>
+        </Section>
 
-        {/* Balance & Weight */}
-        <section className="mb-16 md:mb-24">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-4 text-center">
-            Balance & weight
-          </h2>
-          <p className="text-secondary dark:text-stone-400 text-center mb-10 max-w-xl mx-auto leading-relaxed">
-            A single score can&apos;t distinguish &ldquo;richly evidenced and
-            genuinely contested&rdquo; from &ldquo;we barely know
-            anything.&rdquo; So we compute two orthogonal numbers instead of
-            one.
+        <Section className={STORY_SECTION} id="ledger" title="The crux ledger">
+          <div className={PROSE}>
+            <p>
+              On the AI maps, each crux keeps a dated ledger: when it was open,
+              when new evidence narrowed it, whether it resolved, or whether it
+              turned out that no evidence can settle it, and what moved it each
+              time. Editors write the entries. A model may propose one, but
+              nothing reaches the page until a person has reviewed it. The
+              ledger records movement, not a winner.
+            </p>
+          </div>
+          <p className="mt-4">
+            <TextAction href={`${HOME_FLAGSHIP_HREF}#cruxes`}>
+              See the ledger on {flagshipTitle}
+            </TextAction>
           </p>
+        </Section>
 
-          <div className="bg-[#faf8f3] dark:bg-[var(--bg-card)] rounded-xl p-6 md:p-8 border border-stone-200/60 dark:border-[var(--border-default)] mb-6">
-            <div className="grid sm:grid-cols-2 gap-6 mb-6">
-              <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-deep/10 flex items-center justify-center">
-                    <span className="font-mono text-sm font-bold text-deep">B</span>
-                  </div>
-                  <p className="text-sm font-semibold text-primary dark:text-stone-200">Balance — which way it tips</p>
-                </div>
-                <p className="font-mono text-xs text-stone-500 dark:text-stone-400 mb-2">
-                  balance = forStrength / (forStrength + againstStrength) x 100
-                </p>
-                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
-                  Summed over each side&apos;s 0–40 evidence scores. 50 is an
-                  even split; above 50 leans toward the claim, below leans
-                  against it.
-                </p>
-              </div>
-              <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-rust-500/10 flex items-center justify-center">
-                    <span className="font-mono text-sm font-bold text-rust-500">W</span>
-                  </div>
-                  <p className="text-sm font-semibold text-primary dark:text-stone-200">Weight — how much we know</p>
-                </div>
-                <p className="font-mono text-xs text-stone-500 dark:text-stone-400 mb-2">
-                  weight = mass + quality + resolvability
-                </p>
-                <p className="text-sm text-secondary dark:text-stone-400 leading-relaxed">
-                  A composite of evidential mass (with diminishing returns
-                  for piling on more evidence), average source quality, and
-                  how resolvable the underlying cruxes are.
-                </p>
-              </div>
-            </div>
-
-            <div className="border-t border-stone-200/60 dark:border-[var(--border-default)] pt-5">
-              <p className="text-sm font-semibold text-primary dark:text-stone-200 mb-4">The verdict matrix</p>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-deep">
-                    high weight
-                    <br />
-                    strong lean
-                  </span>
-                  <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
-                    <div className="h-full w-[95%] bg-gradient-to-r from-[#4f7b77] to-[#5a8a86] rounded-full" />
-                  </div>
-                  <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
-                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Settled</strong> — evidence strongly favors one side
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-deep">
-                    high weight
-                    <br />
-                    weak lean
-                  </span>
-                  <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
-                    <div className="h-full w-[80%] bg-gradient-to-r from-[#4f7b77]/70 to-[#5a8a86]/70 rounded-full" />
-                  </div>
-                  <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
-                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Well-mapped, genuinely contested</strong> — richly evidenced, still split
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-rust-500">
-                    medium weight
-                  </span>
-                  <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
-                    <div className="h-full w-[55%] bg-gradient-to-r from-rust-500 to-rust-600 rounded-full" />
-                  </div>
-                  <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
-                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Leans / Balanced</strong> — moderately evidenced
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="w-24 text-center text-xs font-mono font-medium text-[#a23b3b]">
-                    low weight
-                  </span>
-                  <div className="flex-1 h-2 bg-stone-200/50 dark:bg-[#3d3a36]/50 rounded-full overflow-hidden">
-                    <div className="h-full w-[25%] bg-gradient-to-r from-[#a23b3b] to-[#c45c5c] rounded-full" />
-                  </div>
-                  <p className="text-sm text-stone-600 dark:text-stone-400 w-56">
-                    <strong className="text-stone-900 dark:text-[var(--text-heading)]">Open question</strong> — limited evidence so far, lean not asserted
-                  </p>
-                </div>
-              </div>
-            </div>
+        <Section className={STORY_SECTION} id="older-maps" title="How the cards weigh, on the older maps">
+          <div className={PROSE}>
+            <p>
+              The {TOPIC_COUNT} older maps also sum their cards into a one-line
+              reading of where the evidence on the page stands. Two numbers go
+              into it: the balance, which way the weighed cards tip, and the
+              weight, how much they carry, from how much evidence there is, its
+              average quality, and whether the cruxes can be tested at all. The
+              reading says the evidence largely converges, is well mapped but
+              still divided, leans one way, or is still thin. It describes the
+              cards on the page, not the question in the world, and it never
+              names a winner.
+            </p>
+            {/* Kept verbatim from the previous methodology page. */}
+            <p data-kept="settled-withheld">
+              <strong className="font-semibold text-stone-900 dark:text-stone-100">
+                When &ldquo;settled&rdquo; is withheld.
+              </strong>{" "}
+              Whether one piece of evidence counts for a claim or against it is a
+              judgement call, and on a map of a dozen cards one such call can move the
+              balance by ten points — half the gap &ldquo;evidence largely converges&rdquo; requires. So we
+              test it: if reclassifying any single card would take the word away, the map
+              hasn&rsquo;t earned it, and we show its lean instead. Either way those maps
+              carry a note saying one card could change the reading. A handful of
+              questions where we judge the evidence to have converged in the world — the moon
+              landing — keep that reading on our own editorial judgement while their maps are still too shallow
+              to show it; those say so in the same line, and deepening the map is the fix.
+              The balance and weight numbers are never adjusted; only the reading is.
+            </p>
           </div>
-        </section>
+        </Section>
 
-        {/* What This Means */}
-        <section className="mb-16 md:mb-24 border border-stone-200/60 dark:border-[var(--border-default)] rounded-2xl p-8 md:p-10">
-          <h2 className="font-serif text-2xl sm:text-3xl text-primary dark:text-stone-200 mb-6">
-            What this means for you
-          </h2>
-          <div className="space-y-6 text-secondary dark:text-stone-400 leading-relaxed">
-            <div>
-              <h3 className="text-primary dark:text-stone-200 font-semibold mb-1">Transparency</h3>
-              <p>Every score can be traced back to specific evidence and specific judges. No black boxes.</p>
-            </div>
-            <div>
-              <h3 className="text-primary dark:text-stone-200 font-semibold mb-1">Multi-perspective</h3>
-              <p>Multiple AI models with different training data and biases. When they disagree, that disagreement is itself valuable information.</p>
-            </div>
-            <div>
-              <h3 className="text-primary dark:text-stone-200 font-semibold mb-1">Updatable</h3>
-              <p>When new evidence emerges, scores change. Nothing here is the final word.</p>
-            </div>
+        <Section className={STORY_SECTION} id="limits" title="What this cannot do">
+          <div className={PROSE}>
+            <p>
+              A map is not a fact-check, and it does not say which side is
+              correct. Card weights are one reader&rsquo;s judgment. The side
+              audit is a flag for a person to read, not a ruling. The crux
+              engine is only as good as the claims and links it is given. Every
+              one of these can be wrong, and each is written down so that you
+              can say where.
+            </p>
           </div>
-        </section>
-
-        {/* Inline CTA links — not the big centered box */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 py-12 mb-8">
-          <Link
-            href="/analyze"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-rust-500 to-rust-600 text-white text-sm font-medium hover:from-rust-600 hover:to-rust-700 transition-all shadow-md hover:shadow-lg"
-          >
-            Try it yourself
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-          <Link
-            href="/topics"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-300 dark:border-[var(--border-divider)] text-stone-600 dark:text-stone-400 hover:border-deep/30 text-sm font-medium hover:bg-white/60 dark:hover:bg-[var(--bg-muted)] transition-colors"
-          >
-            Explore topics
-            <Scale className="h-3.5 w-3.5" />
-          </Link>
-        </div>
-      </div>
+          <div className="mt-4 flex flex-wrap gap-x-6">
+            <TextAction href={HOME_FLAGSHIP_HREF}>
+              Read a map: {flagshipTitle}
+            </TextAction>
+            <TextAction href="/about#contribute">
+              Suggest a correction
+            </TextAction>
+          </div>
+        </Section>
+      </PageContainer>
     </AppShell>
   );
 }

@@ -13,7 +13,12 @@ import { describe, it, expect } from "vitest";
  * introduces a fresh unpaired `text-primary`/`text-secondary` on a
  * dark-adaptive surface gets caught even before anyone adds it to a list.
  *
- * `tailwind.config.ts` defines the brand text colors as FIXED hex:
+ * Update 2026-09-22: `tailwind.config.ts` now maps primary/secondary/muted to
+ * RGB-channel variables that flip under `.dark` (see darkModeSurfaceTokens
+ * test), so a bare utility no longer renders dark-on-dark. The ratchet stays
+ * as a style guard: explicit pairs keep the intended dark shade visible.
+ *
+ * Historically the brand text colors were FIXED hex:
  *   primary: #3d3a36, secondary: #564d45, muted: #6d6058
  * So the utilities `text-primary` / `text-secondary` / `text-muted` do NOT
  * adapt in dark mode. On a dark-adaptive surface (`#1a1917` canvas) a bare
@@ -80,10 +85,9 @@ const countBare = (src: string): number => src.match(BARE_BRAND_TEXT)?.length ??
  * dark-mode burst-fix merge landed all six parallel chunks.
  */
 // Honest fixed-light floor: NewsletterSignup's two brand-text lines live on a
-// permanently parchment card, while ShareVerdictCard and VerdictVoting each
-// contain one fixed-light capture/raster surface. Their precise guards document
-// those exemptions; every dark-adaptive brand-text use is migrated.
-const BARE_TOKEN_CEILING = 4;
+// permanently parchment card, and TopicPage keeps one. The verdict share card
+// and VerdictVoting, which each held a fixed-light raster surface, are deleted.
+const BARE_TOKEN_CEILING = 3;
 
 describe("dark-mode text token guard (text-primary / text-secondary) — repo-wide ratchet", () => {
   const cwd = process.cwd();

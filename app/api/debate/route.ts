@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 import { generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
@@ -182,7 +183,7 @@ async function generateWithGrok(
 
 export async function POST(request: NextRequest) {
   // Rate limit: 20 requests per hour per IP (higher limit since each debate round is a separate call)
-  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(request);
   const limit = rateLimit(`debate:${ip}`, { maxRequests: 20, windowMs: 60 * 60 * 1000 });
   if (!limit.success) {
     return NextResponse.json(

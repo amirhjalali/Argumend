@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import topicSummaryData from "@/data/topicSummaries.json";
 import type { TopicSummary } from "@/data/topicIndex";
+import { FRAGILE_VERDICT_NOTE } from "@/components/FragileVerdictNote";
 import type { VerdictQuadrant } from "@/lib/schemas/topic";
 import {
   OG_HEIGHT,
@@ -16,7 +17,7 @@ export const runtime = "edge";
 
 const QUADRANT_COLORS: Record<VerdictQuadrant, string> = {
   settled: "#3a6965",
-  contested: "#a23b3b",
+  contested: "#564d45", // stone; crimson is for cruxes (components/BalanceWeightChip.tsx)
   moderate: "#C4613C",
   open: "#7a7068",
 };
@@ -25,11 +26,11 @@ const topicSummaries = topicSummaryData as TopicSummary[];
 function getStatusLabel(status: string): string {
   switch (status) {
     case "settled":
-      return "Settled";
+      return "Evidence converges";
     case "contested":
-      return "Contested";
+      return "Evidence divided";
     case "highly_speculative":
-      return "Highly Speculative";
+      return "Evidence thin";
     default:
       return status;
   }
@@ -38,13 +39,13 @@ function getStatusLabel(status: string): string {
 function getStatusColor(status: string): string {
   switch (status) {
     case "settled":
-      return "#059669"; // emerald
+      return "#3a6965"; // deep teal: narrowed, never green-as-true
     case "contested":
-      return "#C4613C"; // rust
+      return "#564d45"; // stone ink: rust is the proponent side and the CTA
     case "highly_speculative":
-      return "#78716c"; // stone
+      return "#6d6058"; // muted stone (#78716c was 4.3:1 on the parchment)
     default:
-      return "#78716c";
+      return "#6d6058";
   }
 }
 
@@ -171,6 +172,21 @@ export async function GET(
             >
               {verdict}
             </div>
+
+            {/* Fragility — a reading one evidence relabel could change says so */}
+            {topic.verdict.fragile && (
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: "17px",
+                  color: "#a8a29e",
+                  fontStyle: "italic",
+                  lineHeight: 1.3,
+                }}
+              >
+                {FRAGILE_VERDICT_NOTE}
+              </div>
+            )}
 
             {/* Stats row */}
             <div

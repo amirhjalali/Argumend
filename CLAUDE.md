@@ -35,16 +35,20 @@ No API keys or database needed for local dev — the app runs offline by default
 ```
 app/                    # Next.js App Router pages
   api/                  # API routes (analyze, debate, judge, auth, etc.)
-  topics/[id]/          # Topic detail pages
-  analyses/, analyze/   # Analysis pages
-  blog/, guides/, explore/, about/  # Content pages
+  page.tsx              # Home (server page: components/home/*)
+  topics/               # Maps library; topics/[id] = one crux-first page for every map
+  topics/[id]/map/      # Diagram view (React Flow), noindex
+  analyze/              # The one paste tool (map match; diagnosis when its lane is on)
+  learn/                # Learn hub; blog/, guides/, concepts/, fallacies/, glossary/, questions/ hang off it
+  about/, methodology/  # The story page and "How maps are made"
 components/             # React components
-  HomeClient.tsx        # Main canvas — React Flow graph viewer
+  AppShell.tsx, TopBar.tsx, Footer.tsx  # The one shell: sticky header, no sidebar
+  ui/                   # Page primitives: PageHeader, PageContainer, Section, Button, TextAction, Chip
+  topic/                # TopicPage template + crux primitives (flagship and legacy maps)
+  paste/, learn/, home/ # Paste flow, ArticleLayout/CollectionIndex, home beats
   nodes/                # Custom React Flow nodes (RichNode, EvidenceNode, MetaNode)
-  Sidebar.tsx, TopBar.tsx, Footer.tsx  # Shell components
 hooks/
-  useLogicGraph.ts      # Core state management (Zustand store) — graph nodes/edges
-  useDebateOrchestrator.ts  # Debate session state
+  useLogicGraph.ts      # Diagram state (Zustand store) — graph nodes/edges for /topics/[id]/map
 lib/
   analyze/              # Argument extraction (offline.ts for static, extractor.ts for live)
   debate/               # Debate generation
@@ -79,7 +83,24 @@ Set via environment variables. All default to off (offline mode):
 - `ENABLE_LIVE_ANALYZE_API=true` — live argument extraction via AI
 - `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true` — live debate generation
 - `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true` — live multi-model judging
-- `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis at `/analyze-v2`
+- `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis, shown above the
+  map match at `/analyze` (with the flag off, `/analyze` still matches pasted text to a
+  map offline; `/analyze-v2` redirects to `/analyze`)
+- `CRUX_PROJECTION_JEV_GATE=true` — withhold a ranked crux whose calibrated contestedness (from a probe such as Jev) is below the floor. Inert unless a caller supplies probe values, which no production lane does; it sends nothing anywhere by itself.
+- `ENABLE_JEV_MAP_REPLY=true` — `POST /api/map-reply`: route a pasted thread to a
+  topic map via TypeSafe AI's Jev. **Sends the pasted text to a third party**
+  (scrubbed and speaker-renamed first); keep off unless that is acceptable. Needs
+  `TYPESAFE_API_KEY`. See `docs/MAP_REPLY.md`.
+- `NEXT_PUBLIC_ENABLE_JEV_MAP_REPLY=true` — renders the `/reply` page. Read at
+  build time like every `NEXT_PUBLIC_` variable; `/reply` 404s while it is off.
+  Independent of the flag above: rendering a page is not the decision to send
+  text to a third party, so both have to be on for a submit to reach the model.
+- `ENABLE_GAP_METRIC_LOGGING=true` — after a successful `/api/map-reply` or
+  `/api/disagreements/analyze` response, insert one counts-only row into
+  `gap_observations` (north-star metric). No text, ever: the record is a strict
+  schema of enums, counts and slug ids. Fire-and-forget; a no-op without
+  `DATABASE_URL`; never fails the request. Weekly table:
+  `npx tsx scripts/gap-metric-report.ts`. See `docs/GAP_METRIC.md`.
 
 ### Disagreement Diagnosis (V2)
 
@@ -93,6 +114,23 @@ verification, never names a winner, and shows no agreement percentage.
 `fake` (fixtures, for tests). The `cli` lane exists so diagnosis quality can be
 reviewed offline; see `docs/DISAGREEMENT_LOOP.md`, which also covers the map-recovery
 harness that evaluates the pipeline against the flagship ArgumentGraphs.
+
+### Map Reply (Jev)
+
+`POST /api/map-reply` turns a pasted thread into an Argumend map reply: dominant
+section, who did not make an argument, which cruxes the thread touched, and the
+strongest weighted evidence per side. Composed entirely from probe numbers and
+sentences that already exist in the topic data — no generated prose, no winner.
+Pipeline in `lib/mapReply/`, typed client in `lib/jev/`, UI at `/reply`
+(`app/reply/page.tsx` plus `components/mapReply/`). Off by default and
+documented in `docs/MAP_REPLY.md`, which also covers the scope limit (pasted
+text only, never scraped community comments) and the prompt-injection boundary.
+
+The UI shows the probe numbers rather than hiding them: every threshold is
+drawn as a tick on its own meter, so a signal that just missed the bar is
+visible instead of absent, and a section placement under 70% confidence is
+marked as a guess. The consent line above the submit button is built from
+`lib/aiProviders.ts`.
 
 ### Dynamic Imports
 
@@ -132,7 +170,12 @@ Stoic/parchment aesthetic inspired by LessWrong.
 Toggle via `class` strategy on `<html>`. CSS custom properties (`--bg-canvas`, `--text-primary`, etc.) defined in `globals.css` under `:root` and `.dark`. Use Tailwind `dark:` classes or CSS variables.
 
 ### Component Classes
-Utility classes defined in `globals.css`: `.surface-card`, `.surface-paper`, `.btn-*`, `.card-hover`, `.link-underline`.
+Build pages from `components/ui` (`PageHeader`, `PageContainer` reading|default,
+`Section`, `Button` primary = the one rust fill per page, `TextAction`, `Chip` with tones
+from `lib/categoryColors.ts` `toneStyles`) rather than hand-rolled headers, containers,
+buttons or pills. Navigation lives only in `lib/nav.ts` (`ANALYZE_HREF`, `LEARN_HREF`).
+Utility classes in `globals.css`: `.surface-card`, `.surface-paper`, `.btn-primary`,
+`.label-caps`, `.card-hover`, `.link-underline`. See `docs/plans/2026-09-29-site-overhaul.md`.
 
 ## Deployment
 

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { argumentTopicIds } from "@/lib/argument/topicIds";
-import { loadArgumentTopic } from "@/lib/argument/draftTopics";
-import { TOPIC_COUNT_LABEL } from "@/data/topicIndex";
+import { MAP_COUNT_LABEL } from "@/data/topicIndex";
 import { buildPageHref, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
 import TopicsPageClient from "./TopicsPageClient";
 import {
@@ -22,8 +19,8 @@ export async function generateMetadata({ searchParams }: TopicsPageProps): Promi
 
   return {
     title: state.page > 1
-      ? `Explore Topics — Page ${state.page}`
-      : `Explore Topics — ${TOPIC_COUNT_LABEL} Controversial Issues Analyzed`,
+      ? `Maps — page ${state.page}`
+      : `Maps — ${MAP_COUNT_LABEL} contested questions`,
     alternates: {
       canonical: buildPageHref("https://argumend.org/topics", state.page, filters),
     },
@@ -35,7 +32,12 @@ export async function generateMetadata({ searchParams }: TopicsPageProps): Promi
         ? buildPageHref("https://argumend.org/topics", state.page + 1, filters)
         : null,
     },
-    robots: state.page > pageCount ? { index: false, follow: true } : undefined,
+    // Search results (including old /topics/tag/* URLs, which now redirect to
+    // ?q=) are for readers, not the index: follow the links, skip the page.
+    robots:
+      state.page > pageCount || state.search.trim()
+        ? { index: false, follow: true }
+        : undefined,
   };
 }
 
@@ -45,47 +47,5 @@ export default async function TopicsPage({ searchParams }: TopicsPageProps) {
   if (state.page > pageCount) {
     notFound();
   }
-  return (
-    <>
-      <FeaturedDebateMaps />
-      <TopicsPageClient initialState={state} />
-    </>
-  );
-}
-
-/**
- * Server-rendered Explore entry point for the new-model (ArgumentGraph)
- * debate maps; the same lightweight registry also powers home and search.
- */
-function FeaturedDebateMaps() {
-  const featured = argumentTopicIds
-    .map((id) => loadArgumentTopic(id))
-    .filter((topic): topic is NonNullable<typeof topic> => topic !== null);
-  if (featured.length === 0) return null;
-
-  return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-8 grid gap-3 sm:grid-cols-3">
-      {featured.map((topic) => (
-        <Link
-          key={topic.meta.id}
-          href={`/topics/${topic.meta.id}`}
-          className="surface-card card-hover block rounded-lg border-l-4 border-[#a23b3b] p-4 sm:p-5"
-        >
-          <p className="text-[11px] font-medium uppercase tracking-wider text-[#a23b3b]">
-            Featured debate map
-          </p>
-          <h2 className="mt-1.5 font-serif text-xl sm:text-2xl text-stone-900 dark:text-stone-100">
-            {topic.meta.title}
-          </h2>
-          <p className="mt-1.5 text-sm leading-relaxed text-secondary dark:text-stone-300">
-            {topic.meta.tagline}
-          </p>
-          <p className="mt-2 text-xs text-muted dark:text-stone-400">
-            Both sides at full strength · five minutes to see what the fight
-            actually turns on
-          </p>
-        </Link>
-      ))}
-    </div>
-  );
+  return <TopicsPageClient initialState={state} />;
 }

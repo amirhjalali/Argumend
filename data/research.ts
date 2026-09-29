@@ -155,11 +155,118 @@ export const citations: Citation[] = [
     accessDate: "2025-12-01",
   },
   {
-    id: "cook-2023",
-    authors: ["Cook, J.", "Lewandowsky, S.", "Ecker, U. K. H."],
-    title: "Misinformation and Its Correction: Cognitive Mechanisms and Recommendations for Mass Communication",
-    source: "Psychological Science in the Public Interest",
-    year: 2023,
+    id: "lewandowsky-2012",
+    authors: ["Lewandowsky, S.", "Ecker, U. K. H.", "Seifert, C. M.", "Schwarz, N.", "Cook, J."],
+    title: "Misinformation and Its Correction: Continued Influence and Successful Debiasing",
+    source: "Psychological Science in the Public Interest, 13(3), 106–131",
+    year: 2012,
+    url: "https://doi.org/10.1177/1529100612451018",
+  },
+  {
+    id: "perception-gap-2019",
+    authors: ["Yudkin, D.", "Hawkins, S.", "Dixon, T."],
+    title: "The Perception Gap: How False Impressions Are Pulling Americans Apart",
+    source: "More in Common",
+    year: 2019,
+    url: "https://perceptiongap.us/",
+  },
+];
+
+// ── Reading list (moved here from /library, 2026-09-29) ──────
+
+export interface ReadingItem {
+  title: string;
+  url: string;
+  description: string;
+  kind: "Book" | "Reference" | "Sequence" | "Community" | "Database" | "Dataset";
+}
+
+export interface ReadingShelf {
+  id: string;
+  title: string;
+  description: string;
+  items: ReadingItem[];
+}
+
+/** The books, references and tools that shaped how the maps are built. */
+export const readingList: ReadingShelf[] = [
+  {
+    id: "foundations",
+    title: "Foundations of reasoning",
+    description:
+      "Where the vocabulary comes from: what counts as an argument, a premise, or a good reason in the first place.",
+    items: [
+      {
+        title: "Stanford Encyclopedia of Philosophy",
+        url: "https://plato.stanford.edu/",
+        description: "Peer-reviewed reference entries on essentially every concept we use.",
+        kind: "Reference",
+      },
+      {
+        title: "Rationality: From AI to Zombies",
+        url: "https://www.readthesequences.com/",
+        description: "Eliezer Yudkowsky's foundational sequence on belief and evidence.",
+        kind: "Sequence",
+      },
+      {
+        title: "LessWrong",
+        url: "https://www.lesswrong.com/",
+        description: "A working community that argues about reasoning in public.",
+        kind: "Community",
+      },
+    ],
+  },
+  {
+    id: "evidence",
+    title: "Evidence and method",
+    description:
+      "How claims get tested against the world: falsification, systematic review, and the data that survives both.",
+    items: [
+      {
+        title: "The Logic of Scientific Discovery",
+        url: "https://en.wikipedia.org/wiki/The_Logic_of_Scientific_Discovery",
+        description: "Karl Popper on falsification: what makes a claim testable at all.",
+        kind: "Book",
+      },
+      {
+        title: "Cochrane Library",
+        url: "https://www.cochranelibrary.com/",
+        description: "Systematic reviews of healthcare interventions, with evidence graded.",
+        kind: "Database",
+      },
+      {
+        title: "Our World in Data",
+        url: "https://ourworldindata.org/",
+        description: "Sourced long-run data on the problems people argue about most.",
+        kind: "Dataset",
+      },
+    ],
+  },
+  {
+    id: "judgment",
+    title: "Judgment and calibration",
+    description:
+      "Why your own reasoning goes wrong, and what measurably reduces the error: bias, motivation, and forecasting track records.",
+    items: [
+      {
+        title: "Thinking, Fast and Slow",
+        url: "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow",
+        description: "Daniel Kahneman on the systematic ways intuition misfires.",
+        kind: "Book",
+      },
+      {
+        title: "The Scout Mindset",
+        url: "https://www.juliagalef.com/book/",
+        description: "Julia Galef on wanting to see clearly rather than to win.",
+        kind: "Book",
+      },
+      {
+        title: "Superforecasting",
+        url: "https://en.wikipedia.org/wiki/Superforecasting",
+        description: "Philip Tetlock on who actually predicts well, and why.",
+        kind: "Book",
+      },
+    ],
   },
 ];
 
@@ -167,8 +274,27 @@ export const citations: Citation[] = [
 
 export const researchSections: ResearchSection[] = [
   {
+    id: "perception-gap",
+    title: "The gap between perceived and actual disagreement",
+    subtitle: "We tend to think we disagree more than we do.",
+    paragraphs: [
+      {
+        text: "In a 2019 national study, More in Common found that Democrats and Republicans imagine almost twice as many of their opponents hold extreme views as really do. Each side argues with a caricature of the other, and the caricature is worse than the people it stands for.",
+        citationIds: ["perception-gap-2019"],
+      },
+      {
+        text: "The same group's earlier Hidden Tribes study found that about two thirds of Americans belong to an \"Exhausted Majority\": people who hold more nuanced views than the loudest voices on either side and feel left out of the national conversation.",
+        citationIds: ["hidden-tribes"],
+      },
+      {
+        text: "That gap between how much people think they disagree and how much they actually do is what Argumend is built to close. A map sets out what each side claims, what both already agree on, and the few questions the disagreement turns on, so a reader can see how much of a fight is about the world and how much is about the other side. It never names a winner.",
+        citationIds: [],
+      },
+    ],
+  },
+  {
     id: "polarization-crisis",
-    title: "The Polarization Crisis",
+    title: "The polarization crisis",
     subtitle: "We are not merely disagreeing — we are forgetting how to disagree.",
     paragraphs: [
       {
@@ -180,10 +306,6 @@ export const researchSections: ResearchSection[] = [
         citationIds: ["pew-2022"],
       },
       {
-        text: "The picture is not quite this bleak. The Hidden Tribes study, surveying 8,000 Americans, found that 67% belong to an \"Exhausted Majority\" — people who are tired of polarization, hold complex views, and feel they have no voice in the national conversation.",
-        citationIds: ["hidden-tribes"],
-      },
-      {
         text: "The partisan coalitions themselves are shifting. The education gap, the age gap, and the racial composition of each party have all changed dramatically since the 1990s. But the pace of affective polarization — how much we dislike the other side — has outstripped actual policy disagreement.",
         citationIds: ["pew-2024"],
       },
@@ -191,7 +313,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "information-weaponization",
-    title: "Information Weaponization",
+    title: "Information weaponization",
     subtitle:
       "Falsehood flies, and the truth comes limping after it.",
     paragraphs: [
@@ -211,7 +333,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "echo-chambers",
-    title: "Echo Chambers & Filter Bubbles",
+    title: "Echo chambers and filter bubbles",
     subtitle:
       "Algorithms optimize for engagement. Engagement rewards outrage.",
     paragraphs: [
@@ -231,7 +353,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "cost-of-bad-arguments",
-    title: "The Cost of Bad Arguments",
+    title: "The cost of bad arguments",
     subtitle: "Poor epistemics are not an abstract problem — they are a public health crisis.",
     paragraphs: [
       {
@@ -250,7 +372,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "what-works",
-    title: "What Works",
+    title: "What works",
     subtitle: "The research is clear: structured thinking produces better outcomes.",
     paragraphs: [
       {
@@ -269,7 +391,7 @@ export const researchSections: ResearchSection[] = [
   },
   {
     id: "where-argumend-fits",
-    title: "Where Argumend Fits",
+    title: "Where Argumend fits",
     subtitle:
       "We translate research into a tool anyone can use.",
     paragraphs: [
@@ -278,7 +400,7 @@ export const researchSections: ResearchSection[] = [
         citationIds: ["fishkin-2018", "galef-2021"],
       },
       {
-        text: "Our calibrated confidence scores draw directly from Tetlock's research on superforecasting. Rather than presenting binary conclusions, we estimate uncertainty honestly — because admitting what we don't know is the first step toward knowing more.",
+        text: "Tetlock's research on superforecasting shaped how our maps talk about uncertainty. Instead of a verdict or a single percentage, a map says whether the evidence largely converges, is still divided, or is still thin, and flags a reading that one evidence card could overturn — because admitting what we don't know is the first step toward knowing more.",
         citationIds: ["tetlock-2015"],
       },
       {

@@ -535,22 +535,6 @@ export const topics: Topic[] = [
 ];
 
 // ============================================================================
-// Featured Topic of the Week
-// ============================================================================
-//
-// NOTE: The homepage hero (FeaturedTopicHero) reads `featuredTopicId` /
-// `featuredReason` from `data/topicIndex.ts`, NOT from here — that's the
-// lightweight client-bundle source. Keep these two in sync; the values below
-// are the canonical definitions mirrored into topicIndex.ts.
-
-/** Rotate this ID weekly to feature a different debate on the homepage. */
-export const featuredTopicId = "consciousness-ai-systems";
-
-/** Short editorial hook explaining why this topic is featured right now. */
-export const featuredReason =
-  "Anthropic now studies model welfare. Could today's AI already have a stake in how we treat it? Where the evidence actually lands.";
-
-// ============================================================================
 // Category Helpers
 // ============================================================================
 

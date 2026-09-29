@@ -58,7 +58,7 @@ const minimalTopic = {
   confidence_score: 80,
   balance: 80,
   weight: 70,
-  verdict: { label: "Leans toward the claim — moderately evidenced", quadrant: "moderate" as const },
+  verdict: { label: "Evidence leans toward the claim — moderately evidenced", quadrant: "moderate" as const },
   status: "contested" as const,
   category: "policy" as const,
   pillars: [],

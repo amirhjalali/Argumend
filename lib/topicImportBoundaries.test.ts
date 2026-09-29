@@ -7,18 +7,19 @@ const routesThatMustNotLoadTheFullCorpus = [
   "app/api/verdict-card/[topicId]/route.tsx",
   "app/api/v1/topics/[id]/route.ts",
   "app/embed/[topicId]/page.tsx",
-  "app/is/page.tsx",
-  "app/is/[slug]/page.tsx",
+  "app/page.tsx",
+  "components/home/HomeLanding.tsx",
+  "components/home/homeModel.ts",
   "app/questions/page.tsx",
   "app/questions/[slug]/page.tsx",
   "app/sitemap.ts",
   "app/topics/TopicsPageClient.tsx",
   "app/topics/[id]/page.tsx",
-  "app/topics/[id]/TopicPageClient.tsx",
-  "app/topics/compare/page.tsx",
-  "app/topics/compare/[id1]/vs/[id2]/page.tsx",
+  "app/topics/[id]/map/page.tsx",
+  "app/topics/[id]/map/TopicDiagram.tsx",
+  "components/ReadModeView.tsx",
+  "components/topic/TopicPage.tsx",
   "components/AppShell.tsx",
-  "components/Sidebar.tsx",
   "components/TopBar.tsx",
 ] as const;
 
@@ -69,9 +70,13 @@ describe("analyze client bundle boundary", () => {
 const contentRouteClientShells = [
   "app/blog/[slug]/client.tsx",
   "app/topics/TopicsPageClient.tsx",
-  "app/topics/[id]/TopicPageClient.tsx",
+  "app/topics/[id]/page.tsx",
+  "components/ReadModeView.tsx",
+  "components/argument/DebateView.tsx",
+  "components/topic/TopicPage.tsx",
+  "components/topic/CruxReflection.tsx",
+  "components/topic/TopicActions.tsx",
   "components/AppShell.tsx",
-  "components/Sidebar.tsx",
   "components/TopBar.tsx",
 ] as const;
 
@@ -87,7 +92,7 @@ describe("content-route graph import boundaries", () => {
     },
   );
 
-  it("keeps graph-only TopBar controls owned by the interactive home shell", () => {
+  it("keeps the graph runtime and its view toggle off home and the shared shell", () => {
     const appShellSource = readFileSync(
       resolve(process.cwd(), "components/AppShell.tsx"),
       "utf8",
@@ -96,57 +101,61 @@ describe("content-route graph import boundaries", () => {
       resolve(process.cwd(), "components/TopBar.tsx"),
       "utf8",
     );
-    const homeSource = readFileSync(
-      resolve(process.cwd(), "components/HomeClient.tsx"),
-      "utf8",
-    );
 
     expect(appShellSource).not.toContain("ViewToggle");
     expect(topBarSource).not.toContain('import("./ViewToggle")');
-    expect(homeSource).toMatch(
-      /from\s+["']@\/components\/ViewToggle["']/,
-    );
-    expect(homeSource).not.toContain('import("@/components/ViewToggle")');
-    expect(homeSource).toContain("viewToggle={<ViewToggle />}");
+
+    // Home is a server page inside the shell since 2026-09-29; the canvas it
+    // used to host is reached through the map's own route, never from `/`.
+    for (const file of ["app/page.tsx", "components/home/HomeLanding.tsx"]) {
+      const source = readFileSync(resolve(process.cwd(), file), "utf8");
+      expect(source, file).not.toContain("ViewToggle");
+      expect(source, file).not.toMatch(/from\s+["']@\/hooks\/useLogicGraph["']/);
+      expect(source, file).not.toMatch(/from\s+["']@xyflow\/react["']/);
+      expect(source, file).not.toContain("DesktopCanvas");
+    }
   });
 
-  it("keeps the legacy topic reader asynchronous on the shared topic route", () => {
-    const routeSource = readFileSync(
-      resolve(process.cwd(), "app/topics/[id]/page.tsx"),
-      "utf8",
-    );
-    const loaderSource = readFileSync(
-      resolve(process.cwd(), "app/topics/[id]/LegacyTopicPageLoader.tsx"),
-      "utf8",
-    );
+  it("server-renders both topic shapes through one template, with no client graph", () => {
+    const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
+    const routeSource = read("app/topics/[id]/page.tsx");
 
-    expect(routeSource).not.toMatch(/import\s+TopicPageClient\s+from/);
-    expect(routeSource).toMatch(/import\s+LegacyTopicPageLoader\s+from/);
-    expect(loaderSource).toContain('import("./TopicPageClient")');
+    // Legacy maps render server-side like the flagship maps: no client loader,
+    // no canvas, the same TopicPage template underneath.
+    expect(routeSource).toMatch(/from\s+["']@\/components\/ReadModeView["']/);
+    expect(routeSource).not.toMatch(/LegacyTopicPageLoader|TopicPageClient/);
+    for (const path of [
+      "components/ReadModeView.tsx",
+      "components/argument/DebateView.tsx",
+      "components/topic/TopicPage.tsx",
+    ]) {
+      const source = read(path);
+      expect(source, path).not.toMatch(/^["']use client["']/m);
+      expect(source, path).toMatch(/TopicPage/);
+      expect(source, path).not.toMatch(/DesktopCanvas|MobileArgumentList|ScalesOfEvidence/);
+    }
+  });
+
+  it("keeps React Flow on the diagram route, loaded only for desktop sessions", () => {
+    const diagram = readFileSync(
+      resolve(process.cwd(), "app/topics/[id]/map/TopicDiagram.tsx"),
+      "utf8",
+    );
+    expect(diagram).toContain('import("@/components/DesktopCanvas")');
+    expect(diagram).toContain('import("@/components/MobileArgumentList")');
+    expect(diagram).not.toMatch(/from\s+["']@xyflow\/react["']/);
+    expect(diagram).not.toMatch(/ScalesOfEvidence|DebateView|ViewToggle/);
   });
 
   it("does not speculatively prefetch every shared-shell destination", () => {
-    const topBarSource = readFileSync(
-      resolve(process.cwd(), "components/TopBar.tsx"),
-      "utf8",
-    );
-    const sidebarSource = readFileSync(
-      resolve(process.cwd(), "components/Sidebar.tsx"),
-      "utf8",
-    );
-    const footerSource = readFileSync(
-      resolve(process.cwd(), "components/Footer.tsx"),
-      "utf8",
-    );
-    const trendingSource = readFileSync(
-      resolve(process.cwd(), "components/TrendingTopics.tsx"),
-      "utf8",
-    );
-
-    expect(topBarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
-    expect(sidebarSource.match(/prefetch=\{false\}/g)).toHaveLength(4);
-    expect(footerSource.match(/prefetch=\{false\}/g)).toHaveLength(2);
-    expect(trendingSource.match(/prefetch=\{false\}/g)).toHaveLength(1);
+    // The header and footer are on every page, so every link in them opts out
+    // of prefetch: one <Link> per `prefetch={false}`, no exceptions.
+    for (const file of ["components/TopBar.tsx", "components/Footer.tsx"]) {
+      const source = readFileSync(resolve(process.cwd(), file), "utf8");
+      const links = source.match(/<Link\b/g) ?? [];
+      expect(links.length, `${file} renders no links`).toBeGreaterThan(0);
+      expect(source.match(/prefetch=\{false\}/g), file).toHaveLength(links.length);
+    }
   });
 });
 
@@ -187,23 +196,6 @@ describe("home graph-runtime lazy boundaries", () => {
     );
     expect(blueprintSource).not.toMatch(
       /from\s+["']@\/lib\/schemas\/topic["']/,
-    );
-  });
-});
-
-describe("debate example-data boundary", () => {
-  it("loads the full mock debate corpus only after the user requests an example", () => {
-    const source = readFileSync(
-      resolve(process.cwd(), "hooks/useDebateOrchestrator.ts"),
-      "utf8",
-    );
-
-    expect(source).not.toMatch(
-      /from\s+["']@\/data\/mockDebates["']/,
-    );
-    expect(source).toContain('import("@/data/mockDebates")');
-    expect(source).toMatch(
-      /from\s+["']@\/data\/mockDebateIndex["']/,
     );
   });
 });

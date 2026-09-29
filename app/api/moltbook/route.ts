@@ -7,6 +7,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { auth } from "@/lib/auth";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { MoltbookClient } from "@/lib/moltbook/client";
 import { MoltbookDebateService, NOTABLE_DEBATE_AGENTS } from "@/lib/moltbook/debate-integration";
@@ -276,7 +277,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Rate limit: 15 requests per hour per user
-  const ip = request.headers.get("x-forwarded-for") || "unknown";
+  const ip = clientIp(request);
   const limit = rateLimit(`moltbook:${ip}`, { maxRequests: 15, windowMs: 60 * 60 * 1000 });
   if (!limit.success) {
     return NextResponse.json(

@@ -5,6 +5,7 @@ import { handleDisagreementError } from "@/lib/disagreement/http";
 import { hashOpaque } from "@/lib/disagreement/publication";
 import { getPublishedDisagreementReport, upsertDisagreementFeedback } from "@/lib/db/queries";
 import { isDatabaseConfigured } from "@/lib/db";
+import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 
 const SECTIONS = new Set(["overall", "position", "common-ground", "crux", "abuse"]);
@@ -22,7 +23,10 @@ export async function POST(
     );
   }
 
-  const limit = rateLimit(`disagreement-feedback:${requestId}`, {
+  // Keyed on the client address, never on `requestId`: that is a per-request
+  // nonce and, worse, an inbound `x-request-id` when the caller sends one, so
+  // every request minted its own bucket and the limit below never fired.
+  const limit = rateLimit(`disagreement-feedback:${clientIp(request)}`, {
     maxRequests: 20,
     windowMs: 60 * 60 * 1000,
   });

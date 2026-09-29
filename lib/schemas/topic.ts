@@ -1,6 +1,13 @@
 import { z } from "zod";
-import { BALANCE, VERDICT, WEIGHT } from "@/lib/constants";
+import { BALANCE, WEIGHT } from "@/lib/constants";
 import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
+import {
+  balanceOfCards,
+  isFragileSettled,
+  topicCards,
+  verdictQuadrant,
+  type VerdictSensitivity,
+} from "@/lib/verdictSensitivity";
 
 export {
   calculateEvidenceScore,
@@ -145,6 +152,20 @@ export const VerdictQuadrantSchema = z.enum(["settled", "contested", "moderate",
 export const VerdictSchema = z.object({
   label: z.string(),
   quadrant: VerdictQuadrantSchema,
+  /**
+   * Set when the robustness guard found the "settled" reading to rest on a
+   * single evidence `side` call — either because the quadrant was demoted to
+   * "moderate", or because an editorial pin kept the word anyway. Absent means
+   * the reading was not flagged, never that it is beyond question.
+   */
+  fragile: z.boolean().optional(),
+  /**
+   * Set when a map keeps "settled" only because it is authored
+   * `status: "settled"` — an editor asserting the question is settled in the
+   * world, over a map too shallow to show it. Always accompanied by `fragile`.
+   * It marks a claim the evidence on the page does not yet carry on its own.
+   */
+  pinnedByStatus: z.boolean().optional(),
 });
 export type VerdictQuadrant = z.infer<typeof VerdictQuadrantSchema>;
 export type Verdict = z.infer<typeof VerdictSchema>;
@@ -154,16 +175,7 @@ export type Verdict = z.infer<typeof VerdictSchema>;
  * forStrength / (forStrength + againstStrength) over the 0–40 evidence scores.
  */
 export function computeBalance(pillars: Pillar[]): number {
-  const allEvidence = pillars.flatMap((p) => p.evidence ?? []);
-  const forScore = allEvidence
-    .filter((e) => e.side === "for")
-    .reduce((sum, e) => sum + calculateEvidenceScore(e.weight), 0);
-  const againstScore = allEvidence
-    .filter((e) => e.side === "against")
-    .reduce((sum, e) => sum + calculateEvidenceScore(e.weight), 0);
-  const total = forScore + againstScore;
-  if (total === 0) return 50;
-  return Math.round((forScore / total) * 100);
+  return balanceOfCards(topicCards(pillars));
 }
 
 const RESOLVABILITY: Record<Crux["verification_status"], number> = {
@@ -207,35 +219,75 @@ function favoredSide(balance: number): string {
 /** Human label for the lean magnitude alone (no weight information). */
 export function getLeanLabel(balance: number): string {
   const d = Math.abs(balance - 50);
-  if (d < BALANCE.EVEN_D) return "Evenly balanced";
-  if (d < BALANCE.LEAN_D)
-    return balance >= 50 ? "Leans toward the claim" : "Leans toward the counterclaim";
-  if (d < BALANCE.CLEAR_D) return `Clearly favors ${favoredSide(balance)}`;
-  return `Strongly favors ${favoredSide(balance)}`;
+  if (d < BALANCE.EVEN_D) return "Evidence evenly balanced";
+  if (d < BALANCE.LEAN_D) return `Evidence leans toward ${favoredSide(balance)}`;
+  if (d < BALANCE.CLEAR_D) return `Evidence clearly leans toward ${favoredSide(balance)}`;
+  return `Evidence leans strongly toward ${favoredSide(balance)}`;
 }
 
-/** 2-D verdict from both axes. Replaces the old 1-D getVerdictLabel. */
+/**
+ * 2-D verdict from both axes, before the robustness guard. Replaces the old
+ * 1-D getVerdictLabel. `buildTopic` runs the result through
+ * `applyVerdictRobustness` — use that for anything a reader sees.
+ */
 export function getVerdict(balance: number, weight: number): Verdict {
-  const d = Math.abs(balance - 50);
-  if (weight >= VERDICT.HIGH_WEIGHT && d >= VERDICT.SETTLED_D) {
+  const quadrant = verdictQuadrant(balance, weight);
+  if (quadrant === "settled") {
     return {
-      label: `Settled — evidence strongly favors ${favoredSide(balance)}`,
-      quadrant: "settled",
+      label: `Evidence largely converges on ${favoredSide(balance)}`,
+      quadrant,
     };
   }
-  if (weight >= VERDICT.HIGH_WEIGHT) {
-    return { label: "Well-mapped, genuinely contested", quadrant: "contested" };
+  if (quadrant === "contested") {
+    return { label: "Well-mapped, evidence still divided", quadrant };
   }
-  if (weight >= VERDICT.LOW_WEIGHT) {
+  if (quadrant === "moderate") {
+    const d = Math.abs(balance - 50);
     const lean =
       d < BALANCE.EVEN_D
-        ? "Balanced"
-        : balance >= 50
-          ? "Leans toward the claim"
-          : "Leans toward the counterclaim";
-    return { label: `${lean} — moderately evidenced`, quadrant: "moderate" };
+        ? "Evidence roughly balanced"
+        : `Evidence leans toward ${favoredSide(balance)}`;
+    return { label: `${lean} — moderately evidenced`, quadrant };
   }
-  return { label: "Open question — limited evidence so far", quadrant: "open" };
+  return { label: "Evidence still thin — an open question", quadrant };
+}
+
+/**
+ * Guard the displayed verdict against measurement noise in the evidence
+ * `side` labels.
+ *
+ * "Settled" (displayed as "Evidence largely converges on …") is a strong public claim; on a 12–16 card map one ordinary card
+ * moves balance by 8–12 points against a 20-point settled threshold, so a
+ * single defensible relabel can create or destroy it. A map keeps the word on
+ * its own evidence only when no single flip could take it away and it carries
+ * at least `VERDICT_ROBUSTNESS.MIN_CARDS` cards. Otherwise the quadrant drops
+ * to "moderate" and the label falls back to the lean alone.
+ *
+ * **The editorial pin.** A topic authored `status: "settled"` is an editor
+ * asserting that the question is settled in the world. That assertion outranks
+ * a thin map — `buildTopic` already treats it as a floor on both axes — so the
+ * quadrant and the settled label are kept. What it does not do is hide the
+ * measurement: the verdict is still marked `fragile`, the surface still says
+ * "One evidence card could change this reading", and `pinnedByStatus` records
+ * that the word is resting on the editor rather than on the cards. The pin is
+ * a promise to deepen the map, not a substitute for it. Only "settled" pins;
+ * no other authored status changes anything.
+ *
+ * Either way `fragile` is set, balance and weight are never altered, and
+ * "contested" / "open" are never touched — this only ever qualifies a claim.
+ */
+export function applyVerdictRobustness(
+  verdict: Verdict,
+  balance: number,
+  sensitivity: VerdictSensitivity,
+  authoredStatus?: TopicStatus
+): Verdict {
+  if (verdict.quadrant !== "settled") return verdict;
+  if (!isFragileSettled(sensitivity)) return verdict;
+  if (authoredStatus === "settled") {
+    return { ...verdict, fragile: true, pinnedByStatus: true };
+  }
+  return { label: getLeanLabel(balance), quadrant: "moderate", fragile: true };
 }
 
 // ============================================================================
@@ -320,12 +372,12 @@ export const computeConfidenceScore = computeBalance;
  */
 export function getVerdictSentence(confidenceScore: number): string {
   if (confidenceScore >= 95)
-    return "The evidence establishes this claim beyond reasonable doubt";
+    return "The evidence mapped here converges strongly on this claim";
   if (confidenceScore >= 75)
-    return "The weight of evidence supports this claim";
+    return "Most of the weighted evidence points toward this claim";
   if (confidenceScore >= 50)
-    return "The evidence leans toward this claim, but it stays genuinely contested";
-  return "There's too little evidence to settle this claim";
+    return "The evidence leans toward this claim, but it is still divided";
+  return "The evidence mapped here does not lean toward this claim";
 }
 
 // ============================================================================

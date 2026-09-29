@@ -78,7 +78,7 @@ export const aiInEducationData = {
           title: "Khanmigo AI Tutor Piloted at Scale, but Rigorous Efficacy Evidence Remains Limited (2024)",
           description:
             "Khan Academy's Khanmigo AI tutor, powered by GPT-4, was deployed in classroom pilots during 2023-2024, with reported users growing from roughly 68,000 in 2023-24 to over 700,000 in 2024-25. Independent and exploratory evaluations to date are mostly small-scale and contextual rather than controlled efficacy trials—for example, Digital Promise's Gates-funded 'Estudia Khanmigo' pilot examined the Spanish-language tool in Puerto Rican classrooms and surfaced equity and infrastructure barriers (unreliable internet, power, and devices) rather than measured learning gains. As of this writing, no large-scale randomized evaluation establishing specific mastery-gain percentages from Khanmigo has been published.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 4,
             independence: 4,

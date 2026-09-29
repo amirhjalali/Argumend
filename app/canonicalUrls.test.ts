@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { articleSummaries } from "@/data/blogIndex";
-import { isClaims } from "@/data/is-claims";
 import { topicSummaries } from "@/data/topicIndex";
 import { getAllQuestionVariations } from "@/lib/questions";
 import sitemap from "./sitemap";
 import { generateMetadata as topicMetadata } from "./topics/[id]/page";
 import { generateMetadata as blogMetadata } from "./blog/[slug]/page";
 import { generateMetadata as questionMetadata } from "./questions/[slug]/page";
-import { generateMetadata as isMetadata } from "./is/[slug]/page";
+import { metadata as privacyMetadata } from "./privacy/page";
+import { metadata as termsMetadata } from "./terms/page";
 
 function canonicalOf(metadata: Awaited<ReturnType<typeof topicMetadata>>) {
   return metadata.alternates?.canonical;
@@ -27,6 +27,17 @@ describe("canonical URL contracts", () => {
     }
   });
 
+  it("keeps the legal canonicals self-aligned and advertised in the sitemap", () => {
+    for (const [path, metadata] of [
+      ["/privacy", privacyMetadata],
+      ["/terms", termsMetadata],
+    ] as const) {
+      const expected = `https://argumend.org${path}`;
+      expect(metadata.alternates?.canonical).toBe(expected);
+      expect(sitemapUrls.has(expected)).toBe(true);
+    }
+  });
+
   it("keeps every blog canonical self-aligned and out of the pruned sitemap", async () => {
     for (const article of articleSummaries) {
       const expected = `https://argumend.org/blog/${article.slug}`;
@@ -40,23 +51,18 @@ describe("canonical URL contracts", () => {
     }
   });
 
-  it("keeps question and claim canonicals self-aligned and out of the pruned sitemap", async () => {
-    for (const question of getAllQuestionVariations(topicSummaries)) {
-      const expected = `https://argumend.org/questions/${question.slug}`;
+  it("points every question phrasing's canonical at its map's primary question", async () => {
+    // One page per map: the primary phrasing is self-canonical and the other
+    // phrasings canonicalize to it (/is/* redirects there too; see
+    // lib/learn/isToQuestions.test.ts).
+    const variations = getAllQuestionVariations(topicSummaries);
+    for (const question of variations) {
+      const primary = variations.find((v) => v.topicId === question.topicId && v.primary)!;
+      const expected = `https://argumend.org/questions/${primary.slug}`;
       const metadata = await questionMetadata({
         params: Promise.resolve({ slug: question.slug }),
       });
       expect(metadata.alternates?.canonical).toBe(expected);
-      expect(sitemapUrls.has(expected)).toBe(false);
-    }
-
-    for (const claim of isClaims) {
-      const expected = `https://argumend.org/is/${claim.slug}`;
-      const metadata = await isMetadata({
-        params: Promise.resolve({ slug: claim.slug }),
-      });
-      expect(metadata.alternates?.canonical).toBe(expected);
-      expect(sitemapUrls.has(expected)).toBe(false);
     }
   });
 });

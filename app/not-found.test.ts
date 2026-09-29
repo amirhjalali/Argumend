@@ -10,18 +10,19 @@ describe("global not-found metadata", () => {
     expect(rootLayoutSource).toContain("max-image-preview:large");
   });
 
-  it("keeps fallback branding links keyboard-sized", () => {
+  it("uses the in-shell RouteNotFound with sentence-case copy and the nav constant", () => {
     const notFoundSource = readFileSync("app/not-found.tsx", "utf8");
     const globalErrorSource = readFileSync("app/global-error.tsx", "utf8");
 
-    expect(notFoundSource).toContain(
-      'className="group flex min-h-11 flex-col items-center justify-center',
+    expect(notFoundSource).toMatch(
+      /import\s+\{\s*RouteNotFound\s*\}\s+from\s+["']@\/components\/RouteNotFound["']/,
     );
-    expect(
-      notFoundSource.match(/text-deep hover:underline dark:text-\[#9bc7c3\]/g),
-    ).toHaveLength(1);
+    expect(notFoundSource).toContain('title="Insufficient evidence for this page"');
+    expect(notFoundSource).toContain('primaryLabel="Browse maps"');
+    expect(notFoundSource).toContain("secondaryHref={ANALYZE_HREF}");
+    expect(notFoundSource).toContain('secondaryLabel="Paste an argument"');
     // De-linked routes (docs/PRODUCT_PRUNING_AUDIT.md) must not be re-featured
-    // on the 404: only /topics survives as an inline suggestion.
+    // on the 404.
     expect(notFoundSource).not.toContain('href="/blog"');
     expect(notFoundSource).not.toContain('href="/guides"');
     expect(globalErrorSource.match(/minHeight: "2\.75rem"/g)).toHaveLength(3);

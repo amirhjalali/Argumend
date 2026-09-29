@@ -1,5 +1,6 @@
 import {
   TopicSchema,
+  applyVerdictRobustness,
   computeBalance,
   computeWeight,
   getVerdict,
@@ -7,6 +8,7 @@ import {
   type TopicInput,
 } from "@/lib/schemas/topic";
 import { WEIGHT } from "@/lib/constants";
+import { topicVerdictSensitivity } from "@/lib/verdictSensitivity";
 
 /** Normalize authored topic input into the canonical computed Topic shape. */
 export function buildTopic(data: TopicInput): Topic {
@@ -28,12 +30,23 @@ export function buildTopic(data: TopicInput): Topic {
   // Always include the category, then any explicit tags (deduped).
   const tags = Array.from(new Set([data.category, ...(data.tags ?? [])]));
 
+  // A "settled" quadrant that one evidence relabel could erase is demoted to
+  // "moderate" + fragile — unless the topic is authored `status: "settled"`,
+  // where the editorial pin keeps the word but still flags it fragile.
+  // balance and weight are published unchanged either way.
+  const sensitivity = topicVerdictSensitivity({ pillars: data.pillars, balance, weight });
+
   return TopicSchema.parse({
     ...data,
     tags,
     balance,
     weight,
-    verdict: getVerdict(balance, weight),
+    verdict: applyVerdictRobustness(
+      getVerdict(balance, weight),
+      balance,
+      sensitivity,
+      data.status
+    ),
     confidence_score: balance, // @deprecated mirror — JSON-LD + unmigrated surfaces only
   });
 }

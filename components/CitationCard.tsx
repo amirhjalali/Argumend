@@ -94,9 +94,9 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
         href={reference.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-start gap-1.5 text-xs font-sans text-secondary dark:text-stone-400 transition-colors hover:text-rust-500 group"
+        className="group -my-[13px] inline-flex items-start gap-1.5 py-[13px] font-sans text-xs text-secondary dark:text-stone-400 transition-colors hover:text-deep dark:hover:text-accent-text"
       >
-        <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-stone-100 text-[10px] font-bold text-stone-500 group-hover:bg-rust-500/10 group-hover:text-rust-500 transition-colors flex-shrink-0 mt-0.5">
+        <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-stone-100 text-[10px] font-bold text-stone-500 group-hover:bg-deep/10 group-hover:text-deep transition-colors flex-shrink-0 mt-0.5">
           {index}
         </span>
         <span className="leading-tight">{reference.title}</span>
@@ -116,8 +116,8 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
         >
           {/* Card Header */}
           <div className="flex items-start gap-3 mb-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-rust-500/10 flex-shrink-0">
-              <SourceIcon url={reference.url} source={reference.source} className="h-4 w-4 text-rust-500" strokeWidth={2} />
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-subtle flex-shrink-0">
+              <SourceIcon url={reference.url} source={reference.source} className="h-4 w-4 text-secondary dark:text-stone-400" strokeWidth={2} />
             </div>
             <div className="flex-1 min-w-0">
               <h4 className="font-serif text-sm font-semibold text-primary dark:text-stone-200 leading-tight mb-1">
@@ -142,9 +142,9 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
 
             {/* Verification Badge */}
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-rust-500/10 text-rust-700 rounded-full">
+              <span className="inline-flex items-center gap-1 rounded-full border border-divider px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted">
                 <FileText className="h-2.5 w-2.5" />
-                Cited Source
+                Cited source
               </span>
             </div>
           </div>
@@ -155,9 +155,9 @@ export const CitationCard = memo(function CitationCard({ reference, index }: Cit
               href={reference.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 flex items-center justify-center gap-2 w-full px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-rust-500 to-rust-600 rounded-lg shadow-sm hover:shadow-md transition-all"
+              className="mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-stone-300/80 px-3 text-xs font-medium text-primary dark:text-stone-200 transition-colors hover:bg-subtle dark:border-divider"
             >
-              View Source
+              Open the source
               <ExternalLink className="h-3 w-3" />
             </a>
           )}

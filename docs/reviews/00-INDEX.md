@@ -31,5 +31,18 @@ A citation-integrity + balance review of **all 114 topic maps**. Detailed per-to
 
 6. **False-balance flags (handle precisely).** `ev-environmental-impact`, `obesity-personal-responsibility`, and `covid-origins` were flagged as structurally overstating parity vs. the evidence weight. (Good news: `climate-change`, `moon-landing`, `gender-affirming-care-minors`, `fluoride`, `transgender-athletes-sports` were checked and are NOT false-balanced.)
 
+## Other reviews in this directory (not part of the citation sweep)
+
+- `2026-09-16-jev-typesafe-probe.md` — three rounds plus at-scale addenda probing TypeSafe's Jev
+  against material this repo has ground truth for (diagnosis pattern, crux contestedness, evidence
+  side and weights, comment routing, two real debate clips).
+- `2026-09-21-jev-contestedness-gate.md` — wiring Jev's contestedness Noul into the crux engine as
+  an optional, off-by-default override: the combination rule, before/after on the three flagship
+  maps, threshold stability, and the founder decisions it needs.
+- `2026-09-22-ledger-strip/` — screenshots of the crux-ledger movement strip (week 1), light and
+  dark, 1280px and 390px. `ai-mass-unemployment-*` is the real page with a local, uncommitted
+  fixture ledger; `all-states-fixture-*` renders every status (open, narrowed, resolved,
+  unresolvable) on the worked-example graph.
+
 ## Suggested workflow
 Most items in (2), (5), (6) and all post-cutoff figures need a **live source check** before editing — that's the gating human/fetch step. Items in (1), (3), (4) are structural and can be worked through systematically. The per-batch docs end with a "Top priority fixes" list each.

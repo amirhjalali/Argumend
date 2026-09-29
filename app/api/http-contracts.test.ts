@@ -9,6 +9,7 @@ vi.mock("@/lib/rate-limit", () => ({
   })),
 }));
 
+import { POST as mapReplyPost } from "./map-reply/route";
 import { POST as analyzePost } from "./analyze/route";
 import { POST as debatePost } from "./debate/route";
 import { POST as debateStreamPost } from "./debate/stream/route";
@@ -51,10 +52,15 @@ describe("HTTP response contract matrix", () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2026-07-31T12:00:00Z"));
+    // map-reply is flag-gated; without this it answers 404 before it ever
+    // reaches the shared rate-limit contract below.
+    vi.stubEnv("ENABLE_JEV_MAP_REPLY", "true");
+    vi.stubEnv("ARGUMEND_JEV_PROVIDER", "fake");
   });
 
   afterEach(() => {
     vi.useRealTimers();
+    vi.unstubAllEnvs();
   });
 
   it.each([
@@ -120,6 +126,7 @@ describe("HTTP response contract matrix", () => {
     ["debate stream", debateStreamPost, "/api/debate/stream"],
     ["judge", judgePost, "/api/judge"],
     ["newsletter", newsletterPost, "/api/newsletter"],
+    ["map reply", mapReplyPost, "/api/map-reply"],
   ])("returns typed, non-CORS rate-limit metadata for %s", async (_label, handler, path) => {
     const response = await handler(request(path));
     const body = await response.json();
@@ -128,9 +135,40 @@ describe("HTTP response contract matrix", () => {
     expect(response.headers.get("Content-Type")).toContain("application/json");
     expect(response.headers.get("Retry-After")).toBe("4");
     expect(response.headers.get("Access-Control-Allow-Origin")).toBeNull();
-    expect(body).toEqual({
-      error: expect.stringMatching(/Rate limited|Too many requests/),
+
+    // Diagnostic keys are allowed, but only these two and only well typed:
+    // everything else must reduce to the shared { error } shape.
+    const { code, requestId, ...core } = body;
+    expect(core).toEqual({
+      error: expect.stringMatching(/Rate limited|Too many requests|Too many map replies/),
     });
+    if (code !== undefined) expect(code).toBe("RATE_LIMITED");
+    if (requestId !== undefined) {
+      expect(requestId).toMatch(
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i,
+      );
+    }
+    expect(JSON.stringify(body)).not.toMatch(/provider|upstream|postgres|secret|stack/i);
+  });
+
+  it("keeps the map-reply rate-limit response out of every cache", async () => {
+    const response = await mapReplyPost(request("/api/map-reply"));
+    expect(response.status).toBe(429);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(response.headers.get("x-request-id")).toBeTruthy();
+  });
+
+  it("keeps the map-reply flag-off response typed and uncacheable", async () => {
+    vi.stubEnv("ENABLE_JEV_MAP_REPLY", "false");
+    const response = await mapReplyPost(request("/api/map-reply"));
+
+    expect(response.status).toBe(404);
+    expect(response.headers.get("Content-Type")).toContain("application/json");
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(response.headers.get("Access-Control-Allow-Origin")).toBeNull();
+    const body = await response.json();
+    expect(body.error).toBe("Map replies are not enabled.");
+    expect(body.code).toBe("FEATURE_DISABLED");
     expect(JSON.stringify(body)).not.toMatch(/provider|upstream|postgres|secret|stack/i);
   });
 });

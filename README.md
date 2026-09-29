@@ -84,21 +84,16 @@ ENABLE_LIVE_DEBATE_API=true
 NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true
 
 ENABLE_DISAGREEMENT_V2=true
-NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2=true
 ARGUMEND_DISAGREEMENT_MODEL=claude-sonnet-4-20250514
 ```
 
-Disagreement Diagnosis V2 is a separate, source-only Analyze loop at `/analyze-v2`.
-It stays off unless both flags are true and `ARGUMEND_DISAGREEMENT_MODEL` is set.
+Disagreement Diagnosis is a source-only lane of the one paste tool at `/analyze`
+(`/analyze-v2` redirects there). It stays off unless `ENABLE_DISAGREEMENT_V2` is true
+and a provider can run: the default Anthropic lane needs `ARGUMEND_DISAGREEMENT_MODEL`
+and `ANTHROPIC_API_KEY` (see `lib/paste/lanes.ts`). It is a runtime server variable;
+no build-time flag is involved. Without it, `/analyze` runs only the offline map match.
 Publishing unlisted `/d/<slug>` reports also requires `ENABLE_DISAGREEMENT_PUBLISHING`,
-`REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`. The old `/analyze` path is unchanged.
-
-During the V2 alpha, setting `NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2=true` (a build-time
-flag) also points the top-bar Analyze link and the home hero at `/analyze-v2`, with
-the hero CTA reading "Find what it turns on". Docker builds must pass it as
-`--build-arg NEXT_PUBLIC_ENABLE_DISAGREEMENT_V2=true` for that navigation to exist
-in the client bundle; the server-side `ENABLE_DISAGREEMENT_V2` remains a runtime
-variable and gates the route itself.
+`REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`.
 
 The unprefixed `ENABLE_LIVE_*` flags are the server-side authorization boundary
 for provider calls. Their matching `NEXT_PUBLIC_ENABLE_LIVE_*` flags only expose
@@ -205,6 +200,82 @@ the standalone server. Coolify supplies `PORT`; both deployment paths bind to
 `0.0.0.0`. Neither path runs database migrations automatically—apply reviewed
 migrations as a separate, explicit release operation when persistence is
 enabled.
+
+### Trusted proxy hops
+
+Every rate-limited API route keys its bucket on the client address, and that
+address comes from `lib/clientIp.ts`, not from the raw header. A proxy
+**appends** the peer it saw to `x-forwarded-for`; it does not replace what
+arrived. The first entry is therefore whatever the caller wrote, and keying on
+it lets anyone clear a limit by rotating a header value. The helper counts
+`TRUSTED_PROXY_HOPS` entries back from the **end** instead, and falls back to
+`x-real-ip`.
+
+`TRUSTED_PROXY_HOPS` must equal the number of proxies that append a value
+between the internet and the app:
+
+| Deployment | Value |
+|---|---|
+| Coolify (Traefik only) | `1` — the code default |
+| **argumend.org — Cloudflare in front of Coolify** | **`2` — verified 2026-09-22** |
+| Any further proxy in the chain | add 1 for each |
+
+**Production must run with `TRUSTED_PROXY_HOPS=2`.** This was verified on
+2026-09-22: `curl -sI https://argumend.org/` answers `server: cloudflare` with
+a `cf-ray` and `cf-cache-status`, so Cloudflare terminates the connection and
+Traefik sees Cloudflare's edge as its peer. Two proxies append, so the
+visitor's address is second from the end. The built-in default of `1` is the
+safe value for a bare Coolify deployment and is **wrong for this one** — at `1`
+every limit keys on a Cloudflare edge address shared by many visitors, so
+unrelated people exhaust each other's buckets. A production process that
+leaves the variable unset logs one warning to that effect on the first request
+it handles (`lib/clientIp.ts`); it warns rather than refuses to boot, because
+a wrong hop count degrades rate limiting without breaking serving.
+
+Re-verify after any CDN change. Setting it too high makes unrelated clients
+share a bucket; too low and the limit is bypassable. Verify against a real
+request rather than guessing —
+temporarily log the header from a deployed route, or add a scratch endpoint:
+
+```ts
+// app/api/whoami/route.ts — remove before merging.
+export function GET(request: Request) {
+  return Response.json({
+    forwarded: request.headers.get("x-forwarded-for"),
+    realIp: request.headers.get("x-real-ip"),
+  });
+}
+```
+
+Hit it from outside the network (`curl https://argumend.org/api/whoami`) and
+count the entries:
+
+- `"203.0.113.9"` — one entry, appended by Traefik. Your real address, so
+  `TRUSTED_PROXY_HOPS=1`.
+- `"203.0.113.9, 172.18.0.4"` — Cloudflare appended your address, Traefik
+  appended Cloudflare's. Your address is second from the end:
+  `TRUSTED_PROXY_HOPS=2`.
+
+Then repeat the request with a spoofed prefix —
+`curl -H 'x-forwarded-for: 1.2.3.4' https://argumend.org/api/whoami` — and
+confirm the value at your configured hop count is still your own address and
+not `1.2.3.4`. If a spoofed entry lands on that position, the number is wrong.
+
+**`cf-connecting-ip` is deliberately not read**, even though Cloudflare sets
+it. Traefik does not strip it, and the origin is not locked to Cloudflare's IP
+ranges, so anyone who finds the origin address can reach it directly with any
+`cf-connecting-ip` they like — reintroducing the exact bypass this design
+exists to close. Trusting it would first require proving the request came
+through Cloudflare (authenticated origin pull, or matching the last
+`x-forwarded-for` entry against Cloudflare's published ranges, a list that
+moves and would silently rot). It would then be redundant anyway: Cloudflare
+appends the same address to `x-forwarded-for`, which is precisely what
+`TRUSTED_PROXY_HOPS=2` reads. If the origin is ever locked to Cloudflare's
+ranges at the firewall, this is worth revisiting.
+
+The regression suite for this lives in `app/api/rate-limit-client-ip.test.ts`,
+which replays the bypass against every rate-limited route, and in
+`lib/clientIp.test.ts`, which covers the hop arithmetic and the warning.
 
 After any production build, verify the assembled standalone directory locally:
 

@@ -4,17 +4,6 @@
  * Issue #12: Extract magic numbers and constants to a single location.
  */
 
-// Experimental feature flags. All default values here are the SOURCE OF TRUTH —
-// flipping one back to `false` must fully restore the prior behavior.
-export const FEATURES = {
-  /**
-   * Live mini argument-map preview in the homepage hero. When enabled (and on
-   * non-mobile viewports) the hero VISUAL becomes a small, self-building React
-   * Flow showpiece instead of the static featured-topic poster.
-   */
-  LIVE_HERO_CANVAS: true,
-} as const;
-
 // Animation timing (in milliseconds)
 export const ANIMATION = {
   /** Fast UI feedback */
@@ -104,7 +93,7 @@ export const BALANCE = {
   EVEN_D: 7,
   /** d below this reads as a lean */
   LEAN_D: 20,
-  /** d below this reads as "clearly favors"; at or above = "strongly favors" */
+  /** d below this reads as "clearly leans"; at or above = "leans strongly" */
   CLEAR_D: 38,
 } as const;
 
@@ -125,8 +114,23 @@ export const WEIGHT = {
 export const VERDICT = {
   /** weight ≥ this → well-evidenced half of the matrix */
   HIGH_WEIGHT: 65,
-  /** weight < this → "Open question" */
+  /** weight < this → "open" quadrant ("Evidence still thin — an open question") */
   LOW_WEIGHT: 35,
-  /** d = |balance − 50| ≥ this (with high weight) → "Settled" */
+  /** d = |balance − 50| ≥ this (with high weight) → "settled" quadrant ("Evidence largely converges on …") */
   SETTLED_D: 20,
+} as const;
+
+/**
+ * Robustness guard on the *displayed* "settled" verdict.
+ * Rationale + before/after table: docs/reviews/2026-09-21-verdict-robustness.md.
+ * Only "settled" is guarded, and only ever downward — balance and weight are
+ * never touched. Raise MIN_FLIPS_TO_CHANGE to demand a wider safety margin.
+ */
+export const VERDICT_ROBUSTNESS = {
+  /** A map keeps "settled" only if this many side flips are needed to lose it. */
+  MIN_FLIPS_TO_CHANGE: 2,
+  /** …and only if it has at least this many evidence cards. */
+  MIN_CARDS: 8,
+  /** Exhaustive depth of the flip search. Beyond this, flipsToChange is null. */
+  MAX_FLIP_SEARCH: 4,
 } as const;
