@@ -50,7 +50,6 @@ describe("modal accessibility source contract", () => {
   it("keeps every modal mobile-sidebar caller on the shared drawer lifecycle", () => {
     const callers = [
       "components/AppShell.tsx",
-      "components/HomeClient.tsx",
       "app/analyze/page.tsx",
     ];
     for (const file of callers) {

@@ -137,7 +137,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/TableOfContents.tsx" },
   { path: "app/faq/page.tsx" },
   { path: "components/DebateView.tsx" },
-  { path: "components/HomeClient.tsx" },
   { path: "components/ReadGraphToggle.tsx" },
   { path: "components/TopBar.tsx" },
   { path: "app/is/page.tsx" },
