@@ -1,87 +1,64 @@
-import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageContainer, PageHeader, TextAction } from "@/components/ui";
 import { faqs } from "@/data/faqs";
-import { getCollectionItemPresentation } from "@/lib/collectionStyles";
 
+/**
+ * /faq renders whatever `data/faqs.ts` exports, in the story pages' editorial
+ * style: a left header, then one hairline-ruled list of native <details>
+ * rows. Answers stay in the DOM (crawlable, and the layout's FAQPage JSON-LD
+ * reads the same array); no client JS. Every summary and link is at least
+ * 44px tall.
+ */
 export default function FAQPage() {
   return (
-    <AppShell>
-      <div className="mx-auto max-w-3xl px-4 md:px-8 py-6 md:py-12">
-        <Breadcrumbs
-          items={[
+    <AppShell layout="reading">
+      <PageContainer width="reading">
+        <PageHeader
+          breadcrumbs={[
             { label: "Home", href: "/" },
-            { label: "FAQ" },
+            { label: "About", href: "/about" },
+            { label: "Questions" },
           ]}
+          eyebrow="Questions"
+          title="Questions people ask"
+          lede="Short answers. The whole story, and the rules the site keeps, are on the About page."
+          meta={`${faqs.length} questions. Open any one to read the answer.`}
+          className="!mb-8"
         />
 
-        {/* Hero */}
-        <div className="mb-10 md:mb-12">
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-primary dark:text-stone-200 mb-4 leading-[1.08]">
-            Frequently asked questions
-          </h1>
-          <p className="text-lg text-secondary dark:text-stone-400 leading-relaxed max-w-2xl">
-            The questions people actually ask us, answered honestly.
-          </p>
-          <p className="mt-4 text-sm font-medium text-muted dark:text-stone-400">
-            {faqs.length} questions · tap any to expand
-          </p>
-        </div>
-
-        {/* Accordion — native <details> keeps answers in the DOM (crawlable) and needs no client JS */}
-        <div className="space-y-3">
+        <div className="divide-y divide-divider border-y border-divider">
           {faqs.map((faq, index) => (
-            <details
-              key={index}
-              open={index === 0}
-              className="group rounded-xl border border-[var(--border-default)] bg-card/70 transition-colors open:bg-[var(--bg-card)] open:shadow-[var(--shadow-card)]"
-              style={
-                getCollectionItemPresentation(index, {
-                  intrinsicSize: "0 76px",
-                }).style
-              }
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 [&::-webkit-details-marker]:hidden">
-                <h2 className="font-serif text-lg text-primary dark:text-stone-200 leading-snug">
+            <details key={`${index}-${faq.question}`} open={index === 0} className="group">
+              <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-deep/50 [&::-webkit-details-marker]:hidden">
+                <h2 className="font-serif text-[1.25rem] leading-snug text-primary dark:text-stone-200">
                   {faq.question}
                 </h2>
-                <svg
-                  className="h-5 w-5 flex-shrink-0 text-muted dark:text-stone-400 transition-transform duration-200 group-open:rotate-180"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <span
                   aria-hidden="true"
+                  className="mt-0.5 shrink-0 font-sans text-xl leading-none text-muted transition-transform group-open:rotate-90 motion-reduce:transition-none dark:text-stone-400"
                 >
-                  <path d="M6 8l4 4 4-4" />
-                </svg>
+                  &rsaquo;
+                </span>
               </summary>
-              <div className="px-5 pb-5 -mt-1">
-                <p className="text-[var(--text-paragraph)] leading-relaxed">
+              <div className="pb-5 pr-6">
+                <p className="font-serif text-[1.0625rem] leading-[1.6] text-secondary dark:text-stone-400">
                   {faq.answer}
                 </p>
-                {faq.linkHref && faq.linkText && (
-                  <Link
-                    href={faq.linkHref}
-                    className="inline-block mt-3 text-sm font-medium text-deep hover:text-deep-dark dark:text-[#8bb5b1] dark:hover:text-[#b1d0cd] hover:underline transition-colors"
-                  >
-                    {faq.linkText} &rarr;
-                  </Link>
-                )}
+                {faq.linkHref && faq.linkText ? (
+                  <TextAction href={faq.linkHref} className="mt-1">
+                    {faq.linkText}
+                  </TextAction>
+                ) : null}
               </div>
             </details>
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[var(--border-default)]">
-          <p className="text-sm text-secondary dark:text-stone-400">
-            Still have questions? We probably missed something. Head to the{" "}
-            <a href="/community" className="text-deep dark:text-[#8bb5b1] hover:underline">Community page</a> and let us know.
-          </p>
-        </div>
-      </div>
+        <p className="mt-8 font-serif text-[1.0625rem] leading-relaxed text-secondary dark:text-stone-400">
+          Something missing, or wrong?
+        </p>
+        <TextAction href="/about#contribute">Tell us how to fix it</TextAction>
+      </PageContainer>
     </AppShell>
   );
 }

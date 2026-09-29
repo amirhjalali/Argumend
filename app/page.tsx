@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { AppShell } from "@/components/AppShell";
 import { JsonLd } from "@/components/JsonLd";
-import { TOPIC_COUNT_LABEL as L } from "@/data/topicIndex";
+import { HomeLanding } from "@/components/home/HomeLanding";
 import {
   ORGANIZATION_ID,
   SITE_DESCRIPTION,
@@ -11,32 +11,34 @@ import {
 } from "@/lib/site";
 
 // ---------------------------------------------------------------------------
-// Static metadata — exported from a Server Component for SEO
+// Static metadata. The title and description say what the page's h1 and lede
+// say, in the same voice.
 // ---------------------------------------------------------------------------
 
+const TITLE = "ARGUMEND — Find what the argument actually turns on";
+const DESCRIPTION =
+  "Most arguments are not about what they seem. Argumend maps the few questions a fight really turns on, and what would change each side's mind. It never names a winner.";
+
 export const metadata: Metadata = {
-  title: "ARGUMEND — Map Arguments, Not Win Them",
-  description:
-    `Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters. Explore ${L} topics analyzed with structured reasoning.`,
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
   openGraph: {
-    title: "ARGUMEND — Map Arguments, Not Win Them",
-    description:
-      "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: "https://argumend.org",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "ARGUMEND — See both sides. Find the crux.",
+        alt: "ARGUMEND — Disagree better.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ARGUMEND — Map Arguments, Not Win Them",
-    description:
-      "Visual argument mapping for controversial topics. See both sides, weigh the evidence, find what actually matters.",
+    title: TITLE,
+    description: DESCRIPTION,
     images: ["/og.png"],
   },
   alternates: {
@@ -44,14 +46,11 @@ export const metadata: Metadata = {
   },
 };
 
-// ---------------------------------------------------------------------------
-// Client component — wraps ReactFlowProvider + all interactivity.
-// Rendered directly (no Suspense) so SSR produces the full initial HTML
-// without depending on RSC streaming, which fails on some runtimes.
-// ---------------------------------------------------------------------------
-
-import HomeClient from "@/components/HomeClient";
-
+/**
+ * Home is a server component inside the site shell, like every other page.
+ * The React Flow canvas that used to live here (`/?topic=…`) is gone: that
+ * URL now redirects to the map's own page (next.config.js, "home + story").
+ */
 export default function HomePage() {
   return (
     <>
@@ -74,16 +73,9 @@ export default function HomePage() {
           },
         }}
       />
-      <noscript>
-        <div className="p-8 text-center bg-[#f4f1eb] min-h-[100svh] flex items-center justify-center">
-          <div>
-            <p className="font-serif text-2xl text-primary mb-4">ARGUMEND</p>
-            <p className="text-secondary mb-4">JavaScript is required for the interactive argument maps.</p>
-            <Link href="/topics" className="text-deep underline">Browse all topics</Link>
-          </div>
-        </div>
-      </noscript>
-      <HomeClient />
+      <AppShell layout="reading">
+        <HomeLanding />
+      </AppShell>
     </>
   );
 }

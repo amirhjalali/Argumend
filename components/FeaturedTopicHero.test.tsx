@@ -1,86 +1,72 @@
 import "@/test/setup-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, within } from "@testing-library/react";
-import { featuredTopicId } from "@/data/topicIndex";
+import { cleanup, render, within } from "@testing-library/react";
+import type { HomeCrux } from "@/components/home/homeModel";
+
+vi.mock("next/image", () => ({ default: () => null }));
+
 import { FeaturedTopicHero } from "./FeaturedTopicHero";
 
-const loadTopicById = vi.hoisted(() => vi.fn());
+afterEach(cleanup);
 
-vi.mock("@/data/topicLoader", () => ({ loadTopicById }));
+const base: HomeCrux = {
+  topicId: "demo-map",
+  topicTitle: "Is the demo question real?",
+  cruxCount: 5,
+  rank: 1,
+  claimId: "c-demo",
+  question: "Does the test fire when it should?",
+  implicit: true,
+  mode: "evidence",
+  kind: "existing-evidence",
+  condition: "a replicated field test of the mechanism",
+  resolved: false,
+  fight: "Both sides accept the lab result and read the field data differently.",
+  soWhat: "If it fires, one camp gains its mechanism. If not, the other's history holds.",
+  movement: [],
+};
 
-vi.mock("next/link", () => ({
-  default: ({ children, href, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
-    <a href={href} {...props}>{children}</a>
-  ),
-}));
-
-describe("FeaturedTopicHero", () => {
-  afterEach(() => {
-    cleanup();
-    loadTopicById.mockReset();
-  });
-
-  it("leads with the crux and what would change each side's mind, not a score", async () => {
-    loadTopicById.mockResolvedValue({
-      id: "consciousness-ai-systems",
-      pillars: [
-        {
-          crux: {
-            title: "The decisive test",
-            description: "A concrete test of the competing explanations.",
-            falsification: {
-              supporter_flip: "Supporters would move if the test came back empty.",
-              skeptic_flip: "Skeptics would move if the test fired.",
-              common_ground: "Both agree no test exists yet.",
-              live_disagreement: "Whether a test is possible at all.",
-            },
-          },
-          evidence: [
-            { side: "for", title: "Evidence for", source: "Source A", weight: { sourceReliability: 8, independence: 8, replicability: 8, directness: 8 } },
-            { side: "against", title: "Evidence against", source: "Source B", weight: { sourceReliability: 7, independence: 7, replicability: 7, directness: 7 } },
-          ],
-        },
-      ],
-    });
-    const onTopicSelect = vi.fn();
-    const view = render(<FeaturedTopicHero onTopicSelect={onTopicSelect} />);
-
+describe("FeaturedTopicHero (home beat 2)", () => {
+  it("works through one crux: the question, what would settle it, and why it is open", () => {
+    const view = render(<FeaturedTopicHero crux={base} href="/topics/demo-map" />);
     const section = view.getByRole("region", { name: "What would change your mind?" });
-    const crux = await view.findByRole("heading", { level: 3, name: "The decisive test" });
-    expect(section.contains(crux)).toBe(true);
 
-    // Both resolution conditions appear, supporter first, and the page shows
-    // no balance or weight readout and no evidence scores.
-    const supporter = view.getByText("Supporters would move if the test came back empty.");
-    const skeptic = view.getByText("Skeptics would move if the test fired.");
-    expect(supporter.compareDocumentPosition(skeptic) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(view.getByText("Both agree no test exists yet.")).toBeTruthy();
-    expect(within(section).queryByText(/\/40|\/100/)).toBeNull();
-    expect(view.getByText("Evidence for")).toBeTruthy();
-    expect(view.getByText("Evidence against")).toBeTruthy();
-
-    // The primary action comes after the crux it invites you to explore.
-    const action = view.getByRole("button", { name: "Open the interactive map" });
-    expect(crux.compareDocumentPosition(action) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    fireEvent.click(action);
-    expect(onTopicSelect).toHaveBeenCalledWith(featuredTopicId);
-    expect(
-      view.getByRole("link", { name: /Read every crux in/ }).getAttribute("href"),
-    ).toBe(`/topics/${featuredTopicId}`);
-    expect(loadTopicById).toHaveBeenCalledWith(featuredTopicId);
+    expect(within(section).getByRole("heading", { level: 3, name: base.question })).toBeTruthy();
+    expect(section.textContent).toContain("the first of five on");
+    expect(section.textContent).toContain(base.topicTitle);
+    expect(section.textContent).toContain("A hidden assumption");
+    expect(within(section).getByText("What would settle it")).toBeTruthy();
+    expect(section.textContent).toContain("A replicated field test of the mechanism.");
+    expect(section.textContent).toContain("Why it is still open.");
+    expect(section.textContent).toContain(base.fight!);
+    expect(section.textContent).toContain("What each answer changes.");
+    expect(section.textContent).toContain(base.soWhat!);
   });
 
-  it("keeps the claim and action usable when full topic loading fails", async () => {
-    loadTopicById.mockResolvedValue(null);
-    const onTopicSelect = vi.fn();
-    const view = render(<FeaturedTopicHero onTopicSelect={onTopicSelect} />);
+  it("shows no score, balance or weight", () => {
+    const view = render(<FeaturedTopicHero crux={base} href="/topics/demo-map" />);
+    const text = view.container.textContent ?? "";
+    expect(text).not.toMatch(/\/40|\/100|balance|weight|verdict|winner/i);
+  });
 
-    expect(view.getByRole("heading", { level: 2 })).toBeTruthy();
-    expect(await view.findByText("The claim")).toBeTruthy();
-    const action = view.getByRole("button", { name: "Open the interactive map" });
-    fireEvent.click(action);
-    expect(onTopicSelect).toHaveBeenCalledWith(featuredTopicId);
-    await vi.waitFor(() => expect(loadTopicById).toHaveBeenCalled());
-    expect(view.queryByText("The crux")).toBeNull();
+  it("links to the whole map, the same page the hero button opens", () => {
+    const view = render(<FeaturedTopicHero crux={base} href="/topics/demo-map" />);
+    expect(
+      view.getByRole("link", { name: "Read the whole map" }).getAttribute("href"),
+    ).toBe("/topics/demo-map");
+    expect(view.container.innerHTML).not.toContain("?topic=");
+  });
+
+  it("uses the standing line when no evidence could settle the crux", () => {
+    const view = render(
+      <FeaturedTopicHero
+        crux={{ ...base, implicit: false, mode: "standing", kind: "value-difference" }}
+        href="/topics/demo-map"
+      />,
+    );
+    const text = view.container.textContent ?? "";
+    expect(text).toContain("Nothing does");
+    expect(text).toContain("Where the sides part.");
+    expect(text).not.toContain("A hidden assumption");
   });
 });

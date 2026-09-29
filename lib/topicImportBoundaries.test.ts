@@ -7,6 +7,9 @@ const routesThatMustNotLoadTheFullCorpus = [
   "app/api/verdict-card/[topicId]/route.tsx",
   "app/api/v1/topics/[id]/route.ts",
   "app/embed/[topicId]/page.tsx",
+  "app/page.tsx",
+  "components/home/HomeLanding.tsx",
+  "components/home/homeModel.ts",
   "app/is/page.tsx",
   "app/is/[slug]/page.tsx",
   "app/questions/page.tsx",
@@ -95,7 +98,7 @@ describe("content-route graph import boundaries", () => {
     },
   );
 
-  it("keeps graph-only TopBar controls owned by the interactive home shell", () => {
+  it("keeps the graph runtime and its view toggle off home and the shared shell", () => {
     const appShellSource = readFileSync(
       resolve(process.cwd(), "components/AppShell.tsx"),
       "utf8",
@@ -104,18 +107,19 @@ describe("content-route graph import boundaries", () => {
       resolve(process.cwd(), "components/TopBar.tsx"),
       "utf8",
     );
-    const homeSource = readFileSync(
-      resolve(process.cwd(), "components/HomeClient.tsx"),
-      "utf8",
-    );
 
     expect(appShellSource).not.toContain("ViewToggle");
     expect(topBarSource).not.toContain('import("./ViewToggle")');
-    expect(homeSource).toMatch(
-      /from\s+["']@\/components\/ViewToggle["']/,
-    );
-    expect(homeSource).not.toContain('import("@/components/ViewToggle")');
-    expect(homeSource).toContain("viewToggle={<ViewToggle />}");
+
+    // Home is a server page inside the shell since 2026-09-29; the canvas it
+    // used to host is reached through the map's own route, never from `/`.
+    for (const file of ["app/page.tsx", "components/home/HomeLanding.tsx"]) {
+      const source = readFileSync(resolve(process.cwd(), file), "utf8");
+      expect(source, file).not.toContain("ViewToggle");
+      expect(source, file).not.toMatch(/from\s+["']@\/hooks\/useLogicGraph["']/);
+      expect(source, file).not.toMatch(/from\s+["']@xyflow\/react["']/);
+      expect(source, file).not.toContain("DesktopCanvas");
+    }
   });
 
   it("server-renders both topic shapes through one template, with no client graph", () => {

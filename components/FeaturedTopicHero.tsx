@@ -1,243 +1,117 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { topicSummaries, featuredTopicId } from "@/data/topicIndex";
-import type { Topic } from "@/lib/schemas/topic";
-import { loadTopicById } from "@/data/topicLoader";
 import {
   CRUX_SHEET,
   ENTRY_COLUMN,
   ENTRY_GRID,
   MARGIN_RULE,
+  SettleAnswer,
 } from "@/components/argument/DebateView";
+import { CruxMovementTrack } from "@/components/argument/CruxMovement";
+import { numberWord, type HomeCrux } from "@/components/home/homeModel";
+import { Section, TextAction } from "@/components/ui";
 
 interface FeaturedTopicHeroProps {
-  onTopicSelect: (id: string) => void;
-}
-
-// Extract the best evidence item for a given side across all pillars
-function getBestEvidence(
-  topic: Topic,
-  side: "for" | "against"
-): { title: string; source: string; score: number } | null {
-  let best: { title: string; source: string; score: number } | null = null;
-  for (const pillar of topic.pillars) {
-    for (const ev of pillar.evidence ?? []) {
-      if (ev.side !== side) continue;
-      const score =
-        (ev.weight?.sourceReliability ?? 0) +
-        (ev.weight?.independence ?? 0) +
-        (ev.weight?.replicability ?? 0) +
-        (ev.weight?.directness ?? 0);
-      if (!best || score > best.score) {
-        best = { title: ev.title, source: ev.source ?? "Unknown", score };
-      }
-    }
-  }
-  return best;
+  /** Crux #1 of the map home's primary button opens (see homeModel). */
+  crux: HomeCrux;
+  /** That map's page. */
+  href: string;
+  /** Extra classes for the section (home sets its vertical rhythm). */
+  className?: string;
 }
 
 /**
- * The home page's worked example: one crux from the featured topic, laid out
- * as the two conditions that would move each side. It used to open with a
- * balance-and-weight readout, which put a score before the question; the north
- * star (docs/plans/2026-09-22-north-star.md) makes the crux and its resolution
- * condition the spine, so the readout lives on the topic page instead.
+ * Home, beat 2: one crux worked through. It is crux #1 of the same flagship
+ * map the hero's button opens, drawn on the flagship crux sheet
+ * (components/argument/DebateView.tsx): ruled paper, one crimson margin rule,
+ * the question, what would settle it, how it has moved, and why it is still
+ * open. A server component with no client JS; the data comes from the map's
+ * own graph, engine ranking and public ledger.
  */
-export function FeaturedTopicHero({ onTopicSelect }: FeaturedTopicHeroProps) {
-  const [topic, setTopic] = useState<Topic | null>(null);
-  const [settled, setSettled] = useState(false);
-
-  // Get lightweight summary (available immediately)
-  const summary = topicSummaries.find((t) => t.id === featuredTopicId);
-
-  // Load only the featured topic module, not the aggregate corpus.
-  useEffect(() => {
-    let cancelled = false;
-    loadTopicById(featuredTopicId).then((found) => {
-      if (cancelled) return;
-      if (found) setTopic(found);
-      setSettled(true);
-    }).catch(() => {
-      if (!cancelled) setSettled(true);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  if (!summary) return null;
-
-  const crux = topic?.pillars?.[0]?.crux;
-  const flip = crux?.falsification;
-  const forEvidence = topic ? getBestEvidence(topic, "for") : null;
-  const againstEvidence = topic ? getBestEvidence(topic, "against") : null;
+export function FeaturedTopicHero({ crux, href, className }: FeaturedTopicHeroProps) {
+  // The same run-in leads the map page uses for this state of crux.
+  const leads =
+    crux.mode === "standing"
+      ? { stakes: "Why it matters.", fight: "Where the sides part." }
+      : crux.resolved
+        ? { stakes: "What it changed.", fight: "Why it was open." }
+        : { stakes: "What each answer changes.", fight: "Why it is still open." };
 
   return (
-    <section aria-labelledby="home-crux-heading" className="px-4 md:px-8">
-      <div className="mx-auto max-w-5xl border-t border-stone-300/70 py-14 dark:border-divider md:py-20">
-        <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-12">
-          <h2
-            id="home-crux-heading"
-            className="text-balance font-serif text-[2rem] leading-[1.08] tracking-[-0.01em] text-primary dark:text-stone-200 md:text-[2.5rem]"
-          >
-            What would change your mind?
-          </h2>
-          <p className="max-w-md text-base leading-relaxed text-secondary dark:text-stone-400 md:pt-2">
-            Every map narrows a fight down to its cruxes: the questions that,
-            once answered, would move one side or the other. Here is one of
-            them, from {summary.title}.
-          </p>
-        </div>
+    <Section
+      id="home-crux"
+      title="What would change your mind?"
+      lede={
+        <>
+          Every map narrows a fight to a few questions like this one. It is the
+          first of {numberWord(crux.cruxCount)} on <em>{crux.topicTitle}</em>
+        </>
+      }
+      className={className}
+    >
+        <div className={CRUX_SHEET}>
+          <div className={MARGIN_RULE}>
+            <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
+              <span
+                aria-hidden="true"
+                className="row-span-5 pr-3 text-right font-serif text-[1.875rem] leading-[1.6rem] text-crux-text sm:pr-4 sm:text-[2.125rem] sm:leading-[1.75rem]"
+              >
+                {crux.rank}
+              </span>
+              <p className={`${ENTRY_COLUMN} label-caps !text-crux-text`}>The crux</p>
+              <h3
+                className={`${ENTRY_COLUMN} mt-1 max-w-3xl text-pretty font-serif text-[1.3125rem] font-medium leading-[1.3] text-stone-900 dark:text-stone-100 sm:text-[1.625rem]`}
+              >
+                {crux.question}
+              </h3>
+              {crux.implicit ? (
+                <p
+                  className={`${ENTRY_COLUMN} mt-2 max-w-2xl font-serif text-[1rem] italic leading-snug text-muted dark:text-stone-400`}
+                >
+                  A hidden assumption: nobody in the debate says it out loud,
+                  but the positions lean on it.
+                </p>
+              ) : null}
+              <p className={`${ENTRY_COLUMN} max-w-2xl`}>
+                <SettleAnswer
+                  mode={crux.mode}
+                  kind={crux.kind}
+                  condition={crux.condition}
+                  resolved={crux.resolved}
+                />
+              </p>
+              {crux.movement.length > 0 ? (
+                <div className={`${ENTRY_COLUMN} mt-3.5 flex`}>
+                  <CruxMovementTrack movement={crux.movement} />
+                </div>
+              ) : null}
+            </div>
+          </div>
 
-        {/* The claim under discussion, then the crux it turns on. */}
-        <div className="mt-10 md:mt-14">
-          <p className="label-caps">The claim</p>
-          <p className="mt-1 max-w-3xl font-serif text-xl italic leading-snug text-secondary dark:text-stone-400 md:text-[1.375rem]">
-            {summary.meta_claim}
-          </p>
-        </div>
-
-        {/* The crux arrives with the lazily loaded topic module. Hold roughly
-            its height until then so the sections below don't jump. Measured
-            on the featured topic at 390/768/1024/1440 px (1501/1406/1017/788
-            px, crux-sheet layout), about 90% of it, so a shorter crux shrinks the gap a little
-            rather than a longer one pushing the page a lot. */}
-        <div className={settled ? undefined : "min-h-[84rem] md:min-h-[79rem] lg:min-h-[57rem] xl:min-h-[44rem]"}>
-        {crux ? (
-          // The flagship crux sheet (components/argument/DebateView.tsx), one
-          // crux long: ruled paper, one crimson margin rule, small-caps labels
-          // over serif answers. The home block keeps its own job, the two
-          // conditions that would move each side, in the site's one crux
-          // style. No numeral in the margin: there is only one crux here.
-          <div className={`mt-8 ${CRUX_SHEET}`}>
+          {crux.fight || crux.soWhat ? (
             <div className={MARGIN_RULE}>
               <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
-                <div className={ENTRY_COLUMN}>
-                  <p className="label-caps !text-crux-text">The crux</p>
-                  <h3 className="mt-1 max-w-3xl text-pretty font-serif text-[1.3125rem] font-medium leading-[1.3] text-stone-900 dark:text-stone-100 sm:text-[1.625rem]">
-                    {crux.title}
-                  </h3>
-                  <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                    {crux.description}
-                  </p>
+                <div
+                  className={`${ENTRY_COLUMN} grid gap-y-4 lg:grid-cols-2 lg:gap-x-12`}
+                >
+                  {crux.fight ? <RunIn lead={leads.fight}>{crux.fight}</RunIn> : null}
+                  {crux.soWhat ? <RunIn lead={leads.stakes}>{crux.soWhat}</RunIn> : null}
                 </div>
               </div>
             </div>
-
-            {flip ? (
-              // The two conditions face each other across one rule inside a
-              // single entry: same size, same ink, the side named only by its
-              // label's colour. They stack below lg.
-              <div className={MARGIN_RULE}>
-                <div className={`${ENTRY_GRID} pr-4 sm:pr-6`}>
-                  <div
-                    className={`${ENTRY_COLUMN} grid divide-y divide-stone-200/90 dark:divide-[#3d3a36] lg:grid-cols-2 lg:divide-x lg:divide-y-0`}
-                  >
-                    <p className="py-5 sm:py-6 lg:pr-8">
-                      <span className="label-caps block !text-rust-700 dark:!text-rust-300">
-                        What would change a supporter&rsquo;s mind
-                      </span>
-                      <span className="mt-1 block font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.1875rem]">
-                        {flip.supporter_flip}
-                      </span>
-                    </p>
-                    <p className="py-5 sm:py-6 lg:pl-8">
-                      <span className="label-caps block !text-skeptic dark:!text-[#cfa88a]">
-                        What would change a skeptic&rsquo;s mind
-                      </span>
-                      <span className="mt-1 block font-serif text-[1.0625rem] leading-[1.5] text-stone-800 dark:text-stone-200 sm:text-[1.1875rem]">
-                        {flip.skeptic_flip}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ) : null}
-
-            {flip?.common_ground || flip?.live_disagreement ? (
-              <div className={MARGIN_RULE}>
-                <div className={`${ENTRY_GRID} py-5 pr-4 sm:py-6 sm:pr-6`}>
-                  <dl className={`${ENTRY_COLUMN} grid gap-y-4 lg:grid-cols-2 lg:gap-x-16`}>
-                    {flip.common_ground ? (
-                      <div>
-                        <dt className="label-caps">Common ground</dt>
-                        <dd className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                          {flip.common_ground}
-                        </dd>
-                      </div>
-                    ) : null}
-                    {flip.live_disagreement ? (
-                      <div>
-                        <dt className="label-caps">The live disagreement</dt>
-                        <dd className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-                          {flip.live_disagreement}
-                        </dd>
-                      </div>
-                    ) : null}
-                  </dl>
-                </div>
-              </div>
-            ) : null}
-          </div>
-        ) : null}
-
-        {forEvidence || againstEvidence ? (
-          <div className="mt-12">
-            <h3 className="font-serif text-xl text-primary dark:text-stone-200">
-              The strongest evidence on each side
-            </h3>
-            <ul className="mt-4 grid gap-x-10 md:grid-cols-2">
-              {forEvidence ? (
-                <li className="border-t border-stone-300/70 py-4 dark:border-divider">
-                  <p className="text-xs font-medium text-rust-700 dark:text-rust-300">
-                    For the claim
-                  </p>
-                  <p className="mt-1 text-[0.9375rem] font-medium leading-snug text-primary dark:text-stone-200">
-                    {forEvidence.title}
-                  </p>
-                  <p className="mt-1 text-xs leading-relaxed text-muted dark:text-stone-400">
-                    {forEvidence.source}
-                  </p>
-                </li>
-              ) : null}
-              {againstEvidence ? (
-                <li className="border-t border-stone-300/70 py-4 dark:border-divider">
-                  <p className="text-xs font-medium text-skeptic dark:text-[#cfa88a]">
-                    Against the claim
-                  </p>
-                  <p className="mt-1 text-[0.9375rem] font-medium leading-snug text-primary dark:text-stone-200">
-                    {againstEvidence.title}
-                  </p>
-                  <p className="mt-1 text-xs leading-relaxed text-muted dark:text-stone-400">
-                    {againstEvidence.source}
-                  </p>
-                </li>
-              ) : null}
-            </ul>
-          </div>
-        ) : null}
-
+          ) : null}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <button
-            onClick={() => onTopicSelect(featuredTopicId)}
-            className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-rust-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-rust-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-          >
-            Open the interactive map
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </button>
-          <Link
-            href={`/topics/${featuredTopicId}`}
-            className="inline-flex min-h-11 items-center text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-[#8bb5b1] dark:decoration-[#8bb5b1]/40"
-          >
-            Read every crux in {summary.title}
-          </Link>
-        </div>
-      </div>
-    </section>
+        <p className="mt-4 md:mt-6">
+          <TextAction href={href}>Read the whole map</TextAction>
+        </p>
+    </Section>
+  );
+}
+
+/** A paragraph with a run-in italic lead, as on the map page. */
+function RunIn({ lead, children }: { lead: string; children: React.ReactNode }) {
+  return (
+    <p className="max-w-2xl font-serif text-[1rem] leading-[1.55] text-stone-800 dark:text-stone-200 sm:text-[1.0625rem]">
+      <em className="font-medium text-stone-900 dark:text-stone-100">{lead}</em> {children}
+    </p>
   );
 }

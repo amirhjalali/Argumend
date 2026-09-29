@@ -103,7 +103,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   // since 2026-09-22: the brand tokens now flip in dark mode, so a bare token
   // there would go light-on-light, and it needs no exemption.
   { path: "app/methodology/page.tsx" },
-  { path: "app/how-it-works/page.tsx" },
   { path: "app/lessons-from-the-deep/page.tsx" },
   { path: "app/analysis/[id]/AnalysisView.tsx" },
   { path: "app/analyze/page.tsx" },
@@ -132,7 +131,6 @@ const MIGRATED_FILES: { path: string; exempt?: string[] }[] = [
   { path: "components/TableOfContents.tsx" },
   { path: "app/faq/page.tsx" },
   { path: "components/DebateView.tsx" },
-  { path: "components/HomeClient.tsx" },
   { path: "components/TopBar.tsx" },
   { path: "app/is/page.tsx" },
   { path: "app/is/IsHubClient.tsx" },
