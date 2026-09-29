@@ -163,7 +163,7 @@ export function CruxReflection({
               );
             })}
           </div>
-          <p role="status" className="mt-3 text-xs text-muted dark:text-stone-400">
+          <p className="mt-3 text-xs text-muted dark:text-stone-400">
             {answer.changed ? "Kept in this browser only." : "Noted in this browser only."}{" "}
             <TextAction onClick={clear} className="!text-xs">
               Clear my answer
@@ -171,6 +171,16 @@ export function CruxReflection({
           </p>
         </div>
       )}
+      {/* Always in the page, so the first answer is announced: a status
+          mounted together with its text is often missed, and a tap on an
+          option otherwise says nothing about the question that appears. */}
+      <div role="status" className="sr-only">
+        {answer
+          ? answer.changed
+            ? "Kept in this browser only."
+            : "Noted in this browser only. One more question below: did this map change what you thought the argument was about?"
+          : ""}
+      </div>
     </section>
   );
 }

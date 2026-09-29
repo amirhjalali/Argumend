@@ -72,7 +72,9 @@ export function QuestionsSearch({
           onChange={(e) => setQuery(e.target.value)}
           className="w-full rounded-lg border border-stone-200 bg-panel py-3 pl-10 pr-12 font-sans text-sm text-primary dark:text-stone-200 placeholder:text-muted dark:placeholder:text-stone-500 focus:border-deep/40 focus:outline-none focus:ring-2 focus:ring-focus dark:border-[var(--border-default)] dark:focus:border-accent-text/60"
           aria-label="Search questions"
-          aria-controls="question-search-results"
+          // Only while the results region exists: an id that points at
+          // nothing is an invalid ARIA reference (axe, critical).
+          aria-controls={query.trim() ? "question-search-results" : undefined}
           aria-describedby={query.trim() ? "question-search-status" : undefined}
         />
         <svg
@@ -101,6 +103,18 @@ export function QuestionsSearch({
         )}
       </div>
 
+      {/* One live region that is always in the page, so the first result
+          count is announced too: a region mounted together with its text is
+          often missed, and the visible line below remounts whenever the
+          results flip between none and some. */}
+      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {query.trim()
+          ? filtered.length === 0
+            ? `No questions found for “${query.trim()}”`
+            : `${filtered.length} result${filtered.length !== 1 ? "s" : ""} for “${query.trim()}”`
+          : ""}
+      </div>
+
       {/* Search results */}
       {query.trim() && (
         <div id="question-search-results" className="mt-4">
@@ -109,9 +123,6 @@ export function QuestionsSearch({
               <p
                 id="question-search-status"
                 className="font-sans text-sm text-muted dark:text-stone-400"
-                role="status"
-                aria-live="polite"
-                aria-atomic="true"
               >
                 No questions found for &ldquo;{query.trim()}&rdquo;
               </p>
@@ -128,9 +139,6 @@ export function QuestionsSearch({
               <p
                 id="question-search-status"
                 className="mb-3 font-sans text-sm text-muted dark:text-stone-400"
-                role="status"
-                aria-live="polite"
-                aria-atomic="true"
               >
                 {filtered.length} result{filtered.length !== 1 ? "s" : ""}{" "}
                 for &ldquo;{query.trim()}&rdquo;
