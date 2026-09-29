@@ -23,7 +23,6 @@
 import { topicSummaries } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
-import { selectEvidence } from "@/lib/mapReply/compose";
 import {
   prefilterTopics,
   tokenize,
@@ -31,6 +30,7 @@ import {
   type PrefilterDocument,
 } from "@/lib/mapReply/prefilter";
 import type { Pillar, Topic } from "@/lib/schemas/topic";
+import { legacyTopicPage, type LegacyEvidenceItem } from "@/lib/topicPage/legacy";
 import type { ArgumentGraph, Claim, Evidence as GraphEvidence } from "@/types/argument";
 import type {
   PasteMapCandidate,
@@ -141,37 +141,54 @@ export function pickPillar(pillars: readonly Pillar[], text: string): Pillar | u
   return overlap[best] >= overlap[0] + 2 ? pillars[best] : pillars[0];
 }
 
-function pillarCards(topic: Topic, pillar: Pillar | undefined): PasteMapCard[] {
-  let items = selectEvidence(pillar);
-  if (items.length === 0) {
-    // A pillar without cards borrows the map's strongest ones rather than
-    // showing an empty section.
-    const pooled = { ...topic.pillars[0], evidence: topic.pillars.flatMap((p) => p.evidence ?? []) };
-    items = selectEvidence(pooled as Pillar);
+/** One card per side, strongest first, from the crux's own evidence. */
+function cardsFrom(items: readonly LegacyEvidenceItem[]): PasteMapCard[] {
+  const picked = (["for", "against"] as const)
+    .map((side) => items.find((item) => item.side === side))
+    .filter((item): item is LegacyEvidenceItem => Boolean(item));
+  if (picked.length < 2) {
+    // One-sided evidence still gets two cards, each labelled with its own side.
+    const filler = items.find((item) => !picked.includes(item));
+    if (filler) picked.push(filler);
   }
-  // The weight score stays on the map page, where the reader can see what it
-  // weighs. Here the cards are two readings, not a contest.
-  return items.map(({ score: _score, ...card }) => card);
+  return picked.map((item) => ({
+    id: item.id,
+    side: item.side,
+    title: item.title,
+    description: item.description,
+    ...(item.source ? { source: item.source } : {}),
+    ...(item.sourceUrl ? { sourceUrl: item.sourceUrl } : {}),
+  }));
 }
 
+/**
+ * A pillar map, read through the topic page's own model
+ * (lib/topicPage/legacy.ts), so the crux shown here is worded exactly as the
+ * page the reader lands on words it, and the link lands on that entry's
+ * anchor.
+ */
 function pillarMatch(topic: Topic, text: string): PasteMapMatch {
+  const { cruxes } = legacyTopicPage(topic);
   const pillar = pickPillar(topic.pillars, text);
-  const crux: PasteMapCrux | null = pillar
+  const entry = cruxes.find((crux) => crux.pillarId === pillar?.id) ?? cruxes[0];
+
+  const crux: PasteMapCrux | null = entry
     ? {
-        question: pillar.crux.title,
-        ...(pillar.crux.falsification
-          ? {
-              supporterFlip: pillar.crux.falsification.supporter_flip,
-              skepticFlip: pillar.crux.falsification.skeptic_flip,
-              ...(pillar.crux.falsification.live_disagreement
-                ? { fight: pillar.crux.falsification.live_disagreement }
-                : {}),
-            }
-          : { settle: pillar.crux.description }),
-        // ReadModeView renders every pillar crux with id="crux-<id>".
-        href: topicHref(topic.id, `crux-${pillar.crux.id}`),
+        question: entry.question,
+        ...(entry.flips
+          ? { supporterFlip: entry.flips.supporter, skepticFlip: entry.flips.skeptic }
+          : entry.settle.condition
+            ? { settle: entry.settle.condition }
+            : {}),
+        href: topicHref(topic.id, entry.anchor),
       }
     : null;
+
+  // A crux without cards borrows the map's strongest ones rather than showing
+  // an empty section. No weight is carried: the cards are two readings, not a
+  // contest, and the map page is where a reader can see what a weight weighs.
+  let cards = cardsFrom(entry?.evidence ?? []);
+  if (cards.length === 0) cards = cardsFrom(cruxes.flatMap((item) => item.evidence));
 
   return {
     id: topic.id,
@@ -180,7 +197,7 @@ function pillarMatch(topic: Topic, text: string): PasteMapMatch {
     href: topicHref(topic.id),
     kind: "map",
     crux,
-    cards: pillarCards(topic, pillar),
+    cards,
     cardsAbout: "map-claim",
   };
 }
@@ -244,8 +261,8 @@ async function flagshipMatch(id: string): Promise<PasteMapMatch | null> {
           question: note?.question ?? top.summary ?? top.statement,
           ...(top.resolution?.condition ? { settle: top.resolution.condition } : {}),
           fight: note?.fight ?? top.statusBasis,
-          // DebateView anchors its crux ledger as a whole, not per crux.
-          href: topicHref(id, "cruxes"),
+          // The topic template anchors each flagship crux entry by claim id.
+          href: topicHref(id, `crux-${top.id}`),
         }
       : null,
     cards: top ? flagshipCards(topic.graph, top.id) : [],

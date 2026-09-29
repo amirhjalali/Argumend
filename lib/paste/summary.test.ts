@@ -24,7 +24,7 @@ describe("buildPasteSummary", () => {
     expect(summary).toContain("It is already mapped: Immigration and Wages.");
     expect(summary).toContain("What would change a supporter's mind:");
     expect(summary).toContain(
-      "https://argumend.org/topics/immigration-wage-impact#crux-wage-elasticity-immigration",
+      "https://argumend.org/topics/immigration-wage-impact#crux-labor-market-economics",
     );
     expect(summary).not.toMatch(/\d+\s*\/\s*40|score/i);
   });

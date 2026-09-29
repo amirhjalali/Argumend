@@ -86,7 +86,7 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(view.getByText("Cuts against it")).toBeTruthy();
     expect(
       view.getByRole("link", { name: "Open the map at this crux" }).getAttribute("href"),
-    ).toBe("/topics/immigration-wage-impact#crux-wage-elasticity-immigration");
+    ).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
     expect(view.getByRole("button", { name: "Copy a summary" })).toBeTruthy();
     expect(view.getByText("Did this change what you thought you were arguing about?")).toBeTruthy();
     expect(view.getByText("How this was read")).toBeTruthy();

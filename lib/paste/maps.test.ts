@@ -94,8 +94,9 @@ describe("findMaps", () => {
     const result = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
     const match = result.match;
     expect(match?.id).toBe("immigration-wage-impact");
-    expect(match?.crux?.question).toBe("Labor Demand Elasticity for Low-Skill Workers");
-    expect(match?.crux?.href).toBe("/topics/immigration-wage-impact#crux-wage-elasticity-immigration");
+    // Worded as the topic page words it: the pillar's live disagreement.
+    expect(match?.crux?.question).toMatch(/^The true wage elasticity for the most directly-competing workers/);
+    expect(match?.crux?.href).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
     expect(match?.cards.length).toBe(2);
   });
 

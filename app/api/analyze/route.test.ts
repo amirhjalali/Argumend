@@ -64,13 +64,13 @@ describe("POST /api/analyze (the paste flow's map lane)", () => {
     expect(maps.match?.id).toBe("nuclear-energy-safety");
   });
 
-  it("can match a flagship debate map, anchored at its crux ledger", async () => {
+  it("can match a flagship debate map, anchored at its top crux", async () => {
     const maps = await mapsFor(
       "The US should stop sending weapons to Israel until it protects civilians in Gaza. No, Israel is an ally facing Hamas and conditioning aid would reward terrorism.",
     );
     expect(maps.match?.id).toBe("us-israel-support");
     expect(maps.match?.kind).toBe("flagship");
-    expect(maps.match?.crux?.href).toBe("/topics/us-israel-support#cruxes");
+    expect(maps.match?.crux?.href).toMatch(/^\/topics\/us-israel-support#crux-[a-z0-9-]+$/);
   });
 
   it("never names more than three maps", async () => {
