@@ -46,10 +46,12 @@ components/             # React components
   ui/                   # Page primitives: PageHeader, PageContainer, Section, Button, TextAction, Chip
   topic/                # TopicPage template + crux primitives (flagship and legacy maps)
   paste/, learn/, home/ # Paste flow, ArticleLayout/CollectionIndex, home beats
-  nodes/                # Custom React Flow nodes (RichNode, EvidenceNode, MetaNode)
-hooks/
-  useLogicGraph.ts      # Diagram state (Zustand store) — graph nodes/edges for /topics/[id]/map
+  DesktopCanvas.tsx, DiagramDetail.tsx, MobileArgumentList.tsx  # Diagram view (/topics/[id]/map)
+hooks/                  # Client hooks (useModalAccessibility, useMediaQuery, …)
 lib/
+  diagram/              # Diagram model (from lib/topicPage) + fixed layout, no overlaps
+  topicPage/            # Topic page model; legacy.ts adapts a legacy Topic
+  paste/                # Paste-to-map index and matching (eval in data/evals/paste-matching)
   analyze/              # Argument extraction (offline.ts for static, extractor.ts for live)
   debate/               # Debate generation
   judge/                # Multi-model judge council
@@ -60,7 +62,6 @@ lib/
 data/                   # Static content
   topics.ts, topics/    # 109+ pre-analyzed topic datasets (~500KB)
   blog.ts, guides.ts    # Blog posts, educational guides
-  logicBlueprint.ts     # Graph layout blueprints
 types/                  # TypeScript type definitions (graph.ts, logic.ts, debate.ts)
 drizzle/                # Migration files
 ```
@@ -134,7 +135,7 @@ marked as a guess. The consent line above the submit button is built from
 
 ### Dynamic Imports
 
-Heavy components are loaded with `next/dynamic` to reduce initial bundle size. The `data/topics.ts` module (~500KB) is lazy-loaded in `useLogicGraph.ts`.
+Heavy components are loaded with `next/dynamic` to reduce initial bundle size. The `data/topics.ts` module (~500KB) is read on the server (`data/topicLoader.ts`); client components use `data/topicIndex.ts` summaries.
 
 ### Database Schema
 
