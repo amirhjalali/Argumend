@@ -15,7 +15,7 @@ export default function AnalysisListingError({
       message="The saved analysis is temporarily unavailable. Try again or start a new analysis."
       reset={reset}
       backHref="/analyze"
-      backLabel="Start a New Analysis"
+      backLabel="Start a new analysis"
     />
   );
 }

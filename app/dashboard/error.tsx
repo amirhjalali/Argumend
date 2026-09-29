@@ -15,7 +15,7 @@ export default function DashboardError({
       message="Your saved items have not been changed. Try again or continue with your on-device bookmarks."
       reset={reset}
       backHref="/saved"
-      backLabel="View On-Device Bookmarks"
+      backLabel="Saved maps on this device"
     />
   );
 }

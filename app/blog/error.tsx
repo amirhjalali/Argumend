@@ -11,8 +11,8 @@ export default function BlogListingError({
 }) {
   return (
     <RouteErrorState
-      title="The blog could not load"
-      message="The blog could not be loaded. Please try again or return to the home page."
+      title="The essays could not load"
+      message="The essays could not be loaded. Please try again or return to the home page."
       reset={reset}
     />
   );

@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
-import Link from "next/link";
-import { AlertTriangle, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { PAGE_GUTTER, PAGE_RHYTHM, PAGE_WIDTHS } from "@/components/ui/PageContainer";
+import { PAGE_TITLE_SIZES } from "@/components/ui/PageHeader";
+import { cx } from "@/components/ui/cx";
 
 interface RouteErrorStateProps {
   title?: string;
@@ -12,13 +15,21 @@ interface RouteErrorStateProps {
   backLabel?: string;
 }
 
-/** Consistent, non-sensitive recovery UI for App Router error boundaries. */
+/**
+ * Consistent, non-sensitive recovery UI for App Router error boundaries.
+ *
+ * It reads like the not-found page (components/RouteNotFound.tsx): the
+ * reading width, a left-aligned header at the page title size, one rust
+ * action and one outlined way out. It stays outside the shell on purpose:
+ * if the header or footer is what failed, drawing them again would fail
+ * again. Focus moves to the title so a screen reader announces the failure.
+ */
 export function RouteErrorState({
   title = "Something went wrong",
   message,
   reset,
   backHref = "/",
-  backLabel = "Back to Home",
+  backLabel = "Back to home",
 }: RouteErrorStateProps) {
   const titleId = useId();
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -28,46 +39,36 @@ export function RouteErrorState({
   }, []);
 
   return (
-    <main
-      id="main-content"
-      className="flex min-h-[100svh] items-center justify-center bg-[#f4f1eb] px-4 py-10 dark:bg-[var(--bg-canvas)]"
-    >
+    <main id="main-content" className="min-h-[100svh] bg-canvas">
       <section
         aria-labelledby={titleId}
         aria-live="assertive"
-        className="w-full max-w-md rounded-2xl border border-stone-200/70 bg-[#faf8f5] p-6 text-center shadow-sm sm:p-10 dark:border-[var(--border-default)] dark:bg-[var(--bg-card)]"
+        className={cx("mx-auto w-full sm:pt-16", PAGE_WIDTHS.reading, PAGE_GUTTER, PAGE_RHYTHM)}
       >
-        <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-error/[0.06] text-error-text dark:bg-error/10">
-          <AlertTriangle className="h-6 w-6" strokeWidth={1.7} aria-hidden="true" />
-        </div>
-
+        <p className="label-caps">Error</p>
         <h1
           ref={titleRef}
           id={titleId}
           tabIndex={-1}
-          className="font-serif text-2xl text-primary dark:text-stone-200 outline-none"
+          className={cx(
+            "mt-3 text-balance font-serif font-normal tracking-[-0.018em] text-primary dark:text-stone-200 outline-none focus-visible:outline-none",
+            PAGE_TITLE_SIZES.page,
+          )}
         >
           {title}
         </h1>
-        <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-secondary dark:text-stone-400">
+        <p className="mt-5 max-w-[36rem] font-serif text-xl leading-[1.5] text-secondary dark:text-stone-400">
           {message}
         </p>
 
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
-          <button
-            type="button"
-            onClick={reset}
-            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rust-600 to-rust-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:from-rust-700 hover:to-rust-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#faf8f5] sm:w-auto dark:focus-visible:ring-offset-[var(--bg-card)]"
-          >
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <Button onClick={reset}>
             <RotateCcw className="h-4 w-4" aria-hidden="true" />
             Try again
-          </button>
-          <Link
-            href={backHref}
-            className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-medium text-primary dark:text-stone-200 transition-colors hover:bg-stone-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep focus-visible:ring-offset-2 focus-visible:ring-offset-[#faf8f5] sm:w-auto dark:border-[var(--border-default)] dark:bg-[var(--bg-overlay)] dark:hover:bg-[#34312d] dark:focus-visible:ring-offset-[var(--bg-card)]"
-          >
+          </Button>
+          <Button href={backHref} variant="secondary">
             {backLabel}
-          </Link>
+          </Button>
         </div>
       </section>
     </main>

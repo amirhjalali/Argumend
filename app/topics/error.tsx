@@ -11,8 +11,8 @@ export default function TopicsListingError({
 }) {
   return (
     <RouteErrorState
-      title="The topics page could not load"
-      message="The topics page could not be loaded. Please try again or return to the home page."
+      title="The maps could not load"
+      message="The maps could not be loaded. Please try again or return to the home page."
       reset={reset}
     />
   );
