@@ -85,7 +85,7 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
   return (
     // app/ai/page.tsx wraps this in AppShell, which owns <main id="main-content">
     // and the site navigation; this column only keeps the reading measure.
-    <div className="mx-auto max-w-[44rem] px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
+    <div className="mx-auto max-w-[44rem] px-4 pb-24 pt-8 sm:px-6 sm:pt-12 lg:px-8">
 
       {/* ---------------- 1. What this page is ---------------- */}
       <header>
