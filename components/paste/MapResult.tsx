@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
+import { TextAction, textActionClasses } from "@/components/ui";
 import type { PasteMapCard, PasteMapMatch, PasteMapsResult } from "@/lib/paste/types";
 
 /**
@@ -42,7 +43,7 @@ function Card({ card }: { card: PasteMapCard }) {
           href={card.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-1 inline-flex min-h-11 items-center gap-1.5 self-start font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
+          className={textActionClasses("mt-1 gap-1.5 self-start")}
         >
           Open the source
           <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
@@ -176,16 +177,11 @@ export function MapNoMatch({ maps }: { maps: PasteMapsResult }) {
       </header>
       <ClosestMaps
         title="Closest maps"
-        headingLevel="h3"
+        level={3}
         lede="These share the most words with your text. One of them may still be what you are arguing about."
         maps={maps.closest}
       />
-      <Link
-        href="/topics"
-        className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
-      >
-        Browse every map
-      </Link>
+      <TextAction href="/topics">Browse every map</TextAction>
     </section>
   );
 }

@@ -8,7 +8,8 @@ import { AiConsentLine } from "./AiConsentLine";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
-import { DisagreementAnalyzeClient } from "./disagreement/DisagreementAnalyzeClient";
+import { PasteClient } from "./paste/PasteClient";
+import type { PasteLanes } from "@/lib/paste/types";
 
 describe("AiConsentLine", () => {
   afterEach(cleanup);
@@ -39,36 +40,43 @@ describe("AiConsentLine", () => {
   });
 });
 
-describe("/analyze-v2 consent at the point of submit", () => {
+const OFFLINE: PasteLanes = { maps: true, diagnosis: { enabled: false } };
+const HOSTED: PasteLanes = {
+  maps: true,
+  diagnosis: { enabled: true, providerIds: ["anthropic"], fixtures: false },
+};
+
+describe("/analyze consent at the point of submit", () => {
   afterEach(() => {
     cleanup();
     vi.unstubAllGlobals();
   });
 
-  it("shows the disclosure before anything can be submitted", () => {
+  it.each([
+    ["the offline map lane", OFFLINE, buildPasteConsentLine([]).text],
+    ["the hosted diagnosis lane", HOSTED, buildPasteConsentLine(["anthropic"]).text],
+  ])("shows the disclosure for %s before anything can be submitted", (_lane, lanes, text) => {
     vi.stubGlobal("fetch", vi.fn());
-    const view = render(<DisagreementAnalyzeClient />);
+    const view = render(<PasteClient lanes={lanes} />);
 
-    expect(view.getByRole("note", { name: "How your text is handled" }).textContent).toBe(
-      buildConsentLine().text,
-    );
+    expect(view.getByRole("note", { name: "How your text is handled" }).textContent).toBe(text);
   });
 
   it("announces the disclosure with the submit button", () => {
     vi.stubGlobal("fetch", vi.fn());
-    const view = render(<DisagreementAnalyzeClient />);
+    const view = render(<PasteClient lanes={HOSTED} />);
     const submit = view.getByRole("button", { name: "Find what it turns on" });
     const describedBy = submit.getAttribute("aria-describedby");
 
     expect(describedBy).toBeTruthy();
     expect(document.getElementById(describedBy as string)?.textContent).toBe(
-      buildConsentLine().text,
+      buildPasteConsentLine(["anthropic"]).text,
     );
   });
 
   it("puts the disclosure above the button, not below it", () => {
     vi.stubGlobal("fetch", vi.fn());
-    const view = render(<DisagreementAnalyzeClient />);
+    const view = render(<PasteClient lanes={OFFLINE} />);
     const note = view.getByRole("note", { name: "How your text is handled" });
     const submit = view.getByRole("button", { name: "Find what it turns on" });
 

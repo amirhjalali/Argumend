@@ -1,17 +1,18 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { AiConsentLine } from "@/components/AiConsentLine";
 import { AnalysisProgress } from "@/components/disagreement/AnalysisProgress";
 import { AnalyzeInput } from "@/components/disagreement/AnalyzeInput";
 import { DisagreementReportView } from "@/components/disagreement/DisagreementReportView";
 import { ShareReport } from "@/components/disagreement/ShareReport";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
+import { Button, PageContainer, PageHeader, TextAction, textActionClasses } from "@/components/ui";
 import { buildPasteConsentLine, formatProviderList } from "@/lib/aiProviders";
 import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { bandLabel, characterBucket, latencyBucket } from "@/lib/disagreement/labels";
+import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
 import { minCharactersFor, PASTE_LIMITS } from "@/lib/paste/limits";
 import { buildPasteSummary } from "@/lib/paste/summary";
 import type { PasteContentType, PasteLanes, PasteMapsResult } from "@/lib/paste/types";
@@ -39,10 +40,9 @@ import { NextStep } from "./NextStep";
  * until that lane returns. A diagnosis failure never blocks the map.
  */
 
-/** Set by the home page's paste box before it navigates here. */
-export const PREFILL_KEY = "argumend-analyze-prefill";
 
 const CONSENT_ID = "paste-consent";
+const SUBMIT_ID = "paste-submit";
 const PROGRESS_MS = 1800;
 
 type Phase = "idle" | "loading" | "done" | "error";
@@ -166,7 +166,6 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const runRef = useRef(0);
   const resultsRef = useRef<HTMLElement>(null);
-  const submitRef = useRef<HTMLButtonElement>(null);
   const textareaWrapRef = useRef<HTMLDivElement>(null);
 
   const trimmedLength = content.trim().length;
@@ -232,7 +231,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
     let cancelled = false;
     let raw: string | null = null;
     try {
-      raw = sessionStorage.getItem(PREFILL_KEY);
+      raw = sessionStorage.getItem(PASTE_PREFILL_KEY);
     } catch {
       return;
     }
@@ -240,7 +239,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
     queueMicrotask(() => {
       if (cancelled) return;
       try {
-        sessionStorage.removeItem(PREFILL_KEY);
+        sessionStorage.removeItem(PASTE_PREFILL_KEY);
       } catch {
         // Storage can vanish between the read and the write; the text is in hand.
       }
@@ -262,8 +261,9 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
         // A lane that sends text somewhere waits for the visitor to read the
         // consent line and press the button.
         window.setTimeout(() => {
-          submitRef.current?.scrollIntoView({ block: "center" });
-          submitRef.current?.focus({ preventScroll: true });
+          const button = document.getElementById(SUBMIT_ID);
+          button?.scrollIntoView({ block: "center" });
+          button?.focus({ preventScroll: true });
         }, 50);
       }
     });
@@ -317,47 +317,36 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const report = diagnosis.status === "done" ? diagnosis.report : null;
   const summary = match || report ? buildPasteSummary({ maps, report }) : undefined;
 
+  const lede = diagnosisOn
+    ? "Paste a conversation, an article or your own draft. Argumend separates what the sides agree on from what they don’t, finds the question it turns on, and takes you to the map that lays out both sides’ best evidence."
+    : "Paste a conversation, an article or your own draft. Argumend finds the map it is already on, the question it turns on, and the strongest evidence on each side.";
+
   return (
-    <div className="mx-auto w-full max-w-5xl px-4 pb-16 pt-10 sm:px-6 sm:pt-14">
-      <header className="max-w-3xl">
-        <h1
-          className={
-            done
-              ? "font-serif text-2xl leading-tight text-[var(--text-heading)]"
-              : "font-serif text-[2.375rem] leading-[1.1] text-[var(--text-heading)] sm:text-5xl"
-          }
-        >
+    <PageContainer width="default">
+      {done ? (
+        // After a submit the title steps down, so the result starts on the
+        // first screen of a phone; PageHeader has no size that small.
+        <h1 className="max-w-3xl font-serif text-2xl leading-tight text-primary">
           What is the argument really resting on?
         </h1>
-        {done ? null : (
-          <>
-            <p className="mt-4 max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
-              {diagnosisOn
-                ? "Paste a conversation, an article or your own draft. Argumend separates what the sides agree on from what they don’t, finds the question it turns on, and takes you to the map that lays out both sides’ best evidence."
-                : "Paste a conversation, an article or your own draft. Argumend finds the map it is already on, the question it turns on, and the strongest evidence on each side."}
-            </p>
-            <p className="mt-3 font-sans text-[0.9375rem] text-[var(--text-muted)]">
-              It never says who is right.
-            </p>
-          </>
-        )}
-      </header>
+      ) : (
+        <PageHeader
+          title="What is the argument really resting on?"
+          lede={lede}
+          meta="It never says who is right."
+          className="mb-8 max-w-3xl sm:mb-10"
+        />
+      )}
 
       {!inputOpen ? (
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border-divider)] pb-3">
-          <p className="font-sans text-sm text-[var(--text-muted)]">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-b border-divider pb-3">
+          <p className="font-sans text-sm text-muted">
             Your text, {submittedLength.toLocaleString("en-US")} characters
           </p>
-          <button
-            type="button"
-            className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
-            onClick={() => setInputOpen(true)}
-          >
-            Edit
-          </button>
+          <TextAction onClick={() => setInputOpen(true)}>Edit</TextAction>
         </div>
       ) : (
-        <div ref={textareaWrapRef} className="mt-8 max-w-3xl space-y-6">
+        <div ref={textareaWrapRef} className={`max-w-3xl space-y-6 ${done ? "mt-8" : ""}`}>
           <AnalyzeInput
             content={content}
             contentType={contentType}
@@ -371,30 +360,27 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           <AiConsentLine id={CONSENT_ID} consent={consent} className="max-w-[36rem]" />
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-            <button
-              ref={submitRef}
-              type="button"
+            <Button
+              id={SUBMIT_ID}
+              size="lg"
               onClick={() => void submit(content, contentType)}
               aria-describedby={CONSENT_ID}
               disabled={busy || tooShort}
-              className="inline-flex min-h-11 items-center rounded-full bg-rust-600 px-6 font-sans text-base font-medium text-white transition-colors hover:bg-rust-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-600/40 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             >
               Find what it turns on
-            </button>
-            <button
-              type="button"
+            </Button>
+            <TextAction
               disabled={busy}
               onClick={() => {
                 setContentType("conversation");
                 setContent(DISAGREEMENT_EXAMPLE_SOURCE);
               }}
-              className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark disabled:opacity-60 dark:text-accent-text dark:hover:text-stone-200"
             >
               See an example
-            </button>
+            </TextAction>
           </div>
           {tooShort && content.length > 0 ? (
-            <p className="font-sans text-sm text-[var(--text-muted)]" role="status">
+            <p className="font-sans text-sm text-muted" role="status">
               Add a little more: Argumend needs at least {minChars} characters to work with (
               {minChars - trimmedLength} to go).
             </p>
@@ -418,19 +404,8 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
         <div role="alert" className="mt-8 max-w-3xl space-y-2 border-l-2 border-[var(--text-muted)] pl-4">
           <p className="text-[var(--text-primary)]">{error}</p>
           <div className="flex flex-wrap gap-x-5">
-            <button
-              type="button"
-              onClick={() => void submit(content, contentType)}
-              className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 dark:text-accent-text"
-            >
-              Try again
-            </button>
-            <Link
-              href="/topics"
-              className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 dark:text-accent-text"
-            >
-              Browse every map
-            </Link>
+            <TextAction onClick={() => void submit(content, contentType)}>Try again</TextAction>
+            <TextAction href="/topics">Browse every map</TextAction>
           </div>
         </div>
       ) : null}
@@ -463,10 +438,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
               {match ? (
                 <p className="max-w-3xl font-sans text-[0.9375rem] text-[var(--text-secondary)]">
                   Already mapped:{" "}
-                  <a
-                    href="#map-match-heading"
-                    className="inline-flex min-h-11 items-center text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
-                  >
+                  <a href="#map-match-heading" className={textActionClasses("text-[0.9375rem]")}>
                     {match.title}, below
                   </a>
                 </p>
@@ -495,7 +467,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
             />
           ) : null}
 
-          {match ? <ClosestMaps title="Closest other maps" headingLevel="h2" maps={maps?.closest ?? []} /> : null}
+          {match ? <ClosestMaps title="Closest other maps" level={2} maps={maps?.closest ?? []} /> : null}
 
           <div className="space-y-6">
             {diagnosis.status === "done" && diagnosis.publishing?.token ? (
@@ -507,13 +479,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
                 surface="session"
               />
             ) : null}
-            <button
-              type="button"
-              onClick={startOver}
-              className="inline-flex min-h-11 items-center font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
-            >
-              Paste another
-            </button>
+            <TextAction onClick={startOver}>Paste another</TextAction>
           </div>
 
           <HowThisWasRead>
@@ -553,6 +519,6 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           </HowThisWasRead>
         </section>
       ) : null}
-    </div>
+    </PageContainer>
   );
 }

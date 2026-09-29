@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Section } from "@/components/ui";
 
 export interface ClosestMapItem {
   id: string;
@@ -20,24 +21,16 @@ export function ClosestMaps({
   maps,
   title,
   lede,
-  headingLevel: Heading = "h3",
+  level = 3,
 }: {
   maps: readonly ClosestMapItem[];
   title: string;
   lede?: string;
-  headingLevel?: "h2" | "h3";
+  level?: 2 | 3;
 }) {
   if (maps.length === 0) return null;
   return (
-    <section className="space-y-4 border-t border-[var(--border-divider)] pt-8">
-      <Heading className="font-serif text-[1.75rem] leading-tight text-[var(--text-heading)] sm:text-[2rem]">
-        {title}
-      </Heading>
-      {lede ? (
-        <p className="max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-          {lede}
-        </p>
-      ) : null}
+    <Section title={title} lede={lede} level={level}>
       <ul className="divide-y divide-[var(--border-divider)] border-y border-[var(--border-divider)]">
         {maps.map((map) => (
           <li key={map.id}>
@@ -52,6 +45,6 @@ export function ClosestMaps({
           </li>
         ))}
       </ul>
-    </section>
+    </Section>
   );
 }
