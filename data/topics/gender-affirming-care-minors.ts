@@ -41,7 +41,7 @@ export const genderAffirmingCareMinorsData = {
           common_ground:
             "Both sides agree there are no randomized trials here, that the Cass Review and reviews in Finland and Sweden rated the evidence low quality, and that major US medical bodies still support access.",
           live_disagreement:
-            "Whether imperfect but consistently favorable evidence meets the bar that other accepted pediatric treatments meet, or whether its quality is low enough that treatment should be confined to research settings.",
+            "Whether the existing evidence, imperfect as it is, meets the bar that other accepted pediatric treatments meet, or whether its quality is low enough that treatment should be confined to research settings.",
         },
       },
       evidence: [
@@ -148,7 +148,7 @@ export const genderAffirmingCareMinorsData = {
           skeptic_flip:
             "A skeptic worried about consent should weigh that adolescents already consent to psychiatric medications with significant side effects, that testosterone is given to cisgender teenage boys with delayed puberty, and that withholding treatment is not neutral: endogenous puberty brings its own partially irreversible changes.",
           common_ground:
-            "Both sides agree some changes are permanent either way: cross-sex hormones cause partially irreversible effects, and so does an untreated puberty.",
+            "Both sides agree some changes are permanent either way: cross-sex hormones cause partially irreversible effects, and so does endogenous puberty.",
           live_disagreement:
             "Whether adolescents with persistent, well-evaluated dysphoria can weigh lifelong consequences well enough to consent, or whether still-maturing judgment and a changing referral population call for more safeguards or higher age thresholds.",
         },
