@@ -2,17 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { Check, Copy } from "lucide-react";
+import { Button, TextAction } from "@/components/ui";
 import { copyTextToClipboard } from "@/lib/copyToClipboard";
 import type { MapReplyExecution } from "@/lib/mapReply/types";
 
 /**
- * The reply as a thing you can take away, and the receipt for how it was made.
+ * The reply as a thing you can take away. The copied text names nobody and
+ * carries no score (lib/mapReply/render.ts).
  *
- * The execution line is not developer trivia: it prints the number of direct
+ * The receipt for how it was made, `ExecutionNote`, sits under "How this was
+ * read". It is not developer trivia: it prints the number of direct
  * identifiers stripped before anything left the browser, which is the only
  * evidence a reader has that the consent line above the paste box meant what
- * it said. It also names the lane, so a fixture answer can never be mistaken
- * for a model's judgement.
+ * it said, and it names the lane, so a fixture answer can never be mistaken
+ * for a model's reading.
  */
 
 export function executionSummary(execution: MapReplyExecution): string {
@@ -25,11 +28,9 @@ export function executionSummary(execution: MapReplyExecution): string {
 
 export function MapReplyFooter({
   markdown,
-  execution,
   onReset,
 }: {
   markdown: string;
-  execution: MapReplyExecution;
   onReset: () => void;
 }) {
   const [copied, setCopied] = useState(false);
@@ -54,25 +55,15 @@ export function MapReplyFooter({
   return (
     <div className="space-y-3 border-t border-[var(--border-divider)] pt-8">
       <div className="flex flex-wrap items-center gap-4">
-        <button
-          type="button"
-          onClick={copy}
-          className="btn-lift inline-flex min-h-11 items-center gap-2 rounded-full bg-rust-600 px-5 font-sans text-sm font-medium text-white transition-colors hover:bg-rust-700"
-        >
+        <Button onClick={copy}>
           {copied ? (
             <Check aria-hidden="true" className="h-4 w-4" />
           ) : (
             <Copy aria-hidden="true" className="h-4 w-4" />
           )}
           {copied ? "Copied" : "Copy reply"}
-        </button>
-        <button
-          type="button"
-          onClick={onReset}
-          className="inline-flex min-h-11 items-center rounded-md font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
-        >
-          Map another thread
-        </button>
+        </Button>
+        <TextAction onClick={onReset}>Map another thread</TextAction>
       </div>
 
       <p aria-live="polite" className="sr-only">
@@ -83,15 +74,16 @@ export function MapReplyFooter({
           The clipboard was not available. Select the reply and copy it manually.
         </p>
       ) : null}
-
-      <p className="font-sans text-xs text-[var(--text-muted)]">
-        {executionSummary(execution)}{" "}
-        {execution.lane === "fake" ? (
-          <span className="whitespace-nowrap rounded-full border border-[var(--border-default)] px-2 py-0.5">
-            fixtures, not a live model
-          </span>
-        ) : null}
-      </p>
     </div>
+  );
+}
+
+/** The execution receipt, for "How this was read". */
+export function ExecutionNote({ execution }: { execution: MapReplyExecution }) {
+  return (
+    <p>
+      {executionSummary(execution)}
+      {execution.lane === "fake" ? ". Fixtures, not a live model." : "."}
+    </p>
   );
 }

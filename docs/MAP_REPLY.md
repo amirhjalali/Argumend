@@ -1,9 +1,16 @@
 # Map reply
 
 Paste an argument, get the Argumend map it belongs to: which section people are
-actually arguing in, who did not make an argument, which of the map's cruxes the
-thread touched and which it never reached, and the strongest weighted evidence on
-each side. No generated prose, no winner.
+actually arguing in, how many turns were not arguments about the topic, which of
+the map's cruxes the thread touched and which it never reached, and the strongest
+weighted evidence on each side. No generated prose, no winner.
+
+Since 2026-09-29 the reply describes turns, never people: no speaker is named in
+the page or in the copied reply, and the copied text carries no probability,
+weight or threshold. Every number is still on the page, in one collapsed "How
+this was read" disclosure at the end (map confidence, pattern and signal meters,
+each crux's touch against its bar, evidence weights, the numbered turn-by-turn
+receipts, and the execution line). The API response is unchanged.
 
 This is the productised version of experiment C in
 `docs/reviews/2026-09-16-jev-typesafe-probe.md`, published as the blog post

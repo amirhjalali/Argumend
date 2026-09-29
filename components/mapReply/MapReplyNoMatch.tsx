@@ -1,6 +1,8 @@
 import { ClosestMaps } from "./ClosestMaps";
 import type { MapReplyNoMatch as MapReplyNoMatchResult, MapReplyNoMatchReason } from "@/lib/mapReply/types";
-import { executionSummary } from "./MapReplyFooter";
+import { HowThisWasRead } from "@/components/paste/HowThisWasRead";
+import { TextAction } from "@/components/ui";
+import { ExecutionNote } from "./MapReplyFooter";
 import { Meter, percentLabel } from "./meters";
 
 /**
@@ -44,24 +46,6 @@ export function MapReplyNoMatch({
         </p>
       </header>
 
-      {topicChoice ? (
-        <div className="max-w-md space-y-1.5">
-          <div className="flex items-baseline justify-between gap-3">
-            <span className="font-sans text-sm text-[var(--text-secondary)]">
-              Best fit against the {percentLabel(topicChoice.threshold)} bar
-            </span>
-            <span className="font-sans text-sm tabular-nums text-[var(--text-muted)]">
-              {percentLabel(topicChoice.confidence)}
-            </span>
-          </div>
-          <Meter
-            value={topicChoice.confidence}
-            tone="stone"
-            threshold={topicChoice.threshold}
-          />
-        </div>
-      ) : null}
-
       <ClosestMaps
         title="Closest maps"
         lede="These are the maps the shortlist put in front of the model. None of them cleared the bar; one of them may still be what you are arguing about."
@@ -72,23 +56,29 @@ export function MapReplyNoMatch({
         }))}
       />
 
-      <div className="space-y-3 pt-2">
-        <button
-          type="button"
-          onClick={onReset}
-          className="inline-flex min-h-11 items-center rounded-md font-sans text-sm text-deep underline underline-offset-2 hover:text-deep-dark dark:text-accent-text dark:hover:text-stone-200"
-        >
-          Map another thread
-        </button>
-        <p className="font-sans text-xs text-[var(--text-muted)]">
-          {executionSummary(result.execution)}{" "}
-          {result.execution.lane === "fake" ? (
-            <span className="whitespace-nowrap rounded-full border border-[var(--border-default)] px-2 py-0.5">
-              fixtures, not a live model
-            </span>
-          ) : null}
-        </p>
-      </div>
+      <TextAction onClick={onReset}>Map another thread</TextAction>
+
+      <HowThisWasRead>
+        {topicChoice ? (
+          <div className="max-w-md space-y-1.5">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="font-sans text-sm text-[var(--text-secondary)]">
+                Best fit against the {percentLabel(topicChoice.threshold)} bar
+              </span>
+              <span className="font-sans text-sm tabular-nums text-[var(--text-muted)]">
+                {percentLabel(topicChoice.confidence)}
+              </span>
+            </div>
+            <Meter
+              value={topicChoice.confidence}
+              tone="stone"
+              threshold={topicChoice.threshold}
+            />
+          </div>
+        ) : null}
+
+        <ExecutionNote execution={result.execution} />
+      </HowThisWasRead>
     </article>
   );
 }

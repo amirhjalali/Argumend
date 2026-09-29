@@ -137,13 +137,13 @@ describe("paste surfaces never score sides or name a winner", () => {
 
 describe("paste surfaces import no judging or scoreboard component", () => {
   const roots = ["components/paste", "components/disagreement", "app/analyze", "app/analysis", "app/api/analyze"];
-  const files = roots.flatMap(function walk(dir: string): string[] {
-    return readdirSync(join(process.cwd(), dir), { withFileTypes: true }).flatMap((entry) => {
+  const walk = (dir: string): string[] =>
+    readdirSync(join(process.cwd(), dir), { withFileTypes: true }).flatMap((entry) => {
       const path = `${dir}/${entry.name}`;
       if (entry.isDirectory()) return walk(path);
       return /\.tsx?$/.test(entry.name) && !entry.name.includes(".test.") ? [path] : [];
     });
-  });
+  const files = roots.flatMap((root) => walk(root));
 
   it.each(files)("%s", (file) => {
     const source = readFileSync(join(process.cwd(), file), "utf8");
