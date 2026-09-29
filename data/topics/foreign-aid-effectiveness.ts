@@ -1,6 +1,8 @@
 export const foreignAidEffectivenessData = {
   id: "foreign-aid-effectiveness",
   title: "Does Foreign Aid Work?",
+  question:
+    "Does foreign aid significantly improve lives in recipient countries?",
   meta_claim:
     "International development aid significantly improves outcomes in recipient countries and is an effective use of donor resources.",
   status: "contested" as const,
@@ -34,6 +36,8 @@ export const foreignAidEffectivenessData = {
       crux: {
         id: "targeted-vs-general-aid",
         title: "Effectiveness of Targeted Health Aid vs. General Budget Support",
+        question:
+          "How much of actual aid spending goes to proven, cost-effective programs?",
         description:
           "Bed nets and vaccines have clear RCT evidence behind them. Most aid categories do not. The question is how much of the portfolio the proven programs represent.",
         methodology:
@@ -135,6 +139,8 @@ export const foreignAidEffectivenessData = {
       crux: {
         id: "delivery-mechanism-comparison",
         title: "Aid Delivery Mechanism Efficiency Comparison",
+        question:
+          "Do lower-overhead aid channels actually deliver more lasting results per dollar?",
         description:
           "Head-to-head comparison of cost-per-outcome across aid delivery mechanisms: traditional project aid, budget support, NGO programs, direct cash transfers, and multilateral channels.",
         methodology:

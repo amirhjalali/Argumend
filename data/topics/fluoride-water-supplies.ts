@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const fluorideWaterSuppliesData = {
   id: "fluoride-water-supplies",
   title: "Fluoride in Water Supplies",
+  question: "Is fluoridating community water safe and effective?",
   meta_claim:
     "Community water fluoridation is a safe and effective public health measure",
   status: "contested" as const,
@@ -36,6 +37,8 @@ export const fluorideWaterSuppliesData = {
       crux: {
         id: "systemic-vs-topical-benefit",
         title: "The Systemic vs. Topical Fluoride Benefit Test",
+        question:
+          "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
         description:
           "If systemic fluoride ingestion provides significant dental benefit beyond what topical fluoride (toothpaste, rinses) achieves alone, water fluoridation has a clear dental health rationale. If the benefit is entirely or predominantly topical, the case for adding fluoride to drinking water weakens substantially, since topical delivery can be achieved without mass ingestion.",
         methodology:
@@ -142,6 +145,8 @@ export const fluorideWaterSuppliesData = {
       crux: {
         id: "neurodevelopmental-risk-at-recommended-levels",
         title: "The Low-Dose Neurodevelopmental Risk Assessment",
+        question:
+          "Is the twofold margin between 0.7 and 1.5 mg/L enough once other fluoride sources and vulnerable groups count?",
         description:
           "If fluoride at the recommended 0.7 mg/L concentration poses measurable neurodevelopmental risk — even a small one — the risk-benefit calculus shifts dramatically, especially for pregnant women and infants. If the neurodevelopmental effects are limited to exposures well above recommended levels (>1.5 mg/L), the current safety margin is adequate.",
         methodology:
@@ -248,6 +253,8 @@ export const fluorideWaterSuppliesData = {
       crux: {
         id: "consent-alternatives-adequacy",
         title: "The Alternative Delivery Adequacy Test",
+        question:
+          "Is fluoridating everyone's water justified when alternatives exist, and do they reach those most in need?",
         description:
           "If alternative fluoride delivery mechanisms (toothpaste, school programs, salt fluoridation) can achieve equivalent dental health outcomes for vulnerable populations without mass water treatment, the ethical justification for bypassing individual consent weakens considerably. If alternatives consistently fail to reach the most vulnerable populations and dental health disparities widen without water fluoridation, the population-level approach is justified on equity grounds.",
         methodology:

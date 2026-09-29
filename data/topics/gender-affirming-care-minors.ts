@@ -1,6 +1,8 @@
 export const genderAffirmingCareMinorsData = {
   id: "gender-affirming-care-minors",
   title: "Gender-Affirming Care for Minors",
+  question:
+    "Should transgender teens have access to gender-affirming medical care?",
   meta_claim:
     "Evidence-based gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental health outcomes and should be accessible.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const genderAffirmingCareMinorsData = {
       crux: {
         id: "evidence-quality-assessment",
         title: "The Evidence Quality Meta-Assessment",
+        question:
+          "Is the evidence strong enough to justify treating minors, compared with other accepted pediatric care?",
         description:
           "The core factual dispute is whether the existing research on pediatric gender-affirming care meets the evidentiary threshold to justify medical treatment of minors. If independent systematic reviews consistently find the evidence is low-quality and insufficient, medical caution is warranted. If the evidence, while imperfect, consistently points toward benefit and is comparable in quality to evidence for other accepted pediatric treatments, withholding care causes net harm.",
         methodology:
@@ -119,6 +123,8 @@ export const genderAffirmingCareMinorsData = {
       crux: {
         id: "consent-maturity-assessment",
         title: "The Adolescent Decision-Making Capacity Evaluation",
+        question:
+          "Can adolescents with gender dysphoria grasp long-term consequences as well as adults can?",
         description:
           "If adolescents with gender dysphoria demonstrate decision-making capacity comparable to adults for medical decisions — understanding risks, benefits, alternatives, and long-term consequences — the consent argument for treatment is strong. If their understanding of long-term implications is systematically limited by developmental stage, additional safeguards or age thresholds are warranted.",
         methodology:
@@ -198,6 +204,8 @@ export const genderAffirmingCareMinorsData = {
       crux: {
         id: "long-term-outcome-study",
         title: "The Prospective Long-Term Outcome Cohort",
+        question:
+          "Do long-term outcomes show lasting benefit and low regret compared with psychosocial support alone?",
         description:
           "The definitive resolution requires prospective, multi-decade follow-up of adolescents who received gender-affirming medical interventions compared with those who received psychosocial support only and those who received no treatment. If 20-year outcomes show sustained mental health improvement, low regret, and manageable physical side effects, the treatment is justified. If outcomes show high regret, significant medical complications, or no advantage over psychosocial support alone, the treatment paradigm needs fundamental revision.",
         methodology:

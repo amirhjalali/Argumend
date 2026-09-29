@@ -3,6 +3,7 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const deExtinctionSpeciesData = {
   id: "de-extinction-species",
   title: "Should We Bring Back Extinct Species?",
+  question: "Should de-extinction be pursued as a conservation tool?",
   meta_claim:
     "De-extinction technology should be pursued as a tool for ecological restoration and species conservation",
   status: "contested" as const,
@@ -40,6 +41,8 @@ export const deExtinctionSpeciesData = {
       crux: {
         id: "species-definition-crux",
         title: "The Functional-Proxy vs Genomic-Identity Test",
+        question:
+          "Is a species defined by genomic ancestry or by ecological function, and so is the 'dire wolf' back?",
         description:
           "Whether an engineered organism counts as a restored species depends on which species concept you adopt. Under a phenotypic/functional concept, an animal that looks and behaves like the extinct one and fills its ecological niche qualifies. Under a genomic/phylogenetic concept, an organism that shares only a handful of edited traits with an extinct lineage — while remaining overwhelmingly a member of the living donor species — does not. The crux is not a measurement that can be 'run'; it is whether the two camps can agree on which definition governs the public claim 'we brought back the dire wolf.'",
         methodology:
@@ -155,6 +158,8 @@ export const deExtinctionSpeciesData = {
       crux: {
         id: "net-biodiversity-crux",
         title: "The Net-Biodiversity Accounting Test",
+        question:
+          "Is de-extinction money new or diverted, and how much does it help living species?",
         description:
           "Whether de-extinction is a net positive or negative for biodiversity hinges on two measurable quantities: (1) how much of de-extinction funding is genuinely additional (new money/attention that would not otherwise reach conservation) versus diverted from existing conservation budgets, and (2) how large the real-world spillover benefit to living endangered species turns out to be. If de-extinction mostly mobilizes new resources and its tools materially improve recovery of extant species, the net effect is positive. If it cannibalizes scarce conservation funding and attention while delivering modest spillover, the net effect is the biodiversity loss Bennett et al. modeled.",
         methodology:
@@ -270,6 +275,8 @@ export const deExtinctionSpeciesData = {
       crux: {
         id: "moral-hazard-crux",
         title: "The Reversibility-Belief Test",
+        question:
+          "Does de-extinction publicity lead people to see extinction as reversible, and to conserve less?",
         description:
           "Whether de-extinction creates moral hazard depends on whether exposure to it causally reduces people's willingness to prevent extinction. The first experiment finds no such causal effect overall — but also finds a correlation: individuals who believe de-extinction genuinely restores species are more accepting of extinction. The crux is whether the messaging around de-extinction inflates that restorative belief in the population, and whether that belief, once held, actually loosens conservation commitment in real decisions (not just survey responses).",
         methodology:

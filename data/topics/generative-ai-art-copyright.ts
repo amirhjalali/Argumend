@@ -1,6 +1,8 @@
 export const generativeAiArtCopyrightData = {
   id: "generative-ai-art-copyright",
   title: "AI Training & Copyright",
+  question:
+    "Should training AI on copyrighted work without permission be unlawful?",
   meta_claim:
     "Training generative AI on copyrighted works without permission is unfair and should be unlawful.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const generativeAiArtCopyrightData = {
       crux: {
         id: "acquisition-vs-learning",
         title: "Acquisition vs. Learning",
+        question:
+          "Is the wrong in how training data was acquired, or in training on it at all?",
         description:
           "Is the objectionable act acquiring the works (which can be done lawfully by purchase or license) or the act of statistical training itself? Courts so far punish the former and largely permit the latter.",
         methodology:
@@ -127,6 +131,8 @@ export const generativeAiArtCopyrightData = {
       crux: {
         id: "market-substitution-test",
         title: "The Market-Substitution Test",
+        question:
+          "Are creators losing income because of unlicensed training, or because of AI tools and markets generally?",
         description:
           "Fair use turns on whether the use usurps demand for the original or its licensing market. The load-bearing question is whether observed creator income losses are caused by unlicensed training specifically, versus AI tools and market dynamics generally.",
         methodology:
@@ -214,6 +220,8 @@ export const generativeAiArtCopyrightData = {
       crux: {
         id: "transformative-use-test",
         title: "The Transformativeness Test",
+        question:
+          "Is training general-purpose AI on copyrighted work transformative fair use, or unlawful copying?",
         description:
           "Fair use hinges on whether training serves a new, non-substitutive purpose. The split between Thomson Reuters (not fair use) and Bartz/Kadrey (fair use) is the load-bearing legal disagreement that would actually move the outcome.",
         methodology:

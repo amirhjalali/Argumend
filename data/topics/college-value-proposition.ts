@@ -1,6 +1,8 @@
 export const collegeValuePropositionData = {
   id: "college-value-proposition",
   title: "The Value of a College Degree",
+  question:
+    "Is a four-year degree still worth it for most students who finish?",
   meta_claim:
     "For most students who complete it, a four-year degree still earns a strong financial return — but the payoff varies enormously by major, institution, and completion, so it is no longer a safe bet for everyone.",
   status: "contested" as const,
@@ -34,6 +36,8 @@ export const collegeValuePropositionData = {
       crux: {
         id: "roi-by-institution-major",
         title: "Disaggregated ROI by Institution and Major",
+        question:
+          "What share of school-and-major combinations pay off once you account for who enrolls?",
         description:
           "Calculating the financial return on investment for college degrees broken down by institution type, major, and student demographics to identify where college pays off and where it doesn't.",
         methodology:
@@ -137,6 +141,8 @@ export const collegeValuePropositionData = {
       crux: {
         id: "long-term-career-trajectory",
         title: "10-Year Career Trajectory Comparison",
+        question:
+          "Do alternatives to a degree match its earnings and mobility beyond the first job?",
         description:
           "Comparing career earnings, job stability, career mobility, and satisfaction over 10+ years for college graduates vs. bootcamp graduates vs. trade certificate holders.",
         methodology:

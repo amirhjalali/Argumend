@@ -1,6 +1,8 @@
 export const aiJobDisplacementData = {
   id: "ai-job-displacement",
   title: "Will AI Replace Most White-Collar Jobs?",
+  question:
+    "Will AI eliminate or transform most white-collar work within a decade?",
   meta_claim:
     "Artificial intelligence and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
   status: "contested" as const,
@@ -37,6 +39,8 @@ export const aiJobDisplacementData = {
       crux: {
         id: "novel-task-performance",
         title: "The Novel Task Benchmark",
+        question:
+          "Are AI's failures on novel tasks a lasting ceiling, or a gap the next models will close?",
         description:
           "If AI systems can match human expert performance on genuinely novel professional tasks — not just tasks resembling their training data — then widespread job displacement becomes likely. If performance degrades sharply on out-of-distribution problems, AI will remain a tool rather than a replacement.",
         methodology:
@@ -177,6 +181,8 @@ export const aiJobDisplacementData = {
       crux: {
         id: "employment-displacement-timeline",
         title: "The Employment Displacement Timeline Test",
+        question:
+          "Is the lack of AI job losses so far a temporary lag, or a sign labor markets will absorb AI?",
         description:
           "If AI-driven job displacement is real, we should see measurable declines in employment or wages in the most exposed occupations (legal research, financial analysis, coding, copywriting, translation) within 3-5 years, even as aggregate employment remains stable. If these occupations instead see growth or stable wages, the displacement thesis is wrong.",
         methodology:
@@ -317,6 +323,8 @@ export const aiJobDisplacementData = {
       crux: {
         id: "regulatory-adoption-speed",
         title: "The Regulatory Adoption Speed Test",
+        question:
+          "Will regulatory and organizational barriers to AI adoption give way within about five years, or take decades?",
         description:
           "The core question is whether regulatory and institutional frameworks will adapt fast enough to allow AI to replace human professionals within a decade, or whether these barriers will create a multi-decade adoption lag similar to electronic health records (which took 30 years to reach 80% adoption). If regulated industries adopt AI decision-making faster than historical precedent for comparable technologies, displacement will be rapid; if not, the 'next decade' timeline is wrong.",
         methodology:

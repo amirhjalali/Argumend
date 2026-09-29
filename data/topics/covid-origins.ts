@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 const covidOriginsData: TopicInput = {
   id: "lab-leak-theory",
   title: "COVID-19 Lab Leak Origin",
+  question:
+    "Did COVID-19 come from a Wuhan lab leak rather than natural spillover?",
   meta_claim:
     "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
   status: "contested" as const,
@@ -116,6 +118,8 @@ const covidOriginsData: TopicInput = {
       crux: {
         id: "wiv-database-audit",
         title: "The WIV Database Audit",
+        question:
+          "Is the outbreak's start in the same city as the Wuhan Institute of Virology a real signal, or coincidence?",
         description:
           "The Wuhan Institute of Virology maintained a database of viral sequences collected from years of bat coronavirus fieldwork. This database was taken offline in September 2019 and has never been restored to public access. An independent audit of these records would reveal what viruses the WIV possessed and whether any were closer relatives of SARS-CoV-2 than publicly known sequences.",
         methodology:
@@ -288,6 +292,8 @@ const covidOriginsData: TopicInput = {
       crux: {
         id: "fcs-evolutionary-analysis",
         title: "Comparative Evolutionary Analysis of the Furin Cleavage Site",
+        question:
+          "Could the virus's unusual furin cleavage site have arisen naturally, or does it point to engineering?",
         description:
           "Determine whether the PRRA insertion and its specific codon usage could plausibly arise through known natural evolutionary mechanisms or whether the pattern is more consistent with laboratory insertion techniques.",
         methodology:
@@ -442,6 +448,8 @@ const covidOriginsData: TopicInput = {
       crux: {
         id: "declassification-review",
         title: "The Intelligence Declassification Review",
+        question:
+          "Does classified intelligence hold anything decisive, or only the ambiguous evidence already public?",
         description:
           "The National Defense Authorization Act of 2026, signed by President Trump in December 2025, mandates the Director of National Intelligence to conduct a declassification review of all COVID-19 origins intelligence and publicly release relevant information. This review could reveal the underlying data behind agency assessments, including classified State Department documents and intelligence on WIV researcher illnesses.",
         methodology:

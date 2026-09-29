@@ -1,6 +1,7 @@
 export const homeschoolingEffectivenessData = {
   id: "homeschooling-effectiveness",
   title: "Homeschooling vs. Public School",
+  question: "Does homeschooling itself produce better academic results?",
   meta_claim:
     "Homeschooled students post higher average test scores than public school students, but it is contested whether homeschooling causes the gap or simply reflects the advantaged families who choose it.",
   status: "contested" as const,
@@ -34,6 +35,8 @@ export const homeschoolingEffectivenessData = {
       crux: {
         id: "selection-bias-controlled",
         title: "Selection-Bias-Controlled Achievement Comparison",
+        question:
+          "Does the homeschool test-score edge survive controls for family income, education and who takes tests?",
         description:
           "Do homeschoolers outperform public school students after rigorously controlling for family income, parental education, and voluntary testing bias?",
         methodology:
@@ -135,6 +138,8 @@ export const homeschoolingEffectivenessData = {
       crux: {
         id: "socialization-measurement",
         title: "Standardized Socialization Assessment",
+        question:
+          "Does homeschooling itself build social skills, or would engaged families get the same results anywhere?",
         description:
           "Do homeschooled children develop equivalent social competence, measured by validated instruments, compared to matched public school peers?",
         methodology:

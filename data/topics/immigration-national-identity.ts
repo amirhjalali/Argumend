@@ -1,6 +1,8 @@
 export const immigrationNationalIdentityData = {
   id: "immigration-national-identity",
   title: "Mass Immigration & National Identity",
+  question:
+    "Does high immigration change national identity without voters' consent?",
   meta_claim:
     "High levels of immigration fundamentally transform the cultural identity and social cohesion of receiving nations in ways that democratic majorities have not consented to and that integration policies cannot adequately address.",
   status: "contested" as const,
@@ -22,6 +24,8 @@ export const immigrationNationalIdentityData = {
       crux: {
         id: "distributional-impact-analysis",
         title: "The Distributional Impact Accounting",
+        question:
+          "Are immigration's economic gains broadly shared, or do the costs fall on low-income natives?",
         description:
           "If comprehensive analyses show that the economic gains from immigration are broadly shared — or at least that losers can be compensated from the gains — then the economic case for immigration is strong. If gains accrue primarily to employers and affluent consumers while costs fall on low-income native workers and public services, the economic case becomes a distributional justice question rather than an aggregate efficiency question.",
         methodology:
@@ -84,6 +88,8 @@ export const immigrationNationalIdentityData = {
       crux: {
         id: "integration-model-comparison",
         title: "The Integration Model Effectiveness Comparison",
+        question:
+          "Does social trust depend on integration policy, or does it fall with diversity regardless?",
         description:
           "If countries with high immigration but strong integration policies (Canada, Australia, Singapore) maintain higher social trust and cohesion than countries with similar immigration levels but weaker integration systems (Sweden, France, UK), then immigration policy design — not immigration itself — is the primary driver of social cohesion outcomes. If all high-immigration countries experience declining trust regardless of policy design, the relationship between diversity and social capital may be structural.",
         methodology:
@@ -146,6 +152,8 @@ export const immigrationNationalIdentityData = {
       crux: {
         id: "policy-preference-gap-driver",
         title: "The Policy-Preference Gap Causal Analysis",
+        question:
+          "Is the gap between public opinion and immigration policy driven by elite capture or economic necessity?",
         description:
           "If the gap between public opinion and immigration policy is driven primarily by elite capture (business lobbying, bureaucratic interests, political ideology overriding public preference), then the democratic deficit is real and reforms should align policy with public opinion. If the gap is driven by structural economic necessity (labor shortages, pension system requirements, global humanitarian obligations) that no government can override regardless of public opinion, then the 'democratic deficit' framing misdiagnoses the problem.",
         methodology:

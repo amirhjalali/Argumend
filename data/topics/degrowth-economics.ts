@@ -3,6 +3,8 @@ import type { TopicInput } from "@/lib/schemas/topic";
 export const degrowthEconomicsData = {
   id: "degrowth-economics",
   title: "Is Degrowth the Only Way to Save the Planet?",
+  question:
+    "Must rich nations shrink their economies to stay within planetary limits?",
   meta_claim:
     "Endless GDP growth is incompatible with ecological survival. Rich nations must deliberately shrink their economies to stay within planetary boundaries.",
   status: "contested" as const,
@@ -40,6 +42,8 @@ export const degrowthEconomicsData = {
       crux: {
         id: "absolute-decoupling-rate",
         title: "The Absolute Decoupling Rate Test",
+        question:
+          "Can rich economies grow while cutting emissions 7–10% a year, without offshoring them?",
         description:
           "Whether any nation can demonstrate absolute decoupling of GDP from both consumption-based CO2 emissions and material footprint at rates consistent with staying within 1.5°C. If decoupling at 7-10% per year is achievable economy-wide without offshoring, degrowth is unnecessary. If maximum observed decoupling rates remain at 1-3% per year, green growth cannot close the gap in time.",
         methodology:
@@ -154,6 +158,8 @@ export const degrowthEconomicsData = {
       crux: {
         id: "democratic-mandate-test",
         title: "The Democratic Mandate Test",
+        question:
+          "Will voters keep supporting a government that caps GDP while expanding wellbeing services?",
         description:
           "Whether any democratic polity can implement degrowth-compatible policies (reduced GDP, capped material throughput, shorter work weeks, universal basic services funded by wealth redistribution) and maintain electoral support. If voters accept post-growth governance when paired with wellbeing improvements, degrowth is politically viable. If every attempt triggers backlash and electoral defeat, degrowth remains utopian.",
         methodology:
@@ -267,6 +273,8 @@ export const degrowthEconomicsData = {
       crux: {
         id: "north-south-trade-impact",
         title: "The North-South Trade Impact Assessment",
+        question:
+          "Would a managed Northern contraction leave poorer countries better or worse off than green growth?",
         description:
           "Whether deliberate economic contraction in rich nations would reduce or increase wellbeing in developing nations. If degrowth in the Global North devastates Southern economies through reduced trade and investment, degrowth fails the justice test. If it can be paired with debt cancellation, technology transfer, and restructured trade that benefits the South, degrowth advances global equity.",
         methodology:

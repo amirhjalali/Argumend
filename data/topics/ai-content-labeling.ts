@@ -1,6 +1,8 @@
 export const aiContentLabelingData = {
   id: "ai-content-labeling",
   title: "Mandatory AI Content Labeling",
+  question:
+    "Should the law require labels or watermarks on AI-generated content?",
   meta_claim:
     "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
   status: "contested" as const,
@@ -34,6 +36,8 @@ export const aiContentLabelingData = {
       crux: {
         id: "watermark-robustness",
         title: "Watermark Robustness Under Adversarial Conditions",
+        question:
+          "Can watermarks survive real-world edits and deliberate removal at usable rates?",
         description:
           "Testing whether current AI watermarking techniques survive common transformations like screenshotting, compression, cropping, and deliberate adversarial removal attempts.",
         methodology:
@@ -137,6 +141,8 @@ export const aiContentLabelingData = {
       crux: {
         id: "chilling-effect-measurement",
         title: "Measuring Chilling Effects on Creative AI Use",
+        question:
+          "Do labeling mandates measurably reduce beneficial and creative uses of AI?",
         description:
           "Quantifying whether labeling mandates reduce beneficial AI tool adoption in creative, educational, and journalistic contexts.",
         methodology:

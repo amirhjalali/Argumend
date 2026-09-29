@@ -1,6 +1,8 @@
 export const darkMatterVsMondData = {
   id: "dark-matter-vs-mond",
   title: "Dark Matter vs. MOND",
+  question:
+    "Does dark matter, not modified gravity, explain how galaxies move?",
   meta_claim:
     "Dark matter, rather than modified gravity (MOND), is the correct explanation for galactic dynamics.",
   status: "contested" as const,
@@ -43,6 +45,8 @@ export const darkMatterVsMondData = {
       crux: {
         id: "rar-universality",
         title: "Is the Radial Acceleration Relation Truly Universal?",
+        question:
+          "Is the link between visible matter and galactic motion exact, or does it vary slightly from galaxy to galaxy?",
         description:
           "Whether the link between observed and baryonic acceleration is an exact law with zero intrinsic scatter (favoring a modified force) or a tight-but-imperfect correlation with residual halo-to-halo variation (favoring dark matter).",
         methodology:
@@ -132,6 +136,8 @@ export const darkMatterVsMondData = {
       crux: {
         id: "cmb-third-peak",
         title: "The CMB Third Acoustic Peak",
+        question:
+          "Is the missing mass at large scales a new particle, or ordinary matter and neutrinos under modified gravity?",
         description:
           "The relative heights of the acoustic peaks in the cosmic microwave background encode the ratio of dark matter to baryons. A third peak nearly as high as the second indicates a substantial non-baryonic matter component that drove gravitational collapse without participating in photon-baryon oscillations.",
         methodology:
