@@ -26,7 +26,11 @@ function buildCitationIndex(): Map<string, number> {
   return map;
 }
 
-/** Numbered markers with a 24px tap target, not the 12px superscript they were. */
+/**
+ * Numbered markers with a 44px tap target around a small superscript. The
+ * negative margins give the extra box back to the line, so the text around a
+ * marker sits where it did when the target was 24px.
+ */
 function InlineCitation({ ids, index }: { ids: string[]; index: Map<string, number> }) {
   return (
     <>
@@ -38,7 +42,7 @@ function InlineCitation({ ids, index }: { ids: string[]; index: Map<string, numb
             key={id}
             href={`#ref-${id}`}
             aria-label={`Reference ${num}`}
-            className="ml-0.5 inline-flex min-h-6 min-w-6 items-center justify-center rounded-sm align-super font-sans text-xs font-medium text-deep no-underline hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text"
+            className="-my-2.5 -ml-1.5 -mr-2 inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm align-super font-sans text-xs font-medium text-deep no-underline hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-deep/40 dark:text-accent-text"
           >
             [{num}]
           </a>
@@ -67,7 +71,7 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
               href={citation.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-deep underline decoration-deep/30 underline-offset-2 hover:text-deep-dark dark:text-accent-text"
+              className="-my-3 inline-flex min-h-11 min-w-11 items-center gap-1 text-deep underline decoration-deep/30 underline-offset-2 hover:text-deep-dark dark:text-accent-text"
             >
               Link
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
