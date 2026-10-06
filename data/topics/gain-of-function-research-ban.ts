@@ -85,6 +85,10 @@ export const gainOfFunctionResearchBanData = {
         methodology:
           "Commission an independent actuarial analysis of BSL-3 and BSL-4 laboratory incidents worldwide, including near-misses and containment breaches that did not result in community transmission. Model the cumulative probability of a pandemic-capable pathogen escape over 50-year and 100-year horizons under current and projected laboratory expansion. Engage separate teams using different modeling assumptions to test sensitivity.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An independent actuarial analysis of BSL-3 and BSL-4 incidents and near-misses worldwide, run by separate teams with different assumptions, estimating the cumulative chance of a pandemic-capable escape over 50 and 100 years as labs multiply.",
+        },
         cost_to_verify:
           "$1-3M (Independent actuarial analysis with classified incident data access)",
         falsification: {
@@ -176,6 +180,10 @@ export const gainOfFunctionResearchBanData = {
         methodology:
           "Commission a systematic review of all published GOF research on potential pandemic pathogens over the past 20 years. For each major finding, assess whether the same knowledge was independently obtained or could have been obtained through computational modeling, structure-based analysis, natural surveillance, or loss-of-function approaches. Engage both GOF proponents and critics in the review to ensure fair assessment of each side's claims.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A systematic review of 20 years of published GOF work on potential pandemic pathogens, with proponents and critics both on the panel, checking each finding against pseudovirus systems, deep mutational scanning, structural prediction and natural surveillance.",
+        },
         cost_to_verify:
           "$500K-1.5M (Systematic review with expert panels from both sides of the debate)",
         falsification: {
@@ -250,6 +258,10 @@ export const gainOfFunctionResearchBanData = {
         methodology:
           "Analyze the enforcement effectiveness of comparable dual-use technology regimes: the Biological Weapons Convention, Chemical Weapons Convention, Nuclear Non-Proliferation Treaty, and international human cloning bans. Assess compliance rates, detection of violations, and whether restrictions successfully reduced the total volume of prohibited activity even without perfect enforcement. Model the specific enforcement mechanisms available for GOF research (funding restrictions, DNA synthesis screening, institutional compliance, whistleblower protections) and estimate their collective effectiveness.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compliance and violation-detection records from the Biological and Chemical Weapons Conventions, the NPT and cloning bans, plus how much grant-funded work and commercial DNA synthesis a funding cutoff and screening would actually reach.",
+        },
         cost_to_verify:
           "$800K-2M (Comparative enforcement analysis with classified intelligence access)",
         falsification: {

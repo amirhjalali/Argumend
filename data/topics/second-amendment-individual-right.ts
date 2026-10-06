@@ -30,6 +30,10 @@ export const secondAmendmentIndividualRightData = {
         methodology:
           "Apply 18th-century rules of grammar and legal drafting to the two-clause structure; survey contemporaneous state constitutional arms provisions (some explicitly individual, some militia-linked); and weigh founding-era usage of 'the people,' 'keep,' and 'bear arms' against ratification-era commentary (e.g., the Federalist, state ratifying debates).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A survey of 18th-century drafting conventions and contemporaneous state arms provisions, showing how prefatory clauses like 'A well regulated Militia' were read in their own time.",
+        },
         cost_to_verify: "$0 (textual and historical analysis)",
         falsification: {
           supporter_flip:
@@ -137,6 +141,10 @@ export const secondAmendmentIndividualRightData = {
         methodology:
           "Query large founding-era corpora (COFEA, 1760-1799; COEME) for every instance of 'bear arms'/'keep arms', code each as military-idiomatic, literal-individual, or ambiguous, and report inter-coder reliability. Sensitivity-test results by including vs. excluding constitutional/legal texts and by re-coding plural uses.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Coding every 'bear arms' and 'keep arms' use in founding-era corpora (COFEA, COEME) as military, literal-individual or ambiguous, with inter-coder reliability, and results shown with and without constitutional texts.",
+        },
         cost_to_verify: "$0 (public corpora; data analysis)",
         falsification: {
           supporter_flip:

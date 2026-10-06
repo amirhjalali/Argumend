@@ -91,6 +91,10 @@ export const sugarTaxEffectivenessData = {
         equation:
           "\\Delta S_{net} = (\\Delta S_{taxed} + \\Delta S_{substitution} + \\Delta S_{cross\\text{-}border}) / S_{baseline}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Retailer scanner data comparing per-capita sugary drink sales in taxed places with matched control regions, counting purchases made over the border and switches to untaxed sugary products, to get the net change in sugar consumed.",
+        },
         cost_to_verify:
           "$200K (retail scanner data licensing + econometric analysis)",
         falsification: {
@@ -203,6 +207,10 @@ export const sugarTaxEffectivenessData = {
         equation:
           "\\Delta Obesity_{tax} - \\Delta Obesity_{control} = \\beta_{tax} + \\sum \\beta_i X_i + \\varepsilon",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Difference-in-differences comparisons of obesity and type 2 diabetes trends in Mexico, the UK and Berkeley against matched control populations, with at least five years of data after each tax began.",
+        },
         cost_to_verify:
           "$500K (longitudinal health survey data + epidemiological modeling)",
         falsification: {
@@ -317,6 +325,10 @@ export const sugarTaxEffectivenessData = {
         equation:
           "W_q = H_q(\\Delta QALY) - T_q(\\Delta expenditure) + R_q(\\text{revenue benefits})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Incidence by income quintile: what the tax costs each group, the health gains each gets in QALYs, and where the revenue goes, netted per quintile. How to weigh money against health for the poorest is a value choice.",
+        },
         cost_to_verify:
           "$300K (health economics modeling + household expenditure surveys)",
         falsification: {

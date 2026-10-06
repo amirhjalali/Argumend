@@ -49,6 +49,10 @@ export const pfasForeverChemicalsData = {
         methodology:
           "For each contested outcome, prioritize prospective cohort and \"Mendelian-randomization-style\" or instrumental designs over cross-sectional blood correlations. (1) Use PFAS measured years before diagnosis to establish temporality. (2) Assign exposure from external metrics (modeled water-system concentration, residential proximity, occupational history) that are not influenced by the subject's own physiology. (3) Directly measure and adjust for GFR/eGFR to test whether associations attenuate. (4) Pool across the C8 cohort, NHANES, and occupational cohorts, stratifying by PFAS species, and report dose-response. An effect that persists under externally-assigned exposure and prospective timing is causal evidence; one that vanishes once kidney function is controlled is reverse causation.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Prospective studies that measure PFAS years before diagnosis, adjust for kidney function, and assign exposure from water-system concentration or occupational history rather than the person's own blood level.",
+        },
         cost_to_verify:
           "$5-20M (multi-cohort prospective follow-up and pooled reanalysis across C8, NHANES, and occupational cohorts; some designs already partially completed)",
         falsification: {
@@ -167,6 +171,10 @@ export const pfasForeverChemicalsData = {
         methodology:
           "Construct exposure-response curves for each \"sufficient evidence\" endpoint across the full exposure spectrum: pool the high-exposure C8 and occupational cohorts with general-population cohorts (NHANES, European birth cohorts) so the curve spans roughly three orders of magnitude in serum concentration. Test for a no-effect threshold versus a linear-no-threshold relationship at the low end. Separately, use the natural experiment of the 70-85% post-phase-out decline: if population-level rates of the linked outcomes track the falling PFOS/PFOA burden with appropriate lag, that supports causation and a meaningful dose-response; if they do not, it weakens the population-harm case.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Exposure-response curves that pool the high-exposure C8 and occupational cohorts with general-population cohorts such as NHANES, testing for a no-effect threshold at the low end, and whether outcome rates fell with the 70-85% drop in legacy blood levels.",
+        },
         cost_to_verify:
           "$3-10M (pooled exposure-response modeling across cohorts plus ecological trend analysis tracking outcome rates against the documented serum decline)",
         falsification: {
@@ -285,6 +293,10 @@ export const pfasForeverChemicalsData = {
         methodology:
           "Run a transparent cost-benefit and substitution analysis: (1) reconcile the EPA vs. AWWA compliance-cost estimates by auditing assumptions about how many water systems exceed the limits and at what treatment cost (granular activated carbon vs. ion exchange vs. reverse osmosis); (2) monetize avoided disease using the endpoints with \"sufficient\" evidence and defensible dose-response from Pillar 1; (3) allocate costs between ratepayers and the settlement funds already committed by 3M and DuPont; (4) empirically test the substitution mechanism by tracking what manufacturers adopt after single-compound vs. class restrictions, and whether the replacements (e.g., GenX, short-chain PFAS) carry comparable toxicity. Compare net benefit under a narrow (PFOA/PFOS-only) regime versus a class-wide regime.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A cost-benefit audit that reconciles the EPA and AWWA compliance-cost estimates, puts a value on the health endpoints with sufficient evidence, and tracks whether replacements such as GenX turn out comparably toxic.",
+        },
         cost_to_verify:
           "$2-5M (regulatory cost-benefit reconciliation, treatment-cost engineering audit, and longitudinal tracking of chemical substitution patterns)",
         falsification: {

@@ -46,6 +46,10 @@ export const rightToRepairData = {
         methodology:
           "Use natural experiments from staggered state laws (e.g., New York 2023, Minnesota, California 2024) and the Massachusetts auto law to compare device prices, repair prices, replacement frequency, and total cost of ownership before vs. after enactment, against control states. Difference-in-differences on retail and repair-cost panel data.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Difference-in-differences on states with staggered repair laws (New York 2023, Minnesota, California 2024) against control states, tracking device prices, repair prices, replacement frequency and total cost of ownership.",
+        },
         cost_to_verify: "$300K (multi-state panel data analysis)",
         falsification: {
           supporter_flip:
@@ -118,6 +122,10 @@ export const rightToRepairData = {
         methodology:
           "Event study around the EU repair rules and US state laws: track firm-level R&D intensity, patent filings, and product-release cadence for covered vs. uncovered product lines, controlling for sector trends.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An event study around the EU repair rules and US state laws, tracking R&D intensity, patent filings and product-release cadence for covered product lines against uncovered ones.",
+        },
         cost_to_verify: "$150K (firm-level R&D / patent panel analysis)",
         falsification: {
           supporter_flip:
@@ -209,6 +217,10 @@ export const rightToRepairData = {
         methodology:
           "Compare incident data (data breaches, safety failures) from jurisdictions/products with repair access vs. without; assess whether laws with safety carve-outs (medical, vehicle cybersecurity standards) show different risk profiles than blanket laws.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Incident data on breaches and safety failures for products with repair access against those without, comparing laws with safety carve-outs (medical devices, vehicle cybersecurity) to blanket laws.",
+        },
         cost_to_verify: "$200K (incident-data and statutory comparison)",
         falsification: {
           supporter_flip:

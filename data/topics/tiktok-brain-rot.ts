@@ -35,6 +35,10 @@ export const tiktokBrainRotData = {
         equation:
           "d' = z(\\text{Hit Rate}) - z(\\text{False Alarm Rate})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A sample of over 1,000 people grouped by daily short-form viewing, with age, education, sleep and ADHD controlled, scored on the SART and Continuous Performance Test for lapses and reaction-time variability.",
+        },
         cost_to_verify: "$500K (large-sample longitudinal cognitive testing with neuroimaging)",
         falsification: {
           supporter_flip:
@@ -141,6 +145,10 @@ export const tiktokBrainRotData = {
         methodology:
           "Randomly assign participants to three conditions: (1) algorithmic TikTok-style feed with infinite scroll and autoplay, (2) same content but with chronological ordering, visible progress indicators, and no autoplay, (3) long-form video control. Measure session duration vs. intended duration (loss of control), craving ratings during abstinence periods, and striatal activation patterns via fMRI. Compare compulsive use indicators across conditions to isolate the effect of algorithmic design features from content itself.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial comparing an infinite-scroll algorithmic feed, the same clips in chronological order without autoplay, and long-form video, measuring time spent past what people intended, craving during breaks and striatal activation.",
+        },
         cost_to_verify: "$800K (randomized controlled trial with fMRI component)",
         falsification: {
           supporter_flip:
@@ -251,6 +259,10 @@ export const tiktokBrainRotData = {
         methodology:
           "Identify jurisdictions implementing short-form video restrictions for minors (e.g., China's Douyin time limits, Australia's proposed social media age restrictions). Collect standardized test scores, reading comprehension metrics, and homework completion rates before and after implementation. Use difference-in-differences design comparing restricted jurisdictions to unrestricted controls, controlling for COVID recovery, economic conditions, and educational policy changes. Supplement with screen time tracking data from consenting families.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Difference-in-differences studies of limits such as China's Douyin time caps for minors, comparing test scores, reading comprehension and homework completion before and after against places without the limits.",
+        },
         cost_to_verify: "$1.5M (multi-jurisdiction longitudinal quasi-experiment)",
         falsification: {
           supporter_flip:

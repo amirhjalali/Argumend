@@ -46,6 +46,10 @@ export const ssriAntidepressantEfficacyData = {
         methodology:
           "Re-analyze trial data at the patient level rather than by group means: fit response-distribution mixture models to separate a drug-specific responder mode from non-specific/placebo response, and test the average effect against pre-registered, patient-validated thresholds (e.g., minimal clinically important difference anchored to patient-rated improvement).",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Patient-level re-analysis of trial data with mixture models that look for a distinct drug-specific responder group, and a test of the average against a pre-registered, patient-anchored threshold for a meaningful change.",
+        },
         cost_to_verify: "$0 (re-analysis of existing FDA trial data)",
         falsification: {
           supporter_flip:

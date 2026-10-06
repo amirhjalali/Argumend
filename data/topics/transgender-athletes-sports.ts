@@ -31,6 +31,10 @@ export const transgenderAthletesSportsData = {
         methodology:
           "Conduct prospective studies tracking transgender women athletes across multiple sports (running, swimming, cycling, weightlifting, basketball, etc.) through at least 3 years of hormone therapy. Measure sport-specific performance metrics against matched cisgender female athletes at equivalent competition levels. Compare the magnitude of any trans-cis performance gap to the within-cis variation (e.g., the gap between the 5th and 95th percentile cisgender female athletes in each sport). Include both recreational and elite populations.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Prospective studies that follow transgender women athletes through at least three years of hormone therapy in several sports, comparing their results with matched cisgender women and with the spread among elite women in each sport.",
+        },
         cost_to_verify:
           "$5-15M (Multi-year, multi-sport prospective cohort study with sufficient sample sizes)",
         falsification: {
@@ -122,6 +126,10 @@ export const transgenderAthletesSportsData = {
         methodology:
           "Conduct a comprehensive comparative impact study: (1) Survey transgender athletes excluded from gender-consistent competition on mental health, sport participation rates, and quality of life; (2) Analyze competition results in jurisdictions with inclusive policies to quantify the actual competitive impact on cisgender women (podium displacements, record changes, scholarship redistribution); (3) Compare the magnitudes of harm using a standardized framework.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Surveys of mental health and sport participation among trans people kept out of women's events, set beside results under open rules: podium places, records and scholarships lost by other women. Weighing one loss against the other takes a judgment no count supplies.",
+        },
         cost_to_verify:
           "$1-3M (Multi-national survey and competition data analysis over 3-5 years)",
         falsification: {

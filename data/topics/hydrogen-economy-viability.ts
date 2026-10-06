@@ -47,6 +47,10 @@ export const hydrogenEconomyViabilityData = {
         methodology:
           "Build a sector-by-sector marginal abatement comparison: for steel, ammonia, methanol, and shipping, model the full delivered cost per tonne of CO2 avoided for (a) the hydrogen route and (b) the leading non-hydrogen alternative (scrap-based EAF, carbon capture, electrified processes, bio-feedstocks, direct battery use), under a range of electricity prices ($20-60/MWh) and electrolyzer capital costs. Identify, for each sector, the break-even electricity price at which the hydrogen route is the cheapest decarbonization option. Cross-check against operating first-of-a-kind plants (HYBRIT, Stegra, green-ammonia pilots) for real cost data rather than spreadsheet projections.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Cost per tonne of CO2 avoided for steel, ammonia, methanol and shipping, comparing the hydrogen route with the best non-hydrogen option (scrap-based furnaces, carbon capture, bio-feedstocks, batteries) at electricity prices of $20 to $60/MWh.",
+        },
         cost_to_verify:
           "$500K-1.5M (Techno-economic modeling across multiple industrial sectors with first-of-a-kind plant cost data)",
         falsification: {
@@ -167,6 +171,10 @@ export const hydrogenEconomyViabilityData = {
         methodology:
           "For each candidate end use (passenger car, home heating, grid storage over hours vs. months, aviation, shipping), compute the system-level useful output per kWh of upstream clean electricity for the hydrogen route versus the best electric alternative, including all conversion, compression, storage, and distribution losses. Then identify the binding constraint for each use: is it efficiency (kWh in vs. service out), energy density (kWh per kg), or storage duration (hours vs. seasons)? Hydrogen 'wins' only where its non-efficiency advantage (density or duration) outweighs its efficiency disadvantage. Validate against real-world deployment data (FCEV vs. BEV fleets, hydrogen vs. heat-pump heating trials, battery vs. hydrogen grid-storage economics).",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "For each use (cars, home heating, hours-long and seasonal grid storage, aviation, shipping), the useful output per kWh of clean electricity by the hydrogen route against the best electric option, counting every conversion and storage loss.",
+        },
         cost_to_verify:
           "$50K-200K (Energy-systems modeling; underlying efficiency figures are already well-measured)",
         falsification: {
@@ -288,6 +296,10 @@ export const hydrogenEconomyViabilityData = {
         equation:
           "C_{H_2} = \\frac{\\text{CAPEX}_{elec}\\cdot \\text{CRF} + \\text{OPEX}}{\\text{CF}\\cdot \\eta \\cdot 8760} + \\frac{P_{elec}}{\\eta}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Realized, not announced, green-hydrogen cost each year against experience-curve projections, split into electrolyzer cost, capacity factor and power price, alongside the share of announced capacity reaching final investment decision (about 7% today).",
+        },
         cost_to_verify:
           "$200K-500K (Ongoing techno-economic tracking against experience curves; data largely public via IEA/IRENA)",
         falsification: {

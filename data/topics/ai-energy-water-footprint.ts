@@ -46,6 +46,10 @@ export const aiEnergyWaterFootprintData = {
         methodology:
           "Track the marginal generation source serving incremental data-center load by region: identify deferred coal retirements and new gas capacity tied to data-center interconnection, and compare marginal CO2/MWh to the grid average. Repeat across ERCOT, PJM, and major data-center clusters.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Region-by-region tracking of the generation that serves new data-center load in ERCOT, PJM and other clusters: deferred coal retirements, new gas tied to interconnections, and marginal CO2 per MWh against the grid average.",
+        },
         cost_to_verify: "$50K (grid data analysis)",
         falsification: {
           supporter_flip:
@@ -137,6 +141,10 @@ export const aiEnergyWaterFootprintData = {
         methodology:
           "For each major data-center cluster, measure onsite consumptive water use as a share of the local utility's potable supply and the watershed's renewable yield, and assess overlap with USGS/Drought Monitor water-stress designations. Compare to reclaimed-water and air-cooling alternatives.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Onsite consumptive draw at each cluster, measured against the utility's potable capacity and the watershed's renewable yield, and mapped onto USGS and Drought Monitor water-stress designations.",
+        },
         cost_to_verify: "$0 (data analysis of public water filings)",
         falsification: {
           supporter_flip:
@@ -228,6 +236,10 @@ export const aiEnergyWaterFootprintData = {
         methodology:
           "Track absolute AI-attributable electricity and water consumption year over year against per-query efficiency. If efficiency rises faster than usage (absolute footprint falls), the market case strengthens; if absolute footprint keeps climbing despite efficiency, the rebound/intervention case strengthens.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Year-over-year totals of AI-attributable electricity and water use set beside per-query efficiency, showing whether absolute consumption falls or keeps climbing as usage grows.",
+        },
         cost_to_verify: "$30K (longitudinal data analysis)",
         falsification: {
           supporter_flip:

@@ -69,6 +69,10 @@ export const alternativesToDemocracyData = {
         methodology:
           "Systematically compare democratic and non-democratic governance outcomes on five long-term challenges: climate emissions reduction, pandemic preparedness, infrastructure investment, debt management, and educational attainment. Control for GDP, geography, and development level. Assess whether democracies systematically underperform on long-horizon metrics while outperforming on human rights, corruption control, and citizen welfare. The Montreal Protocol (ozone) and Marshall Plan should serve as test cases for democratic capacity for long-term action.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A comparison of democratic and non-democratic governments on emissions cuts, pandemic preparedness, infrastructure, debt and educational attainment, controlling for GDP, geography and development level.",
+        },
         cost_to_verify:
           "$500K-1.5M (Comparative governance analysis across 50+ countries over 30 years)",
         falsification: {
@@ -143,6 +147,10 @@ export const alternativesToDemocracyData = {
         methodology:
           "Implement a randomized comparison where a sortition body and an elected legislature simultaneously address the same policy question in a controlled setting. Measure outcome quality (expert evaluation of policy coherence, cost-effectiveness, long-term sustainability), public satisfaction, inclusiveness (demographic representation), and resistance to lobbying pressure. Begin at the municipal level in 5-10 volunteer cities across multiple countries to enable cross-cultural comparison.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized comparison in 5-10 volunteer cities where a sortition body and an elected council take up the same policy question, scored by experts on coherence and cost-effectiveness, and on representation and resistance to lobbying.",
+        },
         cost_to_verify:
           "$5-15M (Multi-city experimental comparison of governance models)",
         falsification: {
@@ -217,6 +225,10 @@ export const alternativesToDemocracyData = {
         methodology:
           "Compare recovery times from major policy failures across governance types. Analyze how quickly democracies vs. authoritarian states corrected course after financial crises, environmental disasters, public health emergencies, and military conflicts. Measure policy persistence (how long failed policies continue) and adaptation speed (how quickly governments respond to new information). Use natural experiments where similar challenges affected both democratic and non-democratic states simultaneously.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Recovery times after financial crises, environmental disasters, health emergencies and wars, comparing how long failed policies persist and how fast elected and authoritarian governments change course.",
+        },
         cost_to_verify:
           "$300K-800K (Historical comparative analysis of governance responses to crises)",
         falsification: {

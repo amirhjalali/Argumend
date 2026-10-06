@@ -152,6 +152,10 @@ export const effectiveAltruismData = {
         methodology:
           "Trace each documented harm to a premise: does it follow deductively from 'use evidence/reason to maximize impartial good,' or only from contingent choices (which metrics, which people, which time horizon)? Test whether competing do-gooding frameworks avoid the same failure mode in practice.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Tracing each documented failure (measurement bias, neglect of systemic change, the SBF fraud) to the premise it needs, and checking whether other do-gooding frameworks run into the same failures in practice.",
+        },
         cost_to_verify: "$0 (philosophical and case analysis)",
         falsification: {
           supporter_flip:

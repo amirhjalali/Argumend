@@ -86,6 +86,10 @@ export const epsteinFilesData = {
         methodology:
           "Compare the Epstein NPA with every other federal non-prosecution agreement in sex trafficking cases from 2000 to 2010. Assess whether blanket immunity for unnamed co-conspirators appears in any comparable agreement. Interview former federal prosecutors on standard practice. Review the DOJ OPR report\u2019s specific findings on this clause.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A comparison of the 2007 agreement with every other federal non-prosecution agreement in sex-trafficking cases from 2000 to 2010, checking whether any granted immunity to unnamed co-conspirators, alongside the DOJ OPR report's findings on that clause.",
+        },
         cost_to_verify:
           "$0 (DOJ OPR report is public; the NPA terms are a matter of court record)",
         falsification: {
@@ -201,6 +205,10 @@ export const epsteinFilesData = {
         methodology:
           "An independent body with security clearances reviews the unredacted documents and categorizes each redaction by justification: (1) victim privacy, (2) ongoing investigation, (3) national security, (4) law enforcement method, (5) no clear justification. Compare the percentage of redactions in each category against the DOJ\u2019s stated rationale. Assess whether perpetrator names were systematically redacted while victim names were exposed.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An independent, security-cleared review of the unredacted files that sorts each redaction by stated reason (victim privacy, ongoing investigation, national security, method, none) and checks whether perpetrator names were withheld while victims' were exposed.",
+        },
         cost_to_verify:
           "$5\u201310M (Independent review panel with security clearances reviewing 3.5M pages)",
         falsification: {
@@ -317,6 +325,10 @@ export const epsteinFilesData = {
         methodology:
           "An independent special counsel reviews the released evidence against each named co-conspirator, applying the same probable-cause standard used in ordinary sex trafficking cases. Compare the evidentiary threshold applied to Epstein\u2019s associates with the threshold applied to defendants in comparable trafficking cases who lacked wealth and political connections. Assess whether the 2007 immunity clause legally bars prosecution or whether subsequent criminal conduct falls outside its scope.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An independent special counsel's review of the released evidence against each of the eight FBI-named co-conspirators, under the probable-cause standard used for defendants without wealth or connections, and a ruling on whether the 2007 immunity clause bars charges.",
+        },
         cost_to_verify:
           "$10\u201320M (Independent special counsel investigation with prosecutorial authority)",
         falsification: {

@@ -45,6 +45,10 @@ export const glp1WeightLossDrugsData = {
         methodology:
           "Conduct a 10-year prospective cohort study comparing GLP-1 users vs. matched controls on: all-cause mortality, cardiovascular events, cancer incidence (particularly thyroid and pancreatic), gastrointestinal complications, body composition (DXA scans for lean mass vs. fat mass), and metabolic markers. Include a discontinuation arm tracking outcomes for 3+ years after stopping treatment. Cross-reference with FDA FAERS data and international pharmacovigilance databases.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A ten-year cohort of GLP-1 users against matched controls, tracking deaths, heart events, thyroid and pancreatic cancer, gut complications and lean mass, with an arm followed for three years after stopping.",
+        },
         cost_to_verify:
           "$50-100M (Large prospective cohort study with 10-year follow-up and imaging)",
         falsification: {
@@ -369,6 +373,10 @@ export const glp1WeightLossDrugsData = {
         methodology:
           "Analyze a nationally representative prescription claims database (e.g., IQVIA, Symphony Health) to determine the BMI distribution, comorbidity profiles, and indication codes for all GLP-1 agonist prescriptions over 2022-2026. Compare on-label vs. off-label prescribing rates. Survey prescribing physicians on their clinical rationale. Cross-reference with patient-reported outcomes to assess whether off-label users experience meaningful health benefits.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "National prescription claims data for 2022 to 2026 showing the BMI, comorbidities and indication codes behind each GLP-1 prescription, with on-label and off-label rates and prescribers' stated reasons.",
+        },
         cost_to_verify:
           "$0-500K (Claims database analysis using existing prescription data)",
         falsification: {

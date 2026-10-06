@@ -96,6 +96,10 @@ export const inflationMonetaryPolicyData = {
         equation:
           "\\text{CPI}_{t} = \\alpha + \\beta_1 \\Delta M2_{t-18} + \\beta_2 \\text{SupplyShock}_{t} + \\varepsilon_{t}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Granger-causality tests of monthly M2 growth against CPI 12 to 24 months later for 2020 to 2023, controlling for commodity prices and shipping costs, set beside the fall in money velocity.",
+        },
         cost_to_verify: "$10K (econometric analysis of publicly available FRED data)",
         falsification: {
           supporter_flip:
@@ -311,7 +315,11 @@ export const inflationMonetaryPolicyData = {
           "Run DSGE (Dynamic Stochastic General Equilibrium) model with actual economic conditions. Simulate counterfactual where Fed funds rate rises beginning July 2021 per Taylor Rule. Compare projected inflation path, unemployment, and GDP against actual outcomes.",
         equation:
           "r^*_t = r^{neutral} + 0.5(\\pi_t - \\pi^*) + 0.5(y_t - y^*_t)",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "No test can rerun 2021 with an earlier Fed; evidence can only narrow it. DSGE simulations of tightening from July 2021 under the Taylor Rule, compared with the actual paths of inflation, unemployment and GDP.",
+        },
         cost_to_verify:
           "$100K (DSGE modeling with full macroeconomic dataset)",
         falsification: {

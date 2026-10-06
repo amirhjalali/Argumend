@@ -47,6 +47,10 @@ export const lonelinessEpidemicData = {
         methodology:
           "Design a large-scale randomized controlled trial (5,000+ socially isolated older adults) comparing structured social integration interventions (group activities, befriending programs, community hubs) against active controls (health education without social component). Measure primary outcomes: all-cause mortality and cardiovascular events over 5 years. Secondary outcomes: inflammatory biomarkers (CRP, IL-6), cortisol diurnal patterns, immune function (NK cell activity), and validated loneliness scales (UCLA Loneliness Scale). Simultaneously analyze Mendelian randomization studies using genetic variants associated with social isolation tendencies to estimate causal effects independent of confounding.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial in 5,000+ isolated older adults comparing social-integration programs with health education alone on deaths and heart events over five years, read with Mendelian randomization studies.",
+        },
         cost_to_verify:
           "$20-40M (5-year RCT with biomarker panel plus parallel Mendelian randomization analyses using existing biobank data)",
         falsification: {
@@ -165,6 +169,10 @@ export const lonelinessEpidemicData = {
         methodology:
           "Conduct a pre-registered longitudinal study with passive smartphone tracking (app-by-app usage, not self-report) in 10,000+ participants across age groups. Measure in-person social interaction via ecological momentary assessment (random daily prompts) and validated loneliness measures (UCLA-3) at baseline, 6 months, and 12 months. Include subgroup analyses for populations with limited in-person access (rural residents, disabled, elderly homebound). Complement with a randomized experiment reducing social media use by 50% for 4 weeks in 2,000 participants and measuring loneliness, well-being, and in-person social time.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A pre-registered study of 10,000+ people with passive app-by-app phone tracking, random daily prompts about in-person contact and the UCLA loneliness scale, following the same people over 12 months.",
+        },
         cost_to_verify:
           "$5-10M (12-month longitudinal study with passive tracking plus embedded randomized experiment)",
         falsification: {
@@ -281,6 +289,10 @@ export const lonelinessEpidemicData = {
         methodology:
           "Conduct a natural experiment analysis comparing loneliness levels (measured by validated scales) in cities or countries that have implemented specific structural interventions — walkability improvements, public space investment, four-day work weeks, social prescribing programs — against matched controls that have not. Use difference-in-differences methodology with pre- and post-intervention surveys. Supplement with a cluster-randomized trial in 20+ neighborhoods, randomly assigning half to receive structural social infrastructure investments (community centers, pedestrian zones, programmed public spaces) and measuring loneliness at baseline, 12 months, and 24 months.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Difference-in-differences comparisons of loneliness scores in cities or countries that invested in walkability, public space, shorter work weeks or social prescribing, against matched places that did not.",
+        },
         cost_to_verify:
           "$3-8M (Natural experiment analysis plus cluster-randomized neighborhood intervention study over 2 years)",
         falsification: {

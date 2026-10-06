@@ -47,6 +47,10 @@ export const aiTherapyChatbotsData = {
         methodology:
           "Run a multi-site, pre-registered non-inferiority RCT (target n > 1,000) randomizing adults with diagnosed MDD or GAD to (1) a generative-AI therapy chatbot, (2) human-delivered CBT, and (3) treatment-as-usual. Use blinded assessors and validated instruments (PHQ-9, GAD-7) at baseline, end of treatment, and 6- and 12-month follow-up. Pre-specify a non-inferiority margin, stratify by baseline severity, and track dropout, adverse events, and crisis escalations as co-primary safety endpoints. Compare durability of effect and remission rates, not just acute symptom change.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A large pre-registered non-inferiority trial that randomizes diagnosed patients to a chatbot, human CBT or usual care, with blinded PHQ-9 and GAD-7 scores at the end of treatment and at 6 and 12 months.",
+        },
         cost_to_verify:
           "$5-15M (Multi-site non-inferiority RCT with 12-month follow-up and blinded assessment)",
         falsification: {
@@ -162,6 +166,10 @@ export const aiTherapyChatbotsData = {
         methodology:
           "Build an independent, standardized benchmark of hundreds of validated crisis vignettes — direct and indirect suicidal ideation, self-harm, eating-disorder cues, psychosis, intimate-partner violence — graded by a panel of crisis clinicians on a rubric (risk recognized, harmful content withheld, safe redirection, appropriate escalation to 988/human). Red-team each chatbot adversarially, including oblique phrasing and multi-turn manipulation. Compare system performance against a baseline of licensed clinicians scored on the same vignettes, and publish per-model failure rates, requiring re-testing after each model update since safety can regress.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "An independent benchmark of clinician-graded crisis vignettes, including indirect suicidal ideation, self-harm and psychosis, red-teamed with oblique phrasing and scored for each chatbot against trained clinicians.",
+        },
         cost_to_verify:
           "$1-3M (Standardized adversarial benchmark with clinician-rated rubric and ongoing re-testing)",
         falsification: {
@@ -280,6 +288,10 @@ export const aiTherapyChatbotsData = {
         methodology:
           "Within an RCT of chatbot therapy, administer validated working-alliance measures (Working Alliance Inventory) at multiple timepoints alongside symptom scales. Use mediation analysis to test whether alliance scores predict and statistically mediate symptom change, and compare the strength of that mediation to benchmarks from human-therapy alliance research (e.g. Flückiger et al.). Add longitudinal measures of social functioning, loneliness, and help-seeking to detect whether chatbot reliance substitutes for or complements human connection. Track whether high engagement reflects therapeutic progress or dependence.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Working Alliance Inventory scores taken at several points in a chatbot therapy trial and tested as a mediator of symptom change against human-therapy benchmarks, with follow-up on loneliness and human relationships.",
+        },
         cost_to_verify:
           "$1-2M (Alliance-mediation sub-study embedded in a chatbot-therapy RCT with longitudinal social-functioning measures)",
         falsification: {

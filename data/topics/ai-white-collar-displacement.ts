@@ -31,6 +31,10 @@ export const aiWhiteCollarDisplacementData = {
         methodology:
           "Commission a blinded evaluation where 200 real professional deliverables (50 each in law, medicine, accounting, and software engineering) are produced by (a) AI systems alone, (b) junior professionals, and (c) senior professionals. Independent expert panels and actual clients evaluate quality without knowing the source. Measure not just accuracy but liability exposure, client satisfaction, and error severity. Repeat annually to track the closing or persistence of gaps.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A blinded evaluation of 200 real deliverables in law, medicine, accounting and software, made by AI alone, junior professionals and senior professionals, scored by expert panels and clients on quality, errors and liability exposure.",
+        },
         cost_to_verify:
           "$3-5M (Multi-disciplinary blinded evaluation requiring professional participants, expert panels, and longitudinal tracking)",
         falsification: {
@@ -156,6 +160,10 @@ export const aiWhiteCollarDisplacementData = {
         methodology:
           "Track Bureau of Labor Statistics occupational data from 2023 to 2030, focusing on: (1) net job creation vs. destruction in knowledge-work categories, (2) emergence of new SOC codes for occupations that did not previously exist, (3) wage trends for surviving knowledge workers, (4) labor force participation rates for workers aged 25-54 with bachelor's degrees or higher. Compare against historical automation transitions (1980-2000 computerization, 2000-2020 internet/mobile) using identical BLS metrics.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "BLS occupational data from 2023 to 2030: jobs in new occupation codes that did not exist in 2023, set against knowledge-work jobs lost, plus wages and participation for college-educated workers aged 25 to 54.",
+        },
         cost_to_verify:
           "$0 (BLS data is publicly available, but the test requires waiting until 2030 for conclusive results)",
         falsification: {
@@ -264,6 +272,10 @@ export const aiWhiteCollarDisplacementData = {
         methodology:
           "Conduct a comprehensive total-cost-of-ownership analysis across five industries (law, accounting, software development, financial analysis, customer service), comparing: (a) fully loaded human labor costs, (b) AI inference costs plus integration, monitoring, human-in-the-loop oversight, error remediation, liability insurance, and regulatory compliance costs. Include failure-mode costs — malpractice claims, reputational damage, data breaches. Use actual enterprise deployment data from firms that have been running AI systems for 12+ months in production.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Total-cost-of-ownership audits in law, accounting, software, financial analysis and customer service that set fully loaded human pay against AI inference plus integration, oversight, error fixing, liability insurance and compliance.",
+        },
         cost_to_verify:
           "$1-2M (Cross-industry TCO analysis requiring access to proprietary enterprise deployment data and actuarial modeling)",
         falsification: {
@@ -389,6 +401,10 @@ export const aiWhiteCollarDisplacementData = {
         methodology:
           "Track 500 large enterprises across five industries over 2024-2029, comparing: (a) AI adoption intensity (spending, tool deployment, workflow integration), (b) knowledge-worker headcount changes, (c) revenue per knowledge worker, (d) total output volume. Control for industry-level demand trends and macroeconomic conditions. If AI-intensive firms grow headcount, augmentation dominates. If they shrink headcount while growing output, displacement is the operative dynamic.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Five years of tracking 500 large enterprises in five industries: AI spending and tool use set against staff numbers, output and revenue per employee, controlling for industry demand.",
+        },
         cost_to_verify:
           "$2-4M (Longitudinal enterprise study requiring proprietary HR and financial data across 500 firms over 5 years)",
         falsification: {

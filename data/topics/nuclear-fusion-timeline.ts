@@ -48,6 +48,10 @@ export const nuclearFusionTimelineData = {
         equation:
           "Q_{\\text{eng}} = \\frac{P_{\\text{electric out}}}{P_{\\text{electric in}}} > 1",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A sustained run of an integrated pilot plant that meters every draw (magnets, lasers, cryogenics, heating, balance-of-plant) against the electricity it exports, so engineering gain Q_eng can be read directly.",
+        },
         cost_to_verify: "$1B+ (build and operate a net-electricity pilot plant)",
         falsification: {
           supporter_flip:

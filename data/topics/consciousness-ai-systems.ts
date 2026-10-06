@@ -211,7 +211,12 @@ export const aiConsciousnessData = {
           "Developing a coherent ethical framework for determining what moral obligations (if any) we have toward AI systems of varying sophistication.",
         methodology:
           "Convene interdisciplinary panels of ethicists, AI researchers, neuroscientists, and legal scholars. Develop graduated moral status criteria based on observable behavioral and architectural properties. Stress-test framework against edge cases.",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Evidence can raise or lower the odds that a system is conscious. How much that possibility should weigh against safety shutdowns and the interests of humans and animals is a moral choice no measurement makes.",
+          kind: "value-difference" as const,
+        },
         cost_to_verify: "$1M (Multi-year interdisciplinary research program)",
         falsification: {
           supporter_flip:

@@ -30,6 +30,10 @@ export const socialMediaElectionsData = {
         methodology:
           "Conduct a large-scale randomized controlled trial (N=100,000+) during an election cycle comparing three conditions: (1) standard algorithmic feed, (2) reverse-chronological feed with no recommendations, and (3) an algorithm optimized for accuracy rather than engagement. Measure exposure to verified misinformation, sharing behavior, and post-election factual knowledge using validated survey instruments. The 2023 Meta/Science studies attempted a version of this but measured only short-term attitude change, not misinformation exposure.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial of 100,000 or more users during an election, comparing a standard algorithmic feed, a reverse-chronological feed and an accuracy-optimized feed on exposure to and sharing of verified misinformation.",
+        },
         cost_to_verify:
           "$5-10M (Platform cooperation required; large-scale RCT during election cycle with independent researchers)",
         falsification: {
@@ -138,6 +142,10 @@ export const socialMediaElectionsData = {
         methodology:
           "Using voter file data matched to social media accounts (with appropriate privacy safeguards), compare the voting behavior of individuals exposed to identified foreign influence content against matched unexposed individuals in the 2016, 2020, and 2024 US elections. Focus specifically on targeted populations (African American voters in swing states, 2016; voters in Pennsylvania, Michigan, and Wisconsin). Use validated exposure metrics from platform transparency reports and academic partnerships.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Voter files matched to social media accounts in 2016, 2020 and 2024, comparing turnout and vote choice for people exposed to identified foreign influence content with matched unexposed voters in the groups that were targeted.",
+        },
         cost_to_verify:
           "$3-8M (Requires platform data access, voter file matching, and multi-election longitudinal analysis with IRB approval)",
         falsification: {

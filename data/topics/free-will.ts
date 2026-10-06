@@ -318,6 +318,10 @@ export const freeWillData = {
         equation:
           "R(\\text{manipulated}) \\neq R(\\text{natural}) \\implies \\text{Source Matters}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Cross-cultural surveys that hold outcomes fixed and ask people to judge an agent covertly controlled by a scientist against one shaped by ordinary genes and upbringing.",
+        },
         cost_to_verify: "$50K (Cross-cultural experimental philosophy studies)",
         falsification: {
           supporter_flip:

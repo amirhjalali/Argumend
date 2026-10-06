@@ -44,6 +44,10 @@ export const occupationalLicensingReformData = {
         methodology:
           "Exploit natural experiments: (1) compare outcomes/ratings for the same occupation across state borders with sharply different requirements; (2) use difference-in-differences on staggered adoption or repeal of licensing laws, tracking quality, prices, and health outcomes. Separate low-stakes from high-stakes occupations.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Border comparisons of the same occupation across states with sharply different rules, and difference-in-differences on adoption or repeal, tracking quality, prices and health outcomes by occupation. How much quality is worth the price is a value choice.",
+        },
         cost_to_verify: "$0 (analysis of existing border-discontinuity and DiD studies)",
         falsification: {
           supporter_flip:
@@ -152,6 +156,10 @@ export const occupationalLicensingReformData = {
         methodology:
           "Difference-in-differences on states adopting universal-recognition / reciprocity laws: measure changes in inflow of licensed workers and employment, and compare against the mobility gains that full deregulation would predict. Hold quality/safety outcomes fixed.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Difference-in-differences on states that adopted universal-recognition or reciprocity laws, measuring inflows of licensed workers and employment against the gains full deregulation would predict, with quality outcomes held fixed.",
+        },
         cost_to_verify: "$0 (policy-variation analysis of state recognition laws)",
         falsification: {
           supporter_flip:

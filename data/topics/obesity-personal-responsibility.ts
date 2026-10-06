@@ -32,6 +32,10 @@ export const obesityPersonalResponsibilityData = {
         methodology:
           "Conduct large-scale randomized controlled trials (expanding on Hall et al. 2019) comparing ad libitum caloric intake and weight change across ultra-processed vs. whole food diets over 6-12 months. Simultaneously analyze natural experiments where food environment policy changed (e.g., sugary drink taxes in Mexico, junk food advertising bans in Chile) and measure population-level obesity rate changes. Cross-reference with individual-level longitudinal data tracking food access, purchasing behavior, and weight outcomes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Six-to-twelve-month trials extending Hall et al. that compare free eating on ultra-processed and whole-food diets, alongside population weight trends after policy changes such as Chile's junk-food rules and Mexico's sugary drink tax.",
+        },
         cost_to_verify:
           "$5-15M (Multi-site RCTs with metabolic ward and free-living phases, plus policy natural experiment analysis)",
         falsification: {
@@ -267,6 +271,10 @@ export const obesityPersonalResponsibilityData = {
         methodology:
           "Conduct randomized trials stratifying participants by biological markers: impaired GLP-1 secretion, leptin resistance levels, gut microbiome composition, and polygenic risk scores for obesity. Measure whether drug response correlates with biological deficit severity (supporting the disease model) or is uniform across biological profiles (supporting the appetite suppressant model). Include a behavioral intervention arm with matched caloric restriction to compare biological outcomes (metabolic adaptation, hormonal changes) between pharmacological and behavioral weight loss.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Trials that sort participants by biological markers, such as impaired GLP-1 secretion, leptin resistance and polygenic risk, and test whether drug response tracks the size of the deficit or is the same across profiles.",
+        },
         cost_to_verify:
           "$20-50M (Large stratified RCT with comprehensive biomarker profiling across pharmacological and behavioral arms)",
         falsification: {

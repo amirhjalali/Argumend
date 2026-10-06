@@ -46,6 +46,10 @@ export const universalHealthcareData = {
         equation:
           "\\Delta\\text{Cost} = (\\text{Admin Savings} + \\text{Drug Savings}) - (\\text{Newly Covered} \\times \\text{Per Capita Cost})",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Administrative costs as a share of total spending in the US multi-payer system against single-payer systems such as Canada and Taiwan, with transition costs and drug prices under single-buyer purchasing modelled separately.",
+        },
         cost_to_verify: "$300K (Health economics modeling)",
         falsification: {
           supporter_flip:

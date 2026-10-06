@@ -45,6 +45,10 @@ export const encryptionBackdoorsData = {
         methodology:
           "Adversarial red-team evaluation of any proposed access architecture: (1) model the threat (nation-state attacker, insider, key-store breach), (2) assess loss of forward secrecy and added complexity, (3) penetration-test reference implementations, (4) compare residual risk against the public-safety benefit. Publish for independent cryptographic review.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Years of open adversarial red-teaming and independent cryptographic review of a published access design, with reference implementations penetration-tested against nation-state, insider and key-store-breach threats.",
+        },
         cost_to_verify: "$2M (red-team study + reference implementation)",
         falsification: {
           supporter_flip:
@@ -134,6 +138,10 @@ export const encryptionBackdoorsData = {
         methodology:
           "Audit a representative sample of investigations stalled by encryption. For each, determine whether available alternatives (targeted exploit, cloud backups, metadata, lawful compulsion of a passcode) could have succeeded. Estimate the residual set genuinely unsolvable without a built-in backdoor, then weigh against modeled systemic security loss.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An audit of a representative sample of investigations stalled by encryption, checking for each whether a targeted exploit, cloud backups, metadata or a compelled passcode could have advanced it, leaving the residual only a backdoor would reach.",
+        },
         cost_to_verify: "$1M (multi-jurisdiction case audit)",
         falsification: {
           supporter_flip:
@@ -224,6 +232,10 @@ export const encryptionBackdoorsData = {
         methodology:
           "Comparative legal-institutional analysis: examine how existing surveillance powers (CALEA, lawful intercept, mutual legal assistance) have been contained or abused across regimes; model whether a backdoor mandate creates pressure other states can exploit; assess transparency and audit mechanisms' track record.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "The track record of comparable powers such as CALEA lawful intercept and financial-records access: whether they stayed confined to court-authorized use under transparency reporting, or spread through copycat mandates and breaches.",
+        },
         cost_to_verify: "$0 (policy and legal analysis)",
         falsification: {
           supporter_flip:

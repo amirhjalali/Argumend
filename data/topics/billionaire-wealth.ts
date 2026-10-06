@@ -28,6 +28,10 @@ export const billionaireWealthData = {
         methodology:
           "Cross-national panel regression comparing wealth Gini coefficients with intergenerational earnings elasticity, controlling for education, tax policy, and institutional quality.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Cross-national panels comparing wealth concentration with intergenerational earnings mobility, controlling for education, tax policy and institutional quality.",
+        },
         cost_to_verify: "$1.5M (Multi-country longitudinal economic study)",
         falsification: {
           supporter_flip:
@@ -138,6 +142,10 @@ export const billionaireWealthData = {
         methodology:
           "Extend Gilens & Page methodology: compare policy outcomes with preferences of different income groups across a larger sample of policy issues.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An extension of the Gilens and Page method to many more issues, matching what passed against what each income group said it wanted in surveys.",
+        },
         cost_to_verify: "$800K (Updated policy responsiveness study)",
         falsification: {
           supporter_flip:

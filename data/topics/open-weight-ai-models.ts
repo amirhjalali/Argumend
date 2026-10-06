@@ -46,6 +46,10 @@ export const openWeightAiModelsData = {
         methodology:
           "Run controlled red-team uplift studies: recruit matched cohorts (novices and domain experts), give one arm internet + literature access and the other arm a safety-stripped open model, and measure performance on operationalized but non-infohazardous proxy tasks (e.g., WMDP-style bio/chem/cyber benchmarks, end-to-end CTF tasks via Cybench). Compare task-completion rates, error-correction, and time-to-completion across arms. Repeat across model capability tiers to chart the uplift curve over time.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Controlled red-team uplift trials: matched novices and experts, one arm with internet and literature only and one with a safety-stripped open model, scored on end-to-end bio, chem and cyber proxy tasks.",
+        },
         cost_to_verify:
           "$1-5M (Controlled human-subject uplift trials with biosecurity and cyber experts, repeated across model generations)",
         falsification: {
@@ -171,6 +175,10 @@ export const openWeightAiModelsData = {
         methodology:
           "Survey every proposed recall mechanism: license revocation, takedown notices to hosting platforms, model 'unlearning' patches, and kill-switch schemes. For each, assess whether it removes capability from an actor who already downloaded the weights and runs them offline. Document historical precedent (e.g., LLaMA's March 2023 leak spreading uncontrollably after a limited research release) to test whether any release has ever been successfully reversed.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A survey of every proposed recall mechanism (license revocation, hosting takedowns, unlearning patches, kill switches), testing whether any removes capability from someone already running the weights offline. Where to set the bar for release is a value choice.",
+        },
         cost_to_verify:
           "$0 (Established by the NTIA report, the documented LLaMA leak, and the structural fact that copied files cannot be un-copied)",
         falsification: {
@@ -279,6 +287,10 @@ export const openWeightAiModelsData = {
         methodology:
           "Decompose the claimed benefits into measurable components: number of downstream startups and papers built on open vs. structured-access models, interpretability findings achievable only with full weights vs. with gated internals access, and market-concentration metrics (share of capable-model usage) under each regime. Compare ecosystems with different access models (e.g., fully open Llama/DeepSeek vs. researcher-gated frontier closed models) to estimate how much benefit is lost when weights are not fully public.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A comparison of ecosystems with different access models, counting the startups, papers and interpretability findings built on fully open weights against those built on structured or researcher access.",
+        },
         cost_to_verify:
           "$500K-2M (Comparative ecosystem and bibliometric study across open, structured-access, and closed model regimes)",
         falsification: {
@@ -387,6 +399,10 @@ export const openWeightAiModelsData = {
         methodology:
           "For each proposed frontier release, benchmark it on dangerous-capability proxies (WMDP, Cybench, RE-Bench) against the best already-public foreign open model. Estimate the marginal capability delta on misuse-relevant tasks specifically, separate from general benchmark prestige. Combine with diffusion modeling of how quickly the foreign frontier closes the gap, to determine whether U.S. restraint buys meaningful time or merely cedes ground at zero safety benefit.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Benchmarks of each proposed US release on dangerous-capability proxies (WMDP, Cybench, RE-Bench) against the best foreign open model already public, measuring the gap on misuse-relevant tasks alone.",
+        },
         cost_to_verify:
           "$300K-1M (Comparative dangerous-capability benchmarking plus geostrategic diffusion modeling per release)",
         falsification: {

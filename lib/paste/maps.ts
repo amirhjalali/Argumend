@@ -36,6 +36,7 @@
 import { loadTopicById } from "@/data/topicLoader";
 import type { Pillar, Topic } from "@/lib/schemas/topic";
 import { legacyTopicPage, type LegacyEvidenceItem } from "@/lib/topicPage/legacy";
+import { standingLineFor } from "@/lib/topicPage/model";
 import type { ArgumentGraph, Claim, Evidence as GraphEvidence } from "@/types/argument";
 import { EXPECTED_MAP_COUNT, loadMapDocuments } from "./mapDocuments";
 import {
@@ -315,7 +316,9 @@ function pillarMatch(topic: Topic, text: string): PasteMapMatch {
         question: entry.question,
         ...(entry.flips
           ? { supporterFlip: entry.flips.supporter, skepticFlip: entry.flips.skeptic }
-          : entry.settle.condition
+          : entry.settle.mode === "standing"
+            ? { settle: standingLineFor(entry.settle.kind) }
+            : entry.settle.condition
             ? { settle: entry.settle.condition }
             : {}),
         href: topicHref(topic.id, entry.anchor),

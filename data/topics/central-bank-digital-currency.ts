@@ -85,6 +85,10 @@ export const centralBankDigitalCurrencyData = {
         methodology:
           "Convene a panel of cryptographers, central bank technologists, and privacy engineers to assess all proposed CBDC architectures. For each design, determine whether privacy is enforced cryptographically (making surveillance technically impossible) or by access controls (making surveillance policy-dependent). Test each architecture against threat scenarios: terrorist attack (government demands transaction data), pandemic (government wants to track spending patterns), political crisis (government targets opposition funding).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A cryptographic review of each proposed CBDC architecture, such as zero-knowledge designs, tested against scenarios like a government demand for transaction data, to see if privacy is enforced by the math or only by access controls.",
+        },
         cost_to_verify:
           "$1-3M (Technical architecture review with cryptographic analysis and red team exercises)",
         falsification: {
@@ -176,6 +180,10 @@ export const centralBankDigitalCurrencyData = {
         methodology:
           "Conduct a comparative analysis of financial inclusion outcomes in countries with active CBDC pilots (Bahamas' Sand Dollar, Nigeria's eNaira, Jamaica's JAM-DEX) versus countries with advanced mobile money ecosystems (Kenya, India, Philippines). Measure: percentage of previously unbanked adults reached, transaction costs, remittance fees, crisis response speed, and user satisfaction. Control for pre-existing financial infrastructure and economic development level.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A comparison of CBDC pilots (the Bahamas' Sand Dollar, Nigeria's eNaira, Jamaica's JAM-DEX) with mobile-money countries (Kenya, India, Philippines) on unbanked adults reached, transaction and remittance costs, and crisis payment speed.",
+        },
         cost_to_verify:
           "$500K-1.5M (Multi-country comparative financial inclusion study)",
         falsification: {
@@ -250,6 +258,10 @@ export const centralBankDigitalCurrencyData = {
         methodology:
           "Track the volume and value of transactions processed through CBDC-based cross-border settlement systems (mBridge, bilateral CBDC arrangements) over a 3-year period. Compare the growth trajectory against dollar-based SWIFT transactions. Analyze whether sanctioned countries (Russia, Iran, North Korea) are successfully using CBDC-based systems to circumvent sanctions. Assess the liquidity, settlement reliability, and counterparty risk of CBDC bridges compared to dollar settlement.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Three years of transaction volume through mBridge and bilateral CBDC links set against SWIFT, and whether Russia, Iran or North Korea actually settle sanctioned trade through them.",
+        },
         cost_to_verify:
           "$200K-600K (International financial flow analysis with sanctions evasion assessment)",
         falsification: {

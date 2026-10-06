@@ -31,6 +31,10 @@ export const dogeFederalCutsData = {
         methodology:
           "Take DOGE's published 'Wall of Receipts' and match each line item against the authoritative contract record in USASpending.gov and FPDS, distinguishing ceiling value from obligated funds from money actually saved. Net the verified savings against documented revenue losses (e.g., the Yale Budget Lab IRS projection) and the cost of rehiring essential staff. A net-savings figure can be produced from entirely public federal procurement data.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Each item on the 'Wall of Receipts' matched to USASpending.gov and FPDS, separating ceiling value, obligated funds and money actually saved, then netted against IRS revenue losses and the cost of rehiring essential staff.",
+        },
         cost_to_verify:
           "$0 (USASpending.gov, FPDS, and GAO fraud-loss and improper-payment data are publicly available)",
         falsification: {
@@ -139,6 +143,10 @@ export const dogeFederalCutsData = {
         methodology:
           "Track agency service-delivery metrics — SSA phone wait times and backlog counts, VA mental-health wait times, IRS processing times, FAA safety-incident rates — month over month from the pre-cut baseline through 24+ months post-cut. Compare the trajectory against the count and timing of essential-worker rehires. Persistent or worsening metrics indicate structural loss; recovery to baseline indicates transitional disruption.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "SSA phone waits, VA mental-health waits, IRS processing times and FAA safety-incident rates tracked monthly from the pre-cut baseline through 24 or more months after, set against the count and timing of rehires.",
+        },
         cost_to_verify:
           "$100K-500K (Longitudinal reconciliation of agency performance data; most underlying metrics are public via Performance.gov and agency reports, but multi-year tracking and causal attribution require dedicated analysis)",
         falsification: {
@@ -247,6 +255,10 @@ export const dogeFederalCutsData = {
         methodology:
           "Track the controlling precedents to resolution: (1) on spending, whether appellate courts continue to enforce Train and the Impoundment Control Act against the funds freeze; (2) on removal, how the Supreme Court rules in Trump v. Slaughter (expected by June 2026) and whether it preserves, narrows, or overrules Humphrey's Executor. The outcome of these cases, not opinion, settles the boundary of executive authority.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Appellate rulings on the funds freeze under Train v. City of New York and the Impoundment Control Act, and the Supreme Court's decision in Trump v. Slaughter on whether Humphrey's Executor stands.",
+        },
         cost_to_verify:
           "$0 to observe (court records are public), but resolution depends on pending Supreme Court rulings, not analysis — the core question is a contested legal commitment awaiting adjudication",
         falsification: {
@@ -355,6 +367,10 @@ export const dogeFederalCutsData = {
         methodology:
           "Audit the actual procedural changes versus headcount changes: catalog which civil-service rules, approval chains, and procurement procedures were eliminated or simplified (regulatory text, OPM rules), and measure output-per-employee and cycle times before and after. Compare against the workforce-reduction figures. If procedures are unchanged while headcount fell, the 'reform' claim fails; if cycle times improved alongside cuts, it holds.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An audit of which civil-service rules, approval chains and procurement procedures were removed or simplified, with output per employee and cycle times measured before and after the cuts and set against headcount figures.",
+        },
         cost_to_verify:
           "$500K-1M (Cross-agency productivity and process audit requiring output metrics, procedural inventories, and controls for confounding factors)",
         falsification: {

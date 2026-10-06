@@ -31,6 +31,10 @@ export const studentDebtForgivenessData = {
         methodology:
           "Use the Federal Reserve's FRB/US macroeconomic model to simulate the GDP impact of $1 trillion in student debt forgiveness versus $1 trillion allocated to: (1) direct cash transfers to households earning under $75,000, (2) infrastructure spending, (3) universal pre-K funding, and (4) targeted forgiveness for borrowers earning under $50,000 only. Measure GDP multiplier, job creation, inflation impact, and distributional effects across income quintiles over a 10-year horizon.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "FRB/US simulations of $1 trillion of forgiveness against the same sum spent on cash transfers to households under $75,000, infrastructure, universal pre-K, or forgiveness only for borrowers under $50,000, comparing GDP multipliers and jobs.",
+        },
         cost_to_verify:
           "$500K-1M (Macroeconomic modeling requiring Federal Reserve FRB/US access or equivalent)",
         falsification: {

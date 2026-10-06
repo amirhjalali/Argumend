@@ -57,6 +57,19 @@ export const CruxSchema = z.object({
   methodology: z.string(), // Step-by-step verification method
   equation: z.string().optional(), // LaTeX string if applicable
   verification_status: z.enum(["verified", "theoretical", "impossible"]),
+  // What would settle it, as the topic page shows it (round-3 review, issue
+  // 4). `description` explains the crux and feeds paste matching and map
+  // replies; this names the observation, study or data series that would
+  // move informed people. With `kind`, nothing empirical settles the crux:
+  // the page shows the flagship standing line and this condition says what
+  // it turns on (verification_status must then be "impossible").
+  // Contract: lib/topicPage/settleContract.ts.
+  settle: z
+    .object({
+      condition: z.string().min(1),
+      kind: z.enum(["value-difference", "definitional-choice", "authority-allocation"]).optional(),
+    })
+    .optional(),
   cost_to_verify: z.string(), // e.g. "$0 (Data Analysis)" or "$50M (New Probe)"
   // Falsification framing (optional — existing cruxes validate unchanged).
   // Reframes the crux from "what test settles this" to "what new information

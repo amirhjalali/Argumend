@@ -85,7 +85,8 @@ describe("embed widget: an older (pillar) map", () => {
       topic.pillars[0].crux.question ?? topic.pillars[0].crux.falsification!.live_disagreement!,
     );
     expect(text).toContain("What would settle it");
-    expect(text).toContain(topic.pillars[0].crux.description);
+    // What would settle it: the authored settle line, else the crux description.
+    expect(text).toContain(topic.pillars[0].crux.settle?.condition ?? topic.pillars[0].crux.description);
 
     const link = view.getByRole("link", { name: /Read the whole map on Argumend/ });
     expect(link.getAttribute("href")).toBe("https://argumend.org/topics/nuclear-energy-safety");
@@ -105,7 +106,8 @@ describe("embed widget: an older (pillar) map", () => {
     expect(view.queryByRole("heading", { name: /agree/ })).toBeNull();
     // The authored crux question when there is one, else the crux test's title.
     expect(text).toContain(topic.pillars[0].crux.question ?? topic.pillars[0].crux.title);
-    expect(text).toContain(topic.pillars[0].crux.description);
+    // What would settle it: the authored settle line, else the crux description.
+    expect(text).toContain(topic.pillars[0].crux.settle?.condition ?? topic.pillars[0].crux.description);
     expectNoScoreboard(text, (await loadEmbedModel(NO_FALSIFICATION_FIXTURE))!);
   });
 });

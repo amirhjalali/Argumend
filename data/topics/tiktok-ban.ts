@@ -31,6 +31,10 @@ export const tiktokBanData = {
         methodology:
           "Commission a fully independent technical audit of TikTok's data architecture by a team with Top Secret clearances and no commercial relationship with ByteDance or Oracle. The audit should map every data flow between US servers and Beijing-based systems, test whether the recommendation algorithm can be used as a covert data exfiltration channel, and verify that Project Texas access controls cannot be bypassed by ByteDance engineers with privileged credentials.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A fully independent technical audit, by cleared staff with no ties to ByteDance or Oracle, that maps every data flow between US servers and Beijing-based systems and tests whether Project Texas controls or the recommendation algorithm can be bypassed.",
+        },
         cost_to_verify:
           "$5-15M (Independent security audit requiring cleared personnel and full source code access)",
         falsification: {
@@ -173,6 +177,10 @@ export const tiktokBanData = {
         methodology:
           "Track a representative sample of 10,000 TikTok creators across income levels, follower counts, and content categories. Measure their audience reach, engagement rates, and income on alternative platforms (Instagram Reels, YouTube Shorts, Clapper) over 12 months post-ban. Compare with their TikTok metrics to quantify the actual speech and economic impact of platform loss.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Twelve months of tracking a representative sample of 10,000 TikTok creators after a ban, comparing their reach, engagement and income on Instagram Reels, YouTube Shorts and other platforms with their TikTok figures.",
+        },
         cost_to_verify:
           "$200K-500K (Longitudinal study of creator migration outcomes)",
         falsification: {
@@ -388,7 +396,12 @@ export const tiktokBanData = {
           "The decisive question is whether a nation-state has a legitimate interest in preventing foreign adversary control over mass communication platforms used by a significant percentage of its population, even absent proof of specific abuse. If the structural risk alone justifies regulatory action, then the TikTok ban is a principled application of data sovereignty. If action requires demonstrated harm, then the ban is premature and sets a dangerous precedent for government control of information platforms.",
         methodology:
           "Conduct a comparative policy analysis of TikTok-related actions across the US, India, EU, UK, Australia, and Canada. For each jurisdiction, document the specific rationale (national security, data protection, trade retaliation), the action taken (ban, data localization, divestiture requirement), and measurable outcomes (impact on user access, domestic platform growth, intelligence risk reduction, economic effects). Cross-reference with intelligence community threat assessments where declassified. This would establish whether data sovereignty concerns are globally shared or primarily US-China competition.",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Comparisons of actions against TikTok in the US, India, the EU and elsewhere can show what each achieved and what it was really for. Whether structural control alone justifies action, before any harm is shown, is a judgment about acceptable risk those findings cannot make.",
+          kind: "value-difference" as const,
+        },
         cost_to_verify:
           "$150K-400K (Multi-jurisdiction comparative policy analysis requiring access to classified threat assessments and economic data)",
         falsification: {

@@ -30,7 +30,11 @@ export const usIranConflictData = {
           "The core question is whether Iran's nuclear escalation was caused by US withdrawal from the JCPOA or would have occurred regardless. If the IAEA's 11 consecutive compliance reports were accurate, and Iran only began exceeding limits after the US withdrew and reimposed sanctions, the causal chain points to US policy as the driver of proliferation risk rather than its solution.",
         methodology:
           "Compile the complete timeline of (1) IAEA compliance reports from 2016-2018, (2) the exact date and nature of each Iranian nuclear escalation, (3) the US policy action that preceded each escalation. Cross-reference IAEA inspection data with Iranian government announcements and EU diplomatic records to determine whether any Iranian violations preceded the US withdrawal.",
-        verification_status: "verified" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "No test can rerun the years after 2018 with the deal intact; evidence can only narrow it. A full timeline of IAEA compliance reports from 2016 to 2018, each Iranian escalation and the US action before it would show whether any violation came before the withdrawal.",
+        },
         cost_to_verify:
           "$0 (IAEA reports and diplomatic records are publicly available)",
         falsification: {

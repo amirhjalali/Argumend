@@ -62,7 +62,7 @@ describe("legacyTopicPage", () => {
       const live = pillar.crux.falsification!.live_disagreement!;
       expect(crux.question).toBe(pillar.crux.question ?? live);
       expect(crux.kicker).toBe(pillar.title);
-      expect(crux.settle.condition).toBe(pillar.crux.description);
+      expect(crux.settle.condition).toBe(pillar.crux.settle?.condition ?? pillar.crux.description);
       expect(crux.flips).toEqual({
         supporter: pillar.crux.falsification!.supporter_flip,
         skeptic: pillar.crux.falsification!.skeptic_flip,
@@ -95,6 +95,51 @@ describe("legacyTopicPage", () => {
     // The evidence reading is words only.
     expect(weighing.label).toBe(topic.verdict.label);
     expect(JSON.stringify(weighing)).not.toMatch(/\/100|\bpts\b/);
+  });
+
+  it("shows the authored settle line, and the flagship standing line when nothing empirical settles it", async () => {
+    const topic = (await loadTopicById("vaccine-mandates"))!;
+    const [first, second] = topic.pillars;
+    const authored = legacyTopicPage(topic).cruxes[0];
+    // The authored line, not the crux description, with the testability note.
+    expect(first.crux.settle?.condition).toBeDefined();
+    expect(authored.settle).toMatchObject({
+      mode: "evidence",
+      condition: first.crux.settle!.condition,
+      note: "A test that can be run on evidence that exists.",
+    });
+    expect(authored.settle.condition).not.toBe(first.crux.description);
+
+    // A value fork: the card leads with the flagship's exact standing line
+    // (SettleAnswer renders it from mode + kind), drops the testability note,
+    // and says what it turns on in the fold, as flagship maps do.
+    const standing = legacyTopicPage({
+      ...topic,
+      pillars: [
+        {
+          ...second,
+          crux: {
+            ...second.crux,
+            verification_status: "impossible",
+            settle: {
+              condition: "How large a transmission effect licenses compulsion is a value choice no study makes",
+              kind: "value-difference",
+            },
+          },
+        },
+      ],
+    }).cruxes[0];
+    expect(standing.settle).toEqual({
+      mode: "standing",
+      kind: "value-difference",
+      condition: "How large a transmission effect licenses compulsion is a value choice no study makes",
+      resolved: false,
+      label: "What would settle it",
+    });
+    expect(standing.runIns).toContainEqual({
+      lead: "What it turns on.",
+      text: "How large a transmission effect licenses compulsion is a value choice no study makes.",
+    });
   });
 
   it("renders a map without falsification data from what it has", async () => {

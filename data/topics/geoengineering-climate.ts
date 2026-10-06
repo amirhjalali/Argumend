@@ -84,6 +84,10 @@ export const geoengineeringClimateData = {
         methodology:
           "Commission an independent analysis of the remaining carbon budget under various emissions reduction scenarios (immediate net-zero, linear reduction to 2050, current trajectory). Calculate the quantity of accumulated CO2 that must be removed to return to safe atmospheric concentrations under each scenario. Compare removal requirements against the maximum theoretical capacity of natural sinks (oceans, forests, soil) to determine whether technological carbon removal is required.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Independent carbon-budget modeling under immediate net-zero, linear-to-2050 and current-trajectory scenarios, comparing the CO2 that must be removed with the most that oceans, forests and soil can absorb.",
+        },
         cost_to_verify:
           "$200K-500K (Carbon budget modeling with multiple independent research groups)",
         falsification: {
@@ -175,6 +179,10 @@ export const geoengineeringClimateData = {
         methodology:
           "Run high-resolution climate models comparing three scenarios: (1) unmitigated warming at 3-4C, (2) SRM sufficient to limit warming to 1.5-2C, and (3) aggressive emission cuts without SRM. Evaluate regional outcomes across all major population centers for precipitation, agriculture, extreme weather frequency, sea level rise, and heat stress. Identify regions that would be net winners and net losers under each scenario. Engage climate modeling groups from multiple countries to ensure no single group's assumptions dominate results.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A high-resolution multi-model ensemble comparing each major populated region, including the South Asian and West African monsoon belts, under SRM held to 1.5-2°C, under unmitigated 3-4°C warming, and under deep cuts alone.",
+        },
         cost_to_verify:
           "$5-15M (Multi-model ensemble regional climate impact analysis)",
         falsification: {
@@ -249,6 +257,10 @@ export const geoengineeringClimateData = {
         methodology:
           "Conduct randomized survey experiments across 10+ countries where participants are exposed to information about geoengineering feasibility and then asked about their support for emission reduction policies, carbon pricing, and personal behavioral changes. Compare with control groups who receive only emission reduction messaging. Additionally, analyze natural experiments where countries or states that have invested heavily in CCS show different trajectories in emission reduction policy support compared to those that have not.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized survey experiments in 10+ countries that show some people geoengineering feasibility and others emission-cut messaging only, then measure support for carbon pricing and regulation, plus places that invested heavily in removal.",
+        },
         cost_to_verify:
           "$300K-800K (Multi-country survey experiment with natural experiment analysis)",
         falsification: {

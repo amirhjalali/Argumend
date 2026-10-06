@@ -30,6 +30,10 @@ export const sexWorkDecriminalizationData = {
         methodology:
           "Compare natural experiments that isolate the law change: Rhode Island's 2003-2009 accidental decriminalization of indoor sex work (synthetic-control / difference-in-differences on reported rape and STI rates); New Zealand pre/post 2003 cohort surveys; and cross-national panels that separate decriminalization from licensed legalization while modeling reporting bias and migration. Triangulate self-reported violence, police-reported crime, and health-clinic data so a change in *reporting* is not mistaken for a change in *incidence*.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Natural experiments that isolate the law change, such as Rhode Island's 2003-2009 indoor decriminalization and New Zealand's 2003 reform, plus cross-national panels separating decriminalization from licensed legalization while modeling reporting bias and migration.",
+        },
         cost_to_verify: "$300K (multi-jurisdiction econometric + cohort analysis)",
         falsification: {
           supporter_flip:
@@ -159,6 +163,10 @@ export const sexWorkDecriminalizationData = {
         methodology:
           "Replicate the Rhode Island synthetic-control design in other jurisdictions that change the law; pair it with prospective cohorts tracking condom use, HIV/STI testing uptake, and clinic attendance before vs. after decriminalization; and re-run the Lancet transmission model under pessimistic assumptions about behavioral change to bound the HIV estimate.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Replications of the Rhode Island synthetic-control design wherever the law changes, covering street markets and longer windows, and a rerun of the Lancet HIV model under pessimistic assumptions about behavior.",
+        },
         cost_to_verify: "$0-150K (re-analysis of existing surveillance + cohort data)",
         falsification: {
           supporter_flip:

@@ -263,6 +263,10 @@ export const schoolPhoneBansData = {
         methodology:
           "Analyze disciplinary records from 100 schools that have implemented phone bans for at least one year, comparing infraction rates and consequences by race, ethnicity, disability status, and English learner status. Use pre-ban disciplinary baselines to determine whether phone-related infractions create new disparities or reflect existing patterns. Interview students with accommodation needs (medical devices, safety concerns, translation) about their experiences under the ban. Compare Yondr-pouch schools (automated enforcement) against teacher-enforced ban schools for equity outcomes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Disciplinary records from 100 schools with at least a year of phone bans, comparing infractions and penalties by race, disability and English-learner status against pre-ban baselines, plus interviews with students who need phones for medical or safety reasons.",
+        },
         cost_to_verify:
           "$500K-1.5M (Multi-district disciplinary data analysis with student interviews and equity assessment)",
         falsification: {

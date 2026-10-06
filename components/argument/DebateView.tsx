@@ -18,7 +18,6 @@ import type {
   ArgumentNode,
   Claim,
   Position,
-  ResolutionKind,
 } from "@/types/argument";
 import type { CruxResult } from "@/lib/crux";
 import type { CruxLedgerEntry } from "@/types/cruxLedger";
@@ -26,7 +25,12 @@ import { claimMovement } from "@/lib/argument/ledger";
 import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { ARGUMENT_TOPICS_LAST_UPDATED } from "@/lib/site";
-import { numberWord, type PositionCardData, type TopicPageData } from "@/lib/topicPage/model";
+import {
+  STANDING_CONDITION_LEAD,
+  numberWord,
+  type PositionCardData,
+  type TopicPageData,
+} from "@/lib/topicPage/model";
 import { TopicPage, formatIsoDate, type CruxEntryView, type TopicFold } from "@/components/topic/TopicPage";
 import {
   DetailBlock,
@@ -75,14 +79,6 @@ const STATUS_LABELS: Record<Claim["status"], string> = {
 /** Maps covered by the living AI page at /ai, which links back from here. */
 const AI_MAP_IDS: ReadonlySet<string> = new Set(["ai-mass-unemployment", "capitalism-after-ai"]);
 
-/** Lead for the authored condition when the card already answers "nothing does". */
-const STANDING_CONDITION_LEAD: Record<ResolutionKind, string> = {
-  "value-difference": "What it turns on.",
-  "definitional-choice": "What could close it instead.",
-  "authority-allocation": "What could close it instead.",
-  "existing-evidence": "The condition the map records.",
-  "future-observable": "The condition the map records.",
-};
 
 const MADE_BY =
   "Assembled by AI. Every source linked and checked, interests disclosed inline, balance adversarially reviewed, crux rankings reproducible.";

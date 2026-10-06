@@ -45,6 +45,10 @@ export const universalBasicIncomeData = {
         methodology:
           "Commission a comprehensive fiscal modeling study using dynamic scoring (incorporating economic feedback effects) to evaluate at least 5 UBI funding scenarios: (1) VAT + program consolidation, (2) carbon tax + wealth tax, (3) financial transaction tax + corporate subsidy reform, (4) negative income tax phase-out design, and (5) hybrid approach. Model each over 10, 20, and 30 year horizons, accounting for behavioral responses, economic multiplier effects, reduced healthcare and criminal justice costs, and demographic changes. Compare against the fiscal trajectory of maintaining current programs under projected automation displacement.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Dynamic-scoring models of at least five funding mixes (VAT with program consolidation, carbon and wealth taxes, a transaction tax, a negative income tax, a hybrid) over 10 to 30 years, reporting debt-to-GDP and the tax rates each requires.",
+        },
         cost_to_verify:
           "$1-3M (Comprehensive dynamic fiscal modeling requiring CBO-grade economic analysis)",
         falsification: {
@@ -153,6 +157,10 @@ export const universalBasicIncomeData = {
         methodology:
           "Conduct a large-scale (10,000+ participants), long-duration (5+ years) randomized controlled trial with guaranteed continuation, explicitly designed to eliminate the 'temporary program' bias. Include a saturation arm where entire communities receive UBI to capture general equilibrium effects (wage changes, business formation, local economic multipliers). Track not just employment rates but hours worked, job quality, wages, entrepreneurship, education enrollment, caregiving time, and volunteering. Compare against a control group receiving equivalent value in existing means-tested benefits.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial of 10,000 or more people over five years or longer with guaranteed continuation, including whole communities receiving the payment, tracking hours, job quality and labor-force participation.",
+        },
         cost_to_verify:
           "$50-150M (Large-scale, multi-year RCT with saturation sites and long-term follow-up)",
         falsification: {
@@ -295,6 +303,10 @@ export const universalBasicIncomeData = {
         methodology:
           "Design a multi-arm RCT with at least 3,000 participants per arm: (1) UBI at $1,000/month, (2) equivalent value in optimized targeted benefits (SNAP + Medicaid + housing voucher + job training), (3) UBI + targeted services (hybrid), and (4) control. Track outcomes over 3-5 years including: poverty rate, income volatility, physical health (emergency room visits, chronic disease markers), mental health (PHQ-9 depression scale, GAD-7 anxiety), children's educational outcomes, criminal justice involvement, and subjective well-being (life satisfaction, stress levels). Calculate cost-effectiveness ratios including administrative costs for each arm.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A multi-arm trial with at least 3,000 people per arm comparing $1,000 a month in cash, the same value in targeted benefits (SNAP, Medicaid, housing vouchers, job training), both together, and a control, over 3 to 5 years.",
+        },
         cost_to_verify:
           "$80-200M (Multi-arm RCT with comprehensive outcome tracking over 3-5 years)",
         falsification: {

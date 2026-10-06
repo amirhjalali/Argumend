@@ -44,6 +44,10 @@ export const section230ReformData = {
         methodology:
           "Track post-Anderson v. TikTok appellate decisions on whether algorithmic recommendation counts as first-party 'expressive activity' outside 230; pair with empirical studies measuring whether engagement-ranked feeds (vs. chronological) increase exposure to harmful content for minors. A randomized feed-ordering experiment plus a circuit-split survey would isolate the causation question.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Post-Anderson v. TikTok appellate rulings on whether algorithmic ranking is the platform's own conduct, alongside randomized feed-ordering experiments comparing engagement-ranked and chronological feeds on minors' exposure to harmful content.",
+        },
         cost_to_verify: "$2M (multi-platform randomized feed study + legal docket review)",
         falsification: {
           supporter_flip:
@@ -135,6 +139,10 @@ export const section230ReformData = {
         methodology:
           "Use FOSTA (2018) as a difference-in-differences natural experiment: compare prosecutions, takedowns, and documented safety outcomes for affected populations before/after the carve-out, against control categories of speech that kept full 230 immunity. Combine GAO enforcement data with platform takedown-rate audits.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "FOSTA (2018) as a natural experiment: prosecutions, takedowns and safety outcomes for affected groups before and after the carve-out, against speech that kept full immunity, using GAO enforcement data and platform takedown audits.",
+        },
         cost_to_verify: "$0 (analysis of existing GAO data and takedown audits)",
         falsification: {
           supporter_flip:
@@ -223,6 +231,10 @@ export const section230ReformData = {
         methodology:
           "Model litigation-cost exposure per active user across platform size tiers; compare survival/investment rates of startups under 230 vs. comparable sectors under stricter liability (e.g., the EU eCommerce Directive), controlling for confounders. Audit whether reform's burden scales with firm size.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Litigation-cost exposure per active user modeled across platform size tiers, plus startup survival and investment under Section 230 compared with sectors under stricter liability such as the EU eCommerce Directive.",
+        },
         cost_to_verify: "$500K (cross-jurisdiction econometric study)",
         falsification: {
           supporter_flip:
