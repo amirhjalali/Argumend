@@ -17,6 +17,7 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test -c e2e/playwright.config.ts",
     "check:sources": "tsx scripts/check-source-urls.ts",
+    "maps:nearest": "tsx scripts/nearest-maps.ts",
     "eval:disagreement": "tsx scripts/eval-disagreement.ts",
     "eval:disagreement:live": "DISAGREEMENT_LIVE_EVAL=true tsx scripts/eval-disagreement.ts",
     "corpus:disagreement": "tsx scripts/disagreement/run-corpus.ts",
