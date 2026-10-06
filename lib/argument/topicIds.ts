@@ -23,6 +23,14 @@ export const argumentTopicIndex = [
     aliases: [
       "artificial intelligence job loss",
       "AI jobs automation employment workforce",
+      // Questions of the two maps merged into this one (2026-10-06).
+      "Will AI take my job?",
+      "How many jobs will AI replace?",
+      "Will AI replace white-collar workers?",
+      "Is AI coming for office jobs?",
+      "Will AI destroy more white-collar jobs than it creates?",
+      "Is AI automating jobs faster than creating new ones?",
+      "Which white-collar jobs are most at risk from AI?",
     ],
   },
   {

@@ -80,8 +80,8 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
     term: "Meta-Claim",
     definition:
       "The one statement a map is built around: the claim its evidence is read for or against. Most maps now ask it as a question, written so that yes agrees with the claim, and name their two sides by the answer: Says yes and Says no.",
-    example: "See the question on the AI Job Displacement map",
-    exampleHref: "/topics/ai-job-displacement",
+    example: "See the question on the Universal Basic Income map",
+    exampleHref: "/topics/universal-basic-income",
     category: "core",
   },
   {

@@ -47,5 +47,31 @@
     "questionsTo": "/questions/is-us-policy-toward-iran-effective",
     "questions": [],
     "is": []
+  },
+  "ai-job-displacement": {
+    "into": "ai-mass-unemployment",
+    "map": "/topics/ai-mass-unemployment",
+    "questionsTo": "/topics/ai-mass-unemployment",
+    "questions": [
+      "will-ai-take-my-job",
+      "how-many-jobs-will-ai-replace",
+      "is-ai-automating-jobs-faster-than-creating-new-ones"
+    ],
+    "is": [
+      "ai-replace-white-collar-jobs"
+    ]
+  },
+  "ai-white-collar-displacement": {
+    "into": "ai-mass-unemployment",
+    "map": "/topics/ai-mass-unemployment",
+    "questionsTo": "/topics/ai-mass-unemployment",
+    "questions": [
+      "will-ai-replace-white-collar-workers",
+      "is-ai-coming-for-office-jobs",
+      "which-white-collar-jobs-are-most-at-risk-from-ai"
+    ],
+    "is": [
+      "ai-net-job-loss"
+    ]
   }
 }

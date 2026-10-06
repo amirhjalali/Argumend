@@ -305,11 +305,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   ],
 
   // --- New Topics (March 2026) ---
-  "ai-job-displacement": [
-    "Will AI take my job?",
-    "How many jobs will AI replace?",
-    "Is AI automating jobs faster than creating new ones?",
-  ],
   "ai-in-education": [
     "Should AI be used in schools?",
     "Is AI good for education?",
@@ -392,11 +387,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Are GLP-1 weight loss drugs safe?",
     "Should everyone take Ozempic?",
     "Do weight loss drugs like Ozempic actually work?",
-  ],
-  "ai-white-collar-displacement": [
-    "Will AI replace white-collar workers?",
-    "Is AI coming for office jobs?",
-    "Which white-collar jobs are most at risk from AI?",
   ],
   "artificial-reproduction-ethics": [
     "Is artificial reproduction ethical?",

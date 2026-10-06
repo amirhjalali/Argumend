@@ -22,8 +22,12 @@ export const DISTINCT_MAP_PAIRS: readonly AllowedMapPair[] = [
     reason:
       "One asks whether a class of drugs is a safe, lasting treatment; the other asks what mainly causes obesity. Same vocabulary, different questions.",
   },
+  {
+    a: "housing-affordability-crisis",
+    b: "rent-control-effectiveness",
+    reason:
+      "One asks whether building more homes makes housing affordable; the other asks whether capping rents does. They share supply evidence because rent control's critics name supply as the alternative.",
+  },
 ];
 
-export const PENDING_MERGE_MAP_PAIRS: readonly AllowedMapPair[] = [
-  { a: "ai-job-displacement", b: "ai-white-collar-displacement", reason: "Same question; merging into ai-mass-unemployment (2026-10-06)." },
-];
+export const PENDING_MERGE_MAP_PAIRS: readonly AllowedMapPair[] = [];

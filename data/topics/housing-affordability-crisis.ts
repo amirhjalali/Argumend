@@ -18,7 +18,7 @@ export const housingAffordabilityCrisisData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that restrictive zoning raises housing prices and that more housing eventually eases market-wide pressure, and that US public housing has been chronically underfunded even as some systems abroad deliver good housing at scale.",
+    "Both sides accept that restrictive zoning raises housing prices, that more housing eventually eases market-wide pressure, and that US public housing has been chronically underfunded even as some systems abroad deliver good housing at scale.",
     "They split over whether upzoning, as in Auckland and Minneapolis, lowers rents for median and lower-income renters within five to ten years, and whether Vienna's and Singapore's public building succeeded through design the US could copy, or conditions unique to them.",
   ],
   pillars: [
@@ -32,24 +32,28 @@ export const housingAffordabilityCrisisData = {
         "Restrictive zoning laws limit housing construction in high-demand areas, creating artificial scarcity. Reformers argue that legalizing density is the single most impactful policy lever, while critics warn that market-rate development alone will not produce housing affordable to low-income residents.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Upzoning primarily benefits developers and produces luxury units, not affordable housing. When Minneapolis eliminated single-family zoning in 2019, the result was mostly market-rate triplexes priced above the median, not affordable units. In New York, despite decades of development, the median rent reached $3,500 by 2024 — the highest in history. Filtering theory (new expensive units free up cheaper ones) takes 30-50 years and does not help families facing eviction today. Without mandatory affordability requirements, inclusionary zoning, or public housing, zoning reform is a supply-side subsidy for the real estate industry disguised as progressive policy.",
+        "Upzoning primarily benefits developers and produces luxury units, not affordable housing. When Minneapolis ended single-family-only zoning (effective 2020), duplexes and triplexes on former single-family lots made up only about 1% of new units; the growth came from large market-rate apartment buildings, not homes priced for low-income families. In New York, despite decades of development, the median rent reached $3,500 by 2024 — the highest in history. Filtering theory (new expensive units free up cheaper ones) takes 30-50 years and does not help families facing eviction today. Without mandatory affordability requirements or rent subsidies for the lowest-income tenants, zoning reform is a supply-side subsidy for the real estate industry disguised as progressive policy.",
       proponent_rebuttal:
-        "The economics are clear: restrictive zoning is the primary driver of housing costs. Research by Edward Glaeser and Joseph Gyourko at Harvard and Wharton demonstrates that in cities like San Francisco, regulatory constraints add over $400,000 to the median home price. Japan's permissive zoning system — where housing construction is a national right — kept Tokyo rents flat for 20 years while comparable global cities saw 50-100% increases. When Auckland, New Zealand, upzoned in 2016, new housing construction tripled and rents fell 22-35% relative to comparable cities. The filtering mechanism works when supply is abundant: every unit of new housing, regardless of price point, reduces pressure on existing stock.",
+        "The economics are clear: restrictive zoning is the primary driver of housing costs. Research by Edward Glaeser and Joseph Gyourko at Harvard and Wharton demonstrates that in cities like San Francisco, regulatory constraints add over $400,000 to the median home price. Japan's permissive zoning system — where housing construction is a national right — kept Tokyo rents flat for 20 years while comparable global cities saw 50-100% increases. When Auckland, New Zealand, upzoned about three-quarters of its residential land in 2016, extra dwelling consents reached roughly 4-9% of the housing stock within several years, and a synthetic-control study put rents roughly 20-28% below where they would otherwise have been. The filtering mechanism works when supply is abundant: every unit of new housing, regardless of price point, reduces pressure on existing stock.",
       crux: {
         id: "upzoning-affordability-impact",
         title: "The Upzoning Affordability Test",
         question:
           "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
         description:
-          "If upzoning produces measurable decreases in rents across all income levels within 5-10 years — not just at the luxury tier — then supply-side reform is sufficient. If rents decline only at the top while remaining unaffordable at the median and below, demand-side or public-supply interventions are necessary.",
+          "If upzoning lowers rents at the median and below within 5-10 years, not just at the luxury tier, then market building reaches lower-income renters. If rents fall only at the top, lower-income renters need public construction or demand-side help such as vouchers and rent stabilization, and the second crux asks whether public construction can carry that load.",
         methodology:
           "Conduct a natural experiment analysis of cities that enacted significant upzoning reforms (Minneapolis, Auckland, Austin, Oregon) compared to matched control cities that did not. Track rent levels at the 25th, 50th, and 75th percentiles for 10 years post-reform, controlling for population growth, income changes, and macroeconomic conditions using difference-in-differences regression.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Rents at the 25th, 50th and 75th percentiles, tracked for a decade in cities that upzoned (Minneapolis, Auckland, Austin, Oregon) against matched cities that did not, with population, income and interest-rate changes held constant.",
+        },
         cost_to_verify:
           "$500K-1M (Multi-city longitudinal housing market analysis requiring proprietary rental data)",
         falsification: {
           supporter_flip:
-            "If well-controlled studies of upzoned cities showed rents falling only at the luxury tier while the median and 25th-percentile stayed flat or rose for a decade-plus — with filtering never reaching the bottom — then the claim that supply-side reform is sufficient would collapse to 'necessary but not sufficient without subsidies or public supply.'",
+            "If well-controlled studies of upzoned cities showed rents falling only at the luxury tier while the median and 25th percentile stayed flat or rose for a decade or more, with filtering never reaching the bottom, then market building alone could not be the main route to affordability for lower-income renters; the claim would rest on public construction, or give way to subsidies.",
           skeptic_flip:
             "If more natural experiments matched Auckland's (construction up about 4% of stock in five years, rents below trend) and Tokyo's flat rents, and moving-chain studies kept tracing new high-end units to cheaper vacancies, 'new supply doesn't help the non-rich' would be hard to hold.",
           common_ground:
@@ -78,9 +82,9 @@ export const housingAffordabilityCrisisData = {
         },
         {
           id: "auckland-upzoning-results",
-          title: "Auckland Upzoning Led to Tripled Construction and Relative Rent Declines (2016-2023)",
+          title: "Auckland Upzoning Raised Construction and Lowered Rents Roughly 20-28% Below Counterfactual (2016-2023)",
           description:
-            "Auckland, New Zealand implemented major upzoning reforms in 2016, allowing density across 75% of residential land. By 2022, new housing construction had tripled compared to pre-reform levels. A study by economists Ryan Greenaway-McGrevy and Peter C.B. Phillips found that rents in Auckland fell 22-35% relative to comparable cities (Wellington and Christchurch) that did not upzone. The effect was concentrated in areas where the most new housing was built.",
+            "Auckland's 2016 Unitary Plan upzoned about three-quarters of the city's residential land for higher-density housing. Two strands of work by Greenaway-McGrevy and co-authors study the effects. On construction, Greenaway-McGrevy & Phillips ('The Impact of Upzoning on Housing Construction in Auckland,' Journal of Housing Economics, 2023) find the reform added tens of thousands of additional dwelling consents within several years (on the order of ~4-9% of the housing stock). On rents, 'Can Zoning Reform Reduce Housing Costs? Evidence from Rents in Auckland' (Greenaway-McGrevy, with So) uses a synthetic-control design and estimates that rents for comparable properties are roughly 20-28% lower than they would otherwise have been several years post-reform, with cumulative Auckland rent growth (~20% over 2016-2023) well below comparable NZ cities.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -88,10 +92,12 @@ export const housingAffordabilityCrisisData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Greenaway-McGrevy & Phillips (2023), Journal of Urban Economics",
-          sourceUrl: "https://www.sciencedirect.com/science/article/pii/S0094119023000487",
+          source:
+            "Greenaway-McGrevy & Phillips, Journal of Housing Economics (2023) — construction; Greenaway-McGrevy, 'Can Zoning Reform Reduce Housing Costs? Evidence from Rents in Auckland' (working paper) — rents",
+          sourceUrl:
+            "https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/WP016.pdf",
           reasoning:
-            "This is a peer-reviewed natural experiment with a clear policy treatment and control cities. The 22-35% relative decline is large and statistically significant. However, Auckland's baseline supply deficit was extreme, and the results may be less dramatic in cities with more moderate shortfalls.",
+            "The synthetic-control design is rigorous and the Auckland reform is one of the most comprehensive upzoning experiments globally. An earlier draft of this card attributed the rent finding to 'Greenaway-McGrevy & Phillips' in the Journal of Urban Economics and cited 22-35%; the rent result is from the separate 'Evidence from Rents in Auckland' paper (Greenaway-McGrevy, with So), which estimates rents roughly 20-28% below counterfactual. Phillips is a co-author on the construction paper. Effects took several years to materialize, so supply expansion works but not quickly enough to protect all vulnerable tenants in the interim.",
         },
         {
           id: "glaeser-regulatory-tax",
@@ -114,7 +120,7 @@ export const housingAffordabilityCrisisData = {
           id: "minneapolis-mixed-results",
           title: "Ending Single-Family Zoning Alone Had Modest Impact in Minneapolis (Pew, 2024)",
           description:
-            "Minneapolis became the first major US city to eliminate single-family-only zoning in its Minneapolis 2040 plan, effective January 2020. A 2024 Pew Charitable Trusts analysis found that legalizing duplexes and triplexes on former single-family lots accounted for only about 1% of new units — most new supply (roughly 87%) came from buildings with 20+ units, driven by allowing apartments along commercial and transit corridors and eliminating parking minimums. From 2017 to 2022, Minneapolis grew its housing stock 12% while rents rose just 1%, versus 14% rent growth in the rest of Minnesota. The evidence suggests ending single-family zoning is, on its own, necessary but far from sufficient.",
+            "Minneapolis became the first major US city to eliminate single-family-only zoning in its Minneapolis 2040 plan, effective January 2020. A 2024 Pew Charitable Trusts analysis found that legalizing duplexes and triplexes on former single-family lots accounted for only about 1% of new units — most new supply (roughly 87%) came from buildings with 20+ units, driven by allowing apartments along commercial and transit corridors and eliminating parking minimums.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -137,7 +143,7 @@ export const housingAffordabilityCrisisData = {
       id: "public-housing",
       title: "Public Housing & Government-Built Supply",
       short_summary:
-        "Public housing in the US has a troubled history of underfunding and segregation, but international models — Vienna, Singapore, Finland — demonstrate that government-built housing can succeed at scale when properly designed and funded.",
+        "Public housing in the US has a troubled history of underfunding and segregation, while Vienna, Singapore and Finland house large shares of residents in government-built or government-funded homes. The dispute is whether those results come from design the US could copy.",
       icon_name: "Users" as const,
       skeptic_premise:
         "US public housing is a cautionary tale of government failure. The 1949 Housing Act promised a 'decent home for every American' but produced concentrated poverty, racial segregation, and physical deterioration. The Pruitt-Igoe complex in St. Louis and the Cabrini-Green projects in Chicago became international symbols of failed policy. Federal funding for public housing fell 75% in real terms between 1976 and 2020. The current public housing stock of 970,000 units has a $70 billion maintenance backlog. Government cannot build or manage housing efficiently — it should instead subsidize private-market solutions through Section 8 vouchers.",
@@ -223,23 +229,6 @@ export const housingAffordabilityCrisisData = {
             "Finland's results are independently documented by the OECD and EU. The cost savings are substantial and well-measured. However, Finland's homelessness population is small compared to the US (580,000+), and its social welfare infrastructure is far more developed. Scaling Housing First to the US context faces different political and fiscal constraints.",
         },
         {
-          id: "rent-burden-crisis-data",
-          title: "11 Million US Renter Households Spend Over 50% of Income on Rent (2024)",
-          description:
-            "The Joint Center for Housing Studies at Harvard University reported that 11 million US renter households were severely cost-burdened in 2024, spending more than half their income on rent and utilities. An additional 10.5 million were moderately cost-burdened (30-50% of income). The affordable housing gap — units affordable and available to extremely low-income renters — stood at 7.3 million units. Median rents rose 26% from 2019 to 2023 while median renter income rose only 11%.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 7,
-          },
-          source: "Harvard Joint Center for Housing Studies, 'The State of the Nation's Housing 2024'",
-          sourceUrl: "https://www.jchs.harvard.edu/state-nations-housing-2024",
-          reasoning:
-            "Harvard JCHS is the most authoritative independent source on US housing data. The 7.3 million unit gap and 11 million severely burdened households are well-documented. This evidence shows the scale of the shortfall at the bottom of the market but does not by itself show which remedy, market supply, subsidies or public construction, would close it.",
-        },
-        {
           id: "section-8-voucher-limitations",
           title: "Section 8 Vouchers: 75% of Eligible Households Receive No Assistance (2024)",
           description:
@@ -282,7 +271,7 @@ export const housingAffordabilityCrisisData = {
       id: "q1",
       title: "Is housing a commodity or a right?",
       content:
-        "If housing is primarily a market commodity, the solution is to remove barriers to supply and let prices self-correct. If housing is a fundamental right, governments have an obligation to ensure access regardless of market conditions. The answer to this philosophical question determines which policy interventions are considered legitimate — and the current crisis suggests the market-only approach has failed millions of families.",
+        "If housing is primarily a market commodity, the solution is to remove barriers to supply and let prices self-correct. If housing is a fundamental right, governments have an obligation to ensure access regardless of market conditions. The answer shapes which policies each side treats as legitimate: freeing private building, building public housing, or both.",
     },
     {
       id: "q2",

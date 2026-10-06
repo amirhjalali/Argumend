@@ -9,7 +9,6 @@ import { buildTopic } from "./buildTopic";
 import { usIranConflictData } from "./topics/us-iran-conflict";
 import { epsteinFilesData } from "./topics/epstein-files";
 import { covidOriginsData } from "./topics/covid-origins";
-import { aiJobDisplacementData } from "./topics/ai-job-displacement";
 import { aiInEducationData } from "./topics/ai-in-education";
 import { aiRegulationData } from "./topics/ai-regulation";
 import { housingAffordabilityCrisisData } from "./topics/housing-affordability-crisis";
@@ -26,7 +25,6 @@ import { schoolPhoneBansData } from "./topics/school-phone-bans";
 import { studentDebtForgivenessData } from "./topics/student-debt-forgiveness";
 import { microplasticsHealthCrisisData } from "./topics/microplastics-health-crisis";
 import { glp1WeightLossDrugsData } from "./topics/glp1-weight-loss-drugs";
-import { aiWhiteCollarDisplacementData } from "./topics/ai-white-collar-displacement";
 import { artificialReproductionEthicsData } from "./topics/artificial-reproduction-ethics";
 import { gainOfFunctionResearchBanData } from "./topics/gain-of-function-research-ban";
 import { childrenSmartphoneAgeData } from "./topics/children-smartphone-age";
@@ -231,7 +229,6 @@ export const usIranConflict = buildTopic(usIranConflictData);
 export const epsteinFiles = buildTopic(epsteinFilesData);
 
 // New topics (March 2026)
-export const aiJobDisplacement = buildTopic(aiJobDisplacementData);
 export const aiInEducation = buildTopic(aiInEducationData);
 export const aiRegulation = buildTopic(aiRegulationData);
 export const housingAffordabilityCrisis = buildTopic(housingAffordabilityCrisisData);
@@ -248,7 +245,6 @@ export const schoolPhoneBans = buildTopic(schoolPhoneBansData);
 export const studentDebtForgiveness = buildTopic(studentDebtForgivenessData);
 export const microplasticsHealthCrisis = buildTopic(microplasticsHealthCrisisData);
 export const glp1WeightLossDrugs = buildTopic(glp1WeightLossDrugsData);
-export const aiWhiteCollarDisplacement = buildTopic(aiWhiteCollarDisplacementData);
 export const artificialReproductionEthics = buildTopic(artificialReproductionEthicsData);
 export const gainOfFunctionResearchBan = buildTopic(gainOfFunctionResearchBanData);
 export const childrenSmartphoneAge = buildTopic(childrenSmartphoneAgeData);
@@ -402,10 +398,8 @@ export const topics: Topic[] = [
   mediaBiasDemocracy,
   spaceColonizationFeasibility,
   labGrownMeat,
-  aiJobDisplacement,
   aiInEducation,
   aiRegulation,
-  aiWhiteCollarDisplacement,
   eaccVsTechRegulation,
   aiSuperintelligenceTimeline,
   nuclearRenaissanceSmr,
@@ -688,7 +682,7 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "loneliness-epidemic": ["social-media-mental-health", "masculinity-crisis", "declining-birth-rates", "return-to-office-productivity"],
 
   // New topics batch 4 clusters
-  "ai-replacing-doctors": ["ai-risk", "ai-job-displacement", "ai-regulation", "universal-healthcare"],
+  "ai-replacing-doctors": ["ai-risk", "universal-basic-income", "ai-regulation", "universal-healthcare"],
   "global-water-crisis": ["climate-change", "geoengineering-climate", "foreign-aid-effectiveness", "immigration-border-crisis"],
   "sugar-tax-effectiveness": ["obesity-personal-responsibility", "ultra-processed-food", "universal-healthcare", "glp1-weight-loss-drugs"],
   "lab-diamonds-ethics": ["factory-farming-ban", "veganism-environmental-impact", "foreign-aid-effectiveness", "climate-change"],

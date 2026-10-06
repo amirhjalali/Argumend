@@ -165,7 +165,7 @@ const gradeLevels = [
   {
     label: "High school (grades 9–12)",
     description: "Policy questions with real stakes, for government, economics and science courses.",
-    maps: mapsFor(["ai-job-displacement", "nuclear-energy-safety", "climate-change", "gun-control-effectiveness"]),
+    maps: mapsFor(["ai-mass-unemployment", "nuclear-energy-safety", "climate-change", "gun-control-effectiveness"]),
   },
   {
     label: "Advanced and AP",

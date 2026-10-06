@@ -122,9 +122,9 @@ export const rentControlEffectivenessData = {
         },
         {
           id: "oregon-rent-cap-permits",
-          title: "Oregon's Statewide Rent Cap Did Not Reduce Construction Permits (2019-2023)",
+          title: "Portland-Area Permits Rose After Oregon's 2019 Rent Cap",
           description:
-            "Oregon became the first US state to enact a statewide rent cap in 2019, limiting increases to 7% plus inflation annually with exemptions for new construction (first 15 years). Between 2019 and 2023, Oregon's housing construction permits did not decline relative to comparable states — in fact, Portland-area permits increased 12% from 2019 to 2022. Landlord groups had predicted the cap would 'destroy rental housing investment,' but investment capital continued flowing, partly because the new-construction exemption preserved returns for developers.",
+            "Oregon's 2019 statewide cap limits annual increases to 7% plus inflation and exempts buildings for their first 15 years. Census permit data show Portland-area permits rising about 12% from 2019 to 2022, the opposite of the collapse critics predicted. The period also saw pandemic migration and low interest rates, so the rise does not by itself show the cap had no effect on construction.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,

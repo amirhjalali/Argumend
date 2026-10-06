@@ -1059,27 +1059,6 @@
     ]
   },
   {
-    "id": "ai-job-displacement",
-    "title": "Will AI Replace Most White-Collar Jobs?",
-    "question": "Will AI eliminate or transform most white-collar work within a decade?",
-    "meta_claim": "Artificial intelligence and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 77,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 17,
-    "firstCrux": "Are AI's failures on novel tasks a lasting ceiling, or a gap the next models will close?",
-    "tags": [
-      "technology"
-    ]
-  },
-  {
     "id": "ai-in-education",
     "title": "AI in Education: Revolution or Risk?",
     "question": "Will AI in education close achievement gaps and outweigh its risks?",
@@ -1117,27 +1096,6 @@
     "pillarCount": 3,
     "evidenceCount": 12,
     "firstCrux": "Will AI capabilities keep scaling toward catastrophe-relevant thresholds, or plateau?",
-    "tags": [
-      "technology"
-    ]
-  },
-  {
-    "id": "ai-white-collar-displacement",
-    "title": "AI White-Collar Job Displacement",
-    "question": "Will AI eliminate more white-collar jobs than it creates in a decade?",
-    "meta_claim": "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade, requiring fundamental restructuring of the knowledge economy.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 76,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 4,
-    "evidenceCount": 19,
-    "firstCrux": "Can AI match professionals on complete real-world deliverables, not just standardized tests?",
     "tags": [
       "technology"
     ]

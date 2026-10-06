@@ -117,7 +117,6 @@ const FLAGSHIP_TOPIC_IDS = [
   "standardized-testing-debate",
   "lab-grown-meat-adoption",
   "space-exploration-value",
-  "ai-job-displacement",
   "big-tech-antitrust",
   "immigration-wage-impact",
   "wealth-tax",

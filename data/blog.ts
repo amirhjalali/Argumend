@@ -2359,7 +2359,7 @@ What might actually work: **strengthening the social safety net** (unemployment 
 
 The AI-and-jobs debate is too important for sloganeering. "AI will take all the jobs" is as unhelpful as "relax, it always works out." The truth is that AI will transform some jobs, eliminate others, and create new ones — and the net effect will depend on policy choices we have not yet made.
 
-The best thing you can do is engage with the strongest arguments on every side and identify what evidence would actually change your mind. Explore the full argument map at our [AI White-Collar Job Displacement](/topics/ai-white-collar-displacement) topic and the broader [AI Job Displacement](/topics/ai-job-displacement) analysis.`,
+The best thing you can do is engage with the strongest arguments on every side and identify what evidence would actually change your mind. Explore the full argument map at our [Will AI cause mass unemployment?](/topics/ai-mass-unemployment) topic and the broader [Will AI cause mass unemployment?](/topics/ai-mass-unemployment) analysis.`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -2611,7 +2611,7 @@ The evidence suggests that **supply reform is necessary but not sufficient.** Yo
 
 The countries that have best managed housing affordability — Vienna, Singapore, Finland — combine permissive building with strong public and social housing investment and limits on speculative ownership. No successful model relies on a single lever.
 
-For the full evidence-weighted analysis, explore our [Housing Affordability Crisis](/topics/housing-affordability-crisis) topic. Think about what evidence would change your mind about which lever matters most.`,
+For the full evidence-weighted analysis, explore our [Housing Supply & Affordability](/topics/housing-affordability-crisis) topic. Think about what evidence would change your mind about which lever matters most.`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -2933,13 +2933,13 @@ If AI dramatically increases productivity per worker within the next 15-20 years
 
 If AI does *not* deliver transformative productivity gains — or if the gains are captured by capital owners rather than distributed broadly — population decline creates exactly the economic stagnation that pessimists predict.
 
-This means the birth rate debate is inseparable from the [AI and jobs debate](/topics/ai-white-collar-displacement). The two most consequential trends of the 21st century — shrinking populations and expanding AI capabilities — will interact in ways that neither optimists nor pessimists can fully predict.
+This means the birth rate debate is inseparable from the [AI and jobs debate](/topics/ai-mass-unemployment). The two most consequential trends of the 21st century — shrinking populations and expanding AI capabilities — will interact in ways that neither optimists nor pessimists can fully predict.
 
 ## Where Do You Stand?
 
 The honest answer is that nobody knows whether declining birth rates will be remembered as a crisis or a transition. The evidence for concern is real. The evidence for optimism is also real. What matters is that we make decisions based on evidence rather than panic on one side or complacency on the other.
 
-Explore the full argument map at our [Global Fertility Collapse](/topics/declining-birth-rates) topic, and see how it connects to the [housing affordability crisis](/topics/housing-affordability-crisis), [immigration and identity](/topics/immigration-border-crisis) debates, and the question of [AI job displacement](/topics/ai-white-collar-displacement).`,
+Explore the full argument map at our [Global Fertility Collapse](/topics/declining-birth-rates) topic, and see how it connects to the [housing affordability crisis](/topics/housing-affordability-crisis), [immigration and identity](/topics/immigration-border-crisis) debates, and the question of [AI job displacement](/topics/ai-mass-unemployment).`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -3038,7 +3038,7 @@ The productive path forward involves three things. First, better research: longi
 
 The teen mental health crisis is real. The question of how much social media contributes to it is important. But getting the answer right matters more than getting it fast — because interventions based on oversimplified narratives can waste resources, create false security, and distract from the interventions that would actually help.
 
-Explore the full argument map on our [Social Media and Teen Mental Health](/topics/social-media-mental-health) topic page, and see how it connects to debates about [AI in society](/topics/ai-white-collar-displacement), [TikTok regulation](/topics/tiktok-ban), and the broader question of [how technology reshapes human experience](/topics/consciousness-ai-systems).`,
+Explore the full argument map on our [Social Media and Teen Mental Health](/topics/social-media-mental-health) topic page, and see how it connects to debates about [AI in society](/topics/ai-mass-unemployment), [TikTok regulation](/topics/tiktok-ban), and the broader question of [how technology reshapes human experience](/topics/consciousness-ai-systems).`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -3256,7 +3256,7 @@ The housing crisis does not exist in isolation. It is deeply entangled with near
 
 ## Explore the Full Analysis
 
-This post covers the broad strokes. For the detailed evidence, source evaluations, and testable crux points for each pillar, explore our full [Housing Affordability Crisis](/topics/housing-affordability-crisis) topic on Argumend. Every claim is sourced, every argument is steel-manned, and the evidence is weighted so you can judge for yourself.
+This post covers the broad strokes. For the detailed evidence, source evaluations, and testable crux points for each pillar, explore our full [Housing Supply & Affordability](/topics/housing-affordability-crisis) topic on Argumend. Every claim is sourced, every argument is steel-manned, and the evidence is weighted so you can judge for yourself.
 
 The housing crisis is real. The solutions are complicated. The first step toward fixing it is understanding what we are actually arguing about — and that is exactly what Argumend is built to help you do.`,
   },
@@ -5079,7 +5079,7 @@ Means-tested programs create "benefit cliffs": earn one extra dollar and you can
 
 ### It is insurance against a more automated, more precarious economy
 
-As gig work, automation, and AI reshape labor (a tension we map in [Will AI Take the Jobs?](/topics/ai-job-displacement)), the assumption that a stable full-time job is available to anyone who wants one looks shakier. UBI provides a floor that does not collapse when a particular industry does—decoupling basic survival from the volatility of any single labor market.
+As gig work, automation, and AI reshape labor (a tension we map in [Will AI Take the Jobs?](/topics/ai-mass-unemployment)), the assumption that a stable full-time job is available to anyone who wants one looks shakier. UBI provides a floor that does not collapse when a particular industry does—decoupling basic survival from the volatility of any single labor market.
 
 ### Freedom and bargaining power
 

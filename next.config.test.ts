@@ -131,6 +131,20 @@ describe("retired map redirects (one map per question, 2026-10-06)", () => {
     ["/topics/iran-war-justification", "/topics/us-iran-conflict"],
     ["/topics/iran-war-justification/map", "/topics/us-iran-conflict/map"],
     ["/embed/iran-war-justification", "/embed/us-iran-conflict"],
+    ["/topics/ai-job-displacement", "/topics/ai-mass-unemployment"],
+    ["/topics/ai-job-displacement/map", "/topics/ai-mass-unemployment"],
+    ["/embed/ai-job-displacement", "/embed/ai-mass-unemployment"],
+    ["/questions/will-ai-take-my-job", "/topics/ai-mass-unemployment"],
+    ["/questions/how-many-jobs-will-ai-replace", "/topics/ai-mass-unemployment"],
+    ["/questions/is-ai-automating-jobs-faster-than-creating-new-ones", "/topics/ai-mass-unemployment"],
+    ["/is/ai-replace-white-collar-jobs", "/topics/ai-mass-unemployment"],
+    ["/topics/ai-white-collar-displacement", "/topics/ai-mass-unemployment"],
+    ["/topics/ai-white-collar-displacement/map", "/topics/ai-mass-unemployment"],
+    ["/embed/ai-white-collar-displacement", "/embed/ai-mass-unemployment"],
+    ["/questions/will-ai-replace-white-collar-workers", "/topics/ai-mass-unemployment"],
+    ["/questions/is-ai-coming-for-office-jobs", "/topics/ai-mass-unemployment"],
+    ["/questions/which-white-collar-jobs-are-most-at-risk-from-ai", "/topics/ai-mass-unemployment"],
+    ["/is/ai-net-job-loss", "/topics/ai-mass-unemployment"],
   ];
 
   it.each(expected)("%s → %s, permanently", async (source, destination) => {

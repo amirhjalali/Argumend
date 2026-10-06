@@ -125,13 +125,6 @@ export const isClaims: IsClaim[] = [
       "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
   },
   {
-    slug: "ai-replace-white-collar-jobs",
-    topicId: "ai-job-displacement",
-    question: "Will AI replace most white-collar jobs?",
-    claim:
-      "AI and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
-  },
-  {
     slug: "social-media-causes-teen-depression",
     topicId: "social-media-mental-health",
     question: "Is social media causing the teen mental health crisis?",
@@ -935,13 +928,6 @@ export const isClaims: IsClaim[] = [
     question: "Is stricter border enforcement the most effective way to manage US immigration?",
     claim:
       "Combining border enforcement, asylum restrictions, and deportation is the most effective way to manage US immigration and protect national interests.",
-  },
-  {
-    slug: "ai-net-job-loss",
-    topicId: "ai-white-collar-displacement",
-    question: "Will AI destroy more white-collar jobs than it creates?",
-    claim:
-      "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade.",
   },
   {
     slug: "gender-affirming-care-minors-helps",

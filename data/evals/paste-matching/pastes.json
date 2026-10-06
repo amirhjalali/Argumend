@@ -64,21 +64,21 @@
       "id": "ai-jobs-graduates",
       "form": "conversation",
       "text": "A: My nephew graduated in computer science and can't get a single interview. Companies are just using Copilot instead of hiring juniors. B: Unemployment is barely over 4%. Tech hiring crashed because of interest rates, not ChatGPT. A: Then why is it the entry-level jobs in the most exposed fields that dropped the most?",
-      "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"],
+      "expected": ["ai-mass-unemployment"],
       "related": ["capitalism-after-ai"]
     },
     {
       "id": "ai-jobs-rant",
       "form": "rant",
       "text": "Every CEO on earth is on earnings calls bragging about how many roles AI lets them 'not backfill.' Paralegals, copywriters, customer support, junior analysts. Pretending this ends with everyone getting a nicer job is a fairy tale. The jobs are going and they are not coming back.",
-      "expected": ["ai-mass-unemployment", "ai-white-collar-displacement", "ai-job-displacement"],
+      "expected": ["ai-mass-unemployment"],
       "related": ["capitalism-after-ai"]
     },
     {
       "id": "ai-jobs-atm",
       "form": "reply",
       "text": "People said the same about ATMs and bank tellers, and teller jobs grew for decades after. Spreadsheets didn't kill accountants. Automation changes tasks inside jobs; it rarely deletes whole occupations. I'll believe mass unemployment from AI when the unemployment rate actually moves.",
-      "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"],
+      "expected": ["ai-mass-unemployment"],
       "related": ["capitalism-after-ai"]
     },
     {
