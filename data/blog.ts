@@ -557,7 +557,7 @@ The fact-or-value split is the hidden structure of most controversies:
 
 - **The death penalty.** The factual question — does it deter? — is, on the best evidence, [unresolved at best and probably "no"](/topics/death-penalty-deterrence). But notice that settling it wouldn't end the debate, because the live disagreement is really a value one: whether retribution justifies the state taking a life, and how much weight to give the risk of executing the innocent. Facts narrow the fight; they don't finish it.
 
-- **Nuclear energy.** Here the facts do much of the work. On safety the evidence is strong and consistent: per unit of energy, nuclear power sits alongside wind and solar. The [nuclear map](/topics/nuclear-energy-safety) still reads "evidence still divided", because its question is whether to expand nuclear power, and what remains is partly factual (can we build reactors cheaply and fast enough?) and partly a value question about how to weigh rare catastrophic risk against the steady, certain harm of the fossil fuels nuclear would replace.
+- **Nuclear energy.** Here the facts do much of the work. On safety the evidence is strong and consistent: per unit of energy, nuclear power sits alongside wind and solar. The [nuclear map](/topics/nuclear-energy-safety) still treats its question as open, because that question is whether to expand nuclear power, and what remains is partly factual (can we build reactors cheaply and fast enough?) and partly a value question about how to weigh rare catastrophic risk against the steady, certain harm of the fossil fuels nuclear would replace.
 
 - **Assisted dying.** This one is almost pure value. The facts — that terminally ill patients suffer, that safeguards can be designed — are not really in dispute. The [disagreement is about autonomy versus the sanctity of life](/topics/assisted-dying-euthanasia), and no clinical trial will adjudicate that. Recognizing it as a values question is what keeps the debate honest.
 
@@ -873,11 +873,11 @@ This reframing makes it possible to have a productive conversation. Instead of d
 
 ## How this works on Argumend's maps
 
-Argumend's maps deliberately don't hand you a single percentage. Each map carries two numbers instead: balance, which shows which way the weighed evidence tips, and weight, which shows how much good evidence there is. They aren't opinions; they're built from the evidence cards on the map, each scored for the reliability of its source, its independence, whether it has been replicated, and how directly it bears on the claim. Together they give a plain reading: the evidence largely converges, is still divided, or is still thin.
+Argumend's maps deliberately don't hand you a single percentage, or any verdict at all. What they give you instead is built from the evidence cards on the map, each weighed for the reliability of its source, its independence, whether it has been replicated, and how directly it bears on the claim: the strongest card on each side, and for each crux, what would settle it and whether that test has been run.
 
-On a map like "Did the Moon Landing Happen?" the evidence largely converges on the claim, with heavy weight and a lopsided balance built from overwhelming, independently verified sources. A map like "Is Free Will an Illusion?" sits near an even balance and is only moderately evidenced: a genuinely unresolved philosophical and scientific question where strong arguments exist on both sides.
+On a map like "Did the Moon landings happen?" the cards on one side are overwhelming and independently verified, and the cruxes show it. A map like "Do humans have free will?" turns largely on what the words mean: a genuinely unresolved philosophical and scientific question where strong arguments exist on both sides.
 
-The reading serves two purposes. First, it shows at a glance how much genuine uncertainty exists around a question, so you can calibrate your own confidence against it. Second, it is built from individual cards, each with its own weight, so you can see exactly which evidence is driving it. What it is not is a probability that the claim is true. That number is yours to set, which is the whole point of this post.
+That serves two purposes. First, it shows how much genuine uncertainty exists around a question, so you can calibrate your own confidence against it. Second, it is built from individual cards, each with its source, so you can see exactly which evidence is in play. What it is not is a probability that the claim is true. That number is yours to set, which is the whole point of this post.
 
 ## The Superforecasting Connection
 
@@ -1035,7 +1035,7 @@ Philip Tetlock's research on superforecasters found that the single strongest pr
 
 Argumend is built to make self-challenge easier. Every topic presents the steel-manned arguments on both sides, so you can immediately encounter the strongest version of the case against your position. The crux identification framework shows you exactly what evidence or reasoning, if it held up, would require you to change your mind.
 
-Each map's reading of its evidence gives you something to check your certainty against. If you're sure about a question where the map says the evidence is still divided, that gap is a signal to examine your reasoning more carefully.
+Each map's cruxes give you something to check your certainty against. If you're sure about a question whose crux the map shows is still open, that gap is a signal to examine your reasoning more carefully.
 
 None of this replaces the hard internal work of questioning your own beliefs. But having a structured framework for seeing the strongest opposing arguments, identifying what matters most, and calibrating your confidence makes that work significantly more accessible.
 
@@ -1167,7 +1167,7 @@ Importantly, superforecasters were not wishy-washy. They held strong views when 
 
 Argumend's maps are built to counter the Dunning-Kruger effect in one specific way. Instead of presenting political topics as binary debates with two equally valid sides, each map weighs the evidence under each position, card by card, on the reliability of its source, its independence, whether it has been replicated, and how directly it bears on the claim.
 
-The reading at the top of the evidence is not an opinion poll. It is built from those cards: which way the weighed evidence tips, and how much good evidence there is. When a map says the evidence largely converges on one side, it means the weight of evidence substantially favors that position, even if public opinion is evenly split. When it says the evidence is still divided, or still thin, that is information too.
+A map is not an opinion poll. It is built from those cards, and it never names a winner: it shows the strongest card on each side and, for each crux, what would settle it. When a crux has narrowed, the evidence moved, even if public opinion is evenly split. When it is still open, that is information too.
 
 This matters because the Dunning-Kruger effect is, at its core, a calibration problem. People do not know what they do not know, so they cannot accurately assess how confident they should be. A map gives you something outside your own head to check against. If you are certain about a question where the map says the evidence is still divided, that gap is a signal worth investigating. It does not mean you are wrong. It means your confidence exceeds what the evidence alone supports, and you should examine whether your certainty is coming from evidence or from something else.
 
@@ -1321,7 +1321,7 @@ On the maps, AI helps research and draft, but people check the evidence against 
 
 On the paste tool, a model reads the text you paste and returns a structured reading of it: the positions, what the sides already agree on, and what the disagreement turns on. It works only from your text. It does not fact-check, it does not guess at motives, and it does not say who is right.
 
-Two rules follow from the pitfalls above. Against false balance, the maps do not give every side equal weight by default: they weigh the evidence and say plainly when it largely converges. Against confident hallucination and inherited bias, no model output is presented as a verdict. A model's job is to structure and to propose; deciding what the evidence shows stays with people who can be asked why.
+Two rules follow from the pitfalls above. Against false balance, the maps do not give every card equal weight by default: they weigh each card on its source, and say plainly when a crux has narrowed. Against confident hallucination and inherited bias, no model output is presented as a verdict. A model's job is to structure and to propose; deciding what the evidence shows stays with people who can be asked why.
 
 ## The Future of AI-Assisted Reasoning
 
@@ -1614,7 +1614,7 @@ Changing your mind is a skill, and like any skill, it improves with deliberate p
 
 3. **Practice saying "I was wrong."** Start with low-stakes situations. You were wrong about a restaurant recommendation, about a factual claim in conversation, about a prediction. Build the muscle of admitting error in small ways, and it becomes easier in larger ones.
 
-4. **Use Argumend's maps.** On [Argumend](https://argumend.org), every topic is broken down into specific claims, with the evidence on each side weighed card by card and a plain reading of whether it largely converges, is still divided, or is still thin. This framework models what rational belief updating looks like in practice — not picking a team, but evaluating each claim on its merits and acknowledging where the evidence is genuinely mixed.
+4. **Use Argumend's maps.** On [Argumend](https://argumend.org), every topic is broken down into specific claims, with the evidence on each side weighed card by card and, for each crux, what would settle it. This framework models what rational belief updating looks like in practice — not picking a team, but evaluating each claim on its merits and acknowledging where the evidence is genuinely mixed.
 
 The art of changing your mind is ultimately the art of caring more about being right than about being consistent. It requires courage, because it means exposing yourself to the possibility of error. It requires humility, because it means accepting that your current understanding is incomplete. And it requires patience, because genuine understanding develops slowly, through the steady accumulation of evidence and the willingness to follow that evidence wherever it leads.
 
