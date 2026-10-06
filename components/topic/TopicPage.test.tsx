@@ -72,6 +72,16 @@ describe("one crux-first template for every map", () => {
     expect(view.container.querySelector("[data-topic-kind]")?.getAttribute("data-topic-kind")).toBe(
       "flagship",
     );
+    // The header's reviewed date is never older than the ledger under it
+    // (round-6 review: "reviewed Aug 12, 2026" above "Narrowed Sep 2026").
+    const reviewed = view.container.querySelector("[data-testid=topic-kicker] time")!;
+    const latestLedgerDay = topic.ledger
+      .filter(isPublicEntry)
+      .flatMap((e) => [e.date, e.noticedAt ?? "", e.createdAt.slice(0, 10)])
+      .sort()
+      .at(-1)!;
+    expect(reviewed.getAttribute("dateTime")! >= latestLedgerDay).toBe(true);
+    expect(reviewed.textContent).not.toContain("Aug 12");
     // The −16% appears once (the hook) before the positions; the share card
     // and chart moved into "The numbers".
     const positions = view.container.querySelector("#positions")!;
@@ -104,6 +114,34 @@ describe("one crux-first template for every map", () => {
     expect(view.container.querySelector('a[href^="/?topic="]')).toBeNull();
     const diagram = within(view.container).getByRole("link", { name: "See it as a diagram →" });
     expect(diagram.getAttribute("href")).toBe("/topics/nuclear-energy-safety/map");
+  });
+
+  it("keeps the older map's reading, ranking word, unsourced costs and pillar labels off the page", async () => {
+    const { topic, view } = await renderLegacy("nuclear-energy-safety");
+    const text = view.container.textContent ?? "";
+    // No reading of where the cards tip, anywhere on the page.
+    expect(text).not.toContain(topic.verdict.label);
+    expect(text).not.toMatch(/largely converges|still divided|still thin|leans toward/i);
+    expect(text).not.toMatch(/heaviest/i);
+    // The fold names one strong card per side, in sentence case.
+    const weighing = view.container.querySelector("details#weighing")!;
+    expect(weighing.textContent).toContain("One strong card on each side");
+    expect(weighing.textContent).toContain("Nuclear ~93% capacity factor.");
+    expect(weighing.textContent).toContain("New nuclear has massive cost overruns.");
+    // The map's cost_to_verify is an unsourced estimate: never shown.
+    expect(text).not.toContain("Cost to run it");
+    for (const pillar of topic.pillars) expect(text).not.toContain(pillar.crux.cost_to_verify);
+    // The crux question is the crux's only name in the sheet; the pillar
+    // title stays in Researcher mode.
+    const sheet = view.container.querySelector("#cruxes")!;
+    const researcher = view.container.querySelector("details#researcher")!;
+    for (const pillar of topic.pillars) {
+      expect(sheet.textContent).not.toContain(pillar.title);
+      expect(researcher.textContent).toContain(pillar.title);
+    }
+    // Card titles in the crux rows read in sentence case.
+    expect(sheet.textContent).toContain("Nuclear among safest energy per TWh.");
+    expect(sheet.textContent).not.toContain("Nuclear Among Safest Energy Per TWh");
   });
 
   it("renders a legacy map without falsification data cleanly, with no scoreboard", async () => {

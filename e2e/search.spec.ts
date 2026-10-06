@@ -48,3 +48,30 @@ test("a typed question finds the nuclear-power map in the library and on /questi
     "/questions/is-nuclear-energy-safe",
   );
 });
+
+/** A subject no map covers names itself as missing (r6 review #4), in the library and the header search. */
+test("abortion finds no map, and the empty state says so and offers paste", async ({ page, isMobile }) => {
+  await page.goto("/topics?q=abortion");
+  const main = page.getByRole("main");
+  await expect(main.getByText("No map on “abortion” yet.")).toBeVisible();
+  await expect(main.getByRole("status")).toHaveText("No maps match");
+  await expect(main.getByRole("button", { name: /Clear (all )?filters/ })).toHaveCount(1);
+  await expect(main.locator('a[href="/topics/nuclear-weapons-abolition"]')).toHaveCount(0);
+
+  const searchButton = page.getByRole("banner").getByRole("button", { name: "Search" });
+  await waitForHydration(searchButton);
+  const dialog = page.getByRole("dialog", { name: "Search Argumend" });
+  if (isMobile) {
+    await searchButton.click();
+  } else {
+    await expect(async () => {
+      if (!(await dialog.isVisible())) await page.keyboard.press("ControlOrMeta+k");
+      await expect(dialog).toBeVisible({ timeout: 2_000 });
+    }).toPass({ timeout: 15_000 });
+  }
+  await dialog.getByRole("combobox", { name: "Search Argumend" }).fill("abortion");
+  await expect(dialog.getByText("No map on “abortion” yet.")).toBeVisible();
+  await expect(dialog.getByRole("option")).toHaveCount(0);
+  await dialog.getByRole("button", { name: "Paste the argument you’re in" }).click();
+  await expect(page).toHaveURL(/\/analyze$/);
+});

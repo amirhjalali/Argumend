@@ -28,7 +28,7 @@ describe("buildPasteSummary", () => {
       "It is already mapped: Does large-scale immigration significantly cut low-skilled native wages?",
     );
     expect(summary).not.toContain("Immigration and Wages");
-    expect(summary).toContain("Someone who says yes to the map’s question would change their mind if…");
+    expect(summary).toContain("What would change the mind of someone who says yes to the map’s question");
     expect(summary).toContain(
       "https://argumend.org/topics/immigration-wage-impact#crux-labor-market-economics",
     );

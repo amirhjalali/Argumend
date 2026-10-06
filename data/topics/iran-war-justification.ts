@@ -82,7 +82,7 @@ export const iranWarJustificationData = {
           supporter_flip:
             "If independent technical assessments found the steps beyond enrichment — metal conversion, pit fabrication, implosion design, miniaturization, missile integration — would take Iran well over a year, with no sign of material diverted to a weaponization track, the case that the threat is near enough to justify strikes would weaken.",
           skeptic_flip:
-            "A skeptic who sees Iraq-style threat inflation should weigh that the core measurements come from the IAEA itself, not national intelligence alone: about 408 kg of 60% enriched uranium as of May 2025, particles at 83.7% at Fordow, and verification gaps after Iran removed JCPOA cameras in 2022 and de-designated experienced inspectors in 2023.",
+            "If further IAEA reporting, rather than national intelligence alone, kept finding a stockpile on the scale of May 2025's 408 kg of 60% uranium, particles near 83.7% at Fordow, and verification gaps since cameras and inspectors were removed, the Iraq-style inflation charge would be hard to hold.",
           common_ground:
             "Both sides agree Iran holds about 408 kg of 60% enriched uranium and could produce enough fissile material within weeks, while turning it into a deliverable warhead would take longer.",
           live_disagreement:
@@ -204,7 +204,7 @@ export const iranWarJustificationData = {
           supporter_flip:
             "If mapping the supply chains for Hezbollah's precision-guided missiles, Houthi anti-ship missiles and militia drones showed these groups largely self-sufficient, and past cases of weakened state sponsors left proxy capability intact, striking Iran would not buy the attrition its advocates expect.",
           skeptic_flip:
-            "A skeptic who fears a regional war should weigh that the proxies were already fighting without any strike on Iran — Hezbollah opened fire on October 8, 2023, the Houthis attacked Red Sea shipping, and militias attacked US forces more than 180 times — and that the IRGC Quds Force supplies their strategic direction, weapons and funding.",
+            "If records confirmed proxies attacking with no strike on Iran (Hezbollah from October 8, 2023, the Houthis on Red Sea shipping, militias hitting US forces 180+ times) and the Quds Force directing, arming and funding them, the fear that a strike would start a regional war would weigh less.",
           common_ground:
             "Both sides agree Iran's proxies have fought on several fronts since October 2023 — Hezbollah against northern Israel, the Houthis in the Red Sea — and that no single strike would eliminate them.",
           live_disagreement:
@@ -326,7 +326,7 @@ export const iranWarJustificationData = {
           supporter_flip:
             "If mapping every formal proposal since 2018 showed realistic offramps — a cap-and-freeze interim deal, talks via Oman or Qatar — left unpursued or undercut by the US rather than rejected by Iran on the merits, the claim that diplomacy was exhausted would fail.",
           skeptic_flip:
-            "A skeptic who says diplomacy was abandoned should weigh that the JCPOA's core limits expire around 2030-2031, that it never covered ballistic missiles, and that EU-led revival talks reached a near-final draft in 2022 before collapsing over Iran's demand that the IRGC be delisted as a terrorist organization.",
+            "If a full record of the talks confirmed that the 2022 EU-led revival draft collapsed over Iran's demand to delist the IRGC, and that a revived JCPOA would still expire around 2030-2031 without covering missiles, the view that diplomacy was abandoned would weaken.",
           common_ground:
             "Both sides agree the JCPOA capped enrichment at 3.67% under IAEA monitoring while it was in force, and that its core limits were set to lapse around 2030-2031.",
           live_disagreement:

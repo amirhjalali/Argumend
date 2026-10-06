@@ -11,17 +11,16 @@ export const aiDeepfakesTruthCollapseData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The most documented harm from deepfakes so far isn't fake videos fooling people — it's the inverse: the mere existence of the technology lets people dismiss real footage as 'AI fakery.' Researchers call this the 'liar's dividend,' and it has already surfaced in real politics — in Gabon, opponents branded a New Year's video of the ailing President Bongo a 'deepfake' (forensic analysis later found it genuine), and the doubt helped trigger an attempted coup. Meanwhile the best automated detectors hit only about 78% on real 2024 deepfakes, well below the ~90% of expert human analysts.",
+      "On deepfakes circulated in 2024, the best automated video detector was right about 78% of the time, against about 90% for expert human analysts. Leica, Nikon and Canon now ship cameras that cryptographically sign photos under the C2PA provenance standard. Both sides cite these facts. The fight is over which spreads faster: trusted provenance, or the 'liar's dividend' of dismissing real recordings as deepfakes.",
     confidence: 84,
     source:
-      "Chesney & Citron, 'Deep Fakes' (California Law Review, 2019, coined 'liar's dividend'); Chandra et al., Deepfake-Eval-2024 (arXiv:2503.02857)",
+      "Chandra et al., Deepfake-Eval-2024 (arXiv:2503.02857); Content Authenticity Initiative, with Leica, Nikon and Canon, on C2PA cameras",
     sourceUrl: "https://arxiv.org/abs/2503.02857",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Generation is racing ahead of detection: voice clones now need only ~3 seconds of sample audio, and on a 2024 in-the-wild benchmark the best automated video detector reached only ~78% accuracy (AUC ≈0.79) — a ~45-50% drop from its score on clean academic datasets — while a deepfaked video call already cost the engineering firm Arup $25 million.",
-    "But the apocalypse framing oversells it: expert human analysts still hit ~90%, detection can lean on metadata, provenance, and context rather than pixels alone, and cryptographic provenance (the C2PA standard, now shipping in Leica, Nikon, and Canon cameras) gives trusted sources a verifiable chain of custody — society also navigated doctored photographs for a century before AI.",
-    "So the honest debate isn't whether any fake can fool any viewer (it can) but whether verification infrastructure and the 'liar's dividend' move faster than each other — whether trusted-source provenance reaches consequential media before reflexive 'it's a deepfake' distrust becomes the default and erodes accountability irreversibly.",
+    "Both sides accept that the 'it's a deepfake' defense is now used against genuine recordings, that forensic checks can often authenticate a specific clip, that pixel-level detection is not enough without metadata and provenance, and that provenance need only cover consequential media, since billions of existing devices can't be retrofitted.",
+    "They split over whether that defense actually lets powerful people escape accountability; whether detection plus context can stay reliable as generators improve, or trust must shift to provenance; and whether C2PA-style provenance spreads faster than deepfake-driven distrust.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
@@ -93,7 +92,7 @@ export const aiDeepfakesTruthCollapseData = {
           supporter_flip:
             "If a systematic database of 'it's a deepfake' claims showed the defense almost never succeeds — that forensic analysis, contextual evidence, and public judgment reliably re-establish authenticity, and that accountability outcomes are no different from the pre-deepfake era — then the liar's dividend would be a rhetorical nuisance, not a structural threat to accountability.",
           skeptic_flip:
-            "A skeptic who calls the liar's dividend overblown should weigh that it has already been deployed in live elections (Turkey 2023, Gabon 2018-19) and that its power doesn't require any fake to be made — the mere availability of the technology supplies a universal alibi for anyone caught on camera, which is hard to forensically rebut to a non-expert public.",
+            "If tracking showed the 'it's a deepfake' defense working as it was deployed in live elections such as Turkey 2023 and Gabon 2018-19, with mere availability of the technology supplying an alibi a non-expert public cannot rebut, calling the liar's dividend overblown would be hard to hold.",
           common_ground:
             "Both sides agree the 'it's a deepfake' defense is now being invoked against genuine recordings, and that forensic authentication of specific clips is often technically possible.",
           live_disagreement:
@@ -188,7 +187,7 @@ export const aiDeepfakesTruthCollapseData = {
           supporter_flip:
             "If a multi-year red-team/blue-team exercise showed that, on the highest-stakes deepfakes, detection combined with metadata, provenance, and witness corroboration reliably stays above ~90% and the gap is not widening, the 'detection structurally loses the arms race' claim would collapse into 'detection needs ongoing investment, not replacement.'",
           skeptic_flip:
-            "A skeptic who trusts detection should weigh that generators are literally trained to defeat detectors, that the best automated systems already fell to ~78% on 2024 in-the-wild deepfakes (from >95% on clean datasets), and that detectors must generalize to every new generation method while a generator only has to fool the average observer once.",
+            "If detectors kept slipping on new generation methods, as the best automated systems did from above 95% on clean datasets to about 78% on 2024 in-the-wild deepfakes, while generators trained against them, trust in detection would weaken and provenance would carry the load.",
           common_ground:
             "Both sides agree pixel-level detection alone is insufficient and that contextual signals (metadata, provenance, source verification, witness accounts) materially raise real-world reliability above naked detector benchmarks.",
           live_disagreement:
@@ -264,9 +263,9 @@ export const aiDeepfakesTruthCollapseData = {
           "$300K-800K (Industry adoption tracking with public trust survey component)",
         falsification: {
           supporter_flip:
-            "A supporter who thinks the transition is hopeless should weigh that provenance doesn't need universal adoption to work — only adoption by trusted tiers (BBC, Reuters, AP, official communications), and that professional cameras from Leica, Nikon, and Canon plus the HTTPS-style 'critical sites first' rollout pattern show a credible path for consequential media.",
+            "If provenance spread through the trusted tiers that matter, wire services and official communications plus professional cameras from Leica, Nikon and Canon, on the HTTPS-style 'critical sites first' pattern, consequential media would stay verifiable without universal adoption, and the transition would look far from hopeless.",
           skeptic_flip:
-            "A skeptic who counts on trusted-tier provenance should change their mind if adoption tracking showed C2PA stalling among trusted sources — cameras, wire services, platforms, and governments not converging, or attackers routinely stripping provenance metadata so verified media stays a rare exception while public trust keeps falling. Provenance would then arrive too late to be the answer, and the 'build it before trust collapses' bet would have already failed.",
+            "If adoption tracking showed C2PA stalling among trusted sources, with cameras, wire services, platforms and governments not converging or attackers routinely stripping provenance metadata while public trust kept falling, the 'build it before trust collapses' bet would fail.",
           common_ground:
             "Both sides agree retrofitting 6+ billion existing devices is impossible, that the installed-base transition takes years, and that provenance only needs to cover consequential media — not every smartphone photo — to be useful.",
           live_disagreement:

@@ -27,11 +27,18 @@ import { createSiteSearch } from "@/lib/siteSearch";
  * search 92/96 and 87/90; library 34/38 and 33/33; questions 52/52 and
  * 36/36. The library and questions boxes matched the whole query as one
  * substring, so "is nuclear power safe" found nothing in either.
+ *
+ * no-map cases (r6 review #4, 2026-10-06): subjects no map covers, where a
+ * box may list at most `maxMaps` maps. Before that round's change "abortion"
+ * listed 8 maps (abort~about) and "gay marriage" 9 (gai~gain); after, none.
  */
 
 interface EvalCase {
   query: string;
+  /** Right first answers; empty for a subject no map covers (kind "no-map"). */
   expected: string[];
+  /** For a no-map case: the most maps a box may list. */
+  maxMaps?: number;
   kind: string;
 }
 
@@ -58,6 +65,14 @@ const FLOORS: Record<SetName, Record<Surface, { top1: number; top3: number }>> =
     questions: { top1: 0.8, top3: 0.8 },
   },
 };
+
+/**
+ * No-map cases allowed over their `maxMaps`. Dev: none. Holdout, scored once
+ * after the change: 2 of 5 over on the palette and library ("should we keep
+ * the monarchy" lists 2–3 maps that share "keep"; "is abortion murder" lists
+ * the death-penalty map), 1 of 5 on questions. Left as measured, not tuned.
+ */
+const NO_MAP_OVER: Record<SetName, number> = { dev: 0, holdout: 2 };
 
 // Header search: the same list and ranking the modal builds; maps only, since
 // the Maps group is shown first.
@@ -97,8 +112,11 @@ interface Row {
   top3: boolean;
 }
 
+const isNoMap = (testCase: EvalCase) => testCase.expected.length === 0;
+
 function run(set: SetName, surface: Surface): Row[] {
   return SETS[set]
+    .filter((testCase) => !isNoMap(testCase))
     .filter(
       (testCase) =>
         surface !== "questions" || testCase.expected.some((id) => topicsWithQuestions.has(id)),
@@ -138,14 +156,34 @@ describe("the site-search eval set", () => {
     expect(new Set(all.map((testCase) => testCase.query)).size).toBe(all.length);
     const known = new Set([...topicSummaries.map((t) => t.id), ...argumentTopicIds]);
     for (const testCase of all) {
-      expect(testCase.expected.length, testCase.query).toBeGreaterThan(0);
+      if (isNoMap(testCase)) {
+        expect(testCase.kind, testCase.query).toBe("no-map");
+        expect(testCase.maxMaps, testCase.query).toBeGreaterThanOrEqual(0);
+      }
       for (const id of testCase.expected) expect(known.has(id), `${testCase.query}: ${id}`).toBe(true);
     }
+    expect(SETS.dev.filter(isNoMap).length).toBeGreaterThanOrEqual(3);
   });
 
   const cells = (Object.keys(SETS) as SetName[]).flatMap((set) =>
     (["palette", "library", "questions"] as Surface[]).map((surface) => [set, surface] as const),
   );
+
+  /**
+   * A subject no map covers lists no map, or a few at most: not "abortion"
+   * finding the nuclear-deterrence map, nor a sentence about a family
+   * argument finding seventeen maps that share a word with it. Every map the
+   * box lists counts here, not only the first three.
+   */
+  it.each(cells)("lists no map, or a few, for subjects no map covers (%s, %s)", (set, surface) => {
+    const over = SETS[set]
+      .filter(isNoMap)
+      .map((testCase) => ({ testCase, shown: RUNNERS[surface](testCase.query) }))
+      .filter(({ testCase, shown }) => shown.length > (testCase.maxMaps ?? 0))
+      .map(({ testCase, shown }) => `  “${testCase.query}” → ${shown.length} maps (at most ${testCase.maxMaps ?? 0}): ${shown.slice(0, 5).join(", ")}`);
+    console.info(`${set} / ${surface}: no-map cases over their limit ${over.length}\n${over.join("\n")}`);
+    expect(over.length, over.join("\n")).toBeLessThanOrEqual(NO_MAP_OVER[set]);
+  });
 
   it.each(cells)("holds the %s floors on the %s search", (set, surface) => {
     const { top1, top3, text } = report(`${set} / ${surface}`, run(set, surface));

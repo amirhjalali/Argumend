@@ -101,7 +101,9 @@ export default async function QuestionsIndexPage({ searchParams }: PageProps) {
     return {
       href: `/questions/${v.slug}`,
       title: v.question,
-      meta: [classifyQuestion(v.question).label, topic && mapDisplayTitle(topic)].filter(Boolean).join(" · "),
+      meta: [classifyQuestion(v.question, topic?.firstCruxStanding).label, topic && mapDisplayTitle(topic)]
+        .filter(Boolean)
+        .join(" · "),
     };
   });
 

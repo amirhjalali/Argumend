@@ -11,6 +11,8 @@ import { CollectionPagination } from "@/components/CollectionPagination";
 import { PageContainer, PageHeader, TextAction } from "@/components/ui";
 import { useSavedTopicIds } from "@/hooks/useSavedTopics";
 import { paginate, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
+import { ANALYZE_HREF } from "@/lib/nav";
+import { noMapLine } from "@/lib/siteSearch";
 import {
   DEBATE_MAP_ENTRIES,
   DEFAULT_SORT,
@@ -63,6 +65,16 @@ export default function TopicsPageClient({
   const filteredTopics = useMemo(
     () => filterLibrary(state, savedFilterOn ? { savedIds } : {}),
     [state, savedFilterOn, savedIds],
+  );
+
+  // A search no map in the whole library answers (not just this category or
+  // the saved maps) names its subject as missing, with the ways forward.
+  const noMapAnywhere = useMemo(
+    () =>
+      filteredTopics.length === 0 &&
+      search.trim() !== "" &&
+      filterLibrary({ category: "all", search, sort: sortBy }).length === 0,
+    [filteredTopics.length, search, sortBy],
   );
 
   const pagination = useMemo(
@@ -262,15 +274,19 @@ export default function TopicsPageClient({
         {/* Results info, and the device's saves when there are any */}
         <div className="mt-2 flex min-h-11 flex-wrap items-center justify-between gap-x-4">
           <p className="text-sm text-secondary dark:text-stone-400" role="status" aria-live="polite" aria-atomic="true">
-            Showing{" "}
-            <span className="font-medium text-primary dark:text-stone-200">
-              {visiblePagination.items.length > 0
-                ? `${visiblePagination.startIndex + 1}–${visiblePagination.endIndex}`
-                : "0"}
-            </span>{" "}
-            {startHere
-              ? `of ${filteredTopics.length} maps, plus the ${DEBATE_MAP_ENTRIES.length} above`
-              : `of ${filteredTopics.length} matching ${filteredTopics.length === 1 ? "map" : "maps"} (${LIBRARY_ENTRIES.length} total)`}
+            {filteredTopics.length === 0 ? (
+              "No maps match"
+            ) : (
+              <>
+                Showing{" "}
+                <span className="font-medium text-primary dark:text-stone-200">
+                  {`${visiblePagination.startIndex + 1}–${visiblePagination.endIndex}`}
+                </span>{" "}
+                {startHere
+                  ? `of ${filteredTopics.length} maps, plus the ${DEBATE_MAP_ENTRIES.length} above`
+                  : `of ${filteredTopics.length} matching ${filteredTopics.length === 1 ? "map" : "maps"} (${LIBRARY_ENTRIES.length} total)`}
+              </>
+            )}
           </p>
           <div className="flex items-center gap-4">
             {savedCount > 0 && (
@@ -287,7 +303,8 @@ export default function TopicsPageClient({
                 Saved on this device ({savedCount})
               </button>
             )}
-            {hasFilters && (
+            {/* With nothing listed, the empty state below offers it instead: once is enough. */}
+            {hasFilters && filteredTopics.length > 0 && (
               <button
                 type="button"
                 onClick={clearFilters}
@@ -303,13 +320,25 @@ export default function TopicsPageClient({
         {/* Map list */}
         {filteredTopics.length === 0 ? (
           <div className="mt-6 border-t border-stone-300/70 py-16 text-center dark:border-divider">
-            <p className="font-serif text-2xl text-primary dark:text-stone-200">No maps match</p>
-            <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-secondary dark:text-stone-400">
-              Try other words or another category, or clear the filters to
-              see all {LIBRARY_ENTRIES.length} maps.
-            </p>
+            {noMapAnywhere ? (
+              <>
+                <p className="font-serif text-2xl text-primary dark:text-stone-200">{noMapLine(search)}</p>
+                <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-secondary dark:text-stone-400">
+                  <TextAction href={ANALYZE_HREF}>Paste the argument you&rsquo;re in</TextAction> to find
+                  what it turns on, or <TextAction href="/about#contribute">suggest a map</TextAction>.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="font-serif text-2xl text-primary dark:text-stone-200">No maps match</p>
+                <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-secondary dark:text-stone-400">
+                  Try other words or another category, or clear the filters to
+                  see all {LIBRARY_ENTRIES.length} maps.
+                </p>
+              </>
+            )}
             <TextAction onClick={clearFilters} className="mt-3">
-              Clear all filters
+              Clear filters
             </TextAction>
           </div>
         ) : (

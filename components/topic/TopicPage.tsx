@@ -72,6 +72,8 @@ export interface TopicPageProps {
   folds: TopicFold[];
   /** The provenance sentence before "How this map was made". */
   madeBy: string;
+  /** Where "How this map was made" goes; the methodology page by default. */
+  madeByHref?: string;
 }
 
 const SITE = "https://argumend.org";
@@ -83,6 +85,7 @@ export function TopicPage({
   afterPositions,
   folds,
   madeBy,
+  madeByHref = "/methodology",
 }: TopicPageProps) {
   const url = `${SITE}/topics/${page.id}`;
   const reflectionOptions = cruxes.map((crux) => ({
@@ -130,6 +133,7 @@ export function TopicPage({
           questionPage={page.questionPage}
           title={page.title}
           madeBy={madeBy}
+          madeByHref={madeByHref}
         />
       </article>
 
@@ -408,7 +412,7 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
   );
 }
 
-/** "Someone who says yes / no would change their mind if…" — rust names the proponent side, brown the skeptic. */
+/** "What would change the mind of someone who says yes / no…" — rust names the proponent side, brown the skeptic. */
 function MindChange({
   label,
   tone,
@@ -592,11 +596,13 @@ function TopicFooter({
   questionPage,
   title,
   madeBy,
+  madeByHref,
 }: {
   related: TopicPageData["related"];
   questionPage: TopicPageData["questionPage"];
   title: string;
   madeBy: string;
+  madeByHref: string;
 }) {
   // A question page worded exactly as the H1 is still linked, just not
   // announced as another phrasing.
@@ -642,7 +648,7 @@ function TopicFooter({
       </nav>
       <p className="mt-5 text-xs leading-relaxed text-muted dark:text-stone-400">
         {madeBy}{" "}
-        <TextAction href="/methodology" className="!text-xs">
+        <TextAction href={madeByHref} className="!text-xs">
           How this map was made →
         </TextAction>
       </p>

@@ -9,7 +9,7 @@ export const gigEconomyRegulationData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "When California gig drivers got to vote on their own status, they sided with the platforms: Proposition 22 — which keeps app-based drivers as independent contractors rather than employees — passed with 58.6% of the vote in 2020 and was upheld by the California Supreme Court in 2024. The honest catch is that the minimum-earnings and health-stipend benefits Prop 22 promised are barely enforced: California's labor agency now says it lacks jurisdiction over non-employee claims, leaving most worker complaints unresolved.",
+      "California's Proposition 22, which keeps app-based drivers as independent contractors rather than employees, passed with 58.6% of the vote in 2020 and was upheld by the state Supreme Court in 2024. California's labor agency now says it lacks jurisdiction over non-employee claims, so most complaints under Prop 22's minimum-earnings and health-stipend promises go unresolved. The fight is over whether flexibility is worth what drivers give up by not being employees.",
     confidence: 88,
     source:
       "Castellanos v. State of California (Cal. Supreme Court, 25 July 2024; Prop 22 passed 58.6% in Nov 2020); CalMatters investigation, 'California companies wrote their own gig worker law. Now no one is enforcing it' (4 Sept 2024)",
@@ -17,9 +17,8 @@ export const gigEconomyRegulationData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest case for reclassification is that the 'independent contractor' label is a legal fiction: platform algorithms set the fare, assign the trip, score acceptance and cancellation rates, and can deactivate a driver without appeal — control that looks far more like employment than genuine self-employment, and courts examining the day-to-day reality (UK's Uber v Aslam, the 2024 Bolt tribunal, the EU's 2024 Platform Work Directive) have repeatedly sided with workers.",
-    "The honest counterpoint is that gig workers themselves prize the flexibility — logging on and off at will, working competing apps at once, answering to no manager — and when California's AB5 tried to force reclassification, drivers backed Prop 22's carve-out 59-41; reclassification could push platforms toward set shifts and fewer onboarded drivers, pricing some workers out.",
-    "So the honest debate isn't 'protections versus freedom' as a binary, but whether basic floors (minimum-wage guarantees, injury coverage, paid leave) can be attached to genuinely flexible work — and whether, once attached, anyone actually enforces them, given that even Prop 22's modest promised benefits have gone largely unenforced.",
+    "Both sides accept that gig work offers schedule flexibility traditional jobs rarely do, that the legal test should turn on the day-to-day working relationship rather than the contract's label, and that reclassifying drivers as employees would raise platform labor costs, some of which would reach prices, hours or the number of shifts.",
+    "They split over how much control platform algorithms really exert over fares, dispatch and deactivation compared with employers and true contractors — the question behind California's Prop 22 vote, the UK's Uber and Bolt rulings and the EU's 2024 Platform Work Directive; and over whether employee status would leave gig workers better off overall once pay, hours and market size are counted.",
   ],
   pillars: [
     {
@@ -47,7 +46,7 @@ export const gigEconomyRegulationData = {
           supporter_flip:
             "If an algorithm audit showed drivers genuinely operate like independent businesses — setting their own prices, choosing clients, facing no acceptance-rate scoring or unilateral deactivation, and bearing no more control than a freelance consultant — then the 'misclassification' case would collapse and the contractor label would be factually accurate.",
           skeptic_flip:
-            "A skeptic who treats flexibility as proof of independence should weigh that platforms set the fare, assign the trip, score acceptance and cancellation, and can deactivate without appeal — the precise levers of control courts in Uber v Aslam and the 2024 Bolt tribunal found decisive — so 'they choose their hours' doesn't settle whether the relationship is employment.",
+            "If audits confirmed that platforms set the fare, assign the trip, score acceptance and cancellation and deactivate without appeal, the levers courts weighed in Uber v Aslam and the 2024 Bolt tribunal, 'they choose their hours' would no longer settle that drivers are independent.",
           common_ground:
             "Both sides agree gig work offers schedule flexibility that traditional employment rarely does, and that the legal test should turn on the actual day-to-day working relationship rather than the contract's label.",
           live_disagreement:
@@ -133,7 +132,7 @@ export const gigEconomyRegulationData = {
           supporter_flip:
             "If post-directive data from the EU showed reclassification sharply shrank the market — platforms cutting onboarded drivers, capping hours, and raising consumer prices enough that total worker earnings and available work fell — then mandating employee status would be a net loss for the very workers it aims to protect.",
           skeptic_flip:
-            "A skeptic who assumes protections must kill flexibility should weigh that several European economies with stronger labor rules still sustain active platform sectors, and that headline gross pay overstates take-home once fuel, insurance, depreciation, and unpaid waiting time are netted out — so 'reclassification destroys the model' is an empirical claim, not a given.",
+            "If European economies with stronger labor rules kept active platform sectors after reclassification, and take-home pay net of fuel, insurance, depreciation and unpaid waiting time came in well below headline gross pay, 'reclassification destroys the model' would lose its footing.",
           common_ground:
             "Both sides agree reclassification raises platform labor costs and that some of that cost flows through to prices, hours, or the number of available shifts; the dispute is the magnitude and who ultimately bears it.",
           live_disagreement:

@@ -11,17 +11,16 @@ export const sportsBettingLegalizationData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Since the Supreme Court struck down the federal ban in 2018 (Murphy v. NCAA), legal US sportsbooks have exploded from one state to 38-plus, taking a record $148 billion in bets in 2024 alone — yet the best causal study of the result found that for every $1 households bet online, their net investments fell by about 99 cents. The money is overwhelmingly not 'extra' entertainment spending; it is largely savings and stock investments that vanish, concentrated among financially fragile households.",
+      "Before the Supreme Court's 2018 Murphy v. NCAA ruling, Americans wagered an estimated $64 billion a year on sports with illegal bookies and offshore sites. By 2024, legal sportsbooks in 38 states plus DC took a record $147.9 billion in bets. Both figures are real. The fight is over how much of that legal handle is old betting brought into the open, and how much is new betting that legalization created.",
     confidence: 78,
     source:
-      "Murphy v. NCAA (2018); American Gaming Association 2024 handle ($147.9B); Baker, Balthrop, Johnson, Kotter & Pisciotta, 'Gambling Away Stability,' NBER WP 33108 (2024)",
-    sourceUrl: "https://www.nber.org/papers/w33108",
+      "American Gaming Association, 'Sizing the Illegal and Unregulated Gaming Markets' (2022) and 2024 Commercial Gaming Revenue; Murphy v. NCAA (2018)",
+    sourceUrl: "https://www.americangaming.org/new-aga-report-shows-americans-gamble-more-than-half-a-trillion-dollars-illegally-each-year/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Sports betting was happening anyway — Americans wagered an estimated $64 billion a year with illegal bookies and offshore sites before legalization, with zero consumer protection, no tax collection, and no integrity monitoring; bringing that into the open captured roughly $3 billion in 2024 state tax revenue and routed suspicious-bet alerts to leagues that exposed real match-fixing.",
-    "But the honest counterpoint is large and well-documented: the same convenience that displaces black-market betting also massively expands total betting, and the best household-finance studies find legalization reduces savings, raises bankruptcy and debt-collection rates, and concentrates harm on young, low-income men — costs a prohibition era largely externalized to bookies.",
-    "So the real debate is not 'ban it or allow it' in the abstract — prohibition demonstrably failed and drove demand underground — but whether a tightly regulated market can keep the consumer-protection and tax upside while curbing the addiction, financial-ruin, and advertising-saturation harms that frictionless mobile betting predictably produces.",
+    "Both sides accept that a large illegal sports-betting market existed before 2018, that the early US mobile-betting model cut savings and raised financial distress among vulnerable households, and that problem-gambling helpline calls rose after legalization even as legal monitoring caught real match-fixing.",
+    "They split over how much legal betting replaces illegal betting rather than adding new betting; whether mandatory safeguards such as deposit limits and affordability checks can break the link between betting volume and harm; and whether legal monitoring and treatment prevent more harm than the added volume creates.",
   ],
   pillars: [
     // =========================================================================
@@ -57,7 +56,7 @@ export const sportsBettingLegalizationData = {
           supporter_flip:
             "If a clean difference-in-differences analysis showed that legalization mostly induces brand-new betting volume rather than displacing illegal handle — so total household gambling outflows jump sharply rather than merely changing channels — then the 'we're just capturing existing demand' defense collapses and legalization owns the resulting financial harm.",
           skeptic_flip:
-            "A skeptic who treats all legal handle as new harm should weigh the AGA estimate of ~$64B in pre-existing illegal sports wagering and GeoComply evidence that enforcement converts offshore bettors to legal sites — meaning a substantial share of legal volume is displaced demand that already existed with worse protections.",
+            "If player-level data showed most legal handle coming from bettors who left offshore books, testing the AGA's ~$64B estimate of pre-existing illegal wagering, legal volume would look like displaced demand rather than new harm.",
           common_ground:
             "Both sides agree a large illegal market existed before 2018 and that legal mobile betting also recruits some bettors who would not have used an offshore book.",
           live_disagreement:
@@ -181,7 +180,7 @@ export const sportsBettingLegalizationData = {
           supporter_flip:
             "If cross-jurisdiction analysis showed bankruptcy, savings-depletion, and debt outcomes track total betting volume regardless of which harm-reduction tools are mandated — because the heaviest losers reliably route around limits and self-exclusion — then the 'regulate the harm away' defense fails and the harms are structural to frictionless mobile betting.",
           skeptic_flip:
-            "A skeptic who calls regulation futile should weigh that legal operators can be compelled to verify age, honor self-exclusion, and impose hard affordability caps that offshore books cannot — and that jurisdictions with mandatory (not opt-in) limits and ad restrictions are the untested comparison, not the lightly regulated first-generation US market the harm studies measured.",
+            "If jurisdictions with mandatory (not opt-in) affordability caps, enforced self-exclusion and ad limits showed far lower harm than the lightly regulated first US markets the harm studies measured, the view that regulation is futile would lose its footing.",
           common_ground:
             "Both sides accept the NBER and credit-bureau evidence that the early US mobile-betting model reduced savings and raised financial distress, concentrated among vulnerable households.",
           live_disagreement:
@@ -303,7 +302,7 @@ export const sportsBettingLegalizationData = {
           supporter_flip:
             "If a net-externality ledger showed legalization manufactures more new addiction, IPV, and prop-bet manipulation than its monitoring and treatment infrastructure catches or mitigates — i.e., the third-party harms clearly exceed prohibition's — then 'regulated monitoring protects integrity and people' fails on net.",
           skeptic_flip:
-            "A skeptic should weigh that integrity monitoring demonstrably exposed real match-fixing that offshore books would have hidden, and that legally mandated helpline advertising routes at-risk people to treatment that did not exist underground — so part of the measured 'surge' is harm finally being detected and addressed, not solely harm created.",
+            "If integrity monitoring kept exposing match-fixing that offshore books would have hidden, and mandated helpline ads kept routing at-risk bettors into treatment, part of the measured 'surge' would look like harm finally detected rather than harm created.",
           common_ground:
             "Both sides agree problem-gambling helpline calls rose sharply after legalization, that legal monitoring has caught real integrity violations, and that granular prop bets create manipulation incentives.",
           live_disagreement:

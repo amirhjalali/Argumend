@@ -9,18 +9,17 @@ export const aiReplacingDoctorsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "AI already matches or beats physicians on narrow tasks — reading radiology and dermatology images at expert level, and GPT-4 outscored doctors on diagnostic-reasoning vignettes. Yet the FDA has cleared 950+ medical-AI devices and not one replaces a doctor: they assist. Real medicine is messier than the benchmark — incomplete data, physical exams, liability, and the human relationship.",
+      "In a 2020 Nature study, an AI system outperformed all six radiologists it was tested against at reading mammograms. By late 2024 the FDA had authorized roughly 1,000 AI-enabled medical devices, and every one cleared so far assists a doctor rather than working unsupervised. Each side accepts both facts. The fight is over whether wins like that carry into messy clinics and real patient outcomes, and whether the law will let AI work alone within a decade.",
     confidence: 80,
     source:
-      "FDA AI-enabled medical device list (950+, all assistive); JAMA/Nature studies on AI vs. physician diagnostic accuracy; WHO guidance (2021)",
+      "McKinney et al., Nature (2020); FDA list of AI-enabled medical devices (2024)",
     sourceUrl:
-      "https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices",
+      "https://doi.org/10.1038/s41586-019-1799-6",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "On narrow, well-defined tasks AI is already at or above physician level: it reads mammograms and skin lesions as well as specialists, and in head-to-head vignette studies GPT-4 outscored doctors on diagnostic reasoning.",
-    "But not a single one of the FDA's 950+ cleared medical-AI devices replaces a doctor — they all assist — because real practice is messier than the benchmark: incomplete and noisy data, the physical exam, managing chronic and mental illness, edge-case rare diseases, and the question of who is liable when the algorithm is wrong.",
-    "So the honest debate isn't whether AI can match a doctor on a clean test case (it can) but whether it can take over the whole job — generalizing to messy real-world patients, earning patient trust, and clearing a liability-and-regulatory bar that, so far, keeps a human in the loop.",
+    "Both sides accept that AI performs at or above expert level on narrow diagnostic tasks like reading mammograms and skin lesions, that medicine is more than diagnosis, that every FDA-cleared medical AI so far is assistive, and that liability for an autonomous AI's errors is legally unsettled.",
+    "They split over whether benchmark accuracy holds up on messy real-world clinical data across populations; whether AI-led care can match physician-led care on mortality and other patient outcomes, which no trial has yet tested; and whether regulators and malpractice law will allow unsupervised AI diagnosis within about ten years, or keep a doctor in the loop much longer.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=60",
@@ -117,7 +116,7 @@ export const aiReplacingDoctorsData = {
           supporter_flip:
             "If multi-site trials showed AI diagnostic accuracy collapses on real-world, messy, multi-ethnic clinical data — performing far worse than on clean benchmark images and missing rare conditions — the 'AI will out-diagnose most doctors in a decade' claim would fail at the point that matters.",
           skeptic_flip:
-            "A skeptic who says benchmarks are hype should weigh that AI already matches specialists on real radiology and dermatology reads (not just toy data) and that LLMs outperform physicians on clinical-reasoning vignettes — so 'it only works on clean test cases' is an empirical claim a real-world trial could refute.",
+            "If a multi-site real-world trial found AI matching specialists on radiology and dermatology reads across populations, and LLMs kept outperforming physicians on clinical-reasoning vignettes, 'it only works on clean test cases' would be hard to hold.",
           common_ground:
             "Both sides agree AI performs at or above expert level on narrow, well-defined diagnostic tasks, and that no AI yet diagnoses autonomously in routine practice.",
           live_disagreement:
@@ -280,7 +279,7 @@ export const aiReplacingDoctorsData = {
           supporter_flip:
             "If a randomized trial found AI-primary care produced worse patient outcomes than physician care — missing psychosocial factors, mismanaging chronic and mental illness, eroding adherence and trust — the case that AI can run the whole patient relationship would collapse to 'diagnostic tool, not doctor.'",
           skeptic_flip:
-            "A skeptic who says medicine needs a human should weigh that much of the 'human element' (triage, follow-up, empathy scripts) is increasingly automatable and that AI is available 24/7 without burnout — so the claim that only a human can manage patients is testable, not self-evident.",
+            "If trials found AI handling much of the human element, such as triage, follow-up and empathy scripts, around the clock with patient outcomes matching physician-led care, the claim that only a human can manage patients would lose its footing.",
           common_ground:
             "Both sides agree medicine is more than diagnosis — physical exam, the relationship, managing chronic and mental illness — and that no trial has yet compared AI-primary to physician-primary care on hard outcomes.",
           live_disagreement:
@@ -394,7 +393,7 @@ export const aiReplacingDoctorsData = {
           supporter_flip:
             "If analysis showed regulators won't approve autonomous (unsupervised) AI diagnosis within a decade — because liability has no clear home and risk officers won't adopt it — the 'fundamental disruption within 10 years' timeline would be wrong regardless of raw accuracy.",
           skeptic_flip:
-            "A skeptic who says regulation will block it forever should weigh that the FDA has already cleared 950+ medical-AI devices and is building adaptive frameworks for learning algorithms, and that regulation adapted fast to telemedicine and robotic surgery — so 'regulators will never allow it' overstates the barrier.",
+            "If the FDA's adaptive frameworks for learning algorithms, built on 950+ cleared medical-AI devices, moved toward clearing autonomous diagnosis as fast as rules adapted to telemedicine and robotic surgery, 'regulators will never allow it' would overstate the barrier.",
           common_ground:
             "Both sides agree every FDA-cleared medical AI to date is assistive (human-supervised), and that liability for an autonomous AI's errors is still legally unsettled.",
           live_disagreement:

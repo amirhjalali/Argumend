@@ -41,7 +41,7 @@ export const genderAffirmingCareMinorsData = {
           supporter_flip:
             "If independent teams applying identical GRADE methods — one from a country with permissive guidelines, one from a country that restricted access, one with no prior policy — all found the evidence low-quality and weaker than for comparable accepted pediatric treatments, the case for routine access outside research settings would weaken.",
           skeptic_flip:
-            "A skeptic who trusts the European reviews should weigh that every major US medical organization, from the AAP to the Endocrine Society, supports access, that Tordoff et al. found 60% lower odds of moderate-to-severe depression and 73% lower odds of suicidality over 12 months, and that few areas of pediatric medicine have randomized trials.",
+            "If new studies repeated Tordoff et al.'s 60% lower odds of moderate-to-severe depression and 73% lower odds of suicidality over 12 months, and the evidence looked like that for other pediatric care without randomized trials, the European reviews would weigh less against the AAP and Endocrine Society's support.",
           common_ground:
             "Both sides agree there are no randomized trials here, that the Cass Review and reviews in Finland and Sweden rated the evidence low quality, and that major US medical bodies still support access.",
           live_disagreement:
@@ -154,7 +154,7 @@ export const genderAffirmingCareMinorsData = {
           supporter_flip:
             "If a prospective study using the MacArthur Competence Assessment Tool found adolescents at gender clinics systematically less able than adults, or than teens consenting to other treatments, to understand long-term consequences, stronger safeguards or age thresholds would be warranted.",
           skeptic_flip:
-            "A skeptic worried about consent should weigh that adolescents already consent to psychiatric medications with significant side effects, that testosterone is given to cisgender teenage boys with delayed puberty, and that withholding treatment is not neutral: endogenous puberty brings its own partially irreversible changes.",
+            "If capacity studies found teens at gender clinics consenting as well as teens taking psychiatric drugs with serious side effects, or cisgender boys given testosterone for delayed puberty, and counted endogenous puberty's own partly irreversible changes, the consent worry would lose much of its force.",
           common_ground:
             "Both sides agree some changes are permanent either way: cross-sex hormones cause partially irreversible effects, and so does endogenous puberty.",
           live_disagreement:
@@ -245,7 +245,7 @@ export const genderAffirmingCareMinorsData = {
           supporter_flip:
             "If a 20-year prospective cohort comparing medical treatment, psychosocial support alone and no treatment found high regret, significant complications or no mental-health advantage for the medical pathway, the treatment paradigm would need fundamental revision.",
           skeptic_flip:
-            "A skeptic who wants long-term data first should weigh that puberty blockers have been used for precocious puberty since the 1980s, that fertility preservation is available before cross-sex hormones, and that stimulants for ADHD, SSRIs and growth hormone are prescribed to children without 30-year trial data.",
+            "If follow-up of children given puberty blockers for precocious puberty since the 1980s showed no lasting harm, and fertility preservation before hormones worked as offered, the demand for long-term data first would ask more than is asked of ADHD stimulants, SSRIs or growth hormone.",
           common_ground:
             "Both sides agree there is no 20- or 30-year outcome data — most studies follow patients for under 5 years — and that bone density and fertility need monitoring and planning.",
           live_disagreement:

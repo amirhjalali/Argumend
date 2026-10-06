@@ -10,17 +10,16 @@ export const collegeValuePropositionData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The median bachelor's holder earns about $1.2 million more over a lifetime than a high-school graduate (Georgetown), and the degree's annualized return has held near 12.5% for three decades (NY Fed) — yet the \"average\" hides enormous variance: roughly 31% of workers with only a high-school diploma out-earn the typical associate-degree holder, and more than 40% of recent graduates start out underemployed (in jobs that never required a degree). The degree still pays for most who finish, but it is a bet whose odds swing on major, institution, and completion.",
+      "Georgetown's Center on Education and the Workforce puts median lifetime earnings at $2.8 million for bachelor's holders against $1.6 million for high-school graduates. Federal data show about 28% of undergraduate borrowers default within 12 years: about 8% of those who finish a degree, far more among dropouts and for-profit attendees. Both sides accept these numbers. The fight is over how many school-and-major combinations pay off once you account for who enrolls.",
     confidence: 86,
     source:
-      "Georgetown CEW, 'The College Payoff' (2021); Federal Reserve Bank of New York, 'Is College Still Worth It?' (2025) & 'The Labor Market for Recent College Graduates'",
-    sourceUrl: "https://libertystreeteconomics.newyorkfed.org/2025/04/is-college-still-worth-it/",
+      "Georgetown CEW, 'The College Payoff' (2021); Brookings (Looney & Yannelis), using federal student-loan data",
+    sourceUrl: "https://cew.georgetown.edu/cew-reports/collegepayoff2021/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "For students who finish, the four-year degree is still one of the best financial bets available: Georgetown puts median lifetime earnings at $2.8M for bachelor's holders versus $1.6M for high-school graduates (a ~75% gap), and the NY Fed estimates an annualized return of about 12.5% that has held between 12-13% for thirty years — with the wage premium widening as workers age.",
-    "But the average tells an individual almost nothing about their own bet: roughly 31% of high-school-only workers out-earn the typical associate-degree holder, more than 40% of recent graduates begin underemployed, and the heaviest student-debt distress is concentrated among non-completers and for-profit attendees — so for the wrong major at the wrong price, or for someone who doesn't graduate, the math can turn sharply negative.",
-    "So the honest debate isn't whether college pays off on average (for completers it clearly does) but whether it pays off for this student, in this major, at this price — a question the aggregate figures can't answer and that turns on disaggregated, major-and-institution-level ROI.",
+    "Both sides accept that the payoff from a four-year degree varies enormously by major, institution and whether the student graduates, that headline lifetime-earnings averages hide that spread, and that in fields like software and the skilled trades faster, cheaper paths now produce strong early outcomes with a thin ten-year record.",
+    "They split over what share of school-and-major combinations clear a real return once you account for who enrolls; and over whether bootcamps, apprenticeships and skills-based hiring can match the degree's earnings and mobility beyond the first job and into mid-career.",
   ],
   pillars: [
     {
@@ -50,7 +49,7 @@ export const collegeValuePropositionData = {
           supporter_flip:
             "If College Scorecard and IRS earnings data showed that, once you control for student selectivity (the kind of student who enrolls), most institution-major combinations produced near-zero or negative 20-year ROI — and the positive aggregate was driven by a narrow band of elite programs — then 'the degree pays off' would collapse into 'a few degrees pay off, most don't.'",
           skeptic_flip:
-            "A skeptic pointing to debt and underemployment should weigh that defaults concentrate among non-completers and for-profit attendees (bachelor's completers default at ~8% vs. for-profit attendees near ~47%), that the wage premium widens with age rather than fading, and that median bachelor's wages still run roughly two-thirds above high-school wages — so the visible distress is largely a completion-and-institution problem, not proof the credential lacks value.",
+            "If new data kept defaults concentrated among non-completers and for-profit attendees (about 8% for bachelor's completers against about 47% at for-profits), with the wage premium widening with age, the visible distress would look like a completion-and-institution problem rather than a sign the credential lacks value.",
           common_ground:
             "Both sides agree the return varies enormously by major, institution, and whether the student graduates, and that the headline lifetime-earnings averages obscure that variance.",
           live_disagreement:
@@ -155,7 +154,7 @@ export const collegeValuePropositionData = {
           supporter_flip:
             "If a longitudinal cohort study tracked bootcamp and trade-certificate entrants for 10+ years and found their earnings, employment stability, and mobility kept pace with — or beat — comparable degree holders across more than a narrow set of software and skilled-trade roles, then the claim that the degree is the only durable on-ramp would fail.",
           skeptic_flip:
-            "A skeptic championing alternatives should weigh that when employers dropped degree requirements, actual hiring of non-degree candidates rose only ~3.5 percentage points (Burning Glass/Harvard), that bootcamp placement is self-reported with inconsistent definitions, and that the college wage premium widens with age (roughly 27% at 25 to ~60% by 55) — so first-job parity may not survive into mid-career.",
+            "If longer tracking, extending the Burning Glass/Harvard estimate that dropping degree requirements raised non-degree hiring only ~3.5 points, found audited bootcamp placement below self-reported rates and the degree premium widening from about 27% at 25 to about 60% by 55, first-job parity would look unlikely to last.",
           common_ground:
             "Both sides agree that for some specific fields (software, skilled trades) faster, cheaper non-degree paths now produce strong early outcomes, and that 10-year trajectories for those paths are thinly documented.",
           live_disagreement:

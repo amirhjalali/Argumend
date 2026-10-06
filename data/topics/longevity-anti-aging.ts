@@ -40,7 +40,7 @@ export const longevityAntiAgingData = {
           supporter_flip:
             "If 10-year primate studies of rapamycin and senolytic combinations showed little gain in lifespan or healthspan despite the dramatic mouse results, the translational gap for lifespan extension could be unbridgeable, and passing 120 within our lifetimes would look out of reach.",
           skeptic_flip:
-            "A skeptic who sees only mouse results should weigh that rapamycin has extended lifespan in every organism tested, including 9-14% in mice even when started late in life, and that cyclic partial reprogramming reversed age-related vision loss in old mice without tumor formation.",
+            "If primate studies matched rapamycin's record in other organisms, including 9-14% longer life in mice started late in life, and cyclic partial reprogramming kept reversing age-related vision loss without tumors, the gains would look like more than mouse results.",
           common_ground:
             "Both sides agree the striking results so far come from short-lived animals — a 30% gain in a mouse is a matter of months — and that human evidence is still early and small.",
           live_disagreement:
@@ -148,7 +148,7 @@ export const longevityAntiAgingData = {
           supporter_flip:
             "If 20+ year biobank follow-up and the TAME trial showed that improving epigenetic age does not track fewer cancers, cardiovascular events, cognitive decline or deaths, the field would lack a feasible way to test longevity treatments in humans, and a within-our-lifetimes timeline would slip away.",
           skeptic_flip:
-            "A skeptic who calls the biomarkers artifacts should weigh that the GrimAge clock predicts time to death, cancer and coronary heart disease in independent cohorts totaling over 15,000 people, and that healthspan effects can be measured in 5-10 year trials rather than lifetime follow-up.",
+            "If more independent cohorts, beyond the 15,000-plus people studied so far, confirmed that the GrimAge clock predicts time to death, cancer and heart disease, and 5-10 year trials could move it, the biomarkers would look like a usable stand-in rather than artifacts.",
           common_ground:
             "Both sides agree a human lifespan trial would take 80+ years, so the field depends on biomarkers, and that the gap between animal results and human outcomes is real.",
           live_disagreement:
@@ -222,7 +222,7 @@ export const longevityAntiAgingData = {
           supporter_flip:
             "If cost analyses projected the most effective regimens staying at $10,000+ a month long after validation, rather than falling under $500 a month within 15 years as chronic-disease drugs have, a biological class divide would become likely whatever policy intends.",
           skeptic_flip:
-            "A skeptic who fears a biological aristocracy should weigh that medical advances from antibiotics to gene sequencing started expensive and became cheap, that metformin costs under $4 a month and rapamycin is generic, and that pensions and social contracts adapted through the 20th century's demographic transition.",
+            "If longevity treatments went from expensive to cheap the way antibiotics and gene sequencing did, starting with metformin (under $4 a month) and generic rapamycin, and pensions adapted as they did through the 20th century, a biological aristocracy would look unlikely.",
           common_ground:
             "Both sides agree the most intensive protocols today are extremely expensive — Bryan Johnson's costs over $2 million a year — while some candidate drugs, such as metformin and generic rapamycin, are cheap.",
           live_disagreement:

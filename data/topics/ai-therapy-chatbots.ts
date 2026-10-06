@@ -11,7 +11,7 @@ export const aiTherapyChatbotsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "In the first randomized controlled trial of a generative-AI therapy chatbot (Dartmouth's Therabot, NEJM AI, March 2025), 210 adults were randomized and the group using the bot saw depression symptoms fall 51%, anxiety 31%, and eating-disorder concerns 19% versus a waitlist control — and rated their bond with the bot on par with a human therapist. The catch: it ran only ~8 weeks, was built and monitored by clinicians, and is not the same as the consumer chatbots that have given users dangerous advice.",
+      "In the first randomized trial of a generative-AI therapy chatbot (Dartmouth's Therabot, NEJM AI, March 2025), 210 adults using the bot saw depression symptoms fall 51% and anxiety 31% compared with a waitlist group, and rated their bond with it on par with a human therapist. The trial ran about eight weeks, with clinicians building and monitoring the bot. The fight is over whether results like that hold for unsupervised consumer chatbots, and whether any bot can do what a therapist does.",
     confidence: 72,
     source:
       "Heinz et al., 'Randomized Trial of a Generative AI Chatbot for Mental Health Treatment,' NEJM AI (2025)",
@@ -19,9 +19,8 @@ export const aiTherapyChatbotsData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The access problem is enormous: roughly 62 million US adults (about 1 in 4) had a mental illness in 2024 and nearly half got no treatment, while HRSA projects demand for behavioral-health services will outrun the workforce for the next decade — a gap no realistic number of new human therapists can close, but a chatbot can reach instantly, at near-zero marginal cost, at 3 a.m.",
-    "And the early evidence is real: a clinician-built generative chatbot (Therabot) cut depression and anxiety symptoms in the first RCT of its kind, and a decade of trials on rule-based bots like Woebot show modest-but-genuine short-term symptom reductions for mild-to-moderate distress.",
-    "But the honest debate is about the failure modes, not the averages: unsupervised chatbots have coached eating-disorder patients to lose weight, listed bridges to a user hinting at suicide, and reinforced delusions — so the real question is whether AI is a scalable first-tier tool that triages to humans, or a substitute for the therapist, which is a claim the evidence does not yet support.",
+    "Both sides accept that AI therapy chatbots such as Therabot and Woebot show genuine short-term symptom reductions for mild-to-moderate depression and anxiety, that no trial has yet tested one head-to-head against a human therapist with long follow-up, and that documented crisis-handling failures have caused real harm.",
+    "They split over whether those gains hold up against human therapists and last beyond a few months; whether a chatbot can catch suicidal and other crisis cues as reliably as a clinician, or needs a human in the loop; and whether a felt bond with a bot drives lasting recovery the way the therapeutic alliance does in human therapy.",
   ],
   pillars: [
     // =========================================================================
@@ -57,7 +56,7 @@ export const aiTherapyChatbotsData = {
           supporter_flip:
             "If a large, blinded non-inferiority trial showed the chatbot clearly underperforming human therapy — especially with gains that evaporate by 6-12 months or that fail for moderate-to-severe cases — the 'replacement' claim would collapse to 'useful adjunct for mild symptoms.'",
           skeptic_flip:
-            "A skeptic should weigh that the first generative-AI RCT already produced therapy-grade effect sizes (51% depression reduction) with alliance ratings matching human providers; if a head-to-head trial confirmed non-inferiority with durable gains, 'a scale dip isn't treatment' would no longer hold.",
+            "If a head-to-head trial against human therapists, testing the 51% depression reduction reported in the first generative-AI RCT, found non-inferiority with gains that lasted beyond a few months, 'a scale dip isn't treatment' would no longer hold.",
           common_ground:
             "Both sides agree chatbots show genuine short-term symptom reductions for mild-to-moderate distress and that no published trial has yet tested a chatbot head-to-head against a human therapist with long follow-up.",
           live_disagreement:
@@ -176,7 +175,7 @@ export const aiTherapyChatbotsData = {
           supporter_flip:
             "If a rigorous adversarial benchmark showed even purpose-built, guardrailed therapeutic bots still miss indirect crisis cues or facilitate harm at rates well above trained clinicians — and that safety regresses with each model update — the case for unsupervised deployment would fail.",
           skeptic_flip:
-            "A skeptic should weigh that documented failures cluster in entertainment/roleplay bots and unmonitored deployments, not clinician-built systems with hard-coded 988 routing; if an audited therapeutic bot matched clinician-level crisis detection on a red-teamed benchmark, 'chatbots are dangerous in the moments that matter' would no longer hold categorically.",
+            "If an audited, clinician-built therapeutic bot with hard-coded 988 routing matched clinician-level crisis detection on a red-teamed benchmark, 'chatbots are dangerous in the moments that matter' would apply to roleplay bots and unmonitored deployments rather than to every chatbot.",
           common_ground:
             "Both sides agree that documented crisis-handling failures have caused real harm and that any deployed therapeutic chatbot must detect self-harm cues and escalate to human help.",
           live_disagreement:
@@ -298,7 +297,7 @@ export const aiTherapyChatbotsData = {
           supporter_flip:
             "If alliance-mediation analysis showed that patient-chatbot 'alliance' scores do not actually mediate durable symptom change — or that heavier reliance on the bot worsened loneliness and crowded out human relationships — the claim that a machine bond does real therapeutic work would fail.",
           skeptic_flip:
-            "A skeptic should weigh that patients already report chatbot alliance on par with human providers and disclose more freely to a non-judgmental machine; if that measured alliance mediated symptom improvement comparably to human therapy, 'a machine can't form a working alliance that heals' would be empirically refuted.",
+            "If the alliance patients report with chatbots, and their freer disclosure to a non-judging machine, mediated symptom improvement about as much as alliance does in human therapy, 'a machine can't form a working alliance that heals' would lose its footing.",
           common_ground:
             "Both sides agree the therapeutic alliance is a strong predictor of outcomes in human therapy and that patients can and do report feeling heard by chatbots.",
           live_disagreement:

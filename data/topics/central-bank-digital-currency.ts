@@ -12,18 +12,16 @@ export const centralBankDigitalCurrencyData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The dystopia people fear most — a US government CBDC tracking and freezing every purchase — is the one thing that is not happening: in January 2025 a US executive order (EO 14178) banned federal agencies from building a CBDC, and the House passed an Anti-CBDC bill. Meanwhile, where a CBDC actually launched, almost nobody used it: the IMF found that roughly 98.5% of Nigeria's eNaira wallets had never been used a year after launch.",
+      "China's digital yuan, the e-CNY, has been tested with stimulus money that expires and can be spent only in approved districts. Nigeria's eNaira, launched in October 2021, was actively used by fewer than 1% of Nigerians by 2023. Both sides accept both facts. The fight is over whether any central bank digital currency can be built so that surveillance is impossible by design, not just forbidden by rules.",
     confidence: 88,
     source:
-      "Executive Order 14178 (Jan 23, 2025); IMF Working Paper WP/23/104, 'Nigeria's eNaira, One Year After' (2023); Atlantic Council CBDC Tracker",
-    sourceUrl:
-      "https://www.imf.org/en/Publications/WP/Issues/2023/05/16/Nigerias-eNaira-One-Year-After-533487",
+      "People's Bank of China, via the Atlantic Council CBDC Tracker; IMF Working Paper WP/23/104, 'Nigeria's eNaira, One Year After' (2023)",
+    sourceUrl: "https://www.atlanticcouncil.org/cbdctracker/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The fear has real teeth: China's e-CNY has already been tested with money that expires on a deadline and can only be spent in approved districts, and in 2022 Canada froze over 200 bank accounts of protesters without a court order — proving governments will use financial-system access as a lever, and a CBDC would make such control instant, automated, and granular.",
-    "But the honest counterpoint is that the existing system already surveils nearly everything (banks, card networks, and tax authorities see your transactions), the US is now legally barred from issuing a CBDC, and the CBDCs that did launch — Nigeria's eNaira, the Bahamas' Sand Dollar — were rejected by their own citizens, so the technology is neither inevitable nor irresistible.",
-    "So the honest debate isn't whether a CBDC could enable surveillance and control — technically it can — but whether privacy can be enforced by architecture (cryptography that makes spying impossible) rather than by policy promises that crumble under the next terrorist attack or financial crisis.",
+    "Both sides accept that the existing financial system is already heavily surveilled and that a CBDC's privacy depends on whether protections are built into the cryptography or only written into rules; that the unbanked are kept out mainly by poverty, missing ID and distrust rather than missing technology; and that the dollar dominates trade settlement, so any CBDC challenge to it would come gradually.",
+    "They split over whether any CBDC design, such as the ECB's digital euro, can make surveillance technically impossible; whether CBDCs reach people that mobile money like Kenya's M-Pesa does not; and whether cross-border platforms like mBridge can grow large enough to blunt US sanctions.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=60",
@@ -95,7 +93,7 @@ export const centralBankDigitalCurrencyData = {
           supporter_flip:
             "If a cryptographic review showed that a deployed CBDC architecture (e.g., one built on zero-knowledge proofs) makes transaction-level surveillance and selective freezing technically impossible even for the issuing central bank — not merely prohibited by policy — the 'unprecedented surveillance and control' charge would collapse to a design-choice problem rather than an inherent property.",
           skeptic_flip:
-            "A skeptic who calls the fears illiterate should weigh that China's e-CNY has already been tested with expiry dates and geographic spending limits, that Canada froze 200+ accounts in 2022 under emergency powers, and that every privacy promise to date is policy-enforced (revocable) rather than architecturally enforced (irreversible) — so the capability for control demonstrably exists.",
+            "If more CBDC pilots tested expiry dates and geographic spending limits as the e-CNY did, and privacy stayed a revocable policy promise rather than an architectural limit, Canada's 2022 freezes of 200+ accounts would look like a preview, and the fears would be hard to dismiss.",
           common_ground:
             "Both sides agree the existing financial system is already heavily surveilled, and that a CBDC's privacy depends entirely on whether protections are baked into the cryptography or merely written into rules.",
           live_disagreement:
@@ -188,9 +186,9 @@ export const centralBankDigitalCurrencyData = {
           "$500K-1.5M (Multi-country comparative financial inclusion study)",
         falsification: {
           supporter_flip:
-            "A supporter who points to M-Pesa should weigh that mobile-money networks are privately controlled, fragmented across providers, and often non-interoperable, whereas a central-bank-backed, universally interoperable unit could in principle deliver crisis stimulus to every citizen in seconds — something the US visibly failed to do when COVID checks took weeks and missed millions of unbanked people.",
+            "If a central-bank-backed, universally interoperable unit delivered crisis payments to every citizen in seconds, where private, fragmented mobile-money networks and weeks-late COVID checks fell short, the inclusion benefits would weigh against the surveillance worry.",
           skeptic_flip:
-            "A skeptic who rests the case for CBDCs on inclusion should change their mind if a controlled multi-country comparison showed that existing mobile-money and instant-payment rails (M-Pesa, India's UPI) already reach the unbanked and cut remittance costs just as well as a CBDC, with no inclusion gap a CBDC uniquely closes: the inclusion rationale would then shrink to redundancy, leaving the CBDC's added surveillance and bank-disintermediation risks without an offsetting benefit.",
+            "If a controlled multi-country comparison found M-Pesa and India's UPI reaching the unbanked and cutting remittance costs as well as a CBDC, the inclusion rationale would shrink to redundancy, leaving the surveillance and disintermediation risks with no offsetting benefit.",
           common_ground:
             "Both sides agree that financial inclusion is a real and valuable goal and that the unbanked are largely excluded by poverty, missing ID, and distrust rather than by a lack of digital-currency technology.",
           live_disagreement:
@@ -268,7 +266,7 @@ export const centralBankDigitalCurrencyData = {
           supporter_flip:
             "If multi-year tracking showed CBDC bridges like mBridge plateauing at trivial volumes relative to SWIFT (which clears trillions of dollars daily) and failing to give sanctioned states (Russia, Iran) a usable workaround — constrained by liquidity, network effects, and counterparty risk — the 'geopolitical weapon against the dollar' claim would deflate to a marginal, incremental development.",
           skeptic_flip:
-            "A skeptic who calls de-dollarization overstated should weigh that mBridge reached Minimum Viable Product in 2024 with Saudi Arabia joining, that the BIS withdrew partly over sanctions-evasion optics, and that Russia's SWIFT exclusion has actively pushed BRICS-aligned states to seek CBDC alternatives — so the trajectory, not just the current level, is the relevant variable.",
+            "If mBridge kept growing from its 2024 Minimum Viable Product with members like Saudi Arabia, and states shut out of SWIFT kept turning to CBDC rails, the trajectory rather than today's small volume would make de-dollarization hard to call overstated.",
           common_ground:
             "Both sides agree the dollar currently dominates reserves and trade settlement by a wide margin, and that any CBDC challenge to it would unfold gradually rather than as a sudden displacement.",
           live_disagreement:

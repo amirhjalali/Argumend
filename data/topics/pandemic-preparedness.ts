@@ -11,17 +11,16 @@ export const pandemicPreparednessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "COVID cost the US an estimated $16 trillion — more than the price of every war since 9/11 combined — yet the world spends a tiny fraction of that on preventing the next pandemic. On paper, prevention is one of the highest-return public investments there is; the catch is that after every scare (SARS, H1N1), the funding and attention reliably evaporate.",
+      "Economists David Cutler and Lawrence Summers put COVID-19's total cost to the United States at about $16 trillion. In January 2020 the Strategic National Stockpile held 12 million N95 masks against a projected pandemic need of 3.5 billion. Neither figure is in dispute. What divides the sides is how often a pandemic that costly comes, and whether governments can keep paying for readiness between scares.",
     confidence: 82,
     source:
-      "Cutler & Summers, JAMA (2020, ~$16T US COVID cost); post-SARS/H1N1 preparedness-funding history; CEPI/WHO pandemic-fund estimates",
+      "Cutler & Summers, JAMA (2020); HHS Office of Inspector General on the Strategic National Stockpile (2021)",
     sourceUrl: "https://jamanetwork.com/journals/jama/fullarticle/2771764",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The scale is hard to overstate: economists Cutler and Summers put the total US cost of COVID-19 at roughly $16 trillion — more than every American war since 9/11 combined — while the world spends only a tiny fraction of that trying to prevent or blunt the next one.",
-    "On a pure cost-benefit basis, prevention (disease surveillance, vaccine platforms, stockpiles) is one of the highest-return investments a government can make — a few billion a year against trillions in avoided losses, the way fire insurance beats rebuilding.",
-    "So the honest debate isn't whether prevention pays off in expectation (it overwhelmingly does) but whether governments can actually sustain it — because after SARS in 2003 and H1N1 in 2009, the money and the political will faded within a few years, every time.",
+    "Both sides accept that a severe pandemic is enormously costly while most outbreaks are contained with existing capacity, that preparedness funding and attention faded after SARS and H1N1, and that gain-of-function research carries both some lab-accident risk and some scientific value.",
+    "They split over how often truly catastrophic pandemics strike today, which decides whether a few billion a year in surveillance, vaccine platforms and stockpiles pays off; whether reforms like protected funding and independent agencies can outlast the next lull, or bureaucratic incentives always let them lapse; and whether the lab-accident risk of enhanced-pathogen research outweighs its value for defense.",
   ],
   pillars: [
     // =========================================================================
@@ -57,7 +56,7 @@ export const pandemicPreparednessData = {
           supporter_flip:
             "If a rigorous historical-frequency analysis showed pandemic-scale events are genuinely rare and most outbreaks are containable with existing capacity — so the probability-weighted expected cost doesn't justify large upfront spending — the 'highest-return investment' case would weaken to 'nice but not cost-effective.'",
           skeptic_flip:
-            "A skeptic who says it's too speculative should weigh that COVID alone cost ~$16T, that zoonotic spillover risk is rising (deforestation, factory farming, global travel), and that even a low annual pandemic probability times a multi-trillion-dollar loss dwarfs a few-billion-dollar preparedness budget.",
+            "If updated spillover estimates showed pandemic risk rising with deforestation, factory farming and travel, a low yearly probability times a COVID-scale ~$16T loss would outweigh a few-billion-dollar budget, and 'too speculative' would lose its footing.",
           common_ground:
             "Both sides agree a severe pandemic is enormously costly and that most routine outbreaks are contained with existing capacity.",
           live_disagreement:
@@ -198,7 +197,7 @@ export const pandemicPreparednessData = {
           supporter_flip:
             "If comparative analysis showed post-COVID reforms predictably erode within 5-10 years — surveillance defunded, stockpiles depleted, response units cut, as happened after H1N1 — then heavy upfront investment would mostly be wasted on institutions that revert to complacency.",
           skeptic_flip:
-            "A skeptic who says bureaucracies always backslide should weigh that some systems (South Korea's KDCA after MERS) built durable, independent agencies that detected and responded faster in the next outbreak — so 'preparedness always decays' is contradicted by the designs that didn't.",
+            "If more agencies built like South Korea's KDCA after MERS stayed funded and independent and then responded faster in the next outbreak, 'preparedness always decays' would give way to a question of institutional design.",
           common_ground:
             "Both sides agree preparedness funding and attention have historically faded after each scare, and that institutional design affects whether reforms stick.",
           live_disagreement:
@@ -322,7 +321,7 @@ export const pandemicPreparednessData = {
           supporter_flip:
             "If risk assessment showed gain-of-function and dual-use research produces irreplaceable vaccine/therapeutic insights that couldn't be gotten safer ways — and lab-accident risk is genuinely low — then restricting it would increase, not decrease, net pandemic vulnerability.",
           skeptic_flip:
-            "A skeptic who wants the research unrestricted should weigh the documented history of lab accidents with enhanced pathogens and the live debate over COVID's origin — so 'the research is obviously worth the risk' isn't established; the net-risk calculation is genuinely open.",
+            "If new audits of labs handling enhanced pathogens kept turning up accidents, or an origin investigation tied an outbreak to such work, 'the research is obviously worth the risk' would no longer hold and the net-risk calculation would tilt toward restriction.",
           common_ground:
             "Both sides agree gain-of-function research carries some lab-accident risk and some potential scientific benefit; the dispute is the balance.",
           live_disagreement:

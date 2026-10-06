@@ -10,15 +10,14 @@ export const fluorideWaterSuppliesData = {
   category: "science" as const,
   keystone_fact: {
     statement:
-      "The real fight isn't 'is fluoride poison' — it's about margins. Tap water is fluoridated at 0.7 mg/L; the 2024 US National Toxicology Program review linked lower child IQ to fluoride above ~1.5 mg/L. So the live questions are whether that ~2x safety margin is enough, and whether the dental benefit — which the 2024 Cochrane review found has shrunk since fluoride toothpaste went universal — still justifies it.",
+      "U.S. tap water is fluoridated at 0.7 mg/L, and the 2024 National Toxicology Program review linked fluoride above 1.5 mg/L to lower child IQ. Since fluoride toothpaste spread in the 1970s, tooth decay has fallen in both fluoridated and non-fluoridated countries. Both sides accept all three facts. What divides them is whether that twofold margin is enough, and whether fluoride in the water still adds benefit beyond toothpaste.",
     confidence: 80,
-    source: "US National Toxicology Program review (2024); Cochrane review (2024)",
+    source: "US National Toxicology Program review (2024); WHO Oral Health Database",
     sourceUrl: "https://ntp.niehs.nih.gov/research/assessments/noncancer/completed/fluoride",
   },
   simple_case: [
-    "Fluoride at the level used in tap water (0.7 mg/L) is not the poison some claim — but the debate is genuinely about margins and incremental benefit, not myths.",
-    "On benefits: the 2024 Cochrane review found water fluoridation still helps teeth, but far less than before fluoride toothpaste became universal — about a quarter of one tooth surface in baby teeth, with low certainty.",
-    "On safety: the 2024 National Toxicology Program review linked higher fluoride (above ~1.5 mg/L) to lower child IQ; whether the ~2x margin down to 0.7 mg/L is enough — especially for pregnant women and infants with other fluoride sources — is the unresolved question.",
+    "Both sides accept that the recommended level is 0.7 mg/L, that fluoride above 1.5 mg/L, as in parts of China and India, is associated with lower IQ, that cavity rates fell in fluoridated and non-fluoridated countries alike once fluoride toothpaste spread, and that public health already uses population-wide measures like chlorination without individual consent.",
+    "They split over whether swallowed fluoride still adds meaningful benefit beyond toothpaste — the CDC estimates about 25% less tooth decay, the 2024 Cochrane review a much smaller effect in the toothpaste era; whether the twofold margin to 1.5 mg/L is enough once toothpaste, food, tea, infants and pregnancy are counted; and whether fluoridating everyone's water is justified when most of Western Europe delivers fluoride other ways, and whether those alternatives reach the people who need it most.",
   ],
   pillars: [
     // =========================================================================

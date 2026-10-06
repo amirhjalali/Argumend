@@ -9,17 +9,16 @@ export const section230ReformData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The 26 words that 'created the internet' — Section 230 — passed the House 420-4 in 1995 (and was signed into law as part of the Telecommunications Act in Feb. 1996) to fix a paradox: a 1995 court (Stratton Oakmont v. Prodigy) had ruled that a platform which moderates ANY posts becomes legally liable for ALL of them, so 230 was written to let sites remove bad content without being sued for everything else. The myth is that 230 is a blanket 'do nothing' shield; in reality it already carves out federal crimes, sex-trafficking, and intellectual property — and in 2024 a federal appeals court (Anderson v. TikTok) held it does not protect a platform's own algorithmic recommendations.",
+      "Section 230 passed the House 420-4 to undo Stratton Oakmont v. Prodigy, a 1995 ruling that made a platform which moderated some posts liable for all of them. It already excludes federal crimes, intellectual property and sex trafficking, and in 2024 the Third Circuit held in Anderson v. TikTok that it does not bar claims over TikTok's own recommendations. Both sides accept this history. The fight is over how far immunity should reach for what platforms amplify.",
     confidence: 92,
     source:
-      "Cox-Wyden amendment, House roll call 420-4 (Aug. 4, 1995); Telecommunications Act signed Feb. 8, 1996; Stratton Oakmont v. Prodigy (N.Y. Sup. Ct. 1995); 47 U.S.C. § 230(e) exceptions; Anderson v. TikTok, No. 22-3061 (3d Cir. 2024)",
+      "EFF, Section 230 legislative history; 47 U.S.C. § 230(e); Anderson v. TikTok, No. 22-3061 (3d Cir. 2024)",
     sourceUrl: "https://www.eff.org/issues/cda230/legislative-history",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest case for reform: courts have read Section 230 so broadly that when a platform's own engagement-optimizing algorithm pushes a lethal 'challenge' or self-harm content to a child, the families harmed often have no one to sue — and reform would simply restore the ordinary principle that those who design and profit from a dangerous product can be held accountable for it.",
-    "The honest counterpoint: 230 already exempts the worst conduct (federal crimes, CSAM, sex-trafficking under FOSTA, IP), courts are already narrowing immunity for algorithms case-by-case (Anderson v. TikTok), and the one real-world carve-out we have — FOSTA in 2018 — produced a single prosecution in three years while pushing platforms to over-remove lawful speech, the opposite of the intended effect.",
-    "So the honest debate isn't 'should platforms be accountable for real harms' (almost everyone agrees they should) but whether a statutory change can target algorithmic amplification without triggering the 'moderator's dilemma' — over-removing lawful speech or abandoning moderation entirely — and without entrenching the very Big Tech incumbents reformers want to check.",
+    "Both sides accept that platforms' engagement-optimizing recommendation systems shape what users, including minors, see and that some harmful content reaches children through them; that the First Amendment protects most lawful speech regardless of Section 230; that full repeal would revive the Stratton Oakmont 'moderator's dilemma'; and that FOSTA, poorly drafted as it was, is the cleanest natural experiment available.",
+    "They split over whether a platform's ranking choice is legally its own conduct that causes a specific, provable injury, the question the Third Circuit took up in Anderson v. TikTok; whether a reform can deter targeted harms without a net loss of lawful speech; and whether removing immunity would burden small platforms most or meaningfully constrain dominant ones.",
   ],
   last_updated: "2026-06-16",
   tags: ["section-230", "content-moderation", "free-speech", "platform-liability", "internet-policy"],
@@ -53,7 +52,7 @@ export const section230ReformData = {
           supporter_flip:
             "If post-Anderson appellate courts consolidated on treating algorithmic ranking as protected third-party hosting (not first-party 'expressive activity'), and randomized feed-ordering studies showed engagement-ranked feeds do not measurably increase minors' exposure to harmful content versus chronological feeds, the case that amplification is distinct, compensable harm would collapse into ordinary publisher immunity.",
           skeptic_flip:
-            "A skeptic should weigh that the Third Circuit in Anderson v. TikTok already treated TikTok's recommendation of the deadly 'Blackout Challenge' as the platform's own conduct, and that the 2023 Surgeon General advisory documented algorithmic design pushing harmful content to minors — so 'amplification is just neutral hosting' is no longer the settled judicial or empirical view.",
+            "If more appellate courts followed the Third Circuit in Anderson v. TikTok, treating a recommendation such as the 'Blackout Challenge' as the platform's own conduct, and studies confirmed the pattern the 2023 Surgeon General advisory describes, 'amplification is just neutral hosting' would be hard to hold.",
           common_ground:
             "Both sides agree platforms run engagement-optimizing recommendation systems that materially shape what users (including minors) see, and that some genuinely harmful content reaches children through those systems.",
           live_disagreement:
@@ -146,9 +145,9 @@ export const section230ReformData = {
         cost_to_verify: "$0 (analysis of existing GAO data and takedown audits)",
         falsification: {
           supporter_flip:
-            "A supporter of reform who doubts the over-removal worry should weigh GAO-21-385: the FOSTA carve-out yielded one prosecution in three years with no restitution while platforms preemptively shut down screening tools — concrete evidence that even well-intentioned narrowing of 230 can backfire into less safety and more suppression.",
+            "If a narrowed carve-out again produced what GAO-21-385 found for FOSTA, one prosecution in three years with no restitution while platforms shut down screening tools, the over-removal worry would look like a cost of reform rather than a side issue.",
           skeptic_flip:
-            "A skeptic who holds the 'collateral damage' worry should update if a narrowly drafted reform (conditioning immunity on a duty of care, or stripping it only for paid/algorithmically amplified content) were enacted and audited to deter measurable harm WITHOUT the over-removal and abandoned-screening pattern FOSTA produced — showing the moderator's dilemma is avoidable, not inherent to any reform.",
+            "If a narrowly drafted reform, conditioning immunity on a duty of care or stripping it only for paid or algorithmically amplified content, were audited and found to deter measurable harm without FOSTA's over-removal and abandoned screening, the moderator's dilemma would look avoidable.",
           common_ground:
             "Both sides agree FOSTA was poorly drafted and is the cleanest natural experiment available, that the First Amendment independently protects most lawful speech regardless of 230, and that full repeal would revive the Stratton Oakmont 'moderator's dilemma.'",
           live_disagreement:
@@ -238,9 +237,9 @@ export const section230ReformData = {
         cost_to_verify: "$500K (cross-jurisdiction econometric study)",
         falsification: {
           supporter_flip:
-            "A supporter of reform should weigh that defending even meritless suits is a fixed cost incumbents can absorb with in-house legal teams while a forum or startup cannot, so a blunt repeal could plausibly hit small players hardest — even if the headline economic-loss figures come from conflicted industry-funded modeling.",
+            "If litigation costs were measured, a fixed burden that in-house legal teams absorb but a forum or startup cannot, a blunt repeal would look likeliest to hit small players, whatever weight the industry-funded loss estimates carry.",
           skeptic_flip:
-            "A skeptic who holds that repeal entrenches incumbents should update if cross-jurisdiction data (e.g., startups under the stricter EU eCommerce Directive regime) showed small platforms survived and attracted investment at rates comparable to those under broad 230 immunity — indicating litigation exposure does not scale punishingly with smallness.",
+            "If cross-jurisdiction data showed startups under stricter regimes, such as the EU eCommerce Directive, surviving and attracting investment at rates like those under broad immunity, the worry that repeal entrenches incumbents would lose its footing.",
           common_ground:
             "Both sides agree the NERA/Internet Association GDP and jobs projections are industry-commissioned with strong conflict-of-interest incentives, and that litigation-cost exposure per user is the right quantity to measure across platform size tiers.",
           live_disagreement:

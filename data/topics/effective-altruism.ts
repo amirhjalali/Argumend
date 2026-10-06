@@ -8,17 +8,16 @@ export const effectiveAltruismData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Most people picture effective altruism as abstract longtermism and AI-doom philosophizing, but its measurable track record is concrete: GiveWell alone has directed roughly $2.6 billion to a handful of cheap, evidence-backed interventions — chiefly anti-malaria bednets at about $3,000-$8,000 per life saved — and estimates this has averted on the order of 340,000 deaths. The honest catch is that EA's own early 'best buy,' mass deworming, rests on evidence that is still genuinely disputed, and the largest figures (deaths averted) are GiveWell's own model estimates, not directly counted bodies.",
+      "Insecticide-treated bednets, a top effective-altruist pick, cut all-cause child mortality by 17% in a high-certainty Cochrane review. Sam Bankman-Fried, a prominent EA-aligned donor who practiced 'earning to give', was sentenced in 2024 to 25 years for a fraud that cost FTX customers about $8 billion. Both sides accept both facts. The fight is over whether the failures follow from EA's core principles or from the people and metrics it happened to choose.",
     confidence: 84,
     source:
-      "GiveWell, 'Our Impact' / 'How Much Does It Cost to Save a Life?' (2024); Pryce et al., Cochrane (2018) on bednets; Taylor-Robinson et al., Cochrane (2019) vs. Croke et al., PNAS (2024) on deworming",
-    sourceUrl: "https://www.givewell.org/how-much-does-it-cost-to-save-a-life",
+      "Pryce, Richardson & Lengeler, Cochrane Database of Systematic Reviews (2018); U.S. Department of Justice (March 2024)",
+    sourceUrl: "https://www.cochrane.org/CD000363/INFECTN_insecticide-treated-nets-preventing-malaria",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "At its best, effective altruism is simply taking seriously the question of how to do the most good with a given dollar, and then following the evidence — which has channeled roughly $2.6 billion through GiveWell into interventions with strong randomized-trial backing, like insecticide-treated bednets that the gold-standard Cochrane review rates 'high certainty' for cutting child mortality ~17%, at an estimated $3,000-$8,000 per life saved.",
-    "The honest limitation is that ranking 'good' by what is cheap to measure can mislead: one of EA's earliest flagship 'best buys,' mass deworming, was later found by Cochrane to have little or no average effect, the headline deaths-averted numbers are GiveWell's own model estimates rather than counted lives, and the same maximizing logic ('earning to give') was the rationale Sam Bankman-Fried invoked before his $8 billion fraud conviction.",
-    "So the honest debate isn't whether using evidence to help others is good (it obviously can be) but whether EA's measure-and-maximize method reliably points at the highest-impact things — or whether it systematically under-weights hard-to-quantify systemic change and over-trusts whichever effect sizes happen to be measurable.",
+    "Both sides accept that bednets and unconditional cash transfers have real, trial-measured benefits, that what is easiest to randomize is not automatically what matters most, and that real harms occurred, from the FTX fraud to a measurable bias toward quantifiable interventions.",
+    "They split over whether effects measured in small trials, like those behind bednets, cash transfers and mass deworming, hold at national scale and over years; and over whether effective altruism's failures follow from its core maximizing principle or from contingent choices of people, metrics and time horizons.",
   ],
   last_updated: "2026-06-16",
   tags: ["philosophy", "ethics", "philanthropy", "global-health", "longtermism"],
@@ -48,7 +47,7 @@ export const effectiveAltruismData = {
           supporter_flip:
             "If large at-scale or general-equilibrium studies and long-run follow-ups showed the headline RCT effects shrink sharply when interventions are rolled out to millions over years — bednet mortality gains eroding through resistance and misuse, cash-transfer benefits washed out by inflation or spillovers — then 'exceptional good per dollar' would collapse toward 'ordinary,' and the cost-effectiveness rankings EA leans on would lose their edge.",
           skeptic_flip:
-            "A skeptic who dismisses RCT-driven giving should weigh that EA's flagship bednet recommendation rests on a Cochrane review rated 'high certainty' (~17% lower child mortality), that the deworming null was at least partly a statistical-power artifact (the 2024 PNAS re-pool found significant nutritional gains), and that the framework demonstrably updates its picks as evidence moves rather than defending a fixed list.",
+            "If at-scale studies upheld the Cochrane review's high-certainty ~17% lower child mortality for bednets, and re-pooled analyses like the 2024 PNAS deworming work kept finding gains the null missed, dismissing evidence-driven giving would be hard to hold.",
           common_ground:
             "Both sides agree bednets and unconditional cash transfers have real, RCT-measured benefits, and that what is easiest to randomize is not automatically what matters most.",
           live_disagreement:
@@ -161,7 +160,7 @@ export const effectiveAltruismData = {
           supporter_flip:
             "If each documented harm could be traced deductively to the core principle itself — if 'use evidence and reason to maximize impartial good' genuinely entailed measurement tunnel vision or ends-justify-means fraud, and no plausible internal correction blocked it — then the failures would be the method, not the execution, and defending EA as 'good principle, bad people' would no longer hold.",
           skeptic_flip:
-            "A skeptic citing SBF and the systemic-change critique should weigh that the maximizing principle does not logically require fraud (Berkey 2018 shows it can already accommodate funding institutional reform when that does the most good), and that EA's evidence-updating, self-criticizing character is what surfaced and repudiated those errors rather than entrenching them.",
+            "If the maximizing principle were shown to accommodate institutional reform where that does the most good, as Berkey 2018 argues, and the movement's own self-criticism were what surfaced and repudiated cases like SBF, the failures would look like execution rather than the method.",
           common_ground:
             "Both sides agree real harms occurred — the FTX fraud and a measurable bias toward quantifiable interventions — and that movements should be judged partly by whether their core method can diagnose and correct such failures.",
           live_disagreement:

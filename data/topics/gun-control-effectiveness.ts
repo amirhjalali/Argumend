@@ -10,16 +10,15 @@ export const gunControlEffectivenessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "RAND's review of thousands of studies found that for most gun laws the rigorous causal evidence is limited or inconclusive — the strongest evidence is narrow: safe-storage (child-access-prevention) laws reduce youth firearm deaths, and stand-your-ground laws are linked to more homicides.",
+      "RAND's review of thousands of studies found that for most gun laws the rigorous causal evidence is limited or inconclusive; the strongest findings are that safe-storage laws reduce youth firearm deaths and that stand-your-ground laws are linked to more homicides. The fight is over what to conclude from evidence that thin: whether to act on the laws that are proven, or treat the rest as unproven.",
     confidence: 85,
     source: "RAND Corporation, 'The Science of Gun Policy' (evidence synthesis)",
     sourceUrl: "https://www.rand.org/research/gun-policy/analysis.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The gun debate is loud, but the evidence is quieter and more specific than either side admits — when RAND reviewed thousands of studies, it found that for most policies the rigorous causal evidence is limited or inconclusive, neither 'gun laws clearly work' nor 'gun laws clearly fail.'",
-    "A few things are well-established: the US firearm-death rate (~12–13 per 100,000) is an order of magnitude above peer democracies, guns make both suicides and mass-shooting casualties far more lethal, and safe-storage laws measurably cut youth firearm deaths.",
-    "So the honest disagreement isn't about the scale of the problem — the US gun-death rate dwarfs peer nations — but about which specific policies actually reduce it without simply burdening lawful owners, given ~393 million guns already in circulation and a Second Amendment that constrains the options.",
+    "Both sides accept that the US has far more guns and a far higher firearm-death rate than peer democracies (about 12–13 per 100,000), that its ~393 million existing guns leave any new law slow to reach the stockpile, and that about 74% of the guns used in mass shootings were obtained legally, so expanded background checks alone would miss most mass shooters.",
+    "They split over how much of the US gun-death rate comes from gun availability and gun laws rather than violence concentration, mental health and drug markets, and so how much any stricter gun law would change it; and over whether bans on assault weapons and high-capacity magazines cut mass-shooting casualties, or attackers substitute other weapons.",
   ],
   pillars: [
     {
@@ -50,7 +49,7 @@ export const gunControlEffectivenessData = {
           supporter_flip:
             "If the strongest natural experiments (Australia 1996, Connecticut's permit law, the Missouri repeal) consistently failed to show gun-law changes reducing firearm deaths once you account for pre-existing trends and confounders — i.e. the cross-national gap turned out to be driven by non-policy factors (violence concentration, drug markets, inequality) — the 'stricter laws cut violence' claim would weaken.",
           skeptic_flip:
-            "A skeptic who cites American exceptionalism should weigh that the cross-national gap is enormous and consistent, and that specific before/after changes (Australia's mass-shooting drop to zero for two decades) line up with the policy — so the burden is to explain why the US would be immune to measures that track with lower deaths almost everywhere else.",
+            "If new before-and-after studies, testing the link between Australia's 1996 law and its two decades without a mass shooting, tied gun-law changes to lower deaths and the cross-national gap held after controls, the view that the US is an exception would be hard to hold.",
           common_ground:
             "Both sides agree the US has far more guns and far higher firearm-death rates than peer democracies, and that ~393 million existing guns make any new restriction slow to reach the stockpile.",
           live_disagreement:
@@ -162,9 +161,9 @@ export const gunControlEffectivenessData = {
         cost_to_verify: "$50K (Database analysis)",
         falsification: {
           supporter_flip:
-            "If careful analysis showed mass-shooting casualty counts don't actually fall when high-capacity/assault weapons are restricted — because shooters substitute handguns with little loss of lethality, or because the casualty gap reflects target choice rather than the weapon — the case for assault-weapon and magazine limits would weaken (RAND already rates that causal evidence inconclusive).",
+            "If careful analysis showed mass-shooting casualties do not fall when assault weapons and high-capacity magazines are restricted, because shooters switch to handguns with little loss of lethality or the gap reflects target choice, the case for those limits would weaken.",
           skeptic_flip:
-            "A skeptic who says weapon type doesn't matter should weigh that mass shootings with assault weapons average more than twice the deaths per incident (Everytown: 11.5 vs 5.1) and that high-capacity magazines mechanically raise the ceiling on how many can be shot before reload — so weapon type plausibly affects lethality even if a ban's net effect is hard to isolate.",
+            "If incident-level analysis, testing Everytown's figures of 11.5 deaths per assault-weapon shooting against 5.1 otherwise, found the gap held after accounting for target choice and reload limits, the view that weapon type does not affect lethality would be hard to hold.",
           common_ground:
             "Both sides agree most mass shooters obtain their guns legally (~74%), so background-check expansion alone would miss most of them.",
           live_disagreement:

@@ -10,16 +10,15 @@ export const ultraProcessedFoodData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "In a tightly controlled NIH trial, people given an ultra-processed diet ate about 508 more calories a day and gained weight — versus the same people on an unprocessed diet matched for calories, sugar, fat, and fiber, where they lost weight. Processing itself, not just nutrients, drove overeating.",
+      "In a month-long NIH metabolic-ward trial, 20 adults ate about 508 more calories a day on an ultra-processed diet than on an unprocessed one matched for sugar, fat and fiber. In Chile, warning labels cut purchases of labeled foods by 24%, while national obesity kept rising, from 34.4% to 37.8%. Both sides accept these results. The fight is over what drives the overeating, and which policy would change it.",
     confidence: 82,
-    source: "Hall et al., Cell Metabolism (NIH/NIDDK, 2019)",
+    source: "Hall et al., Cell Metabolism (NIH/NIDDK, 2019); Taillie et al., PLOS Medicine, and Chilean Ministry of Health on Law 20.606",
     sourceUrl: "https://doi.org/10.1016/j.cmet.2019.05.008",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The most important nutrition experiment of the last decade locked 20 people in a metabolic ward and fed them ultra-processed or unprocessed meals matched for calories, sugar, fat, and fiber — and on the ultra-processed diet they spontaneously ate ~508 more calories a day and gained weight.",
-    "That's causal evidence that processing itself, not just 'too much sugar and fat,' drives overeating — and observational data on ~10 million people links ultra-processed food to obesity, diabetes, heart disease, and earlier death.",
-    "The honest open questions are mechanism and policy, not whether there's a problem: is the culprit processing per se or just hyper-palatable, fast-to-eat, energy-dense engineering — and does regulating a fuzzy 'ultra-processed' category (≈55% of US calories) actually improve health, given Chile's labels cut purchases but haven't yet dented obesity?",
+    "Both sides accept that people eat more calories on ultra-processed diets, that the chronic-disease evidence is mostly observational and tangled with overall diet quality and income, and that Chile's warning labels cut purchases while its obesity kept rising.",
+    "They split over whether the overeating comes from processing itself or from energy density, hyper-palatability and eating speed; whether additives such as emulsifiers cause disease apart from obesity and nutrient content; and whether labels, taxes and advertising limits would improve population health within a decade, or reformulating products would do more.",
   ],
   pillars: [
     // =========================================================================
@@ -51,7 +50,7 @@ export const ultraProcessedFoodData = {
           supporter_flip:
             "If strictly isocaloric trials (not ad libitum) showed ultra-processed and whole-food diets produce identical body-composition and metabolic outcomes — meaning the only thing UPFs do is make you eat more, fully explained by energy density and eating rate that whole foods could match — then NOVA's 'processing' category would add nothing beyond palatability engineering.",
           skeptic_flip:
-            "A skeptic who says 'it's just calories' should weigh that Hall's RCT already matched the diets for calories, sugar, fat, and fiber and STILL produced 508 extra calories a day — so nutrients-held-constant can't fully explain a controlled result where nutrients were held constant.",
+            "If more trials matched diets for calories, sugar, fat and fiber, as Hall's RCT did, and still found people eating about 500 extra calories a day on ultra-processed food, 'it's just calories' would no longer explain the effect.",
           common_ground:
             "Both sides agree ultra-processed diets lead people to consume more calories; the dispute is the mechanism.",
           live_disagreement:
@@ -163,7 +162,7 @@ export const ultraProcessedFoodData = {
           supporter_flip:
             "If matched-nutrient feeding studies showed UPFs produce no worse inflammation, gut-barrier disruption, or metabolic markers than nutritionally identical whole foods, the case that processing causes chronic disease beyond its nutrient profile would collapse — the problem would be nutrients, not processing.",
           skeptic_flip:
-            "A skeptic who trusts additive approvals should weigh that a double-blind feeding trial found a single common emulsifier (CMC) measurably perturbing the human gut microbiome, and that additives are approved one at a time — never tested as the dozens-at-once mixture real UPF diets deliver.",
+            "If more double-blind feeding trials found common emulsifiers like CMC perturbing the gut microbiome, and tests of the dozens-at-once additive mixtures real diets deliver found harm, one-at-a-time additive approvals would be hard to trust.",
           common_ground:
             "Both sides agree the chronic-disease evidence is mostly observational and entangled with poor overall diet quality and socioeconomic disadvantage.",
           live_disagreement:
@@ -254,7 +253,7 @@ export const ultraProcessedFoodData = {
           supporter_flip:
             "If countries with UPF regulations (Chile, Mexico, Colombia, UK) consistently showed no better obesity or chronic-disease trajectories than matched controls after a decade — as Chile's still-rising obesity through 2022 hints — the public-health case for category-level regulation (versus reformulation) would weaken.",
           skeptic_flip:
-            "A skeptic of regulation should weigh that Chile's labels cut purchases of flagged products ~24% and triggered mass reformulation — real behavioral and supply changes whose health payoff may simply lag the 7-year window, as it did for tobacco.",
+            "If the ~24% drop in purchases of flagged products and the reformulation that followed Chile's labels turned into better obesity trends after a longer lag, as with tobacco, the case against regulating ultra-processed food would weaken.",
           common_ground:
             "Both sides agree Chile's warning labels measurably cut purchases of labeled products, but national obesity has kept rising so far.",
           live_disagreement:

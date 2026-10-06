@@ -10,7 +10,7 @@ export const generativeAiArtCopyrightData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Anthropic's record ~$1.5 billion payout (about $3,000 across ~500,000 works) was not for training AI on books — the same judge held that training on lawfully obtained books was 'exceedingly transformative' fair use. The liability was for how the books were acquired: downloading pirated copies from shadow libraries like LibGen. So far, US courts punish piracy, not the act of learning from copyrighted works.",
+      "In Bartz v. Anthropic, the judge held that training on lawfully bought books was fair use, calling it 'exceedingly transformative'. Anthropic then agreed to pay about $1.5 billion, roughly $3,000 per work, for books it had downloaded from pirate libraries like LibGen. Both rulings stand. The fight is over whether training without permission is fair use in every court, and whether AI outputs take the market of the works they learned from.",
     confidence: 88,
     source:
       "Bartz v. Anthropic, Judge Alsup (N.D. Cal., June 23 & Aug. 2025 settlement); Copyright Alliance and Authors Guild settlement explainers (2025)",
@@ -19,9 +19,8 @@ export const generativeAiArtCopyrightData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The case for a ban feels strong: companies built trillion-dollar products by ingesting hundreds of thousands of authors' and artists' works without consent, credit, or payment — and when those works were pirated, even AI-friendly courts called it infringement, as Anthropic's ~$1.5 billion settlement over books pulled from LibGen shows.",
-    "But the honest counterpoint is that copyright has never granted a right to control all learning from a work — humans read and are influenced without a license, intermediate copying for a new purpose has been upheld before (Google's full-text book scanning), and the leading rulings (Bartz, Kadrey v. Meta) found training itself 'transformative' fair use, confining liability to how data was obtained.",
-    "So the honest debate isn't whether AI 'stole' creators' work in the abstract, but two narrower empirical questions: whether the works were acquired lawfully (purchase/license) or pirated, and whether the trained model's outputs actually substitute for the originals in the market — which is what fair-use law turns on.",
+    "Both sides accept that pirating works to build a training corpus is wrong, that licensing beats unauthorized scraping where it is feasible, that fair use turns on transformativeness and whether a use usurps the original's market, and that the split among district courts, from Bartz v. Anthropic to Thomson Reuters v. Ross, is unresolved.",
+    "They split over whether the wrong lies in how training data was acquired or in training on it at all; whether creators' lost work and income comes from unlicensed training specifically or from generative-AI competition in general; and whether training general-purpose models is transformative fair use or unlawful copying, which appellate courts have yet to decide.",
   ],
   last_updated: "2026-06-16",
   tags: ["copyright", "generative-ai", "fair-use", "intellectual-property", "law"],
@@ -53,9 +52,9 @@ export const generativeAiArtCopyrightData = {
         cost_to_verify: "$0 (court records & dataset provenance analysis)",
         falsification: {
           supporter_flip:
-            "A supporter of a ban should reconsider if appellate courts hold that training on lawfully purchased or licensed works is itself an unfair taking — independent of piracy — or if the emerging licensing market collapses, leaving creators with no realistic way to consent or be paid.",
+            "If appellate courts held that training on lawfully purchased or licensed works is not an unfair taking, so liability turned on piracy alone, and the emerging licensing market let creators consent and be paid, the case against training as such would narrow to how data was acquired.",
           skeptic_flip:
-            "A skeptic who says 'it's just learning' should weigh that Anthropic still paid ~$1.5B because the underlying acquisition was pirated, and that scraping at industrial scale is not equivalent to one human reading one borrowed book — provenance and scale may matter morally and legally even when 'learning' does not.",
+            "If more cases like Anthropic's ~$1.5B payment turned on pirated acquisition, and courts treated industrial-scale scraping as different from one person reading one borrowed book, 'it's just learning' would no longer answer the legal or moral question.",
           common_ground:
             "Both sides agree that pirating works to build a training corpus is wrongful, and that consent obtained through licensing is preferable to unauthorized scraping where it is feasible.",
           live_disagreement:
@@ -149,9 +148,9 @@ export const generativeAiArtCopyrightData = {
         cost_to_verify: "$1-3M (longitudinal creator labor-market study)",
         falsification: {
           supporter_flip:
-            "A supporter of the market-harm claim should reconsider if controlled labor-market studies showed creator income losses are driven by AI tools and broader market shifts generally — not by unlicensed training specifically — or that the harm is non-actionable style competition rather than substitution for protected works.",
+            "If controlled labor-market studies traced creator income losses to AI tools and broader market shifts rather than to unlicensed training, or to non-actionable style competition rather than substitution for protected works, the market-harm case for a ban would weaken.",
           skeptic_flip:
-            "A skeptic who attributes losses to 'general market churn' should weigh the peer-reviewed Upwork study finding image-related freelancers saw ~3.7% fewer jobs and ~9.4% lower earnings after image-generation models launched, and the Copyright Office's finding of lost sales, lost licensing revenue, and 'market dilution.'",
+            "If more studies replicated the Upwork finding of ~3.7% fewer jobs and ~9.4% lower earnings for image freelancers after image models launched, and tied it to the lost sales and 'market dilution' the Copyright Office describes, 'general market churn' would no longer explain the losses.",
           common_ground:
             "Both sides agree fair use turns on the fourth factor — whether the use usurps demand for the original or its licensing market — and that styles and ideas themselves are not copyrightable.",
           live_disagreement:
@@ -242,9 +241,9 @@ export const generativeAiArtCopyrightData = {
         cost_to_verify: "$0 (await appellate rulings; doctrinal analysis)",
         falsification: {
           supporter_flip:
-            "A supporter of 'it's already unlawful' should reconsider if appellate courts (or the Supreme Court) affirm that general-purpose generative training is transformative fair use, treating Thomson Reuters v. Ross as confined to a non-generative competitor copying a curated database.",
+            "If appellate courts or the Supreme Court affirmed that general-purpose generative training is transformative fair use, confining Thomson Reuters v. Ross to a non-generative competitor copying a curated database, the view that such training is unlawful under current law would lose its footing.",
           skeptic_flip:
-            "A skeptic relying on Bartz and Kadrey should weigh that those are district-level rulings under appeal, that Thomson Reuters already rejected fair use for training, and that demonstrated verbatim regurgitation (as in the NYT exhibits) can collapse the 'learning, not copying' framing for specific models.",
+            "If appeals courts reversed the district-level Bartz and Kadrey rulings, more courts followed Thomson Reuters in rejecting fair use for training, or verbatim regurgitation like the NYT exhibits recurred, the 'learning, not copying' framing would collapse for those models.",
           common_ground:
             "Both sides agree the case turns on transformativeness and market effect, that verbatim regurgitation of inputs is infringement the law already addresses, and that the current district-court split is not yet settled.",
           live_disagreement:

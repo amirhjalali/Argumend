@@ -39,7 +39,7 @@ export const secondAmendmentIndividualRightData = {
           supporter_flip:
             "If 18th-century drafting conventions and contemporaneous state arms provisions showed that prefatory clauses like 'A well regulated Militia' were understood to restrict the operative clause, the individual-right reading would lose its textual footing, whatever Heller holds as precedent.",
           skeptic_flip:
-            "A skeptic who stresses the long militia-tied consensus should weigh that Heller read the prefatory clause as announcing a purpose rather than limiting the right, that McDonald applied the individual right to the states in 2010, and that the Fifth Circuit had already adopted the individual reading in Emerson (2001) after an extensive review of text and founding history.",
+            "If further historical work supported reading 'A well regulated Militia' as announcing a purpose rather than limiting the right, the reading Heller took, McDonald applied to the states and the Fifth Circuit reached in Emerson (2001), the long militia-tied consensus would carry less weight.",
           common_ground:
             "Both sides agree the individual right is binding precedent under Heller (2008) and McDonald (2010), both decided 5-4, and that for decades after Miller (1939) appeals courts mostly read the right as militia-tied.",
           live_disagreement:
@@ -150,7 +150,7 @@ export const secondAmendmentIndividualRightData = {
           supporter_flip:
             "If sensitivity-tested corpus work — including constitutional texts and re-coding plural uses — still found literal individual carrying rare, and 'keep arms' and the state provisions offered no independent support, the historical case for an individual right would shrink to precedent alone.",
           skeptic_flip:
-            "A skeptic who relies on the corpus counts should weigh that re-analyses including constitutional texts find roughly a fifth of founding-era 'bear arms' uses were literal individual carrying, that the Amendment also protects the right to 'keep' arms, and that several founding-era state constitutions secured arms expressly for personal defense.",
+            "If re-analyses including constitutional texts held at about a fifth of founding-era 'bear arms' uses being literal individual carrying, with the right to 'keep' arms and state provisions securing arms for personal defense, the corpus counts would support the militia-only reading less.",
           common_ground:
             "Both sides agree 'bear arms' carried a military meaning in most founding-era uses, and that contemporaneous state constitutions varied, some securing arms for personal defense and some tying them to the militia.",
           live_disagreement:

@@ -10,17 +10,16 @@ export const usNationalDebtCrisisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The single most-cited proof that debt is a ticking time bomb — Reinhart and Rogoff's claim that growth collapses once debt passes 90% of GDP — was substantially undermined by a 2014 Excel error: correcting the spreadsheet, average growth above 90% was about 2.2%, not the −0.1% they reported. The honest nuance is that the danger never fully disappeared — a modest negative debt-growth correlation survives, and US debt held by the public is now near 100% of GDP and projected by the CBO to reach 156% by 2055 — but the famous bright-line 'cliff' was an artifact, not a law of economics.",
+      "US federal debt held by the public is about 100% of GDP, and the Congressional Budget Office projects 156% by 2055 under current law; net interest, about $882 billion in FY2024, now exceeds defense spending. Japan has carried gross debt above 200% of GDP for over a decade without a crisis. Both sides work from these figures. The fight is over whether US borrowing costs can stay below its growth rate.",
     confidence: 88,
     source:
-      "Herndon, Ash & Pollin, Cambridge Journal of Economics (2014); CBO Long-Term Budget Outlook 2025–2055 (March 2025)",
-    sourceUrl: "https://academic.oup.com/cje/article-abstract/38/2/257/1714018",
+      "CBO, The Long-Term Budget Outlook: 2025 to 2055 (March 2025); US Treasury / CRFB on FY2024 net interest; IMF World Economic Outlook on Japan",
+    sourceUrl: "https://www.cbo.gov/publication/61270",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The trajectory is genuinely adverse: US federal debt held by the public is near 100% of GDP, the CBO projects it climbing to 156% by 2055 under current law, and net interest already hit about $882 billion in FY2024 — surpassing the entire national defense budget for the first time and becoming one of the fastest-growing line items in the budget.",
-    "But the most famous trigger for panic was overstated: the Reinhart-Rogoff '90% growth cliff' was undermined by a spreadsheet error, Japan has run gross debt above 200% of GDP for over a decade — and above 250% in recent years — without a crisis, and a country that borrows in its own currency and issues the world's reserve asset cannot be forced into an involuntary default the way Greece or Argentina can.",
-    "So the honest debate isn't 'will a fixed debt threshold detonate a crisis' (no reliable threshold exists) but whether interest costs grow faster than the economy (r vs g) and whether a self-fulfilling loss of confidence in Treasuries could strike before the slow-moving arithmetic ever does.",
+    "Both sides accept that no single debt-to-GDP number, such as the 90% line Reinhart and Rogoff once drew, mechanically triggers a crisis; that interest costs have risen sharply and the US path under current law is rising; and that the dollar's reserve share has slipped from about 70% to 58% while no rival currency offers comparable depth.",
+    "They split over whether America's borrowing costs can stay below its growth rate for decades; whether interest costs settle or keep climbing as roughly $9 trillion a year of maturing debt is refinanced at new rates; and whether the dollar's erosion stays a slow drift or could tip suddenly past a confidence threshold.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=60",
@@ -99,9 +98,9 @@ export const usNationalDebtCrisisData = {
         cost_to_verify: "$0 (publicly available CBO/Treasury data)",
         falsification: {
           supporter_flip:
-            "A supporter who believes the rising debt-to-GDP path is dangerous would soften if the effective interest rate on Treasuries stayed durably below nominal GDP growth (r < g) for a sustained stretch, letting the ratio stabilize even with primary deficits — and if the projected entitlement-driven gap were closed by credible, enacted policy rather than assumed-away in a baseline.",
+            "If the effective Treasury rate stayed durably below nominal GDP growth (r < g), letting the debt ratio stabilize despite primary deficits, and enacted policy closed the projected entitlement gap rather than assuming it away, the rising debt path would look far less dangerous.",
           skeptic_flip:
-            "A skeptic who points to Japan's 250%+ debt should weigh that Japan borrows from captive domestic savers with a current-account surplus and central-bank absorption, conditions the US does not fully share; that the surviving (post-correction) debt-growth correlation is still negative; and that CBO's 156% projection assumes current law, which already bakes in adverse autopilot dynamics.",
+            "If new work confirmed that Japan's 250%+ debt rests on captive domestic savers, a current-account surplus and central-bank buying the US lacks, and higher debt kept tracking slower growth, Japan would stop serving as reassurance about the US path toward CBO's 156% projection.",
           common_ground:
             "Both sides agree there is no single hard debt-to-GDP number that mechanically triggers a crisis, that the US path under current law is rising, and that whether r stays below g is the variable that matters most.",
           live_disagreement:
@@ -213,9 +212,9 @@ export const usNationalDebtCrisisData = {
           "$0 (Treasury publishes full maturity schedule and auction results)",
         falsification: {
           supporter_flip:
-            "A supporter who fears an interest 'doom loop' would reconsider if the maturity-schedule stress test showed that as debt reprices, net interest stabilizes as a share of GDP rather than spiraling — for instance if short rates settle low and the safe rate stays under growth (r < g), so rollover adds little real fiscal cost.",
+            "If the maturity-schedule stress test showed net interest stabilizing as a share of GDP as debt reprices, with short rates settling low and the safe rate under growth (r < g), rollover would add little real cost and the fear of an interest 'doom loop' would ease.",
           skeptic_flip:
-            "A skeptic who dismisses nominal interest figures should weigh that net interest already passed defense spending in FY2024 (~$882B) and CBO's baseline has it reaching 5.4% of GDP and ~28% of revenue by 2055, and that a self-fulfilling confidence shock could force a risk premium regardless of currency sovereignty.",
+            "If net interest kept climbing past defense spending (~$882B in FY2024) toward CBO's 5.4% of GDP and ~28% of revenue by 2055, or a confidence shock forced a risk premium despite currency sovereignty, the interest figures would be hard to dismiss.",
           common_ground:
             "Both sides agree interest costs have risen sharply and that what ultimately matters is the rate at which maturing debt is refinanced relative to growth — not the gross headline dollar figure alone.",
           live_disagreement:
@@ -326,9 +325,9 @@ export const usNationalDebtCrisisData = {
           "$0 (IMF COFER and SWIFT data are publicly available quarterly)",
         falsification: {
           supporter_flip:
-            "A supporter forecasting de-dollarization should weigh that the dollar still holds ~58% of allocated reserves versus the euro's ~20%, that the ~$28-30T Treasury market is unmatched in depth and liquidity, and that mBridge's cumulative volume was only ~$55B by late 2025 — political intent without displacement of dollar flows.",
+            "If the dollar held near ~58% of allocated reserves against the euro's ~20%, the ~$28-30T Treasury market stayed unmatched in depth, and mBridge stayed small (~$55B cumulative by late 2025), de-dollarization would look like political intent without displacement of dollar flows.",
           skeptic_flip:
-            "A skeptic who counts on enduring dollar privilege would reconsider if COFER, SWIFT, and commodity-pricing data showed the dollar's reserve share falling at an accelerating rate — and if a credible deep, liquid alternative (or a working multilateral settlement system like mBridge at scale) began absorbing meaningful global savings demand.",
+            "If COFER, SWIFT and commodity-pricing data showed the dollar's reserve share falling at an accelerating rate, and a deep, liquid alternative such as mBridge at scale began absorbing meaningful global savings, enduring dollar privilege would be hard to count on.",
           common_ground:
             "Both sides agree the dollar's reserve share has drifted down slowly from ~70% in 2000 to ~58% and that no rival currency currently offers comparable depth, liquidity, and safety at the scale global reserves require.",
           live_disagreement:

@@ -41,7 +41,7 @@ export const nuclearWeaponsAbolitionData = {
           supporter_flip:
             "If declassified war planning showed Soviet and American leaders rejecting military options for reasons other than nuclear risk, and nuclear dyads proved no less war-prone than comparable conventional ones, the case that deterrence caused the Long Peace would shrink to coincidence.",
           skeptic_flip:
-            "A skeptic who calls the nuclear peace post hoc should weigh that Soviet archives show leaders citing nuclear consequences as the reason for restraint in the 1948 and 1961 Berlin crises, and that India and Pakistan fought three full-scale wars before their 1998 tests and none since.",
+            "If more archival releases matched the Soviet records of leaders citing nuclear consequences as the reason for restraint in the 1948 and 1961 Berlin crises, and India and Pakistan stayed free of full-scale war after their 1998 tests, the 'post hoc' reading of the nuclear peace would be hard to hold.",
           common_ground:
             "Both sides agree nuclear-armed great powers have not fought a direct war since 1945, and that whether deterrence caused this cannot be proven, only argued from counterfactuals.",
           live_disagreement:
@@ -153,7 +153,7 @@ export const nuclearWeaponsAbolitionData = {
           supporter_flip:
             "If an independent technical study found that environmental sampling, satellite imagery and xenon detection could catch clandestine enrichment or weapon assembly well within the breakout timeline, disarmed states would not be left vulnerable, and the claim that abolition makes the world less safe would weaken.",
           skeptic_flip:
-            "A skeptic who favors abolition should weigh that the knowledge to build weapons cannot be un-invented, that verifying zero means proving a negative rather than counting weapons, and that every nuclear-armed state has refused to join the TPNW.",
+            "If verification studies found that confirming zero weapons stayed a matter of proving a negative, since the know-how cannot be un-invented, and every nuclear-armed state kept refusing to join the TPNW, abolition would look less reachable and deterrence the safer course.",
           common_ground:
             "Both sides agree the knowledge to build nuclear weapons cannot be erased, and that no nuclear-armed state has joined the TPNW, which entered into force in 2021.",
           live_disagreement:
@@ -248,7 +248,7 @@ export const nuclearWeaponsAbolitionData = {
           supporter_flip:
             "If independent earth-system models confirmed that even a regional exchange of 100 weapons would cut global food production enough to kill billions, the permanent nonzero chance of use would be hard to outweigh with any deterrence benefit, and the case for keeping the weapons would weaken.",
           skeptic_flip:
-            "A skeptic who sees only catastrophic risk should weigh that nuclear weapons have not been used in conflict for over 80 years across the Cold War and many crises, and that conventional great-power wars killed 80+ million people in the first half of the 20th century.",
+            "If further crises passed without nuclear use, extending an 80-year record, and studies linked deterrence to the absence of conventional great-power wars like those that killed 80+ million people before 1950, the catastrophic risk would have a large offsetting benefit.",
           common_ground:
             "Both sides agree any nuclear use would be a humanitarian catastrophe — the ICRC says no adequate response exists for a detonation in a populated area — and that this horror sits at the center of the argument either way.",
           live_disagreement:

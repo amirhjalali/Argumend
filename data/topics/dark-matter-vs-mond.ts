@@ -10,7 +10,7 @@ export const darkMatterVsMondData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Inside individual galaxies, the gravity we actually observe is fixed almost entirely by the visible (baryonic) matter alone: across 153 galaxies of wildly different sizes and gas fractions, the relation has only ~0.13 dex (~30%) of observed scatter, most of it measurement error, with a single acceleration scale a0 ≈ 1.2 × 10⁻¹⁰ m/s² — exactly what MOND predicted in advance. The catch: on the largest scales (colliding clusters, the CMB) the same data point hard at extra non-baryonic mass, and MOND there falls short by roughly a factor of two.",
+      "Across 153 galaxies of very different sizes, the gravity observed inside each one tracks its visible matter with only ~0.13 dex of scatter and a single acceleration scale, as MOND predicted in advance. On the largest scales, colliding clusters and the cosmic microwave background point to extra non-baryonic mass, where MOND falls short by about a factor of two. The fight is over which of those two records the true theory of gravity has to explain first.",
     confidence: 88,
     source:
       "McGaugh, Lelli & Schombert, Phys. Rev. Lett. 117, 201101 (2016) (radial acceleration relation, SPARC); Planck Collaboration, A&A 641, A6 (2020) (Ωc h² ≈ 0.120 vs Ωb h² ≈ 0.0224)",
@@ -18,9 +18,8 @@ export const darkMatterVsMondData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "On galaxy scales the data are astonishingly MOND-like: in 153 SPARC galaxies the observed acceleration at every radius is set by the visible matter alone to within ~0.13 dex (intrinsic scatter consistent with zero), with one universal acceleration scale a0 ≈ 1.2 × 10⁻¹⁰ m/s² that Milgrom predicted a priori — for dark matter, the invisible halo must finely track the visible disk in every galaxy, a coincidence the standard model doesn't naturally explain.",
-    "But on the largest scales dark matter wins decisively: the cosmic microwave background's third acoustic peak requires about five times more non-baryonic than baryonic matter, the Bullet Cluster shows the gravitating mass cleanly offset from the gas at 8-sigma, and MOND itself still needs roughly twice the observed mass inside clusters — yet no dark-matter particle has ever been directly detected.",
-    "So the honest debate isn't 'dark matter or MOND' as winner-take-all, but why one tight empirical law governs galaxies while a different, mass-heavy story governs clusters and cosmology — i.e. whether the galaxy-scale regularity is a fundamental modified force or just an emergent product of how halos and disks form together.",
+    "Both sides accept that the radial acceleration relation linking visible matter to galactic motion is real and tight, with a characteristic acceleration scale; that the CMB's acoustic peaks and the Bullet Cluster require some collisionless, non-luminous gravitating component on large scales; and that plain MOND alone does not account for cluster dynamics.",
+    "They split over whether that galaxy-scale link is exact, as a modified law of gravity would make it, or varies slightly from galaxy to galaxy, as dark-matter halos would; and over whether the missing mass at large scales is a new particle, still undetected after decades of searches, or ordinary matter and neutrinos under a relativistic version of MOND.",
   ],
   last_updated: "2026-06-16",
   tags: [
@@ -61,9 +60,9 @@ export const darkMatterVsMondData = {
         cost_to_verify: "$2M (Deep multi-wavelength galaxy survey + reanalysis)",
         falsification: {
           supporter_flip:
-            "A dark-matter supporter should weigh that the observed scatter is already only ~0.13 dex (and ~0.057 dex galaxy-by-galaxy), with intrinsic scatter consistent with zero and a single universal a0 ≈ 1.2 × 10⁻¹⁰ m/s², which Milgrom predicted before the data existed — a tightness that requires CDM halos to finely track the visible disk in every galaxy.",
+            "If larger surveys kept the radial acceleration relation's scatter near ~0.13 dex (~0.057 galaxy by galaxy), with intrinsic scatter consistent with zero and one universal a0 near 1.2 × 10⁻¹⁰ m/s², as Milgrom predicted beforehand, dark-matter halos would have to track visible disks implausibly closely.",
           skeptic_flip:
-            "A skeptic who favors MOND should change their mind if a large, homogeneous galaxy survey resolved a statistically significant intrinsic scatter in the radial acceleration relation — or showed the residuals correlate with a galaxy property (formation time, environment, halo mass) — since a genuinely modified force should produce an exact law with no halo-to-halo variation.",
+            "If a large, homogeneous galaxy survey resolved significant intrinsic scatter in the radial acceleration relation, or residuals tracking a galaxy property like formation time, environment or halo mass, the exact law a modified force predicts would fail and dark matter would gain ground.",
           common_ground:
             "Both sides agree the radial acceleration relation is real, tight, and has a characteristic acceleration scale; the dispute is whether that regularity is a fundamental law or an emergent outcome of galaxy formation.",
           live_disagreement:
@@ -152,9 +151,9 @@ export const darkMatterVsMondData = {
         cost_to_verify: "$0 (Reanalysis of existing Planck/ACT/SPT data)",
         falsification: {
           supporter_flip:
-            "A dark-matter supporter should change their mind if a fully relativistic modified-gravity theory (without any non-baryonic component) reproduced the entire CMB power spectrum — third-peak height, polarization, lensing — and the Bullet-Cluster lensing offset, with no more free parameters than Lambda-CDM, removing the need for an unseen mass species.",
+            "If a fully relativistic modified-gravity theory with no non-baryonic component reproduced the whole CMB power spectrum (third-peak height, polarization, lensing) and the Bullet Cluster lensing offset with no more free parameters than Lambda-CDM, the case for an unseen mass species would lose its footing.",
           skeptic_flip:
-            "A skeptic of dark matter should weigh that the third acoustic peak sits nearly as high as the second (implying Ωc h² ≈ 0.120 vs Ωb h² ≈ 0.0224, about five times more non-baryonic than baryonic matter), that the Bullet Cluster's mass is offset from the gas at 8-sigma, and that plain MOND still under-predicts cluster mass by ~2× — three independent large-scale failures of pure modified gravity.",
+            "If new CMB and cluster data kept the third peak nearly as high as the second (about five times more non-baryonic than baryonic matter), the Bullet Cluster's 8-sigma mass-gas offset, and MOND's ~2x cluster shortfall, pure modified gravity would be hard to hold at large scales.",
           common_ground:
             "Both sides agree the CMB peak structure and the Bullet Cluster require some collisionless, non-luminous gravitating component on large scales, and that plain MOND alone does not account for cluster dynamics.",
           live_disagreement:

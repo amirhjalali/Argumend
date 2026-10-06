@@ -41,7 +41,7 @@ export const rfkHealthPolicyData = {
           supporter_flip:
             "If large linked-database studies such as the Vaccine Safety Datalink, self-controlled case series and cross-country comparisons kept finding no schedule-wide harm — as the 2011 Institute of Medicine review of more than 1,000 studies did — while preventable diseases like measles returned, restructuring the schedule would cost health rather than improve it.",
           skeptic_flip:
-            "A skeptic who trusts the current schedule should weigh that no large modern randomized trial has compared the full schedule with a lighter one, that a 2022 CDC-authored study found an association between cumulative vaccine aluminum and persistent asthma (its authors flagged possible confounding), and that past advisory bodies had documented industry ties.",
+            "If a large modern randomized trial comparing the full schedule with a lighter one found harms, or the 2022 CDC-authored link between cumulative vaccine aluminum and persistent asthma held up once confounding was addressed, revisiting the schedule would look like a health gain.",
           common_ground:
             "Both sides agree individual vaccines are well studied, that no randomized trial has compared the full schedule with a lighter one, and that MMR is safe and effective for most people — Kennedy said so in April 2026 testimony.",
           live_disagreement:
@@ -153,7 +153,7 @@ export const rfkHealthPolicyData = {
           supporter_flip:
             "If a scaled-up controlled-feeding trial matching calories, macronutrients, sugar and sodium found no difference in metabolic or cardiovascular outcomes between ultra-processed and minimally processed diets, and the dye phase-out stayed a non-binding industry understanding, MAHA's food agenda would do little to change chronic disease.",
           skeptic_flip:
-            "A skeptic who sees symbolism should weigh that Hall's NIH inpatient trial found people ate roughly 500 extra calories a day on an ultra-processed diet, that large cohorts such as NutriNet-Santé link ultra-processed intake to cardiovascular and all-cause mortality, and that the GRAS loophole genuinely lets companies declare their own additives safe.",
+            "If more inpatient trials repeated Hall's NIH result of roughly 500 extra calories a day on ultra-processed food, cohorts like NutriNet-Santé kept tying it to mortality, and closing the GRAS loophole changed what companies add, MAHA's food agenda would look like more than symbolism.",
           common_ground:
             "Both sides agree the GRAS self-affirmation pathway lets companies add ingredients without FDA review, and that even critics like Marion Nestle share MAHA's concerns about Big Food.",
           live_disagreement:
@@ -265,7 +265,7 @@ export const rfkHealthPolicyData = {
           supporter_flip:
             "If biomarker-based studies at 0.5-1.0 mg/L found no neurodevelopmental harm and a meaningful cavity benefit, especially for low-income children, ending the CDC recommendation would cost dental health for no gain, and this part of the agenda would fail.",
           skeptic_flip:
-            "A skeptic who defends fluoridation should weigh the October 2024 Cochrane review finding the cavity benefit has shrunk since fluoride toothpaste spread — about 0.24 fewer decayed baby teeth per child in post-1975 studies — and the NTP and JAMA Pediatrics evidence of an inverse fluoride-IQ association at higher doses.",
+            "If new reviews repeated the October 2024 Cochrane finding that the cavity benefit has shrunk to about 0.24 fewer decayed baby teeth per child since fluoride toothpaste spread, and the NTP and JAMA Pediatrics fluoride-IQ link extended toward 0.7 mg/L, ending the recommendation would look defensible.",
           common_ground:
             "Both sides agree harm is established only above 1.5 mg/L, more than twice the US level of 0.7 mg/L, and that direct evidence at 0.7 mg/L itself is thin.",
           live_disagreement:
@@ -378,7 +378,7 @@ export const rfkHealthPolicyData = {
           supporter_flip:
             "If an audit of contested ACIP recommendations, GRAS determinations and accelerated approvals found decisions tracking the evidence available at the time, no more industry-favoring than those of conflict-free panels or foreign regulators, the capture rationale for dismissing expert panels would fail.",
           skeptic_flip:
-            "A skeptic who calls capture unproven should weigh research, including Prasad's, showing that drugs approved on surrogate endpoints often fail or never complete their confirmatory trials yet stay on the market for years, alongside the revolving door between regulators and industry and the GRAS self-affirmation gap.",
+            "If audits extended Prasad's research on drugs approved on surrogate endpoints that fail or never finish confirmatory trials yet stay on the market, and tied that to the revolving door and GRAS self-affirmation, the capture charge would look concrete rather than unproven.",
           common_ground:
             "Both sides agree transparency and conflict-of-interest disclosure are legitimate goals, and that MAHA contains competing factions: Prasad's push for stricter approvals and Makary's move to loosen them.",
           live_disagreement:

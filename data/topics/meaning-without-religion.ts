@@ -32,7 +32,7 @@ export const meaningWithoutReligionData = {
           supporter_flip:
             "If a 10-year matched comparison of committed secular humanists and committed believers, controlling for income, education, health and social networks, found the secular group consistently lower on meaning, resilience and connectedness, the claim that secular life can fully supply these goods would weaken.",
           skeptic_flip:
-            "A skeptic who sees religion as a uniquely complete package should weigh that among the nonreligious, wellbeing tracks whether people find their worldview comforting and belong to a community, not unbelief itself, and that Finland, Denmark, Sweden and the Netherlands, among the most secular nations, rank in the World Happiness Report's top 10.",
+            "If studies of the nonreligious kept finding wellbeing tracking comfort in one's worldview and community belonging rather than unbelief, and highly secular nations like Finland and Denmark kept ranking near the top for happiness, religion would look less like a uniquely complete package.",
           common_ground:
             "Both sides agree community and belonging are central to what makes religion work for people, and that the happiness of secular nations may owe more to strong welfare states than to irreligion.",
           live_disagreement:
@@ -126,7 +126,7 @@ export const meaningWithoutReligionData = {
           supporter_flip:
             "If behavioral studies — charitable giving, honesty in economic games, volunteering — found religious people reliably more prosocial than committed secular people after controlling for community participation, income, education and social desirability, the claim that secular foundations are fully adequate for ethics would weaken.",
           skeptic_flip:
-            "A skeptic who doubts secular ethics should weigh that the Euthyphro dilemma shows morality can be articulated and justified without appeal to a deity, and that modern secular societies with the lowest religious belief sustain low crime, high social trust and robust prosocial norms.",
+            "If the most secular societies kept sustaining low crime, high social trust and strong prosocial norms, the Euthyphro point that morality can be justified without a deity would gain practical backing, and doubts about secular ethics would weaken.",
           common_ground:
             "Both sides accept that secular ethics offers several competing foundations — flourishing, contracts, Kant's categorical imperative — and that the Euthyphro dilemma does not by itself refute divine-command theory.",
           live_disagreement:

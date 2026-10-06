@@ -59,7 +59,7 @@ describe("the map block on a phone", () => {
     // Each says what it opens, so a list of four "Show more" is not ambiguous.
     const names = buttons.map((button) => button.textContent);
     expect(new Set(names).size).toBe(4);
-    expect(names[0]).toMatch(/^Show more: Someone who says yes/);
+    expect(names[0]).toMatch(/^Show more: What would change the mind of someone who says yes/);
 
     const first = buttons[0];
     const target = document.getElementById(first.getAttribute("aria-controls")!)!;
@@ -78,7 +78,7 @@ describe("the map block on a phone", () => {
 
   it("puts the crux's action right after the crux box, before the cards", () => {
     const view = render(<MapMatch match={matched.match!} related={matched.related} />);
-    const cta = view.getByRole("link", { name: "Open the map at this crux" });
+    const cta = view.getByRole("link", { name: /^Open the map at (this|the first) crux$/ });
     const lastFlip = view.getAllByRole("button", { name: /^Show more/ })[1];
     const cardsHeading = view.getByRole("heading", { name: "The strongest card on each side" });
     expect(lastFlip.compareDocumentPosition(cta) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();

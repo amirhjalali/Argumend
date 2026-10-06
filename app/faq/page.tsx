@@ -17,10 +17,9 @@ export default function FAQPage() {
           breadcrumbs={[
             { label: "Home", href: "/" },
             { label: "About", href: "/about" },
-            { label: "Questions" },
+            { label: "FAQ" },
           ]}
-          eyebrow="Questions"
-          title="Questions people ask"
+          title="Common questions"
           lede="Short answers. The whole story, and the rules the site keeps, are on the About page."
           meta={`${faqs.length} questions. Open any one to read the answer.`}
           className="!mb-8"

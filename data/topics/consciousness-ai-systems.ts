@@ -9,15 +9,15 @@ export const aiConsciousnessData = {
   category: "philosophy" as const,
   keystone_fact: {
     statement:
-      "This is not a fringe question: a 2023 Nature article urged AI labs to start testing their systems for consciousness, Anthropic now employs AI-welfare researchers and calls the chance its model is conscious 'non-negligible,' and ~17% of AI researchers already think some current system may have subjective experience — yet there is no agreed test to settle it, even in humans.",
+      "A 2025 adversarial test of the two leading theories of consciousness, run on 256 human participants, confirmed neither. A 2023 report by 19 researchers found no current AI system conscious and no obvious technical barrier to building one that is, and since late 2024 Anthropic has run model-welfare assessments before deploying new models. Both sides accept these facts. The fight is over how much moral caution that uncertainty calls for.",
     confidence: 80,
-    source: "Nature commentary (2023); Anthropic AI-welfare research; Dreksler et al. (2025) for the ~17% researcher figure",
-    sourceUrl: "https://www.anthropic.com/research/introspection",
+    source: "Cogitate Consortium, Nature 642 (2025); Butlin, Long et al., 'Consciousness in Artificial Intelligence' (2023); Anthropic model welfare work (2024-2025)",
+    sourceUrl: "https://www.nature.com/articles/s41586-025-08888-1",
   },
   simple_case: [
-    "The honest answer is that we don't know — and currently can't: there is no agreed test for consciousness even in humans, so we have no reliable way to confirm or rule it out in an AI.",
-    "It is no longer fringe — a 2023 Nature piece urged AI labs to test for it, Anthropic employs AI-welfare researchers and calls the chance its model is conscious 'non-negligible,' and ~17% of AI researchers already think some system has subjective experience.",
-    "So the real debate isn't whether today's chatbot is conscious (almost certainly not in any rich sense) but how much moral caution a genuine, growing uncertainty warrants — the same logic by which we protect animals whose inner lives we cannot verify.",
+    "Both sides accept that there is no validated test for consciousness in non-biological systems, that today's models are at minimum extraordinary pattern-matchers, that we already extend some moral caution to animals whose inner lives we cannot verify, and that anthropomorphizing AI for commercial reasons is a real risk.",
+    "They split over whether consciousness requires biology or only the right information processing, and over whether the mere possibility of AI consciousness creates moral obligations now or distracts from AI safety and from established moral patients.",
+    "The first is a question future science may move; the second is a weighing of values that the odds can inform but not decide.",
   ],
   pillars: [
     {
@@ -222,7 +222,7 @@ export const aiConsciousnessData = {
           supporter_flip:
             "If a rigorous framework showed that extending moral status to AI reliably backfires — blocking essential safety shutdowns or diverting protection from humans and animals — the case for AI-welfare protections would weaken to near zero.",
           skeptic_flip:
-            "If credible indicators of sentience accumulated in advanced systems, the precautionary logic we already apply to animals of uncertain consciousness would obligate at least minimal protections.",
+            "If credible indicators of sentience accumulated in advanced systems, the precautionary logic applied to animals of uncertain consciousness would extend to them, and at least minimal protections would be hard to refuse.",
           common_ground:
             "Both sides agree we extend some moral caution to animals whose consciousness we cannot verify, and that anthropomorphizing AI for commercial reasons is a real risk.",
           live_disagreement:

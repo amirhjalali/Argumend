@@ -133,6 +133,17 @@ visible instead of absent, and a section placement under 70% confidence is
 marked as a guess. The consent line above the submit button is built from
 `lib/aiProviders.ts`.
 
+### One Map per Question (no duplicate maps)
+
+The library should be easy to traverse: one map per question. Before adding a
+map, run `bun run maps:nearest "<the new map's question>"`. If an existing map
+asks the same question, add yours to it (an alias, an "Also asked as" phrasing,
+or a crux) instead. `lib/mapDuplicates.test.ts` fails CI on any two maps whose
+word profiles are at least 0.35 alike (`lib/mapDuplicates.ts`) unless
+`data/mapPairs.ts` lists the pair as distinct, with a reason. When merging,
+redirect the retired map's URLs (`/topics/<id>`, `/topics/<id>/map`, its
+`/questions` slugs) to the kept map in `next.config.js`.
+
 ### Dynamic Imports
 
 Heavy components are loaded with `next/dynamic` to reduce initial bundle size. The `data/topics.ts` module (~500KB) is read on the server (`data/topicLoader.ts`); client components use `data/topicIndex.ts` summaries.

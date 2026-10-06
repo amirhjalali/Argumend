@@ -1,8 +1,6 @@
 import { ImageResponse } from "next/og";
 import topicSummaryData from "@/data/topicSummaries.json";
 import type { TopicSummary } from "@/data/topicIndex";
-import { FRAGILE_VERDICT_NOTE } from "@/components/FragileVerdictNote";
-import type { VerdictQuadrant } from "@/lib/schemas/topic";
 import {
   OG_HEIGHT,
   OG_IMAGE_CACHE_CONTROL,
@@ -16,40 +14,13 @@ import { mapDisplayTitle } from "@/lib/mapNaming";
 
 export const runtime = "edge";
 
-const QUADRANT_COLORS: Record<VerdictQuadrant, string> = {
-  settled: "#3a6965",
-  contested: "#564d45", // stone; crimson is for cruxes (components/BalanceWeightChip.tsx)
-  moderate: "#C4613C",
-  open: "#7a7068",
-};
 const topicSummaries = topicSummaryData as TopicSummary[];
 
-function getStatusLabel(status: string): string {
-  switch (status) {
-    case "settled":
-      return "Evidence converges";
-    case "contested":
-      return "Evidence divided";
-    case "highly_speculative":
-      return "Evidence thin";
-    default:
-      return status;
-  }
-}
-
-function getStatusColor(status: string): string {
-  switch (status) {
-    case "settled":
-      return "#3a6965"; // deep teal: narrowed, never green-as-true
-    case "contested":
-      return "#564d45"; // stone ink: rust is the proponent side and the CTA
-    case "highly_speculative":
-      return "#6d6058"; // muted stone (#78716c was 4.3:1 on the parchment)
-    default:
-      return "#6d6058";
-  }
-}
-
+/**
+ * The share image for an older map: the question, the first crux it turns
+ * on, and what the map holds. Like the page, it never shows a score, a
+ * verdict or which way the evidence leans (those stay in the open API).
+ */
 export async function GET(
   _request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -63,17 +34,10 @@ export async function GET(
     return ogErrorResponse(404, "TOPIC_NOT_FOUND", OG_NOT_FOUND_CACHE_CONTROL);
   }
 
-  const scoreColor = QUADRANT_COLORS[topic.verdict.quadrant];
-  const title = truncateOgText(mapDisplayTitle(topic), 96);
-  const verdict = truncateOgText(topic.verdict.label, 140);
-  const metaClaim = truncateOgText(topic.meta_claim, 150);
-  const statusLabel = getStatusLabel(topic.status);
-  const statusColor = getStatusColor(topic.status);
-
-  const evidenceCount = topic.evidenceCount;
-  const pillarCount = topic.pillarCount;
-  const balance = Math.min(100, Math.max(0, topic.balance));
-  const weight = Math.min(100, Math.max(0, topic.weight));
+  const title = truncateOgText(mapDisplayTitle(topic), 110);
+  const firstCrux = topic.firstCrux ? truncateOgText(topic.firstCrux, 150) : null;
+  const questions = topic.pillarCount;
+  const cards = topic.evidenceCount;
 
   return new ImageResponse(
     (
@@ -84,7 +48,7 @@ export async function GET(
           width: "100%",
           height: "100%",
           backgroundColor: "#f4f1eb",
-          padding: "48px 56px",
+          padding: "52px 64px 40px",
           position: "relative",
         }}
       >
@@ -101,208 +65,69 @@ export async function GET(
           }}
         />
 
-        {/* Main content area */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flex: 1,
-            gap: "48px",
-            alignItems: "center",
-          }}
-        >
-          {/* Left: Title and metadata */}
+        <div style={{ display: "flex", flexDirection: "column", flex: 1, justifyContent: "center", gap: "28px" }}>
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              flex: 1,
-              justifyContent: "center",
-              gap: "16px",
+              fontSize: "18px",
+              color: "#7a7068",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              letterSpacing: "3px",
             }}
           >
-            {/* Status badge */}
-            <div style={{ display: "flex" }}>
+            A map of the argument
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              fontSize: title.length > 80 ? "44px" : title.length > 48 ? "52px" : "60px",
+              fontWeight: 700,
+              color: "#3d3a36",
+              lineHeight: 1.1,
+              fontFamily: "Georgia, serif",
+              letterSpacing: "-0.5px",
+            }}
+          >
+            {title}
+          </div>
+
+          {firstCrux && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                borderLeft: "4px solid #a23b3b",
+                paddingLeft: "22px",
+              }}
+            >
               <div
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  backgroundColor: statusColor + "18",
-                  border: `2px solid ${statusColor}`,
-                  borderRadius: "24px",
-                  padding: "6px 20px",
+                  fontSize: "16px",
+                  color: "#a23b3b",
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                  letterSpacing: "2.5px",
                 }}
               >
-                <span
-                  style={{
-                    fontSize: "20px",
-                    fontWeight: 600,
-                    color: statusColor,
-                    letterSpacing: "0.5px",
-                  }}
-                >
-                  {statusLabel}
-                </span>
+                It turns first on
               </div>
-            </div>
-
-            {/* Topic title */}
-            <div
-              style={{
-                display: "flex",
-                fontSize: title.length > 72 ? "38px" : title.length > 40 ? "44px" : "54px",
-                fontWeight: 700,
-                color: "#3d3a36",
-                lineHeight: 1.12,
-                fontFamily: "Georgia, serif",
-                letterSpacing: "-0.5px",
-                marginTop: "4px",
-              }}
-            >
-              {title}
-            </div>
-
-            {/* Verdict */}
-            <div
-              style={{
-                display: "flex",
-                fontSize: "21px",
-                color: "#78716c",
-                lineHeight: 1.4,
-              }}
-            >
-              {verdict}
-            </div>
-
-            {/* Fragility — a reading one evidence relabel could change says so */}
-            {topic.verdict.fragile && (
               <div
                 style={{
                   display: "flex",
-                  fontSize: "17px",
-                  color: "#a8a29e",
-                  fontStyle: "italic",
+                  fontSize: "30px",
+                  color: "#3d3a36",
                   lineHeight: 1.3,
+                  fontFamily: "Georgia, serif",
                 }}
               >
-                {FRAGILE_VERDICT_NOTE}
-              </div>
-            )}
-
-            {/* Stats row */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: "24px",
-                alignItems: "center",
-                marginTop: "8px",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: "18px",
-                  color: "#78716c",
-                  fontWeight: 500,
-                }}
-              >
-                {pillarCount} Pillars
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: "18px",
-                  color: "#a8a29e",
-                }}
-              >
-                ·
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  fontSize: "18px",
-                  color: "#78716c",
-                  fontWeight: 500,
-                }}
-              >
-                {evidenceCount} Evidence Items
+                {firstCrux}
               </div>
             </div>
-          </div>
-
-          {/* Right: Score circle */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "14px",
-            }}
-          >
-            {/* Outer glow ring */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "220px",
-                height: "220px",
-                borderRadius: "110px",
-                border: `2px solid ${scoreColor}20`,
-                backgroundColor: scoreColor + "08",
-              }}
-            >
-              {/* Inner ring */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "190px",
-                  height: "190px",
-                  borderRadius: "95px",
-                  border: `6px solid ${scoreColor}`,
-                  backgroundColor: scoreColor + "14",
-                }}
-              >
-                {/* Score number */}
-                <div
-                  style={{
-                    display: "flex",
-                    fontSize: "76px",
-                    fontWeight: 700,
-                    color: scoreColor,
-                    lineHeight: 1,
-                    fontFamily: "Georgia, serif",
-                  }}
-                >
-                  {balance}
-                </div>
-              </div>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                fontSize: "14px",
-                color: "#78716c",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "3px",
-              }}
-            >
-              Balance
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "10px" }}>
-              <div style={{ display: "flex", width: "120px", height: "8px", backgroundColor: "#e7e2d8", borderRadius: "4px" }}>
-                <div style={{ display: "flex", width: `${(weight / 100) * 120}px`, height: "8px", backgroundColor: scoreColor, borderRadius: "4px" }} />
-              </div>
-              <div style={{ display: "flex", fontSize: "13px", color: "#78716c", fontWeight: 600, textTransform: "uppercase", letterSpacing: "2px" }}>
-                Weight {weight}
-              </div>
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Bottom bar */}
@@ -316,33 +141,12 @@ export async function GET(
             borderTop: "2px solid #e7e5df",
           }}
         >
-          {/* Meta claim (truncated) */}
-          <div
-            style={{
-              display: "flex",
-              width: "800px",
-              fontSize: "16px",
-              color: "#78716c",
-              lineHeight: 1.5,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              maxWidth: "800px",
-              fontStyle: "italic",
-            }}
-          >
-            &ldquo;{metaClaim}&rdquo;
+          <div style={{ display: "flex", fontSize: "19px", color: "#564d45" }}>
+            {`${questions} ${questions === 1 ? "question" : "questions"} it turns on · ${cards} sourced cards · Never names a winner`}
           </div>
 
           {/* Brand mark */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              flexShrink: 0,
-              marginLeft: "auto",
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
             <div
               style={{
                 display: "flex",

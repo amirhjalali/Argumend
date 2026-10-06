@@ -11,17 +11,16 @@ export const globalHousingBubbleData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The crash the 'bubble' narrative predicted didn't arrive: even as US 30-year mortgage rates spiked toward 8% in 2023 — the sharpest tightening in decades — national home prices set fresh records on the S&P CoreLogic Case-Shiller index. The reason isn't froth from institutions or foreign buyers (large institutions own only ~3% of single-family rentals and under 0.5% of all homes); it's that ~76% of US mortgages are locked below 5%, choking the supply of homes for sale. The real exposure is in variable- and short-fixed-rate markets like Canada, where ~60% of mortgages renew in 2025-2026.",
+      "In 2023, as US 30-year mortgage rates neared 8%, national home prices still set records, and about 76% of outstanding US mortgages carried rates below 5%. In Canada, about 60% of mortgages renew in 2025-2026, mostly five-year loans taken at pandemic-era lows. Both sides accept these facts. The fight is over whether record price-to-income ratios and renewal shocks will force prices down, or tight supply will hold them up.",
     confidence: 86,
     source:
-      "S&P CoreLogic Case-Shiller National Home Price Index (2023 record); Urban Institute, institutional SFR ownership (2023); FHFA WP 24-03 lock-in; Bank of Canada Financial Stability Report 2025",
+      "S&P CoreLogic Case-Shiller National Home Price Index; Batzer & Coste, FHFA Working Paper 24-03 (2024); Bank of Canada Financial Stability Report 2025",
     sourceUrl: "https://fred.stlouisfed.org/series/CSUSHPINSA",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "By the classic bubble signals, the warning lights are flashing: on the OECD's measure house prices outran household incomes by roughly 17% across member countries from 2015 to 2023, with the steepest divergences in Portugal, Canada and the US, and in Toronto the typical mortgage payment swallowed over half of median after-tax family income.",
-    "But high ratios have stayed high for years without correcting, because the same tightening that should have triggered a crash instead froze supply — with ~76% of US mortgages locked below 5%, owners simply stopped selling, so US prices hit record highs in 2023 even as rates neared 8%, and large institutions and foreign buyers (often blamed) are too small a share nationally to be the driver.",
-    "So the honest debate isn't 'is housing in a bubble that's about to burst?' but 'where does the rate shock actually bite, and when?' — the answer turning on short-fixed and variable-rate markets like Canada, Australia and the UK, where mortgages reprice on renewal rather than being locked for 30 years.",
+    "Both sides accept that price-to-income ratios in many major cities sit at or near record highs and first-time buyers have been squeezed; that large institutions own a small share of homes nationally but a much larger one in some Sun Belt starter markets; and that the US lock-in effect holds down for-sale supply while variable- and short-fixed-rate markets are far more exposed to higher rates.",
+    "They split over whether record ratios must eventually force prices down or constrained supply can keep them high; whether concentrated investors would sell fast enough in a downturn to deepen price falls; and whether the 2025-2026 mortgage renewal wave in markets like Canada forces enough sales to push prices down, or is absorbed by income growth and refinancing.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=60",
@@ -105,7 +104,7 @@ export const globalHousingBubbleData = {
           supporter_flip:
             "If a market sustained price-to-income ratios far above the historical 3-5x band for a full economic cycle — with first-time-buyer participation recovering rather than collapsing — without any correction, that would show elevated ratios reflect a durable structural shift (supply constraints, dual-income norms) rather than a bubble destined to pop.",
           skeptic_flip:
-            "A skeptic who treats high ratios as the 'new normal' should weigh that every prior episode of this extreme a divergence (US 2006, Japan 1990, Ireland 2007) was preceded by the same 'this time is structural' arguments, and that mortgage burdens above ~50% of income mechanically shrink the buyer pool until prices adjust.",
+            "If today's markets followed the pattern of the US in 2006, Japan in 1990 and Ireland in 2007, extreme ratios defended as 'structural', and mortgage burdens above ~50% of income shrank the buyer pool, the 'new normal' view would be hard to hold.",
           common_ground:
             "Both sides agree price-to-income ratios in many major cities are at or near record highs and that affordability for first-time buyers has deteriorated sharply.",
           live_disagreement:
@@ -221,7 +220,7 @@ export const globalHousingBubbleData = {
           supporter_flip:
             "If a downturn arrived and institutional and investor holdings were sold off gradually (or held through the trough as long-term rental assets) rather than dumped — with no measurable amplification of price declines in the metros and price tiers where investors had concentrated — that would refute the claim that concentrated ownership creates systemic sell-off risk.",
           skeptic_flip:
-            "A skeptic who points to the small ~3% national institutional share should weigh that buying is concentrated by metro and price tier — investors bought roughly a quarter to a third of homes in Sun Belt metros like Atlanta and Phoenix at the 2021-2022 peak — so a localized, synchronized exit could move those specific markets even if the national footprint is small.",
+            "If local data confirmed that investors bought roughly a quarter to a third of homes in Sun Belt metros like Atlanta and Phoenix at the 2021-2022 peak, and they began exiting together, the ~3% national institutional share would understate the risk to those markets.",
           common_ground:
             "Both sides agree large institutions own a small share of total housing nationally but a much larger share in specific Sun Belt metros and the entry-level price tier.",
           live_disagreement:
@@ -335,7 +334,7 @@ export const globalHousingBubbleData = {
           supporter_flip:
             "If the 2025-2026 renewal wave in short-fixed and variable-rate markets (Canada, Australia, UK) passed with households absorbing the payment increases — rising incomes, term extensions, and savings buffers preventing a spike in forced selling or arrears — that would show the 'lag effect' was a deferral that markets digested, not a delayed crash.",
           skeptic_flip:
-            "A skeptic relying on the US lock-in effect should weigh that lock-in is a US 30-year-fixed phenomenon: in Canada ~60% of mortgages renew across 2025-2026 with five-year fixed holders facing ~15-20% payment increases, and the BIS finds household debt-service sensitivity historically elevated in several of these economies, so the shock may simply not have arrived yet.",
+            "If arrears and forced sales rose as Canada's 2025-2026 renewals, about 60% of mortgages, hit five-year fixed holders with ~15-20% payment increases, the US lock-in effect would look like a local exception and the shock like one that had not yet arrived.",
           common_ground:
             "Both sides agree the US lock-in effect genuinely suppresses for-sale supply and that variable- and short-fixed-rate markets are far more exposed to rate increases than the 30-year-fixed US market.",
           live_disagreement:

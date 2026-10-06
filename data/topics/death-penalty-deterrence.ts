@@ -8,16 +8,16 @@ export const deathPenaltyDeterrenceData = {
   category: "policy" as const,
   keystone_fact: {
     statement:
-      "After decades of research, the U.S. National Research Council concluded the studies on whether the death penalty deters murder are 'not informative' — they cannot show it raises, lowers, or has no effect on homicide. And death-penalty states do not have lower murder rates.",
+      "After decades of research, the US National Research Council concluded that studies of whether the death penalty deters murder are 'not informative': they cannot show it raises, lowers or has no effect on homicide. Death-penalty states do not have lower murder rates. The fight is over whether the punishment is justified on other grounds, such as retribution, and whether those can outweigh the risk of executing the innocent.",
     confidence: 88,
     source: "U.S. National Research Council, Deterrence and the Death Penalty (2012)",
     sourceUrl:
       "https://nap.nationalacademies.org/catalog/13363/deterrence-and-the-death-penalty",
   },
   simple_case: [
-    "The honest headline: after decades of study we cannot show the death penalty deters murder — the National Research Council called the evidence 'not informative,' and states that use it do not have lower homicide rates.",
-    "At the same time the system makes irreversible mistakes: 200+ death-row inmates have been exonerated since 1973, and a careful estimate puts the share of likely-innocent death sentences at 4.1% or higher.",
-    "So the real question is not 'does it deter' (no clear evidence it does) but whether retribution for the worst crimes can justify a costly, error-prone, and irreversible punishment.",
+    "Both sides accept that death-penalty states do not have lower murder rates, that the 2012 National Research Council review found the deterrence studies 'not informative' either way, and that the system has sentenced innocent people to death — 200+ exonerations since 1973 — under a punishment that cannot be undone.",
+    "They split over whether a possible but unproven deterrent, together with retribution for the worst murders, can still justify capital punishment; and over whether safeguards can make wrongful executions rare enough, or whether any irreversible error is too many.",
+    "Natural experiments and exoneration modelling can narrow the facts under both questions; how much retribution should count, and how many irreversible errors are too many, are weighings of values that no study answers.",
   ],
   pillars: [
     {
@@ -47,7 +47,7 @@ export const deathPenaltyDeterrenceData = {
         cost_to_verify: "$1M (Multi-state longitudinal study with econometric controls)",
         falsification: {
           supporter_flip:
-            "If well-identified natural experiments (states adopting or abolishing the penalty, with synthetic controls) keep showing no causal deterrent effect, the deterrence rationale should be dropped — leaving only retribution to carry the argument.",
+            "If well-identified natural experiments (states adopting or abolishing the penalty, with synthetic controls) kept showing no causal deterrent effect, the deterrence rationale would fall away, leaving only retribution to carry the argument.",
           skeptic_flip:
             "If credible causal designs robustly showed each execution prevents a meaningful number of murders (replicating the disputed Dezhbakhsh-type result under better identification), the 'no deterrent benefit' objection would fall.",
           common_ground:

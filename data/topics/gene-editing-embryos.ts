@@ -10,7 +10,7 @@ export const geneEditingEmbryosData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "CRISPR is already approved medicine — the FDA cleared a gene-editing therapy for sickle cell in 2023. But the one time anyone edited human embryos to make babies (He Jiankui, 2018), the edits were botched and unverified, the world condemned it, and he went to prison — because germline edits are heritable, irreversible, and we still can't guarantee CRISPR won't make changes we can't predict.",
+      "The FDA cleared a CRISPR gene-editing therapy for sickle cell disease in 2023. The one time embryos were edited to make babies (He Jiankui, 2018), the edits could not be verified, the work was condemned worldwide, and he went to prison. The fight is over whether heritable editing to prevent serious disease can ever be made safe and verifiable enough to allow.",
     confidence: 85,
     source:
       "FDA approval of Casgevy/CRISPR therapy (2023); He Jiankui case (2018–19); Nuffield Council (2018); WHO governance framework (2021)",
@@ -19,9 +19,9 @@ export const geneEditingEmbryosData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Gene editing has crossed from science fiction into approved medicine — in 2023 the FDA cleared the first CRISPR therapy, which functionally cures sickle-cell disease in adults by editing their own cells.",
-    "But editing embryos is a different order of risk: the only time anyone did it to make babies (He Jiankui, 2018) the intended edit wasn't even faithfully made, the work was never independently verified, the world condemned it, and he was jailed — because germline edits are heritable, effectively irreversible, and passed to people who can never consent.",
-    "So the honest debate isn't about editing a sick adult's cells (largely settled and beneficial) but about heritable embryo editing — where the real questions are whether CRISPR is precise enough to risk it, whether embryo screening already solves most cases without editing, and whether a 'therapy not enhancement' line can actually be held.",
+    "Both sides accept that the FDA approved Casgevy, a CRISPR therapy that edits a patient's own cells, for sickle-cell disease in 2023; that He Jiankui's 2018 embryo edits were botched and unverified; that germline changes are heritable and effectively irreversible; and that preventing a severe single-gene disease differs from enhancing a trait, though the boundary has real edge cases.",
+    "They split over whether base, prime and other editors can become precise enough to make heritable changes safe, and whether embryo screening already makes editing unnecessary for most couples; and over whether a 'serious disease only' line can hold across countries under commercial pressure or will erode toward enhancement.",
+    "The first is a question sequencing of research embryos could answer; where to draw the second line is partly a definition no study fixes.",
   ],
   pillars: [
     {
@@ -55,7 +55,7 @@ export const geneEditingEmbryosData = {
           supporter_flip:
             "If whole-genome sequencing of edited embryos kept showing off-target edits and mosaicism above the natural mutation rate even with newer base/prime editors — i.e. the precision needed for heritable use stayed out of reach — the 'the technology is almost ready' case would fail.",
           skeptic_flip:
-            "A skeptic citing He Jiankui's botched edits should weigh that base and prime editors avoid the double-strand breaks behind much of CRISPR's collateral damage, and that an FDA-approved CRISPR therapy already works reliably in humans — so 'inherently uncontrollable' is being challenged by the technology's progress.",
+            "If whole-genome sequencing of embryos edited with base and prime editors, which avoid the double-strand breaks behind much of CRISPR's collateral damage, found off-target rates near the natural mutation rate, 'inherently uncontrollable' would be hard to hold.",
           common_ground:
             "Both sides agree the 2018 embryo edits were botched and unverified, and that germline changes are heritable and effectively irreversible.",
           live_disagreement:
@@ -164,7 +164,7 @@ export const geneEditingEmbryosData = {
           supporter_flip:
             "If comparative analysis showed no regulatory regime has ever held a therapy-vs-enhancement line under commercial and competitive pressure — that permitting disease-editing inevitably slides to enhancement — the 'we can permit it narrowly and safely' position would collapse toward a ban.",
           skeptic_flip:
-            "A skeptic who fears designer babies should weigh that society already draws a workable line by screening embryos for serious monogenic disease but not for traits, and that a flat ban isn't neutral — it pushes the work into unregulated settings, the exact gap He Jiankui exploited.",
+            "If embryo screening kept holding its line, testing for serious monogenic disease but not for traits, and a flat ban pushed editing into unregulated settings like the one He Jiankui used, the fear of designer babies would weigh less against a narrow allowance.",
           common_ground:
             "Both sides agree there's a real distinction between preventing a severe single-gene disease and enhancing traits, and that the boundary has genuine edge cases.",
           live_disagreement:

@@ -11,15 +11,15 @@ export const vaccineMandatesData = {
   tags: ["vaccines", "public-health", "policy", "covid-19", "law", "ethics"],
   keystone_fact: {
     statement:
-      "Whether a vaccine mandate is justified depends less on politics than on one number — how much the vaccine cuts transmission to others. For measles (which needs ~95% coverage), school-entry mandates underpinned US elimination in 2000; for COVID the transmission benefit was modest and waned within weeks.",
+      "For measles, which needs about 95% coverage, school-entry mandates underpinned US elimination in 2000. For COVID, the vaccines' benefit in cutting transmission to others was modest and waned within weeks. The fight is over how much protection of others a vaccine must give before the state may require it.",
     confidence: 85,
     source: "CDC measles data; peer-reviewed transmission studies (NEJM)",
     sourceUrl: "https://www.cdc.gov/measles/data-research/index.html",
   },
   simple_case: [
-    "The honest answer is 'it depends on the disease': mandates are easiest to justify when a vaccine strongly and durably blocks transmission and the disease needs very high coverage — measles is the textbook case.",
-    "School-entry measles mandates pushed US coverage above ~95% and underpinned elimination in 2000; when coverage slipped, 2025 brought the most US measles cases since 1992 — so for measles, mandates demonstrably work.",
-    "For COVID the case is weaker — the vaccines cut onward transmission only modestly and briefly — so the strongest objections (does it really protect others? does coercion erode trust?) bite hardest there, not for long-standing childhood mandates.",
+    "Both sides accept that the harm principle is the right test, that measles vaccination protects others far more than COVID-19 vaccination did, whose transmission benefit was smaller and waned, that school-entry requirements have historically achieved very high childhood coverage while committed refusers are hard to move, and that courts have upheld properly scoped mandates like the one in Jacobson while blocking overbroad ones like OSHA's.",
+    "They split over how much of the uptake after a mandate the mandate itself causes rather than a maturing rollout; whether a given vaccine cuts spread to others enough, and for long enough, to justify compulsion; and whether trust lost to mandates outweighs the lives they save, and whether that loss is real.",
+    "Studies can measure each of those effects; how large a benefit licenses compulsion, and how to net lost trust against lives saved, are value choices no measurement makes.",
   ],
   pillars: [
     {
@@ -145,7 +145,7 @@ export const vaccineMandatesData = {
           supporter_flip:
             "If a vaccine is shown to barely reduce onward transmission (or only briefly), the harm-principle justification for compelling it collapses and the case reduces to paternalism — as critics argue for COVID.",
           skeptic_flip:
-            "If the vaccine demonstrably and durably cuts transmission enough to protect others — as for measles at the ~95% threshold — the 'it only protects the recipient' objection fails and coercion clears the harm-principle bar.",
+            "If a vaccine measurably and durably cut transmission enough to protect others, as with measles at the ~95% threshold, the 'it only protects the recipient' objection would fail and compulsion would clear the harm-principle bar.",
           common_ground:
             "Both sides agree the harm principle is the right test, and that measles vaccination produces a large transmission externality while COVID's was smaller and waned.",
           live_disagreement:

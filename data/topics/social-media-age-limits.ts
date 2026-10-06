@@ -9,12 +9,11 @@ export const socialMediaAgeLimitsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "In 2024 Australia became the first country to legally ban under-16s from social media — acting before the science is settled. Two hard questions sit underneath: whether social media actually causes the post-2012 teen mental-health decline (rigorous studies find mostly small or mixed effects), and whether an age ban can even be enforced without ID-checking every adult too.",
+      "On 29 November 2024 Australia passed the world's first law barring under-16s from holding social media accounts. In the UK, about 22% of 8-to-17-year-olds with a profile had already signed up with an adult age. Both sides accept that teen mental health worsened after about 2012. The fight is over whether social media drove that, and whether an age ban can be enforced without unacceptable privacy costs for everyone.",
     confidence: 80,
     source:
-      "Australia Online Safety (Social Media Minimum Age) Act 2024; Haidt vs. Odgers (Nature); Australian age-assurance trial (2024)",
-    sourceUrl:
-      "https://www.esafety.gov.au/about-us/social-media-age-restrictions",
+      "Online Safety Amendment (Social Media Minimum Age) Act 2024 (Australia); Ofcom / YouGov, 'Children's Online User Ages' (2024)",
+    sourceUrl: "https://www.legislation.gov.au/C2024A00127/asmade/text",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -50,7 +49,7 @@ export const socialMediaAgeLimitsData = {
           supporter_flip:
             "If a properly controlled abstinence trial (clinical instruments, not self-report) found that taking teens off social media for 6+ months didn't improve depression, anxiety, or sleep, the core justification for an under-16 ban would collapse — you'd be restricting kids for a harm you couldn't demonstrate.",
           skeptic_flip:
-            "A skeptic who says the harm is unproven should weigh that the post-2012 inflection is sharp, synchronized across countries, and concentrated in girls, plus leaked internal research showing Instagram worsened body image for some teens — patterns the precautionary case argues shouldn't be ignored while waiting for a perfect RCT.",
+            "If controlled studies tied the sharp, cross-country post-2012 decline in teen mental health, concentrated in girls, to social media, and Instagram's leaked internal research on worse body image for some teens was confirmed, 'the harm is unproven' would lose its footing.",
           common_ground:
             "Both sides agree teen mental health worsened after ~2012 and that most existing studies rely on unreliable self-reported screen time.",
           live_disagreement:
@@ -161,7 +160,7 @@ export const socialMediaAgeLimitsData = {
           supporter_flip:
             "If audits showed age-verification regimes barely keep under-16s off platforms — teens routing around them via VPNs, false birthdays, and borrowed accounts — while forcing privacy-eroding ID checks on every adult, the ban would impose real costs for little benefit.",
           skeptic_flip:
-            "A skeptic who says it's unenforceable should weigh that society already age-gates alcohol, gambling, and driving imperfectly yet still reduces underage use, and that Australia's trial concluded age assurance 'can be done' with relatively privacy-preserving methods — so 'unenforceable, therefore pointless' overstates the case.",
+            "If Australia's age-assurance trial held up at national scale with privacy-preserving methods, and the ban cut underage use the way imperfect age gates on alcohol, gambling and driving do, 'unenforceable, therefore pointless' would lose its footing.",
           common_ground:
             "Both sides agree no age-verification method is airtight, that roughly a fifth of teens already falsify their birthdays, and that robust verification has privacy implications for adults.",
           live_disagreement:

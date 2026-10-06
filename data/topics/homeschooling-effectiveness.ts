@@ -9,17 +9,17 @@ export const homeschoolingEffectivenessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Homeschooled students do score about 15-25 percentile points higher on standardized tests — but the most-cited figure comes from voluntary testing of families who are overwhelmingly white, college-educated, and religiously homogeneous, and the very institute that reports the gap (NHERI) concedes its studies cannot show homeschooling caused it rather than family advantage. The surprising truth most people miss is that the headline number is real but uncontrolled — it measures who homeschools as much as it measures homeschooling.",
+      "Homeschooled students typically score 15–25 percentile points above the public-school average on the standardized tests they take. In Brian Ray's 2010 study of 11,739 homeschoolers, about 92% were white and 64% of parents held a bachelor's degree, and no study yet pairs mandatory testing with full controls for family background. The question is how much of that edge belongs to homeschooling itself.",
     confidence: 80,
     source:
-      "NHERI / Brian Ray, Research Facts on Homeschooling (15-25 percentile gap, NHERI's own causal caveat); Kunzman & Gaither, Other Education (2013), comprehensive survey on self-selection",
+      "National Home Education Research Institute (Brian Ray), Research Facts on Homeschooling; Ray, Academic Leadership Live (2010)",
     sourceUrl: "https://nheri.org/research-facts-on-homeschooling/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The achievement gap is real and durable: across roughly three decades of studies, home-educated students have typically scored 15-25 percentile points above the public school average (about the 50th percentile), and the mechanism is plausible — personalized pace and near one-on-one instruction are structural advantages a 30-student classroom cannot match.",
-    "But the families who homeschool are not a random sample — the largest cited studies are overwhelmingly white, college-educated, and religiously homogeneous, testing is voluntary so the weakest students may never be measured, and NHERI itself says its data cannot prove homeschooling caused the gap rather than the advantaged families who choose it.",
-    "So the honest debate isn't whether homeschoolers score higher (they do, on the available tests) but whether the format adds value once you control for family income, parental education, and voluntary-testing bias — a question no large randomized or mandatory-testing study has yet answered.",
+    "Both sides accept that homeschoolers post higher average scores on the tests actually given, that those samples are self-selected and demographically advantaged, and that the socialization studies rest on small samples, with a mixed civic picture in the Cardus survey: more giving and volunteering, less voting.",
+    "They split over whether the test-score edge survives controls for family income, parental education and voluntary testing, and over whether homeschooling itself builds social skills or engaged families would get the same results in any school.",
+    "Both are questions a large study with mandatory testing and matched samples could answer.",
   ],
   pillars: [
     {
@@ -51,7 +51,7 @@ export const homeschoolingEffectivenessData = {
           supporter_flip:
             "If a large study using mandatory (not voluntary) testing and propensity-score matching on income, parental education, and region erased the homeschool advantage — leaving homeschoolers at or below matched public school peers — the 'homeschooling itself raises achievement' claim would collapse into a pure selection effect.",
           skeptic_flip:
-            "A skeptic who attributes the gap entirely to demographics should weigh that some studies report homeschoolers outscoring expectations even within lower-income or minority subgroups, and that near one-on-one instruction at a personalized pace is a structural advantage no 30-student classroom can match — so a residual format effect after controls is plausible.",
+            "If controlled studies found homeschoolers outscoring expectations within lower-income and minority subgroups, testing reports that they do, a format effect from near one-on-one, self-paced instruction would be hard to put down to demographics alone.",
           common_ground:
             "Both sides agree homeschoolers post higher average scores on the tests actually administered, that those samples are self-selected and demographically advantaged, and that no existing study uses mandatory testing with full SES controls.",
           live_disagreement:
@@ -158,7 +158,7 @@ export const homeschoolingEffectivenessData = {
           supporter_flip:
             "If validated social-skills instruments (SSRS, SDQ) administered to demographically matched samples showed homeschoolers with measurably worse social competence or worse adult relationships — or if the favorable findings vanished once family engagement was controlled — the 'socialization is fine' rebuttal would not hold.",
           skeptic_flip:
-            "A skeptic worried about isolation should weigh that available reviews find homeschoolers' social skills and adult relationships at least comparable, that most participate in co-ops, sports, and community groups, and that Cardus data show higher volunteering and charitable giving — so the 'isolated child' stereotype is not supported by the better evidence.",
+            "If matched-sample studies found homeschoolers' social skills and adult relationships at least comparable, with wide co-op, sports and community participation and the higher volunteering and giving Cardus reports, the 'isolated child' worry would weaken.",
           common_ground:
             "Both sides agree the existing socialization studies rest on small, self-selected samples; that outcomes vary widely across families; and that Cardus shows a genuinely mixed civic picture (higher giving and volunteering, but lower voter registration and local voting).",
           live_disagreement:

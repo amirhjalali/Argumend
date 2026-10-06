@@ -10,7 +10,7 @@ export const microplasticsHealthCrisisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Microplastics are now in virtually every human organ sampled — 77% of blood samples, placentas, lungs, 100% of testes — and a 2024 NEJM study found people with plastic in their artery plaque had 4.5× the risk of heart attack, stroke, or death. But that study is observational: whether the particles cause the harm or just mark already-diseased tissue is still genuinely unsettled.",
+      "Microplastics have been found in nearly every human organ sampled, including 77% of blood samples, and in a 2024 NEJM study people with plastic in their artery plaque had 4.5 times the risk of heart attack, stroke or death. That study was observational. The fight is over whether the particles cause the harm or mark tissue that was already diseased, and how worried that should make us.",
     confidence: 80,
     source:
       "Marfella et al., NEJM (2024, carotid plaque); Environment International (blood, 2022); testicular microplastics study (2024)",
@@ -18,9 +18,8 @@ export const microplasticsHealthCrisisData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The exposure is real and a little unnerving: microplastics have now been detected in virtually every human tissue sampled — 77% of blood samples, placentas on both sides, lung and liver biopsies, and 100% of human testes in one 2024 study — and an NEJM study found people with plastic particles in their artery plaque had about 4.5× the risk of heart attack, stroke, or death.",
-    "But 'found everywhere' is not the same as 'proven to harm': the headline cardiovascular study is observational, so the particles could be causing the inflammation — or could simply be accumulating in tissue that was already diseased for other reasons (smoking, poverty, age) — and the lab methods for measuring nanoplastics in tissue are still maturing.",
-    "So the honest debate isn't whether we're all carrying microplastics (we are) but whether they actually cause disease at the doses we're exposed to — a question that, like the early science on lead and tobacco, is suggestive and accumulating but not yet causally nailed down.",
+    "Both sides accept that microplastics turn up in essentially every human tissue sampled, from blood and placentas to artery plaque; that the strongest cardiovascular evidence so far is observational; that people carry many plasticizer chemicals at once while regulators assess them one at a time; and that the rules still treat bulk plastic polymers as inert.",
+    "They split over whether microplastics in arteries drive heart attacks and strokes or sit as bystanders in already-diseased tissue; whether real-world, low-dose mixtures of plastic chemicals like phthalates and BPA cause measurable reproductive harm; and whether micro- and nanoplastics are biologically inert at the doses people actually absorb, or a health threat on the scale of lead.",
   ],
   pillars: [
     // =========================================================================
@@ -56,7 +55,7 @@ export const microplasticsHealthCrisisData = {
           supporter_flip:
             "If prospective and animal studies showed microplastics are passively deposited in already-diseased arteries without triggering inflammation or accelerating plaque — i.e. the NEJM correlation reflects confounding (smoking, poverty, exposure), not causation — the 'comparable to lead' alarm would deflate to 'ubiquitous but not proven harmful.'",
           skeptic_flip:
-            "A skeptic who says detection isn't harm should weigh that the NEJM study showed a dose-response (more particles, worse outcomes) plus elevated inflammatory markers in affected tissue, and that 'ubiquitous before causation proven' preceded the lead, asbestos, and tobacco findings — so dismissing it as mere presence may repeat past underreaction.",
+            "If larger studies reproduced the NEJM dose-response, with more particles tracking worse outcomes and higher inflammatory markers, 'detection isn't harm' would start to resemble the early underreaction to lead, asbestos and tobacco.",
           common_ground:
             "Both sides agree microplastics are present in essentially every human tissue sampled, and that the strongest cardiovascular evidence to date is observational, not interventional.",
           live_disagreement:
@@ -177,7 +176,7 @@ export const microplasticsHealthCrisisData = {
           supporter_flip:
             "If endocrine-disrupting plastic chemicals produced adverse reproductive effects only at doses far above real-world human exposure — with no measurable mixture effect at environmentally relevant levels — the case that current chemical-by-chemical regulation is failing millions would collapse.",
           skeptic_flip:
-            "A skeptic who trusts current thresholds should weigh that regulators test chemicals one at a time at single doses, while humans carry dozens of plasticizer metabolites at once — so 'each is below its threshold' doesn't rule out a harmful combined effect the framework was never designed to detect.",
+            "If tests of the dozens of plasticizer metabolites people carry at once found a combined effect at real-world doses, 'each is below its threshold' would no longer reassure, since the one-chemical-at-a-time framework was not built to catch it.",
           common_ground:
             "Both sides agree humans carry measurable levels of many plasticizer metabolites simultaneously, and that regulation has largely assessed them chemical-by-chemical rather than as mixtures.",
           live_disagreement:
@@ -295,7 +294,7 @@ export const microplasticsHealthCrisisData = {
           supporter_flip:
             "If systematic testing found the common plastic polymers really are biologically inert at the sizes and doses humans encounter — not crossing barriers, not triggering inflammation, not ferrying adsorbed pollutants — the claim that the regulatory framework rests on a false assumption would fail.",
           skeptic_flip:
-            "A skeptic who assumes plastics are inert should weigh that nanoplastics have been shown crossing the placental and (in animal models) blood-brain barriers and provoking inflammatory responses — so 'plastic just passes through' is an assumption being actively contradicted, not an established fact.",
+            "If more studies found nanoplastics crossing the placental and blood-brain barriers and provoking inflammatory responses, extending the early human and animal findings, 'plastic just passes through' would be hard to hold.",
           common_ground:
             "Both sides agree current chemical regulation largely treats bulk plastic polymers as inert, and that nano-scale behavior may differ from bulk-material behavior.",
           live_disagreement:

@@ -9,17 +9,16 @@ export const consciousnessHardProblemData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Most people assume consciousness is just the brain's last unsolved engineering problem, awaiting a breakthrough. But the deeper puzzle — coined the 'hard problem' by David Chalmers in 1995 — is that even a complete physical account of the brain might still not explain why there is any subjective experience at all. The field's own experts can't even agree the problem is real: in the best-funded head-to-head test of the two leading scientific theories (the Cogitate adversarial collaboration, published in Nature in 2025), neither was confirmed.",
+      "In 1995 David Chalmers separated the 'easy problems' of consciousness, such as discrimination, attention and reportability, from the 'hard problem' of why any of it is accompanied by subjective experience. Thirty years on, the largest pre-registered test of two leading theories, the Cogitate collaboration published in Nature in 2025, partly supported both and fully confirmed neither. Both sides accept this record. The fight is over whether explaining every function of the brain leaves anything unexplained.",
     confidence: 84,
     source:
-      "Chalmers, 'Facing Up to the Problem of Consciousness' (1995); Cogitate Consortium, Nature 642, 133-142 (2025); Francken et al., Neuroscience of Consciousness (2022, ASSC attendee survey)",
-    sourceUrl: "https://www.nature.com/articles/s41586-025-08888-1",
+      "Chalmers, 'Facing Up to the Problem of Consciousness,' Journal of Consciousness Studies (1995); Cogitate Consortium, Nature 642, 133-142 (2025)",
+    sourceUrl: "https://consc.net/papers/facing.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The 'hard problem' is genuinely hard for a logical, not just technical, reason: physical descriptions deal in structure, function, and dynamics, while subjective experience — the redness of red, the painfulness of pain — does not seem to be any structural or functional property, so even a finished neuroscience appears to leave a gap (Chalmers 1995; Nagel 1974).",
-    "But the gap might be an illusion of introspection rather than a feature of reality: Daniel Dennett and Keith Frankish argue that once you explain every function of consciousness — discrimination, integration, reporting, self-monitoring — the lingering sense that 'something is missing' is the mind fooling itself, and every past 'mystery' (memory, perception, emotion) eventually yielded to mechanism.",
-    "So the honest debate isn't whether the brain produces consciousness (essentially everyone agrees it does) but whether there is an extra fact — subjective experience itself — that physical explanation leaves out, and whether that question is empirically resolvable at all or only metaphysical, a divide so deep that the field's most rigorous experiment (Cogitate, Nature 2025) couldn't settle even the narrower contest between two physical theories.",
+    "Both sides accept that neuroscience has found robust neural correlates of consciousness and explains its functions increasingly well; that no theory of consciousness yet commands agreement, and pre-registered adversarial tests like Cogitate are the right way to judge them; and that there is no validated test for consciousness in a non-biological system.",
+    "They split over whether, after a complete functional account, 'why does it feel like something?' is a real question left over or an illusion of introspection; whether Global Workspace Theory and Integrated Information Theory make different testable predictions or differ only in metaphysics; and whether consciousness depends on the computation a system performs or on its biological material, which decides whether AI could ever be conscious.",
   ],
   pillars: [
     // =========================================================================
@@ -49,9 +48,9 @@ export const consciousnessHardProblemData = {
           "$100K-300K (Structured expert elicitation study across disciplines)",
         falsification: {
           supporter_flip:
-            "A supporter of the hard problem should change their mind if a functional/mechanistic model (Global Workspace, predictive processing) ever explained not just that we report experiences but predicted exactly which states feel like something and why — and a representative panel of philosophers, not just neuroscientists, agreed nothing was left to explain. That would make the 'gap' look like a temporary ignorance gap, the kind science has closed for memory, perception, and emotion.",
+            "If a functional model such as Global Workspace or predictive processing predicted exactly which states feel like something and why, and a representative panel of philosophers found nothing left to explain, the gap would look like the temporary kind science closed for memory and perception.",
           skeptic_flip:
-            "A skeptic who thinks the gap is mere cognitive illusion should weigh that no functional account yet logically entails why processing should feel like anything (Nagel's bat, Chalmers' zombie) — and that illusionism arguably refutes itself, since an illusion of experience still requires a subject to whom it seems, which is itself experience.",
+            "If every functional account still left out why processing feels like anything, as Nagel's bat and Chalmers' zombie press, and the illusionist reply needed a subject to whom experience seems, calling the gap a cognitive illusion would be hard to hold.",
           common_ground:
             "Both sides agree neuroscience has identified robust neural correlates of consciousness and can explain the functions of consciousness (discrimination, integration, reportability) increasingly well.",
           live_disagreement:
@@ -157,9 +156,9 @@ export const consciousnessHardProblemData = {
           "$10-30M (Extended multi-theory adversarial collaboration with fMRI, EEG, and computational modeling)",
         falsification: {
           supporter_flip:
-            "A supporter of the view that consciousness needs new frameworks should change their mind if extended adversarial collaborations decisively confirmed one theory and falsified its rivals — the way physics resolves disputes — showing the disagreement was normal pre-paradigmatic science, not a sign the phenomenon is intractable by physical means.",
+            "If extended adversarial collaborations confirmed one theory and ruled out its rivals, the way physics settles disputes, the disagreement would look like ordinary pre-paradigmatic science rather than a sign that new frameworks are needed.",
           skeptic_flip:
-            "A skeptic who calls the disagreement 'healthy pre-paradigmatic science' should weigh that the best-designed test to date (Cogitate, Nature 2025) confirmed neither theory and partly contradicted both, and that the theories disagree not just on mechanism but on whether the thing to be explained (phenomenal experience) even exists — a deeper split than quantum gravity, where both sides agree what gravity is.",
+            "If further tests on the model of Cogitate (Nature 2025) again confirmed no theory and partly contradicted several, with the theories still split over whether phenomenal experience exists at all, 'healthy pre-paradigmatic science' would describe the field poorly.",
           common_ground:
             "Both sides agree that no single theory of consciousness currently commands consensus and that adversarial, pre-registered testing (as in the Cogitate program) is the right way to adjudicate.",
           live_disagreement:
@@ -248,9 +247,9 @@ export const consciousnessHardProblemData = {
           "$50-200M (Neuromorphic hardware development with consciousness marker testing — requires decades of engineering progress)",
         falsification: {
           supporter_flip:
-            "A supporter of substrate independence should change their mind if a silicon system faithfully replicating biological neural dynamics nonetheless lost every measurable consciousness marker (e.g. PCI-equivalent signatures) that the biological original had — showing that something physical about the substrate, not the computation, is doing the work.",
+            "If a silicon system faithfully reproducing biological neural dynamics lost every measurable consciousness marker, such as PCI-equivalent signatures, that the biological original had, something about the substrate rather than the computation would be doing the work.",
           skeptic_flip:
-            "A skeptic who insists only biology can be conscious should weigh that no behavioral or physical test can currently distinguish a conscious system from a functional duplicate (the philosophical-zombie problem), so 'AI obviously isn't conscious' is asserted, not demonstrated — and that experts are sharply split, with most ASSC researchers surveyed saying machine consciousness is possible.",
+            "If no behavioral or physical test could separate a conscious system from a functional duplicate, the zombie problem, while surveyed ASSC researchers stayed split with most calling machine consciousness possible, 'AI obviously isn't conscious' would rest on assertion.",
           common_ground:
             "Both sides agree that current large language models show no decisive evidence of consciousness and that we lack any validated, theory-neutral test for detecting consciousness in a non-biological system.",
           live_disagreement:

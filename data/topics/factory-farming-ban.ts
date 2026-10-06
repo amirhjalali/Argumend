@@ -9,17 +9,18 @@ export const factoryFarmingBanData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "About 99% of US farmed animals live on factory farms — the 'humane,' cage-free, free-range options most shoppers picture are a tiny sliver of production. Worldwide, roughly 80 billion land animals are slaughtered each year, the majority of them raised in intensive confinement.",
+      "About 99% of US farmed animals live on factory farms, including 98.6% of pigs and over 99.9% of meat chickens. A shift to exclusively grass-fed beef would need the US cattle herd to grow from 77 to 100 million head, and today's pastureland could sustain only about 27% of current beef output. Both figures are accepted. The fight is over how much the animals' suffering should weigh against the cost of changing the system.",
     confidence: 85,
     source:
-      "Sentience Institute (from USDA Census of Agriculture + EPA CAFO definitions); FAO global slaughter data",
-    sourceUrl: "https://www.sentienceinstitute.org/us-factory-farming-estimates",
+      "Sentience Institute, 'US Factory Farming Estimates' (USDA Census of Agriculture + EPA CAFO definitions); Hayek & Garrett, Environmental Research Letters (2018)",
+    sourceUrl:
+      "https://www.sentienceinstitute.org/us-factory-farming-estimates",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "When people picture where their meat comes from, they imagine the small 'humane' or cage-free farm — but about 99% of US farmed animals live on factory farms, and of the roughly 80 billion land animals slaughtered worldwide each year, most are raised in intensive confinement.",
-    "The case against isn't only ethical: industrial animal agriculture is a major greenhouse emitter (livestock are an estimated ~11–17% of global emissions), consumes most of the medically important antibiotics sold (~two-thirds in the US), and concentrates animals in ways that drive antibiotic resistance and pandemic risk.",
-    "The honest disagreement is partly a values question — how much moral weight a chicken's suffering carries — and partly practical: pasture systems use far more land and would raise food prices on the poorest, so the live debate is 'ban vs. reform vs. status quo,' not whether the conditions are grim.",
+    "Both sides accept that the vast majority of farmed animals live in intensive confinement, that industrial animal agriculture imposes real, unpriced environmental and health costs, from emissions to antibiotic resistance, and that intensive systems use less land per unit of food than pasture.",
+    "They split over how much moral weight farmed-animal suffering carries against the cost of changing the system; and over whether factory farming's harms justify a ban rather than taxes or reform, and whether pasture-based alternatives would do better or worse on land, emissions and food prices.",
+    "The first is a weighing of values that studies of pain and distress in pigs, chickens and cattle inform but cannot decide.",
   ],
   pillars: [
     {
@@ -52,9 +53,9 @@ export const factoryFarmingBanData = {
         cost_to_verify: "$300K (Neuroscience and ethics review)",
         falsification: {
           supporter_flip:
-            "If the science converged on farmed animals (especially birds and fish) lacking the neural basis for morally relevant suffering — or if welfare reforms demonstrably eliminated the worst confinement harms at scale — the strongest ethical case for a ban would soften into a case for reform.",
+            "If the science converged on farmed animals (especially birds and fish) lacking the neural basis for morally relevant suffering, or if welfare reforms measurably eliminated the worst confinement harms at scale, the strongest ethical case for a ban would soften into a case for reform.",
           skeptic_flip:
-            "A skeptic who doubts animal moral status should weigh that the Cambridge Declaration and a growing body of pain research credit all mammals and birds with the neural substrates of conscious experience — so dismissing farmed-animal suffering requires drawing a moral line the biology doesn't obviously support.",
+            "If pain research kept crediting mammals and birds with the neural substrates of conscious experience, extending the Cambridge Declaration, dismissing farmed-animal suffering would mean drawing a moral line the biology does not support.",
           common_ground:
             "Both sides agree the vast majority of farmed animals live in intensive confinement, and that whether — and how much — that matters morally is a genuinely contested values question, not a pure empirical one.",
           live_disagreement:
@@ -163,7 +164,7 @@ export const factoryFarmingBanData = {
           supporter_flip:
             "If full externality accounting showed factory farming's environmental and health costs are modest next to its cheap-calorie benefits — or that intensive systems are actually lower-impact per unit of protein than the pasture alternatives that would replace them — the public-health case for banning (vs. taxing externalities) would weaken.",
           skeptic_flip:
-            "A skeptic who defends the status quo should weigh that livestock is ~14.5% of global emissions, that most medically important antibiotics go to food animals, and that confined operations are recognized antibiotic-resistance and pandemic-risk reservoirs — externalities the market price doesn't capture.",
+            "If full externality accounting tallied livestock's ~14.5% share of global emissions, the medically important antibiotics given to food animals, and confined operations' role in resistance and pandemic risk, and found those costs missing from the price, the status quo would be hard to defend.",
           common_ground:
             "Both sides agree industrial animal agriculture imposes real, unpriced environmental and health externalities, and that intensive systems are also more land-efficient per unit of output than pasture.",
           live_disagreement:

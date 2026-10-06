@@ -29,7 +29,7 @@ const NODES: DiagramNodeModel[] = [
     kicker: "Safety Record",
     settle: { mode: "evidence", resolved: false, condition: "A full accounting." },
     runIns: [],
-    test: { title: "Deaths per TWh", methodology: "Aggregate.", cost: "$200K" },
+    test: { title: "Deaths per TWh", methodology: "Aggregate." },
     pageHref: "/topics/nuclear-energy-safety#crux-safety",
   },
   {

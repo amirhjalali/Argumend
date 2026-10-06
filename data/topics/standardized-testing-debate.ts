@@ -9,18 +9,17 @@ export const standardizedTestingDebateData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "SAT scores correlate steeply with family wealth — yet within every income and race group they still predict college grades and graduation at least as well as for everyone else, and Dartmouth found the SAT explained more than twice the variance in first-year GPA that high-school GPA did. The score gap mostly reflects unequal opportunity, not a biased test.",
+      "Children of the wealthiest 1% of families are 13 times likelier than children of low-income families to score 1300 or higher on the SAT or ACT. At Dartmouth, SAT scores explained 22% of the variation in first-year college GPA, against 9% for high-school grades. Both findings are real. What divides the sides is how much a test that tracks both family income and college performance should count in admissions.",
     confidence: 76,
     source:
-      "Dartmouth admissions analysis (2024); University of California Standardized Testing Task Force (2020); Opportunity Insights (Chetty et al.)",
+      "Opportunity Insights (Chetty, Friedman & Deming), via Harvard Gazette (2023); Dartmouth College admissions analysis (Feb 2024)",
     sourceUrl:
-      "https://home.dartmouth.edu/news/2024/02/sat/score",
+      "https://news.harvard.edu/gazette/story/2023/11/new-study-finds-wide-gap-in-sat-act-test-scores-between-wealthy-lower-income-kids/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The popular case against the SAT — that it just measures family wealth — is half right: scores do correlate steeply with income (kids of the top 1% are ~13x likelier to score 1300+), and that's a real problem.",
-    "But the half it misses is that the test still predicts college grades and graduation within every income and race group — Dartmouth found the SAT explained more than twice the variance in first-year GPA that high-school GPA did, and UC's own task force found scores predicted outcomes at least as well for underrepresented students, which is why several elite schools reinstated testing after going test-optional.",
-    "So the honest debate isn't 'valid vs. biased' but what a single common yardstick is worth against its alternatives — drop the SAT and admissions leans harder on essays, extracurriculars, and recommendations, channels that may favor wealthy families even more.",
+    "Both sides accept that SAT scores correlate strongly with family income, that no admissions metric is free of bias, that families who can afford to will game whatever gets measured, and that the evidence from the 1,800-plus colleges that went test-optional is mixed.",
+    "They split over whether going test-optional raised diversity without losing the ability to spot talented students, as Dartmouth, MIT, Yale, Princeton and others reinstate the SAT and ACT; and over whether essays, portfolios and recommendations are fairer predictors than a common test or tilt admissions further toward wealthy families.",
   ],
   pillars: [
     {
@@ -54,7 +53,7 @@ export const standardizedTestingDebateData = {
           supporter_flip:
             "If the test-optional natural experiment showed schools that dropped the SAT got more socioeconomic/racial diversity with no loss in their ability to identify talent or in graduation rates — i.e. scores added no predictive signal beyond GPA and other data — the case for keeping tests would weaken.",
           skeptic_flip:
-            "A skeptic who wants tests dropped should weigh that elite schools (Dartmouth, MIT, Yale) reinstated testing after concluding test-optional was quietly screening out high-achieving low-income applicants, and that scores predict outcomes within every income group — so 'drop the test for equity' may backfire on the students it's meant to help.",
+            "If more schools tested the conclusion that led Dartmouth, MIT and Yale to reinstate testing, and also found test-optional admissions screening out high-achieving low-income applicants, while scores kept predicting outcomes within every income group, dropping tests for equity would look likely to backfire.",
           common_ground:
             "Both sides agree SAT scores correlate strongly with family income, and that test-optional swept 1,800+ colleges with genuinely mixed evidence on whether diversity improved.",
           live_disagreement:
@@ -146,7 +145,7 @@ export const standardizedTestingDebateData = {
           supporter_flip:
             "If head-to-head studies showed portfolios, mastery assessment, or holistic review predict college success as well as the SAT while being more equitable and just as resistant to gaming, the 'we need a common yardstick' defense would collapse.",
           skeptic_flip:
-            "A skeptic who prefers holistic methods should weigh that the alternatives — essays, extracurriculars, recommendations — are even more sensitive to family resources and coaching than a scored exam, and that paid test-prep gains are tens of points, not hundreds.",
+            "If head-to-head studies found essays, activities and recommendations more sensitive to family resources and coaching than a scored exam, with paid prep moving scores only tens of points, the equity case for holistic review over tests would weaken.",
           common_ground:
             "Both sides agree no admissions metric is bias-free, and that whatever is measured gets gamed by families who can afford to (Goodhart's Law).",
           live_disagreement:

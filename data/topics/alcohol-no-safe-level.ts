@@ -9,7 +9,7 @@ export const alcoholNoSafeLevelData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Alcohol is a Group 1 carcinogen — the same IARC tier as tobacco and asbestos — and there is no established threshold below which the cancer risk switches off: a single daily drink (~10 g) raises a woman's breast-cancer risk by about 7%, and the WHO attributes roughly 740,000 cancer cases a year (4.1% of all new cases) to alcohol. The honest nuance is that 'no safe level' is firmest for cancer specifically; the all-cause-mortality picture at light doses is genuinely contested.",
+      "Alcohol is a Group 1 carcinogen, the same IARC tier as tobacco and asbestos, and no threshold has been established below which its cancer risk stops: one daily drink (~10 g) raises a woman's breast-cancer risk by about 7%. At light doses, its effect on overall mortality is contested. The fight is over whether the cancer risk at those doses is large enough to call any amount of drinking harmful.",
     confidence: 86,
     source:
       "WHO Europe / IARC, 'No level of alcohol consumption is safe' (2023) and IARC Monographs Vol. 100E; Collaborative Group on Hormonal Factors in Breast Cancer, British Journal of Cancer (2002, 7.1% per 10 g/day)",
@@ -18,9 +18,8 @@ export const alcoholNoSafeLevelData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The carcinogen case is settled and not subtle: ethanol is an IARC Group 1 carcinogen, the breast-cancer dose-response is roughly linear all the way down to one drink (~7.1% relative-risk increase per 10 g/day), and the WHO finds no dose below which the carcinogenic effect 'switches on' — so for cancer specifically, the risk starts from the first drop.",
-    "The honest counterpoint is that cancer is only one organ system: a 7% relative increase on a low baseline is a small absolute change, and bias-corrected meta-analysis (Zhao et al., 4.8 million people) found low intake under 25 g/day was not significantly linked to excess all-cause death, while the GBD 2020 update concluded older adults may even see a small net benefit.",
-    "So the honest debate isn't whether alcohol can cause cancer at any dose (it can) but whether 'no safe level' holds across all-cause mortality — which turns on whether the apparent flat/protective low-dose curve is real biology or an artifact of sick ex-drinkers being misclassified as non-drinkers.",
+    "Both sides accept that alcohol causes cancer at moderate-to-heavy intake and that one daily drink adds only a small absolute cancer risk even if the relative risk is real; that harm to overall health is clear at higher doses; and that counting sick ex-drinkers as non-drinkers distorts the comparison.",
+    "They split over whether cancer risk rises from the first drink or a small threshold hides below what studies can detect; whether the apparent dip in deaths at low doses is real or an artifact of who counts as a non-drinker; and how much benefit of light drinking remains when drinkers are compared only with healthy lifelong abstainers.",
   ],
   last_updated: "2026-06-16",
   tags: ["alcohol", "public-health", "cancer", "cardiovascular", "epidemiology"],
@@ -54,7 +53,7 @@ export const alcoholNoSafeLevelData = {
           supporter_flip:
             "If flexible spline dose-response models on pooled individual-participant data revealed a genuine threshold — a low-exposure band (say below 5-10 g/day) where the lower confidence bound for at least breast and bowel cancer no longer excludes the null — then 'no safe level for cancer' would soften to 'no safe level above a small but real floor.'",
           skeptic_flip:
-            "A skeptic who calls the low-dose increase too small to matter should weigh that ethanol's metabolite acetaldehyde is a direct DNA-damaging Group 1 carcinogen with no known repair threshold, and that the measured breast-cancer slope stays positive and statistically significant down to one drink across 53 pooled studies — so 'just statistical noise at the floor' is not what the largest dataset shows.",
+            "If larger pooled datasets kept the breast-cancer slope positive and significant down to one drink, as in the 53-study pooling, with acetaldehyde's DNA damage showing no repair threshold, 'just statistical noise at the floor' would be hard to hold.",
           common_ground:
             "Both sides agree alcohol unambiguously causes cancer at moderate-to-heavy intake and that the absolute risk added by a single daily drink is small even if the relative risk is real.",
           live_disagreement:
@@ -130,7 +129,7 @@ export const alcoholNoSafeLevelData = {
           supporter_flip:
             "If all three de-confounded designs converged — strict lifetime-abstainer cohorts, Mendelian-randomization using ADH1B/ALDH2 variants, and registry-linked natural experiments all showing all-cause risk flat or falling at low dose — then the claim that the low-dose harm is real (not an abstainer-bias artifact) would collapse.",
           skeptic_flip:
-            "A skeptic leaning on the flat-looking Zhao et al. low-dose estimate should weigh that Mendelian-randomization studies, which are immune to the lifestyle confounding and reverse causation that inflate observational J-curves, find all-cause mortality rising roughly linearly with genetically predicted intake and no protective dip.",
+            "If more Mendelian-randomization studies, free of the lifestyle confounding and reverse causation that shape observational J-curves, found all-cause mortality rising roughly linearly with predicted intake, the flat low-dose estimate of Zhao et al. would lose its weight.",
           common_ground:
             "Both sides agree abstainer bias is a real distortion (sick ex-drinkers wrongly counted as non-drinkers), that harm is clear at higher doses, and that the dispute is confined to the lowest exposure band.",
           live_disagreement:
@@ -242,7 +241,7 @@ export const alcoholNoSafeLevelData = {
           supporter_flip:
             "If the protective J-curve dip survived intact after restricting the reference group to healthy lifetime abstainers and removing former drinkers — and persisted across cohorts and continents — then dismissing the J-curve as pure 'sick-quitter' artifact would be untenable and a genuinely beneficial low dose could be real.",
           skeptic_flip:
-            "A skeptic who treats the J-curve as obvious biology should weigh that Stockwell et al. showed the large unadjusted benefit (RR 0.86) shrinks substantially once the reference group is cleaned of former drinkers — so much of the 'moderate drinkers live longer' signal tracks who lands in the non-drinker group, not the alcohol.",
+            "If more cohorts that clean former drinkers out of the reference group found the unadjusted benefit (RR 0.86) shrinking, testing Stockwell et al.'s result, the 'moderate drinkers live longer' signal would look like a feature of who counts as a non-drinker, not of alcohol.",
           common_ground:
             "Both sides agree the raw unadjusted J-curve is large and decades-replicated, and that abstainer bias attenuates it; the fight is over how much survives a clean reference group.",
           live_disagreement:

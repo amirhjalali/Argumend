@@ -9,18 +9,17 @@ export const facialRecognitionPolicingData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Almost every documented wrongful arrest from facial recognition — at least 14 in the US, most of them Black people — happened because police treated a software 'match' as proof and skipped basic follow-up, not because the algorithm was uniquely broken. The counterintuitive part: when the UK's national metrology lab tested the Met Police's live system, at the operating threshold (0.6+) there was no statistically significant difference in false positives across race or sex — but that demographic gap reappeared as soon as the threshold was lowered.",
+      "The ACLU has documented at least 14 wrongful arrests in the US after a facial-recognition match, most of them of Black people, and in each the match was treated as the main basis for arrest. In UK testing, the Met Police's live system showed no significant race or sex gap in false positives at its operating threshold, and a gap reappeared below it. Both sides accept these facts. The fight is over whether the settings police actually run, and the rules meant to govern them, hold up in the field.",
     confidence: 86,
     source:
-      "ACLU, 'More than a Dozen Wrongful Arrests Due to Police Reliance on Facial Recognition Technology' (2026); National Physical Laboratory, 'Facial Recognition Technology in Law Enforcement: Equitability Study' (NPL Report MS 43, March 2023); NIST FRVT Part 3 (NISTIR 8280, 2019)",
+      "ACLU, 'More than a Dozen Wrongful Arrests Due to Police Reliance on Facial Recognition Technology' (2025); National Physical Laboratory, Equitability Study (NPL Report MS 43, March 2023)",
     sourceUrl:
-      "https://science.police.uk/site/assets/files/3396/frt-equitability-study_mar2023.pdf",
+      "https://www.aclu.org/news/privacy-technology/more-than-a-dozen-wrongful-arrests-due-to-police-reliance-on-facial-recognition-technology",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest case for restriction is concrete, not hypothetical: at least 14 Americans — most of them Black — have been wrongfully arrested after a facial-recognition match, some jailed for days (one for ten days, another for six months) and one a woman eight months pregnant, and federal auditors found agencies ran roughly 60,000 searches with no training and, for some, no civil-rights policy at all.",
-    "The honest counterpoint is that the most accurate modern systems, tested on the exact algorithm and threshold an agency deploys, can show no statistically significant demographic gap — the Met's live system ran at a false-positive rate near 0.017% (about 1 in 6,000) — and in every known wrongful arrest the failure was police treating a 'lead' as 'proof,' not the algorithm itself.",
-    "So the honest debate isn't 'is facial recognition racist or accurate' but 'can enforceable guardrails — threshold floors, mandatory corroboration, disclosure to defendants, and audits — actually be made to stick in practice, or do agencies deploy the tool faster than oversight can govern it.'",
+    "Both sides accept that demographic bias is real in many face-recognition algorithms and depends heavily on the algorithm and threshold, that every documented US wrongful arrest followed police treating a match as proof rather than a lead, and that the technology spread faster than oversight: about 60,000 federal searches ran before any training requirement.",
+    "They split over whether the systems police actually use, at their real settings, are equally accurate across race and sex; whether officers follow rules against arresting someone on a match alone; and whether safeguards like Virginia's and California's, once enacted, are obeyed and actually reduce wrongful arrests.",
   ],
   last_updated: "2026-06-16",
   tags: [
@@ -58,9 +57,9 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$250K (independent demographic benchmark per system)",
         falsification: {
           supporter_flip:
-            "A supporter of the bias claim should update if independent, system- and threshold-specific testing (NPL-style) repeatedly showed that the algorithms agencies actually deploy, at their operating thresholds, produce no statistically significant demographic differential in false matches — meaning the bias is an artifact of weak legacy algorithms and bad settings, not the technology as fielded today.",
+            "If independent, system- and threshold-specific testing like the NPL's kept finding no significant demographic differential in false matches for the algorithms agencies deploy at their operating thresholds, the bias would look like a legacy of weak algorithms and bad settings rather than the tools in use.",
           skeptic_flip:
-            "A skeptic relying on the best-case NPL result should weigh that NIST's 8280 study found 10–100× higher false positives for Asian and African American faces in older algorithms, that the FAS analysis shows accuracy gains shrink absolute gaps without reliably erasing relative ones, and that 'best algorithm at the right threshold' is not what every agency buys or how every vendor configures its system.",
+            "If audits of what agencies buy and how vendors configure it found the 10-100x false-positive gaps NIST 8280 measured in older algorithms persisting in the field, with accuracy gains shrinking absolute gaps but not relative ones, the best-case NPL result would not describe policing in practice.",
           common_ground:
             "Both sides agree that demographic bias is real in many algorithms, that it depends heavily on the specific algorithm and confidence threshold, and that bias re-emerges at lower thresholds even in systems judged equitable at their operating threshold.",
           live_disagreement:
@@ -153,9 +152,9 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$300K (multi-jurisdiction case-file audit)",
         falsification: {
           supporter_flip:
-            "A supporter of restriction should update if a representative case-file audit found that where matches were confined to leads and independent probable cause was established before arrest, wrongful arrests largely disappeared — meaning the harm is a procedural failure that corroboration rules can fix rather than something intrinsic to the tool, which could then keep generating leads in robberies, assaults, child-exploitation and cold cases.",
+            "If a representative case-file audit found wrongful arrests largely disappearing where matches stayed leads and independent probable cause came before arrest, the harm would look like a fixable procedural failure, and the tool's value in robberies, assaults, child-exploitation and cold cases would weigh more.",
           skeptic_flip:
-            "A skeptic who blames only bad procedure should weigh that the same audit might show corroboration rules are routinely ignored in practice — that 'a match is just a lead' is policy on paper while officers arrest on the match alone — in which case the procedural fix is illusory and the practical effect is indistinguishable from arresting on the algorithm.",
+            "If a representative case-file audit found corroboration rules routinely ignored, with officers arresting on the match alone while 'a match is just a lead' stayed policy on paper, the procedural fix would look illusory and the harm built into how the tool is used.",
           common_ground:
             "Both sides agree that in every documented US wrongful arrest the match was treated as the sole or primary basis and basic follow-up was skipped, and that a match should function as an investigative lead requiring independent corroboration, never as proof.",
           live_disagreement:
@@ -249,9 +248,9 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$150K (comparative policy and records analysis)",
         falsification: {
           supporter_flip:
-            "A supporter of hard restriction should weigh that the GAO did not find the tool ineffective but found an absence of training and policy that agencies accepted recommendations to fix, and that states like Virginia and California already bar match-only arrests while preserving corroborated leads — so a workable middle path demonstrably exists, even if its effectiveness is not yet measured.",
+            "If studies of states like Virginia and California, which bar match-only arrests but keep corroborated leads, and of agencies acting on the GAO's training and policy recommendations, found fewer wrongful arrests, a workable middle path short of hard restriction would be in reach.",
           skeptic_flip:
-            "A skeptic who favors regulation over a ban should update if comparative analysis showed that jurisdictions with binding FRT statutes (sole-basis bans, mandatory training, disclosure) had no better disclosure-to-defendant rates, compliance, or wrongful-arrest incidence than those without — meaning the safeguards are unenforceable on paper and a harder restriction is the only thing that actually constrains use.",
+            "If comparative analysis found jurisdictions with binding statutes (sole-basis bans, mandatory training, disclosure) no better than others on disclosure to defendants, compliance or wrongful arrests, the safeguards would look unenforceable and a harder restriction the only working constraint.",
           common_ground:
             "Both sides agree the technology was deployed far faster than oversight could govern it — ~60,000 federal searches before any training mandate, four of seven agencies lacking civil-rights policies — and that enforceable safeguards (training, disclosure, corroboration, audit) are necessary.",
           live_disagreement:

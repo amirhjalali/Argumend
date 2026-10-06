@@ -10,18 +10,17 @@ export const aiEnergyWaterFootprintData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "A typical AI text prompt is tiny: Google's measured median Gemini query uses about 0.24 Wh of energy and roughly 0.26 mL of water — about five drops, or less than nine seconds of watching TV — and its per-prompt energy fell ~33× in a single year. The real environmental concern isn't the individual prompt but the concentrated, fast-growing data-center buildout: US data-center electricity is projected to roughly double or triple to 325-580 TWh (6.7-12% of US power) by 2028.",
+      "Google measured its median Gemini text prompt at about 0.24 Wh of energy and 0.26 mL of water, about five drops, after a 33× efficiency gain in a single year. US data centers used 4.4% of the nation's electricity in 2023, and Berkeley Lab projects 6.7–12% by 2028. Both sides accept these numbers. The fight is over what that growth runs on, and where its water comes from.",
     confidence: 88,
     source:
-      "Google, 'Measuring the environmental impact of AI inference' (Aug 2025, arXiv:2508.15734); Shehabi et al., '2024 US Data Center Energy Usage Report,' Lawrence Berkeley National Laboratory (LBNL-2001637, Dec 2024)",
+      "Google, 'Measuring the environmental impact of AI inference' (Aug 2025); Shehabi et al., '2024 US Data Center Energy Usage Report,' Lawrence Berkeley National Laboratory (LBNL-2001637, Dec 2024)",
     sourceUrl:
-      "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers",
+      "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "On a per-use basis, AI's footprint is far smaller than the viral takes suggest: Google's measured median Gemini text prompt consumes about 0.24 Wh and 0.26 mL of water (five drops), per-query energy fell roughly 33× in a single year, and all US data centers were only ~4.4% of national electricity and ~0.2% of national freshwater in 2023.",
-    "But national averages and per-query numbers hide the real problem, which is concentration and growth: data-center electricity is projected to reach 6.7-12% of US power by 2028, and because that load clusters in specific grids and watersheds faster than clean supply can be built, utilities are deferring coal retirements and adding gas while drought-prone localities face new draws on stressed water.",
-    "So the honest debate isn't whether one chatbot query is wasteful (it basically isn't) but whether the marginal, geographically concentrated buildout is being met by clean generation and slack water — or by dirtier power and stressed watersheds where targeted intervention would actually help.",
+    "Both sides accept that data centers are still a small share of total electricity and of US freshwater, that per-query efficiency is rising fast, and that what matters is the absolute energy and water AI uses, the emissions of the power serving it, and the stress on the specific watersheds where it clusters.",
+    "They split over whether new data-center demand is being met by clean power or by new gas and delayed coal retirements; whether, in places like Northern Virginia, data centers draw a meaningful share of local water; and whether efficiency gains outpace growing use enough to shrink AI's total footprint.",
   ],
   last_updated: "2026-06-16",
   tags: ["ai", "energy", "water", "data-centers", "sustainability"],
@@ -55,7 +54,7 @@ export const aiEnergyWaterFootprintData = {
           supporter_flip:
             "If regional analysis showed incremental data-center load is mostly matched by additional clean generation — new wind/solar/nuclear plus storage, with no deferred coal retirements or new gas tied to the interconnections — then the marginal emissions would track or beat the grid average, and the 'AI is making the grid dirtier' case would collapse into 'AI is just another load on a decarbonizing system.'",
           skeptic_flip:
-            "A skeptic who points to AI's small total share and falling per-query energy should weigh that marginal emissions, not average ones, govern climate impact: if utilities in ERCOT or PJM are extending fossil-plant lifetimes and building gas specifically to serve data-center interconnection queues, then the energy serving that growth is dirtier than the grid average even as efficiency improves.",
+            "If utilities in ERCOT or PJM were found extending fossil plants and building gas specifically for data-center interconnection queues, the energy serving AI's growth would be dirtier than the grid average, and its small total share would understate its climate impact.",
           common_ground:
             "Both sides agree data centers are still a small share of total electricity, that per-query efficiency is rising fast, and that the climate-relevant quantity is the emissions of the generation actually serving the new load.",
           live_disagreement:
@@ -150,7 +149,7 @@ export const aiEnergyWaterFootprintData = {
           supporter_flip:
             "If watershed-level analysis showed data-center clusters draw only a trivial share of local potable supply and renewable yield — or are predominantly served by reclaimed/non-potable water and air cooling in the stressed regions — then the 'local stress' case would dissolve, and the tiny national share (~0.2%) would be the whole story.",
           skeptic_flip:
-            "A skeptic citing the ~0.2% national freshwater figure should weigh that scarcity is inherently local: a draw that is a rounding error nationally can still be material in a specific drought-prone watershed (e.g., Arizona) or a cluster where data-center water use jumped 63% in four years (Northern Virginia), where the binding constraint is the local supply, not the national total.",
+            "If watershed-level data in drought-prone places like Arizona, or clusters like Northern Virginia where data-center water use jumped 63% in four years, showed draws material to local supply, the ~0.2% national figure would not capture the local stress.",
           common_ground:
             "Both sides agree data centers are a negligible share of total US freshwater and that agriculture and thermoelectric power dwarf them, while also agreeing that water stress is fundamentally a local, watershed-by-watershed phenomenon.",
           live_disagreement:
@@ -243,9 +242,9 @@ export const aiEnergyWaterFootprintData = {
         cost_to_verify: "$30K (longitudinal data analysis)",
         falsification: {
           supporter_flip:
-            "A supporter of intervention should change their mind if year-over-year data showed absolute AI-attributable electricity and water consumption actually falling — efficiency outrunning demand without regulation — because then the market would be solving the footprint on its own and AI-specific rules would address a shrinking problem.",
+            "If year-over-year data showed absolute AI-attributable electricity and water use falling, with efficiency outrunning demand without regulation, the market would be shrinking the footprint on its own and AI-specific rules would target a shrinking problem.",
           skeptic_flip:
-            "A skeptic relying on the 33× per-query efficiency gain should weigh that per-unit efficiency says nothing about totals: if absolute AI energy and water use keeps climbing because models get larger and inference volume explodes (Jevons-style rebound), then efficiency gains are being offset and the 'market handles it' claim fails on the metric that matters.",
+            "If absolute AI energy and water use kept climbing as models grew and inference volume rose, a Jevons-style rebound, the 33x per-query efficiency gain would be offset and the 'market handles it' view would fail on the totals that matter.",
           common_ground:
             "Both sides agree per-query efficiency is improving rapidly and that the decision-relevant quantity is absolute (not per-token) AI-attributable energy and water consumption over time.",
           live_disagreement:

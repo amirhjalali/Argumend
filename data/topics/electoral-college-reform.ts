@@ -9,7 +9,7 @@ export const electoralCollegeReformData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Twice in the last six elections (2000, 2016) the candidate who won the most votes lost the presidency, and a Wyoming voter carries about 3.6× the electoral weight of a Californian. Yet the Electoral College is nearly impossible to abolish — a constitutional amendment is a non-starter, and the workaround compact sits 48 electoral votes short and faces a likely Supreme Court fight.",
+      "Twice in the last six elections (2000, 2016) the candidate who won the most votes lost the presidency, and a Wyoming voter carries about 3.6 times the electoral weight of a Californian. Abolishing the Electoral College takes a constitutional amendment, and the interstate compact that would work around it is 48 electoral votes short. The fight is over whether a national popular vote would be fairer, and whether it is worth the cost of getting there.",
     confidence: 85,
     source:
       "National Popular Vote Interstate Compact status (2026); US Census apportionment; Pew Research (2024)",
@@ -17,9 +17,8 @@ export const electoralCollegeReformData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The case against the Electoral College is concrete, not abstract: twice in the last six elections (2000 and 2016) the popular-vote winner lost, a Wyoming voter's ballot carries roughly 3.6× the electoral weight of a Californian's, and candidates already ignore 40+ states to camp in 5–7 swing states.",
-    "Defenders answer that this is a feature, not a bug: it forces candidates to build geographically broad coalitions instead of running up margins in a few dense metros, and it gives less-populous states the bargaining weight the founders deliberately built into the federal system to get the union ratified.",
-    "So the honest debate isn't really whether the system is unequal (it plainly is) but whether that's the right kind of unequal — and, practically, it may be moot: a constitutional amendment is politically dead, and the workaround (the NPVIC) is 48 electoral votes short, stalled in the Republican-leaning states it needs, and faces a likely Supreme Court challenge.",
+    "Both sides accept that the popular-vote winner lost the presidency in 2000 and 2016, that a Wyoming voter carries about 3.6× the electoral weight of a Californian, and that the National Popular Vote Interstate Compact sits at 222 of the 270 electoral votes it needs, with no Supreme Court ruling on it yet.",
+    "They split over whether that unequal weight is a flaw or a feature that forces candidates to build geographically broad coalitions; whether the compact can win the Republican-leaning states it still needs to reach 270; and whether it would survive a Supreme Court challenge under the Compact Clause.",
   ],
   pillars: [
     {
@@ -47,7 +46,7 @@ export const electoralCollegeReformData = {
           supporter_flip:
             "If the NPVIC stalled permanently below 270 — the remaining states it needs (which lean Republican and benefited from the Electoral College) keep refusing — then 'replace it with the popular vote' becomes an aspiration with no realistic path, and reform energy would be better spent elsewhere.",
           skeptic_flip:
-            "A skeptic who defends the EC should weigh that the critique isn't partisan noise — 63% of Americans (including a substantial share of Republicans) favor a popular vote, and the popular-vote-loser-wins outcome has now happened twice in 24 years — so dismissing reform as fringe is hard to sustain.",
+            "If polling kept showing about 63% of Americans, including a substantial share of Republicans, favoring a popular vote, and another popular-vote loser took the presidency, reform would be hard to dismiss as fringe or partisan noise.",
           common_ground:
             "Both sides agree the NPVIC currently sits at 222 of the 270 electoral votes it needs, and that the remaining path runs through states with little incentive to join.",
           live_disagreement:
@@ -138,7 +137,7 @@ export const electoralCollegeReformData = {
           supporter_flip:
             "If courts ruled the NPVIC unconstitutional — finding it an interstate compact that requires Congressional approval under the Compact Clause, or that it unlawfully evades Article V — the popular-vote-via-compact route would be dead, leaving only a near-impossible constitutional amendment.",
           skeptic_flip:
-            "A skeptic who calls the NPVIC unconstitutional should weigh that Article II explicitly lets each state decide how it chooses electors — states picked winner-take-all by choice, not mandate — so a state directing its electors by the national vote is at least a serious constitutional argument, not an obvious overreach.",
+            "If courts read Article II's grant to each state over how it chooses electors as covering a state that directs its electors by the national vote, the compact would look like a serious constitutional route rather than an obvious overreach.",
           common_ground:
             "Both sides agree the Supreme Court has never ruled on the NPVIC, and that its Compact-Clause status is genuinely unsettled.",
           live_disagreement:

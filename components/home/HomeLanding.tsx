@@ -95,8 +95,8 @@ function HomeHero() {
           >
             <p className="label-caps">What we measured</p>
             <p className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-              In a 36-minute televised debate, 88 of 114 turns were not about
-              the question in its title.{" "}
+              In a 36-minute televised debate on trans athletes, 88 of 114 turns
+              were not about the question in its title.{" "}
               <Link
                 href={HOME_EVIDENCE_HREF}
                 className="py-3 text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"

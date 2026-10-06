@@ -597,7 +597,7 @@ Where a map has not written a test down yet, it says "Not yet specified." On the
           },
           {
             title: "What would change each side's mind",
-            content: `Many cruxes also say what would change each side's mind, in the map's own words: "Someone who says yes to the map's question would change their mind if…", and the same for no. Read the one for the side you are on first.`,
+            content: `Many cruxes also say what would change each side's mind, under "What would change the mind of someone who says yes to the map's question", and the same for no. Each is an "If …" sentence naming new evidence that would move that side; neither says which way the evidence already points. Read the one for the side you are on first.`,
           },
         ],
       },
@@ -639,7 +639,7 @@ The record shows movement, never a winner. A crux can narrow without either side
         title: "What the map does not say",
         content: `A map does not tell you who won. There is no score for either side and no agreement percentage. Two people can accept every card on a map and still disagree about what matters more.
 
-On the older maps, a fold near the bottom, "How the evidence weighs", puts the cards on the page into a few words: the evidence largely converges, is well mapped but still divided, leans one way, or is still thin. It describes the cards on that page, not the question in the world, and [How maps are made](/methodology#older-maps) explains how it is reached and when the map holds a stronger word back. Treat it as a note on the page, not an answer. The cruxes are the answer the map gives: here is where it turns, and here is what would move it.`,
+On the older maps, a fold near the bottom, "How the evidence weighs", shows one strong card from each side and how every card is weighed. It does not say which way the cards tip; [How maps are made](/methodology#older-maps) explains why the pages stopped printing that reading. The cruxes are the answer the map gives: here is where it turns, and here is what would move it.`,
       },
     ],
     keyTakeaways: [
@@ -900,19 +900,19 @@ A useful mental model: imagine you're a juror. You wouldn't convict based solely
     sections: [
       {
         title: "What is a crux?",
-        content: `A crux is the specific belief or piece of evidence that, if it turned out to be wrong, would actually change your mind about a larger question. It is the load-bearing wall of your position — remove it, and the whole structure shifts.
+        content: `A crux is the question a fight turns on, and what would settle it. Answer it one way and one side's case gets stronger; answer it the other way and the other side's does. For you, it is the load-bearing wall of your position: if it came out the other way, your mind would actually change.
 
 Most disagreements have dozens of surface-level points of contention, but only one or two genuine cruxes. Everything else is either downstream of the crux (it only matters because the crux holds) or peripheral (it feels relevant but wouldn't actually change anyone's conclusion).
 
-Consider the [Moon Landing map](/topics/moon-landing) on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
+Consider the map [Did the Moon landings happen?](/topics/moon-landing) on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
 
-Or take [Nuclear Energy](/topics/nuclear-energy-safety). Proponents and opponents often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
+Or take [Should nuclear power be expanded to help decarbonize electricity?](/topics/nuclear-energy-safety). People who say yes and people who say no often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
 
 The crux is where the real action is. Everything else is noise.`,
       },
       {
         title: "The three types of cruxes",
-        content: `Not all cruxes are created equal. Understanding what type of crux you're dealing with determines how — and whether — it can be resolved.`,
+        content: `Not all cruxes are created equal. Understanding what type of crux you're dealing with determines how — and whether — it can be resolved. Argumend's maps mark each one: a test that evidence could run, a choice of terms, a choice of who decides, or "Nothing does", when the fight is over values. The three below are the ones you will meet most.`,
         subsections: [
           {
             title: "Empirical cruxes",
@@ -932,7 +932,7 @@ Many debates that look empirical are actually value cruxes in disguise. The deba
           },
           {
             title: "Definitional cruxes",
-            content: `The most frustrating type: people think they disagree about substance, but they're actually using the same words to mean different things. The Free Will map on Argumend is a textbook example. Compatibilists and hard determinists can argue for hours without making progress because they define "free will" differently. Once you realize the crux is definitional — "What do we even mean by free will?" — the debate transforms.
+            content: `The most frustrating type: people think they disagree about substance, but they're actually using the same words to mean different things. The map [Do humans have free will?](/topics/free-will) is a textbook example. Compatibilists and hard determinists can argue for hours without making progress because they define "free will" differently. Once you realize the crux is definitional — "What do we even mean by free will?" — the debate transforms.
 
 Similarly, debates about whether AI is "conscious" or whether certain speech constitutes "violence" often stall on definitional cruxes. The participants aren't really disagreeing about the world; they're disagreeing about how to use language.
 
@@ -1010,7 +1010,7 @@ On Argumend, every topic's argument map highlights cruxes for exactly this reaso
       },
     ],
     keyTakeaways: [
-      "A crux is the specific belief that, if proven wrong, would actually change your position — the load-bearing wall of your argument",
+      "A crux is the question a fight turns on, and what would settle it: the load-bearing wall of an argument",
       "Three types of cruxes exist: empirical (testable with evidence), value (philosophical disagreement), and definitional (people mean different things by the same words)",
       "To find your crux, ask yourself: 'What specific evidence would change my mind?' — then verify with the other side that they agree it's the decisive question",
       "Most arguments stall because people argue about non-cruxes — peripheral points that feel productive but don't bear on the real disagreement",
@@ -1116,7 +1116,7 @@ The connection to Argumend is direct. When you look at a topic and form an opini
 
 This doesn't mean you should doubt everything equally. It means you should practice what Philip Tetlock calls "calibrated uncertainty" — being confident in proportion to the evidence, not in proportion to how strongly you feel. Superforecasters, the most accurate predictors Tetlock studied, were distinguished not by having better information but by being better calibrated. They knew what they didn't know.
 
-Argumend's maps are written with calibration in mind. "The evidence leans toward the claim" is a weaker statement than "the evidence largely converges", and a map says which one it means. "Well-mapped, evidence still divided" is an honest, useful reading, not a failure to reach a conclusion. Learning to sit comfortably with calibrated uncertainty, rather than forcing premature certainty, is one of the most valuable intellectual skills you can develop.`,
+Argumend's maps are written with calibration in mind. A map doesn't hand you a verdict to borrow; it shows the strongest card on each side and, under each crux, what would settle it, so you can see how much is still open. A crux that is still open is an honest, useful finding, not a failure to reach a conclusion. Learning to sit comfortably with calibrated uncertainty, rather than forcing premature certainty, is one of the most valuable intellectual skills you can develop.`,
       },
     ],
     keyTakeaways: [
@@ -1353,7 +1353,7 @@ The practice integrates with everything else on Argumend. Every topic is built o
 
 Both sides are looking at the same reality but sampling it selectively. The climate data is vast and complex; confirmation bias acts as a filter that lets through only the evidence you were already looking for.
 
-On Argumend's [Climate Change topic](/topics/climate-change), you can see this pattern broken. The argument map presents the evidence on each side of every crux without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
+On Argumend's map [Is climate change primarily caused by human activity?](/topics/climate-change), you can see this pattern broken. The argument map presents the evidence on each side of every crux without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
 
 **Spot it in the wild:** When someone shares only evidence that supports their conclusion without acknowledging any counterevidence, they're likely in the grip of confirmation bias. Ask them: "What's the strongest evidence against your position?" If they can't name any, they haven't looked.`,
       },
@@ -1535,7 +1535,7 @@ Weighing conflicting evidence is a distinct skill from judging a single source. 
           },
           {
             title: "Different populations and contexts",
-            content: `A finding that holds in one population can reverse in another. A teaching method that works for graduate students may fail for struggling ten-year-olds; a rent-control policy that stabilizes one city's housing market may distort another's. Effects that depend on context aren't contradictory — they're conditional. The right move isn't "which study is right?" but "under what conditions does each finding hold?" The [Rent Control topic](/topics/rent-control-effectiveness) is a clear case: much of the apparent disagreement turns on differences in housing supply and the specific design of each policy, not on one study being wrong.`,
+            content: `A finding that holds in one population can reverse in another. A teaching method that works for graduate students may fail for struggling ten-year-olds; a rent-control policy that stabilizes one city's housing market may distort another's. Effects that depend on context aren't contradictory — they're conditional. The right move isn't "which study is right?" but "under what conditions does each finding hold?" The map [Does rent control make housing less affordable in the long run?](/topics/rent-control-effectiveness) is a clear case: much of the apparent disagreement turns on differences in housing supply and the specific design of each policy, not on one study being wrong.`,
           },
         ],
       },
@@ -1619,7 +1619,7 @@ That intellectual honesty has a payoff. When you can say "the best evidence lean
     id: "reading-confidence-like-a-forecaster",
     title: "Reading confidence like a forecaster",
     subtitle: "Calibration, probability, and the discipline of honest uncertainty",
-    description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read other people's certainty, and a map's reading of its evidence, the same way.",
+    description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read other people's certainty, and a map's open questions, the same way.",
     readTime: "13 min read",
     sections: [
       {
@@ -1649,12 +1649,12 @@ This guide is about adopting that mindset — and using it to read other people'
         ],
       },
       {
-        title: "What a map's reading actually says",
-        content: `With calibration in mind, you can read a map's description of its evidence correctly — and avoid the two most common misreadings.
+        title: "What a map does and doesn't tell you",
+        content: `With calibration in mind, you can read a map correctly — and avoid the two most common misreadings.
 
-When a map says the evidence "largely converges on the claim," it does not mean "this is certainly true," and it does not mean "most people agree." It means that, weighing the available evidence on its quality, most of the well-weighed support points one way, and there is enough of it that no single card could change the reading. It's a statement about the *current state of evidence*, not a permanent fact — and like a forecaster's number, it's meant to move when new evidence arrives. The map deliberately gives you no percentage to bet on: the reading says which way the evidence on the page tips and how much of it there is, not how likely the claim is to be true. [How maps are made](/methodology#older-maps) explains how it is reached.
+A map never tells you which side is right, and it gives you no percentage to bet on. What it gives you is the material a forecaster works from: the strongest card on each side, with its source, and for each crux, what would settle it and whether that test has been run. A crux that has narrowed tells you the evidence moved; one that is still open tells you it hasn't yet. Either is a statement about the *current state of evidence*, not a permanent fact, and it is meant to move when new evidence arrives. [How maps are made](/methodology) explains how the cards are weighed.
 
-This has two practical consequences. First, "largely converges" is an invitation to act, not to stop thinking: a calibrated reasoner still expects well-supported claims to be overturned occasionally, and the map still shows you the heaviest card on the other side. Second, "still divided" is genuinely informative. It isn't "we know nothing" — it's "the evidence is real but points both ways," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions tend to cluster there, which is why divided maps and their cruxes are the fastest way to find where an argument is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through reading a map as exactly this kind of triage.`,
+This has two practical consequences. First, a strong card on one side is an invitation to look harder at the other side's best card, not to stop thinking: a calibrated reasoner still expects well-supported claims to be overturned occasionally. Second, an open crux is genuinely informative. It isn't "we know nothing" — it's "the evidence is real but points both ways," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions tend to cluster there, which is why open cruxes are the fastest way to find where an argument is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through reading a map as exactly this kind of triage.`,
       },
       {
         title: "Habits of calibrated forecasters",
@@ -1700,7 +1700,7 @@ This has two practical consequences. First, "largely converges" is an invitation
         title: "Calibration in practice on Argumend",
         content: `Putting it together, here's how to read any topic the way a forecaster would.
 
-When you open a topic like [AI Risk](/topics/ai-risk), [Climate Change](/topics/climate-change), or [Longevity Science](/topics/longevity-science), resist the pull to look for a verdict; the map won't give you one. Instead, read the evidence the way a forecaster would. Ask of each well-sourced card: would I be genuinely surprised if this were overturned? Ask of each contested point: what specific evidence would move it, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
+When you open a map like [Does AGI pose a real risk of human extinction?](/topics/ai-risk), [Is climate change primarily caused by human activity?](/topics/climate-change), or [Will longevity research extend healthy lifespan?](/topics/longevity-science), resist the pull to look for a verdict; the map won't give you one. Instead, read the evidence the way a forecaster would. Ask of each well-sourced card: would I be genuinely surprised if this were overturned? Ask of each contested point: what specific evidence would move it, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
 
 Then turn the lens on yourself. Pick a claim on the topic, write down your own confidence as a number, and note what would change it. Come back when you've read more — or when the world has supplied new evidence — and see whether you should update. This simple practice, repeated, is how calibration is built. It's also the entire spirit of Argumend: not to hand you conclusions, but to give you a structured, honestly weighed map of the [evidence](/concepts/evidence-weighting) so you can hold your own beliefs to a forecaster's standard.
 
@@ -1711,7 +1711,7 @@ The reward is a kind of intellectual freedom. Once confidence is a number you ca
       "Confidence is a testable probability, not a feeling: if you're right about 70% of the things you call '70% likely,' you're calibrated — and being wrong sometimes is required, not a failure",
       "Most people, including experts, are systematically overconfident; the fix is to pull your stated confidence toward what your track record actually justifies",
       "Good judgment needs both calibration (honest probabilities) and resolution (the willingness to say 95% or 5% when warranted) — hedging everything to 50% is useless",
-      "A map's reading (largely converges, still divided, still thin) describes the current state of the evidence, not cosmic truth or popularity — and \"still divided\" flags where an argument is genuinely live",
+      "A map shows the current state of the evidence, not cosmic truth or popularity: the strongest card on each side, and for each crux whether it has narrowed or is still open — and an open crux flags where an argument is genuinely live",
       "Borrow the forecaster's habits: think in ranges, start from base rates, update in small steps, and keep score of your predictions to reveal where you're miscalibrated",
       "When reading others, weight precision and acknowledged uncertainty over loud conviction — confidence is not competence, and track record beats credentials",
     ],
@@ -1902,7 +1902,7 @@ The stakes are rising. As the [truth-collapse debate](/topics/ai-deepfakes-truth
 
 2. **Trace independence before counting agreement.** Three voices that trace to one source are one voice. [Triangulate](/guides/triangulation).
 
-3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. On a map, read "largely converges" and "still divided" as descriptions of the [evidence on the page](/methodology#older-maps), not answers.
+3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. On a map, read the evidence cards as a description of the [evidence on the page](/methodology#older-maps), not an answer.
 
 4. **Demand a stated falsification condition.** If the doubt can't name what would change its mind, it isn't skepticism.
 

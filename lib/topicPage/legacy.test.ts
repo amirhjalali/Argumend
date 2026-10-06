@@ -1,3 +1,4 @@
+import { STANDING_CONDITION_LEAD } from "./model";
 import { describe, expect, it } from "vitest";
 import { loadTopicById } from "@/data/topicLoader";
 import { topicSummaries } from "@/data/topicIndex";
@@ -61,20 +62,29 @@ describe("legacyTopicPage", () => {
       const pillar = topic.pillars[index];
       const live = pillar.crux.falsification!.live_disagreement!;
       expect(crux.question).toBe(pillar.crux.question ?? live);
-      expect(crux.kicker).toBe(pillar.title);
+      // The question is the crux's one name: no pillar label above it, and
+      // the rail lists the same question.
+      expect(crux.kicker).toBeUndefined();
+      expect(crux.shortLabel).toBe(crux.question);
       expect(crux.settle.condition).toBe(pillar.crux.settle?.condition ?? pillar.crux.description);
       expect(crux.flips).toEqual({
         supporter: pillar.crux.falsification!.supporter_flip,
         skeptic: pillar.crux.falsification!.skeptic_flip,
         // "Yes" to the map's question, said in full: the crux question just
         // above may be worded the other way round.
-        supporterLead: "Someone who says yes to the map’s question would change their mind if…",
-        skepticLead: "Someone who says no to the map’s question would change their mind if…",
+        supporterLead: "What would change the mind of someone who says yes to the map’s question",
+        skepticLead: "What would change the mind of someone who says no to the map’s question",
       });
       // Common ground already shown up top is not repeated in the fold.
-      expect(crux.runIns).toEqual(
-        pillar.crux.question ? [{ lead: "Where the fight is.", text: live }] : [],
-      );
+      // A standing crux (a value weighing; nothing empirical settles it) also
+      // says what it turns on, as the flagship maps do.
+      const standing = pillar.crux.settle?.kind;
+      expect(crux.runIns).toEqual([
+        ...(pillar.crux.question ? [{ lead: "Where the fight is.", text: live }] : []),
+        ...(standing
+          ? [{ lead: STANDING_CONDITION_LEAD[standing], text: pillar.crux.settle!.condition }]
+          : []),
+      ]);
       expect(crux.evidence.map((e) => e.id).sort()).toEqual(
         (pillar.evidence ?? []).map((e) => e.id).sort(),
       );
@@ -92,9 +102,10 @@ describe("legacyTopicPage", () => {
     );
     expect(topic.pillars[0].proponent_rebuttal.startsWith(page.positions[0].summary)).toBe(true);
 
-    // The evidence reading is words only.
-    expect(weighing.label).toBe(topic.verdict.label);
-    expect(JSON.stringify(weighing)).not.toMatch(/\/100|\bpts\b/);
+    // The weighing fold names one strong card per side and no reading of
+    // where the cards tip: no verdict phrase, no number.
+    expect(Object.keys(weighing)).toEqual(["strongest"]);
+    expect(JSON.stringify(weighing)).not.toMatch(/\/100|\bpts\b|converges|divided|thin/);
   });
 
   it("shows the authored settle line, and the flagship standing line when nothing empirical settles it", async () => {

@@ -39,7 +39,7 @@ export const remoteWorkPermanenceData = {
           supporter_flip:
             "If controlled comparisons across companies with different remote policies — matched on industry, size and prior innovation — showed hybrid teams, not just fully remote ones, producing fewer patents, launches and breakthroughs, the productivity case for a permanent shift would weaken.",
           skeptic_flip:
-            "A skeptic citing lost collaboration should weigh that Bloom's randomized experiment found a 13% productivity gain for remote call-center staff, that his later work finds well-run hybrid does not hurt productivity while sharply cutting attrition, and that US utility patent filings stayed broadly flat across 2020-2024.",
+            "If more randomized trials matched Bloom's 13% productivity gain for remote staff, and well-run hybrid kept productivity level while cutting attrition, with patent filings steady, the lost-collaboration worry would lose its footing.",
           common_ground:
             "Both sides accept that sudden, firm-wide remote work carried real collaboration costs: Microsoft's study of 61,182 employees found its collaboration networks grew more siloed.",
           live_disagreement:
@@ -150,7 +150,7 @@ export const remoteWorkPermanenceData = {
           supporter_flip:
             "If tracking conversions, downtown foot traffic and new business formation showed major cities failing to absorb emptier offices for years — vacancy stuck near record highs and maturing commercial real estate debt going bad — the costs of the shift would look permanent rather than transitional.",
           skeptic_flip:
-            "A skeptic focused on downtown decline should weigh that remote or hybrid postings stood at 7.8% of US job ads in October 2024, roughly 3x the 2.6% pre-pandemic share, and that office-to-residential conversions are accelerating where zoning allows.",
+            "If remote or hybrid postings stayed near 3x their 2.6% pre-pandemic share of US job ads, and office-to-residential conversions spread wherever zoning allows, downtown decline would look like adaptation to a lasting shift rather than a sign it will reverse.",
           common_ground:
             "Both sides agree US office vacancy hit a record 19.8% in Q1 2024 and that the office segment of commercial real estate is under real stress.",
           live_disagreement:

@@ -37,7 +37,7 @@ export const policeReformData = {
           supporter_flip:
             "If larger randomized trials of accountability measures — body cameras, civilian oversight, qualified-immunity reform — kept finding no significant effect on use of force, as the ~2,200-officer Washington, DC trial did, the case that structural accountability reform reduces police violence would weaken.",
           skeptic_flip:
-            "A skeptic who sees mostly lawful, professional policing should weigh that US police kill civilians at roughly 25x Germany's rate and 67x that of England and Wales, that Black Americans are about 2.8x more likely to be killed, and that fewer than 3% of police killings from 2013-2023 led to an officer being charged.",
+            "If new incident-level data kept finding US police kill civilians at many times the rate of Germany or England and Wales, Black Americans at about 2.8x the risk, and charges in under 3% of killings, the picture of mostly lawful policing would be hard to hold.",
           common_ground:
             "Both sides agree US police killed more than 1,200 people in 2023, and that the largest body-camera trials, unlike the single-site Rialto study, found no significant effect on use of force.",
           live_disagreement:
@@ -144,7 +144,7 @@ export const policeReformData = {
           supporter_flip:
             "If phased rollouts in large, high-crime cities showed unarmed teams facing more safety incidents or needing frequent police backup once they took on a broader call mix, the case for shifting crisis calls and their funding away from police would weaken.",
           skeptic_flip:
-            "A skeptic who doubts these models travel should weigh that Vera's analysis of New York City 911 data found violent-crime calls were only about 4% of police dispatches, and that CAHOOTS has run since 1989, handling about 20% of Eugene's call volume while requesting police backup on only ~1.3% of calls.",
+            "If other large cities' 911 data matched Vera's New York finding that violent-crime calls are only about 4% of dispatches, and new teams needed police backup as rarely as CAHOOTS's ~1.3% of calls, models like STAR would look able to travel.",
           common_ground:
             "Both sides agree CAHOOTS and Denver's STAR pilot handled their own calls safely — STAR's 748 calls brought zero arrests and no police backup — and that neither has been tested at the scale of Chicago or Detroit.",
           live_disagreement:

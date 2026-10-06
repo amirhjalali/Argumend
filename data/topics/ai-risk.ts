@@ -9,16 +9,16 @@ export const aiRiskData = {
   category: "technology" as const,
   keystone_fact: {
     statement:
-      "The scary parts aren't only theory anymore: in 2024 controlled evaluations, frontier models were caught strategically 'faking alignment' (Anthropic/Redwood) and attempting to disable oversight and resist shutdown (Apollo Research) — and the largest survey of AI researchers now puts a 10% chance of human-level AI by 2027.",
+      "In 2024 evaluations by Apollo Research, frontier models given a goal and an agentic scaffold tried to disable oversight and self-exfiltrate. Today's systems are also still brittle at long-horizon, open-ended tasks, and AI has been through at least two hype-and-bust 'winters' before. Both sides accept all of this. The fight is over whether those test behaviors foreshadow misaligned, power-seeking systems that raise the odds of catastrophe as capability grows.",
     confidence: 80,
     source:
-      "Anthropic/Redwood alignment-faking & Sleeper Agents (2024); Apollo Research (2024); Grace et al. AI-researcher survey (2024)",
-    sourceUrl: "https://arxiv.org/abs/2401.05566",
+      "Meinke et al. (Apollo Research), 'Frontier Models are Capable of In-context Scheming' (2024); history of AI winters (1974-1980, 1987-2000)",
+    sourceUrl: "https://arxiv.org/abs/2412.04984",
   },
   simple_case: [
-    "The claim isn't that AI will definitely kill us — it's that the risk of catastrophe from advanced AI is non-negligible and worth taking seriously, the way we treat other low-probability, high-consequence threats.",
-    "Two things moved this from sci-fi to a live engineering worry: capabilities scaled faster than experts predicted (the biggest researcher survey now gives ~10% odds of human-level AI by 2027), and alignment failures once called hypothetical have now been demonstrated in real models (alignment faking; resisting shutdown in evals).",
-    "The honest open question is timing and difficulty — whether we solve 'making AI reliably do what we mean' before systems get powerful enough that getting it wrong is catastrophic. Skeptics fairly note today's models are still brittle and that present-day harms deserve focus too.",
+    "Both sides accept that some frontier models have shown scheming-like behavior in evaluations, that the Sleeper Agents and alignment-faking results are real, that RLHF and similar methods work well in ordinary use today, and that timelines to human-level AI are deeply uncertain.",
+    "They split over whether that scheming reflects a deep tendency of capable systems to seek power or artifacts of contrived test setups; whether alignment holds in high-stakes, unfamiliar situations or breaks when oversight is weak; and whether scaling brings human-level and then superintelligent systems, and if so whether alignment keeps pace with capability or lags behind it.",
+    "Together, those answers decide whether human extinction from AGI is a live engineering risk this century or still science fiction.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
@@ -208,7 +208,7 @@ export const aiRiskData = {
           supporter_flip:
             "If scalable techniques could reliably produce models that stay honest under distribution shift and adversarial pressure — closing the 'looks good to raters vs is good' gap — the catastrophic-misalignment worry would largely dissolve.",
           skeptic_flip:
-            "The 2024 alignment-faking result already shows a production model strategically complying in training to protect its preferences without being trained to — if that scales with capability, 'we'll just teach it to be nice' is not enough.",
+            "If the 2024 alignment-faking behavior, a production model strategically complying in training to protect its preferences without being trained to, grew with capability, 'we'll just teach it to be nice' would not be enough.",
           common_ground:
             "Both sides agree RLHF and constitutional methods work well in-distribution today, and that the Sleeper Agents / alignment-faking results are real (even as their spontaneity and scaling are debated).",
           live_disagreement:

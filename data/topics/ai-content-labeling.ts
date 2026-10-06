@@ -10,17 +10,16 @@ export const aiContentLabelingData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "An AI watermark is not the tamper-proof stamp most people imagine. In a 2023 University of Maryland study, researchers stripped every invisible image watermark they tested — and, worse, could forge them, making real photos register as AI-generated. The honest takeaway: watermarking raises the cost of casual deception, but it cannot reliably prove a given image is fake or genuine against anyone determined to fool it.",
+      "In a 2022 PNAS study, people told AI-generated faces from real ones with 48.2% accuracy, no better than a coin flip. In a 2023 University of Maryland study, researchers removed every invisible image watermark they tested, and showed watermarks could be forged so real photos are flagged as AI-generated. Both findings stand. The fight is over whether a legal labeling mandate can still deter deception without burdening ordinary uses of AI.",
     confidence: 86,
     source:
-      "Saberi, Sadasivan, Feizi et al., \"Robustness of AI-Image Detectors\" (arXiv:2310.00076, ICLR 2024); EU AI Act Article 50 transparency obligations (effective Aug 2, 2026)",
-    sourceUrl: "https://arxiv.org/abs/2310.00076",
+      "Nightingale & Farid, PNAS (2022); Saberi, Sadasivan, Feizi et al., 'Robustness of AI-Image Detectors' (University of Maryland, ICLR 2024)",
+    sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.2120481119",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Labels meet a real need: humans cannot tell AI faces from real ones — in Nightingale & Farid's 2022 PNAS study people scored 48.2% (worse than a coin flip) and even rated the synthetic faces as slightly more trustworthy — so a disclosure supplies information perception simply cannot, and the EU AI Act now mandates exactly this for deepfakes from August 2026.",
-    "The honest limitation is enforcement: University of Maryland researchers showed every invisible watermark they tested could be removed and even spoofed, while cryptographic provenance like C2PA is stripped by any screenshot or re-encode — so a determined bad actor evades the label while honest creators bear the compliance cost.",
-    "So the honest debate isn't whether AI content should be transparent (almost everyone agrees it should) but whether a legal mandate can be drawn narrowly enough to deter realistic deception without over-labeling ordinary tools like spell-check until audiences tune the tag out entirely.",
+    "Both sides accept that no current watermark is unbreakable by a determined adversary, that labels still raise the cost of casual deception, and that narrow disclosure rules for deceptive deepfakes are defensible while an over-broad mandate would sweep in ordinary editing tools.",
+    "They split over whether watermarks and C2PA provenance can survive screenshots, compression and deliberate removal at usable rates; and whether mandates like Article 50 of the EU AI Act and China's deep-synthesis rules measurably reduce beneficial and creative uses of AI.",
   ],
   pillars: [
     {
@@ -52,9 +51,9 @@ export const aiContentLabelingData = {
         cost_to_verify: "$500K (Large-scale adversarial testing study)",
         falsification: {
           supporter_flip:
-            "A supporter of mandatory labeling should weigh that Saberi/Feizi broke every scheme they tested and could forge them, and that C2PA provenance is dropped by any re-encode or screenshot — so a label's absence cannot be trusted as proof content is genuine, and its presence can be faked.",
+            "If new tests extending Saberi and Feizi's work kept breaking and forging every watermark scheme, and C2PA provenance kept dropping on any re-encode or screenshot, a label's absence could not signal genuine content and its presence could be faked, undercutting the case for a mandate.",
           skeptic_flip:
-            "A skeptic of mandatory labeling should change their mind if a new generation of watermarks (e.g., Google SynthID-style signal embedding) survived screenshots, compression, cropping, and the known diffusion-purification and model-substitution attacks at high detection rates — and resisted spoofing: the 'labels are trivially removable' objection would collapse and mandatory watermarking would become genuinely enforceable.",
+            "If a new generation of watermarks, such as SynthID-style signal embedding, survived screenshots, compression, cropping and the known purification and model-substitution attacks at high detection rates while resisting spoofing, the 'labels are trivially removable' objection would lose its footing.",
           common_ground:
             "Both sides agree no current watermark is unbreakable by a determined adversary, and that labeling raises the cost and default expectation of disclosure for casual, non-adversarial uses.",
           live_disagreement:
@@ -161,9 +160,9 @@ export const aiContentLabelingData = {
         cost_to_verify: "$300K (Cross-jurisdictional comparative study)",
         falsification: {
           supporter_flip:
-            "A supporter who thinks labeling is harmless should weigh that compelled-disclosure doctrine is genuinely unsettled for non-commercial expressive speech (Zauderer governs only 'purely factual and uncontroversial' commercial disclosures), so an over-broad mandate could face heightened First Amendment scrutiny and measurably deter independent creators.",
+            "If courts applied heightened First Amendment scrutiny to labeling mandates on non-commercial expressive speech, beyond Zauderer's 'purely factual and uncontroversial' commercial disclosures, and independent creators measurably pulled back, the view that labeling is harmless would be hard to hold.",
           skeptic_flip:
-            "A skeptic who fears chilling effects should change their mind if cross-jurisdictional data showed AI tool adoption and creative output in mandate jurisdictions (EU after Aug 2026, China since 2023) tracked non-mandate jurisdictions, with compliance scoped narrowly to deceptive synthetic media rather than spell-check and routine editing.",
+            "If data from mandate jurisdictions (the EU after August 2026, China since 2023) showed AI adoption and creative output tracking non-mandate jurisdictions, with compliance limited to deceptive synthetic media rather than routine editing, the chilling-effect objection would weaken.",
           common_ground:
             "Both sides agree narrowly targeted disclosure of deceptive synthetic media is defensible, and that an over-broad mandate sweeping in ordinary editing tools would be both legally riskier and prone to over-labeling that audiences learn to ignore.",
           live_disagreement:

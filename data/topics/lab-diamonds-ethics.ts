@@ -11,7 +11,7 @@ export const labDiamondsEthicsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Lab-grown diamonds aren't 'fake' — the US FTC ruled in 2018 that they are chemically, physically, and optically identical to mined diamonds, so they're just diamonds. They're now the majority of US engagement rings (52% in 2024) at roughly a fifth the price of natural stones (~$845 vs ~$3,895 for an unbranded 1-carat). But 'identical and cheaper' doesn't settle 'more ethical': coal-grid lab production can rival mining's carbon footprint, and the shift threatens economies like Botswana that built themselves on diamond revenue.",
+      "The US FTC ruled in 2018 that lab-grown diamonds are chemically, physically and optically identical to mined ones, and they were 52% of US engagement rings in 2024, at roughly a fifth the price of a natural stone. Lab production on a coal-heavy grid can rival mining's carbon footprint, and economies like Botswana's were built on diamond revenue. The fight is over which of those costs counts for more.",
     confidence: 88,
     source:
       "FTC Jewelry Guides revision (2018); The Knot 2025 Real Weddings Study (52% lab-grown engagement rings, couples married 2024); diamond price-index trackers (StoneAlgo / PriceScope) for ~$845 lab vs ~$3,895 natural per unbranded 1-carat (2025)",
@@ -20,9 +20,8 @@ export const labDiamondsEthicsData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Lab-grown diamonds avoid the worst of the mined-diamond supply chain — the conflict financing, child labor in artisanal mining (the US DOL lists diamonds from five African nations as produced with child labor), and the open-pit destruction and tailings-dam disasters like Angola's 2021 Catoca spill — while being a physically identical stone at a fraction of the price.",
-    "The honest counterpoint: 'lab-grown' is not automatically 'green' or harmless — 60-70% of lab diamonds are grown on India and China's coal-heavy grids, where an industry-commissioned study put their footprint at ~511 kg CO₂ per carat (versus ~160 kg for efficient mined production), and collapsing demand for mined stones threatens economies like Botswana, where diamonds fund roughly a quarter of GDP.",
-    "So the honest debate isn't 'are lab-grown diamonds real diamonds' (settled — they are) but whether their avoided mining harms outweigh their energy footprint and the economic damage to diamond-dependent nations — which hinges on how fast grids decarbonize and how fast those economies can diversify.",
+    "Both sides accept that the Kimberley Process cut rebel-financed conflict diamonds to under 1% of trade while artisanal-mining and cutting-center labor problems remain; that lab-grown production is energy-intensive and carbon-heavy on coal grids while mining causes large, lasting land and water damage; and that diamond-dependent economies like Botswana will have to diversify eventually.",
+    "They split over what share of mined diamonds can be traced to a verified-ethical mine today; whether a lab-grown diamond's carbon footprint beats mining on the power grids actually used in India and China, not just on hydropower; and whether Botswana and other producers can diversify before lab-grown competition cuts their diamond revenue too deeply.",
   ],
   pillars: [
     // =========================================================================
@@ -58,7 +57,7 @@ export const labDiamondsEthicsData = {
           supporter_flip:
             "If an independent audit showed that mine-to-retail traceability (Kimberley Process documentation plus blockchain platforms like De Beers' Tracr) could verify the specific origin of the large majority of diamonds and screen out stones tied to violence, forced labor, or child labor, the human-rights case for preferring lab-grown would shrink to a narrow tail of unverifiable artisanal production.",
           skeptic_flip:
-            "A skeptic who trusts the Kimberley Process should weigh that its definition of 'conflict diamond' excludes state-sanctioned violence (Zimbabwe's Marange fields were certified conflict-free after security forces killed over 200 miners), that founding member Global Witness quit in 2011 calling it an 'accomplice to diamond laundering,' and that the US DOL still lists diamonds from five African nations as produced with child labor — gaps a lab-grown stone categorically avoids.",
+            "If new audits found the Kimberley Process still certifying stones tied to state-sanctioned violence, as at Zimbabwe's Marange fields, and the US DOL kept listing diamonds from five African nations for child labor, trust in certification would weaken, and those are gaps a lab-grown stone avoids.",
           common_ground:
             "Both sides agree the 1990s 'blood diamond' wars have largely ended, that the Kimberley Process cut rebel-financed conflict diamonds from ~15% to under 1% of trade, and that exploitative artisanal mining and downstream cutting-center labor problems still exist.",
           live_disagreement:
@@ -179,7 +178,7 @@ export const labDiamondsEthicsData = {
           supporter_flip:
             "If an independent, ISO 14044-compliant lifecycle assessment found that lab-grown diamonds on today's actual production grids (largely India and China's ~60-75% coal) have a higher total footprint than mined stones once land, water, and waste are normalized per carat — and that grids won't decarbonize fast enough to flip that — the environmental case for lab-grown would collapse to 'only if you buy renewable-powered.'",
           skeptic_flip:
-            "A skeptic citing the ~511 kg CO₂/carat coal-grid figure should weigh that it comes from a study commissioned by the mined-diamond industry, measures carbon alone, and ignores mining's land destruction (open pits among Earth's largest excavations, ~1-2 thousand tonnes of ore moved per carat) and tail risk (Angola's 2021 Catoca tailings spill turned rivers red for hundreds of kilometers) — and that renewable-powered growers can be third-party certified climate-neutral, far below mining's ~160 kg.",
+            "If an independent lifecycle study that checked the industry-commissioned ~511 kg CO₂/carat coal-grid figure also counted mining's land use (~1-2 thousand tonnes of ore per carat) and tail risks like Angola's 2021 Catoca spill, and certified renewable-powered growers came in far below mining's ~160 kg, the coal-grid objection would lose its force.",
           common_ground:
             "Both sides agree lab-grown production is energy-intensive, that coal-powered grids make it carbon-heavy, that mining causes large and largely irreversible land and water impacts, and that the comparison turns on which impacts you count.",
           live_disagreement:
@@ -295,7 +294,7 @@ export const labDiamondsEthicsData = {
           supporter_flip:
             "If economic modeling showed that diamond-dependent economies can't realistically diversify fast enough — that lab-grown's market-share gains erode mining revenue faster than alternative industries can replace it, pushing countries like Botswana (diamonds ≈ 25% of GDP) or artisanal-mining communities (≈10 million dependents) into deep harm — then accelerating the shift on 'ethical' grounds would inflict net damage on vulnerable populations.",
           skeptic_flip:
-            "A skeptic defending mining economies should weigh that diamond reserves are depleting regardless (Botswana's Jwaneng open pit runs to roughly the mid-2030s absent costly extensions), that the dependency argument conflates relatively well-governed Botswana with the exploitative artisanal mining it's used to defend, and that the industry's own colonial origins (De Beers, Cecil Rhodes) complicate the 'protecting livelihoods' framing.",
+            "If projections confirmed Botswana's Jwaneng open pit running out around the mid-2030s without costly extensions, and harms in artisanal mining were weighed apart from well-governed Botswana, the livelihoods argument against lab-grown stones would lose much of its force.",
           common_ground:
             "Both sides agree that several southern African economies genuinely depend on diamond revenue, that lab-grown is already restructuring the market (52% of US engagement rings in 2024), and that those economies will eventually have to diversify whether or not lab-grown exists.",
           live_disagreement:

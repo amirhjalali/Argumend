@@ -42,14 +42,6 @@ export const faqs: FAQ[] = [
     linkHref: "/methodology",
   },
   {
-    question:
-      "What do “largely converges”, “still divided” and “still thin” mean?",
-    answer:
-      "They describe the state of the evidence on a map, not the answer to the question. “Largely converges” means there is a lot of good evidence and most of it points one way. “Still divided” means there is a lot of good evidence and it points both ways. “Still thin” means there is not yet enough good evidence to say much, whichever way it leans. In between, a map says which way the evidence leans and that it is moderately evidenced. If a single evidence card could change a map\u2019s reading, the map says so. None of these is the probability that a claim is true, and none is a count of how many experts agree.",
-    linkText: "How the older maps read their evidence",
-    linkHref: "/methodology#older-maps",
-  },
-  {
     question: "What does the paste tool do?",
     answer:
       "Paste an argument you are in: a thread, a transcript, an article and its replies. The tool sets out each position, what the sides already agree on, which parts of the disagreement are about facts and which are about values or the meaning of a word, and what the disagreement turns on. It works only from the text you paste. It does not fact-check the claims, guess at anyone’s motives, or say who is right.",

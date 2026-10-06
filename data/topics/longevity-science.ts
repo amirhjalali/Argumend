@@ -10,7 +10,7 @@ export const longevityScienceData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Human life expectancy nearly doubled since 1900 — but almost all of that came from stopping early death (infections, childhood mortality), not from slowing aging: the maximum human lifespan (~120 years) hasn't budged. Every promising 'anti-aging' intervention — senolytics, cellular reprogramming, metformin — works in mice but is still unproven in people, and the field's flagship human trial (TAME) isn't even fully funded.",
+      "Human life expectancy nearly doubled since 1900, mostly from preventing early deaths from infection and in childhood, while the maximum lifespan has stayed near 120 years. Senolytics, cellular reprogramming and metformin extend life in mice but are unproven in people, and the flagship human trial (TAME) is not fully funded. The fight is over whether any of them will extend healthy human life within 20 years.",
     confidence: 82,
     source:
       "Human mortality / life-expectancy data (OWID); Olshansky et al. on maximum lifespan; AFAR TAME trial status (2026)",
@@ -18,9 +18,8 @@ export const longevityScienceData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The longevity revolution that already happened wasn't about slowing aging at all: human life expectancy nearly doubled since 1900 almost entirely by stopping people from dying young — vaccines, antibiotics, sanitation — while the maximum human lifespan (~120 years) has barely moved.",
-    "The new wave of research (clearing worn-out 'senescent' cells, partially reprogramming cells to a younger state, repurposing metformin) genuinely targets aging itself — and works impressively in mice — but the mouse-to-human translation gap for aging drugs is notorious, and not one of these has yet shown it extends healthy human lifespan.",
-    "So the honest debate isn't whether aging biology is advancing (it is, fast) but whether any of it will actually add healthy years to human lives within decades — a question that hinges on human trials, the biggest of which (TAME) still isn't fully funded as of 2026.",
+    "Both sides accept that senolytics produce striking results in mice but have not yet extended healthy human lifespan, that partial reprogramming can reduce biological-age markers in cells and animals while uncontrolled reprogramming risks cancer, and that the TAME trial of metformin is the key near-term test yet remains only partly funded and unenrolled as of 2026.",
+    "They split over whether senolytic drugs will improve human healthspan in large trials or fall to the mouse-to-human gap; whether cell reprogramming can be delivered safely in primates and then people without raising cancer risk; and whether metformin or any other drug can delay several age-related diseases at once.",
   ],
   pillars: [
     // =========================================================================
@@ -56,7 +55,7 @@ export const longevityScienceData = {
           supporter_flip:
             "If multiple senolytic Phase 2/3 trials failed to improve human healthspan biomarkers (frailty, inflammation, epigenetic age) despite striking mouse results, it would suggest the mouse-to-human translation gap for aging interventions may be insurmountable — deflating the '20 years to longer healthspan' timeline.",
           skeptic_flip:
-            "A skeptic who says it's mouse hype should weigh that 30+ senolytic human trials are now registered and that the mechanism (clearing senescent cells reduces inflammation) is well-characterized — so 'it only works in mice' is a hypothesis being actively tested, not a settled verdict.",
+            "If the 30+ registered senolytic human trials began reporting healthspan gains from clearing senescent cells, such as lower inflammation and frailty, 'it only works in mice' would be hard to hold.",
           common_ground:
             "Both sides agree senolytics produce striking results in mice and that no senolytic has yet demonstrated extended healthy lifespan in humans.",
           live_disagreement:
@@ -168,7 +167,7 @@ export const longevityScienceData = {
           supporter_flip:
             "If partial epigenetic reprogramming kept causing cancer or teratomas in higher animals — or the rejuvenation effect vanished once treatment stopped — the dream of 'resetting' biological age in living humans would stall, confining the approach to lab-dish cell therapy.",
           skeptic_flip:
-            "A skeptic citing cancer risk should weigh that pulsed, partial reprogramming has reversed cell-age markers without full dedifferentiation in animal studies — so 'it inevitably causes tumors' is an engineering challenge being worked on, not a proven dead end.",
+            "If pulsed, partial reprogramming reversed cell-age markers in primates without full dedifferentiation or tumors, extending the animal studies, the cancer risk would look like an engineering problem rather than a dead end.",
           common_ground:
             "Both sides agree partial reprogramming can reduce biological-age markers in cells and animals, and that uncontrolled reprogramming risks cancer.",
           live_disagreement:
@@ -276,7 +275,7 @@ export const longevityScienceData = {
           supporter_flip:
             "If the TAME trial launched and metformin failed to delay the composite of age-related diseases versus placebo, the strongest near-term case that a drug can slow aging — and the FDA pathway for anti-aging drugs — would suffer a major setback.",
           skeptic_flip:
-            "A skeptic who says aging isn't a treatable target should weigh that TAME is explicitly designed to test 'aging as a treatable condition' with a hard composite endpoint (heart attack, cancer, dementia, death) — so the claim is falsifiable and being put to a real test, not just asserted.",
+            "If TAME, designed to test 'aging as a treatable condition' against a hard composite of heart attack, cancer, dementia and death, found metformin delaying that composite, the view that aging is not a treatable target would be hard to hold.",
           common_ground:
             "Both sides agree TAME is the most important near-term test of pharmacological life extension, and that as of 2026 it remains only partially funded and hasn't enrolled.",
           live_disagreement:

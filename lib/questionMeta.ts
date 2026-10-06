@@ -149,7 +149,7 @@ export const questionKinds: Record<QuestionKindId, QuestionKindMeta> = {
     plain: "A question of value.",
     label: "Normative",
     description:
-      "Asks what we should do. Evidence constrains the answer but never fully decides it — values do the rest.",
+      "Asks what we should do, or how much one thing should count against another. Evidence constrains the answer but never fully decides it — values do the rest.",
     icon: Scale,
   },
   predictive: {
@@ -194,13 +194,23 @@ const EXPLANATORY_PATTERN = /^(why|how|what|at what|which|who)\b/;
  *
  * Total by construction — anything unmatched falls through to empirical, which
  * is the right default for the "Is/Does/Do/Did …?" bulk of the catalog.
+ *
+ * `firstCruxStanding` is the map's own data: when the first crux its question
+ * page turns on is a standing value difference (`settle.kind`
+ * "value-difference" — nothing empirical settles it), a question that reads
+ * as one of fact ("Is nuclear energy safe?") is labelled a question of value,
+ * so the label never promises a settlement the crux below it rules out.
  */
-export function classifyQuestion(question: string): QuestionKindMeta {
+export function classifyQuestion(
+  question: string,
+  firstCruxStanding?: string,
+): QuestionKindMeta {
   const q = question.trim().toLowerCase();
 
   if (NORMATIVE_PATTERN.test(q)) return questionKinds.normative;
   if (PREDICTIVE_PATTERN.test(q)) return questionKinds.predictive;
   if (EXPLANATORY_PATTERN.test(q)) return questionKinds.explanatory;
+  if (firstCruxStanding === "value-difference") return questionKinds.normative;
   return questionKinds.empirical;
 }
 

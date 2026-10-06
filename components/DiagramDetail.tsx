@@ -104,7 +104,7 @@ function Header({ node, model }: { node: DiagramNode; model: DiagramModel }) {
   );
 }
 
-/** "Someone who says yes / no would change their mind if…", styled as the crux sheet has it. */
+/** "What would change the mind of someone who says yes / no…", styled as the crux sheet has it. */
 function MindChange({ label, side, text }: { label: string; side: keyof typeof SIDE_LABEL; text: string }) {
   return (
     <div>
@@ -186,7 +186,6 @@ function Body({ node }: { node: DiagramNode }) {
               <span className="font-medium text-stone-800 dark:text-stone-200">{node.test.title}.</span>{" "}
               {node.test.methodology}
             </p>
-            <p className="mt-1 text-xs text-muted dark:text-stone-400">Cost to run it: {node.test.cost}</p>
           </DetailBlock>
         </>
       );

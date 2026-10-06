@@ -10,18 +10,17 @@ export const nuclearFusionTimelineData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "In December 2022 a fusion reactor really did, for the first time, release more energy than was put into it — but only by one narrow accounting: NIF's lasers delivered 2.05 MJ to the fuel pellet and got 3.15 MJ of fusion energy back. The honest catch is that firing those lasers drew roughly 300–400 MJ from the grid, so the machine as a whole consumed about 100× more electricity than the fusion produced. 'Net energy gain' was a real physics milestone, not a power plant.",
+      "On 5 December 2022, Lawrence Livermore's National Ignition Facility got 3.15 MJ of fusion energy from 2.05 MJ of laser light on its fuel pellet; firing those lasers drew roughly 300–400 MJ from the grid. No fusion device has yet exported net electricity, and ITER has pushed its deuterium-tritium operation to 2039. The open question is whether a power plant, and then a fleet of them, can follow within 20 years.",
     confidence: 92,
     source:
-      "Lawrence Livermore National Laboratory (Dec 5, 2022 ignition shot, 2.05 MJ in / 3.15 MJ out); facility wall-plug draw of ~300–400 MJ widely reported (e.g. Physics World, World Nuclear News, 2022–2023)",
+      "Lawrence Livermore National Laboratory (Dec 5, 2022 ignition shot, 2.05 MJ in / 3.15 MJ out); facility wall-plug draw as widely reported (Physics World, World Nuclear News); ITER 2024 baseline, via Physics World",
     sourceUrl:
       "https://www.energy.gov/articles/doe-national-laboratory-makes-history-achieving-fusion-ignition",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Fusion has now cleared a barrier it could not clear for 60 years: in 2022 the National Ignition Facility produced more fusion energy (3.15 MJ) than the laser energy delivered to the fuel (2.05 MJ), repeated it on later shots, and meanwhile more than $9 billion in private capital and a US DOE roadmap are now aimed at putting a plant on the grid by the mid-2030s.",
-    "But 'more energy out than the laser delivered' is not 'more electricity out than the plant drew' — NIF's whole facility still ran ~100× energy-negative, no machine has ever bred its own tritium fuel at the scale a power plant needs, and the flagship public project, ITER, just slipped its deuterium-tritium operation from 2035 to 2039 with a ~€5 billion cost increase.",
-    "So the honest debate isn't whether fusion 'works' (the core physics is settled) but whether the engineering — wall-plug energy gain, tritium self-sufficiency, and neutron-tolerant materials — can be solved and then deployed as a fleet of competitive plants fast enough to be a meaningful share of generation within two decades.",
+    "Both sides accept that NIF achieved fuel-relative gain while no device has yet exported net electricity, that a deuterium-tritium plant must breed more tritium than it burns and none has done so at scale, and that one pilot plant is not a share of the energy mix, in a field with a long record of schedule slips.",
+    "They split over whether an integrated plant can put out more electricity than it draws; whether a full-scale breeding blanket can recover more tritium than the reactor consumes; and whether fusion can grow from a first grid-connected plant, such as Commonwealth Fusion Systems' planned ARC in Virginia, to about 1% of world power within two decades.",
   ],
   last_updated: "2026-06-16",
   tags: ["fusion", "energy", "technology", "iter", "decarbonization"],
@@ -57,7 +56,7 @@ export const nuclearFusionTimelineData = {
           supporter_flip:
             "If a privately funded device like SPARC fails to reach even fuel-gain Q>1 on schedule, or if an integrated pilot plant runs but its measured Q_eng stays well below 1 once magnets, cryogenics, heating, and balance-of-plant draw are counted, the case that wall-plug gain is 'engineering, not mystery' would weaken to an open research problem.",
           skeptic_flip:
-            "A skeptic should weigh that the hard part — releasing more fusion energy than is delivered to the fuel — has now been demonstrated and repeated, and that high-temperature-superconducting magnets give compact tokamaks far higher fields than ITER assumed, which raises the plasma gain a given machine can reach.",
+            "If repeated shots kept releasing more fusion energy than is delivered to the fuel, and high-temperature-superconducting magnets gave compact tokamaks the higher fields their designs assume, plasma gain would look like engineering rather than an open physics question.",
           common_ground:
             "Both sides agree NIF showed scientific (fuel-relative) gain, that no device has yet exported net electricity to a grid, and that Q_eng > 1 with margin is the real commercial bar.",
           live_disagreement:
@@ -149,7 +148,7 @@ export const nuclearFusionTimelineData = {
           supporter_flip:
             "If an integrated full-coverage lithium blanket around a sustained D-T plasma cannot reach a recovered TBR above 1 once port penetrations, structural gaps, tritium decay, and extraction losses are counted — or if the only blankets that breed enough require neutron multipliers and tritium inventories that are themselves impractical — then a near-term D-T fusion economy would be blocked on fuel regardless of plasma performance.",
           skeptic_flip:
-            "A skeptic should weigh that tritium breeding is a neutronics-and-materials engineering problem with no known physics barrier, that neutron-multiplier designs (beryllium, lead) can in principle push the local breeding ratio above 1, and that the very low ratios measured so far come from small experiments never meant to demonstrate self-sufficiency.",
+            "If integrated blanket tests pushed the recovered breeding ratio above 1 with neutron multipliers such as beryllium or lead, the low ratios from small experiments never built for self-sufficiency would say little, and fuel would look like a neutronics and materials problem.",
           common_ground:
             "Both sides agree tritium is scarce, that a D-T plant must breed essentially all the tritium it burns (TBR > 1 with margin), and that self-sufficiency has never been demonstrated at scale.",
           live_disagreement:
@@ -257,7 +256,7 @@ export const nuclearFusionTimelineData = {
           supporter_flip:
             "If first-of-a-kind plants keep slipping the way ITER has (2035 to 2039, +€5B), or if the first commercial plants come in so costly that learning-curve cost declines stall and no fleet gets ordered, then 'meaningful share of the energy mix within two decades' fails even if a single demonstrator eventually works.",
           skeptic_flip:
-            "A skeptic should weigh that ITER is a one-off international science machine, not the commercial path, that compact high-field private designs are pursuing far shorter build cycles, and that other energy technologies (solar PV, gas turbines) scaled from first units to large generation shares within roughly a decade once costs fell.",
+            "If compact high-field private designs hit the short build cycles they promise, and fusion scaled from first units to a large generation share within about a decade of cost declines as solar PV and gas turbines did, ITER's slippage would say little about the commercial path.",
           common_ground:
             "Both sides agree one pilot plant is not an energy-mix share, that a meaningful share requires many economically competitive plants, and that fusion's history is one of repeated schedule slippage.",
           live_disagreement:

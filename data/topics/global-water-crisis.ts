@@ -9,7 +9,7 @@ export const globalWaterCrisisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Despite decades of \"water wars\" headlines, the last time two states actually went to war over water was about 4,500 years ago, between the Sumerian city-states of Lagash and Umma. In the modern record (1948–2008), cooperative water events outnumber conflictive ones by more than 2:1, and over 200 water treaties were signed even between hostile neighbors. The catch: that record was built during an era of relative abundance, and it has never been stress-tested against the absolute scarcity now emerging.",
+      "The last war between states fought over water was about 4,500 years ago, between the Sumerian city-states of Lagash and Umma, and from 1948 to 2008 cooperative water events outnumbered conflictive ones by more than two to one, with over 200 treaties signed. That record was built in an era of relative abundance. The fight is over whether it holds as absolute scarcity arrives.",
     confidence: 84,
     source:
       "Aaron T. Wolf, Oregon State University Transboundary Freshwater Dispute Database; International Water Event Database (1948–2008)",
@@ -17,9 +17,8 @@ export const globalWaterCrisisData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The alarming version is real: the Ogallala Aquifer has lost over 400 cubic kilometers since the 1950s, India pumps more groundwater than any nation on Earth with water tables dropping 1–2 meters a year in its breadbasket states, and NASA GRACE data show many of the world's largest aquifers losing water faster than they recharge — a slow-motion supply crisis already underway.",
-    "But the honest counterpoint is that the headline framing — nations marching to war over water — has been predicted for decades and consistently failed to arrive: cooperative events outnumber conflict more than 2:1, the Indus Waters Treaty survived three India–Pakistan wars, and most water crises trace to domestic mismanagement and underpricing, not foreign aggression.",
-    "So the honest debate isn't \"will there be water wars?\" but whether the institutions and technology that have managed scarcity so far — treaties, pricing, desalination, efficiency — can scale fast enough in the poorest, most water-stressed regions before aquifer depletion and glacier loss outrun them.",
+    "Both sides accept that groundwater depletion is real and measured in the Ogallala, northwest India and the North China Plain; that cooperative water events have outnumbered conflictive ones roughly 2:1, with no interstate water war in the modern era but real sub-national water violence; and that desalination and drip irrigation work where they can be afforded.",
+    "They split over whether efficiency, pricing and recharge can outrun aquifer depletion before key farm regions collapse; whether some level of absolute scarcity, on rivers like the Nile or the Indus, would break cooperation down into war; and whether that technology can reach the poorest, most water-stressed regions in time.",
   ],
   pillars: [
     // =========================================================================
@@ -55,7 +54,7 @@ export const globalWaterCrisisData = {
           supporter_flip:
             "If high-resolution depletion models combining GRACE data and well monitoring showed that price signals, efficiency gains, and substitution were closing the gap faster than aquifers are drawn down — so stressed basins reach a new equilibrium well before wells run dry — the 'existential crisis' framing would soften to 'a costly but manageable regional adjustment.'",
           skeptic_flip:
-            "A skeptic who calls scarcity merely regional and a governance problem should weigh that fossil-water aquifers like the Ogallala recharge at ~25 mm/yr — millennia to refill what was pumped in decades — and that GRACE shows many of the world's largest aquifers already past their tipping points; once mined out, no governance reform brings the water back on a human timescale.",
+            "If GRACE and well data kept placing major fossil-water aquifers like the Ogallala, which recharge at ~25 mm/yr, past their tipping points, scarcity would look less like a regional governance problem and more like a loss no reform can reverse on a human timescale.",
           common_ground:
             "Both sides agree groundwater depletion is real and physically measured in specific basins (Ogallala, northwest India, North China Plain), and that current extraction in those basins exceeds natural recharge.",
           live_disagreement:
@@ -172,9 +171,9 @@ export const globalWaterCrisisData = {
           "$3-5M (Multi-basin geopolitical modeling integrating climate projections, institutional analysis, and conflict risk assessment)",
         falsification: {
           supporter_flip:
-            "If comparative analysis of basins that have already dropped below 500 m³ per capita (absolute scarcity) showed they still resolved disputes through treaties and joint commissions rather than force, the 'scarcity eventually overwhelms cooperation' thesis would fail — extreme scarcity would look like a driver of institutional innovation, not war.",
+            "If basins that have dropped below 500 m³ per capita (absolute scarcity) kept resolving disputes through treaties and joint commissions rather than force, the 'scarcity eventually overwhelms cooperation' thesis would fail, and extreme scarcity would look like a driver of institutional innovation, not war.",
           skeptic_flip:
-            "A skeptic citing the cooperation record should weigh that it was compiled mostly during hydrological abundance and institutional build-up: the Nile (GERD) and Indus disputes are now openly framed as 'existential' by nuclear-armed or near-existential states, and sub-national water violence already kills hundreds a year — so 'cooperation always wins' may be extrapolating from conditions that are ending.",
+            "If disputes like the Nile (GERD) and the Indus, now framed as 'existential' by the states involved, turned violent, or sub-national water violence kept rising, a cooperation record compiled in wetter, institution-building times would stop predicting the future.",
           common_ground:
             "Both sides agree that historically cooperative water events have outnumbered conflictive ones roughly 2:1 and that no interstate 'water war' has occurred in the modern era, while sub-national water-linked violence does occur.",
           live_disagreement:
@@ -295,7 +294,7 @@ export const globalWaterCrisisData = {
           supporter_flip:
             "If techno-economic modeling showed desalination, recycling, and precision irrigation could realistically be financed and built fast enough — given energy, brine-disposal, and institutional constraints — to close the projected deficit in the 20 most-stressed nations before aquifer and climate tipping points, then the 'deployment gap dooms the poorest' argument would collapse into a financing-and-engineering problem with a solvable timeline.",
           skeptic_flip:
-            "A techno-optimist should weigh that desalination still costs ~$0.50/m³ (far above the near-free groundwater farmers actually use), needs 3–4 kWh/m³ and coastal access, and that drip irrigation covers under 5% of farmland in South Asia and Sub-Saharan Africa with adoption plateaued despite subsidies — so 'technology will scale like solar' is an assumption, not a demonstrated fact, for landlocked smallholder agriculture.",
+            "If desalination stayed near $0.50/m³ and 3–4 kWh/m³, far above the groundwater farmers use, and drip irrigation stayed under 5% of farmland in South Asia and Sub-Saharan Africa despite subsidies, 'technology will scale like solar' would not reach landlocked smallholders in time.",
           common_ground:
             "Both sides agree the core technologies work and are getting cheaper (Israel and Singapore prove it at national scale), and that the binding constraints in poor regions are cost, energy, and institutions rather than physics.",
           live_disagreement:

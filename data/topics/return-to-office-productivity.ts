@@ -9,17 +9,16 @@ export const returnToOfficeProductivityData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The best causal evidence we have says hybrid work is roughly a free lunch, not a productivity tax. In a six-month randomized trial of 1,612 employees at Trip.com (published in Nature in 2024), letting people work from home two days a week cut quit rates by about a third with no measurable hit to performance grades or promotions over the next two years. The honest catch: this tested hybrid (not fully remote) at one large firm, so it doesn't prove a blanket work-from-anywhere policy is costless everywhere.",
+      "In a randomized trial of 1,612 Trip.com employees, working from home two days a week cut quit rates by about a third with no effect on performance grades or promotions over two years. When Microsoft's 61,000-plus employees went fully remote, the share of collaboration time spent across groups fell by roughly 25%. Both studies hold up. The fight is over what return-to-office mandates buy that individual output measures miss, and what they cost.",
     confidence: 84,
     source:
-      "Bloom, Han & Liang, Nature 630 (2024) — Trip.com RCT; University of Pittsburgh (Ding & Ma) S&P 500 RTO study (2024)",
+      "Bloom, Han & Liang, Nature 630 (2024) — Trip.com RCT; Yang et al., Nature Human Behaviour (2021) — Microsoft Research",
     sourceUrl: "https://www.nature.com/articles/s41586-024-07500-2",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "When researchers actually randomize who works from home rather than survey opinions, the productivity penalty largely disappears: the Trip.com Nature RCT found hybrid workers matched in-office workers on performance grades and promotions while quitting about a third less, and a University of Pittsburgh study of S&P 500 firms found RTO mandates produced no measurable improvement in profitability or stock performance.",
-    "But individual task output is not the whole story — Microsoft's analysis of 61,000+ employees found that going fully remote made collaboration networks more siloed and static (cross-group ties fell roughly 25%), and a Nature experiment found in-person pairs generated about 15% more creative ideas, so coordination and innovation may erode in ways that show up years later rather than in this quarter's metrics.",
-    "So the honest debate isn't 'does sitting in an office make you type faster' (it mostly doesn't) but whether the harder-to-measure gains in collaboration, mentorship, and serendipitous innovation justify a strict full-time return — and whether many mandates are really chasing those gains or chasing control, real estate, and stealth attrition.",
+    "Both sides accept that individual task output is roughly comparable remotely, that physical proximity raises how often people talk spontaneously though more talk is not the same as more innovation, and that culture and mentorship concerns coexist with real estate costs, control preferences and attrition management behind office mandates.",
+    "They split over whether fully remote work lowers total output once coordination and knowledge transfer are counted; whether chance in-person encounters produce more innovation than structured remote collaboration; and whether return-to-office mandates are driven mainly by productivity needs or by leases, layoffs and management style.",
   ],
   pillars: [
     // =========================================================================
@@ -51,9 +50,9 @@ export const returnToOfficeProductivityData = {
           "$5-10M (Multi-firm randomized controlled trial with objective productivity instrumentation)",
         falsification: {
           supporter_flip:
-            "An RTO supporter should weigh that the strongest causal evidence (the Trip.com Nature RCT) found hybrid work matched in-office performance grades and promotions while cutting attrition, and that the Pittsburgh S&P 500 study found mandates produced no measurable financial improvement — so presence-based intuitions about declining productivity have not survived the few controlled tests that exist.",
+            "If more randomized trials like the Trip.com study found hybrid work matching in-office performance and promotions while cutting attrition, and more firms saw no financial gain from mandates, testing the Pittsburgh S&P 500 result, the claim that presence drives productivity would weaken.",
           skeptic_flip:
-            "A skeptic who favors remote work should change their mind if a multi-firm randomized trial showed that teams assigned to fully remote work had measurably lower team-level output — slower project completion, more errors, fewer shipped features — even when individual task metrics held steady, demonstrating that the productivity loss is real but lives in coordination rather than in any single worker's numbers.",
+            "If a multi-firm randomized trial found fully remote teams with lower team-level output (slower projects, more errors, fewer shipped features) even as individual task metrics held steady, the loss would look real but located in coordination, and the case against mandates would weaken.",
           common_ground:
             "Both sides agree that individual task output (code commits, tickets closed) is roughly comparable remotely, and that the real uncertainty is about harder-to-measure team-level coordination and knowledge transfer.",
           live_disagreement:
@@ -170,9 +169,9 @@ export const returnToOfficeProductivityData = {
           "$3-5M (18-month instrumented workplace study with innovation tracking across 20+ firms)",
         falsification: {
           supporter_flip:
-            "A believer in the 'water cooler effect' should change their mind if instrumented-workplace data showed that unplanned in-person encounters convert to new projects, patents, or shipped features at no higher rate than structured remote collaboration — implying the romantic serendipity narrative is a compelling story without measurable innovation payoff.",
+            "If instrumented-workplace data showed unplanned in-person encounters turning into new projects, patents or shipped features at no higher rate than structured remote collaboration, the 'water cooler effect' would look like a story without measurable innovation payoff.",
           skeptic_flip:
-            "A skeptic who dismisses serendipity should weigh the Nature ideation experiment (in-person pairs generated ~15% more creative ideas), Microsoft's finding that remote collaboration networks became ~25% more siloed, and the Allen Curve's evidence that communication falls off sharply with distance — none of which proves innovation collapses remotely, but all of which point to a real, repeatedly observed proximity effect.",
+            "If new studies carried the in-person ideation result (about 15% more creative ideas), Microsoft's ~25% more siloed remote networks and the Allen Curve's drop in contact with distance through to measured innovation output, a proximity effect on innovation would be hard to dismiss.",
           common_ground:
             "Both sides agree that physical proximity increases the frequency of spontaneous communication, and that more communication is not the same thing as more valuable innovation output.",
           live_disagreement:
@@ -286,9 +285,9 @@ export const returnToOfficeProductivityData = {
           "$500K (Econometric analysis of public company data with supplemental surveys)",
         falsification: {
           supporter_flip:
-            "A supporter who takes companies' productivity rationale at face value should weigh that 25% of executives in the BambooHR survey admitted hoping a mandate would drive voluntary turnover, that nearly a third of managers cited monitoring as a goal, and that mandates are associated with a ~14% rise in turnover concentrated among senior, skilled, and female staff — patterns that fit control and attrition motives better than a clean productivity story.",
+            "If more surveys repeated BambooHR's finding that 25% of executives hoped a mandate would drive turnover and a third of managers cited monitoring, and the ~14% turnover rise among senior, skilled and female staff held up, the productivity rationale would be hard to take at face value.",
           skeptic_flip:
-            "A skeptic who believes RTO mandates are mostly a cover for control, real estate, and stealth layoffs should change their mind if an econometric decomposition showed mandate strictness is predicted by pre-mandate productivity gaps and industry collaboration needs rather than by commercial-real-estate obligations or recent layoff timing — meaning the stated productivity and culture rationale is the real driver.",
+            "If an econometric decomposition found mandate strictness predicted by pre-mandate productivity gaps and collaboration needs rather than real-estate obligations or layoff timing, the view that mandates are cover for control, leases or stealth layoffs would lose its footing.",
           common_ground:
             "Both sides agree that multiple motives coexist — genuine culture and mentorship concerns alongside real estate costs, control preferences, and attrition management — and that surveys of self-reported intent are imperfect evidence of true organizational motive.",
           live_disagreement:

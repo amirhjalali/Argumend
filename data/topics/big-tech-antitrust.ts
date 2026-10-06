@@ -9,18 +9,18 @@ export const bigTechAntitrustData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "A federal judge ruled in 2024 that Google is an illegal monopolist — it holds ~90% of search and paid ~$26B in a single year for default placement. The hard part isn't proving dominance; it's that the products are free, so the price-based antitrust framework built for Standard Oil struggles to show 'consumer harm.'",
+      "In August 2024 a federal judge ruled that Google illegally maintained a monopoly in general search, where it holds roughly 89% of the market and paid $26.3 billion in 2021 to be the default. In a large choice experiment, the median US user said they would need about $17,500 a year to give up search engines. The open question is whether users of free products are harmed on net, and whether a breakup or regulation would help them.",
     confidence: 85,
     source:
-      "US v. Google LLC ruling (D.D.C., Aug. 2024); DOJ Antitrust Division; market-share data (Statcounter)",
+      "U.S. v. Google LLC, Memorandum Opinion (D.D.C. Aug. 5, 2024); Brynjolfsson, Collis & Eggers, PNAS (2019)",
     sourceUrl:
-      "https://www.justice.gov/atr/case/us-and-plaintiff-states-v-google-llc-2020",
+      "https://storage.courtlistener.com/recap/gov.uscourts.dcd.223205/gov.uscourts.dcd.223205.1033.0_2.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The dominance isn't really in dispute: Google holds about 90% of search, Apple and Google together run ~99% of mobile operating systems, and in 2024 a federal judge ruled Google an illegal monopolist that paid ~$26B in one year just to stay the default.",
-    "The genuinely hard problem is that these products are free or cheap and genuinely loved — so the century-old antitrust test, which asks 'are prices too high?', barely applies, and you have to argue harm in terms of privacy, lost innovation, and acquired-then-killed rivals instead.",
-    "So the honest debate isn't 'are these companies dominant?' (a court says yes) but whether breaking them up would help consumers who like the integrated, free products — or just destroy value while a new framework for 'consumer harm' in zero-price markets is still being invented.",
+    "Both sides accept that Google, Apple, Amazon and Meta are dominant and largely free at the point of use, that users get real value from those services in exchange for their data, and that antitrust's traditional price test fits zero-price markets poorly.",
+    "They split over whether users are harmed on net once privacy loss, acquisitions of rivals like Instagram and WhatsApp, and attention extraction are weighed against that value, and over whether clicking 'agree' on unread terms is meaningful consent to data collection.",
+    "Neither question has an agreed measure yet: no welfare metric for zero-price markets, and few large experiments on what fully informed users would do.",
   ],
   pillars: [
     {
@@ -54,7 +54,7 @@ export const bigTechAntitrustData = {
           supporter_flip:
             "If a rigorous quality-adjusted welfare measure found consumers are actually better off under the integrated free incumbents than they'd be in a fragmented competitive market — once you net privacy, innovation, and convenience — the case for breakup would weaken to 'dominant but not harmful.'",
           skeptic_flip:
-            "A skeptic who says free = no harm should weigh that 'free' hides the price paid in data and attention, that a court found Google bought its dominance with $26B in default deals rather than winning purely on merit, and that acquired-then-shelved rivals are innovation consumers never got.",
+            "If welfare measures priced the data and attention paid for 'free' services, and counted the rivals acquired then shelved and the effect of Google's $26B in default deals, 'free means no harm' would be hard to hold.",
           common_ground:
             "Both sides agree these products are dominant and largely free at the point of use, and that the traditional price-based antitrust test fits zero-price markets poorly.",
           live_disagreement:
@@ -167,7 +167,7 @@ export const bigTechAntitrustData = {
           supporter_flip:
             "If experiments showed that fully-informed users — who actually understood the data practices — wouldn't change their behavior, the 'no meaningful consent' argument for regulation would weaken: people would be making an informed trade they're fine with.",
           skeptic_flip:
-            "A skeptic who says it's a fair trade should weigh that no one can read the ~7,000-word policies they 'agree' to (reading every policy you encounter yearly would take weeks), and that you can't meaningfully opt out of the digital economy — so 'voluntary consent' is closer to fiction than to a fair trade.",
+            "If experiments found that almost no one reads the ~7,000-word policies they accept, and that opting out of data collection means opting out of the digital economy, 'voluntary consent' would look closer to fiction than to a fair trade.",
           common_ground:
             "Both sides agree users do receive real value from free services in exchange for their data.",
           live_disagreement:

@@ -8,13 +8,15 @@ const isDev = process.env.NODE_ENV === 'development';
 const authEntryEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === 'true';
 
 // Build Content-Security-Policy header value
+// Cloudflare Web Analytics: the proxy injects its beacon script from
+// static.cloudflareinsights.com, and the beacon reports to cloudflareinsights.com.
 const cspDirectives = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com${isDev ? " 'unsafe-eval'" : ''}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' https://images.unsplash.com https://www.google-analytics.com data:",
   "font-src 'self'",
-  "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
+  "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

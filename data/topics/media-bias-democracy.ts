@@ -66,7 +66,7 @@ export const mediaBiasDemocracyData = {
           supporter_flip:
             "If a replicable content analysis comparing coverage of identical events across outlets found little systematic deviation in story selection, framing or source choice, the claim of systemic bias would shrink to readers disagreeing with accurate reporting.",
           skeptic_flip:
-            "A skeptic who reads 'bias' as disagreement with facts should weigh that different methods converge on detectable slant — Groseclose & Milyo found all but two of 20 outlets left of the median member of Congress, and blind cross-partisan ratings place CNN and MSNBC left and Fox right — and that story selection can shape perception even when every fact is accurate.",
+            "If new studies using different methods matched Groseclose and Milyo's finding of most outlets left of the median member of Congress, and blind cross-partisan ratings kept placing CNN and MSNBC left and Fox right, slant would be hard to read as mere disagreement with facts.",
           common_ground:
             "Both sides agree mainstream outlets keep real editorial standards — multi-source verification, corrections, a growing number of fact-checkers — and that the leading bias measures, from Groseclose & Milyo to AllSides, have contested methods.",
           live_disagreement:
@@ -181,7 +181,7 @@ export const mediaBiasDemocracyData = {
           supporter_flip:
             "If a randomized trial that exposed people to cross-cutting news for six months produced no change in polarization, factual knowledge or engagement relative to a control group, the case that media drives democratic division would weaken toward media merely reflecting it.",
           skeptic_flip:
-            "A skeptic who sees only modest online segregation should weigh that from 2017 Facebook's feed weighted 'angry' reactions five times more than 'likes', that a peer-reviewed audit by Twitter's ML team found systematic political amplification, and that trust in mass media sits at a trend low of 31% and splits sharply by party.",
+            "If new audits found ranking systems amplifying anger and partisanship, testing Facebook's 2017 five-times weight on 'angry' reactions and Twitter's own amplification audit, and that tracked the party split in media trust, media would look like a driver of division rather than a mirror.",
           common_ground:
             "Both sides agree trust in mass media is at a trend low — 31% in Gallup's 2024 survey — and that people today can reach a wider range of viewpoints than ever before.",
           live_disagreement:

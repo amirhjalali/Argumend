@@ -12,17 +12,16 @@ export const decliningBirthRatesData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Falling birth rates are mostly not a story of people who don't want kids — in rich countries surveys find a persistent \"fertility gap\" of roughly 0.3-0.7 children between how many people say they want and how many they actually have. The catch is that money alone hasn't closed it: South Korea spent about ₩380 trillion (~$270 billion) on pro-natalist and family programs since 2006 and its fertility rate still fell to 0.72 — the lowest ever recorded in peacetime.",
+      "South Korea's fertility rate fell to 0.72 in 2023, the lowest ever recorded in peacetime, after the government spent roughly ₩380 trillion (about $270 billion) on low-birthrate and family programs since 2006. In France, people say they want 2.4 children on average and have 1.8. Both figures are real. What divides the sides is whether that gap reflects barriers policy can remove, and whether falling fertility is a crisis at all.",
     confidence: 84,
     source:
-      "OECD Family Database (desired vs. actual fertility); Statistics Korea (TFR 0.72, 2023 — the record low; rose to 0.75 in 2024); Korean government low-birthrate spending ~₩380T since 2006",
-    sourceUrl: "https://www.oecd.org/en/data/datasets/oecd-family-database.html",
+      "Statistics Korea; OECD Family Database",
+    sourceUrl: "https://kostat.go.kr/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The decline is real and steep: global fertility has fallen from about 5.0 in 1950 to roughly 2.3 today and is projected to keep dropping, and the surprise is that most people in rich countries say they want more children than they end up having — a \"fertility gap\" of 0.3-0.7 kids that points to barriers like housing, childcare, and career penalties rather than a simple loss of desire.",
-    "But the honest counterpoint is that money has not reliably bought babies: South Korea spent on the order of $270 billion since 2006 and watched its birth rate keep falling to a record-low 0.72, and even Nordic countries with generous childcare and leave have slid well below replacement — so the gap may reflect deep preference and cultural shifts that policy can nudge but not reverse.",
-    "So the honest debate isn't whether falling fertility is happening (it clearly is) but whether it's a removable problem of structural barriers or an irreversible preference shift — and, separately, whether a smaller population is even a crisis once you account for productivity, immigration, and per-capita living standards.",
+    "Both sides accept that global fertility has fallen from about 5.0 in 1950 to roughly 2.3, that below-replacement fertility raises dependency ratios and strains pay-as-you-go pensions, that income per person rather than total GDP is what matters for living standards, and that most rich countries show a gap between desired and actual family size.",
+    "They split over whether there is a fertility level below which falling income per person becomes self-reinforcing; whether the gap between desired and actual family size comes mostly from removable barriers like housing and childcare or from shifting preferences; and whether AI productivity gains and immigration can grow fast enough, in sectors like elder care, to offset shrinking workforces.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1504439904031-93ded9f93e4e?auto=format&fit=crop&w=800&q=60",
@@ -94,7 +93,7 @@ export const decliningBirthRatesData = {
           supporter_flip:
             "If long-horizon models (validated against Japan and South Korea's actual trajectories) showed that productivity gains, capital deepening, and pension reform can hold per-capita living standards roughly flat through the demographic transition even at 1.0-1.3 TFR, the 'doom loop' framing would collapse into 'hard transition, not collapse.'",
           skeptic_flip:
-            "A skeptic confident decline is manageable should weigh that the OECD old-age dependency ratio is projected to rise from about 31% in 2023 toward 52% by 2060, that South Korea at 0.72 TFR shrinks each generation to roughly a third, and that Japan's per-capita gains have come alongside a 263%-of-GDP public debt load that may not be repeatable.",
+            "If the OECD old-age dependency ratio tracked its projected rise from about 31% toward 52% by 2060, South Korea at 0.72 TFR kept shrinking to roughly a third each generation, and Japan's gains proved tied to a 263%-of-GDP debt load, 'manageable decline' would be hard to hold.",
           common_ground:
             "Both sides agree below-replacement fertility raises dependency ratios and strains pay-as-you-go pension systems, and that per-capita GDP — not total GDP — is the metric that matters for living standards.",
           live_disagreement:
@@ -189,7 +188,7 @@ export const decliningBirthRatesData = {
           supporter_flip:
             "If Nordic countries with universal childcare, long parental leave, and housing support still showed fertility far below stated desires — and longitudinal tracking found the gap appearing even where barriers are removed — then the decline would look like a genuine preference shift, not a fixable structural problem, weakening the case that policy can raise birth rates.",
           skeptic_flip:
-            "A skeptic who reads the decline as pure free choice should weigh that OECD surveys consistently find desired fertility 0.3-0.7 children above actual (France 2.4 vs 1.8, Germany 2.0 vs 1.4, Japan 2.4 vs 1.2) — a gap that implies removable barriers, not just preference, are suppressing births.",
+            "If new surveys kept finding desired fertility 0.3-0.7 children above actual, as in France (2.4 vs 1.8), Germany (2.0 vs 1.4) and Japan (2.4 vs 1.2), and births rose where barriers were removed, the decline would look less like pure free choice.",
           common_ground:
             "Both sides agree female education and contraception access are the strongest correlates of lower fertility, and that a measurable gap between desired and actual family size exists in most rich countries.",
           live_disagreement:
@@ -267,7 +266,7 @@ export const decliningBirthRatesData = {
           supporter_flip:
             "If sector-by-sector modeling showed AI and automation productivity growth per worker reliably outpacing workforce decline — including in hard-to-automate elder care, healthcare, and construction — then a smaller population would be economically manageable and the 'technology can't save us' rebuttal would fail.",
           skeptic_flip:
-            "A skeptic counting on technology should weigh Japan's natural experiment: the world's highest industrial-robot density and decades of investment, yet a projected shortfall on the order of 300,000+ long-term care workers around 2025 rising toward 570,000 by 2040 — the caregiving sectors aging populations need most have proven the most automation-resistant.",
+            "If Japan's care sector, despite the world's highest industrial-robot density, kept falling short by hundreds of thousands of workers (a projected 570,000 by 2040), the hope that technology covers a shrinking workforce would be hard to hold where aging societies need it most.",
           common_ground:
             "Both sides agree AI will raise productivity in many sectors and that immigration can supplement domestic labor; the dispute is magnitude, timing, and whether gains land in the sectors an aging society actually depends on.",
           live_disagreement:

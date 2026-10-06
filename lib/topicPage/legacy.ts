@@ -14,9 +14,10 @@
  *
  * Pure: no React, no data imports, so the page and its tests share it.
  */
-import type { Evidence, Pillar, Topic, Verdict } from "@/lib/schemas/topic";
+import type { Evidence, Pillar, Topic } from "@/lib/schemas/topic";
 import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
 import { mapDisplayTitle, sideWords, type SideWords } from "@/lib/mapNaming";
+import { namesIn, sentenceCaseTitle, type MapNames } from "./sentenceCase";
 import {
   STANDING_CONDITION_LEAD,
   type CruxEntryData,
@@ -38,20 +39,23 @@ export interface LegacyCrux extends CruxEntryData {
   pillarId: string;
   /** This pillar's evidence, strongest first on each side. No scores. */
   evidence: LegacyEvidenceItem[];
-  /** The crux's test, for the fold and for Researcher mode. */
+  /**
+   * The crux's test, for the fold and for Researcher mode. The map's
+   * `cost_to_verify` is not carried: it is an unsourced estimate.
+   */
   test: {
     title: string;
     methodology: string;
-    cost: string;
   };
 }
 
+/**
+ * The "How the evidence weighs" fold. No reading of where the cards tip
+ * ("evidence still divided") and no ranking word: one strong card from each
+ * side, or nothing, never one side alone.
+ */
 export interface LegacyWeighing {
-  /** "Well-mapped, evidence still divided" — words, never a number. */
-  label: string;
-  fragile: boolean;
-  /** The heaviest card on each side, or nothing: never one side alone. */
-  heaviest?: { forTitle: string; againstTitle: string };
+  strongest?: { forTitle: string; againstTitle: string };
 }
 
 export interface LegacyTopicPage {
@@ -120,7 +124,53 @@ function byWeight(a: Evidence, b: Evidence): number {
   return calculateEvidenceScore(b.weight) - calculateEvidenceScore(a.weight);
 }
 
-function evidenceItems(evidence: Evidence[] | undefined): LegacyEvidenceItem[] {
+/**
+ * The map's names, read from its prose and its source lines (never its
+ * titles): a name the map capitalises keeps its capital in a card title.
+ */
+function topicNames(topic: Topic): MapNames {
+  const evidence = [...topic.pillars.flatMap((p) => p.evidence ?? []), ...(topic.evidence ?? [])];
+  const prose = [
+    topic.meta_claim,
+    topic.question ?? "",
+    ...(topic.simple_case ?? []),
+    topic.keystone_fact?.statement ?? "",
+    ...topic.pillars.flatMap((p) => {
+      const f = p.crux.falsification;
+      return [
+        p.short_summary,
+        p.skeptic_premise,
+        p.proponent_rebuttal,
+        p.crux.question ?? "",
+        p.crux.description,
+        p.crux.methodology,
+        f?.live_disagreement ?? "",
+        f?.common_ground ?? "",
+        f?.supporter_flip ?? "",
+        f?.skeptic_flip ?? "",
+      ];
+    }),
+    ...evidence.flatMap((e) => [e.description, e.reasoning ?? ""]),
+    ...(topic.questions ?? []).map((q) => q.content),
+  ];
+  const sources = [topic.keystone_fact?.source ?? "", ...evidence.map((e) => e.source ?? "")];
+  return namesIn(prose, sources);
+}
+
+/**
+ * The map's card titles as every surface shows them (crux rows, the other
+ * side's best card, the diagram, the paste result): sentence case, without a
+ * closing full stop. See lib/topicPage/sentenceCase.ts.
+ */
+export function cardTitler(topic: Topic): (title: string) => string {
+  const names = topicNames(topic);
+  return (title) => sentenceCaseTitle(title.replace(/\.$/, ""), names);
+}
+
+function evidenceItems(
+  evidence: Evidence[] | undefined,
+  titled: (title: string) => string,
+): LegacyEvidenceItem[] {
   const all = evidence ?? [];
   const ordered = [
     ...all.filter((e) => e.side === "for").sort(byWeight),
@@ -129,27 +179,20 @@ function evidenceItems(evidence: Evidence[] | undefined): LegacyEvidenceItem[] {
   return ordered.map((e) => ({
     id: e.id,
     side: e.side,
-    title: e.title.replace(/\.$/, ""),
+    title: titled(e.title),
     description: e.description,
     source: e.source,
     sourceUrl: e.sourceUrl,
   }));
 }
 
-function heaviest(topic: Topic): LegacyWeighing["heaviest"] {
+function weighing(topic: Topic, titled: (title: string) => string): LegacyWeighing {
   const all = topic.pillars.flatMap((p) => p.evidence ?? []);
   const top = (side: "for" | "against") => all.filter((e) => e.side === side).sort(byWeight)[0];
   const forCard = top("for");
   const againstCard = top("against");
-  if (!forCard || !againstCard) return undefined;
-  return {
-    forTitle: forCard.title.replace(/\.$/, ""),
-    againstTitle: againstCard.title.replace(/\.$/, ""),
-  };
-}
-
-function weighing(verdict: Verdict, topic: Topic): LegacyWeighing {
-  return { label: verdict.label, fragile: Boolean(verdict.fragile), heaviest: heaviest(topic) };
+  if (!forCard || !againstCard) return {};
+  return { strongest: { forTitle: titled(forCard.title), againstTitle: titled(againstCard.title) } };
 }
 
 function positionCards(pillars: Pillar[], words: SideWords): PositionCardData[] {
@@ -176,6 +219,7 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
   // Sides are named by the answer to the question the reader sees ("Says
   // yes" / "Says no"); a map without a question keeps "Supporters" / "Skeptics".
   const words = sideWords(topic);
+  const titled = cardTitler(topic);
   // What both sides already agree on: each crux's common ground, in pillar
   // order, deduplicated. Any beyond the first three stay inside their crux.
   const agreement: string[] = [];
@@ -211,12 +255,14 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
     const standingRunIn = standingKind
       ? [{ lead: STANDING_CONDITION_LEAD[standingKind], text: asSentence(condition) }]
       : [];
+    const question = authored || live || crux.title;
     return {
       anchor: `crux-${pillar.id}`,
       pillarId: pillar.id,
-      question: authored || live || crux.title,
-      shortLabel: pillar.title,
-      kicker: pillar.title,
+      question,
+      // The question is the crux's one name, as on the flagship maps: the
+      // pillar title stays in Researcher mode, not above the question.
+      shortLabel: question,
       settle,
       runIns: [
         ...liveRunIn,
@@ -231,11 +277,10 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
             skepticLead: words.noChangesMind,
           }
         : undefined,
-      evidence: evidenceItems(pillar.evidence),
+      evidence: evidenceItems(pillar.evidence, titled),
       test: {
         title: crux.title,
         methodology: crux.methodology,
-        cost: crux.cost_to_verify,
       },
     };
   });
@@ -271,7 +316,7 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
   return {
     page,
     cruxes,
-    weighing: weighing(topic.verdict, topic),
+    weighing: weighing(topic, titled),
     references: topic.references ?? [],
   };
 }

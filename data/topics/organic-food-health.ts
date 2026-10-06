@@ -9,7 +9,7 @@ export const organicFoodHealthData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Organic food isn't meaningfully more nutritious in the way most buyers assume — a Stanford review of 237 studies found no consistent vitamin or mineral advantage over conventional. The real, measurable differences are about 4x fewer pesticide-residue detections and ~48% lower cadmium; the health payoff of either is still unproven.",
+      "A Stanford review of 237 studies found no consistent difference in vitamin content between organic and conventional food. A later review of 343 studies found detectable pesticide residues in about 11% of organic samples against 46% of conventional ones, and 48% lower cadmium in organic crops. Both reviews' numbers are real. The disagreement is over whether those lower exposures make any difference to health.",
     confidence: 84,
     source:
       "Smith-Spangler et al., Annals of Internal Medicine (Stanford, 2012); Barański et al., British Journal of Nutrition (2014)",
@@ -18,9 +18,8 @@ export const organicFoodHealthData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Most people buy organic believing it is more nutritious, but the largest reviews don't support that — Stanford's analysis of 237 studies found no consistent vitamin or mineral advantage, and the antioxidant differences a later review did find haven't been shown to improve health at normal dietary doses.",
-    "Where organic genuinely differs is exposure, not nutrition: conventional produce carries detectable pesticide residues about four times as often and ~48% more cadmium, and switching to organic measurably lowers pesticide metabolites in your urine within days.",
-    "So the honest question isn't 'is organic more nutritious?' (mostly no) but 'is lowering already-low-dose pesticide and cadmium exposure worth a 20–100% price premium?' — a real, unresolved health-and-values question, not a settled nutrition fact.",
+    "Both sides accept that organic and conventional produce are nutritionally similar on vitamins and minerals, that organic buyers differ in income and lifestyle, that conventional residues sit below EPA tolerances, and that organic farming uses pesticides of its own.",
+    "They split over whether heavy organic eaters' lower cancer rate comes from the food or from their healthier, wealthier lives, and over whether decades of low-dose exposure to many residues at once carries real risk, especially for fetuses and children — questions no randomized trial or single-chemical tolerance test has answered.",
   ],
   pillars: [
     {
@@ -48,7 +47,7 @@ export const organicFoodHealthData = {
           supporter_flip:
             "If a large cohort or trial that rigorously controlled for the confounders — organic buyers are wealthier, leaner, exercise more, eat more produce — erased the NutriNet-Santé ~25% cancer gap, showing organic eating itself confers no benefit once lifestyle is accounted for, the health case for organic would mostly collapse.",
           skeptic_flip:
-            "A skeptic should weigh that organic eaters show measurably lower pesticide and cadmium exposure (not just self-reported behavior) — so if those exposures carry real chronic risk, the observed outcome gap would have a plausible mechanism rather than being pure selection.",
+            "If organic eaters' lower pesticide and cadmium exposure, measured in their bodies rather than self-reported, turned out to carry real chronic risk, the outcome gap would have a plausible mechanism and would be hard to call pure selection.",
           common_ground:
             "Both sides agree organic and conventional produce are nutritionally similar on vitamins and minerals, and that organic buyers differ systematically in income and lifestyle.",
           live_disagreement:
@@ -155,7 +154,7 @@ export const organicFoodHealthData = {
           supporter_flip:
             "If long-term studies showed that the cumulative, mixture, and developmental exposures EPA tolerances don't fully model still produced no detectable harm at real dietary-residue levels, the case for paying to avoid them would weaken.",
           skeptic_flip:
-            "A skeptic who trusts EPA tolerances should weigh that those limits are largely built from single-chemical adult exposure, while studies like CHAMACOS show developing brains are vulnerable to these compounds — so 'each residue is below tolerance' doesn't settle cumulative or early-life risk.",
+            "If studies of cumulative and early-life exposure, extending CHAMACOS on developing brains, kept finding harm at dietary levels that single-chemical adult tolerances miss, 'each residue is below tolerance' would no longer answer the question.",
           common_ground:
             "Both sides agree individual conventional residues sit below EPA tolerances, and that organic farming uses its own pesticides too.",
           live_disagreement:

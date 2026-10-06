@@ -12,18 +12,17 @@ export const carbonCaptureViabilityData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Every IPCC scenario that limits warming to 1.5°C or 2°C relies on carbon removal — yet a 2022 analysis of 13 flagship capture projects found 10 had failed or fallen short of their targets, and most captured CO2 has been pumped underground to push out more oil. The honest position is uncomfortable for both sides: the climate math appears to require carbon removal, while the real-world track record so far has been mostly disappointing.",
+      "Essentially every IPCC pathway that holds warming to 1.5°C or 2°C uses some carbon dioxide removal, and Norway's Sleipner field has stored more than 20 million tonnes of CO2 under the North Sea since 1996. Yet a 2022 IEEFA review found 10 of 13 flagship capture projects failed or underperformed. Both sides cite all three records. What divides them is whether carbon capture can scale fast and cheaply enough to matter.",
     confidence: 80,
     source:
-      "IPCC AR6 WGIII (2022, CDR in all 1.5°C/2°C pathways); IEEFA, 'The Carbon Capture Crux' (2022, 10 of 13 flagship projects underperformed/failed)",
+      "IPCC AR6 WGIII (2022); Equinor / Sleipner monitoring, Geoenergy (2024); IEEFA, 'The Carbon Capture Crux' (2022)",
     sourceUrl:
       "https://www.ipcc.ch/report/ar6/wg3/downloads/outreach/IPCC_AR6_WGIII_Factsheet_CDR.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The IPCC is unambiguous that some carbon removal is now required, not optional: essentially every modelled pathway that holds warming to 1.5°C or 2°C uses carbon dioxide removal to cancel out residual emissions from hard-to-abate sectors like cement, steel, and aviation, and to claw back temperatures after any overshoot.",
-    "But the real-world record is sobering — an IEEFA review of the 13 largest capture projects found 10 missed their targets, flagships like Boundary Dam have averaged closer to 50% capture against a 90% design rating, and direct air capture still costs hundreds of dollars per tonne while operating at a tiny fraction of design capacity.",
-    "So the genuine debate is not whether carbon capture can work in principle — Norway's Sleipner has stored CO2 safely since 1996 — but whether it can scale fast enough and cheaply enough to matter, and whether subsidizing it mostly extends the life of fossil fuels rather than replacing them.",
+    "Both sides accept that deep, immediate emission cuts come first, that carbon capture's track record so far has been poor while geological storage at sites like Sleipner has held, and that capture today costs far more per tonne than wind, solar or efficiency.",
+    "They split over whether hard-to-abate emissions from cement, steel and aviation, plus any temperature overshoot, will need carbon removal at gigatonne scale; whether failures like Boundary Dam's are early teething problems or a structural ceiling; and whether capture costs will fall toward $100–300 a tonne or hit a stubborn floor.",
   ],
   pillars: [
     // =========================================================================
@@ -59,7 +58,7 @@ export const carbonCaptureViabilityData = {
           supporter_flip:
             "If sector roadmaps showed clean substitutes could drive cement, steel, aviation, and agriculture near zero by mid-century — leaving only a tiny residual and no overshoot to reverse — then the 'removal is unavoidable' case would collapse to 'a minor cleanup tool,' and heavy investment in it would be misallocated.",
           skeptic_flip:
-            "A skeptic who calls removal a moral hazard should weigh that every IPCC 1.5°C/2°C pathway includes it precisely because some emissions resist abatement and overshoot can only be undone by net-negative emissions — so 'just cut at the source' isn't a complete plan unless those residual floors are shown to be eliminable.",
+            "If sector roadmaps kept finding residual emissions no substitute can abate, and overshoot that only net-negative emissions can undo, testing the floors every IPCC 1.5°C/2°C pathway builds in, 'just cut at the source' would no longer read as a complete plan.",
           common_ground:
             "Both sides agree that deep, immediate emission cuts are the priority and that removal must not be used as an excuse to keep emitting.",
           live_disagreement:
@@ -182,7 +181,7 @@ export const carbonCaptureViabilityData = {
           supporter_flip:
             "If a vintage-by-vintage audit showed newer, purpose-built capture plants keep missing their design rates and stalling on availability just like the first-of-a-kind ones — no learning curve — then the gigatonne-scale assumptions would be unfounded and 'it scales' would be falsified.",
           skeptic_flip:
-            "A skeptic pointing to 10-of-13 failures should weigh that Sleipner has stored 20+ million tonnes leak-free since 1996 and that the failures cluster in EOR-driven, first-of-a-kind capture plants — so the storage half is proven and the capture half may be an early-deployment problem, not a permanent one.",
+            "If more storage sites matched Sleipner's record of 20+ million tonnes stored leak-free since 1996, and newer purpose-built capture plants hit their design rates, the 10-of-13 failures would look like an early-deployment problem rather than a ceiling.",
           common_ground:
             "Both sides agree the historical capture-side track record has been poor and that geological storage at sites like Sleipner has been demonstrably safe and durable.",
           live_disagreement:
@@ -324,7 +323,7 @@ export const carbonCaptureViabilityData = {
           supporter_flip:
             "If cost data across growing cumulative capacity showed capture/DAC costs plateauing well above the social cost of carbon — hitting a thermodynamic or engineering floor rather than a solar-like learning curve — then the 'costs will fall enough to matter' case would fail and the money would be better spent on cheaper mitigation.",
           skeptic_flip:
-            "A skeptic citing $1,000-per-tonne DAC should weigh that solar and batteries also looked hopeless at the same deployment stage and fell ~90%, that the IEA already pegs a large new DAC plant near $335/tonne, and that for residual emissions with no clean substitute the alternative isn't cheap renewables but no solution at all.",
+            "If DAC costs fell along a learning curve like solar's and batteries' as capacity grew, with large new plants reaching the IEA's estimate near $335/tonne, removal would look like a viable tool for residual emissions that have no clean substitute.",
           common_ground:
             "Both sides agree that capture today is far more expensive per tonne than wind, solar, or efficiency, and that emission cuts should be prioritized where cheaper options exist.",
           live_disagreement:

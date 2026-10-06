@@ -1,7 +1,7 @@
 {
   "version": 1,
   "set": "holdout",
-  "description": "Held-out site-search queries, written after the ranking in lib/siteSearch.ts was tuned on queries.json and scored once without further tuning. Leans on synonyms and everyday wording the maps may not use ('rent caps', 'global warming', 'capital punishment'), so it shows where lexical search stops. Same format and scoring as queries.json.",
+  "description": "Held-out site-search queries, written after the ranking in lib/siteSearch.ts was tuned on queries.json and scored once without further tuning. Leans on synonyms and everyday wording the maps may not use ('rent caps', 'global warming', 'capital punishment'), so it shows where lexical search stops. Same format and scoring as queries.json. The five `no-map` cases were added on 2026-10-06 after the r6 search changes and scored once.",
   "cases": [
     { "query": "should nuclear plants be built", "expected": ["nuclear-energy-safety"], "kind": "question" },
     { "query": "rent caps", "expected": ["rent-control-effectiveness"], "kind": "synonym" },
@@ -32,6 +32,11 @@
     { "query": "term limits for congress", "expected": ["congressional-term-limits"], "kind": "phrase" },
     { "query": "sports betting", "expected": ["sports-betting-legalization"], "kind": "keyword" },
     { "query": "russia ukraine peace deal", "expected": ["ukraine-peace-terms"], "kind": "phrase" },
-    { "query": "is the death penalty fair", "expected": ["death-penalty-deterrence"], "kind": "question" }
+    { "query": "is the death penalty fair", "expected": ["death-penalty-deterrence"], "kind": "question" },
+    { "query": "pineapple on pizza", "expected": [], "maxMaps": 0, "kind": "no-map" },
+    { "query": "should we keep the monarchy", "expected": [], "maxMaps": 0, "kind": "no-map" },
+    { "query": "my coworker keeps taking credit for my work", "expected": [], "maxMaps": 2, "kind": "no-map" },
+    { "query": "should i break up with my boyfriend", "expected": [], "maxMaps": 2, "kind": "no-map" },
+    { "query": "is abortion murder", "expected": [], "maxMaps": 0, "kind": "no-map" }
   ]
 }

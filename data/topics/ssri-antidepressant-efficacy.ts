@@ -10,18 +10,16 @@ export const ssriAntidepressantEfficacyData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Antidepressants really do beat placebo — but the average gap is tiny. Pooling the FDA trials, the typical drug-placebo difference is about 1.8 points on the 52-point Hamilton depression scale (a standardized effect of ~0.3), below the 3-point threshold the UK's NICE itself set for clinical significance. The honest twist: that small average hides a real ~15% of patients who get a large, genuinely drug-specific response — so the average understates the drug for some people and overstates it for most.",
+      "In the largest meta-analysis of antidepressants, covering 522 trials and 116,477 patients, all 21 drugs beat placebo. In FDA-submitted trials the average gap was about 1.8 points on the Hamilton depression scale, below the 3-point criterion NICE defined for clinical significance. Both sides accept these numbers. The fight is over whether a small average hides a real responder subgroup, and how much of the gap is pharmacology at all.",
     confidence: 88,
     source:
-      "Kirsch et al., PLoS Medicine (2008, ~1.8 HRSD points / SMD 0.32 below NICE threshold); Cipriani et al., The Lancet (2018, all 21 drugs > placebo, overall SMD ~0.30); Stone et al., BMJ (2022, ~15% drug-specific responders)",
-    sourceUrl:
-      "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0050045",
+      "Cipriani et al., The Lancet (2018); Kirsch et al., PLoS Medicine (2008)",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/29477251/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest pro-efficacy case is that the signal is unmistakably real: every one of 21 antidepressants beat placebo in the largest meta-analysis ever assembled (522 trials, 116,477 patients), and patient-level FDA data locate a roughly 15% subgroup who get a large response that placebo cannot explain.",
-    "The honest limitation is that the average drug-placebo gap is small — about 1.8 Hamilton points and a 0.3 effect size, below the 3-point bar NICE set for clinical significance — and that gap is partly inflated by side effects breaking the blind and by relapse trials that may be measuring drug withdrawal rather than returning illness.",
-    "So the honest debate isn't 'do antidepressants work or not' (on average they beat placebo by a real but modest margin) but 'for whom, and by how much' — whether the right unit of judgment is the small group average or the responder subgroup hidden inside it.",
+    "Both sides accept that the average drug-placebo difference for antidepressants is real, statistically robust and small (about 1.8–2 Hamilton points); that SSRI side effects can break the blind and the 17-item Hamilton total is a noisy measure; and that staying on the drug goes with lower measured relapse, while stopping abruptly can cause discontinuation symptoms.",
+    "They split over whether the benefit should be judged by the average patient or by a subgroup who respond strongly to the drug; whether the gap is real pharmacology or an artifact of patients guessing they got the drug; and how much of the benefit of staying on antidepressants is relapse prevention rather than avoided withdrawal.",
   ],
   last_updated: "2026-06-16",
   tags: ["psychiatry", "depression", "ssri", "medicine", "placebo"],
@@ -55,7 +53,7 @@ export const ssriAntidepressantEfficacyData = {
           supporter_flip:
             "If patient-level mixture-model re-analysis failed to find a distinct drug-specific responder mode — i.e., drug improvement was just a uniform rightward shift of the same placebo-response distribution — and the average held below a patient-anchored minimal-important-difference, the 'hidden responders' defense would collapse and the small average would be the whole story.",
           skeptic_flip:
-            "A skeptic leaning on the ~2-point average should weigh that group means mathematically blur a subgroup effect: FDA participant-level data (Stone 2022) show ~15% of drug-treated patients hit a 'Large' response (24.5% vs 9.6% on placebo), and a 3-point cutoff is itself an arbitrary line, not a law of nature.",
+            "If more participant-level analyses replicated Stone 2022's finding of a 'Large' response in 24.5% of drug-treated patients vs 9.6% on placebo, the ~2-point average would look like a blurred subgroup effect, and the 3-point cutoff like an arbitrary line.",
           common_ground:
             "Both sides accept the raw numbers — the average drug-placebo difference is real, statistically robust, and small (~1.8-2 Hamilton points, SMD ~0.3).",
           live_disagreement:
@@ -144,7 +142,7 @@ export const ssriAntidepressantEfficacyData = {
           supporter_flip:
             "If item-level re-analysis showed the drug-placebo gap was diffuse — spread roughly evenly across unrelated Hamilton items (sleep, weight, anxiety) rather than concentrated on core depressed mood — and active-placebo trials that mimic side effects erased the gap, that would point to broken blinding/expectancy rather than pharmacology, undercutting the efficacy claim.",
           skeptic_flip:
-            "A skeptic invoking unblinding should weigh that a pure expectancy effect would not be symptom-specific or dose-dependent: patient-level data from 18 trials (Hieronymus 2016) show SSRI superiority concentrated on the single depressed-mood item (effect ~0.44), exactly where a real antidepressant should act and larger than the noisy full-scale signal.",
+            "If more patient-level analyses, extending Hieronymus 2016's 18 trials, found SSRI benefit concentrated on the core depressed-mood item and rising with dose, expectancy from unblinding would struggle to explain so symptom-specific an effect.",
           common_ground:
             "Both sides agree SSRIs produce noticeable side effects that can compromise the blind, and that the standard 17-item Hamilton total is a noisy outcome measure.",
           live_disagreement:
@@ -213,9 +211,9 @@ export const ssriAntidepressantEfficacyData = {
         cost_to_verify: "$5M (randomized taper-vs-maintenance trial)",
         falsification: {
           supporter_flip:
-            "If a slow-taper, blinded discontinuation trial showed that gradually withdrawn patients relapsed at nearly the same elevated rate as abruptly switched ones — with relapses being genuine returns of depression by timing and symptom profile, not withdrawal syndromes — then the maintenance benefit would be confirmed rather than inflated, and the withdrawal-confound objection would lose force.",
+            "If abrupt switch-to-placebo designs were found to code discontinuation symptoms as 'relapse', and those symptoms unblinded patients as the review's own authors warn they could, the ~41%-to-18% relapse gap (Geddes 2003) would overstate the maintenance benefit.",
           skeptic_flip:
-            "A skeptic citing the large ~41%-to-18% relapse gap (Geddes 2003) should weigh that abrupt switch-to-placebo designs can manufacture discontinuation symptoms that get coded as 'relapse,' and that the review's own authors warn these symptoms could unblind patients and bias results toward the active drug.",
+            "If a slow-taper, blinded discontinuation trial found gradually withdrawn patients relapsing at nearly the same rate as abruptly switched ones, with genuine returns of depression rather than withdrawal syndromes, the maintenance benefit would hold and the withdrawal-confound objection would lose force.",
           common_ground:
             "Both sides agree that staying on an antidepressant is associated with lower measured relapse, and that stopping abruptly can trigger discontinuation symptoms.",
           live_disagreement:

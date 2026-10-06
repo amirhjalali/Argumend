@@ -9,17 +9,17 @@ export const socialMediaMentalHealthData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Teen depression, self-harm, and suicide all turned sharply upward around 2012, and a natural experiment from Facebook's staggered college rollout found it worsened student mental health — yet the largest screen-time studies find the average effect 'tiny.' The harm looks real but concentrated (heavy-using girls), not universal, and its size is genuinely contested.",
+      "US teen depression, self-harm and suicide rates began rising around 2010–2012 after years of relative stability, most steeply among girls. Across more than 350,000 adolescents, digital-technology use explained at most about 0.4% of the variance in well-being. Both findings stand. The fight is over how they fit together, and how much of that rise social media explains.",
     confidence: 70,
     source:
-      "Twenge / CDC YRBS; Braghieri, Levy & Makarin, American Economic Review (2022); Orben & Przybylski, Nature Human Behaviour (2019)",
-    sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20211218",
+      "Twenge, Joiner, Rogers & Martin, Clinical Psychological Science (2018), from CDC YRBS and Monitoring the Future; Orben & Przybylski, Nature Human Behaviour (2019)",
+    sourceUrl: "https://doi.org/10.1177/2167702617723376",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Something happened to teen mental health around 2012: depression, self-harm, and suicide all turned sharply upward, right as smartphones and social media became near-universal — and the pattern shows up across multiple countries and concentrates in girls.",
-    "The single best piece of causal evidence is a natural experiment — Facebook's staggered rollout across US colleges worsened students' mental health where it arrived — but the largest screen-time studies (Orben & Przybylski, 355,000 teens) find the average association 'tiny,' smaller than the effect of wearing glasses.",
-    "So the honest reading isn't 'social media is fine' or 'social media is the cause' — the harm looks real but concentrated among heavy-using teen girls, and the live fight is over how big it is and whether the engagement algorithms specifically are to blame, not whether anything is going on.",
+    "Both sides accept that teen mental health deteriorated markedly after about 2012, as smartphones and social media became near-universal, that the raw trends and the 'tiny' average-effect studies are hard to reconcile, and that social media also brings real benefits such as community.",
+    "They split over whether the harm is a small average effect or a large one concentrated in heavy-using teen girls, where Facebook's staggered college rollout and the big screen-time studies point different ways; and over whether engagement-driven feeds cause it, or social media use in general.",
+    "Both turn on measurements self-reported screen time cannot give, such as a large randomized test that swaps feeds.",
   ],
   pillars: [
     {
@@ -51,7 +51,7 @@ export const socialMediaMentalHealthData = {
           supporter_flip:
             "If high-quality longitudinal studies using passive (not self-reported) usage measurement found no dose-response — heavy users no worse off than light users once confounders are controlled — and Facebook-rollout-style natural experiments failed to replicate, the 'primary cause' claim would collapse.",
           skeptic_flip:
-            "A skeptic who calls it a moral panic should weigh that the 2012 inflection is sharp, synchronized across countries, and concentrated in girls, and that at least one credible natural experiment (Facebook's rollout) shows a causal worsening — patterns a pure 'attitudes-to-disclosure changed' story struggles to explain.",
+            "If more natural experiments like Facebook's staggered rollout found causal worsening, and the sharp 2012 inflection stayed synchronized across countries and concentrated in girls, a 'changed attitudes to disclosure' story would struggle to explain it.",
           common_ground:
             "Both sides agree teen mental health deteriorated markedly after ~2012, and that the alarming raw trends and the 'tiny' average-effect studies are hard to reconcile.",
           live_disagreement:
@@ -159,7 +159,7 @@ export const socialMediaMentalHealthData = {
           supporter_flip:
             "If randomized trials swapping engagement-optimized feeds for chronological/curated ones showed no mental-health difference, the specific 'the algorithm is the harm' mechanism would fail — leaving social media's effect (if any) attributable to something other than algorithmic amplification.",
           skeptic_flip:
-            "A skeptic who calls it a moral panic should weigh that, unlike TV or video games, these platforms use variable-reward engagement loops and social-comparison metrics that internal documents show the companies knew harmed some teen girls — features without a clear historical analog.",
+            "If trials isolating variable-reward loops and social-comparison metrics found harm to some teen girls that TV and video games never produced, testing what the companies' internal documents describe, the moral-panic comparison would lose its footing.",
           common_ground:
             "Both sides agree social media also delivers real benefits (community, information, expression), and that every new medium has drawn moral panic.",
           live_disagreement:

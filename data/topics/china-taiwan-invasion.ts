@@ -92,7 +92,7 @@ export const chinaTaiwanInvasionData = {
           supporter_flip:
             "If an inventory of PLA amphibious ships and convertible civilian ferries showed first-wave capacity far below the roughly 300,000 troops analysts cite as the low end for a contested landing and occupation, capability would remain a binding constraint and an attempt this decade would look much less likely.",
           skeptic_flip:
-            "A skeptic who sees a defensive buildup should weigh that the PLA Navy is now the world's largest fleet, with over 370 ships and submarines, that China has built several Type 075/076 assault ships since 2019 while adding dual-use roll-on/roll-off ferries, and that U.S. officials say Xi directed the PLA to be capable of taking Taiwan by 2027.",
+            "If counts of the PLA Navy's 370+ ships, its Type 075/076 assault ships and dual-use roll-on/roll-off ferries showed sealift growing toward invasion scale on the 2027 timeline U.S. officials attribute to Xi, the buildup would look less defensive.",
           common_ground:
             "Both sides agree 2027 is a readiness benchmark rather than a decision to invade, and that a contested Strait crossing would be among the most complex amphibious operations ever attempted.",
           live_disagreement:
@@ -209,7 +209,7 @@ export const chinaTaiwanInvasionData = {
           supporter_flip:
             "If mapping China's dependencies in energy, food, semiconductors and industrial components showed stockpiles and substitutes far too thin to survive a G7 embargo and SWIFT cut-off for 5+ years, economic self-interest would stand as a strong brake on an attempt this decade.",
           skeptic_flip:
-            "A skeptic who trusts economic deterrence should weigh that Russia invaded Ukraine in 2022 while supplying ~45% of EU gas imports, and that China's 'dual circulation' strategy is deliberately reducing its exposure through stockpiles, overland energy links, domestic chipmaking and the CIPS payment system.",
+            "If China's 'dual circulation' push (stockpiles, overland energy links, domestic chipmaking, the CIPS payment system) measurably cut its exposure to sanctions, economic deterrence would look weak, much as supplying ~45% of EU gas imports did not stop Russia invading Ukraine in 2022.",
           common_ground:
             "Both sides agree an invasion would bring enormous economic costs — on the order of $3 trillion in trade and financial flows at immediate risk by one estimate — and that China is working to reduce its exposure to sanctions.",
           live_disagreement:
@@ -326,7 +326,7 @@ export const chinaTaiwanInvasionData = {
           supporter_flip:
             "If U.S. force posture, congressional authorization and alliance commitments were shown to hold under realistic crisis pressure — including nuclear escalation risk — so that China could not expect a fait accompli, deterrence would make an attempt this decade far less likely.",
           skeptic_flip:
-            "A skeptic who trusts U.S. deterrence should weigh that strategic ambiguity has never formally committed the U.S. to Taiwan's defense — the White House clarified after each of Biden's four statements that policy was unchanged — and that CSIS's 2023 wargame typically had the U.S. losing about 2 aircraft carriers and 200-400 aircraft within roughly three weeks, even while repelling the invasion in most runs.",
+            "If U.S. commitments stayed formally ambiguous, as the White House kept them after each of Biden's four statements, and new wargames repeated CSIS's 2023 estimate of about 2 carriers and 200-400 aircraft lost in three weeks even in runs that repelled the invasion, trust in U.S. deterrence would weaken.",
           common_ground:
             "Both sides agree the Taiwan Relations Act obliges the U.S. to supply defensive arms but not to intervene, and that a U.S.-China war over Taiwan would be enormously costly for both.",
           live_disagreement:

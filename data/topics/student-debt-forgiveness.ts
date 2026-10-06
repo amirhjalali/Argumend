@@ -41,7 +41,7 @@ export const studentDebtForgivenessData = {
           supporter_flip:
             "If simulating $1 trillion of forgiveness against the same sum spent on cash transfers to households under $75,000, infrastructure, universal pre-K or forgiveness only for borrowers earning under $50,000 left forgiveness with the lowest multiplier, the economic case for broad cancellation would weaken.",
           skeptic_flip:
-            "A skeptic who calls forgiveness inefficient should weigh Federal Reserve findings that student debt holders buy homes, marry, start businesses and save for retirement less than earlier generations, and that the median balance is $29,400, with those who attended but did not finish college among the most harmed.",
+            "If Federal Reserve data kept linking student debt to less home buying, marriage, business formation and retirement saving, with borrowers who did not finish college among the hardest hit, the inefficiency objection to forgiveness would lose some of its force.",
           common_ground:
             "Both sides agree graduate-degree holders owe the most in absolute terms, and that the most favorable GDP estimate — Levy's $86-108 billion a year — comes from an advocacy-leaning model, with Penn Wharton and CRFB far less favorable.",
           live_disagreement:
@@ -132,7 +132,7 @@ export const studentDebtForgivenessData = {
           supporter_flip:
             "If a comparison of federal forgiveness and bailout programs — PPP, TARP, farm subsidies, mortgage interest deductions — showed student debt relief uniquely likely to encourage heavier future borrowing and tuition increases, the moral hazard objection would stand on principle rather than selective application.",
           skeptic_flip:
-            "A skeptic who stresses fairness should weigh that the SBA forgave over 93% of $800+ billion in PPP loans with little moral hazard objection, and that student loans are the only major consumer debt that cannot be routinely discharged in bankruptcy.",
+            "If a review of relief programs found the moral-hazard objection raised against student debt but not against PPP, which forgave over 93% of $800+ billion, and student loans stayed nearly alone in resisting bankruptcy discharge, the fairness objection would look selectively applied.",
           common_ground:
             "Both sides agree guaranteed federal loans have let universities raise tuition without the usual price discipline, because students will always pay.",
           live_disagreement:
@@ -223,7 +223,7 @@ export const studentDebtForgivenessData = {
           supporter_flip:
             "If comparing tuition at institutions whose students received large forgiveness with those that did not showed faster increases at the former, forgiveness would be self-defeating without tuition controls, and the case for broad relief now would weaken.",
           skeptic_flip:
-            "A skeptic who prefers fixing income-driven repayment should weigh that servicers mismanaged IDR for over two decades, so only 32 borrowers had received IDR forgiveness before the 2021 fixes, and that crisis-driven relief like the GI Bill has often catalyzed structural reform rather than blocked it.",
+            "If audits confirmed that servicer failures left only 32 borrowers with IDR forgiveness before the 2021 fixes, and broad relief like the GI Bill spurred structural reform rather than blocking it, 'fix income-driven repayment instead' would stop looking like a ready alternative.",
           common_ground:
             "Both sides agree forgiveness alone does not solve the underlying problem, and that tuition, bankruptcy rules and repayment plans need reform whatever happens to existing debt.",
           live_disagreement:

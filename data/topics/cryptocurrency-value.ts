@@ -10,17 +10,16 @@ export const cryptocurrencyValueData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Bitcoin really did solve a hard problem — for the first time a purely digital asset has a supply that nobody can inflate, hard-capped at 21 million coins by rules every node enforces. The catch is that scarcity isn't stability: Bitcoin has crashed ~84% (2018) and ~78% (2022) from its peaks, with annualized volatility several times that of gold — so the genuine breakthrough sits right next to behavior no boring store of value would tolerate.",
+      "Bitcoin's supply is capped at 21 million coins by rules any full node can audit, and no central party can issue more. Its price has also fallen about 85% after the 2017 peak and about 77% after the 2021 high, with volatility several times gold's. Both sides accept both facts. The fight is over whether that scarcity and network will mature into a store of value as steady as gold or real estate.",
     confidence: 88,
     source:
-      "Nakamoto, 'Bitcoin: A Peer-to-Peer Electronic Cash System' (2008); historical exchange price data (2018 ~-84%, 2022 ~-78% drawdowns); gold annualized volatility ~15-20%",
+      "Nakamoto, 'Bitcoin: A Peer-to-Peer Electronic Cash System' (2008); historical exchange price data (Coinbase, Bitstamp)",
     sourceUrl: "https://bitcoin.org/bitcoin.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Bitcoin is the first digital asset with provable, un-inflatable scarcity: its 21 million cap is enforced by consensus rules every full node checks, no central party can print more, and the strongest chain has accumulated the deepest liquidity and largest hashrate — a network moat clones haven't replicated.",
-    "But scarcity is not the same as stability: Bitcoin has fallen roughly 84% (2018) and 78% (2022) from prior highs, with realized volatility several times gold's, and 2025 was the first post-halving year to close negative — drawdowns no traditional store of value would survive being called 'safe.'",
-    "So the honest debate isn't whether Bitcoin is genuinely scarce (it is) but whether that scarcity plus its network effect will mature into the low-volatility, multi-decade reliability a 'store of value' actually requires — or whether it stays a high-return, high-risk speculative asset.",
+    "Both sides accept that Bitcoin's 21 million cap is enforced and auditable by any full node, that thousands of tokens copy the same supply rule without matching its adoption, and that its volatility, though lower than in its earliest years, still far exceeds gold's ~15-20%.",
+    "They split over whether Bitcoin's lead in hashrate and liquidity is a durable network moat or a first-mover edge a better protocol could erode; and over whether its volatility will keep falling toward store-of-value levels or plateau well above them.",
   ],
   pillars: [
     {
@@ -49,9 +48,9 @@ export const cryptocurrencyValueData = {
         cost_to_verify: "$0 (Time will tell)",
         falsification: {
           supporter_flip:
-            "If a successful change to the 21M cap reached consensus, or a 51% attack, a fatal protocol bug, or a practical quantum break against ECDSA actually compromised the chain, the 'durable digital scarcity' claim would collapse — the property that gives Bitcoin value would have proven mutable or breakable after all.",
+            "If a change to the 21M cap reached consensus, or a 51% attack, a fatal protocol bug or a practical quantum break against ECDSA compromised the chain, the 'durable digital scarcity' claim would fail, since the property behind Bitcoin's value would prove mutable or breakable.",
           skeptic_flip:
-            "A skeptic who says 'scarcity is infinitely cloneable, so it's worthless' should weigh that every fork copying the same scarcity (Bitcoin Cash, SV, Litecoin) has lost value and share relative to the original, and that the dominant chain's hashrate and liquidity form a network moat the clones demonstrably failed to take.",
+            "If forks copying the same scarcity, like Bitcoin Cash, SV and Litecoin, kept losing value and share to the original, and the dominant chain's hashrate and liquidity stayed out of their reach, 'scarcity is infinitely cloneable' would lose its force.",
           common_ground:
             "Both sides agree the 21M cap is currently enforced and auditable by any full node, and that thousands of other tokens copy the same supply mechanism without matching Bitcoin's adoption.",
           live_disagreement:
@@ -140,7 +139,7 @@ export const cryptocurrencyValueData = {
           supporter_flip:
             "If rolling realized volatility stalls or reverses — staying in the 50-80% range as market cap and ETF/derivatives depth grow, with fresh 70%+ drawdowns recurring — then 'volatility is just the price of adoption and will converge to store-of-value levels' is falsified; the volatility would look structural, not transitional.",
           skeptic_flip:
-            "A skeptic who points to 80% drawdowns should weigh that early-period volatility (>100% annualized before 2015) really has compressed toward 40-60% as the market matured, mirroring how emerging monetary assets behaved before settling — so the trajectory, not just the level, is the relevant evidence.",
+            "If annualized volatility kept compressing, from above 100% before 2015 toward 40-60% and lower as the market matured, the way emerging monetary assets settled down, the 80% drawdowns would look like a stage rather than a permanent trait.",
           common_ground:
             "Both sides agree Bitcoin's current volatility (and its 2018/2022 drawdowns) far exceeds gold's ~15-20%, and that its volatility has declined from its earliest, most extreme years.",
           live_disagreement:

@@ -264,14 +264,23 @@ export default function MethodologyPage() {
           <div className={PROSE}>
             <p>
               The {TOPIC_COUNT} older maps also sum their cards into a one-line
-              reading of where the evidence on the page stands. Two numbers go
+              reading of where the evidence on the map stands. Two numbers go
               into it: the balance, which way the weighed cards tip, and the
               weight, how much they carry, from how much evidence there is, its
               average quality, and whether the cruxes can be tested at all. The
               reading says the evidence largely converges, is well mapped but
               still divided, leans one way, or is still thin. It describes the
-              cards on the page, not the question in the world, and it never
+              cards on the map, not the question in the world, and it never
               names a winner.
+            </p>
+            <p>
+              The map pages no longer print it. A one-line reading of where the
+              cards tip sits too close to a score, and the cruxes are the answer
+              a map gives. It stays in each map&rsquo;s data and in the open API,
+              with the note below when one card could change it; the share image
+              shows the map&rsquo;s question and first crux instead. On the page, the &ldquo;How the
+              evidence weighs&rdquo; fold shows one strong card from each side
+              instead, by the same four measures.
             </p>
             {/* Kept verbatim from the previous methodology page. */}
             <p data-kept="settled-withheld">

@@ -10,17 +10,16 @@ export const foreignAidEffectivenessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The popular verdict — \"$4.6 trillion in aid since 1960 and many countries are still poor, so aid doesn't work\" — collapses two very different things. Narrowly targeted health aid is among the most cost-effective lifesaving spending ever measured: PEPFAR is credited with saving roughly 25 million lives since 2003, and GiveWell estimates an insecticide-treated bed net campaign averts a death for about $3,000-$8,000. What the aggregate critique actually indicts is general budget support and governance aid, where cross-country studies find no robust effect on growth.",
+      "GiveWell estimates that the insecticide-treated bed net campaigns the Against Malaria Foundation funds avert a death for roughly $3,000-$8,000. Across countries, Rajan and Subramanian found little robust evidence that aid inflows raise or lower economic growth. Both sides accept both findings. The fight is over how much of the foreign aid actually spent is the proven kind, and which delivery channels make each dollar last.",
     confidence: 86,
     source:
-      "GiveWell, Against Malaria Foundation review (Dec 2023, ~$3,000-$8,000 per death averted); PEPFAR / U.S. State Department (~25 million lives saved since 2003); Rajan & Subramanian, Review of Economics and Statistics 90(4) (2008, no robust aid-growth relationship)",
+      "GiveWell, Against Malaria Foundation review (Dec 2023); Rajan & Subramanian, Review of Economics and Statistics 90(4) (2008)",
     sourceUrl: "https://www.givewell.org/charities/amf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The best-targeted aid works spectacularly: bed nets avert a child death for a few thousand dollars (GiveWell), PEPFAR is credited with ~25 million lives saved since 2003, and global under-5 mortality has fallen ~60% since 1990 partly on the back of aid-funded immunization and malaria control.",
-    "But the aggregate picture is genuinely murky: after $4.6 trillion in transfers, peer-reviewed cross-country studies (Rajan & Subramanian 2008) find no robust link between aid inflows and economic growth, and Nobel laureate Angus Deaton argues open-ended aid can weaken the accountability between governments and their own citizens.",
-    "So the honest debate isn't \"does aid work?\" but \"which kinds of aid, delivered how?\" — proven health interventions and direct cash transfers look excellent, while general budget support and tied aid look weak, so the real question is what share of the portfolio is the good kind.",
+    "Both sides accept that some targeted health aid, like bed nets, vaccines and the HIV treatment PEPFAR funds, has strong causal evidence behind it, that general budget support has much weaker evidence, that aggregate aid-and-growth correlations are not causal by themselves, and that delivery channel matters: tied aid raises costs 15-30%, and cash transfers carry unusually low overhead.",
+    "They split over what share of real aid spending goes to proven, cost-effective programs rather than the unevidenced kind, and over whether lower-overhead channels like GiveDirectly's cash transfers actually deliver more lasting results per dollar once spillovers and weak-governance settings are counted.",
   ],
   pillars: [
     {
@@ -48,7 +47,7 @@ export const foreignAidEffectivenessData = {
           supporter_flip:
             "If a portfolio audit showed that RCT-backed, high-impact programs (bed nets, vaccines, ART, deworming, cash transfers) make up only a small slice of total aid flows — with most dollars going to categories that lack credible impact evidence — then \"aid works\" would shrink to \"a minority of aid works,\" weakening the case for aid as currently allocated.",
           skeptic_flip:
-            "A skeptic citing the $4.6 trillion-and-still-poor critique should weigh that the proven interventions have direct RCT and program evidence (GiveWell's ~$3,000-$8,000 per death averted for bed nets; PEPFAR's ~25 million lives saved) — so even if most aid is ineffective, the effective fraction can be enormously valuable in absolute lives saved.",
+            "If audited cost-effectiveness held up, testing GiveWell's ~$3,000-$8,000 per death averted for bed nets and PEPFAR's ~25 million lives saved, even a small effective fraction of aid would save enough lives to answer the $4.6 trillion-and-still-poor critique.",
           common_ground:
             "Both sides agree that some targeted health interventions (bed nets, vaccines, ART) have strong causal evidence and that general budget support has much weaker evidence; they also agree aggregate aid-and-growth correlations are not, by themselves, causal.",
           live_disagreement:
@@ -151,7 +150,7 @@ export const foreignAidEffectivenessData = {
           supporter_flip:
             "If a head-to-head tracer study found that direct cash transfers and lean NGO channels deliver no better cost-per-outcome than traditional project aid or budget support — once you account for spillovers, sustainability, and what cash can't buy (infrastructure, institutions) — the \"just give cash / cut the overhead\" case for efficiency would lose much of its force.",
           skeptic_flip:
-            "A skeptic emphasizing leakage and overhead should weigh that GiveDirectly delivers ~90% of funds to recipients with RCT-backed consumption and asset gains (Haushofer & Shapiro 2016; Egger et al. 2022), that documented diversion concentrates in specific weak-governance settings rather than describing all aid, and that IATI transparency reporting has improved since the 2000s.",
+            "If new trials repeated the consumption and asset gains reported for GiveDirectly (Haushofer & Shapiro 2016; Egger et al. 2022), which delivers ~90% of funds to recipients, and diversion stayed confined to specific weak-governance settings, the leakage-and-overhead objection would cover less of aid.",
           common_ground:
             "Both sides agree that delivery channel matters enormously, that tied aid raises costs (OECD: 15-30%), and that leakage is real in weak-governance contexts; they also agree direct cash transfers have unusually low overhead.",
           live_disagreement:

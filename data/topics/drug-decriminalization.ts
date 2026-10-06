@@ -10,18 +10,17 @@ export const drugDecriminalizationData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The feared 'usage explosion' didn't happen in Portugal: two decades after it decriminalized all drugs (2001) and moved spending to treatment, its overdose death rate fell to about 6 per million — roughly a quarter of the EU average (23.7) — HIV infections among people who inject drugs collapsed, and overall use stayed near the European norm.",
+      "Two decades after Portugal decriminalized all drugs in 2001 and moved spending to treatment, its drug-induced death rate was roughly 6 per million among ages 15-64, against an EU average of 23.7. Oregon's Measure 110 issued 6,271 possession tickets by September 2023; roughly 50 people entered treatment through its hotline, and the state recriminalized possession in 2024. The fight is over how much of Portugal's result came from dropping penalties, and how much from the treatment that came with it.",
     confidence: 84,
     source:
-      "EMCDDA/EUDA data via Transform Drug Policy Foundation (2021); Cato Institute (Greenwald 2009)",
+      "Transform Drug Policy Foundation (2021), drawing on EMCDDA data; Oregon Secretary of State Audit 2025-29; KPTV/OPB hotline reporting (2023)",
     sourceUrl:
       "https://transformdrugs.org/blog/drug-decriminalisation-in-portugal-setting-the-record-straight",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The fear that decriminalizing drugs triggers a usage explosion is not what Portugal's two-decade experiment shows — after decriminalizing all drugs in 2001 and redirecting money to treatment, overdose deaths fell to about a quarter of the EU average and use stayed near the European norm.",
-    "But the lesson is not 'remove penalties and walk away': Portugal's gains came bundled with real treatment and harm-reduction capacity, and Oregon's 2021 experiment failed precisely because it decriminalized first and never stood up the treatment pathway.",
-    "So the honest debate is not decriminalization versus criminalization in the abstract — it is whether a given place can actually build the treatment infrastructure that makes decriminalization work; without it you get Oregon, not Portugal.",
+    "Both sides accept that decriminalization without funded treatment and harm-reduction capacity, the path Oregon's Measure 110 took, does not deliver Portugal's results, and that access to treatment is what actually reduces addiction harm.",
+    "They split over how much of Portugal's improvement came from removing criminal penalties and how much from the treatment investment made at the same time, which decides whether the model travels to places that won't fund the treatment half; and over whether court-mandated treatment through drug courts works enough better than voluntary referral to justify the costs and harms of arrest.",
   ],
   pillars: [
     {
@@ -49,7 +48,7 @@ export const drugDecriminalizationData = {
           supporter_flip:
             "If well-matched comparisons showed decriminalization — even bundled with treatment investment — reliably RAISING problematic use or overdose deaths versus criminalization, i.e. Portugal's results turned out to be driven by something other than the policy package and replicated nowhere, the public-health case would collapse.",
           skeptic_flip:
-            "A skeptic fearing a usage surge should weigh that two decades of Portuguese data show overdose deaths far below the EU average and use near the European norm, with no 'drug tourism' explosion — the predicted catastrophe simply did not occur where decrim was paired with treatment.",
+            "If other places that paired decriminalization with treatment saw what Portugal reports, overdose deaths well below the EU average and use near the European norm with no drug tourism, the fear of a usage surge would lose its footing.",
           common_ground:
             "Both sides agree that decriminalization WITHOUT funded treatment and harm-reduction capacity — the Oregon path — does not deliver Portugal's results.",
           live_disagreement:
@@ -157,7 +156,7 @@ export const drugDecriminalizationData = {
           supporter_flip:
             "If a rigorous randomized trial showed coerced, criminal-justice-linked treatment (drug courts) produced durably better long-term sobriety and lower recidivism than voluntary, outreach-based referral, the case for removing the criminal entry point would weaken.",
           skeptic_flip:
-            "A skeptic who favors criminal leverage should weigh that drug courts reach only a small share of drug-involved people and still require a criminal charge as the on-ramp — so even a per-participant advantage doesn't show criminalization beats a well-funded voluntary system at the population level.",
+            "If population-level data showed drug courts reaching only a small share of drug-involved people, so that a well-funded voluntary system treated more people overall despite any per-participant edge for courts, the case for keeping arrest as the on-ramp would weaken.",
           common_ground:
             "Both sides agree that treatment access is what actually reduces addiction harm; the dispute is over the best on-ramp to treatment — a criminal charge versus voluntary outreach.",
           live_disagreement:

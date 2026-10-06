@@ -11,17 +11,16 @@ export const tippingCultureData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The federal cash wage for tipped workers has been frozen at $2.13 an hour since 1991 — a rate Congress severed from the regular minimum wage in 1996 and never raised, so inflation has cut its real value by roughly half. The catch reformers rarely lead with: federal law already requires employers to top tipped workers up to the full $7.25 minimum if tips fall short, and the median U.S. server actually earned about $16.23 an hour including tips in 2024.",
+      "The federal cash wage for tipped workers has been frozen at $2.13 an hour since 1991, and inflation has cut its real value by roughly half. The median U.S. server earned about $16.23 an hour including tips in 2024. Both figures come from federal data. The fight is over whether replacing tips with service-included wages would leave servers with more take-home pay or less.",
     confidence: 95,
     source:
-      "U.S. Dept. of Labor, Fair Labor Standards Act tip-credit provisions; BLS Occupational Employment and Wage Statistics (May 2024)",
-    sourceUrl: "https://www.dol.gov/agencies/whd/fact-sheets/15-tipped-employees-flsa",
+      "U.S. Dept. of Labor, history of federal minimum wage rates and FLSA tip-credit provisions; BLS Occupational Employment and Wage Statistics (May 2024)",
+    sourceUrl: "https://www.dol.gov/agencies/whd/minimum-wage/history",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Critics make a strong case that tipping is a broken wage system: the federal cash wage for tipped workers has been stuck at $2.13 since 1991, the model shifts a worker's income from the employer onto the customer's mood, and decades of research show tip size barely tracks service quality while reliably tracking a server's race and gender.",
-    "But the honest counterpoint is that tipping is not the same as poverty wages: federal law already guarantees tipped workers the full minimum if tips fall short, the median U.S. server made about $16.23 an hour including tips in 2024, and many high-earning servers actively oppose abolition because a switch to flat wages can cut their take-home pay.",
-    "So the real debate isn't whether $2.13 is defensible (almost no one says it is) — it's whether eliminating tips makes workers better off or just trades a flawed-but-lucrative system for service charges and flat wages that, in the few places that tried it, drove away staff and customers alike.",
+    "Both sides accept that a $2.13 cash wage frozen since 1991 is indefensible, that the rule making employers top tipped workers up to the minimum is poorly enforced, that tip size tracks service quality only weakly and a server's race and gender meaningfully, and that single-restaurant no-tip experiments like Danny Meyer's largely failed.",
+    "They split over whether ending tips would raise or lower the typical server's total pay; whether it would shrink race and gender pay gaps or just move the bias from customers into managers' hiring and scheduling; and whether the rocky D.C. Initiative 82 rollout and the failed no-tip restaurants, with their staff departures and higher menu prices, were fixable coordination problems or a lasting rejection by U.S. workers and diners.",
   ],
   pillars: [
     // =========================================================================
@@ -57,7 +56,7 @@ export const tippingCultureData = {
           supporter_flip:
             "If rigorous difference-in-differences analysis showed that eliminating the tip credit reliably lowers total take-home pay for most front-of-house workers — because lost tips exceed the higher base wage, as many D.C. servers reported — the 'abolition helps workers' case would weaken to 'helps the lowest earners while hurting the median server.'",
           skeptic_flip:
-            "A defender who says servers do fine should weigh that the make-up rule is widely under-enforced, that poverty rates for waitstaff are roughly 18% in $2.13 states versus 11% in equal-wage states, and that median pay hides huge volatility and a long left tail of workers who fall through the cracks.",
+            "If enforcement data showed the make-up rule widely unenforced, and the gap in waitstaff poverty (about 18% in $2.13 states versus 11% in equal-wage states) held up with controls, the view that servers do fine under tipping would be hard to hold.",
           common_ground:
             "Both sides agree a $2.13 frozen cash wage is indefensible on its face and that the make-up requirement is poorly enforced; neither side defends $2.13 as the right number.",
           live_disagreement:
@@ -177,7 +176,7 @@ export const tippingCultureData = {
           supporter_flip:
             "If studies showed that race- and gender-based earnings gaps among front-of-house workers persist or even widen after tips are replaced by flat wages — because managers' hiring and scheduling biases simply replace customers' tipping bias — the claim that abolition fights discrimination would collapse.",
           skeptic_flip:
-            "A defender who says tipping rewards merit should weigh that tip size explains only ~1-5% of service-quality variance while server race predicts a ~4-point tip gap — so the 'tips measure service' rationale is largely empirically false, whatever happens to bias afterward.",
+            "If new studies confirmed that tip size tracks only about 1-5% of service-quality variance while server race predicts a tip gap of about 4 points, the 'tips reward good service' rationale would lose its footing, whatever happens to bias afterward.",
           common_ground:
             "Both sides accept the empirical findings: tip size correlates weakly with service quality and meaningfully with server race and gender.",
           live_disagreement:
@@ -297,7 +296,7 @@ export const tippingCultureData = {
           supporter_flip:
             "If broad, mandatory elimination of the tip credit (not just isolated experiments) reliably produced sustained worker income losses, customer flight, and political reversal — the D.C. pattern repeated wherever it's tried — then abolition would be unworkable in U.S. dining culture, not merely a coordination problem.",
           skeptic_flip:
-            "A skeptic pointing to failed experiments should weigh that seven equal-wage states have run healthy restaurant industries for decades with servers taking home more on average, and that EPI and D.C.'s budget office found full-service employment grew (~7.9%) after Initiative 82 — so 'it always fails' is contradicted by the jurisdiction-wide cases.",
+            "If multi-year tracking in the seven equal-wage states and in D.C. after Initiative 82 kept showing full-service employment growing and servers taking home more on average, the view that service-included pay always fails in the US would be hard to hold.",
           common_ground:
             "Both sides agree single-restaurant no-tip experiments like USHG's largely failed and that the D.C. rollout was rocky and politically contested.",
           live_disagreement:
