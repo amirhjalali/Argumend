@@ -13,17 +13,15 @@ import {
   CornerDownLeft,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
+import { CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
 import { toneStyles } from "@/lib/categoryColors";
-import { mapDisplayTitle } from "@/lib/mapNaming";
-import { getTopicQuestionPhrasings } from "@/lib/questions";
 import { createSiteSearch } from "@/lib/siteSearch";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
 import { useModalAccessibility } from "@/hooks/useModalAccessibility";
-import { argumentTopicIndex } from "@/lib/argument/topicIds";
+import { MAP_SEARCH_ITEMS } from "@/lib/mapSearchItems";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -31,7 +29,7 @@ import { argumentTopicIndex } from "@/lib/argument/topicIds";
 
 type ResultType = "map" | "topic" | "blog" | "concept" | "page";
 
-interface SearchResult {
+export interface SearchResult {
   id: string;
   title: string;
   subtitle: string;
@@ -215,6 +213,51 @@ const TYPE_CONFIG: Record<
 
 const MAX_PER_GROUP = 5;
 
+/**
+ * Everything the header search can find, in one list: maps first, then
+ * essays, core ideas and pages. Exported for the site-search eval
+ * (lib/siteSearchEval.test.ts), which ranks the same list.
+ */
+export function buildSearchItems(): SearchResult[] {
+  // One name per map: the question its page asks (lib/mapNaming.ts); the
+  // old short title and "Also asked as" phrasings still find it.
+  const mapResults: SearchResult[] = MAP_SEARCH_ITEMS.map((item) => ({
+    ...item,
+    type: item.kind === "debate-map" ? ("map" as const) : ("topic" as const),
+  }));
+
+  const blogResults: SearchResult[] = articleSummaries.map((a) => ({
+    id: `blog-${a.slug}`,
+    title: a.title,
+    subtitle: a.description,
+    type: "blog" as const,
+    href: `/blog/${a.slug}`,
+    meta_claim: a.description,
+    tags: (a.tags ?? []).join(" "),
+  }));
+
+  const conceptResults: SearchResult[] = concepts.map((c) => ({
+    id: `concept-${c.id}`,
+    title: c.title,
+    subtitle: c.description.slice(0, 160) + (c.description.length > 160 ? "..." : ""),
+    type: "concept" as const,
+    href: `/concepts/${c.id}`,
+    meta_claim: c.description,
+  }));
+
+  const pageResults: SearchResult[] = STATIC_PAGES.map((p) => ({
+    ...p,
+    meta_claim: p.subtitle,
+  }));
+
+  return [
+    ...mapResults,
+    ...blogResults,
+    ...conceptResults,
+    ...pageResults,
+  ];
+}
+
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
@@ -236,72 +279,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   // Build search index once
   // -----------------------------------------------------------------------
 
-  const allItems = useMemo<SearchResult[]>(() => {
-    const argumentMapResults: SearchResult[] = argumentTopicIndex.map((topic) => ({
-      id: `map-${topic.id}`,
-      title: topic.title,
-      subtitle: topic.tagline,
-      type: "map" as const,
-      href: `/topics/${topic.id}`,
-      meta_claim: topic.tagline,
-      tags: "argument map debate map flagship cruxes positions",
-      aliases: topic.aliases.join(" "),
-      flagship: true,
-    }));
-
-    const topicResults: SearchResult[] = topicSummaries.map((t) => {
-      // `tags`/`aliases` may be added by a concurrent schema change — read
-      // them defensively so this keeps working whether or not they exist.
-      const extra = t as typeof t & { tags?: string[]; aliases?: string[] };
-      return {
-        id: `topic-${t.id}`,
-        // One name per map: the question its page asks (lib/mapNaming.ts).
-        // The old short title still finds it, as one of its other names.
-        title: mapDisplayTitle(t),
-        altNames: [t.title, ...getTopicQuestionPhrasings(t.id)].join(" | "),
-        subtitle: t.meta_claim,
-        type: "topic" as const,
-        href: `/topics/${t.id}`,
-        category: t.category,
-        meta_claim: t.meta_claim,
-        categoryText: `${t.category} ${CATEGORY_LABELS[t.category]}`,
-        tags: (extra.tags ?? []).join(" "),
-        aliases: (extra.aliases ?? []).join(" "),
-      };
-    });
-
-    const blogResults: SearchResult[] = articleSummaries.map((a) => ({
-      id: `blog-${a.slug}`,
-      title: a.title,
-      subtitle: a.description,
-      type: "blog" as const,
-      href: `/blog/${a.slug}`,
-      meta_claim: a.description,
-      tags: (a.tags ?? []).join(" "),
-    }));
-
-    const conceptResults: SearchResult[] = concepts.map((c) => ({
-      id: `concept-${c.id}`,
-      title: c.title,
-      subtitle: c.description.slice(0, 160) + (c.description.length > 160 ? "..." : ""),
-      type: "concept" as const,
-      href: `/concepts/${c.id}`,
-      meta_claim: c.description,
-    }));
-
-    const pageResults: SearchResult[] = STATIC_PAGES.map((p) => ({
-      ...p,
-      meta_claim: p.subtitle,
-    }));
-
-    return [
-      ...argumentMapResults,
-      ...topicResults,
-      ...blogResults,
-      ...conceptResults,
-      ...pageResults,
-    ];
-  }, []);
+  const allItems = useMemo<SearchResult[]>(() => buildSearchItems(), []);
 
   // -----------------------------------------------------------------------
   // Build the search index from allItems (memoized — built once on the

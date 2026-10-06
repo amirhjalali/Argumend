@@ -32,3 +32,19 @@ test("search lists a map and Enter opens it", async ({ page, isMobile }) => {
   await expect(dialog).toBeHidden();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(/\S/);
 });
+
+/** The library and the questions index rank a typed question too (r3 review #5). */
+test("a typed question finds the nuclear-power map in the library and on /questions", async ({ page }) => {
+  await page.goto("/topics?q=is+nuclear+power+safe");
+  await expect(page.getByRole("main").locator('a[href^="/topics/"]').first()).toHaveAttribute(
+    "href",
+    "/topics/nuclear-energy-safety",
+  );
+
+  await page.goto("/questions?q=is+nuclear+power+safe");
+  const results = page.locator("#question-search-results");
+  await expect(results.getByRole("link").first()).toHaveAttribute(
+    "href",
+    "/questions/is-nuclear-energy-safe",
+  );
+});

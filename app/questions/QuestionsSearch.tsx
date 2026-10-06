@@ -3,13 +3,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { searchQuestions, type QuestionSearchItem } from "@/lib/questionSearch";
 
-interface QuestionItem {
-  slug: string;
-  question: string;
-  topicTitle: string;
-  topicId: string;
-}
+type QuestionItem = QuestionSearchItem;
 
 export function QuestionsSearch({
   questions,
@@ -46,15 +42,7 @@ export function QuestionsSearch({
     );
   }, [query]);
 
-  const filtered = useMemo(() => {
-    if (!query.trim()) return [];
-    const lower = query.trim().toLowerCase();
-    return questions.filter(
-      (q) =>
-        q.question.toLowerCase().includes(lower) ||
-        q.topicTitle.toLowerCase().includes(lower)
-    );
-  }, [query, questions]);
+  const filtered = useMemo(() => searchQuestions(questions, query), [query, questions]);
 
   const clearSearch = () => {
     setQuery("");
