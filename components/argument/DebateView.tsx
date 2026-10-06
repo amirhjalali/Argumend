@@ -22,7 +22,7 @@ import type {
 } from "@/types/argument";
 import type { CruxResult } from "@/lib/crux";
 import type { CruxLedgerEntry } from "@/types/cruxLedger";
-import { claimMovement } from "@/lib/argument/ledger";
+import { claimMovement, mapReviewedOn } from "@/lib/argument/ledger";
 import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
 import { ARGUMENT_TOPICS_LAST_UPDATED } from "@/lib/site";
 import {
@@ -82,8 +82,14 @@ const STATUS_LABELS: Record<Claim["status"], string> = {
 const AI_MAP_IDS: ReadonlySet<string> = new Set(["ai-mass-unemployment", "capitalism-after-ai"]);
 
 
+// The ranking is the crux engine's fixed rule over the map's claims
+// (lib/crux, /methodology#cruxes). "Reproducible" overclaimed: the diagnosis
+// lane's crux was not repeatable run to run
+// (docs/reviews/2026-09-15-crux-repeatability.md), and this sentence should
+// not be read as covering it.
 const MADE_BY =
-  "Assembled by AI. Every source linked and checked, interests disclosed inline, balance adversarially reviewed, crux rankings reproducible.";
+  "Assembled by AI. Every source linked and checked, interests disclosed inline, balance adversarially reviewed, cruxes ranked by a fixed rule from the map’s claims.";
+const MADE_BY_HREF = "/methodology#cruxes";
 
 interface DebateViewProps {
   meta: ArgumentTopicMeta;
@@ -123,7 +129,8 @@ export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: D
       scopedQuestion && scopedQuestion !== meta.title
         ? { lead: "Scope", text: scopedQuestion }
         : undefined,
-    reviewedOn: ARGUMENT_TOPICS_LAST_UPDATED,
+    // A reviewed ledger entry is a review too (lib/argument/ledgerProjection.ts).
+    reviewedOn: mapReviewedOn(ARGUMENT_TOPICS_LAST_UPDATED, ledger),
     sourceCount: countGraphSources(graph),
     hook: { text: meta.hook, note: meta.contextNote },
     agreementHeading:
@@ -266,6 +273,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: D
       }
       folds={folds}
       madeBy={MADE_BY}
+      madeByHref={MADE_BY_HREF}
     />
   );
 }

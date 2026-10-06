@@ -72,6 +72,16 @@ describe("one crux-first template for every map", () => {
     expect(view.container.querySelector("[data-topic-kind]")?.getAttribute("data-topic-kind")).toBe(
       "flagship",
     );
+    // The header's reviewed date is never older than the ledger under it
+    // (round-6 review: "reviewed Aug 12, 2026" above "Narrowed Sep 2026").
+    const reviewed = view.container.querySelector("[data-testid=topic-kicker] time")!;
+    const latestLedgerDay = topic.ledger
+      .filter(isPublicEntry)
+      .flatMap((e) => [e.date, e.noticedAt ?? "", e.createdAt.slice(0, 10)])
+      .sort()
+      .at(-1)!;
+    expect(reviewed.getAttribute("dateTime")! >= latestLedgerDay).toBe(true);
+    expect(reviewed.textContent).not.toContain("Aug 12");
     // The −16% appears once (the hook) before the positions; the share card
     // and chart moved into "The numbers".
     const positions = view.container.querySelector("#positions")!;
