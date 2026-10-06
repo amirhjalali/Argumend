@@ -4,20 +4,20 @@ import { faqs } from "@/data/faqs";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "FAQ — Frequently Asked Questions About Argument Mapping",
+  title: "FAQ — Common questions",
   description:
-    "Common questions about Argumend: how the map weighs evidence, what cruxes are, what steel-manning means, logical fallacies in debates, and how argument mapping differs from debate forums.",
-  keywords: ["argument mapping FAQ", "what is a crux", "what is steel manning", "critical thinking FAQ", "logical fallacies"],
+    "Common questions about Argumend: what a crux is, why a map never says who is right, how evidence is weighed, what the paste tool does with your text, and how maps are kept up to date.",
+  keywords: ["Argumend FAQ", "argument mapping FAQ", "what is a crux", "how evidence is weighed"],
   openGraph: {
-    title: "FAQ — Frequently Asked Questions",
-    description: "Everything you want to know about argument mapping, cruxes, how evidence is weighed, and critical thinking.",
+    title: "FAQ — Common questions about Argumend",
+    description: "What a crux is, why a map never says who is right, how evidence is weighed, and what happens to the text you paste.",
     url: "https://argumend.org/faq",
     images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FAQ — Argument Mapping Questions Answered",
-    description: "What is a crux? What is steel-manning? How does the map weigh evidence?",
+    title: "FAQ — Common questions about Argumend",
+    description: "What is a crux? Why doesn’t Argumend say who is right? How is evidence weighed?",
     images: [DEFAULT_SOCIAL_IMAGE_URL],
   },
   alternates: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const faqStructuredData = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  name: "Frequently Asked Questions",
+  name: "Common questions",
   description: "The questions people actually ask us about Argumend, answered honestly.",
   url: "https://argumend.org/faq",
   mainEntity: faqs.map((faq) => ({
