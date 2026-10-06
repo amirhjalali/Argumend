@@ -1,0 +1,13 @@
+{
+  "government-platform-bans": {
+    "into": "tiktok-ban",
+    "map": "/topics/tiktok-ban/map",
+    "questionsTo": "/questions/should-tiktok-be-banned",
+    "questions": [
+      "should-governments-ban-social-media-platforms",
+      "is-it-right-for-governments-to-ban-apps",
+      "do-government-platform-bans-protect-citizens"
+    ],
+    "is": []
+  }
+}

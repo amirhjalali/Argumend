@@ -35,7 +35,7 @@
     { "query": "ozempic", "expected": ["glp1-weight-loss-drugs"], "kind": "keyword" },
     { "query": "is fluoride in water safe", "expected": ["fluoride-water-supplies"], "kind": "question" },
     { "query": "trans athletes", "expected": ["transgender-athletes-sports"], "kind": "abbreviation" },
-    { "query": "tiktok ban", "expected": ["tiktok-ban", "government-platform-bans"], "kind": "keyword" },
+    { "query": "tiktok ban", "expected": ["tiktok-ban"], "kind": "keyword" },
     { "query": "will china invade taiwan", "expected": ["china-taiwan-invasion"], "kind": "question" },
     { "query": "4 day work week", "expected": ["four-day-work-week"], "kind": "numeral" },
     { "query": "is ai dangerous", "expected": ["ai-risk", "ai-superintelligence-timeline"], "kind": "question" },

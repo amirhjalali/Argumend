@@ -339,13 +339,13 @@
       "form": "reply",
       "text": "Australia banned under-16s from social media. Good luck enforcing that, every teenager knows how to use a VPN and nobody wants to upload their ID to Meta.",
       "expected": ["social-media-age-limits"],
-      "related": ["children-smartphone-age", "government-platform-bans"]
+      "related": ["children-smartphone-age"]
     },
     {
       "id": "tiktok-sale",
       "form": "conversation",
       "text": "A: TikTok is owned by a company that has to hand over data to the Chinese government if asked. Ban it or force a sale. B: Then ban Facebook too, it has leaked more data than anyone. This is about protecting American competitors, not security.",
-      "expected": ["tiktok-ban", "government-platform-bans"],
+      "expected": ["tiktok-ban"],
       "related": []
     },
     {

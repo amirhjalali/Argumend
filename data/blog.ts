@@ -2200,7 +2200,7 @@ The TikTok ban is really a proxy for a question democracies will face repeatedly
 
 There is no easy answer. But the first step toward a good one is engaging honestly with the strongest arguments on both sides — which is exactly what most participants in this debate refuse to do.
 
-Explore the full argument map on the [Government Platform Bans](/topics/government-platform-bans) topic, or see the specific [TikTok Ban](/topics/tiktok-ban) analysis for a detailed evidence breakdown.`,
+Explore the full argument map on the [TikTok ban](/topics/tiktok-ban) topic, including whether a platform-ban precedent can stay narrow.`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────

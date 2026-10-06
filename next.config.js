@@ -202,6 +202,32 @@ const nextConfig = {
         })
       ),
       // ── end learn ───────────────────────────────────────────────────────
+      // ── retired maps (one map per question, 2026-10-06) ─────────────────
+      // A map merged into another asks the same question, so each of its
+      // URLs goes straight to the kept map's: the page, the diagram (the
+      // kept page itself when it is a flagship, which has none), the embed,
+      // every /questions phrasing (to the kept map's primary question, or
+      // its page when it has no question page) and any /is slug whose claim
+      // no longer has a legacy map to name. One hop each; the table is
+      // data/retiredMaps.json, tested in lib/retiredMaps.test.ts.
+      ...Object.entries(require('./data/retiredMaps.json')).flatMap(
+        ([from, to]) => [
+          { source: `/topics/${from}`, destination: `/topics/${to.into}`, permanent: true },
+          { source: `/topics/${from}/map`, destination: to.map, permanent: true },
+          { source: `/embed/${from}`, destination: `/embed/${to.into}`, permanent: true },
+          ...to.questions.map((slug) => ({
+            source: `/questions/${slug}`,
+            destination: to.questionsTo,
+            permanent: true,
+          })),
+          ...to.is.map((slug) => ({
+            source: `/is/${slug}`,
+            destination: to.questionsTo,
+            permanent: true,
+          })),
+        ]
+      ),
+      // ── end retired maps ────────────────────────────────────────────────
     ];
   },
   async headers() {

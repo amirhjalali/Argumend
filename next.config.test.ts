@@ -95,6 +95,25 @@ describe("home + story redirects", () => {
   });
 });
 
+describe("retired map redirects (one map per question, 2026-10-06)", () => {
+  // Spelled out so a change to data/retiredMaps.json that moves a live URL
+  // shows up here; lib/retiredMaps.test.ts checks the table itself.
+  const expected: Array<[string, string]> = [
+    ["/topics/government-platform-bans", "/topics/tiktok-ban"],
+    ["/topics/government-platform-bans/map", "/topics/tiktok-ban/map"],
+    ["/embed/government-platform-bans", "/embed/tiktok-ban"],
+    ["/questions/should-governments-ban-social-media-platforms", "/questions/should-tiktok-be-banned"],
+    ["/questions/is-it-right-for-governments-to-ban-apps", "/questions/should-tiktok-be-banned"],
+    ["/questions/do-government-platform-bans-protect-citizens", "/questions/should-tiktok-be-banned"],
+    ["/is/governments-ban-social-platforms", "/questions/should-tiktok-be-banned"],
+  ];
+
+  it.each(expected)("%s → %s, permanently", async (source, destination) => {
+    const redirects = await nextConfig.redirects();
+    expect(redirects).toContainEqual({ source, destination, permanent: true });
+  });
+});
+
 describe("Next.js response headers", () => {
   it("keeps ordinary pages protected while allowing the embed route to be framed", async () => {
     const rules = await nextConfig.headers();

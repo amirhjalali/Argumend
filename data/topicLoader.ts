@@ -110,7 +110,6 @@ const topicModuleLoaders = {
   "meritocracy-myth": () => import("./topics/meritocracy-myth"),
   "consciousness-hard-problem": () => import("./topics/consciousness-hard-problem"),
   "artificial-reproduction-ethics": () => import("./topics/artificial-reproduction-ethics"),
-  "government-platform-bans": () => import("./topics/government-platform-bans"),
   "gain-of-function-research-ban": () => import("./topics/gain-of-function-research-ban"),
   "children-smartphone-age": () => import("./topics/children-smartphone-age"),
   "alternatives-to-democracy": () => import("./topics/alternatives-to-democracy"),

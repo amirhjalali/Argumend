@@ -341,6 +341,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Should TikTok be banned?",
     "Is TikTok a national security threat?",
     "Is banning TikTok a violation of free speech?",
+    "Can national security justify banning foreign-owned apps like TikTok?",
   ],
   "immigration-border-crisis": [
     "Is there a border crisis?",
@@ -396,11 +397,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Is artificial reproduction ethical?",
     "Should we allow artificial wombs?",
     "What are the ethics of reproductive technology?",
-  ],
-  "government-platform-bans": [
-    "Should governments ban social media platforms?",
-    "Is it right for governments to ban apps?",
-    "Do government platform bans protect citizens?",
   ],
   "gain-of-function-research-ban": [
     "Should gain-of-function research be banned?",

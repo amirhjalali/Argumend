@@ -684,15 +684,15 @@
     "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
     "confidence_score": 53,
     "balance": 53,
-    "weight": 77,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 4,
-    "evidenceCount": 19,
+    "pillarCount": 5,
+    "evidenceCount": 23,
     "firstCrux": "Can ByteDance staff in China still access Americans' TikTok data despite Project Texas safeguards?",
     "tags": [
       "policy"
@@ -2255,27 +2255,6 @@
     "firstCrux": "Can artificial wombs sustain fetuses below 22–23 weeks with outcomes as good as neonatal intensive care?",
     "tags": [
       "science"
-    ]
-  },
-  {
-    "id": "government-platform-bans",
-    "title": "Government Bans on Social Media Platforms",
-    "question": "Can national security justify banning foreign-owned apps like TikTok?",
-    "meta_claim": "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms like TikTok on national security grounds, even at the cost of restricting free expression for millions of citizens.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 68,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Can an adversary government compel data access or algorithm changes despite company safeguards?",
-    "tags": [
-      "policy"
     ]
   },
   {

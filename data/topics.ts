@@ -28,7 +28,6 @@ import { microplasticsHealthCrisisData } from "./topics/microplastics-health-cri
 import { glp1WeightLossDrugsData } from "./topics/glp1-weight-loss-drugs";
 import { aiWhiteCollarDisplacementData } from "./topics/ai-white-collar-displacement";
 import { artificialReproductionEthicsData } from "./topics/artificial-reproduction-ethics";
-import { governmentPlatformBansData } from "./topics/government-platform-bans";
 import { gainOfFunctionResearchBanData } from "./topics/gain-of-function-research-ban";
 import { childrenSmartphoneAgeData } from "./topics/children-smartphone-age";
 import { alternativesToDemocracyData } from "./topics/alternatives-to-democracy";
@@ -255,7 +254,6 @@ export const microplasticsHealthCrisis = buildTopic(microplasticsHealthCrisisDat
 export const glp1WeightLossDrugs = buildTopic(glp1WeightLossDrugsData);
 export const aiWhiteCollarDisplacement = buildTopic(aiWhiteCollarDisplacementData);
 export const artificialReproductionEthics = buildTopic(artificialReproductionEthicsData);
-export const governmentPlatformBans = buildTopic(governmentPlatformBansData);
 export const gainOfFunctionResearchBan = buildTopic(gainOfFunctionResearchBanData);
 export const childrenSmartphoneAge = buildTopic(childrenSmartphoneAgeData);
 export const alternativesToDemocracy = buildTopic(alternativesToDemocracyData);
@@ -477,7 +475,6 @@ export const topics: Topic[] = [
 
   // --- New Topics (March 2026) ---
   artificialReproductionEthics,
-  governmentPlatformBans,
   gainOfFunctionResearchBan,
   childrenSmartphoneAge,
   alternativesToDemocracy,
@@ -661,7 +658,7 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "declining-birth-rates": ["housing-affordability-crisis", "universal-basic-income", "artificial-reproduction-ethics", "masculinity-crisis"],
 
   // Tech & society cluster (new topics)
-  "government-platform-bans": ["big-tech-antitrust", "surveillance-public-safety", "social-media-age-limits", "ai-deepfakes-truth-collapse"],
+  "tiktok-ban": ["big-tech-antitrust", "surveillance-public-safety", "social-media-age-limits", "ai-deepfakes-truth-collapse"],
   "children-smartphone-age": ["social-media-age-limits", "social-media-mental-health", "school-phone-bans", "masculinity-crisis"],
   "ai-deepfakes-truth-collapse": ["ai-content-labeling", "media-bias-democracy", "surveillance-public-safety", "ai-risk"],
 
@@ -713,7 +710,7 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "sugar-tax-effectiveness": ["obesity-personal-responsibility", "ultra-processed-food", "universal-healthcare", "glp1-weight-loss-drugs"],
   "lab-diamonds-ethics": ["factory-farming-ban", "veganism-environmental-impact", "foreign-aid-effectiveness", "climate-change"],
   "rent-control-effectiveness": ["housing-affordability-crisis", "global-housing-bubble", "minimum-wage-effects", "wealth-tax"],
-  "privacy-vs-convenience": ["surveillance-public-safety", "big-tech-antitrust", "ai-deepfakes-truth-collapse", "government-platform-bans"],
+  "privacy-vs-convenience": ["surveillance-public-safety", "big-tech-antitrust", "ai-deepfakes-truth-collapse", "tiktok-ban"],
   "meritocracy-myth": ["affirmative-action-meritocracy", "billionaire-wealth", "reparations-slavery", "college-value-proposition"],
   "degrowth-economics": ["climate-change", "wealth-tax", "universal-basic-income", "geoengineering-climate"],
 };

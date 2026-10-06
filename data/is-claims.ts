@@ -916,7 +916,7 @@ export const isClaims: IsClaim[] = [
   },
   {
     slug: "governments-ban-social-platforms",
-    topicId: "government-platform-bans",
+    topicId: "tiktok-ban",
     question: "Should governments be able to ban social media platforms?",
     claim:
       "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms on national-security grounds.",

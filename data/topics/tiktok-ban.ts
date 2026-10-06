@@ -151,6 +151,23 @@ export const tiktokBanData = {
           reasoning:
             "Multiple independent outlets corroborate the CCP committee's existence and the golden share arrangement. ByteDance's public apology to the CCP is on the record. This directly addresses the structural question of whether ByteDance can operate independently from the Chinese government. Independence is slightly lower because some details rely on anonymous sources, and the golden share is in a domestic Chinese subsidiary, not in TikTok's international operations.",
         },
+        {
+          id: "allied-government-device-bans",
+          title: "EU, UK, Canada, and Australia Ban TikTok on Government Devices",
+          description:
+            "Between late 2022 and 2023, the United States, the European Commission, Canada, the UK, and Australia all banned or restricted TikTok on official government devices, citing cybersecurity concerns. The European Commission cited the need to protect against potential data collection and misuse. These device-level restrictions were adopted by security agencies across allied democracies, several of which share classified intelligence. Note these are restrictions on official devices, not consumer-facing bans on the general public.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 9,
+            directness: 6,
+          },
+          source: "Fortune (US, EU, and Canada government device bans, March 2023)",
+          sourceUrl: "https://fortune.com/2023/03/01/why-tiktok-banned-government-phones-us-eu-canada/",
+          reasoning:
+            "The convergent assessment across multiple allied security agencies strongly suggests a genuine security concern rather than US-specific protectionism. However, device bans are a much less restrictive measure than consumer bans, so the directness of this evidence for justifying a complete ban is moderate.",
+        },
       ],
     },
 
@@ -501,8 +518,113 @@ export const tiktokBanData = {
           reasoning:
             "The location of algorithm development is confirmed by TikTok itself and independently verified by technical analysts. China's export control classification of recommendation algorithms is a matter of public regulatory record. This evidence is highly direct because it addresses the core data sovereignty concern: even with data isolation, the entity controlling what information reaches 170 million Americans is headquartered in a foreign adversary nation and subject to that government's legal authority.",
         },
+        {
+          id: "us-data-broker-hypocrisy",
+          title: "US Data Brokers Sell Equivalent Data Without Restriction",
+          description:
+            "American data brokers like Acxiom, CoreLogic, and LexisNexis collect and sell detailed personal data on hundreds of millions of Americans — including location history, purchasing behavior, health information, and political affiliation — to any buyer, including foreign governments and their proxies. A 2023 Duke University study found that data brokers readily sold sensitive data on active-duty military personnel. If the concern is adversary access to American data, the data broker industry is a far larger vulnerability than any single social media app.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 8,
+            directness: 8,
+          },
+          source: "Duke University Sanford School of Public Policy; FTC",
+          sourceUrl: "https://techpolicy.sanford.duke.edu/data-brokers-and-the-sale-of-data-on-us-military-personnel/",
+          reasoning:
+            "This evidence directly challenges the consistency of the national security justification. If adversary access to American data is the concern, the unregulated data broker industry represents a far larger vulnerability. The selective focus on TikTok while ignoring data brokers suggests the motivation is not purely security-driven.",
+        },
       ],
     },
+
+    // =========================================================================
+    // PILLAR 5: Precedent & Scope (folded in from the retired
+    // government-platform-bans map, 2026-10-06)
+    // =========================================================================
+    {
+      id: "precedent-scope",
+      title: "Precedent & Scope",
+      short_summary:
+        "Banning a communication platform used by hundreds of millions of citizens sets a precedent for government control over information channels. The question is whether national security exceptions to free speech principles can be contained or will inevitably expand.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "Platform bans are censorship regardless of the stated justification. Authoritarian regimes ban platforms for 'national security' — China bans Facebook, Russia bans Twitter, Iran bans Telegram — and we correctly identify these as speech suppression. When democracies ban platforms, we cannot claim the principle is different simply because we trust our own government's motives. The precedent is the mechanism: once a government establishes the power to ban a communication platform, that power will be used against domestic platforms when politically convenient. The Supreme Court's deference to national security claims in TikTok v. Garland mirrors the same deference that enabled Japanese internment and mass surveillance programs.",
+      proponent_rebuttal:
+        "The comparison to authoritarian censorship is categorically wrong. China bans Facebook because the Chinese government wants to control what its citizens can say. The US TikTok legislation targets foreign adversary ownership, not speech content — Americans would remain free to say identical things on any other platform. The legislation explicitly offers divestiture as an alternative to a ban, which would preserve the platform under non-adversary ownership. Furthermore, the argument that any restriction on a communication channel is inherently censorship proves too much: it would prohibit foreign ownership restrictions on broadcast media, which have existed under FCC rules since 1934 without sliding into authoritarianism.",
+      crux: {
+        id: "precedent-expansion-test",
+        title: "The Precedent Containment Assessment",
+        question:
+          "Can a ban on a foreign-owned platform stay limited to real security threats, or will it expand?",
+        description:
+          "The crux is whether the legal and political precedent of banning a foreign-owned platform can be contained to genuine adversary-nation security threats, or will inevitably expand to justify government restrictions on any platform the state finds inconvenient. If historical analysis shows that narrow security exceptions tend to stay narrow, the precedent concern is manageable. If they consistently expand, the free speech risk may outweigh the security benefit.",
+        methodology:
+          "Conduct a comprehensive historical analysis of government powers initially justified by national security that subsequently expanded beyond their original scope. Examine FISA (1978 to post-9/11 mass surveillance), material support statutes, and broadcasting ownership restrictions. Assess whether legislative safeguards (sunset provisions, judicial review requirements) successfully contained scope expansion. Compare with democracies that have banned platforms (India) to measure downstream effects on broader press freedom.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A historical comparison of powers first justified by national security, such as FISA, material-support laws and the FCC's foreign-ownership limits on broadcasters, measuring how far each grew past its original scope despite sunset clauses and judicial review.",
+        },
+        cost_to_verify:
+          "$200K-500K (Historical legal analysis with comparative international study)",
+        falsification: {
+          supporter_flip:
+            "If historical analysis showed national-security powers consistently outgrowing their original scope despite sunset provisions and judicial review — as FISA grew from a narrow tool against foreign spies into mass surveillance — the free-speech risk of a platform-ban precedent could outweigh its security benefit.",
+          skeptic_flip:
+            "If the law's focus on foreign-adversary ownership and its divestiture option kept it away from speech content, the way FCC caps on foreign ownership of broadcast licenses have stayed at 25% for 90 years, the censorship precedent would look contained.",
+          common_ground:
+            "Both sides agree the Supreme Court unanimously upheld the ban-or-sell law, deferring to the government's national-security rationale.",
+          live_disagreement:
+            "Whether a ban aimed at foreign-adversary ownership can stay that narrow, like foreign-ownership limits on broadcasters, or will expand into a general power over inconvenient platforms, as FISA outgrew its original scope.",
+        },
+      },
+      evidence: [
+        {
+          id: "fisa-scope-expansion",
+          title: "FISA Surveillance Powers Expanded Far Beyond Original Scope",
+          description:
+            "The Foreign Intelligence Surveillance Act was enacted in 1978 as a narrow tool for monitoring foreign spies. By 2013, the Snowden revelations showed it had expanded into a mass surveillance program collecting metadata on virtually all American phone calls and internet activity. This trajectory — from narrow security exception to broad government power — is exactly what free speech advocates fear will happen with platform ban authority.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "The Guardian; Edward Snowden disclosures; Church Committee records",
+          sourceUrl: "https://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded",
+          reasoning:
+            "The FISA precedent is well-documented and directly illustrates the pattern of security powers expanding beyond their original scope. The directness score is moderate because FISA concerns surveillance authority, not platform bans specifically, and the analogy may not hold perfectly.",
+        },
+        {
+          id: "fcc-foreign-ownership-rules",
+          title: "FCC Foreign Ownership Restrictions on Broadcast Media Since 1934",
+          description:
+            "The Communications Act of 1934 restricts foreign ownership of broadcast licenses to 25%, a rule that has been in effect for 90 years without expanding into broader censorship. This provides a counter-example to the 'precedent expansion' concern — a targeted foreign ownership restriction in media that remained narrow for nearly a century. Proponents argue that platform ownership restrictions are a natural extension of this established principle.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "47 U.S.C. § 310(b), U.S. House Office of the Law Revision Counsel",
+          sourceUrl: "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title47-section310&num=0&edition=prelim",
+          reasoning:
+            "This is strong evidence that foreign ownership restrictions in media can exist without sliding into censorship. However, the analogy is imperfect because broadcast licensing is fundamentally different from banning an internet platform — broadcasting requires scarce spectrum while internet access does not.",
+        },
+      ],
+    },
+  ],
+  // The retired government-platform-bans map asked the same question
+  // (merged 2026-10-06); its names stay findable here.
+  aliases: [
+    "Government Bans on Social Media Platforms",
+    "Can national security justify banning foreign-owned apps like TikTok?",
+    "Should governments ban social media platforms?",
+    "Is it right for governments to ban apps?",
+    "Do government platform bans protect citizens?",
   ],
   references: [
     {
@@ -545,6 +667,10 @@ export const tiktokBanData = {
       title: "TikTok's Brief US Shutdown and Executive Extension — The New York Times",
       url: "https://www.nytimes.com/2025/01/18/technology/tiktok-ban-shut-down.html",
     },
+    {
+      title: "Internet Shutdowns and Social Media Bans Around the World — Freedom House",
+      url: "https://freedomhouse.org/report/freedom-net",
+    },
   ],
   questions: [
     {
@@ -570,6 +696,12 @@ export const tiktokBanData = {
       title: "Should nations have sovereign control over foreign-operated information platforms?",
       content:
         "India banned TikTok in 2020 and domestic alternatives thrived. The EU imposes strict data localization requirements. China blocks all American platforms behind its Great Firewall. TikTok's algorithm — which shapes what 170 million Americans see daily — is developed in Beijing and classified as restricted technology under Chinese export controls. Does data sovereignty justify regulating foreign control of mass communication platforms, or does it lead to a fragmented, censored internet?",
+    },
+    {
+      id: "q5",
+      title: "Should the principle extend to any foreign-owned platform?",
+      content:
+        "If TikTok is banned because of Chinese ownership, what about Telegram (UAE-based), platforms with Saudi investment, or European-owned services? Where is the principled line between adversary-nation concerns and general techno-nationalism?",
     },
   ],
 };

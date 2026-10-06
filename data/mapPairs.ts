@@ -25,7 +25,6 @@ export const DISTINCT_MAP_PAIRS: readonly AllowedMapPair[] = [
 ];
 
 export const PENDING_MERGE_MAP_PAIRS: readonly AllowedMapPair[] = [
-  { a: "tiktok-ban", b: "government-platform-bans", reason: "Same question; merging (2026-10-06)." },
   {
     a: "housing-affordability-crisis",
     b: "rent-control-effectiveness",
