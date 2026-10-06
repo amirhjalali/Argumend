@@ -9,6 +9,9 @@ export const artificialReproductionEthicsData = {
     "Ectogenesis (artificial womb technology) and in-vitro gametogenesis (creating eggs/sperm from skin cells) will fundamentally alter human reproduction within 15 years, raising profound ethical questions about parenthood, consent, and biological boundaries.",
   status: "contested" as const,
   category: "science" as const,
+  // One section weighs what artificial wombs would do to the abortion debate;
+  // an abortion argument is not this map's (lib/paste/maps.ts).
+  notAbout: ["abortion"],
   imageUrl:
     "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=60",
   references: [

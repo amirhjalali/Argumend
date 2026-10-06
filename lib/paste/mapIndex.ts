@@ -32,6 +32,8 @@ export interface MapDocument {
   claim: string;
   kind: "map" | "flagship";
   fields: Record<FieldName, readonly string[]>;
+  /** Subjects the map discusses but is not about (`Topic.notAbout`). */
+  notAbout?: readonly string[];
 }
 
 export interface IndexParams {
