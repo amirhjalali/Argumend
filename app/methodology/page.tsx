@@ -276,8 +276,9 @@ export default function MethodologyPage() {
             <p>
               The map pages no longer print it. A one-line reading of where the
               cards tip sits too close to a score, and the cruxes are the answer
-              a map gives. It stays in each map&rsquo;s data, in the open API and
-              on the map&rsquo;s share image. On the page, the &ldquo;How the
+              a map gives. It stays in each map&rsquo;s data and in the open API,
+              with the note below when one card could change it; the share image
+              shows the map&rsquo;s question and first crux instead. On the page, the &ldquo;How the
               evidence weighs&rdquo; fold shows one strong card from each side
               instead, by the same four measures.
             </p>
