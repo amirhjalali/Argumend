@@ -1,6 +1,10 @@
 import "@/test/setup-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, within } from "@testing-library/react";
+import { readdirSync, readFileSync, statSync } from "node:fs";
+import path from "node:path";
+import { loadHomeCrux } from "@/components/home/homeModel";
+import { retiredTermsIn } from "@/lib/learn/retiredVocabulary";
 
 vi.mock("@/components/AppShell", () => ({
   AppShell: ({ children }: { children: React.ReactNode }) => <main>{children}</main>,
@@ -48,25 +52,94 @@ describe.each([
   });
 });
 
+/** Every `/about#anchor` the site links to or redirects to, read from source. */
+function aboutAnchorsLinkedFromElsewhere(): string[] {
+  const anchors = new Set<string>();
+  const visit = (entry: string) => {
+    const full = path.join(process.cwd(), entry);
+    if (statSync(full).isDirectory()) {
+      for (const child of readdirSync(full)) {
+        if (child === "node_modules" || child.startsWith(".")) continue;
+        visit(path.join(entry, child));
+      }
+      return;
+    }
+    if (!/\.(tsx?|js|mdx?)$/.test(entry) || /\.test\.tsx?$/.test(entry)) return;
+    if (entry.startsWith(path.join("app", "about"))) return;
+    for (const match of readFileSync(full, "utf8").matchAll(/\/about#([\w-]+)/g)) {
+      anchors.add(match[1]);
+    }
+  };
+  for (const root of ["app", "components", "data", "lib", "next.config.js"]) visit(root);
+  return [...anchors].sort();
+}
+
 describe("/about", () => {
   it("carries every anchored section the redirects and links point at", () => {
+    const linked = aboutAnchorsLinkedFromElsewhere();
+    // /how-it-works and /community redirect to these two, and Learn, search,
+    // the FAQ and the glossary link to them.
+    expect(linked).toEqual(expect.arrayContaining(["read-a-map", "contribute"]));
     const view = render(<AboutPage />);
-    for (const id of ["why", "principles", "read-a-map", "how-maps-are-made", "faq", "contribute"]) {
+    for (const id of new Set([...linked, "why", "principles", "how-maps-are-made"])) {
       expect(view.container.querySelector(`section#${id}`), `#${id}`).not.toBeNull();
     }
   });
 
-  it("keeps the three principles and the /how-it-works steps", () => {
+  it("reads a map from one real crux card: the flagship's crux #1, as the map shows it", () => {
+    const crux = loadHomeCrux();
+    expect(crux).not.toBeNull();
+    const view = render(<AboutPage />);
+    const section = view.container.querySelector("section#read-a-map")!;
+    const card = section.querySelector(`[data-worked-crux="${crux!.claimId}"]`);
+    expect(card, "the crux card").not.toBeNull();
+    expect(crux!.claimId).toBe("c-firms-cut-hiring-not-output");
+    expect(within(card as HTMLElement).getByRole("heading", { level: 3 }).textContent).toBe(
+      "When AI makes a firm more productive, does it hire fewer people — or just sell more?",
+    );
+    // The map's own settle line, verbatim.
+    expect(card!.textContent).toContain("What would settle it");
+    expect(card!.textContent).toContain(
+      "Firm-level panels linking AI adoption to headcount, output, and pricing decisions over multiple years.",
+    );
+    // Defined the way Learn defines it.
+    expect(section.textContent).toContain("A crux is the question a fight turns on, and what would settle it.");
+    expect(section.textContent).toContain("It records movement, not a winner.");
+    const hrefs = [...section.querySelectorAll("a")].map((a) => a.getAttribute("href"));
+    expect(hrefs).toContain("/topics/ai-mass-unemployment");
+  });
+
+  it("keeps the rules: settle over verdict, never a winner, sources shown, voluntary", () => {
     const view = render(<AboutPage />);
     const text = view.container.textContent ?? "";
-    expect(text).toContain("Crux over verdict.");
-    expect(text).toContain("Never a winner, always the other side’s best card.");
+    expect(text).toContain("What would settle it, not who won.");
+    expect(text).toContain("Never a winner.");
+    expect(text).toContain("Sources shown.");
     expect(text).toContain("Voluntary before imposed.");
-    expect(text).toContain("It records movement, not a winner.");
     // The legacy anatomy and the invented example citation are gone.
     expect(text).not.toContain("NRC Safety Report 2023");
     expect(text).not.toMatch(/Meta Claim|five types of nodes/i);
-    expect(text).not.toMatch(/balance and weight/i);
+  });
+
+  it("claims only what runs: no constructed thread as a finding, no diagram on 'most maps'", () => {
+    const view = render(<AboutPage />);
+    const text = (view.container.textContent ?? "").replace(/\s+/g, " ");
+    // r3 review #12: the rent-control thread was written for the post, so it
+    // is not a finding about real arguments.
+    expect(text).not.toMatch(/written to mirror|rent-control thread/i);
+    // Flagship maps have no diagram; phones get an outline.
+    expect(text).not.toMatch(/most maps also have an interactive diagram/i);
+    expect(text).toContain("The older maps also have a diagram");
+    expect(text).toContain("an outline on a phone");
+    // The card weighting the overhaul retired from the interface.
+    expect(text).not.toMatch(/challenge a weighting|four measures/i);
+  });
+
+  it("uses none of the retired vocabulary", () => {
+    const view = render(<AboutPage />);
+    const text = view.container.textContent ?? "";
+    expect(retiredTermsIn(text)).toEqual([]);
+    expect(retiredTermsIn(String(aboutMetadata.description))).toEqual([]);
   });
 
   it("links the public write-up behind its numbers, and GitHub for contributions", () => {

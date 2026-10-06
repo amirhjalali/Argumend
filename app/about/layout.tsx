@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { ORGANIZATION_ID, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const DESCRIPTION =
-  "Most arguments are not about what they seem. Why Argumend exists, the three rules it keeps (crux over verdict, never a winner, voluntary before imposed), how to read a map, how maps are made, and how to help.";
+  "Argumend maps hard questions around their cruxes: the questions a fight turns on, and what would settle each one. How to read a map, how maps are made, the rules it keeps (never a winner, sources shown), why it exists, and how to help.";
 
 export const metadata: Metadata = {
   title: {

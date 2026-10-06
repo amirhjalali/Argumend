@@ -21,6 +21,7 @@ import { faqs } from "@/data/faqs";
 import { glossaryPageTerms } from "@/data/glossaryPageTerms";
 import { GLOSSARY_TERMS } from "@/data/glossaryTerms";
 import { guides } from "@/data/guides";
+import { RETIRED_VOCABULARY } from "./retiredVocabulary";
 
 /** Every string inside a value, however deeply nested. */
 function strings(value: unknown): string[] {
@@ -39,30 +40,8 @@ const SOURCES: Record<string, { label: string; text: string }[]> = {
   faqs: faqs.map((f) => ({ label: f.question, text: strings(f).join("\n") })),
 };
 
-const RETIRED: { name: string; pattern: RegExp }[] = [
-  { name: "pillars", pattern: /\bpillars?\b/i },
-  { name: "balance and weight", pattern: /\bbalance\s*(and|&)\s*weight\b|\bbalance from weight\b/i },
-  {
-    name: "a score for evidence, a side or a card",
-    pattern: /\b(balance|weight|evidence|confidence|card|strength|reliability|replicability|directness|independence) scores?\b/i,
-  },
-  { name: "the 0–40 card score", pattern: /\bout of 40\b|\b\d+\s*\/\s*40\b|score of 40\b|scored (from )?0\s*(to|-|–)\s*10\b/i },
-  { name: "the balance formula", pattern: /\b(for|against)Strength\b/ },
-  {
-    name: "the old card words",
-    pattern: /\bEstablished, Strong\b|\brated (Established|Strong|Contested|Thin)\b/,
-  },
-  {
-    name: "the judge council",
-    pattern: /\bjudg(e|ing) council\b|\bcouncil of (AI )?judges\b|\bfour-judge\b|\bmulti-(model|judge) (judg|council)|\bAI judges?\b/i,
-  },
-  { name: "verdicts as a feature", pattern: /\bverdict (matrix|card|panel)\b|\bthe map'?s verdict\b|\bAI verdicts?\b/i },
-  {
-    name: "the old crux status trio",
-    pattern: /\bverified\b[^.]{0,80}\btheoretical\b[^.]{0,80}\bimpossible\b/i,
-  },
-  { name: "links to retired idea pages", pattern: /\/concepts\/(pillars|confidence-calibration)\b/ },
-];
+// Shared with the /about guard (app/storyPages.test.tsx).
+const RETIRED = RETIRED_VOCABULARY;
 
 describe("Learn copy never teaches retired scoring vocabulary", () => {
   for (const [source, items] of Object.entries(SOURCES)) {
