@@ -79,6 +79,20 @@ describe("home + story redirects", () => {
       ]),
     );
   });
+
+  it("sends the retired Learn ideas somewhere true, in one hop", async () => {
+    const redirects = await nextConfig.redirects();
+    expect(redirects).toEqual(
+      expect.arrayContaining([
+        {
+          source: "/concepts/confidence-calibration",
+          destination: "/methodology#older-maps",
+          permanent: true,
+        },
+        { source: "/concepts/pillars", destination: "/concepts/cruxes", permanent: true },
+      ]),
+    );
+  });
 });
 
 describe("Next.js response headers", () => {

@@ -79,6 +79,11 @@ describe("learn consolidation redirects", () => {
 
   it("keeps the guide and concept detail URLs (only the indexes move)", async () => {
     const redirects = await nextConfig.redirects();
-    expect(redirects.filter((r) => /^\/(guides|concepts)\/.+/.test(r.source))).toEqual([]);
+    // The two ideas retired in r4 (they taught retired scoring vocabulary)
+    // are the only detail pages that redirect; next.config.test.ts pins them.
+    const retiredIdeas = new Set(["/concepts/confidence-calibration", "/concepts/pillars"]);
+    expect(
+      redirects.filter((r) => /^\/(guides|concepts)\/.+/.test(r.source) && !retiredIdeas.has(r.source)),
+    ).toEqual([]);
   });
 });
