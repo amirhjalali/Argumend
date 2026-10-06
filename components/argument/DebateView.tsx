@@ -23,12 +23,12 @@ import type { CruxResult } from "@/lib/crux";
 import type { CruxLedgerEntry } from "@/types/cruxLedger";
 import { claimMovement } from "@/lib/argument/ledger";
 import type { ArgumentTopicMeta } from "@/lib/argument/draftTopics";
-import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { ARGUMENT_TOPICS_LAST_UPDATED } from "@/lib/site";
 import {
   STANDING_CONDITION_LEAD,
   numberWord,
   type PositionCardData,
+  type RelatedMap,
   type TopicPageData,
 } from "@/lib/topicPage/model";
 import { TopicPage, formatIsoDate, type CruxEntryView, type TopicFold } from "@/components/topic/TopicPage";
@@ -93,9 +93,14 @@ interface DebateViewProps {
    * upstream). Omitted or empty: the crux cards render exactly as before.
    */
   ledger?: CruxLedgerEntry[];
+  /**
+   * The maps listed under "Keep exploring", nearest subject first. The route
+   * reads them from lib/relatedMaps.ts; omitted, only "Browse all maps" shows.
+   */
+  related?: RelatedMap[];
 }
 
-export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps) {
+export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: DebateViewProps) {
   const nodesById = new Map(graph.nodes.map((n) => [n.id, n]));
   const question = graph.nodes.find((n) => n.type === "question");
   const positions = graph.nodes
@@ -131,10 +136,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [] }: DebateViewProps
       ? "Related voices illustrate an argument or evidence stream; inclusion does not mean they endorse every claim in that camp."
       : undefined,
     positions: positionCards(meta, positions),
-    related: argumentTopicIndex
-      .filter((topic) => topic.id !== meta.id)
-      .slice(0, 3)
-      .map((topic) => ({ id: topic.id, title: topic.title })),
+    related: related.filter((topic) => topic.id !== meta.id),
     // /embed/:id serves new-model maps too (app/embed/[topicId]/_model.ts).
     embeddable: true,
   };

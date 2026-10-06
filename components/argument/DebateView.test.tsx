@@ -136,7 +136,16 @@ describe("DebateView", () => {
     );
 
     const view = render(
-      <DebateView meta={TEST_META} graph={graph} cruxes={cruxes} />,
+      <DebateView
+        meta={TEST_META}
+        graph={graph}
+        cruxes={cruxes}
+        related={[
+          { id: "ai-job-displacement", title: "AI job displacement" },
+          { id: TEST_META.id, title: "Itself, which is never listed" },
+          { id: "capitalism-after-ai", title: "Can capitalism survive AI?" },
+        ]}
+      />,
     );
 
     // Layer 1 leads with the question, the identity hook, and the payoff card —
@@ -275,7 +284,8 @@ describe("DebateView", () => {
     const relatedMaps = screen.getByRole("navigation", {
       name: "Related maps",
     });
-    expect(within(relatedMaps).getAllByRole("link")).toHaveLength(4);
+    // The route's related maps, never the map itself, then "Browse all maps".
+    expect(within(relatedMaps).getAllByRole("link")).toHaveLength(3);
     expect(within(relatedMaps).getByRole("link", { name: "Browse all maps →" }))
       .not.toBeNull();
 

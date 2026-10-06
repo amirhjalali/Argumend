@@ -11,7 +11,7 @@
  * Server-safe: no hooks, no client directive.
  */
 import type { Topic } from "@/lib/schemas/topic";
-import { getCrossCategoryRelatedSummaries, topicSummaries } from "@/data/topicIndex";
+import { getPrimaryQuestionSlug, getTopicQuestionPhrasings } from "@/lib/questions";
 import {
   legacyTopicPage,
   type LegacyCrux,
@@ -19,7 +19,7 @@ import {
   type LegacyWeighing,
 } from "@/lib/topicPage/legacy";
 import type { RelatedMap } from "@/lib/topicPage/model";
-import { ANSWER_SIDES, mapDisplayTitle } from "@/lib/mapNaming";
+import { ANSWER_SIDES } from "@/lib/mapNaming";
 import {
   CommonQuestions,
   TopicPage,
@@ -34,20 +34,22 @@ import { TextAction } from "@/components/ui";
 const MADE_BY =
   "Steel-manned positions for both sides, weighed evidence cards, and the test that could settle each crux.";
 
-/** Three related maps: same category first, then the nearest other categories. */
-function relatedMaps(topic: Topic): RelatedMap[] {
-  const sameCategory = topicSummaries
-    .filter((t) => t.category === topic.category && t.id !== topic.id)
-    .slice(0, 3);
-  const cross =
-    sameCategory.length >= 3
-      ? []
-      : getCrossCategoryRelatedSummaries(topic.id, topic.category, 3 - sameCategory.length);
-  return [...sameCategory, ...cross].map((t) => ({ id: t.id, title: mapDisplayTitle(t) }));
-}
-
-export function ReadModeView({ topic }: { topic: Topic }) {
-  const { page, cruxes, weighing, references } = legacyTopicPage(topic, relatedMaps(topic));
+export function ReadModeView({
+  topic,
+  related = [],
+}: {
+  topic: Topic;
+  /** "Keep exploring": nearest subject first, from lib/relatedMaps.ts. */
+  related?: RelatedMap[];
+}) {
+  const legacy = legacyTopicPage(topic, related);
+  const { cruxes, weighing, references } = legacy;
+  const questionSlug = getPrimaryQuestionSlug(topic.id);
+  const question = getTopicQuestionPhrasings(topic.id)[0];
+  const page =
+    questionSlug && question
+      ? { ...legacy.page, questionPage: { href: `/questions/${questionSlug}`, question } }
+      : legacy.page;
 
   const cruxViews: CruxEntryView[] = cruxes.map((crux) => ({
     ...crux,

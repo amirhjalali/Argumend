@@ -172,6 +172,34 @@ describe("one crux-first template for every map", () => {
   });
 });
 
+describe("the topic page footer", () => {
+  it("links a legacy map's related maps and, quietly, its question page", async () => {
+    const topic = (await loadTopicById("nuclear-energy-safety"))!;
+    const view = render(
+      <ReadModeView
+        topic={topic}
+        related={[{ id: "nuclear-renaissance-smr", title: "Can small modular reactors deliver?" }]}
+      />,
+    );
+    const nav = view.getByRole("navigation", { name: "Related maps" });
+    expect(
+      within(nav).getByRole("link", { name: "Can small modular reactors deliver? →" }).getAttribute("href"),
+    ).toBe("/topics/nuclear-renaissance-smr");
+
+    const question = view.getByTestId("question-page-link");
+    expect(question.textContent).toBe("Also asked as Is nuclear energy safe? →");
+    expect(within(question).getByRole("link").getAttribute("href")).toBe(
+      "/questions/is-nuclear-energy-safe",
+    );
+  });
+
+  it("adds no question link to a map without a question page", async () => {
+    const topic = (await loadTopicById("nuclear-energy-safety"))!;
+    const view = render(<ReadModeView topic={{ ...topic, id: "no-question-page" }} />);
+    expect(view.queryByTestId("question-page-link")).toBeNull();
+  });
+});
+
 describe("the one-tap reflection", () => {
   it("offers the crux questions, stores the answer locally, and never grades it", async () => {
     const { view } = await renderLegacy("nuclear-energy-safety");

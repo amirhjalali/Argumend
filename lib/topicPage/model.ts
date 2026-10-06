@@ -146,6 +146,11 @@ export interface TopicPageData {
   positionsNote?: string;
   positions: PositionCardData[];
   related: RelatedMap[];
+  /**
+   * The map's /questions page, when it has one: the question in a reader's
+   * words, led by its first crux. Linked quietly from the footer.
+   */
+  questionPage?: { href: string; question: string };
   /** The legacy diagram route, when this map has one. */
   diagramHref?: string;
   /** Whether /embed serves this map. */

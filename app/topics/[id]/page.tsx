@@ -20,6 +20,7 @@ import {
   CONTENT_LAST_UPDATED,
 } from "@/lib/site";
 import { mapDisplayTitle } from "@/lib/mapNaming";
+import { getRelatedMaps } from "@/lib/relatedMaps";
 
 // ---------------------------------------------------------------------------
 // Static Generation
@@ -149,6 +150,8 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
   // DebateView — no canvas bundle, no hydration for the core experience.
   const argumentTopic = loadArgumentTopic(id);
   if (argumentTopic) {
+    // Nearest subject first, read from the maps' own words (lib/relatedMaps.ts).
+    const related = await getRelatedMaps(argumentTopic.meta.id);
     // Re-establish the legacy path's AEO invariant: Article structured data
     // with the graph's evidence source URLs exposed as schema.org citations.
     const seenUrls = new Set<string>();
@@ -188,6 +191,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
             // Drop review-queue entries, but keep superseded public ones: the
             // strip hides them itself and needs them to say what an entry corrects.
             ledger={argumentTopic.ledger.filter(isPublicEntry)}
+            related={related}
           />
         </AppShell>
       </>
@@ -213,6 +217,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
   const socialImage = media?.hero
     ? absoluteMediaUrl(media.hero.src)
     : buildTopicOgUrl(topic.id);
+  const related = await getRelatedMaps(topic.id);
 
   // Honest dates: published constant, modified from topic.last_updated if present.
   const datePublished = CONTENT_FIRST_PUBLISHED;
@@ -278,7 +283,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
       {/* Server-rendered like the flagship maps: the same template, the same
           shell, and only the reflection and action buttons hydrate. */}
       <AppShell layout="reading">
-        <ReadModeView topic={topic} />
+        <ReadModeView topic={topic} related={related} />
       </AppShell>
     </>
   );
