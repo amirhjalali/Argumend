@@ -35,14 +35,16 @@
  */
 import { loadTopicById } from "@/data/topicLoader";
 import type { Pillar, Topic } from "@/lib/schemas/topic";
-import { legacyTopicPage, type LegacyEvidenceItem } from "@/lib/topicPage/legacy";
+import { legacyTopicPage, type LegacyCrux, type LegacyEvidenceItem } from "@/lib/topicPage/legacy";
 import { standingLineFor } from "@/lib/topicPage/model";
 import type { ArgumentGraph, Claim, Evidence as GraphEvidence } from "@/types/argument";
+import { pickCruxes, type CruxText } from "./cruxChoice";
 import { EXPECTED_MAP_COUNT, loadMapDocuments } from "./mapDocuments";
 import {
   buildMapIndex,
   mapSimilarity,
   rankMaps,
+  termIdf,
   type MapIndex,
   type MapRanking,
   type RankedMap,
@@ -261,37 +263,36 @@ function toCandidate(map: RankedMap): PasteMapCandidate {
 // Pillar maps
 // ---------------------------------------------------------------------------
 
-function pillarText(pillar: Pillar): string {
-  return [
-    pillar.title,
-    pillar.short_summary,
-    pillar.crux.title,
-    pillar.crux.description,
-    pillar.skeptic_premise,
-    pillar.proponent_rebuttal,
-  ].join(" ");
+/** A pillar's crux as the crux picker reads it (lib/paste/cruxChoice.ts). */
+export function pillarCruxText(pillar: Pillar, question?: string): CruxText {
+  return {
+    id: pillar.id,
+    name: [question ?? pillar.crux.question, pillar.title, pillar.crux.title],
+    body: [
+      pillar.short_summary,
+      pillar.skeptic_premise,
+      pillar.proponent_rebuttal,
+      pillar.crux.description,
+      pillar.crux.falsification?.live_disagreement,
+      pillar.crux.falsification?.common_ground,
+    ],
+    evidence: (pillar.evidence ?? []).flatMap((item) => [item.title, item.description]),
+  };
 }
 
-/**
- * The pillar whose crux to open at. The first pillar unless another one shares
- * clearly more words with the paste (at least two more distinct terms), so a
- * single stray word never moves the reader off the map's lead crux.
- */
-export function pickPillar(pillars: readonly Pillar[], text: string): Pillar | undefined {
-  if (pillars.length <= 1) return pillars[0];
-  const query = new Set(pasteTerms(text));
-  const overlap = pillars.map((pillar) => {
-    let shared = 0;
-    for (const term of new Set(pasteTerms(pillarText(pillar)))) {
-      if (query.has(term)) shared += 1;
-    }
-    return shared;
-  });
-  let best = 0;
-  for (let index = 1; index < overlap.length; index += 1) {
-    if (overlap[index] > overlap[best]) best = index;
-  }
-  return overlap[best] >= overlap[0] + 2 ? pillars[best] : pillars[0];
+/** The pillars whose cruxes to show: one, or two when no crux clearly leads. */
+export function pickPillars(
+  pillars: readonly Pillar[],
+  text: string,
+  corpusIdf: (term: string) => number,
+  questions: ReadonlyMap<string, string> = new Map(),
+): Pillar[] {
+  const { ids } = pickCruxes(
+    pillars.map((pillar) => pillarCruxText(pillar, questions.get(pillar.id))),
+    text,
+    corpusIdf,
+  );
+  return ids.flatMap((id) => pillars.filter((pillar) => pillar.id === id));
 }
 
 /** One card per side, strongest first, from the crux's own evidence. */
@@ -320,24 +321,29 @@ function cardsFrom(items: readonly LegacyEvidenceItem[]): PasteMapCard[] {
  * page the reader lands on words it, and the link lands on that entry's
  * anchor.
  */
-function pillarMatch(topic: Topic, text: string): PasteMapMatch {
-  const { cruxes } = legacyTopicPage(topic);
-  const pillar = pickPillar(topic.pillars, text);
-  const entry = cruxes.find((crux) => crux.pillarId === pillar?.id) ?? cruxes[0];
+function pillarCrux(topic: Topic, entry: LegacyCrux): PasteMapCrux {
+  return {
+    question: entry.question,
+    ...(entry.flips
+      ? { supporterFlip: entry.flips.supporter, skepticFlip: entry.flips.skeptic }
+      : entry.settle.mode === "standing"
+        ? { settle: standingLineFor(entry.settle.kind) }
+        : entry.settle.condition
+        ? { settle: entry.settle.condition }
+        : {}),
+    href: topicHref(topic.id, entry.anchor),
+  };
+}
 
-  const crux: PasteMapCrux | null = entry
-    ? {
-        question: entry.question,
-        ...(entry.flips
-          ? { supporterFlip: entry.flips.supporter, skepticFlip: entry.flips.skeptic }
-          : entry.settle.mode === "standing"
-            ? { settle: standingLineFor(entry.settle.kind) }
-            : entry.settle.condition
-            ? { settle: entry.settle.condition }
-            : {}),
-        href: topicHref(topic.id, entry.anchor),
-      }
-    : null;
+function pillarMatch(topic: Topic, text: string, corpusIdf: (term: string) => number): PasteMapMatch {
+  const { cruxes } = legacyTopicPage(topic);
+  const questions = new Map(cruxes.map((crux) => [crux.pillarId, crux.question]));
+  const picked = pickPillars(topic.pillars, text, corpusIdf, questions)
+    .map((pillar) => cruxes.find((crux) => crux.pillarId === pillar.id))
+    .filter((crux): crux is LegacyCrux => crux !== undefined);
+  const [entry = cruxes[0], also] = picked;
+
+  const crux: PasteMapCrux | null = entry ? pillarCrux(topic, entry) : null;
 
   // A crux without cards borrows the map's strongest ones rather than showing
   // an empty section. No weight is carried: the cards are two readings, not a
@@ -352,6 +358,7 @@ function pillarMatch(topic: Topic, text: string): PasteMapMatch {
     href: topicHref(topic.id),
     kind: "map",
     crux,
+    ...(also ? { alsoCrux: { question: also.question, href: topicHref(topic.id, also.anchor) } } : {}),
     cards,
     cardsAbout: topic.question?.trim() ? "map-question" : "map-claim",
   };
@@ -393,17 +400,68 @@ function flagshipCards(graph: ArgumentGraph, claimId: string): PasteMapCard[] {
   }));
 }
 
-async function flagshipMatch(id: string): Promise<PasteMapMatch | null> {
+type ArgumentTopic = NonNullable<ReturnType<typeof import("@/lib/argument/draftTopics").loadArgumentTopic>>;
+
+/** A flagship crux as the crux picker reads it: its claim, its note, and the evidence filed on it. */
+function flagshipCruxText(topic: ArgumentTopic, claim: Claim): CruxText {
+  const note = topic.meta.cruxNotes?.[claim.id];
+  const byId = new Map(topic.graph.nodes.map((node) => [node.id, node]));
+  const evidence = topic.graph.edges
+    .filter((edge) => edge.type === "evidences" && edge.to === claim.id)
+    .flatMap((edge) => {
+      const node = byId.get(edge.from);
+      return node?.type === "evidence" ? [node.summary ?? node.statement, node.relevance] : [];
+    });
+  return {
+    id: claim.id,
+    name: [note?.question, claim.summary ?? claim.statement],
+    body: [claim.statement, note?.fight, note?.soWhat, claim.statusBasis],
+    evidence,
+  };
+}
+
+/** The flagship's ranked cruxes, as claims, in the crux engine's order. */
+function flagshipClaims(topic: ArgumentTopic): Claim[] {
+  const nodes = new Map(topic.graph.nodes.map((node) => [node.id, node]));
+  return topic.cruxes
+    .map((crux) => nodes.get(crux.claimId))
+    .filter((node): node is Claim => node?.type === "claim");
+}
+
+/** The flagship cruxes to show: one, or two when no crux clearly leads. */
+function pickFlagshipClaims(topic: ArgumentTopic, text: string, corpusIdf: (term: string) => number): Claim[] {
+  const claims = flagshipClaims(topic);
+  const { ids } = pickCruxes(
+    claims.map((claim) => flagshipCruxText(topic, claim)),
+    text,
+    corpusIdf,
+  );
+  return ids.flatMap((id) => claims.filter((claim) => claim.id === id));
+}
+
+function flagshipCrux(topic: ArgumentTopic, claim: Claim): PasteMapCrux {
+  const note = topic.meta.cruxNotes?.[claim.id];
+  return {
+    question: note?.question ?? claim.summary ?? claim.statement,
+    ...(claim.resolution?.condition ? { settle: claim.resolution.condition } : {}),
+    fight: note?.fight ?? claim.statusBasis,
+    // The topic template anchors each flagship crux entry by claim id.
+    href: topicHref(topic.meta.id, `crux-${claim.id}`),
+  };
+}
+
+async function flagshipMatch(
+  id: string,
+  text: string,
+  corpusIdf: (term: string) => number,
+): Promise<PasteMapMatch | null> {
   // Loaded on demand: the draft graphs and the crux engine are only needed
   // when a flagship map is the answer.
   const { loadArgumentTopic } = await import("@/lib/argument/draftTopics");
   const topic = loadArgumentTopic(id);
   if (!topic) return null;
-  const nodes = new Map(topic.graph.nodes.map((node) => [node.id, node]));
-  const top = topic.cruxes
-    .map((crux) => nodes.get(crux.claimId))
-    .find((node): node is Claim => node?.type === "claim");
-  const note = top ? topic.meta.cruxNotes?.[top.id] : undefined;
+  const [top, also] = pickFlagshipClaims(topic, text, corpusIdf);
+  const second = also ? flagshipCrux(topic, also) : null;
 
   return {
     id,
@@ -411,28 +469,52 @@ async function flagshipMatch(id: string): Promise<PasteMapMatch | null> {
     claim: topic.graph.question.statement,
     href: topicHref(id),
     kind: "flagship",
-    crux: top
-      ? {
-          question: note?.question ?? top.summary ?? top.statement,
-          ...(top.resolution?.condition ? { settle: top.resolution.condition } : {}),
-          fight: note?.fight ?? top.statusBasis,
-          // The topic template anchors each flagship crux entry by claim id.
-          href: topicHref(id, `crux-${top.id}`),
-        }
-      : null,
+    crux: top ? flagshipCrux(topic, top) : null,
+    ...(second ? { alsoCrux: { question: second.question, href: second.href } } : {}),
     cards: top ? flagshipCards(topic.graph, top.id) : [],
     cardsAbout: "crux-claim",
   };
+}
+
+/**
+ * The crux ids a paste would be shown on a map, best first (one or two), for
+ * the crux-choice eval (data/evals/paste-matching/cruxes.json). Null for an
+ * unknown map.
+ */
+export async function chooseCruxIds(mapId: string, text: string): Promise<string[] | null> {
+  const index = await getMapIndex();
+  const cruxes = await mapCruxTexts(mapId);
+  return cruxes ? pickCruxes(cruxes, text, (term) => termIdf(index, term)).ids : null;
+}
+
+/** A map's cruxes as the crux picker reads them, in the map's order. Null for an unknown map. */
+export async function mapCruxTexts(mapId: string): Promise<CruxText[] | null> {
+  const topic = await loadTopicById(mapId);
+  if (topic) {
+    const questions = new Map(legacyTopicPage(topic).cruxes.map((crux) => [crux.pillarId, crux.question]));
+    return topic.pillars.map((pillar) => pillarCruxText(pillar, questions.get(pillar.id)));
+  }
+  const { loadArgumentTopic } = await import("@/lib/argument/draftTopics");
+  const argumentTopic = loadArgumentTopic(mapId);
+  return argumentTopic
+    ? flagshipClaims(argumentTopic).map((claim) => flagshipCruxText(argumentTopic, claim))
+    : null;
 }
 
 // ---------------------------------------------------------------------------
 // The lane
 // ---------------------------------------------------------------------------
 
-async function buildMatch(map: RankedMap, kind: "map" | "flagship", text: string): Promise<PasteMapMatch | null> {
-  if (kind === "flagship") return flagshipMatch(map.id);
+async function buildMatch(
+  map: RankedMap,
+  kind: "map" | "flagship",
+  text: string,
+  index: MapIndex,
+): Promise<PasteMapMatch | null> {
+  const corpusIdf = (term: string) => termIdf(index, term);
+  if (kind === "flagship") return flagshipMatch(map.id, text, corpusIdf);
   const topic = await loadTopicById(map.id);
-  return topic ? pillarMatch(topic, text) : null;
+  return topic ? pillarMatch(topic, text, corpusIdf) : null;
 }
 
 const round = (value: number | null, places = 2) =>
@@ -496,7 +578,7 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
 
   const named = decision.named;
   const match = named
-    ? await buildMatch(named, index.byId.get(named.id)?.document.kind ?? "map", text)
+    ? await buildMatch(named, index.byId.get(named.id)?.document.kind ?? "map", text, index)
     : null;
   // A named map that could not be read degrades to "closest", never to a wrong map.
   const related = match ? decision.related.map(toCandidate) : [];

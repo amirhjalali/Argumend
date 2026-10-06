@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Site-search eval: what a reader types into a search box (questions, short keywords, misspellings, abbreviations) and the maps that are a right first answer. `expected` lists map ids; any of them counts (first = the best one). A /questions result counts when its page belongs to an expected map. Scored by lib/siteSearchEval.test.ts on three surfaces: the header search (components/SearchModal.tsx), the maps library (/topics?q=) and the questions index (/questions?q=). Written 2026-10-06 for r3 review issue #5 ('search misses the obvious'); the queries come from how people phrase these debates, not from the maps' own wording.",
+  "description": "Site-search eval: what a reader types into a search box (questions, short keywords, misspellings, abbreviations) and the maps that are a right first answer. `expected` lists map ids; any of them counts (first = the best one). A /questions result counts when its page belongs to an expected map. Scored by lib/siteSearchEval.test.ts on three surfaces: the header search (components/SearchModal.tsx), the maps library (/topics?q=) and the questions index (/questions?q=). Written 2026-10-06 for r3 review issue #5 ('search misses the obvious'); the queries come from how people phrase these debates, not from the maps' own wording. Cases with an empty `expected` (kind `no-map`) are subjects no map covers: a box may list at most `maxMaps` maps for them, so a search that finds nothing says so instead of listing near-misses. Added 2026-10-06 for r6 live-review issue #4, with the two nuclear-deterrence queries that must still find their map.",
   "cases": [
     { "query": "is nuclear power safe", "expected": ["nuclear-energy-safety"], "kind": "question" },
     { "query": "nuclear energy", "expected": ["nuclear-energy-safety"], "kind": "keyword" },
@@ -51,6 +51,12 @@
     { "query": "is alcohol bad for you", "expected": ["alcohol-no-safe-level"], "kind": "question" },
     { "query": "do antidepressants work", "expected": ["ssri-antidepressant-efficacy"], "kind": "question" },
     { "query": "fusion power", "expected": ["nuclear-fusion-timeline"], "kind": "keyword" },
-    { "query": "smrs", "expected": ["nuclear-renaissance-smr"], "kind": "abbreviation" }
+    { "query": "smrs", "expected": ["nuclear-renaissance-smr"], "kind": "abbreviation" },
+    { "query": "nuclear deterrence", "expected": ["nuclear-weapons-abolition"], "kind": "keyword" },
+    { "query": "abolition of nuclear weapons", "expected": ["nuclear-weapons-abolition"], "kind": "phrase" },
+    { "query": "abortion", "expected": [], "maxMaps": 0, "kind": "no-map", "note": "r6 live review #4: returned the nuclear-deterrence map (abortion~abolition), then every map whose question says 'about' (abort~about)." },
+    { "query": "abortion rights", "expected": [], "maxMaps": 3, "kind": "no-map", "note": "No map on abortion; maps on other rights may be listed, a few at most." },
+    { "query": "gay marriage", "expected": [], "maxMaps": 0, "kind": "no-map", "note": "Was gain-of-function first: 'gay' stems to 'gai', which starts 'gain'." },
+    { "query": "my sister and I argue about mom", "expected": [], "maxMaps": 2, "kind": "no-map", "note": "r6 live review #4: returned 17 unrelated maps." }
   ]
 }

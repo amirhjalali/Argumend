@@ -91,6 +91,38 @@ describe("SearchModal keyboard lifecycle", () => {
     expect(push).not.toHaveBeenCalled();
   });
 
+  it("says there is no map yet for a subject none covers, and offers paste and a suggestion", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    // r6 review #4: "abortion" listed the nuclear-deterrence map (abolition)
+    // and, later, every map whose question says "about".
+    fireEvent.change(input, { target: { value: "abortion" } });
+    expect(view.queryAllByRole("option")).toHaveLength(0);
+    expect(view.getByText("No map on “abortion” yet.")).toBeTruthy();
+
+    fireEvent.click(view.getByRole("button", { name: "Paste the argument you’re in" }));
+    expect(push).toHaveBeenLastCalledWith(ANALYZE_HREF);
+
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const again = view.getByRole("combobox", { name: "Search Argumend" });
+    fireEvent.change(again, { target: { value: "my sister and I argue about mom" } });
+    expect(view.getByText("No map on “my sister and I argue about mom” yet.")).toBeTruthy();
+    fireEvent.click(view.getByRole("button", { name: "suggest a map" }));
+    expect(push).toHaveBeenLastCalledWith("/about#contribute");
+  });
+
+  it("still finds the nuclear-deterrence map by its own words", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    fireEvent.change(input, { target: { value: "abolition of nuclear weapons" } });
+    expect(view.getAllByRole("option")[0].textContent).toMatch(/nuclear deterrence/i);
+    expect(view.queryByText(/^No map on/)).toBeNull();
+  });
+
   it("opens on the two flagship maps, then paste-an-argument and all maps", async () => {
     const view = render(<SearchHarness />);
     fireEvent.click(view.getByRole("button", { name: "Open search" }));

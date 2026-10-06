@@ -193,6 +193,23 @@ describe("/topics: search", () => {
     await waitFor(() => expect(window.location.search).toBe(""));
     expect(view.getByRole("heading", { name: "Start here" })).toBeTruthy();
   });
+
+  it("names a subject no map covers, offers paste and a suggestion, and one Clear filters", async () => {
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    fireEvent.change(view.getByRole("searchbox", { name: "Search maps" }), {
+      target: { value: "abortion" },
+    });
+    await waitFor(() => expect(view.getByRole("status").textContent).toBe("No maps match"));
+    expect(view.getByText("No map on “abortion” yet.")).toBeTruthy();
+    expect(view.getByRole("link", { name: "Paste the argument you’re in" }).getAttribute("href")).toBe("/analyze");
+    expect(view.getByRole("link", { name: "suggest a map" }).getAttribute("href")).toBe("/about#contribute");
+    // Never the nuclear-deterrence map (abortion is not abolition).
+    expect(view.container.querySelector('a[href="/topics/nuclear-weapons-abolition"]')).toBeNull();
+    expect(view.getAllByRole("button", { name: /Clear (all )?filters/ })).toHaveLength(1);
+
+    fireEvent.click(view.getByRole("button", { name: "Clear filters" }));
+    await waitFor(() => expect(window.location.search).toBe(""));
+  });
 });
 
 describe("/topics: saved on this device", () => {

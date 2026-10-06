@@ -66,7 +66,15 @@ export interface PasteMapCandidate {
 export interface PasteMapMatch extends PasteMapCandidate {
   /** "map": a pillar map; "flagship": an ArgumentGraph debate map. */
   kind: "map" | "flagship";
+  /** The crux the paste is about, or the map's lead crux when the paste does not say. */
   crux: PasteMapCrux | null;
+  /**
+   * A second crux, when the paste's words do not pick one crux over the
+   * other: the result then says it may turn on one of the two. Only its
+   * question and its anchor; what would change each side's mind, and the
+   * cards, stay with `crux`.
+   */
+  alsoCrux?: Pick<PasteMapCrux, "question" | "href">;
   /** At most one card per side, strongest first. */
   cards: PasteMapCard[];
   /**

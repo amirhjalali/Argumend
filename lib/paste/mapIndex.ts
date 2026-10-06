@@ -196,6 +196,15 @@ export function buildMapIndex(
 }
 
 /**
+ * A term's IDF across every map: the weight a paste's word carries in the
+ * ranking. The crux picker (lib/paste/cruxChoice.ts) weights a crux's words
+ * the same way, so a word most maps use counts for little there too.
+ */
+export function termIdf(index: MapIndex, term: string): number {
+  return idf(index.maps.length, index.documentFrequency.get(term) ?? 0);
+}
+
+/**
  * Cosine similarity of two maps' whole-map profiles, 0 to 1, memoised. Maps
  * on the same subject score well above the rest: across all 12,561 pairs of
  * the 159 maps on 2026-09-29 the median pair scored 0.06 and the 99th

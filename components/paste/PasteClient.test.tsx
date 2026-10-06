@@ -92,9 +92,17 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(view.getByText("Points to yes")).toBeTruthy();
     expect(view.getByText("Points to no")).toBeTruthy();
     expect(view.queryByText(/Supports it|Cuts against it/)).toBeNull();
+    // The example exchange is about both of the map's cruxes (wages now,
+    // growth later), so both are shown, and the action opens the first.
+    expect(view.getByRole("heading", { name: "It may turn on one of these" })).toBeTruthy();
     expect(
-      view.getByRole("link", { name: "Open the map at this crux" }).getAttribute("href"),
+      view.getByRole("link", { name: "Open the map at the first crux" }).getAttribute("href"),
     ).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
+    expect(
+      view
+        .getByRole("link", { name: "Do long-run growth gains outweigh short-term costs for low-skill native workers?" })
+        .getAttribute("href"),
+    ).toBe("/topics/immigration-wage-impact#crux-long-term-economic-effects");
     expect(view.getByRole("button", { name: "Copy a summary" })).toBeTruthy();
     expect(view.getByText("Did this change what you thought you were arguing about?")).toBeTruthy();
     // The same answers the question has under every map.
@@ -113,8 +121,8 @@ describe("PasteClient with every lane off (production today)", () => {
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
     const mapHeading = await waitFor(() => view.getByRole("heading", { name: "This argument is already mapped" }));
-    const cruxHeading = view.getByRole("heading", { name: "What the map says it turns on" });
-    const cta = view.getByRole("link", { name: "Open the map at this crux" });
+    const cruxHeading = view.getByRole("heading", { name: "It may turn on one of these" });
+    const cta = view.getByRole("link", { name: "Open the map at the first crux" });
     const cardsHeading = view.getByRole("heading", { name: "The strongest card on each side" });
     // Node.DOCUMENT_POSITION_FOLLOWING === 4: map, crux, its action, then the cards.
     expect(mapHeading.compareDocumentPosition(cruxHeading) & 4).toBe(4);
@@ -167,7 +175,7 @@ describe("PasteClient with every lane off (production today)", () => {
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
 
     await waitFor(() => view.getByRole("heading", { name: /^No map/ }));
-    expect(view.queryByRole("link", { name: "Open the map at this crux" })).toBeNull();
+    expect(view.queryByRole("link", { name: /^Open the map at (this|the first) crux$/ })).toBeNull();
     expect(view.queryByRole("heading", { name: "Closely related" })).toBeNull();
   });
 

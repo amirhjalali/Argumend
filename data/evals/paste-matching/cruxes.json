@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "set": "cruxes",
+  "description": "Crux-choice eval for the map lane at /analyze (lib/paste/cruxChoice.ts): once a paste's map is known, which of the map's cruxes is the paste about? Each case names the map (`map`) and the crux it is about (`expected`: a pillar id on a pillar map, a crux claim id on a flagship map). Scored by lib/paste/cruxEval.test.ts with the map given, so a miss here is a crux miss, not a map miss. Written on 2026-10-06 for round-6 live-review issue #8 (a rent-control paste about displacement was shown the map's first crux, about new construction), before the picker was changed. Pastes are in a person's voice, not the map's wording; about a third are about the map's first crux, so a picker that never leaves the lead crux cannot score well and one that always does cannot either.",
+  "cases": [
+    {
+      "id": "rc-uncle",
+      "map": "rent-control-effectiveness",
+      "text": "My uncle says rent control is the only thing keeping families in our neighborhood… He says landlords would just jack up rents without it.",
+      "expected": "incumbent-vs-newcomer",
+      "note": "The round-6 live review's paste: shown the supply crux."
+    },
+    {
+      "id": "rc-construction",
+      "map": "rent-control-effectiveness",
+      "text": "Every economist will tell you price caps kill construction. Who builds an apartment building when the city decides what rent you can charge? But the new laws exempt anything built after 2000, so I'm not sure the old argument even applies.",
+      "expected": "supply-effects"
+    },
+    {
+      "id": "rc-bridge",
+      "map": "rent-control-effectiveness",
+      "text": "Fine, rent control is a blunt tool. But upzoning and permitting reform take fifteen years to show up in rents, and people are getting evicted this year. Something has to hold the line until the new supply arrives.",
+      "expected": "alternative-approaches"
+    },
+    {
+      "id": "rc-newcomer",
+      "map": "rent-control-effectiveness",
+      "text": "Rent control is great if you already have the apartment. I moved here last year and spent four months searching while everyone with a controlled lease just never moves out.",
+      "expected": "incumbent-vs-newcomer"
+    },
+    {
+      "id": "ha-upzoning",
+      "map": "housing-affordability-crisis",
+      "text": "Legalize apartments near transit and rents will come down. Minneapolis ended single-family zoning and its rents stayed flat while everywhere else went up.",
+      "expected": "zoning-supply-constraints"
+    },
+    {
+      "id": "ha-vienna",
+      "map": "housing-affordability-crisis",
+      "text": "Why can't we just do what Vienna does? Half the city lives in social housing and nobody thinks it's a slum. Here public housing became a byword for failure.",
+      "expected": "public-housing"
+    },
+    {
+      "id": "ha-oregon",
+      "map": "housing-affordability-crisis",
+      "text": "Oregon capped rent increases at 7% plus inflation statewide. Did that stop people getting pushed out of their homes, or did builders just walk away?",
+      "expected": "rent-control"
+    },
+    {
+      "id": "nuc-chernobyl",
+      "map": "nuclear-energy-safety",
+      "text": "Nuclear power is too dangerous, look at Chernobyl and Fukushima. And nobody has solved what to do with the waste.",
+      "expected": "safety-record"
+    },
+    {
+      "id": "nuc-vogtle",
+      "map": "nuclear-energy-safety",
+      "text": "Vogtle came in seven years late and $17 billion over budget. For that money you could build twice the solar and batteries and have them running by now.",
+      "expected": "climate-effectiveness"
+    },
+    {
+      "id": "imm-site",
+      "map": "immigration-wage-impact",
+      "text": "When a construction site can hire guys off the books for half the rate, of course the native workers' pay goes down. Borjas showed it with the Mariel data.",
+      "expected": "labor-market-economics"
+    },
+    {
+      "id": "imm-longrun",
+      "map": "immigration-wage-impact",
+      "text": "Sure, maybe some low-skill wages dip for a few years. But immigrants found companies, pay taxes for decades, and the economy ends up bigger for everyone.",
+      "expected": "long-term-economic-effects"
+    },
+    {
+      "id": "mw-rural",
+      "map": "minimum-wage-effects",
+      "text": "A $15 minimum wage in rural Mississippi is not the same as in Seattle. Small diners out there will just cut shifts or close.",
+      "expected": "employment-effects"
+    },
+    {
+      "id": "mw-teens",
+      "map": "minimum-wage-effects",
+      "text": "Most minimum wage earners aren't the sole breadwinner of a poor family; plenty are teenagers in middle-class homes. The EITC gets money to poor households far better.",
+      "expected": "poverty-economic-effects"
+    },
+    {
+      "id": "ubi-cost",
+      "map": "universal-basic-income",
+      "text": "A thousand dollars a month to every adult is three trillion dollars a year. Where's that money coming from, a VAT? You'd have to double taxes.",
+      "expected": "economic-impact-fiscal-feasibility"
+    },
+    {
+      "id": "ubi-work",
+      "map": "universal-basic-income",
+      "text": "If you pay people to sit at home, they'll sit at home. My cousin would quit his job tomorrow if he got a basic income.",
+      "expected": "labor-market-work-incentives"
+    },
+    {
+      "id": "ubi-targeted",
+      "map": "universal-basic-income",
+      "text": "Why give cash to millionaires too? Targeted programs like food stamps and housing vouchers get far more help to poor families per dollar.",
+      "expected": "social-outcomes-wellbeing"
+    },
+    {
+      "id": "gun-countries",
+      "map": "gun-control-effectiveness",
+      "text": "Australia and the UK banned most guns and their gun deaths fell off a cliff. The US has more guns than people and the death rate to match.",
+      "expected": "international-comparison"
+    },
+    {
+      "id": "gun-ar15",
+      "map": "gun-control-effectiveness",
+      "text": "Banning AR-15s and high-capacity magazines won't stop mass shootings. A shooter will just bring three handguns instead.",
+      "expected": "mass-shooting-prevention"
+    },
+    {
+      "id": "cc-sun",
+      "map": "climate-change",
+      "text": "The climate has always changed. It's the sun, solar cycles and volcanoes, not your SUV.",
+      "expected": "natural-factors-elimination"
+    },
+    {
+      "id": "cc-pause",
+      "map": "climate-change",
+      "text": "If CO2 drives warming, why did temperatures stall from 1998 to 2014 while emissions kept climbing? The models ran hot.",
+      "expected": "temperature-attribution"
+    },
+    {
+      "id": "cc-isotope",
+      "map": "climate-change",
+      "text": "How do we even know the extra carbon dioxide is from burning fossil fuels and not from the oceans outgassing?",
+      "expected": "isotopic-fingerprint"
+    },
+    {
+      "id": "vax-spread",
+      "map": "vaccine-mandates",
+      "text": "The COVID shot didn't stop transmission, so mandating it to protect others never made sense. Measles is different, that one does stop spread.",
+      "expected": "harm-to-others"
+    },
+    {
+      "id": "vax-trust",
+      "map": "vaccine-mandates",
+      "text": "The mandates destroyed trust in public health. My parents won't even get a flu shot now because they felt forced.",
+      "expected": "legitimacy-and-trust"
+    },
+    {
+      "id": "vax-uptake",
+      "map": "vaccine-mandates",
+      "text": "Vaccination rates were climbing anyway. Did the mandates actually make more people get vaccinated, or was it just the rollout catching up?",
+      "expected": "do-mandates-work"
+    },
+    {
+      "id": "dp-innocent",
+      "map": "death-penalty-deterrence",
+      "text": "Over 190 people have been exonerated from death row. If you execute an innocent man you can't take it back.",
+      "expected": "justice-and-error"
+    },
+    {
+      "id": "dp-texas",
+      "map": "death-penalty-deterrence",
+      "text": "Texas executes the most people and still has plenty of murders. The death penalty doesn't deter anyone.",
+      "expected": "deterrence-effect"
+    },
+    {
+      "id": "phone-anxiety",
+      "map": "school-phone-bans",
+      "text": "My daughter's anxiety got so much better once her school locked up phones all day. No Instagram drama at lunch.",
+      "expected": "mental-health"
+    },
+    {
+      "id": "phone-equity",
+      "map": "school-phone-bans",
+      "text": "What about the kid who needs her phone to translate for her parents or check her blood sugar? And guess which students get written up for phones.",
+      "expected": "implementation-equity"
+    },
+    {
+      "id": "phone-scores",
+      "map": "school-phone-bans",
+      "text": "Test scores went up after the ban, but those schools were already the ones with engaged parents.",
+      "expected": "academic-performance"
+    },
+    {
+      "id": "ai-retraining",
+      "map": "ai-mass-unemployment",
+      "text": "Retraining programs have a terrible track record. Laid-off miners were told to learn to code and almost none of them ended up with jobs.",
+      "expected": "c-targeted-programs-can-help"
+    },
+    {
+      "id": "ai-degree",
+      "map": "ai-mass-unemployment",
+      "text": "My nephew just graduated with a CS degree and can't find an entry-level job. The degree used to be your ticket in; now AI does the junior work.",
+      "expected": "c-credential-pathway-narrows"
+    },
+    {
+      "id": "ai-hiring",
+      "map": "ai-mass-unemployment",
+      "text": "Every company that adopts AI says it's about productivity, not layoffs. But they just stop hiring. Output goes up and headcount stays flat.",
+      "expected": "c-firms-cut-hiring-not-output"
+    },
+    {
+      "id": "cap-buyers",
+      "map": "capitalism-after-ai",
+      "text": "If machines do all the work and nobody gets paid wages, who is going to buy the stuff the machines make?",
+      "expected": "c-demand-collapse-without-recycling"
+    },
+    {
+      "id": "cap-ownership",
+      "map": "capitalism-after-ai",
+      "text": "Three companies control frontier AI. Whoever owns the models owns the economy, and open-source won't catch up.",
+      "expected": "c-ai-ownership-stays-concentrated"
+    },
+    {
+      "id": "isr-combatants",
+      "map": "us-israel-support",
+      "text": "Israel says a large share of the dead in Gaza were Hamas fighters; the Health Ministry doesn't separate combatants from civilians at all.",
+      "expected": "c-casualty-figures-mostly-combatants"
+    },
+    {
+      "id": "isr-leverage",
+      "map": "us-israel-support",
+      "text": "We send Israel billions a year in military aid and we can't even get them to let more trucks into Gaza. What leverage?",
+      "expected": "c-aid-buys-leverage"
+    }
+  ]
+}
