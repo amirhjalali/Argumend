@@ -9,6 +9,7 @@ import { topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 import { isAnalysisId } from "@/lib/analysisId";
 import { getAllQuestionVariations } from "@/lib/questions";
+import retiredMaps from "@/data/retiredMaps.json";
 
 // These compact catalogs intentionally live apart from the prose-heavy source
 // modules. Drift tests compare them with each page's static params.
@@ -105,6 +106,7 @@ const DIAGRAM_VIEWS = new Set(["graph", "logic-map"]);
  *
  * - `view=graph|logic-map` on a legacy map: its diagram, /topics/<id>/map.
  * - any other view, or a new-model map (which has no diagram): /topics/<id>.
+ * - a retired map: the same, for the map it was merged into.
  * - an empty or unknown id: the library, /topics.
  *
  * `topic` and `view` are dropped; any other parameter (utm_*, ref) is kept.
@@ -112,8 +114,10 @@ const DIAGRAM_VIEWS = new Set(["graph", "logic-map"]);
  * whole incoming query into the destination and so cannot drop them.
  */
 export function legacyHomeTopicPath(searchParams: URLSearchParams): string | null {
-  const id = searchParams.get("topic");
-  if (id === null) return null;
+  const asked = searchParams.get("topic");
+  if (asked === null) return null;
+  // A retired map's link opens the map it was merged into (data/retiredMaps.json).
+  const id = (retiredMaps as Record<string, { into: string }>)[asked]?.into ?? asked;
   const view = searchParams.get("view");
 
   const rest = new URLSearchParams(searchParams);

@@ -136,8 +136,8 @@ describe("opening contract", () => {
 
   it("every legacy map opens without a poll, a verdict or a crux's answer", () => {
     const rows = auditLegacy();
-    // 110 maps carry a lede and a summary; a map dropping them is a regression too.
-    expect(rows.length).toBeGreaterThanOrEqual(220);
+    // 108 maps carry a lede and a summary; a map dropping them is a regression too.
+    expect(rows.length).toBeGreaterThanOrEqual(216);
     const failing = rows.filter((row) => row.problems.length > 0);
     expect(failing, describeProblems(failing).join("\n")).toEqual([]);
   });

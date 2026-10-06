@@ -641,9 +641,9 @@
     "title": "The US-Iran Conflict",
     "question": "Has US pressure on Iran made the Middle East safer and served US interests?",
     "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 23,
-    "balance": 23,
-    "weight": 69,
+    "confidence_score": 30,
+    "balance": 30,
+    "weight": 75,
     "verdict": {
       "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
@@ -651,8 +651,8 @@
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 5,
+    "evidenceCount": 19,
     "firstCrux": "Did Iran's nuclear escalation result from the US leaving the nuclear deal, or would it have happened anyway?",
     "tags": [
       "policy"
@@ -686,15 +686,15 @@
     "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
     "confidence_score": 53,
     "balance": 53,
-    "weight": 77,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 4,
-    "evidenceCount": 19,
+    "pillarCount": 5,
+    "evidenceCount": 23,
     "firstCrux": "Can ByteDance staff in China still access Americans' TikTok data despite Project Texas safeguards?",
     "tags": [
       "policy"
@@ -802,27 +802,6 @@
     "pillarCount": 3,
     "evidenceCount": 14,
     "firstCrux": "How often do truly catastrophic pandemics strike under modern conditions?",
-    "tags": [
-      "policy"
-    ]
-  },
-  {
-    "id": "iran-war-justification",
-    "title": "Is Military Action Against Iran Justified?",
-    "question": "Is military action against Iran justified?",
-    "meta_claim": "Military strikes against Iran's nuclear and military infrastructure are a justified response to regional aggression and nuclear proliferation risks.",
-    "confidence_score": 50,
-    "balance": 50,
-    "weight": 70,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Is Iran near a deliverable nuclear weapon, or is the gap from enriched uranium to a bomb understated?",
     "tags": [
       "policy"
     ]
@@ -1080,27 +1059,6 @@
     ]
   },
   {
-    "id": "ai-job-displacement",
-    "title": "Will AI Replace Most White-Collar Jobs?",
-    "question": "Will AI eliminate or transform most white-collar work within a decade?",
-    "meta_claim": "Artificial intelligence and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 77,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 17,
-    "firstCrux": "Are AI's failures on novel tasks a lasting ceiling, or a gap the next models will close?",
-    "tags": [
-      "technology"
-    ]
-  },
-  {
     "id": "ai-in-education",
     "title": "AI in Education: Revolution or Risk?",
     "question": "Will AI in education close achievement gaps and outweigh its risks?",
@@ -1138,27 +1096,6 @@
     "pillarCount": 3,
     "evidenceCount": 12,
     "firstCrux": "Will AI capabilities keep scaling toward catastrophe-relevant thresholds, or plateau?",
-    "tags": [
-      "technology"
-    ]
-  },
-  {
-    "id": "ai-white-collar-displacement",
-    "title": "AI White-Collar Job Displacement",
-    "question": "Will AI eliminate more white-collar jobs than it creates in a decade?",
-    "meta_claim": "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade, requiring fundamental restructuring of the knowledge economy.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 76,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "technology",
-    "pillarCount": 4,
-    "evidenceCount": 19,
-    "firstCrux": "Can AI match professionals on complete real-world deliverables, not just standardized tests?",
     "tags": [
       "technology"
     ]
@@ -1315,18 +1252,18 @@
     "title": "Electric Vehicles vs. ICE Cars",
     "question": "Are EVs significantly greener than gas cars over their full lifecycle?",
     "meta_claim": "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 71,
+    "confidence_score": 53,
+    "balance": 53,
+    "weight": 83,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "How fast does an EV make up its battery's emissions, and how much do mining harms weigh?",
+    "pillarCount": 3,
+    "evidenceCount": 17,
+    "firstCrux": "How fast does an EV make up its battery's emissions?",
     "tags": [
       "science"
     ]
@@ -1442,17 +1379,17 @@
     "title": "Psychedelics for Mental Health",
     "question": "Should psychedelics be approved to treat depression, PTSD and addiction?",
     "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
-    "confidence_score": 74,
-    "balance": 74,
-    "weight": 52,
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 2,
-    "evidenceCount": 5,
+    "pillarCount": 3,
+    "evidenceCount": 10,
     "firstCrux": "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
     "tags": [
       "science"
@@ -1505,17 +1442,17 @@
     "title": "The Science of Life Extension",
     "question": "Will longevity research significantly extend healthy lifespan in 20 years?",
     "meta_claim": "Recent breakthroughs in longevity research — including senolytics, epigenetic reprogramming, and caloric restriction mimetics — will significantly extend healthy human lifespan within the next 20 years.",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 73,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 15,
     "firstCrux": "Do senolytic drugs improve human healthspan in large trials, or does the mouse-to-human gap defeat them?",
     "tags": [
       "science"
@@ -1601,27 +1538,6 @@
     "pillarCount": 3,
     "evidenceCount": 12,
     "firstCrux": "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
-    "tags": [
-      "science"
-    ]
-  },
-  {
-    "id": "lithium-mining-ev-impact",
-    "title": "Lithium Mining & EV Environmental Impact",
-    "question": "Are EVs clearly greener than gas cars once mining is counted?",
-    "meta_claim": "Electric vehicles are significantly better for the environment than gas cars when mining impacts are included",
-    "confidence_score": 44,
-    "balance": 44,
-    "weight": 79,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 14,
-    "firstCrux": "How many miles must an EV drive to repay its manufacturing carbon, on each market's grid?",
     "tags": [
       "science"
     ]
@@ -1859,20 +1775,21 @@
   },
   {
     "id": "housing-affordability-crisis",
-    "title": "The Housing Affordability Crisis",
-    "question": "Does fixing housing affordability require government intervention?",
-    "meta_claim": "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, as the free market alone cannot provide adequate affordable housing.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 73,
+    "title": "Housing Supply & Affordability",
+    "question": "Would building more homes make housing affordable?",
+    "meta_claim": "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
+    "confidence_score": 78,
+    "balance": 78,
+    "weight": 68,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 2,
+    "evidenceCount": 9,
     "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
     "tags": [
       "economics"
@@ -2031,9 +1948,9 @@
     "title": "Does Rent Control Help or Hurt Renters?",
     "question": "Does rent control make housing less affordable in the long run?",
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 70,
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2041,7 +1958,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 13,
     "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
     "tags": [
       "economics"
@@ -2261,27 +2178,6 @@
     ]
   },
   {
-    "id": "government-platform-bans",
-    "title": "Government Bans on Social Media Platforms",
-    "question": "Can national security justify banning foreign-owned apps like TikTok?",
-    "meta_claim": "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms like TikTok on national security grounds, even at the cost of restricting free expression for millions of citizens.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 68,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Can an adversary government compel data access or algorithm changes despite company safeguards?",
-    "tags": [
-      "policy"
-    ]
-  },
-  {
     "id": "gain-of-function-research-ban",
     "title": "Should Gain-of-Function Research Be Banned?",
     "question": "Should research that enhances pandemic pathogens be banned worldwide?",
@@ -2450,27 +2346,6 @@
     ]
   },
   {
-    "id": "longevity-anti-aging",
-    "title": "Anti-Aging & Radical Life Extension",
-    "question": "Could human lifespans pass 120 within our lifetimes?",
-    "meta_claim": "Recent advances in longevity science — including rapamycin, senolytics, epigenetic reprogramming, and caloric restriction mimetics — suggest that meaningful human lifespan extension beyond 120 years is achievable within our lifetimes.",
-    "confidence_score": 52,
-    "balance": 52,
-    "weight": 62,
-    "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Do treatments that extend healthy lifespan in short-lived animals deliver similar gains in primates?",
-    "tags": [
-      "science"
-    ]
-  },
-  {
     "id": "nuclear-proliferation-new-arms-race",
     "title": "The New Nuclear Arms Race",
     "question": "Has a new arms race made nuclear war likelier than at any time since 1962?",
@@ -2552,27 +2427,6 @@
     "firstCrux": "Are immigration's economic gains broadly shared, or do the costs fall on low-income natives?",
     "tags": [
       "policy"
-    ]
-  },
-  {
-    "id": "psychedelic-therapy-hype",
-    "title": "Psychedelic Therapy: Revolution or Overhype?",
-    "question": "Is psychedelic therapy a genuine revolution in mental health care?",
-    "meta_claim": "The psychedelic therapy renaissance — with psilocybin, MDMA, and ketamine treatments gaining clinical validation — represents a genuine paradigm shift in mental health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
-    "confidence_score": 45,
-    "balance": 45,
-    "weight": 64,
-    "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Do psychedelic therapy's large effects hold up in trials with better blinding?",
-    "tags": [
-      "science"
     ]
   },
   {

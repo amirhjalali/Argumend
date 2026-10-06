@@ -131,6 +131,23 @@ export const longevityScienceData = {
           reasoning:
             "The NIA Interventions Testing Program is the most rigorous pre-clinical aging research program in the world, testing compounds in genetically diverse mice across three independent sites. The >90% clinical failure rate is a well-established fact in drug development. This is powerful evidence that mouse longevity results should be viewed with skepticism until human trials succeed.",
         },
+        {
+          id: "senolytic-human-trial",
+          title: "Senolytic Drugs Tested in Early Human Trials for Pulmonary Fibrosis (2019/2023)",
+          description:
+            "An open-label, single-arm pilot study (2019, n=14) of the senolytic combination dasatinib + quercetin in patients with idiopathic pulmonary fibrosis (IPF) reported improvements in physical function (6-minute walk distance, gait speed) — but it had no placebo control, so the result cannot be attributed to the drug. A subsequent randomized, placebo-controlled Phase I pilot (2023, n=12), powered for feasibility and tolerability, found the intervention feasible and well tolerated but found NO statistically significant changes in frailty, pulmonary, or physical function. Senolytic clinical evidence in aging therefore remains preliminary and, in the only controlled IPF trial to date, did not demonstrate functional benefit.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 4,
+            directness: 5,
+          },
+          source: "EBioMedicine (2019 open-label pilot; 2023 Phase I placebo-controlled pilot)",
+          sourceUrl: "https://doi.org/10.1016/j.ebiom.2023.104714",
+          reasoning:
+            "The encouraging 6-minute walk improvement comes from an uncontrolled single-arm pilot, which cannot establish causation; the one randomized placebo-controlled trial (2023) was designed only for feasibility/tolerability and found no significant functional effect. This is genuinely first-in-human work, but at best it is supportive of safety, not efficacy, for aging. Replicability is low because the controlled follow-up did not reproduce the functional gains, and the IPF population is not representative of healthy aging. Larger powered RCTs are needed before this counts as evidence of clinical benefit.",
+        },
       ],
     },
 
@@ -353,6 +370,90 @@ export const longevityScienceData = {
         },
       ],
     },
+
+    // =========================================================================
+    // PILLAR 4: Measuring Aging in Humans (folded in from the retired
+    // longevity-anti-aging map, 2026-10-06)
+    // =========================================================================
+    {
+      id: "measuring-aging-in-humans",
+      title: "Measuring Aging in Humans",
+      short_summary:
+        "What works in mice rarely translates to humans with equivalent effect sizes. Caloric restriction extends mouse lifespan by 30-40% but shows modest effects in primates. The history of biomedical research is littered with therapies that worked spectacularly in animal models but failed in human trials. Longevity interventions face the additional challenge that human lifespan studies take decades to complete.",
+      icon_name: "AlertTriangle" as const,
+      skeptic_premise:
+        "The translational gap between mice and humans is the graveyard of biomedical hype. Over 90% of drugs that pass animal testing fail in human trials. Longevity research faces a unique problem: you cannot run a randomized controlled trial of lifespan extension in humans — it would take 80+ years. Instead, researchers rely on surrogate biomarkers (epigenetic clocks, senescent cell counts, inflammatory markers) whose correlation with actual lifespan is unvalidated. The Bryan Johnson 'Don't Die' protocol, which costs $2M+/year, has shown epigenetic age reversal on DNA methylation clocks, but no one knows if a 'younger' epigenetic age actually translates to living longer. The entire field may be measuring artifacts rather than true aging.",
+      proponent_rebuttal:
+        "The translation gap is real but shrinking. Modern longevity research uses multiple complementary biomarkers rather than relying on any single proxy. The Horvath and GrimAge epigenetic clocks have been validated in longitudinal cohorts of tens of thousands of people — GrimAge predicts mortality, time to cancer, and time to coronary heart disease independently of traditional risk factors. The TAME trial (Targeting Aging with Metformin) is the first FDA-approved trial using aging itself as an indication, which will establish the regulatory pathway for future aging drugs. Importantly, the goal is not just lifespan but healthspan — and healthspan improvements can be measured in 5-10 year trials rather than requiring lifetime follow-up. The $5B+ flowing into longevity biotech is funding exactly these kinds of rigorous human trials.",
+      crux: {
+        id: "biomarker-validation",
+        title: "The Biomarker-to-Lifespan Validation",
+        question:
+          "Can aging biomarkers like epigenetic clocks stand in for lifespan when testing treatments in humans?",
+        description:
+          "If epigenetic clocks and other aging biomarkers are shown to accurately predict remaining lifespan in large, diverse human cohorts — and if interventions that improve these biomarkers also reduce mortality — then surrogate endpoint trials become valid shortcuts for evaluating longevity interventions. If biomarkers prove unreliable predictors of actual lifespan outcomes, the field lacks a feasible way to evaluate interventions in humans.",
+        methodology:
+          "Complete the TAME trial and analyze whether metformin's effects on epigenetic age correlate with its effects on composite aging outcomes (cancer, cardiovascular events, cognitive decline, mortality). Simultaneously, analyze 20+ year follow-up data from large biobank cohorts (UK Biobank, Framingham) to validate whether baseline epigenetic age acceleration predicts actual mortality with sufficient accuracy to serve as a trial endpoint.",
+        verification_status: "theoretical" as const,
+        cost_to_verify:
+          "$75M (TAME trial completion plus biobank follow-up analysis over 5-10 years)",
+        falsification: {
+          supporter_flip:
+            "If 20+ year biobank follow-up and the TAME trial showed that improving epigenetic age does not track fewer cancers, cardiovascular events, cognitive decline or deaths, the field would lack a feasible way to test longevity treatments in humans, and a 20-year timeline would slip away.",
+          skeptic_flip:
+            "If more independent cohorts, beyond the 15,000-plus people studied so far, confirmed that the GrimAge clock predicts time to death, cancer and heart disease, and 5-10 year trials could move it, the biomarkers would look like a usable stand-in rather than artifacts.",
+          common_ground:
+            "Both sides agree a human lifespan trial would take 80+ years, so the field depends on biomarkers, and that the gap between animal results and human outcomes is real.",
+          live_disagreement:
+            "Whether epigenetic clocks and other biomarkers are validated enough to serve as surrogate endpoints — so that a 'younger' measured age means a longer life — or whether the field may be measuring artifacts.",
+        },
+      },
+      evidence: [
+        {
+          id: "drug-translation-failure-rate",
+          title: "Over 90% of Animal-Validated Drugs Fail in Human Trials",
+          description:
+            "A systematic review of drug development pipelines found that over 90% of compounds that demonstrate efficacy and safety in animal models fail in human clinical trials, with oncology and neuroscience having the worst translation rates. The reasons include species-specific pharmacokinetics, differences in immune function, metabolic scaling, and the inability of animal models to capture the complexity of human disease. This applies to all biomedical research, not just longevity, but aging is arguably more complex than most single diseases.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Nature Reviews Drug Discovery; FDA",
+          sourceUrl: "https://doi.org/10.1038/nrd3439",
+          reasoning:
+            "This is well-established, independently verified data about the drug development pipeline. It provides important base-rate context for evaluating longevity claims. Directness is somewhat lower because it addresses general drug translation rather than longevity-specific interventions, though the principle applies.",
+        },
+        {
+          id: "grimage-mortality-prediction",
+          title: "GrimAge Epigenetic Clock Predicts Mortality in Large Cohorts (2019)",
+          description:
+            "The GrimAge epigenetic clock, developed by Steve Horvath's lab at UCLA, predicts time to death, time to cancer, and time to coronary heart disease in multiple independent cohorts totaling over 15,000 individuals. For each 1-year increase in GrimAge acceleration (biological age exceeding chronological age), mortality risk increases by approximately 10%. This is the strongest evidence that DNA methylation-based aging biomarkers capture something biologically real about the aging process.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "Aging Cell; UCLA",
+          sourceUrl: "https://doi.org/10.1111/acel.12898",
+          reasoning:
+            "Validated across multiple independent cohorts with strong statistical associations. However, prediction is not causation — knowing that accelerated epigenetic aging predicts death does not prove that reversing epigenetic age will extend life. The biomarker could be a downstream consequence rather than a causal driver of aging.",
+        },
+      ],
+    },
+  ],
+  // The retired longevity-anti-aging map asked the same question on a longer
+  // horizon (merged 2026-10-06); its names stay findable here.
+  aliases: [
+    "Anti-Aging & Radical Life Extension",
+    "Could human lifespans pass 120 within our lifetimes?",
+    "Can we reverse aging?",
+    "Is anti-aging medicine real?",
+    "Will we be able to live to 150?",
   ],
   references: [
     {

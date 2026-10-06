@@ -141,7 +141,7 @@ describe("DebateView", () => {
         graph={graph}
         cruxes={cruxes}
         related={[
-          { id: "ai-job-displacement", title: "AI job displacement" },
+          { id: "ai-regulation", title: "Should AI be regulated?" },
           { id: TEST_META.id, title: "Itself, which is never listed" },
           { id: "capitalism-after-ai", title: "Can capitalism survive AI?" },
         ]}

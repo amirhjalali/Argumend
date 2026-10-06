@@ -74,7 +74,13 @@ describe("learn consolidation redirects", () => {
 
   it("never redirects a /questions phrasing: secondary phrasings render and set a canonical", async () => {
     const redirects = await nextConfig.redirects();
-    expect(redirects.filter((r) => r.source.startsWith("/questions"))).toEqual([]);
+    // Only the phrasings of retired maps redirect (data/retiredMaps.json,
+    // lib/retiredMaps.test.ts); a live phrasing never does.
+    expect(
+      redirects.filter(
+        (r) => r.source.startsWith("/questions") && variationBySlug.has(r.source.slice("/questions/".length)),
+      ),
+    ).toEqual([]);
   });
 
   it("keeps the guide and concept detail URLs (only the indexes move)", async () => {

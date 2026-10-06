@@ -19,7 +19,7 @@ import {
  * and nudged them down when they collided. Fully expanded, each of the six
  * maps measured had overlapping boxes, 14 to 41 pairs per map
  * (docs/reviews/2026-09-29-r2-diagram.md). The layout is now computed up front
- * from fixed box sizes, and this file holds it to that for all 156 maps.
+ * from fixed box sizes, and this file holds it to that for all 149 maps.
  */
 
 /** The canvas at 1440×900, as measured: the window minus the header and the intro. */
@@ -45,7 +45,7 @@ beforeAll(async () => {
 describe("diagram layout, every map", () => {
   it("covers every map that has a diagram route", () => {
     expect(diagrams.length).toBe(topicSummaries.length);
-    expect(diagrams.length).toBeGreaterThanOrEqual(156);
+    expect(diagrams.length).toBeGreaterThanOrEqual(149);
   });
 
   it("has no overlapping boxes on any map", () => {

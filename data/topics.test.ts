@@ -168,19 +168,6 @@ describe("topics data integrity", () => {
     }
   });
 
-  it("keeps the freelance-displacement card aligned with Upwork's measured effects", () => {
-    const card = topics
-      .find((topic) => topic.id === "ai-job-displacement")
-      ?.pillars.flatMap((pillar) => pillar.evidence ?? [])
-      .find((item) => item.id === "freelance-rate-collapse");
-
-    expect(card?.sourceUrl).toBe(
-      "https://www.upwork.com/research/generative-ai-work-value",
-    );
-    expect(card?.description).toContain("writing by 8%");
-    expect(card?.description).toContain("translation by 10%");
-    expect(card?.description).not.toMatch(/30-50%|30–50%/);
-  });
 });
 
 describe("specific topics", () => {

@@ -125,13 +125,6 @@ export const isClaims: IsClaim[] = [
       "Industrial seed oils (soybean, canola, sunflower) are a major driver of chronic inflammation, obesity, and metabolic disease.",
   },
   {
-    slug: "ai-replace-white-collar-jobs",
-    topicId: "ai-job-displacement",
-    question: "Will AI replace most white-collar jobs?",
-    claim:
-      "AI and large language models will eliminate or fundamentally transform the majority of white-collar knowledge work within the next decade.",
-  },
-  {
     slug: "social-media-causes-teen-depression",
     topicId: "social-media-mental-health",
     question: "Is social media causing the teen mental health crisis?",
@@ -627,9 +620,9 @@ export const isClaims: IsClaim[] = [
   {
     slug: "government-fix-housing",
     topicId: "housing-affordability-crisis",
-    question: "Can only government fix the housing affordability crisis?",
+    question: "Would building more homes make housing affordable?",
     claim:
-      "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, because the free market alone cannot provide adequate affordable housing.",
+      "Building more homes, by loosening zoning and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
   },
   {
     slug: "meaning-without-religion",
@@ -881,7 +874,7 @@ export const isClaims: IsClaim[] = [
   },
   {
     slug: "evs-better-despite-lithium-mining",
-    topicId: "lithium-mining-ev-impact",
+    topicId: "ev-environmental-impact",
     question: "Are electric vehicles still better for the environment once lithium mining is counted?",
     claim:
       "Electric vehicles are significantly better for the environment than gas cars even after accounting for lithium mining and battery production.",
@@ -895,14 +888,14 @@ export const isClaims: IsClaim[] = [
   },
   {
     slug: "radical-life-extension-possible",
-    topicId: "longevity-anti-aging",
+    topicId: "longevity-science",
     question: "Can human lifespan be radically extended beyond 120 years?",
     claim:
       "Recent advances in longevity science make meaningful human lifespan extension beyond 120 years achievable within our lifetimes.",
   },
   {
     slug: "psychedelic-therapy-real-breakthrough",
-    topicId: "psychedelic-therapy-hype",
+    topicId: "psychedelics-mental-health",
     question: "Is psychedelic therapy a genuine breakthrough or overhype?",
     claim:
       "Psychedelic therapy represents a genuine paradigm shift in mental-health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
@@ -916,7 +909,7 @@ export const isClaims: IsClaim[] = [
   },
   {
     slug: "governments-ban-social-platforms",
-    topicId: "government-platform-bans",
+    topicId: "tiktok-ban",
     question: "Should governments be able to ban social media platforms?",
     claim:
       "Governments are justified in banning or forcing the divestiture of foreign-owned social media platforms on national-security grounds.",
@@ -935,13 +928,6 @@ export const isClaims: IsClaim[] = [
     question: "Is stricter border enforcement the most effective way to manage US immigration?",
     claim:
       "Combining border enforcement, asylum restrictions, and deportation is the most effective way to manage US immigration and protect national interests.",
-  },
-  {
-    slug: "ai-net-job-loss",
-    topicId: "ai-white-collar-displacement",
-    question: "Will AI destroy more white-collar jobs than it creates?",
-    claim:
-      "Large language models and AI agents will permanently eliminate more white-collar professional jobs than they create within the next decade.",
   },
   {
     slug: "gender-affirming-care-minors-helps",

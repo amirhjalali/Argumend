@@ -6,7 +6,7 @@
     { "query": "should nuclear plants be built", "expected": ["nuclear-energy-safety"], "kind": "question" },
     { "query": "rent caps", "expected": ["rent-control-effectiveness"], "kind": "synonym" },
     { "query": "raising the minimum wage", "expected": ["minimum-wage-effects"], "kind": "phrase" },
-    { "query": "robots replacing workers", "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"], "kind": "synonym" },
+    { "query": "robots replacing workers", "expected": ["ai-mass-unemployment"], "kind": "synonym" },
     { "query": "global warming", "expected": ["climate-change"], "kind": "synonym" },
     { "query": "assault weapons ban", "expected": ["gun-control-effectiveness"], "kind": "synonym" },
     { "query": "capital punishment", "expected": ["death-penalty-deterrence"], "kind": "synonym" },

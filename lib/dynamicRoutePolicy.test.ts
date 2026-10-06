@@ -156,6 +156,11 @@ describe("legacy home-canvas links (/?topic=)", () => {
     expect(path("topic=ai-mass-unemployment&view=logic-map")).toBe("/topics/ai-mass-unemployment");
   });
 
+  it("sends a retired map's links to the map it was merged into", () => {
+    expect(path("topic=government-platform-bans&view=graph")).toBe("/topics/tiktok-ban/map");
+    expect(path("topic=government-platform-bans")).toBe("/topics/tiktok-ban");
+  });
+
   it("sends empty and unknown ids to the library", () => {
     expect(path("topic=")).toBe("/topics");
     expect(path("topic=definitely-missing&view=graph")).toBe("/topics");

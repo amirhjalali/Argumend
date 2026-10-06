@@ -1,0 +1,77 @@
+{
+  "government-platform-bans": {
+    "into": "tiktok-ban",
+    "map": "/topics/tiktok-ban/map",
+    "questionsTo": "/questions/should-tiktok-be-banned",
+    "questions": [
+      "should-governments-ban-social-media-platforms",
+      "is-it-right-for-governments-to-ban-apps",
+      "do-government-platform-bans-protect-citizens"
+    ],
+    "is": []
+  },
+  "longevity-anti-aging": {
+    "into": "longevity-science",
+    "map": "/topics/longevity-science/map",
+    "questionsTo": "/questions/can-science-extend-human-lifespan",
+    "questions": [
+      "can-we-reverse-aging",
+      "is-anti-aging-medicine-real",
+      "will-we-be-able-to-live-to-150"
+    ],
+    "is": []
+  },
+  "lithium-mining-ev-impact": {
+    "into": "ev-environmental-impact",
+    "map": "/topics/ev-environmental-impact/map",
+    "questionsTo": "/questions/are-electric-cars-better-for-the-environment",
+    "questions": [
+      "are-electric-vehicles-still-better-for-the-environment-once-lithium-mining-is-counted"
+    ],
+    "is": []
+  },
+  "psychedelic-therapy-hype": {
+    "into": "psychedelics-mental-health",
+    "map": "/topics/psychedelics-mental-health/map",
+    "questionsTo": "/questions/can-psychedelics-treat-depression",
+    "questions": [
+      "is-psychedelic-therapy-overhyped",
+      "does-psychedelic-therapy-actually-work",
+      "are-the-claims-about-psychedelic-therapy-exaggerated"
+    ],
+    "is": []
+  },
+  "iran-war-justification": {
+    "into": "us-iran-conflict",
+    "map": "/topics/us-iran-conflict/map",
+    "questionsTo": "/questions/is-us-policy-toward-iran-effective",
+    "questions": [],
+    "is": []
+  },
+  "ai-job-displacement": {
+    "into": "ai-mass-unemployment",
+    "map": "/topics/ai-mass-unemployment",
+    "questionsTo": "/topics/ai-mass-unemployment",
+    "questions": [
+      "will-ai-take-my-job",
+      "how-many-jobs-will-ai-replace",
+      "is-ai-automating-jobs-faster-than-creating-new-ones"
+    ],
+    "is": [
+      "ai-replace-white-collar-jobs"
+    ]
+  },
+  "ai-white-collar-displacement": {
+    "into": "ai-mass-unemployment",
+    "map": "/topics/ai-mass-unemployment",
+    "questionsTo": "/topics/ai-mass-unemployment",
+    "questions": [
+      "will-ai-replace-white-collar-workers",
+      "is-ai-coming-for-office-jobs",
+      "which-white-collar-jobs-are-most-at-risk-from-ai"
+    ],
+    "is": [
+      "ai-net-job-loss"
+    ]
+  }
+}

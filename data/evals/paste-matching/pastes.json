@@ -64,21 +64,21 @@
       "id": "ai-jobs-graduates",
       "form": "conversation",
       "text": "A: My nephew graduated in computer science and can't get a single interview. Companies are just using Copilot instead of hiring juniors. B: Unemployment is barely over 4%. Tech hiring crashed because of interest rates, not ChatGPT. A: Then why is it the entry-level jobs in the most exposed fields that dropped the most?",
-      "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"],
+      "expected": ["ai-mass-unemployment"],
       "related": ["capitalism-after-ai"]
     },
     {
       "id": "ai-jobs-rant",
       "form": "rant",
       "text": "Every CEO on earth is on earnings calls bragging about how many roles AI lets them 'not backfill.' Paralegals, copywriters, customer support, junior analysts. Pretending this ends with everyone getting a nicer job is a fairy tale. The jobs are going and they are not coming back.",
-      "expected": ["ai-mass-unemployment", "ai-white-collar-displacement", "ai-job-displacement"],
+      "expected": ["ai-mass-unemployment"],
       "related": ["capitalism-after-ai"]
     },
     {
       "id": "ai-jobs-atm",
       "form": "reply",
       "text": "People said the same about ATMs and bank tellers, and teller jobs grew for decades after. Spreadsheets didn't kill accountants. Automation changes tasks inside jobs; it rarely deletes whole occupations. I'll believe mass unemployment from AI when the unemployment rate actually moves.",
-      "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"],
+      "expected": ["ai-mass-unemployment"],
       "related": ["capitalism-after-ai"]
     },
     {
@@ -198,14 +198,14 @@
       "id": "ev-battery-coal",
       "form": "conversation",
       "text": "A: EVs aren't green, the battery production alone is worse than driving a gas car for years, and the power comes from coal anyway. B: The lifecycle studies say the battery carbon debt pays back in a year or two of driving, even on a dirty grid.",
-      "expected": ["ev-environmental-impact", "lithium-mining-ev-impact"],
+      "expected": ["ev-environmental-impact"],
       "related": []
     },
     {
       "id": "cobalt-lithium",
       "form": "reply",
       "text": "Nobody who cheers for electric cars wants to look at the cobalt mines in the Congo or the lithium brine ponds draining the Atacama. Green for rich suburbs, toxic for everyone else.",
-      "expected": ["lithium-mining-ev-impact", "ev-environmental-impact"],
+      "expected": ["ev-environmental-impact"],
       "related": []
     },
     {
@@ -339,13 +339,13 @@
       "form": "reply",
       "text": "Australia banned under-16s from social media. Good luck enforcing that, every teenager knows how to use a VPN and nobody wants to upload their ID to Meta.",
       "expected": ["social-media-age-limits"],
-      "related": ["children-smartphone-age", "government-platform-bans"]
+      "related": ["children-smartphone-age"]
     },
     {
       "id": "tiktok-sale",
       "form": "conversation",
       "text": "A: TikTok is owned by a company that has to hand over data to the Chinese government if asked. Ban it or force a sale. B: Then ban Facebook too, it has leaked more data than anyone. This is about protecting American competitors, not security.",
-      "expected": ["tiktok-ban", "government-platform-bans"],
+      "expected": ["tiktok-ban"],
       "related": []
     },
     {
@@ -513,7 +513,7 @@
       "id": "iran-fordow",
       "form": "conversation",
       "text": "A: Bombing Fordow was the only way to stop Iran getting the bomb. B: Diplomacy was working until we tore up the nuclear deal in 2018. A: They were enriching to 60 percent, there's no civilian reason for that.",
-      "expected": ["iran-war-justification", "us-iran-conflict"],
+      "expected": ["us-iran-conflict"],
       "related": ["nuclear-proliferation-new-arms-race"]
     },
     {
@@ -570,7 +570,7 @@
       "form": "conversation",
       "text": "A: We give Israel almost four billion a year in military aid and then act surprised when those bombs land on Gaza. Condition it or stop. B: They're an ally fighting a terrorist group that massacred civilians on October 7. Conditioning aid in the middle of a war tells Iran we've abandoned them. A: The Leahy law already says no aid to units that commit gross violations of human rights. Just enforce it.",
       "expected": ["us-israel-support"],
-      "related": ["iran-war-justification"]
+      "related": ["us-iran-conflict"]
     },
     {
       "id": "israel-arms-rant",

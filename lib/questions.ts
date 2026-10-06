@@ -117,6 +117,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Is US policy toward Iran effective?",
     "Should the US negotiate with Iran?",
     "Has US-Iran confrontation made the Middle East safer?",
+    "Is military action against Iran justified?",
   ],
   "epstein-files": [
     "What do the Epstein files reveal?",
@@ -181,6 +182,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Are electric cars better for the environment?",
     "Do electric vehicles really reduce emissions?",
     "Is switching to an EV worth it?",
+    "Are EVs clearly greener than gas cars once mining is counted?",
   ],
   "factory-farming-ban": [
     "Should factory farming be banned?",
@@ -211,6 +213,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Can psychedelics treat depression?",
     "Are psychedelics safe for therapy?",
     "Should psilocybin be legal for mental health?",
+    "Is psychedelic therapy a genuine revolution in mental health care?",
   ],
   "lab-leak-theory": [
     "Did COVID come from a lab?",
@@ -302,11 +305,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   ],
 
   // --- New Topics (March 2026) ---
-  "ai-job-displacement": [
-    "Will AI take my job?",
-    "How many jobs will AI replace?",
-    "Is AI automating jobs faster than creating new ones?",
-  ],
   "ai-in-education": [
     "Should AI be used in schools?",
     "Is AI good for education?",
@@ -321,6 +319,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Why is housing so expensive?",
     "Is there a housing affordability crisis?",
     "What is causing the housing crisis?",
+    "Would building more homes make housing affordable?",
   ],
   "social-media-elections": [
     "Does social media influence elections?",
@@ -341,6 +340,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Should TikTok be banned?",
     "Is TikTok a national security threat?",
     "Is banning TikTok a violation of free speech?",
+    "Can national security justify banning foreign-owned apps like TikTok?",
   ],
   "immigration-border-crisis": [
     "Is there a border crisis?",
@@ -351,6 +351,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Can science extend human lifespan?",
     "Is anti-aging research legitimate?",
     "Will we ever cure aging?",
+    "Could human lifespans pass 120 within our lifetimes?",
   ],
   "nuclear-weapons-abolition": [
     "Should nuclear weapons be abolished?",
@@ -387,20 +388,10 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Should everyone take Ozempic?",
     "Do weight loss drugs like Ozempic actually work?",
   ],
-  "ai-white-collar-displacement": [
-    "Will AI replace white-collar workers?",
-    "Is AI coming for office jobs?",
-    "Which white-collar jobs are most at risk from AI?",
-  ],
   "artificial-reproduction-ethics": [
     "Is artificial reproduction ethical?",
     "Should we allow artificial wombs?",
     "What are the ethics of reproductive technology?",
-  ],
-  "government-platform-bans": [
-    "Should governments ban social media platforms?",
-    "Is it right for governments to ban apps?",
-    "Do government platform bans protect citizens?",
   ],
   "gain-of-function-research-ban": [
     "Should gain-of-function research be banned?",
@@ -442,11 +433,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Should we be worried about falling birth rates?",
     "Is population decline a crisis?",
   ],
-  "longevity-anti-aging": [
-    "Can we reverse aging?",
-    "Is anti-aging medicine real?",
-    "Will we be able to live to 150?",
-  ],
   "nuclear-proliferation-new-arms-race": [
     "Are we in a new nuclear arms race?",
     "Is nuclear proliferation getting worse?",
@@ -466,11 +452,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Does immigration threaten national identity?",
     "Can immigration and national identity coexist?",
     "Does multiculturalism weaken social cohesion?",
-  ],
-  "psychedelic-therapy-hype": [
-    "Is psychedelic therapy overhyped?",
-    "Does psychedelic therapy actually work?",
-    "Are the claims about psychedelic therapy exaggerated?",
   ],
 
   // --- From the retired /is pages (2026-09-29) ---
@@ -529,9 +510,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "alcohol-no-safe-level": ["Is any amount of alcohol safe to drink?"],
   "modern-monetary-theory": ["Is Modern Monetary Theory sound?"],
   "gmo-crops-safety": ["Are GMO crops safe to eat?"],
-  "lithium-mining-ev-impact": [
-    "Are electric vehicles still better for the environment once lithium mining is counted?",
-  ],
   "dark-matter-vs-mond": ["Does dark matter actually exist?"],
   "trump-tariffs": ["Do tariffs strengthen the economy?"],
   "affirmative-action-meritocracy": ["Is affirmative action necessary for equal opportunity?"],

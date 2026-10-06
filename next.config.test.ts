@@ -95,6 +95,64 @@ describe("home + story redirects", () => {
   });
 });
 
+describe("retired map redirects (one map per question, 2026-10-06)", () => {
+  // Spelled out so a change to data/retiredMaps.json that moves a live URL
+  // shows up here; lib/retiredMaps.test.ts checks the table itself.
+  const expected: Array<[string, string]> = [
+    ["/topics/government-platform-bans", "/topics/tiktok-ban"],
+    ["/topics/government-platform-bans/map", "/topics/tiktok-ban/map"],
+    ["/embed/government-platform-bans", "/embed/tiktok-ban"],
+    ["/questions/should-governments-ban-social-media-platforms", "/questions/should-tiktok-be-banned"],
+    ["/questions/is-it-right-for-governments-to-ban-apps", "/questions/should-tiktok-be-banned"],
+    ["/questions/do-government-platform-bans-protect-citizens", "/questions/should-tiktok-be-banned"],
+    ["/is/governments-ban-social-platforms", "/questions/should-tiktok-be-banned"],
+    ["/topics/longevity-anti-aging", "/topics/longevity-science"],
+    ["/topics/longevity-anti-aging/map", "/topics/longevity-science/map"],
+    ["/embed/longevity-anti-aging", "/embed/longevity-science"],
+    ["/questions/can-we-reverse-aging", "/questions/can-science-extend-human-lifespan"],
+    ["/questions/is-anti-aging-medicine-real", "/questions/can-science-extend-human-lifespan"],
+    ["/questions/will-we-be-able-to-live-to-150", "/questions/can-science-extend-human-lifespan"],
+    ["/is/radical-life-extension-possible", "/questions/can-science-extend-human-lifespan"],
+    ["/topics/lithium-mining-ev-impact", "/topics/ev-environmental-impact"],
+    ["/topics/lithium-mining-ev-impact/map", "/topics/ev-environmental-impact/map"],
+    ["/embed/lithium-mining-ev-impact", "/embed/ev-environmental-impact"],
+    [
+      "/questions/are-electric-vehicles-still-better-for-the-environment-once-lithium-mining-is-counted",
+      "/questions/are-electric-cars-better-for-the-environment",
+    ],
+    ["/is/evs-better-despite-lithium-mining", "/questions/are-electric-cars-better-for-the-environment"],
+    ["/topics/psychedelic-therapy-hype", "/topics/psychedelics-mental-health"],
+    ["/topics/psychedelic-therapy-hype/map", "/topics/psychedelics-mental-health/map"],
+    ["/embed/psychedelic-therapy-hype", "/embed/psychedelics-mental-health"],
+    ["/questions/is-psychedelic-therapy-overhyped", "/questions/can-psychedelics-treat-depression"],
+    ["/questions/does-psychedelic-therapy-actually-work", "/questions/can-psychedelics-treat-depression"],
+    ["/questions/are-the-claims-about-psychedelic-therapy-exaggerated", "/questions/can-psychedelics-treat-depression"],
+    ["/is/psychedelic-therapy-real-breakthrough", "/questions/can-psychedelics-treat-depression"],
+    ["/topics/iran-war-justification", "/topics/us-iran-conflict"],
+    ["/topics/iran-war-justification/map", "/topics/us-iran-conflict/map"],
+    ["/embed/iran-war-justification", "/embed/us-iran-conflict"],
+    ["/topics/ai-job-displacement", "/topics/ai-mass-unemployment"],
+    ["/topics/ai-job-displacement/map", "/topics/ai-mass-unemployment"],
+    ["/embed/ai-job-displacement", "/embed/ai-mass-unemployment"],
+    ["/questions/will-ai-take-my-job", "/topics/ai-mass-unemployment"],
+    ["/questions/how-many-jobs-will-ai-replace", "/topics/ai-mass-unemployment"],
+    ["/questions/is-ai-automating-jobs-faster-than-creating-new-ones", "/topics/ai-mass-unemployment"],
+    ["/is/ai-replace-white-collar-jobs", "/topics/ai-mass-unemployment"],
+    ["/topics/ai-white-collar-displacement", "/topics/ai-mass-unemployment"],
+    ["/topics/ai-white-collar-displacement/map", "/topics/ai-mass-unemployment"],
+    ["/embed/ai-white-collar-displacement", "/embed/ai-mass-unemployment"],
+    ["/questions/will-ai-replace-white-collar-workers", "/topics/ai-mass-unemployment"],
+    ["/questions/is-ai-coming-for-office-jobs", "/topics/ai-mass-unemployment"],
+    ["/questions/which-white-collar-jobs-are-most-at-risk-from-ai", "/topics/ai-mass-unemployment"],
+    ["/is/ai-net-job-loss", "/topics/ai-mass-unemployment"],
+  ];
+
+  it.each(expected)("%s → %s, permanently", async (source, destination) => {
+    const redirects = await nextConfig.redirects();
+    expect(redirects).toContainEqual({ source, destination, permanent: true });
+  });
+});
+
 describe("Next.js response headers", () => {
   it("keeps ordinary pages protected while allowing the embed route to be framed", async () => {
     const rules = await nextConfig.headers();

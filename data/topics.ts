@@ -9,7 +9,6 @@ import { buildTopic } from "./buildTopic";
 import { usIranConflictData } from "./topics/us-iran-conflict";
 import { epsteinFilesData } from "./topics/epstein-files";
 import { covidOriginsData } from "./topics/covid-origins";
-import { aiJobDisplacementData } from "./topics/ai-job-displacement";
 import { aiInEducationData } from "./topics/ai-in-education";
 import { aiRegulationData } from "./topics/ai-regulation";
 import { housingAffordabilityCrisisData } from "./topics/housing-affordability-crisis";
@@ -26,9 +25,7 @@ import { schoolPhoneBansData } from "./topics/school-phone-bans";
 import { studentDebtForgivenessData } from "./topics/student-debt-forgiveness";
 import { microplasticsHealthCrisisData } from "./topics/microplastics-health-crisis";
 import { glp1WeightLossDrugsData } from "./topics/glp1-weight-loss-drugs";
-import { aiWhiteCollarDisplacementData } from "./topics/ai-white-collar-displacement";
 import { artificialReproductionEthicsData } from "./topics/artificial-reproduction-ethics";
-import { governmentPlatformBansData } from "./topics/government-platform-bans";
 import { gainOfFunctionResearchBanData } from "./topics/gain-of-function-research-ban";
 import { childrenSmartphoneAgeData } from "./topics/children-smartphone-age";
 import { alternativesToDemocracyData } from "./topics/alternatives-to-democracy";
@@ -37,21 +34,17 @@ import { centralBankDigitalCurrencyData } from "./topics/central-bank-digital-cu
 import { masculinityCrisisData } from "./topics/masculinity-crisis";
 import { aiDeepfakesTruthCollapseData } from "./topics/ai-deepfakes-truth-collapse";
 import { decliningBirthRatesData } from "./topics/declining-birth-rates";
-import { longevityAntiAgingData } from "./topics/longevity-anti-aging";
 import { nuclearProliferationNewArmsRaceData } from "./topics/nuclear-proliferation-new-arms-race";
 import { transgenderAthletesSportsData } from "./topics/transgender-athletes-sports";
 import { animalConsciousnessRightsData } from "./topics/animal-consciousness-rights";
 import { immigrationNationalIdentityData } from "./topics/immigration-national-identity";
-import { psychedelicTherapyHypeData } from "./topics/psychedelic-therapy-hype";
 import { eaccVsTechRegulationData } from "./topics/eacc-vs-tech-regulation";
 import { affirmativeActionMeritocracyData } from "./topics/affirmative-action-meritocracy";
 import { fluorideWaterSuppliesData } from "./topics/fluoride-water-supplies";
-import { lithiumMiningEvImpactData } from "./topics/lithium-mining-ev-impact";
 import { cryptocurrencyRegulationData } from "./topics/cryptocurrency-regulation";
 import { pandemicPreparednessData } from "./topics/pandemic-preparedness";
 
 // New topics (March 2026 batch 3)
-import { iranWarJustificationData } from "./topics/iran-war-justification";
 import { inflationMonetaryPolicyData } from "./topics/inflation-monetary-policy";
 import { aiSuperintelligenceTimelineData } from "./topics/ai-superintelligence-timeline";
 import { globalHousingBubbleData } from "./topics/global-housing-bubble";
@@ -236,7 +229,6 @@ export const usIranConflict = buildTopic(usIranConflictData);
 export const epsteinFiles = buildTopic(epsteinFilesData);
 
 // New topics (March 2026)
-export const aiJobDisplacement = buildTopic(aiJobDisplacementData);
 export const aiInEducation = buildTopic(aiInEducationData);
 export const aiRegulation = buildTopic(aiRegulationData);
 export const housingAffordabilityCrisis = buildTopic(housingAffordabilityCrisisData);
@@ -253,9 +245,7 @@ export const schoolPhoneBans = buildTopic(schoolPhoneBansData);
 export const studentDebtForgiveness = buildTopic(studentDebtForgivenessData);
 export const microplasticsHealthCrisis = buildTopic(microplasticsHealthCrisisData);
 export const glp1WeightLossDrugs = buildTopic(glp1WeightLossDrugsData);
-export const aiWhiteCollarDisplacement = buildTopic(aiWhiteCollarDisplacementData);
 export const artificialReproductionEthics = buildTopic(artificialReproductionEthicsData);
-export const governmentPlatformBans = buildTopic(governmentPlatformBansData);
 export const gainOfFunctionResearchBan = buildTopic(gainOfFunctionResearchBanData);
 export const childrenSmartphoneAge = buildTopic(childrenSmartphoneAgeData);
 export const alternativesToDemocracy = buildTopic(alternativesToDemocracyData);
@@ -264,21 +254,17 @@ export const centralBankDigitalCurrency = buildTopic(centralBankDigitalCurrencyD
 export const masculinityCrisis = buildTopic(masculinityCrisisData);
 export const aiDeepfakesTruthCollapse = buildTopic(aiDeepfakesTruthCollapseData);
 export const decliningBirthRates = buildTopic(decliningBirthRatesData);
-export const longevityAntiAging = buildTopic(longevityAntiAgingData);
 export const nuclearProliferationNewArmsRace = buildTopic(nuclearProliferationNewArmsRaceData);
 export const transgenderAthletesSports = buildTopic(transgenderAthletesSportsData);
 export const animalConsciousnessRights = buildTopic(animalConsciousnessRightsData);
 export const immigrationNationalIdentity = buildTopic(immigrationNationalIdentityData);
-export const psychedelicTherapyHype = buildTopic(psychedelicTherapyHypeData);
 export const eaccVsTechRegulation = buildTopic(eaccVsTechRegulationData);
 export const affirmativeActionMeritocracy = buildTopic(affirmativeActionMeritocracyData);
 export const fluorideWaterSupplies = buildTopic(fluorideWaterSuppliesData);
-export const lithiumMiningEvImpact = buildTopic(lithiumMiningEvImpactData);
 export const cryptocurrencyRegulation = buildTopic(cryptocurrencyRegulationData);
 export const pandemicPreparedness = buildTopic(pandemicPreparednessData);
 
 // New topics (March 2026 batch 3)
-export const iranWarJustification = buildTopic(iranWarJustificationData);
 export const inflationMonetaryPolicy = buildTopic(inflationMonetaryPolicyData);
 export const aiSuperintelligenceTimeline = buildTopic(aiSuperintelligenceTimelineData);
 export const globalHousingBubble = buildTopic(globalHousingBubbleData);
@@ -398,7 +384,6 @@ export const topics: Topic[] = [
   nuclearWeaponsAbolition,
   schoolPhoneBans,
   pandemicPreparedness,
-  iranWarJustification,
   chinaTaiwanInvasion,
   globalWaterCrisis,
   sugarTaxEffectiveness,
@@ -413,10 +398,8 @@ export const topics: Topic[] = [
   mediaBiasDemocracy,
   spaceColonizationFeasibility,
   labGrownMeat,
-  aiJobDisplacement,
   aiInEducation,
   aiRegulation,
-  aiWhiteCollarDisplacement,
   eaccVsTechRegulation,
   aiSuperintelligenceTimeline,
   nuclearRenaissanceSmr,
@@ -440,7 +423,6 @@ export const topics: Topic[] = [
   microplasticsHealthCrisis,
   glp1WeightLossDrugs,
   fluorideWaterSupplies,
-  lithiumMiningEvImpact,
   seedOilsHealth,
   obesityPersonalResponsibility,
   lonelinessEpidemic,
@@ -477,7 +459,6 @@ export const topics: Topic[] = [
 
   // --- New Topics (March 2026) ---
   artificialReproductionEthics,
-  governmentPlatformBans,
   gainOfFunctionResearchBan,
   childrenSmartphoneAge,
   alternativesToDemocracy,
@@ -488,12 +469,10 @@ export const topics: Topic[] = [
   decliningBirthRates,
 
   // --- New Topics Batch 2 (March 2026) ---
-  longevityAntiAging,
   nuclearProliferationNewArmsRace,
   transgenderAthletesSports,
   animalConsciousnessRights,
   immigrationNationalIdentity,
-  psychedelicTherapyHype,
   affirmativeActionMeritocracy,
   ukrainePeaceTerms,
   trumpTariffs,
@@ -661,7 +640,7 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "declining-birth-rates": ["housing-affordability-crisis", "universal-basic-income", "artificial-reproduction-ethics", "masculinity-crisis"],
 
   // Tech & society cluster (new topics)
-  "government-platform-bans": ["big-tech-antitrust", "surveillance-public-safety", "social-media-age-limits", "ai-deepfakes-truth-collapse"],
+  "tiktok-ban": ["big-tech-antitrust", "surveillance-public-safety", "social-media-age-limits", "ai-deepfakes-truth-collapse"],
   "children-smartphone-age": ["social-media-age-limits", "social-media-mental-health", "school-phone-bans", "masculinity-crisis"],
   "ai-deepfakes-truth-collapse": ["ai-content-labeling", "media-bias-democracy", "surveillance-public-safety", "ai-risk"],
 
@@ -682,19 +661,14 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   // Climate/environment cluster (new topics)
   "geoengineering-climate": ["climate-change", "nuclear-energy-safety", "space-colonization-feasibility", "ev-environmental-impact"],
 
-  // Lithium mining & EV cluster
-  "lithium-mining-ev-impact": ["ev-environmental-impact", "climate-change", "nuclear-energy-safety", "geoengineering-climate"],
-
   // New topics batch 2 clusters
-  "longevity-anti-aging": ["gene-editing-embryos", "glp1-weight-loss-drugs", "ai-risk", "declining-birth-rates"],
+  "longevity-science": ["gene-editing-embryos", "glp1-weight-loss-drugs", "ai-risk", "declining-birth-rates"],
   "nuclear-proliferation-new-arms-race": ["us-iran-conflict", "surveillance-public-safety", "alternatives-to-democracy", "foreign-aid-effectiveness"],
   "transgender-athletes-sports": ["cancel-culture", "gender-affirming-care-minors", "masculinity-crisis", "social-media-mental-health"],
   "animal-consciousness-rights": ["consciousness-ai-systems", "factory-farming-ban", "veganism-environmental-impact", "meaning-without-religion"],
   "immigration-national-identity": ["immigration-wage-impact", "open-borders", "declining-birth-rates", "housing-affordability-crisis"],
-  "psychedelic-therapy-hype": ["psychedelics-mental-health", "drug-decriminalization", "glp1-weight-loss-drugs", "social-media-mental-health"],
 
   // New topics batch 3 clusters
-  "iran-war-justification": ["us-iran-conflict", "nuclear-proliferation-new-arms-race", "surveillance-public-safety", "china-taiwan-invasion"],
   "inflation-monetary-policy": ["us-national-debt-crisis", "wealth-tax", "housing-affordability-crisis", "central-bank-digital-currency"],
   "ai-superintelligence-timeline": ["ai-risk", "consciousness-ai-systems", "eacc-vs-tech-regulation", "ai-regulation"],
   "global-housing-bubble": ["housing-affordability-crisis", "inflation-monetary-policy", "wealth-tax", "declining-birth-rates"],
@@ -702,18 +676,18 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "us-national-debt-crisis": ["inflation-monetary-policy", "wealth-tax", "universal-basic-income", "central-bank-digital-currency"],
   "tiktok-brain-rot": ["social-media-mental-health", "social-media-age-limits", "children-smartphone-age", "school-phone-bans"],
   "obesity-personal-responsibility": ["glp1-weight-loss-drugs", "ultra-processed-food", "seed-oils-health", "universal-healthcare"],
-  "china-taiwan-invasion": ["us-iran-conflict", "nuclear-proliferation-new-arms-race", "surveillance-public-safety", "iran-war-justification"],
+  "china-taiwan-invasion": ["us-iran-conflict", "nuclear-proliferation-new-arms-race", "surveillance-public-safety", "nuclear-weapons-abolition"],
   "return-to-office-productivity": ["remote-work-permanence", "four-day-work-week", "gig-economy-regulation", "loneliness-epidemic"],
   "nuclear-renaissance-smr": ["nuclear-energy-safety", "climate-change", "geoengineering-climate", "space-colonization-feasibility"],
   "loneliness-epidemic": ["social-media-mental-health", "masculinity-crisis", "declining-birth-rates", "return-to-office-productivity"],
 
   // New topics batch 4 clusters
-  "ai-replacing-doctors": ["ai-risk", "ai-job-displacement", "ai-regulation", "universal-healthcare"],
+  "ai-replacing-doctors": ["ai-risk", "universal-basic-income", "ai-regulation", "universal-healthcare"],
   "global-water-crisis": ["climate-change", "geoengineering-climate", "foreign-aid-effectiveness", "immigration-border-crisis"],
   "sugar-tax-effectiveness": ["obesity-personal-responsibility", "ultra-processed-food", "universal-healthcare", "glp1-weight-loss-drugs"],
   "lab-diamonds-ethics": ["factory-farming-ban", "veganism-environmental-impact", "foreign-aid-effectiveness", "climate-change"],
   "rent-control-effectiveness": ["housing-affordability-crisis", "global-housing-bubble", "minimum-wage-effects", "wealth-tax"],
-  "privacy-vs-convenience": ["surveillance-public-safety", "big-tech-antitrust", "ai-deepfakes-truth-collapse", "government-platform-bans"],
+  "privacy-vs-convenience": ["surveillance-public-safety", "big-tech-antitrust", "ai-deepfakes-truth-collapse", "tiktok-ban"],
   "meritocracy-myth": ["affirmative-action-meritocracy", "billionaire-wealth", "reparations-slavery", "college-value-proposition"],
   "degrowth-economics": ["climate-change", "wealth-tax", "universal-basic-income", "geoengineering-climate"],
 };

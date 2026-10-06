@@ -32,7 +32,7 @@ export const rentControlEffectivenessData = {
       skeptic_premise:
         "The supply-reduction narrative overstates the evidence and ignores critical policy design distinctions. The Stanford/San Francisco study examined a specific, pre-1994 form of strict rent control with no vacancy decontrol — a policy design that virtually no economist defends today. Modern rent stabilization policies (used in Oregon, California, and most European cities) allow rents to reset to market rate upon vacancy, preserving landlord incentives for new construction. A study by Autor, Palmer, and Pathak (Journal of Political Economy, 2014) of Cambridge, Massachusetts found that the 1995 elimination of rent control generated large property-value spillovers — much of which accrued to never-controlled units — yet residential investment explains only a small fraction of those gains, implying decontrol did not produce a commensurate surge in new construction and complicating the simple 'remove rent control and supply will follow' story. In Germany, where rent stabilization has been the norm for decades, housing construction rates are comparable to or higher than unregulated US markets. The supply effects depend almost entirely on policy design: exemptions for new construction, vacancy decontrol provisions, and allowances for maintenance cost pass-throughs can preserve building incentives while protecting tenants from rent spikes of 30-50% that cause displacement and homelessness.",
       proponent_rebuttal:
-        "Rent control is one of the few policies where economists across the political spectrum agree on the harm. When you cap what landlords can charge, you reduce the incentive to build new housing, maintain existing units, and keep properties on the rental market. The Stanford study of San Francisco's 1994 rent control expansion found that affected landlords reduced rental supply by 15% — converting apartments to condos, demolishing buildings, or simply withdrawing units. This contraction raised market rents by 5.1% citywide, meaning rent control literally made housing more expensive for everyone not lucky enough to already hold a controlled unit. New York City's decades-long experience shows the same pattern: rent-stabilized buildings receive less maintenance investment, vacancy rates in controlled units are artificially low (tenants never leave even when their needs change), and the city's chronic housing shortage is directly exacerbated by disincentives to build. The textbook prediction is clear — price ceilings below market rates create shortages.",
+        "Rent control is one of the few policies where economists across the political spectrum agree on the harm. When you cap what landlords can charge, you reduce the incentive to build new housing, maintain and repair existing units, and keep properties on the rental market. The Stanford study of San Francisco's 1994 rent control expansion found that affected landlords reduced rental supply by 15% — converting apartments to condos, demolishing buildings, or simply withdrawing units. This contraction raised market rents by 5.1% citywide, meaning rent control literally made housing more expensive for everyone not lucky enough to already hold a controlled unit. New York City's decades-long experience shows the same pattern: rent-stabilized buildings receive less maintenance investment, vacancy rates in controlled units are artificially low (tenants never leave even when their needs change), and the city's chronic housing shortage is directly exacerbated by disincentives to build. The textbook prediction is clear — price ceilings below market rates create shortages.",
       crux: {
         id: "construction-response-test",
         title: "The Construction Response Test",
@@ -119,6 +119,23 @@ export const rentControlEffectivenessData = {
             "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/SB608",
           reasoning:
             "The exemption is directly verifiable in the enrolled statute. Its incentive implication is an economic inference rather than a measured construction effect, so directness and replicability remain moderate.",
+        },
+        {
+          id: "oregon-rent-cap-permits",
+          title: "Portland-Area Permits Rose After Oregon's 2019 Rent Cap",
+          description:
+            "Oregon's 2019 statewide cap limits annual increases to 7% plus inflation and exempts buildings for their first 15 years. Census permit data show Portland-area permits rising about 12% from 2019 to 2022, the opposite of the collapse critics predicted. The period also saw pandemic migration and low interest rates, so the rise does not by itself show the cap had no effect on construction.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Oregon Office of Economic Analysis; US Census Building Permits Survey",
+          sourceUrl: "https://www.census.gov/construction/bps/",
+          reasoning:
+            "Census building permit data is independently verifiable. The new-construction exemption in Oregon's law is a critical design feature that addresses the classic supply objection. However, the 2019-2023 period included COVID-era distortions, low interest rates, and pandemic-driven migration to Oregon, complicating causal attribution.",
         },
         {
           id: "economist-consensus-survey",

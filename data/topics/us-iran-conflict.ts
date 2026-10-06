@@ -121,7 +121,112 @@ export const usIranConflictData = {
     },
 
     // =========================================================================
-    // PILLAR 2: Regional Proxy Networks
+    // PILLAR 2: Nuclear Threat Assessment (folded in from the retired
+    // iran-war-justification map, 2026-10-06)
+    // =========================================================================
+    {
+      id: "nuclear-threat-assessment",
+      title: "Nuclear Threat Assessment",
+      short_summary:
+        "Iran has enriched uranium to near-weapons-grade levels and expanded its stockpile, but whether this constitutes an imminent threat requiring military action — or exaggerated intelligence echoing Iraq — remains sharply disputed.",
+      icon_name: "Atom" as const,
+      skeptic_premise:
+        "The case for an imminent nuclear threat runs through the same institutional incentives that produced the Iraq WMD debacle. Iran has enriched to 60% and the IAEA detected a transient batch of particles at 83.7%, but enrichment capability is not the same as a weapons program. There is no public evidence Iran has diverted material to a weaponization track, the 2007 US NIE judged the structured weapons-design effort halted in 2003 with no public assessment reversing that, and Iran — however grudgingly — still operates under IAEA safeguards. The 'breakout timeline' conflates two different clocks: producing enough fissile material may be weeks away, but converting it into a deliverable warhead (metal conversion, pit fabrication, implosion design, miniaturization, missile integration) is plausibly a year or more. We heard the same compressed-urgency framing about Iraq, and the Senate Intelligence Committee later found those estimates 'overstated' and 'not supported by the intelligence.'",
+      proponent_rebuttal:
+        "The Iraq analogy is a false parallel. In Iraq, inspectors found nothing; in Iran, the IAEA documented about 408 kg of 60% enriched uranium as of May 2025 — enough fissile material for multiple weapons with further enrichment — and a 2023 detection of particles at 83.7% at Fordow that has no routine civilian explanation. In September 2023 Iran de-designated several of the agency's most experienced inspectors, and it had already had the JCPOA monitoring cameras removed in 2022, leaving real verification gaps; questions about undeclared nuclear material at several sites remain unresolved. Unlike Iraq, the core measurements come from the IAEA itself, an independent international body, not from national intelligence alone. The fissile-material breakout timeline is now measured in weeks even if weaponization would take longer, and every month of delay adds to the stockpile. Waiting for an unambiguous smoking gun could mean waiting until Iran is already at the threshold.",
+      crux: {
+        id: "breakout-timeline-verification",
+        title: "The Breakout Timeline Verification",
+        question:
+          "Is Iran near a deliverable nuclear weapon, or is the gap from enriched uranium to a bomb understated?",
+        description:
+          "Determine whether Iran's current enrichment capacity and stockpile constitute a genuine near-term weapons capability, or whether the gap between enriched material and a deliverable nuclear weapon is being understated to build a case for war.",
+        methodology:
+          "Cross-reference IAEA quarterly reports on Iran's UF6 stockpile (kg at each enrichment level) with independent technical assessments of the steps required beyond enrichment: conversion to metal, pit fabrication, implosion lens design, warhead miniaturization, and delivery vehicle integration. Compare the publicly known state of Iran's program against the timelines estimated by physicists at Princeton's Science & Global Security program and the Federation of American Scientists.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "IAEA quarterly figures on Iran's uranium stockpile at each enrichment level, set against independent technical estimates of how long the later steps take: conversion to metal, pit fabrication, implosion design, miniaturization and missile integration.",
+        },
+        cost_to_verify:
+          "$0 (IAEA reports are public; independent technical assessments available from FAS and Princeton SGS)",
+        falsification: {
+          supporter_flip:
+            "If independent technical assessments found the steps beyond enrichment — metal conversion, pit fabrication, implosion design, miniaturization, missile integration — would take Iran well over a year, with no sign of material diverted to a weaponization track, the case that the threat is near enough to justify strikes would weaken.",
+          skeptic_flip:
+            "If further IAEA reporting, rather than national intelligence alone, kept finding a stockpile on the scale of May 2025's 408 kg of 60% uranium, particles near 83.7% at Fordow, and verification gaps since cameras and inspectors were removed, the Iraq-style inflation charge would be hard to hold.",
+          common_ground:
+            "Both sides agree Iran holds about 408 kg of 60% enriched uranium and could produce enough fissile material within weeks, while turning it into a deliverable warhead would take longer.",
+          live_disagreement:
+            "How close Iran is to a deliverable weapon rather than to fissile material alone, and whether acting before an unambiguous sign of weaponization is prudent or repeats the Iraq error of compressed urgency.",
+        },
+      },
+      evidence: [
+        {
+          id: "inspector-expulsion",
+          title:
+            "Iran Withdrew Designations of Experienced IAEA Inspectors (2023) and Removed JCPOA Cameras (2022)",
+          description:
+            "In September 2023 Iran withdrew the designations of several of the IAEA's most experienced inspectors — about a third of the core group assigned to Iran — which Director General Grossi called an 'unprecedented and disproportionate' measure (though formally permitted under the NPT Safeguards Agreement). Separately, in June 2022 the IAEA removed its JCPOA surveillance and monitoring equipment at Iran's request. Together these created significant gaps in the agency's ability to verify the program's status.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "IAEA Director General's Statement on Verification in Iran (16 Sept 2023)",
+          sourceUrl:
+            "https://www.iaea.org/newscenter/pressreleases/iaea-director-generals-statement-on-verification-in-iran-0",
+          reasoning:
+            "Corrected: the inspectors were de-designated (a step permitted under the safeguards agreement), not declared 'persona non grata,' and the camera removal was 2022, not 2023. Obstructing monitoring is concerning but does not itself prove weaponization — it could reflect a weapons program or political retaliation over the JCPOA's collapse and sanctions. Directness lowered accordingly.",
+        },
+        {
+          id: "iraq-wmd-precedent",
+          title:
+            "Iraq WMD Intelligence Failure Demonstrates Institutional Bias Toward Threat Inflation",
+          description:
+            "In 2003, US and UK intelligence agencies assessed with 'high confidence' that Iraq possessed WMDs and active nuclear, chemical, and biological weapons programs. Every major claim was wrong. The Chilcot Inquiry and Senate Intelligence Committee reports documented how intelligence was shaped to fit a predetermined policy conclusion.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 10,
+            directness: 6,
+          },
+          source:
+            "Senate Select Committee on Intelligence Report on the U.S. Intelligence Community's Prewar Intelligence Assessments on Iraq (S. Rept. 108-301, 2004); Iraq (Chilcot) Inquiry (2016)",
+          sourceUrl:
+            "https://www.congress.gov/committee-report/108th-congress/senate-report/301/1",
+          reasoning:
+            "The Iraq precedent is historically verified — the Senate report found prewar WMD estimates 'overstated' and 'not supported by the intelligence' — and is directly relevant as an institutional warning. However, directness is limited because the Iran case rests on different evidence sources (IAEA on-site measurement vs. national intelligence and defector reporting) and different factual circumstances.",
+        },
+        {
+          id: "nie-no-weapons-program",
+          title:
+            "US National Intelligence Estimate: Iran Halted Weapons Program in 2003",
+          description:
+            "The November 2007 US NIE 'Iran: Nuclear Intentions and Capabilities' judged with high confidence that Tehran halted its nuclear weapons program in fall 2003, with moderate confidence it had not restarted as of mid-2007. (The 'weapons program' was narrowly defined to exclude declared enrichment work, a definition critics dispute.) Subsequent assessments have not formally reversed this finding, though they note Iran has kept the option open. There is no public US intelligence assessment concluding Iran has restarted a dedicated weaponization program.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 4,
+            directness: 6,
+          },
+          source:
+            "Office of the Director of National Intelligence, National Intelligence Estimate, Iran: Nuclear Intentions and Capabilities (Nov 2007), declassified key judgments",
+          sourceUrl:
+            "https://www.armscontrol.org/issue-briefs/2010-08/iran-nuclear-nie-2007-revise-reject-reiterate",
+          reasoning:
+            "The NIE is from the same intelligence community that got Iraq wrong, which cuts both ways. Independence is low since it is a US government product, and the 'high confidence' headline rested on a narrow definition of 'weapons program' that excluded enrichment — so directness and reliability are de-inflated. Citation points to the Arms Control Association issue brief, which reproduces the declassified key judgments (the primary ODNI/CIA document is not reliably web-accessible).",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 3: Regional Proxy Networks
     // =========================================================================
     {
       id: "proxy-warfare",
@@ -225,11 +330,30 @@ export const usIranConflictData = {
           reasoning:
             "The Soleimani assassination is the highest-profile targeted killing in the US-Iran conflict. Evidence shows it disrupted but did not destroy proxy networks, and it created an enduring Iranian motivation for retaliation that manifested in assassination plots against former US officials. This complicates the claim that targeted killings advance US security.",
         },
+        {
+          id: "hezbollah-arsenal-growth",
+          title:
+            "Hezbollah's Arsenal Grew From ~15,000 Rockets (2006) to an Estimated 120,000-150,000 Despite Israeli Operations",
+          description:
+            "After the 2006 Lebanon War, Israel declared it had significantly degraded Hezbollah's capabilities. In the years since, estimates of Hezbollah's rocket and missile arsenal rose roughly ten-fold — CSIS puts it around 130,000, with broader estimates spanning 120,000-200,000 — adding precision-guided munitions and longer-range systems supplied through Iranian logistics networks via Syria.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 8,
+          },
+          source:
+            "CSIS Missile Threat, 'Missiles and Rockets of Hezbollah'",
+          sourceUrl: "https://missilethreat.csis.org/country/hezbollahs-rocket-arsenal/",
+          reasoning:
+            "Corrected: the 2006 baseline was roughly 15,000-20,000 rockets (not 10,000), and the upper figure is an estimate (CSIS ~130,000; Israeli officials say ~150,000; full range 120,000-200,000) rather than a verified count, so independence and replicability are de-inflated. Still solid historical evidence that force against proxies and supply lines did not prevent arsenal growth — directness remains high.",
+        },
       ],
     },
 
     // =========================================================================
-    // PILLAR 3: Sanctions & Economic Pressure
+    // PILLAR 4: Sanctions & Economic Pressure
     // =========================================================================
     {
       id: "sanctions-effectiveness",
@@ -335,6 +459,117 @@ export const usIranConflictData = {
         },
       ],
     },
+
+    // =========================================================================
+    // PILLAR 5: Diplomatic Alternatives (folded in from the retired
+    // iran-war-justification map, 2026-10-06)
+    // =========================================================================
+    {
+      id: "diplomatic-alternatives",
+      title: "Diplomatic Alternatives",
+      short_summary:
+        "The question of whether diplomacy has been 'exhausted' depends on whether the JCPOA's collapse is seen as proof that diplomacy failed — or proof that it was sabotaged before it could succeed.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Diplomacy has not been exhausted — it was deliberately abandoned. The JCPOA was working: Iran was compliant, enrichment was capped at 3.67%, the stockpile was reduced by 98%, and 24/7 IAEA monitoring was in place. The US unilaterally withdrew in 2018 despite verified compliance, reimposed maximum-pressure sanctions, and then assassinated Iran's top general in 2020. Every Iranian escalation followed a US provocation. Diplomatic offramps have repeatedly been floated: proposals for a cap-and-freeze interim understanding in exchange for partial sanctions relief, mediation offers from regional and outside powers, and indirect channels via Oman and Qatar that produced prisoner exchanges. Declaring diplomacy 'exhausted' — while maximum-pressure sanctions remain in place and after the US walked away from a verified-compliant agreement — is at least as much a political choice as a strategic verdict.",
+      proponent_rebuttal:
+        "The JCPOA was a temporary pause, not a solution. Its sunset clauses would have allowed Iran unrestricted enrichment by 2030-2031, creating a patient pathway to a bomb with international legitimacy. It never addressed Iran's ballistic missile program, which has since tested missiles capable of reaching Europe. It never addressed Iran's regional aggression, which has intensified. And Iran's record is not clean: the IAEA found undeclared nuclear material at multiple sites that Iran has not credibly explained, and the Mossad's 2018 seizure of Iran's nuclear archive documented a pre-2003 structured weapons-design program (the 'Amad Plan') that Iran had long denied existed — undercutting trust even if it did not show an active post-2003 program. Since JCPOA collapsed, Iran has rejected every diplomatic initiative — the EU's 2022 deal was abandoned after Iran demanded the IRGC be delisted as a terrorist organization, an obvious non-starter. At some point, 'more diplomacy' becomes a euphemism for allowing Iran to reach nuclear weapons capability while talking.",
+      crux: {
+        id: "diplomatic-exhaustion-test",
+        title: "The Diplomatic Exhaustion Test",
+        question:
+          "Has diplomacy with Iran been genuinely exhausted, or was it undermined before it could succeed?",
+        description:
+          "Determine whether all realistic diplomatic pathways have been genuinely pursued and failed on their merits — or whether diplomatic failure was engineered by parties who preferred a military option. This requires assessing whether the US negotiated in good faith after 2018 and whether Iran's rejections of subsequent proposals were unreasonable.",
+        methodology:
+          "Map every formal diplomatic proposal from 2018-present, including the party that proposed it, the specific terms offered, the response from each side, and the stated reason for rejection. Cross-reference with contemporaneous statements from US, Iranian, and European officials to determine whether rejections were based on substantive objections or preconditions designed to prevent agreement. Apply the standard used in international law for 'exhaustion of remedies' — have all reasonable alternatives been attempted in good faith?",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A record of every formal proposal since 2018 with its terms, each side's response and the stated reason for rejection, checked against what US, Iranian and European officials said at the time.",
+        },
+        cost_to_verify:
+          "$0 (diplomatic records, UN proceedings, and media reporting are publicly available)",
+        falsification: {
+          supporter_flip:
+            "If mapping every formal proposal since 2018 showed realistic offramps — a cap-and-freeze interim deal, talks via Oman or Qatar — left unpursued or undercut by the US rather than rejected by Iran on the merits, the claim that diplomacy was exhausted would fail.",
+          skeptic_flip:
+            "If a full record of the talks confirmed that the 2022 EU-led revival draft collapsed over Iran's demand to delist the IRGC, and that a revived JCPOA would still expire around 2030-2031 without covering missiles, the view that diplomacy was abandoned would weaken.",
+          common_ground:
+            "Both sides agree the JCPOA capped enrichment at 3.67% under IAEA monitoring while it was in force, and that its core limits were set to lapse around 2030-2031.",
+          live_disagreement:
+            "Whether diplomacy failed on its merits — sunset clauses, missiles and Iran's rejections — or was abandoned when the US left a deal Iran was complying with, and whether offramps like a cap-and-freeze deal remain realistic.",
+        },
+      },
+      evidence: [
+        {
+          id: "sunset-clauses",
+          title:
+            "JCPOA Sunset Clauses Would Allow Unrestricted Enrichment by 2030-2031",
+          description:
+            "Key JCPOA restrictions phase out on a staggered schedule: limits on first-generation centrifuge numbers and advanced-centrifuge R&D begin lapsing around 2025-2028, while the 3.67% enrichment cap and 300 kg stockpile limit run until roughly 2030-2031. Critics argue this created a 'patient pathway' to a bomb with international legitimacy, making the deal fundamentally flawed regardless of short-term compliance.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 9,
+            directness: 6,
+          },
+          source:
+            "Arms Control Association, 'The Joint Comprehensive Plan of Action (JCPOA) at a Glance'; USIP Iran Primer explainer on sunset timing",
+          sourceUrl:
+            "https://www.armscontrol.org/factsheets/joint-comprehensive-plan-action-jcpoa-glance",
+          reasoning:
+            "The staggered sunset clauses are a real, document-verifiable structural feature of the JCPOA (enrichment/stockpile limits to ~2030-2031). Directness is moderate because the clauses were designed to be revisited as confidence-building progressed — proponents read them as a floor to renegotiate, critics as an expiry date.",
+        },
+        {
+          id: "failed-post-jcpoa-diplomacy",
+          title:
+            "Multiple Post-JCPOA Diplomatic Initiatives Have Stalled (2019-2024)",
+          description:
+            "EU-coordinated talks to revive the JCPOA reached a near-final draft in 2022 but collapsed in mid-2022, with Iran's demand that the IRGC be removed from the US Foreign Terrorist Organization list emerging as a central obstacle that the Biden administration refused. Subsequent indirect US-Iran talks via Oman, and later Qatari mediation, yielded prisoner exchanges and informal understandings but no restored nuclear agreement.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 7,
+            directness: 7,
+          },
+          source:
+            "USIP Iran Primer, 'Iran Deal: The IRGC is the Final Hurdle' (2022); contemporaneous reporting",
+          sourceUrl:
+            "https://iranprimer.usip.org/blog/2022/apr/07/iran-deal-irgc-final-hurdle",
+          reasoning:
+            "Corrected: the 2022 effort was a JCPOA-revival negotiation that stalled over the IRGC delisting demand — not specifically an 'interim deal freezing enrichment at 60%' (that framing conflated later informal proposals). Failure must be contextualized: talks proceeded under maximum-pressure sanctions, which Iran argues prevents good-faith bargaining, so whether these were genuine or performative remains the contested question.",
+        },
+        {
+          id: "historical-diplomatic-success",
+          title:
+            "Historical Precedent: Diplomacy Resolved Comparable Nuclear Crises (Libya 2003, South Africa 1989)",
+          description:
+            "Libya agreed in December 2003 to eliminate its WMD programs — including an early-stage nuclear weapons effort — through US/UK diplomatic engagement. South Africa built six nuclear weapons during apartheid, then voluntarily abandoned the program in 1989 and dismantled the devices by 1991. Both cases show nuclear proliferation can be reversed without military action when incentives and security/political conditions align.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Nuclear Threat Initiative (NTI), 'Nuclear Disarmament South Africa'",
+          sourceUrl:
+            "https://www.nti.org/analysis/articles/south-africa-nuclear-disarmament/",
+          reasoning:
+            "Historical precedents are real but replicability is low — Libya (a nascent program) and South Africa (an indigenous arsenal abandoned amid the end of apartheid) had very different strategic contexts from Iran's. Gaddafi's overthrow and death in 2011 after disarming is now cited by Iran as a reason not to disarm, which further complicates the analogy.",
+        },
+      ],
+    },
+  ],
+  // The retired iran-war-justification map asked the forward-looking half
+  // of the same fight (merged 2026-10-06); its names stay findable here.
+  aliases: [
+    "Is Military Action Against Iran Justified?",
+    "Should the US strike Iran?",
   ],
   references: [
     {
@@ -361,6 +596,24 @@ export const usIranConflictData = {
       title: "Iran's Proxy War Paradox: Strategic Gains, Control Issues, and Operational Constraints - Small Wars & Insurgencies",
       url: "https://www.tandfonline.com/doi/full/10.1080/09592318.2025.2512807",
     },
+    {
+      title:
+        "IAEA Board of Governors Report GOV/2025/24 — Verification and Monitoring in Iran (31 May 2025)",
+      url: "https://www.iaea.org/sites/default/files/25/06/gov2025-24.pdf",
+    },
+    {
+      title: "IAEA Focus: Verification and Monitoring in Iran (latest reports)",
+      url: "https://www.iaea.org/newscenter/focus/iran",
+    },
+    {
+      title: "Congressional Research Service: Iran's Nuclear Program — Status (RL34544)",
+      url: "https://crsreports.congress.gov/product/pdf/RL/RL34544",
+    },
+    {
+      title:
+        "International Crisis Group: The Iran-US Standoff — Risks and Offramps",
+      url: "https://www.crisisgroup.org/middle-east-north-africa/gulf-and-arabian-peninsula/iran",
+    },
   ],
   questions: [
     {
@@ -381,6 +634,17 @@ export const usIranConflictData = {
       content:
         "The Soleimani assassination, the Twelve-Day War in June 2025, and Operation Epic Fury in February 2026 have killed thousands and brought the US into direct military confrontation with Iran. Proponents argue deterrence prevents worse outcomes. Critics argue each escalation triggers retaliation — assassination plots, proxy attacks, missile strikes — creating a cycle that has made the region more volatile than before maximum pressure began.",
     },
+    {
+      id: "q4",
+      title: "Would strikes actually prevent an Iranian bomb?",
+      content:
+        "Iran's nuclear knowledge cannot be bombed away. Key facilities like Fordow are buried deep underground. Would military strikes delay the program by years, or would they accelerate a political decision to weaponize — as happened with Iraq's Osirak strike in 1981?",
+    },
+    {
+      id: "q5",
+      title: "Are we repeating the Iraq WMD intelligence failure?",
+      content:
+        "The 2003 invasion of Iraq was justified by claims of weapons of mass destruction that turned out to be false. What institutional safeguards exist today to prevent a similar intelligence failure, and are they being applied to the Iran case?",
+    },
   ],
 };
-

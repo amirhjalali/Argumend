@@ -22,18 +22,12 @@ export const DISTINCT_MAP_PAIRS: readonly AllowedMapPair[] = [
     reason:
       "One asks whether a class of drugs is a safe, lasting treatment; the other asks what mainly causes obesity. Same vocabulary, different questions.",
   },
-];
-
-export const PENDING_MERGE_MAP_PAIRS: readonly AllowedMapPair[] = [
-  { a: "tiktok-ban", b: "government-platform-bans", reason: "Same question; merging (2026-10-06)." },
   {
     a: "housing-affordability-crisis",
     b: "rent-control-effectiveness",
-    reason: "Housing map overlaps rent control; reframing it around supply (2026-10-06).",
+    reason:
+      "One asks whether building more homes makes housing affordable; the other asks whether capping rents does. They share supply evidence because rent control's critics name supply as the alternative.",
   },
-  { a: "ai-job-displacement", b: "ai-white-collar-displacement", reason: "Same question; merging into ai-mass-unemployment (2026-10-06)." },
-  { a: "longevity-science", b: "longevity-anti-aging", reason: "Same subject; merging (2026-10-06)." },
-  { a: "us-iran-conflict", b: "iran-war-justification", reason: "Overlapping; merging or reframing (2026-10-06)." },
-  { a: "ev-environmental-impact", b: "lithium-mining-ev-impact", reason: "Same question; merging (2026-10-06)." },
-  { a: "psychedelics-mental-health", b: "psychedelic-therapy-hype", reason: "Same subject; merging (2026-10-06)." },
 ];
+
+export const PENDING_MERGE_MAP_PAIRS: readonly AllowedMapPair[] = [];

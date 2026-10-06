@@ -21,7 +21,7 @@
       "id": "hold-translator",
       "form": "reply",
       "text": "I'm a translator. Two years ago I had more work than I could handle, now agencies send me machine output to 'post-edit' at a third of the rate. Don't tell me AI isn't taking jobs.",
-      "expected": ["ai-mass-unemployment", "ai-job-displacement", "ai-white-collar-displacement"],
+      "expected": ["ai-mass-unemployment"],
       "related": ["capitalism-after-ai"]
     },
     {
@@ -182,7 +182,7 @@
       "id": "hold-psilocybin-trial",
       "form": "reply",
       "text": "Psilocybin therapy got people out of depression that nothing else touched, in the trial I read about. The FDA rejecting MDMA therapy was a disaster.",
-      "expected": ["psychedelics-mental-health", "psychedelic-therapy-hype"],
+      "expected": ["psychedelics-mental-health"],
       "related": []
     },
     {
