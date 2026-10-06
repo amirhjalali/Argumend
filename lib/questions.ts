@@ -224,7 +224,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   // --- Economics & Education ---
   "remote-work-permanence": [
     "Is remote work here to stay?",
-    "Is working from home more productive?",
     "Should companies allow permanent remote work?",
   ],
   "college-value-proposition": [
@@ -485,7 +484,10 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "inflation-monetary-policy": ["Was post-pandemic inflation caused by government spending?"],
   "global-housing-bubble": ["Is there a global housing bubble about to burst?"],
   "us-national-debt-crisis": ["Is the US national debt a ticking time bomb?"],
-  "return-to-office-productivity": ["Does return-to-office improve productivity?"],
+  "return-to-office-productivity": [
+    "Does return-to-office improve productivity?",
+    "Is working from home more productive?",
+  ],
   "lab-diamonds-ethics": ["Are lab-grown diamonds more ethical than mined diamonds?"],
   "degrowth-economics": ["Do we need degrowth to save the planet?"],
   "meritocracy-myth": ["Is meritocracy a myth?"],

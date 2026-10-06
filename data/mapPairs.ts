@@ -50,7 +50,7 @@ export const DISTINCT_MAP_PAIRS: readonly AllowedMapPair[] = [
     a: "remote-work-permanence",
     b: "return-to-office-productivity",
     reason:
-      "One forecasts whether the five-day office week is gone for good and how cities adapt; the other asks whether office mandates actually raise output. They share the innovation evidence, but one asks what will happen and the other whether a policy works.",
+      "One forecasts whether the five-day office week is gone for good and how cities adapt; the other asks whether office mandates actually raise output. One asks what will happen, the other whether a policy works.",
   },
   {
     a: "obesity-personal-responsibility",
