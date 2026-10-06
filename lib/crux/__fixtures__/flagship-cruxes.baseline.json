@@ -263,7 +263,7 @@
         "Status is contested because Not argued explicitly as a standalone premise anywhere in the corpus, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than diffusing; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions..",
         "Component scores: score 0.828, contestedness 0.688, reach 0.592, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
         "Position deltas: p-breaks-fundamentally +0.739, p-adapts-as-always -0.643, p-definitional-skeptic -0.162, p-requires-restructuring +0.151.",
-        "Resolution: future-observable: a decade of repeated market-share, entry, switching-cost, and beneficial-ownership measurements showing whether control remains concentrated or diffuses separately across frontier models, cloud compute, AI chips, and equity ownership.",
+        "Resolution: future-observable: a decade of repeated market-share, entry, switching-cost, and beneficial-ownership measurements, taken separately for frontier models, cloud compute, AI chips, and equity ownership.",
         "Gates: none."
       ]
     },

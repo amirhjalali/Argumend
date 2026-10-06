@@ -24,24 +24,10 @@ import type { ArgumentNode, Evidence, ResolutionKind } from "@/types/argument";
 import type { CruxLedgerStatus } from "@/types/cruxLedger";
 import type { CruxMovementEntry } from "@/lib/argument/ledger";
 
-/** The engine's line for a crux no evidence can settle (docs/CRUX_ENGINE.md). */
-export const STANDING_DISAGREEMENT_LINE =
-  "Nothing does — this is a standing value disagreement; the map holds both horns.";
-
-/**
- * The standing line for the kind of fork. A value fork keeps the engine's
- * exact line; a definitional or who-decides fork says what it turns on, so a
- * definition question is not mislabelled as a clash of values.
- */
-export function standingLineFor(kind?: ResolutionKind): string {
-  if (kind === "definitional-choice") {
-    return "Nothing does — this turns on a choice of definition; the map holds both readings.";
-  }
-  if (kind === "authority-allocation") {
-    return "Nothing does — this turns on who should decide; the map holds both answers.";
-  }
-  return STANDING_DISAGREEMENT_LINE;
-}
+// The standing lines live with the page model so legacy maps, question pages
+// and paste results share them; re-exported here for existing imports.
+import { standingLineFor } from "@/lib/topicPage/model";
+export { STANDING_DISAGREEMENT_LINE, standingLineFor } from "@/lib/topicPage/model";
 
 const STATUS_LABEL: Record<CruxLedgerStatus, string> = {
   open: "Open",

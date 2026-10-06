@@ -17,11 +17,12 @@
 import type { Evidence, Pillar, Topic, Verdict } from "@/lib/schemas/topic";
 import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
 import { mapDisplayTitle, sideWords, type SideWords } from "@/lib/mapNaming";
-import type {
-  CruxEntryData,
-  PositionCardData,
-  RelatedMap,
-  TopicPageData,
+import {
+  STANDING_CONDITION_LEAD,
+  type CruxEntryData,
+  type PositionCardData,
+  type RelatedMap,
+  type TopicPageData,
 } from "./model";
 
 export interface LegacyEvidenceItem {
@@ -68,6 +69,14 @@ const TESTABILITY: Record<Pillar["crux"]["verification_status"], string> = {
 };
 
 const MAX_AGREEMENT = 3;
+
+/** Capitalised, with a closing full stop (as cruxPrimitives' asSentence; this module stays React-free). */
+function asSentence(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) return trimmed;
+  const capped = trimmed[0].toUpperCase() + trimmed.slice(1);
+  return /[.!?…]$/.test(capped) ? capped : `${capped}.`;
+}
 
 // Accent colours from the design system: rust names the proponent side and
 // brown the skeptic, as everywhere else on the site.
@@ -184,21 +193,34 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
     const ground = f?.common_ground?.trim();
     const authored = crux.question?.trim();
     const liveRunIn = authored && live ? [{ lead: "Where the fight is.", text: live }] : [];
+    // The authored settle line when the map has one; older maps fall back to
+    // the crux description (the contract test lists the ones still to fix).
+    const condition = crux.settle?.condition ?? crux.description;
+    const standingKind = crux.settle?.kind;
+    const settle: CruxEntryData["settle"] = standingKind
+      ? // Nothing empirical settles it: the flagship's standing line, and the
+        // condition says what it turns on, as on the flagship maps.
+        { mode: "standing", kind: standingKind, condition, resolved: false, label: "What would settle it" }
+      : {
+          mode: "evidence",
+          condition,
+          resolved: false,
+          label: "What would settle it",
+          note: TESTABILITY[crux.verification_status],
+        };
+    const standingRunIn = standingKind
+      ? [{ lead: STANDING_CONDITION_LEAD[standingKind], text: asSentence(condition) }]
+      : [];
     return {
       anchor: `crux-${pillar.id}`,
       pillarId: pillar.id,
       question: authored || live || crux.title,
       shortLabel: pillar.title,
       kicker: pillar.title,
-      settle: {
-        mode: "evidence",
-        condition: crux.description,
-        resolved: false,
-        label: "What would settle it",
-        note: TESTABILITY[crux.verification_status],
-      },
+      settle,
       runIns: [
         ...liveRunIn,
+        ...standingRunIn,
         ...(ground && !agreement.includes(ground) ? [{ lead: "Both agree.", text: ground }] : []),
       ],
       flips: f

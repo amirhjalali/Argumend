@@ -42,6 +42,10 @@ export const vaccineMandatesData = {
         methodology:
           "Use quasi-experimental designs — difference-in-differences across jurisdictions with staggered mandate timing, interrupted time series with matched controls, or synthetic-control modelling — to isolate the mandate's marginal effect on first-dose rates, separating it from the underlying uptake trend.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Studies that use staggered mandate dates across places, by difference-in-differences or synthetic controls, to measure first-dose jumps against the uptake trend each place was already on.",
+        },
         cost_to_verify: "$50K (econometric analysis of public dose data)",
         falsification: {
           supporter_flip:
@@ -132,6 +136,10 @@ export const vaccineMandatesData = {
         methodology:
           "Estimate the secondary-attack-rate reduction from vaccinated index cases versus unvaccinated (contact-tracing and household-transmission studies), track its waning over time, and compare it against the herd-immunity threshold for the specific pathogen.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Contact-tracing and household studies of how often vaccinated people infect others compared with unvaccinated people, and how fast that falls in the months after the dose, for the specific vaccine. How large an effect licenses compulsion is a value choice those studies cannot make.",
+        },
         cost_to_verify: "$0 (analysis of existing contact-tracing data)",
         falsification: {
           supporter_flip:
@@ -221,6 +229,10 @@ export const vaccineMandatesData = {
         methodology:
           "Combine legal analysis of whether the mandating body acted within its authority with longitudinal measurement of trust in public-health institutions and downstream vaccine hesitancy (panel surveys before/after mandates), netting health benefits against trust costs.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Panel surveys that follow the same people's trust in public-health agencies, and their later vaccine uptake, from before a mandate to years after, against places that had none. Netting any lasting loss against lives saved takes a weighting no measurement supplies.",
+        },
         cost_to_verify: "$500K (multi-year longitudinal trust panel)",
         falsification: {
           supporter_flip:
