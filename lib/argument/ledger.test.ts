@@ -10,6 +10,7 @@ import {
   findVerdictLanguage,
   isPublicEntry,
   ledgerStatus,
+  mapReviewedOn,
   parseCruxLedger,
   publicLedgerEntries,
   validateCruxLedger,
@@ -550,5 +551,38 @@ describe("public projection and ledgerStatus", () => {
     expect(movement.map((m) => m.entry.id)).toEqual([open.id, laterSameDay.id]);
     expect(movement[1].corrects).toEqual(["2025-09-01"]);
     expect(claimMovement([valueFork], "c2")).toEqual([]);
+  });
+});
+
+describe("mapReviewedOn", () => {
+  it("keeps the map's reviewed date when the ledger is empty or older", () => {
+    expect(mapReviewedOn("2026-08-12", [])).toBe("2026-08-12");
+    expect(
+      mapReviewedOn("2026-08-12", [entry({ date: "2026-02-11", createdAt: "2026-03-01" })]),
+    ).toBe("2026-08-12");
+  });
+
+  it("moves to the latest day a public entry records: its date, when noticed, or when written", () => {
+    expect(
+      mapReviewedOn("2026-08-12", [entry({ date: "2026-09-15", createdAt: "2026-09-01" })]),
+    ).toBe("2026-09-15");
+    expect(
+      mapReviewedOn("2026-08-12", [
+        entry({ date: "2024-05-01", noticedAt: "2026-09-22", createdAt: "2026-09-22T00:00:00Z" }),
+      ]),
+    ).toBe("2026-09-22");
+  });
+
+  it("never counts an unreviewed model proposal", () => {
+    expect(
+      mapReviewedOn("2026-08-12", [
+        entry({ date: "2026-10-01", createdAt: "2026-10-01", author: unreviewedJudgment }),
+      ]),
+    ).toBe("2026-08-12");
+    expect(
+      mapReviewedOn("2026-08-12", [
+        entry({ date: "2026-10-01", createdAt: "2026-10-01", author: reviewedJudgment }),
+      ]),
+    ).toBe("2026-10-01");
   });
 });

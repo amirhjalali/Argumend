@@ -65,6 +65,10 @@ describe("home: one argument, two doors", () => {
     expect(post?.content).toMatch(/\b114 substantive turns\b/);
     expect(post?.content).toMatch(/\b88 were\b/);
     expect(post?.content).toMatch(/\b36 minutes\b/);
+    // It names the debate, as the post and /about do.
+    expect(post?.content).toMatch(/trans athletes debate/);
+    const evidence = view.getByRole("complementary", { name: "What we measured" });
+    expect(evidence.textContent).toContain("televised debate on trans athletes, 88 of 114 turns");
   });
 
   it("puts the two doors before the evidence, so the rust button is high on a phone", () => {

@@ -106,3 +106,24 @@ export function claimMovement(
         .sort(),
     }));
 }
+
+const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * The date a map was last reviewed: its own reviewed date, or the latest day
+ * its public ledger records when that is later. Every public entry is one a
+ * person wrote or reviewed, so the day it was written (or its source noticed,
+ * or its movement dated) is a review of the map; a header that says
+ * "reviewed Aug 12" above a ledger that reads "Narrowed Sep 2026" is wrong.
+ * Unreviewed model proposals never count.
+ */
+export function mapReviewedOn(reviewedOn: string, entries: readonly CruxLedgerEntry[]): string {
+  let latest = reviewedOn;
+  for (const entry of entries) {
+    if (!isPublicEntry(entry)) continue;
+    for (const day of [entry.date, entry.noticedAt, entry.createdAt?.slice(0, 10)]) {
+      if (day && ISO_DAY.test(day) && day > latest) latest = day;
+    }
+  }
+  return latest;
+}

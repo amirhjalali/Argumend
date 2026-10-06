@@ -639,7 +639,7 @@ The record shows movement, never a winner. A crux can narrow without either side
         title: "What the map does not say",
         content: `A map does not tell you who won. There is no score for either side and no agreement percentage. Two people can accept every card on a map and still disagree about what matters more.
 
-On the older maps, a fold near the bottom, "How the evidence weighs", puts the cards on the page into a few words: the evidence largely converges, is well mapped but still divided, leans one way, or is still thin. It describes the cards on that page, not the question in the world, and [How maps are made](/methodology#older-maps) explains how it is reached and when the map holds a stronger word back. Treat it as a note on the page, not an answer. The cruxes are the answer the map gives: here is where it turns, and here is what would move it.`,
+On the older maps, a fold near the bottom, "How the evidence weighs", shows one strong card from each side and how every card is weighed. It does not say which way the cards tip; [How maps are made](/methodology#older-maps) explains why the pages stopped printing that reading. The cruxes are the answer the map gives: here is where it turns, and here is what would move it.`,
       },
     ],
     keyTakeaways: [
@@ -1902,7 +1902,7 @@ The stakes are rising. As the [truth-collapse debate](/topics/ai-deepfakes-truth
 
 2. **Trace independence before counting agreement.** Three voices that trace to one source are one voice. [Triangulate](/guides/triangulation).
 
-3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. On a map, read "largely converges" and "still divided" as descriptions of the [evidence on the page](/methodology#older-maps), not answers.
+3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. On a map, read the evidence cards as a description of the [evidence on the page](/methodology#older-maps), not an answer.
 
 4. **Demand a stated falsification condition.** If the doubt can't name what would change its mind, it isn't skepticism.
 

@@ -121,6 +121,24 @@ describe("Next.js response headers", () => {
     );
   });
 
+  it("lets Cloudflare Web Analytics load its beacon and report, on pages and embeds alike", async () => {
+    const rules = await nextConfig.headers();
+    const csp = (source: (s: string) => boolean) =>
+      rules
+        .find((rule) => source(rule.source))
+        ?.headers.find(({ key }) => key === "Content-Security-Policy")?.value ?? "";
+    const policies = [csp((s) => s.includes("?!embed/")), csp((s) => s === "/embed/:path*")];
+    for (const policy of policies) {
+      const directive = (name: string) =>
+        policy.split("; ").find((d) => d.startsWith(`${name} `)) ?? "";
+      expect(directive("script-src")).toContain("https://static.cloudflareinsights.com");
+      expect(directive("connect-src")).toContain("https://cloudflareinsights.com");
+    }
+    // The two policies differ only in who may frame the page.
+    const [page, embed] = policies;
+    expect(embed.replace("frame-ancestors *", "frame-ancestors 'none'")).toBe(page);
+  });
+
   it("caches stable machine-discovery documents at the edge", async () => {
     const rules = await nextConfig.headers();
     for (const source of [

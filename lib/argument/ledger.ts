@@ -559,6 +559,7 @@ export {
   currentLedgerEntries,
   isPublicEntry,
   ledgerStatus,
+  mapReviewedOn,
   publicLedgerEntries,
   type CruxMovementEntry,
 } from "./ledgerProjection";
