@@ -2776,7 +2776,7 @@ The honest position is uncomfortable: **we probably need geoengineering AND aggr
 
 The debate is not "geoengineering vs. emissions reduction." It is "how do we manage the risks of both doing it and not doing it?" That requires exactly the kind of evidence-weighted, both-sides analysis that most of the discourse is missing.
 
-Explore the full argument map at our [Geoengineering & Carbon Capture](/topics/geoengineering-climate) topic, and see how it connects to the broader [climate change](/topics/climate-change) and [nuclear energy](/topics/nuclear-energy-safety) debates.`,
+Explore the full argument map at our [Solar Geoengineering: Buy Time or Distraction?](/topics/geoengineering-climate) topic, and see how it connects to the broader [climate change](/topics/climate-change) and [nuclear energy](/topics/nuclear-energy-safety) debates.`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────

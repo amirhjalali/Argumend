@@ -677,9 +677,9 @@ export const isClaims: IsClaim[] = [
   {
     slug: "geoengineering-necessary",
     topicId: "geoengineering-climate",
-    question: "Do we need geoengineering to fight climate change?",
+    question: "Do we need solar geoengineering to fight climate change?",
     claim:
-      "Geoengineering — particularly stratospheric aerosol injection and direct air capture — is now a necessary complement to emissions reduction, not a dangerous distraction.",
+      "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction.",
   },
   {
     slug: "cbdc-surveillance-threat",
