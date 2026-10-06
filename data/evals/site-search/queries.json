@@ -31,7 +31,7 @@
     { "query": "free will", "expected": ["free-will"], "kind": "keyword" },
     { "query": "is college worth it", "expected": ["college-value-proposition"], "kind": "question" },
     { "query": "student loan forgiveness", "expected": ["student-debt-forgiveness"], "kind": "synonym" },
-    { "query": "are electric cars better for the environment", "expected": ["ev-environmental-impact", "lithium-mining-ev-impact"], "kind": "question" },
+    { "query": "are electric cars better for the environment", "expected": ["ev-environmental-impact"], "kind": "question" },
     { "query": "ozempic", "expected": ["glp1-weight-loss-drugs"], "kind": "keyword" },
     { "query": "is fluoride in water safe", "expected": ["fluoride-water-supplies"], "kind": "question" },
     { "query": "trans athletes", "expected": ["transgender-athletes-sports"], "kind": "abbreviation" },

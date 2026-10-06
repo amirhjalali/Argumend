@@ -181,6 +181,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Are electric cars better for the environment?",
     "Do electric vehicles really reduce emissions?",
     "Is switching to an EV worth it?",
+    "Are EVs clearly greener than gas cars once mining is counted?",
   ],
   "factory-farming-ban": [
     "Should factory farming be banned?",
@@ -521,9 +522,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "alcohol-no-safe-level": ["Is any amount of alcohol safe to drink?"],
   "modern-monetary-theory": ["Is Modern Monetary Theory sound?"],
   "gmo-crops-safety": ["Are GMO crops safe to eat?"],
-  "lithium-mining-ev-impact": [
-    "Are electric vehicles still better for the environment once lithium mining is counted?",
-  ],
   "dark-matter-vs-mond": ["Does dark matter actually exist?"],
   "trump-tariffs": ["Do tariffs strengthen the economy?"],
   "affirmative-action-meritocracy": ["Is affirmative action necessary for equal opportunity?"],

@@ -179,7 +179,6 @@ const FLAGSHIP_TOPIC_IDS = [
   "housing-affordability-crisis",
   "inflation-monetary-policy",
   "lab-diamonds-ethics",
-  "lithium-mining-ev-impact",
   "loneliness-epidemic",
   "modern-monetary-theory",
   "net-neutrality",

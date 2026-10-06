@@ -198,14 +198,14 @@
       "id": "ev-battery-coal",
       "form": "conversation",
       "text": "A: EVs aren't green, the battery production alone is worse than driving a gas car for years, and the power comes from coal anyway. B: The lifecycle studies say the battery carbon debt pays back in a year or two of driving, even on a dirty grid.",
-      "expected": ["ev-environmental-impact", "lithium-mining-ev-impact"],
+      "expected": ["ev-environmental-impact"],
       "related": []
     },
     {
       "id": "cobalt-lithium",
       "form": "reply",
       "text": "Nobody who cheers for electric cars wants to look at the cobalt mines in the Congo or the lithium brine ponds draining the Atacama. Green for rich suburbs, toxic for everyone else.",
-      "expected": ["lithium-mining-ev-impact", "ev-environmental-impact"],
+      "expected": ["ev-environmental-impact"],
       "related": []
     },
     {

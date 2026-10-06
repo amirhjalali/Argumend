@@ -113,6 +113,14 @@ describe("retired map redirects (one map per question, 2026-10-06)", () => {
     ["/questions/is-anti-aging-medicine-real", "/questions/can-science-extend-human-lifespan"],
     ["/questions/will-we-be-able-to-live-to-150", "/questions/can-science-extend-human-lifespan"],
     ["/is/radical-life-extension-possible", "/questions/can-science-extend-human-lifespan"],
+    ["/topics/lithium-mining-ev-impact", "/topics/ev-environmental-impact"],
+    ["/topics/lithium-mining-ev-impact/map", "/topics/ev-environmental-impact/map"],
+    ["/embed/lithium-mining-ev-impact", "/embed/ev-environmental-impact"],
+    [
+      "/questions/are-electric-vehicles-still-better-for-the-environment-once-lithium-mining-is-counted",
+      "/questions/are-electric-cars-better-for-the-environment",
+    ],
+    ["/is/evs-better-despite-lithium-mining", "/questions/are-electric-cars-better-for-the-environment"],
   ];
 
   it.each(expected)("%s → %s, permanently", async (source, destination) => {

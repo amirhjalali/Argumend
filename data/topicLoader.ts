@@ -79,7 +79,6 @@ const topicModuleLoaders = {
   "microplastics-health-crisis": () => import("./topics/microplastics-health-crisis"),
   "glp1-weight-loss-drugs": () => import("./topics/glp1-weight-loss-drugs"),
   "fluoride-water-supplies": () => import("./topics/fluoride-water-supplies"),
-  "lithium-mining-ev-impact": () => import("./topics/lithium-mining-ev-impact"),
   "seed-oils-health": () => import("./topics/seed-oils-health"),
   "obesity-personal-responsibility": () => import("./topics/obesity-personal-responsibility"),
   "loneliness-epidemic": () => import("./topics/loneliness-epidemic"),

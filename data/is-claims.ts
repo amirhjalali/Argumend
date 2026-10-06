@@ -881,7 +881,7 @@ export const isClaims: IsClaim[] = [
   },
   {
     slug: "evs-better-despite-lithium-mining",
-    topicId: "lithium-mining-ev-impact",
+    topicId: "ev-environmental-impact",
     question: "Are electric vehicles still better for the environment once lithium mining is counted?",
     claim:
       "Electric vehicles are significantly better for the environment than gas cars even after accounting for lithium mining and battery production.",

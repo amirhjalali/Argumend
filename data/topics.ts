@@ -44,7 +44,6 @@ import { psychedelicTherapyHypeData } from "./topics/psychedelic-therapy-hype";
 import { eaccVsTechRegulationData } from "./topics/eacc-vs-tech-regulation";
 import { affirmativeActionMeritocracyData } from "./topics/affirmative-action-meritocracy";
 import { fluorideWaterSuppliesData } from "./topics/fluoride-water-supplies";
-import { lithiumMiningEvImpactData } from "./topics/lithium-mining-ev-impact";
 import { cryptocurrencyRegulationData } from "./topics/cryptocurrency-regulation";
 import { pandemicPreparednessData } from "./topics/pandemic-preparedness";
 
@@ -269,7 +268,6 @@ export const psychedelicTherapyHype = buildTopic(psychedelicTherapyHypeData);
 export const eaccVsTechRegulation = buildTopic(eaccVsTechRegulationData);
 export const affirmativeActionMeritocracy = buildTopic(affirmativeActionMeritocracyData);
 export const fluorideWaterSupplies = buildTopic(fluorideWaterSuppliesData);
-export const lithiumMiningEvImpact = buildTopic(lithiumMiningEvImpactData);
 export const cryptocurrencyRegulation = buildTopic(cryptocurrencyRegulationData);
 export const pandemicPreparedness = buildTopic(pandemicPreparednessData);
 
@@ -436,7 +434,6 @@ export const topics: Topic[] = [
   microplasticsHealthCrisis,
   glp1WeightLossDrugs,
   fluorideWaterSupplies,
-  lithiumMiningEvImpact,
   seedOilsHealth,
   obesityPersonalResponsibility,
   lonelinessEpidemic,
@@ -675,9 +672,6 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
 
   // Climate/environment cluster (new topics)
   "geoengineering-climate": ["climate-change", "nuclear-energy-safety", "space-colonization-feasibility", "ev-environmental-impact"],
-
-  // Lithium mining & EV cluster
-  "lithium-mining-ev-impact": ["ev-environmental-impact", "climate-change", "nuclear-energy-safety", "geoengineering-climate"],
 
   // New topics batch 2 clusters
   "longevity-science": ["gene-editing-embryos", "glp1-weight-loss-drugs", "ai-risk", "declining-birth-rates"],

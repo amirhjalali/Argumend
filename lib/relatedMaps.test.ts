@@ -27,7 +27,6 @@ const ENERGY_AND_NUCLEAR = new Set([
   "carbon-capture-viability",
   "hydrogen-economy-viability",
   "ai-energy-water-footprint",
-  "lithium-mining-ev-impact",
   "climate-change",
   "geoengineering-climate",
 ]);

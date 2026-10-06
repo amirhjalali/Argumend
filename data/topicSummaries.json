@@ -1313,18 +1313,18 @@
     "title": "Electric Vehicles vs. ICE Cars",
     "question": "Are EVs significantly greener than gas cars over their full lifecycle?",
     "meta_claim": "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 71,
+    "confidence_score": 53,
+    "balance": 53,
+    "weight": 83,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "How fast does an EV make up its battery's emissions, and how much do mining harms weigh?",
+    "pillarCount": 3,
+    "evidenceCount": 17,
+    "firstCrux": "How fast does an EV make up its battery's emissions?",
     "tags": [
       "science"
     ]
@@ -1598,27 +1598,6 @@
     "pillarCount": 3,
     "evidenceCount": 12,
     "firstCrux": "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
-    "tags": [
-      "science"
-    ]
-  },
-  {
-    "id": "lithium-mining-ev-impact",
-    "title": "Lithium Mining & EV Environmental Impact",
-    "question": "Are EVs clearly greener than gas cars once mining is counted?",
-    "meta_claim": "Electric vehicles are significantly better for the environment than gas cars when mining impacts are included",
-    "confidence_score": 44,
-    "balance": 44,
-    "weight": 79,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 14,
-    "firstCrux": "How many miles must an EV drive to repay its manufacturing carbon, on each market's grid?",
     "tags": [
       "science"
     ]

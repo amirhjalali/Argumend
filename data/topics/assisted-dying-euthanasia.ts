@@ -219,4 +219,7 @@ export const assistedDyingEuthanasiaData = {
       ],
     },
   ],
+  // Shares bodily-autonomy and "ending a life" words with abortion fights,
+  // but is not about abortion (lib/paste/maps.ts isOffSubject).
+  notAbout: ["abortion"],
 };
