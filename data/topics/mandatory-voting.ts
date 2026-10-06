@@ -9,18 +9,18 @@ export const mandatoryVotingData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "When Australia made voting compulsory, turnout jumped from 59% to 91% in three years (1922→1925) and has stayed above 90% ever since — versus roughly 60% in the US. The fight isn't over whether it raises turnout (it dramatically does) but whether dragging the least-engaged to the booth improves representation or just adds noise.",
+      "When Australia made voting compulsory, turnout rose from 59.4% in 1922 to 91.4% in 1925 and has not fallen below about 90% since, against roughly 60% in the US. Its 'donkey vote', ballots numbered straight down the page, runs at roughly 1–2% of formal ballots. The fight is over whether those extra, less-engaged voters make policy more representative, and whether that is worth compelling them.",
     confidence: 85,
     source:
-      "Australian Electoral Commission (compulsory voting history); Fowler (2013) staggered-rollout study; Selb & Lachat",
+      "Australian Electoral Commission, 'Compulsory voting in Australia'; Selb & Lachat, European Journal of Political Research (2009)",
     sourceUrl:
-      "https://www.aec.gov.au/elections/australian_electoral_history/compulsory_voting.htm",
+      "https://www.aec.gov.au/about_aec/publications/voting/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The factual core is striking: when Australia made voting compulsory, turnout leapt from 59% to 91% within three years and has held above 90% for a century — roughly 30 points higher than the United States' ~60%.",
-    "Proponents argue this changes who politics serves: when campaigns can't win by suppressing the other side's turnout, they have to court the whole electorate, and a quasi-experimental study of Australia's rollout found exactly such a redistributive shift (more spending aimed at lower-income voters), not bland centrism.",
-    "So the honest debate isn't whether compulsion raises turnout (it obviously does) but whether the extra, least-engaged voters improve representation or just add noise — plus a real liberty objection that the freedom to vote should include the freedom to abstain.",
+    "Both sides accept that compulsory voting sharply raises turnout, that compelled voters are on average less engaged than habitual ones, and that a flat fine is somewhat regressive and does not fix deeper causes of disengagement such as uncompetitive seats.",
+    "They split over whether the extra voters make policy more representative of the whole electorate or mostly add donkey votes and noise, and over whether those democratic gains are worth the enforcement cost and the lost freedom to abstain.",
+    "The first is a question records like Australia's staggered rollout can test; the second is a weighing of values.",
   ],
   pillars: [
     {

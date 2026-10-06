@@ -1116,7 +1116,7 @@ The connection to Argumend is direct. When you look at a topic and form an opini
 
 This doesn't mean you should doubt everything equally. It means you should practice what Philip Tetlock calls "calibrated uncertainty" — being confident in proportion to the evidence, not in proportion to how strongly you feel. Superforecasters, the most accurate predictors Tetlock studied, were distinguished not by having better information but by being better calibrated. They knew what they didn't know.
 
-Argumend's maps are written with calibration in mind. "The evidence leans toward the claim" is a weaker statement than "the evidence largely converges", and a map says which one it means. "Well-mapped, evidence still divided" is an honest, useful reading, not a failure to reach a conclusion. Learning to sit comfortably with calibrated uncertainty, rather than forcing premature certainty, is one of the most valuable intellectual skills you can develop.`,
+Argumend's maps are written with calibration in mind. A map doesn't hand you a verdict to borrow; it shows the strongest card on each side and, under each crux, what would settle it, so you can see how much is still open. A crux that is still open is an honest, useful finding, not a failure to reach a conclusion. Learning to sit comfortably with calibrated uncertainty, rather than forcing premature certainty, is one of the most valuable intellectual skills you can develop.`,
       },
     ],
     keyTakeaways: [
@@ -1619,7 +1619,7 @@ That intellectual honesty has a payoff. When you can say "the best evidence lean
     id: "reading-confidence-like-a-forecaster",
     title: "Reading confidence like a forecaster",
     subtitle: "Calibration, probability, and the discipline of honest uncertainty",
-    description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read other people's certainty, and a map's reading of its evidence, the same way.",
+    description: "Confidence isn't a feeling — it's a probability you can be right or wrong about. Learn how professional forecasters calibrate their uncertainty, and how to read other people's certainty, and a map's open questions, the same way.",
     readTime: "13 min read",
     sections: [
       {
@@ -1649,12 +1649,12 @@ This guide is about adopting that mindset — and using it to read other people'
         ],
       },
       {
-        title: "What a map's reading actually says",
-        content: `With calibration in mind, you can read a map's description of its evidence correctly — and avoid the two most common misreadings.
+        title: "What a map does and doesn't tell you",
+        content: `With calibration in mind, you can read a map correctly — and avoid the two most common misreadings.
 
-When a map says the evidence "largely converges on the claim," it does not mean "this is certainly true," and it does not mean "most people agree." It means that, weighing the available evidence on its quality, most of the well-weighed support points one way, and there is enough of it that no single card could change the reading. It's a statement about the *current state of evidence*, not a permanent fact — and like a forecaster's number, it's meant to move when new evidence arrives. The map deliberately gives you no percentage to bet on: the reading says which way the evidence on the page tips and how much of it there is, not how likely the claim is to be true. [How maps are made](/methodology#older-maps) explains how it is reached.
+A map never tells you which side is right, and it gives you no percentage to bet on. What it gives you is the material a forecaster works from: the strongest card on each side, with its source, and for each crux, what would settle it and whether that test has been run. A crux that has narrowed tells you the evidence moved; one that is still open tells you it hasn't yet. Either is a statement about the *current state of evidence*, not a permanent fact, and it is meant to move when new evidence arrives. [How maps are made](/methodology) explains how the cards are weighed.
 
-This has two practical consequences. First, "largely converges" is an invitation to act, not to stop thinking: a calibrated reasoner still expects well-supported claims to be overturned occasionally, and the map still shows you the heaviest card on the other side. Second, "still divided" is genuinely informative. It isn't "we know nothing" — it's "the evidence is real but points both ways," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions tend to cluster there, which is why divided maps and their cruxes are the fastest way to find where an argument is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through reading a map as exactly this kind of triage.`,
+This has two practical consequences. First, a strong card on one side is an invitation to look harder at the other side's best card, not to stop thinking: a calibrated reasoner still expects well-supported claims to be overturned occasionally. Second, an open crux is genuinely informative. It isn't "we know nothing" — it's "the evidence is real but points both ways," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions tend to cluster there, which is why open cruxes are the fastest way to find where an argument is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through reading a map as exactly this kind of triage.`,
       },
       {
         title: "Habits of calibrated forecasters",
@@ -1711,7 +1711,7 @@ The reward is a kind of intellectual freedom. Once confidence is a number you ca
       "Confidence is a testable probability, not a feeling: if you're right about 70% of the things you call '70% likely,' you're calibrated — and being wrong sometimes is required, not a failure",
       "Most people, including experts, are systematically overconfident; the fix is to pull your stated confidence toward what your track record actually justifies",
       "Good judgment needs both calibration (honest probabilities) and resolution (the willingness to say 95% or 5% when warranted) — hedging everything to 50% is useless",
-      "A map's reading (largely converges, still divided, still thin) describes the current state of the evidence, not cosmic truth or popularity — and \"still divided\" flags where an argument is genuinely live",
+      "A map shows the current state of the evidence, not cosmic truth or popularity: the strongest card on each side, and for each crux whether it has narrowed or is still open — and an open crux flags where an argument is genuinely live",
       "Borrow the forecaster's habits: think in ranges, start from base rates, update in small steps, and keep score of your predictions to reveal where you're miscalibrated",
       "When reading others, weight precision and acknowledged uncertainty over loud conviction — confidence is not competence, and track record beats credentials",
     ],

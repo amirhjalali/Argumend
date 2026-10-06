@@ -11,17 +11,16 @@ export const tippingCultureData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The federal cash wage for tipped workers has been frozen at $2.13 an hour since 1991 — a rate Congress severed from the regular minimum wage in 1996 and never raised, so inflation has cut its real value by roughly half. The catch reformers rarely lead with: federal law already requires employers to top tipped workers up to the full $7.25 minimum if tips fall short, and the median U.S. server actually earned about $16.23 an hour including tips in 2024.",
+      "The federal cash wage for tipped workers has been frozen at $2.13 an hour since 1991, and inflation has cut its real value by roughly half. The median U.S. server earned about $16.23 an hour including tips in 2024. Both figures come from federal data. The fight is over whether replacing tips with service-included wages would leave servers with more take-home pay or less.",
     confidence: 95,
     source:
-      "U.S. Dept. of Labor, Fair Labor Standards Act tip-credit provisions; BLS Occupational Employment and Wage Statistics (May 2024)",
-    sourceUrl: "https://www.dol.gov/agencies/whd/fact-sheets/15-tipped-employees-flsa",
+      "U.S. Dept. of Labor, history of federal minimum wage rates and FLSA tip-credit provisions; BLS Occupational Employment and Wage Statistics (May 2024)",
+    sourceUrl: "https://www.dol.gov/agencies/whd/minimum-wage/history",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Critics make a strong case that tipping is a broken wage system: the federal cash wage for tipped workers has been stuck at $2.13 since 1991, the model shifts a worker's income from the employer onto the customer's mood, and decades of research show tip size barely tracks service quality while reliably tracking a server's race and gender.",
-    "But the honest counterpoint is that tipping is not the same as poverty wages: federal law already guarantees tipped workers the full minimum if tips fall short, the median U.S. server made about $16.23 an hour including tips in 2024, and many high-earning servers actively oppose abolition because a switch to flat wages can cut their take-home pay.",
-    "So the real debate isn't whether $2.13 is defensible (almost no one says it is) — it's whether eliminating tips makes workers better off or just trades a flawed-but-lucrative system for service charges and flat wages that, in the few places that tried it, drove away staff and customers alike.",
+    "Both sides accept that a $2.13 cash wage frozen since 1991 is indefensible, that the rule making employers top tipped workers up to the minimum is poorly enforced, that tip size tracks service quality only weakly and a server's race and gender meaningfully, and that single-restaurant no-tip experiments like Danny Meyer's largely failed.",
+    "They split over whether ending tips would raise or lower the typical server's total pay; whether it would shrink race and gender pay gaps or just move the bias from customers into managers' hiring and scheduling; and whether the rocky D.C. Initiative 82 rollout and the failed no-tip restaurants, with their staff departures and higher menu prices, were fixable coordination problems or a lasting rejection by U.S. workers and diners.",
   ],
   pillars: [
     // =========================================================================

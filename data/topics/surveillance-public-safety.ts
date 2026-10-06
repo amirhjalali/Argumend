@@ -9,7 +9,7 @@ export const surveillancePublicSafetyData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "London has ~700,000 CCTV cameras, but the leading 40-year meta-analysis finds the crime drop is modest and concentrated in parking lots (~37% there) with near-zero effect on violent crime. And facial-recognition errors aren't random — a federal NIST study found the highest false-match rates for Black women, and the wrongful arrests documented so far have nearly all been of Black people.",
+      "London has about 700,000 CCTV cameras, and a 40-year meta-analysis found that crime near cameras fell modestly, most in car parks (about 37% there), with little effect on violent crime. A federal NIST study found facial recognition's false-match rates highest for Black women. The fight is over whether more surveillance buys enough safety to justify what it costs in privacy and in the people it misidentifies.",
     confidence: 84,
     source:
       "Piza, Welsh, Farrington & Thomas, CCTV meta-analysis (2019); NIST Face Recognition Vendor Test — demographic effects (2019)",
@@ -18,9 +18,8 @@ export const surveillancePublicSafetyData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The intuition 'more cameras = safer streets' is only partly true: the leading 40-year meta-analysis finds CCTV produces a modest crime drop concentrated in places like parking lots (~37% there) and driven by property, not violent, crime — and even that works best only when cameras are actively monitored and paired with other measures.",
-    "The costs, by contrast, fall unevenly: a federal NIST evaluation found face-recognition false matches are highest for Black women, and the wrongful arrests documented so far have nearly all been of Black people — so the harm isn't randomly distributed even if the average error rate looks low.",
-    "So the honest debate isn't 'does surveillance ever help?' (it does, narrowly, and aids investigations) but whether the modest, conditional safety gains can be captured with guardrails — human review, retention limits, bans on real-time mass face-scanning — without the chilling effects and biased errors that the technology, deployed loosely, reliably produces.",
+    "Both sides accept that measured crime drops near cameras are real but modest, mostly in property crime, in settings like car parks and where cameras are actively monitored, and that facial-recognition errors fall disproportionately on Black people while surveillance data is often repurposed beyond its original purpose.",
+    "They split over whether CCTV and facial recognition prevent crime or push it to nearby areas, and over whether oversight such as human review, retention limits and bans on real-time mass face-scanning can bound the harms, or whether the infrastructure drifts toward abuse once it exists.",
   ],
   pillars: [
     {

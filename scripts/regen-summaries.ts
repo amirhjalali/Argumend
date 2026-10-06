@@ -4,7 +4,8 @@
  *  - data/topicSummaries.json from data/topics.ts (the older pillar maps)
  *  - data/argumentTopicSummaries.json from the new-model (ArgumentGraph) maps
  *
- * Each summary carries the map's first crux question (`firstCrux`) and how
+ * Each summary carries the map's first crux question (`firstCrux`), whether
+ * nothing empirical settles it (`firstCruxStanding`, its settle kind), and how
  * many questions the map turns on, so the library can show what a map turns
  * on without loading the map itself.
  *
@@ -41,6 +42,7 @@ const summaries = topics.map((t) => {
       0
     ),
     ...(firstCrux ? { firstCrux } : {}),
+    ...(crux?.settle?.kind ? { firstCruxStanding: crux.settle.kind } : {}),
     tags: t.tags ?? [],
     ...(t.addedAt ? { addedAt: t.addedAt } : {}),
   };

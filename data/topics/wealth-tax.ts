@@ -10,18 +10,17 @@ export const wealthTaxData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Europe largely ran this experiment and walked away: about a dozen OECD countries had wealth taxes around 1990, but only a few remain — most repealed them over capital flight, valuation headaches, and disappointing revenue (France's raised just ~0.2% of GDP). Whether the US, which taxes citizens globally, would repeat that failure is the real question.",
+      "The number of OECD countries with an individual net wealth tax fell from 12 in 1990 to 4 by 2017; France's had raised about 0.2% of GDP. Over 2014–2018 the 25 richest Americans' wealth grew $401 billion while they paid $13.6 billion in federal income tax. What divides the sides is whether a US that taxes its citizens globally would repeat Europe's experience with a wealth tax, or avoid it.",
     confidence: 84,
     source:
-      "OECD, 'The Role and Design of Net Wealth Taxes in the OECD' (2018); French wealth-tax revenue data",
+      "OECD, 'The Role and Design of Net Wealth Taxes in the OECD' (2018); ProPublica, 'The Secret IRS Files' (2021)",
     sourceUrl:
       "https://www.oecd.org/en/publications/the-role-and-design-of-net-wealth-taxes-in-the-oecd_9789264290303-en.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest evidence against a wealth tax isn't theory — it's that Europe tried it and mostly quit: about a dozen OECD countries had one around 1990, but only a handful remain, repealed over capital flight, the difficulty of valuing private assets, and revenue that disappointed (France's raised ~0.2% of GDP).",
-    "But proponents have a real rebuttal that the US is different: it taxes its citizens' worldwide income, has an exit tax that makes fleeing costly, and could design a tax with stronger enforcement and fewer loopholes than the leaky European versions — so the European failures may be about design, not the idea.",
-    "So the honest debate isn't 'would a wealth tax raise money in principle?' (a 2% levy on US billionaires scores in the hundreds of billions on paper) but whether the US could actually collect it — valuing illiquid fortunes annually and beating avoidance — without the capital flight that hollowed out Europe's versions.",
+    "Both sides accept that most European wealth taxes were repealed, that valuing hard-to-price assets and curbing avoidance are the central practical problems, and that most billionaire wealth is company equity rather than idle cash, so how the tax gets paid matters.",
+    "They split over whether Europe's repeals reflect fixable design flaws, such as loopholes, weak enforcement and easy exit, that a US tax could avoid, or problems inherent in taxing wealth every year; and over whether a modest annual levy would meaningfully cut investment and entrepreneurship or mostly move money that would have sat in assets toward public spending.",
   ],
   pillars: [
     {

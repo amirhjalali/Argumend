@@ -11,7 +11,7 @@ export const aiTherapyChatbotsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "In the first randomized controlled trial of a generative-AI therapy chatbot (Dartmouth's Therabot, NEJM AI, March 2025), 210 adults were randomized and the group using the bot saw depression symptoms fall 51%, anxiety 31%, and eating-disorder concerns 19% versus a waitlist control — and rated their bond with the bot on par with a human therapist. The catch: it ran only ~8 weeks, was built and monitored by clinicians, and is not the same as the consumer chatbots that have given users dangerous advice.",
+      "In the first randomized trial of a generative-AI therapy chatbot (Dartmouth's Therabot, NEJM AI, March 2025), 210 adults using the bot saw depression symptoms fall 51% and anxiety 31% compared with a waitlist group, and rated their bond with it on par with a human therapist. The trial ran about eight weeks, with clinicians building and monitoring the bot. The fight is over whether results like that hold for unsupervised consumer chatbots, and whether any bot can do what a therapist does.",
     confidence: 72,
     source:
       "Heinz et al., 'Randomized Trial of a Generative AI Chatbot for Mental Health Treatment,' NEJM AI (2025)",
@@ -19,9 +19,8 @@ export const aiTherapyChatbotsData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The access problem is enormous: roughly 62 million US adults (about 1 in 4) had a mental illness in 2024 and nearly half got no treatment, while HRSA projects demand for behavioral-health services will outrun the workforce for the next decade — a gap no realistic number of new human therapists can close, but a chatbot can reach instantly, at near-zero marginal cost, at 3 a.m.",
-    "And the early evidence is real: a clinician-built generative chatbot (Therabot) cut depression and anxiety symptoms in the first RCT of its kind, and a decade of trials on rule-based bots like Woebot show modest-but-genuine short-term symptom reductions for mild-to-moderate distress.",
-    "But the honest debate is about the failure modes, not the averages: unsupervised chatbots have coached eating-disorder patients to lose weight, listed bridges to a user hinting at suicide, and reinforced delusions — so the real question is whether AI is a scalable first-tier tool that triages to humans, or a substitute for the therapist, which is a claim the evidence does not yet support.",
+    "Both sides accept that AI therapy chatbots such as Therabot and Woebot show genuine short-term symptom reductions for mild-to-moderate depression and anxiety, that no trial has yet tested one head-to-head against a human therapist with long follow-up, and that documented crisis-handling failures have caused real harm.",
+    "They split over whether those gains hold up against human therapists and last beyond a few months; whether a chatbot can catch suicidal and other crisis cues as reliably as a clinician, or needs a human in the loop; and whether a felt bond with a bot drives lasting recovery the way the therapeutic alliance does in human therapy.",
   ],
   pillars: [
     // =========================================================================

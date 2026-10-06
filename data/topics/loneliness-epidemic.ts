@@ -11,17 +11,16 @@ export const lonelinessEpidemicData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The famous claim that loneliness is as deadly as smoking 15 cigarettes a day traces back to observational meta-analyses (Holt-Lunstad's 148-study review found ~50% better survival odds for the well-connected). But a 2024 Nature Human Behaviour study using genetics on 476,100 people concluded that for most diseases loneliness \"may serve as a potential surrogate marker rather than a causal risk factor\" — meaning much of the headline risk likely reflects who becomes isolated (the already-sick, poor, and disabled) rather than loneliness itself killing you.",
+      "Across 70 studies and 3.4 million people, social isolation was associated with 29% higher odds of death and loneliness with 26%. When a 2024 study of 476,100 UK Biobank participants used genetic variants to estimate causal effects, loneliness showed potentially causal links for six of the 26 diseases tested. Both findings stand. The fight is over how much of the excess risk loneliness itself causes, and how much it marks people who were already sick or poor.",
     confidence: 80,
     source:
-      "Holt-Lunstad et al., PLOS Medicine (2010) & Perspectives on Psychological Science (2015); Liang et al., Nature Human Behaviour (2024); US Surgeon General Advisory (2023)",
-    sourceUrl: "https://www.nature.com/articles/s41562-024-01970-0",
+      "Holt-Lunstad et al., Perspectives on Psychological Science (2015); Liang et al., Nature Human Behaviour (2024)",
+    sourceUrl: "https://journals.sagepub.com/doi/10.1177/1745691614568352",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The correlation is genuinely large and consistent: across 70 studies and 3.4 million people, social isolation tracked with a 29% higher mortality risk and loneliness with 26% — effect sizes in the same ballpark as obesity or physical inactivity, which is why the Surgeon General declared it an epidemic.",
-    "But correlation is not the same as cause: people who end up isolated are disproportionately already sick, poor, disabled, or depressed, and when researchers used genetic instruments to strip out that confounding, the causal link vanished for 20 of 26 diseases — so the \"15 cigarettes\" line overstates how settled the harm actually is.",
-    "So the honest debate isn't whether lonely people die sooner (they do) but how much of that is loneliness doing the damage versus loneliness being a symptom of harder-to-fix problems — which decides whether befriending programs and social prescribing can actually move the needle on health.",
+    "Both sides accept that socially isolated people die earlier on average, that this group is disproportionately already sick, poor, disabled or depressed, that in-person socializing has measurably declined since the early 2000s while digital tools are a lifeline for the homebound, and that the UK's national loneliness strategy has not yet shown a population-level decline.",
+    "They split over whether loneliness itself causes early death, as the Surgeon General's 2023 advisory warns, or marks existing disadvantage; whether heavy technology use crowds out face-to-face contact or mostly adds to existing relationships; and whether policy like walkable neighborhoods and social prescribing can lower loneliness, or whether culture and individual choice drive it.",
   ],
   pillars: [
     // =========================================================================

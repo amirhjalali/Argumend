@@ -18,9 +18,8 @@ export const aiJobDisplacementData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The capability is real and moving fast: GPT-4 can pass the bar exam, GitHub Copilot writes nearly half its users' code, and Goldman Sachs estimates generative AI exposes about 300 million jobs worldwide to automation.",
-    "But two years after ChatGPT, the predicted wave of white-collar unemployment hasn't shown up in the aggregate data — knowledge-work joblessness stayed low and BLS still projects growth in most white-collar roles — even as leading indicators (freelance-writing rates, entry-level hiring, 'AI did it' layoff justifications) flicker.",
-    "So the honest debate isn't whether AI can do parts of these jobs (it can) but whether the gap between capability and mass displacement is a 5–10 year lag that's about to break — or a durable ceiling set by AI's reliability limits, institutional/liability barriers, and the way past automation reshaped jobs instead of eliminating them.",
+    "Both sides accept that AI can already do real pieces of white-collar work, that it still hallucinates and degrades on truly novel problems, and that aggregate white-collar employment has not yet shown the mass displacement some forecasts predicted, while freelance-writing and translation rates and entry-level hiring are the early signals both sides watch.",
+    "They split over whether AI's failures on novel tasks are a lasting ceiling or a gap the next models will close; whether the quiet in the job data is a lag before agentic AI arrives or a sign that labor markets will absorb AI through new roles; and whether licensing rules, liability and slow enterprise adoption give way within about five years or take decades.",
   ],
   pillars: [
     // =========================================================================

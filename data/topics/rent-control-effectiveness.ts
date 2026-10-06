@@ -10,15 +10,14 @@ export const rentControlEffectivenessData = {
   category: "economics" as const,
   keystone_fact: {
     statement:
-      "Rent control is one of the rare questions where economists left and right almost agree: asked whether it improved the supply and quality of affordable housing, a University of Chicago panel of top economists came down ~82% against — with exactly one of roughly 40 agreeing.",
+      "When San Francisco extended rent control to small pre-1980 buildings in 1994, the tenants it covered moved about 20% less and were displaced less often — and the landlords it covered cut their rental supply by 15%. Both findings come from one study that neither side disputes. The fight is over what they mean for the next renter, and for the milder, modern version of the law.",
     confidence: 85,
-    source: "University of Chicago IGM Economic Experts Panel (2012)",
-    sourceUrl: "https://www.igmchicago.org/surveys/rent-control/",
+    source: "Diamond, McQuade & Qian, American Economic Review, 109(9): 3365-94 (2019)",
+    sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
   },
   simple_case: [
-    "Rent control reliably helps the specific tenants who already hold a controlled lease — it lowers their costs and protects them from displacement.",
-    "But the strongest study (a San Francisco natural experiment) finds it shrinks rental supply and pushes up market rents for everyone else, which is why economists broadly judge it a poor tool for affordability overall.",
-    "How much it hurts depends heavily on design — modern 'rent stabilization' with vacancy decontrol and new-construction exemptions is far milder than old-style ceilings — and almost everyone agrees it is no substitute for building more housing.",
+    "Both sides accept that strict 1970s-style rent ceilings cut rental supply, that rent control moves money to the tenants who already hold a controlled lease, and that building more housing is the durable fix.",
+    "They split over whether modern stabilization, which exempts new buildings and resets rents between tenants, avoids that supply harm; whether keeping today's tenants in place is worth the higher rents and longer searches it leaves newcomers; and whether a cap buys time for new supply or delays it.",
   ],
   pillars: [
     // =========================================================================

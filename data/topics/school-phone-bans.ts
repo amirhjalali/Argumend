@@ -10,18 +10,17 @@ export const schoolPhoneBansData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Phone bans help — but unevenly and modestly: the landmark English study found test-score gains only for below-average students, and a Norwegian study found benefits for girls but not boys. And the bigger claim that phones caused the teen mental-health crisis rests on a striking 2012 correlation whose causal size researchers still dispute.",
+      "Across 91 English schools, phone bans came with test-score gains of 6.4% of a standard deviation, driven entirely by below-average students. In the U.S., the share of high school students reporting persistent sadness or hopelessness rose from 26% in 2011 to 42% in 2021. Neither number is in dispute. The fight is over how much a school-day ban produces the first, and whether it can touch the second.",
     confidence: 72,
     source:
-      "Beland & Murphy, Labour Economics (2016); Abrahamsson (2024, Norway); Orben & Przybylski, Nature Human Behaviour (2019)",
+      "Beland & Murphy, Labour Economics (2016); CDC Youth Risk Behavior Survey",
     sourceUrl:
       "https://www.sciencedirect.com/science/article/pii/S0927537116300136",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "School phone bans are intuitively appealing and do produce real gains — but smaller and more uneven than headlines suggest: the big English study found test-score improvements only for below-average students, and a Norwegian study found benefits (grades, well-being, less bullying) for girls but not boys.",
-    "The louder claim — that smartphones caused the teen mental-health crisis — rests on a striking correlation (teen depression, self-harm, and suicide all turned upward right as phones crossed 50% around 2012), but rigorous analyses like Orben & Przybylski's find the average screen-time effect 'tiny,' so the causal size is genuinely disputed.",
-    "So the honest debate isn't 'do phones distract?' (they clearly do) but how much a 6–7 hour school-day ban actually moves academics and mental health when kids return to the same phones after 3pm — and whether enforcement can be equitable for students who depend on phones for medical, safety, or translation needs.",
+    "Both sides accept that any academic benefit from a phone ban is modest and concentrated among lower-performing students, that teen mental health deteriorated sharply after about 2012, that a school-hours ban leaves evening and weekend phone use untouched, and that some students depend on phones for medical, safety or translation needs.",
+    "They split over whether test-score gains after bans come from the bans or from differences between the schools that adopt them; how much of the teen mental-health decline smartphones caused, and so whether a school-only ban can move it; and whether bans can be enforced, by Yondr pouches or teacher discretion, without new racial disparities in discipline.",
   ],
   pillars: [
     // =========================================================================

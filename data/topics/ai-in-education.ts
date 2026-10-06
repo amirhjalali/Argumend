@@ -10,7 +10,7 @@ export const aiInEducationData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The dream behind AI tutoring is Benjamin Bloom's '2 sigma problem': students tutored one-on-one score about two standard deviations higher than classroom students — the average tutored kid beats 98% of a normal class. AI promises that personal tutor for everyone. The catch: early results are mixed, and the same tool can either close the gap or become a cheating shortcut that widens it.",
+      "Benjamin Bloom found that students tutored one-on-one score about two standard deviations higher than classroom students, so the average tutored student beats 98% of a normal class. Early results for AI tutors are mixed. The fight is over whether AI can deliver that tutor to everyone and close achievement gaps, or becomes a shortcut that widens them.",
     confidence: 80,
     source:
       "Bloom, 'The 2 Sigma Problem' (Educational Researcher, 1984); recent AI-tutoring RCTs",

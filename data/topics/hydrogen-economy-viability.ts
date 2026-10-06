@@ -11,17 +11,16 @@ export const hydrogenEconomyViabilityData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Despite decades of 'hydrogen economy' promises, more than 99% of the roughly 100 million tonnes of hydrogen made each year still comes from unabated fossil fuels — clean (low-emissions) hydrogen is under 1% of supply. And the gap between hype and reality is stark: of all the low-emissions hydrogen capacity that has been announced, only about 7% has reached a firm investment decision.",
+      "More than 99% of the roughly 100 million tonnes of hydrogen made each year still comes from unabated fossil fuels, and only about 7% of announced low-emissions capacity has reached a firm investment decision. Steelmaking, at roughly 7-8% of global CO2, and ammonia, at around 1.8%, are sectors both sides agree are hard to electrify directly. The fight is over whether green hydrogen gets cheap enough to clean them up, and how far beyond them it belongs.",
     confidence: 90,
     source:
-      "IEA, Global Hydrogen Review 2024 and 2025 (production <1% low-emissions; ~7% of announced projects at FID)",
+      "IEA, Global Hydrogen Review 2024 and 2025; IEA Iron and Steel Technology Roadmap; Royal Society, green ammonia",
     sourceUrl: "https://www.iea.org/reports/global-hydrogen-review-2025",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Hydrogen is the only realistic way to clean up a handful of stubborn sectors — making steel without coking coal, making ammonia for fertilizer that feeds roughly half the planet, and fueling long-haul ships — where batteries and direct electrification simply cannot do the job today.",
-    "But the honest weakness is thermodynamic: making hydrogen from clean electricity and then using it wastes most of the energy, so for cars and home heating, where you can just plug in, hydrogen needs two to six times more renewable power than a battery or heat pump to deliver the same service.",
-    "So the real debate isn't 'hydrogen yes or no' — it's whether green hydrogen can get cheap enough fast enough to decarbonize the few sectors that truly need it, or whether the 'hydrogen for everything' hype keeps diverting money and clean electricity away from cheaper electrification.",
+    "Both sides accept that steel, ammonia and long-haul shipping are genuinely hard to electrify directly, that green hydrogen costs several times more than grey hydrogen made from gas, that announced projects have far outrun those financed and built, and that for cars and home heating, batteries and heat pumps get far more out of each unit of clean electricity.",
+    "They split over whether other routes — scrap-based furnaces, carbon capture, bio-feedstocks — can undercut hydrogen even in those hard sectors; whether its energy density and seasonal storage justify its conversion losses in aviation, shipping and grid balancing; and whether green hydrogen costs will fall the way solar and batteries did or stay above parity without subsidies like the 45V tax credit.",
   ],
   pillars: [
     // =========================================================================

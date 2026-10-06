@@ -12,7 +12,7 @@ export const verticalFarmingViabilityData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "A peer-reviewed life-cycle assessment found that a UK vertical farm grew about 97 kg of lettuce per square meter versus 3.3 kg in an open field — roughly 20-30x more food per unit of ground. But the same study found grid-powered vertical lettuce emitted ~4.7 kg of CO2 per kg of produce against ~0.6 kg for field lettuce, because electricity for LED lighting and climate control made up about 85% of its footprint. The land miracle is real; the energy bill is the problem.",
+      "A University of Surrey life-cycle study found a UK vertical farm grew about 97 kg of lettuce per square meter against 3.3 kg in an open field. The same study found its grid-powered lettuce emitted about 4.7 kg of CO2 per kg against about 0.59 kg for field lettuce, with electricity for LED lighting and climate control about 85% of the footprint. Neither side disputes either number. What divides them is whether cheaper power can close that gap at a profit.",
     confidence: 80,
     source:
       "Gargaro et al., 'A Comparative LCA of Field Grown Lettuce Versus Vertically Farmed Lettuce,' Food and Energy Security (2025), University of Surrey",
@@ -20,9 +20,8 @@ export const verticalFarmingViabilityData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Indoor vertical farms are genuinely impressive on several axes: a controlled-environment farm can grow 20-30x more leafy greens per square meter of ground than a field, use up to roughly 90-98% less water through closed-loop recirculation, eliminate pesticides, sidestep weather and crop failures, and sit next to the city that eats the food.",
-    "The catch is energy and economics: replacing the free sunlight of a field with LED lighting and full climate control makes electricity the single largest operating cost, which is why the technology only pencils out for a narrow band of high-value, fast-growing crops — leafy greens, herbs, microgreens, some berries — and is one to two orders of magnitude too expensive for the cereals that supply most of humanity's calories.",
-    "So the honest debate is not whether vertical farming works (it demonstrably grows food and saves water and land) but whether it can ever be cheap and energy-efficient enough to matter at scale — a question sharpened by a wave of high-profile failures, including AppHarvest and AeroFarms' 2023 Chapter 11 filings, Bowery's late-2024 shutdown after raising over $700 million, and Plenty's 2025 bankruptcy after raising nearly $1 billion.",
+    "Both sides accept that vertical farms cut water and land use dramatically, that electricity is their dominant cost, that they cannot economically grow the cereals and staples that supply most calories, and that the 2023–2025 failures of AppHarvest, AeroFarms, Bowery and Plenty were severe and real.",
+    "They split over whether the energy bill of LED lighting is an engineering problem that cheap renewables and better LEDs can solve, or a physical ceiling; whether those bankruptcies were a shakeout that leaner survivors will outlast, or a sign the unit economics cannot work; and whether indoor farms can take a meaningful share of fresh produce such as leafy greens, herbs and strawberries, or stay a premium niche.",
   ],
   pillars: [
     // =========================================================================

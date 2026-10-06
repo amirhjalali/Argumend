@@ -9,17 +9,17 @@ export const glp1WeightLossDrugsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "GLP-1 drugs like Ozempic and Mounjaro produce 15–22% body-weight loss in trials — results that used to require bariatric surgery — and semaglutide cut major cardiac events 20%. But the catch is in the same data: stop the drug and people regain about two-thirds of the loss within a year, so it's a lifelong treatment, not a cure — at ~$1,000+ a month.",
+      "In the STEP 1 trial, semaglutide, the GLP-1 drug sold as Ozempic, produced 14.9% average weight loss over 68 weeks, against 2.4% on placebo; a year after stopping, participants had regained about two-thirds of what they lost. The longest randomized trials run only about two to four years. What remains open is what decades of use would bring, and whether a price of roughly $1,000 a month pays for itself.",
     confidence: 88,
     source:
-      "STEP 1 trial, NEJM (2021); SURMOUNT-1; SELECT cardiovascular trial, NEJM (2023); KFF on GLP-1 costs",
+      "STEP 1 trial, NEJM (2021), and its one-year extension, Diabetes, Obesity and Metabolism; KFF on GLP-1 costs",
     sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The breakthrough is real: in large trials GLP-1 drugs (Ozempic/Wegovy, Mounjaro/Zepbound) produce 15–22% body-weight loss — a range that previously required bariatric surgery — and one, semaglutide, became the first obesity drug ever shown to cut heart attacks and strokes (by 20%).",
-    "But the same trials carry the catch: when people stop, they regain about two-thirds of the lost weight within a year, so these are chronic-disease treatments meant for life, not cures — which, at roughly $1,000+ a month, turns the debate into one about cost, access, and decades-long safety rather than whether they work.",
-    "So the honest disagreement isn't 'do they work?' (they clearly do, short-term) but whether lifelong use is safe and affordable at population scale — and whether treating obesity as a chronic disease to be medicated is the right frame, or sidesteps the food environment that drives it.",
+    "Both sides accept that the longest randomized trials of GLP-1 drugs like Ozempic and Mounjaro run only two to four years, that most lost weight returns within a year of stopping, that the roughly $1,000-a-month price is high, and that pairing the drugs with diet and resistance training beats the drug alone.",
+    "They split over whether ten or more years of continuous use stays net-beneficial; whether prevented hospitalizations and illnesses offset the drug bill over a decade; whether intensive lifestyle programs can match drug-level weight loss durably at scale; and what share of prescriptions are clinically appropriate rather than cosmetic.",
+    "Each is a question long-run cohorts, claims data and head-to-head trials could answer.",
   ],
   pillars: [
     // =========================================================================

@@ -11,17 +11,16 @@ export const globalHousingBubbleData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The crash the 'bubble' narrative predicted didn't arrive: even as US 30-year mortgage rates spiked toward 8% in 2023 — the sharpest tightening in decades — national home prices set fresh records on the S&P CoreLogic Case-Shiller index. The reason isn't froth from institutions or foreign buyers (large institutions own only ~3% of single-family rentals and under 0.5% of all homes); it's that ~76% of US mortgages are locked below 5%, choking the supply of homes for sale. The real exposure is in variable- and short-fixed-rate markets like Canada, where ~60% of mortgages renew in 2025-2026.",
+      "In 2023, as US 30-year mortgage rates neared 8%, national home prices still set records, and about 76% of outstanding US mortgages carried rates below 5%. In Canada, about 60% of mortgages renew in 2025-2026, mostly five-year loans taken at pandemic-era lows. Both sides accept these facts. The fight is over whether record price-to-income ratios and renewal shocks will force prices down, or tight supply will hold them up.",
     confidence: 86,
     source:
-      "S&P CoreLogic Case-Shiller National Home Price Index (2023 record); Urban Institute, institutional SFR ownership (2023); FHFA WP 24-03 lock-in; Bank of Canada Financial Stability Report 2025",
+      "S&P CoreLogic Case-Shiller National Home Price Index; Batzer & Coste, FHFA Working Paper 24-03 (2024); Bank of Canada Financial Stability Report 2025",
     sourceUrl: "https://fred.stlouisfed.org/series/CSUSHPINSA",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "By the classic bubble signals, the warning lights are flashing: on the OECD's measure house prices outran household incomes by roughly 17% across member countries from 2015 to 2023, with the steepest divergences in Portugal, Canada and the US, and in Toronto the typical mortgage payment swallowed over half of median after-tax family income.",
-    "But high ratios have stayed high for years without correcting, because the same tightening that should have triggered a crash instead froze supply — with ~76% of US mortgages locked below 5%, owners simply stopped selling, so US prices hit record highs in 2023 even as rates neared 8%, and large institutions and foreign buyers (often blamed) are too small a share nationally to be the driver.",
-    "So the honest debate isn't 'is housing in a bubble that's about to burst?' but 'where does the rate shock actually bite, and when?' — the answer turning on short-fixed and variable-rate markets like Canada, Australia and the UK, where mortgages reprice on renewal rather than being locked for 30 years.",
+    "Both sides accept that price-to-income ratios in many major cities sit at or near record highs and first-time buyers have been squeezed; that large institutions own a small share of homes nationally but a much larger one in some Sun Belt starter markets; and that the US lock-in effect holds down for-sale supply while variable- and short-fixed-rate markets are far more exposed to higher rates.",
+    "They split over whether record ratios must eventually force prices down or constrained supply can keep them high; whether concentrated investors would sell fast enough in a downturn to deepen price falls; and whether the 2025-2026 mortgage renewal wave in markets like Canada forces enough sales to push prices down, or is absorbed by income growth and refinancing.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=60",

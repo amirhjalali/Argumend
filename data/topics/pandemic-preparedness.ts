@@ -11,17 +11,16 @@ export const pandemicPreparednessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "COVID cost the US an estimated $16 trillion — more than the price of every war since 9/11 combined — yet the world spends a tiny fraction of that on preventing the next pandemic. On paper, prevention is one of the highest-return public investments there is; the catch is that after every scare (SARS, H1N1), the funding and attention reliably evaporate.",
+      "Economists David Cutler and Lawrence Summers put COVID-19's total cost to the United States at about $16 trillion. In January 2020 the Strategic National Stockpile held 12 million N95 masks against a projected pandemic need of 3.5 billion. Neither figure is in dispute. What divides the sides is how often a pandemic that costly comes, and whether governments can keep paying for readiness between scares.",
     confidence: 82,
     source:
-      "Cutler & Summers, JAMA (2020, ~$16T US COVID cost); post-SARS/H1N1 preparedness-funding history; CEPI/WHO pandemic-fund estimates",
+      "Cutler & Summers, JAMA (2020); HHS Office of Inspector General on the Strategic National Stockpile (2021)",
     sourceUrl: "https://jamanetwork.com/journals/jama/fullarticle/2771764",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The scale is hard to overstate: economists Cutler and Summers put the total US cost of COVID-19 at roughly $16 trillion — more than every American war since 9/11 combined — while the world spends only a tiny fraction of that trying to prevent or blunt the next one.",
-    "On a pure cost-benefit basis, prevention (disease surveillance, vaccine platforms, stockpiles) is one of the highest-return investments a government can make — a few billion a year against trillions in avoided losses, the way fire insurance beats rebuilding.",
-    "So the honest debate isn't whether prevention pays off in expectation (it overwhelmingly does) but whether governments can actually sustain it — because after SARS in 2003 and H1N1 in 2009, the money and the political will faded within a few years, every time.",
+    "Both sides accept that a severe pandemic is enormously costly while most outbreaks are contained with existing capacity, that preparedness funding and attention faded after SARS and H1N1, and that gain-of-function research carries both some lab-accident risk and some scientific value.",
+    "They split over how often truly catastrophic pandemics strike today, which decides whether a few billion a year in surveillance, vaccine platforms and stockpiles pays off; whether reforms like protected funding and independent agencies can outlast the next lull, or bureaucratic incentives always let them lapse; and whether the lab-accident risk of enhanced-pathogen research outweighs its value for defense.",
   ],
   pillars: [
     // =========================================================================

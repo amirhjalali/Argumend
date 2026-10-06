@@ -9,17 +9,18 @@ export const factoryFarmingBanData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "About 99% of US farmed animals live on factory farms — the 'humane,' cage-free, free-range options most shoppers picture are a tiny sliver of production. Worldwide, roughly 80 billion land animals are slaughtered each year, the majority of them raised in intensive confinement.",
+      "About 99% of US farmed animals live on factory farms, including 98.6% of pigs and over 99.9% of meat chickens. A shift to exclusively grass-fed beef would need the US cattle herd to grow from 77 to 100 million head, and today's pastureland could sustain only about 27% of current beef output. Both figures are accepted. The fight is over how much the animals' suffering should weigh against the cost of changing the system.",
     confidence: 85,
     source:
-      "Sentience Institute (from USDA Census of Agriculture + EPA CAFO definitions); FAO global slaughter data",
-    sourceUrl: "https://www.sentienceinstitute.org/us-factory-farming-estimates",
+      "Sentience Institute, 'US Factory Farming Estimates' (USDA Census of Agriculture + EPA CAFO definitions); Hayek & Garrett, Environmental Research Letters (2018)",
+    sourceUrl:
+      "https://www.sentienceinstitute.org/us-factory-farming-estimates",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "When people picture where their meat comes from, they imagine the small 'humane' or cage-free farm — but about 99% of US farmed animals live on factory farms, and of the roughly 80 billion land animals slaughtered worldwide each year, most are raised in intensive confinement.",
-    "The case against isn't only ethical: industrial animal agriculture is a major greenhouse emitter (livestock are an estimated ~11–17% of global emissions), consumes most of the medically important antibiotics sold (~two-thirds in the US), and concentrates animals in ways that drive antibiotic resistance and pandemic risk.",
-    "The honest disagreement is partly a values question — how much moral weight a chicken's suffering carries — and partly practical: pasture systems use far more land and would raise food prices on the poorest, so the live debate is 'ban vs. reform vs. status quo,' not whether the conditions are grim.",
+    "Both sides accept that the vast majority of farmed animals live in intensive confinement, that industrial animal agriculture imposes real, unpriced environmental and health costs, from emissions to antibiotic resistance, and that intensive systems use less land per unit of food than pasture.",
+    "They split over how much moral weight farmed-animal suffering carries against the cost of changing the system; and over whether factory farming's harms justify a ban rather than taxes or reform, and whether pasture-based alternatives would do better or worse on land, emissions and food prices.",
+    "The first is a weighing of values that studies of pain and distress in pigs, chickens and cattle inform but cannot decide.",
   ],
   pillars: [
     {

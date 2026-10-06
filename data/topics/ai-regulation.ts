@@ -17,9 +17,8 @@ export const aiRegulationData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "This isn't a fringe worry: in 2023 hundreds of the people who built modern AI — Hinton, Bengio, Hassabis, plus the CEOs of OpenAI and Anthropic — signed a statement putting AI extinction risk in the same sentence as pandemics and nuclear war.",
-    "But the regulatory fight hinges on an unsettled analogy: if frontier AI is like a drug or a reactor, you test before release because failure is catastrophic and irreversible; if it's like software, that pre-approval freezes a fast-moving field at today's capabilities while less-cautious rivals (notably China) race ahead.",
-    "So the honest debate isn't really 'is AI risky?' but which model fits — and the hard sub-questions are whether rules should trigger on a crude compute threshold (which can entrench incumbents) or on real-world risk, and whether unilateral Western rules even work without China at the table.",
+    "Both sides accept that AI already causes concrete harms like bias, surveillance and fraud, that it moves far faster than the 10–15 year drug-approval cycle so no regime can simply copy the FDA timeline, and that AI safety is ultimately a global coordination problem in which China will not simply adopt Western rules.",
+    "They split over whether capabilities keep scaling toward catastrophe-relevant thresholds or plateau; whether drug- or nuclear-style safety rules, from the EU AI Act to California's vetoed SB 1047, slow innovation meaningfully or channel it with little loss; and whether China and other non-aligned states will accept binding AI governance rather than non-binding pledges like the Bletchley Declaration.",
   ],
   pillars: [
     // =========================================================================

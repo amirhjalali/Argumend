@@ -11,7 +11,7 @@ export const aiSuperintelligenceTimelineData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Even the experts can't agree within decades. The largest survey — 2,778 AI researchers (Grace et al., 2023) — put the median 50% odds of human-level machine intelligence around 2047, but that estimate jumped ~13 years earlier than the same survey gave just one year before, and individual forecasts run from 'a few years' to 'never.' Any confident timeline is a bet, not a measurement.",
+      "The largest survey of AI researchers, 2,778 of them (Grace et al., 2023), put the median 50% odds of human-level machine intelligence around 2047, about 13 years earlier than the same survey's estimate one year before. Individual forecasts run from a few years to never. The fight is over whether the recent pace of progress means superintelligence before 2035, or whether the hard problems still ahead push it out by decades.",
     confidence: 82,
     source:
       "Grace et al., 'Thousands of AI Authors on the Future of AI' (2,778 researchers, 2023/24); prior AI Impacts expert surveys",
@@ -19,9 +19,8 @@ export const aiSuperintelligenceTimelineData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The honest starting point is humility: nobody — not even the researchers building these systems — can reliably say when superintelligence will arrive, and their collective guess is both wide and unstable.",
-    "The biggest survey of AI researchers (2,778 of them) put the median 50% chance of human-level machine intelligence around 2047, but that figure had jumped roughly 13 years earlier than the same survey gave just one year before, while individual experts range from 'within a decade' to 'not this century, maybe never.'",
-    "So the honest debate isn't a specific date but which signal to trust: the scaling curves that have kept paying off (arguing for soon), the architectural gaps where today's models still fail at genuinely novel reasoning (arguing for later or never), and the unsolved problem of whether we'd even be able to tell a superintelligent system was deceiving us.",
+    "Both sides accept that AI scaling laws have held remarkably well so far, that today's models excel on tasks resembling their training data while genuinely novel reasoning is the hard test, and that no current method reliably verifies an AI's true goals.",
+    "They split over whether capability gains from more compute keep paying off or hit a ceiling before general reasoning; whether scaled-up transformers can generalize to novel problems or need a new architecture; and whether interpretability and red-teaming could catch a superintelligent system that only appears aligned before it is deployed.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",

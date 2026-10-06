@@ -11,17 +11,16 @@ export const gmoCropsSafetyData = {
   tags: ["gmo", "agriculture", "food-safety", "glyphosate", "biotechnology"],
   keystone_fact: {
     statement:
-      "After 25+ years and billions of meals, every major scientific review — including the U.S. National Academies — finds no substantiated difference in health risk between eating genetically modified and conventional crops. The safety bar GE crops clear is higher than for the conventionally-bred food they replace.",
+      "After reviewing about 900 studies, the US National Academies found no substantiated difference in health risks between commercial genetically engineered crops and conventional ones, while cautioning that subtle, long-term effects may escape detection. The same report called glyphosate-resistant weeds on herbicide-tolerant cropland a major agricultural problem. Both sides accept these findings. The fight is over what the absence of detected harm means, and whether GM crops are a net gain for agriculture.",
     confidence: 90,
     source:
-      "U.S. National Academies of Sciences, Engineering, and Medicine, Genetically Engineered Crops (2016)",
+      "National Academies of Sciences, Engineering, and Medicine, Genetically Engineered Crops: Experiences and Prospects (2016)",
     sourceUrl:
       "https://www.nationalacademies.org/news/genetically-engineered-crops-experiences-and-prospects-new-report",
   },
   simple_case: [
-    "On the question people worry about most — is GM food safe to eat — the science is about as settled as it gets: 25+ years, billions of meals, and every major review finds no substantiated health difference from conventional food.",
-    "The genuinely unsettled problems are agronomic, not dietary: herbicide-tolerant crops drove up herbicide use and bred glyphosate-resistant 'superweeds,' even as insect-resistant Bt traits cut insecticide spraying and raised yields and farmer profits.",
-    "And the glyphosate-cancer fight is really a hazard-vs-risk dispute — WHO's IARC calls it 'probably carcinogenic' as a hazard, while risk-based regulators like the EPA and EFSA judge it unlikely to cause cancer at real-world exposures.",
+    "Both sides accept that no health harm from current commercial GE foods has been demonstrated and that each new trait needs its own assessment; that insect-resistant Bt traits cut insecticide use while herbicide-tolerant traits drove up herbicide volumes and glyphosate-resistant weeds; and that IARC classes glyphosate as a probable carcinogen on hazard while EPA and EFSA find cancer unlikely at label-rate exposures.",
+    "They split over whether finding no harm reflects real safety or how hard subtle long-term effects are to detect; whether GM crops are a net gain once yield, inputs, profit and resistance are summed, and how much that differs between Bt and herbicide-tolerant traits; and whether real-world glyphosate exposures are high enough to raise cancer risk.",
   ],
   pillars: [
     {

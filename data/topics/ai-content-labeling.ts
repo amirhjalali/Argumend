@@ -10,17 +10,16 @@ export const aiContentLabelingData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "An AI watermark is not the tamper-proof stamp most people imagine. In a 2023 University of Maryland study, researchers stripped every invisible image watermark they tested — and, worse, could forge them, making real photos register as AI-generated. The honest takeaway: watermarking raises the cost of casual deception, but it cannot reliably prove a given image is fake or genuine against anyone determined to fool it.",
+      "In a 2022 PNAS study, people told AI-generated faces from real ones with 48.2% accuracy, no better than a coin flip. In a 2023 University of Maryland study, researchers removed every invisible image watermark they tested, and showed watermarks could be forged so real photos are flagged as AI-generated. Both findings stand. The fight is over whether a legal labeling mandate can still deter deception without burdening ordinary uses of AI.",
     confidence: 86,
     source:
-      "Saberi, Sadasivan, Feizi et al., \"Robustness of AI-Image Detectors\" (arXiv:2310.00076, ICLR 2024); EU AI Act Article 50 transparency obligations (effective Aug 2, 2026)",
-    sourceUrl: "https://arxiv.org/abs/2310.00076",
+      "Nightingale & Farid, PNAS (2022); Saberi, Sadasivan, Feizi et al., 'Robustness of AI-Image Detectors' (University of Maryland, ICLR 2024)",
+    sourceUrl: "https://www.pnas.org/doi/10.1073/pnas.2120481119",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Labels meet a real need: humans cannot tell AI faces from real ones — in Nightingale & Farid's 2022 PNAS study people scored 48.2% (worse than a coin flip) and even rated the synthetic faces as slightly more trustworthy — so a disclosure supplies information perception simply cannot, and the EU AI Act now mandates exactly this for deepfakes from August 2026.",
-    "The honest limitation is enforcement: University of Maryland researchers showed every invisible watermark they tested could be removed and even spoofed, while cryptographic provenance like C2PA is stripped by any screenshot or re-encode — so a determined bad actor evades the label while honest creators bear the compliance cost.",
-    "So the honest debate isn't whether AI content should be transparent (almost everyone agrees it should) but whether a legal mandate can be drawn narrowly enough to deter realistic deception without over-labeling ordinary tools like spell-check until audiences tune the tag out entirely.",
+    "Both sides accept that no current watermark is unbreakable by a determined adversary, that labels still raise the cost of casual deception, and that narrow disclosure rules for deceptive deepfakes are defensible while an over-broad mandate would sweep in ordinary editing tools.",
+    "They split over whether watermarks and C2PA provenance can survive screenshots, compression and deliberate removal at usable rates; and whether mandates like Article 50 of the EU AI Act and China's deep-synthesis rules measurably reduce beneficial and creative uses of AI.",
   ],
   pillars: [
     {

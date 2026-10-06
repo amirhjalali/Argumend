@@ -10,18 +10,17 @@ export const aiEnergyWaterFootprintData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "A typical AI text prompt is tiny: Google's measured median Gemini query uses about 0.24 Wh of energy and roughly 0.26 mL of water — about five drops, or less than nine seconds of watching TV — and its per-prompt energy fell ~33× in a single year. The real environmental concern isn't the individual prompt but the concentrated, fast-growing data-center buildout: US data-center electricity is projected to roughly double or triple to 325-580 TWh (6.7-12% of US power) by 2028.",
+      "Google measured its median Gemini text prompt at about 0.24 Wh of energy and 0.26 mL of water, about five drops, after a 33× efficiency gain in a single year. US data centers used 4.4% of the nation's electricity in 2023, and Berkeley Lab projects 6.7–12% by 2028. Both sides accept these numbers. The fight is over what that growth runs on, and where its water comes from.",
     confidence: 88,
     source:
-      "Google, 'Measuring the environmental impact of AI inference' (Aug 2025, arXiv:2508.15734); Shehabi et al., '2024 US Data Center Energy Usage Report,' Lawrence Berkeley National Laboratory (LBNL-2001637, Dec 2024)",
+      "Google, 'Measuring the environmental impact of AI inference' (Aug 2025); Shehabi et al., '2024 US Data Center Energy Usage Report,' Lawrence Berkeley National Laboratory (LBNL-2001637, Dec 2024)",
     sourceUrl:
-      "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers",
+      "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "On a per-use basis, AI's footprint is far smaller than the viral takes suggest: Google's measured median Gemini text prompt consumes about 0.24 Wh and 0.26 mL of water (five drops), per-query energy fell roughly 33× in a single year, and all US data centers were only ~4.4% of national electricity and ~0.2% of national freshwater in 2023.",
-    "But national averages and per-query numbers hide the real problem, which is concentration and growth: data-center electricity is projected to reach 6.7-12% of US power by 2028, and because that load clusters in specific grids and watersheds faster than clean supply can be built, utilities are deferring coal retirements and adding gas while drought-prone localities face new draws on stressed water.",
-    "So the honest debate isn't whether one chatbot query is wasteful (it basically isn't) but whether the marginal, geographically concentrated buildout is being met by clean generation and slack water — or by dirtier power and stressed watersheds where targeted intervention would actually help.",
+    "Both sides accept that data centers are still a small share of total electricity and of US freshwater, that per-query efficiency is rising fast, and that what matters is the absolute energy and water AI uses, the emissions of the power serving it, and the stress on the specific watersheds where it clusters.",
+    "They split over whether new data-center demand is being met by clean power or by new gas and delayed coal retirements; whether, in places like Northern Virginia, data centers draw a meaningful share of local water; and whether efficiency gains outpace growing use enough to shrink AI's total footprint.",
   ],
   last_updated: "2026-06-16",
   tags: ["ai", "energy", "water", "data-centers", "sustainability"],

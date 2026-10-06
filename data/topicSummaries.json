@@ -205,6 +205,7 @@
     "pillarCount": 3,
     "evidenceCount": 12,
     "firstCrux": "Is a species defined by genomic ancestry or by ecological function, and so is the 'dire wolf' back?",
+    "firstCruxStanding": "definitional-choice",
     "tags": [
       "science"
     ]
@@ -301,7 +302,7 @@
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
     "confidence_score": 54,
     "balance": 54,
-    "weight": 76,
+    "weight": 66,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -311,6 +312,7 @@
     "pillarCount": 2,
     "evidenceCount": 8,
     "firstCrux": "Do nuclear's rare-disaster and waste risks outweigh the fossil-fuel deaths it would displace?",
+    "firstCruxStanding": "value-difference",
     "tags": [
       "policy"
     ]
@@ -1325,6 +1327,7 @@
     "pillarCount": 2,
     "evidenceCount": 8,
     "firstCrux": "How much moral weight does farmed-animal suffering carry against the cost of changing the system?",
+    "firstCruxStanding": "value-difference",
     "tags": [
       "science"
     ]
@@ -2690,6 +2693,7 @@
     "pillarCount": 2,
     "evidenceCount": 7,
     "firstCrux": "Does a competent adult's autonomy extend to choosing the timing of an inevitable death?",
+    "firstCruxStanding": "value-difference",
     "tags": [
       "philosophy",
       "bioethics",

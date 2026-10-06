@@ -111,6 +111,18 @@ describe("questionMeta — kind axis", () => {
     );
   });
 
+  it("labels a fact-shaped question whose first crux is a value weighing as normative", () => {
+    // The map's own data (its first crux's settle.kind) decides, not a word
+    // list: "safe" stays empirical elsewhere.
+    expect(classifyQuestion("Is nuclear energy safe?", "value-difference").id).toBe("normative");
+    expect(classifyQuestion("Is nuclear energy safe?").id).toBe("empirical");
+    expect(classifyQuestion("Are GMO foods safe to eat?", undefined).id).toBe("empirical");
+    // Only a value difference: a definitional crux leaves the grammar's kind.
+    expect(classifyQuestion("Is a gray wolf with edits a dire wolf?", "definitional-choice").id).toBe("empirical");
+    // Forecasts keep their kind.
+    expect(classifyQuestion("Will fusion power the grid?", "value-difference").id).toBe("predictive");
+  });
+
   it("is total — every question in the live catalog gets a real kind", () => {
     expect(allQuestions.length).toBeGreaterThan(100);
     for (const v of allQuestions) {

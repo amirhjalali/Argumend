@@ -9,17 +9,15 @@ export const spaceExplorationValueData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Americans routinely guess NASA eats a big slice of the federal budget — it's about 0.4% (~$24.9B). And the famous '$7–14 back per dollar' spin-off figure is a 1970s promotional estimate, not a measured return; the honest case rests on real technologies (GPS, water purification, medical imaging) and a ~$570B global space economy, not a magic multiplier.",
+      "NASA's enacted budget for 2024 was about $24.9 billion, roughly 0.4% of federal spending. The Mars Perseverance rover cost about $2.7 billion over its life; estimates for a crewed Mars mission run into the hundreds of billions. Neither side disputes those figures. What divides them is whether the returns beat what the money would do on Earth, and whether sending astronauts is worth so much more than sending robots.",
     confidence: 85,
-    source:
-      "NASA FY2024 budget (~$24.9B, ~0.4% of federal spending); NASA Spinoff database; WEF/McKinsey space-economy forecast (2024)",
-    sourceUrl: "https://spinoff.nasa.gov/",
+    source: "The Planetary Society (NASA FY2024 budget; cost of Perseverance)",
+    sourceUrl: "https://www.planetary.org/space-policy/nasas-fy-2024-budget",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The case for space spending is usually argued with two shaky numbers — that NASA is a big budget line and that it returns '$7–14 per dollar' — and both are wrong: NASA is about 0.4% of federal spending, and the famous multiplier is a 1970s promotional estimate, not a measured return.",
-    "Strip away the hype and a real case remains: genuine spin-off technologies (GPS, water purification, medical imaging, satellite weather and climate data with no Earth-bound substitute), a ~$570B global space economy, and demonstrated planetary defense (NASA's DART actually moved an asteroid).",
-    "So the honest debate isn't 'is space a waste?' — it's a small, partly-justified line item — but where the marginal dollar should go: robotic missions win decisively on science-per-dollar, while crewed missions are sold on inspiration and STEM pipelines that are real but hard to price.",
+    "Both sides accept that the famous '$7–14 back per dollar' spin-off figure is a promotional estimate rather than a measured return, and that robotic missions like Perseverance and the James Webb Space Telescope deliver far more science per dollar than crewed ones, with no risk to human life.",
+    "They split over whether the returns on government space spending, from spin-offs and Earth-observing satellites to a ~$570B space economy, beat what the same money would do on Earth; and over whether the inspiration and long-run value of crewed missions justify their far higher cost than robotic ones.",
   ],
   pillars: [
     {

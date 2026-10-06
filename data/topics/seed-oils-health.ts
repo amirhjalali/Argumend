@@ -12,17 +12,16 @@ export const seedOilsHealthData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The most popular anti-seed-oil claim — that the linoleic acid in seed oils floods your body with inflammatory arachidonic acid — is the part the evidence does NOT support: a systematic review of controlled human trials found that increasing dietary linoleic acid up to six-fold, or cutting it by up to 90%, did not significantly change tissue arachidonic acid. The honest concern that survives isn't the molecule itself; it's the oxidation byproducts of repeated high-heat frying and the fact that seed oils are the signature ingredient of ultra-processed food.",
+      "US per-capita soybean oil consumption rose more than 1,000-fold between 1909 and 1999, lifting linoleic acid from about 2.8% to 7.2% of calories, over a period when obesity and diabetes climbed too. No trial has yet tested modern liquid seed oils against other fats with calories and total fat held constant. The fight is over what that rise did to inflammation, weight and heart health.",
     confidence: 84,
     source:
-      "Rett & Whelan, Nutrition & Metabolism (2011) on LA-to-AA homeostasis; Blasbalg et al., AJCN (2011) on the intake shift; Harris et al., AHA Science Advisory, Circulation (2009)",
-    sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3132704/",
+      "Blasbalg et al., American Journal of Clinical Nutrition (2011), from USDA food-disappearance data",
+    sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3076650/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Seed oil consumption exploded in the modern diet — US soybean oil intake rose more than 1,000-fold between 1909 and 1999, pushing linoleic acid from roughly 2.8% to 7.2% of calories — and that surge tracks the rise of obesity, diabetes, and heart disease, while the high-heat frying that seed oils enable demonstrably generates cytotoxic aldehydes like 4-HNE in fast-food fries.",
-    "But the headline mechanism doesn't hold up: controlled human trials show dietary linoleic acid does not measurably raise tissue arachidonic acid, large meta-analyses (Farvid 2014) find higher linoleic acid intake associated with lower heart-disease risk, and the population correlation is hopelessly tangled with sugar, total calories, sedentary life, and ultra-processed foods — so seed oils can't be cleanly fingered as the cause.",
-    "So the honest debate isn't 'are seed oils a metabolic poison' (the inflammation-via-arachidonic-acid story largely fails) but 'do the oxidation products of repeated high-heat frying, and the ultra-processed foods seed oils ride inside, cause harm at real-world doses' — a dose-response question the existing trials never cleanly answered.",
+    "Both sides accept that linoleic acid intake rose sharply in the 20th century, that heating polyunsaturated oils makes aldehydes such as 4-HNE, most of all in repeated restaurant deep-frying, and that the link to obesity and heart disease is tangled with calories, sugar and ultra-processed food.",
+    "They split over whether sustained high omega-6 intake shifts inflammatory signaling in people, beyond tissue arachidonic acid to the wider oxylipin profile; whether real-world diets deliver enough frying aldehydes to cause harm; and whether swapping out seed oils specifically, rather than saturated fat in general, changes heart and metabolic outcomes, where the recovered Sydney and Minnesota trials and the large cohort studies point different ways.",
   ],
   references: [
     {

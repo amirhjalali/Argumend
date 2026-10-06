@@ -10,7 +10,7 @@ export const microplasticsHealthCrisisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Microplastics are now in virtually every human organ sampled — 77% of blood samples, placentas, lungs, 100% of testes — and a 2024 NEJM study found people with plastic in their artery plaque had 4.5× the risk of heart attack, stroke, or death. But that study is observational: whether the particles cause the harm or just mark already-diseased tissue is still genuinely unsettled.",
+      "Microplastics have been found in nearly every human organ sampled, including 77% of blood samples, and in a 2024 NEJM study people with plastic in their artery plaque had 4.5 times the risk of heart attack, stroke or death. That study was observational. The fight is over whether the particles cause the harm or mark tissue that was already diseased, and how worried that should make us.",
     confidence: 80,
     source:
       "Marfella et al., NEJM (2024, carotid plaque); Environment International (blood, 2022); testicular microplastics study (2024)",
@@ -18,9 +18,8 @@ export const microplasticsHealthCrisisData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The exposure is real and a little unnerving: microplastics have now been detected in virtually every human tissue sampled — 77% of blood samples, placentas on both sides, lung and liver biopsies, and 100% of human testes in one 2024 study — and an NEJM study found people with plastic particles in their artery plaque had about 4.5× the risk of heart attack, stroke, or death.",
-    "But 'found everywhere' is not the same as 'proven to harm': the headline cardiovascular study is observational, so the particles could be causing the inflammation — or could simply be accumulating in tissue that was already diseased for other reasons (smoking, poverty, age) — and the lab methods for measuring nanoplastics in tissue are still maturing.",
-    "So the honest debate isn't whether we're all carrying microplastics (we are) but whether they actually cause disease at the doses we're exposed to — a question that, like the early science on lead and tobacco, is suggestive and accumulating but not yet causally nailed down.",
+    "Both sides accept that microplastics turn up in essentially every human tissue sampled, from blood and placentas to artery plaque; that the strongest cardiovascular evidence so far is observational; that people carry many plasticizer chemicals at once while regulators assess them one at a time; and that the rules still treat bulk plastic polymers as inert.",
+    "They split over whether microplastics in arteries drive heart attacks and strokes or sit as bystanders in already-diseased tissue; whether real-world, low-dose mixtures of plastic chemicals like phthalates and BPA cause measurable reproductive harm; and whether micro- and nanoplastics are biologically inert at the doses people actually absorb, or a health threat on the scale of lead.",
   ],
   pillars: [
     // =========================================================================
