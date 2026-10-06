@@ -49,6 +49,10 @@ export const degrowthEconomicsData = {
         methodology:
           "Compile consumption-based (not territorial) CO2 emissions and domestic material consumption data for all OECD nations from 2000-2025. Calculate annual decoupling rates (change in emissions/materials per unit GDP). Compare the fastest observed rates against the rates required by IPCC SR15 pathways for 1.5°C with no or limited overshoot. Assess whether any technology roadmap credibly projects acceleration to required rates.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Consumption-based CO2 and material-footprint data for every OECD country from 2000 to 2025, giving each one's annual decoupling rate against the 7-10% a year that 1.5°C pathways require.",
+        },
         cost_to_verify:
           "$200K-500K (Consumption-based emissions modeling with trade-adjusted material flow analysis across OECD nations)",
         falsification: {
@@ -165,6 +169,10 @@ export const degrowthEconomicsData = {
         methodology:
           "Track the political trajectory of the Wellbeing Economy Governments (WeGo) network — New Zealand, Scotland, Iceland, Wales, Finland. Measure whether their shift from GDP-centric to wellbeing-centric policy metrics results in actual reductions in material throughput, and whether governing parties maintain or lose electoral support. Additionally, analyze polling data on degrowth-compatible policies (shorter work weeks, wealth taxes, flight bans, advertising restrictions) across OECD countries to identify the 'Overton window' for post-growth politics.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Election results and material-throughput data for the Wellbeing Economy Governments (New Zealand, Scotland, Iceland, Wales, Finland) once their policies bite, alongside polling on work-week cuts and throughput caps.",
+        },
         cost_to_verify:
           "$150K-300K (Comparative political analysis with polling data across WeGo nations and OECD countries)",
         falsification: {
@@ -280,6 +288,10 @@ export const degrowthEconomicsData = {
         methodology:
           "Model the economic impact of a 20% GDP reduction in OECD nations over 20 years on developing-nation trade flows, foreign direct investment, remittances, and aid. Compare two scenarios: (1) unmanaged degrowth (proportional reduction in all economic activity) and (2) managed degrowth (targeted reduction in extractive/luxury sectors with maintained or increased development finance, debt cancellation, and technology transfer). Assess net impact on Human Development Index indicators in low-income countries under each scenario.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Trade, investment, remittance and aid models of a 20% OECD contraction over 20 years, run managed (with debt cancellation and technology transfer) and unmanaged, comparing Human Development Index outcomes in low-income countries.",
+        },
         cost_to_verify:
           "$500K-1M (Global trade modeling with CGE models and development impact assessment)",
         falsification: {

@@ -21,15 +21,8 @@ export interface GlossaryEntry {
  */
 const GLOSSARY: Array<GlossaryEntry & { aliases?: string[] }> = [
   {
-    term: "Pillar",
-    definition:
-      "A core sub-argument that the overall claim rests on — break it and the claim weakens.",
-    aliases: ["pillars"],
-  },
-  {
     term: "Crux",
-    definition:
-      "The specific question whose answer would change minds, on one side or the other.",
+    definition: "The question a fight turns on, and what would settle it.",
     aliases: ["cruxes"],
   },
   {
@@ -39,23 +32,15 @@ const GLOSSARY: Array<GlossaryEntry & { aliases?: string[] }> = [
     aliases: ["steelman", "steel man", "steel-manning", "steelmanning", "steel-manned"],
   },
   {
-    term: "Verification status",
+    term: "What would settle it",
     definition:
-      "Whether the test that would settle a crux is currently verified, still theoretical, or practically impossible to run.",
-    aliases: ["verification-status"],
-  },
-  {
-    term: "Balance and weight",
-    definition:
-      "Balance (0–100) shows which way the weighed evidence tips, 50 being even; weight shows how much good evidence there is. Read together, they say whether the evidence largely converges, is still divided, or is still thin. Not the probability that the claim is true.",
-    // Older pages called this a "confidence score"; the alias keeps those
-    // lookups resolving to the current explanation.
-    aliases: ["balance & weight", "balance-and-weight", "confidence score", "confidence-score"],
+      "The line under every crux that says how it could close: a test on evidence, agreement on terms or on who decides, or nothing at all when the fight is about values.",
+    aliases: ["verification status", "verification-status", "settle condition"],
   },
   {
     term: "Meta-claim",
     definition:
-      "The single top-level statement under analysis that all the pillars and evidence are weighed against.",
+      "The one statement a map is built around, usually asked as a question whose two sides are named by the answer: Says yes and Says no.",
     aliases: ["metaclaim", "meta claim", "meta-claims"],
   },
   {

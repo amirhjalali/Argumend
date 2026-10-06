@@ -19,34 +19,29 @@
  * Server component, zero client JS; the evidence citations use <details>.
  * Renders nothing for a claim with no public entries.
  */
+import { Fragment } from "react";
 import type { ArgumentNode, Evidence, ResolutionKind } from "@/types/argument";
 import type { CruxLedgerStatus } from "@/types/cruxLedger";
 import type { CruxMovementEntry } from "@/lib/argument/ledger";
 
-/** The engine's line for a crux no evidence can settle (docs/CRUX_ENGINE.md). */
-export const STANDING_DISAGREEMENT_LINE =
-  "Nothing does — this is a standing value disagreement; the map holds both horns.";
-
-/**
- * The standing line for the kind of fork. A value fork keeps the engine's
- * exact line; a definitional or who-decides fork says what it turns on, so a
- * definition question is not mislabelled as a clash of values.
- */
-export function standingLineFor(kind?: ResolutionKind): string {
-  if (kind === "definitional-choice") {
-    return "Nothing does — this turns on a choice of definition; the map holds both readings.";
-  }
-  if (kind === "authority-allocation") {
-    return "Nothing does — this turns on who should decide; the map holds both answers.";
-  }
-  return STANDING_DISAGREEMENT_LINE;
-}
+// The standing lines live with the page model so legacy maps, question pages
+// and paste results share them; re-exported here for existing imports.
+import { standingLineFor } from "@/lib/topicPage/model";
+export { STANDING_DISAGREEMENT_LINE, standingLineFor } from "@/lib/topicPage/model";
 
 const STATUS_LABEL: Record<CruxLedgerStatus, string> = {
   open: "Open",
   narrowed: "Narrowed",
   resolved: "Resolved",
   unresolvable: "Unresolvable by evidence",
+};
+
+/**
+ * A second "open" entry in a row adds evidence without moving the crux, so it
+ * reads "Still open" rather than a second "Open" that looks like a reopening.
+ */
+const STATUS_REPEAT_LABEL: Partial<Record<CruxLedgerStatus, string>> = {
+  open: "Still open",
 };
 
 /** Track labels read with the month after them: states hold "since", events do not. */
@@ -145,7 +140,7 @@ export function CruxMovementTrack({ movement }: { movement: CruxMovementEntry[] 
           dateTime={first}
           className="text-xs leading-none tabular-nums text-muted dark:text-stone-400"
         >
-          <span className="sr-only">Record starts </span>
+          <span className="sr-only">Evidence from </span>
           {formatMonth(first)}
         </time>
       )}
@@ -234,10 +229,17 @@ export function CruxMovementLedger({
     movement.length > 1 && noticed.size === 1 && movement[0].entry.noticedAt
       ? movement[0].entry.noticedAt
       : null;
-  const footer = [
-    sharedAuthor,
-    sharedNoticed ? `Added to the map ${formatDay(sharedNoticed)}` : null,
-  ].filter(Boolean);
+  // Entry dates are source dates; noticedAt is when the map recorded them
+  // (docs/plans/2026-09-22-ledger-v1-run.md §3). Say which is which up front,
+  // so evidence from 2025 recorded in 2026 does not read as backdating.
+  const firstMonth = formatMonth(movement[0].entry.date);
+  const lastMonth = formatMonth(latest.date);
+  const dates = [
+    firstMonth === lastMonth
+      ? `Evidence from ${firstMonth}`
+      : `Evidence from ${firstMonth} to ${lastMonth}`,
+    sharedNoticed ? `recorded ${formatDay(sharedNoticed)}` : null,
+  ].filter((part): part is string => part !== null);
 
   return (
     <section
@@ -251,9 +253,22 @@ export function CruxMovementLedger({
       >
         How this has moved
       </h4>
+      <p
+        className="mt-0.5 text-[11.5px] leading-relaxed text-muted dark:text-stone-400"
+        data-testid="crux-movement-dates"
+      >
+        {dates.map((part, index) => (
+          <Fragment key={part}>
+            {index > 0 && " · "}
+            <span className="whitespace-nowrap">{part}</span>
+          </Fragment>
+        ))}
+      </p>
       <ol className="mt-3">
         {movement.map(({ entry, corrects }, index) => {
           const isLast = index === movement.length - 1;
+          const repeats = index > 0 && movement[index - 1].entry.status === entry.status;
+          const label = (repeats && STATUS_REPEAT_LABEL[entry.status]) || STATUS_LABEL[entry.status];
           const resolved = entry.status === "resolved";
           const evidence = entry.evidenceNodeIds
             .map((id) => nodesById.get(id))
@@ -283,12 +298,13 @@ export function CruxMovementLedger({
                   <span
                     className={`font-serif text-[17px] italic leading-snug ${STATUS_TEXT[entry.status]}`}
                   >
-                    {STATUS_LABEL[entry.status]}
+                    {label}
                   </span>
                   <time
                     dateTime={entry.date}
                     className="text-[11.5px] tabular-nums tracking-wide text-muted dark:text-stone-400"
                   >
+                    <span className="sr-only">Evidence dated </span>
                     {formatDay(entry.date)}
                   </time>
                 </p>
@@ -344,9 +360,9 @@ export function CruxMovementLedger({
           </li>
         )}
       </ol>
-      {footer.length > 0 && (
+      {sharedAuthor && (
         <p className="mt-3 pl-8 text-[11.5px] leading-relaxed text-muted dark:text-stone-400">
-          {footer.join(". ")}.
+          {sharedAuthor}.
         </p>
       )}
     </section>
@@ -457,10 +473,17 @@ function provenanceLine(
   includeNoticed = true,
 ): string | null {
   const parts: string[] = [];
-  if (includeNoticed && entry.noticedAt && entry.noticedAt !== entry.date) {
-    parts.push(`Added to the map ${formatDay(entry.noticedAt)}`);
+  const recorded =
+    includeNoticed && entry.noticedAt && entry.noticedAt !== entry.date
+      ? `Recorded ${formatDay(entry.noticedAt)}`
+      : null;
+  if (recorded && includeAuthor && entry.author.kind === "editorial") {
+    // "Recorded Sep 22, 2026 by Argumend editors", not "Recorded …. Recorded by …".
+    parts.push(`${recorded} by ${entry.author.curator}`);
+  } else {
+    if (recorded) parts.push(recorded);
+    if (includeAuthor) parts.push(authorLine(entry));
   }
-  if (includeAuthor) parts.push(authorLine(entry));
   if (corrects.length > 0) {
     parts.push(`Corrects the entry of ${corrects.map(formatDay).join(", ")}`);
   }

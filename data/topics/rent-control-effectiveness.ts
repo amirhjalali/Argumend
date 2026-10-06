@@ -46,6 +46,10 @@ export const rentControlEffectivenessData = {
         equation:
           "\\Delta_{construction} = \\beta_0 + \\beta_1 \\cdot RentControl_i + \\beta_2 \\cdot X_i + \\varepsilon_i",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Difference-in-differences on permits and construction starts in Oregon, California and St. Paul after rent stabilization with new-building exemptions, against matched places without rent rules, controlling for zoning, interest rates and land costs.",
+        },
         cost_to_verify:
           "$200K-500K (Econometric analysis of housing permit and construction data across multiple jurisdictions)",
         falsification: {
@@ -162,6 +166,10 @@ export const rentControlEffectivenessData = {
         methodology:
           "Conduct a longitudinal study tracking both displaced and non-displaced tenants in gentrifying neighborhoods with and without rent stabilization. Measure outcomes including: housing cost burden, residential stability, employment access, children's school performance, physical and mental health, and social network disruption. Simultaneously measure costs borne by new market entrants: time to find housing, rent premium over controlled areas, commute distance, and housing quality. Calculate net social welfare using willingness-to-pay and quality-adjusted life year frameworks.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A longitudinal study of tenants in gentrifying neighborhoods with and without stabilization, measuring stability, health and schooling for those already housed, and search time and rent premiums for new arrivals. Weighing one group's gains against the other's costs is a value choice.",
+        },
         cost_to_verify:
           "$1-3M (Multi-year longitudinal study across multiple housing markets)",
         falsification: {

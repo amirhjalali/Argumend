@@ -195,7 +195,7 @@
     "meta_claim": "De-extinction technology should be pursued as a tool for ecological restoration and species conservation",
     "confidence_score": 36,
     "balance": 36,
-    "weight": 73,
+    "weight": 66,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -450,7 +450,7 @@
     "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
     "confidence_score": 86,
     "balance": 86,
-    "weight": 53,
+    "weight": 48,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -514,7 +514,7 @@
     "meta_claim": "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
     "confidence_score": 62,
     "balance": 62,
-    "weight": 57,
+    "weight": 52,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -641,7 +641,7 @@
     "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
     "confidence_score": 23,
     "balance": 23,
-    "weight": 76,
+    "weight": 69,
     "verdict": {
       "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
@@ -684,7 +684,7 @@
     "meta_claim": "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
     "confidence_score": 53,
     "balance": 53,
-    "weight": 80,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -747,7 +747,7 @@
     "meta_claim": "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
     "confidence_score": 30,
     "balance": 30,
-    "weight": 70,
+    "weight": 67,
     "verdict": {
       "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
@@ -1336,7 +1336,7 @@
     "meta_claim": "Industrial animal agriculture (factory farming) should be banned or drastically reformed due to its ethical, environmental, and public health costs.",
     "confidence_score": 66,
     "balance": 66,
-    "weight": 60,
+    "weight": 55,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1925,7 +1925,7 @@
     "meta_claim": "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply chain disruptions.",
     "confidence_score": 40,
     "balance": 40,
-    "weight": 81,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2158,7 +2158,7 @@
     "meta_claim": "Current or near-future AI systems could possess some form of consciousness or subjective experience, creating moral obligations toward them.",
     "confidence_score": 31,
     "balance": 31,
-    "weight": 63,
+    "weight": 58,
     "verdict": {
       "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
@@ -2243,10 +2243,10 @@
     "meta_claim": "Ectogenesis (artificial womb technology) and in-vitro gametogenesis (creating eggs/sperm from skin cells) will fundamentally alter human reproduction within 15 years, raising profound ethical questions about parenthood, consent, and biological boundaries.",
     "confidence_score": 69,
     "balance": 69,
-    "weight": 66,
+    "weight": 62,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
     },
     "status": "contested",
     "category": "science",
@@ -2784,7 +2784,7 @@
     "meta_claim": "Terminally ill, mentally competent adults have a moral right to medically assisted dying.",
     "confidence_score": 59,
     "balance": 59,
-    "weight": 63,
+    "weight": 58,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"

@@ -31,6 +31,10 @@ export const eaccVsTechRegulationData = {
         methodology:
           "Measure the time lag between capability deployment and effective governance response across 10 major technologies (automobiles, nuclear energy, internet, social media, CRISPR, autonomous vehicles, large language models, cryptocurrency, synthetic biology, and drone technology). For each, document: (1) date of capability threshold, (2) date of first significant harm event, (3) date of effective regulatory response, (4) date of market-driven safety correction if applicable, and (5) cumulative harm during the governance gap. Compare market-corrected vs. regulation-corrected outcomes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "For ten technologies, from automobiles and nuclear power to CRISPR and large language models, the dates of capability, first major harm and effective regulation, giving the lag between harm and governance in each case.",
+        },
         cost_to_verify:
           "$100K-300K (Historical policy analysis and cross-domain comparative study)",
         falsification: {
@@ -156,6 +160,10 @@ export const eaccVsTechRegulationData = {
         methodology:
           "Identify 20 cases of technology-related harm (across social media, AI, biotech, environmental, consumer safety, and financial technology domains). For each case, measure: (1) time from deployment to first documented harm, (2) time from documented harm to market-driven correction (if any), (3) time from documented harm to regulatory correction (if any), (4) cumulative harm during each gap, and (5) whether market correction or regulatory correction came first and was more effective. Calculate the ratio of market-corrected to regulation-corrected outcomes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Twenty documented technology harms across social media, AI, biotech, finance and consumer safety, each timed from deployment to first harm, then to any market correction and to any regulatory one, with the harm built up in between.",
+        },
         cost_to_verify:
           "$150K-400K (Cross-industry case study analysis requiring domain expertise in multiple sectors)",
         falsification: {
@@ -265,6 +273,10 @@ export const eaccVsTechRegulationData = {
         methodology:
           "Compare outcomes across regulatory approaches for 5 technology domains (AI, gene editing, nuclear energy, internet governance, autonomous vehicles) across 3 governance models (democratic-regulatory like the EU, technocratic-state like China, and market-driven like the US). For each domain and model, measure: (1) innovation output (patents, publications, commercial deployments), (2) safety incidents per unit of deployment, (3) public trust levels, (4) equitable distribution of benefits (Gini coefficient of technology access), and (5) speed from research to deployment. Conduct a 10-year longitudinal comparison.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Outcomes in AI, gene editing, nuclear energy, internet governance and autonomous vehicles under EU-style, Chinese and US-style governance, compared on innovation output and safety record. Which mix counts as better is a weighting no comparison supplies.",
+        },
         cost_to_verify:
           "$500K-1M (Multi-jurisdiction comparative policy study requiring international collaboration)",
         falsification: {

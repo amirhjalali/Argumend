@@ -31,6 +31,10 @@ export const rfkHealthPolicyData = {
         methodology:
           "Determine whether a prospective randomized trial of 'current schedule vs lighter schedule' is ethically permissible; if not (the consensus view, because it requires withholding effective vaccines), rely on the strongest available quasi-experimental evidence: large linked-database cohort studies (Vaccine Safety Datalink), self-controlled case-series, and natural experiments from countries with differing schedules, with pre-registered confounder adjustment. Cross-reference cumulative-aluminum cohort findings against post-licensure surveillance.",
         verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "A randomized trial of the full schedule against a lighter one is ruled out as unethical, so evidence can only narrow it: Vaccine Safety Datalink cohorts, self-controlled case series, and countries with different schedules.",
+        },
         cost_to_verify:
           "Ethically prohibited as an RCT; ~$10-50M for the strongest observational alternative (large linked-cohort study)",
         falsification: {
@@ -139,6 +143,10 @@ export const rfkHealthPolicyData = {
         methodology:
           "Conduct a scaled-up controlled-feeding trial on the Hall protocol: randomize a large cohort to matched ultra-processed vs minimally processed diets controlling for calories, macronutrients, sugar, and sodium, measuring metabolic and cardiovascular endpoints over months to years. Triangulate against NutriNet-Santé and Nurses' Health Study prospective cohort data and NOVA-stratified mortality analyses.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A scaled-up controlled-feeding trial on the Hall protocol, matching calories, macronutrients, sugar and sodium between ultra-processed and minimally processed diets, measuring metabolic and cardiovascular outcomes over months to years.",
+        },
         cost_to_verify:
           "$20-100M (large multi-year inpatient/controlled-feeding trial; the smaller pilot protocol has repeatedly lacked sustained NIH funding)",
         falsification: {
@@ -247,6 +255,10 @@ export const rfkHealthPolicyData = {
         methodology:
           "Commission prospective cohort and quasi-experimental studies measuring child neurodevelopmental outcomes and dental caries specifically at 0.5-1.0 mg/L exposure, using individual-level biomarker (urinary fluoride) data rather than community-level proxies, controlling for socioeconomic confounders. Combine with the October 2024 Cochrane caries estimates to compute a benefit-harm balance at the precise US dose.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Prospective studies at 0.5-1.0 mg/L that measure each child's urinary fluoride, neurodevelopment and cavities, controlling for income, combined with the 2024 Cochrane cavity estimates.",
+        },
         cost_to_verify:
           "$5-20M (large prospective biomarker cohort at low-dose exposure; existing dose-response data at 0.5-1.0 mg/L is sparse)",
         falsification: {
@@ -356,6 +368,10 @@ export const rfkHealthPolicyData = {
         methodology:
           "Audit a sample of contested agency decisions (specific ACIP recommendations, GRAS determinations, accelerated approvals) by reconstructing the evidence available at the time, the financial ties of the decision-makers, and whether the decision diverged from the evidence in an industry-favoring direction. Compare against matched decisions made by conflict-free panels or foreign regulators to isolate the effect of capture from ordinary scientific judgment.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An audit of contested ACIP recommendations, GRAS determinations and accelerated approvals that rebuilds the evidence available at the time and the deciders' financial links, compared with matched decisions by conflict-free panels or foreign regulators.",
+        },
         cost_to_verify:
           "$1-3M (multi-decision regulatory forensic audit cross-referencing financial-disclosure and evidence records)",
         falsification: {

@@ -44,6 +44,10 @@ export const carbonTaxEffectivenessData = {
         methodology:
           "Use difference-in-differences and synthetic-control designs comparing taxed jurisdictions to matched untaxed controls; aggregate causal ex-post estimates in a meta-analysis and correct for publication bias. Decompose any reduction into scale (less output) vs. technique (cleaner output) effects.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Difference-in-differences and synthetic-control studies comparing taxed jurisdictions with matched untaxed ones, pooled in a meta-analysis corrected for publication bias, like the review of 483 effect sizes.",
+        },
         cost_to_verify: "$0 (analysis of published ex-post evaluations)",
         falsification: {
           supporter_flip:
@@ -151,6 +155,10 @@ export const carbonTaxEffectivenessData = {
         methodology:
           "Compare observed carbon prices to model-derived Paris-consistent price corridors; estimate the marginal abatement response to price increases (elasticities) and test whether projected reductions at the recommended price reach required emission pathways.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Estimates of how abatement responds as prices rise, projected to the $50-100/tCO2 Paris-consistent corridor and checked against the emission pathways that corridor is meant to reach.",
+        },
         cost_to_verify: "$0 (compare published price corridors to abatement elasticities)",
         falsification: {
           supporter_flip:
@@ -223,6 +231,10 @@ export const carbonTaxEffectivenessData = {
         methodology:
           "Estimate leakage rates by comparing territorial vs. consumption-based emission accounts and tracing trade-embodied carbon; track policy survival rates and design features (revenue recycling, border adjustments) associated with durability.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Territorial against consumption-based emission accounts, tracing the carbon embodied in trade, plus survival rates of carbon taxes by design feature such as revenue recycling and border adjustments.",
+        },
         cost_to_verify: "$0 (territorial vs. consumption emissions accounting)",
         falsification: {
           supporter_flip:

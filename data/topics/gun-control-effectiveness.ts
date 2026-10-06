@@ -155,6 +155,10 @@ export const gunControlEffectivenessData = {
         equation:
           "E[\\text{casualties} | \\text{AR-style}] vs E[\\text{casualties} | \\text{handgun}]",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Every US mass shooting with four or more victims sorted by weapon and magazine type, comparing casualties per incident after adjusting for location and police response time.",
+        },
         cost_to_verify: "$50K (Database analysis)",
         falsification: {
           supporter_flip:

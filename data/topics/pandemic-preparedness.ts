@@ -47,6 +47,10 @@ export const pandemicPreparednessData = {
         methodology:
           "Compile a comprehensive database of novel pathogen spillover events from 1900 to present, categorized by scale: contained outbreak (<1,000 deaths), epidemic (1,000-100,000 deaths), and pandemic (>100,000 deaths). Calculate the historical frequency and trend of each category, adjusting for increased zoonotic risk factors (deforestation, urbanization, factory farming density, global travel volume). Apply Monte Carlo simulation to project the expected frequency and cost of future events under current conditions. Compare the expected annual cost of pandemics against proposed annual preparedness budgets to determine the break-even probability threshold.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A database of novel pathogen spillovers since 1900, sorted by death toll into contained outbreaks, epidemics and pandemics, giving the frequency of each and its trend after adjusting for deforestation, factory farming and global travel.",
+        },
         cost_to_verify:
           "$500K-1M (Epidemiological modeling requiring historical outbreak databases and economic impact analysis)",
         falsification: {
@@ -184,6 +188,10 @@ export const pandemicPreparednessData = {
         methodology:
           "Conduct a comparative institutional analysis of countries that reformed public health systems after SARS (2003), MERS (2015), and COVID-19. Track specific reform indicators over 10-year periods: (1) sustained funding levels for stockpiles and surveillance, (2) staffing levels in emergency response units, (3) time-to-detection and time-to-response in subsequent outbreaks, (4) political accountability mechanisms for preparedness lapses. Compare reform durability in systems with independent agencies (like South Korea's KDCA) versus those embedded in larger bureaucracies (like the US CDC within HHS).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Ten-year tracking of countries that reformed after SARS, MERS and COVID-19: stockpile and surveillance funding, emergency staffing, and time to detect and respond in the next outbreak.",
+        },
         cost_to_verify:
           "$300K-800K (Comparative institutional analysis requiring government data across multiple countries)",
         falsification: {
@@ -304,6 +312,10 @@ export const pandemicPreparednessData = {
         methodology:
           "Commission an independent risk assessment comparing: (1) the historical frequency and severity of laboratory accidents involving enhanced pathogens (data from the Federal Select Agent Program, WHO, and investigative journalism), (2) the counterfactual scientific contributions of gain-of-function research — which specific vaccine or therapeutic advances required enhanced pathogen research that could not have been achieved through alternative methods (computational modeling, pseudovirus systems, natural isolate characterization), (3) expert elicitation surveys of virologists, biosecurity specialists, and vaccine developers to estimate probabilities of lab-origin vs. natural-origin pandemics under current and restricted research regimes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An independent risk assessment pairing the record of lab accidents with enhanced pathogens (Federal Select Agent Program and WHO data) with a case-by-case check of which vaccine or therapeutic advances could not have come from safer methods.",
+        },
         cost_to_verify:
           "$1-3M (Comprehensive risk assessment requiring classified lab incident data and expert elicitation)",
         falsification: {

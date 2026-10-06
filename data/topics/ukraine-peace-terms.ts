@@ -31,6 +31,10 @@ export const ukrainePeaceTermsData = {
         methodology:
           "Compile ISW daily Russian Offensive Campaign Assessments over a rolling 12-month window, measuring net territorial change in square kilometers per month against Russian casualty and equipment-loss rates. Cross-reference with RUSI assessments of Russian armored-vehicle production (refurbishment vs. new build) and depot depletion forecasts to project whether the attrition curve crosses in Ukraine's favor before Ukrainian manpower is exhausted.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "ISW daily assessments over a rolling 12 months, setting net territorial change per month against Russian casualty and equipment-loss rates, cross-checked with RUSI counts of Russian armor production and depot depletion.",
+        },
         cost_to_verify:
           "$0 (ISW and RUSI assessments are public; the forecast itself is contested and cannot be settled before the fact)",
         falsification: {
@@ -139,6 +143,10 @@ export const ukrainePeaceTermsData = {
         methodology:
           "Map the spectrum of proposed guarantees (bilateral arms supply, European tripwire force, NATO membership, Article 5) against two independent assessments: Russian stated red lines (Foreign Ministry and Putin statements) for acceptability, and military-balance analysis (RUSI, ISW) for deterrent credibility. Identify whether any point on the spectrum satisfies both. Stress-test against the 2014-2022 precedent, where the Minsk agreements' weak guarantees failed to prevent full-scale invasion.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A map of each proposed guarantee, from bilateral arms supply to a European tripwire force to NATO membership, scored against Russia's stated red lines and against RUSI and ISW military-balance analysis, and checked against the 2014-2022 precedent.",
+        },
         cost_to_verify:
           "$500K-1M (Structured net-assessment and red-line analysis; the underlying question is a forecast about Russian intent that cannot be fully resolved in advance)",
         falsification: {
@@ -247,6 +255,10 @@ export const ukrainePeaceTermsData = {
         methodology:
           "Track three time series against each other: (1) Russian armored-vehicle availability — new build vs. refurbishment vs. depot drawdown (RUSI, satellite imagery of storage bases); (2) monthly Russian recruitment net of casualties (Janis Kluge's sign-up data, Mediazona confirmed KIA, Ukraine MoD high estimates, each with stated methodology); (3) Russian fiscal stress and real inflation (Bank of Russia data cross-checked against Sweden's MUST and BOFIT independent estimates). Identify whether the depletion threshold is crossed before Ukrainian manpower is exhausted.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Three series tracked against each other: Russian armored-vehicle availability from new builds, refurbishment and depot drawdown; monthly recruitment net of casualties; and fiscal stress and real inflation, each with its stated method.",
+        },
         cost_to_verify:
           "$1-2M (Multi-source intelligence fusion and forecasting; the crossover date is a contested prediction that resolves only as it occurs)",
         falsification: {
@@ -355,6 +367,10 @@ export const ukrainePeaceTermsData = {
         methodology:
           "Operationalize the reputational-vs-situational debate: track Chinese military posture indicators around Taiwan (PLA exercises, amphibious-lift production, gray-zone incursions) before and after any Ukraine settlement, and compare against AEI/CSIS China-Taiwan assessments of which lessons Beijing is drawing (operational vs. strategic). Reference the IR literature on credibility (e.g., Daryl Press, 'Calculating Credibility') to weight whether past concessions historically predicted future challenges. This is a probabilistic forecast, not a settleable fact.",
         verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "PLA exercises, amphibious-lift production and gray-zone incursions around Taiwan tracked before and after any Ukraine settlement, read against AEI and CSIS assessments of whether Beijing's lessons are operational or strategic.",
+        },
         cost_to_verify:
           "Unbounded — the counterfactual (whether China attacks Taiwan because of a Ukraine deal) cannot be observed; only correlational indicators can be tracked after the fact",
         falsification: {

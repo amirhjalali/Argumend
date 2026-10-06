@@ -278,6 +278,10 @@ export const animalConsciousnessRightsData = {
         methodology:
           "Track annual improvements in plant-based protein price parity, cultivated meat production costs, nutritional completeness of animal-free diets, and success rates of non-animal testing methods vs. animal models across drug development pipelines. Compare cost and efficacy trajectories to model the timeline for viable alternatives at global scale.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Annual tracking of plant-based and cultivated protein costs against conventional meat, the nutritional completeness of animal-free diets, and success rates of non-animal testing against animal models in drug pipelines.",
+        },
         cost_to_verify:
           "$1-2M (Techno-economic analysis of alternative protein and non-animal research trajectories)",
         falsification: {

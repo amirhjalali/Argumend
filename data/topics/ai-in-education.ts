@@ -46,6 +46,10 @@ export const aiInEducationData = {
         methodology:
           "Conduct a multi-year (3+ year) cluster-randomized trial across 200+ schools in diverse districts (urban, rural, affluent, low-income). Randomly assign schools to AI-tutoring-supplemented instruction vs. standard instruction. Stratify analysis by prior achievement level, socioeconomic status, race/ethnicity, and school resources. Measure standardized test gains, course completion rates, and college enrollment as outcomes. Track implementation fidelity (actual usage hours, technical issues) as moderators.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A multi-year cluster-randomized trial across 200+ schools in urban, rural, affluent and low-income districts, with test gains broken out by prior achievement and family income to see who gains most.",
+        },
         cost_to_verify:
           "$15-30M (Multi-year, multi-site cluster-randomized trial with technology provision and longitudinal tracking)",
         falsification: {

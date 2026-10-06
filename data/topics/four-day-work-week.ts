@@ -46,6 +46,10 @@ export const fourDayWorkWeekData = {
         methodology:
           "Conduct a government-sponsored randomized controlled trial across 500+ firms in at least 10 industries, randomly assigning firms to four-day or five-day schedules for 12+ months. Use objective productivity metrics (revenue per employee, output per hour, customer satisfaction scores, error rates) rather than self-reported measures. Include a mandatory 6-month follow-up after the trial ends to measure persistence. Stratify by industry, firm size, and workforce composition.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial across 500+ firms in at least ten industries, assigning four-day or five-day schedules for a year and measuring revenue per employee, output per hour and error rates, with a six-month follow-up.",
+        },
         cost_to_verify:
           "$10-20M (Government-sponsored multi-industry RCT with objective productivity measurement)",
         falsification: {

@@ -330,6 +330,10 @@ export const aiJobDisplacementData = {
         methodology:
           "Track the regulatory status of AI-autonomous decision-making across five regulated domains (medicine, law, financial advice, auditing, engineering) in the US, EU, and UK from 2024 to 2034. Measure the percentage of licensed professional tasks that regulators permit AI to perform without human supervision. Compare adoption curves against historical analogues (EHR adoption, algorithmic trading adoption, telemedicine legalization).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "The share of licensed tasks in medicine, law, finance, auditing and engineering that US, EU and UK regulators let AI do unsupervised, tracked year by year to 2034 against the adoption curves of electronic health records and algorithmic trading.",
+        },
         cost_to_verify:
           "$300K-800K (Multi-year regulatory tracking study across five jurisdictions and five professions)",
         falsification: {

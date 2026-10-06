@@ -28,6 +28,10 @@ export const policeReformData = {
         methodology:
           "Randomized controlled trials of accountability interventions across jurisdictions, measuring use-of-force incidents, complaints, crime rates, and officer safety outcomes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials of body cameras, civilian oversight and other accountability measures across jurisdictions, counting use-of-force incidents, complaints, crime and officer injuries, at larger scale than the roughly 2,200-officer Washington, DC trial.",
+        },
         cost_to_verify: "$5M (Multi-city randomized controlled trial)",
         falsification: {
           supporter_flip:
@@ -131,6 +135,10 @@ export const policeReformData = {
         methodology:
           "Phased implementation studies in large cities, comparing outcomes (safety incidents, call resolution, cost) between traditional police response and alternative response teams.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Phased rollouts in big cities that compare unarmed teams with police on safety incidents, backup requests, call resolution and cost as the teams take on a broader mix of calls.",
+        },
         cost_to_verify: "$10M (Multi-city phased implementation study)",
         falsification: {
           supporter_flip:

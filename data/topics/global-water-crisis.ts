@@ -45,6 +45,10 @@ export const globalWaterCrisisData = {
         methodology:
           "Combine NASA GRACE satellite gravity data with ground-based well monitoring to produce high-resolution depletion models for the 10 most-stressed aquifers (Ogallala, Northwest India, North China Plain, Arabian Peninsula, Central Valley California, etc.). Model extraction rates against recharge rates under multiple climate scenarios. Overlay agricultural dependency data to identify populations at risk of supply failure within 10, 25, and 50 year horizons. Cross-reference with economic models of adaptation cost and technological substitution timelines.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "High-resolution depletion models for the most stressed aquifers, combining NASA GRACE satellite gravity data with well monitoring, that set extraction against recharge and against how fast efficiency gains and price signals are cutting demand.",
+        },
         cost_to_verify:
           "$5-10M (Satellite data analysis + hydrological modeling + agricultural impact assessment across multiple basins)",
         falsification: {
@@ -160,6 +164,10 @@ export const globalWaterCrisisData = {
         methodology:
           "Conduct a comparative case study analysis of all transboundary river basins where per-capita water availability has dropped below 500 cubic meters per year (absolute scarcity). Map institutional capacity (treaty presence, joint commissions, third-party mediation), power asymmetry between riparian states, economic water dependency, and military capability. Model conflict probability under projected 2040 and 2060 scarcity scenarios using climate-adjusted hydrological models. Test whether institutional strength moderates the scarcity-conflict relationship or whether extreme scarcity overwhelms institutions.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A comparison of transboundary river basins already below 500 cubic meters per person a year, recording whether disputes there went to treaties and joint commissions or to force, alongside treaty presence and power asymmetry.",
+        },
         cost_to_verify:
           "$3-5M (Multi-basin geopolitical modeling integrating climate projections, institutional analysis, and conflict risk assessment)",
         falsification: {
@@ -277,6 +285,10 @@ export const globalWaterCrisisData = {
         methodology:
           "Model the cost and timeline to deploy sufficient desalination and water recycling capacity to close the projected water deficit in the 20 most water-stressed nations by 2050. Include capital costs, energy requirements (and the energy infrastructure needed to support them), brine disposal capacity, institutional requirements, and financing mechanisms. Compare deployment timelines against aquifer depletion and climate disruption timelines to determine whether technological solutions can arrive before tipping points are reached.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Cost-and-timeline models for desalination, recycling and precision irrigation in the 20 most water-stressed nations, counting energy, brine disposal and financing, set against each region's aquifer depletion timeline.",
+        },
         cost_to_verify:
           "$2-4M (Techno-economic modeling across 20 water-stressed nations integrating infrastructure, energy, and climate projections)",
         falsification: {

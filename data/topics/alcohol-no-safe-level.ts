@@ -45,6 +45,10 @@ export const alcoholNoSafeLevelData = {
         methodology:
           "Pool individual-participant data from large cohorts with validated lifetime-abstainer reference groups; fit flexible (spline) dose-response models for each alcohol-linked cancer; test whether the lower confidence bound of risk excludes the null at the lowest exposure bins (e.g. <10 g/day).",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Pooled individual-participant cohorts with validated lifetime-abstainer reference groups, fitted with flexible dose-response curves for each alcohol-linked cancer, checking whether risk is above baseline in the lowest bins (below 10 g/day).",
+        },
         cost_to_verify: "$500K (pooled re-analysis of existing cohorts)",
         falsification: {
           supporter_flip:
@@ -117,6 +121,10 @@ export const alcoholNoSafeLevelData = {
         methodology:
           "Triangulate three designs that fail in different ways: (1) cohorts using strict lifetime-abstainer references with former-drinker exclusion; (2) Mendelian randomization using alcohol-metabolism gene variants (ADH1B/ALDH2); (3) registry-linked natural experiments. Causation is supported only where all three agree on the sign at low dose.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Three designs that fail in different ways: strict lifetime-abstainer cohorts excluding former drinkers, Mendelian randomization using ADH1B/ALDH2 variants, and registry-linked natural experiments, read for agreement at low doses.",
+        },
         cost_to_verify: "$0 (re-analysis of published cohort and genetic data)",
         falsification: {
           supporter_flip:
@@ -225,6 +233,10 @@ export const alcoholNoSafeLevelData = {
         methodology:
           "Re-run the same cohorts twice: once with the conventional 'current non-drinker' reference, once restricting to lifetime abstainers with former drinkers removed. Compare the low-volume relative risk between specifications; the gap quantifies abstainer bias.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Each cohort run twice, once against current non-drinkers and once against lifetime abstainers with former drinkers removed, comparing the low-volume relative risk between the two.",
+        },
         cost_to_verify: "$0 (specification re-analysis of existing cohorts)",
         falsification: {
           supporter_flip:

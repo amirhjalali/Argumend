@@ -30,7 +30,11 @@ export const nuclearWeaponsAbolitionData = {
           "The core dispute is whether nuclear weapons caused the Long Peace or merely coincided with it. This is fundamentally a counterfactual question: would the US and Soviet Union have fought a major war between 1945 and 1991 absent nuclear weapons? If the answer is yes, nuclear deterrence has prevented the deadliest wars in human history. If no, nuclear weapons are an unnecessary existential risk.",
         methodology:
           "Historical counterfactual analysis using multiple methods: (1) Examine declassified Soviet and American war planning documents to determine whether military options were explicitly rejected due to nuclear risk. (2) Statistical analysis comparing conflict frequency between nuclear dyads, nuclear-conventional dyads, and conventional-only dyads since 1945. (3) Case-study analysis of crises where decision-makers cited nuclear weapons as the decisive factor in choosing restraint (Berlin 1948/1961, Cuban Missile Crisis, Kargil 1999).",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "No test can rerun 1945 to 1991 without the bomb; evidence can only narrow it. Declassified war plans showing whether leaders held back over nuclear risk, as Soviet archives suggest for the Berlin crises, and conflict counts for nuclear-armed pairs of states against comparable conventional pairs.",
+        },
         cost_to_verify:
           "$200K-500K (Archival research across US, Russian, and Indian declassified records with quantitative analysis)",
         falsification: {
@@ -139,6 +143,10 @@ export const nuclearWeaponsAbolitionData = {
         methodology:
           "Commission an independent technical study by the IAEA, the Comprehensive Nuclear-Test-Ban Treaty Organization (CTBTO), and national laboratories (e.g., Sandia, AWE) to determine: (1) The minimum breakout timeline for reconstituting a nuclear weapon from hidden fissile material, (2) The detection probability of clandestine enrichment or reprocessing using best available technology (environmental sampling, satellite monitoring, xenon detection), (3) The verification regime cost and institutional requirements for a zero-weapons world.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An independent technical study of breakout: how fast a state could build a weapon from hidden fissile material, set against how quickly environmental sampling, satellite imagery and xenon detection would catch the enrichment or assembly.",
+        },
         cost_to_verify:
           "$5-20M (Multi-institutional technical verification feasibility study)",
         falsification: {
@@ -230,6 +238,10 @@ export const nuclearWeaponsAbolitionData = {
         methodology:
           "Commission independent climate modeling teams to simulate nuclear winter scenarios using state-of-the-art earth system models (CESM, GFDL, UKESM) with updated nuclear arsenal data. Model three scenarios: (1) Regional exchange (India-Pakistan, 100 weapons), (2) Limited US-Russia exchange (500 weapons), (3) Full US-Russia exchange (3,000+ weapons). Measure soot injection, temperature change, precipitation change, growing season length, and crop yield impacts. Cross-validate across at least 4 independent modeling centers.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Several independent earth-system models (CESM, GFDL, UKESM) run on the same scenarios, from a 100-weapon regional exchange up to a full US-Russia one, compared on soot, cooling and crop losses.",
+        },
         cost_to_verify:
           "$2-5M (Multi-center climate modeling study with agricultural impact assessment)",
         falsification: {

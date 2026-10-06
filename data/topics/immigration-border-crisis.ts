@@ -31,6 +31,10 @@ export const immigrationBorderCrisisData = {
         methodology:
           "Conduct a multivariate regression analysis correlating monthly encounter data with: (1) enforcement spending and personnel levels, (2) miles of new barrier construction, (3) specific policy implementations with exact dates, (4) economic indicators in top origin countries (Guatemala, Honduras, El Salvador, Venezuela, Cuba), (5) Mexican enforcement cooperation metrics, and (6) seasonal patterns. Use interrupted time-series analysis to isolate the causal impact of each enforcement action from background trends.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Interrupted time-series analysis of monthly encounter data against exact policy dates, barrier miles and enforcement spending, alongside Mexican enforcement cooperation, origin-country economic indicators and seasonal patterns.",
+        },
         cost_to_verify:
           "$200K-500K (Econometric analysis requiring CBP microdata and origin-country economic data)",
         falsification: {
@@ -139,6 +143,10 @@ export const immigrationBorderCrisisData = {
         methodology:
           "Replicate and extend the Borjas (2003) and Card (2005) methodologies using 2015-2025 data from the Current Population Survey and American Community Survey. Compare wage trajectories in high-immigration metropolitan areas versus low-immigration areas, controlling for cost of living, industry composition, and education levels. Separately analyze effects on native-born workers without a high school diploma, with a high school diploma, and with a college degree. Include analysis of consumer price effects and business creation rates.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Replications of the Borjas and Card methods on 2015 to 2025 Current Population Survey and American Community Survey data, comparing wages in high- and low-immigration metro areas for native-born workers without a high school diploma.",
+        },
         cost_to_verify:
           "$0 (Census microdata and CPS data are publicly available for analysis)",
         falsification: {
@@ -230,6 +238,10 @@ export const immigrationBorderCrisisData = {
         methodology:
           "Analyze a stratified random sample of 5,000 asylum cases from FY2020-2025, including cases decided on the merits and those dismissed for procedural reasons (failure to appear, missed deadlines). For each case, have independent immigration law experts assess the strength of the claim on its merits, controlling for quality of legal representation, judge assignment (asylum grant rates vary from 5% to 90% by judge), and whether the applicant was detained or free. This would reveal how many claims would succeed under fair, uniform adjudication.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Independent immigration-law experts rating the merits of a stratified sample of 5,000 asylum cases from FY2020 to 2025, including those dismissed on procedure, controlling for legal representation and judge assignment.",
+        },
         cost_to_verify:
           "$1-3M (Large-scale legal case review requiring immigration law expertise and court record access)",
         falsification: {

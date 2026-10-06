@@ -31,6 +31,10 @@ export const immigrationNationalIdentityData = {
         methodology:
           "Conduct a comprehensive distributional analysis of immigration's economic effects across income quintiles, geographic regions, and time horizons (5, 15, and 30 years). Include direct labor market effects (wages, employment), indirect effects (housing costs, public service demand), fiscal impacts (taxes paid minus services consumed), and dynamic effects (entrepreneurship, innovation, consumer spending). Compare jurisdictions with high and low immigration rates controlling for other economic variables.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A distributional analysis across income quintiles, regions and 5-, 15- and 30-year horizons that counts wages, housing costs, public-service demand and taxes paid, comparing places with different immigration levels.",
+        },
         cost_to_verify:
           "$2-5M (Multi-year economic analysis using Census, IRS, and administrative data)",
         falsification: {
@@ -105,6 +109,10 @@ export const immigrationNationalIdentityData = {
         methodology:
           "Conduct a comparative analysis of 15-20 OECD countries measuring immigration rates, integration policy quality (using MIPEX or equivalent indices), social trust (World Values Survey/European Social Survey), civic participation, and crime rates. Control for economic conditions, inequality, and historical context. Track changes over 20-year periods to capture both short-term disruption and long-term integration effects. Include both skilled and humanitarian immigration pathways.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A 20-year comparison of 15-20 OECD countries pairing immigration rates and integration-policy scores (MIPEX) with World Values Survey trust, civic participation and crime, controlling for inequality and economic conditions.",
+        },
         cost_to_verify:
           "$1-3M (Comparative political science analysis using existing survey data and integration indices)",
         falsification: {
@@ -179,6 +187,10 @@ export const immigrationNationalIdentityData = {
         methodology:
           "Analyze immigration policy-making processes in 10 democracies (US, UK, Germany, France, Canada, Australia, Sweden, Japan, Italy, New Zealand) through: (1) lobbying data from business groups, ethnic advocacy organizations, and restrictionist groups; (2) legislative voting records and stated rationales; (3) economic modeling of what would happen to GDP, labor markets, and public finances if immigration were reduced to levels preferred in polls; (4) case studies of countries that have successfully reduced immigration (Japan, Hungary) and their economic outcomes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Lobbying data, voting records and stated rationales in 10 democracies, plus models of what cutting immigration to match public preference would do to labor shortages in healthcare, agriculture and eldercare and to pensions.",
+        },
         cost_to_verify:
           "$1-3M (Comparative political economy analysis across 10 democracies)",
         falsification: {

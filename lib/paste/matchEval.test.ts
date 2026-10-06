@@ -93,6 +93,15 @@ describe("the paste-matching eval set", () => {
     expect(summary.top3, detail).toBeGreaterThanOrEqual(FLOORS.top3);
   });
 
+  it("offers no closest maps for text no map covers", () => {
+    // A word or two in common is not a lead. Negatives the lane refused to
+    // name must not get a list of maps either (lib/paste/maps.ts, closestFloor).
+    const offered = rows
+      .filter((row) => row.outcome === "rejected" && row.shown.length > 0)
+      .map((row) => `${row.id}: ${row.shown.join(", ")}`);
+    expect(offered).toEqual([]);
+  });
+
   it("names the nuclear-safety map for the paste the live site refused", () => {
     const row = rows.find((candidate) => candidate.id === "nuclear-live-site");
     expect(row?.outcome).toBe("correct");

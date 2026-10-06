@@ -174,6 +174,16 @@ const nextConfig = {
       // docs/reviews/2026-09-29-learn.md. Detail pages keep their URLs.
       { source: '/concepts', destination: '/learn#ideas', permanent: true },
       { source: '/guides', destination: '/learn#guides', permanent: true },
+      // Two ideas taught retired scoring vocabulary (r4, 2026-10): "Balance
+      // and weight" now lives where it is still true, in How maps are made;
+      // "Pillars" were a section format the maps no longer name, and every
+      // section's point is its crux.
+      {
+        source: '/concepts/confidence-calibration',
+        destination: '/methodology#older-maps',
+        permanent: true,
+      },
+      { source: '/concepts/pillars', destination: '/concepts/cruxes', permanent: true },
       // The library's reading list now lives on /research.
       { source: '/library', destination: '/research#reading', permanent: true },
       { source: '/lessons-from-the-deep', destination: '/blog', permanent: true },
@@ -199,6 +209,14 @@ const nextConfig = {
       { source: '/robots.txt', headers: discoveryCacheHeaders },
       { source: '/sitemap.xml', headers: discoveryCacheHeaders },
       { source: '/manifest.webmanifest', headers: discoveryCacheHeaders },
+      // Self-hosted italic faces (app/layout.tsx). Each file name carries the
+      // font's upstream version, so a changed font is a new URL.
+      {
+        source: '/fonts/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
       {
         // Protect normal pages from framing. The dedicated embed widget is
         // intentionally excluded and receives its own policy below.

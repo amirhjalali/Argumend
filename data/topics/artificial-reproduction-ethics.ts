@@ -69,6 +69,10 @@ export const artificialReproductionEthicsData = {
         methodology:
           "Conduct a phased clinical trial beginning with extremely premature infants (21-22 weeks) who would otherwise have near-zero survival rates. Compare outcomes (survival, neurodevelopmental scores at 2 years, organ function) between artificial womb support and conventional NICU care. Requires FDA IND approval and institutional review board oversight at a minimum of three academic medical centers.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A phased trial at three or more academic centers comparing artificial-womb support with conventional NICU care for infants born at 21-22 weeks, on survival, organ function and neurodevelopment at age two.",
+        },
         cost_to_verify:
           "$50-200M (Multi-site clinical trial with long-term follow-up)",
         falsification: {
@@ -176,7 +180,12 @@ export const artificialReproductionEthicsData = {
           "The crux is whether the right to abortion is fundamentally about ending a pregnancy (bodily autonomy) or ending a potential life (reproductive self-determination). If courts and ethicists conclude that bodily autonomy is the core right, ectogenesis provides a satisfactory alternative. If reproductive self-determination — the right not to become a genetic parent — is the core right, ectogenesis does not resolve the fundamental disagreement.",
         methodology:
           "Conduct a systematic legal analysis across jurisdictions to determine which constitutional framework — bodily autonomy or reproductive self-determination — underlies abortion protections. Survey a representative sample of 5,000 people across the political spectrum to measure whether support for abortion rights persists when extraction-without-termination is available. This would reveal whether the public debate is truly about bodily autonomy or encompasses broader reproductive control.",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Courts settling which framework, bodily autonomy or reproductive self-determination, grounds abortion protections. Surveys can show which reading the public holds, not which one the right rests on.",
+          kind: "definitional-choice" as const,
+        },
         cost_to_verify:
           "$150K-400K (Legal analysis plus large-scale public opinion research)",
         falsification: {
@@ -251,6 +260,10 @@ export const artificialReproductionEthicsData = {
         methodology:
           "Commission a comparative regulatory analysis examining how existing international frameworks (nuclear non-proliferation, human cloning bans, organ trafficking conventions) have succeeded or failed at constraining dual-use technologies. Convene a panel of 50+ bioethicists, reproductive endocrinologists, legal scholars, and technology governance experts to draft a model international framework and assess its enforceability through tabletop exercises simulating evasion scenarios.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A comparative review of how cloning bans, non-proliferation and organ-trafficking conventions have held against dual-use technologies, alongside tracking whether polygenic embryo ranking spreads beyond disease prevention.",
+        },
         cost_to_verify:
           "$2-5M (International regulatory analysis and expert panel convening)",
         falsification: {

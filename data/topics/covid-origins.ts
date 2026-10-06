@@ -301,6 +301,10 @@ const covidOriginsData: TopicInput = {
         equation:
           "P(\\text{FCS}_{\\text{natural}}) = P(\\text{insertion}) \\times P(\\text{PRRA sequence}) \\times P(\\text{CGG-CGG codons} | \\text{context})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Phylogenetic analysis across known sarbecoviruses of how a 12-nucleotide in-frame insertion at the S1/S2 junction could arise, with the PRRA site's rare CGG-CGG codons compared against codon use in natural viruses and in lab codon-optimization.",
+        },
         cost_to_verify: "$100K (Bioinformatics and evolutionary analysis)",
         falsification: {
           supporter_flip:

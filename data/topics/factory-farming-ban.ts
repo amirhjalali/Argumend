@@ -43,7 +43,12 @@ export const factoryFarmingBanData = {
           "Neuroimaging and behavioral studies of pain, distress, and emotional states in pigs, chickens, and cattle. Compare neural correlates of suffering to those in humans. Philosophical analysis of moral thresholds.",
         equation:
           "\\text{Moral Weight} = f(\\text{Sentience Level}, \\text{Suffering Intensity}, \\text{Number of Animals})",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Neuroimaging and behavior studies can measure pain and distress in pigs, chickens and cattle. How much that suffering weighs against the cost of changing the system is a value choice no measurement supplies.",
+          kind: "value-difference" as const,
+        },
         cost_to_verify: "$300K (Neuroscience and ethics review)",
         falsification: {
           supporter_flip:

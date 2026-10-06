@@ -69,6 +69,10 @@ export const masculinityCrisisData = {
         methodology:
           "Conduct a decomposition analysis using large-scale longitudinal data (NLSY, PSID, or equivalent) that examines male disadvantage in education, mental health, mortality, and labor force participation while controlling for income, wealth, parental education, geographic location, and race. Determine what percentage of the male-female gap in each outcome is explained by socioeconomic factors versus residual gender-specific factors. Repeat across multiple countries to test whether the pattern is culturally universal or context-dependent.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A decomposition of NLSY or PSID data that controls for income, wealth, parental education, location and race and reports how much of each male-female gap in schooling, mental health, mortality and work remains.",
+        },
         cost_to_verify:
           "$300K-800K (Large-scale decomposition analysis using existing longitudinal datasets)",
         falsification: {
@@ -177,6 +181,10 @@ export const masculinityCrisisData = {
         methodology:
           "Compare communities that have received primarily economic interventions (job retraining programs, new industry development) with communities that have received primarily social/cultural interventions (men's mental health programs, mentorship networks, community organizations). Measure outcomes across male suicide rates, labor force participation, educational attainment, social connection, and life satisfaction. Use propensity score matching to control for baseline differences between communities.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Communities that got mainly job retraining and new industry compared with communities that got mainly men's mental-health programs, mentorship and community groups, on male suicide, labor-force participation, social connection and life satisfaction.",
+        },
         cost_to_verify:
           "$1-3M (Multi-community quasi-experimental comparison study)",
         falsification: {
@@ -268,6 +276,10 @@ export const masculinityCrisisData = {
         methodology:
           "Randomly assign men aged 18-35 who report low life satisfaction to one of four 12-month programs: (1) traditional masculinity mentorship (responsibility, discipline, purpose focus), (2) progressive masculinity groups (emotional intelligence, vulnerability, expanded roles), (3) synthesized approach (combining elements of both), and (4) waitlist control. Measure mental health (PHQ-9, GAD-7), social connection (UCLA Loneliness Scale), relationship quality, employment outcomes, and self-reported purpose/meaning at baseline, 6 months, and 12 months.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A trial that randomly assigns men aged 18-35 with low life satisfaction to 12-month traditional, progressive or combined programs, or a waitlist, and measures depression, anxiety, loneliness and life satisfaction.",
+        },
         cost_to_verify:
           "$2-5M (Multi-arm randomized controlled trial with 12-month follow-up)",
         falsification: {

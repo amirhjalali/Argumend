@@ -80,7 +80,7 @@
         "Status is contested because The WIA Gold Standard randomized evaluation found that staff-assisted intensive services increased earnings 7%-20%, while evidence on training itself was inconclusive within 30 months. That supports targeted case management, not generic retraining or effectiveness at the scale a national AI-displacement emergency would require..",
         "Component scores: score 0.767, contestedness 0.500, reach 0.506, discrimination 1.000, tractability 1.000, implicit boost 1.000, scoping bonus 0.773.",
         "Position deltas: p-institutional-who-decides +0.442.",
-        "Resolution: existing-evidence: evaluation of a well-funded, AI-displacement-specific workforce program at national scale.",
+        "Resolution: existing-evidence: randomized evaluations of well-funded, employer-linked programs for AI-displaced workers that follow earnings for years, at national scale and in a slack labor market as well as a tight one.",
         "Gates: c-displaced-workers-can-retrain-costlessly."
       ]
     },
@@ -132,7 +132,7 @@
         "Status is contested because This is the steelman assumption behind reinstatement-based optimism about AI: adjustment can be costly in absolute terms but still small relative to productivity gains if new tasks and targeted programs work well. The corpus's retraining evidence challenges this assumption by showing weak outcomes for ordinary programs, without proving that better-funded, employer-linked, AI-specific programs could not perform better..",
         "Component scores: score 0.716, contestedness 0.500, reach 0.506, discrimination 1.000, tractability 1.000, implicit boost 1.150, scoping bonus 0.000.",
         "Position deltas: p-automation-panic-redux -0.841, p-wage-collapse-not-unemployment +0.725.",
-        "Resolution: existing-evidence: well-funded, targeted retraining programs evaluated at national AI-displacement scale show earnings and reemployment outcomes comparable to pre-displacement work.",
+        "Resolution: existing-evidence: realized costs for workers actually displaced by AI: time out of work, and earnings years later against their earlier pay, above all in the clerical jobs with the least capacity to adapt.",
         "Gates: none."
       ]
     },
@@ -201,7 +201,7 @@
         "Status is contested because This is the direct rebuttal to the credential-cushioning claim; it is reinforced by Dallas Fed evidence that a one-standard-deviation increase in AI exposure is associated with a measurable reduction in wage growth specifically in occupations with zero experience premium, where credentials do not otherwise protect workers..",
         "Component scores: score 0.588, contestedness 0.910, reach 0.225, discrimination 1.000, tractability 0.900, implicit boost 1.000, scoping bonus 0.000.",
         "Position deltas: p-automation-panic-redux -0.663, p-wage-collapse-not-unemployment +0.497.",
-        "Resolution: future-observable: the same reemployment earnings and duration data; this claim and its rival reading resolve together.",
+        "Resolution: future-observable: reemployment earnings and time out of work for displaced credentialed workers in highly AI-exposed jobs, against displaced workers in less-exposed jobs; the rival reading, that credentials cushion these workers, turns on the same data.",
         "Gates: none."
       ]
     }
@@ -263,7 +263,7 @@
         "Status is contested because Not argued explicitly as a standalone premise anywhere in the corpus, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than diffusing; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions..",
         "Component scores: score 0.828, contestedness 0.688, reach 0.592, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
         "Position deltas: p-breaks-fundamentally +0.739, p-adapts-as-always -0.643, p-definitional-skeptic -0.162, p-requires-restructuring +0.151.",
-        "Resolution: future-observable: a decade of repeated market-share, entry, switching-cost, and beneficial-ownership measurements showing whether control remains concentrated or diffuses separately across frontier models, cloud compute, AI chips, and equity ownership.",
+        "Resolution: future-observable: a decade of repeated market-share, entry, switching-cost, and beneficial-ownership measurements, taken separately for frontier models, cloud compute, AI chips, and equity ownership.",
         "Gates: none."
       ]
     },

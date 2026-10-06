@@ -131,6 +131,10 @@ export const labGrownMeatData = {
         methodology:
           "Conduct large-scale (n>1,000) double-blind taste tests comparing cultivated and conventional meat across multiple products (burger, chicken breast, steak). Measure preference, willingness to pay, and repeat purchase intent.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Large double-blind taste tests (over 1,000 people) of cultivated against conventional burger, chicken and steak at equal prices, measuring preference, willingness to pay and repeat purchases.",
+        },
         cost_to_verify: "$200K (Consumer taste trial study)",
         falsification: {
           supporter_flip:

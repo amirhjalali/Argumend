@@ -117,6 +117,10 @@ export const meaningWithoutReligionData = {
         methodology:
           "Large-scale behavioral study comparing prosocial behavior (charitable giving, honesty in economic games, volunteering, altruistic punishment of unfairness) between religious and secular individuals. Control for community participation, income, education, and social desirability bias. Use behavioral measures, not self-report.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Behavioral studies of giving, honesty in economic games and volunteering among religious and committed secular people, controlling for community participation, income, education and social desirability, using actions rather than self-report.",
+        },
         cost_to_verify: "$500K (Cross-cultural behavioral economics study)",
         falsification: {
           supporter_flip:

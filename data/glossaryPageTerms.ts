@@ -59,74 +59,60 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Crux",
     definition:
-      "The single most decisive question or piece of evidence that, if resolved, would change one side's position on a debate. Identifying the crux transforms abstract debates into concrete, answerable questions.",
-    example: "See crux questions on our Moon Landing map",
-    exampleHref: "/topics/moon-landing",
+      "The question a fight turns on, and what would settle it. Answer it one way and one side's case gets stronger; answer it the other way and the other side's does. On the map of whether AI will cause mass unemployment, one crux asks: \"When AI makes a firm more productive, does it hire fewer people — or just sell more?\" Under it, the map says what would settle it: several years of firm-level data on AI adoption, headcount, output and prices.",
+    example: "See the cruxes on the AI unemployment map",
+    exampleHref: "/topics/ai-mass-unemployment#cruxes",
     learnMoreHref: "/concepts/cruxes",
     learnMoreText: "Understanding cruxes",
     category: "core",
   },
   {
-    term: "Balance and Weight",
+    term: "Crux Ledger",
     definition:
-      "The two readings behind a map's description of its evidence. Balance (0-100) shows which way the weighed evidence tips: 50 is even, above 50 favors the claim, below 50 the counterclaim. Weight shows how much good evidence there is, combining how much there is, how good the sources are, and how testable the cruxes are. Read together they give the plain-language reading a map shows: a lot of evidence mostly pointing one way means it largely converges; a lot of evidence pointing both ways means it is still divided; little evidence means it is still thin, an open question whatever the lean. Neither number is the probability that a claim is true, and neither names a winner.",
-    example: "See the reading on the Nuclear Energy map",
-    exampleHref: "/topics/nuclear-energy-safety",
-    learnMoreHref: "/concepts/confidence-calibration",
-    learnMoreText: "How balance and weight work",
+      "The dated record kept under each crux on the flagship maps, headed \"How this has moved\". Every entry names what moved the crux, with its source, and carries one of four statuses: Open, Narrowed, Resolved, or Unresolvable by evidence. A second Open in a row reads \"Still open\": new evidence arrived, and the question did not move. The ledger records movement, never a winner. Editors write the entries; a model may propose one, but none appears until a person has reviewed it.",
+    example: "See how the cruxes have moved on the AI unemployment map",
+    exampleHref: "/topics/ai-mass-unemployment#cruxes",
+    learnMoreHref: "/methodology#ledger",
+    learnMoreText: "How the ledger is kept",
     category: "core",
   },
   {
     term: "Meta-Claim",
     definition:
-      "The central thesis or proposition that a topic's argument map is structured around. Every pillar, piece of evidence, and crux question ultimately relates back to whether this core claim holds up under scrutiny.",
-    example: "See the meta-claim on the AI Job Displacement map",
+      "The one statement a map is built around: the claim its evidence is read for or against. Most maps now ask it as a question, written so that yes agrees with the claim, and name their two sides by the answer: Says yes and Says no.",
+    example: "See the question on the AI Job Displacement map",
     exampleHref: "/topics/ai-job-displacement",
     category: "core",
   },
   {
-    term: "Pillar",
+    term: "Position",
     definition:
-      "A major axis of disagreement within a debate, containing opposing arguments and a decisive crux. Most Argumend maps are organized into two to five pillars, the most important lines of argument, each with steel-manned positions, weighed evidence, and a crux question.",
-    example: "See how pillars structure the COVID Origins map",
-    exampleHref: "/topics/lab-leak-theory",
-    learnMoreHref: "/concepts/pillars",
-    learnMoreText: "Understanding pillars",
+      "A stance real people hold on a map's question, written in the strongest form its own holders would recognise. The older maps set out two, named by their answer to the map's question (Says yes and Says no) or, where a map has no question, Supporters and Skeptics. The flagship maps set out four, each with a note on why that version is the strongest. A map lays positions side by side; it never says which one is right.",
+    example: "See the positions on the Nuclear Energy map",
+    exampleHref: "/topics/nuclear-energy-safety",
+    learnMoreHref: "/concepts/steel-manning",
+    learnMoreText: "Understanding steel-manning",
     category: "core",
   },
   {
-    term: "Skeptic Premise",
+    term: "What Would Settle It",
     definition:
-      "The strongest version of the argument opposing a topic's meta-claim. Each pillar includes a steel-manned skeptic premise that represents the most compelling challenge to the claim, presented fairly and at full strength.",
-    example: "See skeptic premises on the Gene Editing map",
-    exampleHref: "/topics/gene-editing-embryos",
-    category: "core",
-  },
-  {
-    term: "Proponent Rebuttal",
-    definition:
-      "The strongest response defending a topic's meta-claim against the skeptic's case. Like the skeptic premise, the proponent rebuttal is steel-manned to represent the most compelling defense available.",
-    example: "See proponent rebuttals on the Universal Healthcare map",
-    exampleHref: "/topics/universal-healthcare",
-    category: "core",
-  },
-  {
-    term: "Verification Status",
-    definition:
-      "Whether a crux has been verified, remains theoretical, or is impossible to test with current methods. 'Verified' means the test has been performed and results are available. 'Theoretical' means the test is possible but hasn't been done. 'Impossible' means the test cannot currently be performed.",
-    example: "Compare verification statuses on the Moon Landing map",
+      "The line under every crux that says how the question could close. Some close with a test on evidence, now or in time (\"What would settle it, in time\"); once one has, the line reads \"What settled it\". Some close only when the sides agree on terms or on who decides. Some close with nothing at all, because they are about values, and the map says \"Nothing does\" and keeps both answers. A crux with no test written down yet says \"Not yet specified.\" On the older maps, one more line says how testable the question is: a test that can be run on evidence that exists, a test no one has run yet, or a test that is practically impossible to run today.",
+    example: "See what would settle each crux on the Moon Landing map",
     exampleHref: "/topics/moon-landing",
+    learnMoreHref: "/concepts/cruxes",
+    learnMoreText: "Understanding cruxes",
     category: "core",
   },
   // Reasoning Concepts
   {
     term: "Evidence Weighting",
     definition:
-      "A systematic method of scoring evidence across dimensions like source reliability, independence, replicability, and directness. Rather than treating all evidence as equal, each item is scored 0-10 on four dimensions, giving a maximum score of 40.",
-    example: "See weighted evidence on our AI Regulation map",
+      "Judging how far a piece of evidence should move you, rather than treating all evidence as equal. Four questions do most of the work, asked whichever side the evidence helps: how reliable the source is, whether it is independent, whether it has been replicated, and how directly it bears on the claim.",
+    example: "Read the evidence on our AI Regulation map",
     exampleHref: "/topics/ai-regulation",
-    learnMoreHref: "/methodology",
-    learnMoreText: "Our evidence methodology",
+    learnMoreHref: "/methodology#weighing",
+    learnMoreText: "How a map's cards are weighed",
     category: "methodology",
   },
   {
@@ -160,7 +146,7 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
   {
     term: "Burden of Proof",
     definition:
-      "The obligation to support a claim with evidence. It rests on whoever asserts the claim, not on those who doubt it — so 'you can't prove it's false' is not evidence that it is true. Extraordinary claims require extraordinary evidence, which is why unsupported assertions receive low scores across all evidence dimensions in Argumend's framework.",
+      "The obligation to support a claim with evidence. It rests on whoever asserts the claim, not on those who doubt it — so 'you can't prove it's false' is not evidence that it is true. Extraordinary claims require extraordinary evidence, and an assertion with nothing behind it does not move the question at all.",
     example: "See an unmet burden on the Death Penalty Deterrence map",
     exampleHref: "/topics/death-penalty-deterrence",
     category: "reasoning",
@@ -382,8 +368,8 @@ export const glossaryPageTerms: GlossaryPageTerm[] = [
       "Holding beliefs in proportion to the evidence — confident where it is strong, uncertain where it is weak, and willing to update when it shifts. It is not relativism; some questions really are answered. It simply means separating how sure you feel from how sure the evidence warrants. 'The evidence is still divided, and here is what would settle it' is more honest than manufactured certainty.",
     example: "See uncertainty stated honestly on the Consciousness map",
     exampleHref: "/topics/consciousness-hard-problem",
-    learnMoreHref: "/concepts/confidence-calibration",
-    learnMoreText: "How a map describes its evidence",
+    learnMoreHref: "/concepts/cruxes",
+    learnMoreText: "Understanding cruxes",
     category: "reasoning",
   },
   // Reference entries moved here from /faq (2026-09-29), which now answers

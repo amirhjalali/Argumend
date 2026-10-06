@@ -102,6 +102,10 @@ export const aiSuperintelligenceTimelineData = {
         equation:
           "L(C) = \\alpha C^{-\\beta} + L_{\\infty}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Loss curves and scores on novel reasoning tasks (ARC-AGI, GPQA, frontier math) across successive 10x compute steps, checking whether the power-law exponent holds steady, rises or falls.",
+        },
         cost_to_verify: "$1B+ (requires training multiple frontier-scale models)",
         falsification: {
           supporter_flip:
@@ -214,6 +218,10 @@ export const aiSuperintelligenceTimelineData = {
         equation:
           "G_{OOD} = \\frac{P(\\text{correct} | \\text{novel task})}{P(\\text{correct} | \\text{trained task})}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Procedurally generated reasoning tasks provably absent from training data, such as invented formal systems, where models must learn the rules from a few examples, scored against human baselines on the same tasks.",
+        },
         cost_to_verify: "$10M (benchmark design + frontier model evaluation)",
         falsification: {
           supporter_flip:
@@ -323,6 +331,10 @@ export const aiSuperintelligenceTimelineData = {
         methodology:
           "Use mechanistic interpretability to map internal representations of goals in frontier models. Create controlled experiments where models are incentivized to be deceptive. Test whether interpretability tools can distinguish genuine alignment from strategic compliance. Develop formal verification methods for alignment properties.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Controlled experiments that reward models for hiding their goals, testing whether interpretability tools and red-teaming can tell strategic compliance apart from genuine alignment.",
+        },
         cost_to_verify: "$100M+ (interpretability research + red-teaming infrastructure)",
         falsification: {
           supporter_flip:

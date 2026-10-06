@@ -37,10 +37,17 @@ describe("glossary entries", () => {
     expect(entries.find((e) => e.term === "Crux")?.id).toBe("crux");
   });
 
-  it("keeps #confidence-score landing on Balance and Weight", () => {
-    expect(GLOSSARY_ANCHOR_ALIASES["balance-and-weight"]).toContain("confidence-score");
-    const entry = glossaryEntries().find((e) => e.id === "balance-and-weight");
-    expect(entry?.aliases).toContain("confidence-score");
+  it("keeps #verification-status landing on What Would Settle It", () => {
+    expect(GLOSSARY_ANCHOR_ALIASES["what-would-settle-it"]).toContain("verification-status");
+    const entry = glossaryEntries().find((e) => e.id === "what-would-settle-it");
+    expect(entry?.aliases).toContain("verification-status");
+  });
+
+  it("has no entries for retired scoring vocabulary", () => {
+    const ids = glossaryEntries().map((e) => e.id);
+    for (const retired of ["balance-and-weight", "confidence-score", "pillar"]) {
+      expect(ids).not.toContain(retired);
+    }
   });
 
   it("links each term to the concept or fallacy page that owns it, when one exists", () => {
@@ -51,7 +58,7 @@ describe("glossary entries", () => {
     expect(owner("Ad Hominem")).toBe("/fallacies/ad-hominem");
     expect(owner("Straw Man")).toBe("/fallacies/straw-man");
     expect(owner("False Dichotomy")).toBe("/fallacies/false-dilemma");
-    expect(owner("Balance and Weight")).toBe("/concepts/confidence-calibration");
+    expect(owner("Evidence Weighting")).toBe("/concepts/evidence-weighting");
     expect(owner("Anchoring")).toBeUndefined();
 
     const owned = glossaryEntries().filter((e) => e.readMore?.label.startsWith("Read the"));
@@ -95,7 +102,7 @@ describe("/glossary page", () => {
     expect(crux.querySelector("summary dfn")?.textContent).toBe("Crux");
     expect(crux.querySelector("summary")?.className).toContain("min-h-11");
     expect(crux.querySelector('a[href="/concepts/cruxes"]')).toBeTruthy();
-    expect(view.container.querySelector("#confidence-score")?.closest("li")?.id).toBe("balance-and-weight");
+    expect(view.container.querySelector("#verification-status")?.closest("li")?.id).toBe("what-would-settle-it");
     // No icons, chapters or duplicate A–Z list.
     expect(view.container.querySelectorAll("svg").length).toBeLessThanOrEqual(glossaryPageTerms.length + 2);
     expect(view.queryByText(/All Terms A/)).toBeNull();

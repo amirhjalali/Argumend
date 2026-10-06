@@ -45,6 +45,10 @@ export const aiContentLabelingData = {
         equation:
           "R_{robust} = \\frac{\\text{detected after transform}}{\\text{total watermarked}} \\times 100",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A battery test on thousands of watermarked and C2PA-credentialed AI images and texts, run through screenshots, compression, cropping and known removal attacks, measuring how often the mark is still detected and how often it can be forged.",
+        },
         cost_to_verify: "$500K (Large-scale adversarial testing study)",
         falsification: {
           supporter_flip:
@@ -150,6 +154,10 @@ export const aiContentLabelingData = {
         equation:
           "\\Delta_{adoption} = \\beta_{mandate} + \\beta_{sector} + \\epsilon",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "AI tool adoption and creative output in mandate jurisdictions (the EU, and China since 2023) tracked against places without a mandate, with creator surveys on the compliance burden.",
+        },
         cost_to_verify: "$300K (Cross-jurisdictional comparative study)",
         falsification: {
           supporter_flip:

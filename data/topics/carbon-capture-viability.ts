@@ -49,6 +49,10 @@ export const carbonCaptureViabilityData = {
         methodology:
           "Build sector-by-sector decarbonization roadmaps for the hard-to-abate sectors (cement, steel, chemicals, aviation, shipping, agriculture) using technology-readiness and cost-curve data. For each, estimate the technically achievable emission floor by 2050 under aggressive but feasible deployment of clean substitutes (green hydrogen, electrification, clean fuels, alternative cement chemistries). Sum the residual floors and add the legacy-overshoot drawdown implied by a given temperature target to derive the minimum required removal. Compare against scenarios where breakthrough substitutes eliminate residuals, to test how sensitive the 'removal is necessary' conclusion is to optimistic technology assumptions.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Sector roadmaps for cement, steel, chemicals, aviation, shipping and agriculture that estimate each one's achievable 2050 emission floor with clean substitutes, summed and set against the overshoot to reverse.",
+        },
         cost_to_verify:
           "$1-2M (Integrated sectoral decarbonization modeling and technology-readiness assessment across hard-to-abate industries)",
         falsification: {
@@ -168,6 +172,10 @@ export const carbonCaptureViabilityData = {
         methodology:
           "Assemble a complete registry of operating and retired capture projects with their design capture rates, actual measured capture rates, availability (fraction of hours operating), and lifetime CO2 captured versus stored. Segment by vintage (year of commissioning) and design intent (EOR versus dedicated storage) to test whether more recent and purpose-built projects perform measurably better than first-of-a-kind plants. Separately track verified geological storage integrity (e.g., Sleipner, Snøhvit) via independent monitoring data. Fit a learning curve to observed performance and cost across vintages to estimate whether the trajectory supports scaling to gigatonne levels by 2050.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A registry of every operating and retired capture project with its design capture rate, measured capture rate and hours running, sorted by year commissioned and by oil recovery versus dedicated storage, to see whether newer plants do better.",
+        },
         cost_to_verify:
           "$500K-1.5M (Independent project-performance audit using operator data, monitoring records, and learning-curve analysis)",
         falsification: {
@@ -306,6 +314,10 @@ export const carbonCaptureViabilityData = {
         methodology:
           "Compile cost-per-tonne data for capture and DAC projects against cumulative deployed capacity over time to estimate a learning rate (percentage cost decline per doubling of capacity), as has been done for solar PV and batteries. Separate capital cost, energy cost, and operations cost so the energy-penalty contribution can be tracked against improving solvent and process efficiency. Compare the projected cost trajectory to the marginal cost of alternative mitigation (renewables, efficiency) and to the social cost of carbon, and stress-test against thermodynamic minimum-energy bounds for separating CO2 from air and flue gas to identify any hard floor.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Realized cost per tonne for capture and direct air capture projects plotted against cumulative capacity, split into capital, energy and operating costs, to measure a learning rate like those of solar and batteries.",
+        },
         cost_to_verify:
           "$300K-800K (Techno-economic and learning-curve analysis using project cost data and thermodynamic modeling)",
         falsification: {

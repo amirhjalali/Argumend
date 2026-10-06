@@ -44,6 +44,10 @@ export const estateInheritanceTaxData = {
         methodology:
           "Decompose large gross estates (IRS SOI Form 706 microdata) into (a) basis already subject to income/payroll tax and (b) unrealized appreciation that would otherwise receive stepped-up basis and never be taxed. Compare the unrealized share to estate tax collected.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A decomposition of large estates in IRS SOI Form 706 microdata into basis already taxed as income and unrealized appreciation that stepped-up basis would leave untaxed, compared with the estate tax collected.",
+        },
         cost_to_verify: "$0 (analysis of published IRS SOI and JCT data)",
         falsification: {
           supporter_flip:
@@ -153,6 +157,10 @@ export const estateInheritanceTaxData = {
         methodology:
           "Build a revenue model netting gross estate tax receipts against (a) estimated income-tax revenue lost to estate-tax-induced avoidance and (b) revenue gained from reduced lock-in / realized gains. Vary saving-elasticity and avoidance assumptions; report the sign and confidence interval of the net effect.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A transparent revenue microsimulation that nets estate tax receipts against income tax lost to avoidance and saving responses, credits revenue from reduced lock-in, and reports the sign and range of the net effect under varied assumptions.",
+        },
         cost_to_verify: "$500K (microsimulation modeling with contested elasticity assumptions)",
         falsification: {
           supporter_flip:

@@ -54,6 +54,10 @@ export const darkMatterVsMondData = {
         equation:
           "g_{obs} = \\frac{g_{bar}}{1 - e^{-\\sqrt{g_{bar}/g_\\dagger}}}, \\quad g_\\dagger \\approx 1.2\\times10^{-10}\\,\\mathrm{m\\,s^{-2}}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Rotation curves and baryonic mass models for large, homogeneous galaxy samples, with residual scatter split into measurement error and intrinsic scatter and tested for correlation with any galaxy property.",
+        },
         cost_to_verify: "$2M (Deep multi-wavelength galaxy survey + reanalysis)",
         falsification: {
           supporter_flip:

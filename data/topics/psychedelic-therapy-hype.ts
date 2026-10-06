@@ -31,6 +31,10 @@ export const psychedelicTherapyHypeData = {
         methodology:
           "Conduct multi-site RCTs of psilocybin for depression and MDMA for PTSD using active placebo controls (niacin for psilocybin, low-dose methylphenidate for MDMA) that produce noticeable subjective effects to improve blinding. Include blinding assessment questionnaires and analyze results separately for correctly and incorrectly blinded participants. Require minimum 12-month follow-up and include the populations excluded from earlier trials (suicidal ideation, substance use history). Pre-register all analyses.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Multi-site trials with active placebos, niacin for psilocybin and low-dose methylphenidate for MDMA, that check who guessed their arm, follow patients for at least 12 months, and compare effect sizes with the earlier trials.",
+        },
         cost_to_verify:
           "$20-50M (Multi-site, active-placebo-controlled Phase 3 trials with extended follow-up)",
         falsification: {

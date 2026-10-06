@@ -43,6 +43,10 @@ export const adhdOverdiagnosisData = {
         methodology:
           "Compare community-sample epidemiological prevalence (blinded structured diagnostic interviews applying full DSM impairment criteria) against administrative/diagnosed prevalence over time, broken out by age and sex. Overshoot above the impairment-anchored community rate signals overdiagnosis; a persistent shortfall signals underdiagnosis.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Blinded structured-interview community samples applying full DSM impairment criteria, compared over time with diagnosed prevalence and broken out by age and sex.",
+        },
         cost_to_verify: "$500K (cross-cohort epidemiological meta-analysis)",
         falsification: {
           supporter_flip:
@@ -184,6 +188,10 @@ export const adhdOverdiagnosisData = {
         methodology:
           "Run long-term randomized or quasi-experimental follow-up on borderline-eligible individuals, comparing diagnosis/treatment vs. watchful waiting on hard outcomes (academic attainment, accidents, substance use, self-harm, employment, quality of life). Net benefit refutes overdiagnosis-as-harm; net harm confirms it.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Long-term randomized or quasi-experimental follow-up of borderline-eligible people, comparing diagnosis and treatment with watchful waiting on attainment, accidents, substance use, self-harm, employment and quality of life.",
+        },
         cost_to_verify: "$5M+ (long-horizon RCT on borderline cases)",
         falsification: {
           supporter_flip:

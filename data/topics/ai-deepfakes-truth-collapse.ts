@@ -83,6 +83,10 @@ export const aiDeepfakesTruthCollapseData = {
         methodology:
           "Compile a comprehensive database of all documented instances where public figures or institutions have claimed that real evidence was a deepfake (2020-2026). For each case, track: whether forensic analysis confirmed authenticity, whether the deepfake defense succeeded in deflecting accountability, and whether the outcome was different from pre-deepfake-era comparable cases. Assess whether the frequency of successful 'deepfake defense' claims is increasing over time.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A database of every documented case from 2020 to 2026 where a public figure called real evidence a deepfake, recording what forensics found and how the accountability outcome compares with similar cases before deepfakes.",
+        },
         cost_to_verify:
           "$150K-400K (Systematic case study analysis with forensic verification)",
         falsification: {
@@ -174,6 +178,10 @@ export const aiDeepfakesTruthCollapseData = {
         methodology:
           "Create a red team/blue team exercise where leading deepfake generators attempt to create undetectable deepfakes of consequential events (political speeches, military actions, corporate announcements), and leading detection teams attempt to identify them using all available tools (visual analysis, metadata, provenance, behavioral analysis, witness corroboration). Run quarterly for 3 years to track the trajectory. This would be the most rigorous assessment of real-world detection capability.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A red-team, blue-team exercise run quarterly for three years, with leading generators faking consequential events and detection teams using every tool from metadata to witness corroboration, tracking accuracy on the high-stakes fakes.",
+        },
         cost_to_verify:
           "$2-5M (Multi-year red team/blue team detection reliability exercise)",
         falsification: {
@@ -248,6 +256,10 @@ export const aiDeepfakesTruthCollapseData = {
         methodology:
           "Track C2PA adoption across four categories: (1) camera hardware (professional and consumer), (2) news organizations, (3) social media platforms, and (4) government communications. Simultaneously track public trust in digital media through quarterly surveys. Model the intersection point where provenance coverage of consequential media becomes sufficient to maintain public trust. Conduct historical comparison with HTTPS adoption as an analog for voluntary cryptographic standard rollout.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Quarterly tracking of C2PA adoption in cameras, newsrooms, platforms and government channels, alongside surveys of public trust in digital media, including how often provenance metadata gets stripped.",
+        },
         cost_to_verify:
           "$300K-800K (Industry adoption tracking with public trust survey component)",
         falsification: {

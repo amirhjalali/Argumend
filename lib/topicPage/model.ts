@@ -22,6 +22,38 @@ import type { ResolutionKind } from "@/types/argument";
  */
 export type SettleMode = "evidence" | "agreement" | "standing" | "unstated";
 
+/** The engine's line for a crux no evidence can settle (docs/CRUX_ENGINE.md). */
+export const STANDING_DISAGREEMENT_LINE =
+  "Nothing does — this is a standing value disagreement; the map holds both horns.";
+
+/**
+ * The standing line for the kind of fork. A value fork keeps the engine's
+ * exact line; a definitional or who-decides fork says what it turns on, so a
+ * definition question is not mislabelled as a clash of values.
+ */
+export function standingLineFor(kind?: ResolutionKind): string {
+  if (kind === "definitional-choice") {
+    return "Nothing does — this turns on a choice of definition; the map holds both readings.";
+  }
+  if (kind === "authority-allocation") {
+    return "Nothing does — this turns on who should decide; the map holds both answers.";
+  }
+  return STANDING_DISAGREEMENT_LINE;
+}
+
+/**
+ * Lead for the authored condition when the card already answers "nothing
+ * does". Shared by flagship (DebateView) and legacy (lib/topicPage/legacy.ts)
+ * maps so a standing crux reads the same on both.
+ */
+export const STANDING_CONDITION_LEAD: Record<ResolutionKind, string> = {
+  "value-difference": "What it turns on.",
+  "definitional-choice": "What could close it instead.",
+  "authority-allocation": "What could close it instead.",
+  "existing-evidence": "The condition the map records.",
+  "future-observable": "The condition the map records.",
+};
+
 export interface TopicHook {
   text: string;
   /** A short definitional note under the hook (flagship `contextNote`). */

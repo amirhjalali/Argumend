@@ -185,6 +185,10 @@ export const meritocracyMythData = {
         equation:
           "\\text{Var}(Y) = \\text{Var}(\\text{Structure}) + \\text{Var}(\\text{Individual}) + 2\\text{Cov}(S, I)",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Sibling, adoption and variance-decomposition studies on large longitudinal datasets, plus randomized moves like Moving to Opportunity, sizing the share of adult income variance that sits outside a person's control.",
+        },
         cost_to_verify:
           "$500K (longitudinal study analysis + natural experiment data)",
         falsification: {
@@ -295,6 +299,10 @@ export const meritocracyMythData = {
         methodology:
           "Conduct cross-national surveys measuring belief in meritocracy alongside support for equalizing policies (education funding, healthcare access, progressive taxation). Run experimental studies priming meritocratic belief and measuring subsequent policy preferences and empathy toward disadvantaged groups. Longitudinal analysis of whether societies with stronger meritocratic beliefs actually implement more equalizing institutions.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Cross-national surveys pairing meritocratic belief with support for education funding, healthcare access and progressive taxes, and experiments that prime the belief and then measure policy preferences.",
+        },
         cost_to_verify:
           "$150K (cross-national survey + experimental studies)",
         falsification: {

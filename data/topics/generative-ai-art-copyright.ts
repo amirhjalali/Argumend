@@ -46,6 +46,10 @@ export const generativeAiArtCopyrightData = {
         methodology:
           "Separate the two steps: (1) audit how training corpora were obtained (purchased, licensed, scraped, or pirated); (2) assess whether the trained model's outputs substitute for the originals. Compare verdicts where data was pirated vs. lawfully acquired.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Court verdicts compared by how the training data was obtained (purchased, licensed, scraped or pirated), alongside audits of whether each model's outputs substitute for the originals.",
+        },
         cost_to_verify: "$0 (court records & dataset provenance analysis)",
         falsification: {
           supporter_flip:
@@ -138,6 +142,10 @@ export const generativeAiArtCopyrightData = {
         methodology:
           "Run controlled/quasi-experimental labor-market studies isolating exposure to generative-AI outputs; measure changes in commissions, rates, and licensing revenue against matched non-exposed creators. Distinguish harm from substitution vs. harm from style competition (non-actionable).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Labor-market studies comparing creators exposed to generative-AI outputs with matched unexposed creators, tracking commissions, rates and licensing revenue, and separating loss from substitution from loss to style competition.",
+        },
         cost_to_verify: "$1-3M (longitudinal creator labor-market study)",
         falsification: {
           supporter_flip:
@@ -227,6 +235,10 @@ export const generativeAiArtCopyrightData = {
         methodology:
           "Track how appellate courts (and ultimately the Supreme Court) resolve the transformativeness and market-effect factors for general-purpose generative training vs. competitor-database copying; measure whether outputs substitute for specific inputs.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Appellate rulings, and in time the Supreme Court's, on transformativeness and market effect for general-purpose training, set beside Thomson Reuters v. Ross and Bartz and Kadrey, with tests of whether outputs substitute for specific inputs.",
+        },
         cost_to_verify: "$0 (await appellate rulings; doctrinal analysis)",
         falsification: {
           supporter_flip:

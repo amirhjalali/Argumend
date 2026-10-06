@@ -44,6 +44,10 @@ export const gmoCropsSafetyData = {
         methodology:
           "Compare time-series of relevant health endpoints (cancers, allergies, GI disease, BMI) between high-GE-consumption and low-GE-consumption populations from 1996 onward; adjust for diet, demographics, and surveillance differences. Triangulate with animal multi-generational feeding studies and allergenicity assays.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Health time series from 1996 on (cancers, allergies, GI disease, BMI) for heavy GE-eating populations such as the US against low-GE ones such as the EU, adjusted for diet and surveillance, with multi-generation animal feeding studies.",
+        },
         cost_to_verify: "$0 (data analysis of existing public health datasets)",
         falsification: {
           supporter_flip:
@@ -117,6 +121,10 @@ export const gmoCropsSafetyData = {
         methodology:
           "Disaggregate meta-analytic impact estimates by trait (Bt vs HT) and region; net herbicide-volume increases and resistance-management costs against yield, profit, and insecticide-reduction gains using USDA/ERS and peer-reviewed field data.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A ledger split by trait (Bt against herbicide-tolerant) and by region, netting herbicide use and resistant-weed costs against yield, profit and insecticide gains from USDA/ERS and field data.",
+        },
         cost_to_verify: "$0 (data analysis of USDA and published meta-analyses)",
         falsification: {
           supporter_flip:
@@ -228,6 +236,10 @@ export const gmoCropsSafetyData = {
         methodology:
           "Compare large prospective cohorts of applicators (e.g. the Agricultural Health Study) and pooled NHL case-control data against measured dietary/occupational glyphosate exposure levels; reconcile hazard-based (IARC) and risk-based (EPA/EFSA) frameworks on the same evidence.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Large applicator cohorts such as the Agricultural Health Study and pooled NHL case-control data, read against measured dietary and occupational exposure, with IARC's hazard method and EPA/EFSA's risk method applied to the same evidence.",
+        },
         cost_to_verify: "$0 (synthesis of existing cohort and regulatory data)",
         falsification: {
           supporter_flip:

@@ -84,6 +84,10 @@ export const decliningBirthRatesData = {
         methodology:
           "Develop dynamic economic models that simulate 50-year and 100-year GDP, per capita income, fiscal sustainability, and capital stock trajectories under various fertility scenarios (0.7, 1.0, 1.3, 1.6, 2.1 TFR). Incorporate AI-driven productivity assumptions, immigration scenarios, retirement age flexibility, and pension system reform options. Identify the fertility threshold below which no combination of interventions prevents per capita income decline. Validate against Japan and South Korea's actual economic trajectories.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Dynamic 50- and 100-year models of income per person, debt and capital stock at fertility rates from 0.7 to 2.1, with productivity, immigration and pension options varied, checked against Japan's and South Korea's actual paths.",
+        },
         cost_to_verify:
           "$500K-1.5M (Multi-scenario long-horizon macroeconomic modeling)",
         falsification: {
@@ -175,6 +179,10 @@ export const decliningBirthRatesData = {
         methodology:
           "Conduct a natural experiment comparison between countries that have comprehensively addressed structural barriers (Nordic nations with universal childcare, extensive parental leave, housing support) and those that have not, measuring both desired and actual fertility. If Nordic fertility remains significantly below desired levels despite comprehensive support, the fertility gap reflects preference shifts beyond structural barriers. Additionally, longitudinal surveys tracking young people's fertility intentions versus outcomes can reveal when and why the gap emerges.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Desired and actual family size measured side by side in Nordic countries with universal childcare, long parental leave and housing support, against countries without them, tracked over time to see if the gap persists.",
+        },
         cost_to_verify:
           "$300K-800K (Cross-national comparison with longitudinal fertility intention tracking)",
         falsification: {
@@ -249,6 +257,10 @@ export const decliningBirthRatesData = {
         methodology:
           "Build sector-by-sector models of AI productivity impact for the 20 largest economic sectors, incorporating realistic adoption timelines, capital investment requirements, and displacement effects. Compare projected productivity gains against projected workforce decline under various fertility scenarios. Focus especially on sectors critical for aging populations (healthcare, elder care, construction) where automation is most difficult. Run models for the US, Japan, South Korea, Germany, and China to capture diverse economic structures.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Models for the 20 largest sectors comparing projected output gains per worker with workforce decline, starting with elder care, healthcare and construction, set beside Japan's record of high robot density and care-worker shortfalls.",
+        },
         cost_to_verify:
           "$1-3M (Sector-level AI productivity modeling across multiple economies)",
         falsification: {

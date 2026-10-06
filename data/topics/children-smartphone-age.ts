@@ -68,6 +68,10 @@ export const childrenSmartphoneAgeData = {
         methodology:
           "Conduct a randomized controlled trial where 1,000 adolescents are assigned to one of four conditions for 12 months: (1) full smartphone access, (2) smartphone with social media and algorithmic feeds blocked, (3) basic phone only, (4) no phone. Measure mental health outcomes (PHQ-A, GAD-7), sleep quality, academic performance, social connectedness, and biomarkers of stress (cortisol, inflammatory markers) at baseline, 6 months, and 12 months. This would isolate the effect of specific features versus the device itself.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A 12-month trial that randomizes 1,000 adolescents to a full smartphone, a phone with social media and algorithmic feeds blocked, a basic phone, or no phone, and measures depression, anxiety, sleep and stress biomarkers.",
+        },
         cost_to_verify:
           "$3-8M (Large-scale randomized controlled trial with biomarker analysis)",
         falsification: {
@@ -159,6 +163,10 @@ export const childrenSmartphoneAgeData = {
         methodology:
           "Conduct a comparative analysis across 30+ countries with documented differences in smartphone adoption timing and saturation rates. Map the onset of adolescent mental health deterioration in each country against smartphone adoption curves, controlling for economic conditions, social safety net strength, education system characteristics, and other potential confounders. Use Granger causality tests and difference-in-differences designs exploiting natural variation in adoption timing.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Timelines for 30+ countries setting when adolescent mental health began to decline against when smartphones saturated, with Granger tests and difference-in-differences that control for economies, safety nets and schooling.",
+        },
         cost_to_verify:
           "$500K-1.5M (Multi-national comparative epidemiological analysis)",
         falsification: {
@@ -233,6 +241,10 @@ export const childrenSmartphoneAgeData = {
         methodology:
           "Study communities where voluntary phone-free initiatives (Wait Until 8th, school-based programs) have been implemented for 2+ years. Measure adoption rates, sustainability, and whether critical mass was achieved. Compare child mental health outcomes in high-adoption communities versus comparable control communities. Simultaneously study early outcomes from Australia's under-16 social media ban to assess government mandate effectiveness.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Adoption rates and child mental-health outcomes in communities that have run Wait Until 8th or phone-free school programs for two or more years, against control communities and against early results from Australia's under-16 ban.",
+        },
         cost_to_verify:
           "$400K-1M (Community comparison study with longitudinal mental health tracking)",
         falsification: {

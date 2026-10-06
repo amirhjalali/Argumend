@@ -147,6 +147,10 @@ export const minneapolisShootingData = {
         equation:
           "R_{force} = \\frac{\\text{incidents}_{fatal}}{\\text{encounters}_{total}} \\times 10^6",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An independent side-by-side review of use-of-force training hours, de-escalation requirements and accountability mechanisms at CBP, ICE and accredited police departments.",
+        },
         cost_to_verify: "$500K (Independent audit)",
         falsification: {
           supporter_flip:

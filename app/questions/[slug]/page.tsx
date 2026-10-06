@@ -11,6 +11,7 @@ import {
 } from "@/lib/questions";
 import { classifyQuestion } from "@/lib/questionMeta";
 import { legacyTopicPage } from "@/lib/topicPage/legacy";
+import { standingLineFor } from "@/lib/topicPage/model";
 import { getTopicMentions, buildTopicLinkTargets } from "@/lib/topic-links";
 import { mapLinkFor } from "@/lib/learn/nextStep";
 import { mapDisplayTitle } from "@/lib/mapNaming";
@@ -135,7 +136,11 @@ export default async function QuestionPage({ params }: PageProps) {
       ? `This question turns on ${cruxes.length} ${cruxes.length === 1 ? "question" : "questions"}.`
       : "",
     ...cruxes.map((crux) =>
-      `${asSentence(crux.question)} What would settle it: ${asSentence(crux.settle.condition ?? "")}`.trim(),
+      `${asSentence(crux.question)} What would settle it: ${
+        crux.settle.mode === "standing"
+          ? standingLineFor(crux.settle.kind)
+          : asSentence(crux.settle.condition ?? "")
+      }`.trim(),
     ),
     page.agreement.length > 0 ? `Both sides already agree: ${page.agreement.join(" ")}` : "",
   ]

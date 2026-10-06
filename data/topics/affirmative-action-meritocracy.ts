@@ -31,6 +31,10 @@ export const affirmativeActionMeritocracyData = {
         methodology:
           "Conduct a large-scale longitudinal study tracking 50,000+ students from diverse socioeconomic and racial backgrounds from kindergarten through career outcomes. Control for family wealth, school quality (per-pupil spending, teacher credentials), neighborhood characteristics, and access to test preparation. Compare predictive validity of standardized test scores vs. alternative measures (growth metrics, non-cognitive assessments, portfolio evaluations) for college completion, graduate school attainment, and career achievement at 10 and 20 years post-admission.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A study following 50,000+ students from kindergarten to careers, controlling for family wealth, school quality and test prep, comparing how well test scores predict later success for disadvantaged and advantaged students.",
+        },
         cost_to_verify:
           "$5-15M (Multi-decade longitudinal cohort study requiring institutional partnerships and sustained funding)",
         falsification: {
@@ -139,6 +143,10 @@ export const affirmativeActionMeritocracyData = {
         methodology:
           "Compare enrollment, graduation, and post-graduation outcomes for underrepresented minorities at the 50 most selective US universities, dividing them into three groups: (1) institutions in states that banned affirmative action before SFFA (California, Michigan, Washington, Florida, etc.), (2) institutions that practiced race-conscious admissions until SFFA (2023), and (3) all institutions post-SFFA. Track outcomes at 1, 3, 5, and 10 years post-ban, controlling for state demographics, institutional spending on outreach, and application pool changes.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Enrollment, graduation and later earnings for underrepresented students at the 50 most selective universities, comparing states that banned affirmative action before SFFA, schools race-conscious until 2023, and all schools since.",
+        },
         cost_to_verify:
           "$0 (IPEDS enrollment data is publicly available; state-level analyses exist)",
         falsification: {
@@ -264,6 +272,10 @@ export const affirmativeActionMeritocracyData = {
         methodology:
           "Design a mixed-methods study combining: (1) analysis of intergroup attitudes in states with and without affirmative action bans using the General Social Survey and ANES data, (2) longitudinal surveys of 10,000 students at 50 universities tracking racial attitudes, cross-racial friendships, and sense of belonging from freshman year through 10 years post-graduation, and (3) qualitative interviews with 500 beneficiaries and non-beneficiaries exploring perceived stigma, resentment, and solidarity. Include international comparative analysis of social cohesion metrics in India, Brazil, South Africa, and Malaysia.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Longitudinal surveys of 10,000 students at 50 universities tracking racial attitudes, cross-racial friendships and belonging for 10 years after graduation, alongside General Social Survey and ANES attitudes in states with and without bans.",
+        },
         cost_to_verify:
           "$3-8M (Multi-site longitudinal study with survey and qualitative components)",
         falsification: {

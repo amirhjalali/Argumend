@@ -47,7 +47,12 @@ export const deExtinctionSpeciesData = {
           "Whether an engineered organism counts as a restored species depends on which species concept you adopt. Under a phenotypic/functional concept, an animal that looks and behaves like the extinct one and fills its ecological niche qualifies. Under a genomic/phylogenetic concept, an organism that shares only a handful of edited traits with an extinct lineage — while remaining overwhelmingly a member of the living donor species — does not. The crux is not a measurement that can be 'run'; it is whether the two camps can agree on which definition governs the public claim 'we brought back the dire wolf.'",
         methodology:
           "Quantify the actual genomic distance: whole-genome sequence the engineered animals and compare against (1) reference gray wolf genomes and (2) the best available ancient dire-wolf genomes, reporting the fraction of fixed differences captured by the edits. Independently, design a behavioral/ecological assessment of whether the proxy performs the extinct organism's functional role. Then convene taxonomic bodies (IUCN SSC, relevant nomenclature committees) to rule on whether 'functional proxy' status is sufficient for a species-restoration claim. The dispute resolves only when a shared definitional standard is adopted, not when more data is collected.",
-        verification_status: "verified" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Agreement on a species standard, for example by taxonomic bodies such as the IUCN. Sequencing can measure how much distinct dire-wolf genome the edited animals carry, and field study whether they fill its role, but which of those counts is a choice of definition.",
+          kind: "definitional-choice" as const,
+        },
         cost_to_verify:
           "$50K-200K (Whole-genome sequencing and comparative analysis; the genomic facts are already largely established)",
         falsification: {
@@ -165,6 +170,10 @@ export const deExtinctionSpeciesData = {
         methodology:
           "Track funding flows: audit de-extinction investment sources and determine what fraction is additional versus reallocated from conservation. Measure spillover empirically by following specific applied projects (red wolf genetic rescue, black-footed ferret cloning, amphibian disease-resistance editing) and quantifying their contribution to population recovery and genetic diversity against matched control programs using conventional methods. Combine into a net-biodiversity ledger: species-equivalents gained from spillover and new funding, minus species-equivalents lost to diverted resources and attention. Update Bennett et al.'s opportunity-cost model with observed (rather than assumed) additionality and spillover parameters.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An audit of how much de-extinction money is new rather than moved from conservation, plus matched comparisons of applied projects such as red wolf genetic rescue against conventional programs on population and genetic diversity.",
+        },
         cost_to_verify:
           "$500K-1.5M (Multi-year funding audit and comparative outcome tracking across applied genetic-rescue programs)",
         falsification: {
@@ -282,6 +291,10 @@ export const deExtinctionSpeciesData = {
         methodology:
           "Replicate and extend Lean et al. (2025) with larger, cross-cultural samples and behavioral (not merely attitudinal) outcomes — e.g., real donation or policy-vote proxies. Manipulate the framing of de-extinction (honest 'engineered proxy' vs hype 'species resurrected') to test whether hype specifically inflates the restorative belief shown to correlate with extinction acceptance. Track longitudinally whether high-profile de-extinction announcements shift public and legislative support for habitat protection. Distinguish the average causal effect (apparently null) from the conditional effect among those who form the 'reversibility' belief.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Larger, cross-cultural replications of Lean et al. (2025) that measure real donations or policy votes, and compare honest 'engineered proxy' framing with 'species resurrected' hype.",
+        },
         cost_to_verify:
           "$200K-600K (Replicated, cross-cultural behavioral experiments plus longitudinal opinion tracking)",
         falsification: {

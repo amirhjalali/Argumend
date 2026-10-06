@@ -90,8 +90,37 @@ describe("CruxMovementLedger", () => {
     expect(within(rows[1]).getByText("Indeed Hiring Lab")).toBeTruthy();
     expect(within(rows[1]).getByText(/half of postings decline pre-ChatGPT/)).toBeTruthy();
     expect(rows[1].id).toBe("ledger-ai-jobs-c2-2025-04-10-1");
-    // Source date vs our ingest date, both shown.
-    expect(within(rows[1]).getByText(/Added to the map Sep 1, 2026/)).toBeTruthy();
+    // Source date vs our ingest date, both shown, each named for what it is.
+    expect(within(rows[1]).getByText(/^Recorded Sep 1, 2026\.$/)).toBeTruthy();
+    expect(within(rows[1]).getByText("Evidence dated").classList.contains("sr-only")).toBe(true);
+  });
+
+  it("names the source dates up front and the recording date once", () => {
+    const a = { ...opened, noticedAt: "2026-09-22" };
+    const b = { ...narrowed, noticedAt: "2026-09-22" };
+    const { container } = ledgerFor([a, b], "c2");
+    expect(screen.getByTestId("crux-movement-dates").textContent).toBe(
+      "Evidence from May 2024 to Apr 2025 · recorded Sep 22, 2026",
+    );
+    // No "record starts … added to the map …" pairing that reads as backdating.
+    expect(container.textContent).not.toMatch(/Record starts|Added to the map/);
+    cleanup();
+
+    ledgerFor([{ ...opened, noticedAt: "2026-09-22" }], "c2");
+    expect(screen.getByTestId("crux-movement-dates").textContent).toBe("Evidence from May 2024");
+    expect(screen.getByText(/^Recorded Sep 22, 2026\.$/)).toBeTruthy();
+  });
+
+  it("reads a repeated open entry as still open, not a second opening", () => {
+    const again = entry("c2", "2024-11-02", "open", "A second study leaves it where it was.");
+    ledgerFor([opened, again, narrowed], "c2");
+    const section = screen.getByRole("region", { name: "How this has moved" });
+    const rows = within(section).getAllByRole("listitem").filter((li) => li.dataset.status);
+    expect(rows.map((row) => row.querySelector("p > span")?.textContent)).toEqual([
+      "Open",
+      "Still open",
+      "Narrowed",
+    ]);
   });
 
   it("renders an ISO date as that calendar day in any server timezone", () => {
@@ -153,8 +182,8 @@ describe("CruxMovementLedger", () => {
   it("says a shared ingest date once, under the history", () => {
     const a = { ...opened, noticedAt: "2026-09-22" };
     const b = { ...narrowed, noticedAt: "2026-09-22" };
-    ledgerFor([a, b], "c2");
-    expect(screen.getAllByText(/Added to the map Sep 22, 2026/)).toHaveLength(1);
+    const { container } = ledgerFor([a, b], "c2");
+    expect(container.textContent!.match(/recorded Sep 22, 2026/gi)).toHaveLength(1);
   });
 
   it("ends a resolved crux's thread instead of mirroring the unresolvable ending", () => {
@@ -216,6 +245,10 @@ describe("CruxMovementTrack", () => {
     expect(screen.getByText("Narrowed")).toBeTruthy();
     expect(screen.getByText("Apr 2025").getAttribute("datetime")).toBe("2025-04-10");
     expect(screen.getByText(/Latest movement/).classList.contains("sr-only")).toBe(true);
+    // The first month is a source date, and says so to a screen reader.
+    const start = screen.getByText("May 2024");
+    expect(start.getAttribute("datetime")).toBe("2024-05-01");
+    expect(start.textContent).toBe("Evidence from May 2024");
   });
 
   it("reads states as ongoing and events as dated", () => {

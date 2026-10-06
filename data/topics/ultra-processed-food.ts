@@ -153,6 +153,10 @@ export const ultraProcessedFoodData = {
         methodology:
           "Design a series of metabolic studies where participants consume nutritionally identical meals prepared either through ultra-processing methods (with emulsifiers, artificial sweeteners, industrial heat treatment) or through traditional cooking. Measure inflammatory markers (CRP, IL-6, TNF-alpha), gut permeability (lactulose-mannitol ratio), microbiome composition (16S rRNA sequencing), and continuous glucose monitoring over 8-12 week periods.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Feeding studies that give people nutritionally identical meals, ultra-processed with emulsifiers and sweeteners or cooked traditionally, and compare inflammatory markers, gut permeability and microbiome composition.",
+        },
         cost_to_verify:
           "$3-8M (Multi-center controlled feeding study with comprehensive biomarker panel)",
         falsification: {

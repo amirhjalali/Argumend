@@ -8,6 +8,7 @@ import { topicSummaries } from "./topicIndex";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 
 const knownStaticRoutes = new Set([
+  "/about",
   "/about#read-a-map",
   "/analyze",
   "/fallacies",
@@ -38,13 +39,17 @@ describe("reference-surface internal links", () => {
       ),
     );
 
-    expect(internalLinks.filter((href) => !knownRoutes.has(href))).toEqual([]);
+    // An anchor (`/methodology#ledger`, `/topics/…#cruxes`) needs its page.
+    const known = (href: string) => knownRoutes.has(href) || knownRoutes.has(href.split("#")[0]);
+    expect(internalLinks.filter((href) => !known(href))).toEqual([]);
   });
 
   it("keeps concept and fallacy relationships resolvable", () => {
     const conceptIds = new Set(concepts.map((concept) => concept.id));
     const fallacyIds = new Set(fallacies.map((fallacy) => fallacy.slug));
     const topicIds = new Set(topicSummaries.map((topic) => topic.id));
+    // A concept may point at a flagship map too (/concepts/cruxes does).
+    const mapIds = new Set([...topicIds, ...argumentTopicIds]);
 
     expect(
       concepts.flatMap((concept) =>
@@ -53,7 +58,7 @@ describe("reference-surface internal links", () => {
     ).toEqual([]);
     expect(
       concepts.flatMap((concept) =>
-        concept.topicExamples.filter((id) => !topicIds.has(id)),
+        concept.topicExamples.filter((id) => !mapIds.has(id)),
       ),
     ).toEqual([]);
     expect(

@@ -48,6 +48,10 @@ export const privacyVsConvenienceData = {
         methodology:
           "Recruit 200 participants divided into four groups: (1) default settings on mainstream platforms, (2) maximum privacy settings on mainstream platforms, (3) privacy-focused alternatives only (Signal, Brave, DuckDuckGo, ProtonMail), (4) privacy alternatives plus VPN and ad blockers. Over 6 months, use data subject access requests (GDPR/CCPA) to retrieve all data held by Google, Meta, Amazon, and 10 major data brokers for each participant. Compare profile completeness, accuracy, and advertising category assignments across groups. Measure whether privacy-focused behavior produces meaningfully less detailed profiles.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A six-month study of 200 people on default settings, maximum privacy settings, privacy-focused alternatives, or alternatives plus VPN and ad blockers, using GDPR and CCPA access requests to compare the profiles companies end up holding.",
+        },
         cost_to_verify:
           "$200K-500K (Participant recruitment, DSAR processing, and comparative data analysis)",
         falsification: {
@@ -163,6 +167,10 @@ export const privacyVsConvenienceData = {
         methodology:
           "Analyze declassified FISA Court opinions and annual transparency reports from 2013 to present to track the volume of surveillance orders and targets over time. Compare pre- and post-reform data collection volumes using the limited public disclosures from the Office of the Director of National Intelligence. Audit law enforcement use of facial recognition, cell-site simulators, and data broker purchases (which circumvent warrant requirements) through FOIA requests to 50 major law enforcement agencies. Interview former intelligence community officials and FISA Court judges about the practical impact of reforms on surveillance operations.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Declassified FISA Court opinions, transparency reports and ODNI disclosures from 2013 on, tracking the volume of orders and targets, together with audits of police use of facial recognition, cell-site simulators and data bought from brokers.",
+        },
         cost_to_verify:
           "$500K-1.5M (FOIA litigation, comparative legal analysis, and expert interviews across multiple jurisdictions)",
         falsification: {
@@ -280,6 +288,10 @@ export const privacyVsConvenienceData = {
         methodology:
           "Compare the data profiles held by major platforms (Google, Meta, Amazon) on users in heavily regulated jurisdictions (EU/GDPR) versus minimally regulated jurisdictions (Southeast Asia, parts of Africa) using data subject access requests. Measure profile size, granularity, and advertising category richness. Track the number and type of third-party data sharing partners per user across jurisdictions. Analyze whether GDPR's consent requirements have reduced actual data collection volumes or merely changed the legal basis from consent to 'legitimate interest.' Survey corporate data practices through confidential interviews with data protection officers at 50 major companies.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Data access requests filed with Google, Meta and Amazon by users in the EU and in lightly regulated markets, comparing profile size, granularity and the number of third-party sharing partners per user.",
+        },
         cost_to_verify:
           "$300K-800K (Cross-jurisdictional DSAR analysis, corporate interviews, and comparative data measurement)",
         falsification: {
