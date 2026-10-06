@@ -16,7 +16,7 @@ export const rentControlEffectivenessData = {
     sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
   },
   simple_case: [
-    "Both sides accept that strict 1970s-style rent ceilings cut rental supply, that rent control moves money to the tenants who already hold a controlled lease, and that building more housing is the durable fix.",
+    "Both sides accept that strict 1970s-style rent ceilings cut rental supply, that rent control moves money to the tenants who already hold a controlled lease, and that a cap adds no homes of its own.",
     "They split over whether modern stabilization, which exempts new buildings and resets rents between tenants, avoids that supply harm; whether keeping today's tenants in place is worth the higher rents and longer searches it leaves newcomers; and whether a cap buys time for new supply or delays it.",
   ],
   pillars: [
@@ -281,39 +281,43 @@ export const rentControlEffectivenessData = {
     },
 
     // =========================================================================
-    // PILLAR 3: Alternative Approaches
+    // PILLAR 3: Rent Caps as a Bridge to New Supply
     // =========================================================================
     {
       id: "alternative-approaches",
-      title: "Alternative Approaches",
+      title: "Rent Caps as a Bridge to New Supply",
       short_summary:
-        "If rent control is a flawed tool, what works better? Economists broadly favor supply-side interventions — upzoning, streamlined permitting, social housing construction — over price controls. But housing advocates argue these approaches take decades to produce results, while tenants face displacement now. The question is whether rent stabilization is an essential short-term bridge or a counterproductive distraction from structural reform.",
+        "A rent cap adds no homes of its own. Whether building more makes housing affordable is a separate question with its own map; this pillar asks whether a cap protects tenants from displacement while new homes are planned and built, or eases the pressure for the zoning and construction reforms that would make it unnecessary. Supporters pair stabilization with supply reform; critics argue the cap's costs and politics crowd that reform out.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Supply-side solutions are correct in the long run but irrelevant to tenants facing eviction today. Upzoning Minneapolis has produced modest results after five years — rents stabilized but did not decline, and the new construction is primarily luxury apartments that do not serve low-income tenants. Building enough social housing to match Vienna's model would require decades of political will and hundreds of billions in public investment that no American jurisdiction has committed to. Housing vouchers are so underfunded that only 1 in 4 eligible households receives assistance, with average wait times of 2.5 years. Meanwhile, market-rate rents in cities like Austin, Phoenix, and Miami increased 30-50% between 2019 and 2023, displacing hundreds of thousands of low-income families. Rent stabilization is not a substitute for supply expansion — it is a necessary complement that prevents displacement while long-term supply solutions are built. The choice is not rent control OR supply expansion; it is rent control AND supply expansion, deployed simultaneously.",
+        "Supply-side solutions are correct in the long run, but new homes take years to plan, permit and build, and tenants facing eviction today cannot wait for them. Housing vouchers, the alternative most economists prefer, are so underfunded that only 1 in 4 eligible households receives assistance, with average wait times of 2.5 years. Meanwhile, market-rate rents in cities like Austin, Phoenix, and Miami increased 30-50% between 2019 and 2023, displacing hundreds of thousands of low-income families. Rent stabilization is not a substitute for supply expansion; it is a complement that prevents displacement while new supply is built. The choice is not rent control OR supply expansion; it is rent control AND supply expansion, deployed simultaneously.",
       proponent_rebuttal:
-        "The evidence overwhelmingly favors supply-side solutions over price controls. Minneapolis eliminated single-family zoning in 2018, and by 2023, rents had stabilized while surrounding cities saw increases. Tokyo's permissive zoning regime produces 140,000+ new housing units per year, keeping rents affordable in one of the world's most desirable cities despite population growth. Vienna's social housing model — where 60% of residents live in publicly built or subsidized housing — achieves affordability through supply rather than price controls. Housing vouchers (Section 8) target subsidies to those who need them without distorting the entire market. Every dollar spent defending and administering rent control is a dollar not spent on zoning reform, public housing construction, or tenant assistance programs that address the root cause: insufficient supply.",
+        "A bridge only helps if the far bank gets built. A cap gives the tenants it covers relief now, which can ease the political pressure for the zoning and construction reforms that would help everyone else. The San Francisco study that found less displacement also found covered landlords cutting rental supply by 15%, which raised citywide market rents by about 5.1%: the bridge itself took homes off the market. Minneapolis passed citywide zoning reform in 2018 without a rent cap. Housing vouchers (Section 8) target subsidies to those who need them without capping the price of the whole market. Every dollar spent defending and administering rent control is a dollar not spent on zoning reform, public housing construction, or tenant assistance programs.",
       crux: {
         id: "supply-timeline-test",
-        title: "The Supply Response Timeline Test",
+        title: "The Bridge-or-Delay Test",
         question:
-          "Is rent stabilization a needed bridge against displacement, or a distraction that delays supply reform?",
+          "Does a rent cap protect tenants until new homes arrive, or slow the reforms that would build them?",
         description:
-          "Determine how long supply-side interventions (upzoning, streamlined permitting, social housing) take to produce measurable rent relief for low-income tenants. If supply responses are fast enough to prevent displacement (2-3 years), rent stabilization is unnecessary. If supply takes 10-20 years to meaningfully affect affordability, rent stabilization serves as a necessary bridge policy.",
+          "If places that pair rent stabilization with zoning and permitting reform keep permitting and building at the pace of places that reform supply alone, while fewer low-income tenants are displaced in the meantime, the cap works as a bridge. If supply reform stalls, or permits and starts fall behind, where a cap is in force, the cap delays the reforms it was meant to bridge to.",
         methodology:
-          "Conduct a comparative analysis of jurisdictions that adopted major supply-side reforms (Minneapolis upzoning 2018, Auckland NZ upzoning 2016, various California SB 9/SB 10 reforms 2021) and measure time to first measurable impact on: (1) median rents for bottom-quartile units, (2) vacancy rates, (3) displacement rates for low-income households. Compare against jurisdictions that adopted rent stabilization alone and those that adopted combined supply + stabilization approaches.",
+          "Compare jurisdictions that adopted supply-side reform alone, rent stabilization alone, and both together. Track whether further zoning or permitting reforms passed and were carried out after a cap was adopted, and displacement and eviction rates for low-income households in the meantime, for 5-10 years, against matched jurisdictions that adopted neither.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Counts of zoning and permitting reforms passed and carried out after a rent cap was adopted, and low-income displacement rates over the same years, set against matched places without a cap and tracked for 5-10 years.",
+        },
         cost_to_verify:
           "$300K-800K (Multi-market comparative analysis of housing policy outcomes over 5-10 year timeframe)",
         falsification: {
           supporter_flip:
-            "If tracking showed supply reforms taking 10-20 years to reach low-income renters, rent stabilization would gain a real role as a bridge while supply catches up.",
+            "If places that paired a rent cap with supply reform permitted and built as fast as places that reformed supply alone, while displacing fewer low-income tenants, the cap would earn a role as a bridge.",
           skeptic_flip:
-            "If supply-side reforms (upzoning, faster permitting) can be shown to deliver measurable rent relief for bottom-quartile tenants within ~2-3 years, the case for rent control as a stopgap largely disappears.",
+            "If supply reform stalled, or permits and starts fell behind matched places, wherever a cap was adopted, and displacement fell no faster there, the cap would look like a delay rather than a bridge.",
           common_ground:
-            "Both sides agree the root cause is insufficient supply and that building more housing is the durable fix.",
+            "Both sides agree a rent cap adds no homes of its own, and that new homes take years to plan and build while tenants face rent increases now.",
           live_disagreement:
-            "Whether rent stabilization is a necessary short-term bridge to prevent displacement now, or a counterproductive distraction that delays the supply reforms that actually work.",
+            "Whether rent stabilization protects tenants from displacement while new supply is built, or eases the pressure for the supply reforms it is meant to bridge to and so delays them.",
         },
       },
       evidence: [
@@ -337,26 +341,6 @@ export const rentControlEffectivenessData = {
             "The city source directly establishes adoption, timing, and policy direction. The card no longer claims unverified rent or permit effects; those require independent outcome data and a causal design.",
         },
         {
-          id: "vienna-social-housing",
-          title:
-            "Vienna's Social Housing Model: 60% of Residents in Public or Subsidized Housing",
-          description:
-            "The City of Vienna reports that more than 60% of residents live in municipally owned or city-subsidized housing and that the city owns about 220,000 municipal apartments. This directly establishes the model's scale. It does not by itself prove that Vienna's system can be transplanted elsewhere or isolate its effect on private rents from land policy, taxation, and long-run construction.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 6,
-            replicability: 8,
-            directness: 7,
-          },
-          source:
-            "City of Vienna housing-market overview (2025)",
-          sourceUrl:
-            "https://www.wien.gv.at/spezial/aktionsplan-gegen-rassismus/die-stadt-wien-fordert-gleichberechtigung-und-chancengleichheit-auf-dem-wohnungsmarkt/ausgangslage-und-herausforderungen/",
-          reasoning:
-            "The city figures directly support the scale claim. Independence is moderate because the city describes its own program, and policy replicability remains uncertain given Vienna's distinct fiscal and political history.",
-        },
-        {
           id: "housing-voucher-underfunding",
           title:
             "Only 1 in 4 Eligible US Households Receives Housing Voucher Assistance",
@@ -375,26 +359,6 @@ export const rentControlEffectivenessData = {
             "https://www.cbpp.org/research/housing/three-out-of-four-low-income-at-risk-renters-do-not-receive-federal-rental-assistance",
           reasoning:
             "CBPP is among the most authoritative housing-policy research organizations, and the 'three out of four do not receive assistance' (≈1 in 4 served) finding is verified directly on the cited CBPP page. This challenges the claim that vouchers are a ready substitute for rent control, since the preferred alternative is chronically underfunded. Unverified Harvard JCHS dollar/household specifics were removed to keep the claim tight.",
-        },
-        {
-          id: "auckland-upzoning-results",
-          title:
-            "Auckland Upzoning Lowered Rents Roughly 22-28% Below Counterfactual (Greenaway-McGrevy)",
-          description:
-            "Auckland's 2016 Unitary Plan upzoned about three-quarters of the city's residential land for higher-density housing. Two strands of work by Greenaway-McGrevy and co-authors study the effects. On construction, Greenaway-McGrevy & Phillips ('The Impact of Upzoning on Housing Construction in Auckland,' Journal of Housing Economics, 2023) find the reform added tens of thousands of additional dwelling consents within several years (on the order of ~4-9% of the housing stock). On rents, 'Can Zoning Reform Reduce Housing Costs? Evidence from Rents in Auckland' (Greenaway-McGrevy, with So) uses a synthetic-control design and estimates that rents for comparable properties are roughly 20-28% lower than they would otherwise have been several years post-reform, with cumulative Auckland rent growth (~20% over 2016-2023) well below comparable NZ cities.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 7,
-            directness: 8,
-          },
-          source:
-            "Greenaway-McGrevy & Phillips, Journal of Housing Economics (2023) — construction; Greenaway-McGrevy, 'Can Zoning Reform Reduce Housing Costs? Evidence from Rents in Auckland' (working paper) — rents",
-          sourceUrl:
-            "https://cdn.auckland.ac.nz/assets/business/about/our-research/research-institutes-and-centres/Economic-Policy-Centre--EPC-/WP016.pdf",
-          reasoning:
-            "The synthetic-control design is rigorous and the Auckland reform is one of the most comprehensive upzoning experiments globally. An earlier draft attributed the rent-reduction finding to 'Greenaway-McGrevy & Phillips' and cited 26-33%; the rent result is actually from the separate 'Evidence from Rents in Auckland' paper (Greenaway-McGrevy, with So), which estimates rents roughly 20-28% below counterfactual — Phillips is a co-author on the construction paper. Effects took several years to materialize, so supply expansion works but not quickly enough to protect all vulnerable tenants in the interim.",
         },
       ],
     },
@@ -429,7 +393,7 @@ export const rentControlEffectivenessData = {
       title:
         "Is rent control a necessary bridge while long-term supply solutions are built?",
       content:
-        "Supply-side solutions like upzoning and social housing take years or decades to produce meaningful rent relief. Meanwhile, market-rate rents in many US cities rose 30-50% between 2019 and 2023, displacing low-income families. Is rent stabilization a necessary short-term protection against displacement, or does it delay the political urgency needed to pass supply-side reforms?",
+        "New homes, whether from upzoning or social housing, take years to plan and build. Meanwhile, market-rate rents in many US cities rose 30-50% between 2019 and 2023, displacing low-income families. Is rent stabilization a necessary protection against displacement in that interval, or does it delay the political urgency needed to pass supply-side reforms?",
     },
     {
       id: "q3",
