@@ -400,7 +400,7 @@ export const researchSections: ResearchSection[] = [
         citationIds: ["fishkin-2018", "galef-2021"],
       },
       {
-        text: "Tetlock's research on superforecasting shaped how our maps talk about uncertainty. Instead of a verdict or a single percentage, a map says whether the evidence largely converges, is still divided, or is still thin, and flags a reading that one evidence card could overturn — because admitting what we don't know is the first step toward knowing more.",
+        text: "Tetlock's research on superforecasting shaped how our maps talk about uncertainty. Instead of a verdict or a single percentage, a map shows where the argument turns and what would settle each crux, and the strongest evidence on each side — because admitting what we don't know is the first step toward knowing more.",
         citationIds: ["tetlock-2015"],
       },
       {

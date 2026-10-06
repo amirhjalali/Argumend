@@ -27,7 +27,6 @@ import {
   type TopicFold,
 } from "@/components/topic/TopicPage";
 import { DetailBlock, SOURCE_LINK } from "@/components/topic/cruxPrimitives";
-import { FragileVerdictNote } from "@/components/FragileVerdictNote";
 import { CitationCard } from "@/components/CitationCard";
 import { TextAction } from "@/components/ui";
 
@@ -68,8 +67,8 @@ export function ReadModeView({
     {
       id: "weighing",
       title: "How the evidence weighs",
-      hint: "In words, from the weighed evidence cards on this map.",
-      content: <EvidenceWeighs weighing={weighing} />,
+      hint: "One strong card from each side, and how every card is weighed.",
+      content: <EvidenceWeighs weighing={weighing} labels={labels} />,
     },
     {
       id: "researcher",
@@ -164,7 +163,6 @@ function LegacyCruxEvidence({
           <span className="font-medium text-stone-800 dark:text-stone-200">{crux.test.title}.</span>{" "}
           {crux.test.methodology}
         </p>
-        <p className="mt-1 text-xs text-muted dark:text-stone-400">Cost to run it: {crux.test.cost}</p>
       </DetailBlock>
     </>
   );
@@ -201,29 +199,43 @@ function LegacyEvidenceRow({ item }: { item: LegacyEvidenceItem }) {
 }
 
 /**
- * The balance/weight reading, moved out of the page body and into words:
- * converges, divided, or thin. Never a score out of 100, and never one side's
- * heaviest card without the other's.
+ * One strong card from each side, by the map's own weights, and how a card
+ * is weighed. No reading of where the cards tip ("evidence still divided"),
+ * no ranking word, no score, and never one side's card without the other's.
  */
-function EvidenceWeighs({ weighing }: { weighing: LegacyWeighing }) {
+function EvidenceWeighs({
+  weighing,
+  labels,
+}: {
+  weighing: LegacyWeighing;
+  labels: Record<"for" | "against", string>;
+}) {
+  const { strongest } = weighing;
   return (
     <div className="space-y-3">
-      <p className="font-serif text-[1.125rem] leading-snug text-stone-900 dark:text-stone-100">
-        {weighing.label}
-      </p>
-      <FragileVerdictNote fragile={weighing.fragile} />
-      {weighing.heaviest && (
-        <p className="font-serif text-[1rem] leading-relaxed text-secondary dark:text-stone-400">
-          <em className="font-medium text-stone-900 dark:text-stone-100">Heaviest card for:</em>{" "}
-          {weighing.heaviest.forTitle}.{" "}
-          <em className="font-medium text-stone-900 dark:text-stone-100">Heaviest card against:</em>{" "}
-          {weighing.heaviest.againstTitle}.
-        </p>
+      {strongest && (
+        <>
+          <p className="font-serif text-[1.125rem] leading-snug text-stone-900 dark:text-stone-100">
+            One strong card on each side
+          </p>
+          <ul className="list-none space-y-2 p-0 font-serif text-[1rem] leading-relaxed text-secondary dark:text-stone-400">
+            <li>
+              <span className={`font-sans text-sm font-medium ${SIDE.for.className}`}>{labels.for}:</span>{" "}
+              {strongest.forTitle}.
+            </li>
+            <li>
+              <span className={`font-sans text-sm font-medium ${SIDE.against.className}`}>
+                {labels.against}:
+              </span>{" "}
+              {strongest.againstTitle}.
+            </li>
+          </ul>
+        </>
       )}
       <p className="text-xs leading-relaxed text-muted dark:text-stone-400">
-        Each card is weighed on its source, independence, replicability and directness. That
-        reading is one editorial judgment deep; the questions above are what would move it.{" "}
-        <TextAction href="/methodology" className="!text-xs">
+        Each card is weighed on its source, independence, replicability and directness. Those
+        weights are one editorial judgment deep; the questions above are what would move them.{" "}
+        <TextAction href="/methodology#weighing" className="!text-xs">
           How cards are weighed →
         </TextAction>
       </p>
@@ -257,9 +269,9 @@ function LegacyResearcher({
                 {crux.settle.condition}
               </p>
               <p className="mt-0.5">{crux.test.methodology}</p>
-              <p className="mt-0.5 text-xs text-muted dark:text-stone-400">
-                {crux.settle.note} Cost to run it: {crux.test.cost}
-              </p>
+              {crux.settle.note && (
+                <p className="mt-0.5 text-xs text-muted dark:text-stone-400">{crux.settle.note}</p>
+              )}
             </li>
           ))}
         </ul>

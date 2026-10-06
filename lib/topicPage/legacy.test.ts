@@ -61,7 +61,10 @@ describe("legacyTopicPage", () => {
       const pillar = topic.pillars[index];
       const live = pillar.crux.falsification!.live_disagreement!;
       expect(crux.question).toBe(pillar.crux.question ?? live);
-      expect(crux.kicker).toBe(pillar.title);
+      // The question is the crux's one name: no pillar label above it, and
+      // the rail lists the same question.
+      expect(crux.kicker).toBeUndefined();
+      expect(crux.shortLabel).toBe(crux.question);
       expect(crux.settle.condition).toBe(pillar.crux.settle?.condition ?? pillar.crux.description);
       expect(crux.flips).toEqual({
         supporter: pillar.crux.falsification!.supporter_flip,
@@ -92,9 +95,10 @@ describe("legacyTopicPage", () => {
     );
     expect(topic.pillars[0].proponent_rebuttal.startsWith(page.positions[0].summary)).toBe(true);
 
-    // The evidence reading is words only.
-    expect(weighing.label).toBe(topic.verdict.label);
-    expect(JSON.stringify(weighing)).not.toMatch(/\/100|\bpts\b/);
+    // The weighing fold names one strong card per side and no reading of
+    // where the cards tip: no verdict phrase, no number.
+    expect(Object.keys(weighing)).toEqual(["strongest"]);
+    expect(JSON.stringify(weighing)).not.toMatch(/\/100|\bpts\b|converges|divided|thin/);
   });
 
   it("shows the authored settle line, and the flagship standing line when nothing empirical settles it", async () => {

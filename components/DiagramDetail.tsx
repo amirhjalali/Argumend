@@ -186,7 +186,6 @@ function Body({ node }: { node: DiagramNode }) {
               <span className="font-medium text-stone-800 dark:text-stone-200">{node.test.title}.</span>{" "}
               {node.test.methodology}
             </p>
-            <p className="mt-1 text-xs text-muted dark:text-stone-400">Cost to run it: {node.test.cost}</p>
           </DetailBlock>
         </>
       );
