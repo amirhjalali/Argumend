@@ -4,19 +4,28 @@
  * The one-tap reflection that replaced the for/against vote on topic pages.
  *
  * It asks which question would change the reader's mind, then shows what
- * would settle that question with a link to open it on the page, so the tap
- * leads somewhere. Then it asks whether the map changed what they thought
- * they were arguing about: the north star's question, asked of the reader
- * about themselves, in the same words the paste result uses.
+ * would settle that question, the strongest card on each side of it (so
+ * whichever answer the reader holds, the other side's best card is in front of
+ * them), and a link to open the crux on the page: the tap leads somewhere.
+ * Then it asks whether the map changed what they thought they were arguing
+ * about: the north star's question, asked of the reader about themselves,
+ * with the same control the paste result uses (./ChangedQuestion).
  *
  * Never graded: it does not compare the answer with the map, with a score, or
  * with other readers. Stored in this browser only; nothing is sent or counted.
  */
 import { useCallback, useEffect, useState } from "react";
 import { TextAction, textActionClasses } from "@/components/ui";
-import { SettleAnswer } from "@/components/topic/cruxPrimitives";
-import { CHANGED_CHOICES, CHANGED_QUESTION, type ChangedAnswer } from "@/lib/changedQuestion";
-import type { SettleView } from "@/lib/topicPage/model";
+import { SOURCE_LINK, SettleAnswer } from "@/components/topic/cruxPrimitives";
+import type { ChangedAnswer } from "@/lib/changedQuestion";
+import type { SettleView, StrongestCard } from "@/lib/topicPage/model";
+import {
+  CHANGED_QUESTION_INLINE,
+  CHOICE_BASE,
+  CHOICE_CHOSEN,
+  CHOICE_IDLE,
+  ChangedQuestion,
+} from "./ChangedQuestion";
 
 export interface ReflectionOption {
   /** The crux's anchor on the page (`crux-…`). */
@@ -24,6 +33,8 @@ export interface ReflectionOption {
   label: string;
   /** What would settle it, shown once the reader picks this question. */
   settle?: SettleView;
+  /** The strongest card on each side of it, shown with the settle line. */
+  strongest?: readonly StrongestCard[];
 }
 
 interface StoredReflection {
@@ -64,12 +75,69 @@ function write(topicId: string, value: StoredReflection | null) {
   }
 }
 
-const OPTION_BASE =
-  "flex min-h-11 w-full items-start gap-3 rounded-lg border px-3 py-2.5 text-left text-sm leading-snug transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus";
-const OPTION_IDLE =
-  "border-stone-300/80 bg-white/60 text-stone-800 hover:border-deep/60 hover:bg-deep/[0.04] dark:border-[var(--border-divider)] dark:bg-transparent dark:text-stone-200 dark:hover:border-[#8bb5b1]/60";
-const OPTION_CHOSEN =
-  "border-deep bg-deep/[0.07] text-stone-900 dark:border-[#8bb5b1] dark:bg-deep/20 dark:text-stone-100";
+const OPTION_BASE = `flex min-h-11 w-full items-start gap-3 rounded-lg border px-3 py-2.5 text-left text-sm leading-snug ${CHOICE_BASE}`;
+
+const SIDE_TEXT: Record<StrongestCard["side"], string> = {
+  for: "text-[#3a6965] dark:text-[#8fc0bb]",
+  against: "text-[#8B5A3C] dark:text-[#cfa88a]",
+};
+const SIDE_RULE: Record<StrongestCard["side"], string> = {
+  for: "border-[#3a6965]/60 dark:border-[#8fc0bb]/50",
+  against: "border-[#8B5A3C]/60 dark:border-[#cfa88a]/50",
+};
+
+/**
+ * The strongest card on each side of the picked crux, in a fixed order
+ * (supporting first), never one side alone and never with a weight.
+ */
+function OtherSideCards({ cards }: { cards: readonly StrongestCard[] }) {
+  return (
+    <div className="mt-5" data-other-side-cards>
+      <h3 className="label-caps">The other side’s best card</h3>
+      <p className="mt-1 text-xs leading-relaxed text-muted dark:text-stone-400">
+        Whichever answer you hold, the strongest card against it is one of these.
+      </p>
+      <ul className="mt-3 space-y-4">
+        {cards.map((card) => (
+          <li key={card.side} data-side={card.side} className={`border-l-2 pl-3 ${SIDE_RULE[card.side]}`}>
+            <p className={`font-sans text-xs font-medium ${SIDE_TEXT[card.side]}`}>{card.sideLabel}</p>
+            <p className="mt-1 break-words font-serif text-[1rem] leading-[1.5] text-stone-800 dark:text-stone-200">
+              {card.title}
+            </p>
+            {card.source ? (
+              card.sourceUrl ? (
+                <a
+                  href={card.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open source from ${card.source} (opens in a new tab)`}
+                  className={`${SOURCE_LINK} break-words text-xs`}
+                >
+                  {card.source} ↗
+                </a>
+              ) : (
+                <p className="mt-1 break-words text-xs text-muted dark:text-stone-400">{card.source}</p>
+              )
+            ) : null}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** What the announcement says appeared under the options after a pick. */
+function shownBelow(picked: ReflectionOption | undefined): string {
+  const parts = picked
+    ? [
+        picked.settle ? "what would settle it" : "",
+        picked.strongest?.length ? "the strongest card on each side" : "",
+      ].filter(Boolean)
+    : [];
+  if (parts.length === 0) return "One more question below";
+  const shown = parts.join(" and ");
+  return `${shown.charAt(0).toUpperCase()}${shown.slice(1)} ${parts.length > 1 ? "are" : "is"} shown below, with a link to open this crux, then one more question`;
+}
 
 export function CruxReflection({
   topicId,
@@ -95,7 +163,7 @@ export function CruxReflection({
   );
 
   const setChanged = useCallback(
-    (changed: StoredReflection["changed"]) => {
+    (changed: ChangedAnswer) => {
       setAnswer((current) => {
         if (!current) return current;
         const next = { ...current, changed };
@@ -139,7 +207,7 @@ export function CruxReflection({
                 type="button"
                 aria-pressed={chosen}
                 onClick={() => choose(option.id)}
-                className={`${OPTION_BASE} ${chosen ? OPTION_CHOSEN : OPTION_IDLE}`}
+                className={`${OPTION_BASE} ${chosen ? CHOICE_CHOSEN : CHOICE_IDLE}`}
               >
                 <span
                   aria-hidden="true"
@@ -149,71 +217,57 @@ export function CruxReflection({
                 </span>
                 {/* Wraps in full: a question cut off mid-clause is not one
                     a reader can choose. */}
-                <span className="min-w-0 break-words">{option.label}</span>
+                <span className="min-w-0 flex-1 whitespace-normal break-words">{option.label}</span>
               </button>
             </li>
           );
         })}
       </ul>
 
-      {picked?.settle && (
+      {picked && (picked.settle || picked.strongest?.length) ? (
         <div className="mt-5 border-t border-stone-200 pt-1 dark:border-[var(--border-divider)]">
-          <SettleAnswer
-            mode={picked.settle.mode}
-            kind={picked.settle.kind}
-            condition={picked.settle.condition}
-            resolved={picked.settle.resolved}
-            label={picked.settle.label}
-          />
+          {picked.settle ? (
+            <SettleAnswer
+              mode={picked.settle.mode}
+              kind={picked.settle.kind}
+              condition={picked.settle.condition}
+              resolved={picked.settle.resolved}
+              label={picked.settle.label}
+            />
+          ) : null}
+          {picked.strongest?.length ? <OtherSideCards cards={picked.strongest} /> : null}
           <a
             href={`#${picked.id}`}
             onClick={() => openCrux(picked.id)}
-            className={textActionClasses("mt-2")}
+            className={textActionClasses("mt-3")}
           >
-            Open this question
+            Open this crux
           </a>
         </div>
-      )}
+      ) : null}
 
       {answer && (
-        <div className="mt-5 border-t border-stone-200 pt-4 dark:border-[var(--border-divider)]">
-          <p className="font-serif text-[1.0625rem] leading-snug text-stone-900 dark:text-stone-100">
-            {CHANGED_QUESTION}
-          </p>
-          <div role="group" aria-label={CHANGED_QUESTION} className="mt-3 flex flex-wrap gap-2">
-            {CHANGED_CHOICES.map((choice) => {
-              const chosen = answer.changed === choice.id;
-              return (
-                <button
-                  key={choice.id}
-                  type="button"
-                  aria-pressed={chosen}
-                  onClick={() => setChanged(choice.id)}
-                  className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
-                    chosen ? OPTION_CHOSEN : OPTION_IDLE
-                  }`}
-                >
-                  {choice.label}
-                </button>
-              );
-            })}
-          </div>
+        <ChangedQuestion
+          value={answer.changed}
+          onChange={setChanged}
+          className="mt-5 border-t border-stone-200 pt-4 dark:border-[var(--border-divider)]"
+        >
           <p className="mt-3 text-xs text-muted dark:text-stone-400">
             {answer.changed ? "Kept in this browser only." : "Noted in this browser only."}{" "}
             <TextAction onClick={clear} className="!text-xs">
               Clear my answer
             </TextAction>
           </p>
-        </div>
+        </ChangedQuestion>
       )}
       {/* Always in the page, so the first answer is announced: a status
           mounted together with its text is often missed, and a tap on an
-          option otherwise says nothing about the question that appears. */}
+          option otherwise says nothing about what appears below it. */}
       <div role="status" className="sr-only">
         {answer
           ? answer.changed
             ? "Kept in this browser only."
-            : `Noted in this browser only. ${picked?.settle ? "What would settle it is shown below, then one more question" : "One more question below"}: ${CHANGED_QUESTION.charAt(0).toLowerCase()}${CHANGED_QUESTION.slice(1)}`
+            : `Noted in this browser only. ${shownBelow(picked)}: ${CHANGED_QUESTION_INLINE}`
           : ""}
       </div>
     </section>

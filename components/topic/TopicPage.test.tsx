@@ -190,7 +190,7 @@ describe("the one-tap reflection", () => {
     expect(stored.choice).toBe("crux-climate-effectiveness");
     expect(scope.getByText("Did this change what you thought you were arguing about?")).toBeTruthy();
     // The tap leads to the question it picked.
-    expect(scope.getByRole("link", { name: "Open this question" }).getAttribute("href")).toBe(
+    expect(scope.getByRole("link", { name: "Open this crux" }).getAttribute("href")).toBe(
       "#crux-climate-effectiveness",
     );
     expect(reflection.querySelector("[data-settle]")?.textContent).toMatch(/^What would settle it/);
@@ -201,7 +201,53 @@ describe("the one-tap reflection", () => {
         .changed,
     ).toBe("somewhat");
 
-    const text = reflection.textContent ?? "";
-    expect(text).not.toMatch(/%|readers|not alone|further than|\blean\b/i);
+    // The reflection's own words compare the reader with nobody. The map's
+    // evidence cards quote their sources (a "93%" is a finding), so they are
+    // checked apart, for scores rather than for figures.
+    const own = reflection.cloneNode(true) as HTMLElement;
+    own.querySelector("[data-other-side-cards]")?.remove();
+    expect(own.textContent ?? "").not.toMatch(/%|readers|not alone|further than|\blean\b/i);
+  });
+
+  it("after a tap, shows the other side's best card: one per side, never a weight", async () => {
+    const { view } = await renderLegacy("nuclear-energy-safety");
+    const reflection = view.container.querySelector<HTMLElement>("#reflect")!;
+    const scope = within(reflection);
+    expect(reflection.querySelector("[data-other-side-cards]")).toBeNull();
+    fireEvent.click(scope.getAllByRole("button", { pressed: false })[0]);
+
+    const cards = reflection.querySelector<HTMLElement>("[data-other-side-cards]")!;
+    expect(cards).not.toBeNull();
+    expect(within(cards).getByRole("heading", { name: "The other side’s best card" })).toBeTruthy();
+    const items = cards.querySelectorAll("li");
+    expect(items).toHaveLength(2);
+    expect([...items].map((li) => li.getAttribute("data-side"))).toEqual(["for", "against"]);
+    expect(cards.textContent ?? "").not.toMatch(/weight|score|\d+\s*\/\s*10|winner|stronger side/i);
+    // The settle line comes first, then the cards, then the link to the crux.
+    const settle = reflection.querySelector("[data-settle]")!;
+    const open = scope.getByRole("link", { name: "Open this crux" });
+    expect(before(settle, cards)).toBe(true);
+    expect(before(cards, open)).toBe(true);
+  });
+
+  it("shows the flagship's cards too, and the announcement says so", async () => {
+    const topic = loadArgumentTopic("ai-mass-unemployment")!;
+    const view = render(<DebateView meta={topic.meta} graph={topic.graph} cruxes={topic.cruxes} />);
+    const reflection = view.container.querySelector<HTMLElement>("#reflect")!;
+    const scope = within(reflection);
+    const options = scope.getAllByRole("button", { pressed: false });
+    // At least one crux on the flagship has a card on each side.
+    let shown = false;
+    for (const option of options.slice(0, -1)) {
+      fireEvent.click(option);
+      if (reflection.querySelector("[data-other-side-cards]")) {
+        shown = true;
+        expect(scope.getByRole("status").textContent).toMatch(
+          /What would settle it and the strongest card on each side are shown below/,
+        );
+        break;
+      }
+    }
+    expect(shown).toBe(true);
   });
 });
