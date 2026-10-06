@@ -199,6 +199,14 @@ const nextConfig = {
       { source: '/robots.txt', headers: discoveryCacheHeaders },
       { source: '/sitemap.xml', headers: discoveryCacheHeaders },
       { source: '/manifest.webmanifest', headers: discoveryCacheHeaders },
+      // Self-hosted italic faces (app/layout.tsx). Each file name carries the
+      // font's upstream version, so a changed font is a new URL.
+      {
+        source: '/fonts/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
       {
         // Protect normal pages from framing. The dedicated embed widget is
         // intentionally excluded and receives its own policy below.

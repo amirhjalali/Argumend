@@ -34,14 +34,25 @@ describe("performance contracts", () => {
 
   it("preloads only the upright font faces", () => {
     const layout = read("app/layout.tsx");
-    const calls = [...layout.matchAll(/= (EB_Garamond|Plus_Jakarta_Sans)\(\{([\s\S]*?)\}\);/g)];
-    expect(calls).toHaveLength(4);
-    for (const [, family, options] of calls) {
-      const italic = /style: \["italic"\]/.test(options);
-      const upright = /style: \["normal"\]/.test(options);
-      expect(italic || upright, family).toBe(true);
-      expect(/preload: false/.test(options), `${family} ${italic ? "italic" : "upright"}`).toBe(italic);
+    // next/font preloads every face it loads, so only upright faces go
+    // through it; the italics are plain @font-face rules on self-hosted files.
+    const calls = [...layout.matchAll(/= localFont\(\{([\s\S]*?)\}\);/g)];
+    expect(calls).toHaveLength(2);
+    for (const [, options] of calls) {
+      expect(options).toMatch(/style: "normal"/);
+      expect(options).not.toMatch(/preload: false/);
     }
+    const italics = [...layout.matchAll(/"(\/fonts\/[^"]+-italic-[^"]+\.woff2)"/g)].map((m) => m[1]);
+    expect(italics).toHaveLength(2);
+    for (const url of italics) {
+      expect(existsSync(path.join(process.cwd(), "public", url)), url).toBe(true);
+    }
+    expect(layout).toMatch(/font-style:italic/);
+  });
+
+  it("builds without fetching fonts from the network", () => {
+    // next/font/google downloads at build time; that broke the deploy build.
+    expect(read("app/layout.tsx")).not.toMatch(/from "next\/font\/google"/);
   });
 
   it("gives phones a small copy of the watercolor wash", () => {
