@@ -41,7 +41,6 @@ const topicModuleLoaders = {
   "nuclear-weapons-abolition": () => import("./topics/nuclear-weapons-abolition"),
   "school-phone-bans": () => import("./topics/school-phone-bans"),
   "pandemic-preparedness": () => import("./topics/pandemic-preparedness"),
-  "iran-war-justification": () => import("./topics/iran-war-justification"),
   "china-taiwan-invasion": () => import("./topics/china-taiwan-invasion"),
   "global-water-crisis": () => import("./topics/global-water-crisis"),
   "sugar-tax-effectiveness": () => import("./topics/sugar-tax-effectiveness"),

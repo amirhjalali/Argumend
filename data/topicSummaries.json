@@ -639,9 +639,9 @@
     "title": "The US-Iran Conflict",
     "question": "Has US pressure on Iran made the Middle East safer and served US interests?",
     "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 23,
-    "balance": 23,
-    "weight": 69,
+    "confidence_score": 30,
+    "balance": 30,
+    "weight": 75,
     "verdict": {
       "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
@@ -649,8 +649,8 @@
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 5,
+    "evidenceCount": 19,
     "firstCrux": "Did Iran's nuclear escalation result from the US leaving the nuclear deal, or would it have happened anyway?",
     "tags": [
       "policy"
@@ -800,27 +800,6 @@
     "pillarCount": 3,
     "evidenceCount": 14,
     "firstCrux": "How often do truly catastrophic pandemics strike under modern conditions?",
-    "tags": [
-      "policy"
-    ]
-  },
-  {
-    "id": "iran-war-justification",
-    "title": "Is Military Action Against Iran Justified?",
-    "question": "Is military action against Iran justified?",
-    "meta_claim": "Military strikes against Iran's nuclear and military infrastructure are a justified response to regional aggression and nuclear proliferation risks.",
-    "confidence_score": 50,
-    "balance": 50,
-    "weight": 70,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Is Iran near a deliverable nuclear weapon, or is the gap from enriched uranium to a bomb understated?",
     "tags": [
       "policy"
     ]

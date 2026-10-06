@@ -117,6 +117,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Is US policy toward Iran effective?",
     "Should the US negotiate with Iran?",
     "Has US-Iran confrontation made the Middle East safer?",
+    "Is military action against Iran justified?",
   ],
   "epstein-files": [
     "What do the Epstein files reveal?",

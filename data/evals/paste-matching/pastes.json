@@ -513,7 +513,7 @@
       "id": "iran-fordow",
       "form": "conversation",
       "text": "A: Bombing Fordow was the only way to stop Iran getting the bomb. B: Diplomacy was working until we tore up the nuclear deal in 2018. A: They were enriching to 60 percent, there's no civilian reason for that.",
-      "expected": ["iran-war-justification", "us-iran-conflict"],
+      "expected": ["us-iran-conflict"],
       "related": ["nuclear-proliferation-new-arms-race"]
     },
     {
@@ -570,7 +570,7 @@
       "form": "conversation",
       "text": "A: We give Israel almost four billion a year in military aid and then act surprised when those bombs land on Gaza. Condition it or stop. B: They're an ally fighting a terrorist group that massacred civilians on October 7. Conditioning aid in the middle of a war tells Iran we've abandoned them. A: The Leahy law already says no aid to units that commit gross violations of human rights. Just enforce it.",
       "expected": ["us-israel-support"],
-      "related": ["iran-war-justification"]
+      "related": ["us-iran-conflict"]
     },
     {
       "id": "israel-arms-rant",

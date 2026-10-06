@@ -40,5 +40,12 @@
       "are-the-claims-about-psychedelic-therapy-exaggerated"
     ],
     "is": []
+  },
+  "iran-war-justification": {
+    "into": "us-iran-conflict",
+    "map": "/topics/us-iran-conflict/map",
+    "questionsTo": "/questions/is-us-policy-toward-iran-effective",
+    "questions": [],
+    "is": []
   }
 }

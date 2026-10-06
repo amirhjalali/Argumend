@@ -128,6 +128,9 @@ describe("retired map redirects (one map per question, 2026-10-06)", () => {
     ["/questions/does-psychedelic-therapy-actually-work", "/questions/can-psychedelics-treat-depression"],
     ["/questions/are-the-claims-about-psychedelic-therapy-exaggerated", "/questions/can-psychedelics-treat-depression"],
     ["/is/psychedelic-therapy-real-breakthrough", "/questions/can-psychedelics-treat-depression"],
+    ["/topics/iran-war-justification", "/topics/us-iran-conflict"],
+    ["/topics/iran-war-justification/map", "/topics/us-iran-conflict/map"],
+    ["/embed/iran-war-justification", "/embed/us-iran-conflict"],
   ];
 
   it.each(expected)("%s → %s, permanently", async (source, destination) => {
