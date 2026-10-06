@@ -28,6 +28,36 @@ export const DISTINCT_MAP_PAIRS: readonly AllowedMapPair[] = [
     reason:
       "One asks whether building more homes makes housing affordable; the other asks whether capping rents does. They share supply evidence because rent control's critics name supply as the alternative.",
   },
+  {
+    a: "children-smartphone-age",
+    b: "school-phone-bans",
+    reason:
+      "One asks whether children should own a phone at all, turning on the age threshold and whether pledges or laws solve the collective-action problem; the other asks whether a school-day ban works, turning on test scores and fair enforcement. They cite the same mental-health studies.",
+  },
+  {
+    a: "consciousness-ai-systems",
+    b: "consciousness-hard-problem",
+    reason:
+      "One asks whether AI might be conscious and what we owe it under that uncertainty; the other asks whether explaining brain function leaves experience unexplained. Only substrate independence is a crux in both.",
+  },
+  {
+    a: "gain-of-function-research-ban",
+    b: "pandemic-preparedness",
+    reason:
+      "One asks whether one kind of lab research should be banned worldwide, turning on accident risk and whether a ban could be enforced; the other asks whether governments should spend heavily on readiness. They share pandemic vocabulary, and neither question is a sub-case of the other.",
+  },
+  {
+    a: "remote-work-permanence",
+    b: "return-to-office-productivity",
+    reason:
+      "One forecasts whether the five-day office week is gone for good and how cities adapt; the other asks whether office mandates actually raise output. They share the innovation evidence, but one asks what will happen and the other whether a policy works.",
+  },
+  {
+    a: "obesity-personal-responsibility",
+    b: "ultra-processed-food",
+    reason:
+      "One asks whether obesity comes down to individual choice or to environment, genes and biology; the other asks whether one food category causes disease beyond its nutrients, and whether labels or taxes would help. Both cite the Hall trial and Chile's labels.",
+  },
 ];
 
 export const PENDING_MERGE_MAP_PAIRS: readonly AllowedMapPair[] = [];
