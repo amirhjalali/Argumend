@@ -7,8 +7,11 @@
  * The similarity is the paste index's (lib/paste/mapIndex.ts `mapSimilarity`,
  * cosine over each map's word profile). On 2026-10-06, across all 12,561 pairs
  * of the 159 maps, 99.9% were below 0.30; the eight pairs at 0.41 to 0.54 were
- * all duplicates or near-duplicates, and the next pair down was 0.34 (school
- * phone bans and smartphones under 14: related, distinct questions).
+ * all duplicates or near-duplicates, and were merged. The line then dropped
+ * from 0.35 to 0.30: across the 11,476 pairs of the 152 maps left, seven sat
+ * at 0.30 to 0.42, and a reviewer judged each one two distinct questions that
+ * share vocabulary (school phone bans and smartphones under 14, say). At 0.30
+ * every new near pair gets a second look before it ships.
  *
  * `lib/mapDuplicates.test.ts` fails on any pair at or above the line unless
  * `data/mapPairs.ts` lists it with a reason. Before adding a map, run
@@ -16,7 +19,7 @@
  */
 import { mapSimilarity, type MapIndex } from "@/lib/paste/mapIndex";
 
-export const MAP_DUPLICATE_SIMILARITY = 0.35;
+export const MAP_DUPLICATE_SIMILARITY = 0.3;
 
 export interface MapPair {
   a: string;
