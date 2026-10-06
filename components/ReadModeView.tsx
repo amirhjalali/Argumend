@@ -11,15 +11,15 @@
  * Server-safe: no hooks, no client directive.
  */
 import type { Topic } from "@/lib/schemas/topic";
-import { getCrossCategoryRelatedSummaries, topicSummaries } from "@/data/topicIndex";
+import { getPrimaryQuestionSlug, getTopicQuestionPhrasings } from "@/lib/questions";
 import {
   legacyTopicPage,
   type LegacyCrux,
   type LegacyEvidenceItem,
   type LegacyWeighing,
 } from "@/lib/topicPage/legacy";
-import type { RelatedMap } from "@/lib/topicPage/model";
-import { ANSWER_SIDES, mapDisplayTitle } from "@/lib/mapNaming";
+import { strongestPair, type RelatedMap } from "@/lib/topicPage/model";
+import { ANSWER_SIDES } from "@/lib/mapNaming";
 import {
   CommonQuestions,
   TopicPage,
@@ -34,26 +34,34 @@ import { TextAction } from "@/components/ui";
 const MADE_BY =
   "Steel-manned positions for both sides, weighed evidence cards, and the test that could settle each crux.";
 
-/** Three related maps: same category first, then the nearest other categories. */
-function relatedMaps(topic: Topic): RelatedMap[] {
-  const sameCategory = topicSummaries
-    .filter((t) => t.category === topic.category && t.id !== topic.id)
-    .slice(0, 3);
-  const cross =
-    sameCategory.length >= 3
-      ? []
-      : getCrossCategoryRelatedSummaries(topic.id, topic.category, 3 - sameCategory.length);
-  return [...sameCategory, ...cross].map((t) => ({ id: t.id, title: mapDisplayTitle(t) }));
-}
+export function ReadModeView({
+  topic,
+  related = [],
+}: {
+  topic: Topic;
+  /** "Keep exploring": nearest subject first, from lib/relatedMaps.ts. */
+  related?: RelatedMap[];
+}) {
+  const legacy = legacyTopicPage(topic, related);
+  const { cruxes, weighing, references } = legacy;
+  const questionSlug = getPrimaryQuestionSlug(topic.id);
+  const question = getTopicQuestionPhrasings(topic.id)[0];
+  const page =
+    questionSlug && question
+      ? { ...legacy.page, questionPage: { href: `/questions/${questionSlug}`, question } }
+      : legacy.page;
 
-export function ReadModeView({ topic }: { topic: Topic }) {
-  const { page, cruxes, weighing, references } = legacyTopicPage(topic, relatedMaps(topic));
-
+  const labels = evidenceLabels(topic);
   const cruxViews: CruxEntryView[] = cruxes.map((crux) => ({
     ...crux,
+    // The evidence is strongest first on each side (lib/topicPage/legacy.ts).
+    strongest: strongestPair(
+      strongestCard(crux.evidence, "for", labels),
+      strongestCard(crux.evidence, "against", labels),
+    ),
     evidenceLabel:
       crux.evidence.length > 0 ? "Show the evidence on each side and the test" : "Show the test",
-    evidence: <LegacyCruxEvidence crux={crux} labels={evidenceLabels(topic)} />,
+    evidence: <LegacyCruxEvidence crux={crux} labels={labels} />,
   }));
 
   const folds: TopicFold[] = [
@@ -116,6 +124,17 @@ function evidenceLabels(topic: Topic): Record<"for" | "against", string> {
     for: `${ANSWER_SIDES.yesEvidence} on the map’s question`,
     against: `${ANSWER_SIDES.noEvidence} on the map’s question`,
   };
+}
+
+/** A side's first (strongest) card, in the reflection's shape. */
+function strongestCard(
+  evidence: LegacyEvidenceItem[],
+  side: "for" | "against",
+  labels: Record<"for" | "against", string>,
+) {
+  const item = evidence.find((e) => e.side === side);
+  if (!item) return undefined;
+  return { sideLabel: labels[side], title: item.title, source: item.source, sourceUrl: item.sourceUrl };
 }
 
 /** One pillar's evidence, grouped by side, strongest first. No score bars. */

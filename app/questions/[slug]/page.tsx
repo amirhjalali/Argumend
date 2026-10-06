@@ -6,28 +6,25 @@ import { loadTopicById } from "@/data/topicLoader";
 import {
   findQuestionBySlug,
   getAllQuestionVariations,
-  getPrimaryQuestionVariations,
+  getPrimaryQuestionSlug,
   getQuestionVariations,
+  getTopicQuestionPhrasings,
 } from "@/lib/questions";
 import { classifyQuestion } from "@/lib/questionMeta";
 import { legacyTopicPage } from "@/lib/topicPage/legacy";
-import { standingLineFor } from "@/lib/topicPage/model";
+import { standingLineFor, type SettleView } from "@/lib/topicPage/model";
+import { getRelatedMaps } from "@/lib/relatedMaps";
 import { getTopicMentions, buildTopicLinkTargets } from "@/lib/topic-links";
 import { mapLinkFor } from "@/lib/learn/nextStep";
 import { mapDisplayTitle } from "@/lib/mapNaming";
 import { buildTopicOgUrl } from "@/lib/og";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { ArticleLayout, type RelatedItem } from "@/components/learn/ArticleLayout";
-import {
-  AgreementBlock,
-  CruxSheet,
-  PositionCards,
-  type CruxEntryView,
-} from "@/components/topic/TopicPage";
-import { asSentence } from "@/components/topic/cruxPrimitives";
+import { AgreementBlock } from "@/components/topic/TopicPage";
+import { SettleAnswer, asSentence } from "@/components/topic/cruxPrimitives";
 import { LinkedText } from "@/components/LinkedText";
 import { JsonLd } from "@/components/JsonLd";
-import { Section } from "@/components/ui/Section";
+import { Button, Section, TextAction } from "@/components/ui";
 
 // ---------------------------------------------------------------------------
 // ISR: Revalidate every 24 hours
@@ -86,11 +83,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 // ---------------------------------------------------------------------------
-// Page: crux first. The question, what kind of question it is (fact or
-// value?), what both sides already agree on, what it turns on and what would
-// settle it, then the two sides, then the whole map. No verdict: the map owns
-// the evidence readings, and this page never names a winner.
+// Page: the question's crux, then the map. A question page is the short way
+// in, not a second copy of the map. It leads with the first question the map
+// says the fight turns on and what would settle it (the topic page's own crux
+// model and settle line), sends the reader to the full map, then names the
+// map's other crux questions, what both sides already agree on and the other
+// phrasings. The evidence, both sides' full cases and the other settle lines
+// stay on the map. No verdict, ever.
 // ---------------------------------------------------------------------------
+
+const ROW_LINK =
+  "flex min-h-11 items-center rounded-sm py-2.5 font-serif text-lg leading-snug text-primary transition-colors hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus";
+
+/** The settle line as the crux card prints it. */
+function settleLine(settle: SettleView): string {
+  return settle.mode === "standing"
+    ? standingLineFor(settle.kind)
+    : asSentence(settle.condition ?? "Not yet specified.");
+}
 
 export default async function QuestionPage({ params }: PageProps) {
   const { slug } = await params;
@@ -106,42 +116,35 @@ export default async function QuestionPage({ params }: PageProps) {
   const alsoAskedAs = variations.filter((v) => v.slug !== variation.slug);
   const kind = classifyQuestion(variation.question);
 
-  // The same page model and crux sheet as the topic page, so a question page
-  // and its map read as one thing. The map keeps the evidence cards.
+  // The topic page's own model, so the crux and its settle line read here
+  // exactly as they do on the map.
   const { page, cruxes } = legacyTopicPage(topic);
-  const cruxViews: CruxEntryView[] = cruxes.map((crux) => ({ ...crux, evidence: undefined }));
+  const [lead, ...otherCruxes] = cruxes;
+  const mapHref = `/topics/${topic.id}`;
 
   const linkTargets = buildTopicLinkTargets(topicSummaries);
   const claimSegments = getTopicMentions(topic.meta_claim, linkTargets, topic.id);
 
-  const related: RelatedItem[] = getPrimaryQuestionVariations(topicSummaries)
-    .filter((v) => {
-      if (v.topicId === topic.id) return false;
-      return topicSummaries.find((t) => t.id === v.topicId)?.category === topic.category;
-    })
-    .slice(0, 3)
-    .map((v) => ({
-      href: `/questions/${v.slug}`,
-      title: v.question,
-      kind: "Question",
-      description: (() => {
-        const summary = topicSummaries.find((t) => t.id === v.topicId);
-        return summary ? mapDisplayTitle(summary) : undefined;
-      })(),
-    }));
+  // The same neighbours as the map's "Keep exploring" (lib/relatedMaps.ts),
+  // each as its question page where it has one.
+  const related: RelatedItem[] = (await getRelatedMaps(topic.id)).map((map) => {
+    const questionSlug = getPrimaryQuestionSlug(map.id);
+    const question = getTopicQuestionPhrasings(map.id)[0];
+    return questionSlug && question
+      ? { href: `/questions/${questionSlug}`, title: question, kind: "Question", description: map.title }
+      : { href: `/topics/${map.id}`, title: map.title, kind: "Map" };
+  });
 
-  // QAPage: the answer describes what the question turns on, never a verdict.
+  // QAPage: the answer is what the page shows (the first crux and its settle
+  // line, the other crux questions, the agreement), never a verdict.
   const answer = [
     cruxes.length > 0
       ? `This question turns on ${cruxes.length} ${cruxes.length === 1 ? "question" : "questions"}.`
       : "",
-    ...cruxes.map((crux) =>
-      `${asSentence(crux.question)} What would settle it: ${
-        crux.settle.mode === "standing"
-          ? standingLineFor(crux.settle.kind)
-          : asSentence(crux.settle.condition ?? "")
-      }`.trim(),
-    ),
+    lead ? `First: ${asSentence(lead.question)} What would settle it: ${settleLine(lead.settle)}` : "",
+    otherCruxes.length > 0
+      ? `It also turns on: ${otherCruxes.map((crux) => asSentence(crux.question)).join(" ")}`
+      : "",
     page.agreement.length > 0 ? `Both sides already agree: ${page.agreement.join(" ")}` : "",
   ]
     .filter(Boolean)
@@ -159,7 +162,7 @@ export default async function QuestionPage({ params }: PageProps) {
       acceptedAnswer: {
         "@type": "Answer",
         text: answer,
-        url: `${SITE_URL}/topics/${topic.id}`,
+        url: `${SITE_URL}${mapHref}`,
         author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
       },
     },
@@ -175,29 +178,77 @@ export default async function QuestionPage({ params }: PageProps) {
         </>
       }
       meta={`${CATEGORY_LABELS[topic.category]} · from the map “${mapDisplayTitle(topic)}”`}
-      nextMap={mapLinkFor(topic.id) ?? { href: `/topics/${topic.id}`, title: mapDisplayTitle(topic) }}
+      nextMap={mapLinkFor(topic.id) ?? { href: mapHref, title: mapDisplayTitle(topic) }}
       nextMapLabel="Read the whole map"
       related={related}
       chrome={<JsonLd data={qaPageJsonLd} />}
     >
-      <p className="font-sans text-sm leading-relaxed text-muted">
+      {lead ? (
+        <section
+          id="crux"
+          aria-labelledby="crux-heading"
+          className="surface-paper rounded-lg border-l-[3px] border-l-crux/70 p-5 dark:border-l-crux-text/60 sm:px-6"
+        >
+          <p className="label-caps">{otherCruxes.length > 0 ? "It turns first on" : "It turns on"}</p>
+          <h2
+            id="crux-heading"
+            className="mt-2 text-pretty font-serif text-[1.375rem] font-medium leading-snug text-primary sm:text-[1.5rem]"
+          >
+            {lead.question}
+          </h2>
+          <SettleAnswer
+            mode={lead.settle.mode}
+            kind={lead.settle.kind}
+            condition={lead.settle.condition}
+            resolved={lead.settle.resolved}
+            label={lead.settle.label}
+          />
+          {lead.settle.note ? (
+            <p className="mt-1.5 text-xs leading-snug text-muted">{lead.settle.note}</p>
+          ) : null}
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Button href={mapHref}>Open the full map →</Button>
+            <TextAction href={`${mapHref}#${lead.anchor}`}>The evidence on this question →</TextAction>
+          </div>
+        </section>
+      ) : (
+        <p>
+          <Button href={mapHref}>Open the full map →</Button>
+        </p>
+      )}
+
+      <p className="mt-6 font-sans text-sm leading-relaxed text-muted">
         <span className="font-medium text-secondary">The claim the map weighs:</span>{" "}
         <LinkedText segments={claimSegments} />
       </p>
 
+      {otherCruxes.length > 0 ? (
+        <Section
+          id="also-turns-on"
+          title="It also turns on"
+          lede="Each one's test, and the evidence on both sides, is on the map."
+          className="mt-10"
+        >
+          <ol className="border-b border-divider">
+            {otherCruxes.map((crux, index) => (
+              <li key={crux.anchor} className={index > 0 ? "border-t border-divider" : undefined}>
+                <Link href={`${mapHref}#${crux.anchor}`} className={ROW_LINK}>
+                  {crux.question}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </Section>
+      ) : null}
+
       <AgreementBlock heading={page.agreementHeading} items={page.agreement} />
-      <CruxSheet page={page} cruxes={cruxViews} />
-      <PositionCards heading={page.positionsHeading} note={page.positionsNote} cards={page.positions} />
 
       {alsoAskedAs.length > 0 ? (
         <Section id="also-asked" title="Also asked as" className="mt-12">
           <ul className="border-b border-divider">
             {alsoAskedAs.map((v, index) => (
               <li key={v.slug} className={index > 0 ? "border-t border-divider" : undefined}>
-                <Link
-                  href={`/questions/${v.slug}`}
-                  className="flex min-h-11 items-center rounded-sm py-2.5 font-serif text-lg leading-snug text-primary transition-colors hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
-                >
+                <Link href={`/questions/${v.slug}`} className={ROW_LINK}>
                   {v.question}
                 </Link>
               </li>

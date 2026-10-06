@@ -5,7 +5,10 @@
  * One wording and one set of answers, asked in both places it appears: under
  * "Which question would change your mind?" on every map
  * (components/topic/CruxReflection.tsx) and after a paste result
- * (components/paste/NextStep.tsx). Never graded, never compared with anyone.
+ * (components/paste/NextStep.tsx), both through one control
+ * (components/topic/ChangedQuestion.tsx). Never graded, never compared with
+ * anyone, and recorded nowhere but this browser: no API route or table takes
+ * the answer.
  */
 export const CHANGED_QUESTION = "Did this change what you thought you were arguing about?";
 

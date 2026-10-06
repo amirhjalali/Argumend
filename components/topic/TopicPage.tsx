@@ -89,6 +89,7 @@ export function TopicPage({
     id: crux.anchor,
     label: crux.question,
     settle: crux.settle,
+    strongest: crux.strongest,
   }));
 
   return (
@@ -124,7 +125,12 @@ export function TopicPage({
           />
         </div>
         <TopicFolds folds={folds} />
-        <TopicFooter related={page.related} madeBy={madeBy} />
+        <TopicFooter
+          related={page.related}
+          questionPage={page.questionPage}
+          title={page.title}
+          madeBy={madeBy}
+        />
       </article>
 
       <TopicRail page={page} cruxes={cruxes} url={url} />
@@ -583,13 +589,33 @@ export function CommonQuestions({
 
 function TopicFooter({
   related,
+  questionPage,
+  title,
   madeBy,
 }: {
   related: TopicPageData["related"];
+  questionPage: TopicPageData["questionPage"];
+  title: string;
   madeBy: string;
 }) {
+  // A question page worded exactly as the H1 is still linked, just not
+  // announced as another phrasing.
+  const sameWords =
+    questionPage && questionPage.question.trim().toLowerCase() === title.trim().toLowerCase();
   return (
     <footer className="mt-12">
+      {questionPage && (
+        <p className="mb-6 text-sm leading-relaxed text-muted dark:text-stone-400" data-testid="question-page-link">
+          {sameWords ? (
+            <TextAction href={questionPage.href}>This question on one page →</TextAction>
+          ) : (
+            <>
+              Also asked as{" "}
+              <TextAction href={questionPage.href}>{questionPage.question} →</TextAction>
+            </>
+          )}
+        </p>
+      )}
       <nav aria-label="Related maps">
         <Section title="Keep exploring" level={2}>
           <ul className="-mt-3 text-sm">

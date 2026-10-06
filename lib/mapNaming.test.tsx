@@ -7,6 +7,7 @@ import { buildDiagram } from "@/lib/diagram/model";
 import { mapLinkFor } from "@/lib/learn/nextStep";
 import { pillarMapDocument } from "@/lib/paste/mapDocuments";
 import { findMaps, getMapIndex } from "@/lib/paste/maps";
+import { getRelatedMaps } from "@/lib/relatedMaps";
 import type { Topic } from "@/lib/schemas/topic";
 import { ANSWER_SIDES, CLAIM_SIDES, mapDisplayTitle, sideWords } from "./mapNaming";
 
@@ -67,8 +68,9 @@ describe("surfaces that name a legacy map", () => {
 
   afterEach(cleanup);
 
-  it("topic page: breadcrumb, H1 and related maps all use questions", () => {
-    const view = render(<ReadModeView topic={rent} />);
+  it("topic page: breadcrumb, H1 and related maps all use questions", async () => {
+    // The related maps the route passes in (app/topics/[id]/page.tsx).
+    const view = render(<ReadModeView topic={rent} related={await getRelatedMaps(rent.id)} />);
     const h1 = view.getByRole("heading", { level: 1 });
     expect(h1.textContent).toBe(rent.question);
     const crumbs = view.getByRole("navigation", { name: "Breadcrumb" });
