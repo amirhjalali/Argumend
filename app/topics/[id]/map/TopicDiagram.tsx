@@ -25,12 +25,16 @@ export function TopicDiagram({ diagram }: { diagram: DiagramModel }) {
         <TextAction href={`/topics/${diagram.topicId}`} className="gap-1.5">
           <span aria-hidden="true">←</span> Back to the map page
         </TextAction>
-        <p className="label-caps mt-1.5">Diagram</p>
+        <p className="label-caps mt-1.5">
+          <span className="md:hidden">Outline</span>
+          <span className="hidden md:inline">Diagram</span>
+        </p>
         <h1 className="text-balance font-serif text-[1.75rem] leading-tight text-stone-900 dark:text-stone-100 sm:text-[1.875rem]">
           {diagram.title}
         </h1>
         <p className="mt-1 text-sm leading-relaxed text-muted dark:text-stone-400">
           The map page as a tree: the question, its cruxes, each side&rsquo;s case and its evidence.
+          <span className="md:hidden"> On a phone it is an outline; the diagram needs a larger screen.</span>
           Yes and no are answers to the question at the top.{" "}
           <span className="md:hidden">Tap a crux to open it.</span>
           <span className="hidden md:inline">Select a box, or Tab to it and press Enter, to read it in full.</span>

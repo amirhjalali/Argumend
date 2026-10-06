@@ -41,6 +41,15 @@ describe("TopicDiagram on a phone", () => {
     cruxes.forEach((crux, i) => expect(toggles[i].textContent).toContain(crux.question));
   });
 
+  it("calls the phone view an outline, and keeps \"Diagram\" for larger screens", () => {
+    render(<TopicDiagram diagram={diagram} />);
+    // Breakpoint-only spans (no hydration-dependent text): CSS picks one.
+    const phone = screen.getByText("Outline");
+    const desktop = screen.getByText("Diagram");
+    expect(phone.className).toContain("md:hidden");
+    expect(desktop.className).toContain("hidden md:inline");
+  });
+
   it("opens a crux onto its two sides and their evidence, in the page's words", () => {
     render(<TopicDiagram diagram={diagram} />);
     const outline = screen.getByTestId("topic-diagram");
