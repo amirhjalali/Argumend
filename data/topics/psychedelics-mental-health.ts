@@ -107,6 +107,57 @@ export const psychedelicsMentalHealthData = {
           reasoning:
             "The FDA is the gold standard for drug-approval evaluation. The advisory committee's lopsided votes (2–9 on efficacy, 1–10 on benefit-risk) and the CRL signal serious methodological concerns—functional unblinding, expectancy, and data-integrity—that must be addressed before psychedelic-assisted therapy can be considered validated.",
         },
+        {
+          id: "psilocybin-depression-remission",
+          title: "Psilocybin Shows Efficacy Signals for Depression, but the Strongest Head-to-Head Missed Its Primary Endpoint",
+          description:
+            "Two distinct NEJM-published trials are often cited for psilocybin in depression, and they must not be conflated. (1) COMPASS Pathways' Phase 2b dose-ranging trial (Goodwin et al., NEJM 2022, n=233 treatment-resistant patients) found that a single 25mg dose reduced MADRS depression scores significantly more than a 1mg control at week 3 (the primary endpoint), but the 10mg dose did not separate from control, durability was demonstrated only to ~12 weeks, and the drug carried meaningful adverse effects (including reported suicidal ideation/behavior in some 25mg participants). (2) The head-to-head psilocybin-vs-escitalopram trial (Carhart-Harris et al., NEJM 2021, n=59) MISSED its primary endpoint: the between-group difference on QIDS-SR-16 at 6 weeks was NOT statistically significant. Psilocybin numerically led on secondary measures (response 70% vs. 48%, remission 57% vs. 28%), but those secondary outcomes were not corrected for multiple comparisons and cannot be treated as confirmatory. A separate open-label Johns Hopkins trial (Gukasyan et al., J Psychopharmacology 2022, n=27) reported antidepressant effects sustained to 12 months, but it had no control arm. In 2025-2026 COMPASS reported that its two Phase 3 TRD trials (COMP005, COMP006) met their primary MADRS endpoints (p<0.001), though the placebo-adjusted effect was modest (~3.6-3.8 MADRS points) and used a non-standard 25% response threshold, prompting analyst and clinician questions about clinical meaningfulness.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source: "NEJM (Goodwin et al. 2022; Carhart-Harris et al. 2021); J Psychopharmacology (Gukasyan et al. 2022); COMPASS Phase 3 readouts (2025-2026)",
+          sourceUrl: "https://doi.org/10.1056/NEJMoa2206443",
+          reasoning:
+            "The NEJM is the highest-impact medical journal and the recent Phase 3 wins are a genuine positive signal. But the evidentiary picture is weaker than headline framing: the only active-comparator trial (vs escitalopram) was null on its pre-specified primary endpoint, the 12-month durability data are open-label without controls, and the Phase 3 effect sizes are modest enough that payers, clinicians, and possibly the FDA may question clinical meaningfulness. The score is moderated to reflect that the dose-comparison and active-comparator designs only partially address blinding, and that the strongest claim (sustained remission) rests substantially on uncontrolled follow-up.",
+        },
+        {
+          id: "blinding-break-rates",
+          title: "67% of MDMA Trial Participants Correctly Identified Their Treatment Assignment",
+          description:
+            "Post-trial blinding assessments in the MAPS/Lykos Phase 3 MDMA-PTSD trials revealed that the large majority of participants (roughly two-thirds or more in the MDMA arm) correctly identified their assignment, and ICER concluded the trials were 'essentially unblinded.' The dramatic subjective effects of MDMA (euphoria, empathy, sensory enhancement) make true blinding extremely difficult. When most participants know they received the active drug, the 'controlled' trial functions partly as an open-label study, and the placebo group's lower improvement may reflect 'nocebo' effects (disappointment at receiving placebo) rather than a pure drug-placebo difference. This is the central reason the FDA advisory committee and ICER discounted the efficacy estimates.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 9,
+          },
+          source: "Nature Medicine; FDA Advisory Committee Briefing Document",
+          sourceUrl: "https://www.fda.gov/media/178377/download",
+          reasoning:
+            "The blinding data comes from the trial's own assessment, published in a top journal. The FDA advisory committee highlighted this as a primary concern. The finding directly challenges the internal validity of the trial, which is the most cited evidence for MDMA therapy. However, imperfect blinding is common in psychiatric drug trials and does not automatically invalidate results.",
+        },
+        {
+          id: "compass-pathways-conflicts",
+          title: "COMPASS Pathways (For-Profit, NASDAQ-Listed) Funds the Pivotal Psilocybin Trials",
+          description:
+            "COMPASS Pathways, a for-profit company listed on NASDAQ, funded the largest Phase 2b trial of psilocybin for treatment-resistant depression (n=233) and sponsored the Phase 3 program (COMP005/COMP006). The company holds patents on its synthetic psilocybin formulation (COMP360) and elements of the therapeutic protocol, which psychedelic advocates argue should remain in the public domain. The financial incentive to produce positive results — and the stock market's reaction to clinical data (its shares fell sharply when Phase 3 effect sizes came in modest) — creates conflicts of interest similar to, though not worse than, those in conventional pharma. This funding structure is a reason to scrutinize and independently replicate the results, which counts against treating the sponsor-funded evidence as settled.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 8,
+            directness: 6,
+          },
+          source: "COMPASS Pathways (COMP360 in treatment-resistant depression); SEC filings; STAT News",
+          sourceUrl: "https://compasspathways.com/our-work/comp360-psilocybin-treatment-in-trd/",
+          reasoning:
+            "The financial facts (NASDAQ listing, patents, trial funding) are publicly verifiable. The conflict of interest is real but standard in drug development — most FDA-approved drugs are tested in company-funded trials. Directness is moderate because the existence of conflicts does not prove that results are biased; it means they should be scrutinized more carefully and replicated by independent investigators.",
+        },
       ],
     },
     {
@@ -177,6 +228,112 @@ export const psychedelicsMentalHealthData = {
             "Peer-reviewed analyses (Lancet MCDA harm rankings; a Neuropharmacology review applying the CSA's own 8 abuse-potential factors to psilocybin) document a mismatch between Schedule I criteria and psilocybin's low dependence and toxicity profile. The primary sourceUrl links the Johnson et al. CSA-factors paper, which is most directly on point for scheduling. Still, rescheduling is a policy judgment that also weighs public-health infrastructure and abuse prevention, so directness to the meta-claim is moderate.",
         },
       ],
+    },
+
+    // =========================================================================
+    // PILLAR 3: Scaling & Access (folded in from the retired
+    // psychedelic-therapy-hype map, 2026-10-06)
+    // =========================================================================
+    {
+      id: "scaling-access",
+      title: "Scaling & Access Challenges",
+      short_summary:
+        "Even if psychedelic therapy works, the treatment model poses enormous scaling challenges. Individual therapy sessions lasting 6-8 hours, the requirement for specially trained therapists, safety monitoring, and costs of $5,000+ per treatment episode make mass access extremely difficult. The question is whether the therapeutic model can be simplified without losing efficacy, or whether psychedelic therapy will remain a luxury treatment for the affluent.",
+      icon_name: "Users" as const,
+      skeptic_premise:
+        "The psychedelic therapy model is fundamentally unscalable. MDMA-assisted therapy for PTSD requires three 8-hour drug sessions, three preparatory sessions, and nine integration sessions — approximately 42 hours of therapist time per patient at a minimum cost of $5,000-$15,000. There are approximately 13 million Americans with PTSD; treating even 10% would require 55 million therapist-hours from specially trained providers who do not yet exist. Psilocybin therapy requires similar time investment. The comparison with conventional antidepressants, which cost $20-50/month and require a 15-minute prescriber visit, illustrates the gulf between psychedelic therapy and population-accessible mental health care. Oregon and Colorado have legalized supervised psilocybin use, but prices range from $1,500-$3,500 per session, and no insurance covers it. Psychedelic therapy may work for those who can afford it and access it, but it will not address the population-level mental health crisis.",
+      proponent_rebuttal:
+        "The scaling concern is valid but ignores two critical factors. First, psychedelic therapy may require only 2-3 sessions to produce lasting effects, compared to years of daily medication and weekly therapy for conventional treatments. The total treatment cost over a patient's lifetime may be lower than chronic SSRI use plus weekly psychotherapy, even at current psychedelic session prices. Second, the model is evolving: group-facilitated psilocybin sessions (4-6 patients per therapist), shorter protocols, and the development of non-psychedelic psychoplastogens (drugs that promote neuroplasticity without the psychedelic experience) could dramatically reduce per-patient costs and time. Ketamine already demonstrates that a simplified protocol — 6 infusions over 2 weeks with minimal therapy — can be effective, though it requires maintenance dosing. The first generation of any medical technology is always expensive and labor-intensive; costs decline as scale increases, training programs expand, and protocols are optimized.",
+      crux: {
+        id: "simplified-protocol-efficacy",
+        title: "The Protocol Simplification Test",
+        question:
+          "Can psychedelic therapy be simplified to scale without losing its effect?",
+        description:
+          "If simplified psychedelic therapy protocols (fewer sessions, group formats, reduced therapist time, or non-hallucinogenic analogs) maintain the therapeutic efficacy of the full protocol at a fraction of the cost and time, scalable psychedelic mental health care is feasible. If the full therapeutic protocol with extensive preparation and integration is essential to the treatment effect, psychedelic therapy will remain a boutique service for the privileged few.",
+        methodology:
+          "Conduct randomized controlled trials comparing: (1) the full MAPS/Compass protocol, (2) a reduced protocol with fewer preparation/integration sessions, (3) a group-facilitated format with 4-6 patients per therapist, and (4) a pharmacological-only condition (drug without structured therapy). Measure clinical outcomes, cost per remission, and patient satisfaction across all conditions. Also track the development of non-hallucinogenic neuroplasticity drugs that could provide the therapeutic mechanism without the psychedelic experience.",
+        verification_status: "theoretical" as const,
+        cost_to_verify:
+          "$15-30M (Multi-arm RCT comparing full vs. simplified protocols across multiple sites)",
+        falsification: {
+          supporter_flip:
+            "If trials comparing the full protocol with reduced, group-facilitated and drug-only formats found that only the full, therapist-intensive protocol works, psychedelic therapy would remain a boutique service rather than a shift in population-level mental health care.",
+          skeptic_flip:
+            "If group formats like the 2023 trial that treated cancer patients with depression three or four at a time, and short protocols like ketamine's 6 infusions over 2 weeks, held their effects at scale, a 2-3 session psychedelic therapy would look scalable.",
+          common_ground:
+            "Both sides agree today's protocols are costly and labor-intensive: MDMA therapy takes roughly 42 hours of therapist time per patient, and supervised psilocybin sessions cost $1,500-$3,500.",
+          live_disagreement:
+            "Whether group formats, shorter protocols and non-hallucinogenic analogs can keep the effect at a fraction of the cost, or whether the full preparation-and-integration protocol is essential to it.",
+        },
+      },
+      evidence: [
+        {
+          id: "treatment-cost-barrier",
+          title: "Supervised Psilocybin Sessions Cost $1,500-$3,500 in Oregon and Colorado",
+          description:
+            "Oregon's Measure 109 (2020) and Colorado's Proposition 122 (2022) legalized supervised psilocybin use for adults. As of 2025, licensed service centers in Oregon charge $1,500-$3,500 per session, which includes screening, preparation, the 6-8 hour supervised session, and a brief integration meeting. No health insurance covers psilocybin sessions. For comparison, a month of generic SSRI antidepressants costs $10-30. The cost barrier effectively limits legal access to middle- and upper-income individuals, exacerbating mental health treatment inequities — concrete evidence that, as currently delivered, the model does not scale to population need.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 9,
+            directness: 9,
+          },
+          source: "Oregon Health Authority, Oregon Psilocybin Services; Colorado Department of Regulatory Agencies; NPR",
+          sourceUrl: "https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/Pages/Oregon-Psilocybin-Services.aspx",
+          reasoning:
+            "The pricing data from state regulatory agencies is highly reliable and directly relevant to the access question. The comparison with SSRI costs starkly illustrates the scaling challenge. The data directly supports the claim that psychedelic therapy faces significant access barriers.",
+        },
+        {
+          id: "group-psilocybin-pilot",
+          title: "Group Psilocybin Therapy Shows Promise in a Cancer/Depression Trial (2023)",
+          description:
+            "An open-label trial (Agrawal et al., published in Cancer, December 2023) administered single-dose psilocybin to 30 patients with cancer and a major depressive disorder in small cohorts (groups of three to four), pairing a one-on-one therapy structure with simultaneous group sessions and a shared dosing day. Results showed clinically meaningful reductions in depression severity sustained at 8 weeks, with no serious treatment-related adverse events. If group formats prove effective in larger controlled trials, they could substantially reduce per-patient therapist time and proportionally reduce costs, making the treatment more accessible — i.e., this is evidence the scaling problem may be tractable, supporting the breakthrough side.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 4,
+            directness: 6,
+          },
+          source: "Agrawal et al., \"Psilocybin-assisted group therapy in patients with cancer diagnosed with a major depressive disorder,\" Cancer (2023)",
+          sourceUrl: "https://doi.org/10.1002/cncr.35010",
+          reasoning:
+            "This is a small, open-label single-arm trial with no placebo control, hence the lower replicability score. However, the finding that a group format may preserve efficacy while dramatically reducing per-patient therapist time is important for the scaling question. Larger controlled trials with comparison groups are needed to confirm.",
+        },
+      ],
+    },
+  ],
+  // The retired psychedelic-therapy-hype map asked the same question as
+  // "revolution or overhype?" (merged 2026-10-06); its names stay findable here.
+  aliases: [
+    "Psychedelic Therapy: Revolution or Overhype?",
+    "Is psychedelic therapy a genuine revolution in mental health care?",
+    "Is psychedelic therapy overhyped?",
+    "Does psychedelic therapy actually work?",
+    "Are the claims about psychedelic therapy exaggerated?",
+  ],
+  references: [
+    {
+      title: "MDMA-Assisted Therapy for Severe PTSD — Nature Medicine (2023)",
+      url: "https://doi.org/10.1038/s41591-023-02565-4",
+    },
+    {
+      title: "FDA Advisory Committee Briefing Document on MDMA (2024)",
+      url: "https://www.fda.gov/media/178377/download",
+    },
+    {
+      title: "Single-Dose Psilocybin for Treatment-Resistant Depression (COMPASS Phase 2b) — NEJM (2022)",
+      url: "https://doi.org/10.1056/NEJMoa2206443",
+    },
+    {
+      title: "Trial of Psilocybin versus Escitalopram for Depression — NEJM (2021)",
+      url: "https://doi.org/10.1056/NEJMoa2032994",
+    },
+    {
+      title: "Oregon Psilocybin Services — Oregon Health Authority",
+      url: "https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/Pages/Oregon-Psilocybin-Services.aspx",
     },
   ],
 };

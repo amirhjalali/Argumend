@@ -121,6 +121,13 @@ describe("retired map redirects (one map per question, 2026-10-06)", () => {
       "/questions/are-electric-cars-better-for-the-environment",
     ],
     ["/is/evs-better-despite-lithium-mining", "/questions/are-electric-cars-better-for-the-environment"],
+    ["/topics/psychedelic-therapy-hype", "/topics/psychedelics-mental-health"],
+    ["/topics/psychedelic-therapy-hype/map", "/topics/psychedelics-mental-health/map"],
+    ["/embed/psychedelic-therapy-hype", "/embed/psychedelics-mental-health"],
+    ["/questions/is-psychedelic-therapy-overhyped", "/questions/can-psychedelics-treat-depression"],
+    ["/questions/does-psychedelic-therapy-actually-work", "/questions/can-psychedelics-treat-depression"],
+    ["/questions/are-the-claims-about-psychedelic-therapy-exaggerated", "/questions/can-psychedelics-treat-depression"],
+    ["/is/psychedelic-therapy-real-breakthrough", "/questions/can-psychedelics-treat-depression"],
   ];
 
   it.each(expected)("%s → %s, permanently", async (source, destination) => {

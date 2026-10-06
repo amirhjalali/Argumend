@@ -902,7 +902,7 @@ export const isClaims: IsClaim[] = [
   },
   {
     slug: "psychedelic-therapy-real-breakthrough",
-    topicId: "psychedelic-therapy-hype",
+    topicId: "psychedelics-mental-health",
     question: "Is psychedelic therapy a genuine breakthrough or overhype?",
     claim:
       "Psychedelic therapy represents a genuine paradigm shift in mental-health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",

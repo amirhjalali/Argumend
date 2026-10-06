@@ -32,5 +32,4 @@ export const PENDING_MERGE_MAP_PAIRS: readonly AllowedMapPair[] = [
   },
   { a: "ai-job-displacement", b: "ai-white-collar-displacement", reason: "Same question; merging into ai-mass-unemployment (2026-10-06)." },
   { a: "us-iran-conflict", b: "iran-war-justification", reason: "Overlapping; merging or reframing (2026-10-06)." },
-  { a: "psychedelics-mental-health", b: "psychedelic-therapy-hype", reason: "Same subject; merging (2026-10-06)." },
 ];

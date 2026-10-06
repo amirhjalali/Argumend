@@ -121,7 +121,6 @@ const topicModuleLoaders = {
   "transgender-athletes-sports": () => import("./topics/transgender-athletes-sports"),
   "animal-consciousness-rights": () => import("./topics/animal-consciousness-rights"),
   "immigration-national-identity": () => import("./topics/immigration-national-identity"),
-  "psychedelic-therapy-hype": () => import("./topics/psychedelic-therapy-hype"),
   "affirmative-action-meritocracy": () => import("./topics/affirmative-action-meritocracy"),
   "ukraine-peace-terms": () => import("./topics/ukraine-peace-terms"),
   "trump-tariffs": () => import("./topics/trump-tariffs"),

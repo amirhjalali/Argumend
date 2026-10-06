@@ -40,7 +40,6 @@ import { nuclearProliferationNewArmsRaceData } from "./topics/nuclear-proliferat
 import { transgenderAthletesSportsData } from "./topics/transgender-athletes-sports";
 import { animalConsciousnessRightsData } from "./topics/animal-consciousness-rights";
 import { immigrationNationalIdentityData } from "./topics/immigration-national-identity";
-import { psychedelicTherapyHypeData } from "./topics/psychedelic-therapy-hype";
 import { eaccVsTechRegulationData } from "./topics/eacc-vs-tech-regulation";
 import { affirmativeActionMeritocracyData } from "./topics/affirmative-action-meritocracy";
 import { fluorideWaterSuppliesData } from "./topics/fluoride-water-supplies";
@@ -264,7 +263,6 @@ export const nuclearProliferationNewArmsRace = buildTopic(nuclearProliferationNe
 export const transgenderAthletesSports = buildTopic(transgenderAthletesSportsData);
 export const animalConsciousnessRights = buildTopic(animalConsciousnessRightsData);
 export const immigrationNationalIdentity = buildTopic(immigrationNationalIdentityData);
-export const psychedelicTherapyHype = buildTopic(psychedelicTherapyHypeData);
 export const eaccVsTechRegulation = buildTopic(eaccVsTechRegulationData);
 export const affirmativeActionMeritocracy = buildTopic(affirmativeActionMeritocracyData);
 export const fluorideWaterSupplies = buildTopic(fluorideWaterSuppliesData);
@@ -484,7 +482,6 @@ export const topics: Topic[] = [
   transgenderAthletesSports,
   animalConsciousnessRights,
   immigrationNationalIdentity,
-  psychedelicTherapyHype,
   affirmativeActionMeritocracy,
   ukrainePeaceTerms,
   trumpTariffs,
@@ -679,7 +676,6 @@ export const CROSS_CATEGORY_CLUSTERS: Record<string, string[]> = {
   "transgender-athletes-sports": ["cancel-culture", "gender-affirming-care-minors", "masculinity-crisis", "social-media-mental-health"],
   "animal-consciousness-rights": ["consciousness-ai-systems", "factory-farming-ban", "veganism-environmental-impact", "meaning-without-religion"],
   "immigration-national-identity": ["immigration-wage-impact", "open-borders", "declining-birth-rates", "housing-affordability-crisis"],
-  "psychedelic-therapy-hype": ["psychedelics-mental-health", "drug-decriminalization", "glp1-weight-loss-drugs", "social-media-mental-health"],
 
   // New topics batch 3 clusters
   "iran-war-justification": ["us-iran-conflict", "nuclear-proliferation-new-arms-race", "surveillance-public-safety", "china-taiwan-invasion"],

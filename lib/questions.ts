@@ -212,6 +212,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Can psychedelics treat depression?",
     "Are psychedelics safe for therapy?",
     "Should psilocybin be legal for mental health?",
+    "Is psychedelic therapy a genuine revolution in mental health care?",
   ],
   "lab-leak-theory": [
     "Did COVID come from a lab?",
@@ -459,11 +460,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Does immigration threaten national identity?",
     "Can immigration and national identity coexist?",
     "Does multiculturalism weaken social cohesion?",
-  ],
-  "psychedelic-therapy-hype": [
-    "Is psychedelic therapy overhyped?",
-    "Does psychedelic therapy actually work?",
-    "Are the claims about psychedelic therapy exaggerated?",
   ],
 
   // --- From the retired /is pages (2026-09-29) ---

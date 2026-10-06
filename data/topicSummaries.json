@@ -1439,17 +1439,17 @@
     "title": "Psychedelics for Mental Health",
     "question": "Should psychedelics be approved to treat depression, PTSD and addiction?",
     "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
-    "confidence_score": 74,
-    "balance": 74,
-    "weight": 52,
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 2,
-    "evidenceCount": 5,
+    "pillarCount": 3,
+    "evidenceCount": 10,
     "firstCrux": "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
     "tags": [
       "science"
@@ -2486,27 +2486,6 @@
     "firstCrux": "Are immigration's economic gains broadly shared, or do the costs fall on low-income natives?",
     "tags": [
       "policy"
-    ]
-  },
-  {
-    "id": "psychedelic-therapy-hype",
-    "title": "Psychedelic Therapy: Revolution or Overhype?",
-    "question": "Is psychedelic therapy a genuine revolution in mental health care?",
-    "meta_claim": "The psychedelic therapy renaissance — with psilocybin, MDMA, and ketamine treatments gaining clinical validation — represents a genuine paradigm shift in mental health treatment, not a repeat of the 1960s overpromise-and-backlash cycle.",
-    "confidence_score": 45,
-    "balance": 45,
-    "weight": 64,
-    "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Do psychedelic therapy's large effects hold up in trials with better blinding?",
-    "tags": [
-      "science"
     ]
   },
   {
