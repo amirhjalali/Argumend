@@ -16,7 +16,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORY_LABELS } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
 import { toneStyles } from "@/lib/categoryColors";
-import { createSiteSearch } from "@/lib/siteSearch";
+import { createSiteSearch, noMapLine } from "@/lib/siteSearch";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { articleSummaries } from "@/data/blogIndex";
 import { concepts } from "@/data/concepts";
@@ -75,6 +75,15 @@ const ALL_MAPS_PAGE: SearchResult = {
   href: "/topics",
 };
 
+/** Where a reader suggests a map: also the "no map yet" empty state's second way forward. */
+const CONTRIBUTE_PAGE: SearchResult = {
+  id: "page-contribute",
+  title: "Contribute",
+  subtitle: "Suggest a correction or a new map on GitHub",
+  type: "page",
+  href: "/about#contribute",
+};
+
 const STATIC_PAGES: SearchResult[] = [
   PASTE_PAGE,
   ALL_MAPS_PAGE,
@@ -94,13 +103,7 @@ const STATIC_PAGES: SearchResult[] = [
     type: "page",
     href: "/about#read-a-map",
   },
-  {
-    id: "page-contribute",
-    title: "Contribute",
-    subtitle: "Suggest a correction or a new map on GitHub",
-    type: "page",
-    href: "/about#contribute",
-  },
+  CONTRIBUTE_PAGE,
   {
     id: "page-methodology",
     title: "How maps are made",
@@ -345,6 +348,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     () => groups.flatMap((g) => g.results),
     [groups]
   );
+  const hasMaps = groups.some((group) => group.type === "map");
 
   const updateQuery = useCallback((nextQuery: string) => {
     setQuery(nextQuery);
@@ -513,30 +517,35 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             className="max-h-[60vh] overflow-y-auto overscroll-contain py-2"
             role="listbox"
           >
-            {groups.length === 0 && query.trim() !== "" && (
-              <div className="px-5 py-12 text-center">
-                <div className="w-12 h-12 rounded-2xl bg-stone-100 dark:bg-[var(--bg-muted)] flex items-center justify-center mx-auto mb-4">
-                  <Search className="h-5 w-5 text-stone-400" />
-                </div>
-                <div className="text-stone-500 text-sm font-medium">
-                  Nothing matching{" "}
-                  <span className="text-primary dark:text-stone-200">
-                    &ldquo;{query}&rdquo;
-                  </span>
-                </div>
-                <div className="mt-2 text-muted dark:text-stone-400 text-xs">
-                  Try different words, or{" "}
+            {/* No map for the query: say so by name, and offer the two ways
+                forward (paste the argument itself; suggest a map). Above any
+                essays or pages that did match, alone when nothing did. */}
+            {query.trim() !== "" && !hasMaps && (
+              <div className={groups.length === 0 ? "px-5 py-12 text-center" : "px-5 pb-3 pt-2"}>
+                {groups.length === 0 && (
+                  <div className="w-12 h-12 rounded-2xl bg-stone-100 dark:bg-[var(--bg-muted)] flex items-center justify-center mx-auto mb-4">
+                    <Search className="h-5 w-5 text-stone-400" />
+                  </div>
+                )}
+                <p className="text-sm font-medium text-primary dark:text-stone-200">{noMapLine(query)}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-secondary dark:text-stone-400">
                   <button
                     type="button"
-                    onClick={() => {
-                      router.push("/topics");
-                      onClose();
-                    }}
-                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors"
+                    onClick={() => navigate(PASTE_PAGE)}
+                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors dark:text-accent-text"
                   >
-                    browse all maps
+                    Paste the argument you&rsquo;re in
+                  </button>{" "}
+                  to find what it turns on, or{" "}
+                  <button
+                    type="button"
+                    onClick={() => navigate(CONTRIBUTE_PAGE)}
+                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors dark:text-accent-text"
+                  >
+                    suggest a map
                   </button>
-                </div>
+                  .
+                </p>
               </div>
             )}
 
