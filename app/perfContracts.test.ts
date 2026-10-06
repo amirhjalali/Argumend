@@ -13,7 +13,12 @@ describe("performance contracts", () => {
     // DebateView and TopicPage import TopicActions and CruxReflection. A server
     // module that imports either (even for a constant) ships both islands to
     // every page that imports it. The crux primitives live in cruxPrimitives.
-    for (const file of ["components/home/homeModel.ts", "components/FeaturedTopicHero.tsx"]) {
+    for (const file of [
+      "components/home/homeModel.ts",
+      "components/FeaturedTopicHero.tsx",
+      // /about draws its crux card with FeaturedTopicHero's WorkedCrux.
+      "app/about/page.tsx",
+    ]) {
       const source = read(file);
       expect(source, file).not.toMatch(/from "@\/components\/argument\/DebateView"/);
       expect(source, file).not.toMatch(/from "@\/components\/topic\/TopicPage"/);
