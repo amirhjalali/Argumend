@@ -117,7 +117,7 @@ export const aiReplacingDoctorsData = {
           supporter_flip:
             "If multi-site trials showed AI diagnostic accuracy collapses on real-world, messy, multi-ethnic clinical data — performing far worse than on clean benchmark images and missing rare conditions — the 'AI will out-diagnose most doctors in a decade' claim would fail at the point that matters.",
           skeptic_flip:
-            "A skeptic who says benchmarks are hype should weigh that AI already matches specialists on real radiology and dermatology reads (not just toy data) and that LLMs outperform physicians on clinical-reasoning vignettes — so 'it only works on clean test cases' is an empirical claim a real-world trial could refute.",
+            "If a multi-site real-world trial found AI matching specialists on radiology and dermatology reads across populations, and LLMs kept outperforming physicians on clinical-reasoning vignettes, 'it only works on clean test cases' would be hard to hold.",
           common_ground:
             "Both sides agree AI performs at or above expert level on narrow, well-defined diagnostic tasks, and that no AI yet diagnoses autonomously in routine practice.",
           live_disagreement:
@@ -280,7 +280,7 @@ export const aiReplacingDoctorsData = {
           supporter_flip:
             "If a randomized trial found AI-primary care produced worse patient outcomes than physician care — missing psychosocial factors, mismanaging chronic and mental illness, eroding adherence and trust — the case that AI can run the whole patient relationship would collapse to 'diagnostic tool, not doctor.'",
           skeptic_flip:
-            "A skeptic who says medicine needs a human should weigh that much of the 'human element' (triage, follow-up, empathy scripts) is increasingly automatable and that AI is available 24/7 without burnout — so the claim that only a human can manage patients is testable, not self-evident.",
+            "If trials found AI handling much of the human element, such as triage, follow-up and empathy scripts, around the clock with patient outcomes matching physician-led care, the claim that only a human can manage patients would lose its footing.",
           common_ground:
             "Both sides agree medicine is more than diagnosis — physical exam, the relationship, managing chronic and mental illness — and that no trial has yet compared AI-primary to physician-primary care on hard outcomes.",
           live_disagreement:
@@ -394,7 +394,7 @@ export const aiReplacingDoctorsData = {
           supporter_flip:
             "If analysis showed regulators won't approve autonomous (unsupervised) AI diagnosis within a decade — because liability has no clear home and risk officers won't adopt it — the 'fundamental disruption within 10 years' timeline would be wrong regardless of raw accuracy.",
           skeptic_flip:
-            "A skeptic who says regulation will block it forever should weigh that the FDA has already cleared 950+ medical-AI devices and is building adaptive frameworks for learning algorithms, and that regulation adapted fast to telemedicine and robotic surgery — so 'regulators will never allow it' overstates the barrier.",
+            "If the FDA's adaptive frameworks for learning algorithms, built on 950+ cleared medical-AI devices, moved toward clearing autonomous diagnosis as fast as rules adapted to telemedicine and robotic surgery, 'regulators will never allow it' would overstate the barrier.",
           common_ground:
             "Both sides agree every FDA-cleared medical AI to date is assistive (human-supervised), and that liability for an autonomous AI's errors is still legally unsettled.",
           live_disagreement:

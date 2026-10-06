@@ -37,7 +37,7 @@ export const nuclearProliferationNewArmsRaceData = {
           supporter_flip:
             "If comparing periods with and without verification showed states keeping an accurate picture of each other's arsenals through satellites and signals intelligence alone, with no rise in warhead estimates, modernization spending or aggressive postures since inspections ended, the loss of treaties would be manageable rather than a driver of risk.",
           skeptic_flip:
-            "A skeptic who trusts deterrence over paper agreements should weigh that New START's inspection regime gave each side confidence in the other's force posture, and that since February 2023 Russia has stopped missile-test notifications, on-site inspections and data exchanges.",
+            "If the lapse of New START's notifications, inspections and data exchanges since February 2023 were followed by rising warhead estimates and more aggressive postures, the view that deterrence works without paper agreements would be hard to hold.",
           common_ground:
             "Both sides agree the treaty architecture has largely collapsed — the INF Treaty ended after Russian violations and New START inspections have stopped — and that there are now nine nuclear-armed states.",
           live_disagreement:
@@ -145,7 +145,7 @@ export const nuclearProliferationNewArmsRaceData = {
           supporter_flip:
             "If SIPRI and FAS counts over the next decade showed global warhead totals roughly stable and new systems replacing old ones without first-strike capabilities or threats to second-strike survivability, today's programs would be modernization rather than an arms race.",
           skeptic_flip:
-            "A skeptic who sees routine replacement should weigh that China's stockpile rose from roughly 200 warheads in 2019 to over 600 by 2025, with roughly 300 new ICBM silos under construction, and that the 2023 Congressional Strategic Posture Commission concluded the US may need to raise its deployed warhead count for the first time since the Cold War.",
+            "If counts kept tracking China's rise from roughly 200 warheads in 2019 to over 600 by 2025 with about 300 new silos, and the US acted on the 2023 Strategic Posture Commission's view that it may need more deployed warheads, routine replacement would describe this poorly.",
           common_ground:
             "Both sides agree much of the US arsenal rests on systems designed in the 1970s-1980s that need replacing, and that US deployed strategic warheads have stayed flat below New START's limit of 1,550.",
           live_disagreement:
@@ -253,7 +253,7 @@ export const nuclearProliferationNewArmsRaceData = {
           supporter_flip:
             "If modeling and tabletop exercises with former nuclear command personnel showed leaders could still deliberate within compressed timelines, keeping humans in the loop without pre-delegation or launch-on-warning postures, the AI and hypersonic concern would be overstated.",
           skeptic_flip:
-            "A skeptic who trusts human-in-the-loop policy should weigh that hypersonic glide vehicles can cut warning times from the Cold War's 30 minutes to under 10 for regional targets, below the 10-15 minutes estimated for reliable deliberation, and that Russia's Perimeter system can transfer launch authority once activated in a crisis.",
+            "If warning times fell toward the under-10 minutes hypersonic glide vehicles allow for regional targets, below the 10-15 minutes estimated for reliable deliberation, and systems like Perimeter transferred launch authority in a crisis, human-in-the-loop policy would look thin.",
           common_ground:
             "Both sides agree human judgment has mattered in past false alarms — Stanislav Petrov correctly judged the 1983 warning to be false — and that no nuclear state is known to have handed launch authority to AI.",
           live_disagreement:

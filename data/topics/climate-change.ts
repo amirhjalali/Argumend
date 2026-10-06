@@ -102,7 +102,7 @@ export const climateChangeData = {
           supporter_flip:
             "If atmospheric δ¹³C stopped declining (or rose) while fossil emissions continued, or if the oxygen-decline and ocean-acidification signatures diverged from the combustion ratio, the 'fossil carbon' attribution would break.",
           skeptic_flip:
-            "The 'natural outgassing' explanation should be abandoned: all three independent signatures — isotopes, oxygen, ocean pH — move exactly as fossil-fuel combustion predicts, and ocean outgassing would push pH the opposite way.",
+            "If new isotope, oxygen and ocean-pH records kept moving as fossil-fuel combustion predicts, with pH falling where ocean outgassing would raise it, the 'natural outgassing' explanation would be hard to hold.",
           common_ground:
             "Both sides agree CO₂ has varied naturally over Earth's history and that the modern level is the highest in at least ~800,000 years.",
           live_disagreement:
@@ -319,7 +319,7 @@ export const climateChangeData = {
           supporter_flip:
             "If a measured natural forcing — a real upward trend in solar irradiance or a cosmic-ray-driven cloud change — could be shown to close the ~0.5–1 W/m² energy imbalance, the 'only greenhouse gases fit' conclusion would fail.",
           skeptic_flip:
-            "The solar explanation should be set aside: solar irradiance has been flat-to-declining since 1980 while warming accelerated, and cosmic-ray flux shows no matching trend.",
+            "If new measurements kept finding solar irradiance flat-to-declining since 1980 while warming accelerated, and cosmic-ray flux kept showing no matching trend, the solar explanation would be hard to hold.",
           common_ground:
             "Both sides agree the sun is the ultimate driver of Earth's climate and that volcanic eruptions and orbital cycles measurably affect it.",
           live_disagreement:

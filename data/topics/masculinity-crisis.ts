@@ -79,7 +79,7 @@ export const masculinityCrisisData = {
           supporter_flip:
             "If a decomposition of NLSY or PSID data found that controlling for income, wealth, parental education, location and race erased most of the male-female gaps in education, mental health, mortality and work, the crisis would be mainly economic rather than one of young men as such.",
           skeptic_flip:
-            "A skeptic who sees a class crisis should weigh that boys struggle from elementary school onward, with lower reading scores and higher dropout rates across every demographic group, and that men now earn only about 42% of bachelor's degrees, down from around 57% in the early 1970s.",
+            "If decompositions found boys behind from elementary school on in reading and dropout rates across every demographic group, and men's share of bachelor's degrees stayed near 42% after 57% in the early 1970s, the gaps would look tied to gender rather than class alone.",
           common_ground:
             "Both sides agree the underlying numbers are real: men die by suicide at nearly 4x women's rate and now earn about 42% of bachelor's degrees.",
           live_disagreement:
@@ -191,7 +191,7 @@ export const masculinityCrisisData = {
           supporter_flip:
             "If communities that received job retraining and new industry saw men's suicide, labor-force participation, social connection and life satisfaction recover without any cultural programs, the crisis would be primarily economic and the identity-and-purpose part of the claim would weaken.",
           skeptic_flip:
-            "A skeptic who sees a purely economic crisis should weigh that suicide rates are elevated even among affluent professionals such as physicians and dentists, that wealthy, low-unemployment Japan and South Korea have some of the highest male suicide rates, and that the share of men with zero close friends rose from 3% to 15% since 1990.",
+            "If more data matched elevated suicide among affluent professionals such as physicians, high male suicide in wealthy, low-unemployment Japan and South Korea, and the rise in men with no close friends from 3% to 15% since 1990, money alone would look unlikely to end the crisis.",
           common_ground:
             "Both sides agree the decline of male-dominated industries has hurt working-class men — real wages for men without degrees have fallen 14% since 1979 — and that economic help is at least part of the answer.",
           live_disagreement:
@@ -286,7 +286,7 @@ export const masculinityCrisisData = {
           supporter_flip:
             "If randomly assigning struggling men aged 18-35 to traditional, progressive or blended 12-month programs showed one existing framework significantly improving mental health, connection and life satisfaction, the claim that neither left nor right has an adequate answer would weaken.",
           skeptic_flip:
-            "A skeptic who thinks the existing frameworks suffice should weigh that the APA's 2019 description of traditional masculinity as 'on the whole, harmful' drew major backlash, and that Andrew Tate's content drew over 11.6 billion views on TikTok — signs of a vacuum mainstream frameworks are not filling.",
+            "If backlash like that to the APA's 2019 'on the whole, harmful' description kept growing, and figures like Andrew Tate kept drawing audiences on the scale of 11.6 billion TikTok views, the existing frameworks would look like they leave a vacuum.",
           common_ground:
             "Both sides agree some traditional norms, such as suppressing emotion and avoiding help, do real harm to men, and that progressive messaging about them has often landed badly with young men.",
           live_disagreement:

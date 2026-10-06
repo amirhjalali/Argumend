@@ -50,7 +50,7 @@ export const veganismEnvironmentalData = {
           supporter_flip:
             "If integrated food-system models showed large dietary shifts deliver far smaller real-world savings than the per-capita studies imply — because freed grazing land doesn't actually draw down carbon, rebound effects redirect it to other emissions, or non-arable land can't substitute crops at scale — the 'single biggest lever' claim would shrink.",
           skeptic_flip:
-            "A skeptic who notes food is only ~26% of emissions should weigh that within food, animal products drive the majority of land use and emissions, and that no other single consumer choice approaches a ~75% footprint cut — so the lever is real even if it isn't the whole problem.",
+            "If food-system accounts confirmed animal products drive most of food's land use and emissions, and no other single consumer choice came near a ~75% footprint cut, diet would look like a major lever even though food is about 26% of emissions.",
           common_ground:
             "Both sides agree animal agriculture is the most land- and emissions-intensive part of the food system, and that much grazing land cannot be converted to crops.",
           live_disagreement:
@@ -136,7 +136,7 @@ export const veganismEnvironmentalData = {
           supporter_flip:
             "If large long-term cohorts showed appropriately-planned vegan diets producing higher mortality or chronic-disease rates than matched omnivores even in affluent populations with supplement access, the 'nutritionally adequate for all life stages' claim would weaken.",
           skeptic_flip:
-            "A skeptic worried about deficiencies should weigh that the largest nutrition bodies judge well-planned vegan diets adequate for all life stages, and that the environmental case only asks affluent, supplement-served populations to shift — not food-insecure regions that depend on animal-source micronutrients.",
+            "If more nutrition bodies judged well-planned vegan diets adequate for all life stages, and the shift were limited to affluent, supplement-served populations rather than food-insecure regions, the deficiency objection would lose most of its force.",
           common_ground:
             "Both sides agree vegan diets require deliberate planning and B12 supplementation, and that animal-source foods are nutritionally critical where supplement supply chains are weak.",
           live_disagreement:

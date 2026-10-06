@@ -57,7 +57,7 @@ export const hydrogenEconomyViabilityData = {
           supporter_flip:
             "If sector-by-sector analysis showed cheaper non-hydrogen routes can decarbonize most of steel, ammonia, and shipping (e.g. scrap-based electric arc furnaces, carbon capture, e-fuels from captured CO2, or batteries for short-sea routes), then hydrogen's 'indispensable molecule' claim would shrink to a small niche rather than a pillar of the energy transition.",
           skeptic_flip:
-            "A skeptic who says hydrogen is too expensive even here should weigh that there is no demonstrated battery-electric path for primary steel, ammonia feedstock, or trans-ocean shipping — so for these specific tonnes, the real comparison is 'expensive hydrogen vs. continued fossil emissions,' not 'hydrogen vs. cheaper electrification.'",
+            "If sector studies kept finding no workable battery-electric path for primary steel, ammonia feedstock or ocean shipping, the real choice for those tonnes would be costly hydrogen versus continued fossil emissions, and 'too expensive' would weigh less.",
           common_ground:
             "Both sides agree these sectors are genuinely hard to electrify directly and that green hydrogen is currently far more expensive than the incumbent fossil route.",
           live_disagreement:
@@ -181,7 +181,7 @@ export const hydrogenEconomyViabilityData = {
           supporter_flip:
             "If, even after accounting for energy density and seasonal storage, system models showed direct electrification beats hydrogen on useful-energy-per-clean-kWh in essentially every end use — including grid balancing and heavy transport — then the 'reserve hydrogen for the niches' case would collapse and hydrogen would be a stranded detour.",
           skeptic_flip:
-            "A skeptic who treats low round-trip efficiency as disqualifying should weigh that for seasonal grid storage (months, not hours) and for aviation/shipping (where kg-per-MJ, not electrical efficiency, binds), batteries have no economical answer — so for those specific uses the efficiency penalty is the correct price to pay rather than a fatal flaw.",
+            "If system models found batteries had no economical answer for seasonal grid storage, or for aviation and shipping where weight per unit of energy binds, the efficiency penalty in those uses would look like a price worth paying rather than a fatal flaw.",
           common_ground:
             "Both sides agree that for passenger cars and home heating, batteries and heat pumps deliver far more useful energy per unit of clean electricity, and that hydrogen there is wasteful.",
           live_disagreement:
@@ -306,7 +306,7 @@ export const hydrogenEconomyViabilityData = {
           supporter_flip:
             "If a decade of realized data showed green-hydrogen costs plateauing well above $3-4/kg, the announcement-to-FID conversion rate staying near today's ~7%, and offtake commitments failing to materialize, then the 'it's just early on the cost curve' case would be falsified and hydrogen would look like a perennial subsidy-dependent hype cycle.",
           skeptic_flip:
-            "A skeptic who calls it a perpetual hype cycle should weigh that solar PV and lithium batteries each fell roughly 90% once volume scaled — defying the same 'never cheap enough' arguments — and that IRA credits and EU Hydrogen Bank auctions are already driving subsidized projects toward $1/kg, so a solar-like decline is a live possibility, not a fantasy.",
+            "If subsidized projects under IRA credits and EU Hydrogen Bank auctions reached about $1/kg and costs kept falling with volume, the way solar PV and lithium batteries each fell roughly 90%, a solar-like decline would look like a live path rather than hype.",
           common_ground:
             "Both sides agree green hydrogen is several times more expensive than grey today, and that announced projects have vastly outrun those actually financed and built.",
           live_disagreement:

@@ -79,7 +79,7 @@ export const alternativesToDemocracyData = {
           supporter_flip:
             "If comparing democratic and non-democratic governments on emissions, pandemic preparedness, infrastructure, debt and education — controlling for GDP, geography and development — showed no systematic democratic shortfall on long-horizon problems, the case that democracy is structurally short-termist would weaken.",
           skeptic_flip:
-            "A skeptic who trusts democratic reform should weigh that satisfaction with democracy across 12 high-income democracies fell from 49% in 2021 to 36% in 2024, and that climate targets — halving emissions by 2030, net zero by 2050 — leave little time for slow institutional evolution.",
+            "If satisfaction with democracy kept falling after its drop from 49% in 2021 to 36% in 2024 across 12 high-income democracies, while reforms lagged the 2030 and 2050 climate deadlines, slow institutional evolution would look too slow and alternatives would merit a look.",
           common_ground:
             "Both sides agree today's democracies show real dysfunction: polarization, gridlock, and satisfaction falling to 36% across 12 high-income democracies by 2024.",
           live_disagreement:
@@ -157,7 +157,7 @@ export const alternativesToDemocracyData = {
           supporter_flip:
             "If municipal-level comparisons found sortition bodies with binding power producing policy no better than elected legislatures, or losing their deliberative quality and resistance to lobbying once they held real authority, the case for sortition as a serious alternative would weaken.",
           skeptic_flip:
-            "A skeptic who sees citizen assemblies as mere supplements should weigh that Ireland's assembly of 99 randomly selected citizens broke a decades-long abortion deadlock with a recommendation voters then approved by a two-thirds majority, and that France's Citizens' Convention on Climate produced 149 proposed measures.",
+            "If more citizen assemblies matched Ireland's, where 99 randomly selected citizens broke an abortion deadlock with a recommendation two-thirds of voters approved, and France's climate convention's 149 measures became policy, sortition would look like more than a supplement.",
           common_ground:
             "Both sides agree the citizen assemblies tried so far have been advisory and convened by elected officials, and that Ireland's recommendation took effect only through a referendum.",
           live_disagreement:
@@ -235,7 +235,7 @@ export const alternativesToDemocracyData = {
           supporter_flip:
             "If comparing recovery from financial crises, environmental disasters, health emergencies and wars showed democracies consistently correcting failed policies faster than other systems, the Churchill defense would be empirically validated and the case for alternatives would weaken.",
           skeptic_flip:
-            "A skeptic who trusts democratic error-correction should weigh that the V-Dem Institute reports 15 consecutive years of global democratic backsliding, with elected leaders using democratic mechanisms to weaken democratic institutions, and that democracies took two decades after scientific consensus to begin seriously addressing climate change.",
+            "If V-Dem's count of 15 straight years of democratic backsliding kept growing through elected leaders weakening institutions, and future crises repeated the two-decade lag on climate, democratic error-correction would look too slow to rule out alternatives.",
           common_ground:
             "Both sides agree democracy's error-correction — elections, a free press, independent courts — is real but slow and imperfect.",
           live_disagreement:

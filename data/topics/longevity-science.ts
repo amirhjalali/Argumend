@@ -56,7 +56,7 @@ export const longevityScienceData = {
           supporter_flip:
             "If multiple senolytic Phase 2/3 trials failed to improve human healthspan biomarkers (frailty, inflammation, epigenetic age) despite striking mouse results, it would suggest the mouse-to-human translation gap for aging interventions may be insurmountable — deflating the '20 years to longer healthspan' timeline.",
           skeptic_flip:
-            "A skeptic who says it's mouse hype should weigh that 30+ senolytic human trials are now registered and that the mechanism (clearing senescent cells reduces inflammation) is well-characterized — so 'it only works in mice' is a hypothesis being actively tested, not a settled verdict.",
+            "If the 30+ registered senolytic human trials began reporting healthspan gains from clearing senescent cells, such as lower inflammation and frailty, 'it only works in mice' would be hard to hold.",
           common_ground:
             "Both sides agree senolytics produce striking results in mice and that no senolytic has yet demonstrated extended healthy lifespan in humans.",
           live_disagreement:
@@ -168,7 +168,7 @@ export const longevityScienceData = {
           supporter_flip:
             "If partial epigenetic reprogramming kept causing cancer or teratomas in higher animals — or the rejuvenation effect vanished once treatment stopped — the dream of 'resetting' biological age in living humans would stall, confining the approach to lab-dish cell therapy.",
           skeptic_flip:
-            "A skeptic citing cancer risk should weigh that pulsed, partial reprogramming has reversed cell-age markers without full dedifferentiation in animal studies — so 'it inevitably causes tumors' is an engineering challenge being worked on, not a proven dead end.",
+            "If pulsed, partial reprogramming reversed cell-age markers in primates without full dedifferentiation or tumors, extending the animal studies, the cancer risk would look like an engineering problem rather than a dead end.",
           common_ground:
             "Both sides agree partial reprogramming can reduce biological-age markers in cells and animals, and that uncontrolled reprogramming risks cancer.",
           live_disagreement:
@@ -276,7 +276,7 @@ export const longevityScienceData = {
           supporter_flip:
             "If the TAME trial launched and metformin failed to delay the composite of age-related diseases versus placebo, the strongest near-term case that a drug can slow aging — and the FDA pathway for anti-aging drugs — would suffer a major setback.",
           skeptic_flip:
-            "A skeptic who says aging isn't a treatable target should weigh that TAME is explicitly designed to test 'aging as a treatable condition' with a hard composite endpoint (heart attack, cancer, dementia, death) — so the claim is falsifiable and being put to a real test, not just asserted.",
+            "If TAME, designed to test 'aging as a treatable condition' against a hard composite of heart attack, cancer, dementia and death, found metformin delaying that composite, the view that aging is not a treatable target would be hard to hold.",
           common_ground:
             "Both sides agree TAME is the most important near-term test of pharmacological life extension, and that as of 2026 it remains only partially funded and hasn't enrolled.",
           live_disagreement:

@@ -95,7 +95,7 @@ export const centralBankDigitalCurrencyData = {
           supporter_flip:
             "If a cryptographic review showed that a deployed CBDC architecture (e.g., one built on zero-knowledge proofs) makes transaction-level surveillance and selective freezing technically impossible even for the issuing central bank — not merely prohibited by policy — the 'unprecedented surveillance and control' charge would collapse to a design-choice problem rather than an inherent property.",
           skeptic_flip:
-            "A skeptic who calls the fears illiterate should weigh that China's e-CNY has already been tested with expiry dates and geographic spending limits, that Canada froze 200+ accounts in 2022 under emergency powers, and that every privacy promise to date is policy-enforced (revocable) rather than architecturally enforced (irreversible) — so the capability for control demonstrably exists.",
+            "If more CBDC pilots tested expiry dates and geographic spending limits as the e-CNY did, and privacy stayed a revocable policy promise rather than an architectural limit, Canada's 2022 freezes of 200+ accounts would look like a preview, and the fears would be hard to dismiss.",
           common_ground:
             "Both sides agree the existing financial system is already heavily surveilled, and that a CBDC's privacy depends entirely on whether protections are baked into the cryptography or merely written into rules.",
           live_disagreement:
@@ -188,9 +188,9 @@ export const centralBankDigitalCurrencyData = {
           "$500K-1.5M (Multi-country comparative financial inclusion study)",
         falsification: {
           supporter_flip:
-            "A supporter who points to M-Pesa should weigh that mobile-money networks are privately controlled, fragmented across providers, and often non-interoperable, whereas a central-bank-backed, universally interoperable unit could in principle deliver crisis stimulus to every citizen in seconds — something the US visibly failed to do when COVID checks took weeks and missed millions of unbanked people.",
+            "If a central-bank-backed, universally interoperable unit delivered crisis payments to every citizen in seconds, where private, fragmented mobile-money networks and weeks-late COVID checks fell short, the inclusion benefits would weigh against the surveillance worry.",
           skeptic_flip:
-            "A skeptic who rests the case for CBDCs on inclusion should change their mind if a controlled multi-country comparison showed that existing mobile-money and instant-payment rails (M-Pesa, India's UPI) already reach the unbanked and cut remittance costs just as well as a CBDC, with no inclusion gap a CBDC uniquely closes: the inclusion rationale would then shrink to redundancy, leaving the CBDC's added surveillance and bank-disintermediation risks without an offsetting benefit.",
+            "If a controlled multi-country comparison found M-Pesa and India's UPI reaching the unbanked and cutting remittance costs as well as a CBDC, the inclusion rationale would shrink to redundancy, leaving the surveillance and disintermediation risks with no offsetting benefit.",
           common_ground:
             "Both sides agree that financial inclusion is a real and valuable goal and that the unbanked are largely excluded by poverty, missing ID, and distrust rather than by a lack of digital-currency technology.",
           live_disagreement:
@@ -268,7 +268,7 @@ export const centralBankDigitalCurrencyData = {
           supporter_flip:
             "If multi-year tracking showed CBDC bridges like mBridge plateauing at trivial volumes relative to SWIFT (which clears trillions of dollars daily) and failing to give sanctioned states (Russia, Iran) a usable workaround — constrained by liquidity, network effects, and counterparty risk — the 'geopolitical weapon against the dollar' claim would deflate to a marginal, incremental development.",
           skeptic_flip:
-            "A skeptic who calls de-dollarization overstated should weigh that mBridge reached Minimum Viable Product in 2024 with Saudi Arabia joining, that the BIS withdrew partly over sanctions-evasion optics, and that Russia's SWIFT exclusion has actively pushed BRICS-aligned states to seek CBDC alternatives — so the trajectory, not just the current level, is the relevant variable.",
+            "If mBridge kept growing from its 2024 Minimum Viable Product with members like Saudi Arabia, and states shut out of SWIFT kept turning to CBDC rails, the trajectory rather than today's small volume would make de-dollarization hard to call overstated.",
           common_ground:
             "Both sides agree the dollar currently dominates reserves and trade settlement by a wide margin, and that any CBDC challenge to it would unfold gradually rather than as a sudden displacement.",
           live_disagreement:

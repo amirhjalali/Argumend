@@ -78,7 +78,7 @@ export const childrenSmartphoneAgeData = {
           supporter_flip:
             "If a 12-month trial randomizing 1,000 adolescents to full smartphones, phones with social media and algorithmic feeds blocked, basic phones or no phone found no differences in mental health, sleep or stress markers, the developmental-harm case for a ban would lose its causal footing.",
           skeptic_flip:
-            "A skeptic who points to small effect sizes should weigh that total screen time is a noisy proxy that may dilute the effects of social media in particular, that persistent sadness among US teen girls rose from 36% in 2011 to 57% in 2021, and that the suicide rate for girls aged 10-14 more than doubled over roughly the same period.",
+            "If studies that isolated social media from total screen time found effects larger than the diluted averages, in line with the rise in persistent sadness among US teen girls from 36% in 2011 to 57% in 2021, the small-effect-size objection would lose its footing.",
           common_ground:
             "Both sides agree average associations between screen time and wellbeing are small — in the r = 0.05-0.15 range — and that much of the experimental literature is contested or methodologically weak.",
           live_disagreement:
@@ -173,7 +173,7 @@ export const childrenSmartphoneAgeData = {
           supporter_flip:
             "If a comparison across 30+ countries found the onset of adolescent mental-health decline varying independently of each country's smartphone adoption, once economic conditions, safety nets and education systems are controlled for, alternative explanations would gain ground and the case for a ban would weaken.",
           skeptic_flip:
-            "A skeptic who sees many possible causes should weigh that the post-2012 decline appears across the US, UK, Canada, Australia and Scandinavia — countries with very different economies and safety nets — while few proposed alternatives show the same sharp inflection or cross-national pattern.",
+            "If more countries' data showed the same sharp post-2012 decline seen across the US, UK, Canada, Australia and Scandinavia, despite very different economies and safety nets, and no alternative cause matched that timing, the many-causes view would be hard to hold.",
           common_ground:
             "Both sides agree the cross-national data are noisier than advocates sometimes suggest, with some countries fitting poorly, and that observational dose-response patterns are confounded.",
           live_disagreement:
@@ -251,7 +251,7 @@ export const childrenSmartphoneAgeData = {
           supporter_flip:
             "If communities running Wait Until 8th or phone-free school programs for two or more years reached 70%+ adoption and removed the social-exclusion penalty, voluntary action would solve the coordination problem and a government ban would be unnecessary.",
           skeptic_flip:
-            "A skeptic who prefers voluntary approaches should weigh that the Wait Until 8th pledge has drawn wide attention but limited participation, that each family faces a dilemma in which giving the phone dominates whatever others do, and that Australia began enforcing an under-16 social media ban in December 2025.",
+            "If pledges like Wait Until 8th stayed at limited participation while Australia's under-16 social media ban, enforced from December 2025, cut youth use where pledges could not, voluntary approaches would look unable to solve the coordination problem.",
           common_ground:
             "Both sides agree the collective-action problem is real: a child without a smartphone risks social exclusion when every peer has one, so single families struggle to hold out alone.",
           live_disagreement:

@@ -41,7 +41,7 @@ export const immigrationNationalIdentityData = {
           supporter_flip:
             "If a distributional analysis across income quintiles, regions and 5-, 15- and 30-year horizons found immigration's gains broadly shared — or large enough to compensate low-income natives for wage, housing and public-service pressures — the economic strand of the claim would weaken.",
           skeptic_flip:
-            "A skeptic who sees immigration as broadly beneficial should weigh Borjas's estimate that immigration cut wages for native workers without a high school diploma by 7.4%, that low-skilled immigrants often draw more in public services than they pay in taxes for 15-20 years, and that GDP per capita grows far more slowly than total GDP.",
+            "If distributional work replicated Borjas's 7.4% wage estimate for native workers without a high school diploma, found 15-20 year net fiscal costs for low-skilled arrivals, and showed GDP per capita lagging total GDP, the view that the gains are broadly shared would be hard to hold.",
           common_ground:
             "Both sides agree immigration raises aggregate GDP, and that its fiscal impact depends on immigrants' skill level and on the time horizon measured.",
           live_disagreement:
@@ -119,7 +119,7 @@ export const immigrationNationalIdentityData = {
           supporter_flip:
             "If a 20-year comparison of 15-20 OECD countries found high-immigration countries with strong integration policies keeping social trust and civic participation high while similar countries with weak policies did not, policy design rather than immigration itself would drive cohesion, undercutting the claim that integration cannot cope.",
           skeptic_flip:
-            "A skeptic who trusts integration policy should weigh Putnam's survey of 30,000 Americans across 41 communities, which found diversity associated with lower trust even within groups, and the argument that shared language and civic norms take generations to build but can be disrupted faster than they are rebuilt.",
+            "If new surveys repeated Putnam's finding across communities that diversity tracks lower trust even within groups, and shared language and civic norms proved slower to rebuild than to disrupt, confidence in integration policy would weaken.",
           common_ground:
             "Both sides accept Putnam's finding that diversity is linked to lower trust in the short to medium term, and that the pace and type of immigration affect whether integration succeeds.",
           live_disagreement:
@@ -197,7 +197,7 @@ export const immigrationNationalIdentityData = {
           supporter_flip:
             "If modeling showed that cutting immigration to match public preference would bring labor shortages in healthcare, agriculture and eldercare plus pension strain no government could accept, the gap would reflect economic necessity rather than elite capture, and the 'without consent' framing would weaken.",
           skeptic_flip:
-            "A skeptic who sees necessity should weigh that 55% of Americans wanted immigration decreased in 2024 — up from 41% in 2023 and the first majority since 2005 — and that governments of both left and right have kept levels above what majorities say they want.",
+            "If polling held at the 2024 level, with 55% of Americans wanting immigration decreased, up from 41% in 2023, while governments of both left and right kept levels above that, economic necessity would explain the gap less well.",
           common_ground:
             "Both sides agree polls in most developed democracies show majorities or pluralities wanting less immigration, and that politicians who promise cuts often fail to deliver them.",
           live_disagreement:

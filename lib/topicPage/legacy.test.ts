@@ -68,8 +68,8 @@ describe("legacyTopicPage", () => {
         skeptic: pillar.crux.falsification!.skeptic_flip,
         // "Yes" to the map's question, said in full: the crux question just
         // above may be worded the other way round.
-        supporterLead: "Someone who says yes to the map’s question would change their mind if…",
-        skepticLead: "Someone who says no to the map’s question would change their mind if…",
+        supporterLead: "What would change the mind of someone who says yes to the map’s question",
+        skepticLead: "What would change the mind of someone who says no to the map’s question",
       });
       // Common ground already shown up top is not repeated in the fold.
       expect(crux.runIns).toEqual(

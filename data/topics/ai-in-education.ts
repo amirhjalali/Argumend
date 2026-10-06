@@ -56,7 +56,7 @@ export const aiInEducationData = {
           supporter_flip:
             "If a large multi-site RCT showed AI-tutoring gains are uniform or skewed toward already-advantaged students — not disproportionately helping low-performing, disadvantaged kids — then AI would be an amplifier of inequality, not the equalizer the case requires.",
           skeptic_flip:
-            "A skeptic who says it widens gaps should weigh that the 2-sigma tutoring effect is real and that AI can deliver personalized tutoring at near-zero cost to students who could never afford a human tutor — so 'it'll only help the rich' is a hypothesis a stratified trial could refute.",
+            "If a stratified trial found AI tutoring, delivered at near-zero cost, giving students who could never afford a human tutor gains approaching the 2-sigma tutoring effect, 'it'll only help the rich' would lose its footing.",
           common_ground:
             "Both sides agree one-on-one tutoring produces large learning gains (the 2-sigma effect) and that technology access and usage vary by student background.",
           live_disagreement:
@@ -164,7 +164,7 @@ export const aiInEducationData = {
           supporter_flip:
             "If students who learned with AI performed worse than non-AI students on closed-book transfer tests — showing they outsourced thinking rather than building it — the 'AI improves learning' claim would invert: better assisted performance masking weaker independent ability.",
           skeptic_flip:
-            "A skeptic who says AI makes students lazy should weigh that AI with metacognitive scaffolding (explain, critique, revise the AI's output) can deepen rather than replace thinking — so 'AI inevitably makes students dependent' depends on how it's used, which is testable.",
+            "If students who used AI with metacognitive scaffolding, explaining, critiquing and revising its output, did as well as or better than others on closed-book transfer tests, 'AI inevitably makes students dependent' would turn on how it is used.",
           common_ground:
             "Both sides agree AI can be used either to do the work for students or to coach them through it, and that the two produce very different learning.",
           live_disagreement:
@@ -254,7 +254,7 @@ export const aiInEducationData = {
           supporter_flip:
             "If schools deploying AI mainly to cut costs (bigger classes, fewer teachers) produced worse outcomes than AI-with-maintained-staffing, it would show the technology's benefit depends entirely on an augmentation model that budget pressure tends to undermine.",
           skeptic_flip:
-            "A skeptic who fears teacher replacement should weigh that AI that handles grading and drilling can free teachers for higher-value mentoring — so 'AI just means fewer teachers and worse schools' is an implementation choice, not a property of the technology.",
+            "If schools using AI to handle grading and drilling kept staffing steady and teachers moved that time into mentoring, 'AI just means fewer teachers and worse schools' would look like a budget choice rather than a property of the technology.",
           common_ground:
             "Both sides agree the implementation model (augment vs. replace) matters more than the raw capability, and that budget pressure pushes toward cost-cutting deployments.",
           live_disagreement:

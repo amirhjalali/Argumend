@@ -37,7 +37,7 @@ export const minneapolisShootingData = {
           supporter_flip:
             "If complete, unedited body-camera footage from every agent present, cross-checked against bystander video timestamps and witness statements, showed Pretti holding a gun and approaching officers as DHS described, the case that the shooting was excessive force would largely fall away.",
           skeptic_flip:
-            "A skeptic who accepts the self-defense account should weigh that multiple independent recordings reviewed by NPR, Reuters, BBC, the NYT, CNN and The Guardian show a different sequence than officials described, with reviewers reporting Pretti held a phone rather than a gun, and that he held a valid Minnesota permit to carry.",
+            "If the full set of recordings, including those reviewed by NPR, Reuters, BBC, the NYT, CNN and The Guardian, confirmed a sequence unlike the official one, with Pretti holding a phone rather than a gun and carrying a valid permit, the self-defense account would be hard to hold.",
           common_ground:
             "Both sides agree federal agents shot and killed Alex Pretti on January 24, 2026, and that agents' body-camera footage exists and bears directly on what happened.",
           live_disagreement:
@@ -156,7 +156,7 @@ export const minneapolisShootingData = {
           supporter_flip:
             "If an independent comparison found CBP and ICE use-of-force training hours, de-escalation requirements and accountability mechanisms on par with accredited police departments, the two January shootings would read as separate incidents turning on their own facts rather than a systemic problem.",
           skeptic_flip:
-            "A skeptic who sees two unrelated incidents should weigh that two U.S. citizens were shot dead by federal agents in one state within roughly three weeks — Renée Good on January 7 and Alex Pretti on January 24, 2026 — and that if federal training and de-escalation rules fall short of local police standards, the pattern points to training, rules or supervision.",
+            "If an independent comparison found CBP and ICE force training and de-escalation rules short of local police standards, two U.S. citizens killed by federal agents within about three weeks, Renée Good on January 7 and Alex Pretti on January 24, 2026, would point to training, rules or supervision.",
           common_ground:
             "Both sides agree two U.S. citizens were killed by federal agents in Minnesota in January 2026, during an enforcement surge amid large protests.",
           live_disagreement:

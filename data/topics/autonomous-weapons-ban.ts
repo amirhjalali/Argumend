@@ -53,9 +53,9 @@ export const autonomousWeaponsBanData = {
         cost_to_verify: "$0 (legal analysis of existing doctrine)",
         falsification: {
           supporter_flip:
-            "If a careful doctrinal mapping showed that every realistic autonomous-strike atrocity can be traced to a chargeable human under Rome Statute command responsibility plus Article 36 weapons-review duties — so no genuine accountability vacuum exists — the 'responsibility gap' rationale for a ban would collapse into 'enforce the law we already have.'",
+            "If a careful doctrinal mapping showed that every realistic autonomous-strike atrocity can be traced to a chargeable human under Rome Statute command responsibility plus Article 36 weapons-review duties, the 'responsibility gap' rationale for a ban would collapse into 'enforce the law that exists.'",
           skeptic_flip:
-            "A skeptic who says existing IHL is sufficient should weigh that command responsibility requires a commander to have known or foreseen the unlawful act; an adaptive system acting in a situation no human specifically anticipated may leave prosecutors unable to prove the mens rea that war-crimes liability demands.",
+            "If an adaptive system committed an unlawful strike in a situation no commander foresaw, and prosecutors could not prove the knowledge or foresight that command responsibility requires, the view that existing IHL suffices would be hard to hold.",
           common_ground:
             "Both sides agree that a human must remain legally responsible for any lethal act and that a weapon whose behavior a commander cannot adequately predict or control should not be deployed.",
           live_disagreement:
@@ -152,7 +152,7 @@ export const autonomousWeaponsBanData = {
           supporter_flip:
             "If a credible verification design emerged — intrusive inspection, enforceable limits on observable physical/behavioral characteristics, or compute/hardware controls — that great powers were actually willing to accept, the 'autonomy is software, so a ban is unverifiable' objection would lose its force.",
           skeptic_flip:
-            "A skeptic who says a ban is unverifiable should weigh that the prohibitions on blinding lasers (CCW Protocol IV) and anti-personnel landmines work largely through stigma, criminalization, and changed procurement rather than perfect detection — so 'no inspection regime' has not historically meant 'no effective ban.'",
+            "If studies of the blinding-laser (CCW Protocol IV) and landmine bans found them changing procurement through stigma and criminalization without inspection, and the same began to happen with autonomy, 'unverifiable' would no longer mean 'ineffective'.",
           common_ground:
             "Both sides agree that a 'smart' and a 'dumb' munition can be externally indistinguishable, and that great-power buy-in (or its absence) is decisive for whether any treaty actually constrains behavior.",
           live_disagreement:

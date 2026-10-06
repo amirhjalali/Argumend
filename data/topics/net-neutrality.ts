@@ -55,7 +55,7 @@ export const netNeutralityData = {
           supporter_flip:
             "If a longitudinal catalog showed confirmed blocking/throttling was no more frequent in deregulated periods than in regulated ones — and that the few episodes were one-offs resolved by competition, FTC action, or public pressure rather than recurring whenever rules lapsed — the case for an ex-ante common-carrier backstop would weaken to 'transparency-plus-antitrust is enough.'",
           skeptic_flip:
-            "A skeptic who calls the threat hypothetical should weigh that the documented violations (Madison River, Comcast, AT&T FaceTime, Netflix interconnection) each occurred while no enforceable rule was binding, and that broadband is concentrated enough that market discipline is weak — so 'competition already deters this' is not established.",
+            "If a longitudinal catalog found the documented episodes (Madison River, Comcast, AT&T FaceTime, Netflix interconnection) each falling in windows with no binding rule, and broadband markets too concentrated for market discipline, the view that competition deters this on its own would be hard to hold.",
           common_ground:
             "Both sides agree a short list of real blocking/throttling incidents is genuinely documented, and that most affected markets have only one or two wireline broadband providers.",
           live_disagreement:
@@ -149,9 +149,9 @@ export const netNeutralityData = {
         cost_to_verify: "$50K (econometric panel analysis)",
         falsification: {
           supporter_flip:
-            "A supporter of the investment-chill thesis should change their mind if firm-level capex disclosures and a clean difference-in-differences design (isolating rule timing from macro conditions) showed buildout was no lower under the rules than the counterfactual — as Free Press argued aggregate US capex actually rose ~5% after the 2015 order.",
+            "If firm-level capex disclosures and a clean difference-in-differences design that separates rule timing from macro conditions showed buildout no lower under the rules, as Free Press argued when aggregate US capex rose about 5% after the 2015 order, the investment-chill thesis would lose its footing.",
           skeptic_flip:
-            "A skeptic of the chill claim should weigh the peer-reviewed Briglauer et al. (2023) OECD panel finding net-neutrality rules associated with a 22-25% drop in new fiber investment under instrumental-variable identification — so 'the rules cost nothing' is not established either.",
+            "If further panel work replicated Briglauer et al. (2023), whose OECD instrumental-variable estimates tie net-neutrality rules to a 22-25% drop in new fiber investment, 'the rules cost nothing' would be hard to hold.",
           common_ground:
             "Both sides agree on the actual reported capex figures; the dispute is purely about the counterfactual — what investment would have been absent the rules — and which denominator (aggregate spend vs. new fiber connections, nominal vs. inflation-adjusted) is correct.",
           live_disagreement:
@@ -225,9 +225,9 @@ export const netNeutralityData = {
         cost_to_verify: "$0 (public enforcement records + measurement data)",
         falsification: {
           supporter_flip:
-            "A supporter of rules should reconsider if network-measurement data and FTC/state-AG records across the deregulated 2018-2025 window showed no measurable increase in harmful, non-transparent traffic discrimination versus the 2015-2017 baseline — i.e., the internet stayed effectively open without a federal rule, suggesting competition, transparency, and reputation sufficed.",
+            "If network-measurement data and FTC and state-AG records across the deregulated 2018-2025 window showed no rise in harmful, non-transparent discrimination against the 2015-2017 baseline, competition, transparency and reputation would look sufficient without a federal rule.",
           skeptic_flip:
-            "A skeptic who treats the Sixth Circuit ruling as settling the matter should weigh that the court decided who may write the rules, not whether discrimination is harmless — and that prior violations all arose when no rule bound the ISP, so the absence of recent ones could reflect litigation-era scrutiny rather than durable market discipline.",
+            "If the prior violations all turned out to fall in windows when no rule bound the provider, and the quiet years tracked litigation-era scrutiny rather than market discipline, the Sixth Circuit ruling on who may write the rules would not settle whether discrimination is harmless.",
           common_ground:
             "Both sides agree the Sixth Circuit's January 2025 decision is a binding ruling on FCC statutory authority, and that Congress could still legislate open-internet protections regardless of how that authority question came out.",
           live_disagreement:

@@ -222,7 +222,7 @@ export const aiConsciousnessData = {
           supporter_flip:
             "If a rigorous framework showed that extending moral status to AI reliably backfires — blocking essential safety shutdowns or diverting protection from humans and animals — the case for AI-welfare protections would weaken to near zero.",
           skeptic_flip:
-            "If credible indicators of sentience accumulated in advanced systems, the precautionary logic we already apply to animals of uncertain consciousness would obligate at least minimal protections.",
+            "If credible indicators of sentience accumulated in advanced systems, the precautionary logic applied to animals of uncertain consciousness would extend to them, and at least minimal protections would be hard to refuse.",
           common_ground:
             "Both sides agree we extend some moral caution to animals whose consciousness we cannot verify, and that anthropomorphizing AI for commercial reasons is a real risk.",
           live_disagreement:

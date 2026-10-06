@@ -408,7 +408,7 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
   );
 }
 
-/** "Someone who says yes / no would change their mind if…" — rust names the proponent side, brown the skeptic. */
+/** "What would change the mind of someone who says yes / no…" — rust names the proponent side, brown the skeptic. */
 function MindChange({
   label,
   tone,

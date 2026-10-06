@@ -103,9 +103,9 @@ export const inflationMonetaryPolicyData = {
         cost_to_verify: "$10K (econometric analysis of publicly available FRED data)",
         falsification: {
           supporter_flip:
-            "A monetarist should reconsider if a Granger-causality test on the 2020-2023 episode showed M2 growth had no predictive power for CPI once commodity-price and shipping-cost shocks are controlled for — or if the cross-country data showed economies with far smaller monetary expansions experienced similar inflation, implying money was incidental rather than causal.",
+            "If a Granger-causality test on 2020-2023 found M2 growth had no predictive power for CPI once commodity and shipping shocks were controlled for, or economies with far smaller monetary expansions saw similar inflation, money would look incidental rather than causal.",
           skeptic_flip:
-            "A skeptic should weigh that the 2020-2021 expansion was qualitatively unlike post-2008 QE — stimulus checks and PPP put money directly into consumers' hands rather than into bank reserves — and that M2 velocity, while it collapsed at the lockdown trough, recovered as the economy reopened, so the swollen money stock met returning demand rather than staying inert.",
+            "If new studies confirmed that stimulus checks and PPP put money in consumers' hands rather than bank reserves, unlike post-2008 QE, and that M2 velocity recovered as the economy reopened, the swollen money stock would look like fuel for returning demand rather than inert.",
           common_ground:
             "Both sides agree M2 grew about 40% in two years (a genuinely unprecedented post-WWII expansion) and that money growth alone is not mechanically sufficient for inflation — the post-2008 QE episode shows the transmission mechanism matters.",
           live_disagreement:
@@ -211,9 +211,9 @@ export const inflationMonetaryPolicyData = {
           "$25K (econometric modeling with BLS microdata)",
         falsification: {
           supporter_flip:
-            "A demand-side proponent should reconsider if a sectoral decomposition showed core services ex-housing (\"supercore\") inflation tracked one-for-one with energy and shipping costs rather than running hot independently — or if the disinflation from 9.1% to ~3% turned out to coincide with a hidden labor-market loosening, implying demand had to be wrung out after all.",
+            "If a sectoral breakdown showed 'supercore' services inflation tracking energy and shipping costs one-for-one rather than running hot on its own, and the fall from 9.1% to about 3% came without any labor-market loosening, supply shocks would look like the main driver rather than demand.",
           skeptic_flip:
-            "A supply-side skeptic should weigh that supercore inflation peaked near a 6.8% three-month annualized rate in categories largely insulated from factory and shipping bottlenecks, that nominal consumption overshot its pre-pandemic trend, and that even Bernanke-Blanchard project labor-market tightness as the more persistent driver once one-off shocks fade.",
+            "If decompositions confirmed supercore inflation peaking near a 6.8% annualized rate in categories insulated from factory and shipping bottlenecks, nominal consumption overshooting its pre-pandemic trend, and labor-market tightness persisting as Bernanke-Blanchard project, demand would look like the larger driver.",
           common_ground:
             "Both sides accept the Bernanke-Blanchard finding that the initial 2021 surge was driven mainly by commodity-price and sectoral supply/demand-composition shocks rather than an overheated labor market, and that shipping and commodity costs had largely normalized by 2022 while inflation persisted.",
           live_disagreement:
@@ -324,9 +324,9 @@ export const inflationMonetaryPolicyData = {
           "$100K (DSGE modeling with full macroeconomic dataset)",
         falsification: {
           supporter_flip:
-            "Someone who blames the Fed's delay should reconsider if DSGE counterfactuals robustly showed that Q3 2021 tightening would have produced a recession with little inflation benefit — because much of the 2021-2022 surge came from supply shocks that monetary policy cannot directly offset — making the late start defensible rather than costly.",
+            "If DSGE counterfactuals robustly found that Q3 2021 tightening would have caused a recession with little inflation benefit, because much of the surge came from supply shocks monetary policy cannot offset, the Fed's late start would look defensible rather than costly.",
           skeptic_flip:
-            "A defender of the \"transitory\" framing should weigh that the Fed held rates at zero and kept buying $120B/month in assets into early 2022 even as CPI ran above 7%, that Summers warned of overheating in February 2021, and that standard Taylor Rule benchmarks implied liftoff should have begun in 2021 rather than March 2022.",
+            "If Taylor Rule counterfactuals confirmed that liftoff was due in 2021 rather than March 2022, while zero rates and $120B a month in asset buying ran into early 2022 with CPI above 7%, the 'transitory' framing would be hard to defend against Summers's February 2021 overheating warning.",
           common_ground:
             "Both sides agree the Fed ultimately ran the fastest tightening cycle in 40 years (0-0.25% to 5.25-5.50%), that long-term inflation expectations stayed broadly anchored, and that a soft landing was achieved with unemployment near 4%.",
           live_disagreement:

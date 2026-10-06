@@ -96,7 +96,8 @@ export interface CruxEntryData {
   runIns: RunInText[];
   /**
    * What would change each side's mind, with the lead-in naming that side
-   * ("Someone who says yes would change their mind if…").
+   * ("What would change the mind of someone who says yes…"). Each flip is
+   * a whole conditional sentence (lib/topicPage/flipContract.ts).
    */
   flips?: { supporter: string; skeptic: string; supporterLead: string; skepticLead: string };
   /**

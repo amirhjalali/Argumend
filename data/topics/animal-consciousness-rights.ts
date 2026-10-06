@@ -51,7 +51,7 @@ export const animalConsciousnessRightsData = {
           supporter_flip:
             "If validated, non-anthropocentric consciousness measures (e.g., perturbational complexity index or IIT phi) reliably scored a wide range of animals as non-conscious — or if the markers fired in systems everyone agrees are not conscious (a thermostat, a simple feedback circuit) — the inference from homologous neural substrate and complex behavior to widespread consciousness would collapse into anthropomorphic over-reading.",
           skeptic_flip:
-            "A skeptic invoking Morgan's Canon should weigh that the morphine-reversal result in fish, the LSE/Birch marker-based review that became UK law, and convergent neural-plus-behavioral evidence in mammals and birds already use explicit, pre-specified criteria rather than ad hoc human projection — so 'it's all anthropomorphism' is not the most parsimonious read for the clearest cases.",
+            "If pre-specified marker criteria, like those behind the LSE/Birch review that became UK law and the morphine-reversal test in fish, kept picking out the same animals across mammals, birds and fish, 'it's all anthropomorphism' would be hard to hold for the clearest cases.",
           common_ground:
             "Both sides agree subjective experience cannot be measured directly in any species (including other humans), that behavioral complexity alone does not prove consciousness, and that some animals (at minimum mammals and birds) show neural and behavioral indicators worth taking seriously.",
           live_disagreement:
@@ -193,7 +193,7 @@ export const animalConsciousnessRightsData = {
           supporter_flip:
             "If every framework that grants rights to conscious animals, when applied consistently, forced clearly absurd conclusions — for instance an obligation to police predation across the wild, or to extend rights to bacteria and insects without limit — then the move from 'this animal suffers' to 'therefore it has rights' would be exposed as incoherent rather than merely demanding.",
           skeptic_flip:
-            "A skeptic relying on the social-contract criterion should weigh that the same test would strip moral status from human infants, the severely cognitively disabled, and future generations, none of whom can reciprocate obligations — and that Birch's precautionary 'edge of sentience' framework already shows how to act proportionately under uncertainty without requiring metaphysical certainty.",
+            "If analysis confirmed that the social-contract test, applied consistently, would strip moral status from infants, the severely cognitively disabled and future generations, and Birch's 'edge of sentience' approach let policy act proportionately under uncertainty, that test would lose its force against animal rights.",
           common_ground:
             "Both sides agree that the capacity to suffer is at least morally relevant, that gratuitously torturing an animal is wrong, and that some line-drawing is unavoidable because borderline cases exist for every moral theory.",
           live_disagreement:
@@ -288,7 +288,7 @@ export const animalConsciousnessRightsData = {
           supporter_flip:
             "If, after two more decades, plant-based and cultivated proteins still cost far more than conventional meat at scale, non-animal research methods kept underperforming animal models in drug-development success rates, and animal-free diets remained nutritionally inadequate for large populations, then 'the alternatives will make exploitation obsolete' would fail and the practical case for continued (better-welfare) animal use would stand.",
           skeptic_flip:
-            "A skeptic forecasting civilizational collapse should weigh that the FDA Modernization Act 2.0 (2022) already ended the mandate for animal testing before human trials, that plant-based and cultivated-meat sectors have grown rapidly, and that comparable 'collapse' predictions accompanied the abolition of slavery and child labor — so 'it can't be done' is contradicted by transitions already underway, even if their pace is uncertain.",
+            "If alternatives to animal testing spread under the FDA Modernization Act 2.0 (2022), which ended the mandate for animal tests before human trials, and plant-based and cultivated-meat sectors kept growing, the forecast that the shift would bring collapse would be hard to hold.",
           common_ground:
             "Both sides agree that today's economy still depends heavily on animal use, that roughly a billion people rely on livestock for their livelihoods, and that any transition must be judged on real cost, nutrition, and medical-outcome parity rather than aspiration.",
           live_disagreement:

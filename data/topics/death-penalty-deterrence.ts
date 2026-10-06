@@ -47,7 +47,7 @@ export const deathPenaltyDeterrenceData = {
         cost_to_verify: "$1M (Multi-state longitudinal study with econometric controls)",
         falsification: {
           supporter_flip:
-            "If well-identified natural experiments (states adopting or abolishing the penalty, with synthetic controls) keep showing no causal deterrent effect, the deterrence rationale should be dropped — leaving only retribution to carry the argument.",
+            "If well-identified natural experiments (states adopting or abolishing the penalty, with synthetic controls) kept showing no causal deterrent effect, the deterrence rationale would fall away, leaving only retribution to carry the argument.",
           skeptic_flip:
             "If credible causal designs robustly showed each execution prevents a meaningful number of murders (replicating the disputed Dezhbakhsh-type result under better identification), the 'no deterrent benefit' objection would fall.",
           common_ground:

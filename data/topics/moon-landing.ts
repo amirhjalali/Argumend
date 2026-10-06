@@ -95,7 +95,7 @@ export const moonLandingData = {
           supporter_flip:
             "If the laser returns from the Apollo coordinates turned out to be explainable without manufactured corner-cube prisms — e.g., natural lunar regolith or a non-Apollo source produced the same precise, time-resolved retroreflection from those exact surveyed spots — the 'physical trace' proof would collapse.",
           skeptic_flip:
-            "A skeptic insisting it's all NASA's word should weigh that the ranging is done by non-NASA institutions on multiple continents (Grasse in France, Matera in Italy), that the signal comes back only from precise pre-surveyed coordinates, and that a corner-cube prism's sharp return is hard to fake remotely from Earth.",
+            "If more independent observatories, like those at Grasse in France and Matera in Italy, kept getting sharp corner-cube returns only from the pre-surveyed Apollo coordinates, the claim that it all rests on NASA's word would be hard to hold.",
           common_ground:
             "Both sides agree no Earth-based telescope, including Hubble, can directly resolve the landers — that limit is set by diffraction, not by what's actually on the surface.",
           live_disagreement:
@@ -203,7 +203,7 @@ export const moonLandingData = {
           supporter_flip:
             "If independent reconstruction of the Apollo trajectories and belt-intensity data showed the crews must have absorbed hundreds of rads — incompatible with the recorded ~0.16–1.14 rad mission doses — then either the dosimetry was falsified or the transits couldn't have been survived as described, and the radiation rebuttal would fail.",
           skeptic_flip:
-            "A skeptic citing 'lethal belts' should weigh that dose equals intensity × time, that the high-speed transit through the thinner belt edge lasted only minutes, and that the independently published Explorer/probe belt measurements are consistent with the low recorded Apollo doses.",
+            "If independent reconstructions using the published Explorer and probe belt data found minutes-long transits through the thinner belt edge yielding doses near Apollo's recorded ~0.16–1.14 rad, the 'lethal belts' objection would lose its footing.",
           common_ground:
             "Both sides agree the Van Allen belts contain genuinely dangerous trapped radiation and that a slow or poorly routed transit would deliver a far higher, potentially harmful dose.",
           live_disagreement:

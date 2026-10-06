@@ -49,7 +49,7 @@ export const drugDecriminalizationData = {
           supporter_flip:
             "If well-matched comparisons showed decriminalization — even bundled with treatment investment — reliably RAISING problematic use or overdose deaths versus criminalization, i.e. Portugal's results turned out to be driven by something other than the policy package and replicated nowhere, the public-health case would collapse.",
           skeptic_flip:
-            "A skeptic fearing a usage surge should weigh that two decades of Portuguese data show overdose deaths far below the EU average and use near the European norm, with no 'drug tourism' explosion — the predicted catastrophe simply did not occur where decrim was paired with treatment.",
+            "If other places that paired decriminalization with treatment saw what Portugal reports, overdose deaths well below the EU average and use near the European norm with no drug tourism, the fear of a usage surge would lose its footing.",
           common_ground:
             "Both sides agree that decriminalization WITHOUT funded treatment and harm-reduction capacity — the Oregon path — does not deliver Portugal's results.",
           live_disagreement:
@@ -157,7 +157,7 @@ export const drugDecriminalizationData = {
           supporter_flip:
             "If a rigorous randomized trial showed coerced, criminal-justice-linked treatment (drug courts) produced durably better long-term sobriety and lower recidivism than voluntary, outreach-based referral, the case for removing the criminal entry point would weaken.",
           skeptic_flip:
-            "A skeptic who favors criminal leverage should weigh that drug courts reach only a small share of drug-involved people and still require a criminal charge as the on-ramp — so even a per-participant advantage doesn't show criminalization beats a well-funded voluntary system at the population level.",
+            "If population-level data showed drug courts reaching only a small share of drug-involved people, so that a well-funded voluntary system treated more people overall despite any per-participant edge for courts, the case for keeping arrest as the on-ramp would weaken.",
           common_ground:
             "Both sides agree that treatment access is what actually reduces addiction harm; the dispute is over the best on-ramp to treatment — a criminal charge versus voluntary outreach.",
           live_disagreement:

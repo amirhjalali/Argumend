@@ -50,7 +50,7 @@ export const gunControlEffectivenessData = {
           supporter_flip:
             "If the strongest natural experiments (Australia 1996, Connecticut's permit law, the Missouri repeal) consistently failed to show gun-law changes reducing firearm deaths once you account for pre-existing trends and confounders — i.e. the cross-national gap turned out to be driven by non-policy factors (violence concentration, drug markets, inequality) — the 'stricter laws cut violence' claim would weaken.",
           skeptic_flip:
-            "A skeptic who cites American exceptionalism should weigh that the cross-national gap is enormous and consistent, and that specific before/after changes (Australia's mass-shooting drop to zero for two decades) line up with the policy — so the burden is to explain why the US would be immune to measures that track with lower deaths almost everywhere else.",
+            "If new before-and-after studies, testing the link between Australia's 1996 law and its two decades without a mass shooting, tied gun-law changes to lower deaths and the cross-national gap held after controls, the view that the US is an exception would be hard to hold.",
           common_ground:
             "Both sides agree the US has far more guns and far higher firearm-death rates than peer democracies, and that ~393 million existing guns make any new restriction slow to reach the stockpile.",
           live_disagreement:
@@ -162,9 +162,9 @@ export const gunControlEffectivenessData = {
         cost_to_verify: "$50K (Database analysis)",
         falsification: {
           supporter_flip:
-            "If careful analysis showed mass-shooting casualty counts don't actually fall when high-capacity/assault weapons are restricted — because shooters substitute handguns with little loss of lethality, or because the casualty gap reflects target choice rather than the weapon — the case for assault-weapon and magazine limits would weaken (RAND already rates that causal evidence inconclusive).",
+            "If careful analysis showed mass-shooting casualties do not fall when assault weapons and high-capacity magazines are restricted, because shooters switch to handguns with little loss of lethality or the gap reflects target choice, the case for those limits would weaken.",
           skeptic_flip:
-            "A skeptic who says weapon type doesn't matter should weigh that mass shootings with assault weapons average more than twice the deaths per incident (Everytown: 11.5 vs 5.1) and that high-capacity magazines mechanically raise the ceiling on how many can be shot before reload — so weapon type plausibly affects lethality even if a ban's net effect is hard to isolate.",
+            "If incident-level analysis, testing Everytown's figures of 11.5 deaths per assault-weapon shooting against 5.1 otherwise, found the gap held after accounting for target choice and reload limits, the view that weapon type does not affect lethality would be hard to hold.",
           common_ground:
             "Both sides agree most mass shooters obtain their guns legally (~74%), so background-check expansion alone would miss most of them.",
           live_disagreement:

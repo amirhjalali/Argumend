@@ -41,7 +41,7 @@ export const dogeFederalCutsData = {
           supporter_flip:
             "If matching every line of the 'Wall of Receipts' against USASpending.gov and FPDS left verified savings a small fraction of the claimed total, and revenue lost through IRS cuts exceeded that figure, the claim that DOGE made government leaner would fail on its own accounting terms.",
           skeptic_flip:
-            "A skeptic who calls the savings fictional should weigh that GAO estimates direct annual federal losses to fraud at $233-521 billion — a large pool of genuine waste — and that even conservative verified figures run to billions. A reconciliation that nets real savings above revenue losses would support the efficiency claim.",
+            "If a line-by-line reconciliation netted real savings above revenue losses, drawing on the large pool GAO describes at $233-521 billion a year in federal fraud losses, calling the savings fictional would be hard to hold.",
           common_ground:
             "Both sides agree DOGE's ledger contained real errors — an ICE contract listed at $8 billion was actually $8 million — and that only part of the claimed total has been independently verified.",
           live_disagreement:
@@ -153,7 +153,7 @@ export const dogeFederalCutsData = {
           supporter_flip:
             "If SSA phone waits, VA mental-health waits, IRS processing times and FAA safety-incident rates stayed worse than their pre-cut baselines 24 or more months after the cuts, the disruption would read as a lasting loss of capacity rather than the growing pains of a restructuring.",
           skeptic_flip:
-            "A skeptic who reads the rehiring as proof of failure should weigh that roughly 25,000 rehires out of more than 350,000 departures is a 7% correction rate, that Congress and the courts checked several of the deepest cuts, and that service metrics returning to baseline would mark the disruption as temporary.",
+            "If service metrics returned to their pre-cut baselines, and the roughly 25,000 rehires out of more than 350,000 departures held at a 7% correction rate with courts and Congress checking the deepest cuts, the disruption would look temporary.",
           common_ground:
             "Both sides agree service metrics worsened after the cuts, and that roughly 25,000 fired workers were rehired once agencies found them essential.",
           live_disagreement:
@@ -265,7 +265,7 @@ export const dogeFederalCutsData = {
           supporter_flip:
             "If appellate courts keep enforcing Train v. City of New York and the Impoundment Control Act against the funds freeze, and the Supreme Court preserves Humphrey's Executor in Trump v. Slaughter, the legal footing for DOGE's spending and removal methods would largely give way.",
           skeptic_flip:
-            "A skeptic who sees a constitutional crisis should weigh that in July 2025 the Supreme Court, on its emergency docket, granted the administration broad authority to reshape and shrink the federal workforce, and that a Trump v. Slaughter ruling narrowing Humphrey's Executor would put removals on firmer legal ground.",
+            "If the Supreme Court's July 2025 emergency-docket grant of broad authority to reshape the federal workforce were confirmed in full briefing, and a Trump v. Slaughter ruling narrowed Humphrey's Executor, the removals and spending methods would rest on firmer legal ground and the crisis framing would weaken.",
           common_ground:
             "Both sides agree the courts are the arbiter and have ruled both ways: lower courts found OPM's mass firings unlawful and blocked the funds freeze, while the Supreme Court granted broad authority to shrink the workforce.",
           live_disagreement:
@@ -377,7 +377,7 @@ export const dogeFederalCutsData = {
           supporter_flip:
             "If an audit found civil-service rules, approval chains and procurement procedures largely unchanged while headcount fell, the smaller workforce would be doing the same unproductive work with less capacity, and the reform claim would fail.",
           skeptic_flip:
-            "A skeptic who sees only a headcount cut should weigh that past 'reinventing government' efforts failed while respecting every procedure, and that if cycle times and output per employee improved after the cuts, the disruption bought real reform.",
+            "If cycle times and output per employee improved after the cuts, where earlier 'reinventing government' efforts that respected every procedure did not, the changes would look like reform rather than a headcount cut.",
           common_ground:
             "Both sides agree the federal personnel process is broken: about 99.8% of employees get positive reviews, and the government fires at roughly one-quarter the private-sector rate for procedural reasons.",
           live_disagreement:

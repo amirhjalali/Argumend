@@ -59,7 +59,7 @@ export const deExtinctionSpeciesData = {
           supporter_flip:
             "If proponents accepted a genomic-identity standard — under which an animal must carry the great majority of an extinct lineage's fixed genetic differences to count — they would have to concede that a 14-gene-edited gray wolf is not a restored dire wolf, only a look-alike.",
           skeptic_flip:
-            "If critics accepted a strictly functional/phenotypic species concept and the proxy were shown to look, behave, and fill the niche of the extinct animal, they would have to grant that 'restoration' is a defensible label — the same way conservationists already accept ecological proxies (e.g., substitute tortoises on islands).",
+            "If a proxy animal were shown to look, behave and fill the niche of the extinct one, and a functional species concept were adopted, as conservation does for substitute tortoises on islands, 'restoration' would become a defensible label.",
           common_ground:
             "Both sides agree the animals are overwhelmingly gray wolf by genome, that no ancient dire-wolf DNA was inserted, and that the editing itself is a real technical achievement.",
           live_disagreement:

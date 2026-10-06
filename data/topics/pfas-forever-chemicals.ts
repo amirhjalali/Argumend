@@ -57,9 +57,9 @@ export const pfasForeverChemicalsData = {
           "$5-20M (multi-cohort prospective follow-up and pooled reanalysis across C8, NHANES, and occupational cohorts; some designs already partially completed)",
         falsification: {
           supporter_flip:
-            "If prospective and externally-assigned-exposure designs consistently showed the cancer and cholesterol associations attenuate to null once GFR and temporality are accounted for, a proponent should concede those specific \"probable links\" reflect reverse causation, not harm — narrowing the established harms to the immune and developmental endpoints.",
+            "If prospective designs with externally assigned exposure found the cancer and cholesterol links fading to null once kidney function and timing were accounted for, those 'probable links' would look like reverse causation, narrowing the case to immune and developmental harms.",
           skeptic_flip:
-            "A skeptic leaning on the GFR objection should weigh that the immune effects (reduced vaccine antibody response) and reduced birth weight cannot be explained by kidney filtration, that animal toxicology shows liver and developmental effects, and that effects persist in some designs that fix temporality — so \"it's all reverse causation\" is already falsified for several endpoints.",
+            "If designs that fix the timing of exposure kept finding weaker vaccine antibody response and lower birth weight, harms kidney filtration cannot explain, 'it's all reverse causation' would no longer cover those endpoints.",
           common_ground:
             "Both sides agree PFAS are biologically active (clear effects in animals and on cholesterol/immune markers in humans) and that some specific-cancer associations are observational and contested.",
           live_disagreement:
@@ -179,9 +179,9 @@ export const pfasForeverChemicalsData = {
           "$3-10M (pooled exposure-response modeling across cohorts plus ecological trend analysis tracking outcome rates against the documented serum decline)",
         falsification: {
           supporter_flip:
-            "If pooled exposure-response analysis showed harms appear only above concentrations seen in the C8/occupational range — with a clear no-effect threshold above typical general-population levels — and outcome rates did not respond to the 70-85% serum decline, a proponent should concede general-population risk is small and the case for universal alarm overstated.",
+            "If pooled exposure-response curves showed harms only at C8 and occupational levels, with a clear no-effect threshold above typical blood levels, and outcome rates did not move with the 70-85% serum decline, the case for alarm about general-population exposure would weaken.",
           skeptic_flip:
-            "A skeptic invoking \"the dose makes the poison\" should weigh that PFOS/PFOA bioaccumulate with multi-year half-lives, that EPA set a zero health goal because it found no safe threshold for these two, and that the decline covers only the deliberately phased-out legacy compounds while replacements and TFA rise — so \"the problem is shrinking\" is true only for part of the PFAS universe.",
+            "If no safe threshold emerged for PFOS and PFOA, which build up in the body over years, and replacement compounds and TFA kept rising while only the phased-out legacy PFAS declined, 'the problem is shrinking' would hold for only part of the PFAS universe.",
           common_ground:
             "Both sides agree PFAS are near-universally detectable and extraordinarily persistent, and that legacy PFOS/PFOA blood levels have fallen sharply since the phase-outs.",
           live_disagreement:
@@ -301,9 +301,9 @@ export const pfasForeverChemicalsData = {
           "$2-5M (regulatory cost-benefit reconciliation, treatment-cost engineering audit, and longitudinal tracking of chemical substitution patterns)",
         falsification: {
           supporter_flip:
-            "If a rigorous net-benefit analysis showed treatment costs (closer to AWWA's $3B/year) swamp the monetized, dose-response-defensible health benefits at the 4-ppt limit, and that class bans simply shift production to substitutes of comparable toxicity, a proponent should concede a narrower, prioritized regime beats a sweeping ban-and-treat mandate.",
+            "If a net-benefit analysis found treatment costs near AWWA's $3B a year outweighing the defensible health benefits at the 4-ppt limit, and class bans just shifted production to equally toxic substitutes, a narrower, prioritized regime would look better than a sweeping ban-and-treat mandate.",
           skeptic_flip:
-            "A skeptic citing cost and the GenX precedent should weigh that polluters have already committed over $11 billion in settlements (shifting cost off ratepayers), that even AWWA's $3B/year is small against documented health and litigation costs, and that the GenX fiasco is the strongest argument *for* class-wide regulation rather than against any regulation.",
+            "If an audit found the $11 billion-plus in polluter settlements covering much of the cleanup bill, health and litigation costs exceeding even AWWA's $3B a year, and replacements like GenX comparably toxic, class-wide rules would look like the cheaper path.",
           common_ground:
             "Both sides agree cleanup is genuinely expensive, that GenX was a regrettable substitution no better than PFOA, and that the worst polluters owe substantial compensation (as the settlements reflect).",
           live_disagreement:

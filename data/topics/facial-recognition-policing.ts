@@ -58,9 +58,9 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$250K (independent demographic benchmark per system)",
         falsification: {
           supporter_flip:
-            "A supporter of the bias claim should update if independent, system- and threshold-specific testing (NPL-style) repeatedly showed that the algorithms agencies actually deploy, at their operating thresholds, produce no statistically significant demographic differential in false matches — meaning the bias is an artifact of weak legacy algorithms and bad settings, not the technology as fielded today.",
+            "If independent, system- and threshold-specific testing like the NPL's kept finding no significant demographic differential in false matches for the algorithms agencies deploy at their operating thresholds, the bias would look like a legacy of weak algorithms and bad settings rather than the tools in use.",
           skeptic_flip:
-            "A skeptic relying on the best-case NPL result should weigh that NIST's 8280 study found 10–100× higher false positives for Asian and African American faces in older algorithms, that the FAS analysis shows accuracy gains shrink absolute gaps without reliably erasing relative ones, and that 'best algorithm at the right threshold' is not what every agency buys or how every vendor configures its system.",
+            "If audits of what agencies buy and how vendors configure it found the 10-100x false-positive gaps NIST 8280 measured in older algorithms persisting in the field, with accuracy gains shrinking absolute gaps but not relative ones, the best-case NPL result would not describe policing in practice.",
           common_ground:
             "Both sides agree that demographic bias is real in many algorithms, that it depends heavily on the specific algorithm and confidence threshold, and that bias re-emerges at lower thresholds even in systems judged equitable at their operating threshold.",
           live_disagreement:
@@ -153,9 +153,9 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$300K (multi-jurisdiction case-file audit)",
         falsification: {
           supporter_flip:
-            "A supporter of restriction should update if a representative case-file audit found that where matches were confined to leads and independent probable cause was established before arrest, wrongful arrests largely disappeared — meaning the harm is a procedural failure that corroboration rules can fix rather than something intrinsic to the tool, which could then keep generating leads in robberies, assaults, child-exploitation and cold cases.",
+            "If a representative case-file audit found wrongful arrests largely disappearing where matches stayed leads and independent probable cause came before arrest, the harm would look like a fixable procedural failure, and the tool's value in robberies, assaults, child-exploitation and cold cases would weigh more.",
           skeptic_flip:
-            "A skeptic who blames only bad procedure should weigh that the same audit might show corroboration rules are routinely ignored in practice — that 'a match is just a lead' is policy on paper while officers arrest on the match alone — in which case the procedural fix is illusory and the practical effect is indistinguishable from arresting on the algorithm.",
+            "If a representative case-file audit found corroboration rules routinely ignored, with officers arresting on the match alone while 'a match is just a lead' stayed policy on paper, the procedural fix would look illusory and the harm built into how the tool is used.",
           common_ground:
             "Both sides agree that in every documented US wrongful arrest the match was treated as the sole or primary basis and basic follow-up was skipped, and that a match should function as an investigative lead requiring independent corroboration, never as proof.",
           live_disagreement:
@@ -249,9 +249,9 @@ export const facialRecognitionPolicingData = {
         cost_to_verify: "$150K (comparative policy and records analysis)",
         falsification: {
           supporter_flip:
-            "A supporter of hard restriction should weigh that the GAO did not find the tool ineffective but found an absence of training and policy that agencies accepted recommendations to fix, and that states like Virginia and California already bar match-only arrests while preserving corroborated leads — so a workable middle path demonstrably exists, even if its effectiveness is not yet measured.",
+            "If studies of states like Virginia and California, which bar match-only arrests but keep corroborated leads, and of agencies acting on the GAO's training and policy recommendations, found fewer wrongful arrests, a workable middle path short of hard restriction would be in reach.",
           skeptic_flip:
-            "A skeptic who favors regulation over a ban should update if comparative analysis showed that jurisdictions with binding FRT statutes (sole-basis bans, mandatory training, disclosure) had no better disclosure-to-defendant rates, compliance, or wrongful-arrest incidence than those without — meaning the safeguards are unenforceable on paper and a harder restriction is the only thing that actually constrains use.",
+            "If comparative analysis found jurisdictions with binding statutes (sole-basis bans, mandatory training, disclosure) no better than others on disclosure to defendants, compliance or wrongful arrests, the safeguards would look unenforceable and a harder restriction the only working constraint.",
           common_ground:
             "Both sides agree the technology was deployed far faster than oversight could govern it — ~60,000 federal searches before any training mandate, four of seven agencies lacking civil-rights policies — and that enforceable safeguards (training, disclosure, corroboration, audit) are necessary.",
           live_disagreement:

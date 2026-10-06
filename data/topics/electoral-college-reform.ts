@@ -47,7 +47,7 @@ export const electoralCollegeReformData = {
           supporter_flip:
             "If the NPVIC stalled permanently below 270 — the remaining states it needs (which lean Republican and benefited from the Electoral College) keep refusing — then 'replace it with the popular vote' becomes an aspiration with no realistic path, and reform energy would be better spent elsewhere.",
           skeptic_flip:
-            "A skeptic who defends the EC should weigh that the critique isn't partisan noise — 63% of Americans (including a substantial share of Republicans) favor a popular vote, and the popular-vote-loser-wins outcome has now happened twice in 24 years — so dismissing reform as fringe is hard to sustain.",
+            "If polling kept showing about 63% of Americans, including a substantial share of Republicans, favoring a popular vote, and another popular-vote loser took the presidency, reform would be hard to dismiss as fringe or partisan noise.",
           common_ground:
             "Both sides agree the NPVIC currently sits at 222 of the 270 electoral votes it needs, and that the remaining path runs through states with little incentive to join.",
           live_disagreement:
@@ -138,7 +138,7 @@ export const electoralCollegeReformData = {
           supporter_flip:
             "If courts ruled the NPVIC unconstitutional — finding it an interstate compact that requires Congressional approval under the Compact Clause, or that it unlawfully evades Article V — the popular-vote-via-compact route would be dead, leaving only a near-impossible constitutional amendment.",
           skeptic_flip:
-            "A skeptic who calls the NPVIC unconstitutional should weigh that Article II explicitly lets each state decide how it chooses electors — states picked winner-take-all by choice, not mandate — so a state directing its electors by the national vote is at least a serious constitutional argument, not an obvious overreach.",
+            "If courts read Article II's grant to each state over how it chooses electors as covering a state that directs its electors by the national vote, the compact would look like a serious constitutional route rather than an obvious overreach.",
           common_ground:
             "Both sides agree the Supreme Court has never ruled on the NPVIC, and that its Compact-Clause status is genuinely unsettled.",
           live_disagreement:

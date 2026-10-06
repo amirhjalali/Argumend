@@ -49,7 +49,7 @@ export const immigrationWageImpactData = {
           supporter_flip:
             "If the cleanest natural experiments (refugee resettlement, visa lotteries) consistently showed no wage loss even for the most directly-competing native workers once you account for native out-migration — i.e. Card's near-zero result held up against Borjas's skill-cell critique — the 'significantly depresses wages' claim would fail.",
           skeptic_flip:
-            "A skeptic citing Card should weigh that city-level studies can hide effects if natives move away from immigrant-heavy areas, and that Borjas's national skill-cell approach finds a 3–4% wage drop per 10% supply rise concentrated on competing workers — so 'no effect on anyone' is too strong.",
+            "If studies tracking native out-migration found city-level null results were hiding wage losses, and national skill-cell data kept showing a 3–4% drop per 10% supply rise for competing workers, testing Borjas's estimate, 'no effect on anyone' would be too strong.",
           common_ground:
             "Both sides agree immigration's effect on AVERAGE native wages is small, and that any losses concentrate on the lowest-skilled natives and prior immigrants.",
           live_disagreement:
@@ -157,7 +157,7 @@ export const immigrationWageImpactData = {
           supporter_flip:
             "If general-equilibrium analysis showed immigration's gains are broadly shared — reaching low-skill natives and receiving communities, not just capital owners and high-skill workers — the 'costs fall on the most vulnerable' argument would weaken.",
           skeptic_flip:
-            "A skeptic focused on aggregate gains should weigh that GDP totals say nothing about distribution, and that the National Academies finds the concentrated wage and local-fiscal costs land on prior immigrants, native dropouts, and receiving communities — the groups least able to absorb them.",
+            "If distributional data found the wage and local-fiscal costs concentrated on prior immigrants, native dropouts and receiving communities, testing the National Academies' account, aggregate GDP gains would no longer answer the worry about who pays.",
           common_ground:
             "Both sides agree immigration raises aggregate GDP and that immigrants found firms and patent at high rates; the dispute is who captures the gains and who bears the costs.",
           live_disagreement:

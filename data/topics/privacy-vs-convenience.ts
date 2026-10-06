@@ -58,7 +58,7 @@ export const privacyVsConvenienceData = {
           supporter_flip:
             "If a controlled study showed that diligent users following best-practice privacy guidance achieve dramatically smaller, less accurate corporate profiles than default users, 'privacy is unachievable for ordinary people' would be wrong — individual agency would meaningfully work.",
           skeptic_flip:
-            "A skeptic who says 'just use privacy tools' should weigh that cross-site tracking, device fingerprinting, and data-broker aggregation can rebuild much of a profile even for careful users — so personal opt-out may be closer to theater than to real protection.",
+            "If tests found cross-site tracking, device fingerprinting and data-broker aggregation rebuilding most of a careful user's profile, 'just use privacy tools' would look closer to theater than to real protection.",
           common_ground:
             "Both sides agree privacy tools (Signal, blockers, VPNs) reduce some tracking and that data brokers aggregate information across many sources.",
           live_disagreement:
@@ -177,7 +177,7 @@ export const privacyVsConvenienceData = {
           supporter_flip:
             "If declassified records showed post-Snowden reforms and encryption genuinely cut government access to private communications, the 'surveillance is inescapable' thesis would weaken on the state side — reform would have substance, not just optics.",
           skeptic_flip:
-            "A skeptic who credits the post-Snowden reforms should weigh that agencies can buy the same data from brokers without a warrant and have adapted via alternative legal authorities — so 'the law was reformed' doesn't establish that real surveillance capability actually fell.",
+            "If records showed agencies buying the same data from brokers without a warrant and shifting to other legal authorities after the post-Snowden reforms, 'the law was reformed' would no longer mean that surveillance capability fell.",
           common_ground:
             "Both sides agree post-Snowden reforms changed the legal framework and that encryption has spread, while law enforcement increasingly buys broker data to sidestep warrants.",
           live_disagreement:
@@ -296,7 +296,7 @@ export const privacyVsConvenienceData = {
           "$300K-800K (Cross-jurisdictional DSAR analysis, corporate interviews, and comparative data measurement)",
         falsification: {
           supporter_flip:
-            "A supporter who says regulation is just bureaucracy should weigh that GDPR/CCPA could be measurably shrinking data footprints, or merely shifting the legal basis from 'consent' to 'legitimate interest' — an empirical question cross-jurisdiction profile comparisons can answer, not assume.",
+            "If cross-jurisdiction comparisons found profiles measurably smaller under GDPR and CCPA, rather than the same data relabeled from 'consent' to 'legitimate interest', 'regulation is just bureaucracy' would lose its footing and the battle would look less lost.",
           skeptic_flip:
             "If cross-jurisdiction data showed platforms hold equally large, granular profiles on users in heavily regulated (GDPR) and unregulated markets — regulation adding paperwork without shrinking data collection — the case that 'only regulation can fix this' would weaken to 'even regulation doesn't.'",
           common_ground:

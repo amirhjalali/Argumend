@@ -55,7 +55,7 @@ export const universalBasicIncomeData = {
           supporter_flip:
             "If comprehensive dynamic-scoring studies found that every realistic funding mix (VAT, program consolidation, new taxes, growth feedback) still blows past sustainable debt levels or requires growth-killing tax rates, the fiscal feasibility case would fail — leaving UBI affordable only by gutting other priorities.",
           skeptic_flip:
-            "A skeptic citing the $3.1T gross cost should weigh that the net cost is far lower once you consolidate 80+ means-tested programs and their overhead, and that existing universal cash (Alaska's dividend since 1982) has run for decades without fiscal harm — so 'we can't afford it' depends heavily on design.",
+            "If budget scoring found the net cost far below the $3.1T gross once 80+ means-tested programs and their overhead were folded in, and universal cash like Alaska's dividend ran on without fiscal harm, 'we can't afford it' would turn on design rather than on UBI itself.",
           common_ground:
             "Both sides agree a meaningful national UBI is enormously expensive on a gross basis and must be paid for by some mix of new taxes, program cuts, or borrowing.",
           live_disagreement:
@@ -165,9 +165,9 @@ export const universalBasicIncomeData = {
           "$50-150M (Large-scale, multi-year RCT with saturation sites and long-term follow-up)",
         falsification: {
           supporter_flip:
-            "If a large, long, guaranteed-permanent trial (removing the 'it'll end' bias of pilots) showed aggregate labor-force participation falling more than 3–5%, the work-disincentive objection would be vindicated and the case for UBI would weaken.",
+            "If a large, long trial guaranteed to be permanent, removing the 'it'll end' bias of pilots, showed labor-force participation falling more than 3–5%, the work-disincentive objection would gain real support and the case for UBI would weaken.",
           skeptic_flip:
-            "A skeptic citing the 1970s NIT experiments should weigh that modern pilots (Finland, Stockton, Kenya, OpenResearch) found only small reductions concentrated in caregiving, education, and job search — not mass exit — and that the famous NIT divorce finding was a debunked statistical artifact.",
+            "If larger, longer pilots matched the small work reductions reported in Finland, Stockton, Kenya and OpenResearch, concentrated in caregiving, education and job search, and re-analysis traced the NIT divorce finding to a statistical artifact, the 1970s experiments would no longer stand for mass exit from work.",
           common_ground:
             "Both sides agree short-term pilots can't fully capture how a permanent program would change behavior, since participants know the pilot ends.",
           live_disagreement:
@@ -313,7 +313,7 @@ export const universalBasicIncomeData = {
           supporter_flip:
             "If head-to-head trials showed optimized targeted programs (SNAP + Medicaid + vouchers) deliver equal or better poverty, health, and education outcomes per dollar than unconditional cash, the case for universality over targeting would collapse to an efficiency loss.",
           skeptic_flip:
-            "A skeptic worried cash gets wasted should weigh that a 44-study World Bank review found cash transfers don't increase alcohol/tobacco spending, that means-tested programs reach only a fraction of the eligible (21 of 100 poor families got TANF cash by 2020), and that pilots consistently improved mental health.",
+            "If new trials, extending a 44-study World Bank review, found cash did not raise alcohol or tobacco spending and improved mental health, while means-tested programs reached only a fraction of the eligible, the worry that cash gets wasted would lose its footing.",
           common_ground:
             "Both sides agree the goal is improving the lives of the poor, and that unconditional cash is not, in the evidence, spent mainly on temptation goods.",
           live_disagreement:

@@ -49,9 +49,9 @@ export const cryptocurrencyValueData = {
         cost_to_verify: "$0 (Time will tell)",
         falsification: {
           supporter_flip:
-            "If a successful change to the 21M cap reached consensus, or a 51% attack, a fatal protocol bug, or a practical quantum break against ECDSA actually compromised the chain, the 'durable digital scarcity' claim would collapse — the property that gives Bitcoin value would have proven mutable or breakable after all.",
+            "If a change to the 21M cap reached consensus, or a 51% attack, a fatal protocol bug or a practical quantum break against ECDSA compromised the chain, the 'durable digital scarcity' claim would fail, since the property behind Bitcoin's value would prove mutable or breakable.",
           skeptic_flip:
-            "A skeptic who says 'scarcity is infinitely cloneable, so it's worthless' should weigh that every fork copying the same scarcity (Bitcoin Cash, SV, Litecoin) has lost value and share relative to the original, and that the dominant chain's hashrate and liquidity form a network moat the clones demonstrably failed to take.",
+            "If forks copying the same scarcity, like Bitcoin Cash, SV and Litecoin, kept losing value and share to the original, and the dominant chain's hashrate and liquidity stayed out of their reach, 'scarcity is infinitely cloneable' would lose its force.",
           common_ground:
             "Both sides agree the 21M cap is currently enforced and auditable by any full node, and that thousands of other tokens copy the same supply mechanism without matching Bitcoin's adoption.",
           live_disagreement:
@@ -140,7 +140,7 @@ export const cryptocurrencyValueData = {
           supporter_flip:
             "If rolling realized volatility stalls or reverses — staying in the 50-80% range as market cap and ETF/derivatives depth grow, with fresh 70%+ drawdowns recurring — then 'volatility is just the price of adoption and will converge to store-of-value levels' is falsified; the volatility would look structural, not transitional.",
           skeptic_flip:
-            "A skeptic who points to 80% drawdowns should weigh that early-period volatility (>100% annualized before 2015) really has compressed toward 40-60% as the market matured, mirroring how emerging monetary assets behaved before settling — so the trajectory, not just the level, is the relevant evidence.",
+            "If annualized volatility kept compressing, from above 100% before 2015 toward 40-60% and lower as the market matured, the way emerging monetary assets settled down, the 80% drawdowns would look like a stage rather than a permanent trait.",
           common_ground:
             "Both sides agree Bitcoin's current volatility (and its 2018/2022 drawdowns) far exceeds gold's ~15-20%, and that its volatility has declined from its earliest, most extreme years.",
           live_disagreement:

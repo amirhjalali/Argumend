@@ -73,9 +73,12 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
 
 // Crux flips that once pointed the wrong way. supporter_flip is what would
 // change the mind of someone who agrees with the map's meta_claim;
-// skeptic_flip is what someone who disagrees should weigh. Each row pins the
-// opening the flip used to have — it must be gone — and the flip must now
-// address its own side. Round 3, 2026-09-29.
+// skeptic_flip is what would change the mind of someone who disagrees. Each
+// row pins the opening the flip used to have — it must be gone. Round 3,
+// 2026-09-29. Round 3 also made each flip open by naming its side ("A
+// skeptic … should weigh"); round 7 retired that opener, which read as a
+// lecture to one side, for a plain conditional under a heading that names
+// the side (./flipContract.ts), so each flip now opens "If".
 const FIXED_FLIPS: [id: string, pillar: number, side: "supporter" | "skeptic", oldOpening: string][] = [
   // Rewritten.
   ["adhd-overdiagnosis", 2, "skeptic", "A skeptic worried about over-labeling"],
@@ -120,11 +123,6 @@ const FIXED_FLIPS: [id: string, pillar: number, side: "supporter" | "skeptic", o
   ["ai-deepfakes-truth-collapse", 2, "skeptic", "A skeptic who thinks the transition is hopeless"],
 ];
 
-const ADDRESSES: Record<"supporter" | "skeptic", RegExp> = {
-  supporter: /^An? (?:[\w-]+ )?supporter\b/,
-  skeptic: /^A skeptic\b/,
-};
-
 describe("legacy crux flips address their own side", () => {
   it.each(FIXED_FLIPS)("%s pillar %i %s flip", async (id, pillar, side, oldOpening) => {
     const topic = await loadTopicById(id);
@@ -132,7 +130,7 @@ describe("legacy crux flips address their own side", () => {
     const flip = legacyTopicPage(topic!).cruxes[pillar].flips![side];
 
     expect(flip.startsWith(oldOpening)).toBe(false);
-    expect(flip).toMatch(ADDRESSES[side]);
+    expect(flip).toMatch(/^If\b/);
   });
 });
 

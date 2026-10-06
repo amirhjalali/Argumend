@@ -41,7 +41,7 @@ export const eaccVsTechRegulationData = {
           supporter_flip:
             "If measuring the lag from capability to first harm to effective governance across ten major technologies showed harm routinely accumulating for decades before any correction — as with leaded gasoline, phased out in the US 73 years after 1923 — the claim that unregulated progress nets out positive would weaken for high-stakes domains.",
           skeptic_flip:
-            "A skeptic who favors precaution should weigh the costs regulation itself imposes — about $2.6 billion and 10-15 years per approved drug, U.S. nuclear construction stretching from roughly 7 years to 15+ — while computing delivered 50 years of Moore's Law progress in a largely unregulated market.",
+            "If cost studies confirmed what regulation adds, about $2.6 billion and 10-15 years per approved drug and U.S. nuclear builds stretching from about 7 years to 15+, while lightly regulated computing kept its Moore's Law pace, precaution would carry a much higher price.",
           common_ground:
             "Both sides accept the record at each end: leaded gasoline took 73 years to phase out despite early warnings, and FDA-regulated drugs now average about $2.6 billion and 10-15 years to reach market.",
           live_disagreement:
@@ -170,7 +170,7 @@ export const eaccVsTechRegulationData = {
           supporter_flip:
             "If a study of 20 technology harms found market-driven corrections — lawsuits, reputational damage, consumer exit — arriving later than regulatory ones or not at all, especially where harms are diffuse and users are the product, the case that markets self-correct would weaken.",
           skeptic_flip:
-            "A skeptic who sees systemic market failure should weigh that U.S. traffic deaths per 100 million vehicle-miles fell from 24.09 in 1921 to 1.10 in 2019, with many safety innovations driven by competition and liability, and that the market punished Boeing over the 737 MAX immediately while the FAA took months to ground the plane.",
+            "If a study of technology harms traced most of the fall in U.S. traffic deaths, from 24.09 to 1.10 per 100 million vehicle-miles between 1921 and 2019, to competition and liability, and found markets punishing failures like the 737 MAX faster than regulators, 'systemic market failure' would be hard to hold.",
           common_ground:
             "Both sides agree auto safety improved through a mix of government standards and manufacturer competition: deaths per 100 million vehicle-miles fell from 24.09 in 1921 to 1.10 in 2019.",
           live_disagreement:
@@ -283,7 +283,7 @@ export const eaccVsTechRegulationData = {
           supporter_flip:
             "If comparing democratic-regulatory, technocratic-state and market-driven models across AI, gene editing, nuclear energy, internet governance and autonomous vehicles found the democratic model matching the others on innovation while doing better on safety, equity and public trust, the case against democratic oversight would weaken.",
           skeptic_flip:
-            "A skeptic who wants democratic control should weigh that the EU AI Act took three years to negotiate and was criticized as outdated on arrival, having missed the generative AI wave that came during its drafting, and that fewer than 10% of U.S. senators have technical backgrounds.",
+            "If more democratic rulebooks took as long as the EU AI Act's three years and arrived outdated, as critics said it did after missing the generative AI wave, while fewer than 10% of U.S. senators had technical backgrounds, the case for democratic control would weaken.",
           common_ground:
             "Both sides agree the EU AI Act, adopted in 2024 after three years of negotiation, is the world's first comprehensive AI law; one side reads it as proof democracies can govern technology, the other as proof they are too slow.",
           live_disagreement:

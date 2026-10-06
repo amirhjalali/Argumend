@@ -55,7 +55,7 @@ export const modernMonetaryTheoryData = {
           supporter_flip:
             "If a genuine currency-issuer with debt in its own floating currency were ever forced into involuntary nominal default by markets — not choosing not to pay, but unable to create the money to pay — the descriptive core of MMT would be refuted, and 'no involuntary default' would stop being a useful operating principle.",
           skeptic_flip:
-            "A skeptic should weigh that decades of data fail to show any floating-rate currency-issuer forced to default in its own currency, that Japan sustained ~250% debt-to-GDP without crisis, and that post-2008 balance-sheet expansion did not produce the predicted runaway inflation — so the 'high debt forces default' warning is not borne out.",
+            "If more decades passed with no floating-rate currency issuer forced into default in its own currency, Japan carrying about 250% debt-to-GDP without crisis and balance-sheet expansion bringing no runaway inflation, 'high debt forces default' would lose its footing.",
           common_ground:
             "Both sides agree a currency-issuer cannot literally run out of its own currency, and that the real binding constraint is inflation and the economy's productive capacity rather than an arbitrary debt-to-GDP ratio.",
           live_disagreement:
@@ -132,7 +132,7 @@ export const modernMonetaryTheoryData = {
           supporter_flip:
             "If a national-scale job-guarantee buffer stock were tried and failed to anchor wages or prices — or if discretionary tax changes proved too slow and politically captured to cool an overheating economy in time — then the MMT claim that fiscal tools can substitute for central-bank inflation control would be undercut.",
           skeptic_flip:
-            "A skeptic citing Latin American hyperinflations should weigh that those cases involved fixed/managed exchange rates and foreign-currency debt — conditions MMT itself says remove monetary sovereignty — and that smaller buffer-stock employment schemes (India's MGNREGA, Argentina's Jefes) functioned countercyclically, so they are not clean tests of MMT's mechanism.",
+            "If a buffer-stock employment scheme at national scale anchored wages and prices the way smaller programs such as India's MGNREGA and Argentina's Jefes worked countercyclically, the Latin American hyperinflations, which involved managed exchange rates and foreign-currency debt, would be poor tests of the mechanism.",
           common_ground:
             "Both sides agree inflation, not solvency, is the binding constraint, that the 2020-2022 episode showed deficits can drive inflation when supply is constrained, and that any inflation-control tool must act quickly enough to matter.",
           live_disagreement:
@@ -227,7 +227,7 @@ export const modernMonetaryTheoryData = {
           supporter_flip:
             "If a careful textual comparison showed that leading MMT primary sources (Kelton, Wray, Mitchell, Tcherneva) actually do assert the surveyed propositions — that deficits need not be a concern or that unlimited real spending can be money-financed — then the 'strawman' defense collapses and the expert rejection lands on MMT's real claims.",
           skeptic_flip:
-            "A skeptic leaning on the unanimous expert panel should weigh that the survey statements ('needn't worry about deficits,' 'finance as much real spending as they want') are stronger than what MMT texts assert, and that MMT scholars published point-by-point replies — so the consensus may target a caricature rather than the inflation-constrained, job-guarantee-anchored theory.",
+            "If a textual comparison found the surveyed statements, that deficits need not be a concern or that any amount of real spending can be money-financed, stronger than what the primary texts assert, and the published point-by-point replies held, the expert panel would look aimed at a caricature.",
           common_ground:
             "Both sides agree the IGM/Clark Center panel registered essentially zero agreement with the surveyed statements, and that the substantive open questions are inflation control and the wisdom of re-politicizing monetary policy.",
           live_disagreement:

@@ -55,7 +55,7 @@ export const glp1WeightLossDrugsData = {
           supporter_flip:
             "If 10+-year data revealed cumulative harms (thyroid or pancreatic cancer, irreversible gastroparesis, dangerous muscle/bone loss) that rival the morbidity of untreated obesity, the 'benefits far outweigh risks' case would flip — short-term efficacy wouldn't justify lifelong use.",
           skeptic_flip:
-            "A skeptic worried it's an uncontrolled experiment should weigh that GLP-1s have ~two decades of real-world diabetes safety data, that the cardiovascular outcomes trial showed net benefit, and that obesity itself kills millions yearly — so 'unknown long-term risk' must be weighed against the known, large harm of staying obese.",
+            "If long-term follow-up extended the roughly two decades of diabetes safety data and the net benefit seen in the cardiovascular outcomes trial, 'unknown long-term risk' would weigh less against the known, large harm of untreated obesity.",
           common_ground:
             "Both sides agree the longest randomized trials run only ~2-4 years, and that most lost weight returns within a year of stopping the drug.",
           live_disagreement:
@@ -163,7 +163,7 @@ export const glp1WeightLossDrugsData = {
           supporter_flip:
             "If population claims data showed broad GLP-1 coverage raises total healthcare spending over a decade without proportional health gains — the drug cost swamping savings from prevented comorbidities — the economic case for universal coverage would fail.",
           skeptic_flip:
-            "A skeptic who says they're too expensive should weigh that obesity drives enormous downstream costs (diabetes, heart disease, joint disease), so if even part of that is prevented, ~$1,000/month could pay for itself — making 'too expensive' an empirical claim about net cost, not a given.",
+            "If claims data found prevented diabetes, heart disease and joint disease offsetting much of the ~$1,000 a month drug cost, 'too expensive' would give way to a closer question about net cost.",
           common_ground:
             "Both sides agree the per-patient price (~$1,000+/month) is high and that, applied to tens of millions, the gross drug bill is enormous.",
           live_disagreement:
@@ -271,7 +271,7 @@ export const glp1WeightLossDrugsData = {
           supporter_flip:
             "If the best lifestyle interventions (intensive behavioral therapy, supervised diet and exercise) could match GLP-1 weight loss and health outcomes sustainably over 5+ years in real-world conditions, the case that obesity needs medication rather than effort would weaken to 'medication is one option, not a necessity.'",
           skeptic_flip:
-            "A skeptic who says it's just willpower medicalized should weigh that lifestyle interventions consistently fail to sustain 15-20% weight loss at the population level, and that the drugs work by acting on appetite neurobiology — evidence obesity has a biological driver willpower alone rarely overcomes.",
+            "If large studies kept finding lifestyle programs unable to sustain 15-20% weight loss at population scale, while the drugs worked through appetite neurobiology, obesity would look like a biological drive willpower rarely overcomes rather than willpower medicalized.",
           common_ground:
             "Both sides agree lifestyle change is valuable and that combining it with the drug (resistance training, diet) improves outcomes versus the drug alone.",
           live_disagreement:
@@ -383,7 +383,7 @@ export const glp1WeightLossDrugsData = {
           supporter_flip:
             "If claims data showed a large share (>25%) of GLP-1 prescriptions go to people who don't meet clinical obesity criteria — driven by cosmetic thinness rather than medical need — the 'this is responsible medicine' framing would weaken, exposing indication creep that strains supply and inflates cost.",
           skeptic_flip:
-            "A skeptic who fears 'Hollywood Ozempic' should weigh that if prescribing actually tracks BMI and comorbidity criteria, the cosmetic-misuse fear is overblown — an empirical question the prescription data can answer, not an assumption.",
+            "If prescription data showed GLP-1 use tracking BMI and comorbidity criteria, with few prescriptions going to people outside clinical obesity, the fear of 'Hollywood Ozempic' cosmetic misuse would lose its footing.",
           common_ground:
             "Both sides agree demand has surged, supply has been strained, and high-profile cosmetic use exists; the dispute is how common off-label cosmetic prescribing actually is.",
           live_disagreement:

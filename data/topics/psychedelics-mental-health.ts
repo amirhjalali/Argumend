@@ -48,7 +48,7 @@ export const psychedelicsMentalHealthData = {
           supporter_flip:
             "If the ongoing psilocybin Phase III programs (Compass, Usona) hit the same wall as MDMA — large raw effects that evaporate or fail FDA scrutiny once functional unblinding, expectancy, and data integrity are accounted for — the case that these are validated treatments rather than powerful placebos plus therapy would collapse.",
           skeptic_flip:
-            "A skeptic who thinks it's all expectancy should weigh that the effects are unusually large and durable (antidepressant response persisting at 12 months) for conditions where standard drugs barely move the needle — if a design that genuinely controls for expectancy still shows benefit, the 'just placebo' explanation fails.",
+            "If a design that truly controls for expectancy still found large, durable benefit, such as antidepressant response lasting 12 months in conditions where standard drugs barely help, the 'just placebo' explanation would fail.",
           common_ground:
             "Both sides agree psychedelic trials can't be blinded the way a pill trial can — participants almost always know whether they received an active psychedelic.",
           live_disagreement:
@@ -134,7 +134,7 @@ export const psychedelicsMentalHealthData = {
           supporter_flip:
             "If Oregon's and Colorado's real-world programs produced high rates of serious adverse events or no measurable mental-health benefit versus standard care, the case that supervised access is safer and better than the status quo would weaken.",
           skeptic_flip:
-            "A skeptic who thinks policy outran the evidence should weigh that psilocybin has very low addiction potential and no established lethal dose, and that a facilitator-supervised model has more guardrails than the decriminalized free-for-all that is the realistic alternative.",
+            "If Oregon's facilitator-supervised programs logged low rates of serious harm, consistent with psilocybin's low addiction potential and lack of an established lethal dose, and fewer problems than decriminalized use, the worry that policy outran the evidence would lose much of its force.",
           common_ground:
             "Both sides agree state programs (Oregon, Colorado) have outpaced FDA approval and currently lack systematic published outcome data.",
           live_disagreement:

@@ -54,9 +54,9 @@ export const fourDayWorkWeekData = {
           "$10-20M (Government-sponsored multi-industry RCT with objective productivity measurement)",
         falsification: {
           supporter_flip:
-            "If a randomized cross-industry trial with a real control group showed productivity holding only in white-collar office firms and falling in manufacturing, healthcare, retail, and other coverage-bound sectors, the 'broadly adopt across industries' claim would collapse to 'works for knowledge work that already has slack in the day.'",
+            "If a randomized cross-industry trial with a real control group found productivity holding only in white-collar office firms and falling in manufacturing, healthcare, retail and other coverage-bound sectors, 'adopt broadly' would shrink to 'works for knowledge work with slack in the day.'",
           skeptic_flip:
-            "A skeptic citing selection bias should weigh that Iceland's trials included hospital, police, and social-service shift workers (not just startups) at 1% of the workforce with productivity maintained, and that even inside self-selected pilots 92% of firms kept the schedule — outcomes a 'volunteers just say nice things' story doesn't easily explain.",
+            "If randomized trials matched Iceland's results, where hospital, police and social-service shift workers kept productivity steady, and firms outside volunteer pilots kept the schedule at rates like the 92% seen inside them, selection bias would explain less of the result.",
           common_ground:
             "Both sides agree existing trials lack randomized control groups and over-represent flexible knowledge-work firms, and that compressed white-collar days contain measurable slack (meetings, context-switching) that can be trimmed.",
           live_disagreement:
@@ -147,7 +147,7 @@ export const fourDayWorkWeekData = {
           supporter_flip:
             "If a 5-year longitudinal study with matched controls showed wellbeing gains reverting to baseline after the novelty wears off — or being cancelled out by higher daily intensity for client-facing and compressed-schedule workers — the wellbeing case for a shorter week would lose its foundation.",
           skeptic_flip:
-            "A skeptic attributing the gains to novelty or the Hawthorne effect should weigh that improvements appear across multiple independent trials, validated instruments (Maslach burnout), and cultures, and that European Social Survey data link fewer hours to higher life satisfaction even after controlling for income — a pattern broader than any single observed pilot.",
+            "If more independent trials across cultures found lasting drops on validated measures such as the Maslach burnout scale, and European Social Survey data kept linking fewer hours to higher life satisfaction after controlling for income, novelty and the Hawthorne effect would explain less of the gains.",
           common_ground:
             "Both sides agree that genuine hour reduction (4×8) helps wellbeing more than mere compression (4×10), that almost no trial has clean data past 24 months, and that early reported burnout and sleep improvements are real within the trial windows.",
           live_disagreement:
@@ -238,7 +238,7 @@ export const fourDayWorkWeekData = {
           supporter_flip:
             "If a calibrated general-equilibrium model — validated against France's 35-hour week, Iceland, and Belgium — showed that a universal 32-hour week at full pay raises economy-wide unit labor costs, prices, or unemployment with no offsetting productivity gain, the 'broadly feasible' claim would have to retreat to 'feasible only in sectors with slack to compress.'",
           skeptic_flip:
-            "A skeptic warning of mechanical cost increases should weigh that time-use studies find much of a knowledge-work day is non-productive, that shift industries already use staggered 4×10 and 3×12 coverage, and that France's GDP per hour worked exceeds the UK and euro-area average despite a statutory 35-hour week — so 'output is rigidly tied to hours' is not universally true.",
+            "If time-use studies kept finding much of a knowledge-work day non-productive, staggered 4×10 and 3×12 rosters held coverage, and economies with shorter weeks, such as France at 35 hours, kept GDP per hour above the UK and euro-area average, 'output is rigidly tied to hours' would be hard to hold.",
           common_ground:
             "Both sides agree that in genuinely hours-bound sectors (nursing, retail, hospitality) maintaining coverage at reduced hours requires more staff and higher payroll, and that the net effect hinges on how much productivity rises to absorb the lost hours.",
           live_disagreement:

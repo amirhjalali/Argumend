@@ -101,7 +101,7 @@ export const sugarTaxEffectivenessData = {
           supporter_flip:
             "If careful accounting showed the cut in taxed-beverage purchases is fully offset by substitution to other sugary/calorie-dense products or cross-border shopping — so total sugar intake barely moves — the consumption case for the tax would collapse.",
           skeptic_flip:
-            "A skeptic who says people just substitute should weigh that Mexico's reduction was sustained over two years and concentrated among the poorest, that soft drinks are among the most price-responsive food categories, and that the UK levy cut sugar at the source via reformulation — which substitution can't undo.",
+            "If longer follow-up kept Mexico's purchase drop sustained and largest among the poorest, and UK reformulation kept cutting sugar at the source, where switching products cannot undo it, the 'people just substitute' objection would lose its footing.",
           common_ground:
             "Both sides agree sugar taxes measurably reduce purchases of the taxed beverages; the dispute is net sugar intake after substitution and leakage.",
           live_disagreement:
@@ -217,7 +217,7 @@ export const sugarTaxEffectivenessData = {
           supporter_flip:
             "If, after the 5–10 year lag, sugar-tax jurisdictions still showed no obesity or diabetes improvement versus matched controls — i.e. the UK year-6-girls signal didn't generalize or replicate — the rationale would weaken from 'works' to 'changes behavior without measurable health payoff.'",
           skeptic_flip:
-            "A skeptic who says it won't dent obesity should weigh that liquid calories uniquely bypass satiety (so cutting them isn't easily compensated), that sugary drinks are the largest single source of added sugar, and that early signals (UK girls' obesity, children's tooth extractions) point the right way — the health data may simply lag.",
+            "If health data arriving after the expected lag extended early signals like lower obesity in UK girls and fewer children's tooth extractions, and liquid calories proved poorly compensated by the body, the view that the tax won't dent obesity would be hard to hold.",
           common_ground:
             "Both sides agree no study has yet shown a causally attributable population-wide obesity reduction from a sugar tax alone, and that any such effect would take years to appear.",
           live_disagreement:
@@ -335,7 +335,7 @@ export const sugarTaxEffectivenessData = {
           supporter_flip:
             "If net-incidence analysis showed the financial burden on low-income households outweighs their health gains — and revenue isn't actually redirected to them — the 'pro-equity' framing would fail, leaving a regressive tax.",
           skeptic_flip:
-            "A skeptic who calls it regressive should weigh that the poorest bear the highest obesity-disease burden and showed the largest consumption cuts (Mexico), so the health benefit concentrates where the disease is — and that earmarking revenue (Berkeley nutrition, Philadelphia pre-K) can flip net incidence.",
+            "If net-incidence studies found the poorest, who carry the most obesity-related disease, making the largest consumption cuts, and earmarked revenue (Berkeley nutrition, Philadelphia pre-K) offsetting what they pay, the regressive-tax objection would weaken.",
           common_ground:
             "Both sides agree the tax is financially regressive on the spending side — it takes a larger share of income from the poor.",
           live_disagreement:

@@ -43,7 +43,12 @@ export interface SideWords {
   /** Position-card and diagram side heading. */
   yes: string;
   no: string;
-  /** Lead-in for "what would change this side's mind", shown under a crux. */
+  /**
+   * Lead-in for "what would change this side's mind", shown under a crux.
+   * A heading, not a sentence opener: each flip under it is a whole
+   * conditional ("If …, …"), the same form for both sides
+   * (lib/topicPage/flipContract.ts).
+   */
   yesChangesMind: string;
   noChangesMind: string;
   /** Label over an evidence card on that side. */
@@ -54,8 +59,8 @@ export interface SideWords {
 export const ANSWER_SIDES: SideWords = {
   yes: "Says yes",
   no: "Says no",
-  yesChangesMind: "Someone who says yes to the map’s question would change their mind if…",
-  noChangesMind: "Someone who says no to the map’s question would change their mind if…",
+  yesChangesMind: "What would change the mind of someone who says yes to the map’s question",
+  noChangesMind: "What would change the mind of someone who says no to the map’s question",
   yesEvidence: "Points to yes",
   noEvidence: "Points to no",
 };
@@ -63,8 +68,8 @@ export const ANSWER_SIDES: SideWords = {
 export const CLAIM_SIDES: SideWords = {
   yes: "Supporters",
   no: "Skeptics",
-  yesChangesMind: "A supporter changes their mind if…",
-  noChangesMind: "A skeptic changes their mind if…",
+  yesChangesMind: "What would change a supporter’s mind",
+  noChangesMind: "What would change a skeptic’s mind",
   yesEvidence: "Supports it",
   noEvidence: "Cuts against it",
 };

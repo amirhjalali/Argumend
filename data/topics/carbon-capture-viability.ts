@@ -59,7 +59,7 @@ export const carbonCaptureViabilityData = {
           supporter_flip:
             "If sector roadmaps showed clean substitutes could drive cement, steel, aviation, and agriculture near zero by mid-century — leaving only a tiny residual and no overshoot to reverse — then the 'removal is unavoidable' case would collapse to 'a minor cleanup tool,' and heavy investment in it would be misallocated.",
           skeptic_flip:
-            "A skeptic who calls removal a moral hazard should weigh that every IPCC 1.5°C/2°C pathway includes it precisely because some emissions resist abatement and overshoot can only be undone by net-negative emissions — so 'just cut at the source' isn't a complete plan unless those residual floors are shown to be eliminable.",
+            "If sector roadmaps kept finding residual emissions no substitute can abate, and overshoot that only net-negative emissions can undo, testing the floors every IPCC 1.5°C/2°C pathway builds in, 'just cut at the source' would no longer read as a complete plan.",
           common_ground:
             "Both sides agree that deep, immediate emission cuts are the priority and that removal must not be used as an excuse to keep emitting.",
           live_disagreement:
@@ -182,7 +182,7 @@ export const carbonCaptureViabilityData = {
           supporter_flip:
             "If a vintage-by-vintage audit showed newer, purpose-built capture plants keep missing their design rates and stalling on availability just like the first-of-a-kind ones — no learning curve — then the gigatonne-scale assumptions would be unfounded and 'it scales' would be falsified.",
           skeptic_flip:
-            "A skeptic pointing to 10-of-13 failures should weigh that Sleipner has stored 20+ million tonnes leak-free since 1996 and that the failures cluster in EOR-driven, first-of-a-kind capture plants — so the storage half is proven and the capture half may be an early-deployment problem, not a permanent one.",
+            "If more storage sites matched Sleipner's record of 20+ million tonnes stored leak-free since 1996, and newer purpose-built capture plants hit their design rates, the 10-of-13 failures would look like an early-deployment problem rather than a ceiling.",
           common_ground:
             "Both sides agree the historical capture-side track record has been poor and that geological storage at sites like Sleipner has been demonstrably safe and durable.",
           live_disagreement:
@@ -324,7 +324,7 @@ export const carbonCaptureViabilityData = {
           supporter_flip:
             "If cost data across growing cumulative capacity showed capture/DAC costs plateauing well above the social cost of carbon — hitting a thermodynamic or engineering floor rather than a solar-like learning curve — then the 'costs will fall enough to matter' case would fail and the money would be better spent on cheaper mitigation.",
           skeptic_flip:
-            "A skeptic citing $1,000-per-tonne DAC should weigh that solar and batteries also looked hopeless at the same deployment stage and fell ~90%, that the IEA already pegs a large new DAC plant near $335/tonne, and that for residual emissions with no clean substitute the alternative isn't cheap renewables but no solution at all.",
+            "If DAC costs fell along a learning curve like solar's and batteries' as capacity grew, with large new plants reaching the IEA's estimate near $335/tonne, removal would look like a viable tool for residual emissions that have no clean substitute.",
           common_ground:
             "Both sides agree that capture today is far more expensive per tonne than wind, solar, or efficiency, and that emission cuts should be prioritized where cheaper options exist.",
           live_disagreement:

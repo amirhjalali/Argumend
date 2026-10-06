@@ -55,7 +55,7 @@ export const globalWaterCrisisData = {
           supporter_flip:
             "If high-resolution depletion models combining GRACE data and well monitoring showed that price signals, efficiency gains, and substitution were closing the gap faster than aquifers are drawn down — so stressed basins reach a new equilibrium well before wells run dry — the 'existential crisis' framing would soften to 'a costly but manageable regional adjustment.'",
           skeptic_flip:
-            "A skeptic who calls scarcity merely regional and a governance problem should weigh that fossil-water aquifers like the Ogallala recharge at ~25 mm/yr — millennia to refill what was pumped in decades — and that GRACE shows many of the world's largest aquifers already past their tipping points; once mined out, no governance reform brings the water back on a human timescale.",
+            "If GRACE and well data kept placing major fossil-water aquifers like the Ogallala, which recharge at ~25 mm/yr, past their tipping points, scarcity would look less like a regional governance problem and more like a loss no reform can reverse on a human timescale.",
           common_ground:
             "Both sides agree groundwater depletion is real and physically measured in specific basins (Ogallala, northwest India, North China Plain), and that current extraction in those basins exceeds natural recharge.",
           live_disagreement:
@@ -172,9 +172,9 @@ export const globalWaterCrisisData = {
           "$3-5M (Multi-basin geopolitical modeling integrating climate projections, institutional analysis, and conflict risk assessment)",
         falsification: {
           supporter_flip:
-            "If comparative analysis of basins that have already dropped below 500 m³ per capita (absolute scarcity) showed they still resolved disputes through treaties and joint commissions rather than force, the 'scarcity eventually overwhelms cooperation' thesis would fail — extreme scarcity would look like a driver of institutional innovation, not war.",
+            "If basins that have dropped below 500 m³ per capita (absolute scarcity) kept resolving disputes through treaties and joint commissions rather than force, the 'scarcity eventually overwhelms cooperation' thesis would fail, and extreme scarcity would look like a driver of institutional innovation, not war.",
           skeptic_flip:
-            "A skeptic citing the cooperation record should weigh that it was compiled mostly during hydrological abundance and institutional build-up: the Nile (GERD) and Indus disputes are now openly framed as 'existential' by nuclear-armed or near-existential states, and sub-national water violence already kills hundreds a year — so 'cooperation always wins' may be extrapolating from conditions that are ending.",
+            "If disputes like the Nile (GERD) and the Indus, now framed as 'existential' by the states involved, turned violent, or sub-national water violence kept rising, a cooperation record compiled in wetter, institution-building times would stop predicting the future.",
           common_ground:
             "Both sides agree that historically cooperative water events have outnumbered conflictive ones roughly 2:1 and that no interstate 'water war' has occurred in the modern era, while sub-national water-linked violence does occur.",
           live_disagreement:
@@ -295,7 +295,7 @@ export const globalWaterCrisisData = {
           supporter_flip:
             "If techno-economic modeling showed desalination, recycling, and precision irrigation could realistically be financed and built fast enough — given energy, brine-disposal, and institutional constraints — to close the projected deficit in the 20 most-stressed nations before aquifer and climate tipping points, then the 'deployment gap dooms the poorest' argument would collapse into a financing-and-engineering problem with a solvable timeline.",
           skeptic_flip:
-            "A techno-optimist should weigh that desalination still costs ~$0.50/m³ (far above the near-free groundwater farmers actually use), needs 3–4 kWh/m³ and coastal access, and that drip irrigation covers under 5% of farmland in South Asia and Sub-Saharan Africa with adoption plateaued despite subsidies — so 'technology will scale like solar' is an assumption, not a demonstrated fact, for landlocked smallholder agriculture.",
+            "If desalination stayed near $0.50/m³ and 3–4 kWh/m³, far above the groundwater farmers use, and drip irrigation stayed under 5% of farmland in South Asia and Sub-Saharan Africa despite subsidies, 'technology will scale like solar' would not reach landlocked smallholders in time.",
           common_ground:
             "Both sides agree the core technologies work and are getting cheaper (Israel and Singapore prove it at national scale), and that the binding constraints in poor regions are cost, energy, and institutions rather than physics.",
           live_disagreement:

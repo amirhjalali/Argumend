@@ -60,7 +60,7 @@ export const verticalFarmingViabilityData = {
           supporter_flip:
             "If rigorous modeling showed the ~1-2% electricity-to-biomass conversion efficiency is a near-hard physical ceiling — so even near-free renewable electricity plus best-case LEDs cannot bring all-in cost and carbon below field/greenhouse levels for crops beyond a premium niche — the 'cheaper renewables will close the gap' case would collapse.",
           skeptic_flip:
-            "A skeptic who treats the energy bill as fatal should weigh that the Surrey LCA found renewable power alone cut vertical lettuce emissions from ~4.7 to ~0.93 kg CO2/kg, that LED efficacy keeps improving, and that marginal renewable electricity prices are falling fast — so the bottleneck input is the one getting cheapest and cleanest.",
+            "If new life-cycle studies on renewable power repeated the Surrey LCA's drop in vertical lettuce emissions from ~4.7 to ~0.93 kg CO2/kg, while LED efficacy rose and renewable prices fell, the energy bill would look like a shrinking cost rather than a fatal one.",
           common_ground:
             "Both sides agree vertical farms dramatically cut water and land use, that energy is the dominant cost, and that on a fossil-heavy grid the carbon footprint can exceed field farming.",
           live_disagreement:
@@ -181,7 +181,7 @@ export const verticalFarmingViabilityData = {
           supporter_flip:
             "If a multi-year study of post-shakeout operators showed that even the disciplined survivors cannot reach sustained operating profitability without subsidy — that the failures were driven by irreducible operating losses rather than refinancing gaps — the 'normal shakeout' narrative would collapse into 'structurally unviable.'",
           skeptic_flip:
-            "A skeptic reading the bankruptcies as a final verdict should weigh that most failures were ZIRP-era overbuild and refinancing failures, that AeroFarms and Plenty emerged from Chapter 11 still operating, and that disciplined operators focused on premium greens and berries near cities can and do run profitably.",
+            "If operators that emerged from Chapter 11, such as AeroFarms and Plenty, and disciplined growers of premium greens and berries near cities posted sustained profits, the bankruptcies would look like a ZIRP-era overbuild shakeout rather than a sign the business can't turn a profit.",
           common_ground:
             "Both sides agree the 2023-2025 wave of failures was severe and real, that the model only works for high-value fast-turnover crops, and that energy and capital are the binding cost constraints.",
           live_disagreement:
@@ -303,7 +303,7 @@ export const verticalFarmingViabilityData = {
           supporter_flip:
             "If crop-by-crop modeling showed that even fresh leafy greens and soft fruit cannot be profitably captured at non-trivial market share outside luxury SKUs, and that the electricity footprint of doing so erases the water/land savings, then the 'transformative for a produce category' claim would shrink to 'premium garnish business.'",
           skeptic_flip:
-            "A skeptic who dismisses it as a garnish business should weigh that lettuce and berries are genuinely water-intensive and climate-fragile in the field, that moving them indoors can free scarce water and arable land for staples, and that import-dependent or desert regions may value local year-round supply enough to make a meaningful share viable.",
+            "If moving lettuce and berries indoors measurably freed scarce water and arable land for staples, and import-dependent or desert regions paid for local year-round supply at scale, vertical farming would look like more than a garnish business.",
           common_ground:
             "Both sides agree vertical farming cannot economically produce the cereals and staples that supply most human calories, and that its viable range is high-value, fast-growing, value-dense crops.",
           live_disagreement:

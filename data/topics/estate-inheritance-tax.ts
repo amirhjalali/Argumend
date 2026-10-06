@@ -51,9 +51,9 @@ export const estateInheritanceTaxData = {
         cost_to_verify: "$0 (analysis of published IRS SOI and JCT data)",
         falsification: {
           supporter_flip:
-            "If a decomposition of large gross estates (IRS SOI Form 706 microdata) showed that the great majority of taxable-estate wealth was basis already subject to income or payroll tax — with little unrealized appreciation riding on stepped-up basis — then the 'backstop for untaxed gains' defense would collapse and the 'double taxation' objection would be largely correct.",
+            "If decomposition of large gross estates in IRS SOI Form 706 microdata showed most taxable-estate wealth was basis taxed during life, with little unrealized appreciation riding on stepped-up basis, the 'backstop for untaxed gains' defense would lose its footing.",
           skeptic_flip:
-            "A skeptic invoking 'double taxation' should weigh that stepped-up basis forgoes an estimated ~$72.5B in 2026 (about a quarter of all capital-gains revenue) and that a large fraction of the biggest estates is appreciated assets never sold during life — so for the fortunes the tax actually reaches, the income was frequently never taxed at all.",
+            "If decomposition of large estates found much of their value in appreciated assets never sold during life, consistent with stepped-up basis forgoing an estimated ~$72.5B in 2026, about a quarter of capital-gains revenue, the 'double taxation' objection would not fit the fortunes the tax reaches.",
           common_ground:
             "Both sides agree the estate tax hits only a tiny share of estates (~0.2% of deaths) and that stepped-up basis lets some unrealized gains escape income tax at death; the dispute is how large that never-taxed share is within taxable estates.",
           live_disagreement:
@@ -166,7 +166,7 @@ export const estateInheritanceTaxData = {
           supporter_flip:
             "If a transparent microsimulation — netting gross receipts against estate-tax-induced income-tax erosion and lost saving, and crediting reduced lock-in — produced a robustly negative or near-zero net fiscal effect under mainstream elasticities, the 'economically sound, raises real revenue' case would weaken toward the JEC 'raises little net revenue' view.",
           skeptic_flip:
-            "A skeptic citing the 1998 JEC's ~$497B capital-stock loss and 'near-zero net revenue' should weigh that those figures come from a partisan congressional study with contested modeling assumptions, that the tax collects ~$24B/yr from ultra-wealthy estates, and that taxing transfers reduces the stepped-up-basis 'lock-in' distortion — an efficiency gain the JEC model omits.",
+            "If independent modeling with less contested assumptions than the 1998 JEC study found the tax's ~$24B a year from large estates plus the reduced stepped-up-basis lock-in outweighing capital-stock effects, the near-zero-net-revenue reading would lose its footing.",
           common_ground:
             "Both sides agree the estate tax induces real behavioral responses (avoidance, planning, deathbed transfers) that carry deadweight cost, and that its gross revenue is modest relative to the federal budget.",
           live_disagreement:

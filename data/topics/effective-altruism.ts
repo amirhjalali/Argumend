@@ -48,7 +48,7 @@ export const effectiveAltruismData = {
           supporter_flip:
             "If large at-scale or general-equilibrium studies and long-run follow-ups showed the headline RCT effects shrink sharply when interventions are rolled out to millions over years — bednet mortality gains eroding through resistance and misuse, cash-transfer benefits washed out by inflation or spillovers — then 'exceptional good per dollar' would collapse toward 'ordinary,' and the cost-effectiveness rankings EA leans on would lose their edge.",
           skeptic_flip:
-            "A skeptic who dismisses RCT-driven giving should weigh that EA's flagship bednet recommendation rests on a Cochrane review rated 'high certainty' (~17% lower child mortality), that the deworming null was at least partly a statistical-power artifact (the 2024 PNAS re-pool found significant nutritional gains), and that the framework demonstrably updates its picks as evidence moves rather than defending a fixed list.",
+            "If at-scale studies upheld the Cochrane review's high-certainty ~17% lower child mortality for bednets, and re-pooled analyses like the 2024 PNAS deworming work kept finding gains the null missed, dismissing evidence-driven giving would be hard to hold.",
           common_ground:
             "Both sides agree bednets and unconditional cash transfers have real, RCT-measured benefits, and that what is easiest to randomize is not automatically what matters most.",
           live_disagreement:
@@ -161,7 +161,7 @@ export const effectiveAltruismData = {
           supporter_flip:
             "If each documented harm could be traced deductively to the core principle itself — if 'use evidence and reason to maximize impartial good' genuinely entailed measurement tunnel vision or ends-justify-means fraud, and no plausible internal correction blocked it — then the failures would be the method, not the execution, and defending EA as 'good principle, bad people' would no longer hold.",
           skeptic_flip:
-            "A skeptic citing SBF and the systemic-change critique should weigh that the maximizing principle does not logically require fraud (Berkey 2018 shows it can already accommodate funding institutional reform when that does the most good), and that EA's evidence-updating, self-criticizing character is what surfaced and repudiated those errors rather than entrenching them.",
+            "If the maximizing principle were shown to accommodate institutional reform where that does the most good, as Berkey 2018 argues, and the movement's own self-criticism were what surfaced and repudiated cases like SBF, the failures would look like execution rather than the method.",
           common_ground:
             "Both sides agree real harms occurred — the FTX fraud and a measurable bias toward quantifiable interventions — and that movements should be judged partly by whether their core method can diagnose and correct such failures.",
           live_disagreement:

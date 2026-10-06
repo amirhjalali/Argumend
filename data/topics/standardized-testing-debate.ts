@@ -54,7 +54,7 @@ export const standardizedTestingDebateData = {
           supporter_flip:
             "If the test-optional natural experiment showed schools that dropped the SAT got more socioeconomic/racial diversity with no loss in their ability to identify talent or in graduation rates — i.e. scores added no predictive signal beyond GPA and other data — the case for keeping tests would weaken.",
           skeptic_flip:
-            "A skeptic who wants tests dropped should weigh that elite schools (Dartmouth, MIT, Yale) reinstated testing after concluding test-optional was quietly screening out high-achieving low-income applicants, and that scores predict outcomes within every income group — so 'drop the test for equity' may backfire on the students it's meant to help.",
+            "If more schools tested the conclusion that led Dartmouth, MIT and Yale to reinstate testing, and also found test-optional admissions screening out high-achieving low-income applicants, while scores kept predicting outcomes within every income group, dropping tests for equity would look likely to backfire.",
           common_ground:
             "Both sides agree SAT scores correlate strongly with family income, and that test-optional swept 1,800+ colleges with genuinely mixed evidence on whether diversity improved.",
           live_disagreement:
@@ -146,7 +146,7 @@ export const standardizedTestingDebateData = {
           supporter_flip:
             "If head-to-head studies showed portfolios, mastery assessment, or holistic review predict college success as well as the SAT while being more equitable and just as resistant to gaming, the 'we need a common yardstick' defense would collapse.",
           skeptic_flip:
-            "A skeptic who prefers holistic methods should weigh that the alternatives — essays, extracurriculars, recommendations — are even more sensitive to family resources and coaching than a scored exam, and that paid test-prep gains are tens of points, not hundreds.",
+            "If head-to-head studies found essays, activities and recommendations more sensitive to family resources and coaching than a scored exam, with paid prep moving scores only tens of points, the equity case for holistic review over tests would weaken.",
           common_ground:
             "Both sides agree no admissions metric is bias-free, and that whatever is measured gets gamed by families who can afford to (Goodhart's Law).",
           live_disagreement:

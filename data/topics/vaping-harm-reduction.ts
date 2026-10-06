@@ -55,7 +55,7 @@ export const vapingHarmReductionData = {
           supporter_flip:
             "If newer, larger head-to-head trials (or a Cochrane downgrade) showed nicotine e-cigarettes do NOT beat nicotine-replacement therapy on biochemically verified 6-month-plus abstinence — or that the trial edge vanishes once real-world dual use and relapse are counted — the 'more effective than standard care' claim would collapse to 'no better than the patch.'",
           skeptic_flip:
-            "A skeptic who calls the effect modest should weigh that the 2024 Cochrane review rates the e-cigarette advantage over NRT as HIGH certainty (RR 1.59), the single strongest tier of evidence — a 4-per-100 edge is large for cessation, where almost everything fails, and it compounds across hundreds of millions of smokers.",
+            "If newer trials held the edge over NRT that the 2024 Cochrane review rated high certainty (RR 1.59), about 4 more quitters per 100, and it carried into real-world use across millions of smokers, 'modest' would undersell the effect.",
           common_ground:
             "Both sides agree that randomised trials show nicotine e-cigarettes produce at least as many quitters as NRT, and that long-term continuous-abstinence base rates for any method are low.",
           live_disagreement:
@@ -151,7 +151,7 @@ export const vapingHarmReductionData = {
           supporter_flip:
             "If long-term cohorts showed most e-cigarette users settle into persistent dual use (keeping smoking-level cardiovascular risk) rather than switching completely, and that flavoured products keep pulling never-smoking youth into durable nicotine dependence, the population-level 'acceptable harm-reduction tool' claim would fail even if the device helps individual quitters.",
           skeptic_flip:
-            "A skeptic citing dual use, EVALI, and youth uptake should weigh that the realistic counterfactual is continued smoking (which kills ~half of long-term users), that EVALI was traced overwhelmingly to vitamin E acetate in illicit THC vapes rather than regulated nicotine e-liquids, and that US youth vaping has fallen ~two-thirds from its 2019 peak under tighter rules — so the youth harm looks regulable, not inherent.",
+            "If tracing kept tying EVALI to vitamin E acetate in illicit THC vapes rather than nicotine e-liquids, and US youth vaping stayed down about two-thirds from its 2019 peak under tighter rules, youth harm would look regulable rather than inherent, against a counterfactual of continued smoking.",
           common_ground:
             "Both sides agree that exclusive switching sharply reduces toxicant exposure, that dual use captures little of that benefit, and that youth nicotine initiation is a genuine cost that needs to be controlled.",
           live_disagreement:

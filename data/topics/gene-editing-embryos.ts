@@ -55,7 +55,7 @@ export const geneEditingEmbryosData = {
           supporter_flip:
             "If whole-genome sequencing of edited embryos kept showing off-target edits and mosaicism above the natural mutation rate even with newer base/prime editors — i.e. the precision needed for heritable use stayed out of reach — the 'the technology is almost ready' case would fail.",
           skeptic_flip:
-            "A skeptic citing He Jiankui's botched edits should weigh that base and prime editors avoid the double-strand breaks behind much of CRISPR's collateral damage, and that an FDA-approved CRISPR therapy already works reliably in humans — so 'inherently uncontrollable' is being challenged by the technology's progress.",
+            "If whole-genome sequencing of embryos edited with base and prime editors, which avoid the double-strand breaks behind much of CRISPR's collateral damage, found off-target rates near the natural mutation rate, 'inherently uncontrollable' would be hard to hold.",
           common_ground:
             "Both sides agree the 2018 embryo edits were botched and unverified, and that germline changes are heritable and effectively irreversible.",
           live_disagreement:
@@ -164,7 +164,7 @@ export const geneEditingEmbryosData = {
           supporter_flip:
             "If comparative analysis showed no regulatory regime has ever held a therapy-vs-enhancement line under commercial and competitive pressure — that permitting disease-editing inevitably slides to enhancement — the 'we can permit it narrowly and safely' position would collapse toward a ban.",
           skeptic_flip:
-            "A skeptic who fears designer babies should weigh that society already draws a workable line by screening embryos for serious monogenic disease but not for traits, and that a flat ban isn't neutral — it pushes the work into unregulated settings, the exact gap He Jiankui exploited.",
+            "If embryo screening kept holding its line, testing for serious monogenic disease but not for traits, and a flat ban pushed editing into unregulated settings like the one He Jiankui used, the fear of designer babies would weigh less against a narrow allowance.",
           common_ground:
             "Both sides agree there's a real distinction between preventing a severe single-gene disease and enhancing traits, and that the boundary has genuine edge cases.",
           live_disagreement:

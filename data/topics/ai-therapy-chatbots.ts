@@ -57,7 +57,7 @@ export const aiTherapyChatbotsData = {
           supporter_flip:
             "If a large, blinded non-inferiority trial showed the chatbot clearly underperforming human therapy — especially with gains that evaporate by 6-12 months or that fail for moderate-to-severe cases — the 'replacement' claim would collapse to 'useful adjunct for mild symptoms.'",
           skeptic_flip:
-            "A skeptic should weigh that the first generative-AI RCT already produced therapy-grade effect sizes (51% depression reduction) with alliance ratings matching human providers; if a head-to-head trial confirmed non-inferiority with durable gains, 'a scale dip isn't treatment' would no longer hold.",
+            "If a head-to-head trial against human therapists, testing the 51% depression reduction reported in the first generative-AI RCT, found non-inferiority with gains that lasted beyond a few months, 'a scale dip isn't treatment' would no longer hold.",
           common_ground:
             "Both sides agree chatbots show genuine short-term symptom reductions for mild-to-moderate distress and that no published trial has yet tested a chatbot head-to-head against a human therapist with long follow-up.",
           live_disagreement:
@@ -176,7 +176,7 @@ export const aiTherapyChatbotsData = {
           supporter_flip:
             "If a rigorous adversarial benchmark showed even purpose-built, guardrailed therapeutic bots still miss indirect crisis cues or facilitate harm at rates well above trained clinicians — and that safety regresses with each model update — the case for unsupervised deployment would fail.",
           skeptic_flip:
-            "A skeptic should weigh that documented failures cluster in entertainment/roleplay bots and unmonitored deployments, not clinician-built systems with hard-coded 988 routing; if an audited therapeutic bot matched clinician-level crisis detection on a red-teamed benchmark, 'chatbots are dangerous in the moments that matter' would no longer hold categorically.",
+            "If an audited, clinician-built therapeutic bot with hard-coded 988 routing matched clinician-level crisis detection on a red-teamed benchmark, 'chatbots are dangerous in the moments that matter' would apply to roleplay bots and unmonitored deployments rather than to every chatbot.",
           common_ground:
             "Both sides agree that documented crisis-handling failures have caused real harm and that any deployed therapeutic chatbot must detect self-harm cues and escalate to human help.",
           live_disagreement:
@@ -298,7 +298,7 @@ export const aiTherapyChatbotsData = {
           supporter_flip:
             "If alliance-mediation analysis showed that patient-chatbot 'alliance' scores do not actually mediate durable symptom change — or that heavier reliance on the bot worsened loneliness and crowded out human relationships — the claim that a machine bond does real therapeutic work would fail.",
           skeptic_flip:
-            "A skeptic should weigh that patients already report chatbot alliance on par with human providers and disclose more freely to a non-judgmental machine; if that measured alliance mediated symptom improvement comparably to human therapy, 'a machine can't form a working alliance that heals' would be empirically refuted.",
+            "If the alliance patients report with chatbots, and their freer disclosure to a non-judging machine, mediated symptom improvement about as much as alliance does in human therapy, 'a machine can't form a working alliance that heals' would lose its footing.",
           common_ground:
             "Both sides agree the therapeutic alliance is a strong predictor of outcomes in human therapy and that patients can and do report feeling heard by chatbots.",
           live_disagreement:

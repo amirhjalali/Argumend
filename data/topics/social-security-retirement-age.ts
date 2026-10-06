@@ -55,7 +55,7 @@ export const socialSecurityRetirementAgeData = {
           supporter_flip:
             "If SSA/CBO scoring showed that an FRA increase phased in to a realistic age (say 69) closes the large majority of the 75-year actuarial deficit and meaningfully pushes back the trust-fund depletion date, the claim that an age increase is 'necessary' to keep the program solvent would be much stronger.",
           skeptic_flip:
-            "A skeptic should weigh that CBO scores raising the FRA to 69 at closing 24% of the imbalance — a real, durable, self-indexing contribution that grows as longevity rises — and that revenue-only fixes require politically difficult tax increases that may also fall short or be eroded, so 'just lift the cap' is not automatically sufficient or sustainable either.",
+            "If CBO scoring kept a rise to 69 closing about 24% of the imbalance, a durable share that grows with longevity, and revenue-only fixes proved hard to pass or eroded over time, an age increase would look like a needed part of the fix rather than an optional one.",
           common_ground:
             "Both sides agree there is a real, dated financing shortfall (combined reserves projected to deplete around 2035, after which only ~83% of scheduled benefits are payable) and that an FRA increase does close some, but not all, of the gap.",
           live_disagreement:
@@ -150,7 +150,7 @@ export const socialSecurityRetirementAgeData = {
           supporter_flip:
             "If a microsimulation using mortality-by-lifetime-earnings (e.g., SSA's MINT or Urban's DYNASIM) showed that, in expected lifetime-benefit terms, an FRA increase falls sharply harder on low earners even after the Disability Insurance carve-out and any minimum-benefit offset, the 'fair' half of the claim would fail and the cut would have to be called regressive.",
           skeptic_flip:
-            "A skeptic worried about regressivity should weigh that Disability Insurance — which skews toward lower-income and physically demanding jobs — is exempt from the FRA, and that SSA distributional estimates suggest a normal-retirement-age increase cuts annual benefits roughly equally (even slightly progressively) across quintiles, so the regressive result depends specifically on the lifetime-mortality channel, not on the policy mechanically targeting the poor.",
+            "If SSA distributional estimates held that a higher retirement age cuts annual benefits about equally across quintiles, and Disability Insurance, exempt from the change, covered lower-income and physically demanding jobs as intended, the regressive result would rest on the lifetime-mortality channel alone.",
           common_ground:
             "Both sides agree an FRA increase is an across-the-board benefit cut (roughly 7% of lifetime benefits per year of increase) and that the life-expectancy gap by income is large and has widened (male top-vs-bottom-quintile gap at 50 rising from ~5.1 to a projected ~12.7 years).",
           live_disagreement:

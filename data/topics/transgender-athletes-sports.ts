@@ -41,7 +41,7 @@ export const transgenderAthletesSportsData = {
           supporter_flip:
             "If prospective sport-specific studies tracking transgender women athletes through 3+ years of hormone therapy found performance gaps against matched cisgender women larger than the natural variation among elite women in that sport, the claim that hormone therapy sufficiently removes male-puberty advantages would fail there.",
           skeptic_flip:
-            "A skeptic who sees permanent advantage should weigh that testosterone suppression brings hemoglobin to cisgender-female levels within about four months and reduces muscle mass and strength, that push-up and sit-up performance fell within female ranges after two years, and that the 12% running figure comes from Air Force fitness tests, not elite athletes.",
+            "If sport-specific studies of elite athletes, rather than the Air Force fitness tests behind the 12% running figure, found hemoglobin reaching female levels within about four months and strength falling into female ranges after two years, the case for permanent advantage would weaken.",
           common_ground:
             "Both sides agree hormone therapy reduces some male-puberty advantages, such as hemoglobin and muscle mass, while skeletal ones persist, and that the Air Force data showed a roughly 12% running edge after two years.",
           live_disagreement:
@@ -136,7 +136,7 @@ export const transgenderAthletesSportsData = {
           supporter_flip:
             "If competition results under inclusive policies showed substantial, quantifiable displacement of cisgender women — lost podium places, records and scholarships — the competitive harm could outweigh the harm of exclusion, weakening the case for inclusion in the women's category.",
           skeptic_flip:
-            "A skeptic who puts fairness first should weigh that a 2024 meta-analysis of 12 studies and 21,565 participants linked exclusion and discrimination in sport to elevated depression and suicide risk, that most transgender athletes are recreational, and that no transgender woman won an Olympic medal across roughly two decades of inclusive eligibility.",
+            "If more studies matched the 2024 meta-analysis linking exclusion from sport to elevated depression and suicide risk, and inclusive eligibility kept producing few top-level results, as in two decades without a transgender woman Olympic medalist, the harm of exclusion would weigh more heavily.",
           common_ground:
             "Both sides agree sport matters for health and belonging as well as competition, and that the women's category exists to give female athletes fair competition.",
           live_disagreement:
@@ -210,7 +210,7 @@ export const transgenderAthletesSportsData = {
           supporter_flip:
             "If pilots in 3-5 sports over two seasons showed transgender athletes taking part in open categories in meaningful numbers and reporting satisfaction, with competition in the restricted category intact, the case that inclusion must mean the women's category would weaken.",
           skeptic_flip:
-            "A skeptic who favors an open category should weigh that it would likely be dominated by cisgender men, leaving transgender women little realistic chance of competitive success, and that extra categories strain youth and recreational events where resources are limited.",
+            "If pilot open categories ended up dominated by cisgender men, leaving transgender women little realistic chance of competitive success, and youth and recreational events struggled to staff extra categories, the open-category model would lose much of its appeal as a fair alternative.",
           common_ground:
             "Both sides agree the major governing bodies have moved to restrict the female category: World Athletics in 2023, the NCAA in 2025 and the IOC in 2026.",
           live_disagreement:

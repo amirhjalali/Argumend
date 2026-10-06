@@ -50,7 +50,7 @@ export const minimumWageEffectsData = {
           supporter_flip:
             "If high-quality natural experiments of LARGE increases ($15+ from a low base) consistently showed sizable job and hours losses — i.e. Seattle's disemployment result replicated across many high-minimum cities rather than being offset by Berkeley-style null findings — the 'no significant job losses' claim would fail at the levels actually proposed.",
           skeptic_flip:
-            "A skeptic predicting big job losses should weigh that the textbook prediction has repeatedly failed to appear in modern studies of moderate increases (near-zero elasticity across Cengiz et al.'s 138 cases) — so the burden is on showing why a given increase is large enough to break that pattern.",
+            "If studies of increases as large as $15 from a low base found the near-zero job effect Cengiz et al. reported across 138 moderate increases, the prediction of big job losses would lose its footing.",
           common_ground:
             "Both sides agree there exists SOME minimum-wage level high enough to cut employment; the dispute is where that threshold sits and whether $15 crosses it in a given local labor market.",
           live_disagreement:
@@ -160,7 +160,7 @@ export const minimumWageEffectsData = {
           supporter_flip:
             "If microsimulations consistently showed the EITC reduces poverty far more per dollar than a minimum-wage hike AND that wage gains are largely eaten by price pass-through or lost hours, the case for the minimum wage as a poverty tool (versus tax credits) would weaken.",
           skeptic_flip:
-            "A skeptic who prefers the EITC should weigh that ~32% of workers earn under $15 (not the oft-cited ~2% at the exact minimum), that the EITC can subsidize employers and push wages down, and that most economists treat the two as complements — so 'use the EITC instead' isn't a clean substitute.",
+            "If microsimulations found the EITC lets employers push wages down, and that the ~32% of workers earning under $15 gain real income from a raise, 'use the EITC instead' would look less like a clean substitute and more like a complement.",
           common_ground:
             "Both sides agree the EITC is a well-targeted, work-rewarding antipoverty tool, and that many low-wage workers are adults supporting families, not teenagers.",
           live_disagreement:

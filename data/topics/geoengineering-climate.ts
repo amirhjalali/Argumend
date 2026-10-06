@@ -94,7 +94,7 @@ export const geoengineeringClimateData = {
           supporter_flip:
             "If independent budget modeling showed that immediate, aggressive emission cuts plus natural sinks (reforestation, soil, ocean uptake) could stay within the ~500 GtCO2 budget for 1.5-2°C without technological removal, the 'necessity' framing would collapse to 'optional and overpriced,' and DAC at ~$1,000/ton would lose its justification next to ~$50-100/ton prevention.",
           skeptic_flip:
-            "A skeptic who calls necessity 'self-serving' should weigh that the IPCC found essentially all assessed 1.5°C pathways require carbon removal, that the remaining budget is only ~12 years of current emissions, and that already-emitted CO2 keeps warming for centuries — so even perfect future emission cuts leave a removal gap that subsidies-and-renewables alone cannot close.",
+            "If budget work confirmed what the IPCC's assessed 1.5°C pathways assume, carbon removal in essentially all of them, with the remaining budget about 12 years of current emissions and emitted CO2 warming for centuries, calling necessity self-serving would be hard to hold.",
           common_ground:
             "Both sides agree emission cuts are cheaper and lower-risk than removal, that fossil fuel subsidies should be eliminated, and that current CO2 levels are already dangerously high.",
           live_disagreement:
@@ -189,7 +189,7 @@ export const geoengineeringClimateData = {
           supporter_flip:
             "If a multi-model ensemble showed that SRM sufficient to limit warming to 1.5-2°C leaves at least one major populated region (e.g. the South Asian or West African monsoon belt) significantly worse off than even a 3-4°C no-intervention world, the 'side effects are smaller than unmitigated warming' rebuttal would fail and the governance problem of harming non-consenting nations would dominate.",
           skeptic_flip:
-            "A skeptic focused on monsoon disruption and termination shock should weigh that unmitigated 3-4°C warming also devastates those same monsoon regions, that Mount Pinatubo (1991) confirmed the cooling mechanism works, and that termination shock is a governance failure mode rather than a physical law — meaning the relevant comparison is SRM vs. catastrophic warming, not SRM vs. a stable climate.",
+            "If model ensembles found 3-4°C warming hitting the same monsoon regions at least as hard, with the cooling mechanism Mount Pinatubo demonstrated holding and termination shock treatable as a governance risk, the comparison would run against catastrophic warming rather than a stable climate.",
           common_ground:
             "Both sides agree SRM would alter regional precipitation, that termination shock would be catastrophic if injection stopped abruptly, and that no adequate international governance framework currently exists.",
           live_disagreement:
@@ -267,7 +267,7 @@ export const geoengineeringClimateData = {
           supporter_flip:
             "If well-powered, long-horizon survey and natural experiments showed that exposure to geoengineering feasibility reliably lowers willingness to pay for carbon taxes or support emission regulations — especially when concrete costs are at stake — the 'genuine complement' framing would yield to the 'dangerous distraction' charge, and research promotion itself would carry a real political cost.",
           skeptic_flip:
-            "A skeptic pointing to fossil-fuel funding of carbon capture should weigh that rejecting CDR because oil companies also back it is a genetic fallacy, that 30 years of climate negotiations failed to bend emissions before any geoengineering hype, and that the best available survey experiments (UK, US, Singapore) found no average drop in support for emission cuts after learning about SRM.",
+            "If further survey experiments matched the UK, US and Singapore findings of no average drop in support for emission cuts after learning about solar geoengineering, and emissions had flattened in the 30 years before any such talk, the distraction charge would lose its footing.",
           common_ground:
             "Both sides agree fossil fuel companies fund carbon capture while expanding production, that political will for deep emission cuts has been chronically inadequate, and that moral hazard is at least a plausible risk worth measuring.",
           live_disagreement:

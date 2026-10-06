@@ -44,8 +44,8 @@ describe("DiagramDetail", () => {
     expect(text).toContain("The test");
     expect(text).toContain(crux.test.title);
     if (crux.flips) {
-      expect(text).toContain("Someone who says yes to the map’s question would change their mind if…");
-      expect(text).toContain("Someone who says no to the map’s question would change their mind if…");
+      expect(text).toContain("What would change the mind of someone who says yes to the map’s question");
+      expect(text).toContain("What would change the mind of someone who says no to the map’s question");
     }
     const link = screen.getByRole("link", { name: /Open this crux on the map page/ });
     expect(link.getAttribute("href")).toBe(crux.pageHref);

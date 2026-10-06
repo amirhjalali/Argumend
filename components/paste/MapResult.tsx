@@ -163,7 +163,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
               <ClampedText
                 lines={3}
                 text={crux.supporterFlip!}
-                about={`: ${words.yesChangesMind.replace(/…$/, "")}`}
+                about={`: ${words.yesChangesMind}`}
                 className="font-serif text-[1.125rem] leading-relaxed text-[var(--text-primary)]"
               />
             </dd>
@@ -176,7 +176,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
               <ClampedText
                 lines={3}
                 text={crux.skepticFlip!}
-                about={`: ${words.noChangesMind.replace(/…$/, "")}`}
+                about={`: ${words.noChangesMind}`}
                 className="font-serif text-[1.125rem] leading-relaxed text-[var(--text-primary)]"
               />
             </dd>
