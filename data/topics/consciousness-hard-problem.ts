@@ -9,17 +9,16 @@ export const consciousnessHardProblemData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Most people assume consciousness is just the brain's last unsolved engineering problem, awaiting a breakthrough. But the deeper puzzle — coined the 'hard problem' by David Chalmers in 1995 — is that even a complete physical account of the brain might still not explain why there is any subjective experience at all. The field's own experts can't even agree the problem is real: in the best-funded head-to-head test of the two leading scientific theories (the Cogitate adversarial collaboration, published in Nature in 2025), neither was confirmed.",
+      "In 1995 David Chalmers separated the 'easy problems' of consciousness, such as discrimination, attention and reportability, from the 'hard problem' of why any of it is accompanied by subjective experience. Thirty years on, the largest pre-registered test of two leading theories, the Cogitate collaboration published in Nature in 2025, partly supported both and fully confirmed neither. Both sides accept this record. The fight is over whether explaining every function of the brain leaves anything unexplained.",
     confidence: 84,
     source:
-      "Chalmers, 'Facing Up to the Problem of Consciousness' (1995); Cogitate Consortium, Nature 642, 133-142 (2025); Francken et al., Neuroscience of Consciousness (2022, ASSC attendee survey)",
-    sourceUrl: "https://www.nature.com/articles/s41586-025-08888-1",
+      "Chalmers, 'Facing Up to the Problem of Consciousness,' Journal of Consciousness Studies (1995); Cogitate Consortium, Nature 642, 133-142 (2025)",
+    sourceUrl: "https://consc.net/papers/facing.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The 'hard problem' is genuinely hard for a logical, not just technical, reason: physical descriptions deal in structure, function, and dynamics, while subjective experience — the redness of red, the painfulness of pain — does not seem to be any structural or functional property, so even a finished neuroscience appears to leave a gap (Chalmers 1995; Nagel 1974).",
-    "But the gap might be an illusion of introspection rather than a feature of reality: Daniel Dennett and Keith Frankish argue that once you explain every function of consciousness — discrimination, integration, reporting, self-monitoring — the lingering sense that 'something is missing' is the mind fooling itself, and every past 'mystery' (memory, perception, emotion) eventually yielded to mechanism.",
-    "So the honest debate isn't whether the brain produces consciousness (essentially everyone agrees it does) but whether there is an extra fact — subjective experience itself — that physical explanation leaves out, and whether that question is empirically resolvable at all or only metaphysical, a divide so deep that the field's most rigorous experiment (Cogitate, Nature 2025) couldn't settle even the narrower contest between two physical theories.",
+    "Both sides accept that neuroscience has found robust neural correlates of consciousness and explains its functions increasingly well; that no theory of consciousness yet commands agreement, and pre-registered adversarial tests like Cogitate are the right way to judge them; and that there is no validated test for consciousness in a non-biological system.",
+    "They split over whether, after a complete functional account, 'why does it feel like something?' is a real question left over or an illusion of introspection; whether Global Workspace Theory and Integrated Information Theory make different testable predictions or differ only in metaphysics; and whether consciousness depends on the computation a system performs or on its biological material, which decides whether AI could ever be conscious.",
   ],
   pillars: [
     // =========================================================================

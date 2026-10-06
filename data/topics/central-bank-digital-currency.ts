@@ -12,18 +12,16 @@ export const centralBankDigitalCurrencyData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The dystopia people fear most — a US government CBDC tracking and freezing every purchase — is the one thing that is not happening: in January 2025 a US executive order (EO 14178) banned federal agencies from building a CBDC, and the House passed an Anti-CBDC bill. Meanwhile, where a CBDC actually launched, almost nobody used it: the IMF found that roughly 98.5% of Nigeria's eNaira wallets had never been used a year after launch.",
+      "China's digital yuan, the e-CNY, has been tested with stimulus money that expires and can be spent only in approved districts. Nigeria's eNaira, launched in October 2021, was actively used by fewer than 1% of Nigerians by 2023. Both sides accept both facts. The fight is over whether any central bank digital currency can be built so that surveillance is impossible by design, not just forbidden by rules.",
     confidence: 88,
     source:
-      "Executive Order 14178 (Jan 23, 2025); IMF Working Paper WP/23/104, 'Nigeria's eNaira, One Year After' (2023); Atlantic Council CBDC Tracker",
-    sourceUrl:
-      "https://www.imf.org/en/Publications/WP/Issues/2023/05/16/Nigerias-eNaira-One-Year-After-533487",
+      "People's Bank of China, via the Atlantic Council CBDC Tracker; IMF Working Paper WP/23/104, 'Nigeria's eNaira, One Year After' (2023)",
+    sourceUrl: "https://www.atlanticcouncil.org/cbdctracker/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The fear has real teeth: China's e-CNY has already been tested with money that expires on a deadline and can only be spent in approved districts, and in 2022 Canada froze over 200 bank accounts of protesters without a court order — proving governments will use financial-system access as a lever, and a CBDC would make such control instant, automated, and granular.",
-    "But the honest counterpoint is that the existing system already surveils nearly everything (banks, card networks, and tax authorities see your transactions), the US is now legally barred from issuing a CBDC, and the CBDCs that did launch — Nigeria's eNaira, the Bahamas' Sand Dollar — were rejected by their own citizens, so the technology is neither inevitable nor irresistible.",
-    "So the honest debate isn't whether a CBDC could enable surveillance and control — technically it can — but whether privacy can be enforced by architecture (cryptography that makes spying impossible) rather than by policy promises that crumble under the next terrorist attack or financial crisis.",
+    "Both sides accept that the existing financial system is already heavily surveilled and that a CBDC's privacy depends on whether protections are built into the cryptography or only written into rules; that the unbanked are kept out mainly by poverty, missing ID and distrust rather than missing technology; and that the dollar dominates trade settlement, so any CBDC challenge to it would come gradually.",
+    "They split over whether any CBDC design, such as the ECB's digital euro, can make surveillance technically impossible; whether CBDCs reach people that mobile money like Kenya's M-Pesa does not; and whether cross-border platforms like mBridge can grow large enough to blunt US sanctions.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=60",

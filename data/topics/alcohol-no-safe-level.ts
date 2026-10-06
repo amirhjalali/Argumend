@@ -9,7 +9,7 @@ export const alcoholNoSafeLevelData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Alcohol is a Group 1 carcinogen — the same IARC tier as tobacco and asbestos — and there is no established threshold below which the cancer risk switches off: a single daily drink (~10 g) raises a woman's breast-cancer risk by about 7%, and the WHO attributes roughly 740,000 cancer cases a year (4.1% of all new cases) to alcohol. The honest nuance is that 'no safe level' is firmest for cancer specifically; the all-cause-mortality picture at light doses is genuinely contested.",
+      "Alcohol is a Group 1 carcinogen, the same IARC tier as tobacco and asbestos, and no threshold has been established below which its cancer risk stops: one daily drink (~10 g) raises a woman's breast-cancer risk by about 7%. At light doses, its effect on overall mortality is contested. The fight is over whether the cancer risk at those doses is large enough to call any amount of drinking harmful.",
     confidence: 86,
     source:
       "WHO Europe / IARC, 'No level of alcohol consumption is safe' (2023) and IARC Monographs Vol. 100E; Collaborative Group on Hormonal Factors in Breast Cancer, British Journal of Cancer (2002, 7.1% per 10 g/day)",
@@ -18,9 +18,8 @@ export const alcoholNoSafeLevelData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The carcinogen case is settled and not subtle: ethanol is an IARC Group 1 carcinogen, the breast-cancer dose-response is roughly linear all the way down to one drink (~7.1% relative-risk increase per 10 g/day), and the WHO finds no dose below which the carcinogenic effect 'switches on' — so for cancer specifically, the risk starts from the first drop.",
-    "The honest counterpoint is that cancer is only one organ system: a 7% relative increase on a low baseline is a small absolute change, and bias-corrected meta-analysis (Zhao et al., 4.8 million people) found low intake under 25 g/day was not significantly linked to excess all-cause death, while the GBD 2020 update concluded older adults may even see a small net benefit.",
-    "So the honest debate isn't whether alcohol can cause cancer at any dose (it can) but whether 'no safe level' holds across all-cause mortality — which turns on whether the apparent flat/protective low-dose curve is real biology or an artifact of sick ex-drinkers being misclassified as non-drinkers.",
+    "Both sides accept that alcohol causes cancer at moderate-to-heavy intake and that one daily drink adds only a small absolute cancer risk even if the relative risk is real; that harm to overall health is clear at higher doses; and that counting sick ex-drinkers as non-drinkers distorts the comparison.",
+    "They split over whether cancer risk rises from the first drink or a small threshold hides below what studies can detect; whether the apparent dip in deaths at low doses is real or an artifact of who counts as a non-drinker; and how much benefit of light drinking remains when drinkers are compared only with healthy lifelong abstainers.",
   ],
   last_updated: "2026-06-16",
   tags: ["alcohol", "public-health", "cancer", "cardiovascular", "epidemiology"],

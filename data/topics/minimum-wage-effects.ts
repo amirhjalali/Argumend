@@ -10,7 +10,7 @@ export const minimumWageEffectsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The same nonpartisan CBO report found a $15 federal minimum would raise pay for 17 million workers and lift ~900,000 out of poverty — and cost about 1.4 million jobs (range: roughly 0 to 3.7 million). It is a real tradeoff, not a free lunch or a catastrophe.",
+      "The Congressional Budget Office estimated that a $15 federal minimum wage would raise pay for 17 million workers and lift 0.9 million people out of poverty — and reduce employment by 1.4 million, within a likely range of roughly zero to 3.7 million jobs. Both sides quote this one report. The fight is over where in that range a $15 floor would land, especially in low-wage regions.",
     confidence: 78,
     source:
       "Congressional Budget Office, 'The Budgetary Effects of the Raise the Wage Act of 2021' (Feb. 2021)",
@@ -18,9 +18,8 @@ export const minimumWageEffectsData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The minimum-wage fight is usually framed as a free raise versus a job-killing disaster, but the nonpartisan CBO's own numbers show a tradeoff: a $15 federal minimum would raise pay for ~17 million workers and lift ~900,000 out of poverty while costing an estimated ~1.4 million jobs.",
-    "The deeper surprise from 30 years of research is that the textbook prediction of large job losses keeps failing to show up at moderate increases — Card & Krueger and a 138-policy study (Cengiz et al.) find employment effects near zero — while the genuinely hard case is jumping to a high minimum fast, where Seattle's evidence is still disputed.",
-    "So the honest question isn't 'does the minimum wage kill jobs?' but 'how high, how fast, and where?' — small-to-moderate increases look close to a free lunch, while a rapid $7.25→$15 jump in low-cost regions is where the real disemployment risk lives.",
+    "Both sides accept that some minimum wage is high enough to cut employment, that the earned income tax credit is a well-targeted antipoverty tool, and that many low-wage workers are adults supporting families, not teenagers.",
+    "They split over where that threshold sits and whether $15 crosses it in low-cost regions, which studies of past increases, from Card and Krueger's New Jersey survey to Seattle's disputed results, have not pinned down; and over how much of a raise reaches poor households rather than teens, second earners or higher prices, and whether it duplicates the EITC.",
   ],
   pillars: [
     {

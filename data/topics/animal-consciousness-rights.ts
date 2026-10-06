@@ -9,17 +9,16 @@ export const animalConsciousnessRightsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Fish almost certainly feel pain, not just reflexively flinch. Rainbow trout have the same A-delta and C-fiber nociceptors as mammals, and when injected with acid or bee venom they stop feeding for hours and rub the sore spot — yet resume normal behavior once given morphine. That last detail (a painkiller restoring normal behavior) is hard to explain without an actual felt, aversive state, even though fish have no neocortex.",
+      "A UK government–commissioned review of more than 300 studies found strong evidence of sentience in octopuses, crabs and lobsters, and the Animal Welfare (Sentience) Act 2022 wrote them into law. Animal agriculture brings in about $1.5 trillion a year and supports the livelihoods of roughly a billion people. Both sides accept both facts. The fight is over how far animal consciousness reaches, and what, if anything, it obliges people to change.",
     confidence: 84,
     source:
-      "Sneddon, Philosophical Transactions of the Royal Society B (2019); UK LSE/Birch sentience review (2021) underpinning the Animal Welfare (Sentience) Act 2022",
-    sourceUrl: "https://doi.org/10.1098/rstb.2019.0290",
+      "Birch et al., LSE review of sentience in cephalopods and decapods for DEFRA (2021); FAO / World Bank livestock estimates",
+    sourceUrl: "https://www.wellbeingintlstudiesrepository.org/af_gen/2/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The evidence keeps widening the circle: the 2024 New York Declaration, signed by dozens of leading neuroscientists and philosophers, holds there is strong scientific support for consciousness in all mammals and birds and a realistic possibility of it in fish, octopuses, and even some insects — and a UK government review of 300+ studies found enough evidence of sentience in octopuses and crabs that they were written into law.",
-    "But evidence of sentience is not the same as proof of rich, human-like inner experience, and it does not automatically tell us what we owe each species — we still cannot directly access another being's mind, and 'realistic possibility' is a probabilistic judgment under acknowledged uncertainty, not a measurement.",
-    "So the honest debate isn't whether animals feel anything (the evidence says many do) but where to draw the line and what follows from it — which creatures count, how much weight their suffering gets against human needs, and whether modern civilization can actually function with those obligations honored.",
+    "Both sides accept that subjective experience cannot be measured directly in any species and that behavioral complexity alone does not prove it; that mammals and birds at least show neural and behavioral signs worth taking seriously; that the capacity to suffer is morally relevant; and that today's economy still depends heavily on animal use.",
+    "They split over whether consciousness can be detected without a human template, and how far it extends, from fish and octopuses to insects; whether any single moral framework, Singer's, Regan's or another, can link animal suffering to rights without contradiction in hard cases; and whether alternatives can match animal use on nutrition, medicine and cost at global scale within about 20 years.",
   ],
   pillars: [
     // =========================================================================

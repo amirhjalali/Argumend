@@ -1,3 +1,4 @@
+import { STANDING_CONDITION_LEAD } from "./model";
 import { describe, expect, it } from "vitest";
 import { loadTopicById } from "@/data/topicLoader";
 import { topicSummaries } from "@/data/topicIndex";
@@ -72,9 +73,15 @@ describe("legacyTopicPage", () => {
         skepticLead: "Someone who says no to the map’s question would change their mind if…",
       });
       // Common ground already shown up top is not repeated in the fold.
-      expect(crux.runIns).toEqual(
-        pillar.crux.question ? [{ lead: "Where the fight is.", text: live }] : [],
-      );
+      // A standing crux (a value weighing; nothing empirical settles it) also
+      // says what it turns on, as the flagship maps do.
+      const standing = pillar.crux.settle?.kind;
+      expect(crux.runIns).toEqual([
+        ...(pillar.crux.question ? [{ lead: "Where the fight is.", text: live }] : []),
+        ...(standing
+          ? [{ lead: STANDING_CONDITION_LEAD[standing], text: pillar.crux.settle!.condition }]
+          : []),
+      ]);
       expect(crux.evidence.map((e) => e.id).sort()).toEqual(
         (pillar.evidence ?? []).map((e) => e.id).sort(),
       );

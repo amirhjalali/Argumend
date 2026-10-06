@@ -12,18 +12,17 @@ export const carbonCaptureViabilityData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Every IPCC scenario that limits warming to 1.5°C or 2°C relies on carbon removal — yet a 2022 analysis of 13 flagship capture projects found 10 had failed or fallen short of their targets, and most captured CO2 has been pumped underground to push out more oil. The honest position is uncomfortable for both sides: the climate math appears to require carbon removal, while the real-world track record so far has been mostly disappointing.",
+      "Essentially every IPCC pathway that holds warming to 1.5°C or 2°C uses some carbon dioxide removal, and Norway's Sleipner field has stored more than 20 million tonnes of CO2 under the North Sea since 1996. Yet a 2022 IEEFA review found 10 of 13 flagship capture projects failed or underperformed. Both sides cite all three records. What divides them is whether carbon capture can scale fast and cheaply enough to matter.",
     confidence: 80,
     source:
-      "IPCC AR6 WGIII (2022, CDR in all 1.5°C/2°C pathways); IEEFA, 'The Carbon Capture Crux' (2022, 10 of 13 flagship projects underperformed/failed)",
+      "IPCC AR6 WGIII (2022); Equinor / Sleipner monitoring, Geoenergy (2024); IEEFA, 'The Carbon Capture Crux' (2022)",
     sourceUrl:
       "https://www.ipcc.ch/report/ar6/wg3/downloads/outreach/IPCC_AR6_WGIII_Factsheet_CDR.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The IPCC is unambiguous that some carbon removal is now required, not optional: essentially every modelled pathway that holds warming to 1.5°C or 2°C uses carbon dioxide removal to cancel out residual emissions from hard-to-abate sectors like cement, steel, and aviation, and to claw back temperatures after any overshoot.",
-    "But the real-world record is sobering — an IEEFA review of the 13 largest capture projects found 10 missed their targets, flagships like Boundary Dam have averaged closer to 50% capture against a 90% design rating, and direct air capture still costs hundreds of dollars per tonne while operating at a tiny fraction of design capacity.",
-    "So the genuine debate is not whether carbon capture can work in principle — Norway's Sleipner has stored CO2 safely since 1996 — but whether it can scale fast enough and cheaply enough to matter, and whether subsidizing it mostly extends the life of fossil fuels rather than replacing them.",
+    "Both sides accept that deep, immediate emission cuts come first, that carbon capture's track record so far has been poor while geological storage at sites like Sleipner has held, and that capture today costs far more per tonne than wind, solar or efficiency.",
+    "They split over whether hard-to-abate emissions from cement, steel and aviation, plus any temperature overshoot, will need carbon removal at gigatonne scale; whether failures like Boundary Dam's are early teething problems or a structural ceiling; and whether capture costs will fall toward $100–300 a tonne or hit a stubborn floor.",
   ],
   pillars: [
     // =========================================================================

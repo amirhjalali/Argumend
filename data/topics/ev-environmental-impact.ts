@@ -10,18 +10,17 @@ export const evEnvironmentalImpactData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "An electric car starts with a larger manufacturing carbon debt — but pays it back within a few years of driving (typically under ~25,000 miles on average grids, more for heavy EVs or coal-heavy grids), and over its full lifetime emits about half the CO2 of a comparable gas car on the global-average grid, and far less on a clean one.",
+      "Volvo's own footprint report found its electric C40 Recharge generates about 70% more greenhouse gas in production than the gas-powered XC40, then breaks even after roughly 48,000 miles on the EU28 grid mix and 68,300 on the global average. About 70% of the world's cobalt is mined in the Democratic Republic of Congo. The fight is over how fast that carbon debt is repaid where EVs are actually driven, and how much the mining harms weigh.",
     confidence: 88,
     source:
-      "IEA Global EV Outlook 2024; ICCT life-cycle GHG comparison (2021); Volvo C40 Carbon Footprint Report (2021)",
+      "Volvo Cars, C40 Recharge Carbon Footprint Report (2021); Amnesty International & Afrewatch (2016)",
     sourceUrl:
-      "https://www.iea.org/reports/global-ev-outlook-2024/outlook-for-emissions-reductions",
+      "https://www.volvocars.com/assets/volvocm/globalpages/live/6298CA92D97B4769AAA54A1D1FABF81C/volvo_carbonfootprintreport_ec40.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The 'EVs are secretly dirtier because of battery mining' claim gets the timing right but the magnitude wrong — an EV does leave the factory with a bigger carbon debt, but it repays that within the first few years of driving and then pulls steadily ahead.",
-    "Over a full lifecycle on the global-average grid a typical EV emits about half the CO2 of an equivalent gas car, and roughly 60–80% less where the grid is clean, because tailpipe emissions are replaced by an electricity supply that keeps getting cleaner every year.",
-    "The real unresolved problems aren't lifecycle carbon — they're the local harms of cobalt and lithium mining and the need to scale battery recycling and charging infrastructure, which is where the honest debate actually sits.",
+    "Both sides accept that an EV is more carbon-intensive to build than a comparable gas car, mainly because of its battery, and that its emissions advantage over a full lifecycle depends on the grid that charges it: smallest where coal dominates, largest where power is clean.",
+    "They split over how quickly a given driver's EV repays its battery's carbon debt and how much weight the human and environmental harms of cobalt and lithium mining should carry; and over whether the grids where EVs are actually driven will decarbonize fast enough, or lock in coal-powered charging in some regions.",
   ],
   pillars: [
     {

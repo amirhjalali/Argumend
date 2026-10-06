@@ -9,18 +9,16 @@ export const lithiumMiningEvImpactData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "An EV does start life with a bigger carbon debt — building the battery adds roughly 30-40% to manufacturing emissions — but that debt is repaid astonishingly fast. On the average US grid a Tesla Model 3 overtakes a 33-mpg Toyota Corolla after only about 13,500 miles (a year or two of driving), after which it stays cleaner for the rest of its life. The genuinely hard problems are the water, land, and human-rights costs of mining, not the CO2 math.",
+      "Building an EV's battery adds roughly 30-40% to its production emissions, yet Argonne's GREET model finds a midsize EV on the average US grid emits about 50-70% less over its life than a comparable gas car. Lithium brine extraction in Chile's Atacama Desert uses about 21 million liters of water a day. Both sides accept these figures. The fight is over how fast the carbon debt is repaid on each grid, and whether mining's water, land and labor harms can fall faster than battery demand grows.",
     confidence: 88,
     source:
-      "Argonne National Laboratory GREET model; ICCT global life-cycle analysis (2021); Reuters/Argonne Tesla Model 3 vs Corolla breakeven (~13,500 miles)",
-    sourceUrl:
-      "https://theicct.org/publication/a-global-comparison-of-the-life-cycle-greenhouse-gas-emissions-of-combustion-engine-and-electric-passenger-cars/",
+      "Argonne National Laboratory GREET model; Science of the Total Environment (2023, Atacama lithium brine)",
+    sourceUrl: "https://greet.anl.gov/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Even after counting battery manufacturing, multiple independent life-cycle analyses (Argonne's GREET model, the ICCT's four-market study) find EVs produce 50-70% fewer greenhouse-gas emissions than comparable gas cars on average grids, because an electric drivetrain is 3-4x more efficient and the upfront 'carbon debt' is repaid within roughly 1-2 years of driving.",
-    "But greenhouse gases are not the whole story: lithium brine extraction can consume on the order of 21 million liters of water a day in the Atacama Desert, DRC cobalt mining involves documented child labor, and Indonesian nickel mining has cleared more than 75,000 hectares of rainforest — harms that a CO2 number simply doesn't capture.",
-    "So the honest debate isn't whether EVs win on tailpipe carbon (they clearly do on most grids) but whether their mining footprint — water, habitat, human rights — can be cleaned up faster than demand scales, and whether that footprint is genuinely smaller than the oil extraction it replaces.",
+    "Both sides accept that an EV starts with a bigger manufacturing carbon debt than a gas car and that its climate payoff depends on grid carbon intensity, vehicle size and mileage; that lithium, cobalt and nickel mining causes serious harms in the Atacama, the DRC and Indonesia; and that meeting 2030 targets means roughly tripling lithium output while China dominates refining and cell manufacturing.",
+    "They split over how many miles an EV must drive to repay that debt on each market's grid; whether mining's water, land and labor harms can fall to acceptable levels within a decade, through cleaner chemistries like LFP and sodium-ion and enforceable rules; and whether mining, refining and non-Chinese supply chains can scale as fast as battery demand.",
   ],
   pillars: [
     // =========================================================================

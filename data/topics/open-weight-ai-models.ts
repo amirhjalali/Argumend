@@ -10,17 +10,17 @@ export const openWeightAiModelsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The headline fear is that open-weight AI hands amateurs a bioweapon recipe — but the most rigorous test to date found the opposite. In RAND's controlled red-team trial, teams role-playing malicious actors planned a biological attack with or without an LLM, and independent expert judges found no statistically significant difference in plan viability; the bottleneck is tacit lab skill and physical materials, not text. The honest catch: that study tested a prior model generation, and open models are now closing the gap to the closed frontier fast.",
+      "In RAND's red-team trial, plans for a mock biological attack drawn up with an LLM plus the internet showed no statistically significant difference in viability from plans made with the internet alone. Both sides also accept that open weights, once released and mirrored, cannot be recalled, and that their safety fine-tuning can be cheaply stripped. The fight is over how fast the risk grows with each model generation, and which rule fits it.",
     confidence: 80,
     source:
-      "RAND, The Operational Risks of AI in Large-Scale Biological Attacks — Results of a Red-Team Study (RRA2977-2, 2024); Epoch AI biorisk-evaluation review",
+      "RAND, The Operational Risks of AI in Large-Scale Biological Attacks — Results of a Red-Team Study (RRA2977-2, 2024); NTIA Open Model Weights Report",
     sourceUrl: "https://www.rand.org/pubs/research_reports/RRA2977-2.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Open weights democratize a transformative technology, give independent safety researchers the white-box access (weights, activations, gradients) that closed APIs withhold, and the strongest controlled evidence so far — RAND's red-team RCT and Epoch AI's review of lab biorisk evals — shows current open models give amateurs no measurable bioweapon uplift over Google and existing literature.",
-    "The honest limitation is irreversibility and trajectory: released weights can be downloaded, copied, and have their safety fine-tuning cheaply stripped forever (the LLaMA leak settled that controlled release can't be walked back), and open models like DeepSeek are closing the gap to the closed frontier, so a 'no uplift today' finding does not guarantee 'no uplift tomorrow.'",
-    "So the honest debate isn't 'do open weights leak dangerous knowledge that's already public' but 'how fast is the dangerous-capability delta growing, and is gating the model the right lever — versus regulating malicious use — when foreign labs already ship frontier-approaching open weights the U.S. cannot recall or regulate.'",
+    "Both sides accept that released weights cannot be recalled and their safety fine-tuning can be cheaply stripped, that open weights bring real democratization and white-box research benefits, and that frontier-approaching open models like DeepSeek and Qwen already ship from outside US jurisdiction.",
+    "They split over whether stripped open models give bad actors real help beyond what search provides; whether irreversibility calls for a higher bar at release or for rules aimed at misuse; how much of the benefit needs fully downloadable weights rather than gated access; and whether a US release adds dangerous capability beyond the foreign models already out.",
+    "The second is a normative choice that the technical facts inform but do not decide.",
   ],
   pillars: [
     // =========================================================================

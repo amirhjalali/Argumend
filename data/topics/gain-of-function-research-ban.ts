@@ -12,18 +12,17 @@ export const gainOfFunctionResearchBanData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "There is no global ban on gain-of-function research — and the one treaty that governs dangerous biology, the Biological Weapons Convention, is the only major arms-control treaty in the world with no verification or inspection mechanism at all. So the real obstacle to \"just ban it everywhere\" isn't disagreement that the risk is serious; it's that the existing system literally cannot check whether anyone is complying.",
+      "Documented escapes of dangerous pathogens from labs run from the 2003–2004 SARS escapes in Singapore, Taiwan and Beijing to the CDC's 2014 anthrax incident; none of them caused a global pandemic. The Biological Weapons Convention, which governs dangerous biology, is the only major arms-control treaty with no verification mechanism. The sides part over how likely the next escape is, what gain-of-function research buys, and whether a worldwide ban could be enforced.",
     confidence: 90,
     source:
-      "Arms Control Association, \"Biological Weapons Convention (BWC) At A Glance\"; U.S. GAO, \"Arms Control: Efforts to Strengthen the Biological Weapons Convention\" (GAO-02-1038NI); the 2001 collapse of BWC verification-protocol negotiations",
+      "Bulletin of the Atomic Scientists (2023); Arms Control Association, 'Biological Weapons Convention (BWC) At A Glance'",
     sourceUrl:
-      "https://www.armscontrol.org/factsheets/biological-weapons-convention-bwc-glance-0",
+      "https://thebulletin.org/2023/02/biosafety-and-biosecurity-risks-of-gain-of-function-research/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Gain-of-function work that makes a pathogen more transmissible or more deadly creates a brand-new pandemic risk that did not exist in nature — Fouchier's 2011 ferret experiment showed a bird flu could be engineered to spread through the air between mammals — and a single containment failure could kill millions, so the precautionary case for banning the riskiest experiments is strong.",
-    "But the honest counterpoint is that high-containment labs have run for over 50 years without ever causing a confirmed global pandemic, the same techniques underpin vaccine and antiviral development, and a ban that only binds transparent Western institutions could push the work into countries with weaker oversight — making the world less safe, not more.",
-    "So the honest debate isn't \"is a lab-created pandemic scary\" (everyone agrees it would be catastrophic) but \"can a ban actually be defined narrowly enough to stop the dangerous experiments without crippling beneficial research — and enforced when the equipment fits in a modest lab and the governing treaty has no inspectors.\"",
+    "Both sides accept that lab containment failures are documented and that a pandemic-capable escape would be catastrophic, that most preparedness knowledge comes from surveillance, sequencing and structural biology, and that biology is far harder to verify than nuclear programs, so no ban would achieve perfect compliance.",
+    "They split over how likely an escape is as labs multiply despite modern containment; whether any major gain-of-function finding, from Fouchier's airborne H5N1 to Baric's chimeric coronaviruses, produced knowledge safer methods could not have; and how much funding limits, DNA-synthesis screening and inspections could shrink dangerous work worldwide.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1582719471384-894fbb16f461?auto=format&fit=crop&w=800&q=60",

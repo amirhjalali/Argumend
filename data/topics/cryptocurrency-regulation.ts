@@ -12,17 +12,16 @@ export const cryptocurrencyRegulationData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Crypto's most catastrophic blowup happened inside a regulated firm, not outside the system: FTX held licenses in the Bahamas, Japan, and elsewhere — and still lost over $8 billion in customer funds. The honest lesson isn't that rules don't matter; it's that the licenses on the books were the wrong rules. The custody and fund-segregation safeguards that govern ordinary brokerages — and would have flagged FTX commingling customer money with Alameda — simply weren't being applied.",
+      "FTX held licenses in the Bahamas, Japan and Australia, yet lost over $8 billion in customer funds after they were secretly transferred to Alameda Research. The 2022 crypto crash erased about $2 trillion in market value with minimal measurable spillover into stock, bond or currency markets. Neither fact is in dispute. The fight is over which rules would stop the next FTX, and how far the next crash could spread.",
     confidence: 88,
     source:
-      "U.S. Department of Justice & SEC filings; Congressional Research Service, 'What Happened at FTX and What Does It Mean for Crypto?' (IN12047, Nov. 2022); Securities Commission of the Bahamas liquidation records",
-    sourceUrl: "https://www.congress.gov/crs-product/IN12047",
+      "U.S. Department of Justice, SEC and Congressional Research Service on FTX; Federal Reserve Financial Stability Report",
+    sourceUrl: "https://crsreports.congress.gov/product/pdf/IF/IF12301",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The case for regulating crypto like traditional finance is built on a body count: FTX wiped out over $8 billion in customer funds, the Terra/Luna collapse erased roughly $40 billion in a week, and a record $3.8 billion was stolen by hackers in 2022 alone — the kinds of harms that ordinary custody rules, reserve requirements, and disclosure duties were designed to prevent.",
-    "But the honest counterpoint is that FTX was already licensed in multiple jurisdictions and collapsed anyway, while the strict regimes (the EU's MiCA, Singapore, Dubai) that crypto firms are migrating toward are attracting the industry rather than killing it — so 'no rules vs. rules' is a false choice, and 'regulation by enforcement' can punish compliant builders without catching the fraudsters.",
-    "So the honest debate isn't whether crypto should be regulated at all — almost everyone now agrees it should — but which framework fits: forcing tokens into a 1930s securities mold designed for stocks, or building bespoke rules (custody, stablecoin reserves, exchange licensing) that target the actual harms without pretending a decentralized protocol is a corporate stock issuer.",
+    "Both sides accept that crypto produced large, well-documented consumer losses, from FTX and Terra/Luna to billions in hacks; that vague 'regulation by enforcement' helps no one; that the 2022 crash barely touched traditional markets, though stablecoin reserves now tie crypto to Treasury and money markets; and that some tokens plainly meet the Howey test while others strain it.",
+    "They split over whether rules can deter fraud without driving compliant builders offshore to places like Dubai and Singapore; whether a future crash could now spread into banks and Treasury markets; and whether enough tokens fall outside existing securities law to need bespoke frameworks like the EU's MiCA or FIT21.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=60",

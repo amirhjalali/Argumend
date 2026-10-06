@@ -20,9 +20,8 @@ export const privacyVsConvenienceData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The starting puzzle is the 'privacy paradox': in surveys people say they care intensely about privacy, but in practice they click 'I agree' on terms of service nobody reads and trade their data for convenient free apps — so revealed behavior and stated values point in opposite directions.",
-    "The deeper problem is scale: data brokers already compile thousands of data points on nearly every adult, tracking follows you across sites and devices, and the claim under debate is that the surveillance infrastructure is now too embedded for an ordinary person to meaningfully escape.",
-    "So the honest debate isn't 'do people care about privacy?' (they say they do) but whether individual action can do anything against that infrastructure — or whether, like pollution, it's a collective problem that only regulation, not personal opt-outs, can actually address.",
+    "Both sides accept that privacy tools like Signal, ad blockers and VPNs cut some tracking while data brokers aggregate information from many sources; that post-Snowden reforms changed the law and encryption has spread, even as police buy broker data to sidestep warrants; and that privacy rules like GDPR have imposed real compliance costs and consent prompts.",
+    "They split over whether careful privacy habits shrink corporate profiling or aggregation rebuilds the profile anyway; whether reforms and encryption reduced government surveillance or agencies found workarounds; and whether regulation shrinks how much data is collected per user or only relabels its legal basis.",
   ],
   pillars: [
     // =========================================================================

@@ -9,18 +9,17 @@ export const facialRecognitionPolicingData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Almost every documented wrongful arrest from facial recognition — at least 14 in the US, most of them Black people — happened because police treated a software 'match' as proof and skipped basic follow-up, not because the algorithm was uniquely broken. The counterintuitive part: when the UK's national metrology lab tested the Met Police's live system, at the operating threshold (0.6+) there was no statistically significant difference in false positives across race or sex — but that demographic gap reappeared as soon as the threshold was lowered.",
+      "The ACLU has documented at least 14 wrongful arrests in the US after a facial-recognition match, most of them of Black people, and in each the match was treated as the main basis for arrest. In UK testing, the Met Police's live system showed no significant race or sex gap in false positives at its operating threshold, and a gap reappeared below it. Both sides accept these facts. The fight is over whether the settings police actually run, and the rules meant to govern them, hold up in the field.",
     confidence: 86,
     source:
-      "ACLU, 'More than a Dozen Wrongful Arrests Due to Police Reliance on Facial Recognition Technology' (2026); National Physical Laboratory, 'Facial Recognition Technology in Law Enforcement: Equitability Study' (NPL Report MS 43, March 2023); NIST FRVT Part 3 (NISTIR 8280, 2019)",
+      "ACLU, 'More than a Dozen Wrongful Arrests Due to Police Reliance on Facial Recognition Technology' (2025); National Physical Laboratory, Equitability Study (NPL Report MS 43, March 2023)",
     sourceUrl:
-      "https://science.police.uk/site/assets/files/3396/frt-equitability-study_mar2023.pdf",
+      "https://www.aclu.org/news/privacy-technology/more-than-a-dozen-wrongful-arrests-due-to-police-reliance-on-facial-recognition-technology",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest case for restriction is concrete, not hypothetical: at least 14 Americans — most of them Black — have been wrongfully arrested after a facial-recognition match, some jailed for days (one for ten days, another for six months) and one a woman eight months pregnant, and federal auditors found agencies ran roughly 60,000 searches with no training and, for some, no civil-rights policy at all.",
-    "The honest counterpoint is that the most accurate modern systems, tested on the exact algorithm and threshold an agency deploys, can show no statistically significant demographic gap — the Met's live system ran at a false-positive rate near 0.017% (about 1 in 6,000) — and in every known wrongful arrest the failure was police treating a 'lead' as 'proof,' not the algorithm itself.",
-    "So the honest debate isn't 'is facial recognition racist or accurate' but 'can enforceable guardrails — threshold floors, mandatory corroboration, disclosure to defendants, and audits — actually be made to stick in practice, or do agencies deploy the tool faster than oversight can govern it.'",
+    "Both sides accept that demographic bias is real in many face-recognition algorithms and depends heavily on the algorithm and threshold, that every documented US wrongful arrest followed police treating a match as proof rather than a lead, and that the technology spread faster than oversight: about 60,000 federal searches ran before any training requirement.",
+    "They split over whether the systems police actually use, at their real settings, are equally accurate across race and sex; whether officers follow rules against arresting someone on a match alone; and whether safeguards like Virginia's and California's, once enacted, are obeyed and actually reduce wrongful arrests.",
   ],
   last_updated: "2026-06-16",
   tags: [

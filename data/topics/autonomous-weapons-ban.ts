@@ -10,7 +10,7 @@ export const autonomousWeaponsBanData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "A ban on \"killer robots\" is far from a fringe idea: in December 2024, 166 states voted for UN action on lethal autonomous weapons (only Belarus, North Korea, and Russia voted no), and the UN Secretary-General and the Red Cross have jointly called for a binding treaty by 2026. The catch is that nearly every major power actually building these weapons — the US, Russia, China, India, Israel — either opposes a ban or abstains, so the overwhelming \"support\" is real but the states that matter most for compliance are not on board.",
+      "In December 2024, 166 states voted for UN action on lethal autonomous weapons, with only Belarus, North Korea and Russia voting no, and the UN Secretary-General and the Red Cross have called for a binding treaty by 2026. The US, Russia, China, India and Israel, which are building these weapons, oppose a ban or abstain. The fight is over whether a treaty without them would protect anyone, and whether autonomy can be banned at all.",
     confidence: 88,
     source:
       "UN General Assembly Resolution 79/62 (2 Dec 2024, 166-3-15); UN Secretary-General & ICRC joint call for a treaty by 2026 (Oct 2023, reiterated 2025)",
@@ -19,9 +19,8 @@ export const autonomousWeaponsBanData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The case for a ban is strong and mainstream: 120+ states want to negotiate prohibitions, 166 voted for UN action in 2024, and the guardians of the laws of war (the ICRC) plus the UN Secretary-General argue that delegating life-and-death decisions to software with no accountable human creates a \"responsibility gap\" no current law can close.",
-    "The honest counterpoint is that the states most likely to build and abuse these weapons — Russia, China, the US, India, Israel — are exactly the ones opposing or abstaining, and autonomy is a property of software with no physical signature, so a treaty may bind only the cautious while being nearly impossible to verify against the determined.",
-    "So the honest debate isn't whether autonomous weapons raise serious moral and legal problems (almost everyone agrees they do) but whether a treaty would actually change the behavior of the great powers racing ahead, or merely create a paper norm the holdouts ignore.",
+    "Both sides accept that a human must stay legally responsible for any lethal act and that a weapon whose behavior commanders cannot predict or control should not be deployed; that a 'smart' and a 'dumb' munition can look identical from outside; and that whether the great powers sign on decides whether any treaty constrains anyone.",
+    "They split over whether a lethal autonomous weapon could commit a war crime for which no human can be held responsible under command responsibility and DoD Directive 3000.09; and over whether a treaty without verification would change how major powers like the US, Russia and China build and field 'killer robots'.",
   ],
   last_updated: "2026-06-16",
   tags: ["autonomous-weapons", "ai", "arms-control", "international-law", "warfare"],

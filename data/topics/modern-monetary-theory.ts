@@ -10,7 +10,7 @@ export const modernMonetaryTheoryData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "A government that issues its own free-floating currency can never be forced into involuntary default on debt in that currency — it can always create the money to pay. This MMT starting point is literally true and not even controversial; Japan has carried gross government debt around 250% of GDP, the highest in the developed world, for years without defaulting. The honest catch is that 'can't run out of money' is not 'no limit' — the real ceiling is inflation and real resources, and that is what the whole fight is actually about.",
+      "A government that issues its own floating currency cannot be forced to default on debt in that currency, and Japan has carried gross government debt near 250% of GDP for years without defaulting. Both sides accept both facts. The fight is over where the real limit sits, in inflation and real resources, and whether governments would respect it in time.",
     confidence: 88,
     source:
       "IMF Fiscal Monitor / WEO (Japan general-government gross debt ~250% of GDP, 2023-2024); standard fiat-currency accounting reflected even in the IGM/Clark Center expert panel framing",
@@ -19,9 +19,8 @@ export const modernMonetaryTheoryData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "MMT's load-bearing insight is correct and routinely denied by deficit hawks: a country that borrows in its own floating currency can always make the nominal payments, so it cannot be forced into the kind of 'national bankruptcy' politicians warn about — Japan, at ~250% debt-to-GDP, has never defaulted, kept interest costs low, and for years fought too little inflation rather than too much.",
-    "But 'no involuntary default' is not the same as 'no constraint': printing past what the economy can produce shows up as inflation (a kind of default by erosion), and MMT's proposed fix — using discretionary taxes and a job guarantee to cool the economy — is slow, politically captured, and has never been tested as a national price anchor, which is why nearly every mainstream economist rejects the headline claims.",
-    "So the honest debate isn't whether a currency-issuer can 'go broke' (it can't) but whether fiscal tools can manage inflation as reliably as an independent central bank — and whether the expert consensus is rejecting MMT's actual claims or a 'print all you want, deficits never matter' caricature its scholars say they never made.",
+    "Both sides accept that a government issuing its own currency cannot literally run out of it, that inflation and productive capacity, not a debt ratio, are the binding limit, and that the 2020–2022 surge showed deficits can drive inflation when supply is tight.",
+    "They split over whether 'a currency issuer can't be forced to default' usefully guides spending policy or hides the inflation limit; whether taxes and a job guarantee could control inflation as quickly and credibly as central-bank rate policy; and whether the economists who reject MMT in surveys like the Chicago Booth panel's are rejecting its actual claims or a caricature.",
   ],
   last_updated: "2026-06-16",
   tags: ["mmt", "fiscal-policy", "deficits", "inflation", "macroeconomics"],

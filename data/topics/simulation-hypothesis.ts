@@ -17,9 +17,9 @@ export const simulationHypothesisData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The argument is genuinely clever: if conscious minds can run on computers and far-future civilizations run even a few high-fidelity ancestor-simulations each, then simulated observers would vastly outnumber the handful of biological originals — so a randomly chosen observer (you) would more likely be simulated than not.",
-    "But the conclusion is conditional, not forced: it only follows if you grant that consciousness is substrate-independent and that posthuman civilizations both arise and choose to run such simulations — and physicists who proposed a real test (looking for a cubic spacetime lattice in the highest-energy cosmic rays) have found no such signature, setting a lower bound on any lattice spacing of about 10^11 GeV.",
-    "So the honest debate isn't 'are we in a simulation, yes or no' but which branch of Bostrom's trilemma is most likely true — and whether the whole claim is even falsifiable, since the strongest version predicts no observation a simulator couldn't also fake.",
+    "Both sides accept that Bostrom's trilemma is logically valid, so at least one of its three branches holds; that the 302-neuron C. elegans connectome is mapped but its full behavior has not been simulated; and that no cubic-lattice signature has been seen in the highest-energy cosmic rays.",
+    "They split over whether simulating a brain's wiring could reproduce its behavior, and whether that would say anything about experience; whether the prospect of simulated minds outnumbering real ones makes it reasonable to believe we are living in a computer simulation; and whether cosmic-ray data can rule out a universe computed on a grid, or only one kind of grid.",
+    "The middle question is one for epistemology and anthropic reasoning rather than measurement.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",

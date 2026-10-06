@@ -9,17 +9,16 @@ export const carbonTaxEffectivenessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Carbon taxes demonstrably cut emissions — the largest meta-analysis to date (80 causal studies across 21 real-world schemes) found immediate, statistically significant reductions for at least 17 of them, roughly 5-21% (4-15% after correcting for publication bias). The catch most people miss: those cuts are modest because the prices are modest. The fight isn't really about whether pricing works, but whether anyone will set the price high enough to matter.",
+      "Most carbon prices in force have sat well below the $50-100 per ton of CO2 that the Stiglitz-Stern commission said Paris would need by 2030. Sweden's transport emissions fell almost 11% relative to a synthetic control after its carbon tax and VAT; Australia repealed its carbon tax in 2014 after an 'axe the tax' campaign. Both sides accept these facts. The fight is over how much a price high enough to matter would cut, and whether it would survive.",
     confidence: 88,
     source:
-      "Döbbeling-Hildebrandt et al., 'Systematic review and meta-analysis of ex-post evaluations on the effectiveness of carbon pricing,' Nature Communications (2024)",
-    sourceUrl: "https://www.nature.com/articles/s41467-024-48512-w",
+      "High-Level Commission on Carbon Prices (Stiglitz, Stern et al., 2017); Andersson, AEJ: Economic Policy (2019); Al Jazeera (2014)",
+    sourceUrl: "https://www.worldbank.org/en/news/press-release/2017/05/29/new-global-pathway-on-carbon-pricing-can-shift-finance-to-sustainable-investments-world-bank",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Carbon pricing is not a theory that has never been tried: a 2024 Nature Communications synthesis of 80 causal ex-post evaluations across 21 schemes found that introducing a carbon price produced immediate, statistically significant emission cuts for at least 17 of those policies, and quasi-experimental studies (Sweden's ~11% transport drop, British Columbia's plant-level manufacturing cuts) isolate a genuine causal effect.",
-    "The honest limitation is magnitude: real-world reductions are single-to-low-double digits, because almost every deployed price sits far below the $40-100/tCO2 the Stiglitz-Stern commission says Paris requires — and the politically durable, leakage-free version of the policy has been hard to sustain (Australia repealed its tax; France froze its increase after the gilets jaunes).",
-    "So the honest debate isn't whether a carbon tax cuts emissions (it does) but whether the price can be pushed high enough, and made politically durable enough, to deliver deep cuts rather than marginal ones.",
+    "Both sides accept that observed emission declines have real non-tax drivers like recessions, other rules and technology that any estimate must net out, that deployed carbon prices have sat well below the Paris-consistent range so real-world abatement has been modest, and that carbon leakage is real and the tax has met genuine backlash, including Australia's 2014 repeal.",
+    "They split over how much of the cuts observed in places like Sweden and British Columbia the carbon tax itself caused; whether raising prices to the recommended $50-100 a ton would deliver deep cuts or see responses level off; and whether leakage and repeal erase the global benefit or leave most of it standing.",
   ],
   last_updated: "2026-06-16",
   tags: ["carbon-tax", "climate", "emissions", "economics", "policy"],

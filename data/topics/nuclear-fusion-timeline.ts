@@ -10,18 +10,17 @@ export const nuclearFusionTimelineData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "In December 2022 a fusion reactor really did, for the first time, release more energy than was put into it — but only by one narrow accounting: NIF's lasers delivered 2.05 MJ to the fuel pellet and got 3.15 MJ of fusion energy back. The honest catch is that firing those lasers drew roughly 300–400 MJ from the grid, so the machine as a whole consumed about 100× more electricity than the fusion produced. 'Net energy gain' was a real physics milestone, not a power plant.",
+      "On 5 December 2022, Lawrence Livermore's National Ignition Facility got 3.15 MJ of fusion energy from 2.05 MJ of laser light on its fuel pellet; firing those lasers drew roughly 300–400 MJ from the grid. No fusion device has yet exported net electricity, and ITER has pushed its deuterium-tritium operation to 2039. The open question is whether a power plant, and then a fleet of them, can follow within 20 years.",
     confidence: 92,
     source:
-      "Lawrence Livermore National Laboratory (Dec 5, 2022 ignition shot, 2.05 MJ in / 3.15 MJ out); facility wall-plug draw of ~300–400 MJ widely reported (e.g. Physics World, World Nuclear News, 2022–2023)",
+      "Lawrence Livermore National Laboratory (Dec 5, 2022 ignition shot, 2.05 MJ in / 3.15 MJ out); facility wall-plug draw as widely reported (Physics World, World Nuclear News); ITER 2024 baseline, via Physics World",
     sourceUrl:
       "https://www.energy.gov/articles/doe-national-laboratory-makes-history-achieving-fusion-ignition",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Fusion has now cleared a barrier it could not clear for 60 years: in 2022 the National Ignition Facility produced more fusion energy (3.15 MJ) than the laser energy delivered to the fuel (2.05 MJ), repeated it on later shots, and meanwhile more than $9 billion in private capital and a US DOE roadmap are now aimed at putting a plant on the grid by the mid-2030s.",
-    "But 'more energy out than the laser delivered' is not 'more electricity out than the plant drew' — NIF's whole facility still ran ~100× energy-negative, no machine has ever bred its own tritium fuel at the scale a power plant needs, and the flagship public project, ITER, just slipped its deuterium-tritium operation from 2035 to 2039 with a ~€5 billion cost increase.",
-    "So the honest debate isn't whether fusion 'works' (the core physics is settled) but whether the engineering — wall-plug energy gain, tritium self-sufficiency, and neutron-tolerant materials — can be solved and then deployed as a fleet of competitive plants fast enough to be a meaningful share of generation within two decades.",
+    "Both sides accept that NIF achieved fuel-relative gain while no device has yet exported net electricity, that a deuterium-tritium plant must breed more tritium than it burns and none has done so at scale, and that one pilot plant is not a share of the energy mix, in a field with a long record of schedule slips.",
+    "They split over whether an integrated plant can put out more electricity than it draws; whether a full-scale breeding blanket can recover more tritium than the reactor consumes; and whether fusion can grow from a first grid-connected plant, such as Commonwealth Fusion Systems' planned ARC in Virginia, to about 1% of world power within two decades.",
   ],
   last_updated: "2026-06-16",
   tags: ["fusion", "energy", "technology", "iter", "decarbonization"],

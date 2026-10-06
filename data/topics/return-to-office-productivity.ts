@@ -9,17 +9,16 @@ export const returnToOfficeProductivityData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The best causal evidence we have says hybrid work is roughly a free lunch, not a productivity tax. In a six-month randomized trial of 1,612 employees at Trip.com (published in Nature in 2024), letting people work from home two days a week cut quit rates by about a third with no measurable hit to performance grades or promotions over the next two years. The honest catch: this tested hybrid (not fully remote) at one large firm, so it doesn't prove a blanket work-from-anywhere policy is costless everywhere.",
+      "In a randomized trial of 1,612 Trip.com employees, working from home two days a week cut quit rates by about a third with no effect on performance grades or promotions over two years. When Microsoft's 61,000-plus employees went fully remote, the share of collaboration time spent across groups fell by roughly 25%. Both studies hold up. The fight is over what return-to-office mandates buy that individual output measures miss, and what they cost.",
     confidence: 84,
     source:
-      "Bloom, Han & Liang, Nature 630 (2024) — Trip.com RCT; University of Pittsburgh (Ding & Ma) S&P 500 RTO study (2024)",
+      "Bloom, Han & Liang, Nature 630 (2024) — Trip.com RCT; Yang et al., Nature Human Behaviour (2021) — Microsoft Research",
     sourceUrl: "https://www.nature.com/articles/s41586-024-07500-2",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "When researchers actually randomize who works from home rather than survey opinions, the productivity penalty largely disappears: the Trip.com Nature RCT found hybrid workers matched in-office workers on performance grades and promotions while quitting about a third less, and a University of Pittsburgh study of S&P 500 firms found RTO mandates produced no measurable improvement in profitability or stock performance.",
-    "But individual task output is not the whole story — Microsoft's analysis of 61,000+ employees found that going fully remote made collaboration networks more siloed and static (cross-group ties fell roughly 25%), and a Nature experiment found in-person pairs generated about 15% more creative ideas, so coordination and innovation may erode in ways that show up years later rather than in this quarter's metrics.",
-    "So the honest debate isn't 'does sitting in an office make you type faster' (it mostly doesn't) but whether the harder-to-measure gains in collaboration, mentorship, and serendipitous innovation justify a strict full-time return — and whether many mandates are really chasing those gains or chasing control, real estate, and stealth attrition.",
+    "Both sides accept that individual task output is roughly comparable remotely, that physical proximity raises how often people talk spontaneously though more talk is not the same as more innovation, and that culture and mentorship concerns coexist with real estate costs, control preferences and attrition management behind office mandates.",
+    "They split over whether fully remote work lowers total output once coordination and knowledge transfer are counted; whether chance in-person encounters produce more innovation than structured remote collaboration; and whether return-to-office mandates are driven mainly by productivity needs or by leases, layoffs and management style.",
   ],
   pillars: [
     // =========================================================================

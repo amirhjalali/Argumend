@@ -12,17 +12,16 @@ export const daylightSavingTimeAbolitionData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The legislation most likely to 'abolish' clock changes — the Sunshine Protection Act, which the US Senate passed by unanimous consent in 2022 — would lock the country into permanent daylight saving time, the exact opposite of what sleep scientists recommend. Every major sleep and circadian-science body (the American Academy of Sleep Medicine and 20 endorsing organizations) instead favors permanent STANDARD time, because DST pushes the clock further from the sun. When the US actually tried year-round DST in 1974, public support collapsed from 79% to 42% within a single dark winter and Congress repealed it within ten months.",
+      "In 2022 the US Senate passed the Sunshine Protection Act, which would make daylight saving time permanent, by unanimous consent. The American Academy of Sleep Medicine and 20 endorsing organizations back permanent standard time instead. Both camps want the twice-yearly clock change to end. The fight is over which permanent clock to lock in: brighter winter mornings, or an extra hour of evening light.",
     confidence: 88,
     source:
-      "AASM position statement, J Clin Sleep Med (2023); US Senate UC passage of S.623 (2022); NPR/Congressional record on the 1974 permanent-DST repeal",
-    sourceUrl: "https://aasm.org/new-position-statement-supports-permanent-standard-time/",
+      "US Senate passage of S.623, the Sunshine Protection Act (2022); AASM position statement, J Clin Sleep Med (2023)",
+    sourceUrl: "https://en.wikipedia.org/wiki/Sunshine_Protection_Act",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "There is broad agreement that the twice-yearly clock change should end: it is tied to a roughly 5%–25% spike in heart attacks the Monday after 'spring forward,' a ~6% rise in fatal car crashes that week, and a clear loss of sleep — and an 84% majority of 4.6 million respondents in the EU's 2018 consultation wanted the switching to stop.",
-    "The honest catch is that 'abolish DST' is ambiguous: chronobiologists say the healthiest permanent option is standard time (which aligns the social clock with the sun and bright morning light), while most legislation — and a lot of public sentiment — pushes permanent daylight saving time, which would mean 8:30–9:30 a.m. winter sunrises and the dark-morning misery that sank the 1974 experiment.",
-    "So the real debate is not 'change vs. no change' but which permanent clock to lock in: permanent standard time (favored on health and safety grounds) versus permanent DST (favored for long summer evenings, retail, and recreation) — and whether the benefits of more evening daylight are worth chronic circadian misalignment.",
+    "Both sides accept that the twice-yearly switch should end, that the spring change is followed by a short-term rise in heart attacks, strokes and crashes, and that a fixed hour of daylight is only being moved between morning and evening.",
+    "They split over whether bright morning light is worth more than an extra hour of evening light; whether the spring spike is new harm or harm pulled forward in time; and whether evening daylight's gains, from recreation to fewer robberies, survive a full-day, full-year accounting against darker mornings and energy use.",
   ],
   pillars: [
     // =========================================================================

@@ -11,18 +11,18 @@ export const deExtinctionSpeciesData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The 2025 Colossal 'dire wolves' are not dire wolves — they are gray wolves with 20 gene edits, and the company's own chief scientist says so. Dire wolves split from the lineage that produced gray wolves roughly 5.7 million years ago and differ by hundreds of thousands of genetic changes; Colossal altered 14 genes. No ancient dire-wolf DNA was inserted. What was actually built is a phenotypic look-alike, not a resurrected species.",
+      "Colossal's 2025 'dire wolves' were made by rewriting 14 genes in gray-wolf cells to express 20 dire-wolf-like traits; no ancient dire-wolf DNA was inserted. The same cloning toolkit produced four Gulf Coast 'ghost wolves' carrying red-wolf genetic variation lost from the captive population. Neither side disputes these facts. The argument is over what the animals are, and what the work is worth to conservation.",
     confidence: 90,
     source:
-      "Beth Shapiro (Colossal chief scientist) via Live Science (2025); Perri et al., Nature (2021, dire wolf genome, 5.7 Myr divergence)",
+      "Live Science (2025), quoting Colossal chief scientist Beth Shapiro; Colossal Foundation / MIT Technology Review (2026) on the ghost-wolf clones",
     sourceUrl:
       "https://www.livescience.com/animals/extinct-species/our-animals-are-gray-wolves-colossal-didnt-de-extinct-dire-wolves-chief-scientist-clarifies",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The genuinely valuable part of de-extinction is the toolkit it forces into existence: Colossal's multiplex gene editing, cloning, and reference-genome work have already spun off into real conservation projects — like cloning Gulf Coast 'ghost wolves' to rescue lost genetic diversity in the critically endangered American red wolf.",
-    "But the headline product — the 2025 'dire wolves' — is honestly just gray wolves with 20 edits, not a resurrected species, and a peer-reviewed 2017 analysis found that spending limited conservation money on de-extinction could yield three-to-eight times fewer species saved than spending it on living ones.",
-    "So the real debate isn't whether we can engineer convincing proxies (we can) but whether doing so restores ecosystems and helps endangered species enough to justify the cost, the animal-welfare toll of cloning, and the risk that 'extinction is reversible' quietly erodes the urgency to prevent it.",
+    "Both sides accept that the 'dire wolves' are overwhelmingly gray wolf by genome, that conservation money is scarce and most extinctions come from habitat loss, and that a belief that extinction is reversible would be dangerous if it took hold.",
+    "They split over whether a species is defined by genomic ancestry or by ecological role; whether de-extinction money is new or diverted, and how much its cloning tools help living species; and whether the publicity leads people to treat extinction as reversible and conserve less.",
+    "The first is a choice of definition; the other two are questions evidence could answer.",
   ],
   pillars: [
     // =========================================================================

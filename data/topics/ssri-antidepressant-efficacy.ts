@@ -10,18 +10,16 @@ export const ssriAntidepressantEfficacyData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Antidepressants really do beat placebo — but the average gap is tiny. Pooling the FDA trials, the typical drug-placebo difference is about 1.8 points on the 52-point Hamilton depression scale (a standardized effect of ~0.3), below the 3-point threshold the UK's NICE itself set for clinical significance. The honest twist: that small average hides a real ~15% of patients who get a large, genuinely drug-specific response — so the average understates the drug for some people and overstates it for most.",
+      "In the largest meta-analysis of antidepressants, covering 522 trials and 116,477 patients, all 21 drugs beat placebo. In FDA-submitted trials the average gap was about 1.8 points on the Hamilton depression scale, below the 3-point criterion NICE defined for clinical significance. Both sides accept these numbers. The fight is over whether a small average hides a real responder subgroup, and how much of the gap is pharmacology at all.",
     confidence: 88,
     source:
-      "Kirsch et al., PLoS Medicine (2008, ~1.8 HRSD points / SMD 0.32 below NICE threshold); Cipriani et al., The Lancet (2018, all 21 drugs > placebo, overall SMD ~0.30); Stone et al., BMJ (2022, ~15% drug-specific responders)",
-    sourceUrl:
-      "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0050045",
+      "Cipriani et al., The Lancet (2018); Kirsch et al., PLoS Medicine (2008)",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/29477251/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest pro-efficacy case is that the signal is unmistakably real: every one of 21 antidepressants beat placebo in the largest meta-analysis ever assembled (522 trials, 116,477 patients), and patient-level FDA data locate a roughly 15% subgroup who get a large response that placebo cannot explain.",
-    "The honest limitation is that the average drug-placebo gap is small — about 1.8 Hamilton points and a 0.3 effect size, below the 3-point bar NICE set for clinical significance — and that gap is partly inflated by side effects breaking the blind and by relapse trials that may be measuring drug withdrawal rather than returning illness.",
-    "So the honest debate isn't 'do antidepressants work or not' (on average they beat placebo by a real but modest margin) but 'for whom, and by how much' — whether the right unit of judgment is the small group average or the responder subgroup hidden inside it.",
+    "Both sides accept that the average drug-placebo difference for antidepressants is real, statistically robust and small (about 1.8–2 Hamilton points); that SSRI side effects can break the blind and the 17-item Hamilton total is a noisy measure; and that staying on the drug goes with lower measured relapse, while stopping abruptly can cause discontinuation symptoms.",
+    "They split over whether the benefit should be judged by the average patient or by a subgroup who respond strongly to the drug; whether the gap is real pharmacology or an artifact of patients guessing they got the drug; and how much of the benefit of staying on antidepressants is relapse prevention rather than avoided withdrawal.",
   ],
   last_updated: "2026-06-16",
   tags: ["psychiatry", "depression", "ssri", "medicine", "placebo"],

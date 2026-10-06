@@ -10,18 +10,17 @@ export const immigrationWageImpactData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Same data, opposite conclusions: David Card's Nobel-winning work found immigration has near-zero effect on average native wages, while George Borjas finds a 10% supply rise cuts a competing group's wages 3–4%. The consensus splits the difference — small effects on average, with the real losses concentrated on the lowest-skilled and prior immigrants.",
+      "When the Mariel boatlift brought 125,000 Cubans to Miami in 1980, the city's labor force grew 7%. David Card found virtually no effect on low-skilled native wages; George Borjas, reanalyzing the same episode for non-Hispanic male high-school dropouts, found their wages fell 10-30% relative to comparison cities. Both studies stand. The fight is over which method captures what immigration does to the workers who compete most directly.",
     confidence: 80,
     source:
-      "National Academies, 'The Economic and Fiscal Consequences of Immigration' (2016/2017); Card (Mariel/Nobel); Borjas (skill-cell)",
+      "David Card, Industrial and Labor Relations Review (1990); George J. Borjas, ILR Review (2017)",
     sourceUrl:
-      "https://nap.nationalacademies.org/catalog/23550/the-economic-and-fiscal-consequences-of-immigration",
+      "https://davidcard.berkeley.edu/papers/mariel-impact.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The headline fear — that immigration broadly drives down American wages — isn't what most evidence shows: David Card's Nobel-winning studies find near-zero effect on average native wages, because immigrants also create demand, start businesses, and complement native workers.",
-    "But the more careful answer is that the average hides the distribution: George Borjas's national skill-cell work finds real wage losses for the workers who most directly compete — high-school dropouts and prior immigrants — and the National Academies' consensus report agrees those concentrated short-term losses are real, even as the overall economy gains.",
-    "So the honest debate isn't 'does immigration help or hurt wages?' but who and how much: the average worker and the broader economy gain, while a specific low-skill slice can lose — and economists still argue, using the same data, over how large that concentrated loss really is.",
+    "Both sides accept that immigration raises aggregate GDP, that immigrants found firms and patent at high rates, that its effect on average native wages is small, and that any wage losses concentrate on the lowest-skilled natives and prior immigrants.",
+    "They split over how far the wages of those most directly competing workers fall — near zero by David Card's local approach, meaningfully by George Borjas's national skill-cell approach, from the same Census data — and over whether the long-run growth and tax revenue immigration brings outweigh those concentrated short-term costs for low-skill native workers themselves.",
   ],
   pillars: [
     {

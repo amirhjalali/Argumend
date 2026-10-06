@@ -9,17 +9,16 @@ export const universalBasicIncomeData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The big fear about UBI — that free money makes people quit working — barely shows up in the trials: from Finland to Kenya to the largest US experiment ($1,000/month for 3 years), employment fell only slightly (~2 points), with recipients shifting toward education, caregiving, and pickier job search. The real binding constraint isn't work incentives — it's the ~$3.1 trillion-a-year price of paying everyone.",
+      "In the largest US cash trial, OpenResearch's $1,000 a month for three years, recipients were 2 percentage points less likely to be employed and worked about 1.3 fewer hours a week. Andrew Yang's plan to pay every US adult $1,000 a month carried a gross cost of roughly $2.8 trillion a year. Both sides work from these numbers. The fight is over whether a permanent universal basic income could be paid for, and whether people would work less once the checks never stop.",
     confidence: 82,
     source:
-      "Vivalt et al., OpenResearch income study (NBER, 2024); Finland Basic Income Experiment (2019); GiveDirectly Kenya (Egger et al. 2022)",
+      "Vivalt et al., 'The Employment Effects of a Guaranteed Income,' NBER Working Paper 32719 (2024); Tax Foundation analysis of Yang's Freedom Dividend",
     sourceUrl: "https://www.nber.org/papers/w32719",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The loudest objection to UBI — that unconditional cash makes people stop working — is mostly not what the experiments show: pilots in Finland, Stockton, and Kenya found small or no employment drops, and the largest US trial (OpenResearch, $1,000/month for three years) found employment fell only ~2 points, with recipients shifting toward education, caregiving, and choosier job searches.",
-    "The genuinely hard problem is arithmetic: a universal $1,000/month for every US adult costs about $3.1 trillion a year gross — comparable to the entire discretionary budget — and every realistic funding mix (VAT, program consolidation, new taxes) is itself contested on whether it adds up without large deficits or growth costs.",
-    "So the honest debate isn't 'will people freeload?' (mostly no) but whether a permanent, nationwide program behaves like the temporary pilots — and whether universality (sending Jeff Bezos the same check as a homeless veteran) beats spending the same money on targeted programs.",
+    "Both sides accept that a meaningful national UBI is enormously expensive on a gross basis and must be paid for through new taxes, program cuts or borrowing; that short pilots, from Finland and Stockton to Kenya and OpenResearch, cannot fully show how people behave when the income is permanent; and that unconditional cash is not mainly spent on alcohol or tobacco.",
+    "They split over whether any realistic funding mix, from a VAT to consolidating welfare programs, covers the cost without growth-damaging debt or tax rates; whether a lifelong, nationwide payment would cut work more than the pilots did; and whether sending everyone the same check beats spending the same money on targeted programs like SNAP, Medicaid or TANF.",
   ],
   pillars: [
     // =========================================================================

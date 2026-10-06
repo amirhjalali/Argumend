@@ -10,17 +10,17 @@ export const nuclearRenaissanceSmrData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Small modular reactors are pitched as the fix for nuclear's cost-and-speed problem — factory-built units that get cheaper with mass production. But the most advanced US project (NuScale's UAMPS) was cancelled in 2023 after its cost estimate jumped from $5.3B to $9.3B before a single unit was built. The mass-production savings are still a projection, not a demonstrated price.",
+      "NuScale's flagship Idaho small-reactor project was cancelled in 2023 after its estimated cost rose from $5.3 billion to $9.3 billion, before a single unit was built. China's HTR-PM, a small high-temperature reactor, has entered commercial operation. Both records are real. The fight is over whether building reactors in a factory can make them cheap and fast enough to compete with solar, wind and batteries.",
     confidence: 85,
     source:
-      "NuScale/UAMPS cancellation (Reuters, 2023); IAEA SMR technology report (2023); US DOE on SMRs",
+      "NuScale/UAMPS cancellation (Reuters, 2023); World Nuclear News on HTR-PM commercial operation (2023)",
     sourceUrl: "https://www.energy.gov/ne/benefits-small-modular-reactors-smrs",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "SMRs are pitched as the answer to nuclear's real weakness — not safety, but cost and build time: instead of one giant custom reactor, you mass-produce smaller standardized units in a factory and ship them, in theory getting cheaper with each one (like airplanes rather than cathedrals).",
-    "The trouble is the theory hasn't been demonstrated: the most advanced US SMR effort (NuScale's Idaho project) was cancelled in 2023 after its projected cost jumped from $5.3B to $9.3B before anything was built, pushing its price above renewables-plus-storage — and no SMR has yet been mass-produced anywhere to prove the learning curve.",
-    "So the honest debate isn't whether small reactors can be built (China has one running) but whether factory production actually makes them cheap enough to beat fast-falling solar-plus-batteries — a bet on a learning curve that the NuScale cancellation shows can break before it starts.",
+    "Both sides accept the pitch: build smaller, standardized reactors in a factory and ship them, in the hope that each one could cost less than the last, unlike big custom plants with their cost overruns. Both sides also accept that no small modular reactor has yet been mass-produced or connected to a Western grid, that NuScale's flagship Idaho project was cancelled in 2023 on cost, and that passive-safety designs target the coolant-loss and blackout failures behind past accidents but have not been tested at full scale.",
+    "They split over whether factory production can bring SMR costs below solar, wind and batteries with backup power; whether passive safety prevents core damage with no operator action in every credible scenario; and whether the current Western projects connect on schedule this decade or slip again.",
+    "Each is a question the first operating fleets, prototype tests and project milestones can answer.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1591803897498-ef4a8db8e73a?auto=format&fit=crop&w=800&q=60",

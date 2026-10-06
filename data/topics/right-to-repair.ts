@@ -10,18 +10,18 @@ export const rightToRepairData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "When the FTC actually investigated the industry's reasons for blocking independent repair — safety, security, protecting their intellectual property — it found 'scant evidence' for any of them, and 'no empirical evidence' that independent shops mishandle customer data more than authorized ones. The real surprise isn't that repair restrictions exist; it's that even an unfriendly federal regulator, after taking sworn input from the manufacturers themselves, concluded the safety story mostly doesn't hold up — for ordinary electronics. The genuine exception is networked, safety-critical systems like cars and medical devices.",
+      "The FTC's 2021 'Nixing the Fix' report found 'scant evidence' for manufacturers' justifications for restricting repair, while NHTSA warned in 2020 that Massachusetts' Question 1 car-data mandate 'increases the scale of risks' of a cyberattack. Both sides agree the sharpest risk sits in networked, safety-critical systems. The dispute is over whether targeted carve-outs can contain it, and what right-to-repair laws do to prices and innovation.",
     confidence: 88,
     source:
-      "US FTC, 'Nixing the Fix: An FTC Report to Congress on Repair Restrictions' (May 2021); US PIRG, 'Repair Saves Families Big' (2021)",
+      "US FTC, 'Nixing the Fix: An FTC Report to Congress on Repair Restrictions' (May 2021); NHTSA letter to the Massachusetts Joint Committee on Question 1 (July 2020)",
     sourceUrl:
       "https://www.ftc.gov/reports/nixing-fix-ftc-report-congress-repair-restrictions",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Manufacturers make repair artificially hard — restricting parts, tools, and diagnostics — and it costs you real money: US PIRG estimates repairing rather than replacing four common devices (phones, laptops, fridges, washing machines) would cut average household ownership cost by about $330/yr (~22%), and the FTC found manufacturers' safety/security excuses for blocking repair to be largely unsupported.",
-    "But the savings figure comes from advocacy-group arithmetic that ignores how firms react, and a peer-reviewed Management Science model shows that once manufacturers adjust new-product prices and durability, right-to-repair can produce a 'lose-lose-lose' outcome — and for networked safety-critical systems like cars, regulators flagged genuine cyber-tampering risk.",
-    "So the honest debate isn't 'is repair good or bad' but 'how do you scope it' — the consumer and e-waste case is strong for ordinary electronics where the FTC found no safety basis for restrictions, while the real fight is whether a blanket mandate creates new risks in cars and medical devices that need carved-out security standards.",
+    "Both sides accept that repair monopolies cost consumers real money, that manufacturers will respond strategically to a mandate, and that the sharpest safety risk sits in networked systems like cars and medical devices rather than ordinary electronics.",
+    "They split over whether total ownership costs fall or rise once firms adjust prices, parts and durability, set against US PIRG's estimate of about $330 a year in household savings; whether the laws measurably cut R&D, patents or new products; and whether targeted carve-outs can neutralize the safety risk or it is inherent to broad mandates.",
+    "Each turns on data not yet gathered: price and repair panels, firm-level patent records, and incident comparisons across laws.",
   ],
   last_updated: "2026-06-16",
   tags: ["right-to-repair", "consumer-protection", "antitrust", "e-waste", "cybersecurity"],

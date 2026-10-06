@@ -9,18 +9,17 @@ export const fourDayWorkWeekData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "In the world's largest four-day-week trial (61 UK companies, 2022), revenue rose 1.4% on average and 56 of 61 firms kept the schedule — and Iceland cut the working week to 35–36 hours across ~2,500 public workers (1% of its workforce) with productivity holding steady. The catch most people miss: these were volunteer firms with no control group, and the model that works is genuine hour reduction (100% pay, 80% time, 100% output), not cramming five days into four.",
+      "In the UK's 2022 four-day-week pilot, 56 of the 61 participating companies kept the schedule afterward, and Iceland's 2015–2019 trials cut hours to 35–36 a week for over 2,500 public-sector workers. Neither had a randomized control group, and the UK firms chose to take part. What divides the sides is whether those results come from the schedule or from the firms, and how far they would carry to other sectors.",
     confidence: 80,
     source:
-      "4 Day Week Global / Autonomy / University of Cambridge & Boston College, \"The Results Are In: The UK's Four-Day Week Pilot\" (2023); Autonomy & Alda, Iceland trials report (2021)",
+      "4 Day Week Global / Autonomy / University of Cambridge & Boston College, 'The Results Are In: The UK's Four-Day Week Pilot' (2023); Autonomy & Alda, Iceland trials report (2021)",
     sourceUrl:
       "https://autonomy.work/wp-content/uploads/2023/02/The-results-are-in-The-UKs-four-day-week-pilot.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The trial evidence is strikingly consistent: in the UK's 61-company pilot, revenue rose 1.4% and 92% of firms chose to keep the four-day week, while Iceland maintained productivity across 2,500 public-sector workers — because much of a knowledge-work day is meetings and context-switching, not output, so hours can shrink without production falling.",
-    "But the trials are run by advocacy groups, the firms volunteer (selecting for office work that can absorb compressed schedules), and there's no randomized control group — and the model that succeeds is real hour reduction at full pay, which in coverage-bound sectors like nursing, retail, and manufacturing means hiring more people, not the same output in less time.",
-    "So the honest debate isn't \"does a four-day week ever work\" (in white-collar trials it clearly can) but whether the maintained-productivity result survives outside self-selected office firms and scales to hours-bound industries without raising costs or widening the gap between knowledge and frontline workers.",
+    "Both sides accept that the trials so far lack randomized control groups and over-represent flexible office firms, that cutting hours at full pay helps wellbeing more than squeezing 40 hours into four days, and that hours-bound sectors like nursing and retail would need more staff to keep coverage.",
+    "They split over whether maintained productivity comes from the schedule or from self-selected, motivated firms; whether wellbeing gains last beyond two years once the trials end; and how much of a 20% cut in hours productivity can absorb across the economy, which decides whether broad adoption is roughly cost-neutral or inflationary.",
   ],
   pillars: [
     // =========================================================================

@@ -12,17 +12,16 @@ export const geoengineeringClimateData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Carbon removal isn't an alternative to cutting emissions — the IPCC found that essentially every modeled pathway to 1.5°C requires it anyway, because the remaining carbon budget is only ~500 gigatons of CO2 (roughly a decade of emissions). The catch: today's leading direct-air-capture plants cost near $1,000 per ton and capture only tens of thousands of tons a year, against the ~40 billion tons humanity emits annually.",
+      "The IPCC finds that every assessed pathway limiting warming to 1.5°C with little or no overshoot requires removing 100-1000 gigatons of CO2 this century. Climeworks' Orca plant removes about 4,000 tons a year at close to $1,000 a ton, against roughly 40 gigatons emitted annually. Both sides accept these numbers. The fight is over whether carbon removal and solar geoengineering buy real time, or ease the pressure to cut emissions.",
     confidence: 88,
     source:
-      "IPCC AR6 (2021-2023, remaining 1.5°C budget ~500 GtCO2 and CDR required in all 1.5°C pathways); IEA Direct Air Capture (2022); Climeworks operational data",
+      "IPCC AR6 Synthesis Report (2021-2023); Climeworks; IEA, Direct Air Capture (2022)",
     sourceUrl: "https://www.ipcc.ch/report/ar6/syr/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The physics is unforgiving: even if the world hit net-zero emissions tomorrow, the ~1.5 trillion tons of CO2 already in the air keep warming the planet for centuries, and the IPCC finds that every assessed pathway to 1.5°C requires carbon removal at scale — making it a necessary complement to emission cuts, not a substitute.",
-    "But the leading technologies are nowhere near ready to matter: direct air capture runs near $1,000 per ton today (with $400-600 only a 2030 target) and the largest plants remove tens of thousands of tons a year against ~40 billion tons emitted, while solar geoengineering could cool the planet cheaply yet risks disrupting monsoons that feed billions and triggering 'termination shock' if ever stopped abruptly.",
-    "So the honest debate isn't 'geoengineering vs. a stable climate' — that climate is already gone — but whether scaling removal and researching solar dimming buys real time, or whether the promise of an engineered fix lets emitters delay the one thing that definitely works: cutting fossil fuels.",
+    "Both sides accept that cutting emissions is cheaper and lower-risk than removing carbon, that current CO2 levels are already dangerously high, that solar geoengineering would alter regional rainfall and that stopping it abruptly would cause catastrophic termination shock, and that no adequate international framework exists to govern it.",
+    "They split over whether natural sinks plus feasible cuts can stay within the carbon budget without technological removal like direct air capture; whether solar geoengineering would leave every major region better off or create net losers, such as the monsoon belts of South Asia and West Africa; and whether the option of an engineered fix weakens public support for cutting emissions.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",

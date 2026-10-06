@@ -10,18 +10,18 @@ export const socialSecurityRetirementAgeData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Raising the retirement age — the fix politicians reach for first — doesn't actually fix Social Security. The nonpartisan CBO found that lifting the full retirement age from 67 to 69 closes only about a quarter (24%) of the 75-year shortfall and doesn't even move the year the trust funds run dry (still the mid-2030s). It works mainly as an across-the-board benefit cut, roughly 13% for the cohorts it hits.",
+      "Social Security's combined trust funds are projected to run dry around 2035, after which incoming taxes would cover about 83% of scheduled benefits. The CBO scores lifting the full retirement age from 67 to 69 as closing 24% of the 75-year shortfall, by cutting affected retirees' benefits about 13%. Both sides accept these numbers. What divides them is whether that cut is a fair share of the fix, and who ends up bearing it.",
     confidence: 90,
     source:
-      "Congressional Budget Office, 'Raising the Full Retirement Age for Social Security' (Sept. 2024); Social Security Board of Trustees, 2024 Annual Report",
+      "Social Security Board of Trustees, 2024 Annual Report; Congressional Budget Office, 'Raising the Full Retirement Age for Social Security' (Sept. 2024)",
     sourceUrl:
-      "https://www.cbo.gov/system/files/2024-09/60516-Full-Retirement-Age.pdf",
+      "https://www.ssa.gov/oact/TRSUM/2024/index.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The demographic case is real: when Social Security started, a retirement age of 65 roughly matched life expectancy, but Americans now live far longer and collect for many more years while fewer workers support each retiree — so indexing the retirement age to longevity restores the program's original design and, per CBO, durably closes about a quarter of the long-term gap on its own.",
-    "But raising the age is mechanically a benefit cut for everyone (about 7% in lifetime benefits per year of increase), and it lands unequally: life expectancy has soared for high earners and barely moved for low earners — the male top-vs-bottom-quintile gap at age 50 grew from ~5 years to a projected ~13 — so 'people live longer, so work longer' applies far more to the affluent than to manual laborers who can't.",
-    "So the honest debate isn't whether raising the age helps solvency (it does, modestly) but whether it's the fair way to do it — versus revenue options like lifting the payroll-tax cap (income above ~$168,600 in 2024 is untaxed), which can close the gap without cutting benefits.",
+    "Both sides accept that the trust funds face a real, dated shortfall around 2035, that raising the full retirement age closes some but not all of it, that each year of increase cuts lifetime benefits roughly 7% for everyone, and that the life-expectancy gap between top and bottom earners has widened sharply.",
+    "They split over how much of the gap an age increase closes compared with revenue options like lifting the payroll-tax cap, and over whether, counted over a lifetime, it cuts benefits evenly across earners or falls hardest on lower earners.",
+    "The second turns largely on whether benefits are counted year by year or over a lifetime, with disability insurance in or out.",
   ],
   last_updated: "2026-06-16",
   tags: ["social-security", "retirement", "fiscal-policy", "aging", "inequality"],

@@ -9,12 +9,11 @@ export const socialMediaAgeLimitsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "In 2024 Australia became the first country to legally ban under-16s from social media — acting before the science is settled. Two hard questions sit underneath: whether social media actually causes the post-2012 teen mental-health decline (rigorous studies find mostly small or mixed effects), and whether an age ban can even be enforced without ID-checking every adult too.",
+      "On 29 November 2024 Australia passed the world's first law barring under-16s from holding social media accounts. In the UK, about 22% of 8-to-17-year-olds with a profile had already signed up with an adult age. Both sides accept that teen mental health worsened after about 2012. The fight is over whether social media drove that, and whether an age ban can be enforced without unacceptable privacy costs for everyone.",
     confidence: 80,
     source:
-      "Australia Online Safety (Social Media Minimum Age) Act 2024; Haidt vs. Odgers (Nature); Australian age-assurance trial (2024)",
-    sourceUrl:
-      "https://www.esafety.gov.au/about-us/social-media-age-restrictions",
+      "Online Safety Amendment (Social Media Minimum Age) Act 2024 (Australia); Ofcom / YouGov, 'Children's Online User Ages' (2024)",
+    sourceUrl: "https://www.legislation.gov.au/C2024A00127/asmade/text",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [

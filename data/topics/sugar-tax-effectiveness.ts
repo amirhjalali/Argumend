@@ -9,17 +9,17 @@ export const sugarTaxEffectivenessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Sugar taxes reliably cut sugary-drink purchases (Mexico ~7.6%) and pushed UK manufacturers to slash drink sugar by ~30%+ — but a decade in, no country has yet shown a population-wide obesity drop caused by the tax alone; the strongest health signal is an 8% relative obesity fall in UK 10–11-year-old girls.",
+      "After Mexico's 2014 tax of one peso per liter, purchases of taxed drinks fell an average of 7.6% over two years. A decade into sugar taxes worldwide, no study has yet tied a population-wide drop in obesity to a tax alone. Both sides accept both points. The fight is over whether fewer sodas will show up as less obesity and diabetes, and whether that is worth a tax that falls hardest on the poor.",
     confidence: 82,
     source:
-      "Colchero et al., Health Affairs (2017, Mexico); Scarborough et al., PLoS Medicine (2020, UK reformulation); Rogers et al., PLoS Medicine (2023, UK girls)",
-    sourceUrl: "https://www.who.int/publications/i/item/9789241511247",
+      "Colchero, Rivera-Dommarco, Popkin & Ng, Health Affairs (2017); Rogers et al., PLOS Medicine (2023)",
+    sourceUrl: "https://www.healthaffairs.org/doi/10.1377/hlthaff.2016.1231",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Sugar taxes do the thing they most directly target: Mexico's tax cut sugary-drink purchases ~7.6% (most among the poorest), and the UK's tiered levy pushed manufacturers to cut soft-drink sugar by ~30%+ — a change that reaches everyone, not just price-sensitive shoppers.",
-    "But the ultimate goal is murkier: after a decade of sugar taxes worldwide, no jurisdiction has yet proven a population-wide obesity drop from the tax alone — the strongest health signal so far is an 8% relative obesity reduction in UK 10–11-year-old girls (but not boys or younger kids).",
-    "So the honest debate isn't whether sugar taxes change behavior (they clearly do) but whether that translates into measurable health gains given a 5–10 year lag — and whether a regressive tax is the right tool, or reformulation mandates and structural changes would do more.",
+    "Both sides accept that sugar taxes measurably cut purchases of the taxed drinks, that no study has yet tied a population-wide obesity drop to a tax alone and any such effect would take years to show, and that the tax takes a larger share of income from poorer households.",
+    "They split over whether total sugar intake falls once shoppers switch to untaxed sugary products or buy across the border; whether lower soda consumption in Mexico, the UK, Philadelphia and elsewhere will turn into measurably less obesity and diabetes; and whether the health gains and earmarked revenue for low-income people outweigh the heavier burden the tax puts on them.",
+    "The first two are questions sales and health data can answer; the third also turns on how to weigh money against health for the poorest, which is a value choice.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1527960471264-932f39eb5846?auto=format&fit=crop&w=800&q=60",

@@ -11,9 +11,11 @@ const covidOriginsData: TopicInput = {
   category: "science" as const,
   keystone_fact: {
     statement:
-      "The single biggest reason COVID's origin can't be settled isn't a missing experiment — it's missing data: China took the Wuhan Institute of Virology's virus database offline in September 2019 and has withheld lab records, early samples, and patient sequences ever since. Both the lab-leak and natural-spillover cases rest on circumstantial evidence.",
+      "Wuhan is home both to the Huanan Seafood Market, where live wildlife was sold, and to the Wuhan Institute of Virology, the world's leading bat-coronavirus lab, which took its virus database offline in September 2019. China has never released that database, the early patient sequences or the lab's records. Both sides accept all of this. The fight is over whether COVID-19 began as a natural spillover at the market or a research-related leak from the lab.",
     confidence: 80,
-    source: "WHO SAGO report (2025); US intelligence assessments; widely documented",
+    source:
+      "Worobey et al., Science (2022); House Select Subcommittee on the Coronavirus Pandemic (2024); WHO SAGO report (2025)",
+    sourceUrl: "https://www.science.org/doi/10.1126/science.abp8715",
   },
   simple_case: [
     "The honest status is 'genuinely unresolved, and may stay that way': two plausible origins — a natural spillover like past coronaviruses, and a research-related leak from the Wuhan lab — both fit the available evidence.",

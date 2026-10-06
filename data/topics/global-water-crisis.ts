@@ -9,7 +9,7 @@ export const globalWaterCrisisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Despite decades of \"water wars\" headlines, the last time two states actually went to war over water was about 4,500 years ago, between the Sumerian city-states of Lagash and Umma. In the modern record (1948–2008), cooperative water events outnumber conflictive ones by more than 2:1, and over 200 water treaties were signed even between hostile neighbors. The catch: that record was built during an era of relative abundance, and it has never been stress-tested against the absolute scarcity now emerging.",
+      "The last war between states fought over water was about 4,500 years ago, between the Sumerian city-states of Lagash and Umma, and from 1948 to 2008 cooperative water events outnumbered conflictive ones by more than two to one, with over 200 treaties signed. That record was built in an era of relative abundance. The fight is over whether it holds as absolute scarcity arrives.",
     confidence: 84,
     source:
       "Aaron T. Wolf, Oregon State University Transboundary Freshwater Dispute Database; International Water Event Database (1948–2008)",
@@ -17,9 +17,8 @@ export const globalWaterCrisisData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The alarming version is real: the Ogallala Aquifer has lost over 400 cubic kilometers since the 1950s, India pumps more groundwater than any nation on Earth with water tables dropping 1–2 meters a year in its breadbasket states, and NASA GRACE data show many of the world's largest aquifers losing water faster than they recharge — a slow-motion supply crisis already underway.",
-    "But the honest counterpoint is that the headline framing — nations marching to war over water — has been predicted for decades and consistently failed to arrive: cooperative events outnumber conflict more than 2:1, the Indus Waters Treaty survived three India–Pakistan wars, and most water crises trace to domestic mismanagement and underpricing, not foreign aggression.",
-    "So the honest debate isn't \"will there be water wars?\" but whether the institutions and technology that have managed scarcity so far — treaties, pricing, desalination, efficiency — can scale fast enough in the poorest, most water-stressed regions before aquifer depletion and glacier loss outrun them.",
+    "Both sides accept that groundwater depletion is real and measured in the Ogallala, northwest India and the North China Plain; that cooperative water events have outnumbered conflictive ones roughly 2:1, with no interstate water war in the modern era but real sub-national water violence; and that desalination and drip irrigation work where they can be afforded.",
+    "They split over whether efficiency, pricing and recharge can outrun aquifer depletion before key farm regions collapse; whether some level of absolute scarcity, on rivers like the Nile or the Indus, would break cooperation down into war; and whether that technology can reach the poorest, most water-stressed regions in time.",
   ],
   pillars: [
     // =========================================================================

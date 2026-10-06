@@ -10,17 +10,16 @@ export const housingAffordabilityCrisisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The most counterintuitive finding in housing economics is that building more market-rate housing — even pricey 'luxury' units — reliably lowers rents, including for lower-income renters, through moving chains: new high-end units free up cheaper older ones. When Auckland upzoned three-quarters of its residential land in 2016, construction surged (~4% of the city's housing stock in five years) and rents fell well below trend. The catch is that filtering takes years to reach the bottom of the market, so supply alone doesn't help a family facing eviction today.",
+      "In San Francisco, Manhattan and Los Angeles, Glaeser and Gyourko found the gap between home prices and construction costs exceeds $400,000 per unit. Across the US, 11 million renter households spent more than half their income on rent and utilities in 2024. Both sides take these numbers as given. The fight is over whether new supply reaches lower-income renters fast enough, and whether rent caps or public housing should fill the gap.",
     confidence: 84,
     source:
-      "Greenaway-McGrevy & Phillips, Journal of Urban Economics (2023, Auckland upzoning); Mast, JUE (2021, moving chains); Bratu et al., JUE (2023, Helsinki); Glaeser & Gyourko, JEP (2018, regulatory cost)",
+      "Glaeser & Gyourko, 'The Economic Implications of Housing Supply,' Journal of Economic Perspectives (2018); Harvard Joint Center for Housing Studies, 'The State of the Nation's Housing 2024'",
     sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/jep.32.1.3",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The economics are unusually settled: restrictive zoning is the single biggest driver of high housing costs — Glaeser and Gyourko estimate it adds over $400,000 to a home's price in the most constrained cities — and the fix is to let more housing get built, since added supply (even at the top of the market) filters down and lowers rents broadly, as Auckland, Tokyo, and U.S. moving-chain studies show.",
-    "The honest limitation is timing and reach: filtering can take years to relieve the bottom of the market, new construction can't be built below roughly $300,000–$500,000 per unit in most U.S. cities, and Minneapolis showed that ending single-family zoning alone produced only modest new supply — so the lowest-income renters, 11 million of whom already spend over half their income on rent, may still need subsidies or public supply.",
-    "So the honest debate isn't 'does building more housing lower rents' (it does) but 'is supply alone fast enough and deep enough to reach the poorest renters, or are rent stabilization, vouchers, and government-built housing also required to close the gap that the market floor leaves open.'",
+    "Both sides accept that restrictive zoning raises housing prices and that more housing eventually eases market-wide pressure; that hard rent ceilings cut supply over time while displacement does real, immediate harm; and that US public housing has been chronically underfunded even as some systems abroad deliver good housing at scale.",
+    "They split over whether upzoning, as in Auckland and Minneapolis, lowers rents for median and lower-income renters within five to ten years; whether soft rent caps like Oregon's prevent displacement without cutting construction; and whether Vienna's and Singapore's public housing succeeded through design the US could copy, or conditions unique to them.",
   ],
   pillars: [
     // =========================================================================

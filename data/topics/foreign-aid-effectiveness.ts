@@ -10,17 +10,16 @@ export const foreignAidEffectivenessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The popular verdict — \"$4.6 trillion in aid since 1960 and many countries are still poor, so aid doesn't work\" — collapses two very different things. Narrowly targeted health aid is among the most cost-effective lifesaving spending ever measured: PEPFAR is credited with saving roughly 25 million lives since 2003, and GiveWell estimates an insecticide-treated bed net campaign averts a death for about $3,000-$8,000. What the aggregate critique actually indicts is general budget support and governance aid, where cross-country studies find no robust effect on growth.",
+      "GiveWell estimates that the insecticide-treated bed net campaigns the Against Malaria Foundation funds avert a death for roughly $3,000-$8,000. Across countries, Rajan and Subramanian found little robust evidence that aid inflows raise or lower economic growth. Both sides accept both findings. The fight is over how much of the foreign aid actually spent is the proven kind, and which delivery channels make each dollar last.",
     confidence: 86,
     source:
-      "GiveWell, Against Malaria Foundation review (Dec 2023, ~$3,000-$8,000 per death averted); PEPFAR / U.S. State Department (~25 million lives saved since 2003); Rajan & Subramanian, Review of Economics and Statistics 90(4) (2008, no robust aid-growth relationship)",
+      "GiveWell, Against Malaria Foundation review (Dec 2023); Rajan & Subramanian, Review of Economics and Statistics 90(4) (2008)",
     sourceUrl: "https://www.givewell.org/charities/amf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The best-targeted aid works spectacularly: bed nets avert a child death for a few thousand dollars (GiveWell), PEPFAR is credited with ~25 million lives saved since 2003, and global under-5 mortality has fallen ~60% since 1990 partly on the back of aid-funded immunization and malaria control.",
-    "But the aggregate picture is genuinely murky: after $4.6 trillion in transfers, peer-reviewed cross-country studies (Rajan & Subramanian 2008) find no robust link between aid inflows and economic growth, and Nobel laureate Angus Deaton argues open-ended aid can weaken the accountability between governments and their own citizens.",
-    "So the honest debate isn't \"does aid work?\" but \"which kinds of aid, delivered how?\" — proven health interventions and direct cash transfers look excellent, while general budget support and tied aid look weak, so the real question is what share of the portfolio is the good kind.",
+    "Both sides accept that some targeted health aid, like bed nets, vaccines and the HIV treatment PEPFAR funds, has strong causal evidence behind it, that general budget support has much weaker evidence, that aggregate aid-and-growth correlations are not causal by themselves, and that delivery channel matters: tied aid raises costs 15-30%, and cash transfers carry unusually low overhead.",
+    "They split over what share of real aid spending goes to proven, cost-effective programs rather than the unevidenced kind, and over whether lower-overhead channels like GiveDirectly's cash transfers actually deliver more lasting results per dollar once spillovers and weak-governance settings are counted.",
   ],
   pillars: [
     {

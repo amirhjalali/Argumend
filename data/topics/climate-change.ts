@@ -7,15 +7,14 @@ export const climateChangeData = {
   category: "science" as const,
   keystone_fact: {
     statement:
-      "That the CO₂ rise comes from burning fossil fuels isn't a correlation — it's a chemical fingerprint: atmospheric carbon is getting isotopically lighter (δ¹³C), oxygen is dropping at the exact ratio combustion predicts, and the oceans are acidifying. Three independent signatures, one source.",
+      "Atmospheric CO₂ is at its highest level in at least 800,000 years, and its carbon has grown isotopically lighter, from roughly −6.5‰ before the industrial era to about −8‰ today. Satellites and Argo floats show Earth absorbing roughly 0.5–1.0 W/m² more energy than it radiates. Both sides work from these measurements. The fight is over what they rule out, and whether some natural factor is under-measured enough to matter.",
     confidence: 97,
-    source: "NOAA Global Monitoring Laboratory; Scripps CO₂ Program (Keeling)",
+    source: "NOAA Global Monitoring Laboratory; Scripps CO₂ Program (Keeling); Loeb et al., Geophysical Research Letters (2021), NASA/NOAA CERES and Argo",
     sourceUrl: "https://gml.noaa.gov/ccgg/isotopes/c13tellsus.html",
   },
   simple_case: [
-    "The core question — is the warming human-caused — is settled about as firmly as anything in science: the IPCC attributes roughly 1.1°C of warming since the 1800s to human activity, with all natural factors together contributing close to zero.",
-    "We know the extra CO₂ is ours because it carries a chemical fingerprint (lighter carbon isotopes, falling oxygen, acidifying oceans), and the warming carries a greenhouse fingerprint (the upper atmosphere cools while the surface warms) that the sun cannot produce.",
-    "The live debates today are not about whether it is happening, but about how fast it will warm (climate sensitivity) and what to do about it — a policy and economics fight, not a physics one.",
+    "Both sides accept that CO₂ has varied naturally over Earth's history and now stands at its highest level in at least 800,000 years, that the sun drives Earth's climate while volcanoes and orbital cycles measurably affect it, and that early climate models had real uncertainties.",
+    "They split over whether the falling carbon-isotope ratio, alongside dropping oxygen and acidifying oceans, pins the added CO₂ on fossil fuels rather than volcanoes or ocean outgassing; whether short-term swings like the 1998–2014 slowdown reflect model error or natural variability; and whether the satellite and ocean-float energy budget leaves room for an under-measured natural factor large enough to matter.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",

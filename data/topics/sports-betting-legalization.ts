@@ -11,17 +11,16 @@ export const sportsBettingLegalizationData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Since the Supreme Court struck down the federal ban in 2018 (Murphy v. NCAA), legal US sportsbooks have exploded from one state to 38-plus, taking a record $148 billion in bets in 2024 alone — yet the best causal study of the result found that for every $1 households bet online, their net investments fell by about 99 cents. The money is overwhelmingly not 'extra' entertainment spending; it is largely savings and stock investments that vanish, concentrated among financially fragile households.",
+      "Before the Supreme Court's 2018 Murphy v. NCAA ruling, Americans wagered an estimated $64 billion a year on sports with illegal bookies and offshore sites. By 2024, legal sportsbooks in 38 states plus DC took a record $147.9 billion in bets. Both figures are real. The fight is over how much of that legal handle is old betting brought into the open, and how much is new betting that legalization created.",
     confidence: 78,
     source:
-      "Murphy v. NCAA (2018); American Gaming Association 2024 handle ($147.9B); Baker, Balthrop, Johnson, Kotter & Pisciotta, 'Gambling Away Stability,' NBER WP 33108 (2024)",
-    sourceUrl: "https://www.nber.org/papers/w33108",
+      "American Gaming Association, 'Sizing the Illegal and Unregulated Gaming Markets' (2022) and 2024 Commercial Gaming Revenue; Murphy v. NCAA (2018)",
+    sourceUrl: "https://www.americangaming.org/new-aga-report-shows-americans-gamble-more-than-half-a-trillion-dollars-illegally-each-year/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Sports betting was happening anyway — Americans wagered an estimated $64 billion a year with illegal bookies and offshore sites before legalization, with zero consumer protection, no tax collection, and no integrity monitoring; bringing that into the open captured roughly $3 billion in 2024 state tax revenue and routed suspicious-bet alerts to leagues that exposed real match-fixing.",
-    "But the honest counterpoint is large and well-documented: the same convenience that displaces black-market betting also massively expands total betting, and the best household-finance studies find legalization reduces savings, raises bankruptcy and debt-collection rates, and concentrates harm on young, low-income men — costs a prohibition era largely externalized to bookies.",
-    "So the real debate is not 'ban it or allow it' in the abstract — prohibition demonstrably failed and drove demand underground — but whether a tightly regulated market can keep the consumer-protection and tax upside while curbing the addiction, financial-ruin, and advertising-saturation harms that frictionless mobile betting predictably produces.",
+    "Both sides accept that a large illegal sports-betting market existed before 2018, that the early US mobile-betting model cut savings and raised financial distress among vulnerable households, and that problem-gambling helpline calls rose after legalization even as legal monitoring caught real match-fixing.",
+    "They split over how much legal betting replaces illegal betting rather than adding new betting; whether mandatory safeguards such as deposit limits and affordability checks can break the link between betting volume and harm; and whether legal monitoring and treatment prevent more harm than the added volume creates.",
   ],
   pillars: [
     // =========================================================================

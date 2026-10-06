@@ -10,17 +10,16 @@ export const veganismEnvironmentalData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "A vegan diet produces about 75% less greenhouse-gas emissions and uses about 75% less land than a high-meat diet — and a global shift to plant-based eating could free up farmland on the scale of the US, China, Australia, and the EU combined.",
+      "In Oxford's study of 55,504 UK adults, vegans' diets carried about 75% lower greenhouse-gas emissions and land use than high-meat diets. Worldwide, about two-thirds of agricultural land is permanent meadow and pasture, much of it unfit for crops. Neither fact is in dispute. The argument is over how much of that per-person cut would survive a global shift to vegan diets.",
     confidence: 90,
     source:
-      "Scarborough et al., Nature Food (Oxford, 2023, n=55,504); Poore & Nemecek, Science (2018)",
+      "Scarborough et al., Nature Food (Oxford, 2023); FAO land statistics; Mottet et al., Global Food Security (2017)",
     sourceUrl: "https://www.nature.com/articles/s43016-023-00795-w",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The single biggest thing an individual can do for the climate often isn't ditching the car — it's the plate: Oxford's study of 55,000 people found vegan diets produce about 75% less greenhouse gas and use about 75% less land than high-meat diets.",
-    "At a global scale the lever is even bigger — the largest food-system analysis (Poore & Nemecek) estimates a shift to plant-based diets could cut food's land use by ~76%, freeing farmland on the scale of the US, China, Australia, and the EU combined.",
-    "The honest caveats are about where and who, not whether: much grazing land can't grow crops, and animal foods are nutritionally critical for subsistence populations — so the real win concentrates among affluent, high-meat eaters whose choices are unconstrained, not the world's poorest farmers.",
+    "Both sides accept that animal agriculture is the most land- and emissions-intensive part of the food system, that much grazing land cannot grow crops, and that vegan diets need deliberate planning and B12 supplements, with animal foods critical where supplement supply chains are weak.",
+    "They split over how much of the per-person cut, or of Poore and Nemecek's estimated 76% drop in food's land use under plant-based diets, would hold at global scale once land convertibility, rebound effects and the use of freed land are counted; and over whether a population-wide vegan shift in wealthy countries carries any net health cost once supplements cover the gaps.",
   ],
   pillars: [
     {

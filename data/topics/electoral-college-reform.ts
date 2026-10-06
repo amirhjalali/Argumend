@@ -9,7 +9,7 @@ export const electoralCollegeReformData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Twice in the last six elections (2000, 2016) the candidate who won the most votes lost the presidency, and a Wyoming voter carries about 3.6× the electoral weight of a Californian. Yet the Electoral College is nearly impossible to abolish — a constitutional amendment is a non-starter, and the workaround compact sits 48 electoral votes short and faces a likely Supreme Court fight.",
+      "Twice in the last six elections (2000, 2016) the candidate who won the most votes lost the presidency, and a Wyoming voter carries about 3.6 times the electoral weight of a Californian. Abolishing the Electoral College takes a constitutional amendment, and the interstate compact that would work around it is 48 electoral votes short. The fight is over whether a national popular vote would be fairer, and whether it is worth the cost of getting there.",
     confidence: 85,
     source:
       "National Popular Vote Interstate Compact status (2026); US Census apportionment; Pew Research (2024)",
@@ -17,9 +17,8 @@ export const electoralCollegeReformData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The case against the Electoral College is concrete, not abstract: twice in the last six elections (2000 and 2016) the popular-vote winner lost, a Wyoming voter's ballot carries roughly 3.6× the electoral weight of a Californian's, and candidates already ignore 40+ states to camp in 5–7 swing states.",
-    "Defenders answer that this is a feature, not a bug: it forces candidates to build geographically broad coalitions instead of running up margins in a few dense metros, and it gives less-populous states the bargaining weight the founders deliberately built into the federal system to get the union ratified.",
-    "So the honest debate isn't really whether the system is unequal (it plainly is) but whether that's the right kind of unequal — and, practically, it may be moot: a constitutional amendment is politically dead, and the workaround (the NPVIC) is 48 electoral votes short, stalled in the Republican-leaning states it needs, and faces a likely Supreme Court challenge.",
+    "Both sides accept that the popular-vote winner lost the presidency in 2000 and 2016, that a Wyoming voter carries about 3.6× the electoral weight of a Californian, and that the National Popular Vote Interstate Compact sits at 222 of the 270 electoral votes it needs, with no Supreme Court ruling on it yet.",
+    "They split over whether that unequal weight is a flaw or a feature that forces candidates to build geographically broad coalitions; whether the compact can win the Republican-leaning states it still needs to reach 270; and whether it would survive a Supreme Court challenge under the Compact Clause.",
   ],
   pillars: [
     {

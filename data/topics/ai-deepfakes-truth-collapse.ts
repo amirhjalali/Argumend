@@ -11,17 +11,16 @@ export const aiDeepfakesTruthCollapseData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The most documented harm from deepfakes so far isn't fake videos fooling people — it's the inverse: the mere existence of the technology lets people dismiss real footage as 'AI fakery.' Researchers call this the 'liar's dividend,' and it has already surfaced in real politics — in Gabon, opponents branded a New Year's video of the ailing President Bongo a 'deepfake' (forensic analysis later found it genuine), and the doubt helped trigger an attempted coup. Meanwhile the best automated detectors hit only about 78% on real 2024 deepfakes, well below the ~90% of expert human analysts.",
+      "On deepfakes circulated in 2024, the best automated video detector was right about 78% of the time, against about 90% for expert human analysts. Leica, Nikon and Canon now ship cameras that cryptographically sign photos under the C2PA provenance standard. Both sides cite these facts. The fight is over which spreads faster: trusted provenance, or the 'liar's dividend' of dismissing real recordings as deepfakes.",
     confidence: 84,
     source:
-      "Chesney & Citron, 'Deep Fakes' (California Law Review, 2019, coined 'liar's dividend'); Chandra et al., Deepfake-Eval-2024 (arXiv:2503.02857)",
+      "Chandra et al., Deepfake-Eval-2024 (arXiv:2503.02857); Content Authenticity Initiative, with Leica, Nikon and Canon, on C2PA cameras",
     sourceUrl: "https://arxiv.org/abs/2503.02857",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Generation is racing ahead of detection: voice clones now need only ~3 seconds of sample audio, and on a 2024 in-the-wild benchmark the best automated video detector reached only ~78% accuracy (AUC ≈0.79) — a ~45-50% drop from its score on clean academic datasets — while a deepfaked video call already cost the engineering firm Arup $25 million.",
-    "But the apocalypse framing oversells it: expert human analysts still hit ~90%, detection can lean on metadata, provenance, and context rather than pixels alone, and cryptographic provenance (the C2PA standard, now shipping in Leica, Nikon, and Canon cameras) gives trusted sources a verifiable chain of custody — society also navigated doctored photographs for a century before AI.",
-    "So the honest debate isn't whether any fake can fool any viewer (it can) but whether verification infrastructure and the 'liar's dividend' move faster than each other — whether trusted-source provenance reaches consequential media before reflexive 'it's a deepfake' distrust becomes the default and erodes accountability irreversibly.",
+    "Both sides accept that the 'it's a deepfake' defense is now used against genuine recordings, that forensic checks can often authenticate a specific clip, that pixel-level detection is not enough without metadata and provenance, and that provenance need only cover consequential media, since billions of existing devices can't be retrofitted.",
+    "They split over whether that defense actually lets powerful people escape accountability; whether detection plus context can stay reliable as generators improve, or trust must shift to provenance; and whether C2PA-style provenance spreads faster than deepfake-driven distrust.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",

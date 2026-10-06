@@ -10,7 +10,7 @@ export const psychedelicsMentalHealthData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The trials report striking results — in MDMA's Phase III, 71% of PTSD patients no longer met diagnostic criteria — yet in 2024 the FDA rejected MDMA-assisted therapy, because you can't blind a psychedelic trial: patients know whether they're tripping, so expectation and drug effect are tangled together.",
+      "In MDMA's Phase III trials, 71% of PTSD patients no longer met diagnostic criteria. In 2024 the FDA rejected MDMA-assisted therapy, citing among other things that psychedelic trials are hard to blind: patients can tell whether they took the drug. The fight is over how much of the effect is the drug and how much is expectation, and what evidence should be enough to approve it.",
     confidence: 80,
     source:
       "Mitchell et al., Nature Medicine (2023); FDA Complete Response Letter to Lykos (Aug 2024)",
@@ -18,9 +18,8 @@ export const psychedelicsMentalHealthData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Psychedelic trials report some of the largest effect sizes in psychiatry — in MDMA's confirmatory Phase III, 71% of PTSD patients no longer met diagnostic criteria — which is why the field has exploded with well over 100 registered psilocybin studies.",
-    "But there's a structural catch the hype skips: you can't run a real placebo trial when participants can obviously tell whether they're tripping, so expectation and pharmacology are tangled — which is exactly why an FDA advisory panel voted 2–9 against MDMA's efficacy and the agency demanded another trial in 2024.",
-    "So the honest position isn't 'miracle cure' or 'snake oil' — the signals are real and unusually durable, but until trials solve the blinding-and-expectancy problem we genuinely can't say how much is the drug versus the belief that you took it.",
+    "Both sides accept that psychedelic trials can't be blinded the way a pill trial can, since participants almost always know whether they took an active drug, and that state programs in Oregon and Colorado have moved ahead of FDA approval without yet producing systematic outcome data.",
+    "They split over how much of the improvement in trials like MDMA's Phase III for PTSD comes from the drug itself rather than from expectation and the intensive therapy bundled with it, the issue behind the FDA's 2024 rejection; and over whether supervised state-level access like Oregon's psilocybin service centers delivers real benefit at acceptable risk.",
   ],
   pillars: [
     {

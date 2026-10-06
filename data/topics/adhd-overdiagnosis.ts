@@ -8,17 +8,16 @@ export const adhdOverdiagnosisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The single strongest piece of evidence that ADHD is over-labeled isn't the rising diagnosis count — it's a calendar quirk: the youngest kids in a school year are about 38% more likely to be diagnosed with ADHD than the oldest, simply for being up to a year less mature than classmates. The honest catch is that this relative-age effect is a real but bounded measurement error at the margin; ADHD itself is among the most heritable psychiatric conditions (~74%), so a valid disorder can still be overdiagnosed at its fuzzy threshold.",
+      "By 2022, 11.4% of US children aged 3-17, about 7 million, had ever been diagnosed with ADHD, against a community-epidemiology estimate near 5%. The youngest children in a school year are about 38% more likely to be diagnosed than the oldest, and twin studies put ADHD's heritability near 74%. Both sides accept these figures. The fight is over how much of the gap is false positives and how much is cases that were once missed.",
     confidence: 88,
     source:
-      "Frisira et al., relative-age meta-analysis (RR 1.38), European Child & Adolescent Psychiatry (2024); Faraone & Larsson, ~74% heritability, Molecular Psychiatry (2019)",
-    sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11868292/",
+      "CDC, Data and Statistics on ADHD (2022 National Survey of Children's Health); relative-age meta-analysis, European Child & Adolescent Psychiatry (2024); Faraone & Larsson, Molecular Psychiatry (2019)",
+    sourceUrl: "https://www.cdc.gov/adhd/data/index.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Diagnosed ADHD has climbed steeply — 11.4% of US children (about 7 million) had ever been diagnosed by 2022, well above the ~5% that rigorous community epidemiology puts the true childhood rate at — and a 2021 JAMA Network Open scoping review of 334 studies found 'convincing evidence that ADHD is overdiagnosed in children and adolescents,' driven by criteria that keep broadening to sweep in milder cases.",
-    "But a higher diagnosed rate is also exactly what closing a real underdiagnosis gap looks like: girls, women, and adults were historically missed (the childhood boy:girl ratio of ~3-4:1 narrows toward 1:1 in adulthood), ADHD is ~74% heritable with replicated risk genes, and a Danish cohort of ~1.9 million people found roughly double the mortality in people with ADHD — so the extra cases aren't obviously phantom.",
-    "So the honest debate isn't 'is ADHD real or fake' (it is real and overdiagnosis can coexist with underdiagnosis) but whether, for the milder cases now driving the growth, receiving the diagnosis does more good than harm — a long-term question the evidence base has barely tested.",
+    "Both sides accept that the diagnosed rate has risen sharply, that girls, women and adults were historically under-recognized, that being among the youngest in class raises the odds of a diagnosis, that ADHD is a real and highly heritable condition, and that treating severe ADHD clearly helps.",
+    "They split over whether the gap between the ~11% diagnosed and ~5% community rates reflects false positives or previously missed cases; how many diagnoses reflect being the youngest in class rather than a genuine disorder; and whether, for the milder cases driving the growth, diagnosis and treatment do more good or harm than watchful waiting over the long run, which has barely been studied.",
   ],
   last_updated: "2026-06-16",
   tags: ["adhd", "psychiatry", "diagnosis", "mental-health", "neurodevelopment"],
