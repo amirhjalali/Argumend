@@ -211,10 +211,16 @@ describe("shared search lazy boundary", () => {
   });
 
   it("builds search from lightweight indexes without graph, provider, or full-corpus imports", () => {
-    const source = readFileSync(
-      resolve(process.cwd(), "components/SearchModal.tsx"),
-      "utf8",
-    );
+    // The modal, the map items it shares with the library (lib/mapSearchItems.ts)
+    // and the ranking with its word folding.
+    const source = [
+      "components/SearchModal.tsx",
+      "lib/mapSearchItems.ts",
+      "lib/siteSearch.ts",
+      "lib/paste/stem.ts",
+    ]
+      .map((file) => readFileSync(resolve(process.cwd(), file), "utf8"))
+      .join("\n");
 
     expect(source).toMatch(/from\s+["']@\/data\/topicIndex["']/);
     expect(source).toMatch(/from\s+["']@\/data\/blogIndex["']/);
@@ -227,5 +233,7 @@ describe("shared search lazy boundary", () => {
     expect(source).not.toMatch(/from\s+["']@\/hooks\/useLogicGraph["']/);
     expect(source).not.toMatch(/from\s+["']@xyflow\/react["']/);
     expect(source).not.toMatch(/from\s+["'](?:openai|@anthropic-ai\/sdk)["']/);
+    // The paste lane's terms module loads the map-reply index for its stopwords.
+    expect(source).not.toMatch(/from\s+["'](?:@\/lib\/paste\/terms|\.\/terms)["']/);
   });
 });

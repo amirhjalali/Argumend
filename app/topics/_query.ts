@@ -4,12 +4,16 @@ import argumentSummaries from "@/data/argumentTopicSummaries.json";
 import { argumentTopicIndex, type ArgumentTopicId } from "@/lib/argument/topicIds";
 import { parsePageParam } from "@/lib/collectionPagination";
 import { mapDisplayTitle } from "@/lib/mapNaming";
+import { MAP_SEARCH_ITEMS } from "@/lib/mapSearchItems";
+import { createSiteSearch } from "@/lib/siteSearch";
 
 /**
  * The maps library's query model, shared by the server page (metadata,
  * page count) and the client list, so both count the same rows.
  *
- * The library offers search, a category, and a neutral order. It does not
+ * The library offers search, a category, and a neutral order. Search ranks
+ * with the header search's ranking (lib/siteSearch.ts): a map whose question
+ * answers the query comes first. It does not
  * sort or filter by any score: no "most settled", no "strongest for", no
  * balance range. A reader looking for a map should not be shown a league
  * table on the way to it.
@@ -69,8 +73,6 @@ export interface LibraryEntry {
   firstCrux?: string;
   /** How many questions the map turns on (its cruxes). */
   cruxCount?: number;
-  /** Lower-cased text the search box matches against. */
-  haystack: string;
 }
 
 const ARGUMENT_CRUX = new Map(
@@ -91,9 +93,6 @@ export const DEBATE_MAP_ENTRIES: LibraryEntry[] = argumentTopicIndex.map((topic)
     kind: "debate-map",
     firstCrux: crux?.firstCrux,
     cruxCount: crux?.cruxCount,
-    haystack: [topic.title, topic.tagline, crux?.firstCrux ?? "", ...topic.aliases, "debate map"]
-      .join(" \n ")
-      .toLowerCase(),
   };
 });
 
@@ -107,19 +106,12 @@ const TOPIC_ENTRIES: LibraryEntry[] = topicSummaries.map((topic) => ({
   firstCrux: topic.firstCrux,
   // One crux per pillar on the older maps.
   cruxCount: topic.pillarCount,
-  haystack: [
-    topic.title,
-    topic.question ?? "",
-    topic.meta_claim,
-    topic.firstCrux ?? "",
-    ...(topic.tags ?? []),
-  ]
-    .join(" \n ")
-    .toLowerCase(),
 }));
 
 /** Every map the library can list, new-model maps first. */
 export const LIBRARY_ENTRIES: LibraryEntry[] = [...DEBATE_MAP_ENTRIES, ...TOPIC_ENTRIES];
+
+const ENTRY_BY_ID = new Map(LIBRARY_ENTRIES.map((entry) => [entry.id, entry]));
 
 const TOPIC_WEIGHT = new Map(topicSummaries.map((topic) => [topic.id, topic.weight]));
 
@@ -159,17 +151,22 @@ export function queryForTopicsState(
 export const queryForTopicsMetadata = queryForTopicsState;
 
 /**
- * Whether an entry matches the search box. Also matches with hyphens read as
- * spaces, so an old tag URL (/topics/tag/public-health, redirected to
- * ?q=public-health) finds maps tagged "public-health" and maps that say
- * "public health".
+ * The maps that answer a search, best first, by map id. Built on first use
+ * and kept: the server page and the client list both call it. Hyphens read
+ * as spaces, so an old tag URL (/topics/tag/public-health, redirected to
+ * ?q=public-health) finds the maps tagged "public-health" first.
  */
-export function matchesSearch(entry: LibraryEntry, search: string): boolean {
-  const query = search.trim().toLowerCase();
-  if (!query) return true;
-  if (entry.haystack.includes(query)) return true;
-  const spaced = query.replace(/-+/g, " ").trim();
-  return spaced !== query && spaced.length > 0 && entry.haystack.includes(spaced);
+let librarySearch: ((query: string) => { mapId: string }[]) | undefined;
+
+export function rankLibrarySearch(search: string): string[] {
+  librarySearch ??= createSiteSearch(MAP_SEARCH_ITEMS);
+  const ranked = librarySearch(search.replace(/-+/g, " ")).map((item) => item.mapId);
+  // A search that is exactly a tag lists every map carrying it first.
+  const tag = search.trim().toLowerCase();
+  const tagged = new Set(topicSummaries.filter((topic) => topic.tags.includes(tag)).map((t) => t.id));
+  if (tagged.size === 0) return ranked;
+  const rest = ranked.filter((id) => !tagged.has(id));
+  return [...ranked.filter((id) => tagged.has(id)), ...[...tagged].filter((id) => !ranked.includes(id)), ...rest];
 }
 
 /**
@@ -190,8 +187,10 @@ export interface LibraryFilterOptions {
 }
 
 /**
- * The rows the list shows, in order. New-model maps come first whenever they
- * are in the list; the older maps follow in the chosen neutral order.
+ * The rows the list shows, in order. A search in the default order lists
+ * the maps that answer it best first, whichever model they are. Otherwise
+ * new-model maps come first whenever they are in the list, and the older maps
+ * follow in the chosen neutral order.
  */
 export function filterLibrary(
   state: Pick<TopicsQueryState, "category" | "search" | "sort">,
@@ -199,8 +198,17 @@ export function filterLibrary(
 ): LibraryEntry[] {
   const keep = (entry: LibraryEntry) =>
     (state.category === "all" || entry.category === state.category) &&
-    (!savedIds || savedIds.has(entry.id)) &&
-    matchesSearch(entry, state.search);
+    (!savedIds || savedIds.has(entry.id));
+
+  if (state.search.trim()) {
+    const ranked = rankLibrarySearch(state.search)
+      .map((id) => ENTRY_BY_ID.get(id))
+      .filter((entry): entry is LibraryEntry => entry !== undefined && keep(entry));
+    if (state.sort === "mixed") return ranked;
+    const found = new Set(ranked.map((entry) => entry.id));
+    const maps = DEBATE_MAP_ENTRIES.filter((entry) => found.has(entry.id));
+    return [...maps, ...orderTopics(TOPIC_ENTRIES.filter((entry) => found.has(entry.id)), state.sort)];
+  }
 
   const maps = showsStartHere(state, savedIds !== undefined)
     ? []

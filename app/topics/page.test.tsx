@@ -150,6 +150,18 @@ describe("/topics: search", () => {
     );
   });
 
+  it("lists the map that answers a typed question first, best match first", () => {
+    // Before 2026-10-06 the box matched the whole query as one substring and
+    // "is nuclear power safe" found no map at all (r3 review #5).
+    const state = { ...defaultState, search: "is nuclear power safe" };
+    expect(filterLibrary(state)[0].id).toBe("nuclear-energy-safety");
+    const view = render(<TopicsPageClient initialState={state} />);
+    const select = view.getByRole("combobox", { name: "Order:" }) as HTMLSelectElement;
+    expect(select.selectedOptions[0].textContent).toBe("Best match");
+    const first = view.container.querySelector("ul li a");
+    expect(first?.getAttribute("href")).toBe("/topics/nuclear-energy-safety");
+  });
+
   it("honours ?q=, including old tag slugs", async () => {
     window.history.replaceState({}, "", "/topics?q=public-health");
     const state = parseTopicsQuery({ q: "public-health" });
