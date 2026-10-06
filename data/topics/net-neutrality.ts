@@ -46,6 +46,10 @@ export const netNeutralityData = {
         methodology:
           "Build a longitudinal catalog of confirmed traffic-discrimination incidents, tag each by (1) whether a binding rule was in force, (2) how it was resolved (regulation, FTC/antitrust, public pressure), and (3) market concentration in the affected area. Compare incident rates across regulated vs. deregulated periods (2015-2017 vs. before/after).",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A longitudinal catalog of confirmed blocking and throttling incidents, tagged by whether a binding rule was in force, how each was resolved, and local market concentration, comparing regulated and deregulated periods.",
+        },
         cost_to_verify: "$0 (public FCC/court records analysis)",
         falsification: {
           supporter_flip:
@@ -138,6 +142,10 @@ export const netNeutralityData = {
         methodology:
           "Use difference-in-differences / instrumental-variable panel estimation across countries adopting rules at different times, isolating net-neutrality timing from macro conditions; cross-check against firm-level capex disclosures and investor calls in the US 2014-2018 window.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Difference-in-differences or instrumental-variable panels across countries that adopted rules at different times, cross-checked against US firm-level capex disclosures and investor calls from 2014 to 2018, counting new fiber connections as well as total spend.",
+        },
         cost_to_verify: "$50K (econometric panel analysis)",
         falsification: {
           supporter_flip:
@@ -210,6 +218,10 @@ export const netNeutralityData = {
         methodology:
           "Monitor for confirmed blocking/throttling/paid-prioritization of lawful traffic during 2018-2025 using network-measurement tools (e.g., Wehe-style tests) and FTC/state-AG enforcement records; compare against the rules-in-force 2015-2017 baseline.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Network-measurement tests (Wehe-style) and FTC and state attorney-general enforcement records for 2018-2025, compared with the 2015-2017 baseline when the rules were in force.",
+        },
         cost_to_verify: "$0 (public enforcement records + measurement data)",
         falsification: {
           supporter_flip:

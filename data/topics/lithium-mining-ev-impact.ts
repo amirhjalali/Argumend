@@ -279,6 +279,10 @@ export const lithiumMiningEvImpactData = {
         methodology:
           "Map all announced lithium, nickel, and cobalt mining projects globally with expected production timelines. Compare aggregate projected supply (including DLE and recycling) against demand curves from IEA, BloombergNEF, and McKinsey under three EV adoption scenarios (base, accelerated, net-zero). Separately model the market share trajectory of LFP and sodium-ion chemistries and their impact on lithium, cobalt, and nickel demand. Assess non-Chinese supply chain capacity under current investment plans (IRA, EU CRMA, Australian Critical Minerals Strategy). Identify the earliest year supply-demand balance is achieved under each scenario.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A project-by-project map of announced lithium, nickel and cobalt mines and their start dates, plus recycling, set against IEA, BloombergNEF and McKinsey demand curves, with the market share path of LFP and sodium-ion batteries.",
+        },
         cost_to_verify:
           "$300K-800K (Comprehensive mineral market modeling requiring proprietary mine-level data from Benchmark Minerals, S&P Global, and USGS)",
         falsification: {

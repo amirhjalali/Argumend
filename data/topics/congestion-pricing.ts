@@ -44,6 +44,10 @@ export const congestionPricingData = {
         methodology:
           "Use automated cordon counts and journey-time/speed telemetry before and after pricing, then track them for 5-15 years. Control for fuel prices, ride-hail growth, road-space reallocation, and economic cycles. Compare priced cordons against untolled control corridors.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Automated cordon counts and journey-time telemetry tracked for 5 to 15 years after pricing in several cities, against untolled control corridors, controlling for fuel prices, ride-hail growth and road-space changes.",
+        },
         cost_to_verify: "$0 (published government count data)",
         falsification: {
           supporter_flip:
@@ -134,6 +138,10 @@ export const congestionPricingData = {
         methodology:
           "Audit gross receipts minus collection, enforcement, and administration costs over multiple years; compare net revenue to the transit capital/operating gap it is meant to close; assess legal and political durability (litigation, exemptions, rate freezes).",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Audited multi-year receipts net of collection, enforcement and administration costs, set against the transit gap they are meant to close, along with the record of toll cuts, exemptions and litigation.",
+        },
         cost_to_verify: "$0 (published agency financial filings)",
         falsification: {
           supporter_flip:

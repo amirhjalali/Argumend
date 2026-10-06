@@ -48,6 +48,10 @@ export const labDiamondsEthicsData = {
         methodology:
           "Conduct an independent audit of diamond supply chains from major producing countries (Botswana, Russia, Canada, DRC, Angola, Zimbabwe). Trace a random sample of 1,000 certified diamonds from retail back to their mine of origin using existing Kimberley Process documentation and blockchain platforms. Assess what percentage can be verified to the specific mine, what percentage have gaps in chain of custody, and cross-reference with documented human rights violations at origin sites.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An independent audit that traces a random sample of 1,000 certified diamonds from retail back to the mine, using Kimberley Process papers and blockchain platforms like Tracr, and counts how many reach a specific mine without gaps.",
+        },
         cost_to_verify:
           "$500K-1M (Independent supply chain audit across multiple producing countries)",
         falsification: {
@@ -165,6 +169,10 @@ export const labDiamondsEthicsData = {
         equation:
           "E_{total} = E_{energy} + E_{land} + E_{water} + E_{waste} + E_{transport}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An independent ISO 14044 lifecycle assessment, per carat, of lab-grown stones made on the grids actually used (largely coal-heavy India and China) and on renewable power, against mined stones, covering carbon, land, water and waste.",
+        },
         cost_to_verify:
           "$200K-500K (Independent comparative LCA with site-specific data from major producers)",
         falsification: {
@@ -277,6 +285,10 @@ export const labDiamondsEthicsData = {
         methodology:
           "Model the projected decline in mined diamond demand under various lab-grown market share scenarios (20%, 40%, 60% by 2035). For each major diamond-producing country, assess: (1) current economic dependency on diamond revenue, (2) diversification progress and alternative revenue sources, (3) social safety net capacity to absorb displaced workers, (4) timeline for diamond reserve depletion regardless of lab-grown competition. Compare the economic impact of gradual lab-grown displacement against the counterfactual of reserve depletion.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Country-by-country models of mined-diamond revenue under lab-grown share scenarios (20%, 40%, 60% by 2035), set against each producer's diversification progress, safety nets and reserve depletion dates, such as Botswana's Jwaneng pit.",
+        },
         cost_to_verify:
           "$300K-700K (Economic modeling with country-specific data from World Bank, IMF, and producing nations)",
         falsification: {

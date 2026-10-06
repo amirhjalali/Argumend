@@ -31,6 +31,10 @@ export const genderAffirmingCareMinorsData = {
         methodology:
           "Commission three independent systematic reviews by teams with no prior position on gender-affirming care — one from a country with permissive guidelines (US), one from a country that has restricted access (UK/Finland/Sweden), and one from a country with no prior policy position. Each team applies identical GRADE methodology to evaluate the same body of evidence. Compare conclusions to identify where disagreements stem from evidence interpretation vs. different evidentiary standards vs. different value judgments about acceptable risk.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Three independent systematic reviews, from a country with permissive guidelines, one that restricted access and one with no policy, applying identical GRADE methods to the same studies. What strength of evidence justifies treatment remains a value judgment.",
+        },
         cost_to_verify:
           "$2-5M (Three independent systematic reviews by international research teams)",
         falsification: {
@@ -140,6 +144,10 @@ export const genderAffirmingCareMinorsData = {
         methodology:
           "Conduct a prospective study of 500 adolescents presenting at gender clinics, assessing decision-making capacity using validated instruments (MacArthur Competence Assessment Tool for Treatment) at initial evaluation and at 6-month intervals. Compare their scores with: (1) adolescents consenting to other medical treatments (psychiatric medication, orthodontics, oncology), (2) adults consenting to gender-affirming care, and (3) age-matched controls. Simultaneously track whether initial treatment decisions align with long-term outcomes (satisfaction, regret, identity stability) over a 10-year follow-up period.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A prospective study scoring about 500 adolescents at gender clinics on the MacArthur Competence Assessment Tool over time, against teens consenting to other treatments and against adults.",
+        },
         cost_to_verify:
           "$3-8M (Prospective longitudinal study with 10-year follow-up at multiple sites)",
         falsification: {

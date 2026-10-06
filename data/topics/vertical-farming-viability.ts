@@ -50,6 +50,10 @@ export const verticalFarmingViabilityData = {
         equation:
           "C_{elec} = \\frac{P_{elec} \\times E_{kWh/kg}}{\\eta_{LED} \\times \\eta_{photosynthesis}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A bottom-up cost and life-cycle model for lettuce, basil, strawberries and wheat across electricity prices of $0.02 to $0.40/kWh and LED efficacy from about 3 toward 5 μmol/J, benchmarked per kg against field and greenhouse growing.",
+        },
         cost_to_verify:
           "$300K-1M (Techno-economic modeling plus metered data from operating commercial farms across electricity markets)",
         falsification: {
@@ -167,6 +171,10 @@ export const verticalFarmingViabilityData = {
         methodology:
           "Assemble audited financials and operating data from surviving and newly-formed vertical-farm operators over multiple years. Track gross margin and operating margin by crop, the share of revenue consumed by energy and labor, capital cost per kg of capacity, and the fraction of operators that are EBITDA-positive without one-time financing. Compare against high-tech greenhouse benchmarks. Distinguish firms that failed on financing/scaling (refinancing gaps, overbuild) from those that failed on irreducible operating losses, to separate a capital-cycle shakeout from a structural-economics verdict.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Audited multi-year financials of surviving and new operators: margin by crop, the share of revenue spent on energy and labor, and how many are EBITDA-positive without one-time financing, against high-tech greenhouses.",
+        },
         cost_to_verify:
           "$200K-600K (Financial and operations analysis requiring private company data and industry surveys over several years)",
         falsification: {
@@ -285,6 +293,10 @@ export const verticalFarmingViabilityData = {
         methodology:
           "Define the realistic economically-viable crop set for vertical farming (constrained by plant height, growth rate, value density, and energy intensity). For each crop, model the addressable market share under plausible energy prices, comparing all-in indoor cost to field and greenhouse alternatives in target regions (e.g., desert, high-import, water-stressed). Run a regional resource-balance analysis: water and arable land freed by moving perishables indoors, net of the electricity (and its land/carbon footprint) consumed. Determine whether net resource and resilience gains are positive and the captured market share is non-trivial.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Crop-by-crop modelling of the market share indoor growing could profitably take at plausible energy prices in desert, high-import and water-stressed regions, with the water and land it frees set against its electricity use.",
+        },
         cost_to_verify:
           "$250K-700K (Crop-by-crop market and regional resource-balance modeling with agronomic and energy data)",
         falsification: {

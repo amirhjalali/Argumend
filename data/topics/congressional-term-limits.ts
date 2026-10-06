@@ -154,6 +154,10 @@ export const congressionalTermLimitsData = {
         methodology:
           "Compare term-limited and non-term-limited state legislatures on measurable power indicators: share of governors' proposed budgets altered by the legislature, committee-chair experience, and survey-measured lobbyist and executive-branch influence — tracked before and after limits using case studies and 50-state surveys.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Term-limited and unlimited state legislatures compared before and after limits on the share of governors' budgets they alter, committee-chair experience, and survey-measured influence of lobbyists and the executive branch.",
+        },
         cost_to_verify: "$0-$200K (existing JPTL surveys + budget-data analysis)",
         falsification: {
           supporter_flip:
@@ -244,6 +248,10 @@ export const congressionalTermLimitsData = {
         methodology:
           "Read the controlling holding in U.S. Term Limits v. Thornton (514 U.S. 779) to confirm the amendment requirement, then assess the Article V record: count term-limit amendment resolutions introduced in Congress and the number of states with live Article V convention applications, against the two-thirds/38-state thresholds.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Progress against the Article V thresholds that Thornton makes the only route: a term-limits amendment clearing two-thirds of both houses, or live state convention applications reaching 34 states.",
+        },
         cost_to_verify: "$0 (court opinion + congressional and state records)",
         falsification: {
           supporter_flip:

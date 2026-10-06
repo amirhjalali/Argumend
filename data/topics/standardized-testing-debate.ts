@@ -45,6 +45,10 @@ export const standardizedTestingDebateData = {
         equation:
           "\\Delta_{\\text{equity}} = f(\\text{test policy}, \\text{aid}, \\text{outreach}, \\text{applicant pool})",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Matched colleges compared before and after dropping the requirement on demographic mix, graduation rates and GPAs, controlling for simultaneous changes in aid, recruiting and application volume.",
+        },
         cost_to_verify: "$300K (Analysis of existing institutional data)",
         falsification: {
           supporter_flip:

@@ -154,6 +154,10 @@ export const housingAffordabilityCrisisData = {
         methodology:
           "Compare housing construction permits, rental vacancy rates, and rent levels in Oregon (which enacted a statewide rent cap in 2019) against matched control states (Washington, Idaho) from 2015-2028. Separately analyze the effect on tenant stability by tracking eviction rates and involuntary move rates using American Community Survey microdata. Control for COVID-era distortions, remote work shifts, and population changes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Construction permits, vacancy rates and rents in Oregon after its 2019 cap against Washington and Idaho, with eviction and involuntary move rates from American Community Survey microdata.",
+        },
         cost_to_verify:
           "$300K-600K (Multi-state housing market and tenant stability analysis)",
         falsification: {
@@ -262,6 +266,10 @@ export const housingAffordabilityCrisisData = {
         methodology:
           "Conduct a comparative policy analysis of public housing systems in Vienna, Singapore, Helsinki, and the US. Measure resident satisfaction (survey data), physical quality (maintenance backlogs per unit), income mixing (Gini coefficient within developments), fiscal sustainability (operating costs vs. revenue), and waiting list lengths. Identify the specific policy design features and funding levels that distinguish successful from unsuccessful systems.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A comparison of Vienna, Singapore, Helsinki and US public housing on resident satisfaction, maintenance backlogs, income mixing, operating costs and waiting lists, tied to each system's funding and land ownership.",
+        },
         cost_to_verify:
           "$400K-800K (Multi-country comparative housing policy study with resident surveys)",
         falsification: {

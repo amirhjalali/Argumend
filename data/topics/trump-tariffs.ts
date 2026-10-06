@@ -31,6 +31,10 @@ export const trumpTariffsData = {
         methodology:
           "Match daily retail prices to product-level tariff rates and country-of-origin, as Cavallo, Llamas, and Vazquez did, decomposing the price response into consumer, importer-margin, and foreign-exporter components. Cross-reference with Federal Reserve FEDS Note real-time CPI decompositions and BLS import/export price indices to estimate the three-way incidence split at the product category level.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Daily retail prices matched to product-level tariff rates and country of origin, as Cavallo, Llamas and Vazquez did, split into consumer, importer-margin and foreign-exporter shares and cross-checked with BLS import and export price indices.",
+        },
         cost_to_verify:
           "$0 (Retail scanner data, BLS price indices, and published academic decompositions are available)",
         falsification: {
@@ -139,6 +143,10 @@ export const trumpTariffsData = {
         methodology:
           "Replicate the USITC Publication 5405 input-output methodology on the 2025-2026 tariff vector: estimate employment gains in protected sectors against losses in input-using industries, layer in export-sector losses from documented retaliation (EU, Canada, China), and reconcile BLS payroll series against announced-capex and greenfield-investment databases to test whether a lagging-but-real reshoring signal exists outside current headcount.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "The USITC Publication 5405 input-output method rerun on the 2025-2026 tariffs, netting jobs in protected sectors against losses in input-using and export industries, with BLS payrolls checked against announced capex and greenfield plants.",
+        },
         cost_to_verify:
           "$1-3M (Comprehensive input-output employment modeling plus investment-announcement tracking and validation against BLS microdata)",
         falsification: {
@@ -247,6 +255,10 @@ export const trumpTariffsData = {
         methodology:
           "Compare the trajectory of Chinese capability in controlled technologies (advanced-node semiconductors, EUV, AI accelerators) under targeted export controls against the trajectory of broadly tariffed sectors, measuring indigenization rates, import-substitution announcements, and retaliation symmetry. Use SIA/SEMI supply-chain data, Chinese 'Made in China 2025' progress reports, and trade-flow reorientation statistics to isolate the effect of broad tariffs from the effect of targeted controls.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Chinese capability in export-controlled technologies (advanced-node chips, EUV, AI accelerators) compared with broadly tariffed sectors, on indigenization rates, import-substitution announcements and retaliation, using SIA and SEMI supply-chain data.",
+        },
         cost_to_verify:
           "$2-5M (Multi-year supply-chain and capability tracking across semiconductor, AI-hardware, and rare-earth sectors with classified and open-source fusion)",
         falsification: {
@@ -355,6 +367,10 @@ export const trumpTariffsData = {
         methodology:
           "Test deficit causation by examining whether the aggregate US trade deficit narrows under tariffs or merely shifts bilaterally to other surplus countries, controlling for the national savings rate and fiscal deficit. Assess alliance cost by auditing documented concessions (trade deals signed, LNG and defense commitments) against documented retaliation and cooperation losses (EU/Canada countermeasures, USMCA renegotiation stakes, allied alignment on China export controls).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "The aggregate US trade deficit under tariffs, controlling for national savings and the fiscal deficit, to see if it narrows or just moves to other surplus countries, and an audit of deals signed against retaliation and lost cooperation with allies. Weighing the two is a value call.",
+        },
         cost_to_verify:
           "$500K-1M (Macroeconomic deficit decomposition plus structured diplomatic cost-benefit audit across major allies)",
         falsification: {

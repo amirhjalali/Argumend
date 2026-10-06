@@ -72,6 +72,10 @@ export const iranWarJustificationData = {
         methodology:
           "Cross-reference IAEA quarterly reports on Iran's UF6 stockpile (kg at each enrichment level) with independent technical assessments of the steps required beyond enrichment: conversion to metal, pit fabrication, implosion lens design, warhead miniaturization, and delivery vehicle integration. Compare the publicly known state of Iran's program against the timelines estimated by physicists at Princeton's Science & Global Security program and the Federation of American Scientists.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "IAEA quarterly figures on Iran's uranium stockpile at each enrichment level, set against independent technical estimates of how long the later steps take: conversion to metal, pit fabrication, implosion design, miniaturization and missile integration.",
+        },
         cost_to_verify:
           "$0 (IAEA reports are public; independent technical assessments available from FAS and Princeton SGS)",
         falsification: {
@@ -190,6 +194,10 @@ export const iranWarJustificationData = {
         methodology:
           "Analyze the supply chain for advanced proxy weapons systems (Hezbollah's precision-guided missiles, Houthi anti-ship ballistic missiles, Iraqi militia drones). Map the proportion of funding, weapons components, and strategic direction that flows from Iran's IRGC Quds Force vs. indigenous production and local revenue. Examine historical cases where state sponsors were weakened — did proxy capability decline (e.g., PLO after losing Beirut 1982) or persist (e.g., Taliban after losing Afghan state support)?",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Supply-chain mapping of Hezbollah's precision-guided missiles, Houthi anti-ship missiles and Iraqi militia drones, showing what share of funding, parts and direction comes from the IRGC Quds Force, plus past cases where a state sponsor was weakened.",
+        },
         cost_to_verify:
           "$500K (open-source intelligence analysis + captured weapons forensics + satellite imagery)",
         falsification: {
@@ -308,6 +316,10 @@ export const iranWarJustificationData = {
         methodology:
           "Map every formal diplomatic proposal from 2018-present, including the party that proposed it, the specific terms offered, the response from each side, and the stated reason for rejection. Cross-reference with contemporaneous statements from US, Iranian, and European officials to determine whether rejections were based on substantive objections or preconditions designed to prevent agreement. Apply the standard used in international law for 'exhaustion of remedies' — have all reasonable alternatives been attempted in good faith?",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A record of every formal proposal since 2018 with its terms, each side's response and the stated reason for rejection, checked against what US, Iranian and European officials said at the time.",
+        },
         cost_to_verify:
           "$0 (diplomatic records, UN proceedings, and media reporting are publicly available)",
         falsification: {

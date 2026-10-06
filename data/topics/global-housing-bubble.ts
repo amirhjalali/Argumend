@@ -96,6 +96,10 @@ export const globalHousingBubbleData = {
         equation:
           "\\text{Affordability Ratio} = \\frac{\\text{Median House Price}}{\\text{Median Household Income}}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Price-to-income ratios and mortgage burdens across 50+ housing markets, set against the ratios that came before the US 2006, Japan 1990 and Ireland 2007 corrections, and the level at which first-time-buyer participation falls away.",
+        },
         cost_to_verify: "$0 (publicly available OECD and national statistics data)",
         falsification: {
           supporter_flip:
@@ -208,6 +212,10 @@ export const globalHousingBubbleData = {
         methodology:
           "Map institutional ownership concentration by city, neighborhood, and price tier. Model exit scenarios under various economic conditions (recession, rate increases, rental yield compression). Compare to historical episodes of concentrated investor liquidation in real estate.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Investor ownership mapped by metro and price tier, such as Sun Belt starter homes in Atlanta and Phoenix, and what those holders do in the next downturn: sell gradually, keep renting, or dump homes all at once.",
+        },
         cost_to_verify: "$200K (proprietary transaction data + economic modeling)",
         falsification: {
           supporter_flip:

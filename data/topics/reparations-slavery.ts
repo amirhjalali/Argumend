@@ -30,6 +30,10 @@ export const reparationsSlaveryData = {
         equation:
           "\\text{Reparations Debt} = \\sum_{t=1619}^{2024} \\text{Value Extracted}_t \\times (1 + r)^{2024-t}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Decomposition models that trace wealth through specific pathways (land denied, GI Bill and Social Security exclusion, FHA redlining) and estimate Black families' wealth had those policies not existed.",
+        },
         cost_to_verify: "$2M (Historical economic modeling with multiple methodologies)",
         falsification: {
           supporter_flip:
@@ -141,6 +145,10 @@ export const reparationsSlaveryData = {
         equation:
           "\\text{ROI}_{\\text{reparations}} = \\frac{\\Delta \\text{GDP} + \\Delta \\text{Tax Revenue} + \\Delta \\text{Social Savings}}{\\text{Program Cost}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Microsimulations on PSID and SCF data projecting how far direct payments, baby bonds and housing or education grants each narrow the gap at 10, 25 and 50 years, and at what fiscal cost.",
+        },
         cost_to_verify: "$5M (Comprehensive economic modeling study — essentially what HR 40 proposes)",
         falsification: {
           supporter_flip:

@@ -45,6 +45,10 @@ export const selfDrivingCarSafetyData = {
         methodology:
           "Restrict the human comparison to the exact counties, road types, vehicle classes, and reporting thresholds the AV fleet operates in; correct human police data for known underreporting; then compare matched crash rates per mile by crash type (injury, airbag, pedestrian, cyclist).",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "An independent re-analysis that matches the human baseline to the fleet's exact counties, road types, vehicle classes and reporting thresholds, corrects human data for underreporting, and compares crash rates per mile by type.",
+        },
         cost_to_verify: "$0 (data analysis of public SGO + state crash records)",
         falsification: {
           supporter_flip:
@@ -134,6 +138,10 @@ export const selfDrivingCarSafetyData = {
         methodology:
           "Catalog every reported severe AV failure (NHTSA SGO, recall reports, ODI investigations), estimate exposure-adjusted rates by severity tier, and compare against severity-matched human rates rather than comparing means alone.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A catalog of every reported severe autonomous-vehicle failure from NHTSA SGO, recall and ODI records, turned into exposure-adjusted rates by severity tier and compared with severity-matched human rates.",
+        },
         cost_to_verify: "$0 (public NHTSA SGO, recall, and ODI investigation records)",
         falsification: {
           supporter_flip:
@@ -205,6 +213,10 @@ export const selfDrivingCarSafetyData = {
         methodology:
           "Compare the mileage/time required for statistical proof of fatality-rate superiority (RAND model) against achievable validated-domain expansion rates; weigh counterfactual lives lost from delay against tail risk from premature scale.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Evidence on whether staged, domain-by-domain expansion plus simulation catches the failures that only appear in new conditions (highways, snow, rural roads) before scaling. How much proof to require first, given lives lost to delay, is a value choice.",
+        },
         cost_to_verify: "$0 (modeling), but full empirical proof is effectively unbounded",
         falsification: {
           supporter_flip:

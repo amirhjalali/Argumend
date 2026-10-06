@@ -46,6 +46,10 @@ export const vapingHarmReductionData = {
         methodology:
           "Pool randomised controlled trials that allocate smokers to nicotine e-cigarettes vs. NRT (or other active comparators) and measure carbon-monoxide-verified continuous abstinence at >= 6 months. Compute relative risk and absolute risk difference; grade certainty via GRADE.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Pooled head-to-head trials of e-cigarettes against nicotine replacement, scored on carbon-monoxide-verified abstinence at six months or more, plus checks of whether the trial edge holds with real-world products.",
+        },
         cost_to_verify: "$0 (existing meta-analysis)",
         falsification: {
           supporter_flip:
@@ -137,6 +141,10 @@ export const vapingHarmReductionData = {
         methodology:
           "Track longitudinal cohorts of smokers offered e-cigarettes: measure rates of complete switching vs. dual use vs. relapse, biomarker exposure by group, and separately measure initiation among never-smoking youth. Net benefit = (smoking-attributable harm averted by switchers) minus (harm from dual users + new nicotine initiation).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Longitudinal cohorts of smokers offered e-cigarettes, measuring complete switching, dual use and relapse with biomarkers for each group, alongside initiation rates among never-smoking youth.",
+        },
         cost_to_verify:
           "$5M+ (multi-year prospective cohort with biomarkers and disease follow-up)",
         falsification: {

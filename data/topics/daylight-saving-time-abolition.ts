@@ -48,6 +48,10 @@ export const daylightSavingTimeAbolitionData = {
         methodology:
           "Run a multi-year natural-experiment comparison using regions that have already adopted permanent or near-permanent regimes (e.g., Arizona on standard time; Russia's 2011–2014 permanent-DST period and its subsequent reversal). Track objective outcomes — actigraphy-measured sleep duration and timing, validated mood and seasonal-affective measures, physical-activity step counts, traffic and workplace injuries, and retail/recreation spending — separately for the morning and evening hours affected. Pair this with prospective chronobiology studies measuring dim-light melatonin onset under each regime to quantify circadian misalignment, and weight the resulting health and economic effects on a common scale.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Multi-year comparisons of places on permanent regimes, such as Arizona on standard time and Russia's 2011 to 2014 permanent DST, tracking measured sleep, mood, step counts, injuries and retail activity. Weighing morning health against evening leisure is a value choice the data cannot make.",
+        },
         cost_to_verify:
           "$2-5M (Multi-region longitudinal cohort with actigraphy, melatonin assays, and linked health/economic outcome data)",
         falsification: {
@@ -166,6 +170,10 @@ export const daylightSavingTimeAbolitionData = {
         methodology:
           "Aggregate event counts (acute myocardial infarction, ischemic stroke, fatal MVA) over a symmetric multi-week window bracketing both the spring and autumn transitions across many years and jurisdictions, using a difference-in-differences or interrupted-time-series design with matched non-transition weeks as controls. Test explicitly for displacement by checking whether the spring-forward excess is followed by a below-baseline deficit (harvesting) and whether the autumn drop is mirrored by a later rebound. Stratify by time-of-day and by position within the time zone (a sleep-loss dose-response check) to distinguish a genuine circadian effect from coincidental seasonality.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Counts of heart attacks, strokes and fatal crashes over matched multi-week windows around both clock changes, across many years and places, testing whether the spring excess is followed by a deficit in the days after.",
+        },
         cost_to_verify:
           "$200K-500K (Secondary analysis of existing national hospital-admission and fatal-crash registries; the core spike effects are already replicated)",
         falsification: {
@@ -283,6 +291,10 @@ export const daylightSavingTimeAbolitionData = {
         methodology:
           "Construct a full social cost-benefit ledger comparing permanent DST against permanent standard time using quasi-experimental variation (Indiana's DST adoption for energy; the 2007 US DST extension for crime and energy; cross-time-zone-edge comparisons for safety). Quantify on a common monetary scale: residential and commercial energy use, crime (robbery and assault by hour), traffic and pedestrian injuries split into morning vs evening, physical-activity and recreation spending, and health/productivity effects of circadian shift. Net the morning losses against the evening gains across both summer and winter to produce an annual per-capita benefit estimate for each regime.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "One cost ledger built from natural experiments (Indiana's DST adoption, the 2007 US extension, time-zone edges) that counts energy use, robberies by hour, commute injuries split by morning and evening, and physical activity.",
+        },
         cost_to_verify:
           "$1-3M (Integrated econometric cost-benefit study spanning energy, crime, transport, and health data across multiple natural experiments)",
         falsification: {

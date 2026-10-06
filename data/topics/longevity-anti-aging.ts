@@ -30,6 +30,10 @@ export const longevityAntiAgingData = {
         methodology:
           "Complete the ongoing NIA Interventions Testing Program primate studies for rapamycin and senolytic combinations. Measure not just lifespan but healthspan metrics: cognitive function, cardiovascular health, immune function, and frailty indices. Run for minimum 10 years with adequate sample sizes (n>50 per arm). Compare effect sizes in primates to those observed in mice to quantify the translational discount factor.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "The NIA primate studies of rapamycin and senolytic combinations, run for at least 10 years with over 50 animals per arm, measuring lifespan plus cognition, heart, immune function and frailty against the effect sizes seen in mice.",
+        },
         cost_to_verify:
           "$50-100M (Long-term primate longevity studies requiring 10+ years)",
         falsification: {

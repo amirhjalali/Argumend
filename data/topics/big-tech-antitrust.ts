@@ -45,6 +45,10 @@ export const bigTechAntitrustData = {
         equation:
           "\\text{Consumer Harm} = \\sum (\\text{Privacy Loss} + \\text{Innovation Deficit} + \\text{Attention Tax}) - \\text{Free Service Value}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A quality-adjusted consumer welfare measure that prices privacy loss, attention and forgone rival products, applied to actual markets and compared with estimates for more competitive ones.",
+        },
         cost_to_verify: "$2M (Economic modeling and empirical market analysis)",
         falsification: {
           supporter_flip:
@@ -154,6 +158,10 @@ export const bigTechAntitrustData = {
         equation:
           "\\text{Consent Quality} = \\frac{\\text{User Understanding}}{\\text{Actual Data Use}} \\times P(\\text{behavior change if informed})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Experiments that fully inform users of a service's data practices and then watch whether they change what they share or use, beside surveys of what users think they agreed to. What counts as meaningful consent is partly a definition no experiment fixes.",
+        },
         cost_to_verify: "$400K (Large-scale behavioral experiment)",
         falsification: {
           supporter_flip:

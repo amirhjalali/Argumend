@@ -46,6 +46,10 @@ export const microplasticsHealthCrisisData = {
         methodology:
           "Design a prospective cohort study measuring baseline microplastic blood concentrations in 5,000+ initially healthy adults, then track cardiovascular events over 10 years with serial imaging (coronary CT angiography) and inflammatory biomarker panels. Simultaneously conduct controlled animal studies exposing matched cohorts to environmentally relevant microplastic doses versus controls, measuring arterial inflammation, plaque formation, and inflammatory cytokine profiles. Cross-reference human and animal data to establish or refute a causal dose-response curve.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A prospective cohort of 5,000+ healthy adults with baseline microplastic blood levels, followed for ten years with coronary CT and inflammation markers, plus animal studies at environmentally relevant doses.",
+        },
         cost_to_verify:
           "$15-30M (Large prospective cohort study with serial imaging plus parallel animal toxicology studies over 10+ years)",
         falsification: {
@@ -163,6 +167,10 @@ export const microplasticsHealthCrisisData = {
         methodology:
           "Conduct a large-scale prospective birth cohort study (10,000+ mother-child pairs) measuring urinary and blood concentrations of 20+ plasticizer metabolites during pregnancy and tracking offspring reproductive development (anogenital distance, testicular volume, pubertal timing, semen quality) from birth through age 25. Simultaneously conduct controlled mixture toxicology studies in animal models at exposure levels matching the 50th and 95th percentile of human biomonitoring data from NHANES. Compare dose-response curves between epidemiological and experimental data.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A birth cohort of 10,000+ mother-child pairs with 20+ plasticizer metabolites measured in pregnancy, following reproductive development to age 25, alongside mixture toxicology at real-world doses.",
+        },
         cost_to_verify:
           "$50-100M (25-year prospective birth cohort study with comprehensive biomonitoring and parallel animal toxicology program)",
         falsification: {

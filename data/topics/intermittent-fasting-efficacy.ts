@@ -48,6 +48,10 @@ export const intermittentFastingEfficacyData = {
         methodology:
           "Pool individually randomized, calorie-matched trials lasting 6-12 months that compare an intermittent-fasting protocol (16:8, 5:2, alternate-day, or 4:3) against continuous daily calorie restriction, with both arms prescribed identical energy targets and supervised intake or rigorous food logging. Measure body weight, DXA-derived fat mass and lean mass, and dropout/adherence as a co-primary outcome. Use intention-to-treat analysis and pre-register the equivalence margin so that a true null (no meaningful difference) is distinguishable from an underpowered failure to detect one.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Pooled randomized trials of 6 to 12 months that give fasting and daily-restriction arms identical calorie targets and measure weight, DXA fat and lean mass, and dropout.",
+        },
         cost_to_verify:
           "$2-5M (Multiple supervised, calorie-controlled RCTs with DXA body composition — several already completed)",
         falsification: {
@@ -165,6 +169,10 @@ export const intermittentFastingEfficacyData = {
         equation:
           "\\Delta\\text{Metabolic}_{\\text{TRE}} - \\Delta\\text{Metabolic}_{\\text{control}} \\;\\big|\\; \\Delta\\text{Weight} = 0",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Supervised feeding trials that keep weight steady with fixed meals and randomize the eating window, measuring insulin sensitivity by clamp, continuous glucose and 24-hour blood pressure, at larger scale than Sutton 2018.",
+        },
         cost_to_verify:
           "$3-8M (Multi-site supervised feeding trials with clamp-based insulin-sensitivity measurement)",
         falsification: {
@@ -283,6 +291,10 @@ export const intermittentFastingEfficacyData = {
         methodology:
           "Run long (≥12 month) pragmatic randomized trials in free-living adults comparing specific fasting protocols (16:8, 5:2, 4:3, alternate-day) against continuous calorie restriction, with adherence and dropout pre-specified as co-primary outcomes. Track adherence objectively where possible (continuous glucose monitors, photo food logs, timestamped meal apps) rather than relying solely on self-report, and stratify by protocol type, baseline eating habits, and social/work constraints. Report retention curves, not just endpoint weight.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Trials of 12 months or more in free-living adults that make dropout and adherence primary outcomes, track eating with glucose monitors or timestamped meal logs, and report each protocol (16:8, 5:2, 4:3, alternate-day) separately.",
+        },
         cost_to_verify:
           "$1-3M (Long pragmatic behavioral RCTs with objective adherence tracking — several completed, more underway)",
         falsification: {

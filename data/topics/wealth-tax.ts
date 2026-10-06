@@ -48,6 +48,10 @@ export const wealthTaxData = {
         equation:
           "R_{actual} = R_{theoretical} \\times (1 - \\text{avoidance rate}) - \\text{admin costs}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A side-by-side of repealed wealth taxes (France, Sweden) and surviving ones (Switzerland, Norway): exemptions, valuation rules, asset registries and exit options, matched against capital flight and revenue in each.",
+        },
         cost_to_verify: "$100K (Comparative policy analysis)",
         falsification: {
           supporter_flip:
@@ -159,6 +163,10 @@ export const wealthTaxData = {
         equation:
           "\\frac{dI}{dW_{tax}} \\text{ (investment elasticity to wealth tax)}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Investment and business formation in countries with and without wealth taxes, controlling for other factors, together with how the richest households changed their holdings after a wealth tax began.",
+        },
         cost_to_verify: "$500K (Longitudinal economic study)",
         falsification: {
           supporter_flip:

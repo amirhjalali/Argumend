@@ -45,6 +45,10 @@ export const aiRegulationData = {
         methodology:
           "Track AI performance on a standardized suite of capability benchmarks — including GPQA, MATH, ARC-AGI, SWE-bench, and novel adversarial evaluations — measured quarterly over a 3-year period. Fit exponential, linear, and logarithmic growth curves. Simultaneously evaluate whether each new frontier model demonstrates genuinely novel capabilities (tool use, long-horizon planning, deception) or marginal improvements on existing tasks. Publish results as open data for independent verification.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Quarterly scores on a fixed benchmark suite (GPQA, MATH, ARC-AGI, SWE-bench and adversarial evaluations) over three years, fitted to exponential, linear and logarithmic curves, plus checks for new abilities such as long-horizon planning or deception.",
+        },
         cost_to_verify:
           "$500K-2M (Longitudinal benchmark evaluation requiring compute access to frontier models)",
         falsification: {

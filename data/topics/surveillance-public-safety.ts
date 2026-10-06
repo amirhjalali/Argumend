@@ -133,6 +133,10 @@ export const surveillancePublicSafetyData = {
         methodology:
           "Compare surveillance oversight frameworks across democracies (US, UK, EU, Japan). Measure abuse rates, false positive rates, scope creep, and public trust under different regulatory regimes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Comparisons of oversight regimes across the US, UK, EU and Japan, measuring documented abuse, false match rates, scope creep beyond the original use, and public trust.",
+        },
         cost_to_verify: "$1M (Comparative policy study)",
         falsification: {
           supporter_flip:

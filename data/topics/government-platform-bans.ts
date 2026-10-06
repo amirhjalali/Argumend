@@ -69,6 +69,10 @@ export const governmentPlatformBansData = {
         methodology:
           "Commission independent technical audits of platform data architectures by security-cleared teams with no commercial relationship to any party. Audit should map all data flows between domestic and foreign servers, test algorithmic manipulation capabilities from foreign engineering teams, and assess whether access controls can be bypassed under legal compulsion in the platform's home jurisdiction.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Independent, security-cleared audits that map every data flow between domestic and foreign servers, test what foreign engineering teams can alter in the algorithm, and check if access controls hold under legal compulsion at home.",
+        },
         cost_to_verify:
           "$10-30M (Multi-platform independent security audit requiring cleared personnel)",
         falsification: {
@@ -160,6 +164,10 @@ export const governmentPlatformBansData = {
         methodology:
           "Conduct a comprehensive historical analysis of government powers initially justified by national security that subsequently expanded beyond their original scope. Examine FISA (1978 to post-9/11 mass surveillance), material support statutes, and broadcasting ownership restrictions. Assess whether legislative safeguards (sunset provisions, judicial review requirements) successfully contained scope expansion. Compare with democracies that have banned platforms (India) to measure downstream effects on broader press freedom.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A historical comparison of powers first justified by national security, such as FISA, material-support laws and the FCC's foreign-ownership limits on broadcasters, measuring how far each grew past its original scope despite sunset clauses and judicial review.",
+        },
         cost_to_verify:
           "$200K-500K (Historical legal analysis with comparative international study)",
         falsification: {
@@ -251,6 +259,10 @@ export const governmentPlatformBansData = {
         methodology:
           "Analyze the complete lobbying record of the ban legislation, mapping financial contributions and personnel connections between domestic tech companies and the legislators who drafted and voted for the bill. Compare the pre-ban and post-ban market share, ad revenue, and user metrics of Meta, Google, and Snap to quantify the competitive benefit. Survey the classified intelligence briefings (through cleared researchers) to assess whether the security case rests on substantive intelligence or speculative risk assessments.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "The full lobbying and personnel record behind the ban legislation, Meta, Google and Snap's market share and ad revenue before and after it, and what cleared researchers find in the classified intelligence briefings.",
+        },
         cost_to_verify:
           "$300K-800K (Lobbying analysis, market study, and cleared intelligence review)",
         falsification: {

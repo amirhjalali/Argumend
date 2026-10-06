@@ -46,6 +46,10 @@ export const geneEditingEmbryosData = {
         equation:
           "\\text{Safety Threshold: } \\frac{\\text{Off-target edits}}{\\text{Total genome}} < \\text{Natural mutation rate per generation}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Whole-genome sequencing of edited research embryos, never implanted, using Cas9, base and prime editors, comparing off-target edits and mosaicism with the natural mutation rate.",
+        },
         cost_to_verify: "$10M (Multi-center embryo editing research program)",
         falsification: {
           supporter_flip:
@@ -151,6 +155,10 @@ export const geneEditingEmbryosData = {
         equation:
           "P(\\text{boundary holding}) = f(\\text{regulatory capacity}, \\text{commercial pressure}, \\text{international coordination})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Comparisons with fields that already draw such lines, like embryo screening, IVF rules, drug approval and organ transplants, checking whether a therapy-versus-enhancement boundary held under commercial pressure. Where to draw the line is itself a definition no study fixes.",
+        },
         cost_to_verify: "$300K (International regulatory and ethics comparative study)",
         falsification: {
           supporter_flip:

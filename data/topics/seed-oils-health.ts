@@ -95,6 +95,10 @@ export const seedOilsHealthData = {
         equation:
           "\\text{AA}_{tissue} = f(\\text{LA}_{dietary}) \\quad \\text{where} \\quad \\Delta\\text{AA} = \\beta_1 \\cdot \\Delta\\text{LA} + \\varepsilon",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A 12-week randomized feeding trial of 200 adults on high or low linoleic acid diets, measuring red-cell arachidonic acid, CRP, IL-6, prostaglandin E2 and urinary eicosanoids at the start and end.",
+        },
         cost_to_verify:
           "$2-5M (12-week controlled feeding study with comprehensive lipidomics and inflammatory biomarker panels)",
         falsification: {
@@ -208,6 +212,10 @@ export const seedOilsHealthData = {
         methodology:
           "Measure aldehyde concentrations (4-HNE, MDA, acrolein) in meals prepared using seed oils under realistic home and restaurant cooking conditions (pan frying, deep frying, baking at standard temperatures and durations). Calculate cumulative daily dietary aldehyde intake for typical consumers. Compare to established no-observed-adverse-effect levels (NOAELs) from toxicological studies. Simultaneously measure urinary aldehyde metabolites in participants consuming high vs low seed oil diets to assess actual biological exposure.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Aldehyde levels (4-HNE, MDA, acrolein) measured in meals cooked with seed oils under real home and restaurant conditions, totalled into typical daily intake and set against toxicological no-adverse-effect levels.",
+        },
         cost_to_verify:
           "$1-3M (Controlled cooking experiments with comprehensive analytical chemistry and human biomonitoring study)",
         falsification: {

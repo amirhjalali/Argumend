@@ -46,6 +46,10 @@ export const modernMonetaryTheoryData = {
         methodology:
           "Compare currency-issuing sovereigns across a wide range of debt-to-GDP ratios (Japan, US, UK) and identify whether involuntary nominal default ever occurred, then test whether high-debt currency-issuers experienced inflation/currency crises independent of nominal solvency. Distinguish episodes of spare capacity from episodes at/above full employment.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Currency-issuing sovereigns across a wide range of debt-to-GDP (Japan, the US, the UK), checked for any involuntary nominal default and for inflation or currency crises, separating spells of spare capacity from spells at full employment.",
+        },
         cost_to_verify: "$0 (public IMF / national-accounts data)",
         falsification: {
           supporter_flip:
@@ -118,6 +122,10 @@ export const modernMonetaryTheoryData = {
         methodology:
           "Examine historical episodes of money-financed deficit spending (Latin America 1970s-2010s; US 2020-2022) for inflation outcomes; separately test whether buffer-stock employment schemes (e.g. India's MGNREGA, Argentina's Jefes program) demonstrably anchored a price level. Assess legislative response lags vs. central-bank lags.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Inflation outcomes in episodes of money-financed deficits (Latin America, the US in 2020-2022), tests of whether buffer-stock schemes like MGNREGA or Jefes anchored prices, and measured lags of tax changes against rate changes.",
+        },
         cost_to_verify:
           "$0 for historical analysis; a full Job-Guarantee price-anchor test would require a national pilot (untested at US scale)",
         falsification: {
@@ -210,6 +218,10 @@ export const modernMonetaryTheoryData = {
         methodology:
           "Place the exact survey wording side-by-side with MMT primary texts (Kelton, Wray, Mitchell, Tcherneva) and the published MMT rebuttals; identify which specific claims are shared, which are caricatures, and which represent genuine substantive disagreement on inflation control and central-bank independence.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Survey wording placed side by side with MMT primary texts (Kelton, Wray, Mitchell, Tcherneva) and their published replies, sorting each surveyed claim into shared, caricature, or genuine disagreement.",
+        },
         cost_to_verify: "$0 (textual comparison of survey wording vs. MMT primary sources)",
         falsification: {
           supporter_flip:

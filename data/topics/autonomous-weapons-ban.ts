@@ -46,6 +46,10 @@ export const autonomousWeaponsBanData = {
         methodology:
           "Construct adversarial scenarios (autonomous strike on a protected target) and test each against (1) Rome Statute command responsibility, (2) Article 36 weapons-review obligations, and (3) DoD Directive 3000.09's human-judgment standard. Identify whether any scenario leaves no chargeable human actor.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Adversarial strike scenarios, such as an autonomous attack on a protected target, each tested against Rome Statute command responsibility, Article 36 weapons review and DoD Directive 3000.09, to find any that leave no chargeable person.",
+        },
         cost_to_verify: "$0 (legal analysis of existing doctrine)",
         falsification: {
           supporter_flip:
@@ -138,6 +142,10 @@ export const autonomousWeaponsBanData = {
         methodology:
           "Assess proposed verification regimes (intrusive inspection, limits on observable physical/behavioral characteristics, compute/hardware controls) against the requirement that a 'smart' and 'dumb' weapon are externally indistinguishable. Compare to verification regimes for landmines and blinding lasers, which rely on norm and procurement rather than detection.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Procurement and fielding records of major powers before and after any ban, read against how the blinding-laser and landmine bans changed behavior through stigma and procurement rather than detection.",
+        },
         cost_to_verify:
           "$0-low (policy analysis); a real inspection regime would cost far more",
         falsification: {

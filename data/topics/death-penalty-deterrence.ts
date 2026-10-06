@@ -40,6 +40,10 @@ export const deathPenaltyDeterrenceData = {
         methodology:
           "Natural experiment analysis using states that adopted or abolished the death penalty, with synthetic control methods and instrumental variables to isolate the causal effect.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Natural experiments in states that adopted or abolished the death penalty, analysed with synthetic controls or instrumental variables, to estimate any causal effect on murder rates. Whether retribution alone justifies it is a value question no study answers.",
+        },
         cost_to_verify: "$1M (Multi-state longitudinal study with econometric controls)",
         falsification: {
           supporter_flip:
@@ -148,6 +152,10 @@ export const deathPenaltyDeterrenceData = {
         methodology:
           "Statistical modeling of exoneration rates, time-to-exoneration, and estimated undetected wrongful convictions using DNA-era data.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Modelling of DNA-era exoneration rates and time to exoneration to estimate how many death-sentenced defendants are innocent but never cleared. How many irreversible errors are too many is a value choice.",
+        },
         cost_to_verify: "$2M (Retrospective forensic review of historical cases)",
         falsification: {
           supporter_flip:

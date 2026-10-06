@@ -43,6 +43,10 @@ export const mandatoryVotingData = {
         methodology:
           "Compare policy responsiveness to median voter preferences in compulsory vs. voluntary voting countries, controlling for institutional differences.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Comparisons of how closely policy follows median-voter and lower-income preferences in compulsory and voluntary voting countries, controlling for institutions, alongside quasi-experiments like Australia's staggered rollout.",
+        },
         cost_to_verify: "$500K (Cross-national comparative study)",
         falsification: {
           supporter_flip:
@@ -149,7 +153,12 @@ export const mandatoryVotingData = {
           "Does the administrative cost and civil liberty trade-off of compulsory voting justify the democratic gains?",
         methodology:
           "Compare per-voter election administration costs, enforcement costs, and democratic outcome metrics between compulsory and voluntary systems.",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Enforcement and administration costs per voter, and changes in polarization or responsiveness, can each be measured across compulsory and voluntary systems. Whether those gains are worth compelling people to vote is a weighing of liberty that no measurement supplies.",
+          kind: "value-difference" as const,
+        },
         cost_to_verify: "$200K (Comparative administrative study)",
         falsification: {
           supporter_flip:

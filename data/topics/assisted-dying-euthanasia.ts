@@ -29,7 +29,12 @@ export const assistedDyingEuthanasiaData = {
           "The load-bearing disagreement is whether a competent adult's authority over their own body includes choosing the manner and timing of an imminent, inevitable death — or whether society's interest in protecting life sets a limit autonomy cannot cross.",
         methodology:
           "Examine how the law already treats analogous choices (refusal of treatment, palliative sedation, advance directives) and whether a coherent moral line can be drawn between 'letting die' and 'helping die.' Test constitutional reasoning (e.g., Carter v. Canada) against legislative and ethical counter-frameworks.",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "How far a competent adult's authority over their own death reaches, against society's interest in protecting life, is a question of values. Evidence on how the right works in practice, such as whether it becomes a felt duty to die, bears on it but cannot decide it.",
+          kind: "value-difference" as const,
+        },
         cost_to_verify: "$0 (philosophical and legal analysis)",
         falsification: {
           supporter_flip:
@@ -120,6 +125,10 @@ export const assistedDyingEuthanasiaData = {
         methodology:
           "Quantify the prevalence and refractoriness of terminal suffering (pain, dyspnea, existential distress) under optimal palliative care; audit the demographics and circumstances of those using assisted-dying laws for evidence of coercion or socioeconomic pressure; compare terminal-only regimes (Oregon) with broader ones (Canada Track 2).",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Measures of how often terminal suffering stays refractory under optimal palliative care, plus audits of who uses terminal-only laws like Oregon's, checking whether the poor, disabled or uninsured are over-represented.",
+        },
         cost_to_verify: "$300K (clinical review + registry data analysis)",
         falsification: {
           supporter_flip:

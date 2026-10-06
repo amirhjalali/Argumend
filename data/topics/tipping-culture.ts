@@ -47,6 +47,10 @@ export const tippingCultureData = {
         methodology:
           "Use a difference-in-differences design comparing total hourly take-home pay (wages plus tips plus service charges, net of any menu-price effects on demand) for front-of-house workers in jurisdictions that eliminated or phased out the tip credit (e.g., Washington, D.C. after 2023; the seven long-standing equal-wage states) against matched control jurisdictions that retained it. Track the full earnings distribution — not just the mean — because abolition's effect plausibly differs for low- versus high-volume servers. Pair payroll and tip-reporting data with the IRS and state wage records, and survey workers on hours, shift stability, and turnover.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Difference-in-differences comparisons of total hourly pay (wage, tips and service charges) for front-of-house workers in places that phased out the tip credit, like D.C., against matched places that kept it, across the full earnings distribution.",
+        },
         cost_to_verify:
           "$300K-700K (Econometric analysis using state payroll, IRS tip-reporting, and BLS microdata; partially answerable today with D.C. and equal-wage-state data)",
         falsification: {
@@ -163,6 +167,10 @@ export const tippingCultureData = {
         methodology:
           "Compare race- and gender-based earnings and employment disparities for front-of-house workers across pay models: traditional tipping, mandatory service charges, and flat service-included wages. Use audit-style field experiments (matched servers differing only by race/gender) to measure customer-driven tip bias, paired with payroll and personnel data to measure manager-driven disparities in hiring, section assignment, hours, and promotion under each model. The decisive comparison is total earnings disparity by demographic before versus after a venue or jurisdiction abolishes tipping, holding the labor market constant.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Audit-style field experiments with matched servers to measure customer tip bias, paired with payroll and personnel data on hiring, section assignment and scheduling under tipping, service charges and flat wages.",
+        },
         cost_to_verify:
           "$500K-1.5M (Audit field experiments plus payroll/personnel data across tipping and no-tipping venues)",
         falsification: {
@@ -279,6 +287,10 @@ export const tippingCultureData = {
         methodology:
           "Compare outcomes across three regimes over multi-year windows: (1) the seven long-standing equal-wage states, (2) jurisdictions that recently eliminated the tip credit (Washington, D.C.; phased efforts elsewhere), and (3) tip-credit states as controls. Track restaurant counts, full-service employment, average and distributional worker take-home pay, menu prices, customer traffic, and the prevalence of service charges. Distinguish single-venue voluntary experiments (USHG) from mandatory jurisdiction-wide changes, and isolate the wage-policy effect from confounders like post-pandemic inflation and rent.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Multi-year tracking of restaurant counts, full-service employment, menu prices and customer traffic in the seven equal-wage states, in places that recently dropped the tip credit, and in tip-credit states as controls.",
+        },
         cost_to_verify:
           "$400K-900K (Multi-jurisdiction econometric study using state employment, restaurant-census, and price data; partially answerable now)",
         falsification: {

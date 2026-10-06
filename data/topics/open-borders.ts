@@ -136,7 +136,12 @@ export const openBordersData = {
           "Philosophical analysis comparing freedom of movement to other recognized freedoms. Empirical examination of whether controlled borders actually achieve their stated goals (security, fiscal sustainability, cultural cohesion) more effectively than open alternatives.",
         equation:
           "\\text{Moral Permissibility} = f(\\text{Rights Restricted}, \\text{Harm Prevented}, \\text{Alternatives Available})",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Evidence can show whether controlled borders meet their stated goals of security, fiscal balance and cohesion. Whether movement is a basic right that outweighs a state's claim to exclude is a moral question those findings cannot answer.",
+          kind: "value-difference" as const,
+        },
         cost_to_verify: "N/A (Normative philosophical question)",
         falsification: {
           supporter_flip:

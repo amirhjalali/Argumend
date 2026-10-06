@@ -64,6 +64,10 @@ export const jonesActData = {
         methodology:
           "Assemble U.S.-built vs. world ship-construction prices (MARAD/industry data), U.S.-flag vs. foreign-flag operating-cost gaps, and domestic vs. comparable foreign-route freight rates. Model repeal scenarios with a range of foreign-carrier entry assumptions, as USITC-style CGE welfare studies do, and report a range rather than a point estimate.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "U.S.-built against world ship prices, U.S.-flag against foreign-flag operating costs, and domestic against comparable foreign-route freight rates, fed into repeal scenarios across a range of foreign-carrier entry assumptions.",
+        },
         cost_to_verify: "$150K (CGE welfare model + freight-rate data assembly)",
         falsification: {
           supporter_flip:
@@ -364,6 +368,10 @@ export const jonesActData = {
         methodology:
           "Use MARAD/TRANSCOM readiness exercises (no-notice 'turbo activations'), Ready Reserve Force mission-capable rates, the certified mariner-availability gap, and the count and age of oceangoing Jones Act ships to measure whether requirements are met — then ask whether the Act, versus targeted subsidies, is what sustains them.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "No-notice 'turbo activation' readiness results, Ready Reserve Force mission-capable rates, the certified mariner gap, and the count and age of oceangoing Jones Act ships, set against Defense Department sealift requirements.",
+        },
         cost_to_verify: "$0 (GAO, MARAD, and TRANSCOM readiness reports)",
         falsification: {
           supporter_flip:
@@ -468,6 +476,10 @@ export const jonesActData = {
         methodology:
           "Quantify beneficiary employment and revenue in protected shipyards and carriers against economy-wide consumer and industrial cost estimates; compare the per-beneficiary stake to the per-consumer burden to gauge organizational asymmetry, and price a buy-out/transition package as the reform alternative.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Employment and revenue in protected shipyards and carriers measured against economy-wide consumer and industrial cost estimates, with the stake per beneficiary compared to the burden per household.",
+        },
         cost_to_verify: "$75K (distributional incidence study)",
         falsification: {
           supporter_flip:

@@ -108,6 +108,10 @@ export const aiReplacingDoctorsData = {
         equation:
           "\\text{Accuracy}_{\\text{AI}} = \\frac{TP + TN}{TP + TN + FP + FN}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Deployment across urban, rural and multi-ethnic clinics on 10,000+ cases, comparing AI alone, physicians alone and AI-assisted physicians on sensitivity, specificity and missed rare conditions.",
+        },
         cost_to_verify: "$10M (multi-site clinical trial over 2-3 years)",
         falsification: {
           supporter_flip:
@@ -381,6 +385,10 @@ export const aiReplacingDoctorsData = {
         methodology:
           "Analyze current FDA approval timelines for AI/ML medical devices. Model projected timelines for autonomous (non-physician-supervised) AI diagnostics under existing vs. proposed regulatory frameworks. Survey legal scholars on liability framework readiness. Interview hospital risk officers on institutional adoption barriers.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "FDA clearance timelines for AI medical devices, projected forward for fully autonomous diagnosis, alongside surveys of legal scholars on liability readiness and interviews with hospital risk officers about what they would adopt.",
+        },
         cost_to_verify: "$500K (regulatory analysis + legal scholarship + stakeholder interviews)",
         falsification: {
           supporter_flip:

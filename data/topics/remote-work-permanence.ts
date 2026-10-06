@@ -30,6 +30,10 @@ export const remoteWorkPermanenceData = {
         equation:
           "\\Delta I = I_{remote} - I_{office} \\pm \\text{confounders}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Patent filings, product launches and internal innovation metrics compared across companies with different remote policies, matched on industry, size and innovation before the pandemic.",
+        },
         cost_to_verify: "$2M (Multi-year controlled study across firms)",
         falsification: {
           supporter_flip:

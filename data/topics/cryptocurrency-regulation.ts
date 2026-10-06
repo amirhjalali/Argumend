@@ -104,6 +104,10 @@ export const cryptocurrencyRegulationData = {
         methodology:
           "Compare innovation metrics (developer activity, venture funding, patent filings, new protocol launches) across jurisdictions with varying regulatory stringency — the US (enforcement-led), EU (MiCA framework), Singapore (licensing regime), Dubai (free zone approach), and Switzerland (guidance-based). Track whether regulatory actions correlate with reduced developer activity or merely redirect it. Measure consumer losses (fraud, hacks, rug pulls) in regulated vs. unregulated environments to determine whether regulation actually reduces harm.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Developer activity, venture funding and protocol launches tracked across the US, the EU under MiCA, Singapore, Dubai and Switzerland, against fraud and retail losses in each regime.",
+        },
         cost_to_verify:
           "$500K-1.5M (Multi-jurisdictional comparative regulatory impact study)",
         falsification: {
@@ -229,6 +233,10 @@ export const cryptocurrencyRegulationData = {
         methodology:
           "Model contagion pathways between crypto markets and traditional finance by mapping institutional crypto exposures (pension funds, endowments, hedge funds), bank exposures (deposits from crypto firms, loans collateralized by crypto), and stablecoin reserve holdings (Treasury bills, money market funds). Stress-test the system against scenarios: a 90% crypto market crash, a major stablecoin depeg, and simultaneous failure of the top 3 exchanges. Measure whether losses propagate beyond the crypto ecosystem into traditional markets.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Stress tests on mapped links between crypto and traditional finance, from bank deposits and crypto-backed loans to stablecoin holdings of Treasury bills, run against a 90% crash, a major stablecoin depeg and the failure of the top exchanges.",
+        },
         cost_to_verify:
           "$1-3M (Financial system stress test with contagion modeling)",
         falsification: {
@@ -354,6 +362,10 @@ export const cryptocurrencyRegulationData = {
         methodology:
           "Conduct a systematic legal analysis of the top 100 crypto tokens by market capitalization, applying the Howey test to each at the point of initial sale and at current trading. For each token, determine: (1) whether funds were raised from investors, (2) whether a common enterprise exists, (3) whether purchasers expect profits, and (4) whether profits derive from an identifiable promoter's efforts. Categorize tokens as 'clearly securities,' 'clearly not securities,' and 'ambiguous.' Assess whether the ambiguous category is large enough to warrant bespoke regulation.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A token-by-token Howey analysis of the top 100 tokens by market value, at first sale and in current trading, counting how many fit, fail or fall into a genuinely ambiguous middle.",
+        },
         cost_to_verify:
           "$300K-800K (Comprehensive legal analysis with economic assessment of top 100 tokens)",
         falsification: {

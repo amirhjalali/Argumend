@@ -172,6 +172,10 @@ export const mediaBiasDemocracyData = {
         equation:
           "\\Delta\\text{Polarization} = \\beta_1(\\text{Echo Chamber Exposure}) + \\beta_2(\\text{Pre-existing Ideology}) + \\epsilon",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial that gives people cross-cutting news for six months and measures polarization, factual knowledge and engagement against a control group on their usual news diet.",
+        },
         cost_to_verify: "$1M (Large-scale RCT)",
         falsification: {
           supporter_flip:

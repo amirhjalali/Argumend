@@ -46,6 +46,10 @@ export const longevityScienceData = {
         methodology:
           "Track all registered senolytic clinical trials (currently 30+ on ClinicalTrials.gov) and their outcomes through 2030. The most informative will be the TAME-adjacent senolytic trials and the Mayo Clinic dasatinib+quercetin aging trials. Require primary endpoints of biological age reduction (measured by DNA methylation clocks) or functional improvement (measured by frailty index), not just biomarker changes. Minimum trial duration of 2 years with 500+ participants.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Results from the 30+ registered senolytic trials through 2030, including the Mayo Clinic dasatinib and quercetin studies, on primary endpoints of methylation-clock age and frailty index.",
+        },
         cost_to_verify:
           "$50-200M (Large-scale Phase 2/3 clinical trials with long follow-up periods)",
         falsification: {
@@ -154,6 +158,10 @@ export const longevityScienceData = {
         methodology:
           "Conduct a 5-year study in non-human primates (e.g., marmosets, lifespan ~10 years) comparing partial reprogramming via pulsed AAV-delivered Yamanaka factors against controls. Primary endpoints: DNA methylation age (epigenetic clocks validated for primates), organ function biomarkers, cancer incidence, and all-cause mortality. Require at least 50 animals per group with blinded assessment. Monitor for teratoma formation via quarterly imaging.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A five-year study of pulsed partial reprogramming in at least 50 marmosets per group against controls, with blinded measurement of methylation age, organ function, cancer and deaths.",
+        },
         cost_to_verify:
           "$30-100M (5-year primate study with AAV delivery, longitudinal epigenetic and functional assessment, oncological monitoring)",
         falsification: {

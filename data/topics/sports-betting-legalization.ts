@@ -47,6 +47,10 @@ export const sportsBettingLegalizationData = {
         methodology:
           "Combine three data streams across states with staggered legalization dates: (1) pre-legalization estimates of illegal handle from GeoComply geolocation pings to offshore sites and AGA/Innovation Group survey data; (2) post-legalization legal handle and self-reported prior illegal betting from regulated operators' onboarding surveys; and (3) credit-bureau and bank-transaction panels (as in the NBER and UCSD studies) to measure whether total household gambling outflows rose or merely shifted channels. Use a staggered difference-in-differences design comparing newly legal states to not-yet-legal states to separate the displaced fraction from the induced fraction of total betting volume.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Across states with staggered legalization dates, illegal handle before launch (GeoComply pings to offshore sites, AGA survey estimates) set against legal handle after, and bank-transaction panels showing whether household gambling outflows jump or only change channels.",
+        },
         cost_to_verify:
           "$1-2M (Multi-state econometric study requiring licensed credit-bureau panels, operator data, and geolocation datasets)",
         falsification: {
@@ -167,6 +171,10 @@ export const sportsBettingLegalizationData = {
         methodology:
           "Exploit the natural experiment of states and countries adopting different harm-reduction regimes at different times. Compare credit-bureau and bank-transaction outcomes (bankruptcy filings, savings rates, debt-in-collections, overdraft frequency) across jurisdictions that imposed mandatory (not opt-in) deposit limits, affordability checks, or advertising bans against otherwise-similar jurisdictions that did not, using a staggered difference-in-differences design. Pair this with operator-level data on what fraction of revenue comes from self-excluded or limit-hitting accounts to test whether mandates actually bind on the heaviest losers rather than only the casual majority.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Credit-bureau and bank-transaction outcomes (bankruptcy filings, savings rates, debt in collections) compared between jurisdictions that imposed mandatory deposit limits, affordability checks or ad bans and similar ones that did not.",
+        },
         cost_to_verify:
           "$2-4M (Cross-jurisdiction econometric study requiring credit-bureau panels and confidential operator account-level data)",
         falsification: {
@@ -285,6 +293,10 @@ export const sportsBettingLegalizationData = {
         methodology:
           "Build a net-externality ledger across staggered legalization dates. For integrity: compare detected-and-prosecuted manipulation cases (and their underlying base rate, estimated via integrity-firm alert data) in legal-monitored versus illegal-unmonitored regimes. For addiction: use the natural experiment of helpline-call series, treatment admissions, and validated problem-gambling prevalence surveys (e.g., PGSI) before and after legalization, separating genuine-distress calls from advertising-mandated technical calls. For IPV and other third-party harms: extend the NIBRS difference-in-differences design (Matsuzawa & Arnesen) across more states and outcomes. Combine into a common welfare metric to compare against the legal market's measured benefits.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A ledger built across staggered launch dates: detected and prosecuted match-fixing in monitored versus unmonitored markets, beside helpline calls, treatment admissions and problem-gambling prevalence surveys (PGSI) before and after launch.",
+        },
         cost_to_verify:
           "$2-5M (Multi-domain causal study spanning crime data, integrity-firm alerts, clinical treatment records, and prevalence surveys)",
         falsification: {

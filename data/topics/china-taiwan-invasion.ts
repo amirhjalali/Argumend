@@ -82,6 +82,10 @@ export const chinaTaiwanInvasionData = {
         methodology:
           "Inventory all PLA Navy amphibious vessels (Type 071, 075, 076 classes). Catalog requisitioned civilian RO-RO ferries and their military conversion status. Estimate total first-wave troop and vehicle capacity. Compare against defense analyst estimates of force requirements (commonly cited at roughly 300,000 to 1 million-plus troops for a contested amphibious landing and follow-on occupation). Assess logistics sustainability for a multi-week campaign.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "An inventory of PLA amphibious ships (Type 071, 075 and 076) and convertible civilian roll-on/roll-off ferries, with total first-wave troop and vehicle capacity set against analysts' estimates of the force a contested landing needs.",
+        },
         cost_to_verify:
           "$5M (satellite imagery analysis + classified intelligence assessment)",
         falsification: {
@@ -195,6 +199,10 @@ export const chinaTaiwanInvasionData = {
         methodology:
           "Map China's import dependencies across critical sectors (energy, food, semiconductors, industrial components). Assess stockpile levels and domestic substitution capacity. Model GDP impact of full SWIFT disconnection and trade embargo by G7 nations. Compare against Russia's sanctions resilience as a baseline. Evaluate China's alternative financial infrastructure (CIPS, digital yuan) readiness.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A map of China's import dependencies in energy, food, semiconductors and industrial components, with stockpiles and domestic substitutes, modelled against a G7 embargo and SWIFT cut-off and compared with Russia's record under sanctions.",
+        },
         cost_to_verify:
           "$2M (economic modeling + supply chain analysis)",
         falsification: {
@@ -308,6 +316,10 @@ export const chinaTaiwanInvasionData = {
         methodology:
           "Analyze U.S. force deployments and pre-positioning in the Western Pacific. Review classified and open-source wargame outcomes. Survey Congressional authorization likelihood under various scenarios. Model decision dynamics under nuclear escalation risk. Compare stated commitments against historical follow-through in analogous crises (Korean War, Gulf War, Afghanistan withdrawal).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Open-source wargame outcomes and US force posture in the Western Pacific, read alongside how far stated US commitments held in past crises such as Korea, the Gulf War and the Afghanistan withdrawal.",
+        },
         cost_to_verify:
           "$10M (wargaming + polling + classified intelligence review)",
         falsification: {

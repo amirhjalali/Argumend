@@ -51,6 +51,10 @@ export const facialRecognitionPolicingData = {
         methodology:
           "Take the specific algorithm and match threshold an agency deploys. Run a demographic-balanced benchmark (NIST FRTE-style) measuring false match rate (FMR) and false non-match rate (FNMR) separately for each race/sex group. Test whether inter-group FMR differences are statistically significant at the operating threshold, and re-run at lower thresholds to map where parity breaks down.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A demographic-balanced benchmark (NIST FRTE-style) of the exact algorithm and match threshold an agency deploys, reporting false match and false non-match rates for each race and sex group at that threshold and below.",
+        },
         cost_to_verify: "$250K (independent demographic benchmark per system)",
         falsification: {
           supporter_flip:
@@ -142,6 +146,10 @@ export const facialRecognitionPolicingData = {
         methodology:
           "Audit a representative sample of facial-recognition-assisted arrests. For each, determine whether independent, non-FRT evidence established probable cause before arrest, or whether the match itself was the basis. Measure the corroboration-compliance rate and correlate non-compliance with wrongful-arrest and exoneration outcomes.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "An audit of a representative sample of face-match-assisted arrests, checking whether independent evidence established probable cause before arrest, and linking lapses to wrongful arrests and exonerations.",
+        },
         cost_to_verify: "$300K (multi-jurisdiction case-file audit)",
         falsification: {
           supporter_flip:
@@ -234,6 +242,10 @@ export const facialRecognitionPolicingData = {
         methodology:
           "Compare jurisdictions with binding FRT statutes (e.g. mandatory disclosure, sole-basis bans, training mandates) against those without. Measure compliance rates, disclosure-to-defendant rates, and wrongful-arrest incidence before and after the rules take effect.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Jurisdictions with binding face-recognition statutes (sole-basis bans, training mandates, disclosure) compared with those without, measuring compliance, disclosure to defendants and wrongful arrests before and after the rules.",
+        },
         cost_to_verify: "$150K (comparative policy and records analysis)",
         falsification: {
           supporter_flip:

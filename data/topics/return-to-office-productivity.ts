@@ -162,6 +162,10 @@ export const returnToOfficeProductivityData = {
         methodology:
           "Instrument office spaces at 20+ firms with interaction tracking (badge sensors, calendar analysis). Measure frequency of unplanned cross-team interactions. Track which interactions lead to new projects, patents, or product features within 12 months. Compare innovation output per interaction for in-person serendipitous encounters vs. structured remote collaboration sessions (virtual brainstorms, cross-team Slack channels, async idea boards).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Interaction tracking at 20+ firms (badge sensors, calendars) that follows unplanned in-person encounters and structured remote sessions for 12 months and counts the new projects, patents and shipped features each produces.",
+        },
         cost_to_verify:
           "$3-5M (18-month instrumented workplace study with innovation tracking across 20+ firms)",
         falsification: {

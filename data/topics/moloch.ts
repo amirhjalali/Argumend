@@ -133,6 +133,10 @@ export const molochData = {
         methodology:
           "Take Ostrom's eight design principles and test their presence/absence against outcomes across resource systems spanning orders of magnitude in scale (village irrigation to global fisheries to the atmosphere). Measure whether principle-satisfaction predicts escape from the trap independent of scale.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Ostrom's eight design principles scored against outcomes in resource systems of very different scale, from village irrigation to global fisheries and the atmosphere, to see whether the principles predict success independent of scale.",
+        },
         cost_to_verify: "$0 (meta-analysis of existing common-pool-resource case studies)",
         falsification: {
           supporter_flip:
@@ -238,6 +242,10 @@ export const molochData = {
         methodology:
           "Track surplus-per-capita against population/agent-count growth across regimes; for AI specifically, measure whether competing labs' safety expenditure diverges upward or converges toward a competitive floor as capability stakes rise.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Surplus per person tracked against growth in the number of people or agents across eras, and, for AI, whether competing labs' safety spending rises or converges toward a competitive floor as capability stakes grow.",
+        },
         cost_to_verify: "$0 today (retrospective growth data); the AI case is unfolding, not yet settled",
         falsification: {
           supporter_flip:
@@ -342,6 +350,10 @@ export const molochData = {
         methodology:
           "There is no way to run the experiment safely: building a value-aligned singleton to test the claim is precisely the risk the AI-safety field warns against, and a misaligned one is catastrophic. The claim can only be probed indirectly, via whether any large-scale, indefinitely stable coordination has ever survived without a top-level sovereign.",
         verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "No safe experiment can build a singleton to find out; evidence can only narrow it. The closest test is the historical record of whether any large-scale coordination has stayed stable indefinitely without a top-level sovereign.",
+        },
         cost_to_verify: "Not verifiable without incurring the very risk in question",
         falsification: {
           supporter_flip:
@@ -429,6 +441,10 @@ export const molochData = {
         methodology:
           "Assemble a corpus of international and large-scale coordination attempts (ozone, climate, fisheries, arms control, trade). Code each for outcome and for the underlying incentive conditions (cost of substitutes, verifiability, number of players). Test whether success correlates with favorable game structure rather than with will alone.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A coded corpus of coordination attempts (ozone, climate, fisheries, arms control, trade) recording each outcome alongside substitute costs, verifiability and number of players, to test whether success follows the game structure.",
+        },
         cost_to_verify: "$0 (the historical treaty and commons record is documented)",
         falsification: {
           supporter_flip:

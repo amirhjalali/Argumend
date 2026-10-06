@@ -29,6 +29,10 @@ export const cancelCultureData = {
         equation:
           "\\text{Chilling Index} = 1 - \\frac{\\text{Expressed View Diversity}_{t}}{\\text{Privately Held View Diversity}_{t}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Behavioral series over time, such as op-ed submissions, the range of topics in academic papers and public-comment participation, read against the Cato/YouGov and FIRE self-censorship surveys, controlling for political climate and platform changes.",
+        },
         cost_to_verify: "$500K (Multi-year survey and behavioral tracking study)",
         falsification: {
           supporter_flip:
@@ -135,6 +139,10 @@ export const cancelCultureData = {
         equation:
           "\\text{Impact Ratio} = \\frac{P(\\text{lasting harm} | \\text{ordinary})}{P(\\text{lasting harm} | \\text{powerful})}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A tracked sample of shaming campaigns, with targets sorted into celebrities, executives and ordinary people, comparing job loss, mental-health harm and recovery time across the groups.",
+        },
         cost_to_verify: "$300K (Social media analysis and longitudinal follow-up study)",
         falsification: {
           supporter_flip:

@@ -42,6 +42,10 @@ export const homeschoolingEffectivenessData = {
         methodology:
           "Large-scale randomized or propensity-score-matched comparison using mandatory (not voluntary) testing, controlling for SES, parental education, and regional factors.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A large comparison using mandatory rather than voluntary test results, with homeschoolers matched to schooled students on family income, parental education and region by propensity scores.",
+        },
         cost_to_verify: "$3M (National longitudinal study with mandatory participation)",
         falsification: {
           supporter_flip:
@@ -145,6 +149,10 @@ export const homeschoolingEffectivenessData = {
         methodology:
           "Administer validated social skills instruments (SSRS, SDQ) to demographically matched homeschool and public school samples, with longitudinal follow-up into adulthood.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Validated social-skills instruments (SSRS, SDQ) given to demographically matched homeschooled and public-school samples, followed into adult relationships.",
+        },
         cost_to_verify: "$1M (Matched longitudinal cohort study)",
         falsification: {
           supporter_flip:

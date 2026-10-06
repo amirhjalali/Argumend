@@ -46,6 +46,10 @@ export const socialSecurityRetirementAgeData = {
         methodology:
           "Use the SSA Office of the Chief Actuary's stochastic model and CBO's long-term Social Security model to score each policy in isolation: FRA-to-69 (the version CBO scored in 2024), eliminate the taxable-maximum cap, and raise the payroll tax rate. Compare the percent of the 75-year open-group actuarial deficit each closes.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "SSA Chief Actuary and CBO scoring of each option on its own (full retirement age to 69, lifting the taxable maximum, a higher payroll tax), as a share of the 75-year actuarial deficit each closes.",
+        },
         cost_to_verify: "$0 (existing SSA/CBO actuarial scoring)",
         falsification: {
           supporter_flip:
@@ -137,6 +141,10 @@ export const socialSecurityRetirementAgeData = {
         methodology:
           "Run a microsimulation (e.g., SSA's MINT model or the Urban Institute's DYNASIM) that combines mortality-by-lifetime-earnings with claiming behavior to compute the change in expected lifetime benefits by earnings quintile under an FRA increase, with and without a DI carve-out and minimum-benefit offset.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "A microsimulation such as SSA's MINT or Urban's DYNASIM that combines mortality by lifetime earnings with claiming behavior, giving the change in expected lifetime benefits by earnings quintile, with and without a disability carve-out.",
+        },
         cost_to_verify: "$0 (existing microsimulation models)",
         falsification: {
           supporter_flip:
