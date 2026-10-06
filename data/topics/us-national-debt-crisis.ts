@@ -10,17 +10,16 @@ export const usNationalDebtCrisisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The single most-cited proof that debt is a ticking time bomb — Reinhart and Rogoff's claim that growth collapses once debt passes 90% of GDP — was substantially undermined by a 2014 Excel error: correcting the spreadsheet, average growth above 90% was about 2.2%, not the −0.1% they reported. The honest nuance is that the danger never fully disappeared — a modest negative debt-growth correlation survives, and US debt held by the public is now near 100% of GDP and projected by the CBO to reach 156% by 2055 — but the famous bright-line 'cliff' was an artifact, not a law of economics.",
+      "US federal debt held by the public is about 100% of GDP, and the Congressional Budget Office projects 156% by 2055 under current law; net interest, about $882 billion in FY2024, now exceeds defense spending. Japan has carried gross debt above 200% of GDP for over a decade without a crisis. Both sides work from these figures. The fight is over whether US borrowing costs can stay below its growth rate.",
     confidence: 88,
     source:
-      "Herndon, Ash & Pollin, Cambridge Journal of Economics (2014); CBO Long-Term Budget Outlook 2025–2055 (March 2025)",
-    sourceUrl: "https://academic.oup.com/cje/article-abstract/38/2/257/1714018",
+      "CBO, The Long-Term Budget Outlook: 2025 to 2055 (March 2025); US Treasury / CRFB on FY2024 net interest; IMF World Economic Outlook on Japan",
+    sourceUrl: "https://www.cbo.gov/publication/61270",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The trajectory is genuinely adverse: US federal debt held by the public is near 100% of GDP, the CBO projects it climbing to 156% by 2055 under current law, and net interest already hit about $882 billion in FY2024 — surpassing the entire national defense budget for the first time and becoming one of the fastest-growing line items in the budget.",
-    "But the most famous trigger for panic was overstated: the Reinhart-Rogoff '90% growth cliff' was undermined by a spreadsheet error, Japan has run gross debt above 200% of GDP for over a decade — and above 250% in recent years — without a crisis, and a country that borrows in its own currency and issues the world's reserve asset cannot be forced into an involuntary default the way Greece or Argentina can.",
-    "So the honest debate isn't 'will a fixed debt threshold detonate a crisis' (no reliable threshold exists) but whether interest costs grow faster than the economy (r vs g) and whether a self-fulfilling loss of confidence in Treasuries could strike before the slow-moving arithmetic ever does.",
+    "Both sides accept that no single debt-to-GDP number, such as the 90% line Reinhart and Rogoff once drew, mechanically triggers a crisis; that interest costs have risen sharply and the US path under current law is rising; and that the dollar's reserve share has slipped from about 70% to 58% while no rival currency offers comparable depth.",
+    "They split over whether America's borrowing costs can stay below its growth rate for decades; whether interest costs settle or keep climbing as roughly $9 trillion a year of maturing debt is refinanced at new rates; and whether the dollar's erosion stays a slow drift or could tip suddenly past a confidence threshold.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=60",

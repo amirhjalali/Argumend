@@ -9,17 +9,16 @@ export const congestionPricingData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Congestion pricing isn't the political third rail people assume: in Stockholm, public support flipped from roughly 36% before the 2006 trial to about 66-70% after residents lived with it, and the ~20% cut in cars crossing the cordon has held for nearly two decades. The honest catch is that fewer cars doesn't automatically mean lasting time savings — London's headline congestion benefit decayed from about 30% to roughly 7% within a few years as freed road space got reallocated and exempt ride-hail trips surged.",
+      "When Stockholm began charging drivers in 2006, traffic across its cordon fell about 20%, and the drop has held. In London, vehicle entries fell about 21% after 2003, but the reported journey-time benefit shrank from about 30% to roughly 7% within a few years. Both records are real. The fight is over which effect lasts, and whether the toll revenue is large and steady enough to matter for transit.",
     confidence: 84,
     source:
-      "Eliasson, J. (2014), 'The Stockholm congestion charges: an overview', CTS Working Paper 2014:7 (KTH); Transport for London monitoring reports",
+      "Eliasson, 'The Stockholm congestion charges: an overview,' CTS Working Paper 2014:7 (KTH); Transport for London monitoring reports",
     sourceUrl: "https://swopec.hhs.se/ctswps/abs/ctswps2014_007.htm",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Every major scheme — London, Stockholm, Singapore, and now New York — has produced a real, measured drop in vehicles entering the charged zone (typically 10-25%), the one variable a price directly controls, and Stockholm's cut has held for ~20 years while public support roughly doubled once people experienced it.",
-    "But cutting car counts is not the same as durably cutting congestion: London's reported journey-time benefit fell from ~30% to ~7% within a few years, and net revenue earmarked for transit can be halved, paused, or sued over — New York's relaunched 2025 program targets ~$500M, about half the original ~$1B/year plan.",
-    "So the honest debate isn't whether pricing reduces the number of cars (it reliably does) but whether the time savings and the transit funding are large and durable enough — once road space is reallocated, exemptions multiply, and politics intervenes — to justify the charge.",
+    "Both sides accept that congestion pricing in London, Stockholm, Singapore and New York produced an immediate, measurable drop in vehicles entering the charged zone, and that the schemes raise real money ring-fenced for transit.",
+    "They split over whether the drop in cars, or the faster journey times, holds up over the years as road space is reallocated and exemptions grow; and over whether net toll revenue, such as New York's roughly $500 million target, is large and stable enough to fund transit through litigation, toll cuts and politics.",
   ],
   last_updated: "2026-06-16",
   tags: ["transport", "cities", "traffic", "taxation", "transit"],

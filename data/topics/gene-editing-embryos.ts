@@ -10,7 +10,7 @@ export const geneEditingEmbryosData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "CRISPR is already approved medicine — the FDA cleared a gene-editing therapy for sickle cell in 2023. But the one time anyone edited human embryos to make babies (He Jiankui, 2018), the edits were botched and unverified, the world condemned it, and he went to prison — because germline edits are heritable, irreversible, and we still can't guarantee CRISPR won't make changes we can't predict.",
+      "The FDA cleared a CRISPR gene-editing therapy for sickle cell disease in 2023. The one time embryos were edited to make babies (He Jiankui, 2018), the edits could not be verified, the work was condemned worldwide, and he went to prison. The fight is over whether heritable editing to prevent serious disease can ever be made safe and verifiable enough to allow.",
     confidence: 85,
     source:
       "FDA approval of Casgevy/CRISPR therapy (2023); He Jiankui case (2018–19); Nuffield Council (2018); WHO governance framework (2021)",
@@ -19,9 +19,9 @@ export const geneEditingEmbryosData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Gene editing has crossed from science fiction into approved medicine — in 2023 the FDA cleared the first CRISPR therapy, which functionally cures sickle-cell disease in adults by editing their own cells.",
-    "But editing embryos is a different order of risk: the only time anyone did it to make babies (He Jiankui, 2018) the intended edit wasn't even faithfully made, the work was never independently verified, the world condemned it, and he was jailed — because germline edits are heritable, effectively irreversible, and passed to people who can never consent.",
-    "So the honest debate isn't about editing a sick adult's cells (largely settled and beneficial) but about heritable embryo editing — where the real questions are whether CRISPR is precise enough to risk it, whether embryo screening already solves most cases without editing, and whether a 'therapy not enhancement' line can actually be held.",
+    "Both sides accept that the FDA approved Casgevy, a CRISPR therapy that edits a patient's own cells, for sickle-cell disease in 2023; that He Jiankui's 2018 embryo edits were botched and unverified; that germline changes are heritable and effectively irreversible; and that preventing a severe single-gene disease differs from enhancing a trait, though the boundary has real edge cases.",
+    "They split over whether base, prime and other editors can become precise enough to make heritable changes safe, and whether embryo screening already makes editing unnecessary for most couples; and over whether a 'serious disease only' line can hold across countries under commercial pressure or will erode toward enhancement.",
+    "The first is a question sequencing of research embryos could answer; where to draw the second line is partly a definition no study fixes.",
   ],
   pillars: [
     {

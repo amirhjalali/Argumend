@@ -9,17 +9,17 @@ export const moonLandingData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The strongest proof of the Moon landings isn't a grainy 1969 photo — it's that you can still bounce a laser off the equipment Apollo crews left behind. More than half a century later, observatories in France (Grasse), Italy (Matera), and the US (Apache Point) routinely fire lasers at the retroreflector arrays from Apollo 11, 14, and 15 and clock the round trip, measuring the Earth–Moon distance to within centimeters. No Earth telescope can resolve the landers themselves — that's a hard limit of optics, not a cover-up — which is exactly why the hoax claim that 'we can't see them' misfires.",
+      "Observatories in six countries, from Grasse in France to Apache Point in the US, fire lasers at the Apollo 11, 14 and 15 landing sites and time the echoes to measure the Earth–Moon distance. No telescope on Earth, Hubble included, can resolve the landers themselves. Both facts are on the record. The open questions are what returns those echoes, and whether Apollo's routes through the Van Allen belts explain the low doses its dosimeters recorded.",
     confidence: 97,
     source:
-      "International Laser Ranging Service (ILRS) Lunar Laser Ranging; NASA/JPL; Murphy et al., APOLLO collaboration (Apache Point); Observatoire de la Côte d'Azur (Grasse)",
+      "International Laser Ranging Service (ILRS) Lunar Laser Ranging; APOLLO collaboration (Apache Point); Observatoire de la Côte d'Azur (Grasse); NASA Astronomy Picture of the Day on Hubble's lunar resolution",
     sourceUrl: "https://ilrs.gsfc.nasa.gov/science/scienceContributions/lunar.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The evidence is active and independent, not just historical: lasers fired from observatories on three continents still bounce off the Apollo retroreflectors today, six missions returned 382 kg (842 lbs) of lunar samples — about 2,200 specimens — studied in labs worldwide, and the USSR, with every Cold War incentive to expose a fake, tracked Apollo 11 itself and never disputed it.",
-    "The honest limitation is that the most direct close-up confirmation (photos of the descent stages and footpath trails) comes from NASA's own Lunar Reconnaissance Orbiter, and no independent Earth telescope can resolve the hardware on the surface — so a determined skeptic can always insist the non-NASA checks (laser ranging, sample geochemistry) are 'indirect.'",
-    "So the honest debate isn't whether humans reached the Moon — the converging physical evidence settles that — but why a sustained crewed return took more than 50 years, which is a story about budgets and political will, not about whether 1969 was real.",
+    "Both sides accept that no Earth-based telescope, Hubble included, can resolve the landers, a limit set by optics, and that the Van Allen belts hold dangerous trapped radiation that a slow or badly routed crossing would turn into a harmful dose.",
+    "They split over whether the laser echoes from the Apollo 11, 14 and 15 sites need astronaut-placed retroreflectors or could come from natural lunar features, and over whether Apollo's routes and speeds through the belts account for the low doses its dosimeters recorded.",
+    "Both can be checked independently: by ranging to points beside the arrays and comparing the echoes, and by recomputing dose from the published trajectories and independent belt data.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=60",

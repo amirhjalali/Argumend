@@ -10,18 +10,17 @@ export const netNeutralityData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Most people picture net neutrality as a long-standing federal law that has always protected the open internet — but binding US common-carrier rules were in force only once, briefly (2015 to mid-2018); the FCC's 2024 attempt to revive them was stayed by the courts before it ever took effect, and in January 2025 a federal appeals court ruled the FCC has no authority to impose them at all. The documented blocking and throttling episodes that motivated the rules are real but a short list — Madison River blocking Vonage (2005), Comcast secretly throttling BitTorrent (FCC violation, 2008), AT&T blocking FaceTime on cheaper plans (2012) — and the internet has stayed broadly open across long stretches with no enforceable rule in force.",
+      "In 2008 the FCC found that Comcast had secretly throttled BitTorrent traffic and ordered it to stop. Binding US common-carrier net-neutrality rules were in force only from 2015 to mid-2018, and in January 2025 the Sixth Circuit held that the FCC lacks authority to reimpose them under Title II. Both sides accept this record. The fight is over whether providers keep discriminating against traffic when no rule stops them.",
     confidence: 88,
     source:
-      "FCC Memorandum Opinion and Order FCC 08-183 (Comcast/BitTorrent, 2008); FCC 2015 Open Internet Order; In re MCP No. 185 / CTIA v. FCC, 6th Cir. (Jan. 2, 2025) applying Loper Bright",
+      "FCC Memorandum Opinion and Order FCC 08-183 (Comcast/BitTorrent, 2008); In re MCP No. 185 / CTIA v. FCC, 6th Cir. (Jan. 2, 2025)",
     sourceUrl:
-      "https://www.gibsondunn.com/sixth-circuit-strikes-down-fcc-net-neutrality-order/",
+      "https://www.fcc.gov/document/formal-complaint-free-press-and-public-knowledge-broadband-industry",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The case for rules is grounded in real incidents, not hypotheticals: ISPs have blocked or degraded lawful traffic when they had the incentive and no rule stopped them — Madison River blocked Vonage VoIP (2005), the FCC found Comcast secretly throttling BitTorrent (2008), and AT&T blocked FaceTime on cheaper data plans (2012) — and because many Americans have only one or two wireline broadband choices, market discipline alone is a weak backstop.",
-    "But the honest counterpoint is that those violations are a short list spread over two decades, most were resolved by public pressure, FTC competition law, or transparency rules rather than Title II, and the internet stayed broadly open during the long stretches (pre-2015 and 2018-2025) when no enforceable federal neutrality rule was in force.",
-    "So the honest debate isn't 'open internet vs. corporate gatekeepers' but a narrower empirical question: whether the incentive to discriminate reliably returns whenever rules lapse — requiring an ex-ante common-carrier backstop — or whether competition, transparency, and antitrust already deter the behavior at far lower regulatory cost.",
+    "Both sides accept the reported broadband investment figures; that a short list of blocking and throttling incidents is documented, from Madison River blocking Vonage to Comcast throttling BitTorrent; that most US households have only one or two wireline broadband choices; and that the Sixth Circuit's 2025 ruling binds the FCC while Congress could still legislate.",
+    "They split over whether, without rules, providers keep discriminating against traffic or competition and antitrust deter them; whether net-neutrality rules reduced broadband investment, and by how much, against what would have happened without them; and whether traffic discrimination was worse in the deregulated 2018-2025 period than under the 2015-2017 rules.",
   ],
   last_updated: "2026-06-16",
   tags: ["net-neutrality", "broadband", "fcc", "internet", "regulation"],

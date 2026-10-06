@@ -12,7 +12,7 @@ export const pfasForeverChemicalsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "PFAS are detectable in the blood of essentially every American — NHANES finds at least one PFAS in over 99% of people tested, and four legacy PFAS in nearly all. The myth-correcting nuance: this near-universal exposure does not mean it's getting worse. After 3M phased out PFOS (by 2002) and PFOA was eliminated by 2015, blood levels of PFOS fell more than 85% and PFOA more than 70% between 1999-2000 and 2018-2019.",
+      "NHANES finds at least one PFAS in the blood of over 99% of Americans tested, and four legacy PFAS in nearly all. Since 3M phased out PFOS (by 2002) and PFOA was eliminated by 2015, blood levels of PFOS fell more than 85% and PFOA more than 70% between 1999-2000 and 2018-2019. Both trends are real. The fight is over whether the doses people still carry do enough harm to justify bans and water cleanup.",
     confidence: 95,
     source:
       "CDC/ATSDR NHANES biomonitoring (1999-2000 through 2018-2019); ATSDR \"PFAS in the U.S. Population\" fast facts",
@@ -21,9 +21,8 @@ export const pfasForeverChemicalsData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "PFAS are in the blood of nearly every American and persist in the environment for decades to centuries, and the highest-exposed community ever studied — 69,000 people near a DuPont plant in the Ohio Valley — yielded a court-appointed science panel that found \"probable links\" to six conditions including kidney and testicular cancer.",
-    "The honest counterpoint is that most of that evidence is observational and confounded: the same kidney function that filters PFAS out of the body also tracks kidney-cancer risk and cholesterol, so high PFAS in blood can partly be a marker of the disease rather than its cause — a reverse-causation problem that a 2025 reanalysis (industry-funded, but peer-reviewed) used to challenge two of the six \"probable links.\"",
-    "So the real debate isn't whether PFAS are everywhere and persistent (they are, beyond dispute) but which specific harms are causally established versus merely correlated — and whether a class-wide ban and tens of billions in water cleanup are justified when the replacements (like GenX) have sometimes proven just as toxic.",
+    "Both sides accept that PFAS are near-universal in American blood and extraordinarily persistent, that they are biologically active in animals and on human cholesterol and immune markers, that water cleanup is genuinely expensive, and that GenX was a regrettable substitution no better than PFOA.",
+    "They split over whether the kidney-cancer and other cancer links found by the C8 Science Panel near DuPont's Ohio Valley plant survive studies that separate cause from effect; whether harm reaches the doses most people carry or stays confined to high-exposure communities and workers; and whether PFAS should be banned and treated as a whole class or through narrow rules aimed at the best-studied compounds.",
   ],
   pillars: [
     // =========================================================================

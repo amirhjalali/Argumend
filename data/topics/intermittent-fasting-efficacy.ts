@@ -11,18 +11,16 @@ export const intermittentFastingEfficacyData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "When researchers actually matched the calories, the magic mostly disappeared: in the JAMA Internal Medicine TREAT trial, a 16:8 eating window produced just a 1.17% weight loss versus 0.75% for a control group — a difference that was not statistically significant — and about 65% of what the fasters lost was lean muscle, not fat. The honest nuance: a few well-controlled trials still find metabolic improvements (insulin sensitivity, glycemic control) that look at least partly independent of weight, and some real-world studies find fasting easier to stick to.",
+      "In a 12-month NEJM trial in Guangzhou, people eating the same calorie-restricted diet within an 8-hour window lost 8.0 kg against 6.3 kg for those eating it at any time, a gap that was not statistically significant. In a 2025 Annals trial, 4:3 intermittent fasting lost 7.7 kg against 4.8 kg for daily calorie restriction at one year. Both trials are real. The fight is over what, if anything, fasting adds once calories are matched.",
     confidence: 78,
     source:
-      "Lowe et al., 'The TREAT Randomized Clinical Trial,' JAMA Internal Medicine (2020)",
-    sourceUrl:
-      "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2771095",
+      "Liu et al., New England Journal of Medicine (2022); Catenacci et al., Annals of Internal Medicine (2025)",
+    sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2114833",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The intuitive pitch is that the body does something special during the fasting window — burning fat, resetting metabolism — so the same calories eaten in 8 hours should beat those calories spread over 14; and indeed several trials report real improvements in insulin sensitivity and blood-sugar control.",
-    "But the most rigorous head-to-head trials keep landing on the same answer: once you match total calories, time-restricted eating loses about the same weight as ordinary daily calorie restriction — the 2022 NEJM trial in China found 8 kg versus 6.3 kg (not significant), and a 2024 meta-analysis of 20 isocaloric trials found no metabolic advantage at all.",
-    "So the real debate isn't whether fasting 'works' — almost any method that cuts calories works — but whether the eating window itself adds anything beyond being a convenient calorie-cutting trick for some people, and whether a handful of weight-independent metabolic signals are real or statistical noise.",
+    "Both sides accept that any diet that sustainably cuts total calories produces weight loss, that sticking with it is the biggest predictor of long-term success, and that alternate-day fasting is the hardest protocol to sustain.",
+    "They split over whether intermittent fasting beats daily calorie restriction when calories are matched, or only helps some people eat less; whether time-restricted eating in an early, daytime window improves insulin sensitivity and blood sugar with weight held steady; and whether milder windows like 16:8 or 4:3 are easier to keep than daily calorie counting.",
   ],
   pillars: [
     // =========================================================================

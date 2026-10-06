@@ -9,17 +9,18 @@ export const occupationalLicensingReformData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Roughly one in four US workers now needs a government license to do their job — a five-fold rise since the 1950s. The best peer-reviewed estimate finds licensing reliably raises wages and prices but produces an average welfare loss of about 12% of occupational surplus; the surprise is that careful studies find little evidence it improves service quality in low-stakes trades — though in a few health-critical fields the quality and safety benefits are real.",
+      "More than one in four US workers now need a government license to do their job, roughly a five-fold rise since the 1950s. Workers in occupations with state-specific licensing exams move between states at a rate about 36% lower than other workers. Both sides accept these numbers. The fight is over which licenses buy enough quality to justify their price, and whether recognition laws or deeper rollback should ease the cost to mobile workers.",
     confidence: 86,
     source:
-      "Kleiner & Soltas, Review of Economic Studies (2023) / NBER WP 26383; U.S. Treasury, CEA & Dept. of Labor, 'Occupational Licensing: A Framework for Policymakers' (2015)",
-    sourceUrl: "https://www.nber.org/papers/w26383",
+      "U.S. Treasury, CEA & Dept. of Labor, 'Occupational Licensing: A Framework for Policymakers' (2015); Johnson & Kleiner, American Economic Journal: Economic Policy (2020)",
+    sourceUrl:
+      "https://obamawhitehouse.archives.gov/sites/default/files/docs/licensing_report_final_nonembargo.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest case for rollback: licensing has spread from about 5% of workers in the 1950s to roughly a quarter today, and the leading welfare model (Kleiner & Soltas, 2023) finds it causes an average welfare loss of ~12% of occupational surplus — raising wages and prices while reducing employment — and border-comparison studies of trades like barbering and interior design find no quality gain from stricter rules.",
-    "The honest counterpoint: the same welfare model finds higher consumer willingness-to-pay offsets ~80% of the price increase (so consumers are largely getting quality they value), and causal evidence in health-critical occupations is real — exposure to historical midwifery licensing laws is linked to a 2.5% reduction in cumulative adult mortality — so blanket 'abolish it' would discard genuine safeguards in medicine and skilled trades.",
-    "So the honest debate isn't whether licensing is all-cartel or all-protection, but where the line falls: which occupations are over-licensed cosmetic trades that should be deregulated, and which carry real safety stakes — and whether portability reforms (reciprocity) can capture the mobility gains without abolishing the licenses themselves.",
+    "Both sides accept that occupational licensing raises prices and practitioners' wages; that its quality case is far weaker for cosmetic trades like barbers, manicurists and interior designers than for health-critical occupations; and that state-specific licenses hold back interstate moves by immigrants, military spouses and other mobile workers.",
+    "They split over whether stricter licensing buys enough quality to justify its price, occupation by occupation; and over whether license-recognition and reciprocity laws capture most of the mobility gains, or only deeper rollback will.",
+    "How much quality is worth the price is partly a value choice that border comparisons and outcome studies inform but cannot make.",
   ],
   last_updated: "2026-06-16",
   tags: ["labor", "regulation", "deregulation", "wages", "competition"],

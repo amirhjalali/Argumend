@@ -9,7 +9,7 @@ export const encryptionBackdoorsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The headline 'going dark' statistic was wrong by about 6×. The FBI told Congress and the National Academies under oath that encryption locked it out of 7,775 devices in 2017 — but in 2018 it admitted a software counting error and put the true number near 1,200. The honest nuance: encryption can still genuinely block some lawful investigations; the dispute is how many cases are actually unsolvable without a built-in backdoor.",
+      "The FBI first told Congress that encryption locked it out of 7,775 devices in 2017, then, after finding a software counting error, put the true number near 1,200. Both figures are on the record. The fight is over how many of the cases that remain cannot be solved without a built-in way in, and whether any such way in can be kept from attackers.",
     confidence: 90,
     source:
       "FBI's own 2018 correction, reported by The Washington Post (May 2018); EFF and New America / Open Technology Institute analyses",
@@ -18,9 +18,8 @@ export const encryptionBackdoorsData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Encryption that no warrant can pierce does sometimes leave investigators holding a valid court order they cannot execute, and after Meta switched Messenger to default end-to-end encryption, NCMEC's CyberTipline reports fell by roughly 7 million year-over-year — a real, measurable cost to detecting child abuse.",
-    "But the leading technical analyses — the peer-reviewed 'Keys Under Doormats' report by senior cryptographers including RSA's Ron Rivest and Whitfield Diffie — conclude that any mandated access path forces abandonment of forward secrecy, adds complexity that 'is the enemy of security,' and creates concentrated master-key stores that become the highest-value targets on Earth, weakening security for everyone who relies on the same encryption.",
-    "So the honest debate isn't 'privacy vs. catching criminals' but whether a third-party access mechanism can be built whose systemic security cost is smaller than the marginal number of serious crimes it actually solves beyond targeted hacking, metadata, and device forensics — a quantity no one has yet been able to demonstrate.",
+    "Both sides accept that any exceptional-access mechanism adds an attack surface, so the question is how large the leftover risk is; that encryption sometimes blocks lawful investigations, as the roughly 7 million drop in NCMEC CyberTipline reports after Meta encrypted Messenger reflects; and that such a capability would be valuable to authoritarian governments and attackers.",
+    "They split over whether a lawful-access design can keep that added risk acceptably small; how many serious crimes could be solved only with a mandated backdoor, once targeted hacking, metadata and device forensics are counted; and whether such a capability can be confined to legitimate use or will spread to other governments and thieves.",
   ],
   last_updated: "2026-06-16",
   tags: ["encryption", "privacy", "surveillance", "security", "law-enforcement"],

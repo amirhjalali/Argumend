@@ -10,16 +10,15 @@ export const gunControlEffectivenessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "RAND's review of thousands of studies found that for most gun laws the rigorous causal evidence is limited or inconclusive — the strongest evidence is narrow: safe-storage (child-access-prevention) laws reduce youth firearm deaths, and stand-your-ground laws are linked to more homicides.",
+      "RAND's review of thousands of studies found that for most gun laws the rigorous causal evidence is limited or inconclusive; the strongest findings are that safe-storage laws reduce youth firearm deaths and that stand-your-ground laws are linked to more homicides. The fight is over what to conclude from evidence that thin: whether to act on the laws that are proven, or treat the rest as unproven.",
     confidence: 85,
     source: "RAND Corporation, 'The Science of Gun Policy' (evidence synthesis)",
     sourceUrl: "https://www.rand.org/research/gun-policy/analysis.html",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The gun debate is loud, but the evidence is quieter and more specific than either side admits — when RAND reviewed thousands of studies, it found that for most policies the rigorous causal evidence is limited or inconclusive, neither 'gun laws clearly work' nor 'gun laws clearly fail.'",
-    "A few things are well-established: the US firearm-death rate (~12–13 per 100,000) is an order of magnitude above peer democracies, guns make both suicides and mass-shooting casualties far more lethal, and safe-storage laws measurably cut youth firearm deaths.",
-    "So the honest disagreement isn't about the scale of the problem — the US gun-death rate dwarfs peer nations — but about which specific policies actually reduce it without simply burdening lawful owners, given ~393 million guns already in circulation and a Second Amendment that constrains the options.",
+    "Both sides accept that the US has far more guns and a far higher firearm-death rate than peer democracies (about 12–13 per 100,000), that its ~393 million existing guns leave any new law slow to reach the stockpile, and that about 74% of the guns used in mass shootings were obtained legally, so expanded background checks alone would miss most mass shooters.",
+    "They split over how much of the US gun-death rate comes from gun availability and gun laws rather than violence concentration, mental health and drug markets, and so how much any stricter gun law would change it; and over whether bans on assault weapons and high-capacity magazines cut mass-shooting casualties, or attackers substitute other weapons.",
   ],
   pillars: [
     {

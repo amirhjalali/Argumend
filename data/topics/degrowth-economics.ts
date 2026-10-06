@@ -12,18 +12,17 @@ export const degrowthEconomicsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Most people blame today's climate crisis on China and India, but cumulatively the picture flips: the Global North (the US, EU, and other wealthy nations) is responsible for roughly 92% of the CO2 emitted beyond the safe planetary boundary, while the Global South — 85% of humanity — accounts for about 8%. The honest nuance is that this depends on a chosen 'fair share' framing, and current annual emissions are now dominated by China.",
+      "Between 1990 and 2019 the UK cut its territorial CO2 emissions by 44% while its GDP grew about 75%. Meanwhile global material extraction tripled, from 27 billion tonnes in 1970 to 92 billion in 2017. Both records are real. What divides the sides is whether rich nations can decouple growth from emissions and materials fast enough, or must shrink their economies to stay within planetary limits.",
     confidence: 80,
     source:
-      "Hickel, The Lancet Planetary Health (2020), equality-based attribution to 2015; underlying data from the Global Carbon Project",
+      "UK Committee on Climate Change / Our World in Data; UNEP International Resource Panel, Global Resources Outlook (2019)",
     sourceUrl:
-      "https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(20)30196-0/fulltext",
+      "https://ourworldindata.org/co2/country/united-kingdom",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest case for degrowth is biophysical: across the empirical literature — including a systematic review by Haberl et al. (2020) that screened over 11,500 papers and analyzed 835 studies — no economy has ever achieved absolute decoupling of GDP from carbon and material use fast enough to hit Paris targets once offshored emissions are counted, and global material extraction has tripled since 1970 with no peak in sight.",
-    "The honest counterpoint is that 'no country has done it yet' is not the same as 'it is physically impossible,' and degrowth has no precedent for being chosen democratically: every modern economic contraction (the Great Depression, post-Soviet collapse, Greek austerity) was involuntary and brutal, and even modest green taxes triggered the Yellow Vest revolt.",
-    "So the honest debate isn't whether infinite GDP growth on a finite planet is literally sustainable forever (it isn't), but whether green growth can decarbonize fast enough in practice — and, if it can't, whether deliberate, democratic contraction is any more achievable than the technological miracle it's meant to replace.",
+    "Both sides accept that emissions per dollar of GDP are falling and renewable costs have collapsed; that no modern democracy has yet chosen sustained economic contraction, and cost-raising climate policies like France's Yellow Vest fuel tax provoke backlash; and that the Global South is highly exposed while climate finance to it falls short.",
+    "They split over whether rich economies can keep growing while cutting emissions 7–10% a year, counted without offshoring; whether voters would keep backing a government that caps GDP while expanding wellbeing services; and whether a managed contraction in the Global North would leave poorer countries better or worse off than green growth.",
   ],
   pillars: [
     // =========================================================================

@@ -10,7 +10,7 @@ export const universalHealthcareData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The U.S. spends about $14,570 per person per year on healthcare — roughly double the average of other wealthy nations — yet has lower life expectancy (~78 years) and higher infant mortality than nearly all of them.",
+      "The US spends about $14,570 per person a year on healthcare, roughly double the average of other wealthy nations, and has lower life expectancy (~78 years) and higher infant mortality than nearly all of them. The fight is over whether replacing employer-based insurance with a universal system would close that gap, and what it would cost in taxes, choice and disruption.",
     confidence: 95,
     source:
       "CMS National Health Expenditure (2023); OECD Health at a Glance (2023); Peterson-KFF Health System Tracker",
@@ -19,9 +19,8 @@ export const universalHealthcareData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The U.S. already runs the most expensive health system in the world — about double the per-person cost of peer countries — while leaving roughly 26 million people uninsured and ranking near the bottom of wealthy nations on life expectancy and infant mortality.",
-    "The serious debate is no longer whether the status quo is wasteful (it plainly is) but whether switching to a universal system would actually capture those savings without importing new problems like long waits or weaker drug innovation.",
-    "Most independent cost analyses (19 of 22 in one review) project net savings from cutting administrative overhead and negotiating drug prices — but those models assume a clean transition and political discipline the U.S. has never tested, so the real fight is about execution risk, not the diagnosis.",
+    "Both sides accept that the U.S. spends far more per person on healthcare than any peer nation while leaving about 26 million people uninsured, that it trails those nations on life expectancy and infant mortality, and that its specialty and cancer care is world-class for those who can reach it.",
+    "They split over whether the administrative and drug-price savings projected for single-payer or Medicare for All would survive a real U.S. transition, or be eaten by higher use, political compromise and provider resistance, and what lower drug prices would mean for pharmaceutical innovation; and over how much of the outcome gap comes from how care is financed rather than from obesity, violence and overdoses that coverage alone would not fix.",
   ],
   pillars: [
     {

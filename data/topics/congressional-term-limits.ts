@@ -9,17 +9,16 @@ export const congressionalTermLimitsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The most surprising finding from the natural experiment is that term limits don't fix the problems they target — they relocate them. Across the 15 states that adopted legislative term limits since the 1990s, the largest measured effect was a shift of power away from the legislature and toward governors, agencies, and lobbyists, while a 50-state survey found limits had 'virtually no effect' on what kinds of people get elected. The deeper catch: term limits for Congress are illegal by statute — the Supreme Court ruled 5-4 in 1995 that they require a constitutional amendment.",
+      "US House incumbents who run again win re-election in roughly 90% or more of cycles. In 1995 the Supreme Court ruled 5–4, in U.S. Term Limits v. Thornton, that congressional term limits require a constitutional amendment. Both sides accept these facts, and the 15 states that limit their own legislators offer the nearest test. The fight is over what forced turnover would do to Congress, and whether it could ever be enacted.",
     confidence: 86,
     source:
-      "Carey, Niemi, Powell & Moncrief, Legislative Studies Quarterly (2006); Joint Project on Term Limits / NCSL (2006); U.S. Term Limits, Inc. v. Thornton, 514 U.S. 779 (1995)",
-    sourceUrl: "https://supreme.justia.com/cases/federal/us/514/779/",
+      "OpenSecrets, 'Reelection Rates Over the Years'; U.S. Term Limits, Inc. v. Thornton, 514 U.S. 779 (1995)",
+    sourceUrl: "https://www.opensecrets.org/elections-overview/reelection-rates",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The case for term limits is intuitive and broadly popular: House incumbents win re-election roughly 90%+ of the time, around 75-83% of Americans say they would vote for congressional term limits, and a hard cap would guarantee the regular turnover, open seats, and fresh competition that voters say they want but rarely get at the ballot box.",
-    "But the best evidence — from the 15 states that actually tried it — cuts the other way: term limits did not make open seats reliably more competitive, did not increase the diversity of who gets elected, and the multi-state Joint Project found their most significant effect was draining power from the legislature toward governors and lobbyists, with one study finding limits increased rather than reduced polarization.",
-    "So the honest debate isn't whether term limits are popular (they clearly are) but whether forced turnover actually improves governance or just trades entrenched-but-accountable legislators for inexperienced ones who lean harder on the unelected staff and lobbyists who outlast every term — and whether any of it could even be enacted without a constitutional amendment.",
+    "Both sides accept that House incumbents win re-election roughly 90% of the time or more, that term limits cut legislators' average tenure and leave newer members leaning more on outside expertise, and that after Thornton congressional limits need a constitutional amendment.",
+    "They split over whether forced open seats bring more competitive races and new kinds of legislators or reshuffle similar ones; whether the lost experience shifts power to governors, agencies and lobbyists or loosens entrenched interests, where the 15 states with legislative limits are the main evidence; and whether an amendment can pass when the officials being limited control the process.",
   ],
   last_updated: "2026-06-16",
   tags: ["governance", "elections", "congress", "reform", "incumbency"],

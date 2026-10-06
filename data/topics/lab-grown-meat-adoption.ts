@@ -10,7 +10,7 @@ export const labGrownMeatData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The first lab-grown burger cost $330,000 in 2013; a 2024 peer-reviewed model projects cultivated chicken at about $6.20/lb at a scaled plant — a staggering drop. But that's a projection for a facility that doesn't yet exist, no one is selling cultivated meat anywhere near conventional chicken's ~$2–4/lb at retail, and 2024–25 funding fell as investors doubted it scales.",
+      "The first lab-grown burger cost $330,000 in 2013, and a 2024 peer-reviewed model projects cultivated chicken at about $6.20 a pound in a scaled plant that does not exist yet. Conventional chicken sells for about $2–4 a pound, and 2024–25 funding fell. The fight is over whether the projected plants get built and close that gap within 15 years.",
     confidence: 80,
     source:
       "Mark Post / Maastricht University (2013 burger); Nahmias et al., Nature Food (2024); GFI State of the Industry",
@@ -18,9 +18,8 @@ export const labGrownMeatData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Cultivated meat's progress is real and dramatic — the price of a lab-grown burger fell from $330,000 in 2013 to a 2024 peer-reviewed projection of about $6.20/lb for chicken, and regulators in Singapore (2020) and the US (2023) have approved sales.",
-    "But the headline cost is a model for a 50,000-litre facility nobody has built — no producer has actually hit conventional prices at retail, the engineering hurdles (sterile scale-up, cheap growth medium, structured cuts) may have hard floors, and 2024–25 funding dropped as investors reassessed.",
-    "So the honest question isn't whether cultivated meat is technically possible (it is, and it's been eaten) but whether it can scale to real cost parity and win over consumers — the 'yuck factor' softens after tasting, but survey enthusiasm has consistently outrun actual purchases.",
+    "Both sides accept that cultivated meat has been approved for sale in Singapore, the US and Israel, that low-cost figures such as a modelled $6.20/lb for chicken are projections for plants that don't yet exist, and that stated willingness to try it has outrun actual buying.",
+    "They split over whether lab-grown meat's cost gap is a scale-up problem that shrinks with volume, or a hard floor set by sterility, growth-medium chemistry and contamination risk; and whether the 'yuck factor' is a lasting barrier, or a familiarity effect that fades once cultivated meat is cheap and on shelves.",
   ],
   pillars: [
     {

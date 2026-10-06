@@ -1,3 +1,4 @@
+import { standingLineFor } from "@/lib/topicPage/model";
 import "@/test/setup-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render } from "@testing-library/react";
@@ -85,8 +86,12 @@ describe("embed widget: an older (pillar) map", () => {
       topic.pillars[0].crux.question ?? topic.pillars[0].crux.falsification!.live_disagreement!,
     );
     expect(text).toContain("What would settle it");
-    // What would settle it: the authored settle line, else the crux description.
-    expect(text).toContain(topic.pillars[0].crux.settle?.condition ?? topic.pillars[0].crux.description);
+    // What would settle it: for a standing crux (a value weighing) the
+    // standing line; else the authored settle line, else the crux description.
+    const settle = topic.pillars[0].crux.settle;
+    expect(text).toContain(
+      settle?.kind ? standingLineFor(settle.kind) : (settle?.condition ?? topic.pillars[0].crux.description),
+    );
 
     const link = view.getByRole("link", { name: /Read the whole map on Argumend/ });
     expect(link.getAttribute("href")).toBe("https://argumend.org/topics/nuclear-energy-safety");

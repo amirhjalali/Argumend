@@ -10,18 +10,17 @@ export const vapingHarmReductionData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Most people assume vaping is just a new way to get hooked, but the highest tier of medical evidence says the opposite for smokers: the 2024 Cochrane review rates nicotine e-cigarettes as MORE effective than nicotine patches/gum at quitting — about 4 extra quitters per 100 — and UK health bodies estimate vaping is at least ~95% less harmful than smoking. The honest catch: most users don't fully switch, becoming long-term 'dual users' who keep smoking and capture little of that benefit, and millions of never-smoking teens took up nicotine along the way.",
+      "In the 2024 Cochrane review, nicotine e-cigarettes helped about 4 more smokers per 100 quit for six months or longer than nicotine-replacement therapy such as patches or gum. In the US, youth vaping peaked at over 5 million students in 2019 and stood at 1.63 million current users in 2024, most on flavored products. Both sides accept these figures. The fight is over which effect is bigger once real-world switching, dual use and new nicotine users are counted.",
     confidence: 84,
     source:
-      "Lindson et al., Cochrane Database of Systematic Reviews (2024, RR 1.59, high certainty); Royal College of Physicians 'Nicotine without Smoke' (2016) and Public Health England (2015/2018, ~95% less harmful)",
+      "Lindson et al., Cochrane Database of Systematic Reviews (2024); CDC / FDA National Youth Tobacco Survey (2024)",
     sourceUrl:
       "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010216.pub8/full",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The strongest case is that for a current smoker, switching to vaping is a large, evidence-backed harm cut: the gold-standard Cochrane review (high certainty, RR 1.59) finds nicotine e-cigarettes beat nicotine-replacement therapy at producing 6-month-plus quitting, and biomarker trials show exclusive switchers drop a key lung carcinogen (NNAL) ~90% — because the combustion toxicants that drive smoking disease are largely absent from vapour.",
-    "The honest limitation is that the ideal 'clean switch' is not the typical outcome: dual users — who keep smoking some cigarettes — are the most common pattern and show cardiovascular risk profiles no better than smoking alone, long-term disease effects of chronic vaping are still unknown because the products are too new, and mass-marketed flavoured devices recruited millions of never-smoking adolescents to nicotine.",
-    "So the honest debate isn't 'is vaping safe?' (it isn't safe, just far less harmful than smoking) but 'does it produce more complete switching than new nicotine dependence at the population level?' — an empirical question about real-world use patterns, not about whether the device can help a motivated smoker quit.",
+    "Both sides accept that randomised trials show nicotine e-cigarettes produce at least as many quitters as nicotine-replacement therapy, that smokers who switch completely cut their toxicant exposure sharply while dual users keep little of that benefit, and that youth nicotine uptake is a real cost that has to be controlled.",
+    "They split over whether vaping's quit-rate edge in trials holds up in the real-world market of flavored disposables and minimal support; and over whether the harm switchers avoid outweighs the harm from long-term dual use and from never-smokers who take up nicotine.",
   ],
   last_updated: "2026-06-16",
   tags: ["vaping", "smoking", "harm-reduction", "public-health", "nicotine"],

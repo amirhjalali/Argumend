@@ -9,17 +9,16 @@ export const estateInheritanceTaxData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The estate tax almost never touches you: of the ~2.8 million Americans who die each year, only about 0.2% (roughly 4,000 estates) owe any estate tax at all, because the exemption shields the first ~$12.92M per person (~$25.84M per couple in 2023). The honest catch is that much of what it taxes is unrealized capital gains that were never taxed during life — so the popular \"double taxation\" complaint is, for large estates, often empirically false.",
+      "Of roughly 2.8 million U.S. deaths expected in 2023, only about 4,000 estates, around 0.2%, owed estate tax, for an estimated $24.0 billion. Stepped-up basis, which erases unrealized gains at death, is estimated to cost about $72.5 billion in forgone revenue in 2026. Both sides accept both figures. The fight is over how much of what the estate tax reaches was never taxed in life, and whether the tax is a net gain once avoidance is counted.",
     confidence: 92,
     source:
-      "Tax Policy Center Briefing Book, 'Who pays the estate tax?' (2023 figures, drawing on IRS SOI); Joint Committee on Taxation on stepped-up basis (~$72.5B forgone in 2026, ~a quarter of all capital-gains revenue)",
+      "Tax Policy Center Briefing Book, 'Who pays the estate tax?' (2023 figures); Joint Committee on Taxation estimates via Peter G. Peterson Foundation (2026)",
     sourceUrl: "https://taxpolicycenter.org/briefing-book/who-pays-estate-tax",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The estate tax is one of the most progressive levers in the US code: only about 0.2% of deaths produce a taxable estate, the top 0.1% of earners pay roughly 29% of it, and a large share of what it reaches is appreciated wealth that stepped-up basis would otherwise let escape income tax forever — so it functions as a backstop on fortunes that were never fully taxed.",
-    "The honest counterpoint is that it raises modest revenue (~$24B/yr), imposes real compliance and avoidance costs (Kopczuk's estate-tax data shows reported estates shrink 15–20% after a terminal-illness diagnosis), and the sophisticated rich route assets through dynasty trusts and valuation discounts — so the burden can fall hardest on the moderately wealthy who planned least, not the true dynasties it targets.",
-    "So the honest debate isn't \"is it double taxation?\" (for large estates it usually isn't) but \"is a tax that touches almost no one, raises little net revenue, and is heavily gamed by the very wealthy still worth keeping as a check on dynastic wealth — or would reforming stepped-up basis do the same job better?\"",
+    "Both sides accept that the estate tax reaches only about 0.2% of deaths and raises modest revenue, that stepped-up basis lets some unrealized gains escape income tax at death, and that the tax induces real avoidance, planning and deathbed transfers that carry a cost.",
+    "They split over how much of the wealth in taxable estates is appreciation that was never taxed during the owner's life, which decides how much weight the 'double taxation' objection carries; and over whether, once avoidance, saving responses and reduced capital-gains lock-in are all counted, the estate tax is a net fiscal and economic gain, and how often it forces the sale of family farms and businesses.",
   ],
   last_updated: "2026-06-16",
   tags: ["estate-tax", "inheritance", "wealth-inequality", "taxation", "fiscal-policy"],

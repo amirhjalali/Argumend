@@ -11,7 +11,7 @@ export const labDiamondsEthicsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Lab-grown diamonds aren't 'fake' — the US FTC ruled in 2018 that they are chemically, physically, and optically identical to mined diamonds, so they're just diamonds. They're now the majority of US engagement rings (52% in 2024) at roughly a fifth the price of natural stones (~$845 vs ~$3,895 for an unbranded 1-carat). But 'identical and cheaper' doesn't settle 'more ethical': coal-grid lab production can rival mining's carbon footprint, and the shift threatens economies like Botswana that built themselves on diamond revenue.",
+      "The US FTC ruled in 2018 that lab-grown diamonds are chemically, physically and optically identical to mined ones, and they were 52% of US engagement rings in 2024, at roughly a fifth the price of a natural stone. Lab production on a coal-heavy grid can rival mining's carbon footprint, and economies like Botswana's were built on diamond revenue. The fight is over which of those costs counts for more.",
     confidence: 88,
     source:
       "FTC Jewelry Guides revision (2018); The Knot 2025 Real Weddings Study (52% lab-grown engagement rings, couples married 2024); diamond price-index trackers (StoneAlgo / PriceScope) for ~$845 lab vs ~$3,895 natural per unbranded 1-carat (2025)",
@@ -20,9 +20,8 @@ export const labDiamondsEthicsData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Lab-grown diamonds avoid the worst of the mined-diamond supply chain — the conflict financing, child labor in artisanal mining (the US DOL lists diamonds from five African nations as produced with child labor), and the open-pit destruction and tailings-dam disasters like Angola's 2021 Catoca spill — while being a physically identical stone at a fraction of the price.",
-    "The honest counterpoint: 'lab-grown' is not automatically 'green' or harmless — 60-70% of lab diamonds are grown on India and China's coal-heavy grids, where an industry-commissioned study put their footprint at ~511 kg CO₂ per carat (versus ~160 kg for efficient mined production), and collapsing demand for mined stones threatens economies like Botswana, where diamonds fund roughly a quarter of GDP.",
-    "So the honest debate isn't 'are lab-grown diamonds real diamonds' (settled — they are) but whether their avoided mining harms outweigh their energy footprint and the economic damage to diamond-dependent nations — which hinges on how fast grids decarbonize and how fast those economies can diversify.",
+    "Both sides accept that the Kimberley Process cut rebel-financed conflict diamonds to under 1% of trade while artisanal-mining and cutting-center labor problems remain; that lab-grown production is energy-intensive and carbon-heavy on coal grids while mining causes large, lasting land and water damage; and that diamond-dependent economies like Botswana will have to diversify eventually.",
+    "They split over what share of mined diamonds can be traced to a verified-ethical mine today; whether a lab-grown diamond's carbon footprint beats mining on the power grids actually used in India and China, not just on hydropower; and whether Botswana and other producers can diversify before lab-grown competition cuts their diamond revenue too deeply.",
   ],
   pillars: [
     // =========================================================================

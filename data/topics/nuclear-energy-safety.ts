@@ -6,19 +6,20 @@ export const nuclearEnergySafetyData = {
     "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
   status: "contested" as const,
   category: "policy" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  // ── The lede: two facts both sides accept, then what the fight is over ──
   keystone_fact: {
     statement:
-      "Per unit of energy, nuclear power is one of the safest sources ever measured: about 0.03 deaths per terawatt-hour, versus 24.6 for coal — roughly 800× safer, and on par with wind and solar.",
+      "France took its grid to about 70% nuclear electricity within roughly 15 years of its 1974 build-out plan. Georgia's Vogtle Units 3 and 4 finished about seven years late, at more than double their ~$14 billion estimate. Both records are real. The fight is over which one predicts the next reactor — and how much nuclear's rare disasters and long-lived waste should weigh against the fossil-fuel deaths it would displace.",
     confidence: 90,
-    source: "Our World in Data (Ritchie 2020/2022); Markandya & Wilkinson, Lancet 2007",
-    sourceUrl: "https://ourworldindata.org/safest-sources-of-energy",
+    source:
+      "Our World in Data, carbon intensity of electricity (Ember / Energy Institute); Southern Company / Georgia Power filings on Vogtle 3 & 4",
+    sourceUrl: "https://ourworldindata.org/grapher/carbon-intensity-electricity",
   },
-  // ── Stage 2: the honest 3-sentence case ──
+  // ── The summary above the crux sheet: what the map turns on ──
   simple_case: [
-    "Measured by deaths per unit of energy, nuclear power is among the safest and lowest-carbon ways to make electricity — it sits alongside wind and solar and far ahead of fossil fuels.",
-    "The serious debate is no longer really about safety; it is about whether new reactors can be built fast enough and cheaply enough to matter on the climate timeline.",
-    "France decarbonized most of its grid with nuclear in about 15 years, yet recent U.S. and U.K. projects ran years late and billions over budget — that cost-and-speed problem, not safety, is the real fight.",
+    "Both sides accept that nuclear plants deliver firm, low-carbon power at about a 93% capacity factor, that routine operation kills far fewer people than coal or gas, and that recent Western builds ran badly over budget and behind schedule.",
+    "They split over whether nuclear's cost and build-time problems can be fixed with scale and standardization, or leave renewables plus storage the faster route per dollar; and over how much weight a rare, severe accident and thousands of years of waste stewardship should carry against the steady toll of the fossil fuels nuclear would displace.",
+    "The first is a question the next builds can answer; the second is a weighing of values that the deaths-per-terawatt-hour tally informs but does not decide.",
   ],
   pillars: [
     {
@@ -44,7 +45,14 @@ export const nuclearEnergySafetyData = {
           "Aggregate studies on: (1) Air pollution deaths (coal, gas, biomass), (2) Mining/construction accidents, (3) Major disasters, (4) Long-term radiation exposure. Normalize per TWh.",
         equation:
           "\\text{Deaths/TWh} = \\frac{\\sum \\text{all attributed deaths}}{\\text{Total energy generated}}",
-        verification_status: "verified" as const,
+        verification_status: "impossible" as const,
+        // The deaths-per-TWh tally this crux used to name as its test already
+        // exists (the evidence below). What is left is a weighing of values.
+        settle: {
+          condition:
+            "Deaths per terawatt-hour, accidents and air pollution included, are already tallied for every source. How much a rare, severe accident and thousands of years of waste stewardship should count against the steady, certain toll of the fossil fuels nuclear would displace is a weighing of values that no further tally decides.",
+          kind: "value-difference" as const,
+        },
         cost_to_verify: "$200K (Meta-analysis of existing studies)",
         falsification: {
           supporter_flip:

@@ -9,17 +9,16 @@ export const freeWillData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Most experts don't think free will is an illusion. In the 2020 PhilPapers survey of professional philosophers, 62% accepted or leaned toward compatibilism — the view that free will is real and compatible with determinism — versus only 13% for libertarian free will and 10% for no free will at all. The honest catch: that majority is reached largely by *redefining* 'free,' so the popular question \"could you really have done otherwise?\" stays genuinely unsettled.",
+      "Brain activity begins 350-500 milliseconds before people report a conscious decision to move, and fMRI patterns have predicted a left-or-right choice up to about 10 seconds ahead, but only about 60% of the time against a 50% coin flip. Twin studies put the average heritability of human traits near 49%. Both sides accept these findings. The fight is over whether any of it rules out the ability to have done otherwise.",
     confidence: 88,
     source:
-      "Bourget & Chalmers, 'Philosophers on Philosophy: The 2020 PhilPapers Survey' (Philosophers' Imprint, 2023); compatibilism rose from 59% (2009) to 62% (2020)",
-    sourceUrl: "https://survey2020.philpeople.org/survey/results/4838",
+      "Libet et al., Brain (1983); Soon et al., Nature Neuroscience (2008); Polderman et al., Nature Genetics (2015)",
+    sourceUrl: "https://academic.oup.com/brain/article-abstract/106/3/623/271932",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The popular 'science has disproven free will' story is overstated: the Libet readiness-potential result it leans on has a leading reinterpretation (Schurger et al., 2012) as spontaneous neural noise accumulating to a threshold, not the brain secretly deciding before 'you' do — and the famous fMRI follow-up (Soon et al., 2008) predicted a binary choice only ~60% of the time, barely above the 50% coin-flip.",
-    "But the honest counterpoint cuts deep: genes account for roughly half the variance in behavioral traits (Polderman et al., 2015, ~49% average heritability), brain injuries like Phineas Gage's can rewrite a person's character, and physics gives no clear mechanism for a self that stands outside the causal chain — quantum randomness, even if real in the brain, buys you noise, not control.",
-    "So the honest debate isn't 'do neurons cause our choices' (everyone agrees they do) but 'does that make us unfree' — and that turns on what 'free' has to mean: compatibilists say acting from your own reasons is enough, libertarians demand the ability to have done otherwise, and which definition is right is a question no brain scan can settle.",
+    "Both sides accept that measurable brain activity reliably comes before the conscious report of a decision, that quantum mechanics breaks classical determinism while randomness alone is not free will, and that genes and brain damage, as in Phineas Gage's case, shape moral behavior.",
+    "They split over whether the brain signal Libet measured is a fixed commitment or preparation that consciousness can still veto; whether quantum effects play any real role in how the brain decides; and whether people judge a covertly manipulated agent differently from one shaped by ordinary genes and upbringing.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=60",

@@ -10,7 +10,7 @@ export const selfDrivingCarSafetyData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Reinsurer Swiss Re — using its own database of 200+ billion human-driven miles and 500,000+ claims, not Waymo's data — found Waymo's driverless cars had 88% fewer property-damage and 92% fewer bodily-injury liability claims across 25.3 million rider-only miles. The catch most boosters skip: that result is measured almost entirely inside a few geofenced, well-mapped cities at low speeds, not on highways, in snow, or on rural roads where most fatal human miles happen.",
+      "Reinsurer Swiss Re, using its own database of over 200 billion human-driven miles, found Waymo's driverless cars had 88% fewer property-damage and 92% fewer bodily-injury liability claims across 25.3 million rider-only miles. Those miles were driven almost entirely in a few mapped cities at low speeds, not on highways, in snow or on rural roads. The fight is over whether that record carries to the roads where most fatal human miles happen.",
     confidence: 84,
     source:
       "Di Lillo et al., Swiss Re / Waymo (Dec 2024 update), 'Comparative Safety Performance of Autonomous- and Human Drivers'; corroborated by Kusano et al., Traffic Injury Prevention (2025), 56.7M-mile peer-reviewed study (arXiv:2505.01515)",
@@ -18,9 +18,9 @@ export const selfDrivingCarSafetyData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The independent evidence is strong: reinsurer Swiss Re, comparing against its own database of 200+ billion human-driven miles, found Waymo's driverless cars had 88% fewer property-damage and 92% fewer bodily-injury liability claims over 25.3 million miles, and separate peer-reviewed work found 85-96% fewer injury crashes — a safety edge produced even by parties other than the AV company.",
-    "The honest limitation is that almost all of this data comes from a handful of geofenced, well-mapped, mostly fair-weather cities at low speeds, with remote human agents on call — so 'already safer than human drivers' is established inside that narrow domain, not for highways, snow, or open rural roads where most fatalities occur, and RAND estimated proving general fatality superiority could take hundreds of millions to hundreds of billions of miles.",
-    "So the honest debate isn't whether today's robotaxis are safer where they currently drive (the matched evidence says they are) but whether that edge generalizes to all-weather open-road driving, and whether broad deployment can be justified before that open-road proof exists.",
+    "Both sides accept that a safety comparison only means something when the human benchmark is matched to the cities, roads, speeds and crash-reporting thresholds the fleet actually drives, that driverless systems have produced novel severe failures like the Cruise pedestrian drag and Tesla FSD crashes in glare and fog, and that today's fleets are geofenced to a handful of mapped cities, lean on remote human agents, and have not been validated for highways, snow or rural roads.",
+    "They split over whether the edge reported for Waymo by Swiss Re and peer-reviewed studies survives a fully like-for-like, independently audited comparison; whether rare but severe failures erase the average safety advantage; and whether simulation and step-by-step expansion can justify broad deployment before road miles prove self-driving cars safer.",
+    "The last also turns on how much proof to demand before deploying, given the lives lost to delay, which is a value choice.",
   ],
   last_updated: "2026-06-16",
   tags: ["autonomous-vehicles", "robotaxi", "safety", "waymo", "transportation"],

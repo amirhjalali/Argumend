@@ -9,17 +9,17 @@ export const homeschoolingEffectivenessData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Homeschooled students do score about 15-25 percentile points higher on standardized tests — but the most-cited figure comes from voluntary testing of families who are overwhelmingly white, college-educated, and religiously homogeneous, and the very institute that reports the gap (NHERI) concedes its studies cannot show homeschooling caused it rather than family advantage. The surprising truth most people miss is that the headline number is real but uncontrolled — it measures who homeschools as much as it measures homeschooling.",
+      "Homeschooled students typically score 15–25 percentile points above the public-school average on the standardized tests they take. In Brian Ray's 2010 study of 11,739 homeschoolers, about 92% were white and 64% of parents held a bachelor's degree, and no study yet pairs mandatory testing with full controls for family background. The question is how much of that edge belongs to homeschooling itself.",
     confidence: 80,
     source:
-      "NHERI / Brian Ray, Research Facts on Homeschooling (15-25 percentile gap, NHERI's own causal caveat); Kunzman & Gaither, Other Education (2013), comprehensive survey on self-selection",
+      "National Home Education Research Institute (Brian Ray), Research Facts on Homeschooling; Ray, Academic Leadership Live (2010)",
     sourceUrl: "https://nheri.org/research-facts-on-homeschooling/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The achievement gap is real and durable: across roughly three decades of studies, home-educated students have typically scored 15-25 percentile points above the public school average (about the 50th percentile), and the mechanism is plausible — personalized pace and near one-on-one instruction are structural advantages a 30-student classroom cannot match.",
-    "But the families who homeschool are not a random sample — the largest cited studies are overwhelmingly white, college-educated, and religiously homogeneous, testing is voluntary so the weakest students may never be measured, and NHERI itself says its data cannot prove homeschooling caused the gap rather than the advantaged families who choose it.",
-    "So the honest debate isn't whether homeschoolers score higher (they do, on the available tests) but whether the format adds value once you control for family income, parental education, and voluntary-testing bias — a question no large randomized or mandatory-testing study has yet answered.",
+    "Both sides accept that homeschoolers post higher average scores on the tests actually given, that those samples are self-selected and demographically advantaged, and that the socialization studies rest on small samples, with a mixed civic picture in the Cardus survey: more giving and volunteering, less voting.",
+    "They split over whether the test-score edge survives controls for family income, parental education and voluntary testing, and over whether homeschooling itself builds social skills or engaged families would get the same results in any school.",
+    "Both are questions a large study with mandatory testing and matched samples could answer.",
   ],
   pillars: [
     {
