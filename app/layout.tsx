@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Suspense } from "react";
-import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { GAPageView } from "@/components/GAPageView";
@@ -16,47 +16,52 @@ import {
 } from "@/lib/site";
 import "./globals.css";
 
-// Each family is declared twice: the upright faces, which paint the first
-// screen and are preloaded, and the italic faces, which are not. Preloading
-// all four put ~77KB of italics (used on a few pages, rarely above the fold)
-// ahead of the page's own CSS and scripts on a phone connection. Turbopack
-// emits both calls' @font-face rules under the same family name ("EB
-// Garamond", "Plus Jakarta Sans"), so `font-style: italic` still resolves to
-// the real italic face; the browser fetches it when italic text is laid out.
-// The italic calls' variables are unused; the class is set so their CSS ships.
-const serif = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal"],
+// The fonts are self-hosted (latin subset, variable weight 400-700, OFL; see
+// app/fonts). next/font/google fetched them from Google at build time, and
+// that fetch broke the production build on the deploy server while passing
+// everywhere else, so the build no longer depends on the network.
+//
+// Only the upright faces go through next/font, which hashes, preloads and
+// size-matches a fallback for them. Preloading the italics too put ~77KB
+// (used on a few pages, rarely above the fold) ahead of the page's own CSS and
+// scripts on a phone connection, so the italic faces are plain @font-face
+// rules (see `italicFaces`) registered under the same generated family name:
+// `font-style: italic` resolves to the real italic, which the browser fetches
+// only when italic text is laid out.
+const ebGaramond = localFont({
+  src: "./fonts/eb-garamond-latin.woff2",
+  weight: "400 700",
+  style: "normal",
   variable: "--font-serif",
   display: "swap",
+  adjustFontFallback: "Times New Roman",
 });
 
-const serifItalic = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["italic"],
-  variable: "--font-serif-italic",
-  display: "swap",
-  preload: false,
-});
-
-const sans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal"],
+const plusJakartaSans = localFont({
+  src: "./fonts/plus-jakarta-sans-latin.woff2",
+  weight: "400 700",
+  style: "normal",
   variable: "--font-sans",
   display: "swap",
 });
 
-const sansItalic = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["italic"],
-  variable: "--font-sans-italic",
-  display: "swap",
-  preload: false,
-});
+/** The family name next/font generated, as CSS (quoted), e.g. `'ebGaramond'`. */
+function familyOf(font: { style: { fontFamily: string } }): string {
+  return font.style.fontFamily.split(",")[0].trim();
+}
+
+// File names carry the upstream font version, so /fonts is cached as immutable.
+const italicFaces = (
+  [
+    [ebGaramond, "/fonts/eb-garamond-italic-latin-v33.woff2"],
+    [plusJakartaSans, "/fonts/plus-jakarta-sans-italic-latin-v12.woff2"],
+  ] as const
+)
+  .map(
+    ([font, url]) =>
+      `@font-face{font-family:${familyOf(font)};font-style:italic;font-weight:400 700;font-display:swap;src:url(${url}) format("woff2")}`,
+  )
+  .join("");
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
@@ -144,10 +149,9 @@ export default function RootLayout({
           title="ARGUMEND: Arguments and Analysis"
           href="/feed.xml"
         />
+        <style dangerouslySetInnerHTML={{ __html: italicFaces }} />
       </head>
-      <body
-        className={`${serif.variable} ${serifItalic.variable} ${sans.variable} ${sansItalic.variable} antialiased`}
-      >
+      <body className={`${ebGaramond.variable} ${plusJakartaSans.variable} antialiased`}>
         {GA_MEASUREMENT_ID ? (
           <>
             <Script
