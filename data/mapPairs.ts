@@ -25,10 +25,5 @@ export const DISTINCT_MAP_PAIRS: readonly AllowedMapPair[] = [
 ];
 
 export const PENDING_MERGE_MAP_PAIRS: readonly AllowedMapPair[] = [
-  {
-    a: "housing-affordability-crisis",
-    b: "rent-control-effectiveness",
-    reason: "Housing map overlaps rent control; reframing it around supply (2026-10-06).",
-  },
   { a: "ai-job-displacement", b: "ai-white-collar-displacement", reason: "Same question; merging into ai-mass-unemployment (2026-10-06)." },
 ];

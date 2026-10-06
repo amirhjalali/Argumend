@@ -627,9 +627,9 @@ export const isClaims: IsClaim[] = [
   {
     slug: "government-fix-housing",
     topicId: "housing-affordability-crisis",
-    question: "Can only government fix the housing affordability crisis?",
+    question: "Would building more homes make housing affordable?",
     claim:
-      "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, because the free market alone cannot provide adequate affordable housing.",
+      "Building more homes, by loosening zoning and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
   },
   {
     slug: "meaning-without-religion",

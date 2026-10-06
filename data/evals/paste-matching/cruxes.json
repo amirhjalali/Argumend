@@ -42,9 +42,9 @@
     },
     {
       "id": "ha-oregon",
-      "map": "housing-affordability-crisis",
+      "map": "rent-control-effectiveness",
       "text": "Oregon capped rent increases at 7% plus inflation statewide. Did that stop people getting pushed out of their homes, or did builders just walk away?",
-      "expected": "rent-control"
+      "expected": "supply-effects"
     },
     {
       "id": "nuc-chernobyl",

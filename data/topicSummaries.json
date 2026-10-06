@@ -1814,20 +1814,21 @@
   },
   {
     "id": "housing-affordability-crisis",
-    "title": "The Housing Affordability Crisis",
-    "question": "Does fixing housing affordability require government intervention?",
-    "meta_claim": "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, as the free market alone cannot provide adequate affordable housing.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 73,
+    "title": "Housing Supply & Affordability",
+    "question": "Would building more homes make housing affordable?",
+    "meta_claim": "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
+    "confidence_score": 78,
+    "balance": 78,
+    "weight": 68,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 2,
+    "evidenceCount": 9,
     "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
     "tags": [
       "economics"
@@ -1986,9 +1987,9 @@
     "title": "Does Rent Control Help or Hurt Renters?",
     "question": "Does rent control make housing less affordable in the long run?",
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 70,
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1996,7 +1997,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 13,
     "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
     "tags": [
       "economics"

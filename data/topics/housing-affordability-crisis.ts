@@ -1,26 +1,25 @@
 export const housingAffordabilityCrisisData = {
   id: "housing-affordability-crisis",
-  title: "The Housing Affordability Crisis",
+  title: "Housing Supply & Affordability",
   question:
-    "Does fixing housing affordability require government intervention?",
+    "Would building more homes make housing affordable?",
   meta_claim:
-    "Government intervention through zoning reform, rent control, and public housing is necessary to solve the housing affordability crisis, as the free market alone cannot provide adequate affordable housing.",
+    "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
   status: "contested" as const,
   category: "economics" as const,
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The most counterintuitive finding in housing economics is that building more market-rate housing — even pricey 'luxury' units — reliably lowers rents, including for lower-income renters, through moving chains: new high-end units free up cheaper older ones. When Auckland upzoned three-quarters of its residential land in 2016, construction surged (~4% of the city's housing stock in five years) and rents fell well below trend. The catch is that filtering takes years to reach the bottom of the market, so supply alone doesn't help a family facing eviction today.",
+      "In San Francisco, Manhattan and Los Angeles, Glaeser and Gyourko found the gap between home prices and construction costs exceeds $400,000 per unit. Across the US, 11 million renter households spent more than half their income on rent and utilities in 2024. Both sides take these numbers as given. The fight is over whether building more homes brings rents down for lower-income renters, how fast, and who has to build them.",
     confidence: 84,
     source:
-      "Greenaway-McGrevy & Phillips, Journal of Urban Economics (2023, Auckland upzoning); Mast, JUE (2021, moving chains); Bratu et al., JUE (2023, Helsinki); Glaeser & Gyourko, JEP (2018, regulatory cost)",
+      "Glaeser & Gyourko, 'The Economic Implications of Housing Supply,' Journal of Economic Perspectives (2018); Harvard Joint Center for Housing Studies, 'The State of the Nation's Housing 2024'",
     sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/jep.32.1.3",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "The economics are unusually settled: restrictive zoning is the single biggest driver of high housing costs — Glaeser and Gyourko estimate it adds over $400,000 to a home's price in the most constrained cities — and the fix is to let more housing get built, since added supply (even at the top of the market) filters down and lowers rents broadly, as Auckland, Tokyo, and U.S. moving-chain studies show.",
-    "The honest limitation is timing and reach: filtering can take years to relieve the bottom of the market, new construction can't be built below roughly $300,000–$500,000 per unit in most U.S. cities, and Minneapolis showed that ending single-family zoning alone produced only modest new supply — so the lowest-income renters, 11 million of whom already spend over half their income on rent, may still need subsidies or public supply.",
-    "So the honest debate isn't 'does building more housing lower rents' (it does) but 'is supply alone fast enough and deep enough to reach the poorest renters, or are rent stabilization, vouchers, and government-built housing also required to close the gap that the market floor leaves open.'",
+    "Both sides accept that restrictive zoning raises housing prices and that more housing eventually eases market-wide pressure, and that US public housing has been chronically underfunded even as some systems abroad deliver good housing at scale.",
+    "They split over whether upzoning, as in Auckland and Minneapolis, lowers rents for median and lower-income renters within five to ten years, and whether Vienna's and Singapore's public building succeeded through design the US could copy, or conditions unique to them.",
   ],
   pillars: [
     // =========================================================================
@@ -132,119 +131,7 @@ export const housingAffordabilityCrisisData = {
     },
 
     // =========================================================================
-    // PILLAR 2: Rent Control & Tenant Protections
-    // =========================================================================
-    {
-      id: "rent-control",
-      title: "Rent Control & Tenant Protections",
-      short_summary:
-        "Rent control directly protects existing tenants from displacement, but economists overwhelmingly warn it reduces housing supply, misallocates units, and raises rents for non-controlled tenants in the long run.",
-      icon_name: "Shield" as const,
-      skeptic_premise:
-        "The near-unanimous consensus among economists is that rent control reduces housing quality and supply. A landmark Stanford study of San Francisco's rent control found that while it lowered displacement of incumbent tenants, landlords responded by selling to owner-occupants and redeveloping buildings, reducing the rental housing supply by 15% — which the authors conclude likely drove up market-rate rents over the long run, ultimately undermining the policy's goals. In a 2012 IGM Forum survey, only 1 of roughly 32 leading economists who took a position agreed that rent control in cities like San Francisco and New York had a positive impact on the amount and quality of affordable housing. Rent control treats symptoms while worsening the underlying disease.",
-      proponent_rebuttal:
-        "Rent control is a necessary emergency measure in a market that has failed low-income tenants for decades. In the US, 11 million renter households spend more than 50% of income on rent — the crisis is now, not in some theoretical long run. Newer forms of rent stabilization — vacancy decontrol, inflation-indexed increases, exemptions for new construction — avoid the worst distortions of hard rent ceilings. Oregon's 2019 statewide rent cap (7% + CPI) did not reduce construction; permits actually increased. The theoretical harm of rent control must be weighed against the immediate, concrete harm of displacement: each eviction increases a family's risk of homelessness by 400% and a child's risk of changing schools by 200%.",
-      crux: {
-        id: "modern-rent-stabilization-effects",
-        title: "The Modern Rent Stabilization Impact Test",
-        question:
-          "Do soft rent caps like Oregon's prevent displacement without reducing construction?",
-        description:
-          "The key question is whether modern rent stabilization designs (inflation-indexed caps with new-construction exemptions) avoid the supply-reducing effects of traditional hard rent ceilings while still protecting tenants. If Oregon-style soft caps demonstrably prevent displacement without reducing construction starts, modern rent control is viable; if supply effects emerge even under soft caps, the policy is counterproductive.",
-        methodology:
-          "Compare housing construction permits, rental vacancy rates, and rent levels in Oregon (which enacted a statewide rent cap in 2019) against matched control states (Washington, Idaho) from 2015-2028. Separately analyze the effect on tenant stability by tracking eviction rates and involuntary move rates using American Community Survey microdata. Control for COVID-era distortions, remote work shifts, and population changes.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "Construction permits, vacancy rates and rents in Oregon after its 2019 cap against Washington and Idaho, with eviction and involuntary move rates from American Community Survey microdata.",
-        },
-        cost_to_verify:
-          "$300K-600K (Multi-state housing market and tenant stability analysis)",
-        falsification: {
-          supporter_flip:
-            "If long-run data showed that even soft, inflation-indexed caps with new-construction exemptions (the Oregon design) still reduced construction starts, shrank the rental stock, or pushed up rents for non-covered tenants once COVID-era distortions are netted out, then 'modern rent stabilization avoids the old harms' would fail and the policy would look counterproductive.",
-          skeptic_flip:
-            "If newer surveys separated soft caps from the hard ceilings the 2012 IGM survey weighed, Oregon's ~12% permit rise after its 2019 cap persisted, and the Stanford SF finding of less displacement held, the consensus against rent control would look aimed at hard ceilings rather than indexed caps.",
-          common_ground:
-            "Both sides agree traditional hard rent ceilings reduce supply over time and that displacement imposes real, immediate harm on tenants; the dispute is whether newer designs escape the supply trap.",
-          live_disagreement:
-            "Whether Oregon-style soft caps prevent displacement without reducing construction once the pandemic boom, low rates, and in-migration are controlled for — which only a multi-state difference-in-differences analysis of permits, vacancy, and eviction rates over 2015–2028 can resolve.",
-        },
-      },
-      evidence: [
-        {
-          id: "stanford-sf-rent-control",
-          title: "Stanford Study: San Francisco Rent Control Reduced Supply by 6% (2019)",
-          description:
-            "A Stanford study by Diamond, McQuade, and Qian examined San Francisco's 1994 expansion of rent control to small multi-family buildings. They found that rent control limited renters' mobility by 20% and lowered displacement from San Francisco for incumbent tenants. However, landlords subject to rent control reduced the rental housing supply by 15% — by selling units to owner-occupants and redeveloping buildings — which the authors conclude likely drove up market-rate rents in the long run, ultimately undermining the law's goals. The net effect was a transfer from prospective and future renters to incumbent renters.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 9,
-          },
-          source: "Diamond, McQuade & Qian, American Economic Review (2019)",
-          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
-          reasoning:
-            "Published in the top economics journal, this study uses a natural experiment with a clear identification strategy. The finding that rent control simultaneously helps existing tenants while reducing overall supply is robust and widely cited. However, San Francisco's extreme land constraints and pre-existing housing shortage may amplify the supply effects compared to other markets.",
-        },
-        {
-          id: "igm-economist-consensus",
-          title: "Economists Overwhelmingly Reject That Rent Control Helps Affordability (IGM, 2012)",
-          description:
-            "The University of Chicago's IGM Forum asked leading economists whether local ordinances limiting rent increases (such as in New York and San Francisco) 'have had a positive impact over the past three decades on the amount and quality of broadly affordable rental housing.' Of those who took a position, only one agreed; roughly 79% of all respondents disagreed or strongly disagreed, with the remainder uncertain or not answering. Nobel laureate Paul Krugman has called rent control 'among the best-understood issues in all of economics.' This represents one of the strongest professional consensus positions in economics, comparable to consensus on free trade benefits.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 7,
-          },
-          source: "University of Chicago IGM Forum",
-          sourceUrl: "https://www.igmchicago.org/surveys/rent-control/",
-          reasoning:
-            "The IGM Forum surveys are a respected barometer of expert economic opinion. The consensus is strong but the survey was conducted in 2012, before modern soft-cap designs like Oregon's became widespread. The consensus may apply to traditional hard ceilings more than to inflation-indexed stabilization with new-construction exemptions.",
-        },
-        {
-          id: "oregon-rent-cap-permits",
-          title: "Oregon's Statewide Rent Cap Did Not Reduce Construction Permits (2019-2023)",
-          description:
-            "Oregon became the first US state to enact a statewide rent cap in 2019, limiting increases to 7% plus inflation annually with exemptions for new construction (first 15 years). Between 2019 and 2023, Oregon's housing construction permits did not decline relative to comparable states — in fact, Portland-area permits increased 12% from 2019 to 2022. Landlord groups had predicted the cap would 'destroy rental housing investment,' but investment capital continued flowing, partly because the new-construction exemption preserved returns for developers.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 8,
-          },
-          source: "Oregon Office of Economic Analysis; US Census Building Permits Survey",
-          sourceUrl: "https://www.census.gov/construction/bps/",
-          reasoning:
-            "Census building permit data is independently verifiable. The new-construction exemption in Oregon's law is a critical design feature that addresses the classic supply objection. However, the 2019-2023 period included COVID-era distortions, low interest rates, and pandemic-driven migration to Oregon, complicating causal attribution.",
-        },
-        {
-          id: "rent-burden-crisis-data",
-          title: "11 Million US Renter Households Spend Over 50% of Income on Rent (2024)",
-          description:
-            "The Joint Center for Housing Studies at Harvard University reported that 11 million US renter households were severely cost-burdened in 2024, spending more than half their income on rent and utilities. An additional 10.5 million were moderately cost-burdened (30-50% of income). The affordable housing gap — units affordable and available to extremely low-income renters — stood at 7.3 million units. Median rents rose 26% from 2019 to 2023 while median renter income rose only 11%.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 7,
-          },
-          source: "Harvard Joint Center for Housing Studies, 'The State of the Nation's Housing 2024'",
-          sourceUrl: "https://www.jchs.harvard.edu/state-nations-housing-2024",
-          reasoning:
-            "Harvard JCHS is the most authoritative independent source on US housing data. The 7.3 million unit gap and 11 million severely burdened households are well-documented. This evidence demonstrates the scale of the crisis but does not directly prove that rent control is the correct solution — supply expansion, subsidies, or public housing could also address the gap.",
-        },
-      ],
-    },
-
-    // =========================================================================
-    // PILLAR 3: Public Housing & Government-Built Supply
+    // PILLAR 2: Public Housing & Government-Built Supply
     // =========================================================================
     {
       id: "public-housing",
@@ -336,6 +223,23 @@ export const housingAffordabilityCrisisData = {
             "Finland's results are independently documented by the OECD and EU. The cost savings are substantial and well-measured. However, Finland's homelessness population is small compared to the US (580,000+), and its social welfare infrastructure is far more developed. Scaling Housing First to the US context faces different political and fiscal constraints.",
         },
         {
+          id: "rent-burden-crisis-data",
+          title: "11 Million US Renter Households Spend Over 50% of Income on Rent (2024)",
+          description:
+            "The Joint Center for Housing Studies at Harvard University reported that 11 million US renter households were severely cost-burdened in 2024, spending more than half their income on rent and utilities. An additional 10.5 million were moderately cost-burdened (30-50% of income). The affordable housing gap — units affordable and available to extremely low-income renters — stood at 7.3 million units. Median rents rose 26% from 2019 to 2023 while median renter income rose only 11%.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "Harvard Joint Center for Housing Studies, 'The State of the Nation's Housing 2024'",
+          sourceUrl: "https://www.jchs.harvard.edu/state-nations-housing-2024",
+          reasoning:
+            "Harvard JCHS is the most authoritative independent source on US housing data. The 7.3 million unit gap and 11 million severely burdened households are well-documented. This evidence shows the scale of the shortfall at the bottom of the market but does not by itself show which remedy, market supply, subsidies or public construction, would close it.",
+        },
+        {
           id: "section-8-voucher-limitations",
           title: "Section 8 Vouchers: 75% of Eligible Households Receive No Assistance (2024)",
           description:
@@ -363,10 +267,6 @@ export const housingAffordabilityCrisisData = {
     {
       title: "The Economic Implications of Housing Supply — Glaeser & Gyourko (2018)",
       url: "https://www.aeaweb.org/articles?id=10.1257/jep.32.1.3",
-    },
-    {
-      title: "The Effects of Rent Control Expansion on Tenants, Landlords, and Inequality — Diamond et al. (2019)",
-      url: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
     },
     {
       title: "Municipal Housing in Vienna (Gemeindebau) — Wiener Wohnen, City of Vienna",

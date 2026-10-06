@@ -324,6 +324,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Why is housing so expensive?",
     "Is there a housing affordability crisis?",
     "What is causing the housing crisis?",
+    "Would building more homes make housing affordable?",
   ],
   "social-media-elections": [
     "Does social media influence elections?",

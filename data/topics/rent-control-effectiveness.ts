@@ -122,6 +122,23 @@ export const rentControlEffectivenessData = {
             "The exemption is directly verifiable in the enrolled statute. Its incentive implication is an economic inference rather than a measured construction effect, so directness and replicability remain moderate.",
         },
         {
+          id: "oregon-rent-cap-permits",
+          title: "Oregon's Statewide Rent Cap Did Not Reduce Construction Permits (2019-2023)",
+          description:
+            "Oregon became the first US state to enact a statewide rent cap in 2019, limiting increases to 7% plus inflation annually with exemptions for new construction (first 15 years). Between 2019 and 2023, Oregon's housing construction permits did not decline relative to comparable states — in fact, Portland-area permits increased 12% from 2019 to 2022. Landlord groups had predicted the cap would 'destroy rental housing investment,' but investment capital continued flowing, partly because the new-construction exemption preserved returns for developers.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 8,
+          },
+          source: "Oregon Office of Economic Analysis; US Census Building Permits Survey",
+          sourceUrl: "https://www.census.gov/construction/bps/",
+          reasoning:
+            "Census building permit data is independently verifiable. The new-construction exemption in Oregon's law is a critical design feature that addresses the classic supply objection. However, the 2019-2023 period included COVID-era distortions, low interest rates, and pandemic-driven migration to Oregon, complicating causal attribution.",
+        },
+        {
           id: "economist-consensus-survey",
           title:
             "IGM Forum Survey: Roughly 82% of Economists Reject the Claim That Rent Control Has Improved Affordable Housing",
