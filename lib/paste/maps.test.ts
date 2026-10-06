@@ -124,6 +124,16 @@ describe("decideMatch", () => {
     expect(decision.closest).toEqual([]);
   });
 
+  it("names nothing, and lists nothing, when the clear winner is off its subject", () => {
+    const offZero = (id: string) => id === "map-0";
+    const decision = decideMatch(ranking([40, 20, 12, 10]), noSiblings, undefined, offZero);
+    expect(decision.named).toBeNull();
+    expect(decision.closest).toEqual([]);
+    expect(decision.top?.id).toBe("map-0");
+    // Another map being off its subject changes nothing.
+    expect(decideMatch(ranking([40, 20, 12, 10]), noSiblings, undefined, (id) => id === "map-1").named?.id).toBe("map-0");
+  });
+
   it("never shows more than three maps", () => {
     const decision = decideMatch(ranking([60, 55, 50, 30, 29, 28]), (a, b) => a !== b && [a, b].every((id) => ["map-0", "map-1", "map-2"].includes(id)));
     expect(1 + decision.related.length + decision.closest.length).toBeLessThanOrEqual(MAP_MATCH.maxMaps);
@@ -218,6 +228,18 @@ describe("findMaps", () => {
     const result = await findMaps(NUCLEAR_PASTE);
     expect(result.status).toBe("matched");
     expect(result.match?.id).toBe("nuclear-energy-safety");
+  });
+
+  it("does not name the artificial-wombs map for an abortion argument, but does for artificial wombs", async () => {
+    const abortion = await findMaps(
+      "A: Life begins at conception and abortion ends a human life. B: A woman has the right to decide what happens to her own body. A: Rights don't include ending someone else's life.",
+    );
+    expect(abortion.match).toBeNull();
+    expect(abortion.closest.map((map) => map.id)).not.toContain("artificial-reproduction-ethics");
+    const wombs = await findMaps(
+      "If artificial wombs can carry a fetus from 22 weeks, viability no longer depends on the mother's body, and the abortion debate changes.",
+    );
+    expect(wombs.match?.id).toBe("artificial-reproduction-ethics");
   });
 
   it("names nothing for text with no words in common with any map", async () => {

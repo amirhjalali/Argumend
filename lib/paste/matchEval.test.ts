@@ -30,8 +30,11 @@ const FLOORS = {
   siblingRate: 0.06,
   /** A right map among the (up to three) maps an answer shows. */
   top3: 0.93,
-  /** Pastes no map covers that were named as a map anyway. */
-  falsePositives: 1,
+  /**
+   * Pastes no map covers that were named as a map anyway. Zero since the
+   * abortion pastes stopped naming the artificial-wombs map (Topic.notAbout).
+   */
+  falsePositives: 0,
 };
 
 const SETS = [dev, holdout] as PasteEvalSet[];

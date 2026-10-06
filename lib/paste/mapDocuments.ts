@@ -44,6 +44,7 @@ export function pillarMapDocument(topic: Topic, phrasings: readonly string[] = [
     title: mapDisplayTitle(topic),
     claim: topic.meta_claim,
     kind: "map",
+    ...(topic.notAbout?.length ? { notAbout: topic.notAbout } : {}),
     fields: {
       name: present([topic.title, topic.question, topic.id.replace(/-/g, " "), ...phrasings, ...(topic.aliases ?? [])]),
       claim: present([

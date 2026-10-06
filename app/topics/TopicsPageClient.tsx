@@ -13,6 +13,7 @@ import { useSavedTopicIds } from "@/hooks/useSavedTopics";
 import { paginate, TOPICS_PAGE_SIZE } from "@/lib/collectionPagination";
 import {
   DEBATE_MAP_ENTRIES,
+  DEFAULT_SORT,
   LIBRARY_ENTRIES,
   SORT_OPTIONS,
   filterLibrary,
@@ -250,7 +251,8 @@ export default function TopicsPageClient({
             >
               {SORT_OPTIONS.map((opt) => (
                 <option key={opt.value} value={opt.value}>
-                  {opt.label}
+                  {/* A search lists the best answers first (filterLibrary). */}
+                  {opt.value === DEFAULT_SORT && search.trim() ? "Best match" : opt.label}
                 </option>
               ))}
             </select>

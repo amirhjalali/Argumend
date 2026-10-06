@@ -1,209 +1,55 @@
-import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
-import { OnThisPage, PROSE, PROSE_LINK, RuledList, STORY_SECTION } from "@/components/story/StoryParts";
+import { WorkedCrux } from "@/components/FeaturedTopicHero";
+import { PROSE, STORY_SECTION } from "@/components/story/StoryParts";
 import { PageContainer, PageHeader, Section, TextAction } from "@/components/ui";
 import {
   HOME_EVIDENCE_HREF,
   HOME_FLAGSHIP_HREF,
+  loadHomeCrux,
+  numberWord,
 } from "@/components/home/homeModel";
-import { argumentTopicIndex } from "@/lib/argument/topicIds";
-import { GITHUB_URL } from "@/lib/nav";
+import { ANALYZE_HREF, GITHUB_URL } from "@/lib/nav";
 
 /**
  * /about is the site's only story page. It absorbed /how-it-works
- * (#read-a-map) and /community (#contribute); both redirect here.
+ * (#read-a-map) and /community (#contribute); both redirect here, and other
+ * pages link to both anchors (app/storyPages.test.tsx keeps every linked
+ * anchor present).
  *
- * Every number on this page is one Argumend has already published (the
- * 2026-09-17 blog post linked from #why). Nothing here describes a feature
- * that does not run by default.
+ * Scannable, in this order (r3 review #12): what Argumend does, one real crux
+ * card, how maps are made (a pointer to /methodology, not a copy of it), the
+ * rules, why it exists, and how to help.
+ *
+ * The crux card is the flagship map's crux #1, drawn by the component home
+ * uses (WorkedCrux in components/FeaturedTopicHero.tsx) from the map's own
+ * graph, engine ranking and public ledger. Both findings under #why are real,
+ * linked broadcasts from the 2026-09-17 write-up. Nothing here describes a
+ * feature that does not run by default.
  */
 
-const flagshipTitle =
-  argumentTopicIndex.find((topic) => `/topics/${topic.id}` === HOME_FLAGSHIP_HREF)?.title ??
-  "the AI jobs map";
-
-const SECTIONS = [
-  { id: "why", label: "Why it exists" },
-  { id: "principles", label: "Principles" },
-  { id: "read-a-map", label: "Reading a map" },
-  { id: "how-maps-are-made", label: "How maps are made" },
-  { id: "faq", label: "Questions" },
-  { id: "contribute", label: "Contribute" },
-];
-
-const MEASURED = [
+/** One rule: a run-in lead, as in a book, then a sentence or two. */
+const RULES: { lead: string; text: string }[] = [
   {
-    key: "rent",
-    title: "A rent-control thread",
-    body: (
-      <p>
-        Written to mirror a real city-forum fight before a vote. The people in
-        it agreed on every fact in the thread, and disagreed on one value and
-        one policy detail.
-      </p>
-    ),
+    lead: "What would settle it, not who won.",
+    text: "A record of which cruxes moved, and what moved them, is more honest than a ruling that can rest on one judgment call.",
   },
   {
-    key: "panel",
-    title: "A four-minute TV panel on immigration",
-    body: (
-      <p>
-        A calibrated model put the chance that the two guests meant different
-        things by one word, &ldquo;culture&rdquo;, at 89%. Almost everything
-        else they said was common ground neither of them noticed.
-      </p>
-    ),
+    lead: "Never a winner.",
+    text: "No map and no tool here names a winner or shows an agreement percentage. Every position is written so its own holders would recognise it.",
   },
   {
-    key: "debate",
-    title: "A 36-minute TV debate on trans athletes",
-    body: (
-      <p>
-        88 of 114 turns were not about the question in the title. The claim
-        the evidence actually turns on was never argued.
-      </p>
-    ),
+    lead: "Sources shown.",
+    text: "Every card of evidence names its source and is filed by what it shows, not by who cites it.",
   },
   {
-    key: "library",
-    title: "Our own library",
-    body: (
-      <p>
-        Three maps had their evidence labelled for and against the wrong
-        framing of the claim. The team frame was in our own data too. We fixed
-        them, and built a check for every card we add.
-      </p>
-    ),
-  },
-];
-
-const PRINCIPLES = [
-  {
-    key: "crux",
-    title: "Crux over verdict.",
-    body: (
-      <p>
-        Wisdom is knowing what would change your mind. The spine of every map
-        is the crux, a question that would move one side or the other once it
-        is answered, and what would settle it. A ruling on a hard question can
-        rest on one judgment call about one piece of evidence. A record of
-        which cruxes moved, and what moved them, is more honest and more
-        useful.
-      </p>
-    ),
-  },
-  {
-    key: "winner",
-    title: "Never a winner, always the other side’s best card.",
-    body: (
-      <p>
-        No map and no tool on this site names a winner. Each map sets the
-        strongest evidence one side reads beside the strongest the other side
-        reads, and writes every position so that the people who hold it would
-        say: yes, that is what we believe. This is a rule, not a setting. The
-        pull toward naming a winner is strongest exactly when a tool feels
-        most sure.
-      </p>
-    ),
-  },
-  {
-    key: "voluntary",
-    title: "Voluntary before imposed.",
-    body: (
-      <p>
-        Argumend works on the arguments people bring to it: the maps here, or a
-        thread you paste because you are in it. It does not reach into other
-        people&rsquo;s conversations to tell them what they are really fighting
-        about.
-      </p>
-    ),
-  },
-];
-
-// The four steps /how-it-works carried, in its own words (steps 1–3), with
-// "topic" read as "map" and step 4 pointed at the diagram as it now exists.
-const STEPS = [
-  {
-    key: "pick",
-    title: "Pick a map",
-    body: (
-      <p>
-        Browse the <Link href="/topics" className={PROSE_LINK}>maps</Link> and
-        choose a question. Each one opens as a page you can read top to bottom.
-      </p>
-    ),
-  },
-  {
-    key: "cruxes",
-    title: "Read the cruxes",
-    body: (
-      <p>
-        Each map lists its cruxes: the specific questions the sides actually
-        disagree about. Under each one, &ldquo;What would settle it&rdquo;
-        names the evidence or test that could move it.
-      </p>
-    ),
-  },
-  {
-    key: "moved",
-    title: "See how it has moved",
-    body: (
-      <p>
-        Where a crux has a history, &ldquo;How this has moved&rdquo; is a dated
-        record of it: open, narrowed, resolved, or unresolvable by evidence,
-        and what changed each time. It records movement, not a winner.
-      </p>
-    ),
-  },
-  {
-    key: "diagram",
-    title: "Open the diagram if you want more",
-    body: (
-      <p>
-        Most maps also have an interactive diagram. Pan and zoom through
-        positions, objections, and evidence, and trace each claim to its
-        source.
-      </p>
-    ),
-  },
-];
-
-const CONTRIBUTE = [
-  {
-    key: "correction",
-    title: "Suggest a correction",
-    body: (
-      <p>
-        A card filed on the wrong side, a source that does not say what its
-        card says, a position its own holders would not recognise, or a crux
-        that has moved. Open an issue with the map&rsquo;s address and your
-        source.
-      </p>
-    ),
-  },
-  {
-    key: "weighting",
-    title: "Challenge a weighting",
-    body: (
-      <p>
-        Think a card carries too much weight, or too little? Say which of the
-        four measures is off and why, with citations.
-      </p>
-    ),
-  },
-  {
-    key: "map",
-    title: "Suggest a map",
-    body: (
-      <p>
-        A contested question with serious arguments on more than one side, and
-        a crux you could actually test.
-      </p>
-    ),
+    lead: "Voluntary before imposed.",
+    text: "Argumend works on the arguments people bring to it: the maps here, or a thread you paste because you are in it. It does not reach into other people’s conversations.",
   },
 ];
 
 export default function AboutPage() {
+  const crux = loadHomeCrux();
+
   return (
     <AppShell layout="reading">
       <PageContainer width="reading" as="article">
@@ -211,108 +57,105 @@ export default function AboutPage() {
           breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
           eyebrow="About Argumend"
           title="Disagree better."
-          lede="Argumend maps hard questions around what would change a mind, never around who won. This page is the whole story: why it exists, the rules it keeps, how to read a map, how maps are made, and how to help."
+          lede="Argumend maps hard questions around their cruxes: the questions a fight turns on, and what would settle each one. Read a map, or paste an argument you are in to find the map it belongs to. No map names a winner."
+        />
+
+        <Section
+          className={STORY_SECTION}
+          id="read-a-map"
+          title="How to read a map"
+          lede={
+            crux ? (
+              <>
+                A crux is the question a fight turns on, and what would settle
+                it. This is the first of {numberWord(crux.cruxCount)} on{" "}
+                <em>{crux.topicTitle}</em>, exactly as the map shows it.
+              </>
+            ) : (
+              "A crux is the question a fight turns on, and what would settle it."
+            )
+          }
         >
-          <OnThisPage items={SECTIONS} />
-        </PageHeader>
-
-        <Section className={STORY_SECTION} id="why" title="Why it exists">
-          <div className={PROSE}>
-            <p>
-              Most arguments are not about what they seem. Two people who sound
-              as if they disagree about the world often agree on nearly every
-              fact in front of them. What splits them is one value, one word
-              used two ways, or one question neither has said out loud.
-            </p>
-            <p>
-              Argumend exists to close that gap: between how much people think
-              they disagree and how much they actually do. It is the gap outrage
-              feeds on, and it can be measured.
-            </p>
-          </div>
-
-          <h3 className="label-caps mt-8">What we found when we measured it</h3>
-          <div className="mt-2">
-            <RuledList items={MEASURED} />
-          </div>
-          <p className="mt-2">
-            <TextAction href={HOME_EVIDENCE_HREF}>
-              The full write-up, with its caveats
-            </TextAction>
-          </p>
+          {crux ? <WorkedCrux crux={crux} /> : null}
 
           <div className={`${PROSE} mt-6`}>
             <p>
-              The goal is not to end argument. Arguments are how a society finds
-              things out. The goal is to end the counterfeit one: the argument
-              that feels like a disagreement about the world and is not.
-            </p>
-            <p>
-              That is what the name means. It reads both ways, argum-end and
-              argu-mend: end the counterfeit argument, and mend how we talk to
-              each other, so that people can look for wisdom rather than a side.
+              The dated line under it shows how the crux has moved. It records
+              movement, not a winner. On the map, each crux opens to the
+              evidence on each side, with its sources. The older maps also have
+              a diagram: a canvas on a larger screen, an outline on a phone.
             </p>
           </div>
-        </Section>
-
-        <Section className={STORY_SECTION} id="principles" title="Three principles">
-          <RuledList items={PRINCIPLES} numbered />
-        </Section>
-
-        <Section className={STORY_SECTION} id="read-a-map" title="How to read a map" lede="No account needed.">
-          <RuledList items={STEPS} numbered />
-          <p className="mt-4">
-            <TextAction href={HOME_FLAGSHIP_HREF}>
-              Try it on {flagshipTitle}
-            </TextAction>
+          <p className="mt-4 flex flex-wrap gap-x-6">
+            <TextAction href={HOME_FLAGSHIP_HREF}>Read the whole map</TextAction>
+            <TextAction href={ANALYZE_HREF}>Paste an argument</TextAction>
           </p>
         </Section>
 
         <Section className={STORY_SECTION} id="how-maps-are-made" title="How maps are made">
           <div className={PROSE}>
             <p>
-              Every card of evidence is weighed on four things: how reliable its
-              source is, how independent it is, whether it has been replicated,
-              and how directly it bears on the claim. It is filed by what it
-              shows, not by who cites it. On the newer maps, a deterministic
-              engine ranks the cruxes by asking which claims, if settled, would
-              move the positions furthest apart. Each crux says what would
-              settle it, or says plainly that no evidence can.
+              A language model drafts each newer map from research reports, and
+              every draft is audited before it is published: links checked,
+              headline facts checked against the primary source, positions read
+              for fairness. An engine ranks the cruxes by which claims, if
+              settled, would move the positions furthest apart.
             </p>
           </div>
           <p className="mt-4">
-            <TextAction href="/methodology">
-              How maps are made, step by step
-            </TextAction>
+            <TextAction href="/methodology">How maps are made, step by step</TextAction>
           </p>
         </Section>
 
-        <Section className={STORY_SECTION} id="faq" title="Questions">
+        <Section className={STORY_SECTION} id="principles" title="The rules it keeps">
           <div className={PROSE}>
-            <p>Short answers to the questions people ask most.</p>
+            {RULES.map((rule) => (
+              <p key={rule.lead}>
+                <strong className="font-semibold text-primary dark:text-stone-200">{rule.lead}</strong>{" "}
+                {rule.text}
+              </p>
+            ))}
           </div>
-          <p className="mt-2">
-            <TextAction href="/faq">
-              Read the questions
-            </TextAction>
+        </Section>
+
+        <Section className={STORY_SECTION} id="why" title="Why it exists">
+          <div className={PROSE}>
+            <p>
+              Most arguments are not about what they seem. When we ran real
+              broadcasts through our tools, a four-minute TV panel on
+              immigration turned on one word, &ldquo;culture&rdquo;, that each
+              guest used differently, and 88 of 114 turns in a 36-minute TV
+              debate on trans athletes were not about the question in its
+              title.
+            </p>
+            <p>
+              Argumend exists to close that gap, between how much people think
+              they disagree and how much they actually do. The name reads both
+              ways: argum-end, ending the counterfeit argument, and argu-mend,
+              mending how we talk to each other.
+            </p>
+          </div>
+          <p className="mt-4">
+            <TextAction href={HOME_EVIDENCE_HREF}>The full write-up, with its caveats</TextAction>
           </p>
         </Section>
 
         <Section className={STORY_SECTION} id="contribute" title="Contribute">
           <div className={PROSE}>
             <p>
-              Argumend is open source, and any map can be wrong. Contributions
-              happen on GitHub.
+              Argumend is open source, and any map can be wrong. Open an issue
+              with the map&rsquo;s address and your source: a card on the wrong
+              side, a source that does not say what its card says, a position
+              its holders would not recognise, a crux that has moved, or a
+              question that deserves a map.
             </p>
           </div>
-          <div className="mt-6">
-            <RuledList items={CONTRIBUTE} />
-          </div>
-          <p className="mt-4">
+          <p className="mt-4 flex flex-wrap gap-x-6">
             <TextAction href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               Open Argumend on GitHub
               <span className="sr-only"> (opens in a new tab)</span>
             </TextAction>
+            <TextAction href="/faq">Common questions</TextAction>
           </p>
         </Section>
       </PageContainer>

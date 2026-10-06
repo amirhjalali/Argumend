@@ -339,6 +339,11 @@ export const TopicSchema = z.object({
   tags: z.array(z.string()).optional(), // for tag pages (buildTopic guarantees >= 1)
   addedAt: z.string().optional(), // ISO date — for "recently added" sorting
   aliases: z.array(z.string()).optional(), // alternate names for search
+  // Subjects the map discusses in one section but is not about (artificial
+  // wombs and abortion). A paste about one of them, using none of the map's
+  // own name, is not this map's paste: lib/paste/maps.ts names no map rather
+  // than this one.
+  notAbout: z.array(z.string()).optional(),
   // Flagship-experience fields (optional — existing topics validate unchanged).
   // keystone_fact = the Stage-1 "wow" atomic fact shown above the claim.
   keystone_fact: z

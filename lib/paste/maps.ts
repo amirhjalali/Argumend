@@ -160,6 +160,7 @@ export function decideMatch(
   ranking: Pick<MapRanking, "ranked" | "ceiling" | "exclusiveLead">,
   isSibling: (a: string, b: string) => boolean,
   nameMatch: (id: string) => ReadonlySet<string> = () => new Set(),
+  offSubject: (id: string) => boolean = () => false,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -208,17 +209,28 @@ export function decideMatch(
       (best, map) => (nameMatch(map.id).size > nameMatch(best.id).size ? map : best),
       top,
     );
+    // A paste about a subject the map only discusses (abortion, on the
+    // artificial-wombs map) is not that map's paste, however well its words
+    // overlap. Nothing is named, and the map is not listed as closest either:
+    // that would name it by the back door.
+    if (offSubject(named.id)) {
+      return { named: null, related: [], closest: [], top, rival, lead, exclusiveLead, coverage };
+    }
     if (named !== top) {
-      const others = [top, ...siblings.filter((map) => map !== named)].filter(shown);
+      const others = [top, ...siblings.filter((map) => map !== named)]
+        .filter(shown)
+        .filter((map) => !offSubject(map.id));
       const related = others.slice(0, MAP_MATCH.maxMaps - 1);
       const closest = rest
-        .filter((map) => !siblingIds.has(map.id) && shown(map))
+        .filter((map) => !siblingIds.has(map.id) && shown(map) && !offSubject(map.id))
         .slice(0, MAP_MATCH.maxMaps - 1 - related.length);
       return { named, related, closest, top, rival, lead, exclusiveLead, coverage };
     }
-    const related = siblings.filter(shown).slice(0, MAP_MATCH.maxMaps - 1);
+    const related = siblings
+      .filter((map) => shown(map) && !offSubject(map.id))
+      .slice(0, MAP_MATCH.maxMaps - 1);
     const closest = rest
-      .filter((map) => !siblingIds.has(map.id) && shown(map))
+      .filter((map) => !siblingIds.has(map.id) && shown(map) && !offSubject(map.id))
       .slice(0, MAP_MATCH.maxMaps - 1 - related.length);
     return { named: top, related, closest, top, rival, lead, exclusiveLead, coverage };
   }
@@ -231,7 +243,9 @@ export function decideMatch(
   // map anyway would name it by the back door.
   const cameClose =
     !clear && top.score >= MAP_MATCH.closestFloor && coverage >= MAP_MATCH.closestCoverage;
-  const closest = cameClose ? [top, ...rest.filter(shown)].slice(0, MAP_MATCH.maxMaps) : [];
+  const closest = cameClose
+    ? [top, ...rest.filter(shown)].filter((map) => !offSubject(map.id)).slice(0, MAP_MATCH.maxMaps)
+    : [];
   return { named: null, related: [], closest, top, rival, lead, exclusiveLead, coverage };
 }
 
@@ -447,6 +461,24 @@ function nameMatches(index: MapIndex, id: string, pasteTermSet: ReadonlySet<stri
   return new Set([...pasteTermSet].filter((term) => nameTerms.has(term)));
 }
 
+/**
+ * True when the paste is about a subject the map declares it is not about
+ * (`Topic.notAbout`) and uses none of the map's own name words: a paste that
+ * says "artificial wombs" and "abortion" is still the wombs map's.
+ */
+function isOffSubject(
+  index: MapIndex,
+  id: string,
+  pasteWords: readonly string[],
+  pasteTermSet: ReadonlySet<string>,
+): boolean {
+  const notAbout = index.byId.get(id)?.document.notAbout;
+  if (!notAbout?.length) return false;
+  const subjectWords = new Set(notAbout.flatMap((subject) => pasteTerms(subject)));
+  if (!pasteWords.some((word) => subjectWords.has(word))) return false;
+  return nameMatches(index, id, pasteTermSet).size === 0;
+}
+
 export async function findMaps(text: string): Promise<PasteMapsResult> {
   const started = performance.now();
   const index = await getMapIndex();
@@ -458,6 +490,7 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
     ranking,
     (a, b) => mapSimilarity(index, a, b) >= MAP_MATCH.siblingSimilarity,
     (id) => nameMatches(index, id, pasteTermSet),
+    (id) => isOffSubject(index, id, pasteWords, pasteTermSet),
   );
   const matchedMs = performance.now() - indexed;
 

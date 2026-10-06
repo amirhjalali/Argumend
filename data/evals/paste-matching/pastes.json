@@ -792,6 +792,30 @@
       "expected": [],
       "related": [],
       "note": "Added during tuning, as above. Voting-age reform: an argument the library does not map, with election vocabulary near mandatory-voting and electoral-college-reform."
+    },
+    {
+      "id": "neg-abortion-family",
+      "form": "conversation",
+      "text": "My sister and I keep fighting about abortion. She says life begins at conception, so ending a pregnancy at any stage is ending a human life, and the law should protect the unborn child. I say a woman has the right to bodily autonomy and the state should not force anyone to carry a pregnancy to term. She brings up fetal heartbeat at six weeks and pain at twenty weeks; I bring up rape, incest, ectopic pregnancies and women dying because doctors were afraid to act after Dobbs. Neither of us moves. Is the real question when personhood starts, or who gets to decide?",
+      "expected": [],
+      "related": [],
+      "note": "Long abortion argument; the r6 live review saw artificial-reproduction-ethics named with a 3.1x lead. That map declares notAbout: abortion."
+    },
+    {
+      "id": "wombs-viability",
+      "form": "article",
+      "text": "Researchers kept premature lambs alive for four weeks in a fluid-filled biobag, and the FDA has now discussed the first human trials of an artificial womb for babies born at 22 or 23 weeks. If ectogenesis can carry a fetus from extreme prematurity, some ethicists say it would scramble the abortion debate, because viability would no longer depend on the mother's body.",
+      "expected": ["artificial-reproduction-ethics"],
+      "related": [],
+      "note": "About artificial wombs and mentions abortion: still this map's, because it uses the map's own name words."
+    },
+    {
+      "id": "wombs-ivg",
+      "form": "short",
+      "text": "Lab-made eggs and sperm from skin cells could let two men have a genetic child, or let one person be both parents. Is in-vitro gametogenesis close, and should it be allowed?",
+      "expected": ["artificial-reproduction-ethics"],
+      "related": [],
+      "note": "In-vitro gametogenesis, no abortion words."
     }
   ]
 }
