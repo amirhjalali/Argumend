@@ -128,13 +128,13 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   // --- Technology & Society ---
   "social-media-age-limits": [
     "Should social media have age limits?",
-    "Is social media harmful for children?",
     "Should kids be banned from social media?",
   ],
   "social-media-mental-health": [
     "Does social media cause depression?",
     "Is social media bad for mental health?",
     "Does social media harm teenagers?",
+    "Is social media harmful for children?",
   ],
   "ai-risk": [
     "Is artificial intelligence dangerous?",

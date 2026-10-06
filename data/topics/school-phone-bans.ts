@@ -20,7 +20,7 @@ export const schoolPhoneBansData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "Both sides accept that any academic benefit from a phone ban is modest and concentrated among lower-performing students, that teen mental health deteriorated sharply after about 2012, that a school-hours ban leaves evening and weekend phone use untouched, and that some students depend on phones for medical, safety or translation needs.",
-    "They split over whether test-score gains after bans come from the bans or from differences between the schools that adopt them; how much of the teen mental-health decline smartphones caused, and so whether a school-only ban can move it; and whether bans can be enforced, by Yondr pouches or teacher discretion, without new racial disparities in discipline.",
+    "They split over whether test-score gains after bans come from the bans or from differences between the schools that adopt them; whether a ban covering only the school day can move students' mental health while evening and weekend use goes on; and whether bans can be enforced, by Yondr pouches or teacher discretion, without new racial disparities in discipline.",
   ],
   pillars: [
     // =========================================================================
@@ -132,39 +132,43 @@ export const schoolPhoneBansData = {
     },
 
     // =========================================================================
-    // PILLAR 2: Mental Health & Social Development
+    // PILLAR 2: What a School-Day Ban Can Do for Mental Health
     // =========================================================================
     {
       id: "mental-health",
-      title: "Mental Health & Social Development",
+      title: "What a School-Day Ban Can Do for Mental Health",
       short_summary:
-        "Teen mental health has deteriorated dramatically since 2012, coinciding with smartphone adoption. Advocates argue phone bans during school hours provide critical respite from social media pressure. Critics contend the correlation overstates the causal role of phones versus deeper socioeconomic factors.",
+        "This pillar asks what a ban limited to school hours can change for students' mental health: harassment at school, face-to-face time during the day, and six or seven phone-free hours. Whether smartphones and social media caused the wider teen decline is a broader question, argued on its own map ('Is social media a primary cause of the teen mental health crisis?').",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The 'smartphones caused the teen mental health crisis' narrative promoted by Jonathan Haidt and others relies primarily on correlational evidence. A comprehensive meta-analysis by Andrew Przybylski at the Oxford Internet Institute found that the association between screen time and well-being was 'tiny' — smaller than the effect of regularly wearing glasses or eating potatoes. Teen depression rates began rising before smartphone saturation. The crisis is international, affecting countries with different phone cultures. School phone bans address 6-7 hours of a 16-hour waking day and do nothing about evening and weekend use, which is when most social media-related harm occurs. Banning phones in schools is a feel-good policy that lets adults avoid addressing the real drivers of teen distress: academic pressure, economic insecurity, climate anxiety, and social isolation that predates smartphones.",
+        "A school-day ban is a weak lever on mental health. It covers 6-7 hours of a 16-hour waking day and does nothing about evening and weekend use, which is when most social media-related harm is said to occur. The measured association between screen time and well-being is small to begin with: Orben and Przybylski found it 'tiny'. Harassment may move to after-school hours rather than stop. A ban can become a feel-good policy that lets adults avoid the drivers of student distress a school can address directly, such as academic pressure and isolation.",
       proponent_rebuttal:
-        "The correlation between smartphone adoption and teen mental health decline is too strong, too consistent, and too global to dismiss. Between 2012 and 2022, teen depression rates in the US doubled, self-harm hospitalizations for girls aged 10-14 tripled, and teen suicide rates increased 60%. This inflection point coincides precisely with when smartphone ownership among teens crossed 50% and social media use became ubiquitous. Jonathan Haidt's meta-analysis of 40+ studies in 'The Anxious Generation' found consistent harmful effects of social media on teen girls' mental health, with effect sizes comparable to lead exposure. School phone bans do not solve the problem but provide 6-7 hours of daily respite — a 'phone-free sanctuary' — during the developmental period when face-to-face social interaction is most critical. Quasi-experimental evidence from Norway found that girls reported roughly 46% less bullying after three years under a school phone ban.",
+        "A school ban does not claim to fix the whole decline. It gives students 6-7 phone-free hours a day during the developmental period when face-to-face social interaction is most critical. Quasi-experimental evidence from Norway found that girls reported roughly 46% less bullying after three years under a school phone ban, alongside improved psychological well-being. A ban that cuts in-school harassment and daytime screen use can help students' mental health whatever the answer to the broader causal question.",
       crux: {
         id: "phone-ban-mental-health-impact",
         title: "The School Phone Ban Mental Health Assessment",
         question:
-          "How much of the teen mental-health decline did smartphones cause, and can a school-only ban move it at all?",
+          "Can a ban that covers only the school day measurably improve students' mental health?",
         description:
-          "If school phone bans measurably improve student mental health outcomes — validated depression and anxiety scores, self-harm rates, peer relationship quality — the case for bans is strengthened beyond academic arguments alone. If mental health outcomes do not change, the ban is justified only on academic grounds, and the mental health crisis requires different interventions.",
+          "A school-hours ban could help students' mental health through less harassment and more face-to-face time during the day, or leave it unchanged while evening and weekend use continues. If outcomes do not move, the ban stands on its academic grounds alone, and other policies have to answer for the rest.",
         methodology:
           "Conduct a pre-registered cluster-randomized trial across 150 schools, measuring validated mental health instruments (PHQ-A for depression, GAD-7 for anxiety, UCLA Loneliness Scale) at baseline, mid-year, and end-of-year. Include a cyberbullying module and peer relationship assessment. Compare phone-ban schools against control schools and against schools implementing digital literacy programs without bans. Follow cohorts for 2 years to assess persistence of effects.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A cluster-randomized trial across 150 schools scoring depression (PHQ-A), anxiety (GAD-7), loneliness and cyberbullying over two years, with ban schools compared against control schools and against schools that teach digital literacy without a ban.",
+        },
         cost_to_verify:
           "$5-12M (Multi-school cluster-randomized trial with validated mental health assessment and 2-year follow-up)",
         falsification: {
           supporter_flip:
             "If a cluster-randomized trial measuring validated depression/anxiety scores found school phone bans produce no mental-health improvement — consistent with bans touching only 6–7 of 16 waking hours — the mental-health rationale would fall away, leaving bans justified on academics alone.",
           skeptic_flip:
-            "If studies of heavy social-media users found harms much larger than the 'tiny' average, and no other cause fit the sharp, synchronized 2012 rise in teen depression, self-harm and suicide, strongest among girls, the small-average-effect objection would lose its force.",
+            "If a cluster-randomized trial found students in ban schools reporting less harassment, anxiety and loneliness than students in control schools, with the gains holding into a second year, the view that a school-only ban cannot move mental health would lose its footing.",
           common_ground:
             "Both sides agree teen mental health deteriorated sharply after ~2012 and that a school-hours ban leaves evening and weekend phone use untouched.",
           live_disagreement:
-            "How much of the teen mental-health decline smartphones actually caused (versus academic pressure, isolation, and other 2010s shifts) — and therefore whether a partial, school-only ban can move mental-health outcomes at all.",
+            "Whether six or seven phone-free hours, with less harassment at school, can move students' mental health while evening and weekend use continues, which no randomized school trial has measured.",
         },
       },
       evidence: [
@@ -172,7 +176,7 @@ export const schoolPhoneBansData = {
           id: "teen-depression-doubling",
           title: "US Teen Depression Rates Doubled Between 2012 and 2022",
           description:
-            "CDC Youth Risk Behavior Survey data shows that the percentage of US high school students reporting persistent feelings of sadness or hopelessness increased from 26% in 2011 to 42% in 2021. Among girls, the rate rose from 36% to 57%. Emergency department visits for self-harm among girls aged 10-14 tripled between 2009 and 2021. Teen suicide rates increased approximately 60% from 2007 to 2021. The inflection point in virtually every trend occurs between 2011 and 2013, coinciding with when smartphone ownership among US teens crossed 50% (2012) and Instagram reached mass teen adoption.",
+            "CDC Youth Risk Behavior Survey data shows that the percentage of US high school students reporting persistent feelings of sadness or hopelessness increased from 26% in 2011 to 42% in 2021. Among girls, the rate rose from 36% to 57%. Emergency department visits for self-harm among girls aged 10-14 tripled between 2009 and 2021. Teen suicide rates increased approximately 60% from 2007 to 2021.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -183,7 +187,7 @@ export const schoolPhoneBansData = {
           source: "CDC Youth Risk Behavior Survey; CDC WISQARS; National Institute of Mental Health",
           sourceUrl: "https://www.cdc.gov/healthyyouth/data/yrbs/index.htm",
           reasoning:
-            "CDC data is the gold standard for US adolescent health surveillance, collected biennially from nationally representative samples. The trend is unambiguous and alarming. However, correlation with smartphone adoption does not establish causation — the same period saw increases in academic pressure, income inequality, climate anxiety, the opioid crisis, and social isolation. The directness score reflects that school phone bans address only one hypothesized causal factor.",
+            "CDC data is the gold standard for US adolescent health surveillance, collected biennially from nationally representative samples. The trend is unambiguous and alarming. However, the trend alone does not show what a school-day ban can change: the same period saw increases in academic pressure, income inequality, climate anxiety, the opioid crisis, and social isolation. The directness score reflects that school phone bans address only one hypothesized causal factor.",
         },
         {
           id: "przybylski-small-effect",
@@ -218,23 +222,6 @@ export const schoolPhoneBansData = {
           sourceUrl: "https://www.premier.vic.gov.au/mobile-phones-be-banned-next-year-all-state-schools",
           reasoning:
             "Evidence of a large-scale, state-wide implementation demonstrating feasibility, with officials reporting reduced distraction. However, the outcome data is self-reported by the implementing government (lowering independence), largely qualitative rather than measured, and the ban coincided with COVID-19 disruptions in 2020-2021, complicating causal attribution. Earlier specific claims of a '46% cyberbullying reduction' could not be verified and appear to have been conflated with a separate Norwegian study; the weight is reduced accordingly.",
-        },
-        {
-          id: "haidt-anxious-generation",
-          title: "Jonathan Haidt's 'The Anxious Generation': Social Media Is the Primary Driver of Teen Mental Health Crisis",
-          description:
-            "Social psychologist Jonathan Haidt's 2024 book 'The Anxious Generation' synthesizes evidence from over 40 studies arguing that the shift from a 'play-based' to a 'phone-based' childhood is the primary cause of the teen mental health crisis. Haidt identifies four harms: social deprivation (replacing in-person interaction), sleep deprivation, attention fragmentation, and addiction. He advocates four reforms: no smartphones before 14, no social media before 16, phone-free schools, and more unsupervised play. The book became a #1 New York Times bestseller and influenced legislation in multiple US states and Australia.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 7,
-          },
-          source: "Jonathan Haidt, 'The Anxious Generation' (2024); after-debate.com collaborative review",
-          sourceUrl: "https://www.anxiousgeneration.com/research",
-          reasoning:
-            "Haidt is a respected social psychologist and the book is extensively cited. However, academic critics including Przybylski and Orben have challenged his evidence synthesis, arguing he selectively cites studies supporting his thesis while downplaying conflicting evidence. The book is advocacy literature, not a peer-reviewed meta-analysis. Its cultural impact on policy has outpaced the scientific consensus.",
         },
       ],
     },
