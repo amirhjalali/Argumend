@@ -4,7 +4,7 @@ import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import type { Pillar } from "@/lib/schemas/topic";
 import { EXPECTED_MAP_COUNT } from "./mapDocuments";
 import type { RankedMap } from "./mapIndex";
-import { decideMatch, findMaps, getMapIndex, MAP_MATCH, pickPillar } from "./maps";
+import { decideMatch, findMaps, getMapIndex, MAP_MATCH, pickPillars } from "./maps";
 import { ASSISTED_LIVING_PASTE, NUCLEAR_PASTE } from "./testPastes";
 
 /**
@@ -144,15 +144,39 @@ describe("decideMatch", () => {
   });
 });
 
-describe("pickPillar", () => {
+describe("pickPillars", () => {
   const pillars = [
     pillar("a", "Labor market wages elasticity"),
     pillar("b", "Fiscal cost taxes welfare budget"),
   ];
+  // Every word as rare as any other across the maps.
+  const flatIdf = () => 3;
+  const ids = (text: string) => pickPillars(pillars, text, flatIdf).map((picked) => picked.id);
 
-  it("keeps the map's lead crux unless another shares clearly more words", () => {
-    expect(pickPillar(pillars, "wages and the budget")?.id).toBe("a");
-    expect(pickPillar(pillars, "the fiscal cost: taxes, welfare and the budget")?.id).toBe("b");
+  it("opens at the map's lead crux when the paste says nothing that tells the cruxes apart", () => {
+    expect(ids("the weather was lovely today")).toEqual(["a"]);
+  });
+
+  it("shows the one crux the paste is about when it clearly leads", () => {
+    expect(ids("the fiscal cost: taxes, welfare and the budget")).toEqual(["b"]);
+    expect(ids("labor market elasticity and wages")).toEqual(["a"]);
+  });
+
+  it("shows the two leaders, best first, when neither clearly leads", () => {
+    expect(ids("wages and the budget")).toEqual(["a", "b"]);
+    // A tie keeps the map's order.
+    expect(ids("the budget and wages")).toEqual(["a", "b"]);
+  });
+
+  it("does not let a long crux win on raw word counts", () => {
+    const long = pillar(
+      "long",
+      "Rent control supply construction landlords developers buildings units market economists returns conversion",
+    );
+    const short = pillar("short", "Displacement of families from neighborhoods");
+    // The long crux shares two words, the short one two rarer, closer ones.
+    const picked = pickPillars([long, short], "rent control keeps families in their neighborhoods", flatIdf);
+    expect(picked[0]?.id).toBe("short");
   });
 });
 

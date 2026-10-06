@@ -147,9 +147,15 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
   const flips = crux.supporterFlip && crux.skepticFlip;
   const words = sideWordsFor(match);
 
+  const also = match.alsoCrux;
+
   return (
     <div className="mt-6 rounded-md border border-[var(--border-divider)] border-t-[3px] border-t-crux bg-[var(--bg-paper)] px-5 pb-6 pt-5 dark:border-t-crux-light sm:px-8 sm:pb-8 sm:pt-6">
-      <h3 className="label-caps text-crux dark:text-crux-text">What the map says it turns on</h3>
+      {/* Two cruxes when the text's words do not pick one: the reader knows
+          which of the two their argument is about; the lane does not. */}
+      <h3 className="label-caps text-crux dark:text-crux-text">
+        {also ? "It may turn on one of these" : "What the map says it turns on"}
+      </h3>
       <p className="mt-3 font-serif text-[1.3125rem] leading-[1.3] text-[var(--text-heading)] sm:text-[1.625rem]">
         {crux.question}
       </p>
@@ -198,6 +204,19 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
           ) : null}
         </dl>
       )}
+      {also ? (
+        <div className="mt-2 border-t border-[var(--border-divider)] pt-4">
+          <p className="label-caps">Or</p>
+          <p className="mt-2 font-serif text-[1.1875rem] leading-[1.35] sm:text-[1.375rem]">
+            <Link
+              href={also.href}
+              className="text-[var(--text-heading)] underline decoration-[var(--border-default)] underline-offset-4 hover:decoration-deep"
+            >
+              {also.question}
+            </Link>
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -277,7 +296,7 @@ export function MapMatch({
           size="lg"
           onClick={() => trackEvent({ action: "cta_click", ctaName: "open_map_at_crux", location: "analyze" })}
         >
-          {match.crux ? "Open the map at this crux" : "Open the map"}
+          {match.crux ? (match.alsoCrux ? "Open the map at the first crux" : "Open the map at this crux") : "Open the map"}
         </Button>
       </div>
 

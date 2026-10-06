@@ -57,7 +57,7 @@ test("on a phone, the crux's action is within about a screen and a half of the r
 
   const result = page.getByRole("region", { name: "Result" });
   await expect(result).toBeVisible({ timeout: 15_000 });
-  const cta = result.getByRole("link", { name: "Open the map at this crux" });
+  const cta = result.getByRole("link", { name: /^Open the map at (this|the first) crux$/ });
   await expect(cta).toBeVisible();
 
   const firstMore = result.getByRole("button", { name: /^Show more/ }).first();
@@ -68,7 +68,7 @@ test("on a phone, the crux's action is within about a screen and a half of the r
 
   const { screens } = await page.evaluate(() => {
     const region = document.querySelector('section[aria-label="Result"]')!;
-    const link = [...region.querySelectorAll("a")].find((a) => a.textContent?.trim() === "Open the map at this crux")!;
+    const link = [...region.querySelectorAll("a")].find((a) => /^Open the map at (this|the first) crux$/.test(a.textContent?.trim() ?? ""))!;
     return {
       screens: (link.getBoundingClientRect().top - region.getBoundingClientRect().top) / window.innerHeight,
     };

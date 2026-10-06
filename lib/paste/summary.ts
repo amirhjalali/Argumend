@@ -53,9 +53,14 @@ export function buildPasteSummary({
     lines.push("", `It is already mapped: ${named} ${match.claim}`);
     if (match.crux) {
       const words = match.cardsAbout === "map-question" ? ANSWER_SIDES : CLAIM_SIDES;
-      lines.push(`The question the map says it turns on: ${match.crux.question}`);
+      lines.push(
+        match.alsoCrux
+          ? `It may turn on one of these questions from the map: ${match.crux.question}`
+          : `The question the map says it turns on: ${match.crux.question}`,
+      );
       if (match.crux.supporterFlip) lines.push(`${words.yesChangesMind} ${match.crux.supporterFlip}`);
       if (match.crux.skepticFlip) lines.push(`${words.noChangesMind} ${match.crux.skepticFlip}`);
+      if (match.alsoCrux) lines.push(`Or: ${match.alsoCrux.question} ${SITE_URL}${match.alsoCrux.href}`);
     }
     lines.push(`Both sides' best evidence: ${SITE_URL}${match.crux?.href ?? match.href}`);
     const sibling = maps.related?.[0];

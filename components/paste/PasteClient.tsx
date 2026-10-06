@@ -560,6 +560,15 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
                   claims and cruxes, then evidence. No AI model reads it for this step, and it is not
                   stored.
                 </p>
+                {maps.match ? (
+                  <p>
+                    The crux shown is the one whose own words your text shares most, counting most
+                    the words the map&rsquo;s other cruxes do not use.{" "}
+                    {maps.match.alsoCrux
+                      ? "Two came out close, so both are shown."
+                      : "When nothing in the text points to one crux, the map’s first crux is shown."}
+                  </p>
+                ) : null}
                 <p>{mapReadingLine(maps.reading)}</p>
               </ReadingNote>
             ) : null}
