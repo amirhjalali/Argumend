@@ -16,40 +16,40 @@ export const aiConsciousnessData = {
   },
   simple_case: [
     "Both sides accept that there is no validated test for consciousness in non-biological systems, that today's models are at minimum extraordinary pattern-matchers, that we already extend some moral caution to animals whose inner lives we cannot verify, and that anthropomorphizing AI for commercial reasons is a real risk.",
-    "They split over whether consciousness requires biology or only the right information processing, and over whether the mere possibility of AI consciousness creates moral obligations now or distracts from AI safety and from established moral patients.",
+    "They split over whether any test could reliably tell if a machine has subjective experience, when its self-reports echo its training text and the leading theories disagree on what to look for, and over whether the mere possibility of AI consciousness creates moral obligations now or distracts from AI safety and from established moral patients.",
     "The first is a question future science may move; the second is a weighing of values that the odds can inform but not decide.",
   ],
   pillars: [
     {
       id: "functional-consciousness",
-      title: "Functional Theories of Consciousness",
+      title: "Detecting Consciousness in AI",
       short_summary:
-        "If consciousness requires neurons, AI can never be conscious. If it requires only the right information processing, it might already be. We have no test to tell.",
+        "No validated test can say whether an AI system has subjective experience. Researchers disagree over what one would look for: the architecture theories of consciousness name, what a model says about itself, or biological properties no machine has. Whether a full account of brain processes explains consciousness at all is argued on the map asking \"Does explaining consciousness require more than brain processes?\"",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Consciousness may require specific biological processes—particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world. Current AI systems are sophisticated pattern-matching engines with no internal experience. A 2025 paper by Porębski and Figura in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature) is titled 'There is no such thing as conscious artificial intelligence,' arguing consciousness is a biological phenomenon that no computational process can replicate. Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
+        "Nothing a current AI system does is good evidence of experience. Its first-person reports reproduce the human text it was trained on, and it satisfies few of the indicator properties that theories of consciousness name. On biological views, consciousness may require specific biological processes, such as particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world, so a positive test result on a machine would not show experience. A 2025 paper by Porębski and Figura in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature) is titled 'There is no such thing as conscious artificial intelligence,' arguing consciousness is a biological phenomenon that no computational process can replicate. Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
       proponent_rebuttal:
-        "Functionalist theories of mind (held by many cognitive scientists) argue that consciousness depends on computational organization, not substrate. If an AI system replicates the functional structure of consciousness, it would be conscious regardless of running on silicon rather than carbon. Anthropic hired dedicated AI welfare researchers in 2024 and acknowledged a 'non-negligible' probability that their model Claude might possess consciousness. A 2023 Nature article urged technology companies to begin testing their systems for indicators of consciousness.",
+        "A test does not have to settle the metaphysics first. The 2023 indicator-properties report derived markers from the leading neuroscientific theories and found no obvious technical barrier to systems that satisfy them, and functionalist theories of mind (held by many cognitive scientists) hold that a system with the right computational organization would be conscious whether it runs on silicon or carbon. Anthropic hired dedicated AI welfare researchers in 2024 and acknowledged a 'non-negligible' probability that their model Claude might possess consciousness. A 2023 Nature article urged technology companies to begin testing their systems for indicators of consciousness.",
       crux: {
         id: "consciousness-detection-test",
         title: "Reliable Consciousness Detection in Non-Biological Systems",
         question:
-          "Does consciousness require biology, or only the right information processing?",
+          "Could any test reliably tell whether a non-biological system has subjective experience?",
         description:
-          "Developing and validating a test that can reliably determine whether an AI system has subjective experience, analogous to clinical tests for consciousness in brain-injured patients.",
+          "An indicator battery that first sorts conscious from unconscious states in humans and animals, as clinical measures do for brain-injured and anesthetized patients, and then gives a stable reading on an AI system that holds up across the rival theories it was built from.",
         methodology:
           "Extend neuroscientific theories of consciousness (IIT, GNW, HOT) to develop substrate-independent indicators. Test these indicators against systems with known consciousness status (humans, animals) and then apply to AI systems.",
         verification_status: "impossible" as const,
         cost_to_verify: "$0 (Fundamentally unclear if this is solvable—the 'hard problem' of consciousness may prevent any test from being definitive)",
         falsification: {
           supporter_flip:
-            "If consciousness were shown to depend on specific biological processes that no computation can replicate — a substrate requirement, not just functional organization — digital AI could be ruled out as a candidate for genuine experience.",
+            "If indicators validated on humans and animals came out clearly negative on successive generations of AI systems, or experience were tied to biological processes no computation replicates, the case that these systems might be conscious would lose its footing.",
           skeptic_flip:
             "If a validated, substrate-independent test (extending IIT, GNW, or HOT) reliably detected experience in humans and animals and then flagged it in an AI, blanket denial of AI consciousness would no longer be tenable.",
           common_ground:
             "Both sides agree there is currently no validated test for consciousness in non-biological systems, and that today's models are, at minimum, extraordinary pattern-matchers.",
           live_disagreement:
-            "Whether consciousness is substrate-dependent (needs biology) or substrate-independent (needs only the right information processing) — and whether the 'hard problem' makes any definitive test impossible in principle.",
+            "Whether markers drawn from human brains, or a model's own reports, can ever show experience in a machine, or whether the 'hard problem' makes any definitive test impossible in principle.",
         },
       },
       evidence: [

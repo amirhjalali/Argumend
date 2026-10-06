@@ -17,8 +17,8 @@ export const consciousnessHardProblemData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that neuroscience has found robust neural correlates of consciousness and explains its functions increasingly well; that no theory of consciousness yet commands agreement, and pre-registered adversarial tests like Cogitate are the right way to judge them; and that there is no validated test for consciousness in a non-biological system.",
-    "They split over whether, after a complete functional account, 'why does it feel like something?' is a real question left over or an illusion of introspection; whether Global Workspace Theory and Integrated Information Theory make different testable predictions or differ only in metaphysics; and whether consciousness depends on the computation a system performs or on its biological material, which decides whether AI could ever be conscious.",
+    "Both sides accept that neuroscience has found robust neural correlates of consciousness and explains its functions increasingly well; that no theory of consciousness yet commands agreement, and pre-registered adversarial tests like Cogitate are the right way to judge them; and that no validated test can yet detect consciousness in a system built unlike a human brain.",
+    "They split over whether, after a complete functional account, 'why does it feel like something?' is a real question left over or an illusion of introspection; whether Global Workspace Theory and Integrated Information Theory make different testable predictions or differ only in metaphysics; and whether consciousness follows the computation a system performs or depends on something a functional account leaves out, such as its biological material.",
   ],
   pillars: [
     // =========================================================================
@@ -221,25 +221,25 @@ export const consciousnessHardProblemData = {
     },
 
     // =========================================================================
-    // PILLAR 3: Implications for AI & Artificial Consciousness
+    // PILLAR 3: Computation or Material
     // =========================================================================
     {
       id: "ai-consciousness",
-      title: "Implications for AI & Artificial Consciousness",
+      title: "Computation or Material",
       short_summary:
-        "The hard problem has urgent practical implications: if consciousness arises from information processing regardless of substrate, sufficiently advanced AI systems may be conscious and deserve moral consideration. If consciousness requires biological properties, no AI will ever be conscious regardless of its capabilities.",
+        "If consciousness follows the computation a system performs, a complete account of the brain's processing would in principle say which systems have experience. If it depends on biological material, a body, or anything else that account leaves out, the functional story is incomplete. Whether today's AI systems might be conscious, and what we would owe them, is argued on the map asking \"Could AI systems be conscious in ways that create moral obligations?\"",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Current AI systems, including large language models, show no evidence of consciousness and there is no theoretical reason to expect they are or could become conscious. LLMs are statistical next-token predictors that lack unified experience, temporal continuity, embodiment, developmental history, and the neurochemical substrates that generate consciousness in biological organisms. The tendency to attribute consciousness to AI reflects anthropomorphism and the ELIZA effect (humans projecting understanding onto systems that merely simulate it), not evidence of machine sentience. Without a solution to the hard problem, we have no principled basis for determining whether any AI system is conscious — and given this uncertainty, the responsible default is to treat AI as sophisticated tools rather than potentially sentient beings.",
+        "Whatever consciousness turns out to depend on, a physical account can include it. If experience follows computation, explaining the computation explains which systems have it. If it also needs biological features such as interoceptive signals or a body interacting with its environment, those are physical processes too, and neuroscience already studies them. The zombie intuition, that a being functionally identical to a conscious human could lack inner experience, is rejected by Dennett and Frankish: on their view functional identity entails experiential identity, and the sense that something is missing reflects the limits of introspection rather than a gap in nature.",
       proponent_rebuttal:
-        "The hard problem's implications for AI are precisely why it matters practically, not just philosophically. If consciousness is substrate-independent — arising from information processing patterns rather than biological material — then sufficiently complex AI systems may already or soon will possess some form of consciousness, and we have no reliable way to detect it. IIT predicts that digital computers have low consciousness regardless of their behavior (because they lack integrated information), while functionalist theories predict that any system replicating the right computational patterns would be conscious. These theories make opposite predictions about AI consciousness, and the answer has enormous moral implications. If a future AI is conscious and we treat it as a tool, we are committing a moral atrocity. If it is not conscious and we grant it rights, we waste resources. Solving the hard problem is a prerequisite for ethical AI development.",
+        "The leading theories give opposite answers about which systems are conscious. IIT predicts that digital computers have low consciousness regardless of their behavior, because they lack integrated information, while functionalist theories predict that any system replicating the right computational patterns would be conscious. If the answer turns on something other than the computation, then explaining every process the brain computes does not explain experience. Chalmers' zombie argument presses the same point from the other direction: if a functional duplicate without inner experience is even conceivable, no behavioral or functional test fixes consciousness, and the functional account leaves experience out.",
       crux: {
         id: "substrate-independence-test",
         title: "The Substrate Independence Test",
         question:
-          "Does consciousness depend on the computation a system performs, or on its biological material?",
+          "If a brain's computations were copied faithfully into another material, would the copy be conscious?",
         description:
-          "If consciousness is substrate-independent (arising from computation regardless of whether it runs on neurons or silicon), then an artificial system replicating the relevant computations of a conscious brain would be conscious. If consciousness requires specific biological properties (carbon-based chemistry, quantum coherence in microtubules, or other non-computational features), no digital simulation will ever be conscious regardless of its sophistication. This is the single most consequential unanswered question in consciousness science.",
+          "Neuromorphic hardware that copies biological neural dynamics at rising fidelity, tested for the markers brains show, such as PCI scores: markers that persist when only the material changes would tie experience to computation, and markers that vanish despite matched function would point to carbon-based chemistry, quantum coherence in microtubules, or another non-computational feature.",
         methodology:
           "This test cannot be fully resolved empirically with current knowledge, but can be constrained. (1) Build neuromorphic hardware that replicates biological neural dynamics at increasing levels of fidelity (ion channels, dendritic computation, glial interactions, neurotransmitter systems). (2) Test whether the system exhibits the same consciousness markers (PCI scores, behavioral indicators) as biological brains. (3) If a sufficiently faithful silicon replica shows identical consciousness markers, substrate independence is supported. If markers disappear despite functional equivalence, substrate matters.",
         verification_status: "theoretical" as const,
@@ -247,33 +247,16 @@ export const consciousnessHardProblemData = {
           "$50-200M (Neuromorphic hardware development with consciousness marker testing — requires decades of engineering progress)",
         falsification: {
           supporter_flip:
-            "If a silicon system faithfully reproducing biological neural dynamics lost every measurable consciousness marker, such as PCI-equivalent signatures, that the biological original had, something about the substrate rather than the computation would be doing the work.",
+            "If a silicon system faithfully reproducing biological neural dynamics kept every consciousness marker the biological original showed, and no property of experience could be named that the functional copy lacked, the case that function leaves something out would lose much of its force.",
           skeptic_flip:
-            "If no behavioral or physical test could separate a conscious system from a functional duplicate, the zombie problem, while surveyed ASSC researchers stayed split with most calling machine consciousness possible, 'AI obviously isn't conscious' would rest on assertion.",
+            "If a faithful silicon copy of a brain's neural dynamics lost the measurable consciousness markers, such as PCI-equivalent signatures, that the biological original showed, and no physical difference between copy and original could account for the loss, the claim that a complete physical account of the brain leaves nothing out would be hard to hold.",
           common_ground:
-            "Both sides agree that current large language models show no decisive evidence of consciousness and that we lack any validated, theory-neutral test for detecting consciousness in a non-biological system.",
+            "Both sides agree that no validated, theory-neutral test can yet detect consciousness in a system built unlike a human brain, and that the leading theories disagree about which systems would have it.",
           live_disagreement:
-            "Whether consciousness depends on the abstract computation a system performs (so a faithful silicon copy would be conscious) or on substrate-specific biological properties (so it never would) — constrainable by building increasingly faithful neuromorphic replicas and checking whether consciousness markers track function or material.",
+            "Whether experience follows the abstract computation a system performs, so that a faithful silicon copy would be conscious and a functional account would be complete, or depends on something that account leaves out, such as biological material or embodiment. Constrainable by building increasingly faithful neuromorphic replicas and checking whether consciousness markers track function or material.",
         },
       },
       evidence: [
-        {
-          id: "llm-consciousness-debate",
-          title: "Leading Researchers Disagree on Whether Current AI Could Be Conscious (2023-2025)",
-          description:
-            "A 2023 report by 19 leading consciousness researchers, commissioned by the Association for Mathematical Consciousness Science, evaluated current AI systems against major consciousness theories. The report concluded that no current AI system is 'likely' to be conscious but that some systems (particularly those with recurrent processing, global workspace-like architectures, and predictive processing elements) show 'indicators' of consciousness under some theories. Notably, the researchers could not agree on which indicators were definitive. IIT-aligned researchers argued that digital computers categorically lack consciousness; functionalist researchers argued that functional equivalence to conscious processes is sufficient. A 2024 survey of members of the Association for the Scientific Study of Consciousness found that only about 3% rejected the possibility of machine consciousness outright, while over two-thirds answered 'yes' or 'probably yes' that machines could be conscious now or in the future — underscoring that experts disagree sharply rather than converging.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 6,
-            directness: 8,
-          },
-          source: "arXiv preprint, Butlin et al. (2023); Association for Mathematical Consciousness Science",
-          sourceUrl: "https://doi.org/10.48550/arXiv.2308.08708",
-          reasoning:
-            "The expert disagreement is itself evidence for the meta-claim: if the leading researchers cannot agree on whether existing AI is conscious, the hard problem remains unsolved and practically consequential. The report's methodology — applying multiple consciousness theories to AI systems and finding they give contradictory answers — directly demonstrates the field's pre-paradigmatic state.",
-        },
         {
           id: "turing-test-consciousness",
           title: "Behavioral Tests Cannot Determine Consciousness: The Philosophical Zombie Problem",
@@ -289,7 +272,7 @@ export const consciousnessHardProblemData = {
           source: "Chalmers, D. (1996). The Conscious Mind: In Search of a Fundamental Theory. Oxford University Press",
           sourceUrl: "https://consc.net/the-conscious-mind/",
           reasoning:
-            "The zombie argument is central to the hard problem debate. If valid, it establishes that no amount of third-person investigation (behavioral, neurological, or computational) can definitively determine whether a system is conscious. This has direct implications for AI: if we cannot verify consciousness through observation, we face a permanent epistemic barrier. Scored as 'for' because it supports the meta-claim that consciousness cannot be fully explained by functional/physical processes alone.",
+            "The zombie argument is central to the hard problem debate. If valid, it establishes that no amount of third-person investigation (behavioral, neurological, or computational) can definitively determine whether a system is conscious. It applies to any system, biological or artificial: if we cannot verify consciousness through observation, we face a permanent epistemic barrier. Scored as 'for' because it supports the meta-claim that consciousness cannot be fully explained by functional/physical processes alone.",
         },
         {
           id: "embodied-cognition-argument",
@@ -332,10 +315,6 @@ export const consciousnessHardProblemData = {
       title: "Adversarial testing of global neuronal workspace and integrated information theories of consciousness — Cogitate Consortium, Nature 642, 133-142 (2025)",
       url: "https://doi.org/10.1038/s41586-025-08888-1",
     },
-    {
-      title: "Consciousness in Artificial Intelligence: Insights from the Science of Consciousness — Butlin et al. (2023)",
-      url: "https://doi.org/10.48550/arXiv.2308.08708",
-    },
   ],
   questions: [
     {
@@ -352,9 +331,9 @@ export const consciousnessHardProblemData = {
     },
     {
       id: "q3",
-      title: "Could AI systems be conscious, and how would we know?",
+      title: "Would a functional duplicate of a brain have to be conscious?",
       content:
-        "Leading consciousness researchers cannot agree on whether current AI systems might be conscious. Different theories give contradictory answers: IIT says no (digital computers lack integrated information), functionalism says possibly (if the right computations are replicated). The practical stakes are enormous — if a future AI is conscious and we treat it as a tool, we are inflicting suffering on a sentient being. Solving the hard problem is a prerequisite for responsible AI ethics.",
+        "Chalmers' zombie argument holds that a being functionally identical to a conscious human could conceivably lack inner experience; Dennett and Frankish deny that such a being is genuinely conceivable. Theories split the same way: IIT says a digital computer running the right functions would have low consciousness because it lacks integrated information, while functionalism says replicating the right computations is enough. Whether that means today's AI systems might be conscious, and what we would owe them, is the question of the map asking \"Could AI systems be conscious in ways that create moral obligations?\"",
     },
   ],
 };
