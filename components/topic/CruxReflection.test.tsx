@@ -55,20 +55,20 @@ describe("CruxReflection", () => {
 
   it("leads somewhere: the picked question's settle line and a link to open it", async () => {
     const view = render(<CruxReflection topicId="t" options={OPTIONS} />);
-    expect(view.queryByRole("link", { name: "Open this question" })).toBeNull();
+    expect(view.queryByRole("link", { name: "Open this crux" })).toBeNull();
     await act(async () => {
       fireEvent.click(view.getByRole("button", { name: /waste can be stored/ }));
     });
     expect(view.getByText("What would settle it")).toBeTruthy();
     expect(view.getByText("A sealed repository that holds for a century.")).toBeTruthy();
-    expect(view.getByRole("link", { name: "Open this question" }).getAttribute("href")).toBe("#crux-a");
-    expect(view.getByRole("status").textContent).toMatch(/What would settle it is shown below/);
+    expect(view.getByRole("link", { name: "Open this crux" }).getAttribute("href")).toBe("#crux-a");
+    expect(view.getByRole("status").textContent).toMatch(/What would settle it is shown below, with a link to open this crux/);
 
     // "None of these would" has nothing to open.
     await act(async () => {
       fireEvent.click(view.getByRole("button", { name: /None of these would/ }));
     });
-    expect(view.queryByRole("link", { name: "Open this question" })).toBeNull();
+    expect(view.queryByRole("link", { name: "Open this crux" })).toBeNull();
   });
 
   it("never truncates an option", () => {

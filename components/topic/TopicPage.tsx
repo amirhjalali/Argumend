@@ -89,6 +89,7 @@ export function TopicPage({
     id: crux.anchor,
     label: crux.question,
     settle: crux.settle,
+    strongest: crux.strongest,
   }));
 
   return (

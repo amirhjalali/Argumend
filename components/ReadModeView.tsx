@@ -18,7 +18,7 @@ import {
   type LegacyEvidenceItem,
   type LegacyWeighing,
 } from "@/lib/topicPage/legacy";
-import type { RelatedMap } from "@/lib/topicPage/model";
+import { strongestPair, type RelatedMap } from "@/lib/topicPage/model";
 import { ANSWER_SIDES } from "@/lib/mapNaming";
 import {
   CommonQuestions,
@@ -51,11 +51,17 @@ export function ReadModeView({
       ? { ...legacy.page, questionPage: { href: `/questions/${questionSlug}`, question } }
       : legacy.page;
 
+  const labels = evidenceLabels(topic);
   const cruxViews: CruxEntryView[] = cruxes.map((crux) => ({
     ...crux,
+    // The evidence is strongest first on each side (lib/topicPage/legacy.ts).
+    strongest: strongestPair(
+      strongestCard(crux.evidence, "for", labels),
+      strongestCard(crux.evidence, "against", labels),
+    ),
     evidenceLabel:
       crux.evidence.length > 0 ? "Show the evidence on each side and the test" : "Show the test",
-    evidence: <LegacyCruxEvidence crux={crux} labels={evidenceLabels(topic)} />,
+    evidence: <LegacyCruxEvidence crux={crux} labels={labels} />,
   }));
 
   const folds: TopicFold[] = [
@@ -118,6 +124,17 @@ function evidenceLabels(topic: Topic): Record<"for" | "against", string> {
     for: `${ANSWER_SIDES.yesEvidence} on the map’s question`,
     against: `${ANSWER_SIDES.noEvidence} on the map’s question`,
   };
+}
+
+/** A side's first (strongest) card, in the reflection's shape. */
+function strongestCard(
+  evidence: LegacyEvidenceItem[],
+  side: "for" | "against",
+  labels: Record<"for" | "against", string>,
+) {
+  const item = evidence.find((e) => e.side === side);
+  if (!item) return undefined;
+  return { sideLabel: labels[side], title: item.title, source: item.source, sourceUrl: item.sourceUrl };
 }
 
 /** One pillar's evidence, grouped by side, strongest first. No score bars. */

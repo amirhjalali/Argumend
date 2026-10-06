@@ -17,6 +17,7 @@ import type {
   ArgumentEdge,
   ArgumentNode,
   Claim,
+  Evidence,
   Position,
 } from "@/types/argument";
 import type { CruxResult } from "@/lib/crux";
@@ -27,6 +28,7 @@ import { ARGUMENT_TOPICS_LAST_UPDATED } from "@/lib/site";
 import {
   STANDING_CONDITION_LEAD,
   numberWord,
+  strongestPair,
   type PositionCardData,
   type RelatedMap,
   type TopicPageData,
@@ -179,6 +181,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: D
         question: questionText,
         shortLabel: questionText,
         settle: { mode, kind, condition, resolved: isResolved },
+        strongest: claimStrongest(claim, graph, nodesById),
         implicit: claim.implicit,
         runIns,
         track: movement.length > 0 ? <CruxMovementTrack movement={movement} /> : undefined,
@@ -461,6 +464,39 @@ const POLARITY_RENDER = {
     className: "text-muted dark:text-stone-400",
   },
 } as const;
+
+/** The weighed card's total, or 0 for a card the map has not weighed. */
+function evidenceWeight(node: Evidence): number {
+  const w = node.weight;
+  return w ? w.sourceReliability + w.independence + w.replicability + w.directness : 0;
+}
+
+/**
+ * The strongest current card supporting and challenging one claim, for the
+ * reflection: heaviest by the map's own weights, else the first the map
+ * lists. Qualifying cards take no side, so they are not candidates.
+ */
+function claimStrongest(
+  claim: Claim,
+  graph: ArgumentGraph,
+  nodesById: Map<string, ArgumentNode>,
+) {
+  const pick = (polarity: "supporting" | "challenging", sideLabel: string) => {
+    const cards = graph.edges
+      .filter((e) => e.type === "evidences" && e.to === claim.id && e.polarity === polarity)
+      .map((e) => nodesById.get(e.from))
+      .filter((n): n is Evidence => n?.type === "evidence" && n.status !== "superseded");
+    // A stable sort keeps the map's own order between equal weights.
+    const best = [...cards].sort((a, b) => evidenceWeight(b) - evidenceWeight(a))[0];
+    return best
+      ? { sideLabel, title: best.finding, source: best.source.title, sourceUrl: best.source.url }
+      : undefined;
+  };
+  return strongestPair(
+    pick("supporting", "Supports the claim"),
+    pick("challenging", "Challenges the claim"),
+  );
+}
 
 /** Evidence, objections, and scope limits attached to one claim. */
 function ClaimEvidence({

@@ -21,6 +21,7 @@ vi.mock("@/components/AppShell", () => ({
 
 import RetiredAnalysisPage from "@/app/analysis/[id]/page";
 import { MapMatch, MapNoMatch } from "./MapResult";
+import { NextStep } from "./NextStep";
 import { PasteClient } from "./PasteClient";
 
 /**
@@ -114,6 +115,19 @@ describe("paste surfaces never score sides or name a winner", () => {
     const match = result().match;
     expect(match).not.toBeNull();
     const view = render(<MapMatch match={match!} related={result().related} />);
+    expect(forbiddenWords(view.container.textContent ?? "")).toEqual([]);
+  });
+
+  it("the map block with every clamped text opened, and the question answered", () => {
+    const view = render(
+      <>
+        <MapMatch match={matched.match!} related={matched.related} />
+        <NextStep summary={buildPasteSummary({ maps: matched, report: null })} />
+      </>,
+    );
+    // Clamped text is in the page either way; opening it must not change that.
+    for (const more of view.queryAllByRole("button", { name: /^Show more/ })) fireEvent.click(more);
+    fireEvent.click(view.getByRole("button", { name: "A little" }));
     expect(forbiddenWords(view.container.textContent ?? "")).toEqual([]);
   });
 

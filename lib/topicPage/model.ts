@@ -99,6 +99,37 @@ export interface CruxEntryData {
    * ("Someone who says yes would change their mind if…").
    */
   flips?: { supporter: string; skeptic: string; supporterLead: string; skepticLead: string };
+  /**
+   * The strongest card on each side of this crux, one per side, the
+   * supporting side first. Both sides or neither: one side's card alone
+   * reads as that side ahead. No weights or scores.
+   */
+  strongest?: readonly [StrongestCard, StrongestCard];
+}
+
+/** One evidence card as the reflection shows it: its side, words and source. */
+export interface StrongestCard {
+  side: "for" | "against";
+  /** The side as the crux's evidence block names it ("Points to yes on…"). */
+  sideLabel: string;
+  title: string;
+  source?: string;
+  sourceUrl?: string;
+}
+
+/**
+ * The strongest card on each side, given each side's cards strongest first,
+ * or undefined unless both sides have one.
+ */
+export function strongestPair(
+  forCard: Omit<StrongestCard, "side"> | undefined,
+  againstCard: Omit<StrongestCard, "side"> | undefined,
+): readonly [StrongestCard, StrongestCard] | undefined {
+  if (!forCard || !againstCard) return undefined;
+  return [
+    { ...forCard, side: "for" },
+    { ...againstCard, side: "against" },
+  ];
 }
 
 export interface PositionCardData {

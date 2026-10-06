@@ -1,19 +1,21 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import { Check, Copy } from "lucide-react";
-import { Button, TextAction } from "@/components/ui";
+import { ChangedQuestion, changedLabel } from "@/components/topic/ChangedQuestion";
+import { TextAction } from "@/components/ui";
 import { copyTextToClipboard } from "@/lib/copyToClipboard";
-import { CHANGED_CHOICES, CHANGED_QUESTION, type ChangedAnswer } from "@/lib/changedQuestion";
+import type { ChangedAnswer } from "@/lib/changedQuestion";
 
 /**
  * What to do with a paste result: copy a plain summary, and answer the
- * north-star question, in the same words and with the same answers as the
- * question under every map (lib/changedQuestion). The page's one rust
+ * north-star question with the same control, words and answers as the
+ * question under every map (components/topic/ChangedQuestion.tsx). The page's one rust
  * action, opening the map at its crux, sits under the crux box itself
  * (components/paste/MapResult.tsx).
  *
- * The one-tap answer stays in this component for now. The gap-metric path
+ * The one-tap answer stays in this component for now: it is not stored, sent
+ * or counted (the map page keeps its copy in the browser only). The gap-metric path
  * (lib/gapMetric) only accepts per-reply records with a fixed strict schema,
  * and a yes/no answer is not one of them; widening that schema is a decision
  * for the metric's owner, not for the paste page. See
@@ -28,7 +30,6 @@ export function NextStep({
   const [copied, setCopied] = useState(false);
   const [copyFailed, setCopyFailed] = useState(false);
   const [answer, setAnswer] = useState<ChangedAnswer | null>(null);
-  const questionId = useId();
 
   useEffect(() => {
     if (!copied) return;
@@ -80,25 +81,17 @@ export function NextStep({
         </div>
       ) : null}
 
-      <div role="group" aria-labelledby={questionId} className="space-y-2">
-        <p id={questionId} className="font-serif text-lg leading-snug text-[var(--text-heading)]">
-          {CHANGED_QUESTION}
-        </p>
+      <ChangedQuestion value={answer ?? undefined} onChange={setAnswer}>
         {answer ? (
-          <p role="status" className="font-sans text-sm text-[var(--text-secondary)]">
-            Thanks. You answered{" "}
-            {CHANGED_CHOICES.find((choice) => choice.id === answer)?.label.toLowerCase()}.
+          <p className="mt-3 font-sans text-sm text-[var(--text-secondary)]">
+            Thanks. Your answer is not sent or counted.
           </p>
-        ) : (
-          <div className="flex flex-wrap gap-3">
-            {CHANGED_CHOICES.map((choice) => (
-              <Button key={choice.id} variant="secondary" onClick={() => setAnswer(choice.id)} className="min-w-16">
-                {choice.label}
-              </Button>
-            ))}
-          </div>
-        )}
-      </div>
+        ) : null}
+      </ChangedQuestion>
+      {/* Always in the page, so the first answer is announced. */}
+      <p role="status" className="sr-only">
+        {answer ? `You answered ${changedLabel(answer).toLowerCase()}. Your answer is not sent or counted.` : ""}
+      </p>
     </section>
   );
 }
