@@ -57,4 +57,18 @@ describe("GET /llms.txt", () => {
       "stale-while-revalidate=86400",
     );
   });
+
+  it("publishes no scores or verdicts, and names each map's first crux", async () => {
+    const body = await (await GET()).text();
+    // The site retired side scores, verdicts and "pillars" (2026-09-29); what it
+    // tells crawlers must match what readers see.
+    expect(body).not.toMatch(/balance:|weight:|verdict:|\/100/i);
+    // Maps may use "pillar" in its plain sense; the explainer must not teach it.
+    const explainer = body.split("## Flagship maps")[0];
+    expect(explainer).not.toMatch(/\bpillars?\b|\bbalance\b|\bverdict\b/i);
+    expect(body).toContain("never names\n> a winner");
+    for (const topic of topicSummaries.filter((t) => t.firstCrux)) {
+      expect(body).toContain(`Turns first on: ${topic.firstCrux}`);
+    }
+  });
 });

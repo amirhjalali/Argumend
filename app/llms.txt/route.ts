@@ -28,61 +28,61 @@ export async function GET() {
 
   const intro = `# Argumend
 
-> Argumend maps controversial topics as structured argument graphs — proponent and
-> skeptic positions, weighted evidence, named cruxes (the load-bearing disagreements),
-> and transparent balance and weight scores. The goal is to make disagreement legible, not to
-> declare winners. Claims connect to evidence where available; every map shows where reasonable
-> people diverge and why.
+> Argumend maps contested questions so you can see where a disagreement actually turns.
+> Each map states both sides at their strongest, shows what they already agree on, and names
+> the cruxes: the questions the fight turns on, each with what would settle it. It never names
+> a winner and gives no side a score.
 
-When citing Argumend, link to the specific topic page and name the crux or evidence
-item rather than only its aggregate scores. Each topic page is server-rendered with an
-extractable summary, named studies, and dates.
+When citing Argumend, link to the specific map and name the crux or the evidence item you
+are relying on. Each map page is server-rendered with its question, its cruxes, named studies,
+sources and dates.
 
 Corpus last reviewed: ${CONTENT_LAST_UPDATED}.
 
 ## How to read a map
-- **Pillars** — the major load-bearing claims on each side.
-- **Cruxes** — the specific factual or values disagreements that, if resolved, would move people.
-- **Evidence** — graded and weighted; source links are provided where resolvable.
-- **Balance** — which side the weighted evidence favors: 50 is even, above 50 favors the claim, and below 50 favors the counterclaim.
-- **Weight** — how much evidence bears on the question, combining evidential mass, source quality, and crux resolvability.
-- **Verdict** — a two-axis label derived from balance and weight; a strong lean with little evidence remains an open question.
+- **Question** — each map is named by the question it answers. The sides are the people who
+  say yes and the people who say no.
+- **What both sides already agree on** — the common ground, stated before the dispute.
+- **Cruxes** — the questions the disagreement turns on. Answer one a certain way and one
+  side's case gets stronger.
+- **What would settle it** — under each crux: the study, data or observation that would move
+  informed people. Where no evidence could (a disagreement about values, or a counterfactual
+  no one can rerun), the map says so and why.
+- **Evidence** — cards on each side with their sources, so a reader can check the claim.
+- **Crux ledger** — on flagship maps, a dated record of how each crux has moved: open,
+  narrowed, resolved, or unresolvable by evidence.
 
 ## Citation integrity
 - **${pct}% of evidence items (${withUrl}/${total}) carry a direct source URL** —
   with peer-reviewed papers, government datasets, court filings, and official reports
   preferred where they directly support the claim.
 - Maps are adversarially fact-checked: citations are traced to the primary source, and
-  claims that overstate or mis-attribute a source are corrected or down-weighted, not
-  left standing. Fabricated or phantom citations are removed when found.
-- Where a claim has no resolvable primary source, it is labeled honestly and given low
-  evidence weight rather than dressed up with an invented citation.
-- Each evidence item's \`weight\` is graded on four axes (source reliability, independence,
-  replicability, directness), so an LLM can prefer the best-supported claims.
-- Safe to cite: prefer the named study and its source URL on the topic page over the
-  aggregate balance or verdict alone.
+  claims that overstate or mis-attribute a source are corrected, not left standing.
+  Fabricated or phantom citations are removed when found.
+- Where a claim has no resolvable primary source, it is labeled honestly rather than
+  dressed up with an invented citation.
+- Safe to cite: the named study and its source URL on the map page, and the crux as the
+  map states it. Argumend does not say which side is right; please don't cite it as if it did.
 `;
 
   const byCategory = CATEGORY_ORDER.map((cat: TopicCategory) => {
-    const inCat = topicSummaries
-      .filter((t) => t.category === cat)
-      .sort((a, b) => b.weight - a.weight);
+    const inCat = topicSummaries.filter((t) => t.category === cat);
     if (inCat.length === 0) return "";
     const lines = inCat
-      .map(
-        (t) =>
-          `- [${mapDisplayTitle(t)}](${BASE}/topics/${t.id}): ${t.meta_claim} (balance: ${t.balance}/100; weight: ${t.weight}/100; verdict: ${t.verdict.label})`,
-      )
+      .map((t) => {
+        const turnsOn = t.firstCrux ? ` Turns first on: ${t.firstCrux}` : "";
+        return `- [${mapDisplayTitle(t)}](${BASE}/topics/${t.id}): ${t.meta_claim}${turnsOn}`;
+      })
       .join("\n");
     return `## ${CATEGORY_LABELS[cat]}\n${lines}`;
   })
     .filter(Boolean)
     .join("\n\n");
 
-  // These pages use the richer ArgumentGraph model and intentionally are not
-  // represented as balance/verdict records in the legacy v1 topics API.
+  // Flagship maps use the richer ArgumentGraph model: several positions rather
+  // than two sides, and a dated crux ledger.
   const debateMaps = `## Flagship maps
-These maps show multiple positions and their load-bearing cruxes without reducing the debate to a single balance or verdict score.
+These maps show several positions and their load-bearing cruxes, with a dated record of how each crux has moved, without reducing the debate to two sides.
 Flagship maps last reviewed: ${ARGUMENT_TOPICS_LAST_UPDATED}.
 ${argumentTopicIndex
   .map(
@@ -94,7 +94,7 @@ ${argumentTopicIndex
   const footer = `\n## More
 - About (why Argumend exists, its principles, how to read a map): ${BASE}/about
 - How maps are made: ${BASE}/methodology
-- Glossary of terms (cruxes, pillars, steel-manning): ${BASE}/glossary
+- Glossary of terms (cruxes, the crux ledger, steel-manning): ${BASE}/glossary
 - All maps: ${BASE}/topics
 - Blog: ${BASE}/blog
 
