@@ -58,7 +58,7 @@ export const daylightSavingTimeAbolitionData = {
           supporter_flip:
             "If long-run data from permanent-standard-time regions showed no measurable circadian, sleep, mood, or safety advantage over evening-light regimes — and the evening hour delivered large, durable gains in activity and well-being — the case for permanent standard time over permanent DST would weaken to a matter of taste.",
           skeptic_flip:
-            "A permanent-DST advocate should weigh that morning light is the dominant zeitgeber for the human clock, that Russia's permanent-DST experiment was abandoned amid dark-morning complaints, and that the US's own 1974 trial collapsed in one winter — so 'people just want light evenings' is contradicted once they actually live through the dark mornings DST creates.",
+            "If people living under permanent DST turned against it once the dark winter mornings arrived, testing the accounts of Russia's abandoned experiment and the US's one-winter 1974 trial, 'people just want light evenings' would be hard to hold.",
           common_ground:
             "Both sides agree the twice-yearly switch should end and that a fixed hour of daylight is simply being moved from morning to evening or vice versa.",
           live_disagreement:
@@ -180,7 +180,7 @@ export const daylightSavingTimeAbolitionData = {
           supporter_flip:
             "If a rigorous displacement analysis showed the spring-forward excess in heart attacks and crashes is almost entirely cancelled by a deficit in the following days (pure harvesting) and by the autumn drop, the acute-harm rationale for abolition would shrink to a minor, mostly cosmetic effect.",
           skeptic_flip:
-            "A skeptic who calls the spikes trivial should weigh that the crash effect is dose-dependent on sleep loss (larger in the morning and at a time zone's western edge), that strokes and heart attacks rise together, and that even modest avoidable mortality is worth eliminating when the switch confers no clear benefit.",
+            "If new studies confirmed the crash effect grows with sleep loss (larger in the morning and at a time zone's western edge) and that strokes and heart attacks rise together, the spikes would look like real avoidable harm from a switch with no clear benefit.",
           common_ground:
             "Both sides agree the spring transition is followed by a measurable short-term rise in heart attacks, strokes, and crashes, and that the autumn transition shows a partial opposite effect.",
           live_disagreement:
@@ -301,7 +301,7 @@ export const daylightSavingTimeAbolitionData = {
           supporter_flip:
             "If a full-ledger study showed permanent DST yields large net gains — meaningful energy savings, durable crime reduction, and activity/recreation value that clearly exceed the morning-commute safety and circadian costs — the case for permanent standard time over DST would weaken substantially.",
           skeptic_flip:
-            "A permanent-DST advocate should weigh that the best US energy study found DST raised electricity use ~1%, that evening light's benefits are offset by darker higher-risk mornings, and that summer evenings stay long under standard time anyway — so the net-value case for year-round DST is far weaker than the evening-only framing suggests.",
+            "If more energy studies matched the US finding that DST raised electricity use about 1%, and full-day accounting showed darker, riskier mornings offsetting the evening gains, the net-value case for year-round DST would look far weaker.",
           common_ground:
             "Both sides agree extra evening daylight has real recreational and some crime-reduction value, and that whatever an hour adds to the evening it subtracts from the morning.",
           live_disagreement:

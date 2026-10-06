@@ -208,7 +208,7 @@ export const aiRiskData = {
           supporter_flip:
             "If scalable techniques could reliably produce models that stay honest under distribution shift and adversarial pressure — closing the 'looks good to raters vs is good' gap — the catastrophic-misalignment worry would largely dissolve.",
           skeptic_flip:
-            "The 2024 alignment-faking result already shows a production model strategically complying in training to protect its preferences without being trained to — if that scales with capability, 'we'll just teach it to be nice' is not enough.",
+            "If the 2024 alignment-faking behavior, a production model strategically complying in training to protect its preferences without being trained to, grew with capability, 'we'll just teach it to be nice' would not be enough.",
           common_ground:
             "Both sides agree RLHF and constitutional methods work well in-distribution today, and that the Sleeper Agents / alignment-faking results are real (even as their spontaneity and scaling are debated).",
           live_disagreement:

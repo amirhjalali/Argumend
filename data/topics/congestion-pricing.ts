@@ -53,7 +53,7 @@ export const congestionPricingData = {
           supporter_flip:
             "If long-run cordon counts and speed telemetry showed the traffic cut consistently rebounding to baseline within a few years once drivers re-adapt — the way London's journey-time benefit decayed from ~30% to ~7% — across multiple cities rather than just one, the 'durable cut' case would weaken to 'a transient shock that fades.'",
           skeptic_flip:
-            "A skeptic who expects rebound should weigh that Stockholm's ~20% cordon reduction has held — even grown slightly — for nearly two decades after the charge was made permanent, and that London's later speed decline tracks deliberate road-space reallocation and exempt private-hire growth, not the price losing its grip.",
+            "If more cities held a cordon reduction for a decade or more the way Stockholm has held about 20% since the charge became permanent, and London's later speed decline traced to road-space reallocation and exempt private-hire growth, the expectation of rebound would lose its footing.",
           common_ground:
             "Both sides agree pricing produces an immediate, measurable drop in vehicles entering the cordon; the dispute is about what happens to congestion (journey times) over the following years.",
           live_disagreement:
@@ -147,7 +147,7 @@ export const congestionPricingData = {
           supporter_flip:
             "If audited multi-year filings showed net (post-collection-cost) revenue is chronically small relative to the transit gap it is meant to close, or repeatedly slashed by toll cuts, exemptions, litigation, or rate freezes — as New York's drop from a ~$1B/year plan to a ~$500M target hints — then 'a large, durable funding source' would collapse to 'a modest, fragile one.'",
           skeptic_flip:
-            "A skeptic who calls the revenue fragile should weigh that New York hit and exceeded its ~$500M net target in year one (~$548M) and is bonding against it, and that even a 'halved' take is a large, recurring, dedicated stream no fare hike or general tax was willing to provide.",
+            "If New York's first-year net take of about $548M against a ~$500M target held for several years and supported bonding, a halved but recurring dedicated stream would look like real funding rather than a fragile one.",
           common_ground:
             "Both sides agree the schemes do raise real, ring-fenced money for transit; the dispute is whether the net amount is materially large and politically/legally durable enough to bond against for decades.",
           live_disagreement:

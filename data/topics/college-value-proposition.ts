@@ -50,7 +50,7 @@ export const collegeValuePropositionData = {
           supporter_flip:
             "If College Scorecard and IRS earnings data showed that, once you control for student selectivity (the kind of student who enrolls), most institution-major combinations produced near-zero or negative 20-year ROI — and the positive aggregate was driven by a narrow band of elite programs — then 'the degree pays off' would collapse into 'a few degrees pay off, most don't.'",
           skeptic_flip:
-            "A skeptic pointing to debt and underemployment should weigh that defaults concentrate among non-completers and for-profit attendees (bachelor's completers default at ~8% vs. for-profit attendees near ~47%), that the wage premium widens with age rather than fading, and that median bachelor's wages still run roughly two-thirds above high-school wages — so the visible distress is largely a completion-and-institution problem, not proof the credential lacks value.",
+            "If new data kept defaults concentrated among non-completers and for-profit attendees (about 8% for bachelor's completers against about 47% at for-profits), with the wage premium widening with age, the visible distress would look like a completion-and-institution problem rather than a sign the credential lacks value.",
           common_ground:
             "Both sides agree the return varies enormously by major, institution, and whether the student graduates, and that the headline lifetime-earnings averages obscure that variance.",
           live_disagreement:
@@ -155,7 +155,7 @@ export const collegeValuePropositionData = {
           supporter_flip:
             "If a longitudinal cohort study tracked bootcamp and trade-certificate entrants for 10+ years and found their earnings, employment stability, and mobility kept pace with — or beat — comparable degree holders across more than a narrow set of software and skilled-trade roles, then the claim that the degree is the only durable on-ramp would fail.",
           skeptic_flip:
-            "A skeptic championing alternatives should weigh that when employers dropped degree requirements, actual hiring of non-degree candidates rose only ~3.5 percentage points (Burning Glass/Harvard), that bootcamp placement is self-reported with inconsistent definitions, and that the college wage premium widens with age (roughly 27% at 25 to ~60% by 55) — so first-job parity may not survive into mid-career.",
+            "If longer tracking, extending the Burning Glass/Harvard estimate that dropping degree requirements raised non-degree hiring only ~3.5 points, found audited bootcamp placement below self-reported rates and the degree premium widening from about 27% at 25 to about 60% by 55, first-job parity would look unlikely to last.",
           common_ground:
             "Both sides agree that for some specific fields (software, skilled trades) faster, cheaper non-degree paths now produce strong early outcomes, and that 10-year trajectories for those paths are thinly documented.",
           live_disagreement:

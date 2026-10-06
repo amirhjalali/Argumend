@@ -94,7 +94,7 @@ export const decliningBirthRatesData = {
           supporter_flip:
             "If long-horizon models (validated against Japan and South Korea's actual trajectories) showed that productivity gains, capital deepening, and pension reform can hold per-capita living standards roughly flat through the demographic transition even at 1.0-1.3 TFR, the 'doom loop' framing would collapse into 'hard transition, not collapse.'",
           skeptic_flip:
-            "A skeptic confident decline is manageable should weigh that the OECD old-age dependency ratio is projected to rise from about 31% in 2023 toward 52% by 2060, that South Korea at 0.72 TFR shrinks each generation to roughly a third, and that Japan's per-capita gains have come alongside a 263%-of-GDP public debt load that may not be repeatable.",
+            "If the OECD old-age dependency ratio tracked its projected rise from about 31% toward 52% by 2060, South Korea at 0.72 TFR kept shrinking to roughly a third each generation, and Japan's gains proved tied to a 263%-of-GDP debt load, 'manageable decline' would be hard to hold.",
           common_ground:
             "Both sides agree below-replacement fertility raises dependency ratios and strains pay-as-you-go pension systems, and that per-capita GDP — not total GDP — is the metric that matters for living standards.",
           live_disagreement:
@@ -189,7 +189,7 @@ export const decliningBirthRatesData = {
           supporter_flip:
             "If Nordic countries with universal childcare, long parental leave, and housing support still showed fertility far below stated desires — and longitudinal tracking found the gap appearing even where barriers are removed — then the decline would look like a genuine preference shift, not a fixable structural problem, weakening the case that policy can raise birth rates.",
           skeptic_flip:
-            "A skeptic who reads the decline as pure free choice should weigh that OECD surveys consistently find desired fertility 0.3-0.7 children above actual (France 2.4 vs 1.8, Germany 2.0 vs 1.4, Japan 2.4 vs 1.2) — a gap that implies removable barriers, not just preference, are suppressing births.",
+            "If new surveys kept finding desired fertility 0.3-0.7 children above actual, as in France (2.4 vs 1.8), Germany (2.0 vs 1.4) and Japan (2.4 vs 1.2), and births rose where barriers were removed, the decline would look less like pure free choice.",
           common_ground:
             "Both sides agree female education and contraception access are the strongest correlates of lower fertility, and that a measurable gap between desired and actual family size exists in most rich countries.",
           live_disagreement:
@@ -267,7 +267,7 @@ export const decliningBirthRatesData = {
           supporter_flip:
             "If sector-by-sector modeling showed AI and automation productivity growth per worker reliably outpacing workforce decline — including in hard-to-automate elder care, healthcare, and construction — then a smaller population would be economically manageable and the 'technology can't save us' rebuttal would fail.",
           skeptic_flip:
-            "A skeptic counting on technology should weigh Japan's natural experiment: the world's highest industrial-robot density and decades of investment, yet a projected shortfall on the order of 300,000+ long-term care workers around 2025 rising toward 570,000 by 2040 — the caregiving sectors aging populations need most have proven the most automation-resistant.",
+            "If Japan's care sector, despite the world's highest industrial-robot density, kept falling short by hundreds of thousands of workers (a projected 570,000 by 2040), the hope that technology covers a shrinking workforce would be hard to hold where aging societies need it most.",
           common_ground:
             "Both sides agree AI will raise productivity in many sectors and that immigration can supplement domestic labor; the dispute is magnitude, timing, and whether gains land in the sectors an aging society actually depends on.",
           live_disagreement:

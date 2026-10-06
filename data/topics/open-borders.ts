@@ -34,7 +34,7 @@ export const openBordersData = {
           supporter_flip:
             "If models extending EU free movement to a global scenario showed fiscal, wage, housing and integration costs — or erosion of the institutions that make destination economies productive — consuming most of the productivity gain, the economic case for relaxing restrictions at scale would weaken.",
           skeptic_flip:
-            "A skeptic who expects breakdown should weigh that when EU free movement expanded east in 2004-2007, only 2-3% of Eastern Europeans moved West and both sending and receiving countries grew, and that even a fraction of the 50-150% of world GDP in Clemens's survey would dwarf any other available anti-poverty intervention.",
+            "If a broader opening repeated the EU's 2004-2007 expansion, when only 2-3% of Eastern Europeans moved West and both sides grew, the fear of breakdown would weaken, and even a fraction of the 50-150% of world GDP in Clemens's survey would be a large gain.",
           common_ground:
             "Both sides agree the 50-150% of world GDP figures are theoretical extrapolations from marginal changes, and that the gains depend on destination economies keeping the institutions that make workers more productive there.",
           live_disagreement:
@@ -147,7 +147,7 @@ export const openBordersData = {
           supporter_flip:
             "If controlled borders proved measurably better than open alternatives at their stated goals — security, fiscal sustainability, social cohesion — and rapid inflows reliably eroded social trust, the case that restrictions are arbitrary discrimination would weaken even for those who hold movement to be a strong right.",
           skeptic_flip:
-            "A skeptic who stresses self-determination should weigh that birthplace is among the largest determinants of lifetime income, that remittances to low- and middle-income countries (~$626B in 2022) are roughly 3x official aid, and that US border enforcement above $20B a year coexists with an estimated 10-11 million undocumented residents.",
+            "If further work confirmed birthplace as among the largest drivers of lifetime income, remittances (~$626B in 2022) at about three times official aid, and $20B-plus yearly enforcement coexisting with 10-11 million undocumented residents, a strong right to exclude would be harder to justify.",
           common_ground:
             "Both sides accept that states may restrict entry for compelling reasons such as security screening; the dispute is whether the right to exclude is the default or the exception.",
           live_disagreement:

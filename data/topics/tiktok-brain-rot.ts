@@ -44,7 +44,7 @@ export const tiktokBrainRotData = {
           supporter_flip:
             "If a large sample stratified by daily use, controlled for age, education, sleep and ADHD, showed heavy short-form viewers doing no worse on the SART and CPT than light users, the claim of measurable attention damage would lose its individual-level footing.",
           skeptic_flip:
-            "A skeptic who calls this a moral panic should weigh that Lorenz-Spreen et al. found collective attention cycles accelerating across Twitter, Google Books, Reddit and movie tickets over decades, and that laboratory SART studies link heavier short-form viewing to more commission errors and greater reaction-time variability.",
+            "If new studies extended Lorenz-Spreen et al.'s finding of accelerating collective attention cycles, and individual SART tests kept linking heavier short-form viewing to more errors and erratic reaction times, the moral-panic reading would be hard to hold.",
           common_ground:
             "Both sides agree the '8-second, below a goldfish' statistic is bogus, and that the lab studies linking heavy use to weaker sustained attention are largely correlational.",
           live_disagreement:
@@ -154,7 +154,7 @@ export const tiktokBrainRotData = {
           supporter_flip:
             "If participants randomly assigned to an algorithmic infinite-scroll feed showed no more loss of control, craving or striatal activation than those given the same content in chronological order without autoplay, the claim that feed design itself drives compulsive use would weaken.",
           skeptic_flip:
-            "A skeptic who calls 'dopamine hijacking' pop neuroscience should weigh that Su et al. (2021) found personalized TikTok clips activating the ventral tegmental area more than generalized ones, and that TikTok documents quoted in the October 2024 attorneys-general lawsuits, which TikTok disputes, indicate it tracked compulsive-use metrics.",
+            "If replications of Su et al. (2021) found personalized clips activating reward circuitry more than generic ones, and the disputed TikTok documents in the 2024 attorneys-general suits were confirmed to track compulsive use, 'dopamine hijacking' would look like more than pop neuroscience.",
           common_ground:
             "Both sides agree most users self-regulate — Su et al. estimated roughly 5.9% of TikTok users show significant problematic use — and that the slot-machine comparison is an analogy, not a measured equivalence.",
           live_disagreement:
@@ -268,7 +268,7 @@ export const tiktokBrainRotData = {
           supporter_flip:
             "If difference-in-differences studies of restrictions such as China's Douyin time limits for under-14s found no gain in test scores, reading comprehension or homework completion against unrestricted controls, the link between short-form video and academic decline would look like correlation, not cause.",
           skeptic_flip:
-            "A skeptic who blames COVID should weigh that PISA 2022 reading fell about 10 points across OECD countries, roughly twice any previous between-cycle change, and that the OECD notes reading and science scores were already declining before the pandemic.",
+            "If reading scores kept falling in places with little COVID disruption, extending the pre-pandemic decline the OECD notes behind PISA 2022's roughly 10-point drop, COVID alone would no longer explain the academic slide.",
           common_ground:
             "Both sides agree PISA reading fell about 10 points in 2022, that COVID disruption explains a large share, and that the social-media link to grades (r ≈ -0.07) is small and mostly cross-sectional.",
           live_disagreement:

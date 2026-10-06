@@ -49,7 +49,7 @@ export const evEnvironmentalImpactData = {
           supporter_flip:
             "If rigorous cradle-to-grave assessments showed the manufacturing carbon debt was large enough that, at real-world mileages and grid mixes, most EVs never broke even within their service life — or that battery-production impacts had been systematically undercounted — the lifecycle case would break.",
           skeptic_flip:
-            "A skeptic focused on the battery's footprint should weigh that every independent lifecycle assessment (IEA, ICCT, and Volvo's own) finds the up-front debt repaid within tens of thousands of miles, after which the EV emits far less — the manufacturing penalty is real but bounded and one-time.",
+            "If new independent lifecycle assessments, testing the IEA, ICCT and Volvo estimates, kept finding the up-front battery debt repaid within tens of thousands of miles, the manufacturing penalty would look real but bounded and one-time.",
           common_ground:
             "Both sides agree an EV is more carbon-intensive to BUILD than a comparable gas car, mainly because of the battery.",
           live_disagreement:
@@ -156,7 +156,7 @@ export const evEnvironmentalImpactData = {
           supporter_flip:
             "If grids stopped decarbonizing — or EV adoption concentrated in coal-heavy regions whose grids stayed dirty — so that real-world charging carbon stayed above the threshold where EVs beat efficient hybrids, the 'cleaner almost everywhere' claim would fail in those places.",
           skeptic_flip:
-            "A skeptic who calls EVs 'coal cars' should weigh that even on today's average US grid an EV already matches a ~94 MPG car (UCS), the most efficient EV beats any gas car in all 50 states, and US coal generation fell from ~48% to ~16% in 15 years — the dirty-grid case shrinks every year.",
+            "If grid data kept matching an EV on the average US grid to a car near 94 MPG, with the most efficient EV beating any gas car in all 50 states, and coal's share kept falling after its drop from about 48% to 16% in 15 years, the 'coal car' objection would weaken each year.",
           common_ground:
             "Both sides agree the EV emissions advantage depends on grid carbon intensity — smallest on coal-heavy grids, largest on clean ones.",
           live_disagreement:

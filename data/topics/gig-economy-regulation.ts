@@ -47,7 +47,7 @@ export const gigEconomyRegulationData = {
           supporter_flip:
             "If an algorithm audit showed drivers genuinely operate like independent businesses — setting their own prices, choosing clients, facing no acceptance-rate scoring or unilateral deactivation, and bearing no more control than a freelance consultant — then the 'misclassification' case would collapse and the contractor label would be factually accurate.",
           skeptic_flip:
-            "A skeptic who treats flexibility as proof of independence should weigh that platforms set the fare, assign the trip, score acceptance and cancellation, and can deactivate without appeal — the precise levers of control courts in Uber v Aslam and the 2024 Bolt tribunal found decisive — so 'they choose their hours' doesn't settle whether the relationship is employment.",
+            "If audits confirmed that platforms set the fare, assign the trip, score acceptance and cancellation and deactivate without appeal, the levers courts weighed in Uber v Aslam and the 2024 Bolt tribunal, 'they choose their hours' would no longer settle that drivers are independent.",
           common_ground:
             "Both sides agree gig work offers schedule flexibility that traditional employment rarely does, and that the legal test should turn on the actual day-to-day working relationship rather than the contract's label.",
           live_disagreement:
@@ -133,7 +133,7 @@ export const gigEconomyRegulationData = {
           supporter_flip:
             "If post-directive data from the EU showed reclassification sharply shrank the market — platforms cutting onboarded drivers, capping hours, and raising consumer prices enough that total worker earnings and available work fell — then mandating employee status would be a net loss for the very workers it aims to protect.",
           skeptic_flip:
-            "A skeptic who assumes protections must kill flexibility should weigh that several European economies with stronger labor rules still sustain active platform sectors, and that headline gross pay overstates take-home once fuel, insurance, depreciation, and unpaid waiting time are netted out — so 'reclassification destroys the model' is an empirical claim, not a given.",
+            "If European economies with stronger labor rules kept active platform sectors after reclassification, and take-home pay net of fuel, insurance, depreciation and unpaid waiting time came in well below headline gross pay, 'reclassification destroys the model' would lose its footing.",
           common_ground:
             "Both sides agree reclassification raises platform labor costs and that some of that cost flows through to prices, hours, or the number of available shifts; the dispute is the magnitude and who ultimately bears it.",
           live_disagreement:

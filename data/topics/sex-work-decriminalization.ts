@@ -39,7 +39,7 @@ export const sexWorkDecriminalizationData = {
           supporter_flip:
             "If cross-national panels that separate full decriminalization from licensed legalization, while modeling reporting bias and migration, found decriminalized markets also drawing larger trafficking inflows, the safety case would weaken: a safer experience for some independent workers would come at the cost of the coerced.",
           skeptic_flip:
-            "A skeptic who fears market expansion should weigh that a PLOS Medicine review found repressive policing roughly tripled the odds of sexual or physical violence (OR 2.99), and that New Zealand's official review found its 2003 reform safeguarded sex workers' rights without increasing their number.",
+            "If more reviews matched the PLOS Medicine finding that repressive policing roughly triples the odds of violence (OR 2.99), and reforms like New Zealand's in 2003 kept protecting rights without growing the number of sex workers, the market-expansion fear would weaken.",
           common_ground:
             "Both sides agree the trafficked and coerced are the hardest group to count, so recorded trafficking figures are an imperfect guide — the UNODC itself warns its counts are not victim counts.",
           live_disagreement:
@@ -172,7 +172,7 @@ export const sexWorkDecriminalizationData = {
           supporter_flip:
             "If replications of the Rhode Island design elsewhere, covering street-based markets and longer windows, found no drop in STI incidence, and the Lancet model's HIV gains largely vanished under pessimistic assumptions about violence and policing, the health case would shrink to a projection.",
           skeptic_flip:
-            "A skeptic who discounts the models should weigh that Rhode Island's accidental 2003-2009 decriminalization of indoor sex work brought a measured drop of over 40% in female gonorrhea incidence and about 30% fewer reported rapes, and that the Lancet estimate spans three very different settings: Canada, India and Kenya.",
+            "If studies elsewhere repeated Rhode Island's 2003-2009 natural experiment, with gonorrhea incidence down over 40% and reported rapes down about 30%, and the Lancet model held across settings like Canada, India and Kenya, the health case would rest on measurement, not models alone.",
           common_ground:
             "Both sides agree the 33-46% HIV figure is a model projection, and that the cleanest measured evidence, Rhode Island's roughly 40% gonorrhea drop, covers only indoor sex work over a few years.",
           live_disagreement:

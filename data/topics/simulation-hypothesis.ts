@@ -93,7 +93,7 @@ export const simulationHypothesisData = {
           supporter_flip:
             "If a connectome-derived digital C. elegans (its 302 neurons plus body physics) reproduced the worm's full behavioral repertoire — chemotaxis, noxious-stimulus avoidance, mating, and learning — across dozens of assays, yet a biological-physics theory of consciousness (e.g. Penrose-Hameroff Orch-OR) made a confirmed prediction that no digital model could match, a supporter of substrate independence would have to concede that capturing input-output structure is not sufficient.",
           skeptic_flip:
-            "A skeptic who insists biology is special should weigh that neurons are physical information processors with no known non-computable step, that OpenWorm already reproduces basic forward/backward locomotion from the connectome, and that the Penrose-Lucas appeal to Gödel is rejected by most logicians — so 'neurons can't be simulated in principle' is an assertion, not an established result.",
+            "If connectome-based models of the worm, extending OpenWorm's forward and backward locomotion, reproduced its full behavior, and no non-computable step turned up in how neurons process information, 'neurons can't be simulated in principle' would lose its footing.",
           common_ground:
             "Both sides agree the 302-neuron connectome is fully mapped, that basic locomotion has been simulated, and that full behavioral replication (chemotaxis, learning) has not yet been demonstrated.",
           live_disagreement:
@@ -202,9 +202,9 @@ export const simulationHypothesisData = {
         cost_to_verify: "$0 (Philosophical analysis)",
         falsification: {
           supporter_flip:
-            "A supporter of the high-f_sim branch should change their mind if a published flaw were found in the indifference (bland-principle) reasoning Bostrom uses to move from 'most observers are simulated' to 'you are probably simulated' — the line of attack Weatherson presses — or if substrate independence were shown false, since the fraction calculation only bites once both premises hold.",
+            "If a published flaw were found in the indifference reasoning that moves from 'most observers are simulated' to 'you are probably simulated', the line Weatherson presses, or substrate independence were shown false, the fraction calculation would no longer bite.",
           skeptic_flip:
-            "A skeptic should weigh that, conditional on the first two disjuncts failing, the arithmetic is hard to escape: if even a tiny fraction of surviving civilizations run many ancestor-simulations, simulated observers swamp the biological originals, so dismissing the conclusion requires committing to one of the other two branches (near-universal extinction or near-universal disinterest), not to none of them.",
+            "If the first two branches were closed off, so that even a small share of surviving civilizations running many ancestor-simulations left simulated observers far outnumbering biological ones, dismissing the conclusion would mean committing to near-universal extinction or near-universal disinterest instead.",
           common_ground:
             "Both sides accept that the trilemma's disjunction is logically valid and that at least one of the three propositions must hold; the dispute is over which one, not over the validity of the argument.",
           live_disagreement:
@@ -313,9 +313,9 @@ export const simulationHypothesisData = {
         cost_to_verify: "$0 (Pierre Auger Observatory data is public)",
         falsification: {
           supporter_flip:
-            "A supporter who reads physics as 'computational' should weigh that the cited features each already follow from independently motivated physics — the Planck scale from quantum gravity, the light-speed limit from relativity, and the quantization that is real is selective (bound-state energies and spin, not position, momentum, or time) — so by parsimony none of them require a simulator, and the one anisotropy Auger does see (the >8 EeV dipole) is attributed to an extragalactic astrophysical origin, not a lattice. The continued absence of a cubic-lattice signature, against the bound b^-1 >~ 10^11 GeV that Beane, Davoudi and Savage derive, is evidence against a lattice simulation of that form.",
+            "If each cited feature were traced to independently motivated physics, the Planck scale to quantum gravity and the speed limit to relativity, and the >8 EeV dipole Auger sees to an extragalactic source, with no cubic-lattice signature against the bound Beane, Davoudi and Savage derive, the computational reading would lose its footing.",
           skeptic_flip:
-            "A skeptic should treat the lattice proposal as testable and update on its result: if high-energy cosmic-ray arrival directions showed rotational-symmetry breaking specifically aligned with cubic-lattice axes — the exact Beane-Davoudi-Savage signature, not a generic dipole — it would be positive evidence for a lattice simulation.",
+            "If high-energy cosmic-ray arrival directions broke rotational symmetry along cubic-lattice axes, the specific Beane-Davoudi-Savage signature rather than a generic dipole, a lattice simulation would gain real support.",
           common_ground:
             "Both sides agree the relevant physics (quantization, the holographic bound, the GZK cutoff) is well-established and that no lattice-orientation signature in cosmic rays has actually been observed.",
           live_disagreement:

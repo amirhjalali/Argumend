@@ -41,7 +41,7 @@ export const ukrainePeaceTermsData = {
           supporter_flip:
             "If ISW terrain data over a rolling 12 months showed Russian offensive capacity genuinely collapsing — net territorial change turning in Ukraine's favor as Russian casualties and equipment losses outran replacement — holding out for better terms would be rational and a freeze at current lines would look premature.",
           skeptic_flip:
-            "A skeptic who sees a reward for aggression should weigh ISW's description of a front line that has barely moved in months, with Russia's spring 2026 offensive called 'underwhelming', and that a Korea-style armistice would ratify de facto control without de jure recognition, preserving Ukraine's legal claim.",
+            "If the front line kept barely moving, as ISW describes, with Russia's spring 2026 offensive judged underwhelming, and a Korea-style armistice ratified de facto control while preserving Ukraine's legal claim, 'a reward for aggression' would describe a freeze poorly.",
           common_ground:
             "Both sides agree the front line has barely moved in recent months, and that any freeze would leave roughly 4 million Ukrainians in territory Russia now occupies.",
           live_disagreement:
@@ -153,7 +153,7 @@ export const ukrainePeaceTermsData = {
           supporter_flip:
             "If mapping every proposed guarantee — bilateral arms, a European tripwire force, NATO membership, Article 5 — against Russia's stated red lines and military-balance analysis found no option both acceptable to Russia and strong enough to deter, no settlement could be both durable and signable, and the case for a deal would fail.",
           skeptic_flip:
-            "A skeptic who sees a rearm-and-relaunch runway should weigh the January 2026 Paris offer of UK and French 'military hubs' and a 15,000-20,000 European tripwire force, backed by continued heavy armament of unoccupied Ukraine — deterrence on the Korea model without NATO membership.",
+            "If the January 2026 Paris offer held, with UK and French military hubs, a 15,000-20,000 European tripwire force and continued heavy armament of unoccupied Ukraine, deterrence on the Korea model without NATO membership would look like more than a rearm-and-relaunch runway.",
           common_ground:
             "Both sides agree any deal must answer what stops Russia from attacking again, and that Russia has so far rejected any NATO troops in Ukraine.",
           live_disagreement:
@@ -265,7 +265,7 @@ export const ukrainePeaceTermsData = {
           supporter_flip:
             "If armored-vehicle availability, recruitment net of casualties and real fiscal stress all crossed a depletion threshold as RUSI projects for late 2026, withholding sanctions relief and continuing to arm Ukraine would extract better terms, and freezing the war now would give away leverage.",
           skeptic_flip:
-            "A skeptic betting on Russian depletion should weigh that Carnegie's March 2026 study called Ukraine's manpower problem 'increasingly acute', that years of sanctions have not coerced Russia, and that forecasts of Russia's attrition curve crossing have been made and missed before.",
+            "If Ukraine's manpower problem kept worsening as Carnegie's March 2026 study describes, sanctions again failed to coerce Russia, and the attrition curve missed its projected crossing as earlier forecasts did, betting on Russian depletion would look unsafe.",
           common_ground:
             "Both sides agree the war has become a contest of attrition in which manpower is decisive, and that sanctions have not by themselves forced Russia to stop.",
           live_disagreement:
@@ -377,7 +377,7 @@ export const ukrainePeaceTermsData = {
           supporter_flip:
             "If PLA exercises, amphibious-lift production and gray-zone incursions around Taiwan rose after a settlement at current lines, and assessments found China drawing the strategic lesson that aggression pays, the demonstration effect would be real and a freeze would carry costs far beyond Ukraine.",
           skeptic_flip:
-            "A skeptic who sees a frozen conflict emboldening aggressors should weigh AEI's assessment that China's lessons from Ukraine are mainly operational — drones, AI, electronic warfare — rather than a strategic green light, and that Taiwan is geographically and economically unlike Ukraine.",
+            "If assessments found China drawing mainly operational lessons from Ukraine, as AEI argues for drones, AI and electronic warfare, rather than a strategic green light, and Taiwan's geography and economy kept the cases apart, the emboldening worry would lose much of its force.",
           common_ground:
             "Both sides agree a settlement at current lines would be a frozen, Korea-style armistice without formal resolution rather than a peace treaty.",
           live_disagreement:

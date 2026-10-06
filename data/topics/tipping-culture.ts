@@ -57,7 +57,7 @@ export const tippingCultureData = {
           supporter_flip:
             "If rigorous difference-in-differences analysis showed that eliminating the tip credit reliably lowers total take-home pay for most front-of-house workers — because lost tips exceed the higher base wage, as many D.C. servers reported — the 'abolition helps workers' case would weaken to 'helps the lowest earners while hurting the median server.'",
           skeptic_flip:
-            "A defender who says servers do fine should weigh that the make-up rule is widely under-enforced, that poverty rates for waitstaff are roughly 18% in $2.13 states versus 11% in equal-wage states, and that median pay hides huge volatility and a long left tail of workers who fall through the cracks.",
+            "If enforcement data showed the make-up rule widely unenforced, and the gap in waitstaff poverty (about 18% in $2.13 states versus 11% in equal-wage states) held up with controls, the view that servers do fine under tipping would be hard to hold.",
           common_ground:
             "Both sides agree a $2.13 frozen cash wage is indefensible on its face and that the make-up requirement is poorly enforced; neither side defends $2.13 as the right number.",
           live_disagreement:
@@ -177,7 +177,7 @@ export const tippingCultureData = {
           supporter_flip:
             "If studies showed that race- and gender-based earnings gaps among front-of-house workers persist or even widen after tips are replaced by flat wages — because managers' hiring and scheduling biases simply replace customers' tipping bias — the claim that abolition fights discrimination would collapse.",
           skeptic_flip:
-            "A defender who says tipping rewards merit should weigh that tip size explains only ~1-5% of service-quality variance while server race predicts a ~4-point tip gap — so the 'tips measure service' rationale is largely empirically false, whatever happens to bias afterward.",
+            "If new studies confirmed that tip size tracks only about 1-5% of service-quality variance while server race predicts a tip gap of about 4 points, the 'tips reward good service' rationale would lose its footing, whatever happens to bias afterward.",
           common_ground:
             "Both sides accept the empirical findings: tip size correlates weakly with service quality and meaningfully with server race and gender.",
           live_disagreement:
@@ -297,7 +297,7 @@ export const tippingCultureData = {
           supporter_flip:
             "If broad, mandatory elimination of the tip credit (not just isolated experiments) reliably produced sustained worker income losses, customer flight, and political reversal — the D.C. pattern repeated wherever it's tried — then abolition would be unworkable in U.S. dining culture, not merely a coordination problem.",
           skeptic_flip:
-            "A skeptic pointing to failed experiments should weigh that seven equal-wage states have run healthy restaurant industries for decades with servers taking home more on average, and that EPI and D.C.'s budget office found full-service employment grew (~7.9%) after Initiative 82 — so 'it always fails' is contradicted by the jurisdiction-wide cases.",
+            "If multi-year tracking in the seven equal-wage states and in D.C. after Initiative 82 kept showing full-service employment growing and servers taking home more on average, the view that service-included pay always fails in the US would be hard to hold.",
           common_ground:
             "Both sides agree single-restaurant no-tip experiments like USHG's largely failed and that the D.C. rollout was rocky and politically contested.",
           live_disagreement:

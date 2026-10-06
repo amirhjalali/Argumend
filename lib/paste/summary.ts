@@ -54,8 +54,8 @@ export function buildPasteSummary({
     if (match.crux) {
       const words = match.cardsAbout === "map-question" ? ANSWER_SIDES : CLAIM_SIDES;
       lines.push(`The question the map says it turns on: ${match.crux.question}`);
-      if (match.crux.supporterFlip) lines.push(`${words.yesChangesMind} ${match.crux.supporterFlip}`);
-      if (match.crux.skepticFlip) lines.push(`${words.noChangesMind} ${match.crux.skepticFlip}`);
+      if (match.crux.supporterFlip) lines.push(`${words.yesChangesMind}: ${match.crux.supporterFlip}`);
+      if (match.crux.skepticFlip) lines.push(`${words.noChangesMind}: ${match.crux.skepticFlip}`);
     }
     lines.push(`Both sides' best evidence: ${SITE_URL}${match.crux?.href ?? match.href}`);
     const sibling = maps.related?.[0];

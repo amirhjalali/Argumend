@@ -55,7 +55,7 @@ export const ssriAntidepressantEfficacyData = {
           supporter_flip:
             "If patient-level mixture-model re-analysis failed to find a distinct drug-specific responder mode — i.e., drug improvement was just a uniform rightward shift of the same placebo-response distribution — and the average held below a patient-anchored minimal-important-difference, the 'hidden responders' defense would collapse and the small average would be the whole story.",
           skeptic_flip:
-            "A skeptic leaning on the ~2-point average should weigh that group means mathematically blur a subgroup effect: FDA participant-level data (Stone 2022) show ~15% of drug-treated patients hit a 'Large' response (24.5% vs 9.6% on placebo), and a 3-point cutoff is itself an arbitrary line, not a law of nature.",
+            "If more participant-level analyses replicated Stone 2022's finding of a 'Large' response in 24.5% of drug-treated patients vs 9.6% on placebo, the ~2-point average would look like a blurred subgroup effect, and the 3-point cutoff like an arbitrary line.",
           common_ground:
             "Both sides accept the raw numbers — the average drug-placebo difference is real, statistically robust, and small (~1.8-2 Hamilton points, SMD ~0.3).",
           live_disagreement:
@@ -144,7 +144,7 @@ export const ssriAntidepressantEfficacyData = {
           supporter_flip:
             "If item-level re-analysis showed the drug-placebo gap was diffuse — spread roughly evenly across unrelated Hamilton items (sleep, weight, anxiety) rather than concentrated on core depressed mood — and active-placebo trials that mimic side effects erased the gap, that would point to broken blinding/expectancy rather than pharmacology, undercutting the efficacy claim.",
           skeptic_flip:
-            "A skeptic invoking unblinding should weigh that a pure expectancy effect would not be symptom-specific or dose-dependent: patient-level data from 18 trials (Hieronymus 2016) show SSRI superiority concentrated on the single depressed-mood item (effect ~0.44), exactly where a real antidepressant should act and larger than the noisy full-scale signal.",
+            "If more patient-level analyses, extending Hieronymus 2016's 18 trials, found SSRI benefit concentrated on the core depressed-mood item and rising with dose, expectancy from unblinding would struggle to explain so symptom-specific an effect.",
           common_ground:
             "Both sides agree SSRIs produce noticeable side effects that can compromise the blind, and that the standard 17-item Hamilton total is a noisy outcome measure.",
           live_disagreement:
@@ -213,9 +213,9 @@ export const ssriAntidepressantEfficacyData = {
         cost_to_verify: "$5M (randomized taper-vs-maintenance trial)",
         falsification: {
           supporter_flip:
-            "If a slow-taper, blinded discontinuation trial showed that gradually withdrawn patients relapsed at nearly the same elevated rate as abruptly switched ones — with relapses being genuine returns of depression by timing and symptom profile, not withdrawal syndromes — then the maintenance benefit would be confirmed rather than inflated, and the withdrawal-confound objection would lose force.",
+            "If abrupt switch-to-placebo designs were found to code discontinuation symptoms as 'relapse', and those symptoms unblinded patients as the review's own authors warn they could, the ~41%-to-18% relapse gap (Geddes 2003) would overstate the maintenance benefit.",
           skeptic_flip:
-            "A skeptic citing the large ~41%-to-18% relapse gap (Geddes 2003) should weigh that abrupt switch-to-placebo designs can manufacture discontinuation symptoms that get coded as 'relapse,' and that the review's own authors warn these symptoms could unblind patients and bias results toward the active drug.",
+            "If a slow-taper, blinded discontinuation trial found gradually withdrawn patients relapsing at nearly the same rate as abruptly switched ones, with genuine returns of depression rather than withdrawal syndromes, the maintenance benefit would hold and the withdrawal-confound objection would lose force.",
           common_ground:
             "Both sides agree that staying on an antidepressant is associated with lower measured relapse, and that stopping abruptly can trigger discontinuation symptoms.",
           live_disagreement:

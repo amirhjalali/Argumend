@@ -57,7 +57,7 @@ export const sportsBettingLegalizationData = {
           supporter_flip:
             "If a clean difference-in-differences analysis showed that legalization mostly induces brand-new betting volume rather than displacing illegal handle — so total household gambling outflows jump sharply rather than merely changing channels — then the 'we're just capturing existing demand' defense collapses and legalization owns the resulting financial harm.",
           skeptic_flip:
-            "A skeptic who treats all legal handle as new harm should weigh the AGA estimate of ~$64B in pre-existing illegal sports wagering and GeoComply evidence that enforcement converts offshore bettors to legal sites — meaning a substantial share of legal volume is displaced demand that already existed with worse protections.",
+            "If player-level data showed most legal handle coming from bettors who left offshore books, testing the AGA's ~$64B estimate of pre-existing illegal wagering, legal volume would look like displaced demand rather than new harm.",
           common_ground:
             "Both sides agree a large illegal market existed before 2018 and that legal mobile betting also recruits some bettors who would not have used an offshore book.",
           live_disagreement:
@@ -181,7 +181,7 @@ export const sportsBettingLegalizationData = {
           supporter_flip:
             "If cross-jurisdiction analysis showed bankruptcy, savings-depletion, and debt outcomes track total betting volume regardless of which harm-reduction tools are mandated — because the heaviest losers reliably route around limits and self-exclusion — then the 'regulate the harm away' defense fails and the harms are structural to frictionless mobile betting.",
           skeptic_flip:
-            "A skeptic who calls regulation futile should weigh that legal operators can be compelled to verify age, honor self-exclusion, and impose hard affordability caps that offshore books cannot — and that jurisdictions with mandatory (not opt-in) limits and ad restrictions are the untested comparison, not the lightly regulated first-generation US market the harm studies measured.",
+            "If jurisdictions with mandatory (not opt-in) affordability caps, enforced self-exclusion and ad limits showed far lower harm than the lightly regulated first US markets the harm studies measured, the view that regulation is futile would lose its footing.",
           common_ground:
             "Both sides accept the NBER and credit-bureau evidence that the early US mobile-betting model reduced savings and raised financial distress, concentrated among vulnerable households.",
           live_disagreement:
@@ -303,7 +303,7 @@ export const sportsBettingLegalizationData = {
           supporter_flip:
             "If a net-externality ledger showed legalization manufactures more new addiction, IPV, and prop-bet manipulation than its monitoring and treatment infrastructure catches or mitigates — i.e., the third-party harms clearly exceed prohibition's — then 'regulated monitoring protects integrity and people' fails on net.",
           skeptic_flip:
-            "A skeptic should weigh that integrity monitoring demonstrably exposed real match-fixing that offshore books would have hidden, and that legally mandated helpline advertising routes at-risk people to treatment that did not exist underground — so part of the measured 'surge' is harm finally being detected and addressed, not solely harm created.",
+            "If integrity monitoring kept exposing match-fixing that offshore books would have hidden, and mandated helpline ads kept routing at-risk bettors into treatment, part of the measured 'surge' would look like harm finally detected rather than harm created.",
           common_ground:
             "Both sides agree problem-gambling helpline calls rose sharply after legalization, that legal monitoring has caught real integrity violations, and that granular prop bets create manipulation incentives.",
           live_disagreement:

@@ -57,7 +57,7 @@ export const nuclearFusionTimelineData = {
           supporter_flip:
             "If a privately funded device like SPARC fails to reach even fuel-gain Q>1 on schedule, or if an integrated pilot plant runs but its measured Q_eng stays well below 1 once magnets, cryogenics, heating, and balance-of-plant draw are counted, the case that wall-plug gain is 'engineering, not mystery' would weaken to an open research problem.",
           skeptic_flip:
-            "A skeptic should weigh that the hard part — releasing more fusion energy than is delivered to the fuel — has now been demonstrated and repeated, and that high-temperature-superconducting magnets give compact tokamaks far higher fields than ITER assumed, which raises the plasma gain a given machine can reach.",
+            "If repeated shots kept releasing more fusion energy than is delivered to the fuel, and high-temperature-superconducting magnets gave compact tokamaks the higher fields their designs assume, plasma gain would look like engineering rather than an open physics question.",
           common_ground:
             "Both sides agree NIF showed scientific (fuel-relative) gain, that no device has yet exported net electricity to a grid, and that Q_eng > 1 with margin is the real commercial bar.",
           live_disagreement:
@@ -149,7 +149,7 @@ export const nuclearFusionTimelineData = {
           supporter_flip:
             "If an integrated full-coverage lithium blanket around a sustained D-T plasma cannot reach a recovered TBR above 1 once port penetrations, structural gaps, tritium decay, and extraction losses are counted — or if the only blankets that breed enough require neutron multipliers and tritium inventories that are themselves impractical — then a near-term D-T fusion economy would be blocked on fuel regardless of plasma performance.",
           skeptic_flip:
-            "A skeptic should weigh that tritium breeding is a neutronics-and-materials engineering problem with no known physics barrier, that neutron-multiplier designs (beryllium, lead) can in principle push the local breeding ratio above 1, and that the very low ratios measured so far come from small experiments never meant to demonstrate self-sufficiency.",
+            "If integrated blanket tests pushed the recovered breeding ratio above 1 with neutron multipliers such as beryllium or lead, the low ratios from small experiments never built for self-sufficiency would say little, and fuel would look like a neutronics and materials problem.",
           common_ground:
             "Both sides agree tritium is scarce, that a D-T plant must breed essentially all the tritium it burns (TBR > 1 with margin), and that self-sufficiency has never been demonstrated at scale.",
           live_disagreement:
@@ -257,7 +257,7 @@ export const nuclearFusionTimelineData = {
           supporter_flip:
             "If first-of-a-kind plants keep slipping the way ITER has (2035 to 2039, +€5B), or if the first commercial plants come in so costly that learning-curve cost declines stall and no fleet gets ordered, then 'meaningful share of the energy mix within two decades' fails even if a single demonstrator eventually works.",
           skeptic_flip:
-            "A skeptic should weigh that ITER is a one-off international science machine, not the commercial path, that compact high-field private designs are pursuing far shorter build cycles, and that other energy technologies (solar PV, gas turbines) scaled from first units to large generation shares within roughly a decade once costs fell.",
+            "If compact high-field private designs hit the short build cycles they promise, and fusion scaled from first units to a large generation share within about a decade of cost declines as solar PV and gas turbines did, ITER's slippage would say little about the commercial path.",
           common_ground:
             "Both sides agree one pilot plant is not an energy-mix share, that a meaningful share requires many economically competitive plants, and that fusion's history is one of repeated schedule slippage.",
           live_disagreement:

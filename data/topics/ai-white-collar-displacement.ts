@@ -41,7 +41,7 @@ export const aiWhiteCollarDisplacementData = {
           supporter_flip:
             "If blinded evaluations of real deliverables in law, medicine, accounting and software found AI alone falling persistently short of junior professionals on high-stakes judgment, liability exposure or client satisfaction, augmentation rather than displacement would dominate, and the net-job-loss claim would weaken.",
           skeptic_flip:
-            "A skeptic who dismisses benchmarks should weigh that AI has moved from test-taking toward work itself: agentic systems in 2025-2026 carry out multi-step professional workflows with reduced human intervention, and GitHub reported Copilot generating 46% of code for developers who use it.",
+            "If blinded evaluations found agentic systems completing multi-step professional workflows with little human help, and AI's share of output, like the 46% of Copilot users' code GitHub reported, kept rising, the benchmarks-only objection would lose its footing.",
           common_ground:
             "Both sides agree frontier models now pass professional exams — GPT-4 scored in the 90th percentile on the bar in 2023 — and that a test score is not the same as a complete professional deliverable.",
           live_disagreement:
@@ -170,7 +170,7 @@ export const aiWhiteCollarDisplacementData = {
           supporter_flip:
             "If BLS data from 2023 to 2030 showed new occupations that did not exist in 2023 employing more people than AI displaced, and knowledge-work employment kept growing with the economy, the historical pattern would have held and the displacement claim would fail.",
           skeptic_flip:
-            "A skeptic who trusts the historical pattern should weigh that earlier waves left non-routine cognitive work as an escape valve, while AI now targets that work directly — Goldman Sachs estimates the equivalent of 300 million full-time jobs worldwide are exposed to generative AI, with legal and financial work among the most exposed.",
+            "If generative AI kept moving into non-routine cognitive work, the escape valve of earlier waves, and the roughly 300 million full-time-equivalent jobs Goldman Sachs counts as exposed saw cuts without new roles appearing, the historical pattern would look unlikely to hold.",
           common_ground:
             "Both sides agree past automation waves ended up creating more jobs than they destroyed: U.S. employment grew from about 60 million in 1950 to 160 million in 2024.",
           live_disagreement:
@@ -282,7 +282,7 @@ export const aiWhiteCollarDisplacementData = {
           supporter_flip:
             "If total-cost-of-ownership audits across law, accounting, software, financial analysis and customer service found integration, oversight, error remediation and liability insurance closing most of AI's cost gap, adoption would stall at augmentation and the substitution pressure behind the claim would fade.",
           skeptic_flip:
-            "A skeptic who stresses switching costs should weigh that OpenAI's API pricing fell 96% in four years while a fully loaded U.S. professional costs $150,000-$300,000 a year, and that Klarna said in 2024 its AI assistant did the work of 700 full-time agents, even if it partly reversed course in 2025.",
+            "If AI prices kept falling the way OpenAI's API did (96% in four years) against a loaded professional cost of $150,000-$300,000 a year, and more firms reported cases like Klarna's 700-agent claim that held without reversal, switching costs would look too small to stop substitution.",
           common_ground:
             "Both sides agree AI inference costs have fallen steeply — about 96% in four years — while the fully loaded cost of professional knowledge workers has kept rising.",
           live_disagreement:
@@ -411,7 +411,7 @@ export const aiWhiteCollarDisplacementData = {
           supporter_flip:
             "If tracking large enterprises over 2024-2029 showed AI-intensive firms growing knowledge-worker headcount as output expanded, augmentation would be creating demand faster than it cuts jobs, and the displacement claim would fail.",
           skeptic_flip:
-            "A skeptic who sees augmentation should weigh that a 40% productivity gain lets firms produce the same output with fewer workers unless demand grows as fast, and that tech companies laid off over 260,000 workers in 2023 and about 150,000 in 2024 while revenue and output grew.",
+            "If productivity gains near 40% came with flat demand, and firms kept cutting staff as output grew, the way tech companies laid off over 260,000 workers in 2023 and about 150,000 in 2024, augmentation would look like a route to smaller headcounts.",
           common_ground:
             "Both sides agree AI raises individual productivity — BCG consultants using GPT-4 finished 25.1% faster with 40% higher-quality work — and that the gains so far have come mostly as augmentation.",
           live_disagreement:

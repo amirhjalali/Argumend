@@ -38,7 +38,7 @@ export const cancelCultureData = {
           supporter_flip:
             "If behavioral measures — op-ed submissions, the range of topics in academic papers, public-comment participation — showed no narrowing over time once political climate and platform changes are controlled for, the self-censorship surveys would describe discomfort rather than a chilling effect, and the harm case would weaken.",
           skeptic_flip:
-            "A skeptic who sees only accountability should weigh that the 2020 Cato/YouGov survey found 62% of Americans say the political climate stops them sharing what they believe, up from 58% in 2017 and spanning the political spectrum, and that FIRE found about a quarter of college students self-censor fairly or very often.",
+            "If behavioral measures matched the surveys, with the 62% in Cato/YouGov who hold back their views and the quarter of students FIRE found self-censoring showing up as a real narrowing of what gets said, the chilling effect would be hard to read as mere accountability.",
           common_ground:
             "Both sides agree some speech warrants social consequences, and that many high-profile targets — J.K. Rowling, Dave Chappelle, Joe Rogan — kept their platforms after cancellation attempts.",
           live_disagreement:
@@ -148,7 +148,7 @@ export const cancelCultureData = {
           supporter_flip:
             "If tracking shaming campaigns by target showed ordinary people recovering from job loss and pile-ons about as well as celebrities and executives, and most campaigns aimed at people with real power, the claim that cancel culture falls hardest on those least able to defend themselves would weaken.",
           skeptic_flip:
-            "A skeptic who sees a tool for the marginalized should weigh that non-public figures such as data analyst David Shor have lost jobs with no platform to mount a defense, and that FIRE found conservative students self-censor far more than liberal peers (38% vs. 19% in conversations with other students) — a sign of uneven conformity pressure rather than changed minds.",
+            "If tracking found non-public figures like data analyst David Shor losing jobs more often than people with real power, and FIRE's self-censorship gap (38% of conservative students vs. 19% of liberals) persisted, the tool-for-the-marginalized view would be hard to hold.",
           common_ground:
             "Both sides agree that prominent figures with audiences and legal teams usually keep their platforms after a cancellation attempt.",
           live_disagreement:

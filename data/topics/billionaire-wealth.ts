@@ -37,7 +37,7 @@ export const billionaireWealthData = {
           supporter_flip:
             "If cross-national panels comparing wealth concentration with intergenerational earnings mobility found no link once education, tax policy and institutional quality are controlled for, the claim that extreme wealth harms society by blunting mobility would weaken.",
           skeptic_flip:
-            "A skeptic who sees billionaires as job creators should weigh that the top 1% hold roughly 30% of US household net worth while the bottom 50% hold about 2.5%, a gap that has widened substantially since the late 1980s, and that a large share of foundational innovation originates in publicly funded labs and research grants.",
+            "If new data showed the gap between the top 1%'s ~30% of net worth and the bottom half's ~2.5% still widening, and traced much foundational innovation to publicly funded labs and grants, the job-creator defense of billionaire wealth would weaken.",
           common_ground:
             "Both sides accept the Federal Reserve's picture — the top 1% hold roughly 30% of US household net worth, the bottom 50% about 2.5% — and that billionaire-founded firms such as Amazon employ very large numbers of people.",
           live_disagreement:
@@ -151,7 +151,7 @@ export const billionaireWealthData = {
           supporter_flip:
             "If extending the Gilens & Page method to a larger set of policy issues found outcomes tracking the median voter about as closely as the wealthy, the claim that concentrated wealth buys outsized political power would weaken.",
           skeptic_flip:
-            "A skeptic who trusts disclosure rules and philanthropy should weigh Gilens & Page's finding, across 1,779 policy issues, that economic elites and business groups shaped outcomes while average citizens had little independent influence, and that federal lobbying hit a record $4.4B in 2024.",
+            "If extending Gilens & Page's 1,779-issue analysis kept finding elites and business groups shaping outcomes while average citizens had little independent influence, as lobbying hit records like 2024's $4.4B, disclosure and philanthropy would look like weak checks.",
           common_ground:
             "Both sides agree the very wealthy shape public life well beyond their own vote, through political giving and through philanthropy such as the Gates Foundation's global-health funding.",
           live_disagreement:

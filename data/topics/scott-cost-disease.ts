@@ -70,7 +70,7 @@ export const scottCostDiseaseData = {
           supporter_flip:
             "If splitting each sector's real cost growth into a Baumol-predicted wage path and a residual left only a small residual in health, education and construction, the rise would be a mechanical effect of wages rather than a pathology, and the case for a stack of reinforcing causes would weaken.",
           skeptic_flip:
-            "A skeptic who treats Baumol as the whole story should weigh that it predicts higher prices, not flat output — yet NAEP scores for 17-year-olds are essentially flat since the 1970s as real per-pupil spending rose — and that equally labor-bound services like haircuts and restaurant meals saw only modest real price growth.",
+            "If outcome data kept showing flat NAEP scores for 17-year-olds as real per-pupil spending rose, and equally labor-bound services like haircuts and restaurant meals saw only modest real price growth, rising wages alone would not explain the cost rise.",
           common_ground:
             "Both sides accept Baumol's mechanism as real: labor-intensive services rise in relative price as the rest of the economy automates, so part of the cost rise needs no villain.",
           live_disagreement:
@@ -173,7 +173,7 @@ export const scottCostDiseaseData = {
           supporter_flip:
             "If matched comparisons of systems with similar health outcomes found the administrative gap between U.S. multi-payer care and Canada's single payer mostly buying real coordination rather than paperwork, the bloat layer of the cost-disease stack would weaken.",
           skeptic_flip:
-            "A skeptic who sees admin growth as coordination cost should weigh that U.S. health-care administration ran about $2,497 per capita versus about $551 in Canada in 2017 — roughly four times — and that university administrator ranks grew far faster than faculty or students for decades.",
+            "If matched comparisons confirmed U.S. health administration near four times Canada's per person ($2,497 versus $551 in 2017) at similar outcomes, and university administrators kept outgrowing faculty and students, the growth would look like bloat rather than coordination.",
           common_ground:
             "Both sides agree administration is a large share of U.S. health spending — roughly a third by one estimate — and that no single administrative line explains a several-fold cost rise on its own.",
           live_disagreement:
@@ -260,7 +260,7 @@ export const scottCostDiseaseData = {
           supporter_flip:
             "If difference-in-differences studies of loan-cap and reimbursement changes found low pass-through — subsidies mostly expanding access rather than raising list prices — subsidy capture would drop out of the cost-disease stack.",
           skeptic_flip:
-            "A skeptic who notes that pass-through estimates vary widely should weigh the cleanest natural experiment: the New York Fed found roughly 60 cents of each subsidized federal-loan dollar showed up as higher sticker tuition.",
+            "If more natural experiments matched the New York Fed's estimate that about 60 cents of each subsidized federal-loan dollar showed up as higher sticker tuition, subsidy capture would be hard to dismiss as noise among widely varying estimates.",
           common_ground:
             "Both sides agree K–12 shows cost disease without a tuition-style demand subsidy, so subsidy capture can be at most one layer of the stack, not the general mechanism.",
           live_disagreement:
@@ -346,7 +346,7 @@ export const scottCostDiseaseData = {
           supporter_flip:
             "If pairing comparable tunneling projects in the Transit Costs Project database and controlling for wages and geology left little residual country multiple, the U.S. gap would be scope and geography rather than dysfunction.",
           skeptic_flip:
-            "A skeptic who calls the comparisons apples-to-oranges should weigh that matched-project studies still find U.S. subway tunneling at several times French or Korean costs for comparable work, and that real per-mile Interstate spending roughly tripled from the 1960s to the 1980s as litigation and participation requirements grew.",
+            "If more matched-project studies kept U.S. subway tunneling at several times French or Korean costs for comparable work, and the roughly tripled per-mile Interstate cost from the 1960s to the 1980s traced to litigation and participation rules, the gap would look institutional rather than apples-to-oranges.",
           common_ground:
             "Both sides agree differences in station scope, utility relocation, wages and urban density explain part of the gap between U.S. and peer-nation construction costs.",
           live_disagreement:
@@ -432,7 +432,7 @@ export const scottCostDiseaseData = {
           supporter_flip:
             "If outcome-denominated price indices — cost per QALY, per NAEP point, per passenger-mile — came out roughly flat, the apparent explosion would be unpriced quality, and the cost-disease claim would reduce to a measurement problem.",
           skeptic_flip:
-            "A skeptic who sees a statistical illusion should weigh that quality adjustment breaks on schooling, where NAEP scores for 17-year-olds barely moved since the 1970s as real spending rose, and that U.S. life expectancy plateaued in the 2010s and fell before the pandemic even as health spending climbed.",
+            "If outcome-adjusted series confirmed that NAEP scores for 17-year-olds barely moved as real school spending rose, and that U.S. life expectancy stalled in the 2010s as health spending climbed, the rise would be hard to explain as unpriced quality.",
           common_ground:
             "Both sides agree modern medicine delivers real gains — statins, antiretrovirals, modern oncology — that raw price indices ignore, so quality adjustment accounts for at least part of health care's cost rise.",
           live_disagreement:

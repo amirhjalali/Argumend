@@ -597,7 +597,7 @@ Where a map has not written a test down yet, it says "Not yet specified." On the
           },
           {
             title: "What would change each side's mind",
-            content: `Many cruxes also say what would change each side's mind, in the map's own words: "Someone who says yes to the map's question would change their mind if…", and the same for no. Read the one for the side you are on first.`,
+            content: `Many cruxes also say what would change each side's mind, under "What would change the mind of someone who says yes to the map's question", and the same for no. Each is an "If …" sentence naming new evidence that would move that side; neither says which way the evidence already points. Read the one for the side you are on first.`,
           },
         ],
       },

@@ -57,7 +57,7 @@ export const lonelinessEpidemicData = {
           supporter_flip:
             "If a large RCT of social-integration interventions and converging Mendelian randomization studies showed that reducing isolation produced no drop in mortality, cardiovascular events, or inflammatory biomarkers — and that the observational link was driven by reverse causation and confounding — the 'loneliness kills like smoking' claim would collapse to a correlation, not a causal target.",
           skeptic_flip:
-            "A skeptic leaning on the 2024 genetic null should weigh that Mendelian randomization for a behavioral trait like loneliness has known weaknesses (weak instruments, horizontal pleiotropy), that it tested disease incidence rather than all-cause mortality, and that mechanistic work (Cole's CTRA inflammatory gene expression, Kiecolt-Glaser's IL-6 findings) gives loneliness a plausible biological pathway the genetics may miss.",
+            "If Mendelian randomization with stronger instruments, testing all-cause mortality rather than disease incidence, found a loneliness effect, and mechanistic work like Cole's inflammatory gene expression and Kiecolt-Glaser's IL-6 findings replicated, the 2024 genetic null would no longer rule out a causal path.",
           common_ground:
             "Both sides agree that socially isolated people die earlier on average, and that this population is disproportionately already sick, poor, disabled, or depressed.",
           live_disagreement:
@@ -179,7 +179,7 @@ export const lonelinessEpidemicData = {
           supporter_flip:
             "If passive-tracking longitudinal data and a randomized social-media-reduction experiment showed that within-person increases in screen time did NOT reduce face-to-face contact or raise loneliness — and that cutting usage left loneliness unchanged — the 'technology drives loneliness' case would have to retreat to, at most, harm concentrated in a small heavy-use subgroup.",
           skeptic_flip:
-            "A skeptic citing the Oxford '0.4% of variance' finding should weigh that it was cross-sectional (blind to within-person change over time) and averaged across all usage levels, masking heavy users; that American Time Use data shows in-person socializing fell ~40% as smartphones spread; and that displacement could be real even if average effects look tiny.",
+            "If within-person tracking of heavy users found screen time displacing face-to-face contact, a test the cross-sectional Oxford '0.4% of variance' result could not make, and in-person socializing kept falling after its ~40% drop, displacement would look real despite small average effects.",
           common_ground:
             "Both sides agree digital tools are a genuine lifeline for geographically isolated, disabled, and homebound people, and that in-person socializing has measurably declined since the early 2000s.",
           live_disagreement:
@@ -299,7 +299,7 @@ export const lonelinessEpidemicData = {
           supporter_flip:
             "If a cluster-randomized trial of social-infrastructure investments (walkability, third places, shorter work weeks) and difference-in-differences analysis of cities that adopted them showed no measurable drop in population-level loneliness — echoing the UK Ministry for Loneliness's flat results after five years — the structural-fix thesis would give way to a cultural/individual explanation policy can't reach.",
           skeptic_flip:
-            "A skeptic pointing to the UK null should weigh that the strategy was modestly funded, leaned on small-scale social prescribing rather than the built-environment changes proponents advocate, and was hit by COVID; and that walkability research finds 2-3x more incidental contact in pedestrian-friendly neighborhoods — so the comprehensive structural intervention was never actually tested at scale.",
+            "If a well-funded, at-scale test of built-environment changes, unlike the UK's modest, COVID-hit strategy, cut loneliness, and the 2-3x more incidental contact found in walkable neighborhoods held up, the UK null would no longer count against structural fixes.",
           common_ground:
             "Both sides agree the UK's national loneliness strategy produced no detectable population-level decline so far, and that built environment shapes how often people incidentally encounter one another.",
           live_disagreement:

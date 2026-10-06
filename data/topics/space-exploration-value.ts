@@ -49,7 +49,7 @@ export const spaceExplorationValueData = {
           supporter_flip:
             "If a rigorous accounting found government space spending returns less than it costs once you use measured spin-off revenue (not the promotional multiplier) and compare against the counterfactual of spending the money elsewhere, the economic case for public funding would weaken to 'nice-to-have, not self-justifying.'",
           skeptic_flip:
-            "A skeptic who calls it a waste should weigh that NASA is only ~0.4% of the budget, that documented spin-offs and a ~$570B global space sector are real (even without the inflated multiplier), and that launch-cost collapse seeded a private industry now dwarfing government spending.",
+            "If an accounting that used measured spin-off revenue, without the inflated multiplier, credited NASA's ~0.4% budget share with seeding a ~$570B space sector and a private launch industry, the 'waste' charge would lose its footing.",
           common_ground:
             "Both sides agree the headline '$7–14 per dollar' ROI figure is a promotional estimate, not a measured return.",
           live_disagreement:
@@ -154,7 +154,7 @@ export const spaceExplorationValueData = {
           supporter_flip:
             "If a systematic comparison showed robotic missions deliver essentially all the achievable science and strategic value per dollar — and the 'inspiration/STEM pipeline' benefit of crewed flight couldn't be measured or didn't materialize — the case for expensive human missions would collapse to robots-only.",
           skeptic_flip:
-            "A skeptic who wants robots only should weigh that some value has no Earth substitute (continuous climate/disaster satellites, demonstrated asteroid deflection via DART) and that crewed missions drive public engagement and STEM interest in ways uncrewed probes haven't matched.",
+            "If uses with no Earth substitute, like continuous climate and disaster satellites and asteroid deflection on the DART model, kept growing, and crewed missions measurably raised STEM interest beyond what probes do, a robots-only program would look like it leaves value behind.",
           common_ground:
             "Both sides agree robotic missions win decisively on science-per-dollar and carry no risk to human life.",
           live_disagreement:

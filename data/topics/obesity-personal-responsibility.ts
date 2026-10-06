@@ -42,7 +42,7 @@ export const obesityPersonalResponsibilityData = {
           supporter_flip:
             "If trials extending Hall et al. to 6-12 months kept showing people overeating on ultra-processed diets, and policy natural experiments such as Chile's junk-food rules or Mexico's sugary drink tax cut population obesity, the case that obesity is mainly a matter of individual choice would weaken.",
           skeptic_flip:
-            "A skeptic who sees an engineered food environment should weigh that millions of people in that same environment maintain healthy weights, that calorie information is widely available, and that affordable staples such as rice, beans and frozen vegetables exist even in low-income areas.",
+            "If studies found that most people in the same food environment keep healthy weights using widely available calorie information and affordable staples such as rice, beans and frozen vegetables, even in low-income areas, the engineered-environment explanation would cover less of obesity.",
           common_ground:
             "Both sides agree Japan and South Korea have far lower obesity than the US despite access to many of the same global food companies, and that both norms and food policy differ there.",
           live_disagreement:
@@ -160,7 +160,7 @@ export const obesityPersonalResponsibilityData = {
           supporter_flip:
             "If 5-year metabolic studies of people who lose weight through diet and exercise alone found metabolism and appetite hormones defending the old weight so strongly that few keep off more than 10%, behavior-based change would be fundamentally limited and the personal-choice claim would weaken.",
           skeptic_flip:
-            "A skeptic who stresses biology should weigh that US adult obesity rose from 13.4% in 1960-62 to 42.4% in 2017-18 while the human genome did not change meaningfully, so something in environment and behavior shifted the whole population.",
+            "If studies traced the rise in US adult obesity from 13.4% in 1960-62 to 42.4% in 2017-18 to shifts in environment and behavior, over a period when the genome did not meaningfully change, biology would look like a limit on individuals rather than the driver of the trend.",
           common_ground:
             "Both sides agree BMI is substantially heritable — twin studies put it at 40-70% — and that the recent rise reflects susceptible genes meeting a changed environment, not genes changing.",
           live_disagreement:
@@ -281,7 +281,7 @@ export const obesityPersonalResponsibilityData = {
           supporter_flip:
             "If trials stratified by biological markers found GLP-1 response tracking the severity of impaired gut-brain signaling or leptin resistance, the drugs would be correcting a specific deficit, and the case that obesity is mainly a matter of choice would weaken.",
           skeptic_flip:
-            "A skeptic who sees obesity as a disease should weigh that GLP-1 drugs work by suppressing appetite, that about two-thirds of the lost weight returns within a year of stopping, and that obesity is heavily concentrated among low-income populations, a gradient that points to environment and behavior.",
+            "If trials found GLP-1 drugs working by appetite suppression alone, with about two-thirds of lost weight returning within a year of stopping, and the steep income gradient in obesity tracked environment and behavior, the disease framing would carry less weight.",
           common_ground:
             "Both sides accept the trial results — about 15% mean weight loss on semaglutide and 22% on tirzepatide — and that most of the weight comes back after the drugs are stopped.",
           live_disagreement:

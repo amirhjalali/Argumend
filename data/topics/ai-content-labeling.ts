@@ -52,9 +52,9 @@ export const aiContentLabelingData = {
         cost_to_verify: "$500K (Large-scale adversarial testing study)",
         falsification: {
           supporter_flip:
-            "A supporter of mandatory labeling should weigh that Saberi/Feizi broke every scheme they tested and could forge them, and that C2PA provenance is dropped by any re-encode or screenshot — so a label's absence cannot be trusted as proof content is genuine, and its presence can be faked.",
+            "If new tests extending Saberi and Feizi's work kept breaking and forging every watermark scheme, and C2PA provenance kept dropping on any re-encode or screenshot, a label's absence could not signal genuine content and its presence could be faked, undercutting the case for a mandate.",
           skeptic_flip:
-            "A skeptic of mandatory labeling should change their mind if a new generation of watermarks (e.g., Google SynthID-style signal embedding) survived screenshots, compression, cropping, and the known diffusion-purification and model-substitution attacks at high detection rates — and resisted spoofing: the 'labels are trivially removable' objection would collapse and mandatory watermarking would become genuinely enforceable.",
+            "If a new generation of watermarks, such as SynthID-style signal embedding, survived screenshots, compression, cropping and the known purification and model-substitution attacks at high detection rates while resisting spoofing, the 'labels are trivially removable' objection would lose its footing.",
           common_ground:
             "Both sides agree no current watermark is unbreakable by a determined adversary, and that labeling raises the cost and default expectation of disclosure for casual, non-adversarial uses.",
           live_disagreement:
@@ -161,9 +161,9 @@ export const aiContentLabelingData = {
         cost_to_verify: "$300K (Cross-jurisdictional comparative study)",
         falsification: {
           supporter_flip:
-            "A supporter who thinks labeling is harmless should weigh that compelled-disclosure doctrine is genuinely unsettled for non-commercial expressive speech (Zauderer governs only 'purely factual and uncontroversial' commercial disclosures), so an over-broad mandate could face heightened First Amendment scrutiny and measurably deter independent creators.",
+            "If courts applied heightened First Amendment scrutiny to labeling mandates on non-commercial expressive speech, beyond Zauderer's 'purely factual and uncontroversial' commercial disclosures, and independent creators measurably pulled back, the view that labeling is harmless would be hard to hold.",
           skeptic_flip:
-            "A skeptic who fears chilling effects should change their mind if cross-jurisdictional data showed AI tool adoption and creative output in mandate jurisdictions (EU after Aug 2026, China since 2023) tracked non-mandate jurisdictions, with compliance scoped narrowly to deceptive synthetic media rather than spell-check and routine editing.",
+            "If data from mandate jurisdictions (the EU after August 2026, China since 2023) showed AI adoption and creative output tracking non-mandate jurisdictions, with compliance limited to deceptive synthetic media rather than routine editing, the chilling-effect objection would weaken.",
           common_ground:
             "Both sides agree narrowly targeted disclosure of deceptive synthetic media is defensible, and that an over-broad mandate sweeping in ordinary editing tools would be both legally riskier and prone to over-labeling that audiences learn to ignore.",
           live_disagreement:

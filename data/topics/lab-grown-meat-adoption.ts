@@ -50,7 +50,7 @@ export const labGrownMeatData = {
           supporter_flip:
             "If built, at-scale facilities consistently failed to hit the costs their techno-economic models predicted — the projected ~$6/lb staying a model while real production stuck far above conventional prices, with the gap proving to have hard chemistry/contamination floors — the 'parity within 15 years' claim would collapse.",
           skeptic_flip:
-            "A skeptic who says it'll never be cheap should weigh that costs have already fallen by orders of magnitude since 2013, that a peer-reviewed model puts scaled chicken near organic prices, and that the specific levers (cheaper media, perfusion bioreactors, cell-line optimization) are identified and improving — so a hard cost floor isn't yet demonstrated.",
+            "If built facilities reached the near-organic chicken prices a peer-reviewed model projects at scale, as cheaper media, perfusion bioreactors and better cell lines arrive, the idea of a hard cost floor would lose its footing.",
           common_ground:
             "Both sides agree the low-cost figures are projections for facilities that don't yet exist, not prices achieved at retail scale.",
           live_disagreement:
@@ -140,7 +140,7 @@ export const labGrownMeatData = {
           supporter_flip:
             "If large double-blind tests at equal price showed consumers consistently prefer conventional meat or won't repeat-purchase cultivated even when they can't taste the difference, the 'acceptance improves after tasting' case would weaken — the yuck factor would be a durable barrier, not a marketing problem.",
           skeptic_flip:
-            "A skeptic who cites the yuck factor should weigh that acceptance rises sharply after tasting, that younger consumers already report 65–70% willingness, and that plant-based meat overcame similar early skepticism to reach mainstream shelves.",
+            "If people who taste cultivated meat kept warming to it, younger consumers' reported 65–70% willingness turned into repeat purchases, and it followed plant-based meat onto mainstream shelves, the yuck factor would look like a passing barrier.",
           common_ground:
             "Both sides agree survey-stated willingness to try has consistently outrun actual purchasing, and that structured cuts (steak) remain harder to make than mince.",
           live_disagreement:

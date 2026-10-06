@@ -101,7 +101,7 @@ export const nuclearRenaissanceSmrData = {
           supporter_flip:
             "If the first commercial SMR fleets kept posting LCOEs above firmed renewables — the promised factory-production savings failing to materialize as more units are built, repeating NuScale's cost blowout — the 'SMRs will be competitive' case would collapse to 'perennially uneconomic.'",
           skeptic_flip:
-            "A skeptic citing the NuScale cancellation should weigh that it was a first-of-a-kind unit compared to mature, mass-produced renewable supply chains, that SMRs deliver firm power avoiding renewables' integration/storage costs at high penetration, and that the factory-savings thesis simply hasn't been tested at scale yet.",
+            "If later SMRs came in well below the first-of-a-kind NuScale estimate once factory savings were tested at scale, and their firm power avoided the integration and storage costs renewables carry at high penetration, the cancellation would look like a first-unit problem rather than the economics of the class.",
           common_ground:
             "Both sides agree no SMR has yet been mass-produced, that NuScale's flagship US project was cancelled on cost, and that the factory-production savings remain a projection.",
           live_disagreement:
@@ -211,7 +211,7 @@ export const nuclearRenaissanceSmrData = {
           supporter_flip:
             "If full-scale tests showed SMR passive-safety systems failing to prevent core damage without operator action under credible accident scenarios — i.e. the 'walk-away safe' claim didn't hold up — a central selling point over older reactors would fall.",
           skeptic_flip:
-            "A skeptic about new-reactor safety should weigh that SMR designs use passive cooling that, on paper, removes the operator-error and power-loss failure modes behind older accidents, and that a running Chinese small reactor shows the engineering is feasible — so the safety case isn't pure marketing.",
+            "If full-scale tests showed SMR passive cooling removing the operator-error and power-loss failure modes behind older accidents, as the designs claim on paper and a running Chinese small reactor is meant to show, the safety case would look like engineering rather than marketing.",
           common_ground:
             "Both sides agree passive-safety designs are intended to prevent the loss-of-coolant and station-blackout failures that drove past accidents, and that this hasn't yet been validated by full-scale testing of operating SMRs.",
           live_disagreement:
@@ -323,7 +323,7 @@ export const nuclearRenaissanceSmrData = {
           supporter_flip:
             "If the announced Western SMR projects (Rolls-Royce, X-energy, GE-Hitachi BWRX-300, TerraPower) keep slipping their grid-connection dates the way NuScale did — perpetually 'a decade away' — the claim that SMRs can be deployed at meaningful scale within the next decade would fail.",
           skeptic_flip:
-            "A skeptic citing decades of deferral should weigh that several Western designs now have signed customers, regulatory design approvals, and construction starts (e.g. GE-Hitachi's BWRX-300 in Ontario) — so 'always 10 years away' is being tested against concrete projects with real dates.",
+            "If Western designs with signed customers, design approvals and construction starts, such as GE-Hitachi's BWRX-300 in Ontario, connected to the grid on their stated dates, 'always 10 years away' would lose its footing.",
           common_ground:
             "Both sides agree no Western commercial SMR is yet connected to the grid, and that the flagship US project (NuScale) already slipped and was cancelled.",
           live_disagreement:

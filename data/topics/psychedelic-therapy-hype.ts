@@ -41,7 +41,7 @@ export const psychedelicTherapyHypeData = {
           supporter_flip:
             "If multi-site trials with active placebos — niacin for psilocybin, low-dose methylphenidate for MDMA — showed effect sizes shrinking substantially from the earlier trials, the gains would be largely expectancy, and the renaissance would look more like a repeat of the 1960s overpromise than a paradigm shift.",
           skeptic_flip:
-            "A skeptic who expects a repeat of the 1960s overpromise should weigh that COMPASS's two Phase 3 psilocybin trials met their pre-specified MADRS endpoints against placebo (p<0.001), that 71.2% of MDMA-arm participants no longer met PTSD criteria in Phase 3 versus 47.6% on placebo, and that esketamine was FDA-approved in 2019.",
+            "If further Phase 3 trials matched COMPASS's psilocybin results on pre-specified MADRS endpoints and the 71.2% vs 47.6% PTSD remission gap seen with MDMA, and more approvals followed esketamine's in 2019, a repeat of the 1960s overpromise would be hard to argue.",
           common_ground:
             "Both sides agree blinding has been effectively broken in these trials — about two-thirds of MDMA participants guessed their assignment — and that the FDA advisory committee voted against MDMA approval in June 2024.",
           live_disagreement:
@@ -149,7 +149,7 @@ export const psychedelicTherapyHypeData = {
           supporter_flip:
             "If comparing correctly and incorrectly blinded participants, together with new active-placebo trials, showed expectancy accounting for more than 50% of the treatment response, the clinical evidence would be substantially weaker than it appears.",
           skeptic_flip:
-            "A skeptic worried about bias should weigh that SSRIs, benzodiazepines and opioids also have imperfect blinding yet are approved, that companies funding trials of their own drugs is the standard model of drug development, and that academic centers such as Johns Hopkins, NYU, Imperial College and UCSF run much of this research.",
+            "If trials run by academic centers such as Johns Hopkins, NYU, Imperial College and UCSF found responses matching company-funded ones, and blinding proved no weaker than for approved SSRIs, benzodiazepines and opioids, the bias worry would lose much of its force.",
           common_ground:
             "Both sides agree blinding is genuinely hard in psychedelic trials, that commercial developers such as COMPASS Pathways fund much of the pivotal research, and that the field needs better methodology.",
           live_disagreement:
@@ -223,7 +223,7 @@ export const psychedelicTherapyHypeData = {
           supporter_flip:
             "If trials comparing the full protocol with reduced, group-facilitated and drug-only formats found that only the full, therapist-intensive protocol works, psychedelic therapy would remain a boutique service rather than a shift in population-level mental health care.",
           skeptic_flip:
-            "A skeptic who calls it unscalable should weigh that the therapy may need only 2-3 sessions rather than years of daily medication, that a 2023 trial gave psilocybin to cancer patients with depression in groups of three to four, and that ketamine shows a simplified protocol of 6 infusions over 2 weeks can be effective.",
+            "If group formats like the 2023 trial that treated cancer patients with depression three or four at a time, and short protocols like ketamine's 6 infusions over 2 weeks, held their effects at scale, a 2-3 session psychedelic therapy would look scalable.",
           common_ground:
             "Both sides agree today's protocols are costly and labor-intensive: MDMA therapy takes roughly 42 hours of therapist time per patient, and supervised psilocybin sessions cost $1,500-$3,500.",
           live_disagreement:

@@ -145,7 +145,7 @@ export const vaccineMandatesData = {
           supporter_flip:
             "If a vaccine is shown to barely reduce onward transmission (or only briefly), the harm-principle justification for compelling it collapses and the case reduces to paternalism — as critics argue for COVID.",
           skeptic_flip:
-            "If the vaccine demonstrably and durably cuts transmission enough to protect others — as for measles at the ~95% threshold — the 'it only protects the recipient' objection fails and coercion clears the harm-principle bar.",
+            "If a vaccine measurably and durably cut transmission enough to protect others, as with measles at the ~95% threshold, the 'it only protects the recipient' objection would fail and compulsion would clear the harm-principle bar.",
           common_ground:
             "Both sides agree the harm principle is the right test, and that measles vaccination produces a large transmission externality while COVID's was smaller and waned.",
           live_disagreement:

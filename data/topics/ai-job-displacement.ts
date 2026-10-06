@@ -52,7 +52,7 @@ export const aiJobDisplacementData = {
           supporter_flip:
             "If careful benchmarks of genuinely novel professional tasks (verifiably outside training data) showed AI performance collapsing on out-of-distribution problems while humans held up, the case that AI can replace (not just assist) professionals would weaken — it would stay a tool.",
           skeptic_flip:
-            "A skeptic who says it's just pattern-matching should weigh that AI already matches experts on a widening range of tasks (bar exam, radiology reads, production code) and improves far faster than human skill — so 'it can't reason' keeps retreating to ever-narrower tasks.",
+            "If AI kept matching experts on a widening range of tasks, from bar exams to radiology reads to production code, while improving faster than human skill, 'it can't reason' would hold only for ever-narrower tasks.",
           common_ground:
             "Both sides agree current AI still hallucinates and degrades on truly novel, out-of-distribution problems, and that demos overstate production reliability.",
           live_disagreement:
@@ -194,7 +194,7 @@ export const aiJobDisplacementData = {
           supporter_flip:
             "If the most AI-exposed occupations (legal research, coding, copywriting, translation) showed stable or growing employment and wages over 3–5 years versus low-exposure controls, the displacement thesis would be falsified — capability without labor-market effect.",
           skeptic_flip:
-            "A skeptic citing low unemployment should weigh that the capability-to-displacement lag is historically 5–10 years and we're in year two, and that leading indicators (collapsing freelance-writing rates, frozen entry-level hiring) already point the predicted direction.",
+            "If, within the historical 5-10 year lag from capability to displacement, signals like falling freelance-writing rates and frozen entry-level hiring spread to wider employment, today's low unemployment would look like a lag rather than absorption.",
           common_ground:
             "Both sides agree aggregate white-collar employment has NOT yet shown the mass displacement some forecasts predicted.",
           live_disagreement:
@@ -340,7 +340,7 @@ export const aiJobDisplacementData = {
           supporter_flip:
             "If regulated professions adopted AI-autonomous decision-making no faster than slow historical analogues (electronic health records took ~30 years to reach 80%), the 'within a decade' timeline would be wrong regardless of raw capability.",
           skeptic_flip:
-            "A skeptic who says barriers will hold should weigh that regulation flips fast under competitive and crisis pressure (telemedicine legalized almost overnight in COVID; algorithms now run ~70% of equity trades), so institutional lag may be shorter than it looks.",
+            "If regulated professions changed their rules under competitive pressure as fast as telemedicine did during COVID, or as trading did where algorithms now run about 70% of equity trades, the institutional lag behind the decade timeline would look shorter than it seems.",
           common_ground:
             "Both sides agree licensed professions currently require human accountability, and that enterprise AI adoption is still well below what raw capability would allow.",
           live_disagreement:

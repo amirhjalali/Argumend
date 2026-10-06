@@ -48,7 +48,7 @@ export const surveillancePublicSafetyData = {
           supporter_flip:
             "If a rigorous multi-city RCT found surveillance deployment produces little net crime reduction once you account for displacement to adjacent areas — the car-park gains just moving crime rather than preventing it, and facial recognition adding no measurable safety — the effectiveness case would shrink to investigative value only.",
           skeptic_flip:
-            "A skeptic who says cameras do nothing should weigh that the same meta-analysis they cite confirms CCTV genuinely cuts crime where deployed well, and that a 268-city study associated police facial recognition with lower felony violence — so 'surveillance does nothing' overstates it; the honest reading is 'modest and conditional,' not 'zero.'",
+            "If new evaluations confirmed CCTV cutting crime where it is deployed well, and the 268-city link between police facial recognition and lower felony violence held up in stronger designs, 'surveillance does nothing' would give way to 'modest and conditional.'",
           common_ground:
             "Both sides agree surveillance's crime-reduction effect is real but modest, concentrated in property crime and specific settings, and strongest when cameras are actively monitored.",
           live_disagreement:
@@ -142,7 +142,7 @@ export const surveillancePublicSafetyData = {
           supporter_flip:
             "If cross-country comparison showed even the best oversight frameworks fail to prevent scope creep, biased false matches, and data repurposing — that surveillance infrastructure inevitably erodes civil liberties once built — the 'capture benefits with guardrails' position would collapse toward not building it.",
           skeptic_flip:
-            "A skeptic who wants surveillance banned should weigh that many documented harms (wrongful arrests from un-corroborated face matches, repurposing for immigration) are governance failures the technology doesn't require — addressable with human review, retention caps, and use bans — rather than inherent properties of the tools.",
+            "If comparisons of oversight regimes found harms such as wrongful arrests from uncorroborated face matches and repurposing for immigration falling sharply under human review, retention caps and use bans, those harms would look like governance failures rather than built into the tools.",
           common_ground:
             "Both sides agree facial-recognition errors fall disproportionately on Black people and that surveillance data is, in practice, frequently repurposed beyond its original purpose.",
           live_disagreement:

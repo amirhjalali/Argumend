@@ -39,9 +39,9 @@ export const trumpTariffsData = {
           "$0 (Retail scanner data, BLS price indices, and published academic decompositions are available)",
         falsification: {
           supporter_flip:
-            "If product-level price-matching studies converged on the New York Fed's estimate — foreign exporters absorbing only about 6-14% — rather than the roughly 20% Harvard Business School found, and tariff revenue were not used to offset the burden, the claim that tariffs shift real costs onto trading partners would fail.",
+            "If product-level price-matching studies converged on the New York Fed's estimate of foreign exporters absorbing only about 6-14%, rather than the roughly 20% Harvard Business School found, and tariff revenue were not used to offset the cost, the claim that tariffs shift real costs onto trading partners would fail.",
           skeptic_flip:
-            "A skeptic who calls tariffs a pure tax on Americans should weigh that even the critical estimates have foreign exporters absorbing part of the cost, and that $171-207 billion in FY2026 tariff revenue could fund offsetting tax cuts that change the net distributional picture, especially if structured progressively.",
+            "If studies kept finding foreign exporters absorbing part of the cost, and $171-207 billion in FY2026 tariff revenue funded progressive offsetting tax cuts, the 'pure tax on Americans' view would no longer capture the net distributional picture.",
           common_ground:
             "Both sides' own figures put most of the tariff cost on US consumers and importing firms, with foreign exporters absorbing somewhere between about 6% and 20%.",
           live_disagreement:
@@ -153,7 +153,7 @@ export const trumpTariffsData = {
           supporter_flip:
             "If replicating the USITC input-output method on the 2025-2026 tariffs again showed downstream and export-sector job losses matching or exceeding gains in protected sectors, and announced capex failed to turn into payroll over the years supporters say it needs, the reshoring case would weaken.",
           skeptic_flip:
-            "A skeptic reading flat payrolls should weigh that reshoring shows up first in capital-expenditure commitments and greenfield plants — semiconductor fabs, aerospace and metals capacity — that take years to become jobs. If those announcements convert to payroll without offsetting downstream losses, the revival claim holds.",
+            "If capital-expenditure commitments and greenfield plants, from semiconductor fabs to aerospace and metals capacity, turned into payroll over the coming years without offsetting downstream losses, flat payrolls would look like a lag rather than a sign reshoring is not happening.",
           common_ground:
             "Both sides agree BLS payroll data do not yet show a manufacturing jobs boom, and that the capacity tariffs may attract — semiconductor fabs, aerospace, metals — is capital-intensive.",
           live_disagreement:
@@ -265,7 +265,7 @@ export const trumpTariffsData = {
           supporter_flip:
             "If comparing controlled and broadly tariffed sectors showed that targeted export controls did the work of slowing Chinese technology gains while broad tariffs mainly drew symmetric retaliation and faster indigenization, the broad-tariff instrument would be counterproductive on its own national-security terms.",
           skeptic_flip:
-            "A skeptic who favors export controls alone should weigh that layered duties on China (a 25% baseline, 50% on semiconductors, 100% on EVs) raise the cost of Chinese market access and push supply toward allies, and that the November 2025 truce held bilateral rates at 10%, down from peaks above 125%, rather than escalating.",
+            "If layered duties on China (a 25% baseline, 50% on semiconductors, 100% on EVs) measurably pushed supply toward allies, and bilateral rates held near the November 2025 truce's 10% rather than escalating, broad tariffs would look like a useful complement to export controls.",
           common_ground:
             "Both sides agree export controls on dual-use technology such as advanced semiconductors belong in the toolkit, and that China is working to indigenize that technology.",
           live_disagreement:
@@ -377,7 +377,7 @@ export const trumpTariffsData = {
           supporter_flip:
             "If the aggregate US trade deficit stayed flat under tariffs and merely shifted to other surplus countries, and the documented costs of retaliation and lost cooperation with allies outweighed the deals signed, both halves of the trade-deficit rationale would weaken.",
           skeptic_flip:
-            "A skeptic who calls the deficit rationale an accounting error should weigh that tariff threats were followed by reciprocal deals with Indonesia, El Salvador, Argentina, Guatemala, Bangladesh and Taiwan, and that the EU suspended its €26 billion of countermeasures under a framework agreement rather than escalating.",
+            "If tariff threats kept producing reciprocal deals like those with Indonesia, El Salvador, Argentina, Guatemala, Bangladesh and Taiwan, and allies such as the EU kept suspending countermeasures rather than escalating, the deficit rationale would look like more than an accounting error.",
           common_ground:
             "Both sides accept that reciprocal deals were closed with six trading partners by April 2026, and that allies also retaliated: the EU imposed €26 billion of countermeasures before suspending them under a framework agreement.",
           live_disagreement:

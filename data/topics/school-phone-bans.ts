@@ -53,7 +53,7 @@ export const schoolPhoneBansData = {
           supporter_flip:
             "If a large randomized trial (not the quasi-experiments we have) showed phone bans produce no real academic gain once you control for the other reforms ban-adopting schools tend to make — or that the English/Norwegian effects don't replicate — the academic case would collapse to 'feels right but doesn't measurably help.'",
           skeptic_flip:
-            "A skeptic who doubts bans help grades should weigh that the effect, while modest and uneven, shows up in independent quasi-experiments across countries and concentrates in the lowest-performing students, and that lab work shows even a powered-off phone's mere presence drains working memory.",
+            "If more quasi-experiments across countries found modest gains concentrated in the lowest-performing students, and lab work held that even a powered-off phone's presence drains working memory, the doubt that bans help grades would lose much of its footing.",
           common_ground:
             "Both sides agree any academic benefit is modest and concentrated among lower-performing students rather than uniform across the class.",
           live_disagreement:
@@ -161,7 +161,7 @@ export const schoolPhoneBansData = {
           supporter_flip:
             "If a cluster-randomized trial measuring validated depression/anxiety scores found school phone bans produce no mental-health improvement — consistent with bans touching only 6–7 of 16 waking hours — the mental-health rationale would fall away, leaving bans justified on academics alone.",
           skeptic_flip:
-            "A skeptic citing the 'tiny' average screen-time effect should weigh that the sharp, synchronized 2012 inflection in teen depression, self-harm, and suicide — strongest for girls — is hard to explain otherwise, and that the average masks larger harms concentrated in heavy social-media users.",
+            "If studies of heavy social-media users found harms much larger than the 'tiny' average, and no other cause fit the sharp, synchronized 2012 rise in teen depression, self-harm and suicide, strongest among girls, the small-average-effect objection would lose its force.",
           common_ground:
             "Both sides agree teen mental health deteriorated sharply after ~2012 and that a school-hours ban leaves evening and weekend phone use untouched.",
           live_disagreement:
@@ -273,7 +273,7 @@ export const schoolPhoneBansData = {
           supporter_flip:
             "If disciplinary data from ban-enforcing schools showed phone confiscation replicating the ~3x racial suspension gap, or that medical/safety/translation accommodations routinely failed, the equity objection would outweigh the academic gains for disadvantaged students.",
           skeptic_flip:
-            "A skeptic who opposes bans on equity grounds should weigh that automated pouch systems (Yondr) remove teacher discretion from enforcement, that medical and emergency needs are already accommodated like EpiPens and insulin, and that the largest academic gains accrue to low-income students.",
+            "If schools using automated pouch systems like Yondr showed no new racial gap in discipline, met medical and emergency needs the way they handle EpiPens and insulin, and saw the largest gains among low-income students, the equity objection would lose its footing.",
           common_ground:
             "Both sides agree some students depend on phones for medical, safety, or translation needs, and that school discipline has historically fallen harder on Black and Latino students.",
           live_disagreement:

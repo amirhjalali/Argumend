@@ -40,7 +40,7 @@ export const assistedDyingEuthanasiaData = {
           supporter_flip:
             "If evidence showed that a legal right to assisted death reliably turns into a felt duty to die for the old, ill and dependent — so the choice stops being the patient's own — the autonomy argument would undercut itself, and the case for a right would weaken.",
           skeptic_flip:
-            "A skeptic who holds life inviolable should weigh that the law already lets competent adults refuse life-sustaining treatment, sign DNRs and receive palliative sedation that hastens death, and that among the 376 Oregonians who died under its law in 2024, the leading concerns were losing autonomy (88.6%) and dignity, not unmanaged pain.",
+            "If more data matched Oregon's 2024 record, where loss of autonomy (88.6%) and dignity rather than pain led the concerns of the 376 who died under the law, the choice would look continuous with refusing treatment, DNRs and palliative sedation, which the law permits.",
           common_ground:
             "Both sides agree competent adults may already refuse life-sustaining treatment, and that a right to die must not become a felt duty to die for the old, ill and dependent.",
           live_disagreement:
@@ -134,7 +134,7 @@ export const assistedDyingEuthanasiaData = {
           supporter_flip:
             "If audits of terminal-only regimes like Oregon's found the poor, disabled or uninsured over-represented among those who use them, or if optimal palliative care proved able to relieve nearly all terminal suffering, the case that a narrow law helps without pressuring the vulnerable would weaken.",
           skeptic_flip:
-            "A skeptic worried about coercion should weigh that palliative-care scholarship recognizes some end-of-life suffering is refractory to even the best care, and Oregon's 25+ years of terminal-only data, which supporters read as showing no demographic sign of coercion of the poor or uninsured.",
+            "If studies confirmed that some end-of-life suffering resists even the best palliative care, and new audits of Oregon's 25-plus years of terminal-only data found no demographic sign of pressure on the poor or uninsured, the coercion objection would weaken.",
           common_ground:
             "Both sides agree any law must confine assisted death to genuine, voluntary choices, and that outside pressures appear in the data: in Oregon's 2024 figures, 42.0% cited being a burden on others.",
           live_disagreement:

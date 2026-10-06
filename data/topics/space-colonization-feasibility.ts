@@ -48,9 +48,9 @@ export const spaceColonizationFeasibilityData = {
         cost_to_verify: "$0 (Monitor SpaceX mission outcomes)",
         falsification: {
           supporter_flip:
-            "If Starship-class vehicles kept failing to demonstrate orbital refueling and an uncrewed Mars cargo landing within the next decade — the transport link never closing despite years of attempts — the 'feasible within 50 years' timeline would slip badly, since nothing downstream works without reliable transport.",
+            "If Starship-class vehicles failed for another decade to demonstrate orbital refueling and an uncrewed Mars cargo landing, the 'feasible within 50 years' timeline would slip badly, since nothing downstream works without reliable transport.",
           skeptic_flip:
-            "A skeptic who says it's a fantasy should weigh that reusable rockets already cut launch costs ~10× and made booster reuse routine, and that the radiation/transit math closes under Starship-class performance — so 'we can't even get there' understates a concrete, fast-moving engineering trajectory.",
+            "If Starship-class vehicles carried the ~10× launch-cost cut and routine booster reuse of reusable rockets on to orbital refueling, at the performance where the radiation and transit math closes, 'we can't even get there' would lose its footing.",
           common_ground:
             "Both sides agree that as of 2025 no rocket has landed cargo on Mars and orbital propellant transfer hasn't been demonstrated, while launch costs have fallen sharply.",
           live_disagreement:
@@ -139,7 +139,7 @@ export const spaceColonizationFeasibilityData = {
           supporter_flip:
             "If ISRU and closed-loop life support repeatedly failed to scale on Mars — oxygen, water, food, and construction never reaching the volumes a crew needs without constant Earth resupply — then 'self-sustaining colony' would prove infeasible, leaving only a permanently dependent outpost.",
           skeptic_flip:
-            "A skeptic citing Biosphere 2's failures should weigh that MOXIE already made oxygen from Martian CO₂ end-to-end and that ISRU scales with power and reactor size rather than new physics — so the barrier is engineering scale-up, not impossibility in principle.",
+            "If ISRU plants scaled MOXIE's end-to-end oxygen production from Martian CO₂ with more power and bigger reactors, without new physics, the Biosphere 2 objection would shrink to an engineering scale-up problem rather than an impossibility.",
           common_ground:
             "Both sides agree no closed life-support system has yet been sustained without resupply, and that MOXIE proved the core oxygen-from-CO₂ chemistry at tiny scale on Mars.",
           live_disagreement:

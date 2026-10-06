@@ -51,7 +51,7 @@ export const socialMediaMentalHealthData = {
           supporter_flip:
             "If high-quality longitudinal studies using passive (not self-reported) usage measurement found no dose-response — heavy users no worse off than light users once confounders are controlled — and Facebook-rollout-style natural experiments failed to replicate, the 'primary cause' claim would collapse.",
           skeptic_flip:
-            "A skeptic who calls it a moral panic should weigh that the 2012 inflection is sharp, synchronized across countries, and concentrated in girls, and that at least one credible natural experiment (Facebook's rollout) shows a causal worsening — patterns a pure 'attitudes-to-disclosure changed' story struggles to explain.",
+            "If more natural experiments like Facebook's staggered rollout found causal worsening, and the sharp 2012 inflection stayed synchronized across countries and concentrated in girls, a 'changed attitudes to disclosure' story would struggle to explain it.",
           common_ground:
             "Both sides agree teen mental health deteriorated markedly after ~2012, and that the alarming raw trends and the 'tiny' average-effect studies are hard to reconcile.",
           live_disagreement:
@@ -159,7 +159,7 @@ export const socialMediaMentalHealthData = {
           supporter_flip:
             "If randomized trials swapping engagement-optimized feeds for chronological/curated ones showed no mental-health difference, the specific 'the algorithm is the harm' mechanism would fail — leaving social media's effect (if any) attributable to something other than algorithmic amplification.",
           skeptic_flip:
-            "A skeptic who calls it a moral panic should weigh that, unlike TV or video games, these platforms use variable-reward engagement loops and social-comparison metrics that internal documents show the companies knew harmed some teen girls — features without a clear historical analog.",
+            "If trials isolating variable-reward loops and social-comparison metrics found harm to some teen girls that TV and video games never produced, testing what the companies' internal documents describe, the moral-panic comparison would lose its footing.",
           common_ground:
             "Both sides agree social media also delivers real benefits (community, information, expression), and that every new medium has drawn moral panic.",
           live_disagreement:

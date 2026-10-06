@@ -114,7 +114,7 @@ export const cryptocurrencyRegulationData = {
           supporter_flip:
             "If a multi-jurisdictional study showed that meaningful consumer-protection rules reliably drove developers, funding, and protocols offshore without measurably reducing fraud or losses — i.e., the harms followed the firms wherever they went — then 'regulate to protect consumers' would look like exporting innovation while keeping the risk.",
           skeptic_flip:
-            "A skeptic who says regulation just chases builders away should weigh that crypto firms are voluntarily migrating to regulated regimes (MiCA, Singapore licensing, Dubai's VARA), not to lawless havens — so the migration is toward clear rules, suggesting clarity attracts rather than repels, and the 'race to the bottom' framing may be backwards.",
+            "If crypto firms kept moving toward licensed regimes like MiCA, Singapore and Dubai's VARA rather than lawless havens, clear rules would look like a draw for builders, and 'regulation drives them away' would lose its footing.",
           common_ground:
             "Both sides agree the industry produced enormous, well-documented consumer losses (FTX, Terra/Luna, billions in hacks) and that vague 'regulation by enforcement' creates uncertainty no one wants.",
           live_disagreement:
@@ -243,7 +243,7 @@ export const cryptocurrencyRegulationData = {
           supporter_flip:
             "If contagion stress-tests showed that even a 90% crypto crash, a major stablecoin depeg, and the simultaneous failure of the top three exchanges produced no material spillover into Treasury markets, bank balance sheets, or broader credit — replicating the 2022 crash's near-zero traditional-market impact — then systemic-risk regulation of crypto would be premature.",
           skeptic_flip:
-            "A skeptic who says crypto is 'too small to matter' should weigh that stablecoins now hold $130B+ in Treasury bills and money-market instruments, that crypto-exposed banks (Silvergate, Signature) did fail through the deposit channel, and that systemic risk is a function of leverage and interconnection — not just market size — exactly as subprime was underestimated in 2006.",
+            "If stress tests traced how stablecoins' $130B+ in Treasury bills, and the deposit channel that sank Silvergate and Signature, could carry a crash into banks, crypto's small size would no longer rule out systemic risk, much as with subprime in 2006.",
           common_ground:
             "Both sides agree the 2022 crypto crash inflicted huge intra-crypto losses with minimal measurable spillover into traditional equity, bond, or currency markets, and that stablecoin reserves now create some real link to Treasury and money markets.",
           live_disagreement:
@@ -370,9 +370,9 @@ export const cryptocurrencyRegulationData = {
           "$300K-800K (Comprehensive legal analysis with economic assessment of top 100 tokens)",
         falsification: {
           supporter_flip:
-            "If a systematic Howey-test analysis of the top 100 tokens found a large 'genuinely ambiguous' category — protocols where no identifiable promoter drives profits and the four prongs simply don't map — then the SEC's position that existing securities law already fits would weaken, and a bespoke framework would look necessary rather than evasive.",
+            "If a systematic Howey-test analysis of the top 100 tokens found a large 'genuinely ambiguous' category, protocols where no identifiable promoter drives profits and the four prongs do not map, the SEC's position that existing securities law fits would weaken, and a bespoke framework would look necessary rather than evasive.",
           skeptic_flip:
-            "A skeptic who insists tokens don't fit 1930s law should weigh that most tokens were sold via ICO-style fundraises where buyers gave money to a team expecting the team's work to raise the price — textbook Howey — and that the Ripple ruling found XRP was a security when sold to institutions, suggesting much of the 'doesn't fit' claim is litigation strategy, not economics.",
+            "If a token-by-token review found most were sold through ICO-style raises where buyers paid a team expecting its work to lift the price, and more rulings followed Ripple's on institutional XRP sales, 'tokens don't fit 1930s law' would look more like litigation strategy than economics.",
           common_ground:
             "Both sides agree some assets (e.g., a centrally promoted ICO token) clearly meet the Howey test while others (e.g., a fully decentralized network with no issuer) clearly strain it, and that the US lacks a clean registration pathway built for exchanges.",
           live_disagreement:

@@ -57,9 +57,9 @@ export const degrowthEconomicsData = {
           "$200K-500K (Consumption-based emissions modeling with trade-adjusted material flow analysis across OECD nations)",
         falsification: {
           supporter_flip:
-            "If even one major economy demonstrably achieved absolute decoupling of GDP from both consumption-based CO2 and total material footprint at 7-10% per year — sustained, not a one-off recession dip, and not an artifact of offshoring — the core degrowth claim that growth is physically incompatible with Paris targets would collapse.",
+            "If even one major economy measurably achieved absolute decoupling of GDP from both consumption-based CO2 and total material footprint at 7-10% a year, sustained rather than a one-off recession dip and not an artifact of offshoring, the core degrowth claim that growth is physically incompatible with Paris targets would collapse.",
           skeptic_flip:
-            "A green-growth advocate should weigh that the best-performing countries' observed decoupling rates (1-3% per year) are still far below the 7-10% the IPCC 1.5°C pathways require, that consumption-based accounting erases much of the apparent UK/Sweden progress, and that no country has decoupled GDP from aggregate material throughput at all.",
+            "If consumption-based accounting kept erasing much of the UK's and Sweden's apparent progress, and the best decoupling rates stayed at 1-3% a year against the 7-10% that 1.5°C pathways require, green growth would be hard to square with Paris targets.",
           common_ground:
             "Both sides agree that relative decoupling is real and common (emissions per dollar of GDP are falling) and that renewable energy costs have collapsed dramatically — the dispute is whether that is fast and complete enough.",
           live_disagreement:
@@ -179,7 +179,7 @@ export const degrowthEconomicsData = {
           supporter_flip:
             "If the Wellbeing Economy Governments actually reduced material throughput and GDP and their governing parties were promptly voted out — or if degrowth-compatible policies (work-week cuts, throughput caps) consistently lost elections once they bit into living standards — the claim that degrowth can be made politically viable would be falsified.",
           skeptic_flip:
-            "A skeptic who says 'no electorate ever votes to shrink' should weigh that four-day-week trials enjoy 60-70% support and that 'post-growth' and 'wellbeing economy' framings poll far better than 'degrowth,' suggesting the political ceiling may be on the word, not the policies.",
+            "If four-day-week trials kept their 60-70% support as they spread, and 'post-growth' and 'wellbeing economy' framings kept polling well once the policies bit, the political ceiling would look like it sits on the word 'degrowth', not the policies.",
           common_ground:
             "Both sides agree no modern democracy has yet voluntarily chosen sustained economic contraction, and that policies raising costs on ordinary people (the Yellow Vest fuel tax) provoke fierce backlash.",
           live_disagreement:
@@ -298,7 +298,7 @@ export const degrowthEconomicsData = {
           supporter_flip:
             "If rigorous CGE modeling showed that even 'managed' Northern degrowth — paired with debt cancellation and technology transfer — still drives net declines in Human Development Index indicators across low-income countries through collapsing export demand and investment, the justice case for degrowth would fail on its own terms.",
           skeptic_flip:
-            "A skeptic who fears degrowth would devastate the South should weigh that the current growth model is already projected to push 68-132 million people into extreme poverty by 2030 via climate impacts the South did least to cause, and that the Global North has consumed ~92% of the excess carbon budget.",
+            "If new projections kept finding the current growth model pushing 68-132 million people into extreme poverty by 2030 through climate impacts the South did least to cause, with the North having used ~92% of the excess carbon budget, green growth would look like the larger risk to poorer countries.",
           common_ground:
             "Both sides agree that the Global South is highly exposed — to climate damages it did not cause and to a fall in Northern import demand — and that climate finance and technology transfer to poorer nations are inadequate today.",
           live_disagreement:

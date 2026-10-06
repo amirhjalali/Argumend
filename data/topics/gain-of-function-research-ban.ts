@@ -95,7 +95,7 @@ export const gainOfFunctionResearchBanData = {
           supporter_flip:
             "If a rigorous actuarial analysis of decades of BSL-3/BSL-4 incidents and near-misses showed the cumulative probability of a pandemic-capable escape over a 50-100 year horizon is negligibly small under modern containment, the existential-risk case for a ban would weaken to ordinary safety regulation rather than prohibition.",
           skeptic_flip:
-            "A skeptic leaning on the 50-year clean record should weigh that it is survivorship bias — documented escapes did happen (2003-2004 SARS lab infections, the 1979 Sverdlovsk anthrax release that killed at least 66, the 2014 CDC anthrax and forgotten-smallpox incidents) — and that a small annual leak probability multiplied across dozens of labs over decades compounds into a non-trivial cumulative risk.",
+            "If a count of documented escapes, such as the 2003-2004 SARS lab infections, the 1979 Sverdlovsk release and the 2014 CDC incidents, showed a small annual rate compounding across dozens of labs over decades, the clean-record argument would look like survivorship bias.",
           common_ground:
             "Both sides agree that containment failures are documented and real, and that the consequence of a pandemic-capable escape would be catastrophic; the dispute is the probability, not the magnitude.",
           live_disagreement:
@@ -190,7 +190,7 @@ export const gainOfFunctionResearchBanData = {
           supporter_flip:
             "If a systematic review found that key pandemic-defense insights — specific transmissibility mutations, antiviral targets, or vaccine-relevant findings — genuinely required creating enhanced pathogens and could not have been obtained through pseudovirus systems, deep mutational scanning, structural prediction, or natural surveillance, the 'safer methods can replace it' argument for a ban would collapse.",
           skeptic_flip:
-            "A skeptic who treats GOF as scientifically indispensable should weigh that the COVID-19 mRNA vaccines were built from a naturally obtained SARS-CoV-2 sequence (not from any gain-of-function experiment), and that AlphaFold, cryo-EM, and deep mutational scanning have rapidly expanded what can be learned without replication-competent enhanced pathogens.",
+            "If reviews found pandemic-defense advances coming from naturally obtained sequences, as the COVID-19 mRNA vaccines did, and from AlphaFold, cryo-EM and deep mutational scanning, the view that this research is indispensable would be hard to hold.",
           common_ground:
             "Both sides agree that surveillance, genomic sequencing, and structural biology have produced most preparedness knowledge, and that at least some specific GOF findings exist; the dispute is whether those specific findings were truly irreplaceable.",
           live_disagreement:
@@ -268,7 +268,7 @@ export const gainOfFunctionResearchBanData = {
           supporter_flip:
             "If comparative analysis of dual-use regimes showed that determined actors routinely circumvent funding restrictions, synthesis screening, and inspection — so a ban would barely reduce the global volume of dangerous research while pushing it offshore to less-transparent settings — the case for a prohibition (versus open, well-regulated research) would weaken sharply.",
           skeptic_flip:
-            "A skeptic who calls a ban unenforceable should weigh that most GOF work is done by funded institutions that depend on NIH-scale grants and on commercial DNA synthesis — over 80% of which is already screened — so funding cutoffs and supply-chain screening could plausibly eliminate the large majority of such research even without perfect compliance.",
+            "If tracking showed most such work done by institutions dependent on NIH-scale grants and on commercial DNA synthesis, over 80% of which is screened, funding cutoffs and supply-chain screening could cut the bulk of it, and 'unenforceable' would lose its footing.",
           common_ground:
             "Both sides agree that biology is far harder to verify than nuclear programs (no exotic materials, modest equipment), and that no realistic regime achieves perfect compliance; the question is how much a ban would actually reduce dangerous work.",
           live_disagreement:

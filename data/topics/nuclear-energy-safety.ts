@@ -48,9 +48,9 @@ export const nuclearEnergySafetyData = {
         cost_to_verify: "$200K (Meta-analysis of existing studies)",
         falsification: {
           supporter_flip:
-            "Credible, replicated evidence that chronic low-dose radiation around normally-operating plants and waste sites causes large, currently-undetected cancer tolls — overturning the dose-response consensus in the dangerous direction — would move nuclear out of the 'as safe as wind and solar' tier.",
+            "If replicated evidence showed chronic low-dose radiation around normally operating plants and waste sites causing large, currently undetected cancer tolls, nuclear would drop out of the 'as safe as wind and solar' tier.",
           skeptic_flip:
-            "A skeptic focused on catastrophe should update toward 'safe enough' as passive-safety designs accumulate decades of operating experience with no major release, and as the deaths-per-TWh gap over fossil fuels keeps holding up under independent re-analysis — which it consistently has.",
+            "If passive-safety designs logged decades of operation with no major release, and new independent re-analyses kept the deaths-per-TWh gap over fossil fuels, the fear of a rare disaster would no longer outweigh the fossil deaths nuclear displaces.",
           common_ground:
             "Both sides agree routine nuclear operation kills far fewer people than coal or gas; the real worry is rare high-consequence accidents and long-lived waste, not day-to-day harm.",
           live_disagreement:
@@ -164,7 +164,7 @@ export const nuclearEnergySafetyData = {
           supporter_flip:
             "If, even with supportive policy and standardized designs, Western new-build keeps landing above ~$140/MWh and 7+ year timelines while firmed solar-plus-storage keeps getting cheaper, then nuclear cannot decarbonize fast enough per dollar — and the climate case for it collapses on cost, not safety.",
           skeptic_flip:
-            "A demonstrated, repeatable path to building reactors at roughly under $4/W and in under 5 years — as recent South Korean and Chinese builds claim — would neutralize the cost-and-speed objection that anchors most opposition.",
+            "If reactors were built repeatedly at under about $4/W and in under 5 years, testing the claims made for recent South Korean and Chinese builds, the cost-and-speed objection behind most opposition would lose its footing.",
           common_ground:
             "Both sides agree nuclear delivers firm, low-carbon power at a high (~93%) capacity factor, and that recent Western first-of-a-kind projects were badly over budget and behind schedule.",
           live_disagreement:

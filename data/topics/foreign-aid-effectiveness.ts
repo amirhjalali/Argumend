@@ -48,7 +48,7 @@ export const foreignAidEffectivenessData = {
           supporter_flip:
             "If a portfolio audit showed that RCT-backed, high-impact programs (bed nets, vaccines, ART, deworming, cash transfers) make up only a small slice of total aid flows — with most dollars going to categories that lack credible impact evidence — then \"aid works\" would shrink to \"a minority of aid works,\" weakening the case for aid as currently allocated.",
           skeptic_flip:
-            "A skeptic citing the $4.6 trillion-and-still-poor critique should weigh that the proven interventions have direct RCT and program evidence (GiveWell's ~$3,000-$8,000 per death averted for bed nets; PEPFAR's ~25 million lives saved) — so even if most aid is ineffective, the effective fraction can be enormously valuable in absolute lives saved.",
+            "If audited cost-effectiveness held up, testing GiveWell's ~$3,000-$8,000 per death averted for bed nets and PEPFAR's ~25 million lives saved, even a small effective fraction of aid would save enough lives to answer the $4.6 trillion-and-still-poor critique.",
           common_ground:
             "Both sides agree that some targeted health interventions (bed nets, vaccines, ART) have strong causal evidence and that general budget support has much weaker evidence; they also agree aggregate aid-and-growth correlations are not, by themselves, causal.",
           live_disagreement:
@@ -151,7 +151,7 @@ export const foreignAidEffectivenessData = {
           supporter_flip:
             "If a head-to-head tracer study found that direct cash transfers and lean NGO channels deliver no better cost-per-outcome than traditional project aid or budget support — once you account for spillovers, sustainability, and what cash can't buy (infrastructure, institutions) — the \"just give cash / cut the overhead\" case for efficiency would lose much of its force.",
           skeptic_flip:
-            "A skeptic emphasizing leakage and overhead should weigh that GiveDirectly delivers ~90% of funds to recipients with RCT-backed consumption and asset gains (Haushofer & Shapiro 2016; Egger et al. 2022), that documented diversion concentrates in specific weak-governance settings rather than describing all aid, and that IATI transparency reporting has improved since the 2000s.",
+            "If new trials repeated the consumption and asset gains reported for GiveDirectly (Haushofer & Shapiro 2016; Egger et al. 2022), which delivers ~90% of funds to recipients, and diversion stayed confined to specific weak-governance settings, the leakage-and-overhead objection would cover less of aid.",
           common_ground:
             "Both sides agree that delivery channel matters enormously, that tied aid raises costs (OECD: 15-30%), and that leakage is real in weak-governance contexts; they also agree direct cash transfers have unusually low overhead.",
           live_disagreement:

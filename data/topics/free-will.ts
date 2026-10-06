@@ -97,9 +97,9 @@ export const freeWillData = {
         cost_to_verify: "$200K (fMRI study with sufficient statistical power)",
         falsification: {
           supporter_flip:
-            "A free-will supporter leaning on the 'free won't' should change their mind if high-resolution timing showed the neural signal for a successful veto *also* precedes its conscious report — i.e. the veto is itself just another determined event, with no late window in which conscious will adds anything not already fixed by prior brain states.",
+            "If high-resolution timing showed the neural signal for a successful veto also preceding its conscious report, the veto would be one more determined event, and the 'free won't' defense would lose its late window for conscious will.",
           skeptic_flip:
-            "A skeptic citing Libet should weigh that the readiness potential may be an artifact of averaging spontaneous fluctuations (Schurger et al., 2012, PNAS) rather than a decision unfolding, and that Soon et al.'s ~60% prediction accuracy is a weak bias signal, not proof the outcome was sealed — neither result cleanly shows the brain decides before the person does.",
+            "If new work confirmed that the readiness potential reflects averaged spontaneous fluctuations, as Schurger et al. (2012) proposed, and prediction stayed near Soon et al.'s ~60% accuracy, the claim that the brain decides before the person does would lose its main support.",
           common_ground:
             "Both sides agree that measurable brain activity reliably precedes the conscious report of a decision; the dispute is over what that activity *is*.",
           live_disagreement:
@@ -208,9 +208,9 @@ export const freeWillData = {
         cost_to_verify: "$5M (Quantum biology lab experiments)",
         falsification: {
           supporter_flip:
-            "A libertarian hoping quantum indeterminacy rescues free will should reconsider if experiments confirmed that neural decoherence times are far shorter than neural firing intervals (the standard Tegmark objection to Penrose-Hameroff) — and, more fundamentally, should grant that even if quantum effects were functional, randomness delivers unpredictability, not agent *control*: a coin-flip in the synapse is not a free choice.",
+            "If experiments confirmed neural decoherence times far shorter than firing intervals, the Tegmark objection to Penrose-Hameroff, quantum effects would drop out of decisions, and even if they stayed, randomness would give unpredictability rather than agent control.",
           skeptic_flip:
-            "A determinist should weigh that standard interpretations of quantum mechanics make fundamental physics genuinely indeterministic (SEP, 'Causal Determinism'), so strict Laplacian 'every neuron was fixed by the Big Bang' framing is false as physics — the universe is not, in fact, a clockwork, even if that gap doesn't by itself yield free will.",
+            "If the standard interpretations that make fundamental physics indeterministic survived new tests, the picture of every neuron fixed by the Big Bang would fail as physics, though that gap alone would not yield free will.",
           common_ground:
             "Both sides agree quantum mechanics breaks classical determinism at the fundamental level and that mere randomness does not, on its own, amount to free will.",
           live_disagreement:
@@ -325,9 +325,9 @@ export const freeWillData = {
         cost_to_verify: "$50K (Cross-cultural experimental philosophy studies)",
         falsification: {
           supporter_flip:
-            "Someone who thinks the *source* of a determined action matters (manipulation by a scientist is worse than ordinary upbringing) should reconsider if robust cross-cultural studies showed people's intuitions track only whether the agent acted from their own desires — with no stable distinction between covert manipulation and ordinary causal history once outcomes are held fixed.",
+            "If robust cross-cultural studies found intuitions tracking only whether the agent acted from their own desires, with no stable gap between covert manipulation and ordinary causal history once outcomes are fixed, the view that the source of a determined action matters would lose its footing.",
           skeptic_flip:
-            "A hard incompatibilist who says manipulation and natural causation are morally identical should weigh that holding-responsible appears as a human universal (Brown, 1991) and has clear forward-looking pragmatic value in shaping behavior — so the practice may be justified on grounds that survive even if libertarian 'could have done otherwise' is false.",
+            "If cross-cultural work confirmed Brown's (1991) listing of holding-responsible as a human universal, with forward-looking value in shaping behavior, the practice could rest on grounds that survive even without libertarian 'could have done otherwise.'",
           common_ground:
             "Both sides agree that physical factors outside our control — genes (~49% average heritability, Polderman et al., 2015) and brain damage (Gage and modern lesion cases) — shape moral behavior, and that some response to wrongdoing is socially necessary.",
           live_disagreement:

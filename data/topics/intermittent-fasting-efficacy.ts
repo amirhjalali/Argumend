@@ -58,7 +58,7 @@ export const intermittentFastingEfficacyData = {
           supporter_flip:
             "If a series of well-powered, calorie-matched trials with DXA body composition showed no weight or fat-loss advantage for fasting — and the real-world-adherence edge failed to replicate — the case for the window 'doing something extra' would collapse to 'just a calorie-cutting tactic.'",
           skeptic_flip:
-            "A skeptic who says it's only calories should weigh that the longest trial (Catenacci 2025, 4:3 vs daily restriction) found significantly more weight loss and better adherence at 12 months — so if that result replicates in calorie-matched designs, real-world advantages would be hard to dismiss.",
+            "If calorie-matched trials, testing the 12-month Catenacci 2025 comparison of 4:3 fasting with daily restriction, found more weight loss and better adherence with fasting, the view that fasting is only calorie cutting would be hard to hold.",
           common_ground:
             "Both sides agree that any method which sustainably lowers total calories produces weight loss, and that adherence is the dominant predictor of long-term success.",
           live_disagreement:
@@ -179,7 +179,7 @@ export const intermittentFastingEfficacyData = {
           supporter_flip:
             "If larger, weight-clamped feeding trials using gold-standard clamps failed to reproduce Sutton's insulin-sensitivity and blood-pressure gains, the weight-independent metabolic claim would have to be abandoned in favor of 'the markers just follow the weight.'",
           skeptic_flip:
-            "A skeptic who says metabolism is downstream of weight should weigh that Sutton 2018 held weight constant by design and still improved insulin sensitivity and blood pressure — so if that replicates at scale, a genuine timing effect would be hard to deny.",
+            "If larger trials that hold weight constant, as Sutton 2018 did, also found better insulin sensitivity and blood pressure, a timing effect beyond weight loss would be hard to deny.",
           common_ground:
             "Both sides agree that most metabolic markers improve when people lose weight, and that the early small trials need replication in larger, weight-stable samples.",
           live_disagreement:
@@ -301,7 +301,7 @@ export const intermittentFastingEfficacyData = {
           supporter_flip:
             "If long pragmatic trials with objective tracking showed fasting windows are abandoned at the same or higher rates than daily calorie counting across protocols, the 'easier to sustain' claim would fail and fasting would be just another equally-quittable diet.",
           skeptic_flip:
-            "A skeptic citing alternate-day fasting's 38% dropout should weigh that gentler protocols (16:8, 5:2, 4:3) showed equal-or-better adherence in multiple trials — so 'fasting is harder to stick to' isn't true of the protocols most people actually use.",
+            "If long trials of the gentler protocols most people use (16:8, 5:2, 4:3) found adherence equal to or better than daily restriction, 'fasting is harder to stick to' would describe alternate-day fasting and its 38% dropout rather than fasting in general.",
           common_ground:
             "Both sides agree adherence is the single biggest determinant of long-term weight loss, and that the harshest fasting protocols (alternate-day) are hardest to sustain.",
           live_disagreement:

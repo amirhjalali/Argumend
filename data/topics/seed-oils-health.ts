@@ -105,7 +105,7 @@ export const seedOilsHealthData = {
           supporter_flip:
             "If a controlled feeding trial showed that high dietary linoleic acid leaves tissue arachidonic acid flat and does not raise inflammatory eicosanoids (CRP, IL-6, PGE2, urinary metabolites) — confirming the Rett & Whelan homeostasis finding — the omega-6:3 ratio mechanism would lose its proposed pathway and collapse into a metabolically inert framing.",
           skeptic_flip:
-            "A skeptic who treats the ratio as harmless should weigh that the intake shift is real and large (LA rose from ~2.8% to ~7.2% of calories), that LA and omega-3 genuinely compete for shared desaturase and eicosanoid enzymes, and that 'tissue AA stays stable' does not rule out other LA-related signaling-lipid effects the trials never measured.",
+            "If trials measured the signaling lipids beyond tissue AA that the rise in LA from ~2.8% to ~7.2% of calories could affect, and found inflammatory shifts from LA and omega-3 competing for the same enzymes, the ratio would no longer look harmless.",
           common_ground:
             "Both sides agree dietary linoleic acid rose dramatically in the 20th century and that the body cannot synthesize either omega-6 or omega-3, so diet sets the balance.",
           live_disagreement:
@@ -222,7 +222,7 @@ export const seedOilsHealthData = {
           supporter_flip:
             "If controlled cooking experiments plus human biomonitoring showed that aldehyde exposure from realistic home and restaurant seed-oil use stays far below toxicological no-observed-adverse-effect levels — with urinary aldehyde metabolites unchanged on high vs low seed-oil diets — the oxidation argument would reduce to a concern only for prolonged commercial deep-frying, not everyday eating.",
           skeptic_flip:
-            "A skeptic who says oxidation is overblown should weigh that 4-HNE was measured at 7.83-32.15 ug per 100 g of fast-food fries, that PUFA-rich oils form aldehydes even below their smoke point, and that repeated domestic deep-frying (per groups like Grootveld) can reach levels they characterize as toxicologically significant — so the safety margin is not actually established.",
+            "If biomonitoring of home cooks found aldehyde exposure near the levels measured in fast-food fries (4-HNE at 7.83-32.15 ug per 100 g) or in repeated domestic deep-frying, the safety margin for everyday seed-oil use would no longer look secure.",
           common_ground:
             "Both sides agree that heating polyunsaturated oils generates aldehydes, that aldehyde formation scales with frying intensity and repetition, and that single brief home cooking produces far less than prolonged restaurant deep-frying.",
           live_disagreement:
@@ -335,7 +335,7 @@ export const seedOilsHealthData = {
           supporter_flip:
             "If a large RCT swapping seed oils for olive oil/butter at matched calories and total fat produced equivalent or better cardiovascular, metabolic, and inflammatory outcomes for the seed-oil group — consistent with the Farvid meta-analysis and the 2020 Cochrane review favoring PUFA replacement — the population-level harm narrative would be falsified as confounding rather than causation.",
           skeptic_flip:
-            "A skeptic leaning on the meta-analyses should weigh that the recovered Sydney Diet Heart and Minnesota Coronary data showed higher mortality on linoleic-acid-rich diets, and that the supportive meta-analyses rest on observational cohorts plus old RCTs that used trans-fat-containing margarine — neither of which cleanly tests modern liquid seed oils in isolation.",
+            "If new trials of modern liquid seed oils, free of the trans-fat margarine in the old RCTs, replicated the higher mortality reported in the recovered Sydney Diet Heart and Minnesota Coronary data, the meta-analyses favoring seed oils would lose their footing.",
           common_ground:
             "Both sides agree the ecological correlation is real but heavily confounded by simultaneous changes in calories, sugar, ultra-processed foods, and activity, and that no existing RCT has tested modern liquid seed oils against alternatives with calories and total fat held constant.",
           live_disagreement:

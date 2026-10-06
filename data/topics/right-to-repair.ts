@@ -55,7 +55,7 @@ export const rightToRepairData = {
           supporter_flip:
             "If difference-in-differences on states that enacted right-to-repair (New York 2023, Minnesota, California 2024) showed device prices rising and total cost of ownership flat or higher relative to control states once firms adjusted — the predicted 'lose-lose-lose' equilibrium — the household-savings case would collapse from 'hundreds of dollars saved' to 'no measurable consumer benefit.'",
           skeptic_flip:
-            "A skeptic leaning on the Management Science model should weigh that it is one theoretical equilibrium, not a measurement, and that an independent regulator (the FTC) found repair restrictions raise costs with 'scant evidence' of offsetting justification — so the burden is on showing the strategic-pricing harm actually dominates in the real data.",
+            "If measured cost data from states with repair laws matched the FTC's finding that repair restrictions raise costs with 'scant evidence' of offsetting benefit, the strategic-pricing harm in the Management Science model would remain a theory rather than a measured effect.",
           common_ground:
             "Both sides agree repair monopolies impose a real cost on consumers and that manufacturers will respond strategically to a mandate; the dispute is the sign and size of the net effect.",
           live_disagreement:
@@ -129,9 +129,9 @@ export const rightToRepairData = {
         cost_to_verify: "$150K (firm-level R&D / patent panel analysis)",
         falsification: {
           supporter_flip:
-            "If an event study around the EU repair rules and US state laws showed covered manufacturers measurably cutting R&D intensity, patent filings, or new-product cadence relative to comparable unaffected firms, the 'repair and innovation coexist' claim would fail and the industry's incentive-dulling warning would be vindicated.",
+            "If an event study around the EU repair rules and US state laws showed covered manufacturers measurably cutting R&D intensity, patent filings or new-product cadence relative to comparable unaffected firms, the 'repair and innovation coexist' claim would fail and the warning about dulled incentives would gain real support.",
           skeptic_flip:
-            "A skeptic citing the trade association's harm argument should weigh that Apple — a long-time opponent — formally backed California SB 244 and now runs a Self Service Repair program while still shipping new products and features, which is revealed-preference evidence that a leading innovator judged it can live with a mandate.",
+            "If Apple, a long-time opponent that backed California SB 244 and runs a Self Service Repair program, kept its product and feature pace under the mandate, and other leading firms did likewise, the trade association's innovation-harm warning would lose its footing.",
           common_ground:
             "Both sides agree that compelled access to parts, tools, and proprietary information changes manufacturers' incentives at the margin; the dispute is whether that change is large enough to depress actual innovation output.",
           live_disagreement:
@@ -226,7 +226,7 @@ export const rightToRepairData = {
           supporter_flip:
             "If incident data showed jurisdictions or product categories with repair access suffering materially more data breaches or safety failures than those without — even for ordinary, non-networked electronics — the FTC's 'no empirical evidence' finding would be overturned and the blanket-risk objection would gain real support.",
           skeptic_flip:
-            "A skeptic warning of cyber risk should weigh that the FTC found 'no empirical evidence' independent shops are less secure for general consumer devices, and that NHTSA's concern was specifically about one aggressive auto-telematics provision forcing open standardized access — not about repair access as a category.",
+            "If incident data matched the FTC's finding of 'no empirical evidence' that independent shops are less secure for general consumer devices, and NHTSA's concern stayed confined to one auto-telematics provision, the broad cyber-risk objection would lose its footing.",
           common_ground:
             "Both sides agree the sharpest, concrete risk is concentrated in networked, safety-critical systems (vehicles, medical devices), and that general consumer-electronics repair is comparatively low-risk.",
           live_disagreement:

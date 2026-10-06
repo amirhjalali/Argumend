@@ -104,7 +104,7 @@ function Header({ node, model }: { node: DiagramNode; model: DiagramModel }) {
   );
 }
 
-/** "Someone who says yes / no would change their mind if…", styled as the crux sheet has it. */
+/** "What would change the mind of someone who says yes / no…", styled as the crux sheet has it. */
 function MindChange({ label, side, text }: { label: string; side: keyof typeof SIDE_LABEL; text: string }) {
   return (
     <div>

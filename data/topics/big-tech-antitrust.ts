@@ -54,7 +54,7 @@ export const bigTechAntitrustData = {
           supporter_flip:
             "If a rigorous quality-adjusted welfare measure found consumers are actually better off under the integrated free incumbents than they'd be in a fragmented competitive market — once you net privacy, innovation, and convenience — the case for breakup would weaken to 'dominant but not harmful.'",
           skeptic_flip:
-            "A skeptic who says free = no harm should weigh that 'free' hides the price paid in data and attention, that a court found Google bought its dominance with $26B in default deals rather than winning purely on merit, and that acquired-then-shelved rivals are innovation consumers never got.",
+            "If welfare measures priced the data and attention paid for 'free' services, and counted the rivals acquired then shelved and the effect of Google's $26B in default deals, 'free means no harm' would be hard to hold.",
           common_ground:
             "Both sides agree these products are dominant and largely free at the point of use, and that the traditional price-based antitrust test fits zero-price markets poorly.",
           live_disagreement:
@@ -167,7 +167,7 @@ export const bigTechAntitrustData = {
           supporter_flip:
             "If experiments showed that fully-informed users — who actually understood the data practices — wouldn't change their behavior, the 'no meaningful consent' argument for regulation would weaken: people would be making an informed trade they're fine with.",
           skeptic_flip:
-            "A skeptic who says it's a fair trade should weigh that no one can read the ~7,000-word policies they 'agree' to (reading every policy you encounter yearly would take weeks), and that you can't meaningfully opt out of the digital economy — so 'voluntary consent' is closer to fiction than to a fair trade.",
+            "If experiments found that almost no one reads the ~7,000-word policies they accept, and that opting out of data collection means opting out of the digital economy, 'voluntary consent' would look closer to fiction than to a fair trade.",
           common_ground:
             "Both sides agree users do receive real value from free services in exchange for their data.",
           live_disagreement:

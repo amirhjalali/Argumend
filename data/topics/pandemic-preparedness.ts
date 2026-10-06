@@ -57,7 +57,7 @@ export const pandemicPreparednessData = {
           supporter_flip:
             "If a rigorous historical-frequency analysis showed pandemic-scale events are genuinely rare and most outbreaks are containable with existing capacity — so the probability-weighted expected cost doesn't justify large upfront spending — the 'highest-return investment' case would weaken to 'nice but not cost-effective.'",
           skeptic_flip:
-            "A skeptic who says it's too speculative should weigh that COVID alone cost ~$16T, that zoonotic spillover risk is rising (deforestation, factory farming, global travel), and that even a low annual pandemic probability times a multi-trillion-dollar loss dwarfs a few-billion-dollar preparedness budget.",
+            "If updated spillover estimates showed pandemic risk rising with deforestation, factory farming and travel, a low yearly probability times a COVID-scale ~$16T loss would outweigh a few-billion-dollar budget, and 'too speculative' would lose its footing.",
           common_ground:
             "Both sides agree a severe pandemic is enormously costly and that most routine outbreaks are contained with existing capacity.",
           live_disagreement:
@@ -198,7 +198,7 @@ export const pandemicPreparednessData = {
           supporter_flip:
             "If comparative analysis showed post-COVID reforms predictably erode within 5-10 years — surveillance defunded, stockpiles depleted, response units cut, as happened after H1N1 — then heavy upfront investment would mostly be wasted on institutions that revert to complacency.",
           skeptic_flip:
-            "A skeptic who says bureaucracies always backslide should weigh that some systems (South Korea's KDCA after MERS) built durable, independent agencies that detected and responded faster in the next outbreak — so 'preparedness always decays' is contradicted by the designs that didn't.",
+            "If more agencies built like South Korea's KDCA after MERS stayed funded and independent and then responded faster in the next outbreak, 'preparedness always decays' would give way to a question of institutional design.",
           common_ground:
             "Both sides agree preparedness funding and attention have historically faded after each scare, and that institutional design affects whether reforms stick.",
           live_disagreement:
@@ -322,7 +322,7 @@ export const pandemicPreparednessData = {
           supporter_flip:
             "If risk assessment showed gain-of-function and dual-use research produces irreplaceable vaccine/therapeutic insights that couldn't be gotten safer ways — and lab-accident risk is genuinely low — then restricting it would increase, not decrease, net pandemic vulnerability.",
           skeptic_flip:
-            "A skeptic who wants the research unrestricted should weigh the documented history of lab accidents with enhanced pathogens and the live debate over COVID's origin — so 'the research is obviously worth the risk' isn't established; the net-risk calculation is genuinely open.",
+            "If new audits of labs handling enhanced pathogens kept turning up accidents, or an origin investigation tied an outbreak to such work, 'the research is obviously worth the risk' would no longer hold and the net-risk calculation would tilt toward restriction.",
           common_ground:
             "Both sides agree gain-of-function research carries some lab-accident risk and some potential scientific benefit; the dispute is the balance.",
           live_disagreement:

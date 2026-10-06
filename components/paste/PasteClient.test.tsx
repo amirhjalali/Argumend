@@ -87,7 +87,7 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(view.queryByText("Immigration and Wages")).toBeNull();
     // Sides by the answer to that question, said in full under the crux.
     expect(
-      view.getByText("Someone who says yes to the map’s question would change their mind if…"),
+      view.getByText("What would change the mind of someone who says yes to the map’s question"),
     ).toBeTruthy();
     expect(view.getByText("Points to yes")).toBeTruthy();
     expect(view.getByText("Points to no")).toBeTruthy();

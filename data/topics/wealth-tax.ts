@@ -57,7 +57,7 @@ export const wealthTaxData = {
           supporter_flip:
             "If close analysis showed the European repeals were driven by features the US can't escape — annual valuation of private wealth being inherently gameable, avoidance scaling with enforcement no matter how well-funded — rather than fixable design flaws, the 'US can do it better' case would weaken.",
           skeptic_flip:
-            "A skeptic citing the European failures should weigh that the survivors (Switzerland, Norway) collect meaningful revenue with good asset registries, and that the US's citizenship-based taxation and exit tax remove the easy emigration that doomed France's version — so European repeals aren't automatically America's fate.",
+            "If Switzerland's and Norway's wealth taxes kept collecting meaningful revenue with good asset registries, and US citizenship-based taxation and exit taxes blocked the emigration that hit France, the European repeals would stop looking like America's fate.",
           common_ground:
             "Both sides agree most European wealth taxes were repealed and that valuation and avoidance are the central practical problems.",
           live_disagreement:
@@ -172,7 +172,7 @@ export const wealthTaxData = {
           supporter_flip:
             "If rigorous studies found a billionaire wealth tax meaningfully cut productive investment and business formation — because forcing annual liquidation of company equity damages the firms behind the fortunes — the '2% is below returns, so investment survives' argument would weaken.",
           skeptic_flip:
-            "A skeptic who says it kills investment should weigh that a 2% annual levy sits well below typical long-run equity returns, that most billionaire wealth would have stayed in assets rather than been consumed, and that cross-country IMF work finds little growth penalty from redistribution except in extreme cases.",
+            "If cross-country data kept finding little growth penalty from a levy set below long-run equity returns, and most billionaire wealth stayed invested rather than consumed, the claim that a 2% tax kills investment would lose its footing.",
           common_ground:
             "Both sides agree most billionaire wealth is productive company equity, not idle cash, so how the tax is paid (selling shares vs. borrowing against them) matters.",
           live_disagreement:

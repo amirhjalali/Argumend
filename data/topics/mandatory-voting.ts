@@ -52,7 +52,7 @@ export const mandatoryVotingData = {
           supporter_flip:
             "If careful comparisons showed compulsory-voting countries are no more responsive to median-voter or lower-income preferences than voluntary ones — the extra voters too uninformed to shift policy and 'donkey votes' adding only noise — the representation case for compulsion would collapse.",
           skeptic_flip:
-            "A skeptic who says forced votes are noise should weigh that Australia's quasi-experimental rollout produced a measurable policy shift toward lower-income voters (more pension spending, higher Labor vote), which is hard to explain if compelled votes were pure noise.",
+            "If more studies of Australia's staggered rollout found the same policy shift toward lower-income voters, with more pension spending and a higher Labor vote, compelled votes would be hard to dismiss as pure noise.",
           common_ground:
             "Both sides agree compulsory voting dramatically raises raw turnout, and that compelled voters are on average less politically engaged than habitual ones.",
           live_disagreement:
@@ -164,7 +164,7 @@ export const mandatoryVotingData = {
           supporter_flip:
             "If the administrative and liberty costs of compelling turnout clearly outweighed the democratic gains — regressive fines biting the poor, little improvement in polarization or responsiveness — the practical case for adopting it would weaken even if it raises turnout.",
           skeptic_flip:
-            "A skeptic who says it's not worth it should weigh that Australia enforces with a modest ~$20 first fine and near-universal compliance, and that the voluntary-voting US saw the largest rise in affective polarization among twelve democracies — at least suggestive that universal turnout dampens the incentive to win by polarizing.",
+            "If enforcement data kept showing near-universal compliance from a modest first fine of about $20, and cross-country work tied voluntary voting to the steep rise in affective polarization seen in the US, the cost of compulsion would look small next to its gains.",
           common_ground:
             "Both sides agree a flat fine is somewhat regressive and that disengagement has deeper causes (uncompetitive seats, weak candidates) that compulsion alone doesn't fix.",
           live_disagreement:

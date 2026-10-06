@@ -53,7 +53,7 @@ export const carbonTaxEffectivenessData = {
           supporter_flip:
             "If well-identified difference-in-differences and synthetic-control studies consistently found that taxed jurisdictions' emission drops were fully accounted for by coincident recessions, parallel regulations, or fuel-price swings — with the carbon-price coefficient collapsing to zero once those confounders are controlled — the claim that the tax itself cuts emissions would fail.",
           skeptic_flip:
-            "A skeptic who says the drops are just confounding should weigh that the largest meta-analysis (483 effect sizes, 80 studies) finds significant cuts for at least 17 of 21 schemes after correcting for publication bias, that Sweden's synthetic-control estimate survives matched OECD controls, and that BC plant-level data show a technique effect (-6% intensity) while output actually rose — patterns recessions don't produce.",
+            "If new studies matched the meta-analysis finding of significant cuts in at least 17 of 21 schemes after publication-bias correction, Sweden's synthetic-control estimate held against matched OECD controls, and BC plants kept cutting intensity while output rose, confounding would be hard to credit for the drops.",
           common_ground:
             "Both sides agree that observed aggregate emission declines have real non-tax drivers (recessions, other regulations, technology trends) and that any honest estimate must net those out against a credible counterfactual.",
           live_disagreement:
@@ -164,7 +164,7 @@ export const carbonTaxEffectivenessData = {
           supporter_flip:
             "If the marginal abatement response flattened sharply as prices rose — so that even taking a price to the $50-100/tCO2 Paris-consistent corridor produced only marginally more abatement than today's low prices — then the problem would be the instrument, not the price level, and 'just raise the price' would no longer rescue the efficiency case.",
           skeptic_flip:
-            "A skeptic who says pricing is the wrong tool should weigh that 3,500+ economists including 28 Nobel laureates call it the most cost-effective lever, that observed carbon-tax elasticities (e.g. Sweden's ~3× the ordinary price elasticity) imply substantial untapped abatement at higher prices, and that prescriptive mandates carry their own deadweight costs.",
+            "If higher carbon prices produced abatement in line with Sweden's elasticity, about three times the ordinary price response, and mandates showed larger deadweight costs, the cost-effectiveness case that 3,500+ economists make for pricing would be hard to set aside.",
           common_ground:
             "Both sides agree that deployed carbon prices have sat well below the Stiglitz-Stern Paris-consistent corridor and that, at those low levels, real-world abatement has been modest.",
           live_disagreement:
@@ -240,7 +240,7 @@ export const carbonTaxEffectivenessData = {
           supporter_flip:
             "If consumption-based emission accounting showed leakage offsetting the large majority of a jurisdiction's territorial cuts — production and its emissions simply migrating to untaxed countries — or if carbon taxes proved so politically fragile that most are repealed within a few years, then territorial reductions would not translate into durable global ones.",
           skeptic_flip:
-            "A skeptic who says taxes just export emissions and get repealed should weigh that OECD plant-level analysis bounds average leakage at ~13% (leaving ~87% of the cut intact), that border adjustments and climate clubs are shrinking it further, and that backlash has been blunted where revenue is recycled as dividends — making fragility a design problem, not a verdict.",
+            "If more plant-level analyses kept average leakage near the OECD's ~13% bound, border adjustments and climate clubs shrank it further, and dividend-recycled taxes avoided repeal, leakage and fragility would look like design problems rather than reasons the tax fails.",
           common_ground:
             "Both sides agree that carbon leakage is real and non-zero, and that carbon taxes have faced genuine political backlash and at least one outright repeal (Australia, 2014).",
           live_disagreement:

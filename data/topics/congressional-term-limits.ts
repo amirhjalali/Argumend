@@ -49,7 +49,7 @@ export const congressionalTermLimitsData = {
           supporter_flip:
             "If a clean difference-in-differences analysis of the 15 term-limited states showed open seats created by limits were no more competitive — similar margins of victory and candidate counts — than comparable seats in non-limited states, the accountability case would lose its core empirical support and reduce to 'high re-election rates feel bad' without a working fix.",
           skeptic_flip:
-            "A skeptic who treats ~90%+ re-election as healthy voter satisfaction should weigh that those rates persist even when generic-Congress approval is low and most districts are uncompetitive by design (gerrymandering, fundraising and name-recognition gaps) — so high re-election may reflect structural insulation rather than earned approval.",
+            "If studies found ~90%+ re-election rates holding even when generic-Congress approval was low and districts were uncompetitive by design, through gerrymandering and fundraising and name-recognition gaps, high re-election would look like structural insulation rather than earned approval.",
           common_ground:
             "Both sides agree House incumbents win re-election roughly 90%+ of the time and that large majorities of Americans say they support congressional term limits.",
           live_disagreement:
@@ -161,9 +161,9 @@ export const congressionalTermLimitsData = {
         cost_to_verify: "$0-$200K (existing JPTL surveys + budget-data analysis)",
         falsification: {
           supporter_flip:
-            "A supporter who expects forced turnover to dilute captured relationships should update if before-and-after tracking showed term-limited legislatures altering a smaller share of the governor's proposed budget and leaning more on lobbyists and career staff — the pattern the Joint Project on Term Limits reported — since that would mean influence had moved to unelected hands rather than shrunk. The 50-state survey's finding that power shifted toward governors, and Olson & Rogowski's (2020) finding of higher polarization under limits, bear on the same question.",
+            "If before-and-after tracking showed term-limited legislatures changing less of the governor's budget and leaning more on lobbyists and career staff, the pattern the JPTL reported, and polarization rising, testing Olson and Rogowski (2020), influence would look moved to unelected hands rather than diluted.",
           skeptic_flip:
-            "A skeptic citing the JPTL and Carey-Niemi findings should weigh that the authoring bodies (NCSL, CSG, legislative-leader groups) represent legislatures and thus have an institutional stake in opposing limits — so part of the 'power shifts to the governor' narrative could reflect the surveyed legislators' own perspective rather than an objective loss.",
+            "If independent researchers without an institutional stake, unlike NCSL, CSG and legislative-leader groups, repeated the JPTL and Carey-Niemi work and found less of a shift toward governors, the 'power moves to the governor' finding would look partly like legislators' own perspective.",
           common_ground:
             "Both sides agree inexperienced legislators must rely more heavily on outside sources of institutional knowledge, and that term limits do reliably reduce the average tenure and seniority within a chamber.",
           live_disagreement:
@@ -255,9 +255,9 @@ export const congressionalTermLimitsData = {
         cost_to_verify: "$0 (court opinion + congressional and state records)",
         falsification: {
           supporter_flip:
-            "A supporter who reads overwhelming public support as a clear path to enactment should weigh that no constitutional amendment has been ratified since 1992, that incumbents must vote to limit themselves (a steep collective-action problem), and that an Article V convention has never successfully been triggered in U.S. history — so popularity has repeatedly failed to clear the procedural bar.",
+            "If term-limits drives kept stalling at the procedural bar, with no amendment ratified since 1992, incumbents unwilling to limit themselves and no Article V convention ever triggered, wide public support would look far from a path to enactment.",
           skeptic_flip:
-            "A skeptic who doubts there is any realistic path should reconsider if a term-limits amendment cleared two-thirds of both houses of Congress, or if the live Article V convention applications reached the 34-state threshold and produced a ratifiable proposal: the 'no realistic path' objection would be falsified, and enactment would have moved from hypothetical to in-progress despite the gatekeepers being the officials limited.",
+            "If a term-limits amendment cleared two-thirds of both houses, or Article V applications reached the 34-state threshold and produced a ratifiable proposal, the 'no realistic path' objection would lose its footing, with enactment moving from hypothetical to in progress.",
           common_ground:
             "Both sides agree that after Thornton, congressional term limits cannot be imposed by ordinary statute and require a constitutional amendment under Article V — either two-thirds of Congress or a convention, then ratification by 38 states.",
           live_disagreement:

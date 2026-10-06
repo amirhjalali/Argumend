@@ -176,7 +176,7 @@ export const rentControlEffectivenessData = {
           supporter_flip:
             "If rigorous longitudinal welfare accounting shows displacement-prevention benefits to incumbents (health, schooling, stability) exceed the mobility and market-distortion costs imposed on newcomers, the 'protects insiders at outsiders' expense' objection loses its force.",
           skeptic_flip:
-            "If the same accounting shows newcomer harms plus lock-in and misallocation costs dominate, then even sympathetic observers should prefer targeted anti-displacement tools over broad rent control.",
+            "If longitudinal welfare accounting showed newcomer harms plus lock-in and misallocation costs outweighing the benefits to incumbents, targeted anti-displacement tools would look better than broad rent control, even to sympathetic observers.",
           common_ground:
             "Both sides agree rent control transfers wealth to incumbent tenants and reduces their mobility; the SF study documents both the benefit and the lock-in.",
           live_disagreement:
@@ -291,7 +291,7 @@ export const rentControlEffectivenessData = {
           "$300K-800K (Multi-market comparative analysis of housing policy outcomes over 5-10 year timeframe)",
         falsification: {
           supporter_flip:
-            "If the evidence shows supply reforms take 10-20 years to reach low-income renters, then rent stabilization has a real role as a bridge while supply catches up.",
+            "If tracking showed supply reforms taking 10-20 years to reach low-income renters, rent stabilization would gain a real role as a bridge while supply catches up.",
           skeptic_flip:
             "If supply-side reforms (upzoning, faster permitting) can be shown to deliver measurable rent relief for bottom-quartile tenants within ~2-3 years, the case for rent control as a stopgap largely disappears.",
           common_ground:

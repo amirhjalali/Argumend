@@ -105,7 +105,7 @@ export const globalHousingBubbleData = {
           supporter_flip:
             "If a market sustained price-to-income ratios far above the historical 3-5x band for a full economic cycle — with first-time-buyer participation recovering rather than collapsing — without any correction, that would show elevated ratios reflect a durable structural shift (supply constraints, dual-income norms) rather than a bubble destined to pop.",
           skeptic_flip:
-            "A skeptic who treats high ratios as the 'new normal' should weigh that every prior episode of this extreme a divergence (US 2006, Japan 1990, Ireland 2007) was preceded by the same 'this time is structural' arguments, and that mortgage burdens above ~50% of income mechanically shrink the buyer pool until prices adjust.",
+            "If today's markets followed the pattern of the US in 2006, Japan in 1990 and Ireland in 2007, extreme ratios defended as 'structural', and mortgage burdens above ~50% of income shrank the buyer pool, the 'new normal' view would be hard to hold.",
           common_ground:
             "Both sides agree price-to-income ratios in many major cities are at or near record highs and that affordability for first-time buyers has deteriorated sharply.",
           live_disagreement:
@@ -221,7 +221,7 @@ export const globalHousingBubbleData = {
           supporter_flip:
             "If a downturn arrived and institutional and investor holdings were sold off gradually (or held through the trough as long-term rental assets) rather than dumped — with no measurable amplification of price declines in the metros and price tiers where investors had concentrated — that would refute the claim that concentrated ownership creates systemic sell-off risk.",
           skeptic_flip:
-            "A skeptic who points to the small ~3% national institutional share should weigh that buying is concentrated by metro and price tier — investors bought roughly a quarter to a third of homes in Sun Belt metros like Atlanta and Phoenix at the 2021-2022 peak — so a localized, synchronized exit could move those specific markets even if the national footprint is small.",
+            "If local data confirmed that investors bought roughly a quarter to a third of homes in Sun Belt metros like Atlanta and Phoenix at the 2021-2022 peak, and they began exiting together, the ~3% national institutional share would understate the risk to those markets.",
           common_ground:
             "Both sides agree large institutions own a small share of total housing nationally but a much larger share in specific Sun Belt metros and the entry-level price tier.",
           live_disagreement:
@@ -335,7 +335,7 @@ export const globalHousingBubbleData = {
           supporter_flip:
             "If the 2025-2026 renewal wave in short-fixed and variable-rate markets (Canada, Australia, UK) passed with households absorbing the payment increases — rising incomes, term extensions, and savings buffers preventing a spike in forced selling or arrears — that would show the 'lag effect' was a deferral that markets digested, not a delayed crash.",
           skeptic_flip:
-            "A skeptic relying on the US lock-in effect should weigh that lock-in is a US 30-year-fixed phenomenon: in Canada ~60% of mortgages renew across 2025-2026 with five-year fixed holders facing ~15-20% payment increases, and the BIS finds household debt-service sensitivity historically elevated in several of these economies, so the shock may simply not have arrived yet.",
+            "If arrears and forced sales rose as Canada's 2025-2026 renewals, about 60% of mortgages, hit five-year fixed holders with ~15-20% payment increases, the US lock-in effect would look like a local exception and the shock like one that had not yet arrived.",
           common_ground:
             "Both sides agree the US lock-in effect genuinely suppresses for-sale supply and that variable- and short-fixed-rate markets are far more exposed to rate increases than the 30-year-fixed US market.",
           live_disagreement:

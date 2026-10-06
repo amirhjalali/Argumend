@@ -51,7 +51,7 @@ export const homeschoolingEffectivenessData = {
           supporter_flip:
             "If a large study using mandatory (not voluntary) testing and propensity-score matching on income, parental education, and region erased the homeschool advantage — leaving homeschoolers at or below matched public school peers — the 'homeschooling itself raises achievement' claim would collapse into a pure selection effect.",
           skeptic_flip:
-            "A skeptic who attributes the gap entirely to demographics should weigh that some studies report homeschoolers outscoring expectations even within lower-income or minority subgroups, and that near one-on-one instruction at a personalized pace is a structural advantage no 30-student classroom can match — so a residual format effect after controls is plausible.",
+            "If controlled studies found homeschoolers outscoring expectations within lower-income and minority subgroups, testing reports that they do, a format effect from near one-on-one, self-paced instruction would be hard to put down to demographics alone.",
           common_ground:
             "Both sides agree homeschoolers post higher average scores on the tests actually administered, that those samples are self-selected and demographically advantaged, and that no existing study uses mandatory testing with full SES controls.",
           live_disagreement:
@@ -158,7 +158,7 @@ export const homeschoolingEffectivenessData = {
           supporter_flip:
             "If validated social-skills instruments (SSRS, SDQ) administered to demographically matched samples showed homeschoolers with measurably worse social competence or worse adult relationships — or if the favorable findings vanished once family engagement was controlled — the 'socialization is fine' rebuttal would not hold.",
           skeptic_flip:
-            "A skeptic worried about isolation should weigh that available reviews find homeschoolers' social skills and adult relationships at least comparable, that most participate in co-ops, sports, and community groups, and that Cardus data show higher volunteering and charitable giving — so the 'isolated child' stereotype is not supported by the better evidence.",
+            "If matched-sample studies found homeschoolers' social skills and adult relationships at least comparable, with wide co-op, sports and community participation and the higher volunteering and giving Cardus reports, the 'isolated child' worry would weaken.",
           common_ground:
             "Both sides agree the existing socialization studies rest on small, self-selected samples; that outcomes vary widely across families; and that Cardus shows a genuinely mixed civic picture (higher giving and volunteering, but lower voter registration and local voting).",
           live_disagreement:
