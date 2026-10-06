@@ -113,6 +113,7 @@ describe("Learn defines a crux one way, the way the maps use it", () => {
     ];
     for (const { label, text } of texts) {
       expect(text, label).not.toMatch(/\bcrux (is|was) (the|a) (specific )?piece of evidence\b/i);
+      expect(text, label).not.toMatch(/\bcrux is (the|a) specific (belief|piece)\b|\bbelief or piece of evidence\b/i);
       expect(text, label).not.toMatch(/\bcrux is the specific evidence\b/i);
     }
   });

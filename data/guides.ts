@@ -900,19 +900,19 @@ A useful mental model: imagine you're a juror. You wouldn't convict based solely
     sections: [
       {
         title: "What is a crux?",
-        content: `A crux is the specific belief or piece of evidence that, if it turned out to be wrong, would actually change your mind about a larger question. It is the load-bearing wall of your position — remove it, and the whole structure shifts.
+        content: `A crux is the question a fight turns on, and what would settle it. Answer it one way and one side's case gets stronger; answer it the other way and the other side's does. For you, it is the load-bearing wall of your position: if it came out the other way, your mind would actually change.
 
 Most disagreements have dozens of surface-level points of contention, but only one or two genuine cruxes. Everything else is either downstream of the crux (it only matters because the crux holds) or peripheral (it feels relevant but wouldn't actually change anyone's conclusion).
 
-Consider the [Moon Landing map](/topics/moon-landing) on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
+Consider the map [Did the Moon landings happen?](/topics/moon-landing) on Argumend. Conspiracy theorists raise many objections: flag waving, lighting inconsistencies, Van Allen belt radiation. But for many of them, the crux is the retroreflector test — laser reflectors placed on the lunar surface during the Apollo missions that scientists still bounce lasers off today. If you could demonstrate that these reflectors were placed by an unmanned probe rather than astronauts, it would remove a key piece of physical evidence. Conversely, for most conspiracy skeptics, the retroreflectors are strong but not the crux — their crux might be the sheer impossibility of thousands of people maintaining a perfect conspiracy for over fifty years.
 
-Or take [Nuclear Energy](/topics/nuclear-energy-safety). Proponents and opponents often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
+Or take [Should nuclear power be expanded to help decarbonize electricity?](/topics/nuclear-energy-safety). People who say yes and people who say no often argue about carbon emissions, cost per kilowatt, and accident probabilities. But for many opponents, the genuine crux is long-term waste storage: if someone demonstrated a proven, safe method for storing nuclear waste for ten thousand years, their opposition would soften dramatically. For many proponents, the crux is whether renewables plus storage can reliably power an entire grid — if that were proven at scale, nuclear would become less necessary.
 
 The crux is where the real action is. Everything else is noise.`,
       },
       {
         title: "The three types of cruxes",
-        content: `Not all cruxes are created equal. Understanding what type of crux you're dealing with determines how — and whether — it can be resolved.`,
+        content: `Not all cruxes are created equal. Understanding what type of crux you're dealing with determines how — and whether — it can be resolved. Argumend's maps mark each one: a test that evidence could run, a choice of terms, a choice of who decides, or "Nothing does", when the fight is over values. The three below are the ones you will meet most.`,
         subsections: [
           {
             title: "Empirical cruxes",
@@ -932,7 +932,7 @@ Many debates that look empirical are actually value cruxes in disguise. The deba
           },
           {
             title: "Definitional cruxes",
-            content: `The most frustrating type: people think they disagree about substance, but they're actually using the same words to mean different things. The Free Will map on Argumend is a textbook example. Compatibilists and hard determinists can argue for hours without making progress because they define "free will" differently. Once you realize the crux is definitional — "What do we even mean by free will?" — the debate transforms.
+            content: `The most frustrating type: people think they disagree about substance, but they're actually using the same words to mean different things. The map [Do humans have free will?](/topics/free-will) is a textbook example. Compatibilists and hard determinists can argue for hours without making progress because they define "free will" differently. Once you realize the crux is definitional — "What do we even mean by free will?" — the debate transforms.
 
 Similarly, debates about whether AI is "conscious" or whether certain speech constitutes "violence" often stall on definitional cruxes. The participants aren't really disagreeing about the world; they're disagreeing about how to use language.
 
@@ -1010,7 +1010,7 @@ On Argumend, every topic's argument map highlights cruxes for exactly this reaso
       },
     ],
     keyTakeaways: [
-      "A crux is the specific belief that, if proven wrong, would actually change your position — the load-bearing wall of your argument",
+      "A crux is the question a fight turns on, and what would settle it: the load-bearing wall of an argument",
       "Three types of cruxes exist: empirical (testable with evidence), value (philosophical disagreement), and definitional (people mean different things by the same words)",
       "To find your crux, ask yourself: 'What specific evidence would change my mind?' — then verify with the other side that they agree it's the decisive question",
       "Most arguments stall because people argue about non-cruxes — peripheral points that feel productive but don't bear on the real disagreement",
@@ -1353,7 +1353,7 @@ The practice integrates with everything else on Argumend. Every topic is built o
 
 Both sides are looking at the same reality but sampling it selectively. The climate data is vast and complex; confirmation bias acts as a filter that lets through only the evidence you were already looking for.
 
-On Argumend's [Climate Change topic](/topics/climate-change), you can see this pattern broken. The argument map presents the evidence on each side of every crux without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
+On Argumend's map [Is climate change primarily caused by human activity?](/topics/climate-change), you can see this pattern broken. The argument map presents the evidence on each side of every crux without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
 
 **Spot it in the wild:** When someone shares only evidence that supports their conclusion without acknowledging any counterevidence, they're likely in the grip of confirmation bias. Ask them: "What's the strongest evidence against your position?" If they can't name any, they haven't looked.`,
       },
@@ -1535,7 +1535,7 @@ Weighing conflicting evidence is a distinct skill from judging a single source. 
           },
           {
             title: "Different populations and contexts",
-            content: `A finding that holds in one population can reverse in another. A teaching method that works for graduate students may fail for struggling ten-year-olds; a rent-control policy that stabilizes one city's housing market may distort another's. Effects that depend on context aren't contradictory — they're conditional. The right move isn't "which study is right?" but "under what conditions does each finding hold?" The [Rent Control topic](/topics/rent-control-effectiveness) is a clear case: much of the apparent disagreement turns on differences in housing supply and the specific design of each policy, not on one study being wrong.`,
+            content: `A finding that holds in one population can reverse in another. A teaching method that works for graduate students may fail for struggling ten-year-olds; a rent-control policy that stabilizes one city's housing market may distort another's. Effects that depend on context aren't contradictory — they're conditional. The right move isn't "which study is right?" but "under what conditions does each finding hold?" The map [Does rent control make housing less affordable in the long run?](/topics/rent-control-effectiveness) is a clear case: much of the apparent disagreement turns on differences in housing supply and the specific design of each policy, not on one study being wrong.`,
           },
         ],
       },
@@ -1700,7 +1700,7 @@ This has two practical consequences. First, "largely converges" is an invitation
         title: "Calibration in practice on Argumend",
         content: `Putting it together, here's how to read any topic the way a forecaster would.
 
-When you open a topic like [AI Risk](/topics/ai-risk), [Climate Change](/topics/climate-change), or [Longevity Science](/topics/longevity-science), resist the pull to look for a verdict; the map won't give you one. Instead, read the evidence the way a forecaster would. Ask of each well-sourced card: would I be genuinely surprised if this were overturned? Ask of each contested point: what specific evidence would move it, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
+When you open a map like [Does AGI pose a real risk of human extinction?](/topics/ai-risk), [Is climate change primarily caused by human activity?](/topics/climate-change), or [Will longevity research extend healthy lifespan?](/topics/longevity-science), resist the pull to look for a verdict; the map won't give you one. Instead, read the evidence the way a forecaster would. Ask of each well-sourced card: would I be genuinely surprised if this were overturned? Ask of each contested point: what specific evidence would move it, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
 
 Then turn the lens on yourself. Pick a claim on the topic, write down your own confidence as a number, and note what would change it. Come back when you've read more — or when the world has supplied new evidence — and see whether you should update. This simple practice, repeated, is how calibration is built. It's also the entire spirit of Argumend: not to hand you conclusions, but to give you a structured, honestly weighed map of the [evidence](/concepts/evidence-weighting) so you can hold your own beliefs to a forecaster's standard.
 
