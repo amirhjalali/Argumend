@@ -27,8 +27,9 @@ import { ReadItYourself } from "./ReadItYourself";
  * where a reader can see what a weight weighs.
  *
  * The page's one rust action, "Open the map at this crux", sits directly
- * under the crux box, so on a phone it is not several screens below the
- * question it opens.
+ * under the crux box, and the long texts above it (what would change each
+ * side's mind, each card's description) are clamped with "Show more", so on
+ * a phone the action is about a screen into the result, not several.
  */
 
 /** Sides by the answer to the map's question, else by the claim (lib/mapNaming.ts). */
@@ -47,13 +48,32 @@ const SIDE_TEXT: Record<PasteMapCard["side"], string> = {
   against: toneStyles.brown.accentText,
 };
 
+const CLAMP = { 3: "line-clamp-3", 4: "line-clamp-4" } as const;
+
 /**
- * Evidence text held to three lines, with "Read more" when it runs longer, so
- * the two cards do not push the rest of the result screens down on a phone.
- * The button appears only when the text is actually cut.
+ * Long text held to a few lines, with "Show more" when it runs longer, so the
+ * crux box and the two cards do not push the rest of the result screens down
+ * on a phone. The button appears only when the text is actually cut, says
+ * what it opens to a screen reader (`about`), and is a real disclosure
+ * (aria-expanded, aria-controls). Clamped text stays in the DOM, so search
+ * and screen readers still have all of it.
  */
-function ClampedText({ text, className }: { text: string; className: string }) {
-  const ref = useRef<HTMLParagraphElement>(null);
+function ClampedText({
+  text,
+  className,
+  about,
+  lines = 3,
+}: {
+  text: string;
+  className: string;
+  /** Read after "Show more" by a screen reader: what the text is. */
+  about: string;
+  lines?: keyof typeof CLAMP;
+}) {
+  // A span, so it can sit in a <dd> or an <li> alike. Open, `block` makes it a
+  // paragraph; clamped, line-clamp sets its own display, which a second
+  // display class would override (and the clamp with it).
+  const ref = useRef<HTMLSpanElement>(null);
   const [open, setOpen] = useState(false);
   const [cut, setCut] = useState(false);
   const id = useId();
@@ -71,9 +91,9 @@ function ClampedText({ text, className }: { text: string; className: string }) {
 
   return (
     <>
-      <p id={id} ref={ref} className={`${className} ${open ? "" : "line-clamp-3"}`}>
+      <span id={id} ref={ref} className={`${className} ${open ? "block" : CLAMP[lines]}`}>
         {text}
-      </p>
+      </span>
       {cut || open ? (
         <button
           type="button"
@@ -82,7 +102,8 @@ function ClampedText({ text, className }: { text: string; className: string }) {
           onClick={() => setOpen((value) => !value)}
           className={textActionClasses("mt-1 self-start text-sm")}
         >
-          {open ? "Show less" : "Read more"}
+          {open ? "Show less" : "Show more"}
+          <span className="sr-only">{about}</span>
         </button>
       ) : null}
     </>
@@ -98,6 +119,7 @@ function Card({ card, words }: { card: PasteMapCard; words: SideWords }) {
       </h4>
       <ClampedText
         text={card.description}
+        about={`: ${card.title}`}
         className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]"
       />
       {card.source ? (
@@ -126,27 +148,37 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
   const words = sideWordsFor(match);
 
   return (
-    <div className="mt-8 rounded-md border border-[var(--border-divider)] border-t-[3px] border-t-crux bg-[var(--bg-paper)] px-5 pb-6 pt-5 dark:border-t-crux-light sm:px-8 sm:pb-8 sm:pt-6">
+    <div className="mt-6 rounded-md border border-[var(--border-divider)] border-t-[3px] border-t-crux bg-[var(--bg-paper)] px-5 pb-6 pt-5 dark:border-t-crux-light sm:px-8 sm:pb-8 sm:pt-6">
       <h3 className="label-caps text-crux dark:text-crux-text">What the map says it turns on</h3>
       <p className="mt-3 font-serif text-[1.3125rem] leading-[1.3] text-[var(--text-heading)] sm:text-[1.625rem]">
         {crux.question}
       </p>
       {flips ? (
-        <dl className="mt-6 divide-y divide-[var(--border-divider)] border-t border-[var(--border-divider)]">
+        <dl className="mt-4 divide-y divide-[var(--border-divider)] border-t border-[var(--border-divider)]">
           <div className="py-4">
             <dt className="label-caps !text-rust-700 dark:!text-[#d4805f]">
               {words.yesChangesMind}
             </dt>
-            <dd className="mt-1 font-serif text-[1.125rem] leading-relaxed text-[var(--text-primary)]">
-              {crux.supporterFlip}
+            <dd className="mt-1 flex flex-col">
+              <ClampedText
+                lines={3}
+                text={crux.supporterFlip!}
+                about={`: ${words.yesChangesMind.replace(/…$/, "")}`}
+                className="font-serif text-[1.125rem] leading-relaxed text-[var(--text-primary)]"
+              />
             </dd>
           </div>
           <div className="pt-4">
             <dt className="label-caps !text-skeptic dark:!text-[#cfa88a]">
               {words.noChangesMind}
             </dt>
-            <dd className="mt-1 font-serif text-[1.125rem] leading-relaxed text-[var(--text-primary)]">
-              {crux.skepticFlip}
+            <dd className="mt-1 flex flex-col">
+              <ClampedText
+                lines={3}
+                text={crux.skepticFlip!}
+                about={`: ${words.noChangesMind.replace(/…$/, "")}`}
+                className="font-serif text-[1.125rem] leading-relaxed text-[var(--text-primary)]"
+              />
             </dd>
           </div>
         </dl>

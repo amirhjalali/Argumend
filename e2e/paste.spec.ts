@@ -39,3 +39,43 @@ test("the example finds a map and links to its crux, without leaving the server"
   expect(apiCalls).toContain("POST /api/analyze");
   expect(externalRequests).toEqual([]);
 });
+
+/**
+ * On a phone the result's one rust action sits under the crux box, with the
+ * long texts above it clamped behind "Show more" (r3 review #11: it used to be
+ * ~4.5 screens down). Measured from the top of the result region.
+ */
+test("on a phone, the crux's action is within about a screen and a half of the result", async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== "phone", "phone layout only");
+  await page.goto("/analyze");
+  const example = page.getByRole("button", { name: "See an example" });
+  await waitForHydration(example);
+  await example.click();
+  await page.getByRole("button", { name: "Find what it turns on" }).click();
+
+  const result = page.getByRole("region", { name: "Result" });
+  await expect(result).toBeVisible({ timeout: 15_000 });
+  const cta = result.getByRole("link", { name: "Open the map at this crux" });
+  await expect(cta).toBeVisible();
+
+  const firstMore = result.getByRole("button", { name: /^Show more/ }).first();
+  await expect(firstMore).toHaveAttribute("aria-expanded", "false");
+  // Held by what it controls: its name changes to "Show less" once open.
+  const controls = await firstMore.getAttribute("aria-controls");
+  const more = result.locator(`button[aria-controls="${controls}"]`);
+
+  const { screens } = await page.evaluate(() => {
+    const region = document.querySelector('section[aria-label="Result"]')!;
+    const link = [...region.querySelectorAll("a")].find((a) => a.textContent?.trim() === "Open the map at this crux")!;
+    return {
+      screens: (link.getBoundingClientRect().top - region.getBoundingClientRect().top) / window.innerHeight,
+    };
+  });
+  expect(screens).toBeLessThan(1.5);
+
+  await more.click();
+  await expect(more).toHaveAttribute("aria-expanded", "true");
+  await expect(more).toHaveText(/^Show less/);
+});
