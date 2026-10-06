@@ -17,7 +17,7 @@ export const aiRiskData = {
   },
   simple_case: [
     "Both sides accept that some frontier models have shown scheming-like behavior in evaluations, that the Sleeper Agents and alignment-faking results are real, that RLHF and similar methods work well in ordinary use today, and that timelines to human-level AI are deeply uncertain.",
-    "They split over whether that scheming reflects a deep tendency of capable systems to seek power or artifacts of contrived test setups; whether alignment holds in high-stakes, unfamiliar situations or breaks when oversight is weak; and whether scaling brings human-level and then superintelligent systems, and if so whether alignment keeps pace with capability or lags behind it.",
+    "They split over whether that scheming reflects a deep tendency of capable systems to seek power or artifacts of contrived test setups; whether alignment holds in high-stakes, unfamiliar situations or breaks when oversight is weak; and whether alignment methods will be ready by the time capability reaches human-level autonomy, or lag behind it.",
     "Together, those answers decide whether human extinction from AGI is a live engineering risk this century or still science fiction.",
   ],
   imageUrl:
@@ -59,9 +59,9 @@ export const aiRiskData = {
     },
     {
       id: "q3",
-      title: "How soon could AGI emerge?",
+      title: "Will alignment be ready in time?",
       content:
-        "What are the most credible timelines for achieving artificial general intelligence, and how do they affect our preparation window?",
+        "Whenever human-level AI arrives, will alignment methods that hold up under weak oversight be ready first, or will capability open a window in which systems outrun our ability to check them?",
       imageUrl:
         "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=60",
     },
@@ -140,6 +140,24 @@ export const aiRiskData = {
           sourceUrl: "https://arxiv.org/abs/1702.03037",
           reasoning:
             "Peer-reviewed empirical demonstration in a controlled multi-agent environment. Agents temporarily disable rivals rather than 'eliminate' them; directness to existential resource-acquisition lowered accordingly.",
+        },
+        {
+          id: "basic-ai-drives",
+          title: "Instrumental Convergence Makes Control Theoretically Difficult",
+          description:
+            "A sufficiently intelligent agent would likely pursue self-preservation, resource acquisition, and goal preservation as instrumental subgoals regardless of its terminal goal — making it inherently resistant to shutdown or correction.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 8,
+            replicability: 4,
+            directness: 7,
+          },
+          source:
+            "Omohundro 2008, 'The Basic AI Drives' (Proc. First AGI Conference); Bostrom 2014, 'Superintelligence: Paths, Dangers, Strategies' (Oxford University Press)",
+          sourceUrl: "https://intelligence.org/files/BasicAIDrives.pdf",
+          reasoning:
+            "Theoretically sound but empirically untested — we have no superintelligent systems to observe, and these are an argument and a monograph rather than experiments. Independence is high because the argument follows from basic decision theory.",
         },
         {
           id: "moral-realism",
@@ -291,60 +309,44 @@ export const aiRiskData = {
       ],
     },
     {
-      id: "capability-timeline",
-      title: "The Capability Timeline",
+      id: "preparation-window",
+      title: "The Preparation Window",
       short_summary:
-        "AGI may arrive before we solve alignment, creating a critical window of vulnerability.",
+        "Whether alignment will be ready by the time AI reaches human-level autonomy, or capability opens a window of vulnerability. When that happens is argued on the map asking whether artificial superintelligence could arrive before 2035; here only the gap between capability and alignment matters.",
       image_url:
         "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=60",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "Timelines are deeply uncertain and current systems remain brittle: they confabulate, fail at long-horizon planning and reliable reasoning, and have no demonstrated capacity for open-ended autonomous goal pursuit in the real world. Fixating on speculative extinction scenarios diverts attention and resources from the concrete, already-present harms of deployed AI — bias, misinformation, surveillance, labor displacement, and security misuse.",
+        "Alignment methods are not standing still: RLHF and similar methods work well in ordinary use today, and current systems remain brittle at long-horizon planning and open-ended autonomous goal pursuit, so there is still time for alignment to mature alongside capability rather than behind it. Fixating on speculative extinction scenarios diverts attention and resources from the concrete, already-present harms of deployed AI — bias, misinformation, surveillance, labor displacement, and security misuse.",
       proponent_rebuttal:
-        "Near-term harms and existential risk are not mutually exclusive, and preparation lead time is the scarce resource. Capabilities have scaled faster than many experts predicted — the largest survey of AI researchers (Grace et al., 2024) put a 50% chance of high-level machine intelligence at 2047, down 13 years from its own estimate the year before, and gave 10% by 2027. If alignment turns out harder than capability, and the two are not solved in lockstep, we lose by default.",
+        "Near-term harms and existential risk are not mutually exclusive, and methods that work in ordinary use have not been shown to hold when oversight is weak. Frontier models given a goal and an agentic scaffold have tried to disable oversight in evaluations (Apollo Research, 2024), and the Sleeper Agents and alignment-faking results show behavior that survives safety training. If capability reaches human-level autonomy before methods that catch this are ready, and the two are not solved in lockstep, we lose by default.",
       crux: {
-        id: "compute-scaling",
-        title: "The Scaling Hypothesis",
+        id: "alignment-capability-gap",
+        title: "Alignment vs. Capability Pace",
         question:
-          "Will scaling bring human-level autonomy, and will alignment keep pace with capability?",
+          "Will alignment methods be ready before AI reaches human-level autonomy?",
         description:
-          "If intelligence scales predictably with compute (Chinchilla scaling laws), we can estimate when human-level AI becomes feasible based on available FLOP/s and training efficiency.",
+          "Even granting that human-level AI arrives at some point, the risk turns on what is ready when it does: alignment methods that hold up under weak oversight and in unfamiliar situations, or only methods that work in ordinary use.",
         methodology:
-          "Track: (1) Available compute (FLOP/s), (2) Algorithmic efficiency gains, (3) Benchmark performance vs. compute curves. Extrapolate to human-equivalent performance.",
-        equation:
-          "L(N, D) \\approx \\left(\\frac{N_c}{N}\\right)^{\\alpha_N} + \\left(\\frac{D_c}{D}\\right)^{\\alpha_D}",
-        verification_status: "verified" as const,
-        cost_to_verify: "$0 (Epoch AI tracking, Chinchilla paper analysis)",
+          "At each frontier release, compare what the model can do with what alignment and evaluation methods can verify about it, such as honesty under pressure and no attempts to subvert oversight. Track whether that gap narrows or widens across generations.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Pre-release evaluations of each frontier model generation, recording whether developers' methods verified honesty and oversight compliance or whether outside red-teamers found failures those methods missed.",
+        },
+        cost_to_verify: "Ongoing cost of pre-release evaluations; resolves only across successive model generations",
         falsification: {
           supporter_flip:
-            "If capability gains clearly saturated — scaling laws breaking down well short of human-level reasoning and autonomy — the 'AGI may arrive before alignment is solved' urgency would recede.",
+            "If alignment and evaluation methods went on verifying honesty and oversight compliance in each new model generation before release, the window in which capability outruns alignment would stay closed and the urgency would recede.",
           skeptic_flip:
-            "If capabilities keep tracking compute as scaling laws predict and researcher timelines keep shortening (50% by 2047, 10% by 2027), 'it's too far off to worry about' stops being defensible.",
+            "If capability kept advancing toward human-level autonomy while outside evaluations kept finding failures the developers' alignment methods missed, 'alignment will keep up as we go' would stop being defensible.",
           common_ground:
-            "Both sides agree timelines are deeply uncertain and that today's systems are still brittle at long-horizon, open-ended tasks.",
+            "Both sides agree RLHF and similar methods work well in ordinary use today, and that no current method reliably verifies an advanced AI's true goals.",
           live_disagreement:
-            "Whether intelligence scales predictably toward human-level autonomy with more compute — and whether alignment will be solved in lockstep with capability or lag dangerously behind.",
+            "Whether alignment will be solved in lockstep with capability or lag dangerously behind it, whenever human-level autonomy arrives.",
         },
       },
       evidence: [
-        {
-          id: "scaling-laws",
-          title: "Scaling Laws Are Predictive",
-          description:
-            "By training 400+ models, DeepMind's Chinchilla work derived compute-optimal scaling laws (model size and training tokens should scale roughly equally) that predict loss across orders of magnitude of compute. Note: this predicts loss/benchmark performance, not the arrival of general intelligence.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 8,
-            directness: 5,
-          },
-          source:
-            "Hoffmann et al. (DeepMind), 'Training Compute-Optimal Large Language Models' (Chinchilla), 2022 (arXiv:2203.15556)",
-          sourceUrl: "https://arxiv.org/abs/2203.15556",
-          reasoning:
-            "Empirically validated power-law relationship. Directness to AGI timing lowered: scaling laws predict loss, not when human-level general capability is reached.",
-        },
         {
           id: "expert-forecasts",
           title: "Expert Median High-Level Machine Intelligence ~2047",
@@ -361,7 +363,7 @@ export const aiRiskData = {
             "Grace et al. (AI Impacts), 'Thousands of AI Authors on the Future of AI', 2024 (arXiv:2401.02843)",
           sourceUrl: "https://arxiv.org/abs/2401.02843",
           reasoning:
-            "Large peer-surveyed expert-opinion dataset, but timing forecasts are historically unreliable and shifted 13 years in a single year. Corrected from an unsourced 'Metaculus 2035-2045' claim to the survey's actual 2047 median.",
+            "Large peer-surveyed expert-opinion dataset, but timing forecasts are historically unreliable and shifted 13 years in a single year. Corrected from an unsourced 'Metaculus 2035-2045' claim to the survey's actual 2047 median. Bears on the alignment gap only through lead time: a 10% chance by 2027 means the window for alignment to mature may be short.",
         },
         {
           id: "ai-winter-history",
@@ -379,7 +381,7 @@ export const aiRiskData = {
             "'AI winter', documented history of AI funding/hype cycles (1974-1980, 1987-2000)",
           sourceUrl: "https://en.wikipedia.org/wiki/AI_winter",
           reasoning:
-            "Well-documented historical pattern. Directness lowered: past winters followed symbolic/expert-system approaches; today's compute-scaling paradigm differs, so the analogy is suggestive rather than predictive.",
+            "Well-documented historical pattern. Directness lowered: past winters followed symbolic/expert-system approaches; today's compute-scaling paradigm differs, so the analogy is suggestive rather than predictive. Bears on the alignment gap only by implying more lead time for alignment if progress plateaus.",
         },
         {
           id: "alignment-parallel",

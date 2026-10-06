@@ -474,6 +474,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "sugar-tax-effectiveness": ["Do sugar taxes reduce obesity?"],
   "eacc-vs-tech-regulation": ["Does rapid, unregulated tech progress do more good than harm?"],
   "ai-superintelligence-timeline": ["Will superintelligent AI arrive before 2035?"],
+  "ai-2027": ["Will the AI 2027 scenario come true?"],
   "nuclear-renaissance-smr": ["Can small modular reactors scale this decade?"],
   "tiktok-brain-rot": ["Is short-form video rotting our attention spans?"],
   "ai-replacing-doctors": ["Will AI replace doctors within a decade?"],

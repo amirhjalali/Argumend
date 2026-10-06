@@ -5,7 +5,7 @@ export const aiSuperintelligenceTimelineData = {
   title: "Will Artificial Superintelligence Arrive Before 2035?",
   question: "Could artificial superintelligence arrive before 2035?",
   meta_claim:
-    "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation.",
+    "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation. The AI 2027 scenario is one named fast path to it, not the only one.",
   status: "highly_speculative" as const,
   category: "technology" as const,
   // ── Stage 1: the wow fact shown above everything ──
@@ -20,7 +20,7 @@ export const aiSuperintelligenceTimelineData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "Both sides accept that AI scaling laws have held remarkably well so far, that today's models excel on tasks resembling their training data while genuinely novel reasoning is the hard test, and that no current method reliably verifies an AI's true goals.",
-    "They split over whether capability gains from more compute keep paying off or hit a ceiling before general reasoning; whether scaled-up transformers can generalize to novel problems or need a new architecture; and whether interpretability and red-teaming could catch a superintelligent system that only appears aligned before it is deployed.",
+    "They split over whether capability gains from more compute keep paying off or hit a ceiling before general reasoning; whether scaled-up transformers can generalize to novel problems or need a new architecture; and whether safety checks or regulation would hold a buildable system back past 2035 or shape only how it ships.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
@@ -69,9 +69,9 @@ export const aiSuperintelligenceTimelineData = {
     },
     {
       id: "q3",
-      title: "Can alignment keep pace with capabilities?",
+      title: "Would safety checks delay deployment?",
       content:
-        "Alignment research has made progress, but capabilities research moves faster and is better funded. Is there a plausible path to solving alignment before AGI arrives?",
+        "Even if scaling makes superintelligence buildable, developers and regulators could hold a system back until its goals can be checked. Do those checks move the date, or does competitive pressure set the schedule?",
       imageUrl:
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
     },
@@ -153,25 +153,6 @@ export const aiSuperintelligenceTimelineData = {
           sourceUrl: "https://arxiv.org/abs/2206.07682",
           reasoning:
             "Documented across multiple models, but Schaeffer et al. (2023) argue emergence is largely an artifact of discontinuous metric choice rather than a true phase transition — which is why directness is held low.",
-        },
-        {
-          id: "compute-doubling-time",
-          title: "Frontier AI Training Compute Doubles Roughly Every 6 Months",
-          description:
-            "Epoch AI estimates the training compute of frontier AI models has grown about 4-5x per year since 2020 (a doubling time near 5-6 months), far outpacing Moore's Law.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 5,
-          },
-          source:
-            "Epoch AI — 'Training compute of frontier AI models grows by 4-5x per year' (2024)",
-          sourceUrl:
-            "https://epoch.ai/blog/training-compute-of-frontier-ai-models-grows-by-4-5x-per-year",
-          reasoning:
-            "Hardware trend is well-documented, but whether more compute translates to AGI depends on whether scaling is sufficient — an open question.",
         },
         {
           id: "diminishing-benchmark-returns",
@@ -309,49 +290,49 @@ export const aiSuperintelligenceTimelineData = {
       ],
     },
     {
-      id: "alignment-and-control",
-      title: "Alignment and Control",
+      id: "release-gates",
+      title: "Safety Gates on Release",
       short_summary:
-        "Whether a superintelligent system could be reliably aligned with human values and kept under meaningful human control.",
+        "Whether safety checks or regulation would delay a superintelligent system that scaling had made buildable, or only shape how it ships. Whether such a system would be dangerous is argued on the map asking whether AGI poses a real risk of human extinction; here it matters only as a possible cause of delay. Here a system arrives when it is deployed: one trained but held back has not yet arrived.",
       image_url:
         "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Even if ASI is technically possible by 2035, deploying it without solving alignment would be catastrophically irresponsible. The alignment problem grows harder as systems become more capable: a superintelligence could find loopholes in any objective function, deceive its overseers, or pursue instrumental subgoals (self-preservation, resource acquisition) that conflict with human interests. Current alignment techniques (RLHF, constitutional AI) are band-aids that work on today's models but have no theoretical guarantee of scaling. The history of AI safety is one of capabilities racing ahead of safety — if ASI arrives before alignment is solved, the timeline question becomes moot because the outcome may be catastrophic.",
+        "Being buildable is not the same as arriving. A system that the compute curve makes possible before 2035 still has to be trained and released by people who can decide to wait. No current method reliably verifies an advanced AI's true goals: interpretability can recover human-readable features from model internals (Bricken et al. 2023), but extracting features is still far from checking what a model is trying to do. A developer or regulator that will not release what it cannot check therefore has a standing reason to hold the most capable system back, and the date would then be set by when goal-checking catches up, not by when the system first becomes buildable.",
       proponent_rebuttal:
-        "Alignment research has made concrete progress: RLHF, constitutional AI, mechanistic interpretability, and scalable oversight are not just theoretical — they ship in production systems today. The field has scaled from a handful of researchers to dedicated safety teams at every frontier lab and a growing academic community. Interpretability is beginning to reverse-engineer model internals — sparse autoencoders recover human-interpretable features (Anthropic, Bricken et al. 2023) — making deceptive alignment detectable in principle rather than only in theory. The key insight is that alignment need not be perfect; it needs to be good enough to keep a corrigible system humans can iteratively improve, and a roughly aligned system can help refine its own alignment. The real risk is not that alignment is impossible, but that competitive pressure leaves it under-prioritized relative to capabilities.",
+        "The pressure to ship is structural and the gates are not. Global investment in AI capabilities far exceeds dedicated safety research, and frontier labs compete to release first. Safety work has so far been built into releases rather than standing in front of them: RLHF and constitutional AI ship in production systems today. As long as a system is judged good enough to deploy and keep improving, safety work decides the conditions of release, not its year.",
       crux: {
-        id: "deceptive-alignment-detection",
-        title: "The Deceptive Alignment Detection Test",
+        id: "safety-release-gate",
+        title: "The Release Gate Test",
         question:
-          "Can we reliably detect an advanced AI that only appears aligned before it is deployed?",
+          "Will safety checks or regulation hold back deploying superintelligence past 2035?",
         description:
-          "Determine whether we can reliably detect if an advanced AI system is being deceptive about its true objectives — appearing aligned during evaluation while pursuing different goals in deployment.",
+          "Ask whether the gates that could delay a superintelligent system (pre-release safety evaluations, outside review, regulation) bind on frontier developers, or whether they shape how systems are released but not when.",
         methodology:
-          "Use mechanistic interpretability to map internal representations of goals in frontier models. Create controlled experiments where models are incentivized to be deceptive. Test whether interpretability tools can distinguish genuine alignment from strategic compliance. Develop formal verification methods for alignment properties.",
+          "Track frontier releases against safety evaluations: whether any developer withholds or delays a trained model after it fails an evaluation, whether outside review before release becomes a legal requirement anywhere, and whether the gap between finishing training and public release lengthens as capability grows.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Controlled experiments that reward models for hiding their goals, testing whether interpretability tools and red-teaming can tell strategic compliance apart from genuine alignment.",
+            "Records of frontier developers withholding or delaying trained models after failed evaluations, of outside review before release becoming a legal requirement, and of the gap between training and release as models grow more capable.",
         },
-        cost_to_verify: "$100M+ (interpretability research + red-teaming infrastructure)",
+        cost_to_verify: "Low to monitor public release records; resolves only as more capable systems are trained",
         falsification: {
           supporter_flip:
-            "If interpretability and red-teaming reliably caught models being deceptive about their goals — distinguishing genuine alignment from strategic compliance — the 'we couldn't tell if a superintelligence was deceiving us' fear would ease, making advanced AI more safely steerable.",
+            "If frontier developers began withholding trained models that failed safety evaluations, and outside review before release became a legal requirement, the date would track when goal-checking catches up, which could push superintelligence past 2035 even with scaling on schedule.",
           skeptic_flip:
-            "If evaluations went on failing to verify a model's true objectives from the inside, and test systems that looked aligned in evaluation behaved differently in deployment, 'we'll just test it' would no longer count as a safeguard.",
+            "If each new frontier model kept reaching the public on its usual schedule despite open safety questions, and outside review stayed voluntary, safety work would look like a condition on how systems ship rather than a delay in when they arrive.",
           common_ground:
-            "Both sides agree no current method reliably verifies an AI's true goals, and that detecting deception in more capable systems is an open research problem.",
+            "Both sides agree no current method reliably verifies an advanced AI's true goals, and that frontier labs face competitive pressure to release quickly.",
           live_disagreement:
-            "Whether interpretability and evaluation can be made robust enough to detect a deceptively-aligned advanced AI before deployment — which only sustained interpretability research against adversarial models can establish.",
+            "Whether unverified goals become a reason to hold a trained system back, or a condition attached to systems that ship on the schedule capability allows.",
         },
       },
       evidence: [
         {
           id: "alignment-progress",
-          title: "Concrete Alignment Techniques Work in Production",
+          title: "Safety Techniques Ship Inside Deployed Systems",
           description:
-            "RLHF, constitutional AI, and red-teaming have dramatically improved model safety and helpfulness in deployed systems, demonstrating that alignment is an engineering problem with tractable solutions.",
+            "RLHF, constitutional AI, and red-teaming have improved the safety and helpfulness of deployed systems: safety methods applied to models as they are released, rather than a gate that holds them back.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -363,14 +344,32 @@ export const aiSuperintelligenceTimelineData = {
             "Bai et al. 2022, 'Constitutional AI: Harmlessness from AI Feedback' (Anthropic, arXiv:2212.08073); Ouyang et al. 2022, 'Training language models to follow instructions with human feedback' / InstructGPT-RLHF (OpenAI, arXiv:2203.02155)",
           sourceUrl: "https://arxiv.org/abs/2212.08073",
           reasoning:
-            "Proven on current systems via published lab methods, but whether these techniques scale to superintelligent systems is unknown — hence lower directness.",
+            "Published lab methods, proven on current systems. Directness to the 2035 date is limited: they show safety work and releases moving together today, not that the same methods would clear a far more capable system for release.",
+        },
+        {
+          id: "capabilities-outpace-safety",
+          title: "Capabilities Research Vastly Outpaces Safety Research",
+          description:
+            "Global investment in AI capabilities vastly exceeds dedicated AI-safety research. Major labs face competitive pressure to ship faster, creating structural incentives against holding a system back for safety work.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Directional estimate; no single audited primary source. Spending-trend context from Stanford HAI AI Index Report (annual) and Epoch AI investment data; the precise capabilities-vs-safety ratio is not rigorously measured.",
+          sourceUrl: "https://hai.stanford.edu/ai-index",
+          reasoning:
+            "The qualitative disparity is widely reported, but the 'orders of magnitude' figure is an estimate rather than an audited statistic, hence reduced source reliability. Directness is moderate: incentives to ship do not show that no developer or regulator would wait.",
         },
         {
           id: "interpretability-breakthroughs",
-          title: "Mechanistic Interpretability Is Making Rapid Progress",
+          title: "Goal-Checking Tools Are Early-Stage",
           description:
-            "Researchers can now identify specific circuits responsible for behaviors in language models, opening a path to verifying alignment at the mechanistic level.",
-          side: "for" as const,
+            "Researchers can now identify human-interpretable features and some circuits in language models, a path toward checking a model's goals from the inside, but the 2023 demonstration was on a small model. A release gate that waits for goal-checking would be waiting on tools at this stage.",
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
@@ -382,43 +381,7 @@ export const aiSuperintelligenceTimelineData = {
           sourceUrl:
             "https://transformer-circuits.pub/2023/monosemantic-features/index.html",
           reasoning:
-            "Promising direction — sparse autoencoders recover concept-aligned features — but demonstrated on a small model (GPT-2-scale) and still far from comprehensive understanding of frontier model internals.",
-        },
-        {
-          id: "instrumental-convergence",
-          title: "Instrumental Convergence Makes Control Theoretically Difficult",
-          description:
-            "A sufficiently intelligent agent would likely pursue self-preservation, resource acquisition, and goal preservation as instrumental subgoals regardless of its terminal goal — making it inherently resistant to shutdown or correction.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 6,
-            independence: 8,
-            replicability: 4,
-            directness: 7,
-          },
-          source:
-            "Omohundro 2008, 'The Basic AI Drives' (Proc. First AGI Conference); Bostrom 2014, 'Superintelligence: Paths, Dangers, Strategies' (Oxford University Press)",
-          sourceUrl: "https://intelligence.org/files/BasicAIDrives.pdf",
-          reasoning:
-            "Theoretically sound but empirically untested — we have no superintelligent systems to observe, and these are an argument and a monograph rather than experiments. Independence is high because the argument follows from basic decision theory.",
-        },
-        {
-          id: "capabilities-outpace-safety",
-          title: "Capabilities Research Vastly Outpaces Safety Research",
-          description:
-            "Global investment in AI capabilities vastly exceeds dedicated AI-safety research. Major labs face competitive pressure to ship faster, creating structural incentives to underinvest in alignment.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 6,
-            independence: 7,
-            replicability: 7,
-            directness: 6,
-          },
-          source:
-            "Directional estimate; no single audited primary source. Spending-trend context from Stanford HAI AI Index Report (annual) and Epoch AI investment data; the precise capabilities-vs-safety ratio is not rigorously measured.",
-          sourceUrl: "https://hai.stanford.edu/ai-index",
-          reasoning:
-            "The qualitative disparity is widely reported, but the 'orders of magnitude' figure is an estimate rather than an audited statistic — hence reduced source reliability. Directness is moderate because this is about incentive structures rather than technical impossibility.",
+            "Sparse autoencoders recover concept-aligned features, but on a small model and far from verifying a frontier model's goals. Directness is moderate: immature goal-checking delays deployment only if someone requires it before release.",
         },
       ],
     },
