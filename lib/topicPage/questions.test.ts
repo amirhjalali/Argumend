@@ -94,6 +94,16 @@ describe("authored map questions", () => {
       expect(byId.get(topic.id)?.firstCrux, topic.id).toBe(legacyTopicPage(topic).cruxes[0]?.question);
     }
   });
+
+  it("the library knows when the first crux is a standing one, as the map page shows it", () => {
+    // /questions labels a question by it (lib/questionMeta.ts classifyQuestion).
+    const byId = new Map(topicSummaries.map((s) => [s.id, s]));
+    for (const topic of topics) {
+      const settle = legacyTopicPage(topic).cruxes[0]?.settle;
+      const standing = settle?.mode === "standing" ? settle.kind : undefined;
+      expect(byId.get(topic.id)?.firstCruxStanding, topic.id).toBe(standing);
+    }
+  });
 });
 
 describe("legacyTopicPage with authored questions", () => {

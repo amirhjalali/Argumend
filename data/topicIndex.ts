@@ -37,6 +37,12 @@ export interface TopicSummary {
   evidenceCount: number;
   /** The question the map's first crux asks, as the map page heads it. */
   firstCrux?: string;
+  /**
+   * Set when nothing empirical settles that first crux (its `settle.kind`):
+   * a question page that turns first on a value weighing is labelled a
+   * question of value (lib/questionMeta.ts `classifyQuestion`).
+   */
+  firstCruxStanding?: "value-difference" | "definitional-choice" | "authority-allocation";
   tags: string[];
   addedAt?: string;
 }

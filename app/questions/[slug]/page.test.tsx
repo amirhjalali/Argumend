@@ -50,7 +50,9 @@ describe("question pages are crux-first and never a verdict", () => {
   it("leads with the map's first crux and its settle line, then sends the reader to the map", async () => {
     const view = await renderQuestion("is-nuclear-energy-safe");
     expect(view.getByRole("heading", { level: 1, name: "Is nuclear energy safe?" })).toBeTruthy();
-    expect(view.getByText("A question of fact.")).toBeTruthy();
+    // Its first crux is a standing value weighing (nothing empirical settles
+    // it), so the kind line says value, not fact.
+    expect(view.getByText("A question of value.")).toBeTruthy();
 
     // The first h2 is the map's first crux question, worded as on the map.
     const { loadTopicById } = await import("@/data/topicLoader");

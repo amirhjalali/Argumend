@@ -114,12 +114,15 @@ export default async function QuestionPage({ params }: PageProps) {
   const variations = getQuestionVariations(summaryResult.topic);
   const primary = variations[0];
   const alsoAskedAs = variations.filter((v) => v.slug !== variation.slug);
-  const kind = classifyQuestion(variation.question);
-
   // The topic page's own model, so the crux and its settle line read here
   // exactly as they do on the map.
   const { page, cruxes } = legacyTopicPage(topic);
   const [lead, ...otherCruxes] = cruxes;
+  // A page that turns first on a value weighing says so in its kind line.
+  const kind = classifyQuestion(
+    variation.question,
+    lead?.settle.mode === "standing" ? lead.settle.kind : undefined,
+  );
   const mapHref = `/topics/${topic.id}`;
 
   const linkTargets = buildTopicLinkTargets(topicSummaries);
