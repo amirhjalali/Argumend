@@ -352,6 +352,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Can science extend human lifespan?",
     "Is anti-aging research legitimate?",
     "Will we ever cure aging?",
+    "Could human lifespans pass 120 within our lifetimes?",
   ],
   "nuclear-weapons-abolition": [
     "Should nuclear weapons be abolished?",
@@ -437,11 +438,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Why are birth rates declining?",
     "Should we be worried about falling birth rates?",
     "Is population decline a crisis?",
-  ],
-  "longevity-anti-aging": [
-    "Can we reverse aging?",
-    "Is anti-aging medicine real?",
-    "Will we be able to live to 150?",
   ],
   "nuclear-proliferation-new-arms-race": [
     "Are we in a new nuclear arms race?",

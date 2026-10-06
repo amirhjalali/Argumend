@@ -1502,17 +1502,17 @@
     "title": "The Science of Life Extension",
     "question": "Will longevity research significantly extend healthy lifespan in 20 years?",
     "meta_claim": "Recent breakthroughs in longevity research — including senolytics, epigenetic reprogramming, and caloric restriction mimetics — will significantly extend healthy human lifespan within the next 20 years.",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 73,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 15,
     "firstCrux": "Do senolytic drugs improve human healthspan in large trials, or does the mouse-to-human gap defeat them?",
     "tags": [
       "science"
@@ -2423,27 +2423,6 @@
     "firstCrux": "Is there a fertility level below which falling income per person becomes self-reinforcing?",
     "tags": [
       "economics"
-    ]
-  },
-  {
-    "id": "longevity-anti-aging",
-    "title": "Anti-Aging & Radical Life Extension",
-    "question": "Could human lifespans pass 120 within our lifetimes?",
-    "meta_claim": "Recent advances in longevity science — including rapamycin, senolytics, epigenetic reprogramming, and caloric restriction mimetics — suggest that meaningful human lifespan extension beyond 120 years is achievable within our lifetimes.",
-    "confidence_score": 52,
-    "balance": 52,
-    "weight": 62,
-    "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
-    },
-    "status": "contested",
-    "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 8,
-    "firstCrux": "Do treatments that extend healthy lifespan in short-lived animals deliver similar gains in primates?",
-    "tags": [
-      "science"
     ]
   },
   {

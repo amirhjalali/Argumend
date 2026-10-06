@@ -106,6 +106,13 @@ describe("retired map redirects (one map per question, 2026-10-06)", () => {
     ["/questions/is-it-right-for-governments-to-ban-apps", "/questions/should-tiktok-be-banned"],
     ["/questions/do-government-platform-bans-protect-citizens", "/questions/should-tiktok-be-banned"],
     ["/is/governments-ban-social-platforms", "/questions/should-tiktok-be-banned"],
+    ["/topics/longevity-anti-aging", "/topics/longevity-science"],
+    ["/topics/longevity-anti-aging/map", "/topics/longevity-science/map"],
+    ["/embed/longevity-anti-aging", "/embed/longevity-science"],
+    ["/questions/can-we-reverse-aging", "/questions/can-science-extend-human-lifespan"],
+    ["/questions/is-anti-aging-medicine-real", "/questions/can-science-extend-human-lifespan"],
+    ["/questions/will-we-be-able-to-live-to-150", "/questions/can-science-extend-human-lifespan"],
+    ["/is/radical-life-extension-possible", "/questions/can-science-extend-human-lifespan"],
   ];
 
   it.each(expected)("%s → %s, permanently", async (source, destination) => {

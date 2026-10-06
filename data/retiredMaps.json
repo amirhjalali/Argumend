@@ -9,5 +9,16 @@
       "do-government-platform-bans-protect-citizens"
     ],
     "is": []
+  },
+  "longevity-anti-aging": {
+    "into": "longevity-science",
+    "map": "/topics/longevity-science/map",
+    "questionsTo": "/questions/can-science-extend-human-lifespan",
+    "questions": [
+      "can-we-reverse-aging",
+      "is-anti-aging-medicine-real",
+      "will-we-be-able-to-live-to-150"
+    ],
+    "is": []
   }
 }

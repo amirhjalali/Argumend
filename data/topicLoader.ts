@@ -118,7 +118,6 @@ const topicModuleLoaders = {
   "masculinity-crisis": () => import("./topics/masculinity-crisis"),
   "ai-deepfakes-truth-collapse": () => import("./topics/ai-deepfakes-truth-collapse"),
   "declining-birth-rates": () => import("./topics/declining-birth-rates"),
-  "longevity-anti-aging": () => import("./topics/longevity-anti-aging"),
   "nuclear-proliferation-new-arms-race": () => import("./topics/nuclear-proliferation-new-arms-race"),
   "transgender-athletes-sports": () => import("./topics/transgender-athletes-sports"),
   "animal-consciousness-rights": () => import("./topics/animal-consciousness-rights"),

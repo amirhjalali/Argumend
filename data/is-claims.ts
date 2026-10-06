@@ -895,7 +895,7 @@ export const isClaims: IsClaim[] = [
   },
   {
     slug: "radical-life-extension-possible",
-    topicId: "longevity-anti-aging",
+    topicId: "longevity-science",
     question: "Can human lifespan be radically extended beyond 120 years?",
     claim:
       "Recent advances in longevity science make meaningful human lifespan extension beyond 120 years achievable within our lifetimes.",
