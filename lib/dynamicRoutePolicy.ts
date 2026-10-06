@@ -34,9 +34,7 @@ export const CONCEPT_ROUTE_SLUGS = [
   "steel-manning",
   "cruxes",
   "evidence-weighting",
-  "confidence-calibration",
   "fallacies",
-  "pillars",
 ] as const;
 
 export const FALLACY_ROUTE_SLUGS = [

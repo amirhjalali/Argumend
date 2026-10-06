@@ -174,6 +174,16 @@ const nextConfig = {
       // docs/reviews/2026-09-29-learn.md. Detail pages keep their URLs.
       { source: '/concepts', destination: '/learn#ideas', permanent: true },
       { source: '/guides', destination: '/learn#guides', permanent: true },
+      // Two ideas taught retired scoring vocabulary (r4, 2026-10): "Balance
+      // and weight" now lives where it is still true, in How maps are made;
+      // "Pillars" were a section format the maps no longer name, and every
+      // section's point is its crux.
+      {
+        source: '/concepts/confidence-calibration',
+        destination: '/methodology#older-maps',
+        permanent: true,
+      },
+      { source: '/concepts/pillars', destination: '/concepts/cruxes', permanent: true },
       // The library's reading list now lives on /research.
       { source: '/library', destination: '/research#reading', permanent: true },
       { source: '/lessons-from-the-deep', destination: '/blog', permanent: true },

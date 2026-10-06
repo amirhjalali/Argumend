@@ -25,7 +25,7 @@ export const faqs: FAQ[] = [
   {
     question: "What is a crux?",
     answer:
-      "A crux is a question that would change someone’s mind if it were answered. On the map of whether AI will cause mass unemployment, one crux is whether firms that get better AI mostly cut hiring, or mostly use it to produce more and redesign jobs. Each crux comes with what would settle it (here, several years of firm-level data linking AI adoption to headcount and output) and whether that test has been run, could be run, or cannot be run yet. A crux is narrower than a big question like “what is the best economic policy?”, which no single finding could answer.",
+      "A crux is the question a fight turns on, and what would settle it. On the map of whether AI will cause mass unemployment, one crux asks: “When AI makes a firm more productive, does it hire fewer people — or just sell more?” Under it, the map says what would settle it: several years of firm-level data linking AI adoption to headcount, output and prices. Some cruxes close with evidence like that; some only when the sides agree on terms or on who decides; and some not at all, because they are about values, and the map says so. A crux is narrower than a big question like “what is the best economic policy?”, which no single finding could answer.",
     linkText: "More on cruxes",
     linkHref: "/concepts/cruxes",
   },
@@ -37,7 +37,7 @@ export const faqs: FAQ[] = [
   {
     question: "How is evidence weighed, and where does it come from?",
     answer:
-      "Evidence comes from peer-reviewed research, primary data, official records, expert statements and reputable reporting, and each card names its source. Every card is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. Each is scored from 0 to 10, with the same four questions asked whichever side the card helps, and the card shows a plain word for the result: Established, Strong, Contested or Thin. Cards are filed by what they show, not by who cites them.",
+      "Evidence comes from peer-reviewed research, primary data, official records, expert statements and reputable reporting, and each card names its source. Every card is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. The same four questions are asked whichever side the card helps, and cards are filed by what they show, not by who cites them. A map shows the cards and their sources, never a score for a card or for a side.",
     linkText: "How maps are made",
     linkHref: "/methodology",
   },
@@ -46,8 +46,8 @@ export const faqs: FAQ[] = [
       "What do “largely converges”, “still divided” and “still thin” mean?",
     answer:
       "They describe the state of the evidence on a map, not the answer to the question. “Largely converges” means there is a lot of good evidence and most of it points one way. “Still divided” means there is a lot of good evidence and it points both ways. “Still thin” means there is not yet enough good evidence to say much, whichever way it leans. In between, a map says which way the evidence leans and that it is moderately evidenced. If a single evidence card could change a map\u2019s reading, the map says so. None of these is the probability that a claim is true, and none is a count of how many experts agree.",
-    linkText: "Balance and weight",
-    linkHref: "/concepts/confidence-calibration",
+    linkText: "How the older maps read their evidence",
+    linkHref: "/methodology#older-maps",
   },
   {
     question: "What does the paste tool do?",

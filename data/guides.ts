@@ -566,79 +566,87 @@ Many potentially useful treatments have been abandoned based on underpowered neg
     id: "how-to-read-an-argument-map",
     title: "How to read an argument map",
     subtitle: "What a map shows, and where to look first",
-    description: "A practical guide to reading an Argumend map: the positions, the evidence each side reads, the cruxes, and what the map's reading of the evidence does and does not mean.",
-    readTime: "9 min read",
+    description: "A practical guide to reading an Argumend map: the cruxes it turns on and what would settle each one, the evidence on each side, the positions, and what the map does not say.",
+    readTime: "7 min read",
     sections: [
       {
         title: "What the map shows",
-        content: `An Argumend map opens as a page you read from top to bottom. It starts with the question, sets out the serious positions on it, shows the evidence each side reads, and names the cruxes: the questions that would move one side or the other if they were answered. It never says who is right. Its job is to show you where the disagreement actually lives.
+        content: `An Argumend map is a page you read from top to bottom. It opens with the question and one fact worth knowing before you start. Then it says what both sides already agree on, which is often more than either expects. Then come the questions the whole fight turns on, its cruxes, each with what would settle it. The positions come after that, then a question for you, and at the bottom, folded away, the detail.
 
-Most maps are organized into [pillars](/concepts/pillars), the main lines of argument the question turns on. A short table near the top lists every pillar in a line, so you can see the shape of the map before you read it. The flagship AI maps are organized a little differently: they open with the handful of camps people fall into, then the few questions the whole fight turns on, each with a dated record of how it has moved.
+It never says who is right. Its job is to show you where the disagreement actually turns, and what could move it.
 
-Many maps also have an interactive view that draws the same material as a graph of claims, evidence and links. Switch to it with the Read / Graph control at the top of the map. The page is the place to start; the graph is useful once you want to follow one claim to everything it touches.`,
+There are two kinds of map. The flagship maps, such as [Will AI cause mass unemployment?](/topics/ai-mass-unemployment), set out four positions and keep a dated record of how each crux has moved. The older maps set out two sides and the evidence for each, and many of them can also be seen as a diagram: "See it as a diagram" sits just under their cruxes. The page is the place to start; the diagram helps once you want to follow one argument to everything it touches.`,
       },
       {
-        title: "Understanding pillars",
-        content: `[Pillars](/concepts/pillars) are the backbone of most maps. Each pillar is one line of argument the question turns on (cost, safety, fairness, feasibility), and each holds both sides of that line: the skeptic's case first, then the proponent's reply, both stated in their strongest form.
+        title: "Start with the cruxes",
+        content: `A [crux](/concepts/cruxes) is the question a fight turns on, and what would settle it. Answer it one way and one side's case gets stronger; answer it the other way and the other side's does. A map says how many it has ("This turns on five questions") and lists them first, because they are what you should meet first.
 
-A question like "Should cities invest in public transit?" might have pillars such as "Economic benefits of reduced car dependency," "Environmental impact," "Equity and access for low-income residents," and "Fiscal sustainability of transit agencies." Each pillar can be weighed on its own: even if one collapses, the others remain.
+Take one from the AI unemployment map: "When AI makes a firm more productive, does it hire fewer people — or just sell more?" Under it, the map says what would settle it: firm-level panels linking AI adoption to headcount, output, and pricing decisions over multiple years. Two people can agree that AI makes firms more productive and still split on this question, and the split decides much of the rest.
 
-This matters because real-world debates often fail when people conflate different arguments. Someone might present a devastating critique of the economic case for transit, and their opponent concedes as if the whole question were answered, even though the environmental and equity arguments are untouched. By breaking a question into separate lines of reasoning, the map makes it clear which arguments have been addressed and which remain standing.
-
-When reading a map, start by scanning the pillars. This gives you the big picture: the main reasons people hold the positions they hold. Then read the pillars that interest you most, or the ones you think your own side is weakest on.`,
-      },
-      {
-        title: "Reading evidence: for and against",
-        content: `Evidence cards are where the map gets concrete. While a pillar states the arguments in general terms, its cards hold the specific studies, statistics, records and examples that give those arguments weight. Each pillar shows its heaviest card on each side first; "Show all" opens the rest.
-
-Each card has a few things worth reading:`,
+Not every crux is settled by evidence, and the line under the question says which kind it is:`,
         subsections: [
           {
-            title: "Direction: supporting or opposing",
-            content: `Every card is marked Supports or Against, and it is filed by what the evidence shows, not by who usually cites it. A study that a campaign likes to quote can still count against that campaign's claim. Honest pillars carry cards on both sides. If a pillar shows only one side, that may mean the map is incomplete rather than that the argument is airtight.`,
+            title: "What would settle it",
+            content: `A test on evidence, run now or once the future arrives ("What would settle it, in time"). Once a crux has closed, the line reads "What settled it".
+
+Agreement on terms, or on who decides. "What counts as 'mass unemployment' — are both sides even arguing about the same disaster?" closes when the sides agree on a measure, not when a new study comes out.
+
+Nothing at all, when the fight is about values. "If an $80K office worker becomes a $35K care worker, did the economy 'adjust'?" There the map says "Nothing does" and keeps both answers.
+
+Where a map has not written a test down yet, it says "Not yet specified." On the older maps, one more line says how testable the question is: a test that can be run on evidence that exists, a test no one has run yet, or a test that is practically impossible to run today.`,
           },
           {
-            title: "Weight and source",
-            content: `Each card is weighed on four things: how reliable the source is, whether it is independent of the other sources, whether it has been replicated, and how directly it bears on the claim. Each is scored from 0 to 10, and the card shows a plain word for the result (Established, Strong, Contested or Thin) and a bar for its total. The detailed view shows all four scores. Every card names its source, with a link where one exists, so you can read the original yourself. The weights are a starting point for your own judgment, not a replacement for it.`,
+            title: "What would change each side's mind",
+            content: `Many cruxes also say what would change each side's mind, in the map's own words: "Someone who says yes to the map's question would change their mind if…", and the same for no. Read the one for the side you are on first.`,
           },
         ],
       },
       {
-        title: "Finding the crux",
-        content: `The crux is the most important thing on any map. A [crux](/concepts/cruxes) is a question that, if answered, would change minds on one side or the other. It is the fulcrum of the disagreement.
+        title: "Separate lines of argument",
+        content: `Most hard questions are several arguments at once. A question like "Should cities invest in public transit?" bundles cost, the environment, fairness to people on low incomes, and whether transit agencies can pay their way. On the older maps, each crux sits over one of those lines, named in small type above the question.
 
-On most maps, each pillar ends with its crux, marked "Crux" in red. Many say what would change a supporter's mind and what would change a skeptic's, then what both sides already agree on and where the live fight is. Below that is how the crux could be settled: the method, and whether that test has been run (verified), could be run (theoretical), or cannot be run with today's tools (impossible). On the flagship AI maps, the cruxes come right after the camps, each with what would settle it, or a plain statement that no evidence will because the disagreement is about values or about who should decide.
-
-For example, in an argument about renewable energy, the crux might be: "Can battery storage scale fast enough to make an all-renewable grid reliable by 2040?" If the answer is yes, several arguments for renewable investment get stronger. If it is no, several arguments against it gain force. That one factual question moves the whole map.
-
-When you find the crux, you've found the most productive place to focus your attention. Instead of arguing about peripheral points, you can direct your reading toward the question that actually matters. Read it and ask yourself two things: which answer do I find more convincing, and what evidence would change my mind?`,
+This matters because arguments often fail when people run the lines together. Someone lands a strong point about the cost of transit, and the other side concedes as if the whole question were answered, though the environmental and fairness arguments are untouched. A map that keeps the lines apart shows which have been answered and which still stand. Pick the crux you think your own side is weakest on, and read that one first.`,
       },
       {
-        title: "Reading balance and weight",
-        content: `After the first crux, a map says where the evidence stands as a whole. It comes after the crux on purpose: the crux is what you should meet first.
+        title: "Reading the evidence",
+        content: `Under each crux, "Show the evidence on each side" opens the cards that bear on it. Each card names a study, a record or a statistic, says in a line what it shows, and links its source where there is one, so you can read the original yourself.
 
-The reading rests on two numbers. **Balance**, from 0 to 100, shows which way the weighed evidence tips: 50 is even, above 50 leans toward the claim, below 50 against it. Balance tells you *direction*, and nothing about how much to trust it.
+Cards are filed by what they show, not by who usually cites them. On a map that asks a question they are headed "Points to yes on the map's question" and "Points to no on the map's question". A study a campaign likes to quote can still point against that campaign's claim. An honest crux has cards on both sides; if one side has none, the map may be incomplete rather than the argument airtight.
 
-That's what **weight** is for. Weight combines how much evidence there is (with diminishing returns for piling on more), the average quality of the sources, and how testable the cruxes are. High weight means the map is richly evidenced and rests on questions that could in principle be answered. Low weight means we simply don't know much yet, whatever the balance says.
+A map never gives a card, or a side, a score. Every card is weighed by the editors on the same four questions, whichever side it helps: how reliable the source is, whether it is independent, whether it has been replicated, and how directly it bears on the claim. That is a judgment, written down in [How maps are made](/methodology#weighing), and a starting point for your own.`,
+      },
+      {
+        title: "The positions",
+        content: `After the cruxes come the positions, each in the strongest form its own holders would recognise. On the older maps there are two, named by their answer to the map's question: Says yes and Says no. A map without a question names them Supporters and Skeptics. Each gets one sentence, with "Read the full case" for the rest. The flagship maps set out four positions, because most real fights have more than two sides.
 
-Together they produce the plain-language reading the map shows:
+Read the position you disagree with first. If you could not state it so that someone who holds it would nod, you are not ready to argue with it yet.`,
+      },
+      {
+        title: "How a crux moves",
+        content: `On the flagship maps, each crux keeps a dated record, headed "How this has moved". Every entry says what moved the crux, with its source, and carries one of four statuses:
 
-**High weight, strong lean: "Evidence largely converges on [the claim / the counterclaim]."** Most of the good evidence points one way. A map only says this when it has at least eight evidence cards and no single card could flip the reading; otherwise it says which way the evidence leans, or notes that one card could change it.
+**Open.** Still contested; nothing has moved it. A second Open in a row reads "Still open": new evidence arrived, and the question did not move.
 
-**High weight, weak lean: "Well-mapped, evidence still divided."** The map is richly evidenced on both sides. This is not the same thing as "we don't know." It means careful people have looked hard and still land in different places.
+**Narrowed.** The live disagreement is smaller than it was: part of it was settled, or a limit on its scope was accepted. The firm-hiring crux above narrowed in September 2026, when firm data agreed that AI-linked headcount cuts are rare.
 
-**Medium weight: "… moderately evidenced."** There's enough evidence to lean, but real gaps remain.
+**Resolved.** What would settle it was met.
 
-**Low weight: "Evidence still thin — an open question."** Whatever the balance says, there isn't enough evidence yet to trust the lean.
+**Unresolvable by evidence.** It turned out that no study can settle it, because it is about values, about what a word means, or about who decides.
 
-None of these readings names a winner, and none is the probability that the claim is true. Under the reading, the map names the heaviest card on each side. Read both, especially the one against the view you came in with.`,
+The record shows movement, never a winner. A crux can narrow without either side being proved right.`,
+      },
+      {
+        title: "What the map does not say",
+        content: `A map does not tell you who won. There is no score for either side and no agreement percentage. Two people can accept every card on a map and still disagree about what matters more.
+
+On the older maps, a fold near the bottom, "How the evidence weighs", puts the cards on the page into a few words: the evidence largely converges, is well mapped but still divided, leans one way, or is still thin. It describes the cards on that page, not the question in the world, and [How maps are made](/methodology#older-maps) explains how it is reached and when the map holds a stronger word back. Treat it as a note on the page, not an answer. The cruxes are the answer the map gives: here is where it turns, and here is what would move it.`,
       },
     ],
     keyTakeaways: [
-      "Read the question and scan the pillars (on the flagship maps, the camps) before diving into details",
-      "Every evidence card is filed by what it shows and carries a plain word for its weight: Established, Strong, Contested or Thin",
-      "Find the crux first: it says what would change a supporter's mind and a skeptic's, and what would settle it",
-      "Balance shows which way the evidence tips and weight how much of it there is; together they say whether the evidence largely converges, is still divided or is still thin, never who won",
+      "Start with the cruxes: the questions the fight turns on, each with what would settle it",
+      "Some cruxes close with evidence, some only when the sides agree on terms or on who decides, and some not at all",
+      "Every evidence card is filed by what it shows and names its source; no card or side gets a score",
+      "On the flagship maps, a crux's record reads Open, Narrowed, Resolved or Unresolvable by evidence, never who won",
     ],
     furtherReading: [
       { title: "Good Reasoning Matters", author: "Leo Groarke & Christopher Tindale" },
@@ -758,7 +766,7 @@ Think of these four dimensions as separate filters. A piece of evidence might sc
 
 The power of the framework comes from evaluating all four dimensions together. Evidence that scores high on all four is the gold standard — you can update your beliefs substantially based on it. Evidence that scores low on all four should barely move the needle. Most real-world evidence falls somewhere in between, and the framework helps you calibrate appropriately.
 
-On Argumend's maps, every evidence card is scored on these four dimensions. The card shows a plain word for the result (Established, Strong, Contested or Thin), and the detailed view shows all four scores, which gives you a starting point without researching every source yourself.`,
+Argumend's editors ask these four questions of every evidence card on a map, whichever side it helps. The map shows the cards and their sources rather than a score, so you can run the four questions yourself; how the editors weigh them is set out in [How maps are made](/methodology#weighing).`,
       },
       {
         title: "Source reliability: what makes a source trustworthy",
@@ -770,7 +778,7 @@ Several factors determine reliability:`,
             title: "Track record",
             content: `The single best predictor of future reliability is past reliability. Has this source been accurate before? Have they issued corrections when wrong? A source that has been consistently accurate over years has earned a degree of trust. A source with a history of errors, retractions, or fabrications should be treated with skepticism regardless of what they're currently claiming.
 
-This is the question behind the source-reliability score on every Argumend evidence card. Peer-reviewed journals with low retraction rates, news organizations with strong editorial standards, and government statistical agencies with decades of consistent methodology all score higher.`,
+This is the first question Argumend's editors ask of every evidence card. Peer-reviewed journals with low retraction rates, news organizations with strong editorial standards, and government statistical agencies with decades of consistent methodology all count for more.`,
           },
           {
             title: "Expertise and methodology",
@@ -826,7 +834,7 @@ Independence is especially important in the social media age, where a single cla
 
 The replication crisis in psychology and other fields (discussed in our [Hierarchy of Evidence guide](/guides/evidence-hierarchy)) showed that many published findings fail to replicate. This makes replication status a crucial quality indicator. Evidence that has been successfully replicated — especially by independent teams — deserves substantially more weight than evidence from a single unreplicated study.
 
-On Argumend's maps, this is the replicability score each evidence card carries. When evaluating evidence yourself, check: has this finding been replicated? By whom? Were the replications close to the original conditions, or did they test the finding in new contexts (which is even better)?
+On Argumend's maps, this is one of the four questions asked of every evidence card. When evaluating evidence yourself, check: has this finding been replicated? By whom? Were the replications close to the original conditions, or did they test the finding in new contexts (which is even better)?
 
 There's a practical hierarchy of replicability:
 - **Direct replication by independent teams:** Strongest. Different people followed the same procedure and got the same result.
@@ -848,7 +856,7 @@ Common sources of indirectness:
 - **Analogies:** "This policy worked in Country X, so it will work in Country Y." This is indirect because it assumes the two contexts are similar enough for the analogy to hold.
 - **Extrapolation:** Extending a trend beyond the range of observed data. Past performance is indirect evidence of future results, and the further you extrapolate, the weaker the evidence becomes.
 
-On Argumend's maps, directness is one of the four scores on every evidence card. When you see a chain of indirect evidence, ask yourself how many inferential steps are required and how confident you are in each step. The overall strength of the evidence chain is limited by its weakest link.`,
+On Argumend's maps, directness is one of the four questions asked of every evidence card. When you see a chain of indirect evidence, ask yourself how many inferential steps are required and how confident you are in each step. The overall strength of the evidence chain is limited by its weakest link.`,
           },
         ],
       },
@@ -868,7 +876,7 @@ On Argumend's maps, directness is one of the four scores on every evidence card.
 
 A useful mental model: imagine you're a juror. You wouldn't convict based solely on one witness's testimony (low independence, low replicability). You'd want multiple witnesses (independence), whose accounts have been verified (replicability), who actually saw the event in question (directness), and who have no reason to lie (reliability). The same standards apply to evaluating evidence in any domain.
 
-**One final principle:** be honest about uncertainty. Sometimes the available evidence is simply insufficient to reach a confident conclusion. That's okay. Acknowledging what you don't know is itself a sign of good epistemic practice. This is exactly why Argumend separates balance from weight — a balance of 50 means the evidence is evenly split, but on its own it says nothing about how much evidence there is. A richly evidenced, genuinely contested topic (high weight, even balance) and a topic we barely know anything about (low weight, even balance) can both show a balance of 50. Only the weight score tells them apart, and that distinction — not the balance number alone — is the honest reflection of genuine uncertainty.`,
+**One final principle:** be honest about uncertainty. Sometimes the available evidence is simply insufficient to reach a confident conclusion. That's okay. Acknowledging what you don't know is itself a sign of good epistemic practice. It is also why "the evidence is evenly split" is not one thing. A richly evidenced question that careful people still land on differently, and a question we barely know anything about, can both look like a tie. Telling them apart, by asking how much good evidence there is and not only which way it leans, is the honest reflection of genuine uncertainty.`,
       },
     ],
     keyTakeaways: [
@@ -938,7 +946,7 @@ Definitional cruxes are resolved not by evidence but by explicit clarification. 
 
 Here's a step-by-step process:
 
-**Step 1: State both positions clearly.** Write down, in neutral terms, the position you hold and the position you disagree with. Use Argumend's argument maps if available — the pillar structure helps you see each position's supporting arguments laid out independently.
+**Step 1: State both positions clearly.** Write down, in neutral terms, the position you hold and the position you disagree with. Use Argumend's argument maps if available: each map sets out the positions side by side, and its cruxes show the separate questions each position rests on.
 
 **Step 2: Ask the key question — "What evidence would change my mind?"** Be specific. "Nothing would change my mind" is not an acceptable answer; it means you're treating your position as an article of faith rather than a reasoned conclusion. And "overwhelming evidence" is too vague. Name the specific finding, study result, or demonstration that would genuinely shift your view.
 
@@ -1050,7 +1058,7 @@ This is why "base rates" matter. The base rate is how often a type of claim turn
 
 Bad reasoning ignores priors entirely, treating every new claim as if it starts from a blank slate. Good reasoning honestly assesses what you believed before, then updates proportionally.
 
-A claim that "vaccines cause autism" starts with an extremely low prior because decades of large-scale studies have found no connection. A single new study claiming a link barely moves the needle — and that's the rational response, not stubbornness. Argumend's maps work the same way: a new evidence card lands on top of everything already weighed, so on a well-evidenced map it moves the [reading](/concepts/confidence-calibration) only a little.`,
+A claim that "vaccines cause autism" starts with an extremely low prior because decades of large-scale studies have found no connection. A single new study claiming a link barely moves the needle — and that's the rational response, not stubbornness. A well-evidenced map works the same way: a new evidence card lands on top of everything already there, so on its own it rarely moves a [crux](/concepts/cruxes) very far.`,
       },
       {
         title: "Likelihood: how surprising is this evidence?",
@@ -1090,7 +1098,7 @@ Then you encounter a comprehensive study showing that no country has ever decarb
 
 Notice what happened: your belief changed, but not wildly. Each piece of evidence moved you proportionally to its strength and diagnosticity. You didn't flip-flop between 0% and 100% with each new data point. That proportional, incremental updating is the hallmark of rational thinking.
 
-Argumend's maps are built on the same idea. High-quality, diagnostic evidence carries more weight, and evidence from multiple independent sources adds up. A map's [balance and weight](/concepts/confidence-calibration) integrate all of it. They are not probabilities, but they move the way a posterior should: a little for weak evidence, more for strong.`,
+Argumend's maps are built on the same idea. High-quality, diagnostic evidence counts for more, and evidence from multiple independent sources adds up. On the flagship maps, each crux keeps a dated record of how it has moved: a weak study may leave it "Still open", while strong, independent evidence can narrow it. It is not a probability, but it moves the way a posterior should: a little for weak evidence, more for strong.`,
       },
       {
         title: "Calibration: are you as right as you think?",
@@ -1153,7 +1161,7 @@ The first step of your audit is simply asking: "Is this an empirical, causal, pr
 
 **What's their track record?** A source that has been consistently accurate in the past is more likely to be accurate now. This applies to individual experts, institutions, and publications. A climate scientist publishing in Nature has a different track record than an anonymous blog. A government statistical agency that has reported economic data reliably for decades is more trustworthy than a newly launched advocacy group's in-house "research."
 
-On Argumend's maps, the source-reliability score on each evidence card reflects exactly this kind of track-record assessment.
+On Argumend's maps, the editors' first question of every evidence card, how reliable its source is, asks exactly this kind of track-record question.
 
 **What are their incentives?** Everyone has interests that could bias their claims. A pharmaceutical company reporting positive drug trial results has a financial incentive to find those results. A politician citing economic data that supports their policy has a political incentive to cherry-pick. An academic who built their career on a theory has a reputational incentive to defend it.
 
@@ -1191,7 +1199,7 @@ This is the Bayesian "prior" from the [Bayesian Thinking guide](/guides/bayesian
 
 Knowing the base rate anchors your evaluation. If you're looking at a single psychology study claiming a revolutionary finding, your base rate tells you there's roughly a coin flip's chance it will replicate. That doesn't mean you should dismiss it — it means you should calibrate your confidence accordingly and wait for replication before updating strongly.
 
-On Argumend's maps, the replicability and independence scores do the same job. A finding replicated by independent teams scores higher than one resting on a single study, precisely because the base rate of single studies being correct is lower than the base rate of replicated findings being correct.`,
+On Argumend's maps, the questions about replication and independence do the same job. A finding replicated by independent teams counts for more than one resting on a single study, precisely because the base rate of single studies being correct is lower than the base rate of replicated findings being correct.`,
       },
       {
         title: "Step 5: assign provisional confidence",
@@ -1278,7 +1286,7 @@ This means seeking out the best sources from the other side, not the worst. If y
 
 **3. Prioritize empirical evidence over arguments.** A strong steelman is grounded in data, not just logic. "There are philosophical reasons to support X" is weaker than "here are three peer-reviewed studies demonstrating X." When you can fill the other side's case with concrete empirical evidence, you've built something that's genuinely hard to dismiss.
 
-On Argumend, every topic's argument map already presents both sides' evidence in structured form. When practicing steelmanning, explore the side you disagree with on the map. Look at the evidence cards — especially the ones rated Established or Strong. These are the building blocks of a genuine steelman.`,
+On Argumend, every topic's argument map already presents both sides' evidence in structured form. When practicing steelmanning, explore the side you disagree with on the map. Look at the evidence cards on that side, and at what the map says would change its mind. These are the building blocks of a genuine steelman.`,
       },
       {
         title: "The logic step",
@@ -1314,7 +1322,7 @@ There are four possible outcomes, and all of them are good:
 
 **What steelmanning teaches you over time:** The more you practice, the less binary your thinking becomes. You start seeing positions as having varying degrees of support rather than being simply "right" or "wrong." You become harder to manipulate because you've already considered the best arguments on all sides. And you become more persuasive because people can tell when you genuinely understand their position versus when you're just performing open-mindedness.
 
-The practice integrates with everything else on Argumend. Every topic is built on steelmanned arguments. Every pillar presents the strongest case. Every evidence card is filed by what it shows, not by which team cites it. Steelmanning isn't just a technique — it's the intellectual foundation of productive disagreement.`,
+The practice integrates with everything else on Argumend. Every topic is built on steelmanned arguments. Every position is stated in the form its own holders would recognise. Every evidence card is filed by what it shows, not by which team cites it. Steelmanning isn't just a technique — it's the intellectual foundation of productive disagreement.`,
       },
     ],
     keyTakeaways: [
@@ -1345,7 +1353,7 @@ The practice integrates with everything else on Argumend. Every topic is built o
 
 Both sides are looking at the same reality but sampling it selectively. The climate data is vast and complex; confirmation bias acts as a filter that lets through only the evidence you were already looking for.
 
-On Argumend's [Climate Change topic](/topics/climate-change), you can see this pattern broken. The argument map presents supporting and opposing evidence for each pillar without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
+On Argumend's [Climate Change topic](/topics/climate-change), you can see this pattern broken. The argument map presents the evidence on each side of every crux without selective filtering. That structure is itself an antidote to confirmation bias — it forces you to see all the evidence, not just the evidence that confirms your prior view.
 
 **Spot it in the wild:** When someone shares only evidence that supports their conclusion without acknowledging any counterevidence, they're likely in the grip of confirmation bias. Ask them: "What's the strongest evidence against your position?" If they can't name any, they haven't looked.`,
       },
@@ -1587,9 +1595,9 @@ Here's the workflow in brief:
 4. **Look for convergent, independent evidence** to break genuine ties.
 5. **Set a confidence level that reflects the residual uncertainty** — and say so out loud.
 
-The result should usually be a degree of belief, not a verdict. On Argumend's maps, this is what "well-mapped, evidence still divided" [means](/concepts/confidence-calibration): strong evidence on both sides, weighed honestly, and no clean answer yet — not because the analysis was sloppy, but because the evidence itself is unsettled. That reading isn't a cop-out; it's the honest output of weighing real conflict, and the crux beside it tells you precisely where more research would change minds.
+The result should usually be a degree of belief, not a verdict. On Argumend's maps, this is what a crux that is still open means: strong evidence on both sides, weighed honestly, and no clean answer yet — not because the analysis was sloppy, but because the evidence itself is unsettled. That isn't a cop-out; it's the honest output of weighing real conflict, and what would settle the [crux](/concepts/cruxes) tells you precisely where more research would change minds.
 
-That intellectual honesty has a payoff. When you can say "the best evidence leans this way, but here's the strongest finding against me, and here's what would change my mind," you've done something most participants in a debate never do. You've weighed the evidence instead of choosing a side — and you've left yourself a clear path to update when better evidence arrives. Explore the weighted evidence on any [Argumend topic](/topics) and you'll see this discipline applied: every pillar shows both its supporting and its opposing evidence, scored, so the conflict is visible rather than hidden. The full method is laid out in our [methodology](/methodology), and the recurring terms are defined in the [glossary](/glossary).`,
+That intellectual honesty has a payoff. When you can say "the best evidence leans this way, but here's the strongest finding against me, and here's what would change my mind," you've done something most participants in a debate never do. You've weighed the evidence instead of choosing a side — and you've left yourself a clear path to update when better evidence arrives. Explore the evidence on any [Argumend topic](/topics) and you'll see this discipline applied: every crux shows the evidence on each side, so the conflict is visible rather than hidden. The full method is laid out in our [methodology](/methodology), and the recurring terms are defined in the [glossary](/glossary).`,
       },
     ],
     keyTakeaways: [
@@ -1620,7 +1628,7 @@ That intellectual honesty has a payoff. When you can say "the best evidence lean
 
 When a weather forecaster says "70% chance of rain," they're making a testable claim. Collect every day they said "70%," and if it rained on roughly 70% of them, the forecaster is *calibrated* — their stated confidence matches how often they're actually right. If it rained on only 40% of those days, they're overconfident. This is a radically different way of thinking about belief: not "am I sure?" but "if I made a hundred claims at this confidence level, how many should turn out true?"
 
-This guide is about adopting that mindset — and using it to read other people's certainty, your own, and the [evidence readings](/concepts/confidence-calibration) on Argumend's maps the way a forecaster would. It builds directly on the [Bayesian Thinking guide](/guides/bayesian-thinking), which covers how to *update* beliefs as evidence arrives. Calibration is the complementary skill: making sure the confidence you end up with actually means what it says.`,
+This guide is about adopting that mindset — and using it to read other people's certainty, your own, and the [cruxes](/concepts/cruxes) on Argumend's maps the way a forecaster would. It builds directly on the [Bayesian Thinking guide](/guides/bayesian-thinking), which covers how to *update* beliefs as evidence arrives. Calibration is the complementary skill: making sure the confidence you end up with actually means what it says.`,
       },
       {
         title: "Calibration: the core skill",
@@ -1644,7 +1652,7 @@ This guide is about adopting that mindset — and using it to read other people'
         title: "What a map's reading actually says",
         content: `With calibration in mind, you can read a map's description of its evidence correctly — and avoid the two most common misreadings.
 
-When a map says the evidence "largely converges on the claim," it does not mean "this is certainly true," and it does not mean "most people agree." It means that, weighing the available evidence on its quality, most of the well-weighed support points one way, and there is enough of it that no single card could change the reading. It's a statement about the *current state of evidence*, not a permanent fact — and like a forecaster's number, it's meant to move when new evidence arrives. The map deliberately gives you no percentage to bet on: the [balance and weight](/concepts/confidence-calibration) behind the reading say which way the evidence tips and how much of it there is, not how likely the claim is to be true.
+When a map says the evidence "largely converges on the claim," it does not mean "this is certainly true," and it does not mean "most people agree." It means that, weighing the available evidence on its quality, most of the well-weighed support points one way, and there is enough of it that no single card could change the reading. It's a statement about the *current state of evidence*, not a permanent fact — and like a forecaster's number, it's meant to move when new evidence arrives. The map deliberately gives you no percentage to bet on: the reading says which way the evidence on the page tips and how much of it there is, not how likely the claim is to be true. [How maps are made](/methodology#older-maps) explains how it is reached.
 
 This has two practical consequences. First, "largely converges" is an invitation to act, not to stop thinking: a calibrated reasoner still expects well-supported claims to be overturned occasionally, and the map still shows you the heaviest card on the other side. Second, "still divided" is genuinely informative. It isn't "we know nothing" — it's "the evidence is real but points both ways," precisely the condition our [Weighing Conflicting Evidence guide](/guides/weighing-conflicting-evidence) addresses. The most interesting questions tend to cluster there, which is why divided maps and their cruxes are the fastest way to find where an argument is actually live. The [How to Read an Argument Map guide](/guides/how-to-read-an-argument-map) walks through reading a map as exactly this kind of triage.`,
       },
@@ -1692,7 +1700,7 @@ This has two practical consequences. First, "largely converges" is an invitation
         title: "Calibration in practice on Argumend",
         content: `Putting it together, here's how to read any topic the way a forecaster would.
 
-When you open a topic like [AI Risk](/topics/ai-risk), [Climate Change](/topics/climate-change), or [Longevity Science](/topics/longevity-science), resist the pull to look for a verdict; the map won't give you one. Instead, read the evidence the way a forecaster would. Ask of each card rated Established: would I be genuinely surprised if this were overturned? Ask of each contested point: what specific evidence would move it, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
+When you open a topic like [AI Risk](/topics/ai-risk), [Climate Change](/topics/climate-change), or [Longevity Science](/topics/longevity-science), resist the pull to look for a verdict; the map won't give you one. Instead, read the evidence the way a forecaster would. Ask of each well-sourced card: would I be genuinely surprised if this were overturned? Ask of each contested point: what specific evidence would move it, and in which direction? That second question is the [crux](/concepts/cruxes) — the place where a calibrated mind focuses, because it's where uncertainty is highest and new evidence has the most leverage.
 
 Then turn the lens on yourself. Pick a claim on the topic, write down your own confidence as a number, and note what would change it. Come back when you've read more — or when the world has supplied new evidence — and see whether you should update. This simple practice, repeated, is how calibration is built. It's also the entire spirit of Argumend: not to hand you conclusions, but to give you a structured, honestly weighed map of the [evidence](/concepts/evidence-weighting) so you can hold your own beliefs to a forecaster's standard.
 
@@ -1785,7 +1793,7 @@ None of these alone proves causation. Together they tell you how seriously to ta
         title: "Two worked examples",
         content: `Watch the framework operate on live questions.
 
-**Does social media cause teen depression?** The correlation is fairly robust: heavy users report worse mental health. But run the questions. Reverse causation is wide open — depression may drive use. Confounders abound — kids who are already struggling, isolated, or sleep-deprived may both use more and feel worse. Some natural experiments (staggered platform rollouts) push toward a causal effect; others find tiny effect sizes. The honest verdict isn't "proven" or "debunked" but a contested middle, which is exactly why the [topic map](/topics/social-media-mental-health) scores the causal claim well below the correlational one.
+**Does social media cause teen depression?** The correlation is fairly robust: heavy users report worse mental health. But run the questions. Reverse causation is wide open — depression may drive use. Confounders abound — kids who are already struggling, isolated, or sleep-deprived may both use more and feel worse. Some natural experiments (staggered platform rollouts) push toward a causal effect; others find tiny effect sizes. The honest verdict isn't "proven" or "debunked" but a contested middle, which is exactly why the [topic map](/topics/social-media-mental-health) keeps the causal claim apart from the correlational one.
 
 **Does a glass of wine a day protect your heart?** For years, observational studies found moderate drinkers outlived both heavy drinkers and abstainers. The causal story — wine is protective — launched a thousand headlines. Then the confounders surfaced: the "abstainer" group included former drinkers who had quit because they were *already sick*, and moderate drinkers tended to be wealthier and healthier overall. Better-designed studies, like those behind the [no-safe-level debate](/topics/alcohol-no-safe-level), largely dissolved the protective effect. A textbook case of a confounded correlation mistaken for a cause.`,
       },
@@ -1793,7 +1801,7 @@ None of these alone proves causation. Together they tell you how seriously to ta
         title: "Reading causal claims on Argumend",
         content: `Once you see this distinction clearly, you'll notice that a huge share of bad arguments are really one error wearing different costumes: treating a correlation as if it were a cause. Formally, it's the [false cause fallacy](/fallacies/false-cause), and spotting it is one of the highest-leverage moves in the [argument audit](/guides/argument-audit) toolkit.
 
-On Argumend, this is why a map rarely collapses into a single answer, and it is what the directness score on each evidence card is for. A study showing that X and Y move together can be strong evidence that they do — the correlation is real and well-measured — while counting for much less toward "therefore X causes Y," because the rival explanations haven't been ruled out. Keeping those two apart is the discipline. When you read any topic, ask of every causal arrow: is this a measured correlation, or has someone established the direction, controlled the confounders, and found a mechanism? The gap between those is where most of the real uncertainty — and most of the [evidence weighting](/concepts/evidence-weighting) — lives. The recurring terms are defined in the [glossary](/glossary), and the full weighing approach in our [methodology](/methodology).`,
+On Argumend, this is why a map rarely collapses into a single answer, and it is why directness is one of the four questions asked of every evidence card. A study showing that X and Y move together can be strong evidence that they do — the correlation is real and well-measured — while counting for much less toward "therefore X causes Y," because the rival explanations haven't been ruled out. Keeping those two apart is the discipline. When you read any topic, ask of every causal arrow: is this a measured correlation, or has someone established the direction, controlled the confounders, and found a mechanism? The gap between those is where most of the real uncertainty — and most of the [evidence weighting](/concepts/evidence-weighting) — lives. The recurring terms are defined in the [glossary](/glossary), and the full weighing approach in our [methodology](/methodology).`,
       },
     ],
     keyTakeaways: [
@@ -1894,11 +1902,11 @@ The stakes are rising. As the [truth-collapse debate](/topics/ai-deepfakes-truth
 
 2. **Trace independence before counting agreement.** Three voices that trace to one source are one voice. [Triangulate](/guides/triangulation).
 
-3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. On a map, read "largely converges" and "still divided" as descriptions of the [evidence](/concepts/confidence-calibration), not verdicts.
+3. **Hold confidence proportional to evidence — in both directions.** Don't let manufactured doubt drag a 90% claim down to 50%, and don't inflate a genuinely 60% claim to certainty. On a map, read "largely converges" and "still divided" as descriptions of the [evidence on the page](/methodology#older-maps), not answers.
 
 4. **Demand a stated falsification condition.** If the doubt can't name what would change its mind, it isn't skepticism.
 
-This is exactly what an Argumend map is built to provide: instead of a shouting match where the loudest doubt wins, it lays out each claim with its [weighted evidence](/concepts/evidence-weighting) and an honest [reading of where that evidence stands](/concepts/confidence-calibration), so manufactured doubt has nowhere to hide. The strongest objections get their due; the manufactured ones get weighed for what they're worth. Engaging seriously with real uncertainty while refusing to be paralyzed by fake uncertainty — that is the balance the whole [methodology](/methodology) is built to strike, and the recurring terms are defined in the [glossary](/glossary).`,
+This is exactly what an Argumend map is built to provide: instead of a shouting match where the loudest doubt wins, it lays out each claim with its [weighed evidence](/concepts/evidence-weighting) and the [cruxes](/concepts/cruxes) it turns on, each with what would settle it, so manufactured doubt has nowhere to hide. The strongest objections get their due; the manufactured ones get weighed for what they're worth. Engaging seriously with real uncertainty while refusing to be paralyzed by fake uncertainty — that is the balance the whole [methodology](/methodology) is built to strike, and the recurring terms are defined in the [glossary](/glossary).`,
       },
     ],
     keyTakeaways: [

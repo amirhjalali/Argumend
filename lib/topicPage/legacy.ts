@@ -60,7 +60,7 @@ export interface LegacyTopicPage {
   references: { title: string; url: string }[];
 }
 
-/** How testable the map says each crux is (glossary: "Verification status"). */
+/** How testable the map says each crux is (glossary: "What Would Settle It"). */
 const TESTABILITY: Record<Pillar["crux"]["verification_status"], string> = {
   verified: "A test that can be run on evidence that exists.",
   theoretical: "A test no one has run yet.",

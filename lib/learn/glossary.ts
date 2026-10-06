@@ -15,11 +15,15 @@ import { firstSentence } from "@/lib/topicPage/legacy";
  */
 
 /**
- * Old anchors that must keep landing on a renamed term. "Confidence Score"
- * became "Balance and Weight" in the 2026-09-29 copy sweep.
+ * Old anchors that must keep landing on a renamed term. "Verification Status"
+ * became "What Would Settle It" (r4, 2026-10), the label the maps show.
+ * "Balance and Weight" (once "Confidence Score") and "Pillar" were retired
+ * from the glossary: the maps no longer show either, and the reading of
+ * evidence that still exists on the older maps is explained in
+ * /methodology#older-maps.
  */
 export const GLOSSARY_ANCHOR_ALIASES: Record<string, readonly string[]> = {
-  "balance-and-weight": ["confidence-score"],
+  "what-would-settle-it": ["verification-status"],
 };
 
 /** Terms whose owner page is not found by name. */
@@ -27,7 +31,6 @@ const OWNER_OVERRIDES: Record<string, string> = {
   "Steel-Manning": "/concepts/steel-manning",
   "Double Crux": "/concepts/cruxes",
   "Evidence Weighting": "/concepts/evidence-weighting",
-  Calibration: "/concepts/confidence-calibration",
   "Logical Fallacy": "/concepts/fallacies",
   "False Dichotomy": "/fallacies/false-dilemma",
   "Correlation vs. Causation": "/fallacies/false-cause",
