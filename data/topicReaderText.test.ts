@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { topics } from "./topics";
+import { articles } from "./blog";
 import { loadArgumentTopic } from "@/lib/argument/draftTopics";
 import { argumentTopicIds } from "@/lib/argument/topicIds";
 
@@ -39,5 +40,16 @@ describe("topic reader text", () => {
     // *word* or **words**. A name like STAR*D (asterisk inside a word) is not
     // emphasis, so the opening asterisk must not follow a letter.
     expect(offenders(/(?<![\w^*])\*{1,2}\w[^*\n]*\w?\*/)).toEqual([]);
+  });
+
+  it("names sections and cruxes, never numbered pillars, on maps and in the blog", () => {
+    // "Pillar" was a section format the maps no longer name (r4); a reader
+    // told to "see Pillar 3" has nothing to find.
+    const PILLAR = /\bPillars? \d\b/i;
+    const blog = articles.flatMap((article) =>
+      stringsIn(article, `blog/${article.slug}`, []).filter(({ text }) => PILLAR.test(text)).map(({ path }) => path),
+    );
+    expect(offenders(PILLAR)).toEqual([]);
+    expect(blog).toEqual([]);
   });
 });

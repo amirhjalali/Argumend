@@ -248,7 +248,7 @@ export const masculinityCrisisData = {
           source: "Anne Case, Princeton University Press (\"Deaths of despair strike women too\")",
           sourceUrl: "https://press.princeton.edu/ideas/deaths-of-despair-strike-women-too",
           reasoning:
-            "This is the strongest possible against-evidence for Pillar 2 because it comes from the very researcher whose work anchors the proponent's deaths-of-despair argument. Case explicitly attributes the trend to class and the loss of the bachelor's-degree wage premium, not gender, and documents that less-educated women are dying at comparable or faster-rising rates. It directly rebuts the inference that rising despair mortality is evidence of a uniquely male crisis, reframing it as the immiseration of the non-college working class of both sexes.",
+            "This is the strongest possible against-evidence for the structural-versus-cultural case because it comes from the very researcher whose work anchors the proponent's deaths-of-despair argument. Case explicitly attributes the trend to class and the loss of the bachelor's-degree wage premium, not gender, and documents that less-educated women are dying at comparable or faster-rising rates. It directly rebuts the inference that rising despair mortality is evidence of a uniquely male crisis, reframing it as the immiseration of the non-college working class of both sexes.",
         },
       ],
     },

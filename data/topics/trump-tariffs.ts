@@ -363,7 +363,7 @@ export const trumpTariffsData = {
         question:
           "Can tariffs fix trade deficits, and are their gains worth the friction with allies?",
         description:
-          "Two linked questions decide this pillar. First, are bilateral trade deficits caused by unfair foreign practices (addressable by tariffs) or by macroeconomic savings-investment imbalances (not addressable by tariffs)? Second, does the geopolitical cost of tariff friction with allies — lost China-policy cooperation, weakened burden-sharing, eroded dollar trust — exceed the concessions tariffs extract?",
+          "Two linked questions decide this section. First, are bilateral trade deficits caused by unfair foreign practices (addressable by tariffs) or by macroeconomic savings-investment imbalances (not addressable by tariffs)? Second, does the geopolitical cost of tariff friction with allies — lost China-policy cooperation, weakened burden-sharing, eroded dollar trust — exceed the concessions tariffs extract?",
         methodology:
           "Test deficit causation by examining whether the aggregate US trade deficit narrows under tariffs or merely shifts bilaterally to other surplus countries, controlling for the national savings rate and fiscal deficit. Assess alliance cost by auditing documented concessions (trade deals signed, LNG and defense commitments) against documented retaliation and cooperation losses (EU/Canada countermeasures, USMCA renegotiation stakes, allied alignment on China export controls).",
         verification_status: "theoretical" as const,

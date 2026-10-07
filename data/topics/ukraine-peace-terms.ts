@@ -98,7 +98,7 @@ export const ukrainePeaceTermsData = {
           source: "Kyiv Independent; Ukrainian government statements",
           sourceUrl: "https://kyivindependent.com/elections-or-referendum-zelensky-affirms-ukrainians-will-decide-territorial-concessions/",
           reasoning:
-            "Zelensky's referendum position is well-documented but is a party to the dispute, lowering independence. It directly addresses the sovereignty pillar: it establishes a constitutional barrier to ceding territory that is independent of military feasibility, complicating any imposed settlement.",
+            "Zelensky's referendum position is well-documented but is a party to the dispute, lowering independence. It directly addresses the sovereignty question: it establishes a constitutional barrier to ceding territory that is independent of military feasibility, complicating any imposed settlement.",
         },
         {
           id: "miami-revisions-20-point",

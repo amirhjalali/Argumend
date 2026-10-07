@@ -357,7 +357,7 @@ export const returnToOfficeProductivityData = {
           title:
             "Hypothesis: Sunk Commercial-Real-Estate Costs May Influence RTO Decisions (Unverified Magnitude)",
           description:
-            "A common argument is that firms with large, long-dated office leases face sunk-cost and occupancy-justification pressures that push them toward stricter RTO regardless of productivity data. This is plausible in principle — office utilization and underused space are real cost concerns that vendors like Envoy market analytics to quantify — but we were unable to verify any specific published study establishing that RTO mandate timing correlates with lease-renewal dates, or quantifying how much more likely long-lease firms are to mandate full RTO. The motive remains a hypothesis pending the kind of econometric decomposition described in this pillar's crux.",
+            "A common argument is that firms with large, long-dated office leases face sunk-cost and occupancy-justification pressures that push them toward stricter RTO regardless of productivity data. This is plausible in principle — office utilization and underused space are real cost concerns that vendors like Envoy market analytics to quantify — but we were unable to verify any specific published study establishing that RTO mandate timing correlates with lease-renewal dates, or quantifying how much more likely long-lease firms are to mandate full RTO. The motive remains a hypothesis pending the kind of econometric decomposition described in this section's crux.",
           side: "against" as const,
           weight: {
             sourceReliability: 3,

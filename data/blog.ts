@@ -652,7 +652,7 @@ You do not need a philosophy degree to put this to work:
 
 ## How Argumend is built around this
 
-This question is not a rhetorical flourish for us; it is the architecture. Every topic we map identifies its **cruxes** explicitly, and for our most-developed topics we now state, for each pillar, exactly **what would change a supporter's mind and what would change a skeptic's mind** — alongside where the two sides already agree and where the live disagreement really sits.
+This question is not a rhetorical flourish for us; it is the architecture. Every topic we map identifies its **cruxes** explicitly, and for our most-developed topics we now state, for each crux, exactly **what would change a supporter's mind and what would change a skeptic's mind** — alongside where the two sides already agree and where the live disagreement really sits.
 
 The goal is to model the thing good reasoners do privately and almost no public argument does: treat a belief as a bet on reality, and say in advance what would make you fold. If you want to see it in action, read [Will AI cause mass unemployment?](/topics/ai-mass-unemployment), where every crux says what would settle it and keeps a dated record of the evidence that has moved it. And if you want a companion habit, the discipline that pairs best with this one is [steel-manning the other side](/blog/why-steel-manning-makes-you-smarter) — because you cannot honestly say what would change your mind until you understand the strongest version of the view you're resisting.
 
@@ -3146,7 +3146,7 @@ What we do know is that the decisions being made right now — in legislatures, 
 
 The best thing any of us can do is understand the strongest version of each position before deciding where we stand. Dismissing the accelerationists as reckless, the regulators as Luddites, or the targeted-approach advocates as missing the big picture is comfortable but intellectually lazy. Each camp captures something real about a genuinely unprecedented situation.
 
-Explore the full argument maps on Argumend: [Should AI Be Regulated Like Drugs or Nuclear Energy?](/topics/ai-regulation) examines the case for and against comprehensive AI regulation across three pillars — existential risk, innovation impact, and global coordination. [E/acc vs. Tech Regulation](/topics/eacc-vs-tech-regulation) digs into the accelerationist-versus-precautionary debate, covering innovation speed, market self-correction, and democratic governance.
+Explore the full argument maps on Argumend: [Should AI Be Regulated Like Drugs or Nuclear Energy?](/topics/ai-regulation) examines the case for and against comprehensive AI regulation across three questions — existential risk, innovation impact, and global coordination. [E/acc vs. Tech Regulation](/topics/eacc-vs-tech-regulation) digs into the accelerationist-versus-precautionary debate, covering innovation speed, market self-correction, and democratic governance.
 
 The arguments are complex. The stakes are real. Understanding them clearly is the first step toward navigating them wisely.`,
   },
@@ -3175,9 +3175,9 @@ The housing affordability crisis is not a simple problem with a single cause. It
 
 ## The Three Competing Explanations
 
-At Argumend, we analyze contested claims through what we call "pillars" — the major structural arguments that support or challenge a position. The housing crisis has three dominant pillars, and they map cleanly onto three different theories of what went wrong.
+The housing crisis has three dominant explanations, and they map cleanly onto three different theories of what went wrong. Each turns on its own crux.
 
-### Pillar 1: Supply-Side — "We Simply Don't Build Enough"
+### Supply-side: "We simply don't build enough"
 
 **The argument:** The housing crisis is fundamentally a supply crisis. Restrictive zoning laws — particularly single-family zoning that prohibits apartments, duplexes, and mixed-use development in most residential land — have created artificial scarcity in the places where people most want to live. The solution is straightforward: legalize density, streamline permitting, and let builders build.
 
@@ -3191,7 +3191,7 @@ The uncomfortable truth is that simply legalizing density does not mean density 
 
 **Honest assessment:** The supply-side explanation captures something real and important. Zoning restrictions genuinely inflate housing costs, and the international evidence for this is robust. But "build more" is necessary without being sufficient. It is a correct diagnosis that produces an incomplete prescription.
 
-### Pillar 2: Demand-Side — "Too Much Money Chasing Too Few Homes"
+### Demand-side: "Too much money chasing too few homes"
 
 **The argument:** Housing costs are driven not just by restricted supply but by supercharged demand. Population growth in desirable cities, investor speculation, short-term rentals pulling units off the long-term market, and foreign capital treating housing as an asset class rather than shelter have all inflated prices beyond what supply expansion alone can fix.
 
@@ -3205,7 +3205,7 @@ The demand-side explanation often functions as a politically convenient deflecti
 
 **Honest assessment:** Demand pressures are real and exacerbate the crisis in specific markets. But demand-side interventions alone — taxing investors, restricting Airbnb, limiting foreign purchases — would not solve the underlying problem. You can reduce demand pressure, but if supply remains artificially constrained, prices will remain high.
 
-### Pillar 3: Government Intervention — "Regulation Is Both the Problem and the Solution"
+### Government intervention: "Regulation is both the problem and the solution"
 
 **The argument:** Government policy is deeply embedded in the housing crisis — not just through zoning, but through rent control, housing subsidies, mortgage interest deductions, public housing (or the lack of it), and tax policies that treat housing as an investment vehicle rather than shelter. The debate here is not whether government is involved, but whether it should do more or less.
 
@@ -3256,7 +3256,7 @@ The housing crisis does not exist in isolation. It is deeply entangled with near
 
 ## Explore the Full Analysis
 
-This post covers the broad strokes. For the detailed evidence, source evaluations, and testable crux points for each pillar, explore our full [Housing Supply & Affordability](/topics/housing-affordability-crisis) topic on Argumend. Every claim is sourced, every argument is steel-manned, and the evidence is weighted so you can judge for yourself.
+This post covers the broad strokes. For the detailed evidence, source evaluations, and the crux of each explanation, explore our full [Housing Supply & Affordability](/topics/housing-affordability-crisis) topic on Argumend. Every claim is sourced, every argument is steel-manned, and the evidence is weighted so you can judge for yourself.
 
 The housing crisis is real. The solutions are complicated. The first step toward fixing it is understanding what we are actually arguing about — and that is exactly what Argumend is built to help you do.`,
   },
@@ -3740,7 +3740,7 @@ The responsible path is neither panic nor dismissal. It is continued research, r
 
 ## Explore the Full Analysis
 
-For the complete evidence breakdown, weighted source evaluations, and testable crux points for each pillar of the microplastics debate, explore our full [Microplastics Health Crisis](/topics/microplastics-health-crisis) topic on Argumend. Every claim is sourced, every argument is steel-manned, and the evidence is weighted so you can draw your own conclusions.
+For the complete evidence breakdown, weighted source evaluations, and the crux of each question in the microplastics debate, explore our full [Microplastics Health Crisis](/topics/microplastics-health-crisis) topic on Argumend. Every claim is sourced, every argument is steel-manned, and the evidence is weighted so you can draw your own conclusions.
 
 The microplastics question is not settled. Anyone who tells you the science is clear — whether they are sounding the alarm or waving it away — is offering you certainty that the evidence does not yet support. What the evidence does support is attention, precaution, and the intellectual honesty to say: we do not yet know, and that matters.`,
   },
@@ -4075,7 +4075,7 @@ The current evidence leans toward the second interpretation, but it has not defi
 
 ## Explore the Full Analysis
 
-For the complete evidence-weighted argument map on the seed oils debate — with every claim sourced, both sides steel-manned, and a crux for each pillar — explore our full [Seed Oils and Human Health](/topics/seed-oils-health) map.
+For the complete evidence-weighted argument map on the seed oils debate — with every claim sourced, both sides steel-manned, and a crux for each question — explore our full [Seed Oils and Human Health](/topics/seed-oils-health) map.
 
 The seed oils question is a perfect case study in how tribal identity distorts scientific reasoning. The carnivore influencer who calls seed oils "literal poison" and the registered dietitian who insists they are "heart-healthy" are both oversimplifying a genuinely complex evidence base. The truth, as it so often does, lives in the uncomfortable middle — where certainty is scarce, nuance is necessary, and the honest answer is: it depends, and we are still learning.`,
   },

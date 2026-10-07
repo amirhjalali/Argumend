@@ -318,7 +318,7 @@ export const labDiamondsEthicsData = {
           source: "IMF 2024 Article IV Consultation (Botswana); World Bank; Acemoglu & Robinson (2012)",
           sourceUrl: "https://www.elibrary.imf.org/view/journals/002/2024/286/article-A001-en.xml",
           reasoning:
-            "The IMF's 2024 Article IV report confirms the dependency figures used in this pillar: diamonds account for roughly a quarter of GDP, about 80% of exports, and around a third of fiscal revenue. Botswana's development story is one of the best-documented cases in development economics and the causal role of diamond revenue is well-established. The specific historical figures (12 km of road / $70 per-capita GDP at 1966 independence) are commonly cited and broadly consistent with the record, though not pinned to this single source. Replicability is lower because Botswana's success depended on uniquely good governance other diamond producers have not replicated.",
+            "The IMF's 2024 Article IV report confirms the dependency figures used in this section: diamonds account for roughly a quarter of GDP, about 80% of exports, and around a third of fiscal revenue. Botswana's development story is one of the best-documented cases in development economics and the causal role of diamond revenue is well-established. The specific historical figures (12 km of road / $70 per-capita GDP at 1966 independence) are commonly cited and broadly consistent with the record, though not pinned to this single source. Replicability is lower because Botswana's success depended on uniquely good governance other diamond producers have not replicated.",
         },
         {
           id: "artisanal-mining-livelihoods",
