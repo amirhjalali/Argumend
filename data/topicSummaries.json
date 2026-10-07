@@ -129,7 +129,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "therabot facct nedas woebot sycophancy tessa bots dartmouth psychotherapy roleplay heinz ckiger darcy fitzpatrick jmir"
+    "keywords": "therabot facct nedas woebot sycophancy tessa bots dartmouth psychotherapy roleplay heinz moore ckiger darcy fitzpatrick"
   },
   {
     "id": "carbon-capture-viability",
@@ -151,7 +151,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation cement mothballed dioxide mammoth amine beneath wgiii orca"
+    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation cement mothballed mammoth dioxide amine beneath orca wgiii"
   },
   {
     "id": "hydrogen-economy-viability",
@@ -262,16 +262,16 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "singleton malthusian ostrom axelrod hanson hardin polycentric montreal folk nash malthus theorem leviathan pinker fisheries"
+    "keywords": "singleton malthusian ostrom bostrom axelrod hanson hardin polycentric montreal folk nash malthus theorem leviathan pinker"
   },
   {
     "id": "ai-2027",
     "title": "AI 2027: The Recursive-Automation Timeline",
     "question": "Will automating AI research bring superintelligence by the late 2020s?",
     "meta_claim": "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s — making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 77,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -279,12 +279,12 @@
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 5,
-    "evidenceCount": 21,
+    "evidenceCount": 20,
     "firstCrux": "Will the length of tasks AI can complete on its own keep doubling at its recent pace, or plateau?",
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency davidson kaplan leaderboard looming metr bench hoffmann"
+    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency davidson hoffmann leaderboard looming metr bench philanthropy"
   },
   {
     "id": "jones-act",
@@ -553,7 +553,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens bier isil milton sidewalk migrant clemenss enlargement feudal kahanec peasant zaiceva zimmermann"
+    "keywords": "carens remittances clemens bier isil milton sidewalk migrant clemenss feudal kahanec peasant zaiceva zimmermann circular"
   },
   {
     "id": "universal-basic-income",
@@ -576,7 +576,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dividend unconditional kela openresearch stockton roosevelt alaskas penn manitoba mincome tanf wives denver givedirectly banerjee"
+    "keywords": "dividend unconditional kela openresearch stockton roosevelt alaskas penn manitoba mincome tanf wives denver givedirectly yangs"
   },
   {
     "id": "wealth-tax",
@@ -816,9 +816,31 @@
     "title": "Should Schools Ban Smartphones?",
     "question": "Do school phone bans improve students' learning and mental health?",
     "meta_claim": "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 71,
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 70,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
+    "tags": [
+      "policy"
+    ],
+    "keywords": "yondr beland pouches murphy victoria ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom"
+  },
+  {
+    "id": "pandemic-preparedness",
+    "title": "Pandemic Preparedness Investment",
+    "question": "Should governments invest heavily in pandemic preparedness?",
+    "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
+    "confidence_score": 67,
+    "balance": 67,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -827,33 +849,11 @@
     "category": "policy",
     "pillarCount": 3,
     "evidenceCount": 12,
-    "firstCrux": "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
-    "tags": [
-      "policy"
-    ],
-    "keywords": "yondr beland pouches murphy victoria anxious ward literacy lorenzo abrahamsson bullying classroom adrian bestseller cgms"
-  },
-  {
-    "id": "pandemic-preparedness",
-    "title": "Pandemic Preparedness Investment",
-    "question": "Should governments invest heavily in pandemic preparedness?",
-    "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 75,
-    "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
-    },
-    "status": "contested",
-    "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 14,
     "firstCrux": "How often do truly catastrophic pandemics strike under modern conditions?",
     "tags": [
       "policy"
     ],
-    "keywords": "biosurveillance cutler wastewater sars cepi kariko replenished weissman mers warp biontech marani botched givewell h1n1"
+    "keywords": "biosurveillance cutler wastewater cepi kariko replenished weissman warp sars biontech marani botched givewell h1n1 pfizer"
   },
   {
     "id": "china-taiwan-invasion",
@@ -919,7 +919,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin rivera scarborough sugary caries earmarked allcott andreyeva"
+    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin rivera scarborough sugary caries earmarked satiety allcott"
   },
   {
     "id": "social-media-age-limits",
@@ -937,11 +937,11 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
-    "firstCrux": "Does removing social media actually improve teens' mental health, or is the link driven by other factors?",
+    "firstCrux": "Do teens kept off social media end up with better mental health than teens who stay on?",
     "tags": [
       "technology"
     ],
-    "keywords": "yoti coppa anxious circumvention ofcom yougov anglophone birthdate drama pinpoint tough tweens penguin tones attestation"
+    "keywords": "yoti coppa anxious circumvention ofcom yougov murthy anglophone birthdate drama pinpoint tough tweens candice penguin"
   },
   {
     "id": "social-media-mental-health",
@@ -970,9 +970,9 @@
     "title": "Existential Risk from AGI",
     "question": "Does AGI pose a real risk of human extinction within the next century?",
     "meta_claim": "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 70,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -985,7 +985,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner chinchilla aamas beams boat coastrunners critch faulty hubinger"
+    "keywords": "sleeper sonnet bostrom leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger"
   },
   {
     "id": "ai-content-labeling",
@@ -1183,29 +1183,29 @@
     "tags": [
       "technology"
     ],
-    "keywords": "gasoline technocratic crispr linux dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel hansen"
+    "keywords": "gasoline technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel"
   },
   {
     "id": "ai-superintelligence-timeline",
     "title": "Will Artificial Superintelligence Arrive Before 2035?",
     "question": "Could artificial superintelligence arrive before 2035?",
-    "meta_claim": "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation.",
+    "meta_claim": "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation. The AI 2027 scenario is one named fast path to it, not the only one.",
     "confidence_score": 60,
     "balance": 60,
-    "weight": 67,
+    "weight": 63,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
     },
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 10,
     "firstCrux": "Will capability gains from more compute hit a ceiling before general reasoning?",
     "tags": [
       "technology"
     ],
-    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt mamba mirage multilingual openreview ouyang proc schaeffer shazeer"
+    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt kaplan mamba mirage multilingual openreview ouyang schaeffer shazeer"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1227,7 +1227,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "nuscale uamps lazards fukushima vogtle akademik edwin lomonosov royce westinghouse lcoe lyman overruns midpoint nucnet"
+    "keywords": "nuscale uamps streamlined lazards fukushima vogtle akademik edwin lomonosov royce westinghouse lcoe lyman overruns midpoint"
   },
   {
     "id": "tiktok-brain-rot",
@@ -1315,7 +1315,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "arctic irradiance scripps eruption pinatubo nights stratosphere argo keeling acidification geophysical acrim albedo amsu ceres"
+    "keywords": "arctic irradiance scripps eruption pinatubo stratosphere argo keeling acidification geophysical acrim albedo amsu ceres cmip6"
   },
   {
     "id": "ev-environmental-impact",
@@ -1365,7 +1365,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "livestock antibiotic cage cattle runoff beef dietetics antimicrobial bacterial cafo manure vegetarian eggs grass pasture"
+    "keywords": "livestock antibiotic cage sentience cattle runoff beef dietetics antimicrobial bacterial cafo manure vegetarian eggs grass"
   },
   {
     "id": "organic-food-health",
@@ -1431,7 +1431,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dart asteroid debris spinoff spacex spin planetary landsat modis mars perseverance collisions constellation didymos dimorphoss"
+    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars perseverance collisions constellation didymos dimorphoss earthdata"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1504,7 +1504,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "cleavage furin debarred insertion odni progenitor sago ecohealth subcommittee lineages huanan sarbecovirus coronaviruses wray civet"
+    "keywords": "cleavage furin debarred insertion odni progenitor sago ecohealth subcommittee lineages huanan sarbecovirus coronaviruses biosafety virologists"
   },
   {
     "id": "ultra-processed-food",
@@ -1526,7 +1526,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs petition carboxymethylcellulose emulsifier umbrella microbiome appraisal chassaing gastroenterology gibney monteiro moss neltner rauber"
+    "keywords": "nova upfs overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome appraisal chassaing gastroenterology gibney monteiro moss neltner"
   },
   {
     "id": "longevity-science",
@@ -1606,9 +1606,9 @@
     "title": "GLP-1 Weight Loss Drugs",
     "question": "Are GLP-1 drugs like Ozempic a safe, lasting answer to obesity?",
     "meta_claim": "GLP-1 receptor agonists like Ozempic and Mounjaro represent a safe, effective long-term solution to the obesity epidemic that should be widely accessible, not a dangerous shortcut that medicalizes a lifestyle problem.",
-    "confidence_score": 48,
-    "balance": 48,
-    "weight": 77,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1616,7 +1616,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 4,
-    "evidenceCount": 15,
+    "evidenceCount": 14,
     "firstCrux": "Does ten or more years of continuous use stay net-beneficial, or reveal cumulative risks?",
     "tags": [
       "science"
@@ -1672,22 +1672,23 @@
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "question": "Is obesity mainly a matter of personal choice?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
-    "confidence_score": 18,
-    "balance": 18,
-    "weight": 72,
+    "confidence_score": 24,
+    "balance": 24,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence largely converges on the counterclaim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does the ultra-processed food environment drive obesity, or does personal choice still dominate?",
+    "evidenceCount": 9,
+    "firstCrux": "Do price, marketing and access override individual choice for most people?",
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide kcal regained junk microbiota supermarket microbiome dastidar fothergill germ ghosh ridaura turnbaugh wegovy zepbound"
+    "keywords": "semaglutide regained kcal junk microbiota supermarket microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks"
   },
   {
     "id": "loneliness-epidemic",
@@ -1716,9 +1717,9 @@
     "title": "The Future of Remote Work",
     "question": "Will remote and hybrid work permanently replace the five-day office week?",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 74,
-    "balance": 74,
-    "weight": 57,
+    "confidence_score": 86,
+    "balance": 86,
+    "weight": 52,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1726,12 +1727,12 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Do remote teams produce as much innovation as comparable in-office teams?",
+    "evidenceCount": 6,
+    "firstCrux": "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
     "tags": [
       "economics"
     ],
-    "keywords": "bloom metros andy frey jassy moodys indeed atlassians boise ctrip downtown fuses nashville ying asynchronous"
+    "keywords": "bloom metros andy jassy moodys indeed boise ctrip downtown nashville ying gentrification nicholas zoom goldman"
   },
   {
     "id": "college-value-proposition",
@@ -1908,7 +1909,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy vienna gyourko tokyo glaeser upzoning backlog shelters charitable phillips duplexes huds livable"
+    "keywords": "auckland greenaway mcgrevy vienna tokyo gyourko glaeser upzoning backlog phillips shelters charitable duplexes dwelling huds"
   },
   {
     "id": "four-day-work-week",
@@ -2041,7 +2042,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding irvine sunk bloom gloria pittsburgh lease uspto brucks gudith klocke levav lindsay"
+    "keywords": "allen bamboohr ding irvine sunk bloom gloria pittsburgh uspto lease yang brucks frey gudith klocke"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2070,9 +2071,9 @@
     "title": "Does Rent Control Help or Hurt Renters?",
     "question": "Does rent control make housing less affordable in the long run?",
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 71,
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2080,12 +2081,12 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 13,
+    "evidenceCount": 11,
     "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
     "tags": [
       "economics"
     ],
-    "keywords": "rental auckland greenaway mcgrevy viennas decontrol mcquade palmer pathak qian autor diamond upzoning queue stockholm"
+    "keywords": "rental decontrol mcquade palmer pathak qian autor diamond queue stockholm citywide appreciation misallocation tenants portland"
   },
   {
     "id": "degrowth-economics",
@@ -2215,11 +2216,11 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 12,
-    "firstCrux": "Does consciousness require biology, or only the right information processing?",
+    "firstCrux": "Could any test reliably tell whether a non-biological system has subjective experience?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "sebo introspection butlin seth cogitate workspace agnosticism bski comsa dreksler figura gnwt hssc mcclelland patrick"
+    "keywords": "sebo introspection butlin seth cogitate workspace agnosticism sentience bski comsa dreksler figura gnwt hssc mcclelland"
   },
   {
     "id": "meaning-without-religion",
@@ -2241,7 +2242,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "happiness nonreligious euthyphro atheist divine communist cambodia courtois edgell happiest unaffiliated unbelief zagonari flourishing frost"
+    "keywords": "happiness nonreligious euthyphro atheist divine communist atrocities cambodia courtois edgell happiest unaffiliated unbelief zagonari flourishing"
   },
   {
     "id": "meritocracy-myth",
@@ -2271,9 +2272,9 @@
     "title": "The Hard Problem of Consciousness",
     "question": "Does explaining consciousness require more than brain processes?",
     "meta_claim": "Consciousness — subjective experience or 'what it is like' to be something — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
-    "confidence_score": 69,
-    "balance": 69,
-    "weight": 67,
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2281,7 +2282,7 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 9,
     "firstCrux": "After a complete functional account, is 'why does it feel like something?' a real question left over?",
     "tags": [
       "philosophy"
@@ -2315,31 +2316,31 @@
     "title": "Should Gain-of-Function Research Be Banned?",
     "question": "Should research that enhances pandemic pathogens be banned worldwide?",
     "meta_claim": "Gain-of-function research that enhances the transmissibility or pathogenicity of potential pandemic pathogens poses an existential biosecurity risk that outweighs its scientific benefits and should be permanently banned worldwide.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 62,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 64,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "How likely is a pandemic-capable pathogen to escape over time, given modern containment and more labs?",
     "tags": [
       "policy"
     ],
-    "keywords": "chimeric airborne baric alphafold fouchiers h5n1 chapel anthrax coronaviruses sars smallpox affinities biopreparat bioterrorism droplets"
+    "keywords": "chimeric airborne alphafold baric fouchiers h5n1 sars anthrax chapel coronaviruses influenza smallpox viruses affinities avian"
   },
   {
     "id": "children-smartphone-age",
     "title": "Smartphone Age Restrictions for Children",
     "question": "Should children under 14 be barred from owning smartphones?",
-    "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the developmental harms of constant connectivity, social media, and algorithmic content outweigh the benefits of access and safety.",
-    "confidence_score": 72,
-    "balance": 72,
-    "weight": 58,
+    "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the harms of a personal, always-connected device in childhood outweigh the benefits of access and safety.",
+    "confidence_score": 68,
+    "balance": 68,
+    "weight": 55,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2347,8 +2348,8 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7,
-    "firstCrux": "Do specific smartphone features cause harm to teens, or does the correlation reflect other factors?",
+    "evidenceCount": 6,
+    "firstCrux": "Do children with a smartphone fare worse than children with a basic phone or no phone?",
     "tags": [
       "technology"
     ],
@@ -2378,12 +2379,12 @@
   },
   {
     "id": "geoengineering-climate",
-    "title": "Geoengineering & Carbon Capture",
-    "question": "Is geoengineering now a necessary complement to cutting emissions?",
-    "meta_claim": "Geoengineering interventions — particularly stratospheric aerosol injection and direct air carbon capture — are now a necessary complement to emissions reduction, not a dangerous distraction from it.",
-    "confidence_score": 30,
-    "balance": 30,
-    "weight": 64,
+    "title": "Solar Geoengineering: Buy Time or Distraction?",
+    "question": "Is solar geoengineering now a necessary complement to cutting emissions?",
+    "meta_claim": "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
+    "confidence_score": 35,
+    "balance": 35,
+    "weight": 60,
     "verdict": {
       "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
@@ -2391,12 +2392,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 7,
-    "firstCrux": "Can natural sinks plus feasible cuts stay within the carbon budget without technological removal?",
+    "evidenceCount": 6,
+    "firstCrux": "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
     "tags": [
       "science"
     ],
-    "keywords": "tons climeworks monsoon pinatubo dioxide eruption orca rainfall geomip gigatons intercomparison celsius geophysical hydrological shells"
+    "keywords": "monsoon pinatubo dioxide eruption rainfall tons geomip intercomparison celsius geophysical hydrological shells precipitation britain dimming"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2551,7 +2552,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "birch rats reflexes singer nociceptors octopuses sneddon companions chocolate crabs lobsters restrainer mammals cephalopod crustaceans"
+    "keywords": "sentience birch rats reflexes singer nociceptors octopuses sneddon companions chocolate crabs lobsters restrainer mammals morgans"
   },
   {
     "id": "immigration-national-identity",
@@ -3220,7 +3221,7 @@
       "international-law",
       "warfare"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer belarus favour governmental unoda"
+    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus favour governmental unoda"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3247,7 +3248,7 @@
       "data-centers",
       "sustainability"
     ],
-    "keywords": "lbnl onsite freshwater gallons islam eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
+    "keywords": "lbnl onsite freshwater gallons islam yang eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
   },
   {
     "id": "adhd-overdiagnosis",

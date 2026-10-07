@@ -9,41 +9,41 @@ export const remoteWorkPermanenceData = {
   category: "economics" as const,
   pillars: [
     {
-      id: "productivity-innovation",
-      title: "Productivity & Innovation",
+      id: "mandates-worker-leverage",
+      title: "Office Mandates vs. Worker Leverage",
       short_summary:
-        "Research on whether remote workers maintain or exceed office-based productivity and innovation output.",
+        "Whether employers' office mandates or workers' demand for flexibility will set the norm. Whether a mandate makes a team more productive is argued on the map asking \"Do return-to-office mandates improve productivity and innovation?\"; this pillar asks which side has the leverage to make its arrangement stick.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Remote work erodes spontaneous collaboration, mentorship, and the tacit knowledge transfer that drives breakthrough innovation. Peer-reviewed evidence backs this: Microsoft's study of 61,182 employees found firm-wide remote work made collaboration networks more siloed, and a Nature 2023 analysis of ~20M papers and ~4M patents found distributed teams consistently produce fewer 'disruptive' breakthroughs than on-site ones. Major employers - Apple (three-day hybrid), JPMorgan, and ultimately Amazon (five days from Jan 2025) - have tightened in-office requirements citing collaboration, mentorship, and culture.",
+        "Employers are reasserting the office. Amazon moved to five days in the office from January 2025, and JPMorgan and Goldman Sachs have pushed staff back toward full-time attendance, each citing collaboration, mentorship and culture. Large employers set the terms for millions of jobs, and when hiring slows, workers have fewer outside options to refuse them. On this view the five-day week returns one firm at a time, whatever the research on output says.",
       proponent_rebuttal:
-        "Stanford economist Nick Bloom's randomized work-from-home experiment showed a 13% productivity gain for remote call-center staff, and his later research finds well-run hybrid does not hurt productivity while sharply cutting attrition. The collaboration costs are real but addressable: the Microsoft and Nature findings concern firm-wide, sudden remote shifts and fully distributed science teams, not deliberate hybrid designs with periodic in-person gatherings. Aggregate US patent filings did not collapse through the remote shift, and modern tooling (Figma, Miro, Slack huddles) keeps narrowing the synchronous-collaboration gap.",
+        "A mandate only sticks if the firm can keep and hire the people it wants. A study of more than 3 million LinkedIn histories found S&P 500 firms saw turnover rise about 14% after office mandates, concentrated among senior and highly skilled staff, and took about 23% longer to fill vacancies, so a firm that gives up flexibility pays in quits and recruiting. Remote or hybrid roles were still about 3x their pre-pandemic share of US job postings in late 2024, and employees rank flexibility among their most-valued benefits, sometimes above pay. Firms competing for the same staff can offer what a mandating rival takes away.",
       crux: {
-        id: "innovation-output-measurement",
-        title: "Remote vs. In-Office Innovation Output",
+        id: "mandates-vs-worker-leverage",
+        title: "Does Worker Demand Outlast Mandates?",
         question:
-          "Do remote teams produce as much innovation as comparable in-office teams?",
+          "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
         description:
-          "Controlled comparison of innovation metrics (patents, new products, revenue from new initiatives) between matched remote and in-office teams.",
+          "Whether firms that require full-time attendance can hold their staff and fill roles, or whether quits, hiring delays and competitors' flexibility push them back to hybrid.",
         methodology:
-          "Compare innovation output at companies with different remote policies, controlling for industry, company size, and pre-pandemic innovation rates. Use patent filings, new product launches, and internal innovation metrics.",
+          "Follow firms that announced full-time office mandates against matched firms that kept hybrid. Track enforcement, quit rates by seniority, time to fill vacancies and the share of each firm's job postings offering remote or hybrid work, through at least one hiring cycle and one downturn.",
         equation:
-          "\\Delta I = I_{remote} - I_{office} \\pm \\text{confounders}",
+          "S_{remote} = f(\\text{mandate strictness}, \\text{quit cost}, \\text{labor-market slack})",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Patent filings, product launches and internal innovation metrics compared across companies with different remote policies, matched on industry, size and innovation before the pandemic.",
+            "Quit rates, time to fill vacancies and remote-posting shares at firms with full-time attendance rules, set against matched hybrid firms through one hiring cycle and one downturn.",
         },
-        cost_to_verify: "$2M (Multi-year controlled study across firms)",
+        cost_to_verify: "$2M (Multi-year panel of firms with and without mandates)",
         falsification: {
           supporter_flip:
-            "If controlled comparisons across companies with different remote policies — matched on industry, size and prior innovation — showed hybrid teams, not just fully remote ones, producing fewer patents, launches and breakthroughs, the productivity case for a permanent shift would weaken.",
+            "If firms that mandated five office days kept quit rates and hiring times level, and remote or hybrid postings fell back toward their 2.6% pre-pandemic share of US job ads, the case that worker demand keeps the shift permanent would weaken.",
           skeptic_flip:
-            "If more randomized trials matched Bloom's 13% productivity gain for remote staff, and well-run hybrid kept productivity level while cutting attrition, with patent filings steady, the lost-collaboration worry would lose its footing.",
+            "If more studies confirmed the ~14% turnover rise and ~23% longer time-to-hire at S&P 500 firms after mandates, and mandating firms quietly relaxed enforcement while hybrid rivals hired the people they wanted, the view that mandates will restore the five-day week would lose its footing.",
           common_ground:
-            "Both sides accept that sudden, firm-wide remote work carried real collaboration costs: Microsoft's study of 61,182 employees found its collaboration networks grew more siloed.",
+            "Both sides agree that large employers including Amazon, JPMorgan and Goldman Sachs have pushed staff back toward full-time attendance, and that remote or hybrid postings remain above their pre-pandemic share of US job ads.",
           live_disagreement:
-            "Whether hybrid work with periodic in-person time keeps the mentorship and spontaneous collaboration that drive breakthroughs, or whether distributed teams produce fewer disruptive ideas however they are designed.",
+            "Whether mandates hold once quit and hiring costs are counted, or whether workers' preference for flexibility pushes mandating firms back to hybrid.",
         },
       },
       evidence: [
@@ -66,24 +66,6 @@ export const remoteWorkPermanenceData = {
             "Gold-standard randomized experiment at scale, but limited to one company and call-center work, and predates the pandemic shift. The original claim's '2022 follow-up confirmed no productivity loss' is removed as unverified.",
         },
         {
-          id: "microsoft-collaboration-data",
-          title: "Microsoft Research Shows Communication Pattern Shifts",
-          description:
-            "A study of 61,182 US Microsoft employees over the first half of 2020 found firm-wide remote work made collaboration networks more static and siloed, decreased synchronous communication and increased asynchronous communication, and reduced the share of collaboration time spent on cross-group ties by about 25% relative to pre-pandemic. Atlassian's own research separately argues that intentional, purposeful team gatherings boost connection more than routine office attendance.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 7,
-            replicability: 7,
-            directness: 8,
-          },
-          source:
-            "Yang et al., \"The effects of remote work on collaboration among information workers,\" Nature Human Behaviour 6, 43-54 (2022)",
-          sourceUrl: "https://www.nature.com/articles/s41562-021-01196-4",
-          reasoning:
-            "Large-scale Microsoft workforce data showing real collaboration costs, published in a top-tier journal. The Atlassian point is reframed as a separate, weaker company finding rather than a direct rebuttal of the 25% figure.",
-        },
-        {
           id: "rto-mandate-outcomes",
           title: "Major Companies Mandating Return-to-Office",
           description:
@@ -103,23 +85,40 @@ export const remoteWorkPermanenceData = {
             "Revealed preferences of major employers, but the asserted productivity/innovation rationale is self-reported and not backed by released data, so independence and directness are lowered. The original claim that Google and Meta mandated 5 days is removed as not cleanly verified (their policies were 3-day hybrid).",
         },
         {
-          id: "patent-innovation-data",
-          title: "Patent Filing Rates Roughly Stable Through the Remote Shift",
+          id: "remote-job-listings",
+          title: "Remote Job Listings Settled at ~3x Pre-Pandemic Levels",
           description:
-            "US utility patent filings stayed broadly flat across 2020-2024 (roughly 650-670k applications a year) rather than collapsing during the remote shift. This is only suggestive: patent counts have many drivers and a long lag, and the link to remote work is not established. Notably, peer-reviewed work analyzing ~20M papers and ~4M patents (Lin, Frey & Wu, \"Remote collaboration fuses fewer breakthrough ideas,\" Nature 623, 987-991, 2023) finds remote/distributed research teams are consistently less likely to produce breakthrough, 'disruptive' ideas than on-site teams, cutting against a clean pro-remote reading.",
+            "Indeed Hiring Lab data show the share of US job postings advertising remote or hybrid work was 7.8% as of October 2024 - down from the 10.4% peak (Feb 2022) but still roughly 3x the 2.6% pre-pandemic level (Jan 2019). This points to a durable structural shift even as some employers mandate return.",
           side: "for" as const,
           weight: {
-            sourceReliability: 5,
-            independence: 6,
-            replicability: 5,
-            directness: 2,
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
           },
-          source:
-            "USPTO patent statistics (aggregate filing counts); offsetting evidence in Lin, Frey & Wu, Nature 623, 987-991, 2023",
+          source: "Indeed Hiring Lab, November 2024 US Labor Market Update",
           sourceUrl:
-            "https://www.uspto.gov/learning-and-resources/statistics/patent-statistics",
+            "https://www.hiringlab.org/2024/11/19/november-labor-market-update-remote-work/",
           reasoning:
-            "Aggregate patent counts are a weak, heavily confounded proxy with long lags. Directness lowered to 2 and the claim de-inflated because the 'no decline = remote works for innovation' inference is not supported, and at least one peer-reviewed study points the other way. The original GitLab/Automattic/Zapier 'strong innovation output' assertion is removed as unmeasured.",
+            "Market-based signal of durable remote work. The original '15% (vs 5% pre-pandemic)' figures were wrong and were corrected to the verified 7.8% current / 2.6% pre-pandemic; the unverified ZipRecruiter co-attribution was dropped.",
+        },
+        {
+          id: "gallup-employee-engagement",
+          title: "Gallup: Hybrid Workers Report Highest Engagement",
+          description:
+            "Gallup's State of the Global Workplace: 2024 data on remote-capable workers found that in the US and Canada, fully remote (36% engaged) and hybrid (35%) employees were close and both ahead of on-site staff, and 62% of hybrid employees said they were 'thriving' versus 59% of remote and about half of on-site workers. The remote-vs-hybrid ranking is narrow and region-dependent, so the result supports flexible arrangements broadly rather than fully remote specifically.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "Gallup, State of the Global Workplace: 2024 Report",
+          sourceUrl:
+            "https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx",
+          reasoning:
+            "Large-scale, independent survey. Directness lowered because engagement is an indirect proxy for the meta-claim and the remote-vs-hybrid ranking is narrow and region-dependent; the headline ~35-36% figures are US/Canada-specific, and global engagement runs lower, so it supports flexible arrangements broadly rather than fully remote per se.",
         },
       ],
     },
@@ -127,12 +126,12 @@ export const remoteWorkPermanenceData = {
       id: "economic-social-dynamics",
       title: "Economic & Social Dynamics",
       short_summary:
-        "The broader economic and social consequences of a permanent shift away from office-centric work.",
+        "What a lasting shift away from the office does to cities: vacancies, commercial real estate debt, downtown economies and where people choose to live.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "The shift imposes real, concentrated costs. US office vacancy hit a record 19.8% in Q1 2024, over $1 trillion of commercial real estate debt is maturing with the office segment most stressed, and downtown tax bases and service economies that depend on commuters are strained. Junior employees lose informal mentorship, and company culture and loyalty are harder to sustain when colleagues rarely meet in person.",
+        "The shift imposes real, concentrated costs. US office vacancy hit a record 19.8% in Q1 2024, over $1 trillion of commercial real estate debt is maturing with the office segment most stressed, and downtown tax bases and service economies that depend on commuters are strained. If cities cannot absorb those costs, the pressure to refill offices grows, and the shift stalls.",
       proponent_rebuttal:
-        "These costs are transitional, not permanent. Geographic flexibility lowers housing costs, improves work-life balance, and widens talent pools to previously excluded regions, and cities have repeatedly repurposed obsolete building stock - office-to-residential conversions are accelerating where zoning allows. The structural demand is durable: remote/hybrid job postings have settled near 3x their pre-pandemic share, and employees rank flexibility among their most-valued benefits, sometimes above pay. A stressed CRE sector reflects mispriced legacy assets repricing, not an unsustainable way of working.",
+        "These costs are transitional, not permanent. Geographic flexibility lowers housing costs, improves work-life balance, and widens talent pools to previously excluded regions, and cities have repeatedly repurposed obsolete building stock - office-to-residential conversions are accelerating where zoning allows. A stressed CRE sector reflects mispriced legacy assets repricing, not an unsustainable way of working.",
       crux: {
         id: "urban-economic-adaptation",
         title: "Urban Economic Adaptation Timeline",
@@ -150,7 +149,7 @@ export const remoteWorkPermanenceData = {
           supporter_flip:
             "If tracking conversions, downtown foot traffic and new business formation showed major cities failing to absorb emptier offices for years — vacancy stuck near record highs and maturing commercial real estate debt going bad — the costs of the shift would look permanent rather than transitional.",
           skeptic_flip:
-            "If remote or hybrid postings stayed near 3x their 2.6% pre-pandemic share of US job ads, and office-to-residential conversions spread wherever zoning allows, downtown decline would look like adaptation to a lasting shift rather than a sign it will reverse.",
+            "If office-to-residential conversions spread wherever zoning allows and downtown foot traffic and new business formation recovered while office vacancy fell from its 19.8% Q1 2024 record, downtown decline would look like adaptation to a lasting shift rather than a sign it will reverse.",
           common_ground:
             "Both sides agree US office vacancy hit a record 19.8% in Q1 2024 and that the office segment of commercial real estate is under real stress.",
           live_disagreement:
@@ -176,42 +175,6 @@ export const remoteWorkPermanenceData = {
             "https://www.bloomberg.com/news/articles/2024-04-02/office-vacancy-rate-nears-20-to-set-fresh-record-moody-s-says",
           reasoning:
             "Hard vacancy data showing real costs of the remote transition. The original '20.1% in Q3 2024' was corrected to the verified 19.8% in Q1 2024, and the precise '$1.2T at risk' claim was softened to the verifiable 'over $1T of CRE debt maturing in 2025' since the exact at-risk figure and its attribution were not confirmed.",
-        },
-        {
-          id: "gallup-employee-engagement",
-          title: "Gallup: Hybrid Workers Report Highest Engagement",
-          description:
-            "Gallup's State of the Global Workplace: 2024 data on remote-capable workers found that in the US and Canada, fully remote (36% engaged) and hybrid (35%) employees were close and both ahead of on-site staff, and 62% of hybrid employees said they were 'thriving' versus 59% of remote and about half of on-site workers. The remote-vs-hybrid ranking is narrow and region-dependent, so the result supports flexible arrangements broadly rather than fully remote specifically.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 5,
-          },
-          source: "Gallup, State of the Global Workplace: 2024 Report",
-          sourceUrl:
-            "https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx",
-          reasoning:
-            "Large-scale, independent survey. Directness lowered because engagement is an indirect proxy for the meta-claim and the remote-vs-hybrid ranking is narrow and region-dependent; the headline ~35-36% figures are US/Canada-specific, and global engagement runs lower, so it supports flexible arrangements broadly rather than fully remote per se.",
-        },
-        {
-          id: "remote-job-listings",
-          title: "Remote Job Listings Settled at ~3x Pre-Pandemic Levels",
-          description:
-            "Indeed Hiring Lab data show the share of US job postings advertising remote or hybrid work was 7.8% as of October 2024 - down from the 10.4% peak (Feb 2022) but still roughly 3x the 2.6% pre-pandemic level (Jan 2019). This points to a durable structural shift even as some employers mandate return.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 6,
-          },
-          source: "Indeed Hiring Lab, November 2024 US Labor Market Update",
-          sourceUrl:
-            "https://www.hiringlab.org/2024/11/19/november-labor-market-update-remote-work/",
-          reasoning:
-            "Market-based signal of durable remote work. The original '15% (vs 5% pre-pandemic)' figures were wrong and were corrected to the verified 7.8% current / 2.6% pre-pandemic; the unverified ZipRecruiter co-attribution was dropped.",
         },
         {
           id: "demographic-shift-data",

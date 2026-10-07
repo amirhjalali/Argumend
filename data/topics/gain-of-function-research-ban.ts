@@ -21,7 +21,7 @@ export const gainOfFunctionResearchBanData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that lab containment failures are documented and that a pandemic-capable escape would be catastrophic, that most preparedness knowledge comes from surveillance, sequencing and structural biology, and that biology is far harder to verify than nuclear programs, so no ban would achieve perfect compliance.",
+    "Both sides accept that lab containment failures are documented and that a pandemic-capable escape would be catastrophic, that most pandemic-defense knowledge comes from surveillance, sequencing and structural biology, and that biology is far harder to verify than nuclear programs, so no ban would achieve perfect compliance.",
     "They split over how likely an escape is as labs multiply despite modern containment; whether any major gain-of-function finding, from Fouchier's airborne H5N1 to Baric's chimeric coronaviruses, produced knowledge safer methods could not have; and how much funding limits, DNA-synthesis screening and inspections could shrink dangerous work worldwide.",
   ],
   imageUrl:
@@ -45,7 +45,7 @@ export const gainOfFunctionResearchBanData = {
       id: "q1",
       title: "Has any gain-of-function experiment produced irreplaceable knowledge?",
       content:
-        "The counterfactual question: would alternative research approaches — computational modeling, natural surveillance, structure-based analysis — have achieved the same pandemic preparedness insights without creating enhanced pathogens?",
+        "The counterfactual question: would alternative research approaches — computational modeling, natural surveillance, structure-based analysis — have produced the same pandemic-defense insights without creating enhanced pathogens?",
     },
     {
       id: "q2",
@@ -55,9 +55,9 @@ export const gainOfFunctionResearchBanData = {
     },
     {
       id: "q3",
-      title: "Does the benefit of pandemic preparedness outweigh the risk of creating a pandemic?",
+      title: "Does what enhancing a pathogen buys outweigh the risk of releasing one?",
       content:
-        "The risk-benefit calculation is uniquely extreme: the downside of a lab-originated pandemic is potentially millions of deaths, while the upside is incremental improvements in preparedness that may or may not prove useful against a natural pandemic with different characteristics.",
+        "The risk-benefit calculation is uniquely extreme: the downside of a lab-originated pandemic is potentially millions of deaths, while the upside is an incremental defensive advantage that may or may not apply to a natural pandemic with different characteristics.",
     },
   ],
   pillars: [
@@ -161,14 +161,14 @@ export const gainOfFunctionResearchBanData = {
     // =========================================================================
     {
       id: "scientific-necessity",
-      title: "Scientific Necessity & Pandemic Preparedness",
+      title: "Scientific Necessity of Enhancing a Pathogen",
       short_summary:
-        "Proponents argue that GOF research has been critical for understanding how pathogens evolve pandemic potential, developing broad-spectrum antivirals, and creating vaccines in advance of natural pandemics. The question is whether the same knowledge can be obtained through safer alternative methods.",
+        "Defenders of the work say enhancing a pathogen is the only way to learn how it evolves the traits that make a pandemic possible, and that antivirals and pre-emptive vaccines have come out of that knowledge. The question here is narrow: could the same findings have come from methods that never create the pathogen? How much any government then spends on readiness is a different question, argued on the map asking whether governments should invest heavily in pandemic preparedness.",
       icon_name: "Microscope" as const,
       skeptic_premise:
         "GOF research has produced specific, irreplaceable insights that safer methods cannot provide. Fouchier's H5N1 experiments revealed the precise mutations that enable airborne transmission — knowledge critical for global surveillance of naturally circulating strains. Ralph Baric's chimeric coronavirus work at UNC identified the spike protein mechanisms that later proved essential for rapid COVID-19 vaccine development. Computational modeling cannot predict emergent properties of mutated pathogens with sufficient accuracy because biological systems are too complex for in silico simulation alone. Structure-based approaches tell you what a virus looks like, not how it behaves. The GOF research that critics want to ban is the same research that gives us the ability to develop vaccines before a pandemic arrives.",
       proponent_rebuttal:
-        "The scientific necessity claim is empirically weak. A systematic review of GOF research outputs shows that the overwhelming majority of pandemic preparedness insights came from natural surveillance, genomic sequencing, and structural biology — not from creating enhanced pathogens. The COVID-19 mRNA vaccines were developed based on the SARS-CoV-2 spike protein sequence obtained from natural isolates, not from any gain-of-function experiment. Advances in computational biology, cryo-electron microscopy, and AI-based protein structure prediction (AlphaFold) have dramatically expanded what can be learned without creating dangerous pathogens. The few genuine insights from GOF research could have been obtained through loss-of-function experiments, deep mutational scanning, and pseudovirus systems that do not create replication-competent enhanced pathogens.",
+        "The scientific necessity claim is empirically weak. A systematic review of GOF research outputs shows that the overwhelming majority of pandemic-defense insights came from natural surveillance, genomic sequencing, and structural biology — not from creating enhanced pathogens. The COVID-19 mRNA vaccines were developed based on the SARS-CoV-2 spike protein sequence obtained from natural isolates, not from any gain-of-function experiment. Advances in computational biology, cryo-electron microscopy, and AI-based protein structure prediction (AlphaFold) have dramatically expanded what can be learned without creating dangerous pathogens. The few genuine insights from GOF research could have been obtained through loss-of-function experiments, deep mutational scanning, and pseudovirus systems that do not create replication-competent enhanced pathogens.",
       crux: {
         id: "counterfactual-knowledge-test",
         title: "The Counterfactual Knowledge Assessment",
@@ -191,7 +191,7 @@ export const gainOfFunctionResearchBanData = {
           skeptic_flip:
             "If reviews found pandemic-defense advances coming from naturally obtained sequences, as the COVID-19 mRNA vaccines did, and from AlphaFold, cryo-EM and deep mutational scanning, the view that this research is indispensable would be hard to hold.",
           common_ground:
-            "Both sides agree that surveillance, genomic sequencing, and structural biology have produced most preparedness knowledge, and that at least some specific GOF findings exist; the dispute is whether those specific findings were truly irreplaceable.",
+            "Both sides agree that surveillance, genomic sequencing, and structural biology have produced most pandemic-defense knowledge, and that at least some specific GOF findings exist; the dispute is whether those specific findings were truly irreplaceable.",
           live_disagreement:
             "Whether any major GOF finding produced knowledge that could not have been independently obtained through safer alternatives — answerable only by a finding-by-finding systematic review with proponents and critics both at the table.",
         },
@@ -212,7 +212,7 @@ export const gainOfFunctionResearchBanData = {
           source: "Nature Medicine; UNC-Chapel Hill",
           sourceUrl: "https://www.nature.com/articles/nm.3985",
           reasoning:
-            "Published in a top journal with significant policy impact. However, the claim that this research was essential for COVID preparedness is contested — the mRNA vaccines were developed from natural SARS-CoV-2 sequences, not from Baric's chimeric work. Independence is slightly lower because the scientific necessity claim is partly self-assessment by the researchers who conducted the work.",
+            "Published in a top journal with significant policy impact. However, the claim that this research was essential to the COVID response is contested — the mRNA vaccines were developed from natural SARS-CoV-2 sequences, not from Baric's chimeric work. Independence is slightly lower because the scientific necessity claim is partly self-assessment by the researchers who conducted the work.",
         },
         {
           id: "alphafold-alternative-methods",
@@ -309,6 +309,26 @@ export const gainOfFunctionResearchBanData = {
           sourceUrl: "https://www.nti.org/analysis/articles/common-mechanism-prevent-illicit-gene-synthesis/",
           reasoning:
             "DNA synthesis screening provides a concrete enforcement mechanism that already exists and covers the majority of the market. However, gaps remain — not all synthesis providers participate, and advanced labs can synthesize DNA without commercial suppliers. The 80% coverage rate suggests meaningful but imperfect enforcement.",
+        },
+        {
+          id: "gain-of-function-moratorium",
+          title:
+            "NIH Gain-of-Function Moratorium (2014-2017) Did Not Stop Funded Work",
+          description:
+            "In October 2014, the Obama administration imposed a moratorium on federal funding for gain-of-function research on influenza, MERS, and SARS viruses, research that intentionally enhances pathogen transmissibility or virulence. The moratorium was lifted in December 2017 under a new framework (the HHS P3CO Review Policy) requiring case-by-case review. During the moratorium debate, over 200 scientists signed a letter opposing restrictions, arguing they would impede pandemic preparedness, while an equally prominent group including former CDC directors and Nobel laureates supported them. The moratorium did not prevent NIH-funded coronavirus research at the Wuhan Institute of Virology through EcoHealth Alliance subgrants.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 8,
+          },
+          source:
+            "NIH Office of Science Policy; National Science Advisory Board for Biosecurity",
+          sourceUrl:
+            "https://osp.od.nih.gov/biotechnology/gain-of-function-research/",
+          reasoning:
+            "The moratorium and its outcomes are documented in government records and scientific publications. That funded work continued through subgrants despite a national funding pause bears directly on enforceability: a ban was evaded inside one country's own grant system. The moratorium also catalyzed alternative methods (pseudovirus systems, computational approaches), which proponents read as evidence that restrictions redirect research rather than halt it.",
         },
       ],
     },

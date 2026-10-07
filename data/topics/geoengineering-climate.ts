@@ -2,26 +2,26 @@ import type { TopicInput } from "@/lib/schemas/topic";
 
 export const geoengineeringClimateData = {
   id: "geoengineering-climate",
-  title: "Geoengineering & Carbon Capture",
+  title: "Solar Geoengineering: Buy Time or Distraction?",
   question:
-    "Is geoengineering now a necessary complement to cutting emissions?",
+    "Is solar geoengineering now a necessary complement to cutting emissions?",
   meta_claim:
-    "Geoengineering interventions — particularly stratospheric aerosol injection and direct air carbon capture — are now a necessary complement to emissions reduction, not a dangerous distraction from it.",
+    "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
   status: "contested" as const,
   category: "science" as const,
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The IPCC finds that every assessed pathway limiting warming to 1.5°C with little or no overshoot requires removing 100-1000 gigatons of CO2 this century. Climeworks' Orca plant removes about 4,000 tons a year at close to $1,000 a ton, against roughly 40 gigatons emitted annually. Both sides accept these numbers. The fight is over whether carbon removal and solar geoengineering buy real time, or ease the pressure to cut emissions.",
+      "In 1991 Mount Pinatubo put roughly 20 million tons of sulfur dioxide into the stratosphere and cooled the planet by about 0.5°C for two years, while global rainfall fell and South Asia's monsoon was disrupted. Both sides accept that record: sunlight reflection can cool the planet within years, and it shifts rainfall as it does. The fight is over whether doing it on purpose would buy real time while emission cuts and carbon removal catch up, or ease the pressure to cut emissions.",
     confidence: 88,
-    source:
-      "IPCC AR6 Synthesis Report (2021-2023); Climeworks; IEA, Direct Air Capture (2022)",
-    sourceUrl: "https://www.ipcc.ch/report/ar6/syr/",
+    source: "NASA; NOAA; Journal of Geophysical Research",
+    sourceUrl:
+      "https://earthobservatory.nasa.gov/images/1510/global-effects-of-mount-pinatubo",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that cutting emissions is cheaper and lower-risk than removing carbon, that current CO2 levels are already dangerously high, that solar geoengineering would alter regional rainfall and that stopping it abruptly would cause catastrophic termination shock, and that no adequate international framework exists to govern it.",
-    "They split over whether natural sinks plus feasible cuts can stay within the carbon budget without technological removal like direct air capture; whether solar geoengineering would leave every major region better off or create net losers, such as the monsoon belts of South Asia and West Africa; and whether the option of an engineered fix weakens public support for cutting emissions.",
+    "Both sides accept that cutting emissions is the lower-risk path, that current CO2 levels are dangerously high, that solar geoengineering would alter regional rainfall and that stopping it abruptly would cause catastrophic termination shock, and that no adequate international framework exists to govern it.",
+    "They split over whether emission cuts plus carbon removal can arrive fast enough to hold warming at tolerable levels without reflecting sunlight; whether solar geoengineering would leave every major region better off or create net losers, such as the monsoon belts of South Asia and West Africa; and whether the option of an engineered fix weakens public support for cutting emissions.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
@@ -48,56 +48,56 @@ export const geoengineeringClimateData = {
     },
     {
       id: "q2",
-      title: "Is direct air carbon capture economically viable at the scale needed?",
+      title: "Can solar geoengineering be governed so it never stops abruptly?",
       content:
-        "Current cost: real-world direct air capture runs near $1,000 per ton of CO2 today, with industry targets of $400-600/ton by 2030. We need to remove 10+ gigatons per year. The total annual cost could exceed global military spending. Is this a realistic pathway, or an expensive distraction from emission reduction?",
+        "If stratospheric aerosol injection were halted suddenly, by war, economic crisis or political change, the warming it masked would return within about a decade, faster than any natural warming. No international framework governs deployment today, so one nation could act alone and affect every other. Is termination shock a governance problem that agreements, redundant deployment and gradual phase-down can manage, or a risk no institution can credibly rule out for as long as the aerosols would have to stay up?",
     },
     {
       id: "q3",
-      title: "Does geoengineering create a moral hazard that delays emissions reductions?",
+      title: "Does solar geoengineering create a moral hazard that delays emissions reductions?",
       content:
-        "If we believe we can engineer our way out of climate change, do we lose urgency to cut fossil fuels? Fossil fuel companies fund carbon capture research while lobbying against emissions regulations — is geoengineering a genuine solution or a delay tactic?",
+        "If we believe dimming the sun can get us out of climate change, do we lose urgency to cut fossil fuels? Critics point to fossil fuel companies backing engineered fixes such as carbon capture while lobbying against emissions regulations. Is a sunlight-reflection option a genuine backup or a delay tactic?",
     },
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Necessity Argument
+    // PILLAR 1: The Buying-Time Argument
     // =========================================================================
     {
       id: "necessity-argument",
-      title: "The Necessity Argument",
+      title: "The Buying-Time Argument",
       short_summary:
-        "Even with the most aggressive emissions cuts, we have already locked in warming that exceeds safe thresholds. The IPCC states that all pathways to limiting warming to 1.5 degrees Celsius require carbon dioxide removal at scale. The question is not whether geoengineering is ideal, but whether it is necessary given the reality of accumulated emissions.",
+        "Proponents argue that even aggressive emission cuts leave warming above safe thresholds for decades, and that carbon removal, which the IPCC builds into every 1.5°C pathway, cannot be scaled fast enough to close that gap on its own, so reflecting sunlight may be needed to shave the peak. Skeptics answer that the gap is a product of failing to cut, not of physics. Whether carbon capture and removal can work at scale and at what cost is the broader question of its own map, \"Is carbon capture a necessary and viable tool for reaching net zero?\" This pillar asks only whether cuts and removal together arrive in time without sunlight reflection.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "The necessity framing is premature and self-serving. We have not yet tried aggressive emissions reduction — global fossil fuel subsidies still exceed $7 trillion annually (IMF 2023), and no major economy has implemented carbon pricing at levels economists recommend. Declaring geoengineering 'necessary' before exhausting conventional mitigation gives political cover for inaction on emissions. The IPCC scenarios that require carbon removal assume we fail to cut emissions fast enough — they describe a failure mode, not a preferred pathway. Direct air capture at current costs (near $1,000/ton today, with $400-600/ton only a 2030 target) is orders of magnitude more expensive than preventing emissions in the first place (~$50-100/ton through renewable energy deployment). Every dollar spent on geoengineering R&D is a dollar not spent on proven emission reduction strategies.",
+        "The necessity framing is premature and self-serving. We have not yet tried aggressive emissions reduction: global fossil fuel subsidies still exceed $7 trillion annually (IMF 2023), and no major economy has implemented carbon pricing at levels economists recommend. Declaring solar geoengineering 'necessary' before exhausting conventional mitigation gives political cover for inaction on emissions. The IPCC scenarios that lean on carbon removal assume we fail to cut emissions fast enough; they describe a failure mode, not a preferred pathway, and the answer to a failure mode is to stop failing, not to dim the sun. Every dollar and every year of political attention spent on sunlight reflection is one not spent on proven emission reduction strategies.",
       proponent_rebuttal:
-        "The either-or framing is a false choice that ignores atmospheric physics. Even if the world achieved net-zero emissions tomorrow, the 1.5 trillion tons of CO2 already in the atmosphere will continue warming the planet for centuries. The carbon budget for 1.5 degrees Celsius has already been largely exhausted — the IPCC's AR6 report gives a remaining budget of only 500 gigatons of CO2, roughly 12 years of current emissions. This arithmetic reality means carbon removal is not an alternative to emission cuts but a necessary complement. Waiting until we have 'tried hard enough' on emissions means waiting until it is too late for removal to matter. The National Academies of Sciences recommended a major research program in solar geoengineering precisely because the gap between current emissions trajectories and safe warming levels is growing, not shrinking.",
+        "The either-or framing is a false choice that ignores atmospheric physics. Even if the world achieved net-zero emissions tomorrow, the 1.5 trillion tons of CO2 already in the atmosphere will continue warming the planet for centuries. The carbon budget for 1.5 degrees Celsius has already been largely exhausted: the IPCC's AR6 report gives a remaining budget of only 500 gigatons of CO2, roughly 12 years of current emissions. Carbon removal is the IPCC's answer to that overshoot, but drawing down hundreds of gigatons takes decades of build-out, and warming does its damage in the meantime. Solar geoengineering is the one known lever that could cool the planet within years, which is why it is argued for as a bridge alongside cuts and removal, not a replacement for them. The National Academies of Sciences recommended a major research program in solar geoengineering precisely because the gap between current emissions trajectories and safe warming levels is growing, not shrinking.",
       crux: {
         id: "carbon-budget-arithmetic",
-        title: "The Carbon Budget Reality Check",
+        title: "The Time-Gap Test",
         question:
-          "Can natural sinks plus feasible cuts stay within the carbon budget without technological removal?",
+          "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
         description:
-          "The crux is whether the remaining carbon budget for 1.5 or 2 degrees Celsius can be stayed within through emissions reduction alone, or whether the math requires carbon dioxide removal at scale regardless of how aggressively emissions are cut. If the arithmetic shows removal is physically necessary to meet any safe warming target, the necessity argument is settled. If aggressive emissions cuts alone can stay within budget, geoengineering becomes optional.",
+          "The crux is whether deep emission cuts, together with carbon removal built at a realistic pace, can keep peak warming within the 1.5-2 degree Celsius range without a long overshoot, or whether the arithmetic leaves decades of excess warming that only a fast-acting cooling measure could blunt. If cuts and removal can hold the peak in time, solar geoengineering becomes an insurance option at most. If they leave a long overshoot regardless of how aggressively emissions are cut, the case for reflecting sunlight as a bridge is much stronger.",
         methodology:
-          "Commission an independent analysis of the remaining carbon budget under various emissions reduction scenarios (immediate net-zero, linear reduction to 2050, current trajectory). Calculate the quantity of accumulated CO2 that must be removed to return to safe atmospheric concentrations under each scenario. Compare removal requirements against the maximum theoretical capacity of natural sinks (oceans, forests, soil) to determine whether technological carbon removal is required.",
+          "Commission independent modeling of peak warming and overshoot duration under several emissions reduction scenarios (immediate net-zero, linear reduction to 2050, current trajectory). In each, add carbon removal at build-out rates drawn from observed deployment rather than the volumes integrated assessment models assume, include the maximum plausible uptake by natural sinks (oceans, forests, soil), and report how many years warming stays above 1.5 and 2 degrees Celsius. Compare those overshoot periods with the cooling a solar geoengineering program could deliver over the same years.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Independent carbon-budget modeling under immediate net-zero, linear-to-2050 and current-trajectory scenarios, comparing the CO2 that must be removed with the most that oceans, forests and soil can absorb.",
+            "Independent modeling of peak temperature and overshoot length under immediate net-zero, linear-to-2050 and current-trajectory scenarios, with removal added at observed build-out rates rather than assumed volumes, plus natural-sink uptake.",
         },
         cost_to_verify:
-          "$200K-500K (Carbon budget modeling with multiple independent research groups)",
+          "$200K-500K (Peak-warming and overshoot modeling with multiple independent research groups)",
         falsification: {
           supporter_flip:
-            "If independent budget modeling showed that immediate, aggressive emission cuts plus natural sinks (reforestation, soil, ocean uptake) could stay within the ~500 GtCO2 budget for 1.5-2°C without technological removal, the 'necessity' framing would collapse to 'optional and overpriced,' and DAC at ~$1,000/ton would lose its justification next to ~$50-100/ton prevention.",
+            "If independent modeling showed that aggressive emission cuts plus carbon removal built at realistic rates could keep peak warming within 1.5-2°C without a long overshoot, the case for sunlight reflection as a necessary bridge would shrink to an insurance option that might never be used.",
           skeptic_flip:
-            "If budget work confirmed what the IPCC's assessed 1.5°C pathways assume, carbon removal in essentially all of them, with the remaining budget about 12 years of current emissions and emitted CO2 warming for centuries, calling necessity self-serving would be hard to hold.",
+            "If budget work confirmed a remaining 1.5°C budget of about 12 years of current emissions, and showed removal at realistic build-out rates leaving decades of overshoot even under deep cuts, calling a fast-acting cooling bridge self-serving would be hard to hold.",
           common_ground:
-            "Both sides agree emission cuts are cheaper and lower-risk than removal, that fossil fuel subsidies should be eliminated, and that current CO2 levels are already dangerously high.",
+            "Both sides agree emission cuts are the lower-risk path, that fossil fuel subsidies should be eliminated, and that current CO2 levels are dangerously high.",
           live_disagreement:
-            "Whether natural sinks plus feasible emission cuts can stay within the carbon budget, or whether the arithmetic forces technological removal regardless — resolvable only by independent budget modeling across immediate-net-zero, linear-to-2050, and current-trajectory scenarios.",
+            "Whether cuts plus carbon removal can hold peak warming down in time, or leave an overshoot that only reflecting sunlight could blunt: resolvable by independent modeling of peak warming and overshoot length across immediate-net-zero, linear-to-2050, and current-trajectory scenarios.",
         },
       },
       evidence: [
@@ -111,18 +111,18 @@ export const geoengineeringClimateData = {
             sourceReliability: 10,
             independence: 9,
             replicability: 9,
-            directness: 9,
+            directness: 7,
           },
           source: "Intergovernmental Panel on Climate Change",
           sourceUrl: "https://www.ipcc.ch/report/ar6/syr/",
           reasoning:
-            "The IPCC represents the highest scientific authority on climate change, synthesizing thousands of studies with rigorous review. The finding that CDR is required in all 1.5C pathways is as direct and authoritative as climate science gets.",
+            "The IPCC represents the highest scientific authority on climate change, synthesizing thousands of studies with rigorous review. On this map the finding bears on timing: if every 1.5C pathway needs 100-1000 gigatons of removal over the century, warming would keep rising while removal capacity is built, which is the gap proponents say sunlight reflection could bridge. Whether that removal can be built at all, and at what cost, is weighed on the carbon-capture map.",
         },
         {
           id: "fossil-fuel-subsidies-imf",
           title: "IMF: Global Fossil Fuel Subsidies Reached $7 Trillion in 2022",
           description:
-            "The International Monetary Fund estimated that global fossil fuel subsidies (explicit and implicit) reached $7 trillion in 2022 — roughly 7.1% of global GDP. This includes both direct production subsidies and the failure to price externalities like air pollution and climate damage. Critics argue that declaring geoengineering 'necessary' while massively subsidizing the cause of the problem is incoherent — the first priority should be eliminating subsidies that actively worsen emissions.",
+            "The International Monetary Fund estimated that global fossil fuel subsidies (explicit and implicit) reached $7 trillion in 2022 — roughly 7.1% of global GDP. This includes both direct production subsidies and the failure to price externalities like air pollution and climate damage. Critics argue that declaring solar geoengineering 'necessary' while massively subsidizing the cause of the problem is incoherent — the first priority should be eliminating subsidies that actively worsen emissions.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -133,24 +133,7 @@ export const geoengineeringClimateData = {
           source: "International Monetary Fund",
           sourceUrl: "https://www.imf.org/en/Topics/climate-change/energy-subsidies",
           reasoning:
-            "IMF data is highly reliable and independent. The fossil fuel subsidy figure powerfully illustrates untapped emission reduction potential. However, directness is moderate because the existence of subsidies does not determine whether CDR is also necessary — both subsidy removal and CDR could be required simultaneously.",
-        },
-        {
-          id: "climeworks-orca-plant",
-          title: "Climeworks' Orca DAC Plant Captures 4,000 Tons CO2/Year at ~$1,000/Ton",
-          description:
-            "Climeworks' Orca plant in Iceland, operational since 2021, removes approximately 4,000 tons of CO2 per year. Climeworks executives have stated current costs are 'closer to the $1,000 per tonne mark than to $100,' with the company targeting $400-600/ton by 2030 and $200-350/ton by 2040. At ~$1,000/ton, removing the 40 gigatons the world emits annually would cost roughly $40 trillion — exceeding the GDP of any single nation. The larger Mammoth plant, switched on in 2024, has a nameplate capacity of up to 36,000 tons/year, still minuscule against the scale required. Costs must fall by an order of magnitude for DAC to be viable at climate-relevant scale.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
-            directness: 8,
-          },
-          source: "Climeworks; IEA; MIT Technology Review",
-          sourceUrl: "https://www.iea.org/reports/direct-air-capture-2022",
-          reasoning:
-            "Real operational data from the world's largest DAC facility. This directly demonstrates both the technological feasibility and the massive cost barrier to climate-relevant scale. Independence is slightly lower because some performance data comes from Climeworks itself.",
+            "IMF data is highly reliable and independent. The fossil fuel subsidy figure powerfully illustrates untapped emission reduction potential. However, directness is moderate because the existence of subsidies does not determine whether a cooling bridge is also needed: subsidy removal and sunlight reflection could both be required.",
         },
       ],
     },
@@ -162,7 +145,7 @@ export const geoengineeringClimateData = {
       id: "unintended-consequences",
       title: "Unintended Consequences & Governance",
       short_summary:
-        "Geoengineering affects global weather systems, meaning unilateral deployment by one nation could harm others. No international governance framework exists for interventions that affect the entire planet. The risks include altered monsoon patterns affecting billions, ozone depletion, and termination shock if interventions are suddenly stopped.",
+        "Solar geoengineering affects global weather systems, meaning unilateral deployment by one nation could harm others. No international governance framework exists for interventions that affect the entire planet. The risks include altered monsoon patterns affecting billions, ozone depletion, and termination shock if interventions are suddenly stopped.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
         "Solar radiation management would introduce entirely new categories of global risk. Climate models show that stratospheric aerosol injection would reduce rainfall in monsoon regions that support billions of people in South and Southeast Asia and sub-Saharan Africa. A 2024 Nature study found that SRM sufficient to cool the Northern Hemisphere by 1 degree Celsius could reduce rainfall in the Sahel by up to 10%, threatening food security for hundreds of millions. The 'termination shock' problem is equally severe: if aerosol injection were stopped abruptly (due to war, economic crisis, or political change), temperatures would spike by 2-4 degrees Celsius within a decade — faster than any natural warming — devastating ecosystems and agriculture. No international governance framework exists, meaning any nation could unilaterally deploy SRM, affecting every other nation without consent.",
@@ -241,37 +224,37 @@ export const geoengineeringClimateData = {
       id: "moral-hazard",
       title: "The Moral Hazard Problem",
       short_summary:
-        "Fossil fuel companies actively fund carbon capture and geoengineering research while lobbying against emissions regulations. If geoengineering is perceived as a viable fallback, it may reduce political urgency for emission cuts — the most effective and least risky climate strategy.",
+        "If dimming the sun is perceived as a viable fallback, it may reduce political urgency for emission cuts, the most effective and least risky climate strategy. Critics point to the fossil fuel industry's backing of other engineered fixes, carbon capture above all, as the pattern to fear; whether carbon capture itself prolongs fossil fuel use is argued on the carbon-capture map, \"Is carbon capture a necessary and viable tool for reaching net zero?\" This pillar asks only whether a sunlight-reflection option weakens support for cuts.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The fossil fuel industry's strategic investment in geoengineering is not a coincidence. ExxonMobil, Chevron, Shell, and Occidental Petroleum all have significant investments in carbon capture technology while continuing to expand oil and gas production. The American Petroleum Institute has endorsed carbon capture as a climate solution while lobbying against methane regulations, clean energy standards, and carbon taxes. Carbon capture at the point of emission (CCS) has been promoted for two decades but captures less than 0.1% of global emissions because it is enormously expensive and provides a justification for continued fossil fuel use. The moral hazard is not hypothetical — it is the documented strategy of the world's most powerful industry to maintain the fossil fuel economy under the guise of technological optimism.",
+        "Solar geoengineering offers the most tempting fallback of all: a way to cool the planet within years without touching the energy system. The fear is that an engineered thermostat lets governments and industry defer costly cuts while CO2 keeps accumulating behind the mask. The industry's record with an earlier engineered fix shows the pattern: ExxonMobil, Chevron, Shell, and Occidental Petroleum all have significant investments in carbon capture technology while continuing to expand oil and gas production, and the American Petroleum Institute has endorsed carbon capture as a climate solution while lobbying against methane regulations, clean energy standards, and carbon taxes. A sunlight-reflection option would offer the same cover at planetary scale. The moral hazard is not hypothetical; it is the documented strategy of the world's most powerful industry to maintain the fossil fuel economy under the guise of technological optimism.",
       proponent_rebuttal:
-        "The moral hazard argument assumes that political will for emission cuts exists and that geoengineering research is what is holding it back. In reality, we have had 30 years of climate negotiations and global emissions are still rising. The COP process has produced targets that no major emitter is on track to meet. The political obstacles to emission reduction — energy costs, economic competitiveness, developing nation aspirations — exist independently of geoengineering. Rejecting carbon removal research because fossil fuel companies also support it is genetic fallacy — the validity of CDR does not depend on who funds the research. Solar panels were initially developed with oil company funding; that does not make solar energy a fossil fuel conspiracy. The real moral hazard is refusing to research backup options while the primary strategy demonstrably fails to meet its own targets.",
+        "The moral hazard argument assumes that political will for emission cuts exists and that geoengineering research is what is holding it back. In reality, we have had 30 years of climate negotiations and global emissions are still rising. The COP process has produced targets that no major emitter is on track to meet. The political obstacles to emission reduction — energy costs, economic competitiveness, developing nation aspirations — exist independently of geoengineering. Rejecting solar geoengineering research because fossil fuel companies back other engineered fixes is a genetic fallacy: the validity of a research program does not depend on who funds adjacent work. Solar panels were initially developed with oil company funding; that does not make solar energy a fossil fuel conspiracy. The real moral hazard is refusing to research backup options while the primary strategy demonstrably fails to meet its own targets.",
       crux: {
         id: "political-will-displacement",
         title: "The Political Will Displacement Test",
         question:
-          "Does the option of geoengineering weaken public support for cutting emissions?",
+          "Does the option of solar geoengineering weaken public support for cutting emissions?",
         description:
-          "The crux is whether investment in and public communication about geoengineering measurably reduces political support for emission reduction policies. If survey experiments and natural experiments show that exposure to geoengineering messaging decreases willingness to pay for carbon taxes or support emission regulations, the moral hazard is empirically real. If support for emission cuts is unaffected by awareness of geoengineering options, the moral hazard is theoretical.",
+          "The crux is whether investment in and public communication about solar geoengineering measurably reduces political support for emission reduction policies. If survey experiments and follow-up panels show that exposure to geoengineering messaging decreases willingness to pay for carbon taxes or support emission regulations, the moral hazard is empirically real. If support for emission cuts is unaffected by awareness of geoengineering options, the moral hazard is theoretical.",
         methodology:
-          "Conduct randomized survey experiments across 10+ countries where participants are exposed to information about geoengineering feasibility and then asked about their support for emission reduction policies, carbon pricing, and personal behavioral changes. Compare with control groups who receive only emission reduction messaging. Additionally, analyze natural experiments where countries or states that have invested heavily in CCS show different trajectories in emission reduction policy support compared to those that have not.",
+          "Conduct randomized survey experiments across 10+ countries where participants are exposed to information about geoengineering feasibility and then asked about their support for emission reduction policies, carbon pricing, and personal behavioral changes. Compare with control groups who receive only emission reduction messaging. Additionally, follow a panel of the same respondents for a year or more, re-measuring their support after major solar geoengineering news, to test whether any effect appears or grows over time.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Randomized survey experiments in 10+ countries that show some people geoengineering feasibility and others emission-cut messaging only, then measure support for carbon pricing and regulation, plus places that invested heavily in removal.",
+            "Randomized survey experiments in 10+ countries that show some people solar geoengineering feasibility and others emission-cut messaging only, then re-measure the same respondents' support for carbon pricing and regulation a year later.",
         },
         cost_to_verify:
-          "$300K-800K (Multi-country survey experiment with natural experiment analysis)",
+          "$300K-800K (Multi-country survey experiment with a year-long follow-up panel)",
         falsification: {
           supporter_flip:
-            "If well-powered, long-horizon survey and natural experiments showed that exposure to geoengineering feasibility reliably lowers willingness to pay for carbon taxes or support emission regulations — especially when concrete costs are at stake — the 'genuine complement' framing would yield to the 'dangerous distraction' charge, and research promotion itself would carry a real political cost.",
+            "If well-powered, long-horizon survey experiments and panels showed that exposure to solar geoengineering feasibility reliably lowers willingness to pay for carbon taxes or support emission regulations — especially when concrete costs are at stake — the 'genuine complement' framing would yield to the 'dangerous distraction' charge, and research promotion itself would carry a real political cost.",
           skeptic_flip:
             "If further survey experiments matched the UK, US and Singapore findings of no average drop in support for emission cuts after learning about solar geoengineering, and emissions had flattened in the 30 years before any such talk, the distraction charge would lose its footing.",
           common_ground:
-            "Both sides agree fossil fuel companies fund carbon capture while expanding production, that political will for deep emission cuts has been chronically inadequate, and that moral hazard is at least a plausible risk worth measuring.",
+            "Both sides agree fossil fuel companies fund engineered fixes such as carbon capture while expanding production, that political will for deep emission cuts has been chronically inadequate, and that moral hazard is at least a plausible risk worth measuring.",
           live_disagreement:
-            "Whether exposure to geoengineering options measurably erodes support for emission reduction over the long run, or leaves it intact — resolvable only by randomized multi-country survey experiments plus natural experiments tracking CCS-heavy jurisdictions' emission-policy trajectories.",
+            "Whether exposure to a solar geoengineering option measurably erodes support for emission reduction over the long run, or leaves it intact: resolvable only by randomized multi-country survey experiments with long-horizon follow-up panels.",
         },
       },
       evidence: [
@@ -285,12 +268,12 @@ export const geoengineeringClimateData = {
             sourceReliability: 8,
             independence: 8,
             replicability: 9,
-            directness: 8,
+            directness: 5,
           },
           source: "Global CCS Institute; Carbon Tracker; The Guardian",
           sourceUrl: "https://www.globalccsinstitute.com/resources/global-status-of-ccs-2023/",
           reasoning:
-            "The disproportion between CCS investment/capture and continued emissions expansion is well-documented across multiple independent sources. This supports the moral hazard objection — that industry behavior is consistent with using CCS as political cover for continued production — and therefore counts against the meta-claim that geoengineering is a genuine necessary complement rather than a distraction.",
+            "The disproportion between CCS investment/capture and continued emissions expansion is well-documented across multiple independent sources. The card is about carbon capture, not sunlight reflection; it bears here as the industry pattern critics expect a solar geoengineering option to repeat, using an engineered fix as political cover for continued production, and therefore counts against the meta-claim that solar geoengineering is a genuine necessary complement rather than a distraction.",
         },
         {
           id: "moral-hazard-survey-evidence",

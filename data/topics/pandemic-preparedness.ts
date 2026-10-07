@@ -19,8 +19,8 @@ export const pandemicPreparednessData = {
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that a severe pandemic is enormously costly while most outbreaks are contained with existing capacity, that preparedness funding and attention faded after SARS and H1N1, and that gain-of-function research carries both some lab-accident risk and some scientific value.",
-    "They split over how often truly catastrophic pandemics strike today, which decides whether a few billion a year in surveillance, vaccine platforms and stockpiles pays off; whether reforms like protected funding and independent agencies can outlast the next lull, or bureaucratic incentives always let them lapse; and whether the lab-accident risk of enhanced-pathogen research outweighs its value for defense.",
+    "Both sides accept that a severe pandemic is enormously costly while most outbreaks are contained with existing capacity, that preparedness funding and attention faded after SARS and H1N1, and that a readiness budget has to be divided between surveillance, vaccine platforms, manufacturing capacity and pathogen research.",
+    "They split over how often truly catastrophic pandemics strike today, which decides whether a few billion a year in surveillance, vaccine platforms and stockpiles pays off; whether reforms like protected funding and independent agencies can outlast the next lull, or bureaucratic incentives always let them lapse; and whether those spending lanes differ enough in readiness per dollar for a large budget to be aimed rather than carved up.",
   ],
   pillars: [
     // =========================================================================
@@ -289,86 +289,46 @@ export const pandemicPreparednessData = {
     },
 
     // =========================================================================
-    // PILLAR 3: Biosecurity vs Research Freedom
+    // PILLAR 3: Where Preparedness Money Buys the Most Readiness
     // =========================================================================
     {
-      id: "biosecurity-research-freedom",
-      title: "Biosecurity vs Research Freedom",
+      id: "readiness-per-dollar",
+      title: "Where Preparedness Money Buys the Most Readiness",
       short_summary:
-        "Gain-of-function research on dangerous pathogens could help predict and prevent pandemics — or could cause them. The same mRNA platform that produced COVID vaccines in record time emerged from decades of unrestricted basic research. Balancing biosecurity restrictions against scientific freedom is perhaps the most consequential preparedness debate, with the stakes being catastrophic risk on both sides.",
-      icon_name: "Microscope" as const,
+        "A preparedness budget has to be split. One school would put it into surveillance, platform vaccines and standing manufacturing capacity; the other into characterizing the pathogens themselves, on the view that you cannot defend against what you have not studied. Whether enhanced-pathogen research should be banned outright is a separate question, argued on the map asking whether research that enhances pandemic pathogens should be banned worldwide; here the question is only where readiness dollars go.",
+      icon_name: "Target" as const,
       skeptic_premise:
-        "Restricting biological research in the name of biosecurity risks slowing the very advances that protect against pandemics. The mRNA vaccine platform — which saved millions of lives during COVID-19 — was developed over 30+ years of basic research by Katalin Kariko, Drew Weissman, and others, much of which would be impeded by today's proposed biosecurity restrictions. The NIH moratorium on gain-of-function research (2014-2017) delayed important influenza and coronavirus research without clearly reducing risk, since similar research continued in China, where US oversight was impossible. Broad biosecurity regulations are easily evaded by state-level bioweapons programs (Russia, North Korea) while handicapping Western democracies. The 100 Days Mission for future pandemic vaccines requires exactly the kind of pathogen characterization research that biosecurity hawks want to restrict. Over-restriction creates a 'security theater' that reduces capacity without reducing risk.",
+        "'Invest heavily' is a bucket, not a plan. A readiness budget has to be split between surveillance networks, vaccine platforms, standing manufacturing capacity and characterizing pathogens themselves, and each spending lane has its own constituency competing for the same appropriation. The mRNA platform that mattered most in 2020 came out of thirty years of curiosity-driven basic research that no preparedness program had commissioned — which suggests the route that pays off cannot be picked in advance. Large standing budgets get divided by whichever constituency is best organized rather than by expected lives saved: the Strategic National Stockpile has been funded since 1999 and still held 12 million N95 masks in January 2020. Surveillance, the lane with the broadest political support, also carries costs that are rarely counted — wastewater and genomic monitoring collect data about populations that never consented to it. Until someone can say which lane returns the most readiness per dollar, spending heavily means handing a bigger budget to the committees that produced the last gap.",
       proponent_rebuttal:
-        "The biosecurity concern is not speculative — it is the most urgent pandemic preparedness issue. The debate over whether COVID-19 originated from a lab leak at the Wuhan Institute of Virology remains unresolved: the US Department of Energy (with low confidence) and the FBI (with moderate confidence) assessed a lab origin as most likely, while four other US intelligence agencies and the National Intelligence Council favored a natural origin. Regardless of COVID's origin, the Global Health Security Agenda has documented over 100 laboratory incidents involving dangerous pathogens in the US alone between 2006 and 2015. Gain-of-function research that enhances pathogen transmissibility or virulence creates existential risk for marginal scientific benefit — two studies that engineered H5N1 avian influenza to transmit between ferrets (Fouchier 2012, Kawaoka 2012) demonstrated that pandemic-potential pathogens can be created in the lab. The 100 Days Mission for vaccines can be achieved through computational biology, structural prediction (AlphaFold), and platform technology development without requiring live enhancement of dangerous pathogens. Restricting a narrow category of highest-risk research while expanding investment in platform technologies is the optimal preparedness strategy.",
+        "Allocation is the part of preparedness with the clearest track record. Operation Warp Speed's advance purchase agreements and parallel manufacturing compressed a vaccine timeline to 11 months. CEPI's 100 Days Mission names exactly what $3.5 billion over five years buys: pre-positioned platform technologies, pre-approved regulatory pathways, advance manufacturing capacity and standing surveillance for novel pathogens. Each of those is a capacity line item whose output can be measured before the next outbreak rather than after it — days from spillover to detection, days from identifying a new pathogen to an authorized vaccine, doses per month of standing bottling-and-packaging capacity. The privacy and equity objections to biosurveillance are real and are a reason to design the programs with consent and data limits, and to build sequencing capacity inside the countries being monitored, not a reason to keep the budget small.",
       crux: {
-        id: "research-restriction-net-effect",
-        title: "The Research Restriction Net Risk Assessment",
+        id: "preparedness-spending-allocation",
+        title: "The Readiness-per-Dollar Comparison",
         question:
-          "Does the lab-accident risk of enhanced-pathogen research outweigh its value for defense?",
+          "Can preparedness lanes be ranked on readiness per dollar before a pandemic?",
         description:
-          "Whether restricting dangerous biological research (gain-of-function, dual-use research of concern) reduces pandemic risk more than it slows beneficial medical advances. If the probability of a lab-origin pandemic exceeds the probability that gain-of-function findings prevent a natural pandemic, restrictions reduce net risk. If gain-of-function research produces irreplaceable insights for vaccine and therapeutic development, restrictions increase vulnerability.",
+          "A readiness budget divides between disease surveillance, vaccine platform technology, standing manufacturing capacity and pathogen characterization. If those lanes differ sharply in measurable output per dollar, a large budget can be aimed at the best of them and heavy investment is a decision rather than a gamble. If the lanes cannot be ranked on anything observable before a pandemic, a bigger appropriation mostly enlarges the fight over how to split it.",
         methodology:
-          "Commission an independent risk assessment comparing: (1) the historical frequency and severity of laboratory accidents involving enhanced pathogens (data from the Federal Select Agent Program, WHO, and investigative journalism), (2) the counterfactual scientific contributions of gain-of-function research — which specific vaccine or therapeutic advances required enhanced pathogen research that could not have been achieved through alternative methods (computational modeling, pseudovirus systems, natural isolate characterization), (3) expert elicitation surveys of virologists, biosecurity specialists, and vaccine developers to estimate probabilities of lab-origin vs. natural-origin pandemics under current and restricted research regimes.",
+          "Cost each lane against an output that exists before a pandemic rather than after one. For surveillance networks: days from spillover to detection in real outbreaks and in tabletop exercises, per dollar of network funding. For platform technologies: days from identifying a new pathogen to an authorized vaccine, the 100 days CEPI's mission targets against the 326 days the first COVID-19 EUA took, per dollar of platform funding. For manufacturing: doses per month of standing bottling-and-packaging capacity per dollar of the standby contract. For pathogen characterization: countermeasure candidates that reached trials per dollar of grant funding. Draw all four from the same national programs over a decade, where CEPI, BARDA and national stockpile and surveillance budgets are published, and report cost per unit of each output rather than one composite score.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "An independent risk assessment pairing the record of lab accidents with enhanced pathogens (Federal Select Agent Program and WHO data) with a case-by-case check of which vaccine or therapeutic advances could not have come from safer methods.",
+            "Cost per unit of output for each readiness lane, drawn from the same national programs: days of detection delay avoided per dollar of surveillance funding, days from identifying a pathogen to an authorized vaccine per dollar of platform funding, standing doses per month per dollar of the manufacturing standby contract, and countermeasure candidates reaching trials per dollar of characterization grant funding.",
         },
         cost_to_verify:
-          "$1-3M (Comprehensive risk assessment requiring classified lab incident data and expert elicitation)",
+          "$400K-1M (Program-level cost accounting across national preparedness budgets and outbreak-response records)",
         falsification: {
           supporter_flip:
-            "If risk assessment showed gain-of-function and dual-use research produces irreplaceable vaccine/therapeutic insights that couldn't be gotten safer ways — and lab-accident risk is genuinely low — then restricting it would increase, not decrease, net pandemic vulnerability.",
+            "If costing the lanes side by side found none of them buying measurably more readiness per dollar than another — detection delay, time to candidate and surge capacity all moving about the same per dollar spent — then heavy investment would be a budget without a destination, and the case for it would rest on the hope that the money lands somewhere useful.",
           skeptic_flip:
-            "If new audits of labs handling enhanced pathogens kept turning up accidents, or an origin investigation tied an outbreak to such work, 'the research is obviously worth the risk' would no longer hold and the net-risk calculation would tilt toward restriction.",
+            "If one lane came out far ahead on its own output measure, such as a surveillance network cutting days-to-detection for a fraction of what the same gain costs elsewhere, the objection that a large readiness budget has no agreed destination would have an answer in the numbers.",
           common_ground:
-            "Both sides agree gain-of-function research carries some lab-accident risk and some potential scientific benefit; the dispute is the balance.",
+            "Both sides agree a readiness budget has to be split between surveillance, vaccine platforms, manufacturing capacity and pathogen characterization, and that the mRNA platform's payoff came out of research no preparedness program had commissioned.",
           live_disagreement:
-            "Whether the lab-pandemic risk from enhanced-pathogen research outweighs its irreplaceable contributions to defense — which only an independent assessment weighing accident frequency against counterfactual scientific value could resolve.",
+            "Whether the lanes differ enough in measurable output per dollar for a large budget to be aimed at the strongest of them, or whether the split is settled by whichever constituency is best organized — which a side-by-side costing of each lane against its own pre-pandemic output measure could show.",
         },
       },
       evidence: [
-        {
-          id: "gain-of-function-moratorium",
-          title:
-            "NIH Gain-of-Function Moratorium (2014-2017) Revealed Deep Scientific Divisions",
-          description:
-            "In October 2014, the Obama administration imposed a moratorium on federal funding for gain-of-function research on influenza, MERS, and SARS viruses — research that intentionally enhances pathogen transmissibility or virulence. The moratorium was lifted in December 2017 under a new framework (the HHS P3CO Review Policy) that required case-by-case review. During the moratorium debate, over 200 scientists signed a letter opposing restrictions, arguing they would impede pandemic preparedness, while an equally prominent group including former CDC directors and Nobel laureates supported them. The moratorium did not prevent NIH-funded research on coronaviruses at the Wuhan Institute of Virology through EcoHealth Alliance subgrants, raising questions about enforcement effectiveness.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
-            directness: 8,
-          },
-          source:
-            "NIH Office of Science Policy; National Science Advisory Board for Biosecurity",
-          sourceUrl:
-            "https://osp.od.nih.gov/biotechnology/gain-of-function-research/",
-          reasoning:
-            "The moratorium and its outcomes are extensively documented in government records and scientific publications. The fact that research continued through subgrants despite the moratorium supports the skeptical argument that restrictions are ineffective. However, the moratorium also catalyzed the development of alternative research methods (pseudovirus systems, computational approaches) that proponents argue demonstrate restrictions can redirect research without halting progress.",
-        },
-        {
-          id: "lab-incidents-documented",
-          title:
-            "100+ Lab Incidents Involving Dangerous Pathogens in US Labs (2006-2015)",
-          description:
-            "A 2016 USA Today investigation, drawing on Federal Select Agent Program data, documented over 100 incidents involving dangerous pathogens in US laboratories between 2006 and 2015, including accidental shipments of live anthrax from Dugway Proving Ground, the discovery of forgotten live smallpox vials at the NIH campus, and a CDC incident where live H5N1 avian influenza was accidentally shipped to a BSL-2 lab instead of a BSL-3 facility. The Government Accountability Office found that oversight of high-containment laboratories was fragmented across multiple agencies with no single authority responsible for biosafety standards.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 8,
-          },
-          source:
-            "USA Today Investigation; GAO Reports on High-Containment Labs; Federal Select Agent Program",
-          sourceUrl:
-            "https://www.gao.gov/products/gao-16-642",
-          reasoning:
-            "The GAO report and investigative journalism are independently sourced and based on official incident records. The documented frequency of lab accidents with dangerous pathogens directly supports the argument that biosecurity risks are real, not theoretical. The lack of centralized oversight is a structural vulnerability that preparedness investment could address.",
-        },
         {
           id: "mrna-platform-success",
           title:
@@ -394,7 +354,7 @@ export const pandemicPreparednessData = {
           title:
             "100 Days Mission: Vaccines Within 100 Days of Pathogen Identification",
           description:
-            "The Coalition for Epidemic Preparedness Innovations (CEPI), backed by the G7 and G20, launched the '100 Days Mission' aiming to develop vaccines within 100 days of identifying a new pandemic pathogen — compared to 326 days for the first COVID-19 vaccine EUA. The mission requires pre-positioned platform technologies (mRNA, viral vector, protein subunit), pre-approved regulatory pathways, advance manufacturing capacity, and ongoing surveillance for novel pathogens. CEPI estimates the total investment needed at $3.5 billion over 5 years. Critics note that the 100-day timeline requires characterization of novel pathogens, which may involve exactly the kind of gain-of-function or dual-use research that biosecurity advocates want to restrict.",
+            "The Coalition for Epidemic Preparedness Innovations (CEPI), backed by the G7 and G20, launched the '100 Days Mission' aiming to develop vaccines within 100 days of identifying a new pandemic pathogen — compared to 326 days for the first COVID-19 vaccine EUA. The mission requires pre-positioned platform technologies (mRNA, viral vector, protein subunit), pre-approved regulatory pathways, advance manufacturing capacity, and ongoing surveillance for novel pathogens. CEPI estimates the total investment needed at $3.5 billion over 5 years. Critics note that the 100-day timeline also depends on characterizing novel pathogens as they appear, so a readiness budget cannot go entirely to platforms, manufacturing and surveillance.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -407,7 +367,7 @@ export const pandemicPreparednessData = {
           sourceUrl:
             "https://100days.cepi.net/",
           reasoning:
-            "CEPI is a respected international organization with credible scientific leadership. The 100 Days Mission represents the most concrete current preparedness investment proposal. Replicability is lower because the timeline has not been tested in a real pandemic scenario, and the tension between rapid pathogen characterization and biosecurity restrictions remains unresolved.",
+            "CEPI is a respected international organization with credible scientific leadership. The 100 Days Mission represents the most concrete current preparedness investment proposal. Replicability is lower because the timeline has not been tested in a real pandemic scenario, and how a fixed budget should divide between platform build-out and pathogen characterization remains unresolved.",
         },
         {
           id: "biosurveillance-ethics",
@@ -465,11 +425,6 @@ export const pandemicPreparednessData = {
     },
     {
       title:
-        "GAO Report: High-Containment Laboratories — National Strategy Needed — GAO-16-642",
-      url: "https://www.gao.gov/products/gao-16-642",
-    },
-    {
-      title:
         "Nobel Prize in Physiology or Medicine 2023: Kariko and Weissman",
       url: "https://www.nobelprize.org/prizes/medicine/2023/press-release/",
     },
@@ -497,9 +452,9 @@ export const pandemicPreparednessData = {
     {
       id: "q3",
       title:
-        "Should gain-of-function research be restricted to reduce pandemic risk?",
+        "Where should preparedness money go to buy the most readiness?",
       content:
-        "Gain-of-function research that enhances pathogen transmissibility could help predict natural pandemic threats — or could cause a lab-origin pandemic. Over 100 lab incidents with dangerous pathogens were documented in US labs between 2006 and 2015. Yet the mRNA vaccine platform that saved millions of lives emerged from decades of unrestricted basic research, and the 100 Days Mission for future vaccines may require pathogen characterization work that biosecurity advocates want to restrict. Where is the optimal balance between biosecurity and scientific freedom?",
+        "A readiness budget splits between surveillance, vaccine platforms, standing manufacturing capacity and characterizing pathogens as they appear. CEPI's 100 Days Mission prices the platform-and-surveillance route at $3.5 billion over five years and names what it buys; the mRNA platform that mattered most in 2020, by contrast, came out of decades of basic research no preparedness program had commissioned. Can the lanes be ranked on output measured before a pandemic — days to detection, days from identifying a pathogen to an authorized vaccine, standing doses per month — or does a bigger budget just enlarge the fight over how to divide it?",
     },
   ],
 } satisfies TopicInput;

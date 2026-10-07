@@ -219,23 +219,6 @@ export const ai2027Data = {
             "Strong evidence the trend has a second compounding engine; the exact halving time is estimated with wide error bars.",
         },
         {
-          id: "kaplan-scaling",
-          title: "Scaling laws have been predictive across many orders of magnitude",
-          description:
-            "Kaplan et al. (2020) established smooth power-law relationships between compute, data, parameters, and loss that have held across roughly five orders of magnitude, giving forecasters a quantitative basis for extrapolation.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 9,
-            directness: 6,
-          },
-          source: "Kaplan et al. (2020)",
-          sourceUrl: "https://arxiv.org/abs/2001.08361",
-          reasoning:
-            "Empirically robust and replicated; directness capped because predictable loss decline does not guarantee the specific capability (autonomous research) the scenario needs.",
-        },
-        {
           id: "chinchilla-data-wall",
           title: "Chinchilla implies a looming data wall",
           description:

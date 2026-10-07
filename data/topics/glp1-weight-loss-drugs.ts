@@ -243,25 +243,25 @@ export const glp1WeightLossDrugsData = {
     },
 
     // =========================================================================
-    // PILLAR 3: Medicalization vs. Root Causes of Obesity
+    // PILLAR 3: Drugs Versus Lifestyle and Prevention
     // =========================================================================
     {
       id: "medicalization-root-causes",
-      title: "Medicalization vs. Root Causes of Obesity",
+      title: "Drugs Versus Lifestyle and Prevention",
       short_summary:
-        "Critics argue GLP-1 drugs treat a symptom while ignoring the food environment, marketing, and policy failures that drive the obesity epidemic; proponents counter that obesity is a neurobiological disease that lifestyle interventions alone have consistently failed to control.",
+        "Critics argue lifelong prescriptions are the wrong default when lifestyle programs and food policy could prevent and reverse weight gain without a drug bill; proponents counter that lifestyle programs have rarely sustained large weight loss, and that policy reform will take decades patients do not have. Where responsibility for obesity lies, with individuals or with their environment and biology, is the question of a separate map, \"Is obesity mainly a matter of personal choice?\"; this pillar asks whether the drugs are needed when the alternatives exist.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "GLP-1 drugs are a technological band-aid on a systemic problem. The obesity epidemic is not a mass failure of individual willpower — it is the predictable result of a food environment engineered for overconsumption. Ultra-processed foods now constitute 58% of American calories and are specifically designed to override satiety signals. The food industry spends $14 billion annually marketing primarily unhealthy products. Subsidies for corn, soy, and sugar make processed food artificially cheap while fruits and vegetables remain expensive. Rather than addressing these root causes through regulation, taxation, and food policy reform, society is choosing to put 100+ million people on lifelong injectable drugs — enriching pharmaceutical companies while leaving the obesogenic environment intact. Countries like Japan (3.6% obesity rate) and South Korea demonstrate that policy and food culture, not drugs, determine population-level obesity outcomes. GLP-1s treat individuals while the system that made them sick continues producing new patients.",
+        "GLP-1 drugs are a technological band-aid where prevention would do more. Rather than reshaping what people eat through regulation, taxation, food policy and well-run lifestyle programs, society is choosing to put 100+ million people on lifelong injectable drugs, enriching pharmaceutical companies while leaving the conditions that produce new patients intact. Countries like Japan (3.6% obesity rate) and South Korea show that population-level obesity can be kept low through policy and food culture, without drugs. Each prescription treats one person; prevention reaches the next generation before anyone needs treatment.",
       proponent_rebuttal:
-        "Framing obesity as purely a lifestyle or environmental problem ignores decades of neuroscience. Obesity involves dysregulation of hypothalamic appetite circuits, altered GLP-1 and GIP signaling, leptin resistance, and genetic variants that affect 40-70% of BMI variability. Telling people to eat less and exercise more has a 95% long-term failure rate — not because patients lack willpower, but because the brain actively defends a higher body weight set point through hormonal and neural mechanisms. GLP-1 drugs work precisely because they correct the underlying neurobiological dysfunction, restoring satiety signaling that has been disrupted. This is no different from treating hypertension with ACE inhibitors rather than only advising patients to reduce salt intake. Addressing the food environment is important but is a decades-long political project that has failed to gain traction against industry lobbying. Meanwhile, 2.8 million people die annually from obesity-related causes. Patients suffering today cannot wait for systemic food policy reform. Treating obesity as a disease — with effective medication — reduces stigma and saves lives now.",
+        "Prevention and lifestyle programs have a poor record of sustaining large weight loss: most participants regain the weight within a few years, and the largest lifestyle trial, Look AHEAD, did not reduce cardiovascular events. The drugs act on the appetite signaling that makes lost weight so hard to keep off, which is why they succeed where diet and exercise advice alone has not. This is no different from treating hypertension with ACE inhibitors rather than only advising patients to reduce salt intake. Food policy reform is important but is a decades-long political project that has struggled against industry lobbying, and patients living with obesity today cannot wait for it. Medication and prevention are not rivals: the drugs help the people who already need treatment while policy works on the rest.",
       crux: {
         id: "lifestyle-vs-pharmacotherapy",
         title: "The Lifestyle Intervention Ceiling Test",
         question:
           "Can intensive lifestyle programs match drug-level weight loss durably and at scale?",
         description:
-          "If the best available lifestyle interventions (intensive behavioral therapy, dietary counseling, supervised exercise) can produce and sustain comparable weight loss and health outcomes to GLP-1 drugs over 5+ years in real-world conditions, then pharmacotherapy is unnecessary medicalization. If lifestyle interventions consistently fail to match pharmacotherapy outcomes at the population level, this confirms that obesity has a neurobiological component that requires medical treatment.",
+          "If the best available lifestyle interventions (intensive behavioral therapy, dietary counseling, supervised exercise) can produce and sustain comparable weight loss and health outcomes to GLP-1 drugs over 5+ years in real-world conditions, then pharmacotherapy is unnecessary medicalization. If lifestyle interventions consistently fail to match pharmacotherapy outcomes at the population level, the drugs fill a gap that no current alternative covers.",
         methodology:
           "Conduct a 5-year pragmatic randomized trial comparing four arms: (1) intensive lifestyle intervention alone, (2) GLP-1 pharmacotherapy alone, (3) combined lifestyle + GLP-1, and (4) standard care. Primary outcomes: sustained weight loss at 5 years, cardiovascular events, quality of life, and total healthcare costs. Recruit from diverse socioeconomic backgrounds to test real-world generalizability. Include body composition (DXA), metabolic markers, and patient-reported outcomes.",
         verification_status: "theoretical" as const,
@@ -273,9 +273,9 @@ export const glp1WeightLossDrugsData = {
           "$30-50M (Multi-center 5-year pragmatic RCT with four arms and diverse enrollment)",
         falsification: {
           supporter_flip:
-            "If the best lifestyle interventions (intensive behavioral therapy, supervised diet and exercise) could match GLP-1 weight loss and health outcomes sustainably over 5+ years in real-world conditions, the case that obesity needs medication rather than effort would weaken to 'medication is one option, not a necessity.'",
+            "If the best lifestyle interventions (intensive behavioral therapy, supervised diet and exercise) could match GLP-1 weight loss and health outcomes sustainably over 5+ years in real-world conditions, the case for the drugs as the lasting answer would weaken to 'medication is one option, not a necessity.'",
           skeptic_flip:
-            "If large studies kept finding lifestyle programs unable to sustain 15-20% weight loss at population scale, while the drugs worked through appetite neurobiology, obesity would look like a biological drive willpower rarely overcomes rather than willpower medicalized.",
+            "If large head-to-head studies found lifestyle programs unable to sustain 15-20% weight loss at population scale while the drugs could, the case that prevention and lifestyle programs make the drugs unnecessary would weaken.",
           common_ground:
             "Both sides agree lifestyle change is valuable and that combining it with the drug (resistance training, diet) improves outcomes versus the drug alone.",
           live_disagreement:
@@ -299,23 +299,6 @@ export const glp1WeightLossDrugsData = {
           sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa1212914",
           reasoning:
             "The Look AHEAD trial is the definitive RCT on lifestyle intervention for obesity with cardiovascular outcomes. Its failure to reduce cardiovascular events despite sustained weight loss is powerful evidence that lifestyle intervention alone is insufficient. The high weight regain rate is among the most replicated findings in obesity research.",
-        },
-        {
-          id: "ultra-processed-food-environment",
-          title: "Ultra-Processed Foods Drive 58% of US Caloric Intake and Override Satiety",
-          description:
-            "Ultra-processed foods (UPFs) constitute 58% of total caloric intake for US adults and 67% for children, according to NHANES data. A landmark NIH randomized controlled trial by Kevin Hall found that participants consumed 500 extra calories per day when given unrestricted access to ultra-processed foods compared to unprocessed meals matched for macronutrients, salt, sugar, fat, and fiber — demonstrating that food processing itself, independent of nutritional content, drives overconsumption. The food industry spends $14 billion annually marketing these products, with $1.8 billion targeting children. Critics argue GLP-1 drugs let the food industry off the hook by treating the victims rather than regulating the cause.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 7,
-          },
-          source: "Cell Metabolism (NIH); BMJ; USDA Economic Research Service",
-          sourceUrl: "https://www.cell.com/cell-metabolism/fulltext/S1550-4131(19)30248-7",
-          reasoning:
-            "The Hall NIH study is a rigorous controlled feeding trial published in a top-tier journal. The NHANES data is authoritative. However, the directness score is lower because this evidence explains why obesity exists but does not demonstrate that food policy reform is more feasible or effective than pharmacotherapy. Both approaches may be necessary simultaneously.",
         },
         {
           id: "genetic-heritability-obesity",
@@ -462,10 +445,6 @@ export const glp1WeightLossDrugsData = {
     {
       title: "Medicare Spending on Ozempic and Other GLP-1s Is Skyrocketing - KFF",
       url: "https://www.kff.org/health-costs/medicare-spending-on-ozempic-and-other-glp-1s-is-skyrocketing/",
-    },
-    {
-      title: "Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain - NIH/Cell Metabolism",
-      url: "https://www.cell.com/cell-metabolism/fulltext/S1550-4131(19)30248-7",
     },
     {
       title: "Clinical Practice Guideline for the Evaluation and Treatment of Pediatric Obesity - AAP",

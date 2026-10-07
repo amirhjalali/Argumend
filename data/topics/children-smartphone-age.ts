@@ -5,7 +5,7 @@ export const childrenSmartphoneAgeData = {
   title: "Smartphone Age Restrictions for Children",
   question: "Should children under 14 be barred from owning smartphones?",
   meta_claim:
-    "Children under 14 should be prohibited from owning smartphones, as the developmental harms of constant connectivity, social media, and algorithmic content outweigh the benefits of access and safety.",
+    "Children under 14 should be prohibited from owning smartphones, as the harms of a personal, always-connected device in childhood outweigh the benefits of access and safety.",
   status: "contested" as const,
   category: "technology" as const,
   imageUrl:
@@ -27,9 +27,9 @@ export const childrenSmartphoneAgeData = {
   questions: [
     {
       id: "q1",
-      title: "Does the evidence support a causal link between smartphones and the youth mental health crisis?",
+      title: "Must an age rule for phones wait until science settles what caused the teen mental-health decline?",
       content:
-        "Jonathan Haidt's 'The Anxious Generation' argues that smartphones caused the teen mental health crisis beginning around 2012. Critics like Candice Odgers argue the correlation is weak, effect sizes are tiny, and the crisis has multiple drivers including economic anxiety, academic pressure, and COVID. Should policy be based on this contested evidence?",
+        "Whether social media caused the rise in teen distress after 2012 is argued on its own map ('Is social media a primary cause of the teen mental health crisis?'). This map asks something narrower: does a rule on owning a device have to wait for that answer, or can harms that come with the phone itself, such as lost sleep and split attention, carry the case on their own?",
     },
     {
       id: "q2",
@@ -46,25 +46,25 @@ export const childrenSmartphoneAgeData = {
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Developmental Harm Evidence
+    // PILLAR 1: Harms From the Device Itself
     // =========================================================================
     {
       id: "developmental-harm-evidence",
-      title: "Developmental Harm & Mental Health",
+      title: "Harms From the Device Itself",
       short_summary:
-        "Rises in teen anxiety, depression, self-harm, and suicide correlate temporally with smartphone adoption beginning around 2012. The question is whether this correlation reflects causation, and whether the effect sizes are large enough to justify population-level interventions.",
+        "An ownership ban restricts a device, not an app. This pillar asks whether a child with a smartphone sleeps, concentrates and copes worse than one with a basic phone or none, so that the device is the thing worth restricting. Whether social media caused the wider post-2012 decline is a broader question with its own map.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The smartphone-mental health link is weaker than headlines suggest. Large correlational analyses find associations in the r = 0.05-0.15 range — in Orben and Przybylski's specification-curve work, the association between screen time and adolescent wellbeing was comparable in magnitude to eating potatoes or wearing glasses, explaining at most ~0.4% of variance. The youth mental health crisis predates smartphone saturation in some accounts and has multiple plausible causes: rising economic inequality, academic pressure intensification, COVID-19 isolation, and increased awareness and diagnosis of mental health conditions. The evidence from school-hours phone restrictions is mixed — France's school ban produced documented behavioral and some mental-health benefits in later evaluations, but school-only bans leave most out-of-school use untouched, so they do not cleanly test the broader hypothesis. Basing population-level policy primarily on a contested correlation with small average effect sizes risks ineffective regulation that distracts from more impactful interventions.",
+        "An ownership ban assumes the smartphone itself is the problem, and the measured associations are small. In Orben and Przybylski's specification-curve work, digital-technology use explained at most ~0.4% of the variance in adolescent wellbeing, comparable in magnitude to eating potatoes or wearing glasses. The decline in youth wellbeing has other plausible causes, from academic pressure to COVID-19 isolation. A ban also removes what the device is good for: children use phones for school, creative expression, navigation and reaching a parent in an emergency. If the harm sits in particular apps or features, barring the whole device aims at the wrong target.",
       proponent_rebuttal:
-        "The effect-size dismissal is misleading because the most-cited critiques measure undifferentiated 'screen time hours' rather than specific mechanisms; total screen time is a noisy proxy that likely dilutes real effects of social media in particular. The correlation between smartphone/social-media adoption and teen mental health deterioration is broadly consistent across several Anglosphere and Nordic countries, with inflection points clustering around 2012-2014. The US Surgeon General issued a formal advisory in 2023 calling social media a 'profound risk' to youth mental health. CDC Youth Risk Behavior Survey data show persistent sadness or hopelessness among US teen girls rising from 36% (2011) to 57% (2021), and CDC vital-statistics data show the suicide rate for girls aged 10-14 more than doubling over roughly the same period — increases steep enough to be hard to explain by gradual social trends alone. Haidt and colleagues also catalog 22 experimental studies (16 finding significant harm); social-media-reduction experiments tend to improve mood, though the experimental literature is itself contested and many studies are methodologically weak.",
+        "The small-effect figures measure undifferentiated 'screen time hours', a noisy proxy that can dilute what a smartphone adds over a basic phone: feeds, notifications and an always-on connection, including at night. CDC Youth Risk Behavior Survey data show persistent sadness or hopelessness among US teen girls rising from 36% (2011) to 57% (2021), over the years in which smartphone ownership among adolescents crossed 50%. The ban does not need social media to be the main cause of the wider decline; it needs the smartphone to cost a child under 14 more than it gives.",
       crux: {
         id: "causal-mechanism-identification",
-        title: "The Causal Mechanism Study",
+        title: "The Smartphone, Basic Phone or No Phone Trial",
         question:
-          "Do specific smartphone features cause harm to teens, or does the correlation reflect other factors?",
+          "Do children with a smartphone fare worse than children with a basic phone or no phone?",
         description:
-          "The crux is whether specific smartphone features — algorithmic feeds, notification interruptions, social comparison dynamics, sleep disruption from blue light and engagement — causally harm adolescent development, or whether the observed correlation reflects confounding variables. Identifying or ruling out specific causal mechanisms would resolve the core scientific disagreement.",
+          "An ownership ban assumes the device carries the harm. Giving comparable children a full smartphone, a smartphone with feeds blocked, a basic phone or no phone would show whether the smartphone itself costs them sleep, mood and attention, whether blocking certain features is enough, or whether the device makes little difference.",
         methodology:
           "Conduct a randomized controlled trial where 1,000 adolescents are assigned to one of four conditions for 12 months: (1) full smartphone access, (2) smartphone with social media and algorithmic feeds blocked, (3) basic phone only, (4) no phone. Measure mental health outcomes (PHQ-A, GAD-7), sleep quality, academic performance, social connectedness, and biomarkers of stress (cortisol, inflammatory markers) at baseline, 6 months, and 12 months. This would isolate the effect of specific features versus the device itself.",
         verification_status: "theoretical" as const,
@@ -76,13 +76,13 @@ export const childrenSmartphoneAgeData = {
           "$3-8M (Large-scale randomized controlled trial with biomarker analysis)",
         falsification: {
           supporter_flip:
-            "If a 12-month trial randomizing 1,000 adolescents to full smartphones, phones with social media and algorithmic feeds blocked, basic phones or no phone found no differences in mental health, sleep or stress markers, the developmental-harm case for a ban would lose its causal footing.",
+            "If a 12-month trial randomizing 1,000 adolescents to full smartphones, phones with social media and algorithmic feeds blocked, basic phones or no phone found no differences in mental health, sleep or stress markers, the case for barring the device would lose its footing.",
           skeptic_flip:
-            "If studies that isolated social media from total screen time found effects larger than the diluted averages, in line with the rise in persistent sadness among US teen girls from 36% in 2011 to 57% in 2021, the small-effect-size objection would lose its footing.",
+            "If children randomized to basic phones slept longer and reported less anxiety and depression than peers given full smartphones, with the feeds-blocked group in between, the view that the device itself is not the problem would lose its footing.",
           common_ground:
-            "Both sides agree average associations between screen time and wellbeing are small — in the r = 0.05-0.15 range — and that much of the experimental literature is contested or methodologically weak.",
+            "Both sides agree average associations between screen time and wellbeing are small, that much of the experimental literature is contested or methodologically weak, and that a phone has real safety value for a child.",
           live_disagreement:
-            "Whether specific features — algorithmic feeds, notifications, social comparison, lost sleep — cause real harm that screen-time averages hide, or whether the small correlations reflect other causes of the youth mental-health decline.",
+            "Whether owning a smartphone, rather than a basic phone, harms a child in ways screen-time averages hide, or whether any harm sits in particular apps that a narrower rule could target.",
         },
       },
       evidence: [
@@ -120,46 +120,29 @@ export const childrenSmartphoneAgeData = {
           reasoning:
             "Published in top-tier journals with large sample sizes and pre-registered analyses, this is methodologically strong research. However, the critique focuses on total screen time as a variable, which may miss the specific mechanisms (social media comparison, algorithmic feeds, notification patterns) that cause harm — the 'screen time' measure may be too crude to capture what matters.",
         },
-        {
-          id: "surgeon-general-advisory-2023",
-          title: "US Surgeon General Issues Advisory on Social Media and Youth Mental Health (2023)",
-          description:
-            "In May 2023, US Surgeon General Vivek Murthy issued a formal advisory declaring social media a 'profound risk of harm' to children and adolescents. The advisory cited evidence of associations between social media use and anxiety, depression, poor sleep, body image issues, and exposure to harmful content. While acknowledging that the evidence does not establish causation, the advisory argued that the weight of evidence justifies precautionary action.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "US Surgeon General; Department of Health and Human Services",
-          sourceUrl: "https://www.hhs.gov/surgeongeneral/priorities/youth-mental-health/social-media/index.html",
-          reasoning:
-            "The Surgeon General's advisory carries institutional weight and synthesizes a broad evidence base. However, advisories are policy recommendations, not scientific findings — the independence score reflects that the advisory acknowledges evidence limitations while still recommending action, which is a judgment call rather than a scientific conclusion.",
-        },
       ],
     },
 
     // =========================================================================
-    // PILLAR 2: Methodological Skepticism
+    // PILLAR 2: Acting Before the Causal Question Closes
     // =========================================================================
     {
       id: "methodological-skepticism",
-      title: "Methodological Skepticism & Alternative Explanations",
+      title: "Acting Before the Causal Question Closes",
       short_summary:
-        "Critics argue that the smartphone-harm narrative relies on correlational data with small effect sizes, ignores alternative explanations for the youth mental health crisis, and risks diverting resources from more impactful interventions like mental health services and economic support.",
+        "Whether social media caused the youth mental-health decline is argued on its own map ('Is social media a primary cause of the teen mental health crisis?'). Lawmakers setting an ownership age may have to decide before that answer arrives, so this pillar asks a narrower one: did the decline arrive in each country when its children got smartphones, and is that enough to act on?",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The case for smartphone bans rests on a post-hoc narrative that mistakes correlation for causation. The 2012 inflection point coincides not just with smartphones but with the aftermath of the 2008 financial crisis reaching full impact on families, intensifying academic competition as college became more expensive and more necessary, rising awareness of school shootings after Sandy Hook, the opioid crisis devastating communities nationwide, and growing climate anxiety among young people. Attributing a complex multi-causal phenomenon to a single technology is intellectually lazy and politically convenient — it gives parents and policymakers a visible villain instead of addressing structural problems that are harder to solve.",
+        "A rule on owning a phone rests on a timing story that other shocks fit too. The 2012 turn also coincides with the aftermath of the 2008 financial crisis, intensifying academic competition and rising awareness of school shootings after Sandy Hook. Pinning a multi-causal shift on one device gives parents and policymakers a visible villain while harder structural causes go unaddressed, and a ban built on that story risks restricting every child's phone for little gain.",
       proponent_rebuttal:
-        "The 'many possible causes' argument risks being unfalsifiable — there will always be additional correlating factors, and few of the proposed alternatives (financial crisis, academic pressure) show the same sharp post-2012 inflection or the same cross-national pattern. What makes the smartphone hypothesis comparatively specific is its timing: inflection points cluster across several Anglosphere and Nordic countries with very different economic conditions, education systems, and safety nets. That clustering is hard to fully explain through country-specific economic or policy factors and is at least consistent with the near-simultaneous global rollout of front-facing cameras and algorithmic social feeds — though critics note the cross-national data are noisier and less uniform than advocates suggest, and some countries fit poorly. Supporters also point to dose-response patterns (heavier social-media use correlating with worse outcomes) and reduction experiments showing improvement, while acknowledging that observational dose-response is confounded and the experimental literature is contested.",
+        "Few of the proposed alternatives show the same sharp post-2012 inflection or the same cross-national pattern. Inflection points cluster across several Anglosphere and Nordic countries with very different economies, education systems and safety nets, which fits the spread of smartphones among children better than country-specific causes, though critics note the cross-national data are noisier than advocates suggest and some countries fit poorly. An ownership rule, supporters add, need not wait to learn which feature does the harm: it removes the device that carries all of them.",
       crux: {
         id: "cross-national-natural-experiment",
         title: "The Cross-National Adoption Timing Analysis",
         question:
-          "Does teen mental-health decline track smartphone adoption across countries, or vary independently?",
+          "Did each country's youth decline begin when its children got smartphones, or at unrelated times?",
         description:
-          "The crux is whether countries with different smartphone adoption timelines show mental health deterioration that tracks with smartphone adoption rather than other potential causal factors. If countries that adopted smartphones later show later-onset mental health decline, the causal case strengthens substantially. If the timing of mental health decline varies independently of smartphone adoption, alternative explanations are more plausible.",
+          "Countries put smartphones in children's hands at different times. A decline that began in each country as its children got smartphones would point at the device an ownership rule targets; an onset that varies independently of adoption would point at other causes.",
         methodology:
           "Conduct a comparative analysis across 30+ countries with documented differences in smartphone adoption timing and saturation rates. Map the onset of adolescent mental health deterioration in each country against smartphone adoption curves, controlling for economic conditions, social safety net strength, education system characteristics, and other potential confounders. Use Granger causality tests and difference-in-differences designs exploiting natural variation in adoption timing.",
         verification_status: "theoretical" as const,
@@ -171,13 +154,13 @@ export const childrenSmartphoneAgeData = {
           "$500K-1.5M (Multi-national comparative epidemiological analysis)",
         falsification: {
           supporter_flip:
-            "If a comparison across 30+ countries found the onset of adolescent mental-health decline varying independently of each country's smartphone adoption, once economic conditions, safety nets and education systems are controlled for, alternative explanations would gain ground and the case for a ban would weaken.",
+            "If a comparison across 30+ countries found the onset of adolescent mental-health decline varying independently of when children there got smartphones, once economic conditions, safety nets and education systems are controlled for, alternative explanations would gain ground and the case for an ownership ban would weaken.",
           skeptic_flip:
-            "If more countries' data showed the same sharp post-2012 decline seen across the US, UK, Canada, Australia and Scandinavia, despite very different economies and safety nets, and no alternative cause matched that timing, the many-causes view would be hard to hold.",
+            "If countries whose children got smartphones later also saw their youth mental-health decline begin later, matching each country's adoption year once economies and safety nets are controlled for, the many-causes view would be hard to hold.",
           common_ground:
             "Both sides agree the cross-national data are noisier than advocates sometimes suggest, with some countries fitting poorly, and that observational dose-response patterns are confounded.",
           live_disagreement:
-            "Whether the near-simultaneous decline across countries with different economies points specifically to smartphones and social feeds, or whether a multi-causal story — the financial crisis aftermath, academic pressure, other crises — explains it better.",
+            "Whether the post-2012 decline across countries with different economies points to children owning smartphones, or whether a multi-causal story, from the financial crisis aftermath to academic pressure, explains it better.",
         },
       },
       evidence: [
@@ -200,9 +183,9 @@ export const childrenSmartphoneAgeData = {
         },
         {
           id: "france-school-phone-ban-results",
-          title: "School-Only Phone Bans Have Limited Scope",
+          title: "A School-Hours Ban Is a Poor Test of an Ownership Ban",
           description:
-            "France implemented a nationwide ban on smartphone use in schools in 2018 (kindergarten through 9th grade). Later quasi-experimental evidence from Norwegian middle schools reports modest benefits from similar policies — including reduced bullying and lower health-care take-up for psychological symptoms among girls. But because these bans cover only school hours, while most social-media use occurs outside school, they cannot test whether smartphone ownership drives the broader mental-health crisis. They are therefore weak evidence on either side: neither a clean demonstration that restrictions help population mental health, nor that smartphones are harmless.",
+            "France implemented a nationwide ban on smartphone use in schools in 2018 (kindergarten through 9th grade), and later quasi-experimental evidence from Norwegian middle schools reports modest benefits from similar policies. But because these bans cover only school hours, while most social-media use occurs outside school, they cannot test whether smartphone ownership drives the broader decline. They are therefore weak evidence on either side of an ownership ban. Whether school-day bans work on their own terms is a separate question with its own map.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
