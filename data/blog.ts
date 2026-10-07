@@ -44,7 +44,7 @@ What we wanted was a second opinion that is cheap, calibrated, and identical eve
 
 ## What we tested
 
-Argumend already carries more labelled data than we usually admit. Every one of our 156 topic maps is split into sections, each with a skeptic's case and a proponent's rebuttal. Every piece of evidence, all 1,567 of them, was hand-weighed on four measures: source reliability, independence, replicability, and directness. At the time every map also carried a computed one-line reading of where its cards tipped; the maps no longer print it, because it read as a verdict. And for the v2 diagnosis work we have five short real-style disagreements with answer keys, plus three flagship transcripts with blind reviews.
+Argumend already carries more labelled data than we usually admit. At the time, every one of our 156 topic maps was split into sections, each with a skeptic's case and a proponent's rebuttal. Every piece of evidence, all 1,567 of them, was hand-weighed on four measures: source reliability, independence, replicability, and directness. Every map also carried a computed one-line reading of where its cards tipped; the maps no longer print it, because it read as a verdict. And for the v2 diagnosis work we have five short real-style disagreements with answer keys, plus three flagship transcripts with blind reviews.
 
 That let us ask Jev questions we could actually grade:
 
