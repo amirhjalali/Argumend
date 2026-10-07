@@ -44,7 +44,7 @@ What we wanted was a second opinion that is cheap, calibrated, and identical eve
 
 ## What we tested
 
-Argumend already carries more labelled data than we usually admit. Every one of our 156 topic maps is split into sections, each with a skeptic's case and a proponent's rebuttal. Every piece of evidence, all 1,567 of them, is hand-scored from 0 to 10 on four dimensions: source reliability, independence, replicability, and directness. Every map carries a computed verdict. And for the v2 diagnosis work we have five short real-style disagreements with answer keys, plus three flagship transcripts with blind reviews.
+Argumend already carries more labelled data than we usually admit. Every one of our 156 topic maps is split into sections, each with a skeptic's case and a proponent's rebuttal. Every piece of evidence, all 1,567 of them, was hand-weighed on four measures: source reliability, independence, replicability, and directness. At the time every map also carried a computed one-line reading of where its cards tipped; the maps no longer print it, because it read as a verdict. And for the v2 diagnosis work we have five short real-style disagreements with answer keys, plus three flagship transcripts with blind reviews.
 
 That let us ask Jev questions we could actually grade:
 
@@ -101,9 +101,9 @@ Most of this thread (5 of 8 comments) is arguing about **Supply Effects**. gary_
 
 **The crux for this section:** The Construction Response Test. Measure whether rent control policies with new-construction exemptions actually reduce housing starts compared to unregulated markets. If construction rates decline even when new buildings are exempt, the supply argument holds. If construction responds primarily to zoning and land-use policy, the supply critique is overstated.
 
-**Strongest evidence on each side**, weighted on source reliability, independence, replicability and directness out of 40:
-- For the claim that caps hurt supply (34/40): Diamond, McQuade and Qian, American Economic Review 2019. San Francisco rent control reduced rental supply by 15%.
-- Against (28/40): Autor, Palmer and Pathak, Journal of Political Economy 2014. Cambridge decontrol raised property values through spillovers, not mainly new construction.
+**Strongest evidence on each side**, weighed on source reliability, independence, replicability and directness:
+- For the claim that caps hurt supply: Diamond, McQuade and Qian, American Economic Review 2019. San Francisco rent control reduced rental supply by 15%.
+- Against: Autor, Palmer and Pathak, Journal of Political Economy 2014. Cambridge decontrol raised property values through spillovers, not mainly new construction.
 
 **Closest to a real disagreement:** whether a cap that exempts newer buildings has little effect on construction (56% contested), and whether incumbent tenants' protection matters more than the cost to future renters (46%).
 
@@ -125,7 +125,7 @@ Jev routed six of the nine substantive turns to the "Social Cohesion and Trust" 
 
 Then the claim gate. Of eight claims made in the clip, the two that came back most contested were a value and a fact. The value: immigrants have a duty to uphold the host society's norms and this should be enforced to some degree (96% contested). The fact: the United States was built by a small, select group rather than by people from everywhere (94%). Everything else was common ground the panel never noticed it shared. That diversity is what makes America great: 16% contested. That everyone must obey the law: 6%. That only a small share of arrivals are asylum seekers: 14%. Four minutes of heat, one real value disagreement, one factual dispute that would not change anyone's vote, and a word, "culture", that meant something different to each person using it.
 
-Our map's crux for that section is the integration model comparison: whether high-immigration countries with strong integration policy keep their social trust while those without lose it. Its two strongest evidence cards, Putnam's 2007 diversity and trust study at 32 out of 40 and Canada's sustained trust at the highest foreign-born share in the G7 at 31, sit one point apart. Nobody in the clip mentioned either. That is not a criticism of the panel. It is the whole reason a map should be in the reply.
+Our map's crux for that section is the integration model comparison: whether high-immigration countries with strong integration policy keep their social trust while those without lose it. Its two strongest evidence cards point opposite ways: Putnam's 2007 diversity and trust study, and Canada's sustained trust at the highest foreign-born share in the G7. Nobody in the clip mentioned either. That is not a criticism of the panel. It is the whole reason a map should be in the reply.
 
 ### Thirty-six minutes, five voices, 3.5 million views
 
@@ -2389,7 +2389,7 @@ Let us actually look at what we know, what we do not know, and how to make a dec
 
 ## The Haidt Thesis: What It Claims and What It Gets Right
 
-Jonathan Haidt's *The Anxious Generation*, published in 2024, made the most comprehensive public case that smartphones and social media are driving a youth mental health crisis. His core argument rests on several pillars:
+Jonathan Haidt's *The Anxious Generation*, published in 2024, made the most comprehensive public case that smartphones and social media are driving a youth mental health crisis. His core argument rests on several claims:
 
 **The timing correlation.** Rates of teen depression, anxiety, self-harm, and suicide began rising sharply around 2012 — the year smartphone ownership among American teens crossed 50% and Instagram adoption surged. The correlation holds across multiple countries with different cultures, education systems, and economic conditions. Between 2010 and 2024, teen girls' depression rates roughly doubled in the US, UK, Canada, and Australia.
 
@@ -2972,7 +2972,7 @@ But is it? The actual research is far more contested, far more nuanced, and far 
 
 ## The Case That Social Media Is Genuinely Harmful
 
-The argument for harm rests on several pillars, and the strongest versions deserve serious engagement.
+The argument for harm rests on several lines of evidence, and the strongest versions deserve serious engagement.
 
 **The timing is suspicious.** Teen depression, anxiety, self-harm, and suicide rates began rising sharply around 2012-2013, precisely when smartphone ownership among adolescents became near-universal. This isn't a gradual trend — it's a hockey stick. In the United States, the share of high school students reporting persistent feelings of sadness or hopelessness rose from 26% in 2009 to 42% in 2021, according to CDC data. The trend is most pronounced among girls.
 
@@ -3780,7 +3780,7 @@ Proponents of military action argue that this timeline leaves no room for extend
 
 ### The Proxy War Is Already Here
 
-Iran's network of armed proxy groups — Hezbollah in Lebanon, the Houthis in Yemen, Hamas in Gaza, and Shia militias in Iraq and Syria — represents a second pillar of the case for action. These are not hypothetical threats. Between October 2023 and January 2024, Iran-aligned groups conducted over 170 attacks on US military bases in Iraq, Syria, and Jordan. In January 2024, an Iranian-backed militia drone struck Tower 22 in Jordan, killing three American soldiers and wounding 47.
+Iran's network of armed proxy groups — Hezbollah in Lebanon, the Houthis in Yemen, Hamas in Gaza, and Shia militias in Iraq and Syria — is a second part of the case for action. These are not hypothetical threats. Between October 2023 and January 2024, Iran-aligned groups conducted over 170 attacks on US military bases in Iraq, Syria, and Jordan. In January 2024, an Iranian-backed militia drone struck Tower 22 in Jordan, killing three American soldiers and wounding 47.
 
 The Houthis launched over 100 attacks on commercial shipping in the Red Sea, forcing global carriers to reroute around Africa at an estimated cost of $80 to $100 billion annually. Iran spends an estimated $700 million to $1 billion per year funding Hezbollah alone.
 
@@ -4278,7 +4278,7 @@ After weighing the military, economic, and diplomatic evidence, several conclusi
 
 **The 2027 timeline is a capability milestone, not a decision point.** China will likely have the military capacity for a Taiwan operation by 2027, but capacity does not equal intent. The decision will depend on political factors — Xi's domestic position, Taiwan's political trajectory, U.S. credibility, and unexpected crises — that are inherently unpredictable.
 
-**Deterrence is working but degrading.** The combination of U.S. military presence, allied partnerships, economic interdependence, and Taiwan's own defenses has prevented conflict for decades. But each of these pillars is under strain: the military balance is shifting, economic decoupling is reducing interdependence, allied commitment is uncertain, and Taiwan's defense spending — while increasing — remains below what most analysts consider adequate.
+**Deterrence is working but degrading.** The combination of U.S. military presence, allied partnerships, economic interdependence, and Taiwan's own defenses has prevented conflict for decades. But each of these supports is under strain: the military balance is shifting, economic decoupling is reducing interdependence, allied commitment is uncertain, and Taiwan's defense spending — while increasing — remains below what most analysts consider adequate.
 
 **The semiconductor shield is real but impermanent.** TSMC's dominance gives Taiwan enormous strategic value, but China, the U.S., Japan, and the EU are all investing heavily in domestic chip production. As alternative fab capacity comes online over the next decade, Taiwan's irreplaceability — and with it, the economic argument against invasion — will gradually diminish.
 
@@ -4623,7 +4623,7 @@ The honest answer is: it depends on what you measure, and the research is far le
 
 ## The Case for the Office: What Proponents Cite
 
-The pro-RTO argument rests on three pillars, each with some empirical support.
+The pro-RTO argument rests on three claims, each with some empirical support.
 
 **Collaboration and serendipitous innovation.** The strongest argument for in-person work is that unplanned interactions generate ideas that scheduled video calls do not. A 2022 study published in *Nature Human Behaviour* by Microsoft researchers Yang, Holtz, Jaffe, and colleagues analyzed communication patterns among 61,000+ Microsoft employees during the pandemic. They found that remote work caused company-wide collaboration networks to become more siloed and static. Workers communicated more within their immediate teams but less across organizational boundaries. The researchers argued that this reduction in cross-group "weak ties" could hinder the flow of novel information and reduce long-term innovation.
 
@@ -5157,7 +5157,7 @@ We are going to [steel-man](/blog/why-steel-manning-makes-you-smarter) both posi
 
 ## Steel-Manning the Case For Capital Punishment
 
-The strongest case for the death penalty rests on three pillars: deterrence, retribution as justice, and incapacitation.
+The strongest case for the death penalty rests on three arguments: deterrence, retribution as justice, and incapacitation.
 
 ### Some crimes warrant the ultimate response
 
@@ -5195,7 +5195,7 @@ Counterintuitively, capital cases are far more expensive than life imprisonment,
 
 Here is what falls out when you steel-man both sides honestly. Several of the apparent disagreements are not really disagreements at all once you look at the evidence:
 
-- **Deterrence:** The strongest available evidence does not support a deterrent effect beyond life imprisonment. This is close to a resolved empirical point, and it removes one of the pro side's three pillars. A supporter can still favor the death penalty—but probably not *primarily* on deterrence grounds.
+- **Deterrence:** The strongest available evidence does not support a deterrent effect beyond life imprisonment. This is close to a resolved empirical point, and it removes one of the pro side's three arguments. A supporter can still favor the death penalty—but probably not *primarily* on deterrence grounds.
 - **Innocence:** That the system convicts and sometimes executes innocent people is not seriously contestable; exonerations prove it. The disagreement is about how much weight that risk should carry, not whether it exists.
 - **Cost:** The empirical record shows capital cases cost more, not less.
 
@@ -5811,7 +5811,7 @@ The decisive test is to ask how hard anyone has actually looked. Absence of evid
 
 Intellectual honesty requires the flip side, because "you're just appealing to ignorance" can itself be abused to keep hopeless claims alive forever. Absence of evidence genuinely is evidence of absence *when you have searched competently in the place the evidence should be.* If a drug has been through large, well-designed trials and shown no effect beyond placebo, "there's no evidence it works" is a legitimate conclusion, not a fallacy — the search was thorough and the expected signal never appeared. The same logic lets us reasonably conclude there is no elephant in the room: we would certainly have noticed one.
 
-So the question is never simply "has it been proven or disproven?" but "how good was the search, and would it have detected the thing if it were real?" A demand to keep believing a claim merely because it has not been *conclusively* refuted — when every competent attempt to find support has failed — is its own error. Real reasoning lives in degrees: each failed search lowers the probability, and at some point the honest move is to treat a claim as very likely false even without a formal disproof. This is the heart of good [evidence weighting](/concepts/evidence-weighting) and [confidence calibration](/concepts/confidence-calibration).
+So the question is never simply "has it been proven or disproven?" but "how good was the search, and would it have detected the thing if it were real?" A demand to keep believing a claim merely because it has not been *conclusively* refuted — when every competent attempt to find support has failed — is its own error. Real reasoning lives in degrees: each failed search lowers the probability, and at some point the honest move is to treat a claim as very likely false even without a formal disproof. This is the heart of good [evidence weighting](/concepts/evidence-weighting) and [confidence calibration](/guides/reading-confidence-like-a-forecaster).
 
 ## How to Respond
 
@@ -6268,7 +6268,7 @@ Take a deliberately balanced example. In a debate over a contested policy, one s
 
 The hardest and most valuable application is internal. The arguments you find *most* persuasive are usually the ones that confirm what you already believe, which means your own sense of conviction is the least trustworthy guide to strength exactly when it feels strongest. Calibrated thinkers treat a surge of "yes, obviously" as a cue to slow down, not speed up — because that feeling tracks agreement, not validity.
 
-A practical discipline is to notice *why* an argument moved you. Was it the evidence and the logic, or was it the confidence, the story, the fact that it took your side? If you can't point to true premises and a valid inference, you have been persuaded without being given a strong reason — and you should hold the conclusion more loosely than the feeling suggests. This is the everyday practice of [confidence calibration](/concepts/confidence-calibration): matching how sure you are to how strong the case actually is, rather than to how good it felt to hear.
+A practical discipline is to notice *why* an argument moved you. Was it the evidence and the logic, or was it the confidence, the story, the fact that it took your side? If you can't point to true premises and a valid inference, you have been persuaded without being given a strong reason — and you should hold the conclusion more loosely than the feeling suggests. This is the everyday practice of [confidence calibration](/guides/reading-confidence-like-a-forecaster): matching how sure you are to how strong the case actually is, rather than to how good it felt to hear.
 
 ## The Bottom Line
 
@@ -6729,7 +6729,7 @@ This is exactly why "I can't think of another explanation" is such poor evidence
 
 ## Why This Makes You Better in Arguments
 
-Bayesian thinking quietly reshapes how you hold and discuss beliefs, in three ways. First, it makes your confidence *graded* rather than binary — you stop flipping between "certainly true" and "certainly false" and start holding positions at 70% or 30%, which is simply more accurate and is the whole practice of [confidence calibration](/concepts/confidence-calibration). Second, it tells you precisely what a disagreement is about: two people with the same prior who reach different conclusions must be weighting the evidence differently, while two people who weight the evidence the same but disagree must have started from different priors. Naming which it is turns a shouting match into a solvable problem.
+Bayesian thinking quietly reshapes how you hold and discuss beliefs, in three ways. First, it makes your confidence *graded* rather than binary — you stop flipping between "certainly true" and "certainly false" and start holding positions at 70% or 30%, which is simply more accurate and is the whole practice of [confidence calibration](/guides/reading-confidence-like-a-forecaster). Second, it tells you precisely what a disagreement is about: two people with the same prior who reach different conclusions must be weighting the evidence differently, while two people who weight the evidence the same but disagree must have started from different priors. Naming which it is turns a shouting match into a solvable problem.
 
 Third, and most powerfully, it gives a concrete meaning to changing your mind. To be a good Bayesian is to be able to say, in advance, *what evidence would move me and by how much* — which is exactly the discipline behind asking [what would change your mind](/blog/what-would-change-your-mind). A belief you would not adjust for any possible observation is not a strong belief; it is one held with no prior and no update rule, immune to evidence by construction. You can watch this play out on genuinely unresolved questions like [COVID's origins](/topics/lab-leak-theory), where the honest position is an explicit probability that shifts as withheld evidence becomes available — not a flag planted on one side.
 
@@ -7167,7 +7167,7 @@ Because the stakes are so emotional, assisted dying attracts a few predictable r
 
 ## What this means for holding a view
 
-None of this requires you to be neutral. You can land firmly on either side. But a [well-calibrated](/concepts/confidence-calibration) position on assisted dying has a particular shape: it states which value you weight more heavily and why, it concedes the real force of the opposing value, and it stays honest about the empirical questions that remain genuinely contested. The position to distrust — on either side — is the one that pretends the trade-off does not exist: that autonomy carries no risk to the vulnerable, or that protecting the vulnerable costs the suffering nothing.
+None of this requires you to be neutral. You can land firmly on either side. But a [well-calibrated](/guides/reading-confidence-like-a-forecaster) position on assisted dying has a particular shape: it states which value you weight more heavily and why, it concedes the real force of the opposing value, and it stays honest about the empirical questions that remain genuinely contested. The position to distrust — on either side — is the one that pretends the trade-off does not exist: that autonomy carries no risk to the vulnerable, or that protecting the vulnerable costs the suffering nothing.
 
 You can read the full argument — proponent and skeptic positions, the safeguard and slippery-slope evidence, and the moral crux above — claim by claim on our map of [assisted dying and euthanasia](/topics/assisted-dying-euthanasia). The goal of a both-sides treatment is not to make you waver. It is to make sure that when you do take a side, you are disagreeing about the value question that actually matters — not fighting over evidence that, here, was never going to decide it.`,
   },
