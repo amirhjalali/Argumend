@@ -34,7 +34,7 @@ So we spent a day throwing everything we have ground truth for at it. About 2,90
 
 ## The problem we were trying to solve
 
-Every argument map on Argumend has a crux: the one unresolved question that, if settled, would move the most people. Finding it is the whole point of the site. And finding it has a defect we wrote up two days ago and have not been able to hide.
+Every argument map on Argumend has a crux: the question the fight turns on, and what would settle it. Finding it is the whole point of the site. And finding it has a defect we wrote up two days ago and have not been able to hide.
 
 We took three flagship debate transcripts and ran each through our diagnosis pipeline five times, byte-for-byte identical input, with a leading language model doing the claim extraction. On two of the three maps the primary crux the reader would see changed from run to run. On the third it was stable, but stable on the wrong thing: four of five runs surfaced a sentence about the reported Gaza death toll that nobody in the transcript actually disputed. Both of our blind reviewers had already flagged it as not a disagreement at all.
 
@@ -1055,7 +1055,7 @@ That kind of confidence is rare, valuable, and worth the discomfort of getting t
     slug: "what-is-a-crux-and-why-it-matters",
     title: "What Is a Crux and Why It Matters",
     description:
-      "A crux is the single belief that, if changed, would change your entire position on an issue. Learn why identifying cruxes transforms unproductive arguments into genuine progress.",
+      "A crux is the question a fight turns on, and what would settle it. Learn why identifying cruxes turns unproductive arguments into genuine progress.",
     author: "Argumend Team",
     publishedAt: "2026-01-27T09:00:00Z",
     readingTime: "8 min read",
@@ -1067,7 +1067,7 @@ Think about the last political argument you witnessed online. Two people exchang
 
 This happens because most debates skip the most important step: identifying the crux.
 
-A crux is the specific factual belief or value judgment that, if you changed your mind about it, would change your position on the entire issue. It is the load-bearing wall of your argument. Remove it, and the whole structure shifts.
+A crux is the question a fight turns on, and what would settle it. For you, it is the factual belief or value judgment that, if you changed your mind about it, would change your position on the entire issue. It is the load-bearing wall of your argument. Remove it, and the whole structure shifts.
 
 The concept has roots in rationalist communities and was popularized by organizations like CFAR (the Center for Applied Rationality). Julia Galef, in her book *The Scout Mindset*, captures the underlying principle: productive disagreement requires genuine curiosity about what would change your mind. Identifying cruxes is the operational method for putting that curiosity into practice.
 
@@ -1837,7 +1837,7 @@ The research is clear, the methods are proven, and the tools are available. The 
     slug: "finding-the-crux-of-debates",
     title: "The Crux of the Matter: Finding What Actually Matters in Any Debate",
     description:
-      "Most debates fail because people argue about everything except the thing that actually matters. Learn how to identify the crux — the single point of disagreement that, if resolved, would change everything.",
+      "Most debates fail because people argue about everything except the thing that actually matters. Learn how to identify the crux: the question a fight turns on, and what would settle it.",
     author: "Argumend Team",
     publishedAt: "2026-03-02T09:00:00Z",
     readingTime: "9 min read",
@@ -1855,7 +1855,7 @@ Finding the crux is the single most powerful skill for making any debate product
 
 ## What Is a Crux?
 
-The concept of a crux, as used in structured argumentation, has a precise definition: **a crux is a claim or assumption such that, if you changed your mind about it, you would change your mind about the overall conclusion.**
+On Argumend, a crux is the question a fight turns on, and what would settle it. The idea comes from structured argumentation, where it has a precise definition: **a claim or assumption such that, if you changed your mind about it, you would change your mind about the overall conclusion.**
 
 This definition matters because it distinguishes cruxes from the many other points of disagreement that fill a typical debate but do not actually drive the disagreement. Two people arguing about education policy might disagree about the specific percentage of students who benefit from smaller class sizes, the optimal length of the school day, the value of standardized testing, and a dozen other things. But their fundamental disagreement might hinge on a single question: "Is student performance primarily determined by school quality or by factors outside the school?" If you could resolve that question, many of the subsidiary disagreements would dissolve or become tractable.
 

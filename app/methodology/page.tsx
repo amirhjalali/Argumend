@@ -216,9 +216,10 @@ export default function MethodologyPage() {
         <Section className={STORY_SECTION} id="cruxes" title="Finding the cruxes">
           <div className={PROSE}>
             <p>
-              A crux is a claim that is genuinely contested and whose answer
-              would move the positions apart: settle it one way and some
-              positions gain while others lose. Hidden assumptions count too,
+              A crux is the question a fight turns on, and what would settle
+              it. On a map, that is a claim that is genuinely contested and
+              whose answer would move the positions apart: settle it one way
+              and some positions gain while others lose. Hidden assumptions count too,
               the claims nobody says out loud but the positions lean on.
             </p>
             <p>

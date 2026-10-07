@@ -136,8 +136,8 @@ export function AiLivingMap({ maps, mapParam, sinceParam }: AiLivingMapProps) {
       <section aria-labelledby="cruxes-now" className="mt-14 sm:mt-16">
         <SectionHeading id="cruxes-now">What it turns on now</SectionHeading>
         <p className="mt-2 max-w-[36rem] text-[14px] leading-relaxed text-secondary dark:text-stone-400">
-          A crux is a question where an answer would move whole positions. These are the
-          maps&rsquo; top cruxes today, with what each map says would settle them.
+          A crux is the question a fight turns on, and what would settle it. These are
+          the maps&rsquo; top cruxes today, each with what its map says would settle it.
         </p>
         {/* The map pages' crux sheet: one ruled card, a crimson margin rule. */}
         <ol className={`mt-7 ${CRUX_SHEET}`}>

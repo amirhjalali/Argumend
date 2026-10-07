@@ -189,6 +189,7 @@ describe("/methodology", () => {
     }
     expect(text).toContain("not by who cites it");
     expect(text).toContain("deterministic engine");
+    expect(text.replace(/\s+/g, " ")).toContain("A crux is the question a fight turns on, and what would settle it.");
     expect(text).toContain("nothing reaches the page until a person has reviewed it");
   });
 });

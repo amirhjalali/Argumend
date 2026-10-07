@@ -113,6 +113,16 @@ describe("Learn defines a crux one way, the way the maps use it", () => {
     expect(faq.answer.startsWith(`A crux is ${DEFINITION}.`)).toBe(true);
   });
 
+  it("defines a crux only one way, wherever Learn or the blog says what a crux is", () => {
+    const rivals: string[] = [];
+    for (const { label, text } of [...SOURCES.concepts, ...SOURCES.glossary, ...SOURCES.guides, ...SOURCES.faqs, ...SOURCES.blog]) {
+      for (const match of text.matchAll(/\b[Aa] crux is (?:the|a|an) (?!question a fight turns on, and what would settle it\b)[^.]{0,80}/g)) {
+        rivals.push(`${label}: "${match[0]}"`);
+      }
+    }
+    expect(rivals).toEqual([]);
+  });
+
   it("never calls a crux a piece of evidence", () => {
     const texts = [
       ...SOURCES.concepts,
