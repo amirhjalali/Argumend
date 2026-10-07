@@ -35,7 +35,7 @@ const worksheets: Record<string, Worksheet> = {
     title: "Argument Map Template",
     subtitle: "Map any debate with structured reasoning",
     instructions:
-      "Use this template to map the structure of any argument or debate. Start with the main claim, then identify the key pillars of the argument, the evidence for and against each pillar, and the crux question that would resolve the debate.",
+      "Use this template to map the structure of any argument or debate. Start with the main claim, then identify the main lines of argument, the evidence for and against each one, and the crux: the question the fight turns on, and what would settle it.",
     sections: [
       {
         heading: "1. The Main Claim (Meta-Claim)",
@@ -44,19 +44,19 @@ const worksheets: Record<string, Worksheet> = {
         lines: 3,
       },
       {
-        heading: "2. Argument Pillars",
-        description: "What are the 3-4 key lines of argument? Each pillar is a distinct reason for or against the claim.",
+        heading: "2. Lines of Argument",
+        description: "What are the 3-4 key lines of argument? Each one is a distinct reason for or against the claim.",
         type: "numbered-list",
         items: [
-          "Pillar 1: _______________________________________________",
-          "Pillar 2: _______________________________________________",
-          "Pillar 3: _______________________________________________",
-          "Pillar 4: _______________________________________________",
+          "Line 1: _________________________________________________",
+          "Line 2: _________________________________________________",
+          "Line 3: _________________________________________________",
+          "Line 4: _________________________________________________",
         ],
       },
       {
-        heading: "3. For Each Pillar: Skeptic vs. Proponent",
-        description: "Pick one pillar and write the strongest version of each side's argument.",
+        heading: "3. For Each Line: Skeptic vs. Proponent",
+        description: "Pick one line of argument and write the strongest version of each side's argument.",
         type: "two-column",
         columns: ["What a Skeptic Would Say", "What a Proponent Would Say"],
       },
@@ -155,15 +155,15 @@ const worksheets: Record<string, Worksheet> = {
   "evidence-evaluation-rubric": {
     id: "evidence-evaluation-rubric",
     title: "Evidence Evaluation Rubric",
-    subtitle: "Score evidence across four dimensions",
+    subtitle: "Weigh evidence with four questions",
     instructions:
-      "For each piece of evidence, score it on four dimensions from 0 (lowest) to 10 (highest). The total score out of 40 tells you how much weight to give this evidence. Use this rubric to evaluate evidence from any source: news articles, research papers, personal testimony, or expert opinion.",
+      "For each piece of evidence, ask four questions and rate each one low, medium or high, with a line on why. The ratings are a judgment to compare and discuss, not a total to add up. Use this rubric to evaluate evidence from any source: news articles, research papers, personal testimony, or expert opinion.",
     sections: [
       {
-        heading: "Scoring Guide",
-        description: "Rate each dimension from 0 to 10.",
+        heading: "Rating Guide",
+        description: "Rate each question low, medium or high.",
         type: "table",
-        columns: ["Dimension", "What It Measures", "0 (Low)", "10 (High)"],
+        columns: ["Question", "What It Asks", "Low", "High"],
         rows: [
           {
             label: "Source Reliability",
@@ -195,44 +195,41 @@ const worksheets: Record<string, Worksheet> = {
         heading: "Evidence Item 1",
         description: "Title / Description: _______________________________________________",
         type: "grid",
-        columns: ["Dimension", "Score (0-10)", "Reasoning"],
+        columns: ["Question", "Rating (low, medium, high)", "Why"],
         rows: [
           { label: "Source Reliability" },
           { label: "Independence" },
           { label: "Replicability" },
           { label: "Directness" },
-          { label: "TOTAL", subLabel: "/40" },
         ],
       },
       {
         heading: "Evidence Item 2",
         description: "Title / Description: _______________________________________________",
         type: "grid",
-        columns: ["Dimension", "Score (0-10)", "Reasoning"],
+        columns: ["Question", "Rating (low, medium, high)", "Why"],
         rows: [
           { label: "Source Reliability" },
           { label: "Independence" },
           { label: "Replicability" },
           { label: "Directness" },
-          { label: "TOTAL", subLabel: "/40" },
         ],
       },
       {
         heading: "Evidence Item 3",
         description: "Title / Description: _______________________________________________",
         type: "grid",
-        columns: ["Dimension", "Score (0-10)", "Reasoning"],
+        columns: ["Question", "Rating (low, medium, high)", "Why"],
         rows: [
           { label: "Source Reliability" },
           { label: "Independence" },
           { label: "Replicability" },
           { label: "Directness" },
-          { label: "TOTAL", subLabel: "/40" },
         ],
       },
       {
         heading: "Comparison & Reflection",
-        description: "Which evidence item scored highest? Does the strongest evidence support or oppose the main claim?",
+        description: "Which evidence item held up best on the four questions? Does the strongest evidence support or oppose the main claim?",
         type: "lines",
         lines: 4,
       },
@@ -244,7 +241,7 @@ const worksheets: Record<string, Worksheet> = {
     title: "Crux Finder Worksheet",
     subtitle: "Identify the question that would resolve the debate",
     instructions:
-      "A 'crux' is the single question or piece of evidence that, if answered, would cause one or both sides of a debate to change their mind. Finding the crux transforms an endless argument into a focused investigation. Use these guided questions to find the crux of any disagreement.",
+      "A crux is the question a fight turns on, and what would settle it. Finding the crux turns an endless argument into a focused investigation. Use these guided questions to find the crux of any disagreement.",
     sections: [
       {
         heading: "1. Define the Disagreement",

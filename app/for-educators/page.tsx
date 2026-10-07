@@ -85,8 +85,8 @@ const lessonPlans: readonly LessonPlan[] = [
     duration: "1–2 class periods",
     steps: [
       "Introduce the four evidence questions: reliability, independence, replicability, directness",
-      "Students pick three evidence cards from any map and score each question from 0 to 10",
-      "Compare scores across the class and discuss where and why they diverge",
+      "Students pick three evidence cards from any map and rate each question low, medium or high, writing down why",
+      "Compare ratings across the class and discuss where and why they diverge",
       "Reflection: does weighting the evidence change which question matters most?",
     ],
   },
@@ -127,7 +127,7 @@ const worksheets = [
     id: "argument-map-template",
     title: "Argument map template",
     description:
-      "A blank template with space for the claim, the pillars, the evidence on each side and the crux. Students can map any argument from scratch.",
+      "A blank template with space for the claim, the main lines of argument, the evidence on each side and the crux. Students can map any argument from scratch.",
   },
   {
     id: "steel-man-challenge",
@@ -139,13 +139,13 @@ const worksheets = [
     id: "evidence-evaluation-rubric",
     title: "Evidence evaluation rubric",
     description:
-      "A table of the four evidence questions (reliability, independence, replicability, directness) for scoring evidence from 0 to 10.",
+      "A table of the four evidence questions (reliability, independence, replicability, directness) for rating evidence low, medium or high, with a line on why.",
   },
   {
     id: "crux-finder",
     title: "Crux finder",
     description:
-      "Guided questions for finding the crux of any disagreement: the question whose answer would change both sides’ minds.",
+      "Guided questions for finding the crux of any disagreement: the question the fight turns on, and what would settle it.",
   },
 ];
 
