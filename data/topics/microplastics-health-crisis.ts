@@ -104,21 +104,21 @@ export const microplasticsHealthCrisisData = {
         {
           id: "contamination-methodology-concerns",
           title:
-            "Analytical Challenges and Contamination Risks in Microplastic Detection",
+            "Analytical Challenges and False Positives in Microplastic Detection",
           description:
-            "A 2023 review in Nature Reviews Methods Primers highlighted persistent methodological challenges in microplastic research. Laboratory contamination from airborne plastic fibers, clothing, and equipment can introduce false positives. Different analytical methods (FTIR spectroscopy, Raman spectroscopy, pyrolysis-GC/MS) yield varying results, and there are no universally standardized protocols for biological sample preparation. Inter-laboratory comparison studies have shown significant variability in particle counts for identical samples, with some labs reporting 10x higher concentrations than others.",
+            "A 2025 validation study in Environmental Science & Technology tested pyrolysis-gas chromatography-mass spectrometry (Py-GC-MS), a technique widely used in human-tissue studies, on human blood. Components of the blood itself produced false-positive signals for polyethylene and PVC; even after a cleanup protocol designed to remove them, polyethylene interferences remained, and in a pilot of Australian blood samples no other polymer rose above detection limits. Realistic detection limits were up to 20 times higher than those calculated in clean water. The authors concluded that Py-GC-MS is currently not a suitable method for measuring polyethylene and PVC in biological samples. A 2025 critical review of the technique adds that the lack of standardized protocols for sample preparation and calibration makes studies hard to compare.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 9,
+            replicability: 8,
             directness: 7,
           },
-          source: "Nature Reviews Methods Primers",
-          sourceUrl:
-            "https://www.nature.com/articles/s43586-023-00235-2",
+          source:
+            "Rauert et al., Environmental Science & Technology (2025); Dumont et al., Journal of Separation Science (2025)",
+          sourceUrl: "https://doi.org/10.1021/acs.est.4c12599",
           reasoning:
-            "Nature Reviews is an authoritative source for methodological assessment. The lack of standardized protocols is a genuine limitation that introduces uncertainty into bioaccumulation estimates. However, methodological imperfection does not negate the core finding — it means the true concentrations may differ from reported values, but the presence of microplastics in tissue is confirmed across multiple independent methods.",
+            "A method-validation study is the right kind of evidence for judging how far tissue concentrations can be trusted, and its authors work on plastics and health rather than for industry. The limitation is genuine and introduces uncertainty into bioaccumulation estimates, especially for polyethylene and PVC. However, it does not negate the core finding: it means some reported concentrations may be overstated, while the presence of microplastics in tissue has been reported across multiple independent methods.",
         },
         {
           id: "placental-microplastics",
@@ -206,9 +206,9 @@ export const microplasticsHealthCrisisData = {
         {
           id: "phthalate-syndrome-animals",
           title:
-            "Phthalate Exposure in Animals Produces Reproductive Syndrome at Human-Relevant Doses",
+            "Prenatal Phthalate Exposure in Rats Produces a Male Reproductive Syndrome",
           description:
-            "Laboratory studies have demonstrated that prenatal exposure to phthalates (DEHP, DBP, and their metabolites) in rats produces a cluster of reproductive abnormalities termed 'phthalate syndrome': reduced anogenital distance, nipple retention in males, undescended testes, hypospadias, and reduced adult sperm production. These effects occur at doses of 10-100 mg/kg/day. Human biomonitoring data from NHANES shows that the 95th percentile of phthalate exposure in pregnant women approaches the lower end of the effective dose range in animals when accounting for pharmacokinetic differences. The National Toxicology Program concluded in 2023 that certain phthalates are 'presumed to be a reproductive hazard to humans.'",
+            "Laboratory studies reviewed by the National Institute of Environmental Health Sciences show that in utero exposure to certain phthalate plasticizers (di-butyl, DEHP and butyl benzyl phthalate) produces a cluster of reproductive abnormalities in male rats termed 'phthalate syndrome': hypospadias, undescended testes, testicular injury, malformed reproductive organs, retained nipples and a reduced anogenital distance. The mechanism is a marked drop in fetal testicular testosterone during the window when the reproductive tract develops. The syndrome parallels the testicular dysgenesis syndrome reported in humans, though no cause-and-effect link has been shown in people. Humans are exposed to these phthalates: their critical metabolites have been detected in the blood of the general population, in children, and in amniotic fluid.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -217,11 +217,10 @@ export const microplasticsHealthCrisisData = {
             directness: 6,
           },
           source:
-            "National Toxicology Program; Environmental Health Perspectives",
-          sourceUrl:
-            "https://ehp.niehs.nih.gov/doi/10.1289/ehp.0800557",
+            "Foster (NIEHS), \"Disruption of reproductive development in male rat offspring following in utero exposure to phthalate esters,\" International Journal of Andrology (2006)",
+          sourceUrl: "https://doi.org/10.1111/j.1365-2605.2005.00563.x",
           reasoning:
-            "Animal toxicology provides the mechanistic evidence that epidemiology alone cannot. The 'phthalate syndrome' phenotype in animals mirrors reproductive health trends observed in human populations. However, cross-species extrapolation carries inherent uncertainty, and critics note that the most sensitive rodent strains may not reflect human susceptibility. The NTP designation as a 'presumed human reproductive hazard' represents an authoritative but not definitive assessment.",
+            "Animal toxicology provides the mechanistic evidence that epidemiology alone cannot. The 'phthalate syndrome' phenotype in animals mirrors reproductive health trends observed in human populations. However, cross-species extrapolation carries inherent uncertainty, the review itself notes that no cause-and-effect relationship has been shown in humans, and critics note that the most sensitive rodent strains may not reflect human susceptibility. Directness is limited because phthalates are plastic additives, not microplastic particles.",
         },
         {
           id: "confounding-lifestyle-factors",
