@@ -349,22 +349,21 @@ export const lonelinessEpidemicData = {
         {
           id: "walkability-social-contact",
           title:
-            "Walkable Neighborhoods Produce 2-3x More Incidental Social Interactions Than Car-Dependent Areas",
+            "Residents of Walkable Neighborhoods Report More Social Connection Than Residents of Car-Dependent Suburbs",
           description:
-            "Urban planning research consistently finds that neighborhood walkability is one of the strongest predictors of social contact and community belonging. A 2019 study in Environment and Behavior found that residents of walkable neighborhoods reported 2-3 times more incidental social interactions (casual encounters with neighbors, conversations in public spaces) than residents of car-dependent suburbs. Leyden's research in Irish towns found that residents of walkable mixed-use neighborhoods were significantly more likely to know their neighbors, trust others, and be politically and socially engaged. Jan Gehl's public space research in Copenhagen demonstrated that pedestrianizing streets increased foot traffic by 20% and stationary activities (sitting, talking, people-watching) by 600% — creating conditions for spontaneous social contact.",
+            "Urban planning research links neighborhood walkability to social contact and community belonging. In a household survey across neighborhoods of Galway, Ireland, ranging from traditional mixed-use, pedestrian-oriented designs to modern car-dependent suburban subdivisions, Kevin Leyden found that residents of walkable, mixed-use neighborhoods had higher levels of social capital: they were more likely to know their neighbors, participate politically, trust others, and be socially engaged. Leyden concluded that walkable, mixed-use designs can encourage the development of social capital, the kind of everyday contact advocates say structural policy could restore.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
-            replicability: 7,
+            replicability: 6,
             directness: 6,
           },
           source:
-            "Environment and Behavior; Journal of the American Planning Association; Jan Gehl, 'Life Between Buildings'",
-          sourceUrl:
-            "https://journals.sagepub.com/doi/10.1177/0013916519845652",
+            "Leyden, \"Social capital and the built environment: the importance of walkable neighborhoods,\" American Journal of Public Health (2003)",
+          sourceUrl: "https://doi.org/10.2105/AJPH.93.9.1546",
           reasoning:
-            "The walkability-social contact relationship is replicated across multiple studies and contexts. However, self-selection bias is a major concern: people who value social contact may choose walkable neighborhoods, producing the observed correlation without walkability being the cause. Directness is limited because increased incidental social contact does not necessarily reduce deep loneliness — casual encounters and meaningful belonging are different constructs.",
+            "The study is peer-reviewed and directly compares neighborhood designs. However, it is a single cross-sectional survey in one city, and self-selection bias is a major concern: people who value social contact may choose walkable neighborhoods, producing the observed correlation without walkability being the cause. Directness is limited because social capital and incidental contact are not the same as relief from deep loneliness — casual encounters and meaningful belonging are different constructs.",
         },
         {
           id: "cultural-variation-loneliness",
