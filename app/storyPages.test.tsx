@@ -129,7 +129,9 @@ describe("/about", () => {
     expect(text).not.toMatch(/written to mirror|rent-control thread/i);
     // Flagship maps have no diagram; phones get an outline.
     expect(text).not.toMatch(/most maps also have an interactive diagram/i);
-    expect(text).toContain("The older maps also have a diagram");
+    expect(text).toContain("The two-sided maps, which set a skeptic’s case against the best reply, also have a diagram");
+    // Maps are named by shape, not by age.
+    expect(text).not.toMatch(/\b(older|newer) maps?\b/i);
     expect(text).toContain("an outline on a phone");
     // The card weighting the overhaul retired from the interface.
     expect(text).not.toMatch(/challenge a weighting|four measures/i);
@@ -168,20 +170,15 @@ describe("/methodology", () => {
     expect(String(methodologyMetadata.description)).not.toMatch(/score/i);
   });
 
-  it("keeps the 'When settled is withheld' paragraph verbatim", () => {
+  it("says the one-line reading was removed, without describing a lean or a score", () => {
     const view = render(<MethodologyPage />);
-    const kept = view.container.querySelectorAll("[data-kept]");
-    expect(kept).toHaveLength(1);
-    expect(kept[0].textContent?.replace(/\s+/g, " ").trim()).toBe(
-      "When “settled” is withheld. Whether one piece of evidence counts for a claim or against it is a " +
-        "judgement call, and on a map of a dozen cards one such call can move the balance by ten points — " +
-        "half the gap “evidence largely converges” requires. So we test it: if reclassifying any single " +
-        "card would take the word away, the map hasn’t earned it, and we show its lean instead. Either way " +
-        "those maps carry a note saying one card could change the reading. A handful of questions where we judge " +
-        "the evidence to have converged in the world — the moon landing — keep that reading on our own " +
-        "editorial judgement while their maps are still too shallow to show it; those say so in the same line, " +
-        "and deepening the map is the fix. The balance and weight numbers are never adjusted; only the reading is.",
+    const text = (view.container.textContent ?? "").replace(/\s+/g, " ");
+    expect(view.container.querySelectorAll("[data-kept]")).toHaveLength(0);
+    expect(text).toContain(
+      "The two-sided maps once printed a one-line reading of where their cards tipped. It read as a verdict, so it was removed.",
     );
+    expect(text).not.toMatch(/out of 40|0 to 10|leans one way|moon landing|open API/i);
+    expect(text).not.toMatch(/\b(older|newer) maps?\b/i);
   });
 
   it("describes the four measures, the side audit, the crux engine and the ledger", () => {

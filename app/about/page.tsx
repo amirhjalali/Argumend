@@ -82,8 +82,9 @@ export default function AboutPage() {
             <p>
               The dated line under it shows how the crux has moved. It records
               movement, not a winner. On the map, each crux opens to the
-              evidence on each side, with its sources. The older maps also have
-              a diagram: a canvas on a larger screen, an outline on a phone.
+              evidence on each side, with its sources. The two-sided maps, which
+              set a skeptic&rsquo;s case against the best reply, also have a
+              diagram: a canvas on a larger screen, an outline on a phone.
             </p>
           </div>
           <p className="mt-4 flex flex-wrap gap-x-6">
@@ -95,7 +96,7 @@ export default function AboutPage() {
         <Section className={STORY_SECTION} id="how-maps-are-made" title="How maps are made">
           <div className={PROSE}>
             <p>
-              A language model drafts each newer map from research reports, and
+              A language model drafts each four-position map from research reports, and
               every draft is audited before it is published: links checked,
               headline facts checked against the primary source, positions read
               for fairness. An engine ranks the cruxes by which claims, if
