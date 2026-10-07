@@ -118,6 +118,13 @@ export const MAP_MATCH = {
   siblingNameShare: 0.6,
   /** …and the paste must use at least this many words of its name that the top map's name lacks. */
   siblingNameMargin: 2,
+  /**
+   * A map on another subject is listed beside the answer, or as a closest
+   * map, only when the paste uses a word of its name (any of its names)
+   * that at most this many maps use: "nuclear", "Medicare", "billionaire"
+   * count; "school", "work", "public" do not.
+   */
+  listedNameWordMaxMaps: 20,
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -177,6 +184,7 @@ export function decideMatch(
   nameMatch: (id: string) => ReadonlySet<string> = () => new Set(),
   offSubject: (id: string) => boolean = () => false,
   ownNameWord: (id: string) => boolean = () => false,
+  sharesName: (id: string) => boolean = () => true,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -204,6 +212,11 @@ export function decideMatch(
     (coverage >= MAP_MATCH.minCoverage && top.score >= MAP_MATCH.minShortScore);
   const clear = lead >= MAP_MATCH.minLead && exclusiveLead >= MAP_MATCH.minExclusiveLead;
   const shown = (map: RankedMap) => map.score >= MAP_MATCH.shownShare * top.score;
+  // A map on another subject is listed only when the paste uses a telling
+  // word of its name: one that scored on shared evidence and common words
+  // alone (Medicare for All and GLP-1 drugs, a fired tweeter and DOGE) is
+  // not a lead (r9 live review #8). Siblings are on the paste's subject.
+  const listed = (map: RankedMap) => shown(map) && sharesName(map.id);
   const byOwnName =
     top.score >= MAP_MATCH.minShortScore && lead >= MAP_MATCH.minLead && ownNameWord(top.id);
 
@@ -240,7 +253,7 @@ export function decideMatch(
         .filter((map) => !offSubject(map.id));
       const related = others.slice(0, MAP_MATCH.maxMaps - 1);
       const closest = rest
-        .filter((map) => !siblingIds.has(map.id) && shown(map) && !offSubject(map.id))
+        .filter((map) => !siblingIds.has(map.id) && listed(map) && !offSubject(map.id))
         .slice(0, MAP_MATCH.maxMaps - 1 - related.length);
       return { named, related, closest, top, rival, lead, exclusiveLead, coverage };
     }
@@ -248,7 +261,7 @@ export function decideMatch(
       .filter((map) => shown(map) && !offSubject(map.id))
       .slice(0, MAP_MATCH.maxMaps - 1);
     const closest = rest
-      .filter((map) => !siblingIds.has(map.id) && shown(map) && !offSubject(map.id))
+      .filter((map) => !siblingIds.has(map.id) && listed(map) && !offSubject(map.id))
       .slice(0, MAP_MATCH.maxMaps - 1 - related.length);
     return { named: top, related, closest, top, rival, lead, exclusiveLead, coverage };
   }
@@ -259,10 +272,15 @@ export function decideMatch(
   // the text behind it to be named: that is a paste borrowing one map's words
   // (a landlord who won't fix the boiler, and rent control), and listing the
   // map anyway would name it by the back door.
+  // Below the best of them, a map on another subject is listed only as it
+  // would be beside a named map: school vouchers were offered meritocracy
+  // and student debt on "school" and "public" (r9 live review #9).
   const cameClose =
     !clear && top.score >= MAP_MATCH.closestFloor && coverage >= MAP_MATCH.closestCoverage;
   const closest = cameClose
-    ? [top, ...rest.filter(shown)].filter((map) => !offSubject(map.id)).slice(0, MAP_MATCH.maxMaps)
+    ? [top, ...rest.filter((map) => (siblingIds.has(map.id) ? shown(map) : listed(map)))]
+        .filter((map) => !offSubject(map.id))
+        .slice(0, MAP_MATCH.maxMaps)
     : [];
   return { named: null, related: [], closest, top, rival, lead, exclusiveLead, coverage };
 }
@@ -568,6 +586,29 @@ function nameMatches(index: MapIndex, id: string, pasteTermSet: ReadonlySet<stri
   return new Set([...pasteTermSet].filter((term) => nameTerms.has(term)));
 }
 
+const nameTermsCache = new WeakMap<MapIndex, Map<string, Set<string>>>();
+
+/** True when the paste uses a word or pair of any of the map's names that few maps use. */
+function sharesTellingNameWord(index: MapIndex, id: string, pasteTermSet: ReadonlySet<string>): boolean {
+  let perIndex = nameTermsCache.get(index);
+  if (!perIndex) {
+    perIndex = new Map();
+    nameTermsCache.set(index, perIndex);
+  }
+  let terms = perIndex.get(id);
+  if (!terms) {
+    const entries = (index.byId.get(id)?.document.fields.name ?? []).map((entry) => pasteTerms(entry));
+    terms = new Set(
+      [...entries.flat(), ...entries.flatMap((words) => termPairs(words))].filter(
+        (term) => (index.documentFrequency.get(term) ?? 0) <= MAP_MATCH.listedNameWordMaxMaps,
+      ),
+    );
+    perIndex.set(id, terms);
+  }
+  for (const term of pasteTermSet) if (terms.has(term)) return true;
+  return false;
+}
+
 const ownNameCache = new WeakMap<MapIndex, Map<string, Set<string>>>();
 
 /**
@@ -636,6 +677,7 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
       const own = ownNameWords(index).get(id);
       return Boolean(own && pasteWords.some((word) => own.has(word)));
     },
+    (id) => sharesTellingNameWord(index, id, pasteTermSet),
   );
   const matchedMs = performance.now() - indexed;
 

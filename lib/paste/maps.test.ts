@@ -109,6 +109,15 @@ describe("decideMatch", () => {
     expect(decideMatch(ranking([tiny, 1], 19.4), noSiblings, undefined, undefined, ownZero).named).toBeNull();
   });
 
+  it("lists a map on another subject only when the paste uses a telling word of its name", () => {
+    const sharesName = (id: string) => id !== "map-1";
+    const beside = decideMatch(ranking([40, 25, 22], 100, () => Infinity), noSiblings, undefined, undefined, undefined, sharesName);
+    expect(beside.named?.id).toBe("map-0");
+    expect(beside.closest.map((map) => map.id)).toEqual(["map-2"]);
+    const instead = decideMatch(ranking([26.5, 26.4, 26.1, 22.6]), noSiblings, undefined, undefined, undefined, sharesName);
+    expect(instead.closest.map((map) => map.id)).toEqual(["map-0", "map-2", "map-3"]);
+  });
+
   it("never names a map on one borrowed word, however much of a short paste it covers", () => {
     const tiny = MAP_MATCH.minShortScore - 1;
     expect(decideMatch(ranking([tiny, 1], tiny), noSiblings).named).toBeNull();
