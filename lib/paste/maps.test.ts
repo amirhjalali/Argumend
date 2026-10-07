@@ -252,6 +252,16 @@ describe("findMaps", () => {
     expect(match?.cards.length).toBe(2);
   });
 
+  it("shows a card on each side when the crux's own evidence is one-sided", async () => {
+    // r9 live review #7: the Section 230 paste's crux has only "yes" cards,
+    // and was shown two of them under "The strongest card on each side".
+    const result = await findMaps(
+      "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
+    );
+    expect(result.match?.id).toBe("section-230-reform");
+    expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+  });
+
   it("offers no closest maps for a family argument no map covers", async () => {
     const result = await findMaps(ASSISTED_LIVING_PASTE);
     expect(result.status).toBe("none");

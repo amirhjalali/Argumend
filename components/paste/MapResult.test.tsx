@@ -84,6 +84,22 @@ describe("the map block on a phone", () => {
     expect(lastFlip.compareDocumentPosition(cta) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(cta.compareDocumentPosition(cardsHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
+
+  it("does not promise a card on each side when every card is on one", () => {
+    const match = matched.match!;
+    const [card] = match.cards;
+    const oneSided = {
+      ...match,
+      cards: [
+        { ...card, id: "a", side: "for" as const },
+        { ...card, id: "b", side: "for" as const },
+      ],
+    };
+    const view = render(<MapMatch match={oneSided} related={matched.related} />);
+    expect(view.queryByRole("heading", { name: "The strongest card on each side" })).toBeNull();
+    view.getByRole("heading", { name: "The strongest cards" });
+    view.getByText(/No card here is labelled “(Points to no|Cuts against it)”/);
+  });
 });
 
 describe("one mind-change question, on paste and on maps", () => {

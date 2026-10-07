@@ -311,10 +311,18 @@ export function pickPillars(
   return ids.flatMap((id) => pillars.filter((pillar) => pillar.id === id));
 }
 
-/** One card per side, strongest first, from the crux's own evidence. */
-function cardsFrom(items: readonly LegacyEvidenceItem[]): PasteMapCard[] {
+/**
+ * One card per side, strongest first, from the crux's own evidence. A side
+ * the crux has no card for is taken from the map's other cruxes (the sides
+ * answer the map's question or claim, not the crux), so "the strongest card
+ * on each side" is not two cards on one side (r9 live review #7).
+ */
+function cardsFrom(
+  items: readonly LegacyEvidenceItem[],
+  others: readonly LegacyEvidenceItem[] = [],
+): PasteMapCard[] {
   const picked = (["for", "against"] as const)
-    .map((side) => items.find((item) => item.side === side))
+    .map((side) => items.find((item) => item.side === side) ?? others.find((item) => item.side === side))
     .filter((item): item is LegacyEvidenceItem => Boolean(item));
   if (picked.length < 2) {
     // One-sided evidence still gets two cards, each labelled with its own side.
@@ -364,7 +372,8 @@ function pillarMatch(topic: Topic, text: string, corpusIdf: (term: string) => nu
   // A crux without cards borrows the map's strongest ones rather than showing
   // an empty section. No weight is carried: the cards are two readings, not a
   // contest, and the map page is where a reader can see what a weight weighs.
-  let cards = cardsFrom(entry?.evidence ?? []);
+  const otherEvidence = cruxes.filter((item) => item !== entry).flatMap((item) => item.evidence);
+  let cards = cardsFrom(entry?.evidence ?? [], otherEvidence);
   if (cards.length === 0) cards = cardsFrom(cruxes.flatMap((item) => item.evidence));
 
   return {
