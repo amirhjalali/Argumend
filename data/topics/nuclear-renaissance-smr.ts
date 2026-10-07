@@ -13,8 +13,9 @@ export const nuclearRenaissanceSmrData = {
       "NuScale's flagship Idaho small-reactor project was cancelled in 2023 after its estimated cost rose from $5.3 billion to $9.3 billion, before a single unit was built. China's HTR-PM, a small high-temperature reactor, has entered commercial operation. Both records are real. The fight is over whether building reactors in a factory can make them cheap and fast enough to compete with solar, wind and batteries.",
     confidence: 85,
     source:
-      "NuScale/UAMPS cancellation (Reuters, 2023); World Nuclear News on HTR-PM commercial operation (2023)",
-    sourceUrl: "https://www.energy.gov/ne/benefits-small-modular-reactors-smrs",
+      "NuScale/UAMPS joint press release on the cancellation (SEC Form 8-K, Nov 2023); IEEFA cost analysis (Jan 2023); World Nuclear News on HTR-PM commercial operation (2023)",
+    sourceUrl:
+      "https://www.sec.gov/Archives/edgar/data/0001822966/000182296623000256/uampsnuscalejointpressre.htm",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
