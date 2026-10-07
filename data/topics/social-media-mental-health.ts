@@ -26,7 +26,7 @@ export const socialMediaMentalHealthData = {
       id: "temporal-correlation",
       title: "The Temporal Correlation",
       short_summary:
-        "Teen depression and anxiety rates spiked precisely when smartphone adoption became universal.",
+        "Teen depression and anxiety rates rose in the same years that social media use among teens became near-universal.",
       image_url:
         "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=60",
       icon_name: "Telescope" as const,

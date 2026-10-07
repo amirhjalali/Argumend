@@ -128,13 +128,13 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   // --- Technology & Society ---
   "social-media-age-limits": [
     "Should social media have age limits?",
-    "Is social media harmful for children?",
     "Should kids be banned from social media?",
   ],
   "social-media-mental-health": [
     "Does social media cause depression?",
     "Is social media bad for mental health?",
     "Does social media harm teenagers?",
+    "Is social media harmful for children?",
   ],
   "ai-risk": [
     "Is artificial intelligence dangerous?",
@@ -224,7 +224,6 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   // --- Economics & Education ---
   "remote-work-permanence": [
     "Is remote work here to stay?",
-    "Is working from home more productive?",
     "Should companies allow permanent remote work?",
   ],
   "college-value-proposition": [
@@ -475,6 +474,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "sugar-tax-effectiveness": ["Do sugar taxes reduce obesity?"],
   "eacc-vs-tech-regulation": ["Does rapid, unregulated tech progress do more good than harm?"],
   "ai-superintelligence-timeline": ["Will superintelligent AI arrive before 2035?"],
+  "ai-2027": ["Will the AI 2027 scenario come true?"],
   "nuclear-renaissance-smr": ["Can small modular reactors scale this decade?"],
   "tiktok-brain-rot": ["Is short-form video rotting our attention spans?"],
   "ai-replacing-doctors": ["Will AI replace doctors within a decade?"],
@@ -485,7 +485,10 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "inflation-monetary-policy": ["Was post-pandemic inflation caused by government spending?"],
   "global-housing-bubble": ["Is there a global housing bubble about to burst?"],
   "us-national-debt-crisis": ["Is the US national debt a ticking time bomb?"],
-  "return-to-office-productivity": ["Does return-to-office improve productivity?"],
+  "return-to-office-productivity": [
+    "Does return-to-office improve productivity?",
+    "Is working from home more productive?",
+  ],
   "lab-diamonds-ethics": ["Are lab-grown diamonds more ethical than mined diamonds?"],
   "degrowth-economics": ["Do we need degrowth to save the planet?"],
   "meritocracy-myth": ["Is meritocracy a myth?"],

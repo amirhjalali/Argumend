@@ -9,7 +9,7 @@ export const socialMediaAgeLimitsData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "On 29 November 2024 Australia passed the world's first law barring under-16s from holding social media accounts. In the UK, about 22% of 8-to-17-year-olds with a profile had already signed up with an adult age. Both sides accept that teen mental health worsened after about 2012. The fight is over whether social media drove that, and whether an age ban can be enforced without unacceptable privacy costs for everyone.",
+      "On 29 November 2024 Australia passed the world's first law barring under-16s from holding social media accounts. In the UK, about 22% of 8-to-17-year-olds with a profile had already signed up with an adult age. Both sides accept that teen mental health worsened after about 2012. The fight is over whether keeping under-16s off social media would improve it, and whether an age ban can be enforced without unacceptable privacy costs for everyone.",
     confidence: 80,
     source:
       "Online Safety Amendment (Social Media Minimum Age) Act 2024 (Australia); Ofcom / YouGov, 'Children's Online User Ages' (2024)",
@@ -18,29 +18,29 @@ export const socialMediaAgeLimitsData = {
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
     "This stopped being hypothetical in 2024: Australia passed the world's first law banning under-16s from social media — deciding to act even though the science underneath is genuinely unsettled.",
-    "The first unsettled question is whether social media actually causes the teen mental-health decline that began around 2012: the alarming raw trends are real, but the most rigorous reviews find mostly small or mixed effects, so this is the same 'real but contested' causation fight as the broader social-media debate.",
+    "The first unsettled question is whether taking under-16s off social media would improve their mental health. Whether social media caused the decline that began around 2012 is argued on its own map ('Is social media a primary cause of the teen mental health crisis?'); a ban turns on the narrower question, which abstinence trials and the outcomes of Australia's ban can speak to.",
     "The second is enforcement: keeping under-16s out means either trusting self-reported birthdays (about a fifth of teens already lie) or verifying ages for everyone via ID or face scans — which creates privacy and accuracy problems for adults too — so the honest debate is whether a blunt, hard-to-enforce ban does more good than harm.",
   ],
   pillars: [
     {
       id: "mental-health-impact",
-      title: "Mental Health Impact",
+      title: "What Keeping Teens Off Would Change",
       short_summary:
-        "Evidence on whether social media causally harms children's mental health, particularly for adolescents under 16.",
+        "Whether keeping under-16s off social media would improve their mental health: the evidence from abstinence trials and from bans themselves, not the broader question of whether social media caused the post-2012 decline, which has its own map.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Correlation isn't causation, and peer researchers (e.g., Candice Odgers in Nature) argue the large effects Haidt invokes have not held up: hundreds of studies yield mostly small, null, or mixed associations. Confounders rose in the same window — economic anxiety, academic pressure, reduced sleep and outdoor play, and greater willingness to report and diagnose distress. Most studies rely on self-reported screen time, which is unreliable. A blanket under-16 ban is a blunt instrument that can push kids to less moderated spaces and cut off teens (LGBTQ youth, isolated kids) for whom these platforms provide genuine support.",
+        "A ban helps only if removing access improves outcomes, and that is what remains in dispute. Peer researchers (e.g., Candice Odgers in Nature) find mostly small, null or mixed associations between social media and teen mental health, and most studies rely on unreliable self-reported screen time. Removal also takes something away: in Pew's 2022 survey, 80% of US teens said social media makes them feel more connected to their friends' lives. A blanket under-16 ban is a blunt instrument that can push kids to less moderated spaces and cut off teens (LGBTQ youth, isolated kids) for whom these platforms provide genuine support.",
       proponent_rebuttal:
-        "Jonathan Haidt's 'The Anxious Generation' (a trade book, not a meta-analysis) documents a sharp inflection in teen depression and anxiety beginning around 2012, when smartphones and social media reached saturation, across several anglophone countries. The US Surgeon General's 2023 advisory, while stressing the evidence is not yet sufficient to call social media safe, warned it 'can have a profound risk of harm.' Internal Facebook research leaked by Frances Haugen showed Instagram made body image worse for a meaningful share of teen girls who already felt bad about their bodies. The precautionary case does not require proven causation: when a plausible mechanism, a dose-response pattern, and an unprecedented population-level decline coincide, waiting for a perfect RCT before acting may itself harm a generation of children.",
+        "The precautionary case does not require proven causation: when a plausible mechanism, a dose-response pattern, and an unprecedented population-level decline coincide, waiting for a perfect RCT before acting may itself harm a generation of children. The US Surgeon General's 2023 advisory, while stressing the evidence is not yet sufficient to call social media safe, warned it 'can have a profound risk of harm.' Internal Facebook research leaked by Frances Haugen showed Instagram made body image worse for a meaningful share of teen girls who already felt bad about their bodies. A legal age line also does what single families cannot: it removes the pressure to join because every peer is on the platform.",
       crux: {
         id: "causal-mechanism-study",
         title: "Randomized Social Media Abstinence Trial",
         question:
-          "Does removing social media actually improve teens' mental health, or is the link driven by other factors?",
+          "Do teens kept off social media end up with better mental health than teens who stay on?",
         description:
-          "A properly controlled trial where teens are randomly assigned to abstain from social media for 6+ months, with mental health measured via clinical instruments rather than self-report.",
+          "A properly controlled trial where teens are randomly assigned to abstain from social media for 6+ months, with mental health measured via clinical instruments rather than self-report, alongside outcome data for Australian under-16s since the ban took effect in December 2025, compared with teens in countries without one.",
         methodology:
-          "Recruit 5,000 teens aged 13-16. Randomly assign to social media abstinence (with device-level enforcement) or control. Measure depression (PHQ-A), anxiety (GAD-7), self-esteem, and sleep quality at baseline, 3 months, and 6 months.",
+          "Recruit 5,000 teens aged 13-16. Randomly assign to social media abstinence (with device-level enforcement) or control. Measure depression (PHQ-A), anxiety (GAD-7), self-esteem, and sleep quality at baseline, 3 months, and 6 months. Alongside the trial, compare validated mental-health measures for Australian under-16s before and after the ban took effect with same-age teens in countries without one.",
         equation:
           "\\Delta MH_{abstain} - \\Delta MH_{control} = \\tau_{causal}",
         verification_status: "theoretical" as const,
@@ -49,11 +49,11 @@ export const socialMediaAgeLimitsData = {
           supporter_flip:
             "If a properly controlled abstinence trial (clinical instruments, not self-report) found that taking teens off social media for 6+ months didn't improve depression, anxiety, or sleep, the core justification for an under-16 ban would collapse — you'd be restricting kids for a harm you couldn't demonstrate.",
           skeptic_flip:
-            "If controlled studies tied the sharp, cross-country post-2012 decline in teen mental health, concentrated in girls, to social media, and Instagram's leaked internal research on worse body image for some teens was confirmed, 'the harm is unproven' would lose its footing.",
+            "If teens randomly assigned to six months off social media scored clearly better on clinical depression and anxiety measures than teens who stayed on, and Australian under-16s improved after the ban took effect, 'a ban won't help' would lose its footing.",
           common_ground:
             "Both sides agree teen mental health worsened after ~2012 and that most existing studies rely on unreliable self-reported screen time.",
           live_disagreement:
-            "Whether removing social media actually improves teen mental health (causation) or whether the correlation reflects confounders — which only a randomized abstinence trial with clinical measures can resolve.",
+            "Whether keeping teens off social media actually improves their mental health, or whether the link reflects confounders, which a randomized abstinence trial with clinical measures could resolve and Australia's outcome data could inform.",
         },
       },
       evidence: [

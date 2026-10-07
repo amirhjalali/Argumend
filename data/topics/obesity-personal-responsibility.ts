@@ -10,65 +10,46 @@ export const obesityPersonalResponsibilityData = {
   category: "science" as const,
   pillars: [
     // =========================================================================
-    // PILLAR 1: Food Environment Design
+    // PILLAR 1: Food Environment and Agency
     // =========================================================================
     {
       id: "food-environment-design",
-      title: "Food Environment Design",
+      title: "Food Environment and Agency",
       short_summary:
-        "Ultra-processed foods now constitute roughly 60% of calories consumed in the US, engineered for hyper-palatability and often sold more cheaply than whole foods. A 2009 USDA report estimated about 23.5 million Americans live in low-income areas far from a supermarket ('food deserts'), though research finds physical distance matters less than the relative price of healthy versus unhealthy food. Proponents of the systemic view argue the food environment is engineered to override satiety signals; the strongest evidence is a controlled NIH trial showing people overeat on ultra-processed diets. Skeptics of that view counter that personal agency still determines what people eat, and that framing the environment as inescapable infantilizes individuals.",
+        "Cheap, heavily marketed, calorie-dense food is the default in much of the US. A 2009 USDA report estimated about 23.5 million Americans live in low-income areas far from a supermarket ('food deserts'), though research finds physical distance matters less than the relative price of healthy versus unhealthy food. The systemic view holds that price, marketing and access shape what most people eat more than their own decisions do; the personal-responsibility view holds that agency still decides what people eat within that environment, and that calling it inescapable infantilizes them. Whether processing itself causes overeating and disease has its own map, \"Are ultra-processed foods the main driver of obesity and chronic disease?\"; this pillar asks how much room the environment leaves for choice.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The food environment is not a neutral marketplace of free choice — it is an engineered system optimized for overconsumption. Research by Kevin Hall at the NIH (2019) demonstrated in a randomized controlled trial that people consumed about 500 more calories per day on an ultra-processed diet compared to an unprocessed diet matched for available calories, macronutrients, sugar, fat, and fiber. Participants were not told to overeat — the ultra-processed foods overrode their satiety signals. The systemic barriers are less about physical distance to a store — studies find supermarket proximity is not the decisive factor once prices are controlled — and more about affordability and marketing: in low-income neighborhoods the relative price of healthy versus junk food predicts obesity, and the food industry spends roughly $14 billion per year on advertising, with about $2 billion aimed at children and the heaviest targeting directed at low-income and minority communities. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable, fresh-food-oriented infrastructure that the US lacks — their lower obesity rates point to systemic factors, not merely greater individual virtue.",
+        "The food environment is not a neutral marketplace of free choice. The systemic barriers are less about physical distance to a store (studies find supermarket proximity is not the decisive factor once prices are controlled) and more about affordability and marketing: in low-income neighborhoods the relative price of healthy versus junk food predicts obesity, and the food industry spends roughly $14 billion per year on advertising, with about $2 billion aimed at children and the heaviest targeting directed at low-income and minority communities. When a government changes that environment, behavior moves with it: Chile's warning labels and children's marketing ban were followed by a large drop in sugary drink purchases, without anyone being asked to try harder. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable, fresh-food-oriented infrastructure that the US lacks; their lower obesity rates point to systemic factors, not merely greater individual virtue.",
       proponent_rebuttal:
-        "People make food choices every day, and millions of individuals in the same food environment maintain healthy weights. The existence of ultra-processed foods does not compel anyone to eat them. Personal responsibility advocates point out that calorie information is widely available, that affordable staple foods (rice, beans, frozen vegetables) exist even in low-income areas, and that cultural attitudes toward food shape overconsumption alongside corporate marketing. Countries with similar access to global food corporations (Japan, South Korea) have far lower obesity rates, which supporters read as evidence that norms and individual behavior matter — though critics note those countries also have stronger food policy and walkable infrastructure. Blaming the food environment alone, supporters argue, risks a victim mentality that discourages the behavioral changes shown to reduce weight.",
+        "People make food choices every day, and millions of individuals in the same food environment maintain healthy weights. Cheap snacks on the shelf do not compel anyone to buy them. Personal responsibility advocates point out that calorie information is widely available, that affordable staple foods (rice, beans, frozen vegetables) exist even in low-income areas, and that cultural attitudes toward food shape eating alongside corporate marketing. Countries with similar access to global food corporations (Japan, South Korea) have far lower obesity rates, which supporters read as evidence that norms and individual behavior matter, though critics note those countries also have stronger food policy and walkable infrastructure. Blaming the food environment alone, supporters argue, risks a victim mentality that discourages the behavioral changes shown to reduce weight.",
       crux: {
         id: "food-environment-causation",
-        title: "The Ultra-Processed Food Causation Test",
+        title: "The Environment Versus Agency Test",
         question:
-          "Does the ultra-processed food environment drive obesity, or does personal choice still dominate?",
+          "Do price, marketing and access override individual choice for most people?",
         description:
-          "Determine whether the ultra-processed food environment causally drives obesity independent of individual choice, or whether personal agency remains the dominant factor in weight outcomes.",
+          "Determine how much of the variation in weight is explained by the price, marketing and availability of food that people face, and how much by decisions individuals make within the same environment.",
         methodology:
-          "Conduct large-scale randomized controlled trials (expanding on Hall et al. 2019) comparing ad libitum caloric intake and weight change across ultra-processed vs. whole food diets over 6-12 months. Simultaneously analyze natural experiments where food environment policy changed (e.g., sugary drink taxes in Mexico, junk food advertising bans in Chile) and measure population-level obesity rate changes. Cross-reference with individual-level longitudinal data tracking food access, purchasing behavior, and weight outcomes.",
+          "Analyze natural experiments where only the food environment changed (Chile's children's marketing ban and school junk-food removal, Mexico's sugary drink tax, new supermarkets opening in low-income neighborhoods) and measure population-level changes in purchases and weight. Alongside, follow individuals who share one environment (same neighborhood, prices and store access) and measure how widely their diets and weights diverge, and what predicts the divergence.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Six-to-twelve-month trials extending Hall et al. that compare free eating on ultra-processed and whole-food diets, alongside population weight trends after policy changes such as Chile's junk-food rules and Mexico's sugary drink tax.",
+            "Population weight trends after policies that changed only prices, marketing or store access, such as Chile's ban on marketing junk food to children and Mexico's sugary drink tax, set against how widely diets and weights vary among neighbors who face identical prices and stores.",
         },
         cost_to_verify:
-          "$5-15M (Multi-site RCTs with metabolic ward and free-living phases, plus policy natural experiment analysis)",
+          "$5-15M (Policy natural experiment analysis plus multi-site longitudinal cohorts tracking purchases and weight)",
         falsification: {
           supporter_flip:
-            "If trials extending Hall et al. to 6-12 months kept showing people overeating on ultra-processed diets, and policy natural experiments such as Chile's junk-food rules or Mexico's sugary drink tax cut population obesity, the case that obesity is mainly a matter of individual choice would weaken.",
+            "If policies that changed only prices, marketing or store access, such as Chile's ban on marketing junk food to children and Mexico's sugary drink tax, were followed by lasting drops in population weight, the case that obesity is mainly a matter of individual choice would weaken.",
           skeptic_flip:
-            "If studies found that most people in the same food environment keep healthy weights using widely available calorie information and affordable staples such as rice, beans and frozen vegetables, even in low-income areas, the engineered-environment explanation would cover less of obesity.",
+            "If neighbors facing the same prices, marketing and stores turned out to differ widely in diet and weight, and that spread tracked their own habits more than their income, the environment would explain less of obesity than the systemic view holds.",
           common_ground:
             "Both sides agree Japan and South Korea have far lower obesity than the US despite access to many of the same global food companies, and that both norms and food policy differ there.",
           live_disagreement:
-            "Whether an environment engineered for overconsumption drives obesity in ways individual choice cannot easily override, or whether personal agency still decides what people eat within it.",
+            "Whether the price, marketing and availability of food decide what most people eat, or whether personal agency still decides it within that environment.",
         },
       },
       evidence: [
-        {
-          id: "hall-upf-rct",
-          title:
-            "NIH RCT: Ultra-Processed Diets Cause 500 kcal/day Overconsumption (Hall et al. 2019)",
-          description:
-            "Kevin Hall's landmark NIH metabolic ward study randomized 20 adults to ultra-processed or unprocessed diets for two weeks each. On the ultra-processed diet, participants spontaneously consumed 508 more calories per day and gained 0.9 kg, despite meals being matched for available calories, macronutrients, sugar, sodium, and fiber. On the unprocessed diet, participants lost 0.9 kg. This was the first randomized evidence that ultra-processed foods causally drive overconsumption.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 7,
-            directness: 9,
-          },
-          source: "Hall et al., Cell Metabolism (2019)",
-          sourceUrl:
-            "https://doi.org/10.1016/j.cmet.2019.05.008",
-          reasoning:
-            "Published in a top-tier journal, conducted at the NIH Clinical Center with rigorous metabolic ward methodology. The RCT design establishes causation, not just correlation. Replicability is somewhat lower because metabolic ward studies are expensive and the sample was small (n=20), though the effect size was very large.",
-        },
         {
           id: "food-desert-disparities",
           title:
@@ -249,25 +230,25 @@ export const obesityPersonalResponsibilityData = {
     },
 
     // =========================================================================
-    // PILLAR 3: The GLP-1 Revolution
+    // PILLAR 3: What Appetite Drugs Reveal About Choice
     // =========================================================================
     {
       id: "glp1-revolution",
-      title: "The GLP-1 Revolution",
+      title: "What Appetite Drugs Reveal About Choice",
       short_summary:
-        "Semaglutide (Ozempic/Wegovy) produced about 15% mean weight loss in its pivotal trial and tirzepatide (Mounjaro/Zepbound) about 22%, by mimicking gut hormones that regulate appetite and satiety. Proponents of the disease model argue that the dramatic success of pharmacological intervention proves obesity is a biological disease requiring medical treatment, not a moral failing. Its skeptics contend that GLP-1 drugs are an expensive crutch that medicalizes lifestyle problems, can create long-term pharmaceutical dependency, and diverts attention from addressing root causes.",
+        "Drugs that mimic gut hormones regulating appetite and satiety produce large weight losses in trials, and most of the weight returns when people stop taking them. The disease-model view reads this as proof that weight is set by biology rather than by character; the personal-responsibility view reads it as an appetite suppressant standing in for habits people could build themselves. Whether these drugs are a safe, affordable, lasting treatment has its own map, \"Are GLP-1 drugs like Ozempic a safe, lasting answer to obesity?\"; this pillar asks only what the drugs' effect says about how much of weight is chosen.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "The success of GLP-1 drugs is the strongest evidence that obesity is a biological condition, not a character flaw. Semaglutide 2.4mg (Wegovy) produced 14.9% weight loss in the STEP 1 trial (Wilding et al., NEJM 2021) — more than any behavioral intervention has ever consistently achieved. Tirzepatide produced 22.5% weight loss in SURMOUNT-1 (Jastreboff et al., NEJM 2022). These drugs work by correcting the impaired gut-brain signaling that drives overeating, not by creating artificial willpower. The weight regain upon discontinuation actually proves the biological argument: if obesity were merely a behavioral choice, people who learned healthier habits during treatment would maintain their weight loss. Instead, the body's biological drive to restore its previous weight overwhelms behavioral changes once the pharmacological correction is removed — exactly as occurs when insulin is discontinued in Type 2 diabetes. The SELECT trial (Lincoff et al., NEJM 2023) showed semaglutide reduced major adverse cardiovascular events by 20% independent of weight loss, revealing metabolic disease pathways that transcend body weight. Socioeconomic disparities in obesity reflect disparities in the food environment, stress, and healthcare access — not proof that obesity is a choice.",
+        "The success of GLP-1 drugs is the strongest evidence that obesity is a biological condition, not a character flaw. In the STEP 1 trial (Wilding et al., NEJM 2021) semaglutide produced 14.9% weight loss, more than any behavioral intervention has consistently achieved. Tirzepatide produced 22.5% weight loss in SURMOUNT-1 (Jastreboff et al., NEJM 2022). The drugs act on impaired gut-brain signaling that drives overeating; they do not create artificial willpower. Weight regain on stopping points the same way: if obesity were merely a behavioral choice, people who learned healthier habits during treatment would keep the weight off. Instead, the body's drive to restore its previous weight overwhelms those habits once the hormonal signal is removed, as happens when insulin is stopped in Type 2 diabetes. Socioeconomic disparities in obesity reflect disparities in the food environment, stress, and healthcare access, not proof that obesity is a choice.",
       proponent_rebuttal:
-        "GLP-1 drugs work by suppressing appetite — they do not fix any underlying 'disease.' They are essentially pharmaceutical willpower substitutes carrying US list prices of roughly $1,000-1,350 per month, and stopping them brings most of the weight back (about two-thirds of the loss returns within a year), implying long-term dependency while generating large profits for manufacturers. The medicalization of obesity through GLP-1 drugs, supporters argue, diverts attention from cheaper, more sustainable solutions: better nutrition education, food policy reform, urban design for walkability, and cultural shifts toward healthier eating. And if obesity were a uniform biological disease, it would not be so heavily concentrated among low-income populations — that gradient, supporters say, points to environmental and behavioral drivers. Meeting a cheap, hyper-palatable food environment with an expensive lifelong prescription, on this view, treats the symptom rather than the cause.",
+        "These drugs work by suppressing appetite; they do not show that any underlying 'disease' was there to fix. A drug that makes people want less food would reduce weight whatever the original cause. About two-thirds of the lost weight returns within a year of stopping, which supporters read as dependence on an appetite suppressant rather than evidence that choice was never involved. And if obesity were a uniform biological disease, it would not be so heavily concentrated among low-income populations; that gradient, supporters say, points to environmental and behavioral drivers that people and communities can change.",
       crux: {
         id: "glp1-disease-model-validation",
-        title: "The GLP-1 Disease Model Validation Test",
+        title: "The Disease Model Test",
         question:
-          "Do GLP-1 drugs work by correcting a biological defect, or simply by suppressing appetite?",
+          "Does the drugs' effect reveal a biological defect choice can't override, or only a suppressed appetite?",
         description:
-          "Determine whether GLP-1 drug efficacy validates the disease model of obesity or merely demonstrates that pharmacological appetite suppression can override behavioral patterns. If GLP-1 drugs correct specific biological deficits (impaired incretin signaling, leptin resistance, disrupted gut-brain communication) that cause obesity independent of food environment and behavior, the disease model is validated. If they primarily function as appetite suppressants that work regardless of biological status, they are treating a symptom, not a disease.",
+          "Determine whether drug-induced weight loss validates the disease model of obesity or merely shows that pharmacological appetite suppression can override behavioral patterns. If the drugs correct specific biological deficits (impaired incretin signaling, leptin resistance, disrupted gut-brain communication) that cause obesity independent of food environment and behavior, the disease model is validated. If they act as appetite suppressants that work regardless of biological status, they say little about how much of weight is chosen.",
         methodology:
           "Conduct randomized trials stratifying participants by biological markers: impaired GLP-1 secretion, leptin resistance levels, gut microbiome composition, and polygenic risk scores for obesity. Measure whether drug response correlates with biological deficit severity (supporting the disease model) or is uniform across biological profiles (supporting the appetite suppressant model). Include a behavioral intervention arm with matched caloric restriction to compare biological outcomes (metabolic adaptation, hormonal changes) between pharmacological and behavioral weight loss.",
         verification_status: "theoretical" as const,
@@ -279,11 +260,11 @@ export const obesityPersonalResponsibilityData = {
           "$20-50M (Large stratified RCT with comprehensive biomarker profiling across pharmacological and behavioral arms)",
         falsification: {
           supporter_flip:
-            "If trials stratified by biological markers found GLP-1 response tracking the severity of impaired gut-brain signaling or leptin resistance, the drugs would be correcting a specific deficit, and the case that obesity is mainly a matter of choice would weaken.",
+            "If trials stratified by biological markers found drug response tracking the severity of impaired gut-brain signaling or leptin resistance, the drugs would be correcting a specific deficit, and the case that obesity is mainly a matter of choice would weaken.",
           skeptic_flip:
-            "If trials found GLP-1 drugs working by appetite suppression alone, with about two-thirds of lost weight returning within a year of stopping, and the steep income gradient in obesity tracked environment and behavior, the disease framing would carry less weight.",
+            "If trials found the drugs working by appetite suppression alone, equally across biological profiles, and the steep income gradient in obesity tracked environment and behavior, the disease framing would carry less weight.",
           common_ground:
-            "Both sides accept the trial results — about 15% mean weight loss on semaglutide and 22% on tirzepatide — and that most of the weight comes back after the drugs are stopped.",
+            "Both sides accept the trial results, about 15% mean weight loss on semaglutide and 22% on tirzepatide, and that most of the weight comes back after the drugs are stopped.",
           live_disagreement:
             "Whether weight regain after stopping shows a biological drive the drugs correct, as insulin does in Type 2 diabetes, or dependence on an appetite suppressant that treats the symptom rather than the cause.",
         },
@@ -309,25 +290,6 @@ export const obesityPersonalResponsibilityData = {
             "Published in the NEJM, the most prestigious medical journal, with a large sample size and rigorous double-blind RCT design. The effect size is unprecedented for a pharmacological obesity intervention. Independence is slightly reduced because the trial was funded by Novo Nordisk, though the NEJM's editorial standards and independent statistical verification provide strong safeguards.",
         },
         {
-          id: "select-cardiovascular-trial",
-          title:
-            "SELECT Trial: Semaglutide Reduced Cardiovascular Events by 20%",
-          description:
-            "The SELECT trial (Lincoff et al., NEJM 2023) randomized 17,604 adults with overweight/obesity and established cardiovascular disease to semaglutide 2.4mg or placebo. Over a median 39.8 months, semaglutide reduced major adverse cardiovascular events (heart attack, stroke, cardiovascular death) by 20%. Critically, the cardiovascular benefits appeared to exceed what would be predicted from weight loss alone, suggesting direct metabolic disease pathway effects.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 10,
-            independence: 8,
-            replicability: 8,
-            directness: 8,
-          },
-          source: "Lincoff et al., New England Journal of Medicine (2023)",
-          sourceUrl:
-            "https://doi.org/10.1056/NEJMoa2307563",
-          reasoning:
-            "The largest cardiovascular outcomes trial for an obesity drug, published in the NEJM. The 20% reduction in cardiovascular events suggests obesity involves disease pathways beyond excess weight, supporting the disease model. The finding that benefits exceeded weight-loss predictions is particularly significant for the disease vs. behavior debate.",
-        },
-        {
           id: "weight-regain-discontinuation",
           title:
             "67% of Weight Regained Within One Year of GLP-1 Discontinuation",
@@ -346,35 +308,10 @@ export const obesityPersonalResponsibilityData = {
           reasoning:
             "Well-designed extension study from a top-tier trial. The weight regain data is used by both sides: proponents say it proves the body biologically defends its higher weight (disease model), while skeptics say it proves the drugs create dependency rather than curing anything. Directness is moderate because the interpretation depends on one's prior framework.",
         },
-        {
-          id: "glp1-cost-equity-barrier",
-          title:
-            "GLP-1 Drugs Carry ~$1,000-1,350/Month List Prices, Creating Health Equity Gaps",
-          description:
-            "Semaglutide (Wegovy) has carried a US list price of roughly $1,350/month and tirzepatide (Zepbound) roughly $1,060/month, though discounted cash and direct-to-consumer prices have been substantially lower and are changing rapidly. Coverage for obesity (as opposed to diabetes) indications has historically been limited: as of early 2026, only a minority of state Medicaid programs covered GLP-1s for obesity. The populations with the highest obesity rates — low-income, rural, and minority communities — are generally least able to afford treatment, raising concerns that a condition shaped by the food environment is being met with an expensive pharmaceutical fix unevenly available across income groups.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 8,
-            directness: 5,
-          },
-          source:
-            "KFF, Medicaid Coverage of and Spending on GLP-1s; published US list prices for Wegovy and Zepbound",
-          sourceUrl:
-            "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
-          reasoning:
-            "List-price data is publicly verifiable, and limited obesity-indication coverage is documented by KFF. The prior draft's specific '$15,000/year' and '$100B JP Morgan addressable-market' figures were removed because they could not be primary-source verified and the pricing/coverage landscape is shifting quickly (cash prices have fallen well below list). Directness lowered: cost and equity are implementation concerns, not evidence against the disease model itself — proponents of the disease model note insulin is also costly and creates dependency, yet diabetes is not deemed a mere lifestyle choice.",
-        },
       ],
     },
   ],
   references: [
-    {
-      title:
-        "Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain — Hall et al., Cell Metabolism (2019)",
-      url: "https://doi.org/10.1016/j.cmet.2019.05.008",
-    },
     {
       title:
         "Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP 1) — Wilding et al., NEJM (2021)",
@@ -392,7 +329,7 @@ export const obesityPersonalResponsibilityData = {
       title:
         "Does the food environment make healthy eating impossible for some populations?",
       content:
-        "Ultra-processed foods constitute 60% of US caloric intake, engineered for hyper-palatability and marketed at a fraction of the cost of whole foods. NIH research shows people spontaneously overeat by 500 calories per day on ultra-processed diets. Yet countries with similar food industry presence maintain much lower obesity rates through regulation and cultural norms. Is the American food environment an inescapable trap, or does it reflect policy choices that could be changed without medicalizing obesity?",
+        "Calorie-dense food is cheap, heavily marketed, and the default in many low-income neighborhoods, and research finds the relative price of healthy food predicts obesity better than distance to a supermarket. Yet millions of people in the same environment keep healthy weights, and countries with similar food industry presence maintain much lower obesity rates through regulation and cultural norms. Is the American food environment a trap most people cannot choose their way out of, or does it leave real room for individual decisions?",
     },
     {
       id: "q2",
@@ -406,7 +343,7 @@ export const obesityPersonalResponsibilityData = {
       title:
         "Does the success of Ozempic prove obesity is a disease, not a choice?",
       content:
-        "GLP-1 drugs like semaglutide produce roughly 15% mean weight loss (and tirzepatide about 22%) — magnitudes previously achievable only through surgery — by correcting impaired gut-brain signaling. The SELECT trial showed cardiovascular benefits beyond weight loss, suggesting metabolic disease pathways. But about two-thirds of the lost weight returns within a year of stopping the drug, and US list prices run roughly $1,000-1,350/month. Is GLP-1 efficacy proof that obesity requires medical treatment like any other disease, or evidence that pharmaceutical companies have found a profitable way to treat symptoms while ignoring root causes?",
+        "GLP-1 drugs like semaglutide produce roughly 15% mean weight loss (and tirzepatide about 22%) by acting on the gut-brain signals that regulate appetite. About two-thirds of the lost weight returns within a year of stopping. Does that show a biological drive the drugs correct, the way insulin corrects diabetes, or an appetite suppressant standing in for habits people could still choose to build?",
     },
   ],
 } satisfies TopicInput;
