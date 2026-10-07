@@ -223,7 +223,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "what-is-a-crux-and-why-it-matters",
     title: "What Is a Crux and Why It Matters",
-    description: "A crux is the single belief that, if changed, would change your entire position on an issue. Learn why identifying cruxes transforms unproductive arguments into genuine progress.",
+    description: "A crux is the question a fight turns on, and what would settle it. Learn why identifying cruxes turns unproductive arguments into genuine progress.",
     tags: [
       "crux",
       "disagreement",
@@ -352,7 +352,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "finding-the-crux-of-debates",
     title: "The Crux of the Matter: Finding What Actually Matters in Any Debate",
-    description: "Most debates fail because people argue about everything except the thing that actually matters. Learn how to identify the crux — the single point of disagreement that, if resolved, would change everything.",
+    description: "Most debates fail because people argue about everything except the thing that actually matters. Learn how to identify the crux: the question a fight turns on, and what would settle it.",
     tags: [
       "crux",
       "argument analysis",

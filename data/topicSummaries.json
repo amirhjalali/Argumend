@@ -1778,9 +1778,9 @@
     "title": "Housing Supply & Affordability",
     "question": "Would building more homes make housing affordable?",
     "meta_claim": "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
-    "confidence_score": 78,
-    "balance": 78,
-    "weight": 68,
+    "confidence_score": 75,
+    "balance": 75,
+    "weight": 65,
     "verdict": {
       "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
@@ -1789,7 +1789,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 9,
+    "evidenceCount": 8,
     "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
     "tags": [
       "economics"
