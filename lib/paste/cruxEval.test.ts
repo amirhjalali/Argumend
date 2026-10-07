@@ -36,6 +36,8 @@ interface CruxCase {
   map: string;
   text: string;
   expected: string;
+  /** Written after the picker was tuned on the rest (r9 live review), scored apart. */
+  holdout?: boolean;
 }
 
 const CASES = (set as { cases: CruxCase[] }).cases;
@@ -62,6 +64,22 @@ beforeAll(async () => {
 
 afterAll(() => vi.unstubAllGlobals());
 
+function measure(scored: readonly Row[], label: string) {
+  const top1 = scored.filter((row) => row.shown[0] === row.expected).length / scored.length;
+  const shown = scored.filter((row) => row.shown.includes(row.expected)).length / scored.length;
+  const two = scored.filter((row) => row.shown.length === 2).length / scored.length;
+  const detail = [
+    `${label}: top-1 ${(top1 * 100).toFixed(0)}%  shown ${(shown * 100).toFixed(0)}%  two shown ${(two * 100).toFixed(0)}%  (n=${scored.length})`,
+    ...scored
+      .filter((row) => row.shown[0] !== row.expected)
+      .map(
+        (row) =>
+          `  ${row.shown.includes(row.expected) ? "second" : "MISS  "} ${row.id}: ${row.shown.join(" + ")} (want ${row.expected})`,
+      ),
+  ].join("\n");
+  return { top1, shown, two, detail };
+}
+
 describe("the crux-choice eval set", () => {
   it("is big enough and labelled with cruxes that exist", async () => {
     expect(CASES.length).toBeGreaterThanOrEqual(25);
@@ -78,22 +96,17 @@ describe("the crux-choice eval set", () => {
   });
 
   it("holds the floors", () => {
-    const top1 = rows.filter((row) => row.shown[0] === row.expected).length / rows.length;
-    const shown = rows.filter((row) => row.shown.includes(row.expected)).length / rows.length;
-    const two = rows.filter((row) => row.shown.length === 2).length / rows.length;
-    const detail = [
-      `crux choice: top-1 ${(top1 * 100).toFixed(0)}%  shown ${(shown * 100).toFixed(0)}%  two shown ${(two * 100).toFixed(0)}%  (n=${rows.length})`,
-      ...rows
-        .filter((row) => row.shown[0] !== row.expected)
-        .map(
-          (row) =>
-            `  ${row.shown.includes(row.expected) ? "second" : "MISS  "} ${row.id}: ${row.shown.join(" + ")} (want ${row.expected})`,
-        ),
-    ].join("\n");
+    const { top1, shown, two, detail } = measure(rows.filter((row) => !row.holdout), "crux choice");
     console.info(detail);
     expect(top1, detail).toBeGreaterThanOrEqual(FLOORS.top1);
     expect(shown, detail).toBeGreaterThanOrEqual(FLOORS.shown);
     expect(two, detail).toBeLessThanOrEqual(FLOORS.maxTwo);
+  });
+
+  it("reports the held-out cases", () => {
+    const held = rows.filter((row) => row.holdout);
+    expect(held.length).toBeGreaterThanOrEqual(5);
+    console.info(measure(held, "crux choice, holdout").detail);
   });
 
   it("shows the rent-control paste the displacement crux, not the construction one", () => {
