@@ -257,9 +257,9 @@
     "title": "AI 2027: The Recursive-Automation Timeline",
     "question": "Will automating AI research bring superintelligence by the late 2020s?",
     "meta_claim": "The AI 2027 scenario forecasts that once AI systems can meaningfully automate AI research itself, a feedback loop compresses the path to superintelligence into the late 2020s — making this a decisive and dangerous period. The claim rests less on 'AI will be powerful' than on two contested quantitative bets: that the automation of R&D triggers an intelligence explosion, and that the resulting takeoff is fast (months, not decades) rather than a gradual ramp.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 77,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -267,7 +267,7 @@
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 5,
-    "evidenceCount": 21,
+    "evidenceCount": 20,
     "firstCrux": "Will the length of tasks AI can complete on its own keep doubling at its recent pace, or plateau?",
     "tags": [
       "technology"
@@ -769,9 +769,9 @@
     "title": "Should Schools Ban Smartphones?",
     "question": "Do school phone bans improve students' learning and mental health?",
     "meta_claim": "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 71,
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -779,7 +779,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 11,
     "firstCrux": "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
     "tags": [
       "policy"
@@ -790,9 +790,9 @@
     "title": "Pandemic Preparedness Investment",
     "question": "Should governments invest heavily in pandemic preparedness?",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 75,
+    "confidence_score": 67,
+    "balance": 67,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -800,7 +800,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 14,
+    "evidenceCount": 12,
     "firstCrux": "How often do truly catastrophic pandemics strike under modern conditions?",
     "tags": [
       "policy"
@@ -885,7 +885,7 @@
     "category": "technology",
     "pillarCount": 2,
     "evidenceCount": 8,
-    "firstCrux": "Does removing social media actually improve teens' mental health, or is the link driven by other factors?",
+    "firstCrux": "Do teens kept off social media end up with better mental health than teens who stay on?",
     "tags": [
       "technology"
     ]
@@ -916,9 +916,9 @@
     "title": "Existential Risk from AGI",
     "question": "Does AGI pose a real risk of human extinction within the next century?",
     "meta_claim": "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 70,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1125,18 +1125,18 @@
     "id": "ai-superintelligence-timeline",
     "title": "Will Artificial Superintelligence Arrive Before 2035?",
     "question": "Could artificial superintelligence arrive before 2035?",
-    "meta_claim": "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation.",
+    "meta_claim": "Scaling and algorithmic-efficiency trends have pulled expert AI timelines sharply forward — but mainstream forecasts still place even human-level machine intelligence decades out, making superintelligence before 2035 a real possibility rather than a consensus expectation. The AI 2027 scenario is one named fast path to it, not the only one.",
     "confidence_score": 60,
     "balance": 60,
-    "weight": 67,
+    "weight": 63,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence leans toward the claim — moderately evidenced",
+      "quadrant": "moderate"
     },
     "status": "highly_speculative",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 10,
     "firstCrux": "Will capability gains from more compute hit a ceiling before general reasoning?",
     "tags": [
       "technology"
@@ -1505,9 +1505,9 @@
     "title": "GLP-1 Weight Loss Drugs",
     "question": "Are GLP-1 drugs like Ozempic a safe, lasting answer to obesity?",
     "meta_claim": "GLP-1 receptor agonists like Ozempic and Mounjaro represent a safe, effective long-term solution to the obesity epidemic that should be widely accessible, not a dangerous shortcut that medicalizes a lifestyle problem.",
-    "confidence_score": 48,
-    "balance": 48,
-    "weight": 77,
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1515,7 +1515,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 4,
-    "evidenceCount": 15,
+    "evidenceCount": 14,
     "firstCrux": "Does ten or more years of continuous use stay net-beneficial, or reveal cumulative risks?",
     "tags": [
       "science"
@@ -1568,18 +1568,19 @@
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "question": "Is obesity mainly a matter of personal choice?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
-    "confidence_score": 18,
-    "balance": 18,
-    "weight": 72,
+    "confidence_score": 24,
+    "balance": 24,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence largely converges on the counterclaim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the counterclaim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does the ultra-processed food environment drive obesity, or does personal choice still dominate?",
+    "evidenceCount": 9,
+    "firstCrux": "Do price, marketing and access override individual choice for most people?",
     "tags": [
       "science"
     ]
@@ -1610,9 +1611,9 @@
     "title": "The Future of Remote Work",
     "question": "Will remote and hybrid work permanently replace the five-day office week?",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 74,
-    "balance": 74,
-    "weight": 57,
+    "confidence_score": 86,
+    "balance": 86,
+    "weight": 52,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1620,8 +1621,8 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Do remote teams produce as much innovation as comparable in-office teams?",
+    "evidenceCount": 6,
+    "firstCrux": "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
     "tags": [
       "economics"
     ]
@@ -1778,9 +1779,9 @@
     "title": "Housing Supply & Affordability",
     "question": "Would building more homes make housing affordable?",
     "meta_claim": "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
-    "confidence_score": 78,
-    "balance": 78,
-    "weight": 68,
+    "confidence_score": 75,
+    "balance": 75,
+    "weight": 65,
     "verdict": {
       "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
@@ -1789,7 +1790,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 9,
+    "evidenceCount": 8,
     "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
     "tags": [
       "economics"
@@ -1948,9 +1949,9 @@
     "title": "Does Rent Control Help or Hurt Renters?",
     "question": "Does rent control make housing less affordable in the long run?",
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 71,
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1958,7 +1959,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 13,
+    "evidenceCount": 11,
     "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
     "tags": [
       "economics"
@@ -2087,7 +2088,7 @@
     "category": "philosophy",
     "pillarCount": 2,
     "evidenceCount": 12,
-    "firstCrux": "Does consciousness require biology, or only the right information processing?",
+    "firstCrux": "Could any test reliably tell whether a non-biological system has subjective experience?",
     "tags": [
       "philosophy"
     ]
@@ -2140,9 +2141,9 @@
     "title": "The Hard Problem of Consciousness",
     "question": "Does explaining consciousness require more than brain processes?",
     "meta_claim": "Consciousness — subjective experience or 'what it is like' to be something — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
-    "confidence_score": 69,
-    "balance": 69,
-    "weight": 67,
+    "confidence_score": 65,
+    "balance": 65,
+    "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2150,7 +2151,7 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 9,
     "firstCrux": "After a complete functional account, is 'why does it feel like something?' a real question left over?",
     "tags": [
       "philosophy"
@@ -2182,17 +2183,17 @@
     "title": "Should Gain-of-Function Research Be Banned?",
     "question": "Should research that enhances pandemic pathogens be banned worldwide?",
     "meta_claim": "Gain-of-function research that enhances the transmissibility or pathogenicity of potential pandemic pathogens poses an existential biosecurity risk that outweighs its scientific benefits and should be permanently banned worldwide.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 62,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 64,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "How likely is a pandemic-capable pathogen to escape over time, given modern containment and more labs?",
     "tags": [
       "policy"
@@ -2202,10 +2203,10 @@
     "id": "children-smartphone-age",
     "title": "Smartphone Age Restrictions for Children",
     "question": "Should children under 14 be barred from owning smartphones?",
-    "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the developmental harms of constant connectivity, social media, and algorithmic content outweigh the benefits of access and safety.",
-    "confidence_score": 72,
-    "balance": 72,
-    "weight": 58,
+    "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the harms of a personal, always-connected device in childhood outweigh the benefits of access and safety.",
+    "confidence_score": 68,
+    "balance": 68,
+    "weight": 55,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2213,8 +2214,8 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7,
-    "firstCrux": "Do specific smartphone features cause harm to teens, or does the correlation reflect other factors?",
+    "evidenceCount": 6,
+    "firstCrux": "Do children with a smartphone fare worse than children with a basic phone or no phone?",
     "tags": [
       "technology"
     ]
@@ -2242,12 +2243,12 @@
   },
   {
     "id": "geoengineering-climate",
-    "title": "Geoengineering & Carbon Capture",
-    "question": "Is geoengineering now a necessary complement to cutting emissions?",
-    "meta_claim": "Geoengineering interventions — particularly stratospheric aerosol injection and direct air carbon capture — are now a necessary complement to emissions reduction, not a dangerous distraction from it.",
-    "confidence_score": 30,
-    "balance": 30,
-    "weight": 64,
+    "title": "Solar Geoengineering: Buy Time or Distraction?",
+    "question": "Is solar geoengineering now a necessary complement to cutting emissions?",
+    "meta_claim": "Solar geoengineering, particularly stratospheric aerosol injection, is now a necessary complement to emissions reduction, not a dangerous distraction from it.",
+    "confidence_score": 35,
+    "balance": 35,
+    "weight": 61,
     "verdict": {
       "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
@@ -2255,8 +2256,8 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 7,
-    "firstCrux": "Can natural sinks plus feasible cuts stay within the carbon budget without technological removal?",
+    "evidenceCount": 6,
+    "firstCrux": "Can emission cuts plus carbon removal arrive fast enough that sunlight reflection is never needed?",
     "tags": [
       "science"
     ]
