@@ -1,4 +1,5 @@
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { MAP_COUNT } from "@/data/topicIndex";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import type { Pillar } from "@/lib/schemas/topic";
@@ -235,6 +236,8 @@ describe("findMaps", () => {
     const result = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
     expect(result.reading.mapsSearched).toBe(EXPECTED_MAP_COUNT);
     expect(EXPECTED_MAP_COUNT).toBeGreaterThan(150);
+    // The count the home page and the health probe give (r9 review #15).
+    expect(EXPECTED_MAP_COUNT).toBe(MAP_COUNT);
   });
 
   it("returns at most three maps and never repeats the match as a closest map", async () => {

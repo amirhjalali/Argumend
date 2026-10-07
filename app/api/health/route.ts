@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { TOPIC_COUNT } from "@/data/topicIndex";
+import { MAP_COUNT, TOPIC_COUNT } from "@/data/topicIndex";
 import { HealthResponseSchema } from "./_schema";
 
 export const dynamic = "force-dynamic";
@@ -29,6 +29,7 @@ export function GET() {
     checks: {
       static_content: ready ? "ok" : "unavailable",
     },
+    map_count: MAP_COUNT,
     topic_count: TOPIC_COUNT,
     uptime_seconds: Math.floor(process.uptime()),
     timestamp: new Date().toISOString(),

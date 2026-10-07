@@ -131,23 +131,31 @@ export const MAP_MATCH = {
 // The index, built once per process
 // ---------------------------------------------------------------------------
 
-let indexPromise: Promise<MapIndex> | null = null;
+/**
+ * Kept on globalThis, not in this module: the boot hook that builds the
+ * index ahead of the first paste (instrumentation.ts) and the routes that
+ * serve pastes are bundled apart, each with its own copy of this module, in
+ * one server process.
+ */
+const shared = globalThis as typeof globalThis & { __argumendMapIndex?: Promise<MapIndex> | null };
 
 /**
- * Reads every map and builds the index on the first paste, then reuses it.
- * An index missing a map (one whose module failed to load) serves this paste
- * but is not kept, so the next paste retries.
+ * Reads every map and builds the index once per process (at boot, or on the
+ * first paste), then reuses it. An index missing a map (one whose module
+ * failed to load) serves this paste but is not kept, so the next paste retries.
  */
 export function getMapIndex(): Promise<MapIndex> {
-  if (indexPromise) return indexPromise;
+  if (shared.__argumendMapIndex) return shared.__argumendMapIndex;
   const attempt = loadMapDocuments().then((documents) => {
     const index = buildMapIndex(documents);
-    if (documents.length < EXPECTED_MAP_COUNT && indexPromise === attempt) indexPromise = null;
+    if (documents.length < EXPECTED_MAP_COUNT && shared.__argumendMapIndex === attempt) {
+      shared.__argumendMapIndex = null;
+    }
     return index;
   });
-  indexPromise = attempt;
+  shared.__argumendMapIndex = attempt;
   attempt.catch(() => {
-    if (indexPromise === attempt) indexPromise = null;
+    if (shared.__argumendMapIndex === attempt) shared.__argumendMapIndex = null;
   });
   return attempt;
 }
