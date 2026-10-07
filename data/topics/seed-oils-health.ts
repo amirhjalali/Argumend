@@ -171,7 +171,7 @@ export const seedOilsHealthData = {
           id: "eicosanoid-imbalance-animal",
           title: "High-Linoleic-Acid Diet Increased Weight Gain in Male Mice",
           description:
-            "A controlled study of 48 male mice compared low-fat and high-fat diets with linoleic acid providing 1%, 15%, or 22.5% of energy. Within the high-fat groups, higher linoleic acid produced greater weight gain and adiposity than saturated fat, but the researchers did not find the hypothalamic inflammation they had proposed as a mechanism. This animal result does not establish that ordinary human seed-oil intake causes obesity or inflammation.",
+            "A controlled study of 48 male mice compared low-fat and high-fat diets with linoleic acid providing 1%, 15%, or 22.5% of energy. The 22.5% linoleic-acid diet, with the balance of fat saturated, produced greater weight gain and insulin resistance than the control and 1% diets, but the researchers did not find the hypothalamic inflammation they had proposed as a mechanism. This animal result does not establish that ordinary human seed-oil intake causes obesity or inflammation.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -180,7 +180,7 @@ export const seedOilsHealthData = {
             directness: 4,
           },
           source:
-            "Alvheim et al., Obesity (2017), male-mouse feeding experiment",
+            "Mamounis, Yasrebi & Roepke, Journal of Nutritional Biochemistry (2017), male-mouse feeding experiment",
           sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/27886622/",
           reasoning:
             "The experiment directly supports a narrow mouse weight-gain result, not the earlier broad claim about inflammatory eicosanoids. Rodent fatty-acid metabolism differs from humans, the diets were high-fat and tightly engineered, and the proposed inflammatory mechanism was not observed, so reliability and directness remain low for the human-health debate.",
