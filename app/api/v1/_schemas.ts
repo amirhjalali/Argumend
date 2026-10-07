@@ -14,6 +14,9 @@ export const ApiIndexResponseSchema = z.object({
   description: z.string().min(1),
   documentation: z.string().url(),
   website: z.string().url(),
+  /** Every map on the site (data/topicIndex.ts MAP_COUNT), as the home page counts them. */
+  map_count: z.number().int().nonnegative(),
+  /** The maps /api/v1/topics lists: the older pillar maps. */
   topic_count: z.number().int().nonnegative(),
   base_url: z.string().url(),
   endpoints: z.array(ApiEndpointSchema).min(1),

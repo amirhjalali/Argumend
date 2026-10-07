@@ -22,7 +22,7 @@ import { ReadItYourself } from "./ReadItYourself";
  *
  * Everything shown is copied from the map itself: its title and claim, the
  * question its crux asks with what would change each side's mind, and the
- * strongest card on each side. The cards carry no weight score here. Two
+ * strongest card on each side (said plainly when the map has none on one). The cards carry no weight score here. Two
  * scores side by side read as a side ahead on points, and the map page is
  * where a reader can see what a weight weighs.
  *
@@ -259,6 +259,12 @@ export function MapMatch({
 }) {
   // Supporting card first, then the challenge: a fixed order, not a ranking.
   const cards = [...match.cards].sort((a, b) => (a.side === b.side ? 0 : a.side === "for" ? -1 : 1));
+  // A map with no card on one side at all still shows two cards, but not
+  // under a heading that promises one per side.
+  const words = sideWordsFor(match);
+  const missingSide = cards.length > 0 && new Set(cards.map((card) => card.side)).size === 1
+    ? (cards[0].side === "for" ? "against" : "for")
+    : null;
 
   return (
     <section aria-labelledby="map-match-heading" className="scroll-mt-24">
@@ -302,17 +308,26 @@ export function MapMatch({
 
       {cards.length > 0 ? (
         <div className="mt-10">
-          <h3 className="label-caps">The strongest card on each side</h3>
+          <h3 className="label-caps">
+            {missingSide
+              ? cards.length === 1
+                ? "The strongest card"
+                : "The strongest cards"
+              : "The strongest card on each side"}
+          </h3>
           <p className="mt-1 max-w-[36rem] font-sans text-[0.9375rem] text-[var(--text-secondary)]">
             {match.cardsAbout === "map-question"
               ? "Yes and no answer the map’s question at the top, not the crux."
               : match.cardsAbout === "map-claim"
                 ? "Each card is read against the map’s claim above."
                 : "Each card is read against the claim behind this question."}
+            {missingSide
+              ? ` No card here is labelled “${sideLabel(missingSide, words)}”.`
+              : null}
           </p>
           <ul className="mt-5 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
             {cards.map((card) => (
-              <Card key={card.id} card={card} words={sideWordsFor(match)} />
+              <Card key={card.id} card={card} words={words} />
             ))}
           </ul>
         </div>
@@ -355,7 +370,9 @@ export function MapNoMatch({
         <p className="max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
           {closest
             ? "None of Argumend’s maps stood out for this text, so none is named as its map."
-            : `None of Argumend’s ${maps.reading.mapsSearched} maps is about this, so none is named.`}
+            : // Not "none is about this": the lane matches words, and a map can
+              // cover a text that words it differently (r9 live review #2).
+              `No map stood out for this text among Argumend’s ${maps.reading.mapsSearched}, so none is named. One may still cover it in other words.`}
         </p>
       </header>
       <ClosestMaps

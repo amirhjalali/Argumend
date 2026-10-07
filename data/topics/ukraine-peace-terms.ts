@@ -50,10 +50,10 @@ export const ukrainePeaceTermsData = {
       },
       evidence: [
         {
-          id: "isw-stalemate-april-2026",
-          title: "Front Line Barely Moved for Months; Russian Spring Offensive 'Underwhelming'",
+          id: "isw-front-line-2026",
+          title: "ISW records a front line moving in small increments through 2026",
           description:
-            "As of late April 2026, ISW's daily campaign assessments describe a frontline that has barely moved in months. On April 27, neither side made confirmed advances. The Russian spring 2026 offensive that Western planners feared was characterized by ISW analysts as 'underwhelming' — heavy assault tempo and high Russian casualties for almost no operationally meaningful terrain. This stalemate underpins the argument that the territorial outcome cannot be reversed by force.",
+            "ISW's daily campaign assessments have described a front line moving in small increments for most of 2026. Its assessment of 5 October 2026 records Russian offensive operations in the northern Sumy, Kupyansk, Lyman, Slovyansk and Kostiantynivka directions with no confirmed advances on 4-5 October, Ukrainian forces clearing about 10 square kilometres of forest northeast of Vovchansk, and Russian occupation officials claiming captures that ISW says do not reflect battlefield realities. The Russian spring 2026 offensive that Western planners had feared produced a heavy assault tempo and high Russian casualties for little operationally meaningful terrain.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -61,10 +61,12 @@ export const ukrainePeaceTermsData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Institute for the Study of War (ISW) via Kyiv Post; Critical Threats",
-          sourceUrl: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-april-27-2026",
+          source:
+            "Institute for the Study of War / Critical Threats, Russian Offensive Campaign Assessment (5 October 2026)",
+          sourceUrl:
+            "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-october-5-2026",
           reasoning:
-            "ISW's control-of-terrain assessments are the gold-standard, independently reproducible daily record of the front. A months-long stalemate supports the proponent claim that ratifying de facto lines reflects military reality. But the same data is cited by hawks as proof Russia 'cannot break through,' so it is genuinely double-edged.",
+            "ISW's control-of-terrain assessments are the gold-standard, independently reproducible daily record of the front. A front that moves this slowly supports the proponent claim that ratifying de facto lines reflects military reality. But the same data is cited by hawks as proof Russia 'cannot break through,' so it is genuinely double-edged.",
         },
         {
           id: "28-point-plan-recognition",
@@ -98,7 +100,7 @@ export const ukrainePeaceTermsData = {
           source: "Kyiv Independent; Ukrainian government statements",
           sourceUrl: "https://kyivindependent.com/elections-or-referendum-zelensky-affirms-ukrainians-will-decide-territorial-concessions/",
           reasoning:
-            "Zelensky's referendum position is well-documented but is a party to the dispute, lowering independence. It directly addresses the sovereignty pillar: it establishes a constitutional barrier to ceding territory that is independent of military feasibility, complicating any imposed settlement.",
+            "Zelensky's referendum position is well-documented but is a party to the dispute, lowering independence. It directly addresses the sovereignty question: it establishes a constitutional barrier to ceding territory that is independent of military feasibility, complicating any imposed settlement.",
         },
         {
           id: "miami-revisions-20-point",
@@ -440,7 +442,7 @@ export const ukrainePeaceTermsData = {
           id: "putin-stalling-jamestown",
           title: "Jamestown: Putin Is Stalling a '90%-Complete' Deal With Maximalist Demands",
           description:
-            "As of April 2026, Jamestown Foundation analysts argued Putin — not Zelensky — is stalling a deal described as '90 percent complete,' fabricating a Ukrainian drone attack on his residence and weaponizing a Ukrainian corruption scandal to delegitimize Kyiv. Putin's stated demands remain maximalist: full withdrawal from all four claimed oblasts, a permanent NATO bar, a capped Ukrainian military, and sanctions relief. This supports the skeptic claim that Russia would not honor a freeze at current lines.",
+            "In April 2026, Jamestown Foundation analysts argued Putin — not Zelensky — is stalling a deal described as '90 percent complete,' fabricating a Ukrainian drone attack on his residence and weaponizing a Ukrainian corruption scandal to delegitimize Kyiv. Putin's stated demands at that point were maximalist: full withdrawal from all four claimed oblasts, a permanent NATO bar, a capped Ukrainian military, and sanctions relief. This supports the skeptic claim that Russia would not honor a freeze at current lines.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,

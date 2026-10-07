@@ -26,6 +26,11 @@
  *    for a short paste that cannot score high, at least `minCoverage` of its
  *    words accounted for with a score of at least `minShortScore`.
  *
+ * Or, for a short paste that says the map's own rare word: it uses a word of
+ * the map's name that no other map's name has and at most
+ * `ownNameWordMaxMaps` maps use at all ("microplastics"), and the map leads
+ * the rival by `minLead` with at least `minShortScore`.
+ *
  * Calibrated on 2026-09-29 against data/evals/paste-matching/pastes.json and
  * checked on holdout.json; lib/paste/matchEval.test.ts holds the floors, and
  * docs/reviews/2026-09-29-r2-paste-matching.md has the measurements.
@@ -79,6 +84,14 @@ export const MAP_MATCH = {
   /** ...with at least this score, so one borrowed word ("exhausting") is never enough. */
   minShortScore: 4.5,
   /**
+   * A word of a map's name that no other map's name has, used by at most
+   * this many maps anywhere, says what a short paste is about on its own:
+   * "a spoonful of microplastics in everyone's brain" is the microplastics
+   * map's, though "brain" and "panicking" leave its coverage at 0.27
+   * (r9 live review #2).
+   */
+  ownNameWordMaxMaps: 2,
+  /**
    * With no map named, the closest maps are offered only when the best one
    * reaches this score and accounts for at least `closestCoverage` of the
    * paste's words, and no one map stood clear (see `decideMatch`). Below
@@ -105,29 +118,44 @@ export const MAP_MATCH = {
   siblingNameShare: 0.6,
   /** …and the paste must use at least this many words of its name that the top map's name lacks. */
   siblingNameMargin: 2,
+  /**
+   * A map on another subject is listed beside the answer, or as a closest
+   * map, only when the paste uses a word of its name (any of its names)
+   * that at most this many maps use: "nuclear", "Medicare", "billionaire"
+   * count; "school", "work", "public" do not.
+   */
+  listedNameWordMaxMaps: 20,
 } as const;
 
 // ---------------------------------------------------------------------------
 // The index, built once per process
 // ---------------------------------------------------------------------------
 
-let indexPromise: Promise<MapIndex> | null = null;
+/**
+ * Kept on globalThis, not in this module: the boot hook that builds the
+ * index ahead of the first paste (instrumentation.ts) and the routes that
+ * serve pastes are bundled apart, each with its own copy of this module, in
+ * one server process.
+ */
+const shared = globalThis as typeof globalThis & { __argumendMapIndex?: Promise<MapIndex> | null };
 
 /**
- * Reads every map and builds the index on the first paste, then reuses it.
- * An index missing a map (one whose module failed to load) serves this paste
- * but is not kept, so the next paste retries.
+ * Reads every map and builds the index once per process (at boot, or on the
+ * first paste), then reuses it. An index missing a map (one whose module
+ * failed to load) serves this paste but is not kept, so the next paste retries.
  */
 export function getMapIndex(): Promise<MapIndex> {
-  if (indexPromise) return indexPromise;
+  if (shared.__argumendMapIndex) return shared.__argumendMapIndex;
   const attempt = loadMapDocuments().then((documents) => {
     const index = buildMapIndex(documents);
-    if (documents.length < EXPECTED_MAP_COUNT && indexPromise === attempt) indexPromise = null;
+    if (documents.length < EXPECTED_MAP_COUNT && shared.__argumendMapIndex === attempt) {
+      shared.__argumendMapIndex = null;
+    }
     return index;
   });
-  indexPromise = attempt;
+  shared.__argumendMapIndex = attempt;
   attempt.catch(() => {
-    if (indexPromise === attempt) indexPromise = null;
+    if (shared.__argumendMapIndex === attempt) shared.__argumendMapIndex = null;
   });
   return attempt;
 }
@@ -163,6 +191,8 @@ export function decideMatch(
   isSibling: (a: string, b: string) => boolean,
   nameMatch: (id: string) => ReadonlySet<string> = () => new Set(),
   offSubject: (id: string) => boolean = () => false,
+  ownNameWord: (id: string) => boolean = () => false,
+  sharesName: (id: string) => boolean = () => true,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -190,8 +220,15 @@ export function decideMatch(
     (coverage >= MAP_MATCH.minCoverage && top.score >= MAP_MATCH.minShortScore);
   const clear = lead >= MAP_MATCH.minLead && exclusiveLead >= MAP_MATCH.minExclusiveLead;
   const shown = (map: RankedMap) => map.score >= MAP_MATCH.shownShare * top.score;
+  // A map on another subject is listed only when the paste uses a telling
+  // word of its name: one that scored on shared evidence and common words
+  // alone (Medicare for All and GLP-1 drugs, a fired tweeter and DOGE) is
+  // not a lead (r9 live review #8). Siblings are on the paste's subject.
+  const listed = (map: RankedMap) => shown(map) && sharesName(map.id);
+  const byOwnName =
+    top.score >= MAP_MATCH.minShortScore && lead >= MAP_MATCH.minLead && ownNameWord(top.id);
 
-  if (enough && clear) {
+  if ((enough && clear) || byOwnName) {
     // Which of the sibling maps the paste is about: the one whose own name
     // it uses most, if that sibling is close enough on score.
     // Only when the paste uses none of the top map's own name words beyond
@@ -224,7 +261,7 @@ export function decideMatch(
         .filter((map) => !offSubject(map.id));
       const related = others.slice(0, MAP_MATCH.maxMaps - 1);
       const closest = rest
-        .filter((map) => !siblingIds.has(map.id) && shown(map) && !offSubject(map.id))
+        .filter((map) => !siblingIds.has(map.id) && listed(map) && !offSubject(map.id))
         .slice(0, MAP_MATCH.maxMaps - 1 - related.length);
       return { named, related, closest, top, rival, lead, exclusiveLead, coverage };
     }
@@ -232,7 +269,7 @@ export function decideMatch(
       .filter((map) => shown(map) && !offSubject(map.id))
       .slice(0, MAP_MATCH.maxMaps - 1);
     const closest = rest
-      .filter((map) => !siblingIds.has(map.id) && shown(map) && !offSubject(map.id))
+      .filter((map) => !siblingIds.has(map.id) && listed(map) && !offSubject(map.id))
       .slice(0, MAP_MATCH.maxMaps - 1 - related.length);
     return { named: top, related, closest, top, rival, lead, exclusiveLead, coverage };
   }
@@ -243,10 +280,15 @@ export function decideMatch(
   // the text behind it to be named: that is a paste borrowing one map's words
   // (a landlord who won't fix the boiler, and rent control), and listing the
   // map anyway would name it by the back door.
+  // Below the best of them, a map on another subject is listed only as it
+  // would be beside a named map: school vouchers were offered meritocracy
+  // and student debt on "school" and "public" (r9 live review #9).
   const cameClose =
     !clear && top.score >= MAP_MATCH.closestFloor && coverage >= MAP_MATCH.closestCoverage;
   const closest = cameClose
-    ? [top, ...rest.filter(shown)].filter((map) => !offSubject(map.id)).slice(0, MAP_MATCH.maxMaps)
+    ? [top, ...rest.filter((map) => (siblingIds.has(map.id) ? shown(map) : listed(map)))]
+        .filter((map) => !offSubject(map.id))
+        .slice(0, MAP_MATCH.maxMaps)
     : [];
   return { named: null, related: [], closest, top, rival, lead, exclusiveLead, coverage };
 }
@@ -295,10 +337,18 @@ export function pickPillars(
   return ids.flatMap((id) => pillars.filter((pillar) => pillar.id === id));
 }
 
-/** One card per side, strongest first, from the crux's own evidence. */
-function cardsFrom(items: readonly LegacyEvidenceItem[]): PasteMapCard[] {
+/**
+ * One card per side, strongest first, from the crux's own evidence. A side
+ * the crux has no card for is taken from the map's other cruxes (the sides
+ * answer the map's question or claim, not the crux), so "the strongest card
+ * on each side" is not two cards on one side (r9 live review #7).
+ */
+function cardsFrom(
+  items: readonly LegacyEvidenceItem[],
+  others: readonly LegacyEvidenceItem[] = [],
+): PasteMapCard[] {
   const picked = (["for", "against"] as const)
-    .map((side) => items.find((item) => item.side === side))
+    .map((side) => items.find((item) => item.side === side) ?? others.find((item) => item.side === side))
     .filter((item): item is LegacyEvidenceItem => Boolean(item));
   if (picked.length < 2) {
     // One-sided evidence still gets two cards, each labelled with its own side.
@@ -348,7 +398,8 @@ function pillarMatch(topic: Topic, text: string, corpusIdf: (term: string) => nu
   // A crux without cards borrows the map's strongest ones rather than showing
   // an empty section. No weight is carried: the cards are two readings, not a
   // contest, and the map page is where a reader can see what a weight weighs.
-  let cards = cardsFrom(entry?.evidence ?? []);
+  const otherEvidence = cruxes.filter((item) => item !== entry).flatMap((item) => item.evidence);
+  let cards = cardsFrom(entry?.evidence ?? [], otherEvidence);
   if (cards.length === 0) cards = cardsFrom(cruxes.flatMap((item) => item.evidence));
 
   return {
@@ -543,6 +594,63 @@ function nameMatches(index: MapIndex, id: string, pasteTermSet: ReadonlySet<stri
   return new Set([...pasteTermSet].filter((term) => nameTerms.has(term)));
 }
 
+const nameTermsCache = new WeakMap<MapIndex, Map<string, Set<string>>>();
+
+/** True when the paste uses a word or pair of any of the map's names that few maps use. */
+function sharesTellingNameWord(index: MapIndex, id: string, pasteTermSet: ReadonlySet<string>): boolean {
+  let perIndex = nameTermsCache.get(index);
+  if (!perIndex) {
+    perIndex = new Map();
+    nameTermsCache.set(index, perIndex);
+  }
+  let terms = perIndex.get(id);
+  if (!terms) {
+    const entries = (index.byId.get(id)?.document.fields.name ?? []).map((entry) => pasteTerms(entry));
+    terms = new Set(
+      [...entries.flat(), ...entries.flatMap((words) => termPairs(words))].filter(
+        (term) => (index.documentFrequency.get(term) ?? 0) <= MAP_MATCH.listedNameWordMaxMaps,
+      ),
+    );
+    perIndex.set(id, terms);
+  }
+  for (const term of pasteTermSet) if (terms.has(term)) return true;
+  return false;
+}
+
+const ownNameCache = new WeakMap<MapIndex, Map<string, Set<string>>>();
+
+/**
+ * Per map, the words of its whole name (title, question, id, phrasings,
+ * aliases) that no other map's name has and at most `ownNameWordMaxMaps`
+ * maps use anywhere: "microplastics", "tractors" once a phrasing says it.
+ */
+function ownNameWords(index: MapIndex): Map<string, Set<string>> {
+  const cached = ownNameCache.get(index);
+  if (cached) return cached;
+  const names = new Map(
+    index.maps.map(({ document }) => [document.id, new Set(pasteTerms(document.fields.name.join(" . ")))]),
+  );
+  const namesWith = new Map<string, number>();
+  for (const terms of names.values()) {
+    for (const term of terms) namesWith.set(term, (namesWith.get(term) ?? 0) + 1);
+  }
+  const own = new Map<string, Set<string>>();
+  for (const [id, terms] of names) {
+    own.set(
+      id,
+      new Set(
+        [...terms].filter(
+          (term) =>
+            namesWith.get(term) === 1 &&
+            (index.documentFrequency.get(term) ?? 0) <= MAP_MATCH.ownNameWordMaxMaps,
+        ),
+      ),
+    );
+  }
+  ownNameCache.set(index, own);
+  return own;
+}
+
 /**
  * True when the paste is about a subject the map declares it is not about
  * (`Topic.notAbout`) and uses none of the map's own name words: a paste that
@@ -573,6 +681,11 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
     (a, b) => mapSimilarity(index, a, b) >= MAP_MATCH.siblingSimilarity,
     (id) => nameMatches(index, id, pasteTermSet),
     (id) => isOffSubject(index, id, pasteWords, pasteTermSet),
+    (id) => {
+      const own = ownNameWords(index).get(id);
+      return Boolean(own && pasteWords.some((word) => own.has(word)));
+    },
+    (id) => sharesTellingNameWord(index, id, pasteTermSet),
   );
   const matchedMs = performance.now() - indexed;
 

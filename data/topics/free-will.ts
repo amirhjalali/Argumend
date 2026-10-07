@@ -47,7 +47,7 @@ export const freeWillData = {
       references: [
         {
           title: "The Illusion of Conscious Will (Wegner)",
-          url: "https://en.wikipedia.org/wiki/The_Illusion_of_Conscious_Will",
+          url: "https://en.wikipedia.org/wiki/Daniel_Wegner#The_illusion_of_conscious_will",
         },
       ],
     },
@@ -73,26 +73,30 @@ export const freeWillData = {
       id: "neuroscience-evidence",
       title: "The Neuroscience Evidence",
       short_summary:
-        'Brain activity precedes conscious awareness of a decision — but whether that activity *determines* the choice, or is just spontaneous neural noise accumulating toward a threshold (Schurger et al., 2012), is contested.',
+        'Brain activity precedes conscious awareness of a decision — but whether that activity determines the choice, or is just spontaneous neural noise accumulating toward a threshold (Schurger et al., 2012), is contested.',
       image_url:
         "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=60",
       icon_name: "Microscope" as const,
       skeptic_premise:
         'Libet\'s experiments show the readiness potential begins ~350-500ms before reported conscious intention. On the skeptic\'s reading (e.g. Wegner\'s "illusion of conscious will"), the felt sense of "choosing" is a post-hoc narrative the brain constructs after the action is already underway.',
       proponent_rebuttal:
-        'Libet\'s subjects could still veto the action in the final ~150ms (the "free won\'t"). More fundamentally, Schurger et al. (2012) model the readiness potential as spontaneous neural noise accumulating to a threshold, not a determined decision unfolding — on that account the RP is an artifact of averaging stochastic fluctuations and is *not* evidence that the brain decides before "you" do. The RP may reflect preparation of options, with consciousness as the arena where competing neural assemblies vie for action selection.',
+        'Libet\'s subjects could still veto the action in the final ~150ms (the "free won\'t"). More fundamentally, Schurger et al. (2012) model the readiness potential as spontaneous neural noise accumulating to a threshold, not a determined decision unfolding — on that account the RP is an artifact of averaging stochastic fluctuations and is not evidence that the brain decides before "you" do. The RP may reflect preparation of options, with consciousness as the arena where competing neural assemblies vie for action selection.',
       crux: {
         id: "veto-power",
         title: "The Veto Power Test",
         question:
           "Is the brain signal before a conscious choice a fixed commitment, or preparation consciousness can still veto?",
         description:
-          "If subjects can consistently abort actions after readiness potential but before motor execution, this preserves a meaningful role for conscious will.",
+          "The readiness potential starts before people report deciding. The question is whether they can still stop the movement after it starts, and how late.",
         methodology:
           "Replicate Libet with modern fMRI and more precise timing. Train subjects to veto at various stages. Map neural correlates of successful vetoes.",
         equation:
           "P(\\text{veto} | RP_{detected}) > 0 \\implies \\text{Free Won't Exists}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Record readiness potentials while trained subjects try to veto a movement at set moments after the signal begins: a reliable veto window after the signal starts points to preparation that consciousness can still stop, vetoes that fail once it is underway to a commitment already made.",
+        },
         cost_to_verify: "$200K (fMRI study with sufficient statistical power)",
         falsification: {
           supporter_flip:
@@ -100,7 +104,7 @@ export const freeWillData = {
           skeptic_flip:
             "If new work confirmed that the readiness potential reflects averaged spontaneous fluctuations, as Schurger et al. (2012) proposed, and prediction stayed near Soon et al.'s ~60% accuracy, the claim that the brain decides before the person does would lose its main support.",
           common_ground:
-            "Both sides agree that measurable brain activity reliably precedes the conscious report of a decision; the dispute is over what that activity *is*.",
+            "Both sides agree that measurable brain activity reliably precedes the conscious report of a decision; the dispute is over what that activity is.",
           live_disagreement:
             "Whether the pre-conscious signal is a determined commitment to act or merely stochastic preparation that consciousness can still modulate — resolvable by replicating Libet with single-trial (non-averaged) neural decoding and precise veto timing rather than the original averaged readiness potential.",
         },
@@ -213,7 +217,7 @@ export const freeWillData = {
           common_ground:
             "Both sides agree quantum mechanics breaks classical determinism at the fundamental level and that mere randomness does not, on its own, amount to free will.",
           live_disagreement:
-            "Whether quantum effects play any *functional* role in neural decision-making (vs. washing out as thermal noise) — resolvable by measuring coherence/decoherence times in neural microtubules at biological temperature and testing whether they exceed neural firing timescales.",
+            "Whether quantum effects play any functional role in neural decision-making (vs. washing out as thermal noise) — resolvable by measuring coherence/decoherence times in neural microtubules at biological temperature and testing whether they exceed neural firing timescales.",
         },
       },
       evidence: [
@@ -302,7 +306,7 @@ export const freeWillData = {
         "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=800&q=60",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Hard incompatibilists (e.g. Pereboom, Caruso) argue that if a person could not have done otherwise given their genes, upbringing, and circumstances, then *backward-looking* retributive punishment is unjust — there is no principled difference between manipulation and ordinary causal history. Justice should rest on forward-looking grounds: rehabilitation, protection, and deterrence.",
+        "Hard incompatibilists (e.g. Pereboom, Caruso) argue that if a person could not have done otherwise given their genes, upbringing, and circumstances, then backward-looking retributive punishment is unjust — there is no principled difference between manipulation and ordinary causal history. Justice should rest on forward-looking grounds: rehabilitation, protection, and deterrence.",
       proponent_rebuttal:
         'Even if determinism is true, holding people responsible has pragmatic value—it shapes future behavior through social feedback. The concept of "could have done otherwise" can be reinterpreted as "would have done otherwise if they had different reasons."',
       crux: {

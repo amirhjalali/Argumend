@@ -16,12 +16,12 @@ export const artificialReproductionEthicsData = {
     "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "Artificial Womb Technology and the Frontiers of Human Reproduction — Nature",
-      url: "https://www.nature.com/articles/s41587-023-01816-w",
+      title: "An extra-uterine system to physiologically support the extreme premature lamb — Partridge et al., Nature Communications (2017)",
+      url: "https://doi.org/10.1038/ncomms15112",
     },
     {
-      title: "In Vitro Gametogenesis: The Next Frontier in Reproductive Technology — Science",
-      url: "https://www.science.org/doi/10.1126/science.abn7953",
+      title: "Mammalian in vitro gametogenesis — Saitou & Hayashi, Science (2021)",
+      url: "https://doi.org/10.1126/science.aaz6830",
     },
     {
       title: "Ethics and Abortion (incl. Artificial Wombs and Abortion Rights) — The Hastings Center",
@@ -84,7 +84,7 @@ export const artificialReproductionEthicsData = {
           skeptic_flip:
             "If successors to CHOP's 2017 Biobag, which sustained fetal lambs at a 23-week equivalent for up to 28 days, moved to earlier stages with only incremental changes, the line between therapeutic and elective ectogenesis would blur.",
           common_ground:
-            "Both sides agree preterm birth is a leading cause of death in young children, and that NICU care still hits a hard limit near 22 weeks, where survival is roughly 25-35% with active care.",
+            "Both sides agree preterm birth is a leading cause of death in young children, and that NICU care still hits a hard limit near 22 weeks, where only about 30% of actively treated infants survive.",
           live_disagreement:
             "Whether a therapeutic artificial womb for extremely premature infants is separable from elective full-term ectogenesis, or the same engineering differing only in degree — and whether its cost would save more lives through basic maternal care.",
         },
@@ -126,20 +126,21 @@ export const artificialReproductionEthicsData = {
         },
         {
           id: "nicu-survival-limits",
-          title: "Current NICU Technology Hits Hard Viability Limit at 22 Weeks",
+          title: "Current NICU Care Saves Only About 30% of Actively Treated Infants Born at 22 Weeks",
           description:
-            "Despite decades of neonatal advancement, survival rates for infants born before 22 weeks remain near zero. Even at 22 weeks, survival is roughly 25-35% with active care, and around half of survivors face moderate-to-severe neurodevelopmental impairment (severe impairment in roughly 20%). Conventional ventilator-based approaches damage underdeveloped lungs, creating a physiological barrier that incremental improvements cannot overcome — a fundamentally different approach like artificial womb technology may be required.",
+            "The NICHD Neonatal Research Network followed 10,877 extremely preterm infants born at 19 US academic centers in 2013-2018. Only 10.9% of live-born infants at 22 weeks survived to discharge, and 30% of those who received active treatment; at 23 weeks, 55.8% of actively treated infants survived. Among survivors born at 22-26 weeks who were fully evaluated at two years, about half had moderate (29.3%) or severe (21.2%) neurodevelopmental impairment. Advocates argue that ventilating lungs this immature is itself a source of injury, so incremental NICU improvements may not move the limit much — and that a fundamentally different approach like artificial womb technology may be required.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 8,
-            directness: 8,
+            directness: 7,
           },
-          source: "New England Journal of Medicine; NICHD Neonatal Research Network",
-          sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2116812",
+          source:
+            "Bell et al., NICHD Neonatal Research Network, \"Mortality, In-Hospital Morbidity, Care Practices, and 2-Year Outcomes for Extremely Preterm Infants in the US, 2013-2018,\" JAMA (2022)",
+          sourceUrl: "https://doi.org/10.1001/jama.2021.23580",
           reasoning:
-            "The viability limit is well-established across multiple large studies. This directly supports the argument that a new technological approach is needed rather than incremental improvement of existing methods.",
+            "A large prospective multicenter registry is strong evidence for where conventional care stands at the edge of viability. It directly supports the claim that current methods leave most of the earliest infants dead or impaired. Directness is moderate: the data show the size of the problem, while the step from there to artificial wombs as the remedy is the advocates' argument, not the study's finding.",
         },
         {
           id: "ectogenesis-commodification-critique",

@@ -181,20 +181,21 @@ export const geoengineeringClimateData = {
       evidence: [
         {
           id: "srm-monsoon-disruption",
-          title: "Studies Show SRM Could Reduce Monsoon Rainfall by 5-10%",
+          title: "Climate Models Show Solar Geoengineering Could Cut Monsoon Rainfall by 5-7%",
           description:
-            "Multiple climate modeling studies, including a 2022 Nature Geoscience paper, find that stratospheric aerosol injection designed to offset global warming would reduce precipitation in tropical monsoon regions by 5-10%. The Indian and West African monsoon systems, which support food production for over 2 billion people, would be disproportionately affected. This creates a fundamental equity problem: the nations most vulnerable to geoengineering side effects are those least responsible for climate change.",
+            "A 2013 study of 12 Earth system models in the Geoengineering Model Intercomparison Project (GeoMIP) simulated dimming sunlight enough to cancel the warming from a quadrupling of CO2. Temperatures stayed close to preindustrial levels, but global precipitation fell by about 4.5%, with significant reductions over monsoonal land regions: East Asia (6%), North America (7%), South America (6%) and southern Africa (5%). Months of heavy rainfall became up to 20% less frequent. The authors describe the result as a considerable weakening of the hydrological cycle in a geoengineered world.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 8,
+            directness: 7,
           },
-          source: "Nature Geoscience; Geoengineering Model Intercomparison Project",
-          sourceUrl: "https://www.nature.com/articles/s41561-022-00999-6",
+          source:
+            "Tilmes et al., \"The hydrological impact of geoengineering in the Geoengineering Model Intercomparison Project (GeoMIP),\" Journal of Geophysical Research: Atmospheres (2013)",
+          sourceUrl: "https://doi.org/10.1002/jgrd.50868",
           reasoning:
-            "Published in top-tier journals using established climate models, this research directly quantifies the regional harm from SRM. However, model uncertainty remains significant — different models produce different regional projections, and none have been validated against real-world geoengineering deployment because none has occurred.",
+            "A multi-model intercomparison is the strongest evidence modeling can offer, and the monsoon reductions are the ones the models agree on. Directness is moderate: the experiment is idealized (an instant solar dimming against an instant CO2 quadrupling, not a realistic aerosol injection), and no model result has been validated against real-world deployment because none has occurred. If the pattern holds, the regions that depend on monsoon rain would bear side effects of a decision they may not control.",
         },
         {
           id: "mt-pinatubo-natural-experiment",

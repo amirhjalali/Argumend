@@ -10,11 +10,16 @@
  * The patterns are phrases, not bare words: "weight", "score", "verdict" and
  * "winner" all have honest uses ("weighing evidence", "a Brier score", "the
  * map won't give you a verdict"), and a fallacy may well be named after one.
- * What is banned is the product's old scoring language. /methodology is not
- * scanned: it is where the older maps' internal reading is still explained,
- * because it is still how those maps are made.
+ * What is banned is the product's old scoring language. The blog and the
+ * educators' pages and worksheets are read too (r9): a post or a lesson plan
+ * that teaches a 0-40 score teaches what the maps no longer do. The
+ * educators' copy lives in its page modules, so their source is read; the
+ * patterns are phrases, which code does not use.
  */
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { articles } from "@/data/blog";
 import { concepts } from "@/data/concepts";
 import { fallacies } from "@/data/fallacies";
 import { faqs } from "@/data/faqs";
@@ -38,6 +43,11 @@ const SOURCES: Record<string, { label: string; text: string }[]> = {
   guides: guides.map((g) => ({ label: g.id, text: strings(g).join("\n") })),
   fallacies: fallacies.map((f) => ({ label: f.slug, text: strings(f).join("\n") })),
   faqs: faqs.map((f) => ({ label: f.question, text: strings(f).join("\n") })),
+  blog: articles.map((a) => ({ label: a.slug, text: strings(a).join("\n") })),
+  educators: ["app/for-educators/page.tsx", "app/for-educators/worksheets/[id]/page.tsx"].map((file) => ({
+    label: file,
+    text: readFileSync(join(process.cwd(), file), "utf8"),
+  })),
 };
 
 // Shared with the /about guard (app/storyPages.test.tsx).
@@ -101,6 +111,16 @@ describe("Learn defines a crux one way, the way the maps use it", () => {
 
     const faq = faqs.find((f) => f.question === "What is a crux?")!;
     expect(faq.answer.startsWith(`A crux is ${DEFINITION}.`)).toBe(true);
+  });
+
+  it("defines a crux only one way, wherever Learn or the blog says what a crux is", () => {
+    const rivals: string[] = [];
+    for (const { label, text } of [...SOURCES.concepts, ...SOURCES.glossary, ...SOURCES.guides, ...SOURCES.faqs, ...SOURCES.blog]) {
+      for (const match of text.matchAll(/\b[Aa] crux is (?:the|a|an) (?!question a fight turns on, and what would settle it\b)[^.]{0,80}/g)) {
+        rivals.push(`${label}: "${match[0]}"`);
+      }
+    }
+    expect(rivals).toEqual([]);
   });
 
   it("never calls a crux a piece of evidence", () => {

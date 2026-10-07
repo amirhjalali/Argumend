@@ -194,7 +194,7 @@ export const organicFoodHealthData = {
           },
           source:
             "Bouchard, Eskenazi et al. (CHAMACOS, UC Berkeley), 'Prenatal Exposure to Organophosphate Pesticides and IQ in 7-Year-Old Children,' Environmental Health Perspectives 119(8):1189-1195 (2011)",
-          sourceUrl: "https://ehp.niehs.nih.gov/doi/10.1289/ehp.1003185",
+          sourceUrl: "https://doi.org/10.1289/ehp.1003185",
           reasoning:
             "Rigorous longitudinal design from a leading university; the 7-point IQ gap (highest vs lowest exposure) is verified. Directness lowered because exposures were higher than typical dietary-only exposure (farmworker community, including drift and take-home dust), limiting direct applicability to organic-vs-conventional food choice. It demonstrates developing-brain vulnerability to these chemicals.",
         },

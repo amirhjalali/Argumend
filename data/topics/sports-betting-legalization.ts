@@ -397,7 +397,7 @@ export const sportsBettingLegalizationData = {
     {
       title:
         "Murphy v. National Collegiate Athletic Association, 584 U.S. 453 (2018) — Supreme Court opinion striking down PASPA",
-      url: "https://www.supremecourt.gov/opinions/17pdf/16-476_dbfi.pdf",
+      url: "https://www.law.cornell.edu/supremecourt/text/16-476",
     },
     {
       title:

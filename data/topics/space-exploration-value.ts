@@ -59,7 +59,7 @@ export const spaceExplorationValueData = {
           id: "nasa-spinoff-analysis",
           title: "NASA Spin-off Economic Impact Analysis",
           description:
-            "NASA's annual Spinoff publication has profiled more than 2,000 technologies transferred to the private sector since 1976. The widely-cited '$7-14 (or higher) per dollar' ROI figures trace to NASA-commissioned econometric studies from the 1970s-90s that *assumed* an average rate of return for R&D rather than measuring spin-off revenue directly; critics note attribution is inflated since many technologies had parallel commercial development, and more conservative analyses suggest ratios closer to 2-3:1.",
+            "NASA's annual Spinoff publication has profiled more than 2,000 technologies transferred to the private sector since 1976. The widely-cited '$7-14 (or higher) per dollar' ROI figures trace to NASA-commissioned econometric studies from the 1970s-90s that assumed an average rate of return for R&D rather than measuring spin-off revenue directly; critics note attribution is inflated since many technologies had parallel commercial development, and more conservative analyses suggest ratios closer to 2-3:1.",
           side: "for" as const,
           weight: {
             sourceReliability: 4,
@@ -87,7 +87,7 @@ export const spaceExplorationValueData = {
           source: "World Economic Forum & McKinsey, 'Space: The $1.8 Trillion Opportunity' (2024)",
           sourceUrl: "https://www.mckinsey.com/featured-insights/themes/the-space-economy-is-projected-to-reach-1-8-trillion-by-2035",
           reasoning:
-            "Credible institutions, but the figure is a speculative 11-year forecast with wide error bars and only indirectly bears on whether *government* space spending pays off. Directness lowered accordingly; corrected the 2023 base ($630B, not $469B) and attribution (WEF/McKinsey, not Morgan Stanley).",
+            "Credible institutions, but the figure is a speculative 11-year forecast with wide error bars and only indirectly bears on whether government space spending pays off. Directness lowered accordingly; corrected the 2023 base ($630B, not $469B) and attribution (WEF/McKinsey, not Morgan Stanley).",
         },
         {
           id: "opportunity-cost-analysis",

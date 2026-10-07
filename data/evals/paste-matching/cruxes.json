@@ -1,7 +1,7 @@
 {
   "version": 1,
   "set": "cruxes",
-  "description": "Crux-choice eval for the map lane at /analyze (lib/paste/cruxChoice.ts): once a paste's map is known, which of the map's cruxes is the paste about? Each case names the map (`map`) and the crux it is about (`expected`: a pillar id on a pillar map, a crux claim id on a flagship map). Scored by lib/paste/cruxEval.test.ts with the map given, so a miss here is a crux miss, not a map miss. Written on 2026-10-06 for round-6 live-review issue #8 (a rent-control paste about displacement was shown the map's first crux, about new construction), before the picker was changed. Pastes are in a person's voice, not the map's wording; about a third are about the map's first crux, so a picker that never leaves the lead crux cannot score well and one that always does cannot either.",
+  "description": "Crux-choice eval for the map lane at /analyze (lib/paste/cruxChoice.ts): once a paste's map is known, which of the map's cruxes is the paste about? Each case names the map (`map`) and the crux it is about (`expected`: a pillar id on a pillar map, a crux claim id on a flagship map). Scored by lib/paste/cruxEval.test.ts with the map given, so a miss here is a crux miss, not a map miss. Written on 2026-10-06 for round-6 live-review issue #8 (a rent-control paste about displacement was shown the map's first crux, about new construction), before the picker was changed. Pastes are in a person's voice, not the map's wording; about a third are about the map's first crux, so a picker that never leaves the lead crux cannot score well and one that always does cannot either. Cases marked `holdout` were added on 2026-10-06 from the r9 live review, after the picker was tuned on the rest: the picker chose 0 of those 5 before the round-9 change, so they are scored apart from the cases it was tuned on.",
   "cases": [
     {
       "id": "rc-uncle",
@@ -219,6 +219,42 @@
       "map": "us-israel-support",
       "text": "We send Israel billions a year in military aid and we can't even get them to let more trucks into Gaza. What leverage?",
       "expected": "c-aid-buys-leverage"
+    },
+    {
+      "id": "hold-diamond-ring",
+      "map": "lab-diamonds-ethics",
+      "text": "Is a lab-grown diamond engagement ring actually more ethical or is it just cheaper?",
+      "expected": "human-rights-conflict",
+      "holdout": true
+    },
+    {
+      "id": "hold-deere-tractor",
+      "map": "right-to-repair",
+      "text": "John Deere won't let farmers fix their own tractors without a dealer's software key, and Apple serializes parts so an independent shop can't swap a screen. If I bought it, I should be able to fix it.",
+      "expected": "consumer-benefit",
+      "holdout": true
+    },
+    {
+      "id": "hold-retire-roofer",
+      "map": "social-security-retirement-age",
+      "text": "Raising the retirement age is a pay cut for the people who can least afford it. Rich people live longer. A roofer or a warehouse worker isn't lifting boxes at 69.",
+      "expected": "fairness-distribution",
+      "holdout": true
+    },
+    {
+      "id": "hold-young-men-tate",
+      "map": "masculinity-crisis",
+      "text": "Women now earn nearly 60 percent of bachelor's degrees, young men are more likely than young women to live with their parents, and male suicide rates are four times higher. Neither party seems to have anything to say to them except Andrew Tate.",
+      "expected": "empirical-crisis-indicators",
+      "holdout": true
+    },
+    {
+      "id": "hold-korea-bonus",
+      "map": "declining-birth-rates",
+      "text": "South Korea spent more than $200 billion on baby bonuses and childcare subsidies and the fertility rate still fell to 0.72. Cash doesn't make people want kids.",
+      "expected": "choice-theory",
+      "holdout": true,
+      "note": "Debatable: 'cash doesn't make people want kids' is the preferences side of the choice-theory crux; the demographic-doom-loop crux is the runner-up reading."
     }
   ]
 }

@@ -15,7 +15,7 @@ export const trumpTariffsData = {
       id: "inflation-passthrough",
       title: "Consumer Prices & Inflation Pass-Through",
       short_summary:
-        "Trump claimed foreign exporters would pay the tariffs, but the empirical question is who actually bears the cost. The mainstream finding is that tariff pass-through to US importers and consumers is high — the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. The ~20% figure from Cavallo et al. is a short-run *retail* pass-through measured by September 2025 that the same literature shows rising over time; HBS puts the consumer share near 43%, and the Federal Reserve estimated tariffs raised core goods prices by about 3.1%.",
+        "Trump claimed foreign exporters would pay the tariffs, but the empirical question is who actually bears the cost. The mainstream finding is that tariff pass-through to US importers and consumers is high — the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. The ~20% figure from Cavallo et al. is a short-run retail pass-through measured by September 2025 that the same literature shows rising over time; HBS puts the consumer share near 43%, and the Federal Reserve estimated tariffs raised core goods prices by about 3.1%.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "Tariffs are a tax paid by Americans, not by foreign exporters. The 'China pays the tariff' claim is empirically false: the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. Federal Reserve analysis indicated that, absent tariffs, inflation would plausibly have returned to its 2% target during 2025; the CBO estimated tariffs added roughly 0.4 percentage points to annual inflation and left the price level about 0.9% higher by the end of 2026. The Yale Budget Lab projects a $760-$1,200 annual loss per household, with the bottom income decile absorbing roughly three times the burden of the top decile. This is a regressive consumption tax dressed up as trade policy.",
@@ -328,7 +328,7 @@ export const trumpTariffsData = {
           id: "us-china-truce",
           title: "November 2025 US-China Truce Held Rates at 10%-on-10%",
           description:
-            "In November 2025, Trump and Xi extended the May 2025 90-day truce for a full year through November 10, 2026, holding bilateral reciprocal tariffs at 10% (down from peaks above 125%) and extending exclusions on 178 categories of Chinese goods, mostly medical and solar-manufacturing equipment. Proponents argue this shows tariff leverage produced a negotiated, monitored equilibrium rather than uncontrolled escalation.",
+            "In November 2025, Trump and Xi extended the May 2025 90-day truce for a full year through 10 November 2026, the date it is now due to expire, holding bilateral reciprocal tariffs at 10% (down from peaks above 125%) and extending exclusions on 178 categories of Chinese goods, mostly medical and solar-manufacturing equipment. Proponents argue this shows tariff leverage produced a negotiated, monitored equilibrium rather than uncontrolled escalation.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -363,7 +363,7 @@ export const trumpTariffsData = {
         question:
           "Can tariffs fix trade deficits, and are their gains worth the friction with allies?",
         description:
-          "Two linked questions decide this pillar. First, are bilateral trade deficits caused by unfair foreign practices (addressable by tariffs) or by macroeconomic savings-investment imbalances (not addressable by tariffs)? Second, does the geopolitical cost of tariff friction with allies — lost China-policy cooperation, weakened burden-sharing, eroded dollar trust — exceed the concessions tariffs extract?",
+          "Two linked questions decide this section. First, are bilateral trade deficits caused by unfair foreign practices (addressable by tariffs) or by macroeconomic savings-investment imbalances (not addressable by tariffs)? Second, does the geopolitical cost of tariff friction with allies — lost China-policy cooperation, weakened burden-sharing, eroded dollar trust — exceed the concessions tariffs extract?",
         methodology:
           "Test deficit causation by examining whether the aggregate US trade deficit narrows under tariffs or merely shifts bilaterally to other surplus countries, controlling for the national savings rate and fiscal deficit. Assess alliance cost by auditing documented concessions (trade deals signed, LNG and defense commitments) against documented retaliation and cooperation losses (EU/Canada countermeasures, USMCA renegotiation stakes, allied alignment on China export controls).",
         verification_status: "theoretical" as const,

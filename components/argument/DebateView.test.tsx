@@ -161,12 +161,15 @@ describe("DebateView", () => {
     expect(screen.getByTestId("topic-kicker").textContent).toMatch(
       /^Map · reviewed Aug 12, 2026 · \d+ sources$/,
     );
-    // The footer says how cruxes are ranked, and links that section.
+    // The footer says who made the map and how cruxes are ranked, and links the method.
     expect(view.container.textContent).not.toMatch(/reproducible/i);
     expect(view.container.textContent).toContain("cruxes ranked by a fixed rule from the map\u2019s claims");
     expect(
       screen.getByRole("link", { name: "How this map was made →" }).getAttribute("href"),
-    ).toBe("/methodology#cruxes");
+    ).toBe("/methodology#positions-and-evidence");
+    // One honest attribution, in the ledger's terms.
+    expect(view.container.textContent).toContain("Drafted by a language model, then checked by Argumend editors");
+    expect(view.container.textContent).not.toMatch(/Assembled by AI/);
     const cruxSection = view.container.querySelector<HTMLElement>("#cruxes")!;
     expect(within(cruxSection).getByRole("heading", { level: 2 }).textContent).toBe(
       `This turns on ${["zero", "one", "two", "three", "four", "five", "six"][cruxes.length]} questions`,

@@ -44,6 +44,10 @@ export interface TopicSummary {
    */
   firstCruxStanding?: "value-difference" | "definitional-choice" | "authority-allocation";
   tags: string[];
+  /** Names of maps merged into this one, searchable as its own names. */
+  aliases?: string[];
+  /** Distinctive evidence words to search it by, space-separated (scripts/regen-summaries.ts). */
+  keywords?: string;
   addedAt?: string;
 }
 

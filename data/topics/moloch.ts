@@ -382,7 +382,7 @@ export const molochData = {
           source: "Bostrom, 'What is a Singleton?' (2006); Superintelligence (2014)",
           sourceUrl: "https://nickbostrom.com/fut/singleton",
           reasoning:
-            "Directly articulates the mechanism the pillar rests on, but it is philosophical analysis of a hypothetical, not evidence that such an entity is achievable or safe.",
+            "Directly articulates the mechanism this section rests on, but it is philosophical analysis of a hypothetical, not evidence that such an entity is achievable or safe.",
         },
         {
           id: "singleton-totalitarian-risk",
@@ -425,7 +425,7 @@ export const molochData = {
       id: "cooperation-has-expanded",
       title: "Moloch Is Overstated — Cooperation Has Expanded",
       short_summary:
-        "The skeptic's pillar: across history the sphere of successful cooperation has widened, from reciprocity in repeated games to global treaties — suggesting Moloch is a tendency humans routinely defeat, not an iron law.",
+        "The skeptic's case: across history the sphere of successful cooperation has widened, from reciprocity in repeated games to global treaties — suggesting Moloch is a tendency humans routinely defeat, not an iron law.",
       icon_name: "Scale" as const,
       skeptic_premise:
         "If Moloch were as dominant as claimed, cooperation should be rare and shrinking. Instead it is common and growing: reciprocal strategies evolve and win, nations abolished ozone-destroying chemicals, arms-control treaties cut nuclear arsenals, and long-run interpersonal violence has fallen. The essay mistakes vivid failures for the general case.",
@@ -541,7 +541,7 @@ export const molochData = {
           source: "Record of international climate agreements (Kyoto, Paris) vs. emissions",
           sourceUrl: "https://www.unep.org/resources/emissions-gap-report",
           reasoning:
-            "A pointed rebuttal to the optimistic pillar: it shows cooperation tracks payoff structure, which is the Moloch thesis rather than its refutation.",
+            "A pointed rebuttal to the optimistic case: it shows cooperation tracks payoff structure, which is the Moloch thesis rather than its refutation.",
         },
       ],
     },

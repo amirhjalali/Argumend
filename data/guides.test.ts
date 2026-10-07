@@ -166,5 +166,10 @@ describe("guides describe the product as it works today", () => {
     expect(text).toMatch(/\(\/analyze\)/);
     expect(text).toMatch(/does not say who is right/i);
     expect(text).toMatch(/not stored/i);
+    // r9: production runs only the offline map lane. The guide must not
+    // describe the diagnosis lane, which is off: an AI model reading the
+    // text, the Freeform type, or publishing a report at a link.
+    expect(text).not.toMatch(/sent to an AI model|Freeform|publish (?:it|the report)|unlisted link/i);
+    expect(text).toMatch(/This argument is already mapped/);
   });
 });

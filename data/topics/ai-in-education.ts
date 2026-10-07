@@ -330,8 +330,8 @@ export const aiInEducationData = {
       url: "https://doi.org/10.3102/0013189X013006004",
     },
     {
-      title: "AI and the Future of Learning — Brookings Institution (2024)",
-      url: "https://www.brookings.edu/articles/ai-and-the-future-of-learning/",
+      title: "A new direction for students in an AI world: Prosper, prepare, protect — Brookings Center for Universal Education (2026)",
+      url: "https://www.brookings.edu/articles/a-new-direction-for-students-in-an-ai-world-prosper-prepare-protect/",
     },
     {
       title: "Disrupting Class: How Disruptive Innovation Will Change the Way the World Learns — Clayton Christensen (2008)",

@@ -14,7 +14,7 @@ export const longevityScienceData = {
     confidence: 82,
     source:
       "Human mortality / life-expectancy data (OWID); Olshansky et al. on maximum lifespan; AFAR TAME trial status (2026)",
-    sourceUrl: "https://www.afar.org/tame-trial",
+    sourceUrl: "https://web.archive.org/web/20260704152538/https://www.afar.org/tame-trial",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -395,6 +395,10 @@ export const longevityScienceData = {
         methodology:
           "Complete the TAME trial and analyze whether metformin's effects on epigenetic age correlate with its effects on composite aging outcomes (cancer, cardiovascular events, cognitive decline, mortality). Simultaneously, analyze 20+ year follow-up data from large biobank cohorts (UK Biobank, Framingham) to validate whether baseline epigenetic age acceleration predicts actual mortality with sufficient accuracy to serve as a trial endpoint.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow large biobank cohorts (UK Biobank, Framingham) for 20 or more years to measure how well baseline epigenetic age predicts death, and check in trials such as TAME whether treatments that shift the clock shift cancer, heart disease, dementia and mortality by a matching amount.",
+        },
         cost_to_verify:
           "$75M (TAME trial completion plus biobank follow-up analysis over 5-10 years)",
         falsification: {
@@ -466,15 +470,15 @@ export const longevityScienceData = {
     },
     {
       title: "Targeting Aging with Metformin (TAME) Trial — American Federation for Aging Research",
-      url: "https://www.afar.org/tame-trial",
+      url: "https://web.archive.org/web/20260704152538/https://www.afar.org/tame-trial",
     },
     {
       title: "In Vivo Amelioration of Age-Associated Hallmarks by Partial Reprogramming — Ocampo et al., Cell (2016)",
       url: "https://www.cell.com/cell/fulltext/S0092-8674(16)31664-6",
     },
     {
-      title: "Altos Labs and the Billionaire Quest to Reverse Aging — MIT Technology Review",
-      url: "https://www.technologyreview.com/2021/09/04/1034364/altos-labs-bezos-reprogramming-biotech-age-reversal/",
+      title: "Meet Altos Labs, Silicon Valley's latest wild bet on living forever — MIT Technology Review (2021)",
+      url: "https://www.technologyreview.com/2021/09/04/1034364/altos-labs-silicon-valleys-jeff-bezos-milner-bet-living-forever/",
     },
   ],
   questions: [

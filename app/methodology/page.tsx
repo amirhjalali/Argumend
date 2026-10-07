@@ -14,14 +14,14 @@ import { TOPIC_COUNT } from "@/data/topicIndex";
  *
  *  - positions, claims, evidence, provenance, weight basis:
  *    docs/ARGUMENT_MODEL.md, data/topics/drafts/*.draft.json
- *  - the four evidence measures and the 0–40 card score: lib/evidenceMetrics.ts
+ *  - the four evidence measures: lib/evidenceMetrics.ts
  *  - side = for or against the map's claim; the audit:
  *    docs/reviews/2026-09-21-evidence-side-adjudication.md, scripts/jev-probe/expF-side-audit.ts
  *  - crux ranking and "what would settle it": docs/CRUX_ENGINE.md, lib/crux,
  *    components/argument/DebateView.tsx (SettleAnswer)
  *  - the crux ledger and its review gate: lib/argument/ledger.ts (isPublicEntry)
- *  - the older maps' reading, and when "settled" is withheld:
- *    lib/schemas/topic.ts (computeBalance, computeWeight, applyVerdictRobustness)
+ *  - the one-line reading the two-sided maps no longer print:
+ *    lib/schemas/topic.ts (computeBalance, computeWeight)
  *
  * The four-judge council, score aggregation and the verdict matrix this page
  * used to describe are not how any map is made (the judging API is off by
@@ -39,7 +39,7 @@ const SECTIONS = [
   { id: "side-audit", label: "Filing a card" },
   { id: "cruxes", label: "Finding the cruxes" },
   { id: "ledger", label: "The crux ledger" },
-  { id: "older-maps", label: "The older maps" },
+  { id: "older-maps", label: "The reading we removed" },
   { id: "limits", label: "What this cannot do" },
 ];
 
@@ -142,25 +142,28 @@ export default function MethodologyPage() {
           <div className={PROSE}>
             <p>
               A map starts from the serious positions on a question: stances real
-              people hold. The newer maps set out four each; the older maps set
-              a skeptic&rsquo;s strongest case against the best reply, section by
+              people hold. Maps come in two shapes. Four-position maps,{" "}
+              {numberWord(newerMapCount)} so far, set out four stances side by
+              side. Two-sided maps, the other {TOPIC_COUNT}, set a
+              skeptic&rsquo;s strongest case against the best reply, section by
               section. Every position is written in the strongest form its
-              holders would recognise, and on the newer maps each carries a note
-              on why that version is the strongest.
+              holders would recognise, and on the four-position maps each
+              carries a note on why that version is the strongest.
             </p>
             <p>
-              On the newer maps, under the positions sit the claims they rest
-              on, each marked as a question of fact, a prediction, a matter of
+              On the four-position maps, under the positions sit the claims
+              they rest on, each marked as a question of fact, a prediction, a matter of
               values, a matter of definition, or a question of who decides.
               Evidence is attached to the claims it bears on. Every card names
-              its source; on the {numberWord(newerMapCount)} newer maps each card also records whether its link
-              was checked and, where it matters, the source’s own stake in
-              the result. {withUrl.toLocaleString("en-US")} of the{" "}
-              {total.toLocaleString("en-US")} cards on the older maps link to
-              their source.
+              its source; on the four-position maps each card also records
+              whether its link was checked and, where it matters, the
+              source&rsquo;s own stake in the result.{" "}
+              {withUrl.toLocaleString("en-US")} of the{" "}
+              {total.toLocaleString("en-US")} cards on the two-sided maps link
+              to their source.
             </p>
             <p>
-              A language model drafts the first version of a newer map from a
+              A language model drafts the first version of a four-position map from a
               set of research reports on the question, and every node records
               where it came from. Each draft is then audited before it is
               published: its source links checked, its headline facts
@@ -174,15 +177,15 @@ export default function MethodologyPage() {
           className={STORY_SECTION}
           id="weighing"
           title="Weighing a card"
-          lede="Each card is scored from 0 to 10 on four measures, and a card's weight is their sum, out of 40."
+          lede="Each card is rated on four measures."
         >
           <RuledList items={MEASURES} />
           <div className={`${PROSE} mt-6`}>
             <p>
-              These are judgments, not measurements. On the older maps one
-              annotator scored every card. On the newer maps a card is weighed
-              only where someone could write down why, and each score carries
-              that written reason.
+              These are judgments, not measurements. On the two-sided maps one
+              annotator rated every card. On the four-position maps a card is
+              weighed only where someone could write down why, and each rating
+              carries that written reason.
             </p>
           </div>
         </Section>
@@ -213,13 +216,14 @@ export default function MethodologyPage() {
         <Section className={STORY_SECTION} id="cruxes" title="Finding the cruxes">
           <div className={PROSE}>
             <p>
-              A crux is a claim that is genuinely contested and whose answer
-              would move the positions apart: settle it one way and some
-              positions gain while others lose. Hidden assumptions count too,
+              A crux is the question a fight turns on, and what would settle
+              it. On a map, that is a claim that is genuinely contested and
+              whose answer would move the positions apart: settle it one way
+              and some positions gain while others lose. Hidden assumptions count too,
               the claims nobody says out loud but the positions lean on.
             </p>
             <p>
-              On the newer maps, a model does not pick the cruxes. A
+              On the four-position maps, a model does not pick the cruxes. A
               deterministic engine takes each contested claim, supposes it
               settled true and then false, and measures how far each position
               would move and whether they would move apart or together. The
@@ -235,7 +239,7 @@ export default function MethodologyPage() {
           </div>
           <div className={`${PROSE} mt-6`}>
             <p>
-              On the older maps, each section names its own crux, written by the
+              On the two-sided maps, each section names its own crux, written by the
               editors: the test that would settle it, whether that test has been
               run, and, on many, what would change each side&rsquo;s mind.
             </p>
@@ -260,43 +264,11 @@ export default function MethodologyPage() {
           </p>
         </Section>
 
-        <Section className={STORY_SECTION} id="older-maps" title="How the cards weigh, on the older maps">
+        <Section className={STORY_SECTION} id="older-maps" title="The reading we removed">
           <div className={PROSE}>
             <p>
-              The {TOPIC_COUNT} older maps also sum their cards into a one-line
-              reading of where the evidence on the map stands. Two numbers go
-              into it: the balance, which way the weighed cards tip, and the
-              weight, how much they carry, from how much evidence there is, its
-              average quality, and whether the cruxes can be tested at all. The
-              reading says the evidence largely converges, is well mapped but
-              still divided, leans one way, or is still thin. It describes the
-              cards on the map, not the question in the world, and it never
-              names a winner.
-            </p>
-            <p>
-              The map pages no longer print it. A one-line reading of where the
-              cards tip sits too close to a score, and the cruxes are the answer
-              a map gives. It stays in each map&rsquo;s data and in the open API,
-              with the note below when one card could change it; the share image
-              shows the map&rsquo;s question and first crux instead. On the page, the &ldquo;How the
-              evidence weighs&rdquo; fold shows one strong card from each side
-              instead, by the same four measures.
-            </p>
-            {/* Kept verbatim from the previous methodology page. */}
-            <p data-kept="settled-withheld">
-              <strong className="font-semibold text-stone-900 dark:text-stone-100">
-                When &ldquo;settled&rdquo; is withheld.
-              </strong>{" "}
-              Whether one piece of evidence counts for a claim or against it is a
-              judgement call, and on a map of a dozen cards one such call can move the
-              balance by ten points — half the gap &ldquo;evidence largely converges&rdquo; requires. So we
-              test it: if reclassifying any single card would take the word away, the map
-              hasn&rsquo;t earned it, and we show its lean instead. Either way those maps
-              carry a note saying one card could change the reading. A handful of
-              questions where we judge the evidence to have converged in the world — the moon
-              landing — keep that reading on our own editorial judgement while their maps are still too shallow
-              to show it; those say so in the same line, and deepening the map is the fix.
-              The balance and weight numbers are never adjusted; only the reading is.
+              The two-sided maps once printed a one-line reading of where their
+              cards tipped. It read as a verdict, so it was removed.
             </p>
           </div>
         </Section>

@@ -6,6 +6,7 @@ export const mandatoryVotingData = {
     "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
   status: "contested" as const,
   category: "policy" as const,
+  notAbout: ["ranked choice voting", "ranked-choice voting"],
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
@@ -81,7 +82,7 @@ export const mandatoryVotingData = {
           id: "mv-uninformed-voters",
           title: "Uninformed Voter Behavior Studies",
           description:
-            "Selb & Lachat (2009) find that compulsory voting draws in less interested and less informed citizens whose party choices are less consistent with their own stated preferences, and that compulsory voting does not raise overall political knowledge. The 'donkey vote' (ranking candidates top-to-bottom in ballot order) is separately estimated at roughly 1-2% of formal ballots in Australia.",
+            "Selb & Lachat (2009) find that compulsory voting draws in less interested and less informed citizens whose party choices are less consistent with their own stated preferences, and that compulsory voting does not raise overall political knowledge. The 'donkey vote' (ranking candidates top-to-bottom in ballot order) is separately estimated at roughly 1-2% of formal ballots in Australia, and official AEC results for the 2022 federal election record a further 802,337 informal ballots, 5.19% of those cast, that could not be admitted to the count.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -90,11 +91,11 @@ export const mandatoryVotingData = {
             directness: 6,
           },
           source:
-            "Selb & Lachat, 'The more, the better? Counterfactual evidence on the effect of compulsory voting on the consistency of party choice', European Journal of Political Research 48(5), 2009",
+            "Selb & Lachat, 'The more, the better? Counterfactual evidence on the effect of compulsory voting on the consistency of party choice', European Journal of Political Research 48(5), 2009; Australian Electoral Commission, 2022 federal election results",
           sourceUrl:
             "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-6765.2009.01834.x",
           reasoning:
-            "Peer-reviewed but based on counterfactual modelling of Belgian survey data, so the magnitude is contested. The paper supports the 'less consistent vote' claim more directly than a generic 'random voting' or knowledge-test framing; directness de-inflated accordingly. The separate donkey-vote figure (~1-2%) comes from Australian electoral commentary, not this paper.",
+            "Peer-reviewed but based on counterfactual modelling of Belgian survey data, so the magnitude is contested. The paper supports the 'less consistent vote' claim more directly than a generic 'random voting' or knowledge-test framing; directness de-inflated accordingly. The separate donkey-vote figure (~1-2%) comes from Australian electoral commentary, not this paper; the 5.19% informality figure is the AEC's own count for 2022 and does not distinguish deliberate spoiling from error.",
         },
         {
           id: "mv-oecd-democracy",
@@ -208,22 +209,21 @@ export const mandatoryVotingData = {
             "The paper robustly documents that US affective polarization rose most among 12 OECD countries, but it makes no claim about compulsory voting as the driver; directness de-inflated because the link from this finding to voting rules is inferential.",
         },
         {
-          id: "mv-suppression-counterfactual",
-          title: "Voter Suppression Counterfactual Analysis",
+          id: "mv-ballot-order-effect",
+          title: "Ballot position is worth about a percentage point in Australian elections",
           description:
-            "The Brennan Center documents that US voter-ID laws, voter-roll purges and polling-place closures depress turnout and fall disproportionately on voters of color. Proponents argue an enforced compulsory-voting regime, which puts the onus on the state to enable every elector to vote, would blunt these tactics.",
-          side: "for" as const,
+            "King and Leigh, in Social Science Quarterly (2009), used every Australian federal election between 1984 and 2004 — 1,187 contests and 7,113 candidate-election observations — and estimated that being placed first on the ballot raises a candidate's primary vote share by about one percentage point. As a share of their total vote the effect is much larger for independents and minor parties than for the major parties.",
+          side: "against" as const,
           weight: {
-            sourceReliability: 5,
-            independence: 5,
-            replicability: 4,
-            directness: 3,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
           },
-          source: "Brennan Center for Justice, voter suppression research",
-          sourceUrl:
-            "https://www.brennancenter.org/topics/voting-elections/voter-suppression",
+          source: "Social Science Quarterly (King & Leigh, 2009)",
+          sourceUrl: "https://doi.org/10.1111/j.1540-6237.2009.00603.x",
           reasoning:
-            "The Brennan Center documents suppression effects directionally, but I could not verify the specific '2-3% of eligible votes' figure as a Brennan Center estimate, so that number was removed and weights de-inflated. The counterfactual that compulsory voting would eliminate suppression is also advocacy-framed and context-dependent.",
+            "A large administrative sample with a clean source of randomisation, so the estimate itself is solid. It measures the size of the choice-independent component of the vote in a compulsory system, which is the mechanism the uninformed-voter objection points at; it does not compare that component against a voluntary-voting counterfactual, so it cannot show compulsion created it.",
         },
       ],
     },

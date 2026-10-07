@@ -23,6 +23,17 @@ import { chooseCruxIds, getMapIndex } from "./maps";
  * a paste whose only distinctive word, "parents", belongs to another crux.
  * The parameter grid tried on this set was flat (34–35 of 36 for every
  * setting), so the floors sit under it rather than at it.
+ *
+ * Holdout (r9 live review, 2026-10-06): 5 pastes written after that tuning,
+ * where one incidental word picked the crux ("engagement ring", "Andrew
+ * Tate", "repair shops"). Before the r9 change 0/5 top-1, 0/5 shown; after
+ * (a clear leader must survive losing its deciding word, cruxChoice.ts
+ * `restLead`) 3/5 top-1, 4/5 shown, with the original 36 unchanged at 34/36
+ * top-1, 35/36 shown, two shown 3 → 4. These five then set `restLead`, so
+ * they are no longer a clean holdout. The one still missed (korea-bonus)
+ * restates the doom-loop crux's own evidence. The cost: across the 128
+ * pastes the matching eval names a map for, two cruxes are shown for 44
+ * instead of 25.
  */
 const FLOORS = {
   top1: 0.9,
@@ -31,11 +42,16 @@ const FLOORS = {
   maxTwo: 0.2,
 };
 
+/** At the measurement: five cases leave no room under it. */
+const HOLDOUT_FLOORS = { top1: 0.6, shown: 0.8 };
+
 interface CruxCase {
   id: string;
   map: string;
   text: string;
   expected: string;
+  /** Written after the picker was tuned on the rest (r9 live review), scored apart. */
+  holdout?: boolean;
 }
 
 const CASES = (set as { cases: CruxCase[] }).cases;
@@ -62,6 +78,22 @@ beforeAll(async () => {
 
 afterAll(() => vi.unstubAllGlobals());
 
+function measure(scored: readonly Row[], label: string) {
+  const top1 = scored.filter((row) => row.shown[0] === row.expected).length / scored.length;
+  const shown = scored.filter((row) => row.shown.includes(row.expected)).length / scored.length;
+  const two = scored.filter((row) => row.shown.length === 2).length / scored.length;
+  const detail = [
+    `${label}: top-1 ${(top1 * 100).toFixed(0)}%  shown ${(shown * 100).toFixed(0)}%  two shown ${(two * 100).toFixed(0)}%  (n=${scored.length})`,
+    ...scored
+      .filter((row) => row.shown[0] !== row.expected)
+      .map(
+        (row) =>
+          `  ${row.shown.includes(row.expected) ? "second" : "MISS  "} ${row.id}: ${row.shown.join(" + ")} (want ${row.expected})`,
+      ),
+  ].join("\n");
+  return { top1, shown, two, detail };
+}
+
 describe("the crux-choice eval set", () => {
   it("is big enough and labelled with cruxes that exist", async () => {
     expect(CASES.length).toBeGreaterThanOrEqual(25);
@@ -78,22 +110,27 @@ describe("the crux-choice eval set", () => {
   });
 
   it("holds the floors", () => {
-    const top1 = rows.filter((row) => row.shown[0] === row.expected).length / rows.length;
-    const shown = rows.filter((row) => row.shown.includes(row.expected)).length / rows.length;
-    const two = rows.filter((row) => row.shown.length === 2).length / rows.length;
-    const detail = [
-      `crux choice: top-1 ${(top1 * 100).toFixed(0)}%  shown ${(shown * 100).toFixed(0)}%  two shown ${(two * 100).toFixed(0)}%  (n=${rows.length})`,
-      ...rows
-        .filter((row) => row.shown[0] !== row.expected)
-        .map(
-          (row) =>
-            `  ${row.shown.includes(row.expected) ? "second" : "MISS  "} ${row.id}: ${row.shown.join(" + ")} (want ${row.expected})`,
-        ),
-    ].join("\n");
+    const { top1, shown, two, detail } = measure(rows.filter((row) => !row.holdout), "crux choice");
     console.info(detail);
     expect(top1, detail).toBeGreaterThanOrEqual(FLOORS.top1);
     expect(shown, detail).toBeGreaterThanOrEqual(FLOORS.shown);
     expect(two, detail).toBeLessThanOrEqual(FLOORS.maxTwo);
+  });
+
+  it("holds the floors on the held-out cases", () => {
+    const held = rows.filter((row) => row.holdout);
+    expect(held.length).toBeGreaterThanOrEqual(5);
+    const { top1, shown, detail } = measure(held, "crux choice, holdout");
+    console.info(detail);
+    expect(top1, detail).toBeGreaterThanOrEqual(HOLDOUT_FLOORS.top1);
+    expect(shown, detail).toBeGreaterThanOrEqual(HOLDOUT_FLOORS.shown);
+  });
+
+  it("does not let one incidental word pick the crux", () => {
+    // "engagement ring" is in the mining-economies crux's evidence; the paste asks about ethics.
+    expect(rows.find((row) => row.id === "hold-diamond-ring")?.shown[0]).toBe("human-rights-conflict");
+    // "Andrew Tate" is discussed under the ideology crux; the paste is the outcome data.
+    expect(rows.find((row) => row.id === "hold-young-men-tate")?.shown[0]).toBe("empirical-crisis-indicators");
   });
 
   it("shows the rent-control paste the displacement crux, not the construction one", () => {

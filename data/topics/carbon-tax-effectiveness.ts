@@ -13,7 +13,7 @@ export const carbonTaxEffectivenessData = {
     confidence: 88,
     source:
       "High-Level Commission on Carbon Prices (Stiglitz, Stern et al., 2017); Andersson, AEJ: Economic Policy (2019); Al Jazeera (2014)",
-    sourceUrl: "https://www.worldbank.org/en/news/press-release/2017/05/29/new-global-pathway-on-carbon-pricing-can-shift-finance-to-sustainable-investments-world-bank",
+    sourceUrl: "https://web.archive.org/web/20260614223945/https://www.worldbank.org/en/news/press-release/2017/05/29/new-global-pathway-on-carbon-pricing-can-shift-finance-to-sustainable-investments-world-bank",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -204,7 +204,7 @@ export const carbonTaxEffectivenessData = {
           source:
             "High-Level Commission on Carbon Prices (Stiglitz, Stern et al.), World Bank / Carbon Pricing Leadership Coalition (2017)",
           sourceUrl:
-            "https://www.worldbank.org/en/news/press-release/2017/05/29/new-global-pathway-on-carbon-pricing-can-shift-finance-to-sustainable-investments-world-bank",
+            "https://web.archive.org/web/20260614223945/https://www.worldbank.org/en/news/press-release/2017/05/29/new-global-pathway-on-carbon-pricing-can-shift-finance-to-sustainable-investments-world-bank",
           reasoning:
             "Authoritative expert commission establishing the required price corridor. It cuts against the meta-claim only in the sense that deployed prices fall short — it is a model-based normative target, so replicability is moderate. Cited honestly as showing the gap, not that pricing fails in principle.",
         },

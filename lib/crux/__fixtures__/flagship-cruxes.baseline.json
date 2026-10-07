@@ -35,7 +35,7 @@
       "cycleWarnings": [],
       "explanationFacts": [
         "Claim c-firms-cut-hiring-not-output: Firms facing improved AI capability respond primarily by reducing hiring and headcount growth rather than by expanding output or redesigning jobs to use the freed-up capacity.",
-        "Status is contested because This is an unstated mechanism assumption underlying the causal-attribution case: the observable data (hiring rates, headcount) cannot by itself distinguish 'AI reduced labor demand' from 'AI raised output per worker and firms chose to expand.' The corpus's own firm-level bridge evidence (Hampole et al.-style reallocation) is not decisive either way. The three challenging evidence edges (Hampole, the Danish register study, the Census BTOS AI supplement) do not make this a one-sided record: the supporting side is U.S. adopter-level evidence of slower junior hiring, which the Danish data do not reproduce, so the live dispute sits on that margin..",
+        "Status is contested because This is an unstated assumption behind the case that AI caused the decline: hiring rates and headcounts cannot by themselves tell 'AI reduced the need for workers' apart from 'AI raised output per worker and firms chose to expand.' The firm-level studies on this map (Hampole et al. on reallocation) do not decide it either. The evidence is not one-sided: U.S. studies of AI adopters find slower junior hiring, the Danish register study does not reproduce it, and the live dispute sits on that gap..",
         "Component scores: score 0.806, contestedness 0.654, reach 0.126, discrimination 1.000, tractability 1.000, implicit boost 1.150, scoping bonus 0.610.",
         "Position deltas: p-automation-panic-redux -0.263, p-displacement-now +0.197.",
         "Resolution: existing-evidence: firm-level panels linking AI adoption to headcount, output, and pricing decisions over multiple years.",
@@ -129,7 +129,7 @@
       "cycleWarnings": [],
       "explanationFacts": [
         "Claim c-displaced-workers-can-retrain-costlessly: Workers displaced from automated tasks can retrain and relocate into newly created tasks at a cost and delay small relative to the productivity gains.",
-        "Status is contested because This is the steelman assumption behind reinstatement-based optimism about AI: adjustment can be costly in absolute terms but still small relative to productivity gains if new tasks and targeted programs work well. The corpus's retraining evidence challenges this assumption by showing weak outcomes for ordinary programs, without proving that better-funded, employer-linked, AI-specific programs could not perform better..",
+        "Status is contested because This is the strongest form of the optimists' assumption that new tasks will absorb displaced workers: adjustment can be costly in absolute terms but small next to the productivity gains, if new tasks and targeted programs work. The retraining evidence on this map finds weak results for ordinary programs, but it does not show that better-funded, employer-linked, AI-specific programs could not do better..",
         "Component scores: score 0.716, contestedness 0.500, reach 0.506, discrimination 1.000, tractability 1.000, implicit boost 1.150, scoping bonus 0.000.",
         "Position deltas: p-automation-panic-redux -0.841, p-wage-collapse-not-unemployment +0.725.",
         "Resolution: existing-evidence: realized costs for workers actually displaced by AI: time out of work, and earnings years later against their earlier pay, above all in the clerical jobs with the least capacity to adapt.",
@@ -158,7 +158,7 @@
       "cycleWarnings": [],
       "explanationFacts": [
         "Claim c-mass-unemployment-definition-strict: 'Mass unemployment' should be defined as sustained U-3 unemployment above 10% for multiple quarters, rather than by wage collapse, labor-force participation decline, or underemployment.",
-        "Status is contested because The corpus's definitional-crux section lays out at least three live candidate definitions (strict U-3 above 10%, a stronger 15-20% Amodei-style crisis threshold, and a broader participation/wage/underemployment definition) with no consensus among the sides on which one settles the parent question..",
+        "Status is contested because At least three definitions are in live use (U-3 unemployment above 10%; a stronger 15-20% crisis threshold of the kind Dario Amodei has described; and a broader one counting participation, wages and underemployment), and the sides do not agree which one answers the question..",
         "Component scores: score 0.709, contestedness 0.500, reach 0.097, discrimination 1.000, tractability 0.800, implicit boost 1.000, scoping bonus 1.000.",
         "Position deltas: none.",
         "Resolution: definitional-choice: sides agree on a metric before forecasting: U-3 threshold and duration, employment-population ratio, U-6, prime-age participation, or entry-level career access.",
@@ -260,7 +260,7 @@
       "cycleWarnings": [],
       "explanationFacts": [
         "Claim c-ai-ownership-stays-concentrated: Ownership and control of frontier AI models, compute, and the data that trains them will remain concentrated in a small number of firms and individuals rather than diffusing broadly over the next decade.",
-        "Status is contested because Not argued explicitly as a standalone premise anywhere in the corpus, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than diffusing; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions..",
+        "Status is contested because No one argues this outright, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than spreading, so it is a hidden assumption those positions rest on..",
         "Component scores: score 0.828, contestedness 0.688, reach 0.592, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
         "Position deltas: p-breaks-fundamentally +0.739, p-adapts-as-always -0.643, p-definitional-skeptic -0.162, p-requires-restructuring +0.151.",
         "Resolution: future-observable: a decade of repeated market-share, entry, switching-cost, and beneficial-ownership measurements, taken separately for frontier models, cloud compute, AI chips, and equity ownership.",
@@ -304,7 +304,7 @@
       "cycleWarnings": [],
       "explanationFacts": [
         "Claim c-reallocation-keeps-pace: Workers displaced from AI-exposed tasks will be able to re-enter higher-productivity complementary jobs at a pace that avoids sustained aggregate underemployment, as occurred in prior automation waves.",
-        "Status is contested because Not stated explicitly by the market-optimist case, but its conclusion that adaptation equals survival presupposes reallocation keeps pace with displacement; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions..",
+        "Status is contested because The market-optimist case does not say this outright, but its conclusion that adapting is surviving assumes reallocation keeps pace with displacement, so it is a hidden assumption that case rests on..",
         "Component scores: score 0.750, contestedness 0.734, reach 0.431, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
         "Position deltas: p-adapts-as-always +0.811, p-breaks-fundamentally -0.697.",
         "Resolution: future-observable: longitudinal evidence tracking displaced workers' re-employment time, earnings recovery, and movement into complementary jobs alongside the duration and scale of aggregate underemployment after broad AI adoption.",
@@ -339,7 +339,7 @@
       "cycleWarnings": [],
       "explanationFacts": [
         "Claim c-survival-definition-contested: Whether capitalism has 'survived' AI depends on which criterion is used: private ownership and market allocation persisting, or labor remaining the primary channel through which households obtain purchasing power.",
-        "Status is contested because The two readings genuinely diverge in what they predict counts as survival, and the research corpus explicitly frames much of the wider dispute as downstream of this unresolved choice rather than of any further evidence..",
+        "Status is contested because The two readings predict different things about what counts as survival, and much of the wider dispute follows from this unresolved choice rather than from any further evidence..",
         "Component scores: score 0.715, contestedness 0.500, reach 0.289, discrimination 1.000, tractability 0.800, implicit boost 1.000, scoping bonus 1.000.",
         "Position deltas: p-definitional-skeptic +0.464.",
         "Resolution: definitional-choice: the field converges on a stipulated threshold definition of 'capitalism' before further empirical work is treated as dispositive.",

@@ -238,7 +238,7 @@ export const evEnvironmentalImpactData = {
           id: "doe-charging-infrastructure",
           title: "NREL/DOE: A National Network Could Need ~1.2 Million Public Charging Ports by 2030",
           description:
-            "NREL's 2023 analysis for the DOE Joint Office estimates a national network could require about 1.2 million publicly accessible charging ports by 2030 (plus ~26.8 million private ports) to support 30-42 million light-duty EVs. The current public network is far smaller, so rural charging gaps and installation pace could slow adoption.",
+            "NREL's 2023 analysis for the DOE Joint Office estimates a national network could require about 1.2 million publicly accessible charging ports by 2030 (plus ~26.8 million private ports) to support about 33 million light-duty EVs on the road (a scenario in which half of new sales are electric). The current public network is far smaller, so rural charging gaps and installation pace could slow adoption.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -248,7 +248,7 @@ export const evEnvironmentalImpactData = {
           },
           source:
             "National Renewable Energy Laboratory, The 2030 National Charging Network (2023)",
-          sourceUrl: "https://docs.nrel.gov/docs/fy23osti/85654.pdf",
+          sourceUrl: "https://doi.org/10.2172/1988020",
           reasoning:
             "Authoritative government modeling of the infrastructure build-out needed. Directness lowered further: charger availability affects adoption speed and convenience, not per-vehicle lifecycle emissions, so it is weak as evidence on the environmental question. The specific 'only 186,000 exist as of early 2024' count was removed as it was unsourced here.",
         },
@@ -283,7 +283,7 @@ export const evEnvironmentalImpactData = {
         "EV battery production depends on lithium, cobalt, nickel, and manganese extraction — each with significant environmental and human rights concerns. Lithium brine extraction in South America depletes aquifers in fragile desert ecosystems. Cobalt mining in the DRC involves documented child labor and toxic exposure. Nickel processing in Indonesia destroys rainforest and dumps acid tailings. The question is whether these costs are intrinsic to the technology or solvable through better practices and alternative chemistries.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The hidden costs of EV supply chains are staggering. Lithium extraction in Chile's Atacama Desert consumes 21 million liters of water per day in one of the driest places on Earth, devastating indigenous Atacameno communities and collapsing fragile ecosystems. In the DRC, Amnesty International and UNICEF have documented children as young as 7 mining cobalt in artisanal mines — cobalt that ends up in Tesla, BMW, and VW batteries. Indonesia's nickel boom has destroyed over 25,000 hectares of tropical rainforest for laterite nickel mines, with acid mine drainage poisoning fisheries that 30,000 coastal villagers depend on. Rare earth processing in China has created toxic wastelands around Baotou, Inner Mongolia. We are not eliminating environmental destruction by switching to EVs — we are merely relocating it from oil fields to lithium fields, from refineries to smelters, from the Global North's air to the Global South's water and soil.",
+        "The hidden costs of EV supply chains are staggering. Lithium extraction in Chile's Atacama Desert consumes 21 million liters of water per day in one of the driest places on Earth, devastating indigenous Atacameno communities and collapsing fragile ecosystems. In the DRC, Amnesty International and UNICEF have documented children as young as 7 mining cobalt in artisanal mines — cobalt that ends up in Tesla, BMW, and VW batteries. Indonesia's nickel boom has cleared thousands of hectares of tropical forest for nickel mines, and fishers near the smelters report polluted water and shrinking catches. Rare earth processing in China has created toxic wastelands around Baotou, Inner Mongolia. We are not eliminating environmental destruction by switching to EVs — we are merely relocating it from oil fields to lithium fields, from refineries to smelters, from the Global North's air to the Global South's water and soil.",
       proponent_rebuttal:
         "Mining impacts are real but must be compared honestly against the alternative: the oil and gas industry. Petroleum extraction has caused more than 7,000 oil spills in the Niger Delta since 1958, contaminating a region of some 30 million people and devastating local fishing and farming livelihoods. The Deepwater Horizon spill released roughly 134 million gallons of oil (3.19 million barrels, the court-determined figure) into the Gulf of Mexico. Fracking has contaminated groundwater across the US. Refineries are disproportionately located in communities of color, causing elevated cancer rates. The mining footprint per unit of energy delivered is far smaller for EV minerals than for fossil fuels because batteries are recyclable and reusable while oil is burned once. LFP (lithium iron phosphate) batteries — now 40% of the global market — eliminate cobalt entirely. Sodium-ion batteries eliminate lithium. The mining industry is rapidly improving: dry lithium extraction reduces water use by 90%, and responsible sourcing certifications (IRMA, RMI) are being adopted by major automakers. The trajectory is toward cleaner mining; the trajectory of oil extraction is toward dirtier, harder-to-reach reserves.",
       crux: {
@@ -347,20 +347,21 @@ export const evEnvironmentalImpactData = {
         },
         {
           id: "indonesia-nickel-rainforest",
-          title: "Indonesian Nickel Mining Has Destroyed 25,000+ Hectares of Tropical Rainforest",
+          title: "Indonesia's Nickel Boom Is Clearing Tropical Forest and Running on Coal",
           description:
-            "Indonesia — now the world's largest nickel producer, supplying roughly half of global output (about 50% in 2023 per USGS) — has cleared over 25,000 hectares of tropical rainforest for laterite nickel mines on Sulawesi, Halmahera, and other islands since 2015. A 2023 Climate Rights International report documented acid mine drainage and smelter waste poisoning coastal waters, devastating coral reefs and fisheries that 30,000 coastal villagers depend on. China-funded nickel processing plants in Morowali Industrial Park discharge sulfur dioxide and particulate matter above WHO limits. Three workers have died in smelter explosions since 2023. The rapid expansion is driven almost entirely by EV battery demand — Indonesia's nickel ore exports increased 400% between 2018 and 2023.",
+            "Indonesia is the world's largest nickel producer, supplying 48% of global demand in 2022, and demand is climbing with EV batteries. A January 2024 Climate Rights International report on the Indonesia Weda Bay Industrial Park (IWIP) on Halmahera found, using geospatial analysis with UC Berkeley, that at least 5,331 hectares of tropical forest had been cut within nickel mining concessions on the island, releasing about 2.04 million metric tons of CO2e. IWIP had built at least five captive coal-fired power plants and plans twelve, which once running would burn more coal in a year than Spain or Brazil. Of 45 residents interviewed, many described polluted water, shrinking fish catches, and land taken through coercion and intimidation, sometimes with police and military involvement.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 8,
-            replicability: 7,
-            directness: 8,
+            replicability: 6,
+            directness: 7,
           },
-          source: "Climate Rights International; Mighty Earth; Indonesian Forum for Environment (WALHI)",
-          sourceUrl: "https://www.climaterightsintl.org/nickel-unearthed",
+          source:
+            "Climate Rights International, \"Nickel Unearthed: The Human and Climate Costs of Indonesia's Nickel Industry\" (January 2024)",
+          sourceUrl: "https://cri.org/reports/nickel-unearthed/",
           reasoning:
-            "Multiple independent organizations corroborate the findings. Satellite imagery confirms deforestation extent. The direct causal link between EV battery demand and Indonesian nickel expansion is well-established. Replicability is moderate because conditions vary across hundreds of mining concessions. This is a strong point for the 'against' side but applies specifically to laterite nickel; sulfide deposits (Canada, Australia) have smaller footprints.",
+            "A field investigation with satellite-based deforestation estimates is solid evidence of local harm, though it comes from an advocacy organization and covers one island and one industrial park. Replicability is moderate because conditions vary across hundreds of mining concessions. The coal-powered smelting is directly relevant to lifecycle emissions, not just to mining harm. It applies specifically to Indonesian laterite nickel; sulfide deposits (Canada, Australia) and nickel-free LFP batteries have smaller footprints.",
         },
         {
           id: "lfp-cobalt-free-batteries",
@@ -466,8 +467,8 @@ export const evEnvironmentalImpactData = {
       url: "https://www.unep.org/resources/report/environmental-assessment-ogoniland",
     },
     {
-      title: "Nickel Unearthed: The Human and Climate Cost of Indonesia's Nickel Industry — Climate Rights International (2023)",
-      url: "https://www.climaterightsintl.org/nickel-unearthed",
+      title: "Nickel Unearthed: The Human and Climate Costs of Indonesia's Nickel Industry — Climate Rights International (2024)",
+      url: "https://cri.org/reports/nickel-unearthed/",
     },
     {
       title: "Electric Vehicle Outlook — BloombergNEF",

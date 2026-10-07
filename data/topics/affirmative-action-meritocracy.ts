@@ -292,9 +292,9 @@ export const affirmativeActionMeritocracyData = {
       evidence: [
         {
           id: "mismatch-hypothesis-debate",
-          title: "Mismatch Hypothesis: Sander vs. Arcidiacono — Evidence Is Mixed but Leans Against Mismatch",
+          title: "The mismatch hypothesis and the reanalyses of it",
           description:
-            "Richard Sander's 2004 Stanford Law Review article argued that affirmative action in law schools 'mismatched' Black students with institutions above their preparation level, reducing the number of Black lawyers. Multiple reanalyses challenged his findings: a 2012 RAND study found no evidence of mismatch effects on bar passage rates after controlling for selection bias. Arcidiacono and Lovenheim (2016) found modest mismatch effects in STEM field persistence but not in overall graduation rates. A comprehensive 2017 review by Kidder and Lempert concluded that 'the weight of the evidence is against the strong mismatch hypothesis.' The debate remains active, but the strongest versions of the mismatch claim — that affirmative action reduces the total number of minority professionals — have not been supported by the data.",
+            "Richard Sander's 2004 Stanford Law Review article argued that affirmative action in law schools 'mismatched' Black students with institutions above their preparation level, reducing the number of Black lawyers. Reanalyses of the same Bar Passage Study data reached different conclusions: Rothstein and Yoon (2008) found no mismatch effect on the graduation, bar passage or employment outcomes of Black students with moderate or strong entering credentials, and located what mismatch evidence there is among students with the weakest credentials at lower-tier schools. A 2016 Journal of Economic Literature review by Arcidiacono and Lovenheim surveyed the field, described the law-school literature as contentious, and framed the question as a trade-off between institutional quality and student-school fit rather than a settled finding either way.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -302,10 +302,29 @@ export const affirmativeActionMeritocracyData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Stanford Law Review; Annual Review of Economics; RAND Corporation",
-          sourceUrl: "https://www.annualreviews.org/doi/10.1146/annurev-economics-080315-015041",
+          source:
+            "Stanford Law Review (Sander, 2004); NBER w14275 (Rothstein & Yoon, 2008); Journal of Economic Literature (Arcidiacono & Lovenheim, 2016)",
+          sourceUrl: "https://doi.org/10.1257/jel.54.1.3",
           reasoning:
-            "The academic debate between Sander and his critics has played out in top peer-reviewed venues over 20 years. The evidence is genuinely mixed on STEM-specific mismatch, but the strong version of the hypothesis (that affirmative action reduces total minority degree attainment) has been refuted by multiple independent analyses. The ongoing disagreement itself suggests the effect, if it exists, is small.",
+            "The debate between Sander and his critics has run for two decades in peer-reviewed venues, with several teams reanalysing one shared dataset and disagreeing about selection correction. The strong version of the hypothesis — that race-conscious admission reduces the total number of minority lawyers — has not held up in the reanalyses, while a weaker version concerning the least-prepared students and STEM persistence remains live. This card weighs on the policy question only to the extent the strong version fails.",
+        },
+        {
+          id: "stem-persistence-less-selective-campuses",
+          title:
+            "Minority students in the UC system persisted in STEM more often at less selective campuses",
+          description:
+            "Arcidiacono, Aucejo and Hotz, in the American Economic Review (2016), used University of California data and found that less-prepared minority students who began in STEM were more likely to graduate in a STEM field had they attended a less selective UC campus. Their estimate is that the number of minority STEM graduates would rise if students were better matched to campuses, because persistence in the major, not admission to the system, is where the loss occurs.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source: "American Economic Review (Arcidiacono, Aucejo & Hotz, 2016)",
+          sourceUrl: "https://doi.org/10.1257/aer.20130626",
+          reasoning:
+            "This is the strongest peer-reviewed evidence for a fit effect in a specific, measurable outcome, from administrative records for an entire state system rather than survey data. It bears on how students are allocated across campuses, not on whether race-conscious admission widens access overall, and its counterfactual depends on modelling assumptions about where each student would otherwise have enrolled.",
         },
         {
           id: "diversity-innovation-research",
@@ -400,8 +419,8 @@ export const affirmativeActionMeritocracyData = {
       url: "https://www.federalreserve.gov/econres/scfindex.htm",
     },
     {
-      title: "Affirmative Action and the Quality-Fit Trade-off — Arcidiacono & Lovenheim, Annual Review of Economics (2016)",
-      url: "https://www.annualreviews.org/doi/10.1146/annurev-economics-080315-015041",
+      title: "Affirmative Action and the Quality-Fit Trade-off — Arcidiacono & Lovenheim, Journal of Economic Literature (2016)",
+      url: "https://doi.org/10.1257/jel.54.1.3",
     },
     {
       title: "More Americans Disapprove Than Approve of Colleges Considering Race, Ethnicity in Admissions Decisions — Pew Research Center (2023)",

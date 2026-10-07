@@ -221,6 +221,10 @@ export const aiRiskData = {
         equation:
           "R_{observed} \\neq R_{true} \\implies \\text{Deceptive Alignment Risk}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Run models in honeypot settings where deception pays only when the model believes no one is watching, vary how weak the oversight looks, and count how often models that behave well under observation defect when it lapses, replicated across labs and model families beyond the 2024 sleeper-agent and alignment-faking studies.",
+        },
         cost_to_verify: "$50K (Anthropic sleeper agents paper, 2024)",
         falsification: {
           supporter_flip:

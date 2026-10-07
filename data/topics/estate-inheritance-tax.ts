@@ -32,7 +32,7 @@ export const estateInheritanceTaxData = {
       skeptic_premise:
         "Taxing an estate is double taxation: the wealth was already taxed when it was earned, so taxing it again at death penalizes thrift and the desire to provide for one's children — a near-universal moral impulse. The 'fairness' framing is contested by the people who feel it: a family that built a business or farm over decades did nothing wrong by wanting to pass it on intact. And because the rich hire lawyers to route assets through dynasty trusts and valuation discounts, the tax often falls hardest on the moderately wealthy who planned least, not the true dynasties it claims to target.",
       proponent_rebuttal:
-        "The estate tax is among the most progressive parts of the US code: only about 0.2% of decedents leave a taxable estate (roughly 4,000 of ~2.8 million deaths in 2023), and the exemption (~$12.92M per person / ~$25.84M per couple in 2023) shields all but the very largest fortunes. A large share of these fortunes is unrealized capital gains that were *never* taxed during life — so the 'double taxation' objection is often empirically false. Inherited (not self-made) wealth is estimated at roughly 35–45% of total wealth, so taxing very large transfers targets advantage that recipients did nothing to earn, and pushes back on dynastic concentration of opportunity.",
+        "The estate tax is among the most progressive parts of the US code: only about 0.2% of decedents leave a taxable estate (roughly 4,000 of ~2.8 million deaths in 2023), and the exemption (~$12.92M per person / ~$25.84M per couple in 2023) shields all but the very largest fortunes. A large share of these fortunes is unrealized capital gains that were never taxed during life — so the 'double taxation' objection is often empirically false. Inherited (not self-made) wealth is estimated at roughly 35–45% of total wealth, so taxing very large transfers targets advantage that recipients did nothing to earn, and pushes back on dynastic concentration of opportunity.",
       crux: {
         id: "share-never-taxed",
         title: "How Much Estate Wealth Was Never Taxed During Life",
@@ -143,9 +143,9 @@ export const estateInheritanceTaxData = {
         "Critics say the tax shrinks the capital stock and raises little net revenue; defenders say the behavioral and revenue costs are modest and the tax corrects a real distortion.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "The estate tax is economically unsound: by taxing accumulated capital at death it discourages saving and investment, shrinking the productive capital stock. A 1998 Joint Economic Committee study argued the tax had reduced the US capital stock by roughly $497 billion (about 3.2%) and that its distortionary effects produce income-tax losses 'roughly the same size as estate tax revenue,' so it raises little *net* revenue while imposing heavy compliance and planning costs. A high statutory rate (40%) on illiquid assets can also force liquidation of operating businesses.",
+        "The estate tax is economically unsound: by taxing accumulated capital at death it discourages saving and investment, shrinking the productive capital stock. A 1998 Joint Economic Committee study argued the tax had reduced the US capital stock by roughly $497 billion (about 3.2%) and that its distortionary effects produce income-tax losses 'roughly the same size as estate tax revenue,' so it raises little net revenue while imposing heavy compliance and planning costs. A high statutory rate (40%) on illiquid assets can also force liquidation of operating businesses.",
       proponent_rebuttal:
-        "The capital-stock and 'near-zero net revenue' claims come from a partisan congressional study with strong modeling assumptions, not a consensus estimate; mainstream analyses find the tax raises real, meaningful revenue (~$24B/yr) from a tiny number of ultra-wealthy estates. Because much of that wealth is unrealized gains that would otherwise escape tax forever, the efficiency case partly *reverses*: the tax (and reforming stepped-up basis) reduces the 'lock-in' incentive to hold appreciated assets purely to dodge tax. And the feared forced sales of farms and businesses are very rare in the data.",
+        "The capital-stock and 'near-zero net revenue' claims come from a partisan congressional study with strong modeling assumptions, not a consensus estimate; mainstream analyses find the tax raises real, meaningful revenue (~$24B/yr) from a tiny number of ultra-wealthy estates. Because much of that wealth is unrealized gains that would otherwise escape tax forever, the efficiency case partly reverses: the tax (and reforming stepped-up basis) reduces the 'lock-in' incentive to hold appreciated assets purely to dodge tax. And the feared forced sales of farms and businesses are very rare in the data.",
       crux: {
         id: "net-revenue-vs-deadweight",
         title: "Does Avoidance Cancel Out the Revenue?",
@@ -177,7 +177,7 @@ export const estateInheritanceTaxData = {
           id: "lock-in-correction",
           title: "Estate Tax Mitigates the Capital-Gains 'Lock-In' Distortion",
           description:
-            "Stepped-up basis is identified as a major driver of the 'lock-in effect' — holding appreciated assets to death purely to avoid capital-gains tax, distorting portfolio choice and liquidity. Taxing wealth transfers (and reforming basis) reduces this distortion, an efficiency *gain*, not just a cost.",
+            "Stepped-up basis is identified as a major driver of the 'lock-in effect' — holding appreciated assets to death purely to avoid capital-gains tax, distorting portfolio choice and liquidity. Taxing wealth transfers (and reforming basis) reduces this distortion, an efficiency gain, not just a cost.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

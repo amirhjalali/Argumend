@@ -86,7 +86,7 @@ describe("home + story redirects", () => {
       expect.arrayContaining([
         {
           source: "/concepts/confidence-calibration",
-          destination: "/methodology#older-maps",
+          destination: "/guides/reading-confidence-like-a-forecaster",
           permanent: true,
         },
         { source: "/concepts/pillars", destination: "/concepts/cruxes", permanent: true },

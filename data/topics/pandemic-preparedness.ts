@@ -144,9 +144,9 @@ export const pandemicPreparednessData = {
         {
           id: "who-preparedness-index",
           title:
-            "WHO Joint External Evaluation: Most Countries Critically Unprepared",
+            "No country scores as fully prepared on the comparative assessments",
           description:
-            "The WHO Joint External Evaluation (JEE) framework, which assesses country-level compliance with International Health Regulations, found that as of 2023, fewer than 50 countries (out of 196) had completed assessments, and among those evaluated, the average preparedness score was 40 out of 100. The 2021 Global Health Security Index found that no country was fully prepared for a pandemic, with an average score of 38.9/100. Even the highest-scoring countries (US, UK, Netherlands) had significant gaps exposed by COVID-19, particularly in surge capacity, supply chain resilience, and public health communication.",
+            "The WHO Joint External Evaluation (JEE) assesses country capacity under the International Health Regulations; WHO reports that more than 100 countries have gone through one. The JEE does not produce a single score out of 100 — each indicator is rated on a five-level capacity scale, from no capacity to sustainable capacity, and results are reported technical area by technical area. The 2021 Global Health Security Index, which does score countries out of 100, found no country fully prepared, with an average of 38.9. Its highest scorers — the United States (75.9), Australia (71.1) and Finland (70.9) — all had gaps exposed by COVID-19 in surge capacity, supply-chain resilience and public health communication.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -159,7 +159,7 @@ export const pandemicPreparednessData = {
           sourceUrl:
             "https://www.who.int/emergencies/operations/international-health-regulations-monitoring-evaluation-framework/joint-external-evaluations",
           reasoning:
-            "The JEE is the WHO's official assessment instrument with standardized methodology. The GHS Index is the most comprehensive comparative study available. Both demonstrate that current global preparedness levels are inadequate. Directness is moderate because preparedness scores are inputs (capacity measures) rather than outputs (demonstrated pandemic mitigation).",
+            "The JEE is the WHO's official assessment instrument with standardized methodology. The GHS Index is the most comprehensive comparative study available. Both describe capacity as short of what their own frameworks define as prepared. Directness is moderate because preparedness scores are inputs (capacity measures) rather than outputs, and because published analyses after 2020 found the GHS Index ranking predicted observed COVID-19 outcomes poorly, which cuts against reading either instrument as a forecast of how a country will fare.",
         },
       ],
     },

@@ -29,7 +29,7 @@ export interface QuestionVariation {
 
 /**
  * Hand-crafted question variations for each topic. Each entry maps a topic ID
- * to 1-3 question-format strings that real people search for. The first
+ * to 1-4 question-format strings that real people search for. The first
  * question is treated as the "primary" variation.
  */
 const TOPIC_QUESTIONS: Record<string, string[]> = {
@@ -42,6 +42,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Should the US have universal healthcare?",
     "Is universal healthcare better than private insurance?",
     "Does universal healthcare save money?",
+    "Would single-payer Medicare for All work?",
   ],
   "gun-control-effectiveness": [
     "Does gun control reduce violence?",
@@ -177,6 +178,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Is climate change caused by humans?",
     "How serious is climate change?",
     "Can we still stop climate change?",
+    "Is global warming real?",
   ],
   "ev-environmental-impact": [
     "Are electric cars better for the environment?",
@@ -313,6 +315,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Should AI be regulated by the government?",
     "Is AI regulation necessary?",
     "Can we regulate AI without stifling innovation?",
+    "Is the EU AI Act the right way to regulate AI?",
   ],
   "housing-affordability-crisis": [
     "Why is housing so expensive?",
@@ -361,6 +364,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
     "Should minors receive gender-affirming care?",
     "Is gender-affirming care safe for children?",
     "What does the evidence say about gender-affirming care?",
+    "Should trans kids get puberty blockers?",
   ],
   "consciousness-hard-problem": [
     "What is the hard problem of consciousness?",
@@ -464,7 +468,10 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "seed-oils-health": ["Are seed oils harmful to your health?"],
   "self-driving-car-safety": ["Are self-driving cars safer than human drivers?"],
   "congestion-pricing": ["Does congestion pricing work?"],
-  "right-to-repair": ["Is right to repair good for consumers?"],
+  "right-to-repair": [
+    "Is right to repair good for consumers?",
+    "Should owners be allowed to repair their own tractors and phones?",
+  ],
   "assisted-dying-euthanasia": ["Should terminally ill adults have the right to assisted dying?"],
   "sex-work-decriminalization": ["Does decriminalizing sex work improve safety?"],
   "carbon-tax-effectiveness": ["Does a carbon tax reduce emissions?"],

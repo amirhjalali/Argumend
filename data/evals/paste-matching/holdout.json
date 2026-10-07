@@ -1,7 +1,7 @@
 {
   "version": 1,
   "set": "holdout",
-  "description": "Held-out pastes for the map lane at /analyze, written on 2026-09-29 after the scorer was tuned on pastes.json and run once, untuned, to check that the tuning generalises. Same schema as pastes.json: `expected` = right answers (empty = no map should be named), `related` = near siblings that are fair to show but are not the answer.",
+  "description": "Held-out pastes for the map lane at /analyze, written on 2026-09-29 after the scorer was tuned on pastes.json and run once, untuned, to check that the tuning generalises. Same schema as pastes.json: `expected` = right answers (empty = no map should be named), `related` = near siblings that are fair to show but are not the answer. The 40 cases from hold-m4a-dinner on were added on 2026-10-06 from the r9 live review (pastes sent to the live /api/analyze), before the round-9 matcher changes; 29 have a map, 11 do not.",
   "cases": [
     {
       "id": "hold-nuclear-banana",
@@ -301,6 +301,298 @@
       "expected": [],
       "related": [],
       "note": "Hard negative: medical vocabulary near ai-replacing-doctors."
+    },
+    {
+      "id": "hold-m4a-dinner",
+      "form": "conversation",
+      "text": "A: Medicare for All would save money, every other rich country covers everyone for less than we spend. B: And they have waiting lists. My cousin in Canada waited eight months for a knee replacement. A: You'd rather lose your insurance every time you change jobs?",
+      "expected": ["universal-healthcare"],
+      "related": []
+    },
+    {
+      "id": "hold-oregon-m110",
+      "form": "article",
+      "text": "Oregon's Measure 110 made possession of small amounts of fentanyl and meth a $100 ticket, with the savings meant to pay for treatment. Three years later, with overdose deaths still climbing and open use on Portland sidewalks, the legislature voted to recriminalize possession.",
+      "expected": ["drug-decriminalization"],
+      "related": []
+    },
+    {
+      "id": "hold-draftkings-rant",
+      "form": "rant",
+      "text": "Every single ad break during the game is DraftKings or FanDuel now. My buddy lost his whole savings on parlays in six months and the app kept sending him free bet credits. How is this legal in my state?",
+      "expected": ["sports-betting-legalization"],
+      "related": []
+    },
+    {
+      "id": "hold-pfas-3m",
+      "form": "reply",
+      "text": "3M paid over ten billion dollars to settle with water utilities over forever chemicals, and the EPA set the limit at four parts per trillion. Small towns are going to be bankrupted filtering their tap water for a risk nobody can quantify.",
+      "expected": ["pfas-forever-chemicals"],
+      "related": []
+    },
+    {
+      "id": "hold-jones-shipping",
+      "form": "reply",
+      "text": "It's cheaper to ship oil from Saudi Arabia to Boston than from Texas, because a law from 1920 says only American-built, American-crewed ships can carry cargo between US ports. Puerto Rico and Hawaii pay for it every day.",
+      "expected": ["jones-act"],
+      "related": []
+    },
+    {
+      "id": "hold-rfk-acip",
+      "form": "conversation",
+      "text": "A: RFK Jr. fired the entire vaccine advisory committee and cancelled the mRNA research contracts. B: He's going after food dyes and ultra-processed junk that the FDA ignored for decades. A: Food dyes don't kill kids. Measles does.",
+      "expected": ["rfk-health-policy"],
+      "related": ["vaccine-mandates", "ultra-processed-food"]
+    },
+    {
+      "id": "hold-tariff-oneliner",
+      "form": "short",
+      "text": "Tariffs are just a tax on consumers, end of story.",
+      "expected": ["trump-tariffs"],
+      "related": []
+    },
+    {
+      "id": "hold-epstein-list",
+      "form": "rant",
+      "text": "They spent years promising to release the Epstein client list and then the Justice Department announced there is no list and he definitely killed himself. Nobody in power is ever held accountable.",
+      "expected": ["epstein-files"],
+      "related": []
+    },
+    {
+      "id": "hold-reparations-dinner",
+      "form": "conversation",
+      "text": "My dad says reparations would punish people whose families never owned slaves. My sister says it's not about guilt, it's about redlining and the GI Bill shutting Black families out of building wealth for generations. Thanksgiving got loud.",
+      "expected": ["reparations-slavery"],
+      "related": []
+    },
+    {
+      "id": "hold-mit-sat",
+      "form": "article",
+      "text": "MIT reinstated its SAT requirement after finding that test scores predicted which students would struggle in first-year math better than grades did, and Dartmouth and Yale followed. Critics say the scores mostly measure family income.",
+      "expected": ["standardized-testing-debate"],
+      "related": ["affirmative-action-meritocracy"]
+    },
+    {
+      "id": "hold-sffa",
+      "form": "reply",
+      "text": "After the Supreme Court struck down race-conscious admissions in the Harvard case, Black enrollment at some selective schools dropped sharply. Colorblind sounds fair until you look at who actually gets in.",
+      "expected": ["affirmative-action-meritocracy"],
+      "related": ["standardized-testing-debate"]
+    },
+    {
+      "id": "hold-uber-employees",
+      "form": "conversation",
+      "text": "A: Uber drivers should be employees with benefits and a minimum wage. B: Most drivers do it part time and want the flexibility, that's why they voted for Prop 22. A: Flexibility is a nice word for no sick pay and no unemployment insurance.",
+      "expected": ["gig-economy-regulation"],
+      "related": []
+    },
+    {
+      "id": "hold-deere-repair",
+      "form": "rant",
+      "text": "John Deere won't let farmers fix their own tractors without a dealer's software key, and Apple serializes parts so an independent shop can't swap a screen. If I bought it, I should be able to fix it.",
+      "expected": ["right-to-repair"],
+      "related": [],
+      "note": "r9 review: status none on 2026-10-06 (top 8.5, lead 1.14); map has no Deere/tractor/farmer words."
+    },
+    {
+      "id": "hold-section-230",
+      "form": "reply",
+      "text": "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
+      "expected": ["section-230-reform"],
+      "related": []
+    },
+    {
+      "id": "hold-korea-fertility",
+      "form": "article",
+      "text": "South Korea's fertility rate fell to 0.72 children per woman, the lowest ever recorded, despite more than $200 billion spent on baby bonuses and childcare subsidies. At that rate each generation is a third smaller than the one before it.",
+      "expected": ["declining-birth-rates"],
+      "related": []
+    },
+    {
+      "id": "hold-retire-70",
+      "form": "conversation",
+      "text": "A: People live longer now, raising the retirement age to 70 is just math. B: Rich people live longer. A roofer or a warehouse worker isn't lifting boxes at 69. A: Then lift the payroll tax cap instead?",
+      "expected": ["social-security-retirement-age"],
+      "related": []
+    },
+    {
+      "id": "hold-upf-kevin-hall",
+      "form": "reply",
+      "text": "In the NIH study people ate about 500 more calories a day on the ultra-processed diet even though the meals were matched for sugar, fat and fiber. It's not willpower, the food is engineered to be overeaten.",
+      "expected": ["ultra-processed-food"],
+      "related": ["obesity-personal-responsibility", "seed-oils-health"]
+    },
+    {
+      "id": "hold-brain-spoon",
+      "form": "short",
+      "text": "Apparently there's a spoonful of microplastics in everyone's brain now. Should I be panicking?",
+      "expected": ["microplastics-health-crisis"],
+      "related": [],
+      "note": "r9 review: status none, UI said no map is about this (coverage 0.27, xlead 1.85)."
+    },
+    {
+      "id": "hold-mars-musk",
+      "form": "reply",
+      "text": "Musk says a million people on Mars by 2050. There's no magnetic field, the soil is toxic perchlorate, and nobody has kept a closed ecosystem running even here on Earth. Biosphere 2 failed in two years.",
+      "expected": ["space-colonization-feasibility"],
+      "related": ["space-exploration-value"]
+    },
+    {
+      "id": "hold-loneliness-15",
+      "form": "rant",
+      "text": "The surgeon general said being lonely is as bad for you as smoking fifteen cigarettes a day. Half my friends haven't seen anyone outside work in weeks. We built a society where nobody has a third place anymore.",
+      "expected": ["loneliness-epidemic"],
+      "related": []
+    },
+    {
+      "id": "hold-llama-weights",
+      "form": "conversation",
+      "text": "A: Meta releasing Llama's weights means any terrorist can strip the safety training and ask it for bioweapon help. B: Closed labs leak too, and open weights let researchers actually audit what these models do instead of trusting OpenAI's word.",
+      "expected": ["open-weight-ai-models"],
+      "related": ["ai-regulation", "ai-risk"]
+    },
+    {
+      "id": "hold-clearview-detroit",
+      "form": "article",
+      "text": "Detroit police arrested Robert Williams in front of his daughters after a facial recognition system matched his driver's license photo to blurry shoplifting footage. He was held for thirty hours. The match was wrong.",
+      "expected": ["facial-recognition-policing"],
+      "related": ["surveillance-public-safety"]
+    },
+    {
+      "id": "hold-nukes-ww3",
+      "form": "short",
+      "text": "Honestly nukes are the only reason we haven't had WW3.",
+      "expected": ["nuclear-weapons-abolition"],
+      "related": ["nuclear-proliferation-new-arms-race"],
+      "note": "r9 review: status none (score 5.8, coverage 0.34)."
+    },
+    {
+      "id": "hold-eu-ai-act",
+      "form": "reply",
+      "text": "The EU AI Act is going to do to European AI startups what GDPR did to European ad tech. Every serious lab will just build in the US and Europe will regulate a market it doesn't have.",
+      "expected": ["ai-regulation"],
+      "related": ["eacc-vs-tech-regulation"],
+      "note": "r9 review: closest, eacc-vs-tech-regulation first."
+    },
+    {
+      "id": "hold-homeschool-scores",
+      "form": "conversation",
+      "text": "A: Homeschooled kids score higher on standardized tests, it's proven. B: Only the families who choose to report scores get counted, and those are the most motivated parents. A: My kids are two grades ahead.",
+      "expected": ["homeschooling-effectiveness"],
+      "related": []
+    },
+    {
+      "id": "hold-ring-lab-diamond",
+      "form": "short",
+      "text": "Is a lab-grown diamond engagement ring actually more ethical or is it just cheaper?",
+      "expected": ["lab-diamonds-ethics"],
+      "related": []
+    },
+    {
+      "id": "hold-sbf-ea",
+      "form": "rant",
+      "text": "Sam Bankman-Fried was the poster boy of effective altruism, earning to give, and he stole billions from customers. The whole philosophy lets smart people justify anything if the spreadsheet says the expected value is positive.",
+      "expected": ["effective-altruism"],
+      "related": []
+    },
+    {
+      "id": "hold-young-men",
+      "form": "article",
+      "text": "Women now earn nearly 60 percent of bachelor's degrees, young men are more likely than young women to live with their parents, and male suicide rates are four times higher. Neither party seems to have anything to say to them except Andrew Tate.",
+      "expected": ["masculinity-crisis"],
+      "related": []
+    },
+    {
+      "id": "hold-fired-tweet",
+      "form": "reply",
+      "text": "A guy got fired last week over a joke he tweeted in 2012 when he was 17. No due process, no proportion, just a mob and an HR department that panicked.",
+      "expected": ["cancel-culture"],
+      "related": []
+    },
+    {
+      "id": "hold-neg-vouchers",
+      "form": "conversation",
+      "text": "A: Arizona's universal school vouchers just hand public money to families who were already paying for private school. B: Parents should be able to take their kid's education dollars wherever the kid learns best. A: And the public schools lose the funding but keep the costs.",
+      "expected": [],
+      "related": [],
+      "note": "r9 review: closest listed children-smartphone-age, student-debt-forgiveness, ai-in-education."
+    },
+    {
+      "id": "hold-neg-plastic-bags",
+      "form": "rant",
+      "text": "The plastic bag ban is pointless. Now I buy thicker plastic bin liners because I don't have grocery bags to reuse, and the paper bags take more energy to make. Feel-good policy at its worst.",
+      "expected": [],
+      "related": [],
+      "note": "No map on bag bans; microplastics-health-crisis is the word decoy (plastic)."
+    },
+    {
+      "id": "hold-neg-stadium",
+      "form": "reply",
+      "text": "Every study on publicly financed stadiums says the same thing: they don't create jobs or growth, they just move entertainment spending from one part of the city to another. Let the billionaire owners pay for their own arena.",
+      "expected": [],
+      "related": [],
+      "note": "r9 review: closest listed billionaire-wealth, rent-control-effectiveness, immigration-wage-impact."
+    },
+    {
+      "id": "hold-neg-drinking-age",
+      "form": "conversation",
+      "text": "A: If you can vote and join the army at 18 you should be able to buy a beer. B: The drinking age went to 21 and drunk driving deaths among teenagers fell a lot. A: Europe drinks at 16 and doesn't have our binge culture.",
+      "expected": [],
+      "related": [],
+      "note": "No map on the drinking age; alcohol-no-safe-level is the decoy."
+    },
+    {
+      "id": "hold-neg-zoos",
+      "form": "reply",
+      "text": "Zoos fund conservation and breeding programs that kept species like the California condor alive. Keeping an orca in a tank is cruel, but a good zoo is not a prison.",
+      "expected": [],
+      "related": ["animal-consciousness-rights", "de-extinction-species"],
+      "note": "No map on zoos."
+    },
+    {
+      "id": "hold-neg-stacktrace",
+      "form": "article",
+      "text": "TypeError: Cannot read properties of undefined (reading 'map') at TopicList (webpack-internal:///./components/TopicList.tsx:42:23) at renderWithHooks (react-dom.development.js:14985:18). Anyone know why my list breaks on the first render?",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-dishes",
+      "form": "conversation",
+      "text": "A: You said you'd do the dishes tonight. B: I did them Monday and Wednesday, it's your turn. A: Monday doesn't count, you only did the pans because I'd already loaded the dishwasher.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-gay-marriage",
+      "form": "conversation",
+      "text": "A: Same-sex marriage should be decided by the states, not nine judges. B: Obergefell was about equal protection; you don't put people's rights to a popular vote. A: Then why are some justices saying they want to revisit it?",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "hold-neg-nuclear-thanksgiving",
+      "form": "rant",
+      "text": "My mom went absolutely nuclear at Thanksgiving because my brother brought his new girlfriend without asking. Now nobody is speaking and the group chat is a war zone.",
+      "expected": [],
+      "related": [],
+      "note": "Word decoys: nuclear, war."
+    },
+    {
+      "id": "hold-neg-dc-statehood",
+      "form": "reply",
+      "text": "DC has more residents than Wyoming or Vermont and pays more in federal taxes than twenty states, but it has no senators and no voting member of Congress. Taxation without representation is on their license plates for a reason.",
+      "expected": [],
+      "related": ["electoral-college-reform"],
+      "note": "r9 review: closest listed electoral-college-reform, congressional-term-limits, privacy-vs-convenience."
+    },
+    {
+      "id": "hold-neg-water-glasses",
+      "form": "short",
+      "text": "The eight glasses of water a day rule is a myth, right? I'm always told to drink more water.",
+      "expected": [],
+      "related": [],
+      "note": "Word decoys: fluoride-water-supplies, global-water-crisis."
     }
   ]
 }

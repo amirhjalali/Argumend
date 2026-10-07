@@ -165,7 +165,7 @@ export const transgenderAthletesSportsData = {
           id: "no-olympic-domination",
           title: "No Transgender Woman Won Olympic Gold During the Two Decades of Inclusive Eligibility (2004–2025)",
           description:
-            "From the 2004 Stockholm Consensus (originally requiring genital surgery) through the 2015 shift to a 12-month testosterone-suppression standard, the IOC permitted transgender women to compete in women's events for roughly two decades. In that window, no transgender woman won an Olympic medal in any sport; the most prominent elite case, weightlifter Laurel Hubbard, failed all three of her lifts and placed last at the 2020 Tokyo Games. This cuts against predictions that inclusive eligibility would lead transgender athletes to 'dominate' women's sport at the elite level. The argument is necessarily weak as positive evidence — the number of openly transgender elite athletes is tiny, so an absence of medalists is also consistent with simple small-sample chance — and the eligibility window has since closed, with the IOC moving to exclusion from 2026 (see Pillar 3).",
+            "From the 2004 Stockholm Consensus (originally requiring genital surgery) through the 2015 shift to a 12-month testosterone-suppression standard, the IOC permitted transgender women to compete in women's events for roughly two decades. In that window, no transgender woman won an Olympic medal in any sport; the most prominent elite case, weightlifter Laurel Hubbard, failed all three of her lifts and placed last at the 2020 Tokyo Games. This cuts against predictions that inclusive eligibility would lead transgender athletes to 'dominate' women's sport at the elite level. The argument is necessarily weak as positive evidence — the number of openly transgender elite athletes is tiny, so an absence of medalists is also consistent with simple small-sample chance — and the eligibility window has since closed, with the IOC moving to exclusion from 2026 (see “The Open Category Compromise”).",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -204,6 +204,10 @@ export const transgenderAthletesSportsData = {
         methodology:
           "Implement pilot open/restricted category programs in 3-5 sports across multiple countries over 2 competitive seasons. Measure participation rates in each category (including transgender, non-binary, and intersex athletes), competitive quality metrics, athlete satisfaction surveys, logistical costs, and media/public perception. Compare outcomes with sports maintaining traditional male/female categories.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Run open and restricted categories in three to five sports for two seasons and measure who enters each (including transgender, non-binary and intersex athletes), standards in the restricted category, athlete satisfaction and cost, against sports that keep male and female categories.",
+        },
         cost_to_verify:
           "$2-5M (Multi-sport, multi-nation pilot program over 2-3 years)",
         falsification: {
