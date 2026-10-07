@@ -251,6 +251,10 @@ export const nuclearFusionTimelineData = {
         methodology:
           "Track cumulative fusion generation as a share of total electricity (TWh) over time; compare the gap between first grid connection of a pilot and the date fusion exceeds ~1% of global generation, using deployment-rate and learning-curve analysis.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Track fusion's share of world electricity year by year after the first grid-connected pilot, with the build rate and cost curve of follow-on plants: a share passing about 1% within twenty years, or a stall at one-off demonstrations.",
+        },
         cost_to_verify: "$0 (forecast and deployment-rate analysis)",
         falsification: {
           supporter_flip:

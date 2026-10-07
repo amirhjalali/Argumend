@@ -84,11 +84,15 @@ export const moonLandingData = {
         question:
           "Do laser echoes from the Moon need astronaut-placed reflectors, or could natural features explain them?",
         description:
-          "The retroreflectors placed on the Moon by Apollo astronauts can be pinged with lasers from Earth, providing physical proof of human activity on the lunar surface.",
+          "Observatories on Earth fire lasers at the reported Apollo landing sites and time the echoes. The question is what on the surface sends them back.",
         methodology:
           'Fire a pulse laser at coordinates 0°40\'26.69" N, 23°28\'22.69" E. Measure the return time. Only a manufactured corner-cube prism returns the signal.',
         equation: "D = \\frac{c \\cdot t}{2}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare laser returns from independent observatories aimed at the published Apollo reflector coordinates with returns from nearby bare ground and from the Soviet Lunokhod reflectors: a strong, timed echo only where reflectors were reported points to placed hardware, a similar echo from bare ground to natural features.",
+        },
         cost_to_verify:
           "$0 (Amateur astronomers can verify with ~$5K equipment)",
         falsification: {

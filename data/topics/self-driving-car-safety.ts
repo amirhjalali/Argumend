@@ -215,7 +215,7 @@ export const selfDrivingCarSafetyData = {
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Evidence on whether staged, domain-by-domain expansion plus simulation catches the failures that only appear in new conditions (highways, snow, rural roads) before scaling. How much proof to require first, given lives lost to delay, is a value choice.",
+            "Evidence on whether staged, domain-by-domain expansion plus simulation catches the failures that only appear in new conditions (highways, snow, rural roads) before scaling. How much evidence to require first, given lives lost to delay, is a value choice.",
         },
         cost_to_verify: "$0 (modeling), but full empirical proof is effectively unbounded",
         falsification: {

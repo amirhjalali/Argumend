@@ -115,6 +115,15 @@ describe("settle-line contract", () => {
       }),
     ).toEqual([]);
 
+    // Round 9: lines that state the answer as proof.
+    for (const line of [
+      "The retroreflectors placed on the Moon by Apollo astronauts can be pinged with lasers from Earth, providing physical proof of human activity on the lunar surface.",
+      "If subjects can consistently abort actions after readiness potential but before motor execution, this preserves a meaningful role for conscious will.",
+      "Bed nets and vaccines have clear RCT evidence behind them. The question is how much of the portfolio the proven programs represent.",
+    ]) {
+      expect(settleLineProblems({ line, question: "Q", status: "verified" }).map((p) => p.rule), line).toContain("verdict");
+    }
+
     expect(settleLineProblems({ line: "The same data.", question: "Is it?", status: "verified" }).map((p) => p.rule)).toEqual(
       expect.arrayContaining(["thin", "antecedent"]),
     );

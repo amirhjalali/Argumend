@@ -395,6 +395,10 @@ export const longevityScienceData = {
         methodology:
           "Complete the TAME trial and analyze whether metformin's effects on epigenetic age correlate with its effects on composite aging outcomes (cancer, cardiovascular events, cognitive decline, mortality). Simultaneously, analyze 20+ year follow-up data from large biobank cohorts (UK Biobank, Framingham) to validate whether baseline epigenetic age acceleration predicts actual mortality with sufficient accuracy to serve as a trial endpoint.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow large biobank cohorts (UK Biobank, Framingham) for 20 or more years to measure how well baseline epigenetic age predicts death, and check in trials such as TAME whether treatments that shift the clock shift cancer, heart disease, dementia and mortality by a matching amount.",
+        },
         cost_to_verify:
           "$75M (TAME trial completion plus biobank follow-up analysis over 5-10 years)",
         falsification: {

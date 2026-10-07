@@ -87,12 +87,16 @@ export const freeWillData = {
         question:
           "Is the brain signal before a conscious choice a fixed commitment, or preparation consciousness can still veto?",
         description:
-          "If subjects can consistently abort actions after readiness potential but before motor execution, this preserves a meaningful role for conscious will.",
+          "The readiness potential starts before people report deciding. The question is whether they can still stop the movement after it starts, and how late.",
         methodology:
           "Replicate Libet with modern fMRI and more precise timing. Train subjects to veto at various stages. Map neural correlates of successful vetoes.",
         equation:
           "P(\\text{veto} | RP_{detected}) > 0 \\implies \\text{Free Won't Exists}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Record readiness potentials while trained subjects try to veto a movement at set moments after the signal begins: a reliable veto window after the signal starts points to preparation that consciousness can still stop, vetoes that fail once it is underway to a commitment already made.",
+        },
         cost_to_verify: "$200K (fMRI study with sufficient statistical power)",
         falsification: {
           supporter_flip:

@@ -265,6 +265,10 @@ export const glp1WeightLossDrugsData = {
         methodology:
           "Conduct a 5-year pragmatic randomized trial comparing four arms: (1) intensive lifestyle intervention alone, (2) GLP-1 pharmacotherapy alone, (3) combined lifestyle + GLP-1, and (4) standard care. Primary outcomes: sustained weight loss at 5 years, cardiovascular events, quality of life, and total healthcare costs. Recruit from diverse socioeconomic backgrounds to test real-world generalizability. Include body composition (DXA), metabolic markers, and patient-reported outcomes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Run a five-year pragmatic randomized trial of intensive lifestyle treatment, GLP-1 drugs, both together, and standard care across income groups, comparing sustained weight loss, cardiovascular events, quality of life and total cost.",
+        },
         cost_to_verify:
           "$30-50M (Multi-center 5-year pragmatic RCT with four arms and diverse enrollment)",
         falsification: {

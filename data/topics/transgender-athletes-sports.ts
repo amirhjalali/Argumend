@@ -204,6 +204,10 @@ export const transgenderAthletesSportsData = {
         methodology:
           "Implement pilot open/restricted category programs in 3-5 sports across multiple countries over 2 competitive seasons. Measure participation rates in each category (including transgender, non-binary, and intersex athletes), competitive quality metrics, athlete satisfaction surveys, logistical costs, and media/public perception. Compare outcomes with sports maintaining traditional male/female categories.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Run open and restricted categories in three to five sports for two seasons and measure who enters each (including transgender, non-binary and intersex athletes), standards in the restricted category, athlete satisfaction and cost, against sports that keep male and female categories.",
+        },
         cost_to_verify:
           "$2-5M (Multi-sport, multi-nation pilot program over 2-3 years)",
         falsification: {

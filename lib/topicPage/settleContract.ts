@@ -129,9 +129,14 @@ const COUNTERFACTUAL_LINE = /\b(?:fundamentally|essentially|inherently|purely) a
 const COUNTERFACTUAL_QUESTION =
   /^(?:did\b[^?]*\bor would\b[^?]*\bhave\b[^?]*\banyway\b|would (?:earlier|an earlier|a later|a different)\b[^?]*\bhave\b)/i;
 
-/** Verdict words: a settle line describes a test, never who won. */
+/**
+ * Verdict words: a settle line describes a test, never who won. A line that
+ * calls something "proof", says a result "proves" or "proven", or that
+ * "this preserves / confirms" a side states the answer instead of the test
+ * (round 9: the moon-landing and free-will lines did).
+ */
 const VERDICT =
-  /vindicat\w*|\b(?:empirically )?refuted\b|\brefutes?\b|\bthe case (?:for [\w-]+ )?(?:is|would be) (?:strong|vindicated|weak|settled)\b|\b(?:skeptics?|supporters?|proponents?|critics?|opponents?|advocates?) (?:are|were|would be) (?:right|wrong|correct)\b|\b(?:wins?|won) the (?:debate|argument)\b|\b(?:case|camp|side|view|story) (?:is|was|are|were) (?:right|wrong|correct|mistaken)\b/i;
+  /vindicat\w*|\bproof\b|\bprov(?:es?|en)\b|\bthis (?:preserves|proves|confirms|settles|shows)\b|\b(?:empirically )?refuted\b|\brefutes?\b|\bthe case (?:for [\w-]+ )?(?:is|would be) (?:strong|vindicated|weak|settled)\b|\b(?:skeptics?|supporters?|proponents?|critics?|opponents?|advocates?) (?:are|were|would be) (?:right|wrong|correct)\b|\b(?:wins?|won) the (?:debate|argument)\b|\b(?:case|camp|side|view|story) (?:is|was|are|were) (?:right|wrong|correct|mistaken)\b/i;
 
 /**
  * Questions that are about values by their own words: no observation can
