@@ -177,12 +177,13 @@ const nextConfig = {
       { source: '/concepts', destination: '/learn#ideas', permanent: true },
       { source: '/guides', destination: '/learn#guides', permanent: true },
       // Two ideas taught retired scoring vocabulary (r4, 2026-10): "Balance
-      // and weight" now lives where it is still true, in How maps are made;
+      // and weight" is gone from the maps, so it lands on the guide to reading
+      // confidence (How maps are made keeps only a one-line history);
       // "Pillars" were a section format the maps no longer name, and every
       // section's point is its crux.
       {
         source: '/concepts/confidence-calibration',
-        destination: '/methodology#older-maps',
+        destination: '/guides/reading-confidence-like-a-forecaster',
         permanent: true,
       },
       { source: '/concepts/pillars', destination: '/concepts/cruxes', permanent: true },
