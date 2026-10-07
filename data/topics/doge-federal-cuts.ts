@@ -239,37 +239,37 @@ export const dogeFederalCutsData = {
       id: "legality-due-process",
       title: "Legality & Due Process",
       short_summary:
-        "Courts found OPM's mass-termination orders unlawful and the First Circuit affirmed a block on the funds freeze, invoking the Impoundment Control Act of 1974 and Train v. City of New York. The deepest dispute — whether the unitary executive can impound appropriated funds and fire at will — turns on Trump v. Slaughter and the fate of Humphrey's Executor.",
+        "Courts found OPM's mass-termination orders unlawful and the First Circuit affirmed a block on the funds freeze, invoking the Impoundment Control Act of 1974 and Train v. City of New York. The deepest dispute — whether the unitary executive can impound appropriated funds and fire at will — split in June 2026, when Trump v. Slaughter overruled Humphrey's Executor on the removal side while the spending cases continued.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "DOGE's methods collided with the Constitution's separation of powers. In September 2025, Judge Alsup granted summary judgment finding OPM's mass-termination orders unlawful and ordering personnel files corrected. The Impoundment Control Act of 1974 and the unanimous Supreme Court ruling in Train v. City of New York (1975) hold that the executive cannot unilaterally refuse to spend funds Congress appropriated — and in March 2026 the First Circuit affirmed a block on the administration's funds freeze. Reviving Schedule F as 'Schedule Policy/Career' to reclassify up to 50,000 positions as at-will, and firing independent-agency officials in defiance of Humphrey's Executor, treats Article I's power of the purse as optional.",
+        "DOGE's methods collided with the Constitution's separation of powers. In September 2025, Judge Alsup granted summary judgment finding OPM's mass-termination orders unlawful and ordering personnel files corrected. The Impoundment Control Act of 1974 and the unanimous Supreme Court ruling in Train v. City of New York (1975) hold that the executive cannot unilaterally refuse to spend funds Congress appropriated — and in March 2026 the First Circuit affirmed a block on the administration's funds freeze. Reviving Schedule F as 'Schedule Policy/Career' to reclassify up to 50,000 positions as at-will treats Article I's power of the purse as optional, and the removal ruling in Trump v. Slaughter does not touch the appropriations question, which is where the impoundment cases are still being lost.",
       proponent_rebuttal:
-        "The President has broad constitutional authority over the executive branch, and the courts are split, not settled. In July 2025 the Supreme Court, on its emergency docket, granted the administration broad authority to reshape and shrink the federal workforce, partially reversing lower-court relief. The unitary-executive theory holds that Article II vests all executive power in the President, including the power to remove subordinates and manage spending priorities — and Trump v. Slaughter, argued in December 2025, is widely expected to overrule or sharply narrow the 1935 Humphrey's Executor limit on removing agency heads. Where DOGE overstepped, courts corrected it; that is the system working, not a constitutional crisis.",
+        "The President has broad constitutional authority over the executive branch, and the courts are split, not settled. In July 2025 the Supreme Court, on its emergency docket, granted the administration broad authority to reshape and shrink the federal workforce, partially reversing lower-court relief. The unitary-executive theory holds that Article II vests all executive power in the President, including the power to remove subordinates and manage spending priorities — and on 29 June 2026 the Supreme Court adopted the removal half of that argument in Trump v. Slaughter, overruling Humphrey's Executor. Where DOGE overstepped, courts corrected it; that is the system working, not a constitutional crisis.",
       crux: {
         id: "impoundment-removal-authority",
         title: "The Impoundment & Removal Authority Test",
         question:
           "Can a president refuse to spend appropriated funds and fire officials Congress protected?",
         description:
-          "The decisive legal question is whether the unitary-executive theory reaches Article I's appropriations power — i.e., whether a President may decline to spend appropriated funds and fire officials Congress insulated from removal. Unlike the empirical cruxes, this is partly a normative legal commitment, but it has concrete arbiters: the binding force of Train v. City of New York and the Impoundment Control Act on the spending side, and the Supreme Court's pending Trump v. Slaughter ruling on the removal side.",
+          "The decisive legal question is whether the unitary-executive theory reaches Article I's appropriations power — i.e., whether a President may decline to spend appropriated funds and fire officials Congress insulated from removal. Unlike the empirical cruxes, this is partly a normative legal commitment, but it has concrete arbiters: the binding force of Train v. City of New York and the Impoundment Control Act on the spending side, and, on the removal side, Trump v. Slaughter, decided in June 2026.",
         methodology:
-          "Track the controlling precedents to resolution: (1) on spending, whether appellate courts continue to enforce Train and the Impoundment Control Act against the funds freeze; (2) on removal, how the Supreme Court rules in Trump v. Slaughter (expected by June 2026) and whether it preserves, narrows, or overrules Humphrey's Executor. The outcome of these cases, not opinion, settles the boundary of executive authority.",
+          "Track the controlling precedents to resolution: (1) on spending, whether appellate courts continue to enforce Train and the Impoundment Control Act against the funds freeze; (2) on removal, the Supreme Court's June 2026 decision in Trump v. Slaughter, which overruled Humphrey's Executor, and how far lower courts read it to reach officials and functions beyond the FTC. The outcome of these cases, not opinion, settles the boundary of executive authority.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Appellate rulings on the funds freeze under Train v. City of New York and the Impoundment Control Act, and the Supreme Court's decision in Trump v. Slaughter on whether Humphrey's Executor stands.",
+            "Appellate rulings on the funds freeze under Train v. City of New York and the Impoundment Control Act; the removal half was settled in June 2026 when Trump v. Slaughter overruled Humphrey's Executor.",
         },
         cost_to_verify:
           "$0 to observe (court records are public), but resolution depends on pending Supreme Court rulings, not analysis — the core question is a contested legal commitment awaiting adjudication",
         falsification: {
           supporter_flip:
-            "If appellate courts keep enforcing Train v. City of New York and the Impoundment Control Act against the funds freeze, and the Supreme Court preserves Humphrey's Executor in Trump v. Slaughter, the legal footing for DOGE's spending and removal methods would largely give way.",
+            "If appellate courts keep enforcing Train v. City of New York and the Impoundment Control Act against the funds freeze, and courts read Trump v. Slaughter narrowly as an FTC-specific removal holding, the legal footing for DOGE's spending methods would largely give way.",
           skeptic_flip:
-            "If the Supreme Court's July 2025 emergency-docket grant of broad authority to reshape the federal workforce were confirmed in full briefing, and a Trump v. Slaughter ruling narrowed Humphrey's Executor, the removals and spending methods would rest on firmer legal ground and the crisis framing would weaken.",
+            "If the Supreme Court's July 2025 emergency-docket grant of broad authority to reshape the federal workforce were confirmed in full briefing, and the reasoning of Trump v. Slaughter were extended from removal to the spending side, the removals and spending methods would rest on firmer legal ground and the crisis framing would weaken.",
           common_ground:
             "Both sides agree the courts are the arbiter and have ruled both ways: lower courts found OPM's mass firings unlawful and blocked the funds freeze, while the Supreme Court granted broad authority to shrink the workforce.",
           live_disagreement:
-            "Whether the President's Article II power reaches Congress's power of the purse and its limits on removal — which turns on Train, the Impoundment Control Act and the pending Trump v. Slaughter ruling.",
+            "Whether the President's Article II power reaches Congress's power of the purse — which turns on Train and the Impoundment Control Act, now that Trump v. Slaughter has resolved the removal side.",
         },
       },
       evidence: [
@@ -326,9 +326,9 @@ export const dogeFederalCutsData = {
         },
         {
           id: "trump-v-slaughter",
-          title: "Trump v. Slaughter Could Overturn Humphrey's Executor (argued Dec 2025)",
+          title: "Trump v. Slaughter overruled Humphrey's Executor (June 2026)",
           description:
-            "On December 8, 2025, the Supreme Court heard oral argument in Trump v. Slaughter, the case over the President's power to remove a Federal Trade Commission member without cause. Observers widely expect the Court to overrule or sharply narrow Humphrey's Executor (1935) by June 2026, which would expand presidential removal power over independent agencies central to the unitary-executive theory underpinning DOGE.",
+            "On 29 June 2026 the Supreme Court decided Trump v. Slaughter, 6-3, in an opinion by Chief Justice Roberts, holding that the statutory for-cause protection against removal of Federal Trade Commission members violates the separation of powers and overruling Humphrey's Executor (1935). Justice Sotomayor dissented, joined by Justices Kagan and Jackson. The removal of Commissioner Slaughter stands, and the ruling expands presidential removal power over independent agencies, the theory underpinning DOGE.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -336,10 +336,10 @@ export const dogeFederalCutsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Axios; NPR; Supreme Court oral-argument records",
-          sourceUrl: "https://www.axios.com/2025/12/08/what-is-humphreys-executor-scotus-trump-ftc-firing",
+          source: "Trump v. Slaughter, No. 25-332 (U.S. June 29, 2026)",
+          sourceUrl: "https://www.scotusblog.com/cases/case-files/trump-v-slaughter-2/",
           reasoning:
-            "The pending case is directly relevant to the legal foundation of DOGE's removal actions and is cited by proponents as evidence the law is shifting toward expansive executive authority. It is forward-looking and unresolved, so it bolsters the proponent case only if the Court rules as expected.",
+            "A merits decision of the Supreme Court is as authoritative as this evidence gets, and it removes the precedent the other side had relied on for independent-agency removals. Its reach is narrower than the DOGE question: it concerns who may be removed, not whether appropriated funds may go unspent, and the impoundment litigation is unaffected by it.",
         },
       ],
     },

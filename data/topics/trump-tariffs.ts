@@ -328,7 +328,7 @@ export const trumpTariffsData = {
           id: "us-china-truce",
           title: "November 2025 US-China Truce Held Rates at 10%-on-10%",
           description:
-            "In November 2025, Trump and Xi extended the May 2025 90-day truce for a full year through November 10, 2026, holding bilateral reciprocal tariffs at 10% (down from peaks above 125%) and extending exclusions on 178 categories of Chinese goods, mostly medical and solar-manufacturing equipment. Proponents argue this shows tariff leverage produced a negotiated, monitored equilibrium rather than uncontrolled escalation.",
+            "In November 2025, Trump and Xi extended the May 2025 90-day truce for a full year through 10 November 2026, the date it is now due to expire, holding bilateral reciprocal tariffs at 10% (down from peaks above 125%) and extending exclusions on 178 categories of Chinese goods, mostly medical and solar-manufacturing equipment. Proponents argue this shows tariff leverage produced a negotiated, monitored equilibrium rather than uncontrolled escalation.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

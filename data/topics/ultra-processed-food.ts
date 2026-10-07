@@ -206,9 +206,9 @@ export const ultraProcessedFoodData = {
         },
         {
           id: "fda-additive-safety",
-          title: "FDA Safety Reviews Approved Most UPF Additives Based on Adequate Toxicological Testing",
+          title: "Two routes into the US food supply: petition review and self-determined GRAS",
           description:
-            "The FDA's food additive approval process requires manufacturers to demonstrate safety through toxicological studies, typically including 90-day feeding studies, carcinogenicity assays, and reproductive toxicity tests. As of 2024, the FDA has approved over 10,000 food additives. The agency maintains that individual additives used within approved limits pose no demonstrated health risk. The European Food Safety Authority (EFSA) conducts independent re-evaluations and has generally concurred, though it has restricted some colorants and preservatives that the FDA still permits.",
+            "Additives that go through the FDA petition process must be shown safe with toxicological data, typically including 90-day feeding studies and, where relevant, carcinogenicity and reproductive-toxicity testing, and the agency maintains that additives used within approved limits pose no demonstrated health risk. The European Food Safety Authority runs its own re-evaluations and has generally concurred, while restricting some colorants and preservatives the FDA still permits. A peer-reviewed review of the US program counted more than 10,000 substances allowed in human food; a large share of them never went through that petition route, having entered under the Generally Recognized as Safe pathway, which a manufacturer may self-determine without notifying the FDA.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -216,10 +216,11 @@ export const ultraProcessedFoodData = {
             replicability: 7,
             directness: 6,
           },
-          source: "FDA GRAS Program; EFSA; Government Accountability Office",
-          sourceUrl: "https://www.fda.gov/food/food-additives-petitions/food-additive-status-list",
+          source:
+            "Comprehensive Reviews in Food Science and Food Safety (Neltner et al., 2011); JAMA Internal Medicine (Neltner et al., 2013); FDA Food Additive Status List",
+          sourceUrl: "https://doi.org/10.1111/j.1541-4337.2011.00166.x",
           reasoning:
-            "FDA approval provides a regulatory baseline. However, the independence score is lower because the GRAS (Generally Recognized as Safe) system allows manufacturer self-determination, and a 2022 GAO report found the FDA rarely revisits old approvals. Individual additive testing also does not assess cumulative or synergistic effects of consuming dozens of additives simultaneously across multiple products daily — the real-world UPF exposure pattern.",
+            "FDA approval provides a regulatory baseline. However, the independence score is lower because the GRAS system allows manufacturer self-determination: a 2013 JAMA Internal Medicine analysis found the safety determinations it examined were made by people employed or selected by the manufacturer of the substance. Individual additive testing also does not assess cumulative or synergistic effects of consuming dozens of additives simultaneously across multiple products daily — the real-world UPF exposure pattern.",
         },
       ],
     },
@@ -331,6 +332,10 @@ export const ultraProcessedFoodData = {
     {
       title: "NOVA Classification System — Monteiro et al., World Nutrition (2016)",
       url: "https://worldnutritionjournal.org/index.php/wn/article/view/5",
+    },
+    {
+      title: "Ultra-processed foods: what they are and how to identify them — Monteiro et al., Public Health Nutrition (2019)",
+      url: "https://doi.org/10.1017/S1368980018003762",
     },
     {
       title: "Chile's Front-of-Package Warning Label Policy — PLOS Medicine (2021)",

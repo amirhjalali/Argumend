@@ -40,8 +40,8 @@ const covidOriginsData: TopicInput = {
     },
     {
       title:
-        "ODNI Declassified Assessment on COVID-19 Origins (2023, updated 2025)",
-      url: "https://www.dni.gov/files/ODNI/documents/assessments/Declassified-Assessment-on-COVID-19-Origins.pdf",
+        "ODNI, Potential Links Between the Wuhan Institute of Virology and the Origin of the COVID-19 Pandemic (declassified June 2023)",
+      url: "https://archive.dni.gov/files/ODNI/documents/assessments/Report-on-Potential-Links-Between-the-Wuhan-Institute-of-Virology-and-the-Origins-of-COVID-19-20230623.pdf",
     },
     {
       title:
@@ -69,9 +69,13 @@ const covidOriginsData: TopicInput = {
       url: "https://www.nbcnews.com/politics/politics-news/cia-shifts-assessment-covid-origins-saying-lab-leak-likely-caused-outb-rcna189284",
     },
     {
+      title: "The origins of SARS-CoV-2: A critical review - Cell (2021)",
+      url: "https://doi.org/10.1016/j.cell.2021.08.017",
+    },
+    {
       title:
-        "Economist/YouGov poll: two-thirds of Americans believe COVID-19 originated from a lab in China (March 2023)",
-      url: "https://yougov.com/en-us/articles/45389-americans-believe-covid-origin-lab",
+        "The Origin and Implications of the COVID-19 Pandemic: An Expert Survey - Global Catastrophic Risk Institute (February 2024)",
+      url: "https://gcrinstitute.org/papers/069_covid-origin.pdf",
     },
   ],
   questions: [
@@ -203,7 +207,7 @@ const covidOriginsData: TopicInput = {
           title:
             "Three WIV researchers reportedly hospitalized in November 2019",
           description:
-            "US intelligence identified three researchers at the Wuhan Institute of Virology who sought hospital care in November 2019 with symptoms consistent with both COVID-19 and common seasonal illness. A January 2021 State Department fact sheet confirmed this report. The identities of the researchers and their specific diagnoses remain classified. China has denied that any WIV staff were infected before December 2019.",
+            "US intelligence identified three researchers at the Wuhan Institute of Virology who sought hospital care in November 2019 with symptoms consistent with both COVID-19 and common seasonal illness. A January 2021 State Department fact sheet confirmed this report. The identities of the researchers and their specific diagnoses remain classified. China has denied that any WIV staff were infected before December 2019. The declassified ODNI report of June 2023 states that several WIV researchers were ill in fall 2019 with symptoms consistent with but not diagnostic of COVID-19, that the IC has no indications any were hospitalised for COVID-consistent symptoms, and that one may have been hospitalised for an unrelated condition.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -215,14 +219,14 @@ const covidOriginsData: TopicInput = {
           sourceUrl:
             "https://www.nbcnews.com/health/health-news/u-s-intel-report-identified-3-wuhan-lab-researchers-who-n1268327",
           reasoning:
-            "Intelligence assessments, not independently verified scientific data. Officials familiar with the intelligence expressed differing views about its strength. Symptoms of COVID-19 overlap heavily with seasonal flu and other respiratory infections. Without confirmed diagnoses, this remains suggestive but not conclusive. The classified nature of the underlying intelligence prevents independent evaluation.",
+            "Intelligence assessments, not independently verified scientific data. Officials familiar with the intelligence expressed differing views about its strength. Symptoms of COVID-19 overlap heavily with seasonal flu and other respiratory infections. Without confirmed diagnoses, this remains suggestive but not conclusive, and the 2023 ODNI report assesses the illnesses neither support nor refute either origin hypothesis. The classified nature of the underlying intelligence prevents independent evaluation.",
         },
         {
           id: "house-subcommittee-conclusion-2024",
           title:
             "House Select Subcommittee concluded lab origin most likely (December 2024)",
           description:
-            "The House Select Subcommittee on the Coronavirus Pandemic released its 500-page final report in December 2024 after a two-year bipartisan investigation. The report concluded that a research-related origin was the most likely cause of the pandemic, citing the proximity of the WIV, the absence of an intermediate host, gain-of-function research conducted at the lab, and biosafety failures. The investigation obtained internal communications, subpoenaed documents from EcoHealth Alliance, and conducted over 30 transcribed interviews with key witnesses.",
+            "The House Select Subcommittee on the Coronavirus Pandemic released its 520-page final report in December 2024, closing a two-year investigation. The majority report, issued by the panel's Republicans, concluded that a research-related origin was the most likely cause of the pandemic, citing the proximity of the WIV, the absence of an intermediate host, gain-of-function research conducted at the lab, and biosafety failures. The investigation obtained internal communications, subpoenaed documents from EcoHealth Alliance, and conducted over 30 transcribed interviews with key witnesses.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -235,7 +239,7 @@ const covidOriginsData: TopicInput = {
           sourceUrl:
             "https://oversight.house.gov/release/final-report-covid-select-concludes-2-year-investigation-issues-500-page-final-report-on-lessons-learned-and-the-path-forward/",
           reasoning:
-            "The investigation was thorough in scope, obtaining documents through subpoena power not available to scientific investigators. However, the Subcommittee was a political body, and Democratic members issued a dissenting minority report arguing the majority reached conclusions not fully supported by the evidence reviewed. The investigation surfaced valuable documentary evidence (EcoHealth communications, NIH correspondence) even if its ultimate conclusion reflects a political judgment. Independence is scored lower due to partisan dynamics.",
+            "The investigation was thorough in scope, obtaining documents through subpoena power not available to scientific investigators. However, the Subcommittee was a political body: the conclusion is the Republican majority's, and the panel's Democrats, led by ranking member Raul Ruiz, released their own final report arguing the origins inquiry had not established how the virus emerged. The investigation surfaced valuable documentary evidence (EcoHealth communications, NIH correspondence) even if its ultimate conclusion reflects a political judgment. Independence is scored lower due to partisan dynamics.",
         },
         {
           id: "ecohealth-debarment-2024",
@@ -379,61 +383,40 @@ const covidOriginsData: TopicInput = {
             "Demonstrates that furin cleavage sites can evolve naturally in coronaviruses, weakening the argument that the feature alone proves engineering. However, the relevant comparison class is sarbecoviruses specifically, not all coronaviruses. The natural precedents come from distantly related lineages with different evolutionary histories. The directness score reflects this gap between general coronavirus biology and the specific sarbecovirus question.",
         },
         {
-          id: "fcs-pathogenesis-2025",
+          id: "rmyn02-natural-s1s2-insertions",
           title:
-            "2025 research confirms FCS is critical for pathogenesis but not strictly required for transmission",
+            "A bat sarbecovirus carries natural insertions at the same spike junction",
           description:
-            "A 2025 study in the Journal of Virology demonstrated that the furin cleavage site is required for full SARS-CoV-2 pathogenesis but is not strictly necessary for viral transmission, though it significantly enhances transmission efficiency. A separate 2025 study in Protein Science showed that furin cleavage reshapes the spike protein's conformational landscape, increasing receptor binding domain accessibility. These findings underscore the FCS as a key virulence determinant.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 8,
-            directness: 4,
-          },
-          source: "Journal of Virology (2025); Protein Science (Mani, 2025)",
-          sourceUrl: "https://journals.asm.org/doi/10.1128/jvi.00467-25",
-          reasoning:
-            "These studies confirm the FCS is functionally important for human disease, consistent with both hypotheses. A naturally selected virus would also benefit from enhanced pathogenesis. The findings support the idea that the FCS provides a significant fitness advantage in humans, which is relevant to the engineering hypothesis (designing for human cell entry) but does not distinguish between origins. The directness score is low because functional importance does not indicate origin.",
-        },
-        {
-          id: "nih-gof-oversight-failures-2024",
-          title:
-            "NIH backed an expanded 2024 federal policy strengthening oversight of dangerous pathogen research",
-          description:
-            "In 2024 the White House Office of Science and Technology Policy released a unified US Government Policy for Oversight of Dual Use Research of Concern and Pathogens with Enhanced Pandemic Potential (DURC/PEPP), which NIH stated it would implement. NIH's statement noted the new framework 'expands the scope of research requiring additional scrutiny' and strengthens institutional review, consolidating the earlier dual-use (DURC) and potential pandemic pathogen (P3CO) frameworks that critics argued had not adequately flagged enhanced-pathogenicity experiments. Separately, EcoHealth Alliance grants had funded chimeric bat-coronavirus work at the WIV, and EcoHealth was later debarred by HHS for failing to report experiments that increased viral growth. The strengthened policy was scheduled to take effect in May 2025 before a 2025 executive order directed further revision.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 6,
-            replicability: 7,
-            directness: 4,
-          },
-          source:
-            "NIH statement on the 2024 USG DURC/PEPP oversight policy; House Select Subcommittee Report (2024)",
-          sourceUrl:
-            "https://www.nih.gov/about-nih/who-we-are/nih-director/statements/statement-release-usg-policy-oversight-dual-use-research-concern-pathogens-enhanced-pandemic-potential",
-          reasoning:
-            "That the federal government overhauled and expanded its biosafety oversight framework in 2024 is an official action confirming the prior system was viewed as insufficient in scope, which lends weight to concerns about how risky pathogen research was reviewed. But this is a forward-looking policy statement, not an admission that a specific WIV experiment produced SARS-CoV-2; the directness is therefore low. The claim that oversight gaps make an accidental origin more plausible in hindsight is an inference, not a finding in the source itself.",
-        },
-        {
-          id: "bat-coronavirus-sampling-expansion-2024",
-          title:
-            "Expanded bat sampling in Southeast Asia found sarbecoviruses with partial FCS-like motifs (2024)",
-          description:
-            "A 2024 study published in Nature Communications analyzing bat coronaviruses from Laos, Cambodia, and southern China identified several sarbecoviruses with short basic amino acid insertions near the S1/S2 junction, though none possessed a complete polybasic furin cleavage site equivalent to SARS-CoV-2's PRRAR motif. These findings suggest that evolutionary precursors to a furin cleavage site may exist in bat sarbecovirus diversity, though the gap between these partial motifs and the full PRRAR insertion remains significant.",
+            "RmYN02, a bat coronavirus sampled in Yunnan and described in Current Biology in 2020, carries amino-acid insertions at the S1/S2 junction of its spike protein — the same position where SARS-CoV-2 carries its furin cleavage site. RmYN02's insertions are not polybasic and do not create a functional furin cleavage site. No bat sarbecovirus sampled to date has the complete PRRAR motif.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
+            replicability: 6,
             directness: 5,
           },
-          source: "Nature Communications (2024)",
-          sourceUrl:
-            "https://www.nature.com/articles/s41467-024-46394-4",
+          source: "Current Biology (Zhou et al., 2020)",
+          sourceUrl: "https://doi.org/10.1016/j.cub.2020.05.023",
           reasoning:
-            "This peer-reviewed finding from independent research groups narrows the evolutionary gap somewhat, showing that sarbecoviruses in nature have acquired short basic insertions near the FCS region. This weakens the argument that the FCS could only arise through engineering. However, the gap between short basic motifs and the full 12-nucleotide PRRAR insertion with the unusual CGG-CGG codon pair remains substantial. The finding demonstrates that nature is exploring this evolutionary space but has not yet been shown to produce the complete feature found in SARS-CoV-2.",
+            "A sequenced natural virus with insertions at the S1/S2 junction shows that sarbecoviruses acquire material at this position without human intervention, which weakens the claim that an insertion there is itself a laboratory signature. The gap between a short non-basic insertion and the full polybasic furin cleavage site remains large, so this constrains the inference rather than closing it.",
+        },
+        {
+          id: "cell-critical-review-2021",
+          title:
+            "21-author Cell review found no evidence of a laboratory origin in the genome",
+          description:
+            "A 2021 critical review in Cell by 21 virologists and evolutionary biologists examined the genomic arguments for engineering. It reported that furin cleavage sites are common in other coronavirus spike proteins, that SARS-CoV-2's version is suboptimal rather than the canonical form a designer would choose, that a near-identical nucleotide sequence to the insertion occurs in the spike gene of the bat coronavirus HKU9-1, and that the CGG codon, while rare in coronaviruses, occurs at comparable frequencies in SARS-CoV and other human coronaviruses. The authors concluded there is no evidence that SARS-CoV-2 has a laboratory origin and that a zoonotic event is the most parsimonious explanation.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 6,
+            replicability: 7,
+            directness: 6,
+          },
+          source: "Cell (Holmes et al., 2021)",
+          sourceUrl: "https://doi.org/10.1016/j.cell.2021.08.017",
+          reasoning:
+            "This is the most detailed published rebuttal of the codon and furin-site arguments, and its genomic claims are checkable against public sequence data. Independence is scored lower because several authors had taken public positions on origins before writing it and some had professional ties to the research field under scrutiny. It evaluates the evidence available in 2021 and does not address the records China has withheld since.",
         },
       ],
     },
@@ -448,7 +431,7 @@ const covidOriginsData: TopicInput = {
         "US intelligence agencies are divided on COVID-19 origins, while China's refusal to share critical data has made a definitive determination impossible.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Intelligence agencies deal in probabilistic assessments, not scientific proof. The agencies that favor a lab leak (FBI, DOE, CIA) all express only 'low confidence' in their conclusions, which in intelligence parlance means the evidence is fragmentary and open to multiple interpretations. Four other agencies and the National Intelligence Council assessed natural spillover as more likely or remained undecided. The WHO's SAGO panel, after three years of review, concluded in June 2025 that the weight of available scientific evidence favors zoonotic spillover. A 2024 survey of 168 epidemiologists and virologists found they assessed zoonosis as 77% likely versus 21% for lab leak. The political context matters: the CIA's January 2025 reassessment was completed during a political transition, and the House Select Subcommittee was a partisan body that reached conclusions before completing its investigation.",
+        "Intelligence agencies deal in probabilistic assessments, not scientific proof. The agencies that favor a lab leak express low confidence (CIA, DOE) or, in the FBI's case, moderate confidence — levels that in intelligence parlance signal evidence that is fragmentary and open to more than one reading. Four other agencies and the National Intelligence Council assessed natural spillover as more likely or remained undecided. The WHO's SAGO panel, after three years of review, concluded in June 2025 that the weight of available scientific evidence favors zoonotic spillover. A 2024 survey of 168 epidemiologists and virologists found they assessed zoonosis as 77% likely versus 21% for lab leak. The political context matters: the CIA's January 2025 reassessment was completed during a political transition, and the House Select Subcommittee's origins conclusion was issued by its Republican majority, with the panel's Democrats releasing a separate report rejecting it.",
       proponent_rebuttal:
         "China's systematic obstruction of investigation is the most telling evidence. Beijing destroyed early viral samples, censored researchers, refused to share the WIV database, declined to provide over 500 early patient sequences, withheld Huanan market supply-chain records, and blocked independent access to WIV biosafety logs. The WHO's initial investigation in February 2021 was severely constrained; even WHO Director-General Tedros acknowledged the lab leak hypothesis required further investigation. EcoHealth Alliance was formally debarred by HHS for failing to report dangerous gain-of-function experiments at the WIV. An unpublished 2020 German Federal Intelligence Service report reportedly estimated an 80-90% probability of a lab leak. The SAGO panel itself acknowledged it could not evaluate the lab leak hypothesis because China withheld the necessary data. Absence of evidence is not evidence of absence when the evidence is being actively withheld.",
       crux: {
@@ -480,7 +463,7 @@ const covidOriginsData: TopicInput = {
           title:
             "CIA assessed lab leak as 'more likely' with low confidence (January 2025)",
           description:
-            "In January 2025, the CIA publicly assessed that a research-related origin of the COVID-19 pandemic is more likely than a natural origin. The assessment was based on a review of existing intelligence, not new evidence. Three US agencies (CIA, FBI, DOE) now favor a lab leak, while four agencies and the NIC either favor natural origin or remain undecided. All assessments are expressed with 'low confidence,' indicating insufficient evidence for firm conclusions.",
+            "In January 2025, the CIA publicly assessed that a research-related origin of the COVID-19 pandemic is more likely than a natural origin. The assessment was based on a review of existing intelligence, not new evidence. Three US agencies (CIA, FBI, DOE) now favor a lab leak, while four agencies and the NIC either favor natural origin or remain undecided. The CIA and DOE assessments are expressed with 'low confidence'; the FBI alone has stated 'moderate confidence.'",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -553,7 +536,7 @@ const covidOriginsData: TopicInput = {
             "Obstruction of investigation is not direct evidence of a lab leak; authoritarian governments routinely suppress information for political reasons regardless of the underlying truth. However, the specific data being withheld (WIV database, early sequences, biosafety logs) is precisely the data that could resolve the question one way or the other. The pattern of selective transparency, sharing some market environmental data while withholding institutional records, is consistent with either covering up a lab accident or protecting state secrets unrelated to origins. Directness is scored low because obstruction itself does not indicate which hypothesis is correct.",
         },
         {
-          id: "fbi-moderate-confidence-2024",
+          id: "fbi-moderate-confidence-2023",
           title:
             "FBI assesses with 'moderate confidence' a lab-incident origin is most likely (FBI Director Wray, Feb 2023)",
           description:
@@ -572,11 +555,11 @@ const covidOriginsData: TopicInput = {
             "The FBI's 'moderate confidence' assessment is the strongest position any intelligence agency has publicly taken toward a lab origin, and the FBI has relevant expertise in biological threats. However, intelligence assessments are not peer-reviewed scientific findings, and the underlying evidence remains classified, so it cannot be independently evaluated or reproduced. 'Moderate confidence' in intelligence parlance still signals meaningful uncertainty, and the majority of the intelligence community assessed natural origin as more likely or remained undecided.",
         },
         {
-          id: "declassified-intelligence-2025",
+          id: "wiv-bsl2-biosafety-2023",
           title:
-            "Declassified intelligence assessments provided new details on WIV activities (2025)",
+            "ODNI: WIV ran SARS-like coronavirus experiments at BSL-2 containment",
           description:
-            "In early 2025, declassification of portions of US intelligence assessments revealed additional details about WIV research activities, including previously undisclosed experiments with bat coronaviruses and details about the biosafety conditions under which the work was conducted. The declassified materials indicated that some WIV research on bat coronaviruses was conducted at BSL-2 safety levels, which are comparable to a dental office rather than the BSL-4 containment appropriate for highly dangerous pathogens. The NDAA of 2026 mandated further declassification review.",
+            "The declassified ODNI report of June 2023 states that, as of January 2019, WIV researchers performed SARS-like coronavirus experiments in BSL-2 laboratories, despite acknowledgements going back to 2017 that these viruses could directly infect humans through their spike protein. The report assesses that some WIV researchers probably did not use adequate biosafety precautions at least some of the time before the pandemic when handling SARS-like coronaviruses, which increased the risk of accidental exposure.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -584,37 +567,39 @@ const covidOriginsData: TopicInput = {
             replicability: 4,
             directness: 4,
           },
-          source: "ODNI Declassified Reports (2023-2025); NDAA FY2026",
+          source:
+            "ODNI, Potential Links Between the Wuhan Institute of Virology and the Origin of the COVID-19 Pandemic (June 2023)",
           sourceUrl:
-            "https://www.dni.gov/files/ODNI/documents/assessments/Declassified-Assessment-on-COVID-19-Origins.pdf",
+            "https://archive.dni.gov/files/ODNI/documents/assessments/Report-on-Potential-Links-Between-the-Wuhan-Institute-of-Virology-and-the-Origins-of-COVID-19-20230623.pdf",
           reasoning:
-            "Declassified intelligence provides more transparency than previously available, though much remains redacted. That some WIV bat coronavirus research was conducted at BSL-2 is significant because it suggests biosafety conditions may have been inadequate for the risk level, making an accidental exposure more plausible. This BSL-2 detail, however, was already publicly documented well before 2025, so it is less novel than 'newly declassified' framing implies. Critically, the 2023 ODNI declassified assessment found no indication that the WIV's pre-pandemic holdings included SARS-CoV-2 or a close progenitor, and no direct evidence of a specific research-related incident; inadequate biosafety does not prove an exposure occurred. Independence is limited because the declassification process is controlled by the executive branch with political considerations.",
+            "This is a primary declassified US government document, not a press account, and the biosafety finding is stated in it directly. Its force is limited by what the same report says next: the IC knows of no specific biosafety incident at the WIV that spurred the pandemic, and the WIV's biosafety training in late 2019 appeared routine rather than a response to an incident. A raised risk of accidental exposure is not evidence that an exposure occurred.",
         },
         {
-          id: "public-opinion-shift-2024",
+          id: "odni-2023-no-progenitor",
           title:
-            "Public opinion shifted: majority now considers a lab origin likely (Economist/YouGov, 2023)",
+            "ODNI: no indication the WIV held SARS-CoV-2 or a close progenitor before the pandemic",
           description:
-            "A March 2023 Economist/YouGov poll found that 66% of Americans (including 85% of Republicans and 53% of Democrats) said it was definitely or probably true that COVID-19 originated from a lab in China, up sharply from roughly 30% who favored a lab origin in early 2021. The shift crossed political lines and occurred alongside increased media coverage of the lab-leak hypothesis, the House Select Subcommittee investigation, and intelligence-agency disclosures.",
-          side: "for" as const,
+            "The same June 2023 ODNI report states that the Intelligence Community has no indication that the WIV's pre-pandemic research holdings included SARS-CoV-2 or a close progenitor, and no direct evidence that a specific research-related incident involving WIV personnel occurred before the pandemic. It records that almost all IC agencies assess SARS-CoV-2 was not genetically engineered, that the closest sequenced relatives (RaTG13 at 96.2% and BANAL-52 at 96.8%) are not close enough to be direct progenitors, and that the fall-2019 illnesses among WIV researchers neither support nor refute either origin hypothesis.",
+          side: "against" as const,
           weight: {
             sourceReliability: 7,
-            independence: 6,
-            replicability: 7,
-            directness: 1,
+            independence: 5,
+            replicability: 4,
+            directness: 5,
           },
-          source: "The Economist/YouGov poll (March 2023)",
+          source:
+            "ODNI, Potential Links Between the Wuhan Institute of Virology and the Origin of the COVID-19 Pandemic (June 2023)",
           sourceUrl:
-            "https://yougov.com/en-us/articles/45389-americans-believe-covid-origin-lab",
+            "https://archive.dni.gov/files/ODNI/documents/assessments/Report-on-Potential-Links-Between-the-Wuhan-Institute-of-Virology-and-the-Origins-of-COVID-19-20230623.pdf",
           reasoning:
-            "Public opinion polls from established organizations are methodologically rigorous, and the upward trend is independently corroborated by other pollsters. However, public opinion has essentially zero directness as evidence for the actual origin of the virus, since popularity does not determine scientific truth. The shift matters only as sociological context: the lab-leak hypothesis has moved from fringe to mainstream, which affects policy and investigation funding. The extremely low directness score reflects that public belief is not evidence of fact.",
+            "This is the US government's own compiled account of what its intelligence does and does not show about the lab, written for public release under the COVID-19 Origin Act of 2023. It is an absence rather than a positive finding, and the report itself says it does not address the merits of the two origin hypotheses; it also notes that some WIV engineering techniques would leave no detectable trace, so 'no indication' is bounded by what the IC can see. Independence is limited because the declassification process is controlled by the executive branch.",
         },
         {
           id: "virologist-survey-zoonotic-2024",
           title:
             "Survey of virologists and epidemiologists: 77% assessed zoonosis as most likely (2024)",
           description:
-            "A 2024 survey of 168 epidemiologists and virologists, published in a preprint, found that respondents assessed the probability of a zoonotic origin at 77% on average versus 21% for a lab-related origin. The sample was drawn from researchers who had published on COVID-19 origins or related topics. Proponents of a lab origin noted that the survey sample was dominated by researchers in fields historically supportive of zoonotic hypotheses and excluded intelligence analysts and biosecurity experts.",
+            "A February 2024 expert survey by the Global Catastrophic Risk Institute and Nemesys Insights collected anonymous estimates from 168 scientists in 47 countries — 78 epidemiologists, 74 virologists and 16 biosafety or evolutionary-genetics specialists — out of 1,138 invited, a 15% response rate. Respondents put natural zoonosis at 77% likely on average (median 90%) and a research-related accident at 21%. Proponents of a lab origin note that the sample was drawn from the fields whose published literature has favoured zoonosis and did not include intelligence or biosecurity analysts; the report found no statistically significant difference between the epidemiologists' and virologists' estimates (72.4% vs 82.2%).",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -622,11 +607,11 @@ const covidOriginsData: TopicInput = {
             replicability: 5,
             directness: 3,
           },
-          source: "Preprint survey of virologists and epidemiologists (2024)",
-          sourceUrl:
-            "https://www.nature.com/articles/d41586-024-01167-3",
+          source:
+            "Ackerman et al., The Origin and Implications of the COVID-19 Pandemic: An Expert Survey, Global Catastrophic Risk Institute Technical Report 24-1 (February 2024)",
+          sourceUrl: "https://gcrinstitute.org/papers/069_covid-origin.pdf",
           reasoning:
-            "Expert opinion surveys capture the state of professional consensus, which has informational value but is not itself evidence. The survey is limited by potential selection bias (the sample was not randomly drawn from all relevant experts), and expert consensus has historically been wrong on questions where institutional incentives aligned against uncomfortable conclusions. The directness score is low because expert opinion aggregation does not substitute for empirical evidence. The survey does demonstrate that the majority of domain experts still favor natural origin, which is worth noting even if it is not dispositive.",
+            "Expert opinion surveys capture the state of professional consensus, which has informational value but is not itself evidence. This one is a think-tank technical report rather than a peer-reviewed paper, though it is the first systematic survey of the question and publishes its sampling frame and instrument. It is limited by a 15% response rate and by excluding researchers in countries rated 'not free', and expert consensus has historically been wrong on questions where institutional incentives aligned against uncomfortable conclusions. The directness score is low because expert opinion aggregation does not substitute for empirical evidence. The survey does demonstrate that the majority of domain experts still favor natural origin, which is worth noting even if it is not dispositive.",
         },
       ],
     },

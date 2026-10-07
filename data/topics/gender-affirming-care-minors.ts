@@ -87,7 +87,7 @@ export const genderAffirmingCareMinorsData = {
           id: "finland-sweden-restrictions",
           title: "Finland and Sweden Independently Restrict Youth Gender Medicine (2020-2022)",
           description:
-            "Finland's COHERE (Council for Choices in Health Care, 2020) and Sweden's National Board of Health and Welfare (2022) independently reviewed the evidence and restricted hormonal interventions for minors to research settings. Finland concluded that gender reassignment of minors is 'an experimental practice' and prioritized psychotherapeutic support. Sweden concluded that 'the risks of puberty suppressive treatment with GnRH-analogues and gender-affirming hormonal treatment currently outweigh the possible benefits' for minors. Denmark followed in 2023 with similar restrictions. These decisions were made by politically progressive countries with universal healthcare systems and no conservative religious influence on health policy.",
+            "Finland's COHERE (Council for Choices in Health Care, 2020) and Sweden's National Board of Health and Welfare (2022) independently reviewed the evidence and restricted hormonal interventions for minors to research settings. Finland concluded that gender reassignment of minors is 'an experimental practice' and prioritized psychotherapeutic support. Sweden concluded that 'the risks of puberty suppressive treatment with GnRH-analogues and gender-affirming hormonal treatment currently outweigh the possible benefits' for minors. Denmark followed in 2023 with similar restrictions.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -100,6 +100,25 @@ export const genderAffirmingCareMinorsData = {
             "https://palveluvalikoima.fi/documents/1237350/22895008/Summary_minors_en.pdf/aaf9a6e7-b970-9de9-165c-abedfae46f2e/Summary_minors_en.pdf",
           reasoning:
             "These decisions by Nordic health authorities carry exceptional weight because they come from countries with progressive social policies, universal healthcare, and strong LGBTQ+ rights protections. They cannot be dismissed as politically motivated. Multiple countries independently reaching the same conclusion about evidence quality strengthens the finding. The convergence across different health systems is itself a form of replication.",
+        },
+        {
+          id: "restrictions-rulings-2024-2025",
+          title: "UK, HHS and the Supreme Court acted between 2024 and 2025",
+          description:
+            "In December 2024 the UK government made indefinite its restriction on prescribing puberty-suppressing hormones to under-18s for gender dysphoria outside approved research, and announced a clinical trial to build an evidence base. On 1 May 2025 the US Department of Health and Human Services published 'Treatment for Pediatric Gender Dysphoria: Review of Evidence and Best Practices', issued under an executive order, which concluded the evidence for these interventions is of low quality and recommended psychotherapeutic approaches; HHS did not name its authors at publication, and medical organisations contested both its process and its reading of the literature. On 18 June 2025 the Supreme Court, in United States v. Skrmetti, upheld Tennessee's ban 6-3, holding that the law does not classify by sex or transgender status, is reviewed only for a rational basis, and survives that review.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 4,
+            replicability: 6,
+            directness: 3,
+          },
+          source:
+            "UK Department of Health and Social Care (December 2024); HHS (May 2025); United States v. Skrmetti, 605 U.S. ___ (2025)",
+          sourceUrl:
+            "https://www.supremecourt.gov/opinions/24pdf/23-477_2cp3.pdf",
+          reasoning:
+            "These are the decisions that now govern access in two countries, so a map about access cannot leave them out. None of them is new evidence about outcomes: Skrmetti decides what standard of constitutional scrutiny applies, not whether the treatment works, and the Court said as much; the HHS review reads the existing literature and was produced under an executive order with unnamed authors, which is why independence is scored low. The UK restriction is paired with a trial, which is the one element here that could change the evidence base.",
         },
         {
           id: "aap-endocrine-society-support",
@@ -197,10 +216,27 @@ export const genderAffirmingCareMinorsData = {
             "The low headline regret rate (~1%) is frequently cited but rests largely on adult surgical cohorts of uncertain relevance to adolescents, and the methodological limitations are serious — particularly the loss-to-follow-up problem, which systematically excludes the people most likely to regret. Replicability is low because no study has adequately solved the loss-to-follow-up problem in the adolescent population. This evidence is important because regret rate bears directly on whether consent was truly informed, but the current data is insufficient to draw confident conclusions either way — which cuts against confident claims of 'settled safety' as much as against alarm.",
         },
         {
-          id: "mental-health-crisis-untreated",
-          title: "Untreated Gender Dysphoria Associated with Severe Mental Health Outcomes",
+          id: "chen-nejm-two-year-hormones",
+          title: "Prospective two-year cohort on hormones (NEJM, 2023)",
           description:
-            "Multiple studies document catastrophic mental health outcomes among transgender youth denied affirming care. The 2021 Trevor Project National Survey found that 52% of transgender and nonbinary youth seriously considered suicide in the past year, with 20% attempting suicide. A 2020 Pediatrics study by Turban et al. found that transgender adults who had access to puberty blockers as adolescents had significantly lower lifetime suicidal ideation than those who wanted but could not access them. A 2022 study in the New England Journal of Medicine found that 1 in 3 transgender youth experienced clinical depression. While these studies have limitations (self-report, cross-sectional design, potential confounding from minority stress), the consistently elevated rates of distress among transgender youth are not disputed by any side of the debate.",
+            "Chen and colleagues followed 315 transgender and nonbinary participants aged 12 to 20 across four US sites for two years after starting gender-affirming hormones, measuring appearance congruence, depression, anxiety, positive affect and life satisfaction at six-month intervals with validated instruments. Appearance congruence, positive affect and life satisfaction increased and depression and anxiety symptoms decreased over the two years. The study had no control group, and two participants died by suicide during the follow-up period.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 5,
+            directness: 7,
+          },
+          source: "New England Journal of Medicine (Chen et al., 2023)",
+          sourceUrl: "https://doi.org/10.1056/NEJMoa2206297",
+          reasoning:
+            "This is the largest prospective US cohort on the question and the design is a real improvement on the cross-sectional studies the Cass Review criticised: enrolment before treatment, repeated validated measures, two years of follow-up. It is still observational with no comparison group, so the same objection the systematic reviews raise about the rest of this literature applies here too: improvement over time cannot be separated from natural course, regression to the mean or the effect of receiving attentive care. The two deaths are reported in the paper and belong in any honest summary of it.",
+        },
+        {
+          id: "mental-health-crisis-untreated",
+          title: "Elevated distress among transgender youth",
+          description:
+            "Multiple studies document catastrophic mental health outcomes among transgender youth denied affirming care. The 2021 Trevor Project National Survey found that 52% of transgender and nonbinary youth seriously considered suicide in the past year, with 20% attempting suicide. A 2020 Pediatrics study by Turban et al. found that transgender adults who had access to puberty blockers as adolescents had significantly lower lifetime suicidal ideation than those who wanted but could not access them. While these studies have limitations (self-report, cross-sectional design, potential confounding from minority stress), the consistently elevated rates of distress among transgender youth are not disputed by any side of the debate.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
