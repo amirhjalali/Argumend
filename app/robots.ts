@@ -7,9 +7,10 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      // The v1 API is intentionally public and machine-readable. These more
+      // The v1 API is intentionally public and machine-readable, and share
+      // images (/api/og) must be fetchable by link-preview crawlers. These more
       // specific allow rules override the broad private-API disallow below.
-      allow: ["/", "/api/v1", "/api/v1/"],
+      allow: ["/", "/api/v1", "/api/v1/", "/api/og", "/api/og/"],
       // Sign-in is intentionally crawlable so its page-level noindex directive
       // can be observed. Private APIs and utility surfaces stay disallowed.
       disallow: ["/api/", "/dashboard", "/embed/"],

@@ -19,4 +19,15 @@ describe("robots", () => {
       expect.arrayContaining(["/api/v1", "/api/v1/"]),
     );
   });
+
+  it("lets link-preview crawlers fetch share images", () => {
+    const configuredRules = robots().rules;
+    const rules = Array.isArray(configuredRules)
+      ? configuredRules[0]
+      : configuredRules;
+
+    expect(rules.allow).toEqual(
+      expect.arrayContaining(["/api/og", "/api/og/"]),
+    );
+  });
 });
