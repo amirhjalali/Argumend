@@ -56,7 +56,7 @@ export const aiReplacingDoctorsData = {
         {
           title:
             "FDA permits marketing of IDx-DR, first autonomous AI diagnostic system (diabetic retinopathy), 2018",
-          url: "https://www.fda.gov/news-events/press-announcements/fda-permits-marketing-artificial-intelligence-based-device-detect-certain-diabetes-related-eye",
+          url: "https://web.archive.org/web/20250515125319/https://www.fda.gov/news-events/press-announcements/fda-permits-marketing-artificial-intelligence-based-device-detect-certain-diabetes-related-eye",
         },
         {
           title:
