@@ -62,7 +62,7 @@ export const animalConsciousnessRightsData = {
           id: "cambridge-declaration-consciousness",
           title: "Cambridge Declaration on Consciousness (2012)",
           description:
-            "In 2012, a group of prominent neuroscientists including Stephen Hawking signed the Cambridge Declaration on Consciousness, stating: 'The weight of evidence indicates that humans are not unique in possessing the neurological substrates that generate consciousness. Non-human animals, including all mammals and birds, and many other creatures including octopuses, also possess these neurological substrates.' The declaration was based on convergent evidence from neuroanatomy, neurochemistry, electrophysiology, and behavioral studies.",
+            "On 7 July 2012, at the Francis Crick Memorial Conference at Churchill College, Cambridge, a group of neuroscientists — among them Philip Low, Christof Koch, David Edelman, Jaak Panksepp, Diana Reiss and Irene Pepperberg — signed the Cambridge Declaration on Consciousness in the presence of Stephen Hawking, who attended but was not a signatory. It states: 'The weight of evidence indicates that humans are not unique in possessing the neurological substrates that generate consciousness. Non-human animals, including all mammals and birds, and many other creatures including octopuses, also possess these neurological substrates.' The declaration was based on convergent evidence from neuroanatomy, neurochemistry, electrophysiology, and behavioral studies.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -74,6 +74,24 @@ export const animalConsciousnessRightsData = {
           sourceUrl: "http://fcmconference.org/img/CambridgeDeclarationOnConsciousness.pdf",
           reasoning:
             "Signed by leading neuroscientists at a major scientific conference. However, it is a consensus statement rather than a peer-reviewed study, and consensus statements can reflect the biases of the signatories. The declaration asserts the existence of 'neurological substrates' for consciousness but does not resolve the hard problem of how neural substrates produce subjective experience.",
+        },
+        {
+          id: "fish-pain-neuroanatomy-skeptics",
+          title: "Peer-reviewed case that fish lack the structures pain requires",
+          description:
+            "Rose, Arlinghaus, Cooke, Diggles and co-authors, in Fish and Fisheries (2014, published online 2012), reviewed the fish-pain literature and argued that nociception — detecting and responding to damaging stimuli — does not establish the conscious experience of pain, and that fish lack the neocortical structures that in humans are associated with it. Brian Key, in Animal Sentience (2016), made the stronger structural version of the argument: that fish lack the neurocytoarchitecture, microcircuitry and connectivity the neural processing of pain requires. Both papers drew published rebuttals in the same venues.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 5,
+            directness: 7,
+          },
+          source:
+            "Fish and Fisheries (Rose et al., 2014); Animal Sentience (Key, 2016)",
+          sourceUrl: "https://doi.org/10.1111/faf.12010",
+          reasoning:
+            "This is the skeptical position stated in peer-reviewed venues by researchers in the relevant fields, not commentary, and it attacks the inference the whole map turns on: from behaviour and nociception to felt experience. Its weakness is the premise that a human-like cortex is required, which convergent-evolution findings in birds and cephalopods put under pressure; Key's paper in particular was published with extensive critical commentary.",
         },
         {
           id: "new-york-declaration-2024",
