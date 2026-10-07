@@ -48,6 +48,11 @@ export interface SearchableItem {
   meta_claim?: string;
   categoryText?: string;
   tags?: string;
+  /**
+   * Words to find it by that its names do not use, space-separated: a map's
+   * most distinctive evidence words ("Medicare", "Deere", "marijuana"). Weighted as tags.
+   */
+  keywords?: string;
   /** Longer text that may hold the words (a map's first crux). Weighted least. */
   body?: string;
   /**
@@ -193,7 +198,10 @@ const FORM_CREDIT = 0.5;
 /** What a typo fix counts for in the ranking (the old fuzzy weight). */
 const TYPO_WEIGHT = 0.6;
 
-const SEARCH_FIELDS = ["title", "altNames", "aliases", "meta_claim", "categoryText", "tags", "body"] as const;
+const SEARCH_FIELDS = ["title", "altNames", "aliases", "meta_claim", "categoryText", "tags", "keywords", "body"] as const;
+
+/** The fields that hold a result's names: the only ones a word still being typed may match the start of. */
+const NAME_FIELDS: ReadonlySet<string> = new Set(["title", "altNames", "aliases"]);
 
 /** How much a name term answers a query word: 1 for the word (or a typo fix of it), less for a longer form, 0 for none. */
 function wordCredit(word: QueryWord, name: string): number {
@@ -250,7 +258,7 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
       return typeof value === "string" ? searchTerms(value).join(" ") : "";
     },
     searchOptions: {
-      boost: { title: 4, altNames: 3, aliases: 2, meta_claim: 1, tags: 1, categoryText: 0.5, body: 0.5 },
+      boost: { title: 4, altNames: 3, aliases: 2, meta_claim: 1, tags: 1, keywords: 1, categoryText: 0.5, body: 0.5 },
       // Typos are corrected against the index's own words before the search
       // (`readQuery`), so MiniSearch matches exactly, or by prefix where the
       // query says so.
@@ -334,9 +342,21 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
       .flatMap((result) => {
         const item = byId.get(result.id as string);
         if (!item) return [];
-        const held = new Set(result.queryTerms.map((term) => original.get(term) ?? term));
+        // A word still being typed counts as held where a name starts with
+        // it, not where a claim does: "abortion pill" is not the map whose
+        // claim says "pillar" (r9 review #11).
+        const held = new Set<string>();
+        for (const [term, fields] of Object.entries(result.match)) {
+          const word =
+            original.get(term) ??
+            [...prefixed].find((start) => term.startsWith(start) && fields.some((field) => NAME_FIELDS.has(field)));
+          if (word) held.add(word);
+        }
         if (held.size < needed) return [];
         const { coverage, phrase } = nameCoverage(queryWords, runsById.get(item.id) ?? []);
+        // A query word no map uses, and a name that holds none of the rest:
+        // nothing ties this result to what was asked.
+        if (unknownWord && coverage === 0) return [];
         // A name that answers every word outranks body matches; a phrase more so.
         const score =
           result.score *

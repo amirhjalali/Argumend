@@ -54,7 +54,7 @@ export const TOPIC_SEARCH_ITEMS: MapSearchItem[] = topicSummaries.map((topic) =>
   mapId: topic.id,
   href: `/topics/${topic.id}`,
   title: mapDisplayTitle(topic),
-  altNames: [topic.title, ...getTopicQuestionPhrasings(topic.id)].join(" | "),
+  altNames: [topic.title, ...getTopicQuestionPhrasings(topic.id), ...(topic.aliases ?? [])].join(" | "),
   subtitle: topic.meta_claim,
   kind: "topic",
   category: topic.category,
@@ -62,6 +62,7 @@ export const TOPIC_SEARCH_ITEMS: MapSearchItem[] = topicSummaries.map((topic) =>
   categoryText: `${topic.category} ${CATEGORY_LABELS[topic.category]}`,
   aliases: idWords(topic.id),
   tags: (topic.tags ?? []).join(" "),
+  keywords: topic.keywords,
   body: topic.firstCrux,
 }));
 
