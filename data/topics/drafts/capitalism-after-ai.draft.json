@@ -114,7 +114,7 @@
    "statement": "Whether capitalism has 'survived' AI depends on which criterion is used: private ownership and market allocation persisting, or labor remaining the primary channel through which households obtain purchasing power.",
    "epistemicType": "definitional",
    "status": "contested",
-   "statusBasis": "The two readings genuinely diverge in what they predict counts as survival, and the research corpus explicitly frames much of the wider dispute as downstream of this unresolved choice rather than of any further evidence.",
+   "statusBasis": "The two readings predict different things about what counts as survival, and much of the wider dispute follows from this unresolved choice rather than from any further evidence.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -164,7 +164,7 @@
    "statement": "A high-tax, UBI-funded, public-compute economy in which private firms still compete for profit and prices still allocate most goods counts as capitalism, just heavily redistributive.",
    "epistemicType": "definitional",
    "status": "contested",
-   "statusBasis": "Directly drawn from the corpus's own disagreement proposition; resolvable only by first fixing threshold criteria for private ownership, market allocation, wage centrality, profit motive, and the public/nonprofit share of output.",
+   "statusBasis": "This can be answered only once the sides fix their thresholds: how much private ownership, market allocation, wage income, profit motive, and public or nonprofit output a system can have and still count as capitalism.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -244,7 +244,7 @@
    "statement": "Cloud infrastructure, the computational substrate AI models run on, is concentrated among a small number of providers commanding hundreds of billions of dollars in annual spend.",
    "epistemicType": "empirical",
    "status": "broadly_accepted",
-   "statusBasis": "Consistent quarterly market-tracking data from an independent research firm; concentration at this layer is not seriously disputed in the corpus.",
+   "statusBasis": "Consistent quarterly market-tracking data from an independent research firm; concentration at this layer is not seriously disputed by any source on this map.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -394,7 +394,7 @@
    "statement": "The guaranteed-income trial's labor-supply effects were measured in a full-employment economy with intact job openings elsewhere, not in a scenario of AI-driven demand collapse across many occupations at once, so the finding may not generalize to AI-scale disruption.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "The trial's own design context (a normal full-employment labor market) differs structurally from the scenario the demand-collapse and redistribution debate is actually about; extraction flags this as a live scope objection rather than an established limitation.",
+   "statusBasis": "The trial ran in a normal, full-employment labor market, which differs in structure from the scenario the demand-collapse and redistribution debate is about; this is a live objection to how far the trial reaches, not an established limitation.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -409,7 +409,7 @@
    "statement": "An individual user's data contributes negligibly to a frontier model's capability at the margin, so treating it as individually compensable labor overstates any single person's claim on model output.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "Not directly measured in the corpus; treated as an implicit premise of data-dividend skepticism, extracted per the attack-driven inference rule because it is the load-bearing objection to the data-as-labor argument.",
+   "statusBasis": "No source on this map measures it directly; it is the unstated premise of skepticism about data dividends, and the main objection to the argument that data is a form of labor.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -425,7 +425,7 @@
    "statement": "Frontier AI will become capable of performing virtually all economically valuable human work.",
    "epistemicType": "predictive",
    "status": "unresolved",
-   "statusBasis": "The corpus explicitly flags this claim as UNVERIFIED: it is a modeled scenario input used for scenario planning, not an observed or established trajectory.",
+   "statusBasis": "This is a scenario input used for planning, not an observed or established trajectory, and nothing yet verifies it.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -459,7 +459,7 @@
    "statement": "Ownership and control of frontier AI models, compute, and the data that trains them will remain concentrated in a small number of firms and individuals rather than diffusing broadly over the next decade.",
    "epistemicType": "predictive",
    "status": "contested",
-   "statusBasis": "Not argued explicitly as a standalone premise anywhere in the corpus, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than diffusing; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions.",
+   "statusBasis": "No one argues this outright, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than spreading, so it is a hidden assumption those positions rest on.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -479,7 +479,7 @@
    "statement": "Workers displaced from AI-exposed tasks will be able to re-enter higher-productivity complementary jobs at a pace that avoids sustained aggregate underemployment, as occurred in prior automation waves.",
    "epistemicType": "predictive",
    "status": "contested",
-   "statusBasis": "Not stated explicitly by the market-optimist case, but its conclusion that adaptation equals survival presupposes reallocation keeps pace with displacement; extracted as an implicit premise per the AI-extraction guideline on hidden assumptions.",
+   "statusBasis": "The market-optimist case does not say this outright, but its conclusion that adapting is surviving assumes reallocation keeps pace with displacement, so it is a hidden assumption that case rests on.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -534,7 +534,7 @@
    "statement": "Frontier AI markets \u2014 models, cloud, and chips \u2014 will tip into a durable oligopoly with persistently high concentration, high switching costs, and exclusionary control over bottleneck inputs, rather than eroding through entry.",
    "epistemicType": "predictive",
    "status": "contested",
-   "statusBasis": "Directly drawn from the corpus's own disagreement proposition; current concentration is high but whether it tips into a durable, exclusionary structure versus eroding under competitive and regulatory pressure is exactly the open question.",
+   "statusBasis": "One of the sides' own points of disagreement: concentration is high today, but whether it hardens into a lasting, exclusionary structure or erodes under competition and regulation is exactly the open question.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -604,7 +604,7 @@
    "statement": "Capital owners' own consumption and investment, falling prices from productivity gains, and new goods created by AI-enabled production can recycle enough purchasing power to non-owners to prevent chronic demand shortfall, without requiring new redistribution institutions.",
    "epistemicType": "predictive",
    "status": "contested",
-   "statusBasis": "This is the corpus's own 'strongest rebuttal' framing of the demand-collapse argument; it is a coherent alternative mechanism but, like the demand-collapse claim itself, has not been tested at AI-relevant scale.",
+   "statusBasis": "This is the strongest reply to the demand-collapse argument: a coherent alternative mechanism that, like the demand-collapse claim itself, has not been tested at the scale AI would bring.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -684,7 +684,7 @@
    "statement": "Citizens deserve an enforceable claim on AI rents because frontier models are trained substantially on collectively produced human knowledge, data, and creative work.",
    "epistemicType": "normative",
    "status": "contested",
-   "statusBasis": "Directly drawn from the corpus's own disagreement proposition; explicitly flagged there as not settleable empirically, requiring a political theory of ownership, desert, privacy, and public goods.",
+   "statusBasis": "One of the sides' own points of disagreement, and not one evidence can settle: it needs a political theory of ownership, desert, privacy, and public goods.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -1165,7 +1165,7 @@
     "verifiedAt": "2026-08-11",
     "url": "https://www.mondragon-corporation.com/people/site/assets/files/103207/annual-report-2024.pdf",
     "institution": "Mondragon Corporation",
-    "interest": "Self-reported figures from the cooperative federation's own annual report, published to promote the cooperative model it represents; no independent audit is cited in the corpus."
+    "interest": "Self-reported figures from the cooperative federation's own annual report, published to promote the cooperative model it represents; no independent audit is cited."
    },
    "relevance": "Demonstrates worker-cooperative federations can reach substantial commercial scale, though scale within one federation does not establish economy-wide feasibility.",
    "provenance": {
@@ -1220,7 +1220,7 @@
     "institution": "International Monetary Fund, Finance & Development",
     "interest": "The author is a leading academic advocate for AI-focused redistribution policy (AI taxation, compensation mechanisms), and the piece argues in support of that broader policy program."
    },
-   "relevance": "The formal source for the demand-collapse-under-AGI mechanism and its proposed redistributive resolution; the corpus explicitly flags the underlying 'AI performs virtually all valuable work' premise as unverified.",
+   "relevance": "The formal source for the argument that AGI would collapse demand, and for its proposed redistribution; the premise that AI performs virtually all valuable work is unverified.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",
@@ -1229,7 +1229,7 @@
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
    "unverifiedFlags": [
-    "The claim that AI will perform virtually all economically valuable human work remains UNVERIFIED per the research corpus \u2014 the source presents it as one modeled scenario among several, not an observed or established trajectory."
+    "The claim that AI will perform virtually all economically valuable human work is unverified: the source presents it as one modeled scenario among several, not an observed or established trajectory."
    ],
    "weight": {
     "sourceReliability": 7,
@@ -1440,7 +1440,7 @@
     "verifiedAt": "2026-08-11",
     "url": "https://www.tandfonline.com/doi/full/10.1080/03085147.2017.1397360"
    },
-   "relevance": "The deepest theoretical lineage in the corpus for the claim that AI-era automation makes wage-centered capitalism obsolete, while noting the debate over whether it implies collapse is unsettled even among sympathetic scholars.",
+   "relevance": "The deepest theoretical root on this map for the claim that automation makes wage-centered capitalism obsolete; even sympathetic scholars disagree about whether it implies collapse.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-capitalism-draft-v1",

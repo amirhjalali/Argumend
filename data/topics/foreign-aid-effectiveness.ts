@@ -42,6 +42,10 @@ export const foreignAidEffectivenessData = {
         methodology:
           "Systematic comparison of RCT-backed targeted interventions against general budget support and governance aid, measuring cost-per-outcome and sustainability at 5 and 10-year horizons across multiple country contexts.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Classify each major donor's full spending by the evidence behind each program, from randomized trials with cost-per-outcome data (bed nets, vaccines) to none, and report the share of dollars in each class over several years.",
+        },
         cost_to_verify: "$1M (Meta-analysis of existing RCTs and program evaluations)",
         falsification: {
           supporter_flip:

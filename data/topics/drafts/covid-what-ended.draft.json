@@ -209,7 +209,7 @@
    "summary": "Did community masking reduce transmission?",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "Open at the population and policy level, which is what this claim states. The randomised trials measured mask promotion with low adherence rather than mask wearing, and found small or uncertain effects; observational studies mostly found benefit. At the individual level the retrospective marks the question narrowed; that finer claim is not split out in this draft.",
+   "statusBasis": "Open at the population and policy level, which is what this claim states. The randomised trials measured mask promotion with low adherence rather than mask wearing, and found small or uncertain effects; observational studies mostly found benefit. For individuals who wear a good mask well, the question has narrowed; that finer claim is not split out on this map.",
    "resolution": {
     "kind": "existing-evidence",
     "condition": "A trial or natural experiment that measures mask wearing itself, at adherence high enough to detect an effect, against laboratory-confirmed infection."

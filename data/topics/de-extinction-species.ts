@@ -382,7 +382,7 @@ export const deExtinctionSpeciesData = {
           sourceUrl:
             "https://www.cnn.com/2026/02/04/science/colossal-dire-wolf-biovault-endangered-species-spc",
           reasoning:
-            "Captures the steel-manned proponent reply that attention is a resource and de-extinction generates it. Weighted lowest in this pillar: the mobilization-of-hope mechanism is plausible but largely asserted, leans on company-linked sources, and has not been empirically shown to translate into durable conservation gains.",
+            "Captures the steel-manned proponent reply that attention is a resource and de-extinction generates it. Weighted lowest in this section: the mobilization-of-hope mechanism is plausible but largely asserted, leans on company-linked sources, and has not been empirically shown to translate into durable conservation gains.",
         },
       ],
     },

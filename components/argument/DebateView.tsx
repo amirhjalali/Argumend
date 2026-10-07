@@ -78,18 +78,24 @@ const STATUS_LABELS: Record<Claim["status"], string> = {
   superseded: "Superseded",
 };
 
+/** The heading over a claim's status basis, in the reader's words. */
+function statusBasisLabel(status: Claim["status"]): string {
+  return `Why it is marked ${STATUS_LABELS[status].toLowerCase()}`;
+}
+
 /** Maps covered by the living AI page at /ai, which links back from here. */
 const AI_MAP_IDS: ReadonlySet<string> = new Set(["ai-mass-unemployment", "capitalism-after-ai"]);
 
 
-// The ranking is the crux engine's fixed rule over the map's claims
-// (lib/crux, /methodology#cruxes). "Reproducible" overclaimed: the diagnosis
-// lane's crux was not repeatable run to run
-// (docs/reviews/2026-09-15-crux-repeatability.md), and this sentence should
-// not be read as covering it.
+// Says who did what, in the same terms as the crux ledger ("Recorded by
+// Argumend editors"): a model drafts, editors check and publish. The ranking
+// is the crux engine's fixed rule over the map's claims (lib/crux,
+// /methodology#cruxes). "Reproducible" overclaimed: the diagnosis lane's crux
+// was not repeatable run to run (docs/reviews/2026-09-15-crux-repeatability.md),
+// and this sentence should not be read as covering it.
 const MADE_BY =
-  "Assembled by AI. Every source linked and checked, interests disclosed inline, balance adversarially reviewed, cruxes ranked by a fixed rule from the map’s claims.";
-const MADE_BY_HREF = "/methodology#cruxes";
+  "Drafted by a language model, then checked by Argumend editors: every source linked and checked, interests disclosed inline, positions read for fairness, cruxes ranked by a fixed rule from the map’s claims.";
+const MADE_BY_HREF = "/methodology#positions-and-evidence";
 
 interface DebateViewProps {
   meta: ArgumentTopicMeta;
@@ -204,7 +210,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: D
         evidence: (
           <>
             <DetailBlock label="The claim, precisely">{claim.statement}</DetailBlock>
-            <DetailBlock label="Status basis">{claim.statusBasis}</DetailBlock>
+            <DetailBlock label={statusBasisLabel(claim.status)}>{claim.statusBasis}</DetailBlock>
             <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
           </>
         ),
@@ -444,7 +450,7 @@ function ResearcherClaim({
             {claim.statement}
           </p>
         )}
-        <DetailBlock label="Status basis">{claim.statusBasis}</DetailBlock>
+        <DetailBlock label={statusBasisLabel(claim.status)}>{claim.statusBasis}</DetailBlock>
         <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
       </div>
     </details>

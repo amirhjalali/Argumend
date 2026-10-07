@@ -24,8 +24,8 @@ describe("GET /llms.txt", () => {
     const { withUrl, total } = evidenceCitationStats;
     const pct = Math.round((withUrl / total) * 100);
 
-    expect(body).toContain(
-      `${pct}% of evidence items (${withUrl}/${total}) carry a direct source URL`,
+    expect(body.replace(/\s+/g, " ")).toContain(
+      `${pct}% of the evidence items on the two-sided maps (${withUrl.toLocaleString("en-US")} of ${total.toLocaleString("en-US")}) carry a direct source URL`,
     );
     expect(body).not.toContain("each item links to a primary source");
   });
@@ -70,5 +70,15 @@ describe("GET /llms.txt", () => {
     for (const topic of topicSummaries.filter((t) => t.firstCrux)) {
       expect(body).toContain(`Turns first on: ${topic.firstCrux}`);
     }
+  });
+
+  it("lists each map's claim as the claim weighed, in full sentences, with one map count", async () => {
+    const body = await (await GET()).text();
+    const lines = body.split("\n").filter((line) => line.startsWith("- [") && line.includes("/topics/"));
+    expect(lines).toHaveLength(topicSummaries.length + argumentTopicIndex.length);
+    for (const line of lines) expect(line, line).toMatch(/[.?!]["”’)]?$/);
+    const legacy = lines.filter((line) => !argumentTopicIndex.some((t) => line.includes(`/topics/${t.id})`)));
+    for (const line of legacy) expect(line, line).toContain("): Claim weighed: ");
+    expect(body).toContain(`${topicSummaries.length + argumentTopicIndex.length} maps:`);
   });
 });

@@ -657,91 +657,84 @@ On the older maps, a fold near the bottom, "How the evidence weighs", shows one 
   {
     id: "running-your-first-analysis",
     title: "Running your first analysis",
-    subtitle: "Paste an argument you're in and find what it turns on",
-    description: "How to use Argumend's paste tool on an argument you're part of: what to paste, what the report shows, what it will not tell you, and what happens to your text.",
-    readTime: "8 min read",
+    subtitle: "Paste an argument and find the map it is already on",
+    description: "How to use Argumend's paste tool: what to paste, what comes back, what it will not tell you, and what happens to your text.",
+    readTime: "6 min read",
     sections: [
       {
         title: "What to paste",
-        content: `The paste tool is for arguments you are actually in: a thread you are replying to, a family group chat, a transcript of a panel, an op-ed and the letters that answered it. It reads the text you give it and nothing else. It does not look anything up.
+        content: `The paste tool is for arguments you are in or reading: a thread you are replying to, a family group chat, a transcript of a panel, an op-ed and the letters that answered it. It reads the text you give it and nothing else. It does not look anything up, and nothing you paste leaves Argumend's server.
 
 **Works well:**
 
-- **Conversations with two or more voices.** A thread, a comment chain, a transcript. Choose "Conversation", and the tool can see where the participants actually diverge and where they talk past each other.
-- **Opinion pieces and essays.** Choose "Article". There is one author, but usually an opponent the author is answering, and the tool will set out both.
-- **Your own draft.** Paste what you are about to post and see what it commits you to.
+- **Arguments on a question a map already covers.** Rent control, nuclear power, AI and jobs, the moon landing: the tool finds the map and the crux your text comes closest to.
+- **Conversations, opinion pieces and your own drafts.** A thread, a comment chain, an essay, or what you are about to post.
 
 **Works less well:**
 
-- **Straight news reporting.** Good reporting tries not to argue, so there may be little disagreement to find.
-- **Very short text.** The tool needs at least a few sentences (120 characters) to work with, and it does best with a few paragraphs. The limit is 20,000 characters.
+- **Subjects no map covers yet.** The tool says so rather than naming the wrong map, and gives you three questions to read the argument yourself.
+- **Very short text.** It needs at least 40 characters, and a few sentences give it more to go on. The limit is 20,000 characters.
 
-**A practical tip:** if you are reading about a question rather than arguing about it, paste two pieces that disagree with each other, one after the other. Real disagreement in the input produces a much more useful report than a single point of view.
-
-**Before you paste:** don't include private information about other people. The tool does not remove names or other identifying details, so leave out anything you would not want an outside company to read.`,
+**A practical tip:** if the tool names no map, try pasting the sentence that states the claim most plainly. One clear claim ("rent control reduces the housing supply") is often easier to place than a long thread that wanders.`,
       },
       {
         title: "How to paste and submit",
         content: `Open the **[paste tool](/analyze)**.
 
-**Step 1: Paste your text** into the box and choose what it is: Conversation, Article, or Freeform. Formatting is ignored; the tool works on the words.
+**Step 1: Paste your text** into the box and choose what it is: Conversation, Article, or My own draft. Formatting is ignored; the tool works on the words.
 
-**Step 2: Check what you pasted.** Copying from PDFs and web pages sometimes garbles characters or drops paragraphs. A quick look saves you a report built on broken input.
+**Step 2: Read the line above the button.** It says what happens to your text: it is matched against Argumend's maps on our server, sent nowhere else, and not stored.
 
-**Step 3: Read the line above the button.** It says where your text goes: to an AI model, named there, which reads it and sends back a structured report. The text is not stored.
-
-**Step 4: Press "Find what it turns on".** Reading the text takes a little while, and the page shows its progress. You don't need an account.`,
+**Step 3: Press "Find what it turns on".** The answer comes back in a moment. You don't need an account.`,
       },
       {
-        title: "Understanding the report",
-        content: `The report reads like a short document rather than a score sheet. Each part answers one question about the argument you pasted.`,
+        title: "What comes back",
+        content: `The result reads like a short document rather than a score sheet. Each part answers one question.`,
         subsections: [
           {
-            title: "The positions",
-            content: `Each position in the text, stated in a neutral sentence that the person holding it should recognize. There can be two, three or more; the tool does not force a disagreement into two sides, and it will not invent a counter-position the text does not contain.
+            title: "The map it is already on",
+            content: `When your text clearly matches one map, the page says "This argument is already mapped" and shows the map's question, the crux your text comes closest to, what could settle that crux, and the strongest card on each side. When nothing in the text points to one crux, the map's first crux is shown.
 
-Under each position is a short question: is this an accurate representation? If it isn't, say so. That feedback is private and is how the tool gets better.`,
+The one button opens the map at that crux, where both sides' evidence is laid out with its sources.`,
           },
           {
-            title: "What they agree on",
-            content: `The premises the sides already share, with the lines of the text that show it. This section is often the surprise. Many arguments that feel total turn out to share most of their facts, and seeing that on the page changes what the rest of the conversation is about.`,
-          },
-          {
-            title: "What it turns on",
-            content: `The crux: the question the disagreement actually rests on, and what kind of question it is. Some are factual and could be settled by evidence. Some are about values: which cost matters more. Some are about a word the two sides are using differently. Knowing which kind you are in tells you whether more evidence will help at all.
+            title: "When no map matches",
+            content: `If no map stands out, the page says so instead of naming a wrong one. Where several maps on one subject share much of your text, it lists them as the closest maps.
 
-If you only have time for one part of the report, read this one.`,
+Then come three questions to read the argument yourself: is it about a fact, a value or a word; what would change each person's mind; and what do you both already agree on. What you type into those boxes stays on your screen.`,
           },
           {
-            title: "What is at stake, and what could move it",
-            content: `What each major claim is actually committed to: what it says should change, and what it would mean if it turned out to be wrong. Where a claim has no stated update if it is wrong, the report says so. The last section lists what could move the disagreement forward: the evidence, definition or decision that would narrow it.`,
+            title: "How this was read",
+            content: `A folded note at the bottom holds the numbers behind the match: how strongly your words matched the named map, and how far it led every map on a different subject. These are word matches, not a reading of what the text means, and the note says so.`,
+          },
+          {
+            title: "What to do next",
+            content: `You can copy a plain summary of the result to send to someone. Under it is one question: did this change what you thought you were arguing about? Your answer is not sent or counted.`,
           },
         ],
       },
       {
-        title: "What the report will not tell you",
-        content: `The report is **source-only**: it maps what the pasted text says. That comes with three limits, and they are deliberate.
+        title: "What it will not tell you",
+        content: `The tool matches the words of your text to a map. That comes with limits, and they are deliberate.
 
-1. **It does not fact-check.** If someone in the thread cites a statistic, the report records that they cited it; it does not say whether the statistic is true. For the evidence on a question, read the [maps](/topics).
+1. **It does not fact-check.** If someone in the thread cites a statistic, the tool does not say whether it is true. The map it points to sets out the evidence on each side, with sources, so you can check.
 
 2. **It does not guess at motives or character.** It will not tell you someone is arguing in bad faith, and it does not label fallacies. Those labels are too easily used to score a point, and they rarely change a mind.
 
 3. **It does not say who is right.** There is no winner, no score for either side, and no agreement percentage. If you want to know who won, this is the wrong tool. If you want to know what you are actually disagreeing about, it is the right one.`,
       },
       {
-        title: "Sharing a report",
-        content: `A report comes back to your browser and nowhere else. If you want to send it to the person you were arguing with, you can publish it: the report is saved at an unlisted link that anyone with the link can open. The full text you pasted is not saved; only the short quotes the report uses appear on the page. Your browser keeps a key that lets you delete the report later.
+        title: "Using it with someone else",
+        content: `**For a conversation.** Send the person you disagree with the map, opened at the crux. It is much easier to talk about the one question you differ on once you have both seen what each side's best evidence is and what would settle it.
 
-**Sharing for a conversation.** Send the link to the person you disagree with and start from "What they agree on." It is much easier to talk about the one question you differ on once you have both seen how much you share.
-
-**Sharing for a class.** Paste an article, publish the report, and ask students whether the positions are stated fairly. Where would the author object? What did the tool miss? Comparing their own reading with the report is a good exercise in reading charitably.`,
+**For a class.** Paste an article and open the map it lands on. Ask students whether the author's position is on the map, and whether it is stated fairly. Where would the author object? What does the map leave out?`,
       },
     ],
     keyTakeaways: [
-      "Paste an argument you are part of, ideally with more than one voice in it, and don't include private information about other people",
-      "Read \"What it turns on\" first: it says whether the disagreement is about facts, values or the meaning of a word",
-      "The report maps what the text says; it does not fact-check, guess at motives, label fallacies, or name a winner",
-      "Your text is sent to an AI model to be read and is not stored; a published report keeps only the short quotes it uses",
+      "Paste an argument you are in or reading; at least 40 characters, up to 20,000",
+      "If a map covers it, the tool names the map, the crux your text is closest to and what could settle it",
+      "If no map does, it says so and gives you three questions to read the argument yourself",
+      "Your text is matched on Argumend's server, sent nowhere else, and not stored; the tool never names a winner",
     ],
     furtherReading: [
       { title: "Argumentation: The Study of Effective Reasoning", author: "David Zarefsky" },

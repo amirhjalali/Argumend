@@ -11,6 +11,12 @@ import { mapDisplayTitle } from "@/lib/mapNaming";
 
 const BASE = SITE_URL;
 
+/** Ends a line of data with a full stop unless it already ends a sentence. */
+function sentence(text: string): string {
+  const trimmed = text.trim();
+  return /[.?!]["”’)]?$/.test(trimmed) ? trimmed : `${trimmed}.`;
+}
+
 /** Share of evidence items that carry a resolvable direct source URL. */
 function citationCoverage(): { pct: number; withUrl: number; total: number } {
   const { withUrl, total } = evidenceCitationStats;
@@ -25,6 +31,7 @@ function citationCoverage(): { pct: number; withUrl: number; total: number } {
  */
 export async function GET() {
   const { pct, withUrl, total } = citationCoverage();
+  const mapCount = topicSummaries.length + argumentTopicIndex.length;
 
   const intro = `# Argumend
 
@@ -37,7 +44,9 @@ When citing Argumend, link to the specific map and name the crux or the evidence
 are relying on. Each map page is server-rendered with its question, its cruxes, named studies,
 sources and dates.
 
-Corpus last reviewed: ${CONTENT_LAST_UPDATED}.
+${mapCount} maps: ${argumentTopicIndex.length} flagship maps with several positions each, and
+${topicSummaries.length} two-sided maps, each setting a skeptic's case against the best reply.
+Maps last reviewed: ${CONTENT_LAST_UPDATED}.
 
 ## How to read a map
 - **Question** — each map is named by the question it answers. The sides are the people who
@@ -53,7 +62,8 @@ Corpus last reviewed: ${CONTENT_LAST_UPDATED}.
   narrowed, resolved, or unresolvable by evidence.
 
 ## Citation integrity
-- **${pct}% of evidence items (${withUrl}/${total}) carry a direct source URL** —
+- **${pct}% of the evidence items on the two-sided maps (${withUrl.toLocaleString("en-US")} of
+  ${total.toLocaleString("en-US")}) carry a direct source URL** —
   with peer-reviewed papers, government datasets, court filings, and official reports
   preferred where they directly support the claim.
 - Maps are adversarially fact-checked: citations are traced to the primary source, and
@@ -70,8 +80,9 @@ Corpus last reviewed: ${CONTENT_LAST_UPDATED}.
     if (inCat.length === 0) return "";
     const lines = inCat
       .map((t) => {
-        const turnsOn = t.firstCrux ? ` Turns first on: ${t.firstCrux}` : "";
-        return `- [${mapDisplayTitle(t)}](${BASE}/topics/${t.id}): ${t.meta_claim}${turnsOn}`;
+        // The claim is what the map weighs, not what Argumend asserts.
+        const turnsOn = t.firstCrux ? ` Turns first on: ${sentence(t.firstCrux)}` : "";
+        return `- [${mapDisplayTitle(t)}](${BASE}/topics/${t.id}): Claim weighed: ${sentence(t.meta_claim)}${turnsOn}`;
       })
       .join("\n");
     return `## ${CATEGORY_LABELS[cat]}\n${lines}`;
@@ -87,7 +98,7 @@ Flagship maps last reviewed: ${ARGUMENT_TOPICS_LAST_UPDATED}.
 ${argumentTopicIndex
   .map(
     (topic) =>
-      `- [${topic.title}](${BASE}/topics/${topic.id}): ${topic.tagline}`,
+      `- [${topic.title}](${BASE}/topics/${topic.id}): ${sentence(topic.tagline)}`,
   )
   .join("\n")}`;
 

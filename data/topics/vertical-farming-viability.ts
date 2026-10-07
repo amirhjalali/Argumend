@@ -327,7 +327,7 @@ export const verticalFarmingViabilityData = {
             "Lovat, Noor & Milo, Plant Physiology (2025); Hannah Ritchie, Our World in Data",
           sourceUrl: "https://academic.oup.com/plphys/article/198/3/kiaf056/8104144",
           reasoning:
-            "Two independent expert sources (a Weizmann bioenergetics lab and a leading data-driven food researcher) converge on the same order-of-magnitude conclusion. Directly establishes that vertical farming cannot address staple-calorie food security, which is the core of the skeptic pillar.",
+            "Two independent expert sources (a Weizmann bioenergetics lab and a leading data-driven food researcher) converge on the same order-of-magnitude conclusion. Directly establishes that vertical farming cannot address staple-calorie food security, which is the core of the skeptic's case.",
         },
         {
           id: "leafy-greens-low-calorie",

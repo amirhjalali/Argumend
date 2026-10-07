@@ -19,7 +19,7 @@ export const sexWorkDecriminalizationData = {
       skeptic_premise:
         "Decriminalization is not the same as a tidy harm-reduction program: it expands a market that traffickers exploit. The most-cited cross-national study (Cho, Dreher & Neumayer, World Development 2013) found that, on average, countries where prostitution is legal report larger human-trafficking inflows — the 'scale effect' of a bigger market dominating any 'substitution' away from coerced victims. Germany's 2002 liberalization is widely judged to have failed on its own terms: a recommended brothel-licensing regime was never implemented, police lost search powers, and German lawmakers from across the spectrum concluded the law did not curb exploitation. A safer experience for some independent workers can coexist with worse outcomes for the trafficked and coerced minority who are hardest to count.",
       proponent_rebuttal:
-        "Criminalization is itself the dominant driver of violence: a PLOS Medicine systematic review (Platt et al. 2018, 40 quantitative + 94 qualitative studies) found repressive policing roughly tripled the odds of sexual or physical violence (OR 2.99). New Zealand's official Prostitution Law Review Committee — a government body — found the 2003 reform safeguarded sex workers' rights without increasing their number, and the underlying Christchurch School of Medicine survey of 772 workers found over 90% felt the Act gave them legal, health and safety rights and 57% said police attitudes improved. The Cho/Dreher finding concerns regulated *legalization* under poor data (the UNODC itself warns its trafficking counts are not victim counts) — not the full-decriminalization model, and a bigger *recorded* market can partly reflect activity moving out of the shadows.",
+        "Criminalization is itself the dominant driver of violence: a PLOS Medicine systematic review (Platt et al. 2018, 40 quantitative + 94 qualitative studies) found repressive policing roughly tripled the odds of sexual or physical violence (OR 2.99). New Zealand's official Prostitution Law Review Committee — a government body — found the 2003 reform safeguarded sex workers' rights without increasing their number, and the underlying Christchurch School of Medicine survey of 772 workers found over 90% felt the Act gave them legal, health and safety rights and 57% said police attitudes improved. The Cho/Dreher finding concerns regulated legalization under poor data (the UNODC itself warns its trafficking counts are not victim counts) — not the full-decriminalization model, and a bigger recorded market can partly reflect activity moving out of the shadows.",
       crux: {
         id: "decrim-vs-legalization-effect",
         title: "Decriminalization vs. Legalization, and the Counterfactual",
@@ -28,7 +28,7 @@ export const sexWorkDecriminalizationData = {
         description:
           "The load-bearing disagreement: does 'full decriminalization' (NZ model — no criminal penalties, labor-law coverage) produce different safety outcomes than 'legalization' (Germany/Netherlands — licensed, regulated)? And when violence or trafficking changes, is it caused by the legal regime or by confounders (reporting rates, migration, enforcement priorities)?",
         methodology:
-          "Compare natural experiments that isolate the law change: Rhode Island's 2003-2009 accidental decriminalization of indoor sex work (synthetic-control / difference-in-differences on reported rape and STI rates); New Zealand pre/post 2003 cohort surveys; and cross-national panels that separate decriminalization from licensed legalization while modeling reporting bias and migration. Triangulate self-reported violence, police-reported crime, and health-clinic data so a change in *reporting* is not mistaken for a change in *incidence*.",
+          "Compare natural experiments that isolate the law change: Rhode Island's 2003-2009 accidental decriminalization of indoor sex work (synthetic-control / difference-in-differences on reported rape and STI rates); New Zealand pre/post 2003 cohort surveys; and cross-national panels that separate decriminalization from licensed legalization while modeling reporting bias and migration. Triangulate self-reported violence, police-reported crime, and health-clinic data so a change in reporting is not mistaken for a change in incidence.",
         verification_status: "verified" as const,
         settle: {
           condition:
@@ -64,7 +64,7 @@ export const sexWorkDecriminalizationData = {
           sourceUrl:
             "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002680",
           reasoning:
-            "Peer-reviewed meta-analysis pooling many studies — high reliability and independence. Directness is moderate (7) because it measures the harm of *criminalized* policing rather than directly testing a fully decriminalized regime; the inference to decrim is by reversal, and the observational designs leave residual confounding.",
+            "Peer-reviewed meta-analysis pooling many studies — high reliability and independence. Directness is moderate (7) because it measures the harm of criminalized policing rather than directly testing a fully decriminalized regime; the inference to decrim is by reversal, and the observational designs leave residual confounding.",
         },
         {
           id: "nz-official-review",
@@ -121,7 +121,7 @@ export const sexWorkDecriminalizationData = {
           sourceUrl:
             "https://www.sciencedirect.com/science/article/abs/pii/S0305750X12001453",
           reasoning:
-            "Peer-reviewed, independent, replication data public (reliability/independence high). But directness is low (5): it studies *legalization*, not full decriminalization, and the meta-claim is about health/safety, not trafficking volume. The UNODC itself warns its figures are reported cases, not victim counts, so cross-country measurement error is severe — the authors themselves hedge causal interpretation.",
+            "Peer-reviewed, independent, replication data public (reliability/independence high). But directness is low (5): it studies legalization, not full decriminalization, and the meta-claim is about health/safety, not trafficking volume. The UNODC itself warns its figures are reported cases, not victim counts, so cross-country measurement error is severe — the authors themselves hedge causal interpretation.",
         },
         {
           id: "germany-legalization-critique",
@@ -139,7 +139,7 @@ export const sexWorkDecriminalizationData = {
             "Germany Prostitution Act 2002 — overview and criticism (Wikipedia, with cited German government and CDU statements); contemporaneous reporting (France 24, 2024)",
           sourceUrl: "https://en.wikipedia.org/wiki/Prostitution_Act",
           reasoning:
-            "Illustrates that liberalizing the law alone does not guarantee better outcomes. Weights are low: this is a regulated *legalization* regime (not full decriminalization), the strongest claims (e.g. trafficking magnitudes) rest on contested advocacy estimates, and the source is a secondary encyclopedia summary rather than a primary evaluation — so directness and replicability are weak.",
+            "Illustrates that liberalizing the law alone does not guarantee better outcomes. Weights are low: this is a regulated legalization regime (not full decriminalization), the strongest claims (e.g. trafficking magnitudes) rest on contested advocacy estimates, and the source is a secondary encyclopedia summary rather than a primary evaluation — so directness and replicability are weak.",
         },
       ],
     },
@@ -150,7 +150,7 @@ export const sexWorkDecriminalizationData = {
         "Does decriminalization raise condom use, HIV/STI testing, and clinic access by removing fear of arrest — and is the strongest health evidence causal or modeled?",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The headline 'could avert 33-46% of HIV infections' figure is a *model projection*, not a measured outcome — sensitive to its assumptions about how much violence and policing fall after a law change. The cleanest natural experiment (Rhode Island) captured only off-street, indoor sex work over a few years and cannot speak to street-based workers, the most marginalized group. Cross-country health comparisons are confounded by baseline epidemic stage, condom-promotion programs, and migration, so attributing STI declines to the legal regime alone risks overstating what the law itself does.",
+        "The headline 'could avert 33-46% of HIV infections' figure is a model projection, not a measured outcome — sensitive to its assumptions about how much violence and policing fall after a law change. The cleanest natural experiment (Rhode Island) captured only off-street, indoor sex work over a few years and cannot speak to street-based workers, the most marginalized group. Cross-country health comparisons are confounded by baseline epidemic stage, condom-promotion programs, and migration, so attributing STI declines to the legal regime alone risks overstating what the law itself does.",
       proponent_rebuttal:
         "The causal evidence points the same direction as the models. Rhode Island's accidental 2003-2009 decriminalization of indoor sex work produced a roughly 40% drop in female gonorrhea incidence (and ~30% fewer reported rapes) in a peer-reviewed Review of Economic Studies natural experiment. The mechanism is well-documented: when condoms can't be used as evidence of a crime and clinics aren't a path to arrest, workers test more and use protection more. The Lancet's 33-46% HIV-aversion estimate is a conservative consensus across three very different settings (Canada, India, Kenya) and converges with the empirical STI findings rather than standing alone.",
       crux: {
@@ -159,7 +159,7 @@ export const sexWorkDecriminalizationData = {
         question:
           "Do measured STI declines under decriminalization generalize, and do modeled HIV gains hold up?",
         description:
-          "Health advocates lean on a Lancet *model* (33-46% HIV averted) and a Rhode Island *natural experiment* (~40% gonorrhea drop). The crux: do the measured, causal STI declines generalize beyond indoor/off-street markets and short windows — and do the modeled HIV gains hold once you stress-test the assumption that violence and policing actually fall under decriminalization?",
+          "Health advocates lean on a Lancet model (33-46% HIV averted) and a Rhode Island natural experiment (~40% gonorrhea drop). The crux: do the measured, causal STI declines generalize beyond indoor/off-street markets and short windows — and do the modeled HIV gains hold once you stress-test the assumption that violence and policing actually fall under decriminalization?",
         methodology:
           "Replicate the Rhode Island synthetic-control design in other jurisdictions that change the law; pair it with prospective cohorts tracking condom use, HIV/STI testing uptake, and clinic attendance before vs. after decriminalization; and re-run the Lancet transmission model under pessimistic assumptions about behavioral change to bound the HIV estimate.",
         verification_status: "verified" as const,
@@ -216,7 +216,7 @@ export const sexWorkDecriminalizationData = {
           sourceUrl:
             "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)60931-4/abstract",
           reasoning:
-            "Peer-reviewed and influential, spanning three diverse settings (reliability/independence 8). But it is a *projection*, not a measured outcome: replicability is low (5) because the result depends on modeled assumptions about how far violence and policing fall — so it is corroborative rather than dispositive.",
+            "Peer-reviewed and influential, spanning three diverse settings (reliability/independence 8). But it is a projection, not a measured outcome: replicability is low (5) because the result depends on modeled assumptions about how far violence and policing fall — so it is corroborative rather than dispositive.",
         },
         {
           id: "rhode-island-scope-limit",

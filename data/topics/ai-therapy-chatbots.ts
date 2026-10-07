@@ -200,7 +200,7 @@ export const aiTherapyChatbotsData = {
             "Moore et al., 'Expressing stigma and inappropriate responses prevents LLMs from safely replacing mental health providers,' ACM FAccT (2025)",
           sourceUrl: "https://arxiv.org/abs/2504.18412",
           reasoning:
-            "Peer-reviewed and presented at a top venue (ACM FAccT), authored by Stanford researchers with no industry stake, using a reproducible test protocol across multiple models. It directly targets the replacement claim — its very title — and documents the specific, dangerous failure modes (stigma, missed suicidal cues, delusion reinforcement) at the heart of the safety pillar.",
+            "Peer-reviewed and presented at a top venue (ACM FAccT), authored by Stanford researchers with no industry stake, using a reproducible test protocol across multiple models. It directly targets the replacement claim — its very title — and documents the specific, dangerous failure modes (stigma, missed suicidal cues, delusion reinforcement) at the heart of the safety section.",
         },
         {
           id: "neda-tessa",
