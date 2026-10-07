@@ -17,6 +17,7 @@ export const fluorideWaterSuppliesData = {
   },
   simple_case: [
     "Both sides accept that the recommended level is 0.7 mg/L, that fluoride above 1.5 mg/L, as in parts of China and India, is associated with lower IQ, that cavity rates fell in fluoridated and non-fluoridated countries alike once fluoride toothpaste spread, and that public health already uses population-wide measures like chlorination without individual consent.",
+    "The policy has moved while the science has not settled: Utah's HB 81 (March 2025) and Florida's SB 700 (May 2025) ended fluoridation statewide, at least 21 states saw bills introduced in 2025, and HHS directed the CDC in April 2025 to reconvene an expert panel on fluoride, with the 0.7 mg/L recommendation still standing.",
     "They split over whether swallowed fluoride still adds meaningful benefit beyond toothpaste — the CDC estimates about 25% less tooth decay, the 2024 Cochrane review a much smaller effect in the toothpaste era; whether the twofold margin to 1.5 mg/L is enough once toothpaste, food, tea, infants and pregnancy are counted; and whether fluoridating everyone's water is justified when most of Western Europe delivers fluoride other ways, and whether those alternatives reach the people who need it most.",
   ],
   pillars: [
@@ -61,7 +62,7 @@ export const fluorideWaterSuppliesData = {
           id: "cdc-25-percent-reduction",
           title: "CDC Estimates 25% Cavity Reduction from Water Fluoridation",
           description:
-            "The Centers for Disease Control and Prevention reports that community water fluoridation reduces tooth decay by approximately 25% in children and adults, even in an era of widespread fluoride toothpaste use. The CDC designated water fluoridation as one of ten great public health achievements of the 20th century in 1999. As of 2020, approximately 73% of the US population served by community water systems receives fluoridated water, reaching over 209 million people.",
+            "The Centers for Disease Control and Prevention reports that community water fluoridation reduces tooth decay by approximately 25% in children and adults, even in an era of widespread fluoride toothpaste use. The CDC designated water fluoridation as one of ten great public health achievements of the 20th century in 1999. CDC's 2022 water fluoridation statistics, published in 2024, report that 72.3% of the US population served by community water systems received fluoridated water (209,135,866 people, or 62.8% of the total US population).",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -70,7 +71,8 @@ export const fluorideWaterSuppliesData = {
             directness: 8,
           },
           source: "Centers for Disease Control and Prevention",
-          sourceUrl: "https://www.cdc.gov/fluoridation/index.html",
+          sourceUrl:
+            "https://www.cdc.gov/fluoridation/php/statistics/2022-water-fluoridation-statistics.html",
           reasoning:
             "The CDC is the US government's premier public health agency with strong institutional credibility. However, independence is somewhat lower because the CDC has been a longstanding advocate of fluoridation, creating a potential institutional bias. The 25% figure is an aggregate estimate; some recent studies show smaller effect sizes, particularly when controlling for other fluoride sources.",
         },
@@ -311,7 +313,7 @@ export const fluorideWaterSuppliesData = {
           id: "mass-medication-ethics-literature",
           title: "Bioethics Literature Debates Mass Medication Without Consent",
           description:
-            "The bioethics literature contains significant debate about the ethics of mass medication. The Nuffield Council on Bioethics' 'intervention ladder' framework suggests that population-level interventions that restrict individual choice require stronger justification as they become more intrusive. Critics like the British Fluoridation Society's opponents argue that fluoridation violates the principle of informed consent central to medical ethics since the Nuremberg Code. Supporters cite the 'harm principle' — that fluoridation's minimal risk justifies its broad benefit. The debate has no definitive resolution because it involves competing values (population health vs. individual autonomy) that cannot be settled by evidence alone.",
+            "The bioethics literature contains significant debate about the ethics of mass medication. The Nuffield Council on Bioethics' 'intervention ladder' framework suggests that population-level interventions that restrict individual choice require stronger justification as they become more intrusive. Opponents of fluoridation argue that it violates the principle of informed consent central to medical ethics since the Nuremberg Code. Supporters cite the 'harm principle' — that fluoridation's minimal risk justifies its broad benefit. The debate has no definitive resolution because it involves competing values (population health vs. individual autonomy) that cannot be settled by evidence alone.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -328,7 +330,7 @@ export const fluorideWaterSuppliesData = {
           id: "disparate-fluoride-exposure",
           title: "Low-Income Communities Face Higher Effective Fluoride Doses",
           description:
-            "Research published in Environmental Health Perspectives and other journals has documented that low-income individuals and communities of color receive higher effective fluoride doses from water fluoridation because they are more likely to rely on unfiltered tap water for drinking and cooking, less likely to have access to bottled or filtered water, and more likely to live in areas where fluoride is added to water supplies. Infants fed formula reconstituted with fluoridated water receive fluoride doses per kilogram of body weight that are 100-200 times higher than breastfed infants. This disparate exposure raises environmental justice concerns about a policy often justified on equity grounds.",
+            "Published research documents that low-income individuals and communities of color receive higher effective fluoride doses from water fluoridation because they are more likely to rely on unfiltered tap water for drinking and cooking, less likely to have access to bottled or filtered water, and more likely to live in areas where fluoride is added to water supplies. Breast milk carries very little fluoride, so an infant fed formula reconstituted with fluoridated water takes in far more of it than a breastfed infant; a 2023 review in Children found fluoride in milk-based formulas ranging from 0.01 to 0.92 ppm before reconstitution, with the water used driving the final dose and the risk of dental fluorosis. This disparate exposure raises environmental justice concerns about a policy often justified on equity grounds.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -336,8 +338,9 @@ export const fluorideWaterSuppliesData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Environmental Health Perspectives; Journal of Public Health Dentistry",
-          sourceUrl: "https://ehp.niehs.nih.gov/",
+          source:
+            "Children, Worldwide Variations in Fluoride Content in Beverages for Infants (2023); Journal of Public Health Dentistry",
+          sourceUrl: "https://doi.org/10.3390/children10121896",
           reasoning:
             "The disparate exposure data is based on well-documented consumption patterns and demographic data. The irony that a policy justified on equity grounds may disproportionately expose the same vulnerable populations to higher doses is a legitimate concern. However, this must be weighed against the dental health benefits that also disproportionately accrue to these populations. The environmental justice framing adds important nuance to the debate.",
         },
