@@ -450,9 +450,9 @@
     "title": "Mandatory Voting",
     "question": "Should more democracies make voting compulsory?",
     "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
-    "confidence_score": 86,
-    "balance": 86,
-    "weight": 48,
+    "confidence_score": 72,
+    "balance": 72,
+    "weight": 51,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1400,9 +1400,9 @@
     "title": "COVID-19 Lab Leak Origin",
     "question": "Did COVID-19 come from a Wuhan lab leak rather than natural spillover?",
     "meta_claim": "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
-    "confidence_score": 64,
-    "balance": 64,
-    "weight": 69,
+    "confidence_score": 53,
+    "balance": 53,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1410,7 +1410,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 21,
+    "evidenceCount": 20,
     "firstCrux": "Is the outbreak's start in the same city as the Wuhan Institute of Virology a real signal, or coincidence?",
     "tags": [
       "science"
@@ -1463,9 +1463,9 @@
     "title": "Gender-Affirming Care for Minors",
     "question": "Should transgender teens have access to gender-affirming medical care?",
     "meta_claim": "Evidence-based gender-affirming medical care for transgender adolescents, including puberty blockers and hormone therapy, improves mental health outcomes and should be accessible.",
-    "confidence_score": 37,
-    "balance": 37,
-    "weight": 66,
+    "confidence_score": 40,
+    "balance": 40,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1473,7 +1473,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 12,
     "firstCrux": "Is the evidence strong enough to justify treating minors, compared with other accepted pediatric care?",
     "tags": [
       "science"
@@ -1778,9 +1778,9 @@
     "title": "Housing Supply & Affordability",
     "question": "Would building more homes make housing affordable?",
     "meta_claim": "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
-    "confidence_score": 78,
-    "balance": 78,
-    "weight": 68,
+    "confidence_score": 75,
+    "balance": 75,
+    "weight": 65,
     "verdict": {
       "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
@@ -1789,7 +1789,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 9,
+    "evidenceCount": 8,
     "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
     "tags": [
       "economics"
@@ -2392,17 +2392,18 @@
     "title": "Animal Consciousness & Moral Rights",
     "question": "Does animal consciousness demand far stronger rights for animals?",
     "meta_claim": "Scientific evidence increasingly demonstrates that many animals possess rich subjective experiences and consciousness, which morally obligates humanity to extend rights protections far beyond current legal frameworks.",
-    "confidence_score": 81,
-    "balance": 81,
-    "weight": 71,
+    "confidence_score": 75,
+    "balance": 75,
+    "weight": 72,
     "verdict": {
-      "label": "Evidence largely converges on the claim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 11,
+    "evidenceCount": 12,
     "firstCrux": "Can consciousness be detected without a human template, and in which species would it show up?",
     "tags": [
       "philosophy"
@@ -2434,17 +2435,18 @@
     "title": "Affirmative Action & Meritocracy",
     "question": "Are race-conscious admissions and hiring needed for equal opportunity?",
     "meta_claim": "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
-    "confidence_score": 78,
-    "balance": 78,
-    "weight": 77,
+    "confidence_score": 73,
+    "balance": 73,
+    "weight": 78,
     "verdict": {
-      "label": "Evidence largely converges on the claim",
-      "quadrant": "settled"
+      "label": "Evidence clearly leans toward the claim",
+      "quadrant": "moderate",
+      "fragile": true
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 14,
+    "evidenceCount": 15,
     "firstCrux": "Do test scores and credentials measure individual ability, or accumulated advantage?",
     "tags": [
       "policy"

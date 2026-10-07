@@ -6,6 +6,7 @@ export const mandatoryVotingData = {
     "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
   status: "contested" as const,
   category: "policy" as const,
+  notAbout: ["ranked choice voting", "ranked-choice voting"],
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
@@ -81,7 +82,7 @@ export const mandatoryVotingData = {
           id: "mv-uninformed-voters",
           title: "Uninformed Voter Behavior Studies",
           description:
-            "Selb & Lachat (2009) find that compulsory voting draws in less interested and less informed citizens whose party choices are less consistent with their own stated preferences, and that compulsory voting does not raise overall political knowledge. The 'donkey vote' (ranking candidates top-to-bottom in ballot order) is separately estimated at roughly 1-2% of formal ballots in Australia.",
+            "Selb & Lachat (2009) find that compulsory voting draws in less interested and less informed citizens whose party choices are less consistent with their own stated preferences, and that compulsory voting does not raise overall political knowledge. The 'donkey vote' (ranking candidates top-to-bottom in ballot order) is separately estimated at roughly 1-2% of formal ballots in Australia, and official AEC results for the 2022 federal election record a further 802,337 informal ballots, 5.19% of those cast, that could not be admitted to the count.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -90,11 +91,11 @@ export const mandatoryVotingData = {
             directness: 6,
           },
           source:
-            "Selb & Lachat, 'The more, the better? Counterfactual evidence on the effect of compulsory voting on the consistency of party choice', European Journal of Political Research 48(5), 2009",
+            "Selb & Lachat, 'The more, the better? Counterfactual evidence on the effect of compulsory voting on the consistency of party choice', European Journal of Political Research 48(5), 2009; Australian Electoral Commission, 2022 federal election results",
           sourceUrl:
             "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-6765.2009.01834.x",
           reasoning:
-            "Peer-reviewed but based on counterfactual modelling of Belgian survey data, so the magnitude is contested. The paper supports the 'less consistent vote' claim more directly than a generic 'random voting' or knowledge-test framing; directness de-inflated accordingly. The separate donkey-vote figure (~1-2%) comes from Australian electoral commentary, not this paper.",
+            "Peer-reviewed but based on counterfactual modelling of Belgian survey data, so the magnitude is contested. The paper supports the 'less consistent vote' claim more directly than a generic 'random voting' or knowledge-test framing; directness de-inflated accordingly. The separate donkey-vote figure (~1-2%) comes from Australian electoral commentary, not this paper; the 5.19% informality figure is the AEC's own count for 2022 and does not distinguish deliberate spoiling from error.",
         },
         {
           id: "mv-oecd-democracy",
@@ -223,24 +224,6 @@ export const mandatoryVotingData = {
           sourceUrl: "https://doi.org/10.1111/j.1540-6237.2009.00603.x",
           reasoning:
             "A large administrative sample with a clean source of randomisation, so the estimate itself is solid. It measures the size of the choice-independent component of the vote in a compulsory system, which is the mechanism the uninformed-voter objection points at; it does not compare that component against a voluntary-voting counterfactual, so it cannot show compulsion created it.",
-        },
-        {
-          id: "mv-informal-vote-rate",
-          title: "One in twenty Australian House ballots is informal",
-          description:
-            "Official Australian Electoral Commission results for the 2022 federal election record 802,337 informal ballots in the House of Representatives, 5.19% of the 15,461,379 votes cast. An informal ballot is one left blank, incorrectly numbered or otherwise unable to be admitted to the count.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 5,
-          },
-          source: "Australian Electoral Commission, 2022 federal election results, House informal votes by division",
-          sourceUrl:
-            "https://results.aec.gov.au/27966/Website/HouseInformalByDivision-27966-NAT.htm",
-          reasoning:
-            "This is the official count, not an estimate. It shows that a headline turnout above 90% is not the same as 90% of electors registering a usable preference: compulsion can be satisfied by attending and submitting a ballot that is not counted. It does not establish how much of the informal vote is deliberate rather than error, and informal votes also occur in voluntary systems, so it bounds the representation claim rather than refuting it.",
         },
       ],
     },
