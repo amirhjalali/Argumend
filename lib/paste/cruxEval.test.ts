@@ -23,6 +23,17 @@ import { chooseCruxIds, getMapIndex } from "./maps";
  * a paste whose only distinctive word, "parents", belongs to another crux.
  * The parameter grid tried on this set was flat (34–35 of 36 for every
  * setting), so the floors sit under it rather than at it.
+ *
+ * Holdout (r9 live review, 2026-10-06): 5 pastes written after that tuning,
+ * where one incidental word picked the crux ("engagement ring", "Andrew
+ * Tate", "repair shops"). Before the r9 change 0/5 top-1, 0/5 shown; after
+ * (a clear leader must survive losing its deciding word, cruxChoice.ts
+ * `restLead`) 3/5 top-1, 4/5 shown, with the original 36 unchanged at 34/36
+ * top-1, 35/36 shown, two shown 3 → 4. These five then set `restLead`, so
+ * they are no longer a clean holdout. The one still missed (korea-bonus)
+ * restates the doom-loop crux's own evidence. The cost: across the 128
+ * pastes the matching eval names a map for, two cruxes are shown for 44
+ * instead of 25.
  */
 const FLOORS = {
   top1: 0.9,
@@ -30,6 +41,9 @@ const FLOORS = {
   /** Two cruxes is a hedge; most pastes should get one. */
   maxTwo: 0.2,
 };
+
+/** At the measurement: five cases leave no room under it. */
+const HOLDOUT_FLOORS = { top1: 0.6, shown: 0.8 };
 
 interface CruxCase {
   id: string;
@@ -103,10 +117,20 @@ describe("the crux-choice eval set", () => {
     expect(two, detail).toBeLessThanOrEqual(FLOORS.maxTwo);
   });
 
-  it("reports the held-out cases", () => {
+  it("holds the floors on the held-out cases", () => {
     const held = rows.filter((row) => row.holdout);
     expect(held.length).toBeGreaterThanOrEqual(5);
-    console.info(measure(held, "crux choice, holdout").detail);
+    const { top1, shown, detail } = measure(held, "crux choice, holdout");
+    console.info(detail);
+    expect(top1, detail).toBeGreaterThanOrEqual(HOLDOUT_FLOORS.top1);
+    expect(shown, detail).toBeGreaterThanOrEqual(HOLDOUT_FLOORS.shown);
+  });
+
+  it("does not let one incidental word pick the crux", () => {
+    // "engagement ring" is in the mining-economies crux's evidence; the paste asks about ethics.
+    expect(rows.find((row) => row.id === "hold-diamond-ring")?.shown[0]).toBe("human-rights-conflict");
+    // "Andrew Tate" is discussed under the ideology crux; the paste is the outcome data.
+    expect(rows.find((row) => row.id === "hold-young-men-tate")?.shown[0]).toBe("empirical-crisis-indicators");
   });
 
   it("shows the rent-control paste the displacement crux, not the construction one", () => {
