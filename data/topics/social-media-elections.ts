@@ -326,7 +326,7 @@ export const socialMediaElectionsData = {
     },
     {
       title: "How Facebook and Google Fund Global Misinformation — MIT Technology Review",
-      url: "https://www.technologyreview.com/2021/11/20/1040049/facebook-google-disinformation-clickbait/",
+      url: "https://www.technologyreview.com/2021/11/20/1039076/facebook-google-disinformation-clickbait/",
     },
   ],
   questions: [

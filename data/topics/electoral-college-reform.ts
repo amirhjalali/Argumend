@@ -13,7 +13,7 @@ export const electoralCollegeReformData = {
     confidence: 85,
     source:
       "National Popular Vote Interstate Compact status (2026); US Census apportionment; Pew Research (2024)",
-    sourceUrl: "https://fairvote.org/our-reforms/national-popular-vote/",
+    sourceUrl: "https://www.nationalpopularvote.com/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [

@@ -1252,9 +1252,9 @@
     "title": "Electric Vehicles vs. ICE Cars",
     "question": "Are EVs significantly greener than gas cars over their full lifecycle?",
     "meta_claim": "Electric vehicles are significantly better for the environment than internal combustion engine vehicles when considering the full lifecycle.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 83,
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 82,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"

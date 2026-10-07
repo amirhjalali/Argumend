@@ -14,7 +14,7 @@ export const longevityScienceData = {
     confidence: 82,
     source:
       "Human mortality / life-expectancy data (OWID); Olshansky et al. on maximum lifespan; AFAR TAME trial status (2026)",
-    sourceUrl: "https://www.afar.org/tame-trial",
+    sourceUrl: "https://web.archive.org/web/20260704152538/https://www.afar.org/tame-trial",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
@@ -470,15 +470,15 @@ export const longevityScienceData = {
     },
     {
       title: "Targeting Aging with Metformin (TAME) Trial — American Federation for Aging Research",
-      url: "https://www.afar.org/tame-trial",
+      url: "https://web.archive.org/web/20260704152538/https://www.afar.org/tame-trial",
     },
     {
       title: "In Vivo Amelioration of Age-Associated Hallmarks by Partial Reprogramming — Ocampo et al., Cell (2016)",
       url: "https://www.cell.com/cell/fulltext/S0092-8674(16)31664-6",
     },
     {
-      title: "Altos Labs and the Billionaire Quest to Reverse Aging — MIT Technology Review",
-      url: "https://www.technologyreview.com/2021/09/04/1034364/altos-labs-bezos-reprogramming-biotech-age-reversal/",
+      title: "Meet Altos Labs, Silicon Valley's latest wild bet on living forever — MIT Technology Review (2021)",
+      url: "https://www.technologyreview.com/2021/09/04/1034364/altos-labs-silicon-valleys-jeff-bezos-milner-bet-living-forever/",
     },
   ],
   questions: [

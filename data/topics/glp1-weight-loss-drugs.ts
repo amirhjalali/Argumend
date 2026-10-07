@@ -319,20 +319,21 @@ export const glp1WeightLossDrugsData = {
         },
         {
           id: "genetic-heritability-obesity",
-          title: "40-70% of BMI Variation Is Genetically Determined",
+          title: "Twin, Family and Adoption Studies Put the Heritability of Obesity at 40-70%",
           description:
-            "Twin studies, genome-wide association studies (GWAS), and adoption studies consistently show that 40-70% of variation in BMI is attributable to genetic factors. Over 1,000 genetic loci associated with body weight have been identified, many affecting hypothalamic appetite regulation, fat storage, and metabolic rate. The FTO gene variant alone increases obesity risk by 20-30% and is carried by 44% of European-ancestry populations. A 2024 Nature Genetics meta-analysis of 800,000 individuals identified 500+ novel obesity-associated variants. This genetic architecture explains why individuals in the same food environment develop dramatically different body weights.",
+            "Twin, family and adoption studies estimate the heritability of obesity at between 40% and 70%. A systematic review of 88 twin-study estimates (140,525 twins) found BMI heritability ranging from 0.47 to 0.90, with a median of 0.75. Nearly 60 genome-wide association studies have identified more than 1,100 independent loci associated with obesity traits, and the genes near them point to a key role for the brain in controlling body weight. The first locus found, FTO, carries a BMI-raising allele held by 40-45% of people of European ancestry, adding about 1 kg for a person 1.7 m tall; a healthy diet or more physical activity attenuates its effect on obesity risk by 30-40%. This genetic architecture helps explain why people in the same food environment end up at very different body weights.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
             replicability: 9,
-            directness: 8,
+            directness: 7,
           },
-          source: "Nature Genetics; The Lancet; Annual Review of Genomics and Human Genetics",
-          sourceUrl: "https://www.nature.com/articles/s41588-024-01797-z",
+          source:
+            "Loos & Yeo, \"The genetics of obesity: from discovery to biology,\" Nature Reviews Genetics (2022); Elks et al., \"Variability in the heritability of body mass index,\" Frontiers in Endocrinology (2012)",
+          sourceUrl: "https://doi.org/10.1038/s41576-021-00414-z",
           reasoning:
-            "Heritability estimates from twin and GWAS studies are highly replicated across populations and decades of research. This is strong evidence that obesity has a substantial biological basis that cannot be fully addressed by environmental or behavioral interventions alone, supporting the case for pharmacological treatment.",
+            "Heritability estimates from twin and family studies are highly replicated across populations and decades of research. This is strong evidence that obesity has a substantial biological basis, which supports treating it with drugs that act on appetite biology. Directness is moderate: heritability measures how much of the variation within a population is genetic, not how much any one person's weight is fixed, and the same review shows lifestyle can blunt genetic risk.",
         },
         {
           id: "japan-korea-obesity-rates",

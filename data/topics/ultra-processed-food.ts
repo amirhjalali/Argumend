@@ -330,7 +330,7 @@ export const ultraProcessedFoodData = {
     },
     {
       title: "NOVA Classification System — Monteiro et al., World Nutrition (2016)",
-      url: "https://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf",
+      url: "https://worldnutritionjournal.org/index.php/wn/article/view/5",
     },
     {
       title: "Chile's Front-of-Package Warning Label Policy — PLOS Medicine (2021)",

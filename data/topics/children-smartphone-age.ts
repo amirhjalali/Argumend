@@ -20,8 +20,8 @@ export const childrenSmartphoneAgeData = {
       url: "https://www.hhs.gov/surgeongeneral/priorities/youth-mental-health/social-media/index.html",
     },
     {
-      title: "Smartphones and Adolescent Mental Health — Annual Review of Psychology",
-      url: "https://www.annualreviews.org/doi/10.1146/annurev-psych-032620-035916",
+      title: "Annual Research Review: Adolescent mental health in the digital age — Odgers & Jensen, Journal of Child Psychology and Psychiatry (2020)",
+      url: "https://doi.org/10.1111/jcpp.13190",
     },
   ],
   questions: [

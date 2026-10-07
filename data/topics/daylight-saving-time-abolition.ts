@@ -15,7 +15,7 @@ export const daylightSavingTimeAbolitionData = {
       "In 2022 the US Senate passed the Sunshine Protection Act, which would make daylight saving time permanent, by unanimous consent. The American Academy of Sleep Medicine and 20 endorsing organizations back permanent standard time instead. Both camps want the twice-yearly clock change to end. The fight is over which permanent clock to lock in: brighter winter mornings, or an extra hour of evening light.",
     confidence: 88,
     source:
-      "US Senate passage of S.623, the Sunshine Protection Act (2022); AASM position statement, J Clin Sleep Med (2023)",
+      "US Senate passage of S.623, the Sunshine Protection Act (2022); AASM position statement, J Clin Sleep Med (2024)",
     sourceUrl: "https://en.wikipedia.org/wiki/Sunshine_Protection_Act",
   },
   // ── Stage 2: the honest 3-sentence case ──
@@ -36,7 +36,7 @@ export const daylightSavingTimeAbolitionData = {
       skeptic_premise:
         "If we are going to lock the clock, permanent daylight saving time is what people actually want and use. Surveys repeatedly show many Americans prefer long, light summer-style evenings to bright early mornings — the evening hour is when people exercise, shop, eat out, see friends, and let kids play outside, whereas the early-morning hour is mostly spent asleep or commuting in either case. Senators passed the Sunshine Protection Act for permanent DST by unanimous consent in 2022 precisely because constituents hate dark 4:30 p.m. winter sunsets. More evening daylight is associated with more physical activity and outdoor recreation, less afternoon-and-evening crime, and measurable retail and tourism gains. The 'circadian' argument treats the entire population as if it were on a farm schedule; for most modern indoor workers, electric light and screens already dominate morning cues, so the marginal health cost of a later social clock is small relative to the lifestyle benefit of usable evenings.",
       proponent_rebuttal:
-        "The near-unanimous scientific position is that permanent standard time, not permanent DST, is the healthy way to stop changing clocks. The 2023 AASM position statement — endorsed by 20 medical and scientific organizations including the Sleep Research Society, the Society for Research on Biological Rhythms, the American College of Chest Physicians, and the National Safety Council — concludes that standard time best aligns the body clock with the day-night cycle. The mechanism is well established: morning light is the strongest signal that sets the human circadian clock, and DST shifts the social schedule an hour later than the sun, producing chronic 'social jet lag' that never resolves because the solar day never moves to match it. Permanent DST also means very late winter sunrises — past 8:30 a.m. across much of the country and after 9 a.m. in parts of the northern tier — meaning millions of children and workers would start their days in darkness for months. That is exactly the scenario the US lived through in 1974, when year-round DST was so unpopular it was repealed within the year.",
+        "The near-unanimous scientific position is that permanent standard time, not permanent DST, is the healthy way to stop changing clocks. The 2024 AASM position statement — endorsed by 20 medical and scientific organizations including the Sleep Research Society, the Society for Research on Biological Rhythms, the American College of Chest Physicians, and the National Safety Council — concludes that standard time best aligns the body clock with the day-night cycle. The mechanism is well established: morning light is the strongest signal that sets the human circadian clock, and DST shifts the social schedule an hour later than the sun, producing chronic 'social jet lag' that never resolves because the solar day never moves to match it. Permanent DST also means very late winter sunrises — past 8:30 a.m. across much of the country and after 9 a.m. in parts of the northern tier — meaning millions of children and workers would start their days in darkness for months. That is exactly the scenario the US lived through in 1974, when year-round DST was so unpopular it was repealed within the year.",
       crux: {
         id: "circadian-vs-evening-light-tradeoff",
         title: "The Morning-Light vs Evening-Light Tradeoff",
@@ -70,7 +70,7 @@ export const daylightSavingTimeAbolitionData = {
           title:
             "AASM and 20 Organizations Endorse Permanent Standard Time as Optimal",
           description:
-            "The American Academy of Sleep Medicine published a position statement (J Clin Sleep Med, 2023) concluding that permanent standard time is the optimal choice for health and safety because it best aligns the body's circadian clock with the natural light-dark cycle. The statement was formally endorsed by 20 medical, scientific, and safety organizations, including the Sleep Research Society, the Society for Research on Biological Rhythms, the American College of Chest Physicians, the American Thoracic Society, the National Sleep Foundation, and the National Safety Council. The core argument is that morning sunlight is the primary signal that synchronizes human circadian rhythms, and that daylight saving time chronically misaligns the social clock with solar time.",
+            "The American Academy of Sleep Medicine published a position statement (J Clin Sleep Med, 2024) concluding that permanent standard time is the optimal choice for health and safety because it best aligns the body's circadian clock with the natural light-dark cycle. The statement was formally endorsed by 20 medical, scientific, and safety organizations, including the Sleep Research Society, the Society for Research on Biological Rhythms, the American College of Chest Physicians, the American Thoracic Society, the National Sleep Foundation, and the National Safety Council. The core argument is that morning sunlight is the primary signal that synchronizes human circadian rhythms, and that daylight saving time chronically misaligns the social clock with solar time.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -79,8 +79,8 @@ export const daylightSavingTimeAbolitionData = {
             directness: 9,
           },
           source:
-            "American Academy of Sleep Medicine, 'Permanent standard time is the optimal choice for health and safety' position statement, J Clin Sleep Med (2023)",
-          sourceUrl: "https://jcsm.aasm.org/doi/10.5664/jcsm.10898",
+            "American Academy of Sleep Medicine, 'Permanent standard time is the optimal choice for health and safety' position statement, J Clin Sleep Med (2024)",
+          sourceUrl: "https://doi.org/10.5664/jcsm.10898",
           reasoning:
             "Published in the peer-reviewed Journal of Clinical Sleep Medicine and endorsed by a broad coalition of independent professional bodies, this represents the consensus position of the relevant scientific field. Directness is high because it speaks precisely to which permanent clock is healthiest. It is an expert position statement rather than a single new experiment, so replicability is moderate — it synthesizes existing circadian evidence rather than reporting one reproducible result.",
         },
@@ -240,7 +240,7 @@ export const daylightSavingTimeAbolitionData = {
             directness: 7,
           },
           source:
-            "American Academy of Sleep Medicine position statement and cited stroke/sleep literature (J Clin Sleep Med, 2020/2023)",
+            "American Academy of Sleep Medicine position statement and cited stroke/sleep literature (J Clin Sleep Med, 2020/2024)",
           sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7954020/",
           reasoning:
             "The stroke and sleep-loss associations are documented in peer-reviewed literature and summarized in the AASM statement. Reliability and directness are solid but slightly lower than the crash data because individual stroke-timing studies have smaller samples and more heterogeneous estimates, and the effects are short-lived.",
@@ -392,8 +392,8 @@ export const daylightSavingTimeAbolitionData = {
   references: [
     {
       title:
-        "Permanent Standard Time Is the Optimal Choice for Health and Safety — AASM Position Statement, J Clin Sleep Med (2023)",
-      url: "https://jcsm.aasm.org/doi/10.5664/jcsm.10898",
+        "Permanent Standard Time Is the Optimal Choice for Health and Safety — AASM Position Statement, J Clin Sleep Med (2024)",
+      url: "https://doi.org/10.5664/jcsm.10898",
     },
     {
       title:

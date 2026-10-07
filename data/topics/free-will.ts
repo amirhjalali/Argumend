@@ -47,7 +47,7 @@ export const freeWillData = {
       references: [
         {
           title: "The Illusion of Conscious Will (Wegner)",
-          url: "https://en.wikipedia.org/wiki/The_Illusion_of_Conscious_Will",
+          url: "https://en.wikipedia.org/wiki/Daniel_Wegner#The_illusion_of_conscious_will",
         },
       ],
     },

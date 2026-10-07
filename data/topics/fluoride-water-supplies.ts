@@ -326,20 +326,21 @@ export const fluorideWaterSuppliesData = {
         },
         {
           id: "disparate-fluoride-exposure",
-          title: "Low-Income Communities Face Higher Effective Fluoride Doses",
+          title: "Black Youth and Formula-Fed Infants Appear to Get Higher Fluoride Doses From Tap Water",
           description:
-            "Research published in Environmental Health Perspectives and other journals has documented that low-income individuals and communities of color receive higher effective fluoride doses from water fluoridation because they are more likely to rely on unfiltered tap water for drinking and cooking, less likely to have access to bottled or filtered water, and more likely to live in areas where fluoride is added to water supplies. Infants fed formula reconstituted with fluoridated water receive fluoride doses per kilogram of body weight that are 100-200 times higher than breastfed infants. This disparate exposure raises environmental justice concerns about a policy often justified on equity grounds.",
+            "The first nationally representative look at urinary fluoride among US youth (NHANES 2015-2016, 2,408 children and adolescents) found that non-Hispanic Black youth tended to have higher urinary fluoride than most other groups, and that the link between tap-water fluoride and urinary fluoride was strongest for them. The authors conclude that Black youth may have greater fluoride exposure and get more of it from tap water, and that the possible disparity warrants investigation. Infants are a second group: formula reconstituted with fluoridated water can lead to excessive fluoride intake, and in a Canadian birth cohort the association between water fluoride and lower performance IQ was more pronounced among formula-fed than breastfed children. Uneven exposure raises environmental justice concerns about a policy often justified on equity grounds.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 8,
-            replicability: 7,
+            replicability: 6,
             directness: 7,
           },
-          source: "Environmental Health Perspectives; Journal of Public Health Dentistry",
-          sourceUrl: "https://ehp.niehs.nih.gov/",
+          source:
+            "Khan et al., \"Urinary Fluoride Levels Among Youth in NHANES 2015-2016: Potential Differences According to Race,\" Nutrients (2025); Till et al., \"Fluoride exposure from infant formula and child IQ in a Canadian birth cohort,\" Environment International (2020)",
+          sourceUrl: "https://doi.org/10.3390/nu17020309",
           reasoning:
-            "The disparate exposure data is based on well-documented consumption patterns and demographic data. The irony that a policy justified on equity grounds may disproportionately expose the same vulnerable populations to higher doses is a legitimate concern. However, this must be weighed against the dental health benefits that also disproportionately accrue to these populations. The environmental justice framing adds important nuance to the debate.",
+            "Urinary fluoride is the best-established biomarker of exposure, and NHANES is nationally representative, so the racial difference is a real signal. Replicability is moderate: it is one survey cycle, the authors frame the difference as potential, and the reasons for it are not yet established. The irony that a policy justified on equity grounds may expose some vulnerable groups to higher doses is a legitimate concern. However, this must be weighed against the dental health benefits that also disproportionately accrue to these populations.",
         },
       ],
     },
