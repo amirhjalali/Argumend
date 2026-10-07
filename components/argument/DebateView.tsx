@@ -78,6 +78,11 @@ const STATUS_LABELS: Record<Claim["status"], string> = {
   superseded: "Superseded",
 };
 
+/** The heading over a claim's status basis, in the reader's words. */
+function statusBasisLabel(status: Claim["status"]): string {
+  return `Why it is marked ${STATUS_LABELS[status].toLowerCase()}`;
+}
+
 /** Maps covered by the living AI page at /ai, which links back from here. */
 const AI_MAP_IDS: ReadonlySet<string> = new Set(["ai-mass-unemployment", "capitalism-after-ai"]);
 
@@ -205,7 +210,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: D
         evidence: (
           <>
             <DetailBlock label="The claim, precisely">{claim.statement}</DetailBlock>
-            <DetailBlock label="Status basis">{claim.statusBasis}</DetailBlock>
+            <DetailBlock label={statusBasisLabel(claim.status)}>{claim.statusBasis}</DetailBlock>
             <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
           </>
         ),
@@ -445,7 +450,7 @@ function ResearcherClaim({
             {claim.statement}
           </p>
         )}
-        <DetailBlock label="Status basis">{claim.statusBasis}</DetailBlock>
+        <DetailBlock label={statusBasisLabel(claim.status)}>{claim.statusBasis}</DetailBlock>
         <ClaimEvidence claim={claim} graph={graph} nodesById={nodesById} />
       </div>
     </details>

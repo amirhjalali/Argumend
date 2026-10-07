@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { loadArgumentTopic } from "./draftTopics";
+import { argumentTopicIds } from "./topicIds";
 
 describe("draft argument topics", () => {
   it("loads and caches the AI mass-unemployment flagship graph", () => {
@@ -72,5 +73,25 @@ describe("draft argument topics", () => {
       const triples = topic!.graph.edges.map((edge) => `${edge.from}|${edge.to}|${edge.type}`);
       expect(new Set(triples).size).toBe(triples.length);
     }
+  });
+
+  it("writes the text readers see for readers, not as notes about the research pipeline", () => {
+    // statusBasis shows under "Why it is marked …", relevance in paste
+    // matches, interest and unverified flags on every evidence card.
+    const PIPELINE = /\bcorpus\b|underlying research|this draft|addendum|extract(ion|ed as)|inference rule|guideline/i;
+    const SHOUTED = /\bUNVERIFIED\b/;
+    const leaks: string[] = [];
+    for (const id of argumentTopicIds) {
+      for (const node of loadArgumentTopic(id)!.graph.nodes) {
+        const texts = [
+          node.type === "claim" ? node.statusBasis : undefined,
+          node.type === "evidence" ? node.relevance : undefined,
+          node.type === "evidence" ? node.source.interest : undefined,
+          ...(node.type === "evidence" ? (node.unverifiedFlags ?? []) : []),
+        ];
+        for (const text of texts) if (text && (PIPELINE.test(text) || SHOUTED.test(text))) leaks.push(`${id}/${node.id}: ${text}`);
+      }
+    }
+    expect(leaks).toEqual([]);
   });
 });

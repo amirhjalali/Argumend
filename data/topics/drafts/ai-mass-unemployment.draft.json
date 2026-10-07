@@ -217,7 +217,7 @@
    "statement": "A material share of the decline in U.S. junior white-collar hiring reflects offshoring to global capability centers in India and the Philippines rather than AI automation.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "The corpus explicitly flags this as an unverified causal split: the scale of India's global-capability-center buildout over 2022-2026 makes the hypothesis plausible, but no public data links specific U.S. entry-level cuts to specific simultaneous offshore hiring in the same functions.",
+   "statusBasis": "No one has yet shown which way this cuts: the scale of India's global-capability-center buildout over 2022-2026 makes the explanation plausible, but no public data links specific U.S. entry-level cuts to specific offshore hiring in the same functions at the same time.",
    "resolution": {
     "kind": "existing-evidence",
     "condition": "firm-level data linking U.S. entry-level cuts to simultaneous India/Philippines/GCC hiring in the same functions; absent that, this remains unverified"
@@ -261,7 +261,7 @@
    "statement": "Firms facing improved AI capability respond primarily by reducing hiring and headcount growth rather than by expanding output or redesigning jobs to use the freed-up capacity.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "This is an unstated mechanism assumption underlying the causal-attribution case: the observable data (hiring rates, headcount) cannot by itself distinguish 'AI reduced labor demand' from 'AI raised output per worker and firms chose to expand.' The corpus's own firm-level bridge evidence (Hampole et al.-style reallocation) is not decisive either way. The three challenging evidence edges (Hampole, the Danish register study, the Census BTOS AI supplement) do not make this a one-sided record: the supporting side is U.S. adopter-level evidence of slower junior hiring, which the Danish data do not reproduce, so the live dispute sits on that margin.",
+   "statusBasis": "This is an unstated assumption behind the case that AI caused the decline: hiring rates and headcounts cannot by themselves tell 'AI reduced the need for workers' apart from 'AI raised output per worker and firms chose to expand.' The firm-level studies on this map (Hampole et al. on reallocation) do not decide it either. The evidence is not one-sided: U.S. studies of AI adopters find slower junior hiring, the Danish register study does not reproduce it, and the live dispute sits on that gap.",
    "implicit": true,
    "tags": [
     "hidden-assumption",
@@ -287,7 +287,7 @@
    "statement": "'Mass unemployment' should be defined as sustained U-3 unemployment above 10% for multiple quarters, rather than by wage collapse, labor-force participation decline, or underemployment.",
    "epistemicType": "definitional",
    "status": "contested",
-   "statusBasis": "The corpus's definitional-crux section lays out at least three live candidate definitions (strict U-3 above 10%, a stronger 15-20% Amodei-style crisis threshold, and a broader participation/wage/underemployment definition) with no consensus among the sides on which one settles the parent question.",
+   "statusBasis": "At least three definitions are in live use (U-3 unemployment above 10%; a stronger 15-20% crisis threshold of the kind Dario Amodei has described; and a broader one counting participation, wages and underemployment), and the sides do not agree which one answers the question.",
    "resolution": {
     "kind": "definitional-choice",
     "condition": "sides agree on a metric before forecasting: U-3 threshold and duration, employment-population ratio, U-6, prime-age participation, or entry-level career access"
@@ -311,7 +311,7 @@
    "statement": "U.S. agricultural employment collapsed from roughly 41% of the workforce in 1900 to about 2% by 2000 without the economy settling into permanent mass unemployment.",
    "epistemicType": "empirical",
    "status": "uncontested",
-   "statusBasis": "Multiple converging historical data series (CEA archive, Federal Reserve long-run tables, USDA) document the same decline with no contrary account in the corpus; displaced agricultural labor moved into manufacturing and services over decades.",
+   "statusBasis": "Several historical data series (the CEA archive, Federal Reserve long-run tables, USDA) document the same decline, and no source on this map tells it differently; displaced farm labor moved into manufacturing and services over decades.",
    "tags": [
     "history",
     "agriculture",
@@ -463,7 +463,7 @@
    "statement": "Workers displaced from automated tasks can retrain and relocate into newly created tasks at a cost and delay small relative to the productivity gains.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "This is the steelman assumption behind reinstatement-based optimism about AI: adjustment can be costly in absolute terms but still small relative to productivity gains if new tasks and targeted programs work well. The corpus's retraining evidence challenges this assumption by showing weak outcomes for ordinary programs, without proving that better-funded, employer-linked, AI-specific programs could not perform better.",
+   "statusBasis": "This is the strongest form of the optimists' assumption that new tasks will absorb displaced workers: adjustment can be costly in absolute terms but small next to the productivity gains, if new tasks and targeted programs work. The retraining evidence on this map finds weak results for ordinary programs, but it does not show that better-funded, employer-linked, AI-specific programs could not do better.",
    "implicit": true,
    "tags": [
     "hidden-assumption",
@@ -489,7 +489,7 @@
    "statement": "Regionally concentrated trade-driven job loss (the China trade shock) produced elevated unemployment, reduced labor-force participation, and depressed wages in exposed local labor markets for at least a decade, even though the U.S. economy overall adjusted.",
    "epistemicType": "empirical",
    "status": "uncontested",
-   "statusBasis": "Autor, Dorn, and Hanson's peer-reviewed decomposition and their later persistence work both document depressed wages, participation, and employment in exposed local labor markets through 2019, with no contrary finding in the corpus.",
+   "statusBasis": "Autor, Dorn, and Hanson's peer-reviewed work and their later follow-up both document depressed wages, participation, and employment in exposed local labor markets through 2019, and no source on this map finds otherwise.",
    "attributedTo": [
     "Autor",
     "Dorn",
@@ -626,7 +626,7 @@
    "statement": "AI capability progress will plateau or narrow in scope because the effective stock of high-quality training text, compute-efficient scaling, and reliable long-context reasoning are approaching practical limits.",
    "epistemicType": "predictive",
    "status": "contested",
-   "statusBasis": "Epoch AI's own data-limit and data-movement-bottleneck estimates support this, but the corpus's balance review notes that the plateau case in the underlying capability report is sourced almost entirely to Epoch and an Anthropic research blog, giving the skeptical position no independent voice.",
+   "statusBasis": "Epoch AI's estimates of data limits and data-movement bottlenecks support this, but the plateau case rests almost entirely on Epoch and one Anthropic research blog, so the skeptical position has no independent source behind it yet.",
    "attributedTo": [
     "Epoch AI"
    ],
@@ -652,7 +652,7 @@
    "statement": "AI capability evaluators such as METR, Epoch AI, AI Impacts, and the Forecasting Research Institute systematically favor short-timeline conclusions because of a shared funding cluster and intellectual milieu with AI-risk philanthropy.",
    "epistemicType": "predictive",
    "status": "contested",
-   "statusBasis": "The funders are disclosed (Coefficient/Open Philanthropy grants to FRI, Epoch, and AI Impacts, plus METR's access relationships with OpenAI and Anthropic), but the corpus finds no causal proof that this funding shaped conclusions; the claim is raised as a structural concern by the corpus's own adversarial balance review, not established.",
+   "statusBasis": "The funders are disclosed (Coefficient/Open Philanthropy grants to FRI, Epoch, and AI Impacts, plus METR's access relationships with OpenAI and Anthropic), but no one has shown that this funding shaped the conclusions; the claim is a structural concern, not an established finding.",
    "tags": [
     "source-bias",
     "forecasting"
@@ -675,7 +675,7 @@
    "statement": "Frontier AI labs' short-timeline predictions about transformative AI or AGI should be discounted for the labs' fundraising, recruitment, regulatory, and product incentives to make near-term AI capability seem urgent.",
    "epistemicType": "predictive",
    "status": "contested",
-   "statusBasis": "The corpus proposes this discount as reasonable given the labs' obvious conflict of interest, but cannot verify a systematic base rate that tech insiders overpredict their own technologies; the general claim is explicitly flagged as unverified even though the specific conflict of interest is undisputed.",
+   "statusBasis": "Discounting forecasts from people with an obvious conflict of interest is reasonable, but no one has established a base rate showing that tech insiders overpredict their own technologies; the specific conflict of interest is undisputed, the general pattern is unverified.",
    "attributedTo": [
     "Amodei",
     "Altman",
@@ -726,7 +726,7 @@
    "statement": "No unmistakable AI-driven productivity boom or broad payroll contraction is visible yet in aggregate U.S. economic data through mid-2026.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "This is the corpus's own headline 'no macro signal yet' reading of the same productivity series; it sits in tension with the observation that 2024-2026 productivity growth is itself running well above its pre-2020 trend.",
+   "statusBasis": "This is the common 'no economy-wide signal yet' reading of the productivity figures; it sits uneasily with the fact that 2024-2026 productivity growth is itself running well above its pre-2020 trend.",
    "tags": [
     "productivity-paradox",
     "macro",
@@ -750,7 +750,7 @@
    "statement": "Occupational AI-exposure scores measure task overlap with AI capability, not realized employment displacement, because most exposed occupations combine automatable and non-automatable tasks.",
    "epistemicType": "empirical",
    "status": "broadly_accepted",
-   "statusBasis": "The ILO explicitly frames generative AI's dominant near-term effect as task transformation rather than full job automation for this reason; this is a methodological point about what exposure indices measure, not itself contested in the corpus.",
+   "statusBasis": "The ILO explicitly frames generative AI's main near-term effect as changing tasks rather than automating whole jobs, for this reason; it is a point about what exposure indices measure, and no source on this map disputes it.",
    "attributedTo": [
     "ILO"
    ],
@@ -797,7 +797,7 @@
    "statement": "Clerical and administrative-support work is the occupational group with the highest generative-AI exposure globally.",
    "epistemicType": "empirical",
    "status": "uncontested",
-   "statusBasis": "This is the ILO's (Gmyrek, Berg, Bescond) directly reported exposure-index finding, unchallenged elsewhere in the corpus, because clerical tasks are heavily text-, record-, accounting-, and scheduling-based.",
+   "statusBasis": "This is the ILO's (Gmyrek, Berg, Bescond) directly reported exposure finding, and no other source on this map challenges it; clerical tasks are heavily built on text, records, accounting, and scheduling.",
    "attributedTo": [
     "Gmyrek",
     "Berg",
@@ -845,7 +845,7 @@
    "statement": "Black workers and workers without a bachelor's degree are substantially more likely to experience job displacement than white workers and workers with a bachelor's degree, and displaced workers' earnings remain depressed for years afterward.",
    "epistemicType": "empirical",
    "status": "uncontested",
-   "statusBasis": "Brookings' PSID-based study finds Black workers 67% more likely and non-bachelor's-degree workers 67% more likely to experience displacement than their respective comparison groups, with earnings 25% lower a full decade after displacement; no contrary source appears in the corpus.",
+   "statusBasis": "Brookings' study of the PSID panel finds Black workers 67% more likely, and workers without a bachelor's degree 67% more likely, to be displaced than their comparison groups, with earnings 25% lower a full decade later; no source on this map finds otherwise.",
    "attributedTo": [
     "Brookings"
    ],
@@ -868,7 +868,7 @@
    "statement": "Workers in the most AI-exposed occupations are disproportionately higher-paid and more educated than workers in the least AI-exposed occupations.",
    "epistemicType": "empirical",
    "status": "uncontested",
-   "statusBasis": "Pew's O*NET-based analysis directly reports this ($33/hour versus $20/hour; bachelor's-degree workers more than twice as likely to be in the highest-exposure jobs), and it is not disputed elsewhere in the corpus.",
+   "statusBasis": "Pew's analysis of O*NET data reports this directly ($33 an hour versus $20; workers with a bachelor's degree more than twice as likely to be in the most exposed jobs), and no other source on this map disputes it.",
    "attributedTo": [
     "Pew Research"
    ],
@@ -940,7 +940,7 @@
    "statement": "Home health and personal care aide jobs are projected to be the single largest source of U.S. job growth from 2024 to 2034, adding about 740,000 jobs at a 2024 median wage of roughly $34,900.",
    "epistemicType": "empirical",
    "status": "uncontested",
-   "statusBasis": "This is BLS's own Employment Projections 2024-34 figure, the single most directly responsive federal dataset to a 15-year U.S. employment question, and is not disputed elsewhere in the corpus.",
+   "statusBasis": "This is the BLS's own Employment Projections 2024-34 figure, the federal dataset closest to a 15-year U.S. employment question, and no other source on this map disputes it.",
    "attributedTo": [
     "BLS"
    ],
@@ -963,7 +963,7 @@
    "statement": "An economy in which displaced administrative or clerical workers move into home-health and personal-care jobs paying $30,000-$40,000 less per year has successfully 'adjusted' to AI displacement.",
    "epistemicType": "normative",
    "status": "contested",
-   "statusBasis": "This is a value claim the corpus explicitly frames as unresolvable by wage-gap evidence alone: whether 'adjustment' means any reemployment at all, comparable earnings, comparable autonomy, or socially useful work paired with wage insurance is a question of what adjustment is for, not a measurable fact.",
+   "statusBasis": "This is a question of values that wage-gap evidence cannot settle on its own: whether 'adjustment' means any new job at all, comparable pay, comparable autonomy, or socially useful work backed by wage insurance depends on what adjustment is for, not on a measurable fact.",
    "resolution": {
     "kind": "value-difference",
     "condition": "agreement on whether adjustment means any reemployment, comparable earnings, comparable autonomy, or socially useful work with wage insurance"
@@ -988,7 +988,7 @@
    "statement": "Care work resists AI automation because it is embodied, relational, mobile, and trust-heavy, making it a durable labor-demand absorber regardless of cognitive AI progress.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "This is plausible given care work's physical and relational character, but the corpus does not test whether robotics or process automation will erode this resistance over the 15-year horizon, and it competes directly with unresolved capability-trajectory questions about how far AI-plus-robotics progress reaches by 2041.",
+   "statusBasis": "This is plausible given how physical and relational care work is, but no source on this map tests whether robotics or process automation will erode that over 15 years, and it depends on the open question of how far AI and robotics progress by 2041.",
    "tags": [
     "care-work",
     "automation-resistance"
@@ -1124,7 +1124,7 @@
    "statement": "Existing UBI and guaranteed-income pilots tested modest-to-moderate cash transfers in labor markets where jobs still existed, not in an economy experiencing AI-scale labor-demand collapse.",
    "epistemicType": "empirical",
    "status": "uncontested",
-   "statusBasis": "This scope limitation is a matter of research design that the corpus itself states directly: these trials can inform labor-supply, spending, and wellbeing effects, but cannot prove whether a national UBI would be fiscally sustainable, inflation-neutral, or adequate if AI caused a broad labor-demand collapse.",
+   "statusBasis": "This follows from how the trials were designed, and their own authors say so: they can show effects on work, spending, and wellbeing, but not whether a national UBI would be affordable, inflation-neutral, or enough if AI caused a broad collapse in demand for labor.",
    "tags": [
     "ubi",
     "evidence-limits",
@@ -1167,7 +1167,7 @@
    "statement": "AI developers and deployers who profit from labor displacement owe wage insurance, retraining, severance, relocation, or public contributions to the workers whose displacement they caused.",
    "epistemicType": "normative",
    "status": "contested",
-   "statusBasis": "This is the polluter-pays position in the corpus's own framing; evidence can estimate displacement, profits, and incidence, but cannot settle the moral boundary between innovation and compensable harm, which is exactly what this claim asserts.",
+   "statusBasis": "This is the polluter-pays position. Evidence can estimate displacement, profits, and who bears the cost, but it cannot settle where innovation ends and compensable harm begins, which is exactly what this claim asserts.",
    "resolution": {
     "kind": "value-difference",
     "condition": "evidence can estimate displacement, profits, and capacity to pay, but cannot determine whether displacement is a compensable externality or ordinary market change"
@@ -1191,7 +1191,7 @@
    "statement": "AI-driven productivity gains are ordinary market competition; firms owe only compliance with existing labor law, and compensation for displaced workers belongs to the general tax-and-transfer system rather than to AI firms specifically.",
    "epistemicType": "normative",
    "status": "contested",
-   "statusBasis": "This is the market-process position directly opposed to the polluter-pays claim in the corpus's own framing of the dispute; both are stated as live, evidence-independent normative positions.",
+   "statusBasis": "This is the market-process position, the direct rival of the polluter-pays claim; both are live positions about values that evidence alone does not decide.",
    "tags": [
     "normative",
     "transition-costs"
@@ -1244,7 +1244,7 @@
    "statement": "Firms must retain managerial authority to adopt productivity-enhancing AI tools, subject only to existing law and contract, without new labor-side veto rights over deployment decisions.",
    "epistemicType": "procedural",
    "status": "contested",
-   "statusBasis": "This is the management-prerogative position directly opposed to worker bargaining/veto rights in the corpus's own framing; evidence can compare productivity, wages, employment, and safety under different governance regimes, but cannot settle how much authority over capital investment labor should hold.",
+   "statusBasis": "This is the management-prerogative position, the direct rival of bargaining or veto rights for workers. Evidence can compare productivity, wages, employment, and safety under different arrangements, but it cannot settle how much say over capital investment workers should have.",
    "tags": [
     "procedural",
     "management-prerogative"
@@ -1578,7 +1578,7 @@
     "interest": "Klarna press release promoting its own AI deployment.",
     "verification": "verified-live"
    },
-   "relevance": "The corpus's canonical customer-support displacement anecdote; frequently cited as proof of AI-driven headcount reduction, though it is a workload-equivalence figure from a company's own press release.",
+   "relevance": "The most-cited customer-support displacement example; often quoted as proof of AI-driven headcount cuts, though it is a workload-equivalence figure from a company's own press release.",
    "weight": {
     "sourceReliability": 3,
     "independence": 2,
@@ -1625,7 +1625,7 @@
     "url": "https://techcrunch.com/2025/07/11/ai-coding-tools-may-not-speed-up-every-developer-study-shows/",
     "institution": "METR (reported via TechCrunch)",
     "kind": "journalism",
-    "interest": "METR is an AI-safety-funded evaluation nonprofit with access/partnership relationships to OpenAI and Anthropic; METR's public materials state it accepts no compensation for evaluations, but the funding cluster and intellectual milieu are disclosed as a source-hygiene concern in the corpus.",
+    "interest": "METR is an AI-safety-funded evaluation nonprofit with access and partnership relationships with OpenAI and Anthropic; METR's public materials state it accepts no payment for evaluations, but the funding and the circles it moves in are disclosed here as a possible bias.",
     "verification": "verified-live"
    },
    "relevance": "Directly undercuts the generalization from other productivity RCTs to broad headcount-reducing conclusions: a comparably rigorous randomized trial found the opposite sign for experienced developers on real, unfamiliar codebases.",
@@ -1686,9 +1686,9 @@
     "interest": "Challenger, Gray & Christmas is an outplacement and executive-coaching firm whose business benefits from public attention to layoff trends.",
     "verification": "verified-live"
    },
-   "relevance": "The corpus's headline AI-attributed layoff figure, but these are employer-announced reasons rather than audited causal estimates, and a standalone 2024 total could not be independently verified.",
+   "relevance": "The most-quoted figure for layoffs attributed to AI, but these are reasons employers announce rather than audited causal estimates, and a standalone 2024 total could not be independently verified.",
    "unverifiedFlags": [
-    "A standalone 2024 AI-attributed layoff total could not be verified from a primary Challenger page; the exact 2024 figure is unverified per the corpus's verification record."
+    "A standalone 2024 total of layoffs attributed to AI could not be verified from a primary Challenger page; the exact 2024 figure is unverified."
    ],
    "weight": {
     "sourceReliability": 5,
@@ -1759,7 +1759,7 @@
     "url": "https://metr.org/blog/2026-1-29-time-horizon-1-1/",
     "institution": "METR",
     "kind": "institutional",
-    "interest": "METR is an AI-safety-funded evaluation nonprofit with access/partnership relationships to OpenAI, Anthropic, Google DeepMind, Meta, and Amazon; METR states it accepts no compensation for evaluations, but shares a funding cluster (Open Philanthropy and adjacent AI-risk philanthropy) with several other capability-forecasting sources in this corpus.",
+    "interest": "METR is an AI-safety-funded evaluation nonprofit with access and partnership relationships with OpenAI, Anthropic, Google DeepMind, Meta, and Amazon; METR states it accepts no payment for evaluations, but it shares funders (Open Philanthropy and related AI-risk philanthropy) with several other capability-forecasting sources on this map.",
     "verification": "verified-live"
    },
    "relevance": "The central empirical trend underlying fast-timeline capability forecasts, and simultaneously the source of the strongest caveat against extrapolating it \u2014 METR's own saturation warning.",
@@ -1844,10 +1844,10 @@
     "url": "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
     "institution": "Epoch AI",
     "kind": "institutional",
-    "interest": "Epoch AI shares the same disclosed funding cluster (Coefficient Giving/Open Philanthropy, and a partnership with OpenAI on FrontierMath) as several other capability-forecasting sources in this corpus.",
+    "interest": "Epoch AI shares disclosed funders (Coefficient Giving/Open Philanthropy, and a partnership with OpenAI on FrontierMath) with several other capability-forecasting sources on this map.",
     "verification": "verified-live"
    },
-   "relevance": "The primary quantitative basis for the capability-plateau claim; the corpus notes this plateau case is sourced almost entirely to Epoch and an Anthropic research blog, limiting its independence.",
+   "relevance": "The main quantitative basis for the capability-plateau claim; the plateau case rests almost entirely on Epoch and one Anthropic research blog, which limits its independence.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-flagship-draft-v1",
@@ -1904,7 +1904,7 @@
     "kind": "institutional",
     "verification": "verified-live"
    },
-   "relevance": "The best-credentialed independent capability-skeptic argument in the corpus, from researchers with reputational capital built on debunking inflated AI claims; grounds the enterprise-diffusion-is-slow claim.",
+   "relevance": "The best-credentialed independent skeptic of rapid capability gains on this map, from researchers known for debunking inflated AI claims; it grounds the claim that businesses adopt AI slowly.",
    "weight": {
     "sourceReliability": 8,
     "independence": 8,
@@ -1961,7 +1961,7 @@
     "kind": "institutional",
     "verification": "verified-live"
    },
-   "relevance": "The single most load-bearing exposure finding for the gendered-clerical-exposure theme; a UN agency quantitative result directly on the parent question, previously absent from the corpus until this addendum.",
+   "relevance": "The key exposure finding for the claim that clerical work, much of it done by women, is most exposed; a UN agency's quantitative result bearing directly on the question.",
    "weight": {
     "sourceReliability": 9,
     "independence": 9,
@@ -2159,7 +2159,7 @@
     "kind": "advocacy",
     "verification": "verified-live"
    },
-   "relevance": "Establishes the scale of the annotation/ghost-work labor force that the exposure-and-displacement framing of the corpus otherwise omits.",
+   "relevance": "Establishes the scale of the data-annotation workforce, the 'ghost work' that framings built on exposure and displacement usually leave out.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-flagship-draft-v1",
@@ -2181,7 +2181,7 @@
     "interest": "Commissioned by Scale AI, a data-annotation company with a direct commercial stake in a market-size and job-creation framing of its own industry.",
     "verification": "verified-live"
    },
-   "relevance": "Quantifies the annotation labor market's U.S. scale, though the commissioning relationship means the figures should be read with the same interest discount the corpus applies to other commercially interested sources.",
+   "relevance": "Puts a size on the U.S. annotation labor market, though because the study was commissioned, its figures deserve the same discount as other sources with a commercial interest.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-flagship-draft-v1",
@@ -2294,7 +2294,7 @@
     "interest": "OpenResearch was founded and is funded by Sam Altman, OpenAI's CEO, giving it a direct stake in the AI-and-work policy narrative regardless of which direction the results cut.",
     "verification": "verified-live"
    },
-   "relevance": "The largest and most rigorous U.S. UBI-style trial in the corpus, central to both the cash-transfer labor-supply claim and the claim that UBI pilots cannot speak to AI-scale labor-demand collapse.",
+   "relevance": "The largest and most rigorous U.S. trial of a UBI-style payment on this map, central both to the claim about cash transfers and work and to the claim that UBI pilots cannot speak to an AI-scale collapse in demand for labor.",
    "weight": {
     "sourceReliability": 8,
     "independence": 5,
@@ -2343,7 +2343,7 @@
     "kind": "institutional",
     "verification": "verified-live"
    },
-   "relevance": "The one UBI-style pilot in the corpus finding increased employment among recipients, showing the labor-supply direction is not uniform across the UBI evidence base.",
+   "relevance": "The one UBI-style pilot on this map that found more employment among recipients, showing the effect on work does not run the same way in every trial.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-flagship-draft-v1",
@@ -2366,7 +2366,7 @@
     "interest": "Three of the four authors are OpenAI employees, and the underlying task-exposure ratings were themselves partly generated using GPT-4.",
     "verification": "verified-live"
    },
-   "relevance": "One of the corpus's two headline distributional exposure baselines; the wide range between the working-paper and published versions itself illustrates how sensitive exposure estimates are to methodology and definition.",
+   "relevance": "One of the two most-cited baselines for who is exposed to AI; the wide gap between its working-paper and published versions itself shows how sensitive exposure estimates are to method and definition.",
    "weight": {
     "sourceReliability": 6,
     "independence": 4,
@@ -2683,7 +2683,7 @@
    "statement": "Relative wage declines among workers specialized in routine tasks in automating industries account for 50-70% of the change in the U.S. wage structure over the past four decades.",
    "epistemicType": "empirical",
    "status": "broadly_accepted",
-   "statusBasis": "The figure comes from Acemoglu and Restrepo's NBER w28920 decomposition, and the corpus treats it as the historically best-supported middle-position evidence for wage and status damage without headline mass unemployment.",
+   "statusBasis": "The figure comes from Acemoglu and Restrepo's NBER decomposition (w28920), the best-supported historical evidence that automation can damage wages and status without headline mass unemployment.",
    "provenance": {
     "origin": "curator",
     "modelId": "fairness-fix-v1",
