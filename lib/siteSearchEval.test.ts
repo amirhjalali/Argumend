@@ -31,6 +31,13 @@ import { createSiteSearch } from "@/lib/siteSearch";
  * no-map cases (r6 review #4, 2026-10-06): subjects no map covers, where a
  * box may list at most `maxMaps` maps. Before that round's change "abortion"
  * listed 8 maps (abort~about) and "gay marriage" 9 (gai~gain); after, none.
+ *
+ * r9 (2026-10-06): 12 queries from the live review joined the holdout
+ * ("medicare for all", "marijuana", "trans kids", "epstien list"), with two
+ * more no-map cases. Before that round's changes the holdout scored 33/42
+ * top-1 on the palette and library and 4 of 7 no-map cases over their limit;
+ * after (evidence keywords, a few "Also asked as" phrasings, prefixes only on
+ * names, one best guess when no name answers the query) 38/42, and 1 of 7.
  */
 
 interface EvalCase {
@@ -68,11 +75,12 @@ const FLOORS: Record<SetName, Record<Surface, { top1: number; top3: number }>> =
 
 /**
  * No-map cases allowed over their `maxMaps`. Dev: none. Holdout, scored once
- * after the change: 2 of 5 over on the palette and library ("should we keep
- * the monarchy" lists 2–3 maps that share "keep"; "is abortion murder" lists
- * the death-penalty map), 1 of 5 on questions. Left as measured, not tuned.
+ * after the r6 change: 2 of 5 over on the palette and library ("should we
+ * keep the monarchy" lists 2–3 maps that share "keep"; "is abortion murder"
+ * lists the death-penalty map), 1 of 5 on questions. After r9, 1 of 7 on
+ * every box: "should we keep the monarchy" still lists one map.
  */
-const NO_MAP_OVER: Record<SetName, number> = { dev: 0, holdout: 2 };
+const NO_MAP_OVER: Record<SetName, number> = { dev: 0, holdout: 1 };
 
 // Header search: the same list and ranking the modal builds; maps only, since
 // the Maps group is shown first.

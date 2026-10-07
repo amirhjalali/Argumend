@@ -30,7 +30,8 @@
  *      result's name holds, with a bonus when the words appear as a phrase.
  *      A map whose name answers every word beats one whose body mentions
  *      them. Weak results (a name holding under half the query, or a query
- *      word no map uses at all) are capped at `MAX_WEAK_RESULTS`.
+ *      word no map uses at all) are capped at `MAX_WEAK_RESULTS`, and when
+ *      no name answers more than half the query only the best is listed.
  *
  * Pure and client-safe: no data imports; the caller supplies the items.
  */
@@ -363,9 +364,13 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
           (0.25 + coverage) ** 2 *
           (phrase ? 2 : 1) *
           (item.flagship && coverage === 1 ? FLAGSHIP_LIFT : 1);
-        return [{ item, score, weak: unknownWord || coverage < 0.5 }];
+        return [{ item, score, weak: unknownWord || coverage < 0.5, answers: !unknownWord && coverage > 0.5 }];
       });
     scored.sort((a, b) => b.score - a.score);
+    // When no name answers more than half of what was typed ("legalize
+    // weed", "school vouchers": every map found holds one of the two words),
+    // the best guess is listed, not a pile of them (r9 review #13).
+    if (!scored.some((result) => result.answers)) return scored.slice(0, 1).map(({ item }) => item);
     let weak = 0;
     return scored
       .filter((result) => !result.weak || (weak += 1) <= MAX_WEAK_RESULTS)
