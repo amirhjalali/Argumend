@@ -26,6 +26,11 @@
  *    for a short paste that cannot score high, at least `minCoverage` of its
  *    words accounted for with a score of at least `minShortScore`.
  *
+ * Or, for a short paste that says the map's own rare word: it uses a word of
+ * the map's name that no other map's name has and at most
+ * `ownNameWordMaxMaps` maps use at all ("microplastics"), and the map leads
+ * the rival by `minLead` with at least `minShortScore`.
+ *
  * Calibrated on 2026-09-29 against data/evals/paste-matching/pastes.json and
  * checked on holdout.json; lib/paste/matchEval.test.ts holds the floors, and
  * docs/reviews/2026-09-29-r2-paste-matching.md has the measurements.
@@ -78,6 +83,14 @@ export const MAP_MATCH = {
   minCoverage: 0.36,
   /** ...with at least this score, so one borrowed word ("exhausting") is never enough. */
   minShortScore: 4.5,
+  /**
+   * A word of a map's name that no other map's name has, used by at most
+   * this many maps anywhere, says what a short paste is about on its own:
+   * "a spoonful of microplastics in everyone's brain" is the microplastics
+   * map's, though "brain" and "panicking" leave its coverage at 0.27
+   * (r9 live review #2).
+   */
+  ownNameWordMaxMaps: 2,
   /**
    * With no map named, the closest maps are offered only when the best one
    * reaches this score and accounts for at least `closestCoverage` of the
@@ -163,6 +176,7 @@ export function decideMatch(
   isSibling: (a: string, b: string) => boolean,
   nameMatch: (id: string) => ReadonlySet<string> = () => new Set(),
   offSubject: (id: string) => boolean = () => false,
+  ownNameWord: (id: string) => boolean = () => false,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -190,8 +204,10 @@ export function decideMatch(
     (coverage >= MAP_MATCH.minCoverage && top.score >= MAP_MATCH.minShortScore);
   const clear = lead >= MAP_MATCH.minLead && exclusiveLead >= MAP_MATCH.minExclusiveLead;
   const shown = (map: RankedMap) => map.score >= MAP_MATCH.shownShare * top.score;
+  const byOwnName =
+    top.score >= MAP_MATCH.minShortScore && lead >= MAP_MATCH.minLead && ownNameWord(top.id);
 
-  if (enough && clear) {
+  if ((enough && clear) || byOwnName) {
     // Which of the sibling maps the paste is about: the one whose own name
     // it uses most, if that sibling is close enough on score.
     // Only when the paste uses none of the top map's own name words beyond
@@ -543,6 +559,40 @@ function nameMatches(index: MapIndex, id: string, pasteTermSet: ReadonlySet<stri
   return new Set([...pasteTermSet].filter((term) => nameTerms.has(term)));
 }
 
+const ownNameCache = new WeakMap<MapIndex, Map<string, Set<string>>>();
+
+/**
+ * Per map, the words of its whole name (title, question, id, phrasings,
+ * aliases) that no other map's name has and at most `ownNameWordMaxMaps`
+ * maps use anywhere: "microplastics", "tractors" once a phrasing says it.
+ */
+function ownNameWords(index: MapIndex): Map<string, Set<string>> {
+  const cached = ownNameCache.get(index);
+  if (cached) return cached;
+  const names = new Map(
+    index.maps.map(({ document }) => [document.id, new Set(pasteTerms(document.fields.name.join(" . ")))]),
+  );
+  const namesWith = new Map<string, number>();
+  for (const terms of names.values()) {
+    for (const term of terms) namesWith.set(term, (namesWith.get(term) ?? 0) + 1);
+  }
+  const own = new Map<string, Set<string>>();
+  for (const [id, terms] of names) {
+    own.set(
+      id,
+      new Set(
+        [...terms].filter(
+          (term) =>
+            namesWith.get(term) === 1 &&
+            (index.documentFrequency.get(term) ?? 0) <= MAP_MATCH.ownNameWordMaxMaps,
+        ),
+      ),
+    );
+  }
+  ownNameCache.set(index, own);
+  return own;
+}
+
 /**
  * True when the paste is about a subject the map declares it is not about
  * (`Topic.notAbout`) and uses none of the map's own name words: a paste that
@@ -573,6 +623,10 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
     (a, b) => mapSimilarity(index, a, b) >= MAP_MATCH.siblingSimilarity,
     (id) => nameMatches(index, id, pasteTermSet),
     (id) => isOffSubject(index, id, pasteWords, pasteTermSet),
+    (id) => {
+      const own = ownNameWords(index).get(id);
+      return Boolean(own && pasteWords.some((word) => own.has(word)));
+    },
   );
   const matchedMs = performance.now() - indexed;
 

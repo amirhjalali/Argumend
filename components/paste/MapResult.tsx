@@ -355,7 +355,9 @@ export function MapNoMatch({
         <p className="max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)]">
           {closest
             ? "None of Argumend’s maps stood out for this text, so none is named as its map."
-            : `None of Argumend’s ${maps.reading.mapsSearched} maps is about this, so none is named.`}
+            : // Not "none is about this": the lane matches words, and a map can
+              // cover a text that words it differently (r9 live review #2).
+              `No map stood out for this text among Argumend’s ${maps.reading.mapsSearched}, so none is named. One may still cover it in other words.`}
         </p>
       </header>
       <ClosestMaps

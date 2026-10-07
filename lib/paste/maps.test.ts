@@ -97,6 +97,18 @@ describe("decideMatch", () => {
     expect(decideMatch(ranking([low, 3], low / MAP_MATCH.minCoverage), noSiblings).named?.id).toBe("map-0");
   });
 
+  it("names a short paste's map when the paste uses a rare word only that map's name has", () => {
+    // 5.25 against 2.84, coverage 0.27: the microplastics paste of r9 review #2.
+    const scores = [5.25, 2.84];
+    const ownZero = (id: string) => id === "map-0";
+    expect(decideMatch(ranking(scores, 19.4, () => 1.85), noSiblings).named).toBeNull();
+    expect(decideMatch(ranking(scores, 19.4, () => 1.85), noSiblings, undefined, undefined, ownZero).named?.id).toBe("map-0");
+    // Never on a near tie, and never under the short-paste score.
+    expect(decideMatch(ranking([5.25, 4.5], 19.4), noSiblings, undefined, undefined, ownZero).named).toBeNull();
+    const tiny = MAP_MATCH.minShortScore - 1;
+    expect(decideMatch(ranking([tiny, 1], 19.4), noSiblings, undefined, undefined, ownZero).named).toBeNull();
+  });
+
   it("never names a map on one borrowed word, however much of a short paste it covers", () => {
     const tiny = MAP_MATCH.minShortScore - 1;
     expect(decideMatch(ranking([tiny, 1], tiny), noSiblings).named).toBeNull();
