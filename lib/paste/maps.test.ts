@@ -1,4 +1,5 @@
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { MAP_COUNT } from "@/data/topicIndex";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import type { Pillar } from "@/lib/schemas/topic";
@@ -95,6 +96,27 @@ describe("decideMatch", () => {
     expect(decideMatch(ranking([low, 3], 100), noSiblings).named).toBeNull();
     // The same score on a short paste it mostly accounts for: named.
     expect(decideMatch(ranking([low, 3], low / MAP_MATCH.minCoverage), noSiblings).named?.id).toBe("map-0");
+  });
+
+  it("names a short paste's map when the paste uses a rare word only that map's name has", () => {
+    // 5.25 against 2.84, coverage 0.27: the microplastics paste of r9 review #2.
+    const scores = [5.25, 2.84];
+    const ownZero = (id: string) => id === "map-0";
+    expect(decideMatch(ranking(scores, 19.4, () => 1.85), noSiblings).named).toBeNull();
+    expect(decideMatch(ranking(scores, 19.4, () => 1.85), noSiblings, undefined, undefined, ownZero).named?.id).toBe("map-0");
+    // Never on a near tie, and never under the short-paste score.
+    expect(decideMatch(ranking([5.25, 4.5], 19.4), noSiblings, undefined, undefined, ownZero).named).toBeNull();
+    const tiny = MAP_MATCH.minShortScore - 1;
+    expect(decideMatch(ranking([tiny, 1], 19.4), noSiblings, undefined, undefined, ownZero).named).toBeNull();
+  });
+
+  it("lists a map on another subject only when the paste uses a telling word of its name", () => {
+    const sharesName = (id: string) => id !== "map-1";
+    const beside = decideMatch(ranking([40, 25, 22], 100, () => Infinity), noSiblings, undefined, undefined, undefined, sharesName);
+    expect(beside.named?.id).toBe("map-0");
+    expect(beside.closest.map((map) => map.id)).toEqual(["map-2"]);
+    const instead = decideMatch(ranking([26.5, 26.4, 26.1, 22.6]), noSiblings, undefined, undefined, undefined, sharesName);
+    expect(instead.closest.map((map) => map.id)).toEqual(["map-0", "map-2", "map-3"]);
   });
 
   it("never names a map on one borrowed word, however much of a short paste it covers", () => {
@@ -214,6 +236,8 @@ describe("findMaps", () => {
     const result = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
     expect(result.reading.mapsSearched).toBe(EXPECTED_MAP_COUNT);
     expect(EXPECTED_MAP_COUNT).toBeGreaterThan(150);
+    // The count the home page and the health probe give (r9 review #15).
+    expect(EXPECTED_MAP_COUNT).toBe(MAP_COUNT);
   });
 
   it("returns at most three maps and never repeats the match as a closest map", async () => {
@@ -238,6 +262,16 @@ describe("findMaps", () => {
     expect(match?.crux?.question).toMatch(/^Does immigration barely move the wages of directly competing workers/);
     expect(match?.crux?.href).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
     expect(match?.cards.length).toBe(2);
+  });
+
+  it("shows a card on each side when the crux's own evidence is one-sided", async () => {
+    // r9 live review #7: the Section 230 paste's crux has only "yes" cards,
+    // and was shown two of them under "The strongest card on each side".
+    const result = await findMaps(
+      "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
+    );
+    expect(result.match?.id).toBe("section-230-reform");
+    expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
   });
 
   it("offers no closest maps for a family argument no map covers", async () => {

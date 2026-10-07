@@ -6,7 +6,7 @@
  * its root. No database, no request data — fully static, revalidated daily.
  */
 
-import { TOPIC_COUNT } from "@/data/topicIndex";
+import { MAP_COUNT, TOPIC_COUNT } from "@/data/topicIndex";
 import { TopicCategorySchema, TopicStatusSchema } from "@/lib/schemas/topic";
 import { apiJson, corsPreflight, methodNotAllowed, SITE_URL } from "./_shared/http";
 import { ApiIndexResponseSchema } from "./_schemas";
@@ -21,6 +21,7 @@ export function GET() {
       "Read-only access to Argumend's analyzed debate topics — positions, evidence, cruxes, evidence balance, weight, and verdicts. Free, no API key, CORS-enabled.",
     documentation: `${SITE_URL}/api/v1`,
     website: `${SITE_URL}/about`,
+    map_count: MAP_COUNT,
     topic_count: TOPIC_COUNT,
     base_url: `${SITE_URL}/api/v1`,
     endpoints: [

@@ -18,7 +18,8 @@
     "firstCrux": "Does legal betting mostly replace illegal betting, or create new betting that would not have happened?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "helpline wagered bettors sportsbook gamblers ncaa murphy intimate upset earmarked arnesen balthrop geocomply if12761 kotter"
   },
   {
     "id": "pfas-forever-chemicals",
@@ -39,7 +40,8 @@
     "firstCrux": "Do PFAS links to kidney and other cancers hold up in studies that separate cause from effect?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr nasem ultrashort biomonitoring fluorochemical hfpo ulcerative colitis"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -60,7 +62,8 @@
     "firstCrux": "Does fasting win when calories are matched, or only by making it easier to eat less?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids lowe"
   },
   {
     "id": "daylight-saving-time-abolition",
@@ -81,7 +84,8 @@
     "firstCrux": "Do the benefits of bright morning light outweigh the value of an extra hour of evening light?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment autumn chronobiology clin fritz"
   },
   {
     "id": "tipping-culture",
@@ -102,7 +106,8 @@
     "firstCrux": "Would ending tips raise or lower the typical server's total take-home pay?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "lynn bartenders waitstaff danny flsa meyers ushg callback customarily diner goodwill gratitude gratuity kitchen lucrative"
   },
   {
     "id": "ai-therapy-chatbots",
@@ -123,7 +128,8 @@
     "firstCrux": "Do chatbots' short-term symptom gains hold up against human therapists and last beyond a few months?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "therabot facct nedas woebot sycophancy tessa bots dartmouth psychotherapy roleplay heinz ckiger darcy fitzpatrick jmir"
   },
   {
     "id": "carbon-capture-viability",
@@ -144,7 +150,8 @@
     "firstCrux": "Are hard-to-cut emissions and overshoot large enough to require carbon removal at gigatonne scale?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation cement mothballed mammoth amine beneath wgiii orca barrel"
   },
   {
     "id": "hydrogen-economy-viability",
@@ -165,7 +172,8 @@
     "firstCrux": "In hard-to-electrify sectors, can other decarbonization routes undercut hydrogen?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "ammonia aviation grey stegra wheel mill steam electrolyzer refueling shell haul electrolytic furnace hybrit insideevs"
   },
   {
     "id": "vertical-farming-viability",
@@ -186,7 +194,8 @@
     "firstCrux": "Is vertical farming's high electricity use an engineering problem cheap power can fix, or a physical limit?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro hannah plenty strawberries ritchie aerofarms appharvest bowery leafy"
   },
   {
     "id": "de-extinction-species",
@@ -208,7 +217,8 @@
     "firstCruxStanding": "definitional-choice",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "dire wolves wolf colossal canid iucn resurrected woolly endangered lineage biosciences coyotes extant ghost latham"
   },
   {
     "id": "scott-cost-disease",
@@ -229,7 +239,8 @@
     "firstCrux": "How much of the cost rise is just rising wages in work that can't be automated?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "baumol naep tuition admin haircut helland marron tabarrok ginsberg liscow subway dulls himmelstein lucca nadauld"
   },
   {
     "id": "moloch",
@@ -250,7 +261,8 @@
     "firstCrux": "Is a given rivalry a one-off game where defecting pays, or a repeated one where cooperation can last?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "singleton malthusian ostrom axelrod hanson hardin polycentric montreal folk nash malthus theorem leviathan pinker fisheries"
   },
   {
     "id": "ai-2027",
@@ -271,7 +283,8 @@
     "firstCrux": "Will the length of tasks AI can complete on its own keep doubling at its recent pace, or plateau?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency davidson kaplan leaderboard looming metr bench hoffmann"
   },
   {
     "id": "jones-act",
@@ -293,7 +306,8 @@
     "firstCrux": "Would domestic shipping get much cheaper if the Jones Act were repealed?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding waiver ikenson manak shipyard surcharge underdeveloped"
   },
   {
     "id": "nuclear-energy-safety",
@@ -315,7 +329,8 @@
     "firstCruxStanding": "value-difference",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "chernobyl lcoe fukushima repository torch unscear lazard safest standalone overruns vogtle ember markandya messmer sovacool"
   },
   {
     "id": "universal-healthcare",
@@ -337,7 +352,8 @@
     "firstCrux": "Would single-payer's projected administrative and drug savings survive a real US transition?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
   },
   {
     "id": "gun-control-effectiveness",
@@ -358,7 +374,8 @@
     "firstCrux": "How much of the US firearm death rate comes from gun availability and laws versus other factors?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "firearm guns erpo buyback deadlier everytown gertz ihme kleck shooters swanson indiana connecticut alpers chapman"
   },
   {
     "id": "minimum-wage-effects",
@@ -379,7 +396,8 @@
     "firstCrux": "Does a minimum wage that is high relative to local wages, like $15 in a low-cost region, cost jobs?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "cengiz krueger eitc dube lindner oxfam zipperer budgetary bunching inwegen jardim neumark plotnick reich vigdor"
   },
   {
     "id": "drug-decriminalization",
@@ -401,7 +419,8 @@
     "firstCrux": "How much of Portugal's improvement came from decriminalization versus treatment investment?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "portugal recidivism emcdda overdose incarceration marijuana provisional hotline vera ticketed czech decriminalisation euda greenwald kptv"
   },
   {
     "id": "death-penalty-deterrence",
@@ -422,7 +441,8 @@
     "firstCrux": "Without proof that it deters, can possible deterrence plus retribution still justify the death penalty?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "exonerated dezhbakhsh rubin shepherd plea alarcon baldus arthur dietzel ehrhard kemp loyola madeira mccleskey mcveigh"
   },
   {
     "id": "police-reform",
@@ -443,7 +463,8 @@
     "firstCrux": "Do accountability measures like body cameras reduce police use of force without raising officer risk?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "denver star cahoots vera ariel politifact pyne rialto sutherland farrar dispatched eugene portland fy2021 siepr"
   },
   {
     "id": "mandatory-voting",
@@ -464,7 +485,8 @@
     "firstCrux": "Do the extra voters compulsion brings make policy more representative, or just add noise?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "turnout boxell fowler lachat selb brennan gentzkow uninformed anthony dampen donkey faqs jesse onus purges"
   },
   {
     "id": "reparations-slavery",
@@ -485,7 +507,8 @@
     "firstCrux": "How much of today's racial wealth gap traces to slavery, Jim Crow and discriminatory policy?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "darity mullen rothstein hamilton conyers craemer kirsten naomi sheila zewde holocaust jackson connecticut lineage ayanna"
   },
   {
     "id": "immigration-wage-impact",
@@ -507,7 +530,8 @@
     "firstCrux": "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "boatlift mariel sparber peri chad giovanni azoulay cuban miranda javier marielitos pierre reappraisal aliens benjamin"
   },
   {
     "id": "open-borders",
@@ -528,7 +552,8 @@
     "firstCrux": "How large would the real gains from freer migration be once fiscal, wage and transition costs are counted?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "carens remittances clemens bier isil milton sidewalk migrant clemenss enlargement feudal kahanec peasant zaiceva zimmermann"
   },
   {
     "id": "universal-basic-income",
@@ -550,7 +575,8 @@
     "firstCrux": "Can any realistic funding plan pay for UBI without growth-damaging debt or tax rates?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "dividend unconditional kela openresearch stockton roosevelt alaskas penn manitoba mincome tanf wives denver givedirectly banerjee"
   },
   {
     "id": "wealth-tax",
@@ -571,7 +597,8 @@
     "firstCrux": "Did Europe's wealth taxes fail due to fixable design flaws, or problems inherent in taxing wealth yearly?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral richest"
   },
   {
     "id": "standardized-testing-debate",
@@ -592,7 +619,8 @@
     "firstCrux": "Did going test-optional raise diversity without losing the ability to spot talented students?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "dartmouth prep briggs nacac derek sttf chetty deming gazette ibisworld overlooking princetonian sats technavio unintentionally"
   },
   {
     "id": "electoral-college-reform",
@@ -613,7 +641,8 @@
     "firstCrux": "Can the National Popular Vote compact realistically reach 270 electoral votes?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "npvic trifecta chamber gore hillary mega oklahoma clinton whoever donald"
   },
   {
     "id": "surveillance-public-safety",
@@ -634,7 +663,8 @@
     "firstCrux": "Does surveillance prevent crime, or push it to nearby areas?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "smartlink buolamwini farrington piza shades welsh zhan gebru criminology detention mccurdy overt pmlr topalli felony"
   },
   {
     "id": "us-iran-conflict",
@@ -656,7 +686,12 @@
     "firstCrux": "Did Iran's nuclear escalation result from the US leaving the nuclear deal, or would it have happened anyway?",
     "tags": [
       "policy"
-    ]
+    ],
+    "aliases": [
+      "Is Military Action Against Iran Justified?",
+      "Should the US strike Iran?"
+    ],
+    "keywords": "jcpoa hezbollahs houthis iranian fordow soleimani barrels assassination militia amasses centrifuge irgc isfahan natanz jordan"
   },
   {
     "id": "epstein-files",
@@ -677,7 +712,8 @@
     "firstCrux": "Was immunity for Epstein's unnamed co-conspirators standard practice, or an extraordinary concession?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "maxwell redacted brunel conspirators memo beach palm acosta blackmail dershowitz batch perpetrators prostitution starr notified"
   },
   {
     "id": "tiktok-ban",
@@ -698,7 +734,15 @@
     "firstCrux": "Can ByteDance staff in China still access Americans' TikTok data despite Project Texas safeguards?",
     "tags": [
       "policy"
-    ]
+    ],
+    "aliases": [
+      "Government Bans on Social Media Platforms",
+      "Can national security justify banning foreign-owned apps like TikTok?",
+      "Should governments ban social media platforms?",
+      "Is it right for governments to ban apps?",
+      "Do government platform bans protect citizens?"
+    ],
+    "keywords": "bytedance cfius oracle garland snowden divestiture upholds fisa forbes knight retrained broadcast revelations divest gorsuch"
   },
   {
     "id": "immigration-border-crisis",
@@ -719,7 +763,8 @@
     "firstCrux": "Did border crossings fall because of enforcement, or because of other factors?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "fy2023 trac migrant southwest syracuse fy2022 backlog binational venezuelan boatlift mariel patrol neglect afghans aics"
   },
   {
     "id": "social-media-elections",
@@ -740,7 +785,8 @@
     "firstCrux": "Do engagement algorithms drive election misinformation, or would human biases spread it on any platform?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "analytica mueller persuasion aral cisa extremist kalla untrustworthy vosoughi broockman personas iranian whistleblower boasting brad"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -762,7 +808,8 @@
     "firstCrux": "Did nuclear weapons cause the Long Peace, or would the superpowers have avoided war anyway?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima lewis norad waltz kenneth submarine andropov"
   },
   {
     "id": "school-phone-bans",
@@ -783,7 +830,8 @@
     "firstCrux": "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "yondr beland pouches murphy victoria anxious ward literacy lorenzo abrahamsson bullying classroom adrian bestseller cgms"
   },
   {
     "id": "pandemic-preparedness",
@@ -804,7 +852,8 @@
     "firstCrux": "How often do truly catastrophic pandemics strike under modern conditions?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "biosurveillance cutler wastewater sars cepi kariko replenished weissman mers warp biontech marani botched givewell h1n1"
   },
   {
     "id": "china-taiwan-invasion",
@@ -825,7 +874,8 @@
     "firstCrux": "Does China have the sealift to carry and supply forces across a contested Taiwan Strait?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "amphibious rhodium tsmc afghanistan pacific cancian navy wargames battle fabs indo strait buildup chairman aircraft"
   },
   {
     "id": "global-water-crisis",
@@ -846,7 +896,8 @@
     "firstCrux": "Can adaptation keep pace with aquifer depletion before farming in key regions collapses?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "irrigation desalination cubic indus groundwater drip egypts glaciers pakistan dams ethiopia kansas aquifer brine hectares"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -867,7 +918,8 @@
     "firstCrux": "Do sugar taxes cut total sugar intake, or do people switch products and shop across the border?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin rivera scarborough sugary caries earmarked allcott andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -888,7 +940,8 @@
     "firstCrux": "Does removing social media actually improve teens' mental health, or is the link driven by other factors?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "yoti coppa anxious circumvention ofcom yougov anglophone birthdate drama pinpoint tough tweens penguin tones attestation"
   },
   {
     "id": "social-media-mental-health",
@@ -909,7 +962,8 @@
     "firstCrux": "Is social media's harm a small average effect, or a large one concentrated in heavy-using girls?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "odgers braghieri comic coyne jensen makarin unfounded joiner michaeline sisyphean stockdale wertham zurcher candice historians"
   },
   {
     "id": "ai-risk",
@@ -930,7 +984,8 @@
     "firstCrux": "Does scheming-like behavior in AI tests reflect a deep drive to seek power, or artifacts of contrived setups?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner chinchilla aamas beams boat coastrunners critch faulty hubinger"
   },
   {
     "id": "ai-content-labeling",
@@ -951,7 +1006,8 @@
     "firstCrux": "Can watermarks survive real-world edits and deliberate removal at usable rates?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists maryland writers chegini conspicuous ecfr"
   },
   {
     "id": "big-tech-antitrust",
@@ -972,7 +1028,8 @@
     "firstCrux": "Are users of free platforms net harmed once privacy, innovation and attention costs are weighed?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "zuboff analytica amit brynjolfsson flurry goldberg kamepalli mehta shoshana shriver zingales rajan marketplace bauer collis"
   },
   {
     "id": "cancel-culture",
@@ -993,7 +1050,8 @@
     "firstCrux": "Does fear of online backlash measurably narrow what people are willing to say in public?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "metoo yougov afraid boycotts brady eeoc kaufmann shor cspi tweeting censorship bavel chappelle civis cosby"
   },
   {
     "id": "media-bias-democracy",
@@ -1014,7 +1072,8 @@
     "firstCrux": "Can media bias be measured reliably, and which direction does it run?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow chamber regrets crowdsourced msnbc multipartisan unmoderated vetted"
   },
   {
     "id": "space-colonization-feasibility",
@@ -1035,7 +1094,8 @@
     "firstCrux": "Will Starship-class transport, with orbital refueling and Mars landings, be demonstrated this decade?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "starship spacex biosphere moxie payload aboard colonists isru kingdon artemis barbara booster energetic flown hecht"
   },
   {
     "id": "lab-grown-meat-adoption",
@@ -1056,7 +1116,8 @@
     "firstCrux": "Is lab-grown meat's cost gap a scale-up problem that shrinks with volume, or a hard floor?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "chicken taste aleph steak unwilling nahmias beef reassess barnett bryant inexpensive litre queen tangential tasters"
   },
   {
     "id": "ai-in-education",
@@ -1077,7 +1138,8 @@
     "firstCrux": "Does AI tutoring help disadvantaged students most, or the already advantaged?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "khanmigo moocs learners kulik mindspark scaffolded fletcher classroom jersey chatgpt curricula estudia ganimian kosmyna muralidharan"
   },
   {
     "id": "ai-regulation",
@@ -1098,7 +1160,8 @@
     "firstCrux": "Will AI capabilities keep scaling toward catastrophe-relevant thresholds, or plateau?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "summit seoul bletchley thalidomide newsom goldman nonproliferation turing baidu dario demis gavin godfather hassabis kefauver"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1119,7 +1182,8 @@
     "firstCrux": "Does technological capability outpace society's ability to adapt, or does adaptation keep up?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "gasoline technocratic crispr linux dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel hansen"
   },
   {
     "id": "ai-superintelligence-timeline",
@@ -1140,7 +1204,8 @@
     "firstCrux": "Will capability gains from more compute hit a ceiling before general reasoning?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt mamba mirage multilingual openreview ouyang proc schaeffer shazeer"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1161,7 +1226,8 @@
     "firstCrux": "Can factory production bring small reactors' costs below renewables with backup power?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "nuscale uamps lazards fukushima vogtle akademik edwin lomonosov lyman royce westinghouse lcoe overruns midpoint nucnet"
   },
   {
     "id": "tiktok-brain-rot",
@@ -1182,7 +1248,8 @@
     "firstCrux": "Do heavy short-form video users show weaker sustained attention than matched non-users?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "pisa douyin circuitry anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen teng bytedance clips"
   },
   {
     "id": "ai-replacing-doctors",
@@ -1203,7 +1270,8 @@
     "firstCrux": "Does AI's benchmark accuracy hold up on messy real-world clinical data across populations?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine chatbots clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1224,7 +1292,8 @@
     "firstCrux": "Can careful privacy habits shrink corporate profiling, or does data aggregation rebuild the profile anyway?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "brave browser cookies encryption reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger"
   },
   {
     "id": "climate-change",
@@ -1245,7 +1314,8 @@
     "firstCrux": "Does the falling carbon-isotope ratio in the air confirm that the added CO₂ comes from fossil fuels?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "arctic irradiance scripps eruption pinatubo nights stratosphere argo keeling acidification geophysical acrim albedo amsu ceres"
   },
   {
     "id": "ev-environmental-impact",
@@ -1266,7 +1336,13 @@
     "firstCrux": "How fast does an EV make up its battery's emissions?",
     "tags": [
       "science"
-    ]
+    ],
+    "aliases": [
+      "Lithium Mining & EV Environmental Impact",
+      "Are EVs clearly greener than gas cars once mining is counted?",
+      "Are electric vehicles still better for the environment once lithium mining is counted?"
+    ],
+    "keywords": "cobalt nickel gasoline catl argonne redwood volvo atacama greet indonesian nrel rainforest bloombergnef gallons indonesia"
   },
   {
     "id": "factory-farming-ban",
@@ -1288,7 +1364,8 @@
     "firstCruxStanding": "value-difference",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "livestock antibiotic cage cattle runoff beef dietetics antimicrobial bacterial cafo manure vegetarian eggs grass pasture"
   },
   {
     "id": "organic-food-health",
@@ -1309,7 +1386,8 @@
     "firstCrux": "Is organic buyers' lower cancer rate due to the food, or to their healthier, wealthier lifestyles?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "antioxidant chamacos prenatal bara milk pufa metabolites bahlai cadmium curl dairy guelph hyland intraspecies oates"
   },
   {
     "id": "gene-editing-embryos",
@@ -1330,7 +1408,8 @@
     "firstCrux": "Can gene editing become precise enough to be safe for changes passed to future generations?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "cas9 ccr5 jiankui nuffield mosaic sickle editors anzalone asrm hfea komor lulu monogenic nana shenzhen"
   },
   {
     "id": "space-exploration-value",
@@ -1351,7 +1430,8 @@
     "firstCrux": "Do the returns on government space spending beat what the same money would do on Earth?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "dart asteroid debris spinoff spacex spin planetary landsat modis mars perseverance collisions constellation didymos dimorphoss"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1372,7 +1452,8 @@
     "firstCrux": "How much of veganism's per-person footprint cut would hold at global scale, after land and rebound effects?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "grazing nemecek dietetics eutrophication mottet micronutrients scarborough vegetarian farmland livestock agric forage grassland grazers headey"
   },
   {
     "id": "psychedelics-mental-health",
@@ -1393,7 +1474,15 @@
     "firstCrux": "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
     "tags": [
       "science"
-    ]
+    ],
+    "aliases": [
+      "Psychedelic Therapy: Revolution or Overhype?",
+      "Is psychedelic therapy a genuine revolution in mental health care?",
+      "Is psychedelic therapy overhyped?",
+      "Does psychedelic therapy actually work?",
+      "Are the claims about psychedelic therapy exaggerated?"
+    ],
+    "keywords": "mdma mapp2 psychopharmacology hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005 comp006"
   },
   {
     "id": "lab-leak-theory",
@@ -1414,7 +1503,8 @@
     "firstCrux": "Is the outbreak's start in the same city as the Wuhan Institute of Virology a real signal, or coincidence?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "cleavage furin debarred ecohealth subcommittee sago lineages huanan insertion sarbecoviruses coronaviruses wray civet defuse motifs"
   },
   {
     "id": "ultra-processed-food",
@@ -1435,7 +1525,8 @@
     "firstCrux": "Do people overeat because food is processed, or because of its energy density, taste and eating speed?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "nova upfs carboxymethylcellulose emulsifier umbrella microbiome appraisal chassaing gastroenterology gibney monteiro moss rauber reformulated efsa"
   },
   {
     "id": "longevity-science",
@@ -1456,7 +1547,15 @@
     "firstCrux": "Do senolytic drugs improve human healthspan in large trials, or does the mouse-to-human gap defeat them?",
     "tags": [
       "science"
-    ]
+    ],
+    "aliases": [
+      "Anti-Aging & Radical Life Extension",
+      "Could human lifespans pass 120 within our lifetimes?",
+      "Can we reverse aging?",
+      "Is anti-aging medicine real?",
+      "Will we be able to live to 150?"
+    ],
+    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison progeroid"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -1477,7 +1576,8 @@
     "firstCrux": "Is the evidence strong enough to justify treating minors, compared with other accepted pediatric care?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "regret cass dysphoria detransition tordoff dutch bustos nonbinary trevor vries wpath plastic pubertal sperm casss"
   },
   {
     "id": "microplastics-health-crisis",
@@ -1498,7 +1598,8 @@
     "firstCrux": "Do microplastics in arteries drive heart disease, or are they bystanders in already-diseased tissue?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "plastic phthalate sperm tons micrograms micrometers polymers efsa maternal arterial interleukin petrochemical plaque polyethylene spectroscopy"
   },
   {
     "id": "glp1-weight-loss-drugs",
@@ -1519,7 +1620,8 @@
     "firstCrux": "Does ten or more years of continuous use stay net-beneficial, or reveal cumulative risks?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "semaglutide regain substudy dieters nordisk pharmacotherapy reclassification waist comorbidities epic novo amgen cuisine diarrhea gastrointestinal"
   },
   {
     "id": "fluoride-water-supplies",
@@ -1540,7 +1642,8 @@
     "firstCrux": "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "cavity toothpaste tooth bashash prenatal calgary dentistry nhmrc nuffield maternal unreasonable breastfed dmft edmonton fluorosis"
   },
   {
     "id": "seed-oils-health",
@@ -1561,7 +1664,8 @@
     "firstCrux": "Does sustained high omega-6 intake from seed oils measurably shift inflammatory signaling in humans?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
   },
   {
     "id": "obesity-personal-responsibility",
@@ -1582,7 +1686,8 @@
     "firstCrux": "Does the ultra-processed food environment drive obesity, or does personal choice still dominate?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "semaglutide kcal regained junk microbiota supermarket microbiome dastidar elks fothergill germ ghosh ridaura turnbaugh wegovy"
   },
   {
     "id": "loneliness-epidemic",
@@ -1603,7 +1708,8 @@
     "firstCrux": "Does loneliness itself cause early death, or is it a marker of existing disadvantage?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "walkable lockdowns putnam biobehavioral bowling cole gehl kiecolt luchetti sage surkalim fibrinogen glaser liang likelihood"
   },
   {
     "id": "remote-work-permanence",
@@ -1624,7 +1730,8 @@
     "firstCrux": "Do remote teams produce as much innovation as comparable in-office teams?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "bloom metros andy frey jassy moodys indeed atlassians boise ctrip downtown fuses nashville ying asynchronous"
   },
   {
     "id": "college-value-proposition",
@@ -1645,7 +1752,8 @@
     "firstCrux": "What share of school-and-major combinations pay off once you account for who enrolls?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician leavers pipefitters plumbers steamfitters hvac looney qualifications steeper"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -1666,7 +1774,8 @@
     "firstCrux": "Does the homeschool test-score edge survive controls for family income, education and who takes tests?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas rays alumni midwestern peabody charitable"
   },
   {
     "id": "billionaire-wealth",
@@ -1687,7 +1796,8 @@
     "firstCrux": "Does extreme wealth concentration cause declining social mobility, or do both share other causes?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -1708,7 +1818,8 @@
     "firstCrux": "How much of actual aid spending goes to proven, cost-effective programs?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "easterly moyo pepfar subramanian deaton givewell rajan givedirectly tuna untie dambisa mozambique angus econometrica haushofer"
   },
   {
     "id": "cryptocurrency-value",
@@ -1729,7 +1840,8 @@
     "firstCrux": "Is Bitcoin's lead a durable network moat, or a first-mover edge a better protocol could erode?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "forked drawdowns hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -1750,7 +1862,8 @@
     "firstCrux": "Can crypto rules deter fraud without driving compliant builders offshore?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna sued cftc chainalysis gensler silvergate"
   },
   {
     "id": "gig-economy-regulation",
@@ -1771,7 +1884,8 @@
     "firstCrux": "How much control do platform algorithms really exert, compared with employers and true contractors?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "tribunal freelance presumption addison bolt calmatters castellanos ceepr zoepf ab5s aslam gigs holiday hustlers leigh"
   },
   {
     "id": "housing-affordability-crisis",
@@ -1793,7 +1907,8 @@
     "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "auckland greenaway mcgrevy vienna gyourko tokyo glaeser upzoning backlog shelters charitable phillips duplexes huds livable"
   },
   {
     "id": "four-day-work-week",
@@ -1814,7 +1929,8 @@
     "firstCrux": "Is maintained productivity a real effect of the schedule, or of self-selected, motivated firms?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "burnout collar ambivalent cipd overtime qinglong shao salaried chartered frontline absenteeism aubry eurostat everybody insee"
   },
   {
     "id": "student-debt-forgiveness",
@@ -1836,7 +1952,8 @@
     "firstCrux": "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "tuition discharge nebraska repayment bennett cent forbearance delinquency crfb alleviates catherine disbursed forgave fullwiler heroes"
   },
   {
     "id": "inflation-monetary-policy",
@@ -1857,7 +1974,8 @@
     "firstCrux": "How much of the 2021–22 price rise did monetary and fiscal expansion cause, versus merely allow?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "fred bernanke blanchard velocity louis overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
   },
   {
     "id": "global-housing-bubble",
@@ -1878,7 +1996,8 @@
     "firstCrux": "Do record price-to-income ratios force prices down, or can tight supply keep them high?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "rentals sellers lows hmrc redfin tourist fraser garcia lopez starter metro airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
@@ -1899,7 +2018,8 @@
     "firstCrux": "Can the US keep its borrowing rate below its growth rate over decades?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "brics reinhart rogoff refinanced herndon pollin comprises outlays rachel crfb cofer expansionary glut rags renminbi"
   },
   {
     "id": "return-to-office-productivity",
@@ -1920,7 +2040,8 @@
     "firstCrux": "Does fully remote work lower total output once coordination and knowledge transfer are counted?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "allen bamboohr ding irvine sunk bloom gloria pittsburgh lease uspto brucks gudith klocke levav lindsay"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -1941,7 +2062,8 @@
     "firstCrux": "What share of mined diamonds can be traced to a verified-ethical mine today?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost ring beers debswana"
   },
   {
     "id": "rent-control-effectiveness",
@@ -1962,7 +2084,8 @@
     "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "rental auckland greenaway mcgrevy viennas decontrol mcquade palmer pathak qian autor diamond upzoning queue stockholm"
   },
   {
     "id": "degrowth-economics",
@@ -1983,7 +2106,8 @@
     "firstCrux": "Can rich economies grow while cutting emissions 7–10% a year, without offshoring them?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "hickel kallis yellow vest austerity groundswell scotland irena jason sight biocapacity biophysical garment giorgos greek"
   },
   {
     "id": "free-will",
@@ -2004,7 +2128,8 @@
     "firstCrux": "Is the brain signal before a conscious choice a fixed commitment, or preparation consciousness can still veto?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace preregistered schurger vohs philpapers schooler bourget brass compatibilism damasio"
   },
   {
     "id": "simulation-hypothesis",
@@ -2025,7 +2150,8 @@
     "firstCrux": "Can simulating a brain's wiring reproduce its behavior, and would that say anything about experience?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "lattice elegans openworm lucas penrose holographic spacetime beane davoudi emperors hologram occams popper posthuman savage"
   },
   {
     "id": "moon-landing",
@@ -2048,7 +2174,8 @@
     "firstCrux": "Do laser echoes from the Moon need astronaut-placed reflectors, or could natural features explain them?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "dosimeters astronaut retroreflectors acquiescence dosimetry hubble jodrell allen mcdonald laser luna reconnaissance arrays astromaterials astronomy"
   },
   {
     "id": "minneapolis-shooting",
@@ -2069,7 +2196,8 @@
     "firstCrux": "Does the full sequence of events back the federal self-defense account, or the bystander video and witnesses?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "scene ohara superintendent apprehension bystanders patrol evans handgun"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2090,7 +2218,8 @@
     "firstCrux": "Does consciousness require biology, or only the right information processing?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "sebo introspection butlin seth cogitate workspace agnosticism bski comsa dreksler figura gnwt hssc mcclelland patrick"
   },
   {
     "id": "meaning-without-religion",
@@ -2111,7 +2240,8 @@
     "firstCrux": "Do committed secular people fare as well as committed believers on meaning, resilience and community?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "happiness nonreligious euthyphro atheist divine communist courtois edgell happiest unaffiliated unbelief zagonari cambodia flourishing frost"
   },
   {
     "id": "meritocracy-myth",
@@ -2133,7 +2263,8 @@
     "firstCrux": "How strongly does parents' income predict their children's adult income?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "chetty dream abramitzky boustan duckworth dweck gatsby gregory grit hendren hubris hunter schmidt king mindset"
   },
   {
     "id": "consciousness-hard-problem",
@@ -2154,7 +2285,8 @@
     "firstCrux": "After a complete functional account, is 'why does it feel like something?' a real question left over?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical illusionism"
   },
   {
     "id": "artificial-reproduction-ethics",
@@ -2175,7 +2307,8 @@
     "firstCrux": "Can artificial wombs sustain fetuses below 22–23 weeks with outcomes as good as neonatal intensive care?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "bodily lambs thomsons biobag commodify pups cohen gestation chop hastings neonatal nicu osaka preterm procreate"
   },
   {
     "id": "gain-of-function-research-ban",
@@ -2196,7 +2329,8 @@
     "firstCrux": "How likely is a pandemic-capable pathogen to escape over time, given modern containment and more labs?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "chimeric baric airborne alphafold fouchiers h5n1 chapel anthrax coronaviruses sars smallpox affinities biopreparat bioterrorism droplets"
   },
   {
     "id": "children-smartphone-age",
@@ -2217,7 +2351,8 @@
     "firstCrux": "Do specific smartphone features cause harm to teens, or does the correlation reflect other factors?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "commenced anglosphere assent babel esafety kick rausch snapchat twitch undifferentiated abrahamsson pediatricians reddit scandinavia threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2238,7 +2373,8 @@
     "firstCrux": "Can democracies reform themselves fast enough to meet long-horizon challenges?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "famine amartya backsliding technocratic montreal deadlock autocratic contentious deliberative gothenburg maos defamation dissatisfied gerrymandering subversion"
   },
   {
     "id": "geoengineering-climate",
@@ -2259,7 +2395,8 @@
     "firstCrux": "Can natural sinks plus feasible cuts stay within the carbon budget without technological removal?",
     "tags": [
       "science"
-    ]
+    ],
+    "keywords": "tons climeworks monsoon pinatubo eruption orca gigatons celsius geoscience rainfall shells precipitation britain fairbrother intercomparison"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2280,7 +2417,8 @@
     "firstCrux": "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "enaira nigeria mbridge convoy pesa nigerian trucker interoperable jack payee safaricoms suri bernanke goats instantaneous"
   },
   {
     "id": "masculinity-crisis",
@@ -2301,7 +2439,8 @@
     "firstCrux": "Are men's worse outcomes driven by gender itself, or by class and economic factors that hit more men?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "despair deaton anne tate ceos clearinghouse herself naep mens afflicting congregations distinctly fraternal hierarchies misogynistic"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2322,7 +2461,8 @@
     "firstCrux": "Does calling real evidence a deepfake actually let powerful people escape accountability?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "c2pa tape deloitte hampshire robocall kramer leica nikon hollywood adobe vall firmware eval accent arup"
   },
   {
     "id": "declining-birth-rates",
@@ -2343,7 +2483,8 @@
     "firstCrux": "Is there a fertility level below which falling income per person becomes self-reinforcing?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "birthrate contraception demography eurobarometer natalist peacetime elder slowest lows religion"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2364,7 +2505,8 @@
     "firstCrux": "Can satellites and signals intelligence replace lost treaty inspections, or does losing them fuel buildups?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "icbm petrov hypersonic posture sipri bomber pentagon putin submarine avangard continental denuclearizing glide hgvs kazakhstan"
   },
   {
     "id": "transgender-athletes-sports",
@@ -2385,7 +2527,8 @@
     "firstCrux": "After two-plus years on hormones, do retained advantages exceed normal variation among women in that sport?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "olympic ncaa cisgender skeletal hemoglobin woman swimming devolved collegiate ahrendt ball biomechanics coventry genital harper"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2407,7 +2550,8 @@
     "firstCrux": "Can consciousness be detected without a human template, and in which species would it show up?",
     "tags": [
       "philosophy"
-    ]
+    ],
+    "keywords": "birch rats reflexes singer nociceptors octopuses sneddon companions chocolate crabs lobsters restrainer mammals cephalopod crustaceans"
   },
   {
     "id": "immigration-national-identity",
@@ -2428,7 +2572,8 @@
     "firstCrux": "Are immigration's economic gains broadly shared, or do the costs fall on low-income natives?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "putnam hunkering italians jews norc complementarity diploma dispersed resettlement scandinavian refugee"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2450,7 +2595,8 @@
     "firstCrux": "Do test scores and credentials measure individual ability, or accumulated advantage?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "quotas sffa disapprove caste arcidiacono sander bleemer deshpande freeman gurin huang kasman klasik pianto reardon"
   },
   {
     "id": "ukraine-peace-terms",
@@ -2471,7 +2617,8 @@
     "firstCrux": "Can Ukraine realistically retake its 1991 borders, or is the front line effectively frozen?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "ukrainian tripwire zelensky putin manpower rusi emboldens haass jamestown kupchan unjust facto armor ceasefire depots"
   },
   {
     "id": "trump-tariffs",
@@ -2493,7 +2640,8 @@
     "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
     "tags": [
       "economics"
-    ]
+    ],
+    "keywords": "yard fence ieepa piie cavallo chris aluminum usitc krugman truce usmca renegotiation scattered aerospace conditionalist"
   },
   {
     "id": "rfk-health-policy",
@@ -2514,7 +2662,8 @@
     "firstCrux": "Does the childhood vaccine schedule as a whole carry harms that studies of single vaccines miss?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "acip marion nestle prasad appointees toothpaste unqualified asthma faction inpatient makary aluminum cavity confirmatory gras"
   },
   {
     "id": "doge-federal-cuts",
@@ -2536,7 +2685,8 @@
     "firstCrux": "How much of DOGE's claimed savings survives a line-by-line reconciliation?",
     "tags": [
       "policy"
-    ]
+    ],
+    "keywords": "pahlka rehired executor humphreys impoundment unproductive disinvestment forgo backlogged slaughter kettl moynihan opms tigta usaspending"
   },
   {
     "id": "open-weight-ai-models",
@@ -2557,7 +2707,8 @@
     "firstCrux": "Do safety-stripped open models give bad actors real help on dangerous tasks beyond what search provides?",
     "tags": [
       "technology"
-    ]
+    ],
+    "keywords": "ntia deepseek biorisk toner alibabas amateur bengio restrictionist hendrycks qwen tuners continuum lecun mistral uncensorable"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -2582,7 +2733,8 @@
       "climate",
       "emissions",
       "policy"
-    ]
+    ],
+    "keywords": "bbeling hildebrandt stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth profession jazeera"
   },
   {
     "id": "congestion-pricing",
@@ -2608,7 +2760,8 @@
       "traffic",
       "taxation",
       "transit"
-    ]
+    ],
+    "keywords": "cordon stockholm hochul relaunched eliasson mtas reinvested sqft tfls journey earmarked manhattan"
   },
   {
     "id": "right-to-repair",
@@ -2634,7 +2787,8 @@
       "antitrust",
       "e-waste",
       "cybersecurity"
-    ]
+    ],
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit dortz eggman laptops monopolize owens sheep wagner workshop"
   },
   {
     "id": "assisted-dying-euthanasia",
@@ -2661,7 +2815,8 @@
       "end-of-life",
       "medicine",
       "rights"
-    ]
+    ],
+    "keywords": "dignity refractory palliative charter carter colburn arch crpd disrespects enjoyable grievous hastening hospice irremediable oregonians"
   },
   {
     "id": "second-amendment-individual-right",
@@ -2686,7 +2841,8 @@
       "constitutional-law",
       "gun-rights",
       "originalism"
-    ]
+    ],
+    "keywords": "heller emerson mcdonald corpus baron historians cofea goldfarb idiomatic kopel saul scalia wallace firearms soldier"
   },
   {
     "id": "self-driving-car-safety",
@@ -2712,7 +2868,8 @@
       "safety",
       "waymo",
       "transportation"
-    ]
+    ],
+    "keywords": "nhtsa swiss cruise rider tesla driverless geofenced gode kalra kusano paddock pe24031 victor aired atzei"
   },
   {
     "id": "net-neutrality",
@@ -2738,7 +2895,8 @@
       "fcc",
       "internet",
       "regulation"
-    ]
+    ],
+    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte dunn facetime"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -2764,7 +2922,8 @@
       "fair-use",
       "intellectual-property",
       "law"
-    ]
+    ],
+    "keywords": "bartz ross pirated freelancer thomson verbatim kadrey regurgitate reshef shutterstock guild memorization zhou bibas bookseller"
   },
   {
     "id": "facial-recognition-policing",
@@ -2790,7 +2949,8 @@
       "surveillance",
       "civil-liberties",
       "ai-bias"
-    ]
+    ],
+    "keywords": "frvt nistir affidavit apprehended clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers"
   },
   {
     "id": "gmo-crops-safety",
@@ -2816,7 +2976,8 @@
       "food-safety",
       "glyphosate",
       "biotechnology"
-    ]
+    ],
+    "keywords": "cotton herbicide weeds roundup efsa iarc bollworm sprays juries bayer benbrook hodgkin lymphoma monsanto mper"
   },
   {
     "id": "nuclear-fusion-timeline",
@@ -2842,7 +3003,8 @@
       "technology",
       "iter",
       "decarbonization"
-    ]
+    ],
+    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
   },
   {
     "id": "vaccine-mandates",
@@ -2868,7 +3030,8 @@
       "covid-19",
       "law",
       "ethics"
-    ]
+    ],
+    "keywords": "osha measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel kraaijeveld"
   },
   {
     "id": "ssri-antidepressant-efficacy",
@@ -2894,7 +3057,8 @@
       "ssri",
       "medicine",
       "placebo"
-    ]
+    ],
+    "keywords": "remission relapse hamilton kirsch star amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine"
   },
   {
     "id": "social-security-retirement-age",
@@ -2920,7 +3084,8 @@
       "fiscal-policy",
       "aging",
       "inequality"
-    ]
+    ],
+    "keywords": "solvency crfb oasdi payable trustees actuarial taxable cbos"
   },
   {
     "id": "estate-inheritance-tax",
@@ -2946,7 +3111,8 @@
       "wealth-inequality",
       "taxation",
       "fiscal-policy"
-    ]
+    ],
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated chairman illiquid instantaneously ranch taxable forgone"
   },
   {
     "id": "occupational-licensing-reform",
@@ -2972,7 +3138,8 @@
       "deregulation",
       "wages",
       "competition"
-    ]
+    ],
+    "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher interior"
   },
   {
     "id": "encryption-backdoors",
@@ -2998,7 +3165,8 @@
       "surveillance",
       "security",
       "law-enforcement"
-    ]
+    ],
+    "keywords": "calea rivest intercept abelson bellovin cybertipline diffie doormats inventor investigatory ncmec schneier telephony venetic anderson"
   },
   {
     "id": "section-230-reform",
@@ -3024,7 +3192,8 @@
       "free-speech",
       "platform-liability",
       "internet-policy"
-    ]
+    ],
+    "keywords": "anderson fosta csam durbin nera oakmont prodigy stratton ccia courtrooms dick ecpa graham nylah shwartz"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3050,7 +3219,8 @@
       "arms-control",
       "international-law",
       "warfare"
-    ]
+    ],
+    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions favour belarus governmental primer unoda"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3076,7 +3246,8 @@
       "water",
       "data-centers",
       "sustainability"
-    ]
+    ],
+    "keywords": "lbnl onsite freshwater gallons islam eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
   },
   {
     "id": "adhd-overdiagnosis",
@@ -3102,7 +3273,8 @@
       "diagnosis",
       "mental-health",
       "neurodevelopment"
-    ]
+    ],
+    "keywords": "youngest convincing kazda underdiagnosed barratt bell blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3128,7 +3300,8 @@
       "harm-reduction",
       "public-health",
       "nicotine"
-    ]
+    ],
+    "keywords": "evali hospitalised randomised acetate blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350 pub8 pulvers"
   },
   {
     "id": "sex-work-decriminalization",
@@ -3154,7 +3327,8 @@
       "criminal-justice",
       "hiv",
       "harm-reduction"
-    ]
+    ],
+    "keywords": "prostitution indoor gonorrhea govt repressive christchurch cunningham dreher neumayer shah abel beehive brothel brunton fitzgerald"
   },
   {
     "id": "congressional-term-limits",
@@ -3180,7 +3354,8 @@
       "congress",
       "reform",
       "incumbency"
-    ]
+    ],
+    "keywords": "burkean lobbyists carey jenkins mclaughlin moncrief niemi olson powell rogowski thornton carroll qualifications rutgers beholden"
   },
   {
     "id": "effective-altruism",
@@ -3205,7 +3380,8 @@
       "philanthropy",
       "global-health",
       "longtermism"
-    ]
+    ],
+    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory kremer maertens miguel pryce utilitas haushofer bankman"
   },
   {
     "id": "alcohol-no-safe-level",
@@ -3231,7 +3407,8 @@
       "cancer",
       "cardiovascular",
       "epidemiology"
-    ]
+    ],
+    "keywords": "drinkers iarc stockwell unadjusted zhao mendelian ionizing naimi asbestos randomisation"
   },
   {
     "id": "modern-monetary-theory",
@@ -3257,7 +3434,8 @@
       "deficits",
       "inflation",
       "macroeconomics"
-    ]
+    ],
+    "keywords": "latin buffer fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats"
   },
   {
     "id": "dark-matter-vs-mond",
@@ -3284,6 +3462,7 @@
       "MOND",
       "modified gravity",
       "galaxy rotation curves"
-    ]
+    ],
+    "keywords": "baryonic radial scatter acoustic fisher mcgaugh tully sparc planck sigma lelli schombert phys priori bullet"
   }
 ]

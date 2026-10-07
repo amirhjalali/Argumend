@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { TOPIC_COUNT } from "@/data/topicIndex";
+import { MAP_COUNT, TOPIC_COUNT } from "@/data/topicIndex";
 import { GET } from "./route";
 import { HealthResponseSchema } from "./_schema";
 
@@ -25,6 +25,7 @@ describe("GET /api/health", () => {
       ready: true,
       mode: "offline",
       checks: { static_content: "ok" },
+      map_count: MAP_COUNT,
       topic_count: TOPIC_COUNT,
     });
   });

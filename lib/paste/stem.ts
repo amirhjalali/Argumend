@@ -169,11 +169,18 @@ const ABBREVIATIONS: Readonly<Record<string, string>> = {
   "2a": "second amendment",
   co2: "carbon dioxide",
   "u.s.": "united states",
+  ww3: "world war",
+  wwiii: "world war",
+  // Not "trans fats" or "trans-ocean": see the pattern.
+  trans: "transgender",
+  // The maps say "children"; "kids" is how readers say it.
+  kid: "children",
+  kids: "children",
 };
 
 /** One pass over the text for every short form, plural "s" included where one is used. */
 const ABBREVIATION_PATTERN =
-  /\b(?:evs?|ubi|smrs?|agi|asi|llms?|gmos?|rto|wfh|dst|cbdcs?|mmt|ssris?|glp-1|nukes?|2a|co2)\b|\bu\.s\.(?=\s|$|[,;:)])/g;
+  /\b(?:evs?|ubi|smrs?|agi|asi|llms?|gmos?|rto|wfh|dst|cbdcs?|mmt|ssris?|glp-1|nukes?|2a|co2|ww3|wwiii|kids?)\b|\btrans\b(?![- ]?(?:fat|ocean))|\bu\.s\.(?=\s|$|[,;:)])/g;
 
 export function expandAbbreviations(lowered: string): string {
   return lowered.replace(

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { TOPIC_COUNT } from "@/data/topicIndex";
+import { MAP_COUNT, TOPIC_COUNT } from "@/data/topicIndex";
 import { GET, OPTIONS, POST } from "./route";
 import { ApiIndexResponseSchema } from "./_schemas";
 
@@ -19,6 +19,7 @@ describe("GET /api/v1", () => {
     expect(body.base_url).toContain("/api/v1");
     expect(body.documentation).toBe(body.base_url);
     expect(body.topic_count).toBe(TOPIC_COUNT);
+    expect(body.map_count).toBe(MAP_COUNT);
     expect(body.error_contract).toEqual(
       expect.objectContaining({ status: 400, cache_control: "no-store" }),
     );

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "set": "holdout",
-  "description": "Held-out site-search queries, written after the ranking in lib/siteSearch.ts was tuned on queries.json and scored once without further tuning. Leans on synonyms and everyday wording the maps may not use ('rent caps', 'global warming', 'capital punishment'), so it shows where lexical search stops. Same format and scoring as queries.json. The five `no-map` cases were added on 2026-10-06 after the r6 search changes and scored once.",
+  "description": "Held-out site-search queries, written after the ranking in lib/siteSearch.ts was tuned on queries.json and scored once without further tuning. Leans on synonyms and everyday wording the maps may not use ('rent caps', 'global warming', 'capital punishment'), so it shows where lexical search stops. Same format and scoring as queries.json. The five `no-map` cases were added on 2026-10-06 after the r6 search changes and scored once. The last 14 (from 'medicare for all') come from the r9 live review on 2026-10-06 and were added before the round-9 search changes; 'legalize weed' and 'marijuana' expect the drug-decriminalization map, the site's only map on drug law, which covers marijuana arrests.",
   "cases": [
     { "query": "should nuclear plants be built", "expected": ["nuclear-energy-safety"], "kind": "question" },
     { "query": "rent caps", "expected": ["rent-control-effectiveness"], "kind": "synonym" },
@@ -37,6 +37,20 @@
     { "query": "should we keep the monarchy", "expected": [], "maxMaps": 0, "kind": "no-map" },
     { "query": "my coworker keeps taking credit for my work", "expected": [], "maxMaps": 2, "kind": "no-map" },
     { "query": "should i break up with my boyfriend", "expected": [], "maxMaps": 2, "kind": "no-map" },
-    { "query": "is abortion murder", "expected": [], "maxMaps": 0, "kind": "no-map" }
+    { "query": "is abortion murder", "expected": [], "maxMaps": 0, "kind": "no-map" },
+    { "query": "medicare for all", "expected": ["universal-healthcare"], "kind": "synonym" },
+    { "query": "obamacare", "expected": ["universal-healthcare"], "kind": "synonym" },
+    { "query": "marijuana", "expected": ["drug-decriminalization"], "kind": "keyword" },
+    { "query": "legalize weed", "expected": ["drug-decriminalization"], "kind": "synonym" },
+    { "query": "trans kids", "expected": ["gender-affirming-care-minors", "transgender-athletes-sports"], "kind": "synonym" },
+    { "query": "global warming hoax", "expected": ["climate-change"], "kind": "synonym" },
+    { "query": "rfk", "expected": ["rfk-health-policy"], "kind": "abbreviation" },
+    { "query": "nukes", "expected": ["nuclear-weapons-abolition", "nuclear-proliferation-new-arms-race"], "kind": "abbreviation" },
+    { "query": "epstien list", "expected": ["epstein-files"], "kind": "misspelling" },
+    { "query": "forever chemicals", "expected": ["pfas-forever-chemicals"], "kind": "synonym" },
+    { "query": "are uber drivers employees", "expected": ["gig-economy-regulation"], "kind": "question" },
+    { "query": "facial recogntion", "expected": ["facial-recognition-policing"], "kind": "misspelling" },
+    { "query": "abortion pill", "expected": [], "maxMaps": 0, "kind": "no-map" },
+    { "query": "school vouchers", "expected": [], "maxMaps": 1, "kind": "no-map" }
   ]
 }
