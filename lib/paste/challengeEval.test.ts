@@ -47,6 +47,9 @@ describe("the fixed subject-boundary challenge", () => {
     "challenge-neg-garage-allocation",
     "challenge-neg-diamond-proposal",
     "challenge-neg-remote-inheritance",
+    "challenge-neg-hydrogen-water-bottle",
+    "challenge-neg-voting-sunday",
+    "challenge-neg-vitamin-d",
   ])("offers no map for %s", (id) => {
     const row = rows.find((candidate) => candidate.id === id);
     expect(row?.named).toBeNull();

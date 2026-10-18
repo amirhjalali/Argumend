@@ -70,6 +70,12 @@ word overlap and a few calibrated subject checks, not semantic understanding;
 unfamiliar subjects can still receive a closest-map list.
 AI-education and AI-employment maps require AI or automation subject language;
 ordinary online lessons and family disputes mentioning work do not qualify by themselves.
+AI education also requires school, student, tutoring or other education language,
+so an argument about AI diagnosis does not qualify through AI vocabulary alone.
+Water scarcity, seed oils, vegan diets and AI diagnosis require their respective
+subject cues; generic health benefits, inflammation or supplements do not qualify.
+Voting dates and holidays do not qualify as a shorter working week, Electoral
+College reform or social-media election influence without those subject cues.
 Congestion-pricing matches also recognize downtown driving charges and city-center
 entry fees; driver wording alone does not qualify unrelated fares or fees.
 Health and college-policy maps also require their own subject language, so

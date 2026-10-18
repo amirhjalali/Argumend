@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { contiguousTermPairs, pasteTerms, porterStem, termPairs } from "./terms";
+import { fitsMapSubject } from "./mapSubjects";
 
 describe("porterStem", () => {
   it("matches the reference outputs of Porter (1980)", () => {
@@ -35,6 +36,15 @@ describe("pasteTerms", () => {
 
   it("keeps 'wrongful', which a map about wrongful convictions needs", () => {
     expect(pasteTerms("wrongful executions")).toEqual(["wrong", "execut"]);
+  });
+
+  it("keeps numeric subject qualifiers without adding single digits to ranking", () => {
+    const terms = new Set(pasteTerms("A 4-day week and omega-3 supplements", { keepStopwords: true }));
+    expect(fitsMapSubject([["4", "day"]], terms)).toBe(true);
+    expect(fitsMapSubject([["5", "day"]], terms)).toBe(false);
+    expect(fitsMapSubject([["omega", "3"]], terms)).toBe(true);
+    expect(fitsMapSubject([["omega", "6"]], terms)).toBe(false);
+    expect(pasteTerms("4-day week")).not.toContain("4");
   });
 });
 

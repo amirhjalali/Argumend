@@ -124,6 +124,28 @@ test("AI equity and teacher-support arguments keep their own cruxes and audited 
   }
 });
 
+test("health products and voting dates stay unmapped while AI diagnosis keeps its map", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  const result = page.getByRole("region", { name: "Result" });
+  for (const text of [
+    "These hydrogen water bottles claim they reduce inflammation and give you more energy. My sister bought one for two hundred dollars. Is there actual evidence they do anything beyond plain tap water?",
+    "Election day should be on a Sunday instead of a workday. People shouldn't have to choose between a shift and voting. A national holiday would help too, but service workers would still work.",
+    "A: Everyone should take vitamin D all winter. B: Unless you're deficient, supplements don't prevent cancer or heart disease. A: My doctor said my levels were low. B: Then that's different from handing pills to everyone.",
+  ]) {
+    await input.fill(text);
+    await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+    await expect(result.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+    await expect(result.locator('a[href^="/topics/"]')).toHaveCount(0);
+    await page.getByRole("button", { name: "Edit", exact: true }).click();
+  }
+  await input.fill("Could an AI system diagnose routine illnesses more accurately than a doctor? I want a human to check its decisions, but my colleague says the model makes fewer mistakes.");
+  await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+  await expect(result.locator('a[href="/topics/ai-replacing-doctors"]')).toBeVisible();
+  await expect(result.locator('a[href="/topics/ai-in-education"]')).toHaveCount(0);
+});
+
 test("a birth-rate argument does not acquire income or space links through shared context", async ({ page }) => {
   await page.goto("/analyze");
   const input = page.getByRole("textbox", { name: "The argument to read" });

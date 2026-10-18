@@ -11,11 +11,56 @@ import { pasteTerms } from "./terms";
 
 export type SubjectAnchors = readonly (readonly string[])[];
 
+const AI_SUBJECT_CUES: SubjectAnchors = [
+  ["ai"], ["artificial", "intelligence"], ["chatgpt"], ["chatbot"],
+  ["language", "model"], ["gpt"], ["gpt4"], ["khanmigo"],
+  ["intelligent", "tutor"], ["automated", "tutor"],
+];
+
 export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
   // Reactor-safety arguments need not literally use the word "nuclear".
   "nuclear-energy-safety": [
     ["nuclear"], ["reactor"], ["atomic", "power"], ["atomic", "energy"],
     ["Fukushima"], ["Chernobyl"], ["Three", "Mile", "Island"],
+  ],
+  // Health products and supplements are not water scarcity or food production.
+  "global-water-crisis": [
+    ["water", "scarcity"], ["water", "shortage"], ["water", "supply"],
+    ["water", "war"], ["water", "conflict"], ["water", "crisis"],
+    ["drought"], ["aquifer"], ["groundwater"], ["desalination"],
+    ["river", "dam"], ["freshwater", "depletion"],
+  ],
+  "seed-oils-health": [
+    ["seed", "oil"], ["vegetable", "oil"], ["canola"], ["rapeseed"],
+    ["soybean"], ["sunflower"], ["safflower"], ["corn", "oil"],
+    ["cottonseed"], ["linoleic", "acid"], ["omega", "six"], ["omega", "6"],
+  ],
+  "veganism-environmental-impact": [
+    ["vegan"], ["vegetarian"], ["plant", "based"], ["plant", "diet"],
+    ["meat"], ["beef"], ["dairy"], ["livestock"], ["animal", "agriculture"],
+    ["animal", "product"], ["animal", "farming"],
+  ],
+  "ai-replacing-doctors": [
+    ...AI_SUBJECT_CUES, ["machine", "learning"], ["automated", "diagnosis"],
+    ["algorithm", "diagnosis"], ["computer", "diagnosis"], ["robot", "doctor"],
+  ],
+  // A voting holiday is not a shorter working week or a different voting system.
+  "four-day-work-week": [
+    ["four", "day"], ["4", "day"], ["32", "hour"], ["thirty", "two", "hour"],
+    ["shorter", "week"], ["shorter", "workweek"],
+    ["reduce", "workweek"], ["reduce", "working", "week"],
+  ],
+  "electoral-college-reform": [
+    ["electoral", "college"], ["popular", "vote"], ["npvic"],
+    ["national", "vote", "compact"], ["winner", "take", "all"],
+    ["president", "small", "state"],
+  ],
+  "social-media-elections": [
+    ["social", "media"], ["facebook"], ["twitter"], ["tiktok"],
+    ["youtube"], ["instagram"], ["cambridge", "analytica"],
+    ["algorithm", "political"], ["algorithm", "election"],
+    ["online", "misinformation"], ["online", "disinformation"],
+    ["political", "microtargeting"], ["political", "micro", "target"],
   ],
   // General school-policy vocabulary also occurs in uniform and funding disputes.
   "school-phone-bans": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
@@ -65,12 +110,12 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
     ["license"], ["certification"], ["government", "permission"],
     ["occupational", "qualification"],
   ],
-  // Online classes and human tutoring do not, by themselves, make AI the subject.
-  "ai-in-education": [
-    ["ai"], ["artificial", "intelligence"], ["chatgpt"], ["chatbot"],
-    ["language", "model"], ["gpt"], ["gpt4"], ["khanmigo"],
-    ["intelligent", "tutor"], ["automated", "tutor"],
-  ],
+  // Require both subjects: AI in a clinic and human tutoring are different maps.
+  "ai-in-education": AI_SUBJECT_CUES.flatMap((ai) =>
+    ["school", "student", "teacher", "classroom", "tutor", "lesson", "education",
+      "homework", "essay", "college", "university", "teach"]
+      .map((education) => [...ai, education]),
+  ),
   // Work and earnings can be context in a private family dispute, not AI displacement.
   "ai-mass-unemployment": [
     ["ai"], ["artificial", "intelligence"], ["automation"], ["automate"],
