@@ -189,6 +189,10 @@ test("the example opens its crux and continues there by keyboard, without leavin
   await expect(result).toBeVisible();
   await page.getByRole("button", { name: "Edit", exact: true }).click();
   await expect(input).toHaveValue(original);
+  await expect(input).toBeFocused();
+  await page.keyboard.press("ControlOrMeta+a");
+  await page.keyboard.type(`${original}\nOne more question to discuss.`);
+  await expect(input).toHaveValue(`${original}\nOne more question to discuss.`);
   await page.reload();
   await expect(input).toHaveValue("");
   await expect(result).toHaveCount(0);

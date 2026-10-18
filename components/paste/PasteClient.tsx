@@ -230,6 +230,14 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const runRef = useRef(0);
   const resultsRef = useRef<HTMLElement>(null);
   const textareaWrapRef = useRef<HTMLDivElement>(null);
+  const editRequested = useRef(false);
+  const attachInput = useCallback((node: HTMLDivElement | null) => {
+    textareaWrapRef.current = node;
+    if (node && editRequested.current) {
+      editRequested.current = false;
+      node.querySelector("textarea")?.focus();
+    }
+  }, []);
 
   const resetForm = useCallback((type: PasteContentType = "conversation") => {
     setContent("");
@@ -502,10 +510,13 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           <p className="font-sans text-sm text-muted">
             Your text, {submitted.length.toLocaleString("en-US")} characters
           </p>
-          <TextAction onClick={() => setInputOpen(true)}>Edit</TextAction>
+          <TextAction onClick={() => {
+            editRequested.current = true;
+            setInputOpen(true);
+          }}>Edit</TextAction>
         </div>
       ) : (
-        <div ref={textareaWrapRef} className={`max-w-3xl space-y-6 ${done ? "mt-8" : ""}`}>
+        <div ref={attachInput} className={`max-w-3xl space-y-6 ${done ? "mt-8" : ""}`}>
           <AnalyzeInput
             content={content}
             contentType={contentType}
