@@ -172,9 +172,9 @@ export const nuclearEnergySafetyData = {
         cost_to_verify: "Requires independent project and portfolio data; no study budget is established.",
         falsification: {
           supporter_flip:
-            "If, even with supportive policy and standardized designs, Western new-build keeps landing above ~$140/MWh and 7+ year timelines while firmed solar-plus-storage keeps getting cheaper, then nuclear cannot decarbonize fast enough per dollar; and the climate case for it collapses on cost, not safety.",
+            "If repeated projects show new nuclear has higher total system costs and longer build times than renewable portfolios with comparable reliability and emissions reductions, even under supportive policy and standardized designs, the cost-and-speed case for prioritizing nuclear weakens.",
           skeptic_flip:
-            "If reactors were built repeatedly at under about $4/W and in under 5 years, testing the claims made for recent South Korean and Chinese builds, the cost-and-speed objection behind most opposition would lose its footing.",
+            "If repeated reactor builds match or beat renewable portfolios on total system cost and deployment time while providing comparable reliability and emissions reductions, the cost-and-speed objection weakens. Count financing, grid upgrades, storage and backup costs in that comparison.",
           common_ground:
             "Both sides agree nuclear delivers firm, low-carbon power, with the US fleet averaging ~93% capacity factor in 2021-2023, and that recent Western first-of-a-kind projects were badly over budget and behind schedule.",
           live_disagreement:

@@ -289,6 +289,7 @@ export function MapMatch({
           {match.title}
         </Link>
         <p className="mt-2 font-serif text-lg italic leading-relaxed text-[var(--text-secondary)]">
+          <span className="font-sans text-sm not-italic">{match.kind === "flagship" ? "Scope: " : "Claim examined: "}</span>
           {match.claim}
         </p>
         <RelatedLine related={related} />

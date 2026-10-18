@@ -97,6 +97,12 @@ describe("conversation notes for an argument without a map", () => {
 });
 
 describe("the map block on a phone", () => {
+  it("identifies the debated claim rather than presenting it as the answer", () => {
+    const view = render(<MapMatch match={matched.match!} related={matched.related} />);
+    expect(view.getByText("Claim examined:")).toBeTruthy();
+    expect(view.getByText(matched.match!.claim)).toBeTruthy();
+  });
+
   it("clamps what would change each side's mind and each card, behind a named Show more", () => {
     const match = matched.match!;
     const view = render(<MapMatch match={match} related={matched.related} />);

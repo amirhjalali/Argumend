@@ -25,13 +25,23 @@ describe("buildPasteSummary", () => {
 
     // Named by the map's question, as its page heading is; sides by the answer.
     expect(summary).toContain(
-      "It is already mapped: Does large-scale immigration significantly cut low-skilled native wages?",
+      "A map to explore: Does large-scale immigration significantly cut low-skilled native wages?",
     );
     expect(summary).not.toContain("Immigration and Wages");
+    expect(summary).not.toContain(maps.match!.claim);
+    expect(summary).toContain("Questions to explore together");
+    expect(summary).toContain("What would make each of us think again?");
     expect(summary).toContain("What would change the mind of someone who says yes to the map’s question");
     expect(summary).toContain(
       "https://argumend.org/topics/immigration-wage-impact#crux-labor-market-economics",
     );
     expect(summary).not.toMatch(/\d+\s*\/\s*40|score/i);
+  });
+
+  it("keeps the flagship question's geographic and time scope", async () => {
+    const maps = await findMaps("Will AI cause mass unemployment in the U.S. within the next 15 years?");
+    expect(maps.match?.kind).toBe("flagship");
+    const summary = buildPasteSummary({ maps, report: null });
+    expect(summary).toContain("Scope: Will AI cause mass unemployment in the U.S. within the next 15 years?");
   });
 });
