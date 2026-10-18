@@ -87,6 +87,9 @@ test("AI-written essays lead to independent learning rather than the achievement
   const match = page.getByRole("region", { name: "This argument is already mapped" });
   await expect(match).toContainText("Do students who learn with AI do better or worse when tested without it?");
   await expect(match).not.toContainText("Does AI tutoring help disadvantaged students most, or the already advantaged?");
+  await expect(match.locator('a[href="https://doi.org/10.1038/s41598-025-97652-6"]')).toBeVisible();
+  await expect(match.locator('a[href="https://doi.org/10.1073/pnas.2422633122"]')).toBeVisible();
+  await expect(match.locator('a[href="https://doi.org/10.1145/3626252.3630947"]')).toHaveCount(0);
   const open = match.getByRole("link", { name: "Open the map at this crux", exact: true });
   await expect(open).toHaveAttribute("href", "/topics/ai-in-education#crux-academic-integrity");
   await open.click();

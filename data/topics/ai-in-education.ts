@@ -142,12 +142,12 @@ export const aiInEducationData = {
       id: "academic-integrity",
       title: "Academic Integrity & Critical Thinking",
       short_summary:
-        "LLMs can generate essays, solve problems, and write code that is often indistinguishable from student work, posing unprecedented challenges to academic integrity and potentially reducing students' development of independent thinking skills.",
+        "AI can offer students individual feedback or do assignments for them. The dispute concerns cheating, academic integrity and cognitive offloading: whether generating essays, solving problems and writing code with a tool helps students develop skills they retain without it.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "AI-generated work has fundamentally undermined traditional assessment methods. A 2024 survey by the International Center for Academic Integrity found that 56% of college students admitted to using AI on assignments without disclosure, and AI-detection tools produce false positive rates of 10-20%, disproportionately flagging non-native English speakers. More concerning than cheating is the cognitive outsourcing effect: students who use LLMs for problem-solving show measurable declines in effortful thinking. A 2025 MIT Media Lab study (Kosmyna et al.) using EEG found that participants who wrote essays with ChatGPT showed the weakest brain connectivity and the lowest sense of ownership over their work, and underperformed at neural, linguistic, and behavioral levels over four months — suggesting AI assistance can substitute for rather than supplement the cognitive work of learning.",
+        "Finishing homework with AI is different from learning to do it independently. Bastani and colleagues' high-school mathematics experiment found that students given a general GPT-4 interface did better during assisted practice but scored 17% lower than controls on subsequent unaided exams. A guarded tutor avoided that measured loss without producing a detectable exam gain. Separately, Kosmyna and colleagues' small essay-writing preprint reports weaker EEG connectivity and lower ownership with ChatGPT, but it does not establish lasting learning harm. The concern is substitution of answers for practice, not proof that every educational use of AI is harmful.",
       proponent_rebuttal:
-        "Assessment has always evolved with technology — calculators, spell-checkers, and Google each triggered similar moral panics. The solution is not to ban AI but to redesign assessment around skills that AI enhances rather than replaces: oral defense of written work, collaborative problem-solving, experimental design, and metacognitive reflection. Schools that have integrated AI transparently report that students develop stronger skills in prompt engineering, critical evaluation of AI output, and iterative refinement — all valuable 21st-century competencies. A 2024 study at Georgia Tech found that students who used AI assistants while being required to explain and critique AI-generated solutions performed 23% better on conceptual transfer tests than students who neither used AI nor learned to evaluate it.",
+        "Structured tutoring can differ from asking a chatbot for answers. Kestin and colleagues' Harvard physics trial found higher post-lesson quiz scores with a purpose-built AI tutor than with in-class active learning. That supports testing carefully designed instruction, not assuming an ordinary chatbot improves every assignment. One approach is to require students to explain, critique and revise AI output, then assess their work without the tool. Short-term results do not yet settle long-term retention, independent essay writing or effects across different schools.",
       crux: {
         id: "ai-cognitive-outsourcing",
         title: "The Cognitive Outsourcing Threshold",
@@ -162,21 +162,22 @@ export const aiInEducationData = {
           "$2-5M (Multi-institution longitudinal randomized trial with validated assessment instruments)",
         falsification: {
           supporter_flip:
-            "If students who learned with AI performed worse than non-AI students on closed-book transfer tests — showing they outsourced thinking rather than building it — the 'AI improves learning' claim would invert: better assisted performance masking weaker independent ability.",
+            "If students using well-designed AI tutoring consistently performed worse on delayed, unaided transfer tests across subjects and schools, the claimed learning benefits would weaken even if assisted homework scores improved.",
           skeptic_flip:
-            "If students who used AI with metacognitive scaffolding, explaining, critiquing and revising its output, did as well as or better than others on closed-book transfer tests, 'AI inevitably makes students dependent' would turn on how it is used.",
+            "If students using structured AI tutoring consistently retained and transferred more knowledge on delayed, unaided assessments across subjects and schools, concerns that it merely replaces practice would weaken.",
           common_ground:
-            "Both sides agree AI can be used either to do the work for students or to coach them through it, and that the two produce very different learning.",
+            "Both cases distinguish completing a task with AI from retaining the ability to do it unaided, and unrestricted answer-giving from structured tutoring.",
           live_disagreement:
-            "Whether students who learn with AI end up better or worse on assessments where AI isn't available — which only longitudinal trials with closed-book transfer tests can measure.",
+            "Whether AI-assisted learning carries over to unaided work, how guardrails change that outcome, and whether gains or losses persist beyond a short lesson.",
         },
       },
+      // Existing evidence ids keep saved links valid after source corrections.
       evidence: [
         {
           id: "nature-cognitive-decline",
           title: "MIT 'Your Brain on ChatGPT' Study Links LLM Use to Reduced Cognitive Engagement (2025)",
           description:
-            "An MIT Media Lab study (Kosmyna et al., 2025) used EEG to track 54 participants writing essays over four months under three conditions: using an LLM (ChatGPT), using a search engine, or using no tools ('brain-only'). LLM users showed the weakest brain connectivity, reported the lowest sense of ownership over their essays, and struggled to quote their own work. Across sessions, LLM users 'consistently underperformed at neural, linguistic, and behavioral levels,' which the authors describe as an accumulation of 'cognitive debt' that raises concerns about long-term reliance on AI assistants for learning.",
+            "Kosmyna and colleagues' preprint compared ChatGPT, search-engine and unaided essay writing with EEG and behavioral measures. Fifty-four participants completed the first three sessions; 18 completed a fourth session that switched tool conditions. The ChatGPT group showed weaker connectivity, lower reported ownership and difficulty quoting its essays. These measures concern the writing task, not course attainment or lasting cognitive damage.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
@@ -184,44 +185,44 @@ export const aiInEducationData = {
             replicability: 5,
             directness: 6,
           },
-          source: "Kosmyna et al., MIT Media Lab, arXiv:2506.08872 (2025)",
-          sourceUrl: "https://arxiv.org/abs/2506.08872",
+          source: "Kosmyna et al., arXiv:2506.08872v2 (December 2025 preprint)",
+          sourceUrl: "https://arxiv.org/abs/2506.08872v2",
           reasoning:
-            "A widely discussed study that directly probes whether AI use undermines cognitive engagement during learning tasks. Weighted cautiously: it is a non-peer-reviewed preprint with a small sample (n=54) on an essay-writing task rather than course grades, and it measures engagement and ownership rather than long-term learning outcomes, so it cannot establish that AI use causes lasting academic harm. (An earlier version of this item cited a Nature Human Behaviour study reporting a specific '17% lower exam' effect that could not be verified—the DOI resolved to an unrelated paper—and has been replaced with this real source.)",
+            "A small, non-peer-reviewed task study, with only 18 participants in the switch session. EEG differences are not a direct measure of retained learning. The findings motivate further study rather than establishing long-term educational harm.",
         },
         {
           id: "georgia-tech-scaffolded-ai",
-          title: "Scaffolded AI Use Improves Conceptual Transfer by 23% (2024)",
+          title: "Structured AI Tutoring Raised Immediate Physics Quiz Scores (2025)",
           description:
-            "A controlled study at Georgia Tech across 4 sections of CS1301 (Introduction to Computing) compared students who used an AI coding assistant with required explanation scaffolding against students without AI access. Students in the scaffolded condition were required to: (1) attempt problems independently first, (2) critique AI-generated solutions for errors and inefficiencies, and (3) explain their final solution in their own words. On a transfer exam requiring application of concepts to novel problems, scaffolded-AI students scored 23% higher than no-AI students. Unrestricted-AI students (who could use AI without explanation requirements) scored 8% lower than no-AI students.",
+            "Kestin and colleagues studied 194 eligible Harvard introductory-physics students in a randomized crossover trial of two lessons. Students received a purpose-built AI tutor for one lesson and in-class active learning for the other. Post-lesson quiz scores were higher with the AI tutor. This tests short-term mastery with a carefully prepared system, not long-term retention or independent essay writing.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
+            sourceReliability: 9,
             independence: 7,
             replicability: 6,
-            directness: 8,
+            directness: 7,
           },
-          source: "ACM SIGCSE 2024 Proceedings; Georgia Institute of Technology",
-          sourceUrl: "https://doi.org/10.1145/3626252.3630947",
+          source: "Kestin et al., Scientific Reports 15, 17458 (2025)",
+          sourceUrl: "https://doi.org/10.1038/s41598-025-97652-6",
           reasoning:
-            "This study provides a nuanced picture: AI use is harmful when unrestricted but beneficial when scaffolded with metacognitive requirements. The comparison of three conditions is methodologically strong. However, the study is limited to one institution, one subject, and one semester. The scaffolding adds significant instructor effort that may not scale.",
+            "A peer-reviewed randomized comparison supports structured AI instruction in this setting. Two lessons at one university cannot establish lasting gains or benefits across subjects and schools. Preparing the tutor also required instructor work.",
         },
         {
           id: "icai-cheating-survey-2024",
-          title: "56% of College Students Report Using AI Without Disclosure (2024)",
+          title: "Unguarded GPT Access Improved Practice but Reduced Unaided Exam Scores (2025)",
           description:
-            "The International Center for Academic Integrity's 2024 annual survey of 32,000 students across 60 US institutions found that 56% of college students had used generative AI tools on assignments in ways that were not permitted by their instructors. Among graduate students, the rate was 61%. Only 22% of institutions had updated their academic integrity policies to specifically address AI use. AI detection tools (GPTZero, Turnitin AI) produced false positive rates of 10-20%, and independent testing found they disproportionately flagged writing by non-native English speakers, raising equity concerns.",
+            "Bastani and colleagues studied nearly 1,000 mathematics students at one Turkish high school. A general GPT-4 interface improved assisted practice but reduced subsequent unaided exam performance by 17% relative to controls. A teacher-informed tutor that emphasized hints avoided the measured exam loss, without a statistically detectable gain over controls. The experiment measured short-term learning, not lasting damage or all uses of AI.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 7,
+            sourceReliability: 9,
+            independence: 8,
             replicability: 7,
-            directness: 7,
+            directness: 8,
           },
-          source: "International Center for Academic Integrity; Inside Higher Ed",
-          sourceUrl: "https://academicintegrity.org/resources/surveys",
+          source: "Bastani et al., PNAS 122 (26), e2422633122 (2025)",
+          sourceUrl: "https://doi.org/10.1073/pnas.2422633122",
           reasoning:
-            "The ICAI is the authoritative body on academic integrity. The survey's scale provides a robust snapshot. However, self-reported cheating rates may be influenced by social desirability bias or differing interpretations of what constitutes 'unpermitted' AI use. The rapid evolution of institutional policies means these numbers represent a transitional period rather than a stable equilibrium.",
+            "The preregistered primary outcome was an unaided exam, directly separating assisted performance from learning. One school and four sessions limit generalization. The guarded tutor's result also limits claims that AI inevitably harms learning.",
         },
       ],
     },
@@ -317,6 +318,18 @@ export const aiInEducationData = {
     },
   ],
   references: [
+    {
+      title: "AI tutoring outperforms in-class active learning: an RCT (Kestin et al., Scientific Reports, 2025)",
+      url: "https://doi.org/10.1038/s41598-025-97652-6",
+    },
+    {
+      title: "Generative AI without guardrails can harm learning: Evidence from high school mathematics (Bastani et al., PNAS, 2025)",
+      url: "https://doi.org/10.1073/pnas.2422633122",
+    },
+    {
+      title: "Your Brain on ChatGPT (Kosmyna et al., arXiv:2506.08872v2, 2025 preprint)",
+      url: "https://arxiv.org/abs/2506.08872v2",
+    },
     {
       title: "Effectiveness of Intelligent Tutoring Systems: A Meta-Analytic Review — Kulik & Fletcher, Review of Educational Research (2016)",
       url: "https://doi.org/10.3102/0034654315581420",

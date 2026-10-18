@@ -622,7 +622,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dartmouth prep briggs nacac derek sttf chetty deming gazette ibisworld overlooking princetonian sats technavio unintentionally"
+    "keywords": "dartmouth coaching prep briggs nacac derek sttf chetty deming gazette ibisworld overlooking princetonian sats technavio"
   },
   {
     "id": "electoral-college-reform",
@@ -1128,10 +1128,10 @@
     "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
     "confidence_score": 39,
     "balance": 39,
-    "weight": 64,
+    "weight": 65,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
@@ -1141,7 +1141,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "khanmigo moocs learners kulik mindspark scaffolded fletcher classroom jersey chatgpt curricula estudia ganimian kosmyna muralidharan"
+    "keywords": "khanmigo moocs learners kulik mindspark fletcher chatgpt classroom jersey unaided quiz bastani curricula estudia ganimian"
   },
   {
     "id": "ai-regulation",
@@ -1273,7 +1273,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine chatbots clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver chatgpt"
   },
   {
     "id": "privacy-vs-convenience",
@@ -2138,7 +2138,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace preregistered schurger vohs philpapers schooler bourget brass compatibilism damasio"
+    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace schurger vohs philpapers preregistered schooler bourget brass compatibilism damasio"
   },
   {
     "id": "simulation-hypothesis",
