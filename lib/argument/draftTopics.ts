@@ -119,7 +119,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       },
       shareCard: {
         left: { value: "4.2%", label: "U.S. unemployment, June 2026 — still far below a mass-unemployment threshold" },
-        right: { value: "−16%", label: "Relative employment change for ages 22–25 in the most AI-exposed occupations since late 2022" },
+        right: { value: "−16%", label: "Relative employment change for ages 22–25 in the most AI-exposed occupations, November 2025 study" },
         line: "Both numbers are true. The whole fight is the gap between them.",
         attribution: "BLS · Stanford Digital Economy Lab / ADP — argumend.org",
       },
@@ -127,7 +127,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         {
           fact: "−16%",
           context:
-            "Relative employment decline for 22–25-year-olds in the most AI-exposed jobs since late 2022 — while U-3 unemployment stayed near 4%.",
+            "The November 2025 Stanford/ADP study estimates a 16% employment decline relative to less-exposed peers. Its August 2026 update estimates 19%; neither estimate alone establishes AI causation.",
           source: "Stanford Digital Economy Lab / ADP payroll data",
         },
         {
@@ -150,10 +150,10 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         },
       ],
       closer: {
-        heading: "All four camps accept both numbers. They disagree about which one is the story.",
+        heading: "The same numbers can support different readings. Attribution is the live disagreement.",
         splits: [
           { camp: "Yes — it's already starting", reading: "the −16% employment decline is the leading edge; the 4.2% is a lagging average that will catch up." },
-          { camp: "No — we've panicked before", reading: "the 4.2% is the story; the −16% is a confounded slice, half of it predating ChatGPT." },
+          { camp: "No — we've panicked before", reading: "the 4.2% is the story; the relative employment decline has competing explanations. Separately, much of the tech job-postings decline predates ChatGPT." },
           { camp: "Not fewer jobs — worse ones", reading: "both are true and both miss it — the damage shows up in wages and career ladders, which neither number tracks." },
           { camp: "Wrong question — who decides?", reading: "neither number settles anything; deployment terms are set in contracts and law, not forecasts." },
         ],
@@ -173,9 +173,9 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         },
         "c-targeted-programs-can-help": {
           fight:
-            "America's flagship retraining program left participants earning less than workers who got nothing. Defenders say that indicts the design, not the idea — better-funded, employer-linked programs do show gains.",
+            "A matched comparison of Trade Adjustment Assistance participants found lower earnings than among otherwise similar workers ineligible for that program. Other evaluations find gains from intensive services and some employer-linked programs, but AI-specific results remain uncertain.",
           soWhat:
-            "If serious retraining works, displacement is a budget problem. If it doesn't, the main proposed remedy cannot carry the load.",
+            "Effective programs could reduce transition costs. Whether they work at the scale and pace of AI displacement depends on access, design, labor demand, and funding.",
         },
         "c-displaced-workers-can-retrain-costlessly": {
           fight:
