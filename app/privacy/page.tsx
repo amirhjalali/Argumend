@@ -107,8 +107,14 @@ export default function PrivacyPage() {
             <p>
               By default it runs entirely on our own server. It matches your text against
               Argumend&rsquo;s maps by the words they share, sends it to no AI model, and keeps
-              nothing: the text is discarded when the request ends, and no result is saved. The line
+              nothing on the server: the text is discarded when the request ends, and no result is saved. The line
               above the button says so.
+            </p>
+            <p>
+              In your browser, the current draft, result and conversation notes stay in this
+              tab&rsquo;s memory while you explore the site. Reloading, closing the tab or choosing
+              Paste another clears that working argument. It is not written to browser storage
+              or your browsing history.
             </p>
             <p>
               When the diagnosis is switched on by configuration, the text is also sent to an AI

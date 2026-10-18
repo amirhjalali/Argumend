@@ -79,10 +79,13 @@ Drafts over 20,000 characters remain intact in the input, including incoming
 handoffs. The reader must shorten them before submission; the app does not silently truncate them.
 When no map matches, the offline guide helps readers write their own mind-change
 conditions and common ground, with definitions and simple word cues in optional help.
-Those notes stay in page memory and can be copied
-for a conversation. Reanalyzing unchanged text preserves them; submitting different
+The current draft, result and notes stay in tab memory across site navigation,
+so returning from a map restores the working argument without another request.
+Reloading, closing the tab or choosing "Paste another" clears them. New home-page
+handoffs replace the working argument, and results are restored only under the same lane configuration.
+Notes can be copied for a conversation. Reanalyzing unchanged text preserves them; submitting different
 text or choosing "Paste another" clears them. Copying includes only the reader's notes, not the original
-paste or an AI diagnosis; neither the notes nor the reflection answer is sent or saved.
+paste or an AI diagnosis. Notes are not sent or written to browser storage or history.
 
 Database-backed sessions and debate persistence are enabled only when a
 non-empty `DATABASE_URL` is explicitly configured. Without it, authentication

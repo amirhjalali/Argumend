@@ -32,7 +32,7 @@ import type { DisagreementReportV1 } from "@/types/disagreement";
 import { HowThisWasRead, ReadingNote } from "./HowThisWasRead";
 import { MapMatch, MapNoMatch } from "./MapResult";
 import { NextStep } from "./NextStep";
-import { EMPTY_CONVERSATION_NOTES } from "./ReadItYourself";
+import { EMPTY_CONVERSATION_NOTES, type ConversationNotes } from "./ReadItYourself";
 
 /**
  * The one paste flow at /analyze.
@@ -70,6 +70,29 @@ type DiagnosisState =
       publishing?: { token?: string; unavailableReason?: string };
     }
   | { status: "failed"; message: string };
+
+interface WorkingPaste {
+  configuration: string;
+  content: string;
+  contentType: PasteContentType;
+  phase: Phase;
+  error: string;
+  maps: PasteMapsResult | null;
+  mapsError: string;
+  diagnosis: DiagnosisState;
+  inputOpen: boolean;
+  submitted: string;
+  notes: ConversationNotes;
+  notesForText: string;
+}
+
+// One working argument in this document's memory, never browser storage or
+// history state. Client effects are the only writers, so SSR holds no text.
+let workingPaste: WorkingPaste | null = null;
+
+export function clearWorkingPaste() {
+  workingPaste = null;
+}
 
 function toContentType(value: unknown): PasteContentType {
   if (value === "conversation" || value === "article" || value === "freeform") return value;
@@ -200,10 +223,43 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const [submitted, setSubmitted] = useState("");
   const [conversationNotes, setConversationNotes] = useState(EMPTY_CONVERSATION_NOTES);
   const notesForText = useRef("");
+  const configuration = JSON.stringify(lanes);
+  const previousConfiguration = useRef(configuration);
+  const [readyFor, setReadyFor] = useState<string | null>(null);
 
   const runRef = useRef(0);
   const resultsRef = useRef<HTMLElement>(null);
   const textareaWrapRef = useRef<HTMLDivElement>(null);
+
+  const resetForm = useCallback((type: PasteContentType = "conversation") => {
+    setContent("");
+    setContentType(type);
+    setPhase("idle");
+    setError("");
+    setMaps(null);
+    setMapsError("");
+    setDiagnosis({ status: "off" });
+    setInputOpen(true);
+    setSubmitted("");
+    setConversationNotes(EMPTY_CONVERSATION_NOTES);
+    notesForText.current = "";
+  }, []);
+
+  const restoreWorkingPaste = useCallback((saved: WorkingPaste) => {
+    setContent(saved.content);
+    setContentType(saved.contentType);
+    setPhase(saved.phase === "loading" ? "idle" : saved.phase);
+    setError(saved.error);
+    setMaps(saved.maps);
+    setMapsError(saved.mapsError);
+    setDiagnosis(saved.diagnosis.status === "loading"
+      ? { status: "failed", message: "The reading was interrupted when you left. Submit again to retry it." }
+      : saved.diagnosis);
+    setInputOpen(saved.phase === "loading" || saved.inputOpen);
+    setSubmitted(saved.submitted);
+    setConversationNotes(saved.notes);
+    notesForText.current = saved.notesForText;
+  }, []);
 
   const trimmedLength = content.trim().length;
   const tooShort = trimmedLength < minChars;
@@ -270,16 +326,29 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   // here. Read it in a microtask, and remove it only once it is used, so
   // Strict Mode's double effect cannot drop it.
   useEffect(() => {
+    runRef.current += 1;
     let cancelled = false;
     let raw: string | null = null;
     try {
       raw = sessionStorage.getItem(PASTE_PREFILL_KEY);
     } catch {
-      return;
+      // Returning to the working argument does not require browser storage.
     }
-    if (!raw) return;
+    const saved = workingPaste;
     queueMicrotask(() => {
       if (cancelled) return;
+      const changed = previousConfiguration.current !== configuration;
+      previousConfiguration.current = configuration;
+      setReadyFor(configuration);
+      if (!raw) {
+        if (saved?.configuration === configuration) restoreWorkingPaste(saved);
+        else {
+          clearWorkingPaste();
+          if (changed) resetForm();
+        }
+        return;
+      }
+      clearWorkingPaste();
       try {
         sessionStorage.removeItem(PASTE_PREFILL_KEY);
       } catch {
@@ -316,7 +385,19 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
     return () => {
       cancelled = true;
     };
-  }, [autoSubmitAllowed, minChars, submit]);
+  }, [autoSubmitAllowed, configuration, minChars, resetForm, restoreWorkingPaste, submit]);
+
+  useEffect(() => {
+    if (readyFor !== configuration) return;
+    workingPaste = {
+      configuration, content, contentType, phase, error, maps, mapsError,
+      diagnosis, inputOpen, submitted, notes: conversationNotes,
+      notesForText: notesForText.current,
+    };
+  }, [configuration, readyFor, content, contentType, phase, error, maps, mapsError,
+    diagnosis, inputOpen, submitted, conversationNotes]);
+
+  useEffect(() => () => { runRef.current += 1; }, []);
 
   useEffect(() => {
     if (diagnosis.status !== "loading") return;
@@ -343,15 +424,9 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   }, [phase]);
 
   function startOver() {
-    setConversationNotes(EMPTY_CONVERSATION_NOTES);
-    notesForText.current = "";
+    clearWorkingPaste();
     runRef.current += 1;
-    setPhase("idle");
-    setMaps(null);
-    setMapsError("");
-    setDiagnosis({ status: "off" });
-    setContent("");
-    setInputOpen(true);
+    resetForm(contentType);
     trackEvent({ action: "disagreement_analyze_another", surface: "session" });
     window.setTimeout(() => {
       textareaWrapRef.current?.querySelector("textarea")?.focus();
@@ -442,6 +517,10 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
           {/* The disclosure sits at the click, and names the lane that will run. */}
           <AiConsentLine id={CONSENT_ID} consent={consent} className="max-w-[36rem]" />
+          <p className="max-w-[36rem] text-xs leading-relaxed text-muted dark:text-stone-400">
+            Your current draft and notes stay in this tab while you explore maps.
+            Reload or choose Paste another to clear them.
+          </p>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             <Button

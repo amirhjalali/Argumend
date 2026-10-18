@@ -14,7 +14,7 @@ import type { PasteLanes, PasteMapsResult } from "@/lib/paste/types";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
-import { PasteClient } from "./PasteClient";
+import { clearWorkingPaste, PasteClient } from "./PasteClient";
 
 const OFFLINE: PasteLanes = { maps: true, diagnosis: { enabled: false } };
 const HOSTED: PasteLanes = {
@@ -28,6 +28,9 @@ const FIXTURES: PasteLanes = {
 
 let matched: PasteMapsResult;
 let unmatched: PasteMapsResult;
+
+beforeEach(clearWorkingPaste);
+afterEach(() => vi.restoreAllMocks());
 
 function jsonResponse(body: unknown, ok = true) {
   return Promise.resolve({ ok, json: async () => body } as Response);
@@ -289,6 +292,73 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(sessionStorage.length).toBe(0);
   });
 
+  it("restores the draft, result and notes on returning, without a request or durable browser writes", async () => {
+    const fetchMock = stubFetch({ "/api/analyze": () => jsonResponse({ maps: unmatched }) });
+    const storageWrite = vi.spyOn(window.sessionStorage, "setItem");
+    const localWrite = vi.spyOn(window.localStorage, "setItem");
+    const historyWrite = vi.spyOn(window.history, "replaceState");
+    const first = render(<PasteClient lanes={OFFLINE} />);
+    fireEvent.change(first.getByLabelText("The argument to read"), { target: { value: "Our argument about pineapple on pizza should stay private." } });
+    fireEvent.click(first.getByRole("button", { name: "Find what it turns on" }));
+    await waitFor(() => first.getByRole("heading", { name: "No map, rather than the wrong map" }));
+    fireEvent.change(first.getByLabelText("You would think again if…"), { target: { value: "we tried it together" } });
+    first.unmount();
+    const returned = render(<StrictMode><PasteClient lanes={OFFLINE} /></StrictMode>);
+    await waitFor(() => expect((returned.getByLabelText("You would think again if…") as HTMLInputElement).value).toBe("we tried it together"));
+    fireEvent.click(returned.getByRole("button", { name: "Edit" }));
+    expect((returned.getByLabelText("The argument to read") as HTMLTextAreaElement).value).toBe("Our argument about pineapple on pizza should stay private.");
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(storageWrite).not.toHaveBeenCalled();
+    expect(localWrite).not.toHaveBeenCalled();
+    expect(historyWrite).not.toHaveBeenCalled();
+  });
+
+  it("lets a new home handoff replace the working argument and clears it with Paste another", async () => {
+    const fetchMock = stubFetch({ "/api/analyze": () => jsonResponse({ maps: matched }) });
+    const first = render(<PasteClient lanes={OFFLINE} />);
+    fireEvent.change(first.getByLabelText("The argument to read"), { target: { value: "An earlier unsent draft that must be replaced." } });
+    first.unmount();
+    sessionStorage.setItem(PASTE_PREFILL_KEY, JSON.stringify({ content: DISAGREEMENT_EXAMPLE_SOURCE, contentType: "article" }));
+    const next = render(<PasteClient lanes={OFFLINE} />);
+    await waitFor(() => next.getByRole("heading", { name: "This argument is already mapped" }));
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(sessionStorage.getItem(PASTE_PREFILL_KEY)).toBeNull();
+    fireEvent.click(next.getByRole("button", { name: "Paste another" }));
+    next.unmount();
+    const blank = render(<PasteClient lanes={OFFLINE} />);
+    expect((blank.getByLabelText("The argument to read") as HTMLTextAreaElement).value).toBe("");
+    expect(blank.queryByRole("region", { name: "Result" })).toBeNull();
+  });
+
+  it("restores an interrupted input without restarting its request, and ignores a late response", async () => {
+    let finish!: (response: Response) => void;
+    const fetchMock = stubFetch({ "/api/analyze": () => new Promise<Response>((resolve) => { finish = resolve; }) });
+    const first = render(<PasteClient lanes={OFFLINE} />);
+    fireEvent.click(first.getByRole("button", { name: "See an example" }));
+    fireEvent.click(first.getByRole("button", { name: "Find what it turns on" }));
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    first.unmount();
+    const returned = render(<PasteClient lanes={OFFLINE} />);
+    await waitFor(() => expect((returned.getByLabelText("The argument to read") as HTMLTextAreaElement).value).toBe(DISAGREEMENT_EXAMPLE_SOURCE));
+    expect((returned.getByRole("button", { name: "Find what it turns on" }) as HTMLButtonElement).disabled).toBe(false);
+    await act(async () => finish(await jsonResponse({ maps: matched })));
+    expect(returned.queryByRole("region", { name: "Result" })).toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("drops the working argument when its lane configuration changes and ignores its late result", async () => {
+    let finish!: (response: Response) => void;
+    const fetchMock = stubFetch({ "/api/analyze": () => new Promise<Response>((resolve) => { finish = resolve; }) });
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+    view.rerender(<PasteClient lanes={HOSTED} />);
+    await waitFor(() => expect((view.getByLabelText("The argument to read") as HTMLTextAreaElement).value).toBe(""));
+    await act(async () => finish(await jsonResponse({ maps: matched })));
+    expect(view.queryByRole("region", { name: "Result" })).toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
   it("submits the home page's paste on arrival, once, under Strict Mode", async () => {
     const fetchMock = stubFetch({ "/api/analyze": () => jsonResponse({ maps: matched }) });
     sessionStorage.setItem(
@@ -410,6 +480,22 @@ describe("PasteClient with the diagnosis lane on", () => {
     await waitFor(() => view.getByText(/The full reading did not run this time/));
     expect(view.getByRole("heading", { name: "This argument is already mapped" })).toBeTruthy();
     expect(view.queryByRole("alert")).toBeNull();
+  });
+
+  it("returns with the ready map when a diagnosis was interrupted, without restarting that lane", async () => {
+    const fetchMock = stubFetch({
+      "/api/analyze": () => jsonResponse({ maps: matched }),
+      "/api/disagreements/analyze": () => new Promise<Response>(() => {}),
+    });
+    const first = render(<PasteClient lanes={FIXTURES} />);
+    fireEvent.click(first.getByRole("button", { name: "See an example" }));
+    fireEvent.click(first.getByRole("button", { name: "Find what it turns on" }));
+    await waitFor(() => first.getByRole("heading", { name: "This argument is already mapped" }));
+    first.unmount();
+    const returned = render(<PasteClient lanes={FIXTURES} />);
+    await waitFor(() => returned.getByRole("heading", { name: "This argument is already mapped" }));
+    expect(returned.getByText(/The reading was interrupted when you left/)).toBeTruthy();
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it("keeps the map usable when a successful diagnosis response has an invalid graph", async () => {

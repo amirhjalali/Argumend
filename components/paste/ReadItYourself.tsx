@@ -179,7 +179,8 @@ export function ReadItYourself({
         Use three questions to write a starting point for your next conversation.
       </p>
       <p id={noteId} className="mt-3 font-sans text-sm text-[var(--text-muted)]">
-        Your notes are not sent or saved. Copy them before leaving this page.
+        Your notes stay in this tab while you explore maps. Copy them before
+        reloading or choosing Paste another.
       </p>
 
       <ol className="mt-6 space-y-8">

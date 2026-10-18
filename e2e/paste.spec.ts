@@ -74,6 +74,13 @@ test("an unmapped personal argument becomes conversation notes without another r
   await expect(notes.getByRole("button", { name: "Copy your notes" })).toBeVisible();
   await notes.getByRole("button", { name: "A little" }).click();
   await expect(notes.getByRole("button", { name: "A little" })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("region", { name: "Result" }).getByRole("link", { name: "Browse all maps", exact: true }).click();
+  await expect(page).toHaveURL(/\/topics$/);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/analyze$/);
+  await expect(page.getByLabel("You would think again if…")).toHaveValue("we kept an emergency fund");
+  await expect(page.getByLabel("They would think again if…")).toHaveValue("we planned time together");
+  await expect(page.getByLabel("We both agree that…")).toHaveValue("we want to enjoy life without worrying about money");
   await page.getByLabel("We both agree that…").fill(`we should check https://example.org/${"evidence".repeat(80)}`);
   await expect(notes).toContainText("https://example.org/");
   expect(await notes.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
@@ -118,6 +125,7 @@ test("the example opens its crux and continues there by keyboard, without leavin
 
   const input = page.getByRole("textbox", { name: "The argument to read" });
   await expect(input).not.toHaveValue("");
+  const original = await input.inputValue();
 
   await page.getByRole("button", { name: "Find what it turns on" }).click();
 
@@ -176,7 +184,15 @@ test("the example opens its crux and continues there by keyboard, without leavin
   await expect(summary).toBeFocused();
   await expect(summary).toBeInViewport();
 
-  expect(apiCalls).toContain("POST /api/analyze");
+  await page.goBack();
+  await expect(page).toHaveURL(/\/analyze$/);
+  await expect(result).toBeVisible();
+  await page.getByRole("button", { name: "Edit", exact: true }).click();
+  await expect(input).toHaveValue(original);
+  await page.reload();
+  await expect(input).toHaveValue("");
+  await expect(result).toHaveCount(0);
+  expect(apiCalls.filter((call) => call === "POST /api/analyze")).toHaveLength(1);
   expect(externalRequests).toEqual([]);
 });
 
