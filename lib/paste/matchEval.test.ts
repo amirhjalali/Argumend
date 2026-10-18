@@ -48,7 +48,8 @@ const FLOORS = {
  * higher floor, coverage or lead) cost as many real pastes their right map
  * (Germany's nuclear exit, the moon-landing flag, arms to Israel).
  */
-const CLOSEST_FOR_NEGATIVES = 3;
+// AI-specific subject checks reduced the combined dev and holdout count to two.
+const CLOSEST_FOR_NEGATIVES = 2;
 
 const SETS = [dev, holdout] as PasteEvalSet[];
 const CASES: PasteEvalCase[] = SETS.flatMap((set) => set.cases);

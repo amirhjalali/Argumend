@@ -35,7 +35,7 @@ describe("the fixed subject-boundary challenge", () => {
     expect(summary.top3, detail).toBeGreaterThanOrEqual(0.9);
     expect(summary.wrong, detail).toBe(0);
     expect(summary.falsePositives, detail).toBe(0);
-    expect(summary.negativesOffered, detail).toBeLessThanOrEqual(8);
+    expect(summary.negativesOffered, detail).toBeLessThanOrEqual(6);
     expect(fetch).not.toHaveBeenCalled();
   });
 
@@ -45,6 +45,7 @@ describe("the fixed subject-boundary challenge", () => {
     "challenge-neg-pets-rental",
     "challenge-neg-garage-allocation",
     "challenge-neg-diamond-proposal",
+    "challenge-neg-remote-inheritance",
   ])("offers no map for %s", (id) => {
     const row = rows.find((candidate) => candidate.id === id);
     expect(row?.named).toBeNull();

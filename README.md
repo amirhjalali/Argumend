@@ -66,6 +66,8 @@ closest maps only when their overlap is strong enough to be useful. A matched
 result links to the relevant crux on the reading page. Matching uses local
 word overlap and a few calibrated subject checks, not semantic understanding;
 unfamiliar subjects can still receive a closest-map list.
+AI-education and AI-employment maps require AI or automation subject language;
+ordinary online lessons and family disputes mentioning work do not qualify by themselves.
 Matched results offer an optional preview before copying questions to explore together,
 with the map link and conditions that could change each side's mind.
 Drafts over 20,000 characters remain intact in the input, including incoming

@@ -87,6 +87,7 @@ async function flagshipDocument(entry: (typeof argumentTopicIndex)[number]): Pro
     title: meta.title,
     claim: graph.question.statement,
     kind: "flagship",
+    ...(MAP_SUBJECT_ANCHORS[entry.id] ? { subjectAnchors: MAP_SUBJECT_ANCHORS[entry.id] } : {}),
     fields: {
       name: present([meta.title, graph.question.statement, entry.id.replace(/-/g, " "), ...entry.aliases]),
       claim: present([

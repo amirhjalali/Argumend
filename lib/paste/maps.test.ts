@@ -320,6 +320,33 @@ describe("findMaps", () => {
     expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
   });
 
+  it("offers no AI-education map for a choice between human and online piano lessons", async () => {
+    const result = await findMaps("My parents want us to send our child to a private piano teacher. I prefer an online course because it is cheaper and easier to fit around school.");
+    expect(result.match).toBeNull();
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    "Schools should use AI tutors to close achievement gaps. Critics worry students will rely on generated answers instead of learning to think.",
+    "ChatGPT can give each student individual feedback, but teachers worry that it makes cheating and cognitive offloading too easy.",
+    "Should schools use large language models for tutoring and feedback? Some say every child could get a personal tutor. Others worry they undermine independent thinking and academic integrity.",
+    "Khanmigo could give students individual tutoring and help disadvantaged children catch up. Critics worry it gives away answers and undermines learning.",
+  ])("keeps actual AI-education disagreements on their map: %s", async (text) => {
+    expect((await findMaps(text)).match?.id).toBe("ai-in-education");
+  });
+
+  it.each([
+    "Will automation and chatbots take office jobs faster than workers can retrain? Some people expect mass unemployment, while others expect new kinds of work.",
+    "Could large language models cause mass unemployment by automating office jobs? Some expect falling demand for junior workers. Others expect higher productivity to create new jobs and expand output.",
+  ])("keeps AI-employment arguments on their map: %s", async (text) => {
+    expect((await findMaps(text)).match?.id).toBe("ai-mass-unemployment");
+  });
+
+  it("still offers the AI-employment map for a broader hiring question about language models", async () => {
+    const result = await findMaps("Could large language models reduce hiring for junior office workers? The dispute is whether productivity leads firms to hire fewer people or expand output.");
+    expect([result.match?.id, ...result.closest.map((map) => map.id)]).toContain("ai-mass-unemployment");
+  });
+
   it("offers no closest maps for a family argument no map covers", async () => {
     const result = await findMaps(ASSISTED_LIVING_PASTE);
     expect(result.status).toBe("none");

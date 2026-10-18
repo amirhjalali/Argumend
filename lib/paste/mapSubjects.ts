@@ -15,6 +15,18 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
   // General school-policy vocabulary also occurs in uniform and funding disputes.
   "school-phone-bans": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
   "children-smartphone-age": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
+  // Online classes and human tutoring do not, by themselves, make AI the subject.
+  "ai-in-education": [
+    ["ai"], ["artificial", "intelligence"], ["chatgpt"], ["chatbot"],
+    ["language", "model"], ["gpt"], ["gpt4"], ["khanmigo"],
+    ["intelligent", "tutor"], ["automated", "tutor"],
+  ],
+  // Work and earnings can be context in a private family dispute, not AI displacement.
+  "ai-mass-unemployment": [
+    ["ai"], ["artificial", "intelligence"], ["automation"], ["automate"],
+    ["chatgpt"], ["chatbot"], ["language", "model"], ["gpt"],
+    ["openai"], ["anthropic"], ["copilot"], ["robot"],
+  ],
   // Abortion language alone is not artificial-reproduction technology,
   // even when the writer never uses the literal word "abortion".
   "artificial-reproduction-ethics": [
