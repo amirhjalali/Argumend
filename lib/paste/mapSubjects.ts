@@ -165,13 +165,16 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
     ["rent", "froze"], ["rent", "frozen"], ["rent", "regulation"],
   ],
   // Choosing a larger engagement stone or arguing resale value is not the
-  // map's labor, environmental-harm and producer-livelihood question.
+  // map's ethical question. Conversely, a war over water is not about gems.
   "lab-diamonds-ethics": [
+    ["diamond"], ["gemstone"], ["lab", "stone"],
+    ["synthetic", "stone"], ["factory", "stone"],
+  ].flatMap((gem) => [
     ["ethical"], ["environment"], ["carbon"], ["footprint"], ["labor"],
     ["exploitation"], ["worker"], ["war"], ["conflict"], ["blood"],
     ["sustainable"], ["pollution"], ["Botswana"], ["livelihood"],
     ["mining", "damage"],
-  ],
+  ].map((concern) => [...gem, ...concern])),
 };
 
 /** Same tokenization as the scorer: inflections and abbreviations agree. */

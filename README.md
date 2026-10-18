@@ -76,6 +76,8 @@ Water scarcity, seed oils, vegan diets and AI diagnosis require their respective
 subject cues; generic health benefits, inflammation or supplements do not qualify.
 Voting dates and holidays do not qualify as a shorter working week, Electoral
 College reform or social-media election influence without those subject cues.
+Diamond ethics requires both a diamond subject cue and an ethical, environmental
+or livelihood concern; conflict over water does not qualify through conflict alone.
 Congestion-pricing matches also recognize downtown driving charges and city-center
 entry fees; driver wording alone does not qualify unrelated fares or fees.
 Health and college-policy maps also require their own subject language, so
