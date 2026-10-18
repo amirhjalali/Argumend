@@ -53,6 +53,18 @@ export function NextStep({
 
   return (
     <section aria-label="Next step" className="space-y-6 border-t border-[var(--border-divider)] pt-8">
+      {summary && kind === "summary" ? (
+        <details className="max-w-[40rem]">
+          <summary className="min-h-11 cursor-pointer py-2.5 font-sans text-sm text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#8bb5b1]">
+            Preview summary
+          </summary>
+          <section aria-label="Summary preview" className="mt-3 border-l-2 border-[var(--border-default)] pl-4">
+            <p className="whitespace-pre-wrap break-words font-serif text-base leading-relaxed text-[var(--text-secondary)]">
+              {summary}
+            </p>
+          </section>
+        </details>
+      ) : null}
       <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
         {summary ? (
           <TextAction onClick={copy} className="gap-2">

@@ -103,6 +103,15 @@ test("the example opens its crux and continues there by keyboard, without leavin
   const result = page.getByRole("region", { name: "Result" });
   await expect(result).toBeVisible({ timeout: 15_000 });
 
+  const previewToggle = result.getByText("Preview summary", { exact: true });
+  await previewToggle.click();
+  const preview = result.getByRole("region", { name: "Summary preview" });
+  await expect(preview).toBeVisible();
+  await expect(preview).toContainText("Questions to explore together");
+  await expect(preview).toContainText("What would make each of us think again?");
+  await previewToggle.click();
+  await expect(preview).not.toBeVisible();
+
   const cruxLink = result.getByRole("link", { name: /^Open the map/ });
   await expect(cruxLink).toBeVisible();
   const href = await cruxLink.getAttribute("href");

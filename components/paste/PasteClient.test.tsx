@@ -1,5 +1,5 @@
 import "@/test/setup-dom";
-import { act, cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, waitFor, within } from "@testing-library/react";
 import { StrictMode } from "react";
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { analyzeDisagreement } from "@/lib/disagreement/analyze";
@@ -160,8 +160,8 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(cruxHeading.compareDocumentPosition(cta) & 4).toBe(4);
     expect(cta.compareDocumentPosition(cardsHeading) & 4).toBe(4);
     // The sibling is named once, under the map's claim, on the first screen.
-    const visible = view.getAllByText(/Closely related/).filter((el) => !el.closest(".sr-only"));
-    expect(visible).toHaveLength(1);
+    const mapBlock = within(view.getByRole("region", { name: "This argument is already mapped" }));
+    expect(mapBlock.getAllByText(/Closely related/)).toHaveLength(1);
     const links = view.getAllByRole("link", { name: /^The Case for Open Borders/ });
     expect(links).toHaveLength(1);
     expect(links[0].getAttribute("href")).toBe("/topics/open-borders");

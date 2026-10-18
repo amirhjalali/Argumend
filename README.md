@@ -66,8 +66,8 @@ closest maps only when their overlap is strong enough to be useful. A matched
 result links to the relevant crux on the reading page. Matching uses local
 word overlap and a few calibrated subject checks, not semantic understanding;
 unfamiliar subjects can still receive a closest-map list.
-Matched results can be copied as questions to explore together, with the map link
-and conditions that could change each side's mind.
+Matched results offer an optional preview before copying questions to explore together,
+with the map link and conditions that could change each side's mind.
 Drafts over 20,000 characters remain intact in the input, including incoming
 handoffs. The reader must shorten them before submission; the app does not silently truncate them.
 When no map matches, the offline guide helps readers write their own mind-change
