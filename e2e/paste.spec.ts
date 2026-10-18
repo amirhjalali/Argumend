@@ -1,5 +1,28 @@
 import { expect, test, waitForHydration } from "./fixtures";
 
+test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
+  const apiCalls: string[] = [];
+  page.on("request", (request) => {
+    const path = new URL(request.url()).pathname;
+    if (path.startsWith("/api/")) apiCalls.push(`${request.method()} ${path}`);
+  });
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("My partner wants us to spend our savings on a holiday. I want to keep the money for emergencies. They say we never do anything fun, and I say we cannot afford to take the risk.");
+  await page.getByRole("button", { name: "Find what it turns on" }).click();
+  await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+  await page.getByLabel("You would think again if…").fill("we kept an emergency fund");
+  await page.getByLabel("They would think again if…").fill("we planned time together");
+  await page.getByLabel("We both agree that…").fill("we want to enjoy life without worrying about money");
+  const notes = page.getByRole("region", { name: "Your conversation notes" });
+  await expect(notes).toContainText("You might think again if: we planned time together");
+  await expect(notes.getByRole("button", { name: "Copy your notes" })).toBeVisible();
+  await notes.getByRole("button", { name: "A little" }).click();
+  await expect(notes.getByRole("button", { name: "A little" })).toHaveAttribute("aria-pressed", "true");
+  expect(apiCalls).toEqual(["POST /api/analyze"]);
+});
+
 /**
  * The paste flow at /analyze, offline: the built-in example goes to the
  * server's own map lane (/api/analyze) and comes back as a map and its crux.

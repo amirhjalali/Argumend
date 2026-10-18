@@ -25,13 +25,13 @@ beforeAll(async () => {
 
 afterAll(() => vi.unstubAllGlobals());
 
-describe("the independent subject-boundary challenge", () => {
+describe("the fixed subject-boundary challenge", () => {
   it("retains positive recall while reducing uncovered answers and closest lists", () => {
     const summary = summarize(rows);
     const detail = formatSummary(set.set, summary);
-    // Baseline: 13/20 named, 18/20 shown, 4/21 uncovered pastes named,
-    // and 13/21 uncovered pastes offered at least one map (34 cards total).
-    expect(summary.correct, detail).toBeGreaterThanOrEqual(13);
+    // Recorded origin/main baseline on 2026-10-18: 14/20 named, 18/20 shown,
+    // 3/21 uncovered pastes named, and 12/21 offered at least one map.
+    expect(summary.correct, detail).toBeGreaterThanOrEqual(14);
     expect(summary.top3, detail).toBeGreaterThanOrEqual(0.9);
     expect(summary.wrong, detail).toBe(0);
     expect(summary.falsePositives, detail).toBe(0);

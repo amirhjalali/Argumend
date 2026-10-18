@@ -6,11 +6,13 @@ import { CHANGED_CHOICES, CHANGED_QUESTION } from "@/lib/changedQuestion";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { findMaps } from "@/lib/paste/maps";
 import type { PasteMapsResult } from "@/lib/paste/types";
+import * as clipboard from "@/lib/copyToClipboard";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
 import { MapMatch } from "./MapResult";
 import { NextStep } from "./NextStep";
+import { ReadItYourself } from "./ReadItYourself";
 
 /**
  * The paste result on a phone (r3 review #11): the crux's action right under
@@ -47,6 +49,51 @@ afterAll(() => {
 afterEach(() => {
   cleanup();
   window.localStorage.clear();
+  vi.restoreAllMocks();
+});
+
+describe("conversation notes for an argument without a map", () => {
+  it("copies only the reader's notes and keeps the other person's view tentative", async () => {
+    const copy = vi.spyOn(clipboard, "copyTextToClipboard").mockResolvedValue();
+    const view = render(<ReadItYourself text="Private original paste that must not be copied." diagnosisOn={false} />);
+    expect(view.queryByRole("button", { name: "Copy your notes" })).toBeNull();
+    fireEvent.change(view.getByLabelText("You would think again if…"), {
+      target: { value: "  we still had six months of savings  " },
+    });
+    fireEvent.change(view.getByLabelText("They would think again if…"), {
+      target: { value: "we planned another break together" },
+    });
+    fireEvent.change(view.getByLabelText("We both agree that…"), {
+      target: { value: "we need both security and time together" },
+    });
+    const notes = view.getByRole("region", { name: "Your conversation notes" });
+    expect(notes.textContent).toContain("These are your words");
+    await act(async () => fireEvent.click(view.getByRole("button", { name: "Copy your notes" })));
+    expect(copy).toHaveBeenCalledExactlyOnceWith([
+      "My notes for our conversation",
+      "I would think again if: we still had six months of savings",
+      "You might think again if: we planned another break together",
+      "I think we both agree that: we need both security and time together",
+    ].join("\n\n"));
+    expect(view.getByRole("button", { name: "Copied" })).toBeTruthy();
+    fireEvent.change(view.getByLabelText("You would think again if…"), {
+      target: { value: "we had a smaller trip" },
+    });
+    expect(view.getByRole("button", { name: "Copy your notes" })).toBeTruthy();
+  });
+
+  it("offers selectable notes if copying fails and removes empty notes", async () => {
+    vi.spyOn(clipboard, "copyTextToClipboard").mockRejectedValue(new Error("Clipboard blocked"));
+    const view = render(<ReadItYourself text="Original argument" diagnosisOn={false} />);
+    const agreement = view.getByLabelText("We both agree that…");
+    fireEvent.change(agreement, { target: { value: "time together matters" } });
+    await act(async () => fireEvent.click(view.getByRole("button", { name: "Copy your notes" })));
+    const fallback = view.getByRole("textbox", { name: "Notes to copy" }) as HTMLTextAreaElement;
+    expect(fallback.readOnly).toBe(true);
+    expect(fallback.value).toBe("My notes for our conversation\n\nI think we both agree that: time together matters");
+    fireEvent.change(agreement, { target: { value: "   " } });
+    expect(view.queryByRole("region", { name: "Your conversation notes" })).toBeNull();
+  });
 });
 
 describe("the map block on a phone", () => {

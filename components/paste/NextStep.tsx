@@ -23,17 +23,20 @@ import type { ChangedAnswer } from "@/lib/changedQuestion";
  */
 export function NextStep({
   summary,
+  kind = "summary",
 }: {
   /** Absent when there is nothing worth copying. */
   summary?: string;
+  kind?: "summary" | "notes";
 }) {
-  const [copied, setCopied] = useState(false);
+  const [copiedSummary, setCopiedSummary] = useState<string | null>(null);
+  const copied = Boolean(summary && copiedSummary === summary);
   const [copyFailed, setCopyFailed] = useState(false);
   const [answer, setAnswer] = useState<ChangedAnswer | null>(null);
 
   useEffect(() => {
     if (!copied) return;
-    const timer = window.setTimeout(() => setCopied(false), 2000);
+    const timer = window.setTimeout(() => setCopiedSummary(null), 2000);
     return () => window.clearTimeout(timer);
   }, [copied]);
 
@@ -42,7 +45,7 @@ export function NextStep({
     setCopyFailed(false);
     try {
       await copyTextToClipboard(summary);
-      setCopied(true);
+      setCopiedSummary(summary);
     } catch {
       setCopyFailed(true);
     }
@@ -58,21 +61,21 @@ export function NextStep({
             ) : (
               <Copy aria-hidden="true" className="h-4 w-4" />
             )}
-            {copied ? "Copied" : "Copy a summary"}
+            {copied ? "Copied" : kind === "notes" ? "Copy your notes" : "Copy a summary"}
           </TextAction>
         ) : null}
       </div>
       <p aria-live="polite" className="sr-only">
-        {copied ? "Summary copied to the clipboard" : ""}
+        {copied ? `${kind === "notes" ? "Notes" : "Summary"} copied to the clipboard` : ""}
       </p>
       {copyFailed && summary ? (
         <div className="space-y-2">
           <p className="font-sans text-sm text-error-text" role="status">
-            The clipboard was not available. Here is the summary to copy by hand.
+            The clipboard was not available. Here {kind === "notes" ? "are your notes" : "is the summary"} to copy by hand.
           </p>
           <textarea
             readOnly
-            aria-label="Summary to copy"
+            aria-label={kind === "notes" ? "Notes to copy" : "Summary to copy"}
             value={summary}
             rows={6}
             onFocus={(event) => event.currentTarget.select()}

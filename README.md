@@ -65,6 +65,10 @@ closest maps only when their overlap is strong enough to be useful. A matched
 result links to the relevant crux on the reading page. Matching uses local
 word overlap and a few calibrated subject checks, not semantic understanding;
 unfamiliar subjects can still receive a closest-map list.
+When no map matches, the offline guide helps readers write their own mind-change
+conditions and common ground. Those notes stay in page memory and can be copied
+for a conversation. Copying includes only the reader's notes, not the original
+paste or an AI diagnosis; neither the notes nor the reflection answer is sent or saved.
 
 Database-backed sessions and debate persistence are enabled only when a
 non-empty `DATABASE_URL` is explicitly configured. Without it, authentication
