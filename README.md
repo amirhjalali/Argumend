@@ -102,8 +102,10 @@ On a map, choosing a reflection question also offers a preview and a copyable
 conversation starter with a link directly to that crux and its evidence. The starter
 includes the chosen question, not the reader's reflection answer or a verdict.
 Related-map links require meaningful text overlap, or supporting overlap with a
-shared subject tag. Broad categories do not fill empty slots: a page may show fewer
-than three neighbours and always offers Browse all maps.
+shared subject tag. Without a shared subject tag, configured subject checks must
+hold in both directions, so generic language about costs or adaptation cannot
+connect water scarcity to birth rates. Broad categories do not fill empty slots:
+a page may show fewer than three neighbours and always offers Browse all maps.
 Drafts over 20,000 characters remain intact in the input, including incoming
 handoffs. The reader must shorten them before submission; the app does not silently truncate them.
 When no map matches, the offline guide helps readers write their own mind-change

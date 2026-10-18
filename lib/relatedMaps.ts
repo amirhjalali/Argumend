@@ -11,6 +11,8 @@
  * admit a weaker text match, but broad category tags cannot. For example,
  * "transport" and "transportation" connect road pricing and self-driving
  * cars; merely filing two maps under "policy" does not connect them.
+ * Without a shared subject tag, configured subject checks must hold in both
+ * directions. Generic overlap cannot connect water scarcity to birth rates.
  *
  * Lists can be shorter than three, including empty. The reading page still
  * offers Browse all maps, without presenting unrelated maps as neighbours.
@@ -19,8 +21,9 @@
  * list on every build, ties broken by id, and a map never relates to itself.
  */
 import { topicSummaries } from "@/data/topicIndex";
-import { mapSimilarity, type MapIndex } from "@/lib/paste/mapIndex";
+import { mapSimilarity, type MapDocument, type MapIndex } from "@/lib/paste/mapIndex";
 import { getMapIndex, MAP_MATCH } from "@/lib/paste/maps";
+import { fitsMapSubject } from "@/lib/paste/mapSubjects";
 import { pasteTerms } from "@/lib/paste/terms";
 import type { RelatedMap } from "@/lib/topicPage/model";
 
@@ -40,6 +43,20 @@ const tagKey = (tag: string) => pasteTerms(tag).join(" ");
 const CATEGORY_TAGS = new Set(topicSummaries.map((topic) => tagKey(topic.category)));
 const subjectTagKeys = (tags: readonly string[]) =>
   new Set(tags.map(tagKey).filter((tag) => tag.length > 0 && !CATEGORY_TAGS.has(tag)));
+// A built index reuses immutable documents across page requests. Weak keys
+// let an obsolete index and its token sets be collected together.
+const termsByDocument = new WeakMap<MapDocument, ReadonlySet<string>>();
+function subjectTerms(document: MapDocument): ReadonlySet<string> {
+  const cached = termsByDocument.get(document);
+  if (cached) return cached;
+  const terms = new Set(
+    Object.values(document.fields).flatMap((entries) =>
+      entries.flatMap((text) => pasteTerms(text, { keepStopwords: true })),
+    ),
+  );
+  termsByDocument.set(document, terms);
+  return terms;
+}
 
 export interface RankedRelatedMap extends RelatedMap {
   similarity: number;
@@ -57,8 +74,10 @@ export function rankRelatedMaps(
   limit: number = RELATED_MAPS.count,
   tagsOf: (mapId: string) => readonly string[] = () => [],
 ): RankedRelatedMap[] {
-  if (!index.byId.has(id)) return [];
+  const source = index.byId.get(id)?.document;
+  if (!source) return [];
   const sourceTags = subjectTagKeys(tagsOf(id));
+  const sourceTerms = subjectTerms(source);
   const scored = index.maps
     .map(({ document }) => document)
     .filter((document) => document.id !== id)
@@ -77,7 +96,13 @@ export function rankRelatedMaps(
     .filter(({ similarity, sharedTag }) =>
       similarity >= RELATED_MAPS.minSimilarity ||
       (sharedTag && similarity >= RELATED_MAPS.minTaggedSimilarity),
-    );
+    )
+    .filter(({ id: candidateId, sharedTag }) => {
+      if (sharedTag) return true;
+      const candidate = index.byId.get(candidateId)!.document;
+      return fitsMapSubject(source.subjectAnchors, subjectTerms(candidate)) &&
+        fitsMapSubject(candidate.subjectAnchors, sourceTerms);
+    });
   scored.sort(
     (a, b) =>
       b.similarity - a.similarity ||

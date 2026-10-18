@@ -38,7 +38,8 @@ const tagsOf = (id: string) => tagsById.get(id) ?? [];
 describe("related maps", () => {
   it("gives the nuclear-power map its energy and nuclear neighbours", async () => {
     const related = await getRelatedMaps("nuclear-energy-safety");
-    expect(related).toHaveLength(RELATED_MAPS.count);
+    expect(related.length).toBeGreaterThan(0);
+    expect(related.length).toBeLessThanOrEqual(RELATED_MAPS.count);
     // The other nuclear-power map is the nearest subject on the site.
     expect(related[0].id).toBe("nuclear-renaissance-smr");
     for (const map of related) expect(ENERGY_AND_NUCLEAR.has(map.id), map.id).toBe(true);
@@ -76,6 +77,14 @@ describe("related maps", () => {
     expect(related).toContain("global-housing-bubble");
     expect(related).not.toContain("estate-inheritance-tax");
     expect(related).not.toContain("student-debt-forgiveness");
+  });
+
+  it("does not connect water scarcity to birth rates through adaptation vocabulary", async () => {
+    const water = (await getRelatedMaps("global-water-crisis")).map((map) => map.id);
+    expect(water).not.toContain("declining-birth-rates");
+    expect(water).not.toContain("lab-diamonds-ethics");
+    const fertility = (await getRelatedMaps("declining-birth-rates")).map((map) => map.id);
+    expect(fertility).not.toContain("global-water-crisis");
   });
 
   it("never relates a map to itself or repeats one, and respects the list limit", () => {
@@ -118,6 +127,23 @@ describe("rankRelatedMaps ordering", () => {
     doc("grid-other", "grid tariff wind turbine"),
     doc("unrelated", "poetry sonnet meter rhyme"),
   ]);
+  const guarded = buildMapIndex([
+    { ...doc("water", "aquifer population policy adaptation technology costs governance"), subjectAnchors: [["aquifer"]] },
+    { ...doc("fertility", "fertility population policy adaptation technology costs governance"), subjectAnchors: [["population"]] },
+    { ...doc("river", "aquifer groundwater policy adaptation technology costs governance"), subjectAnchors: [["aquifer"]] },
+  ]);
+
+  it("requires configured subject cues in both directions before taking the list limit", () => {
+    expect(rankRelatedMaps(guarded, "water", 1).map((map) => map.id)).toEqual(["river"]);
+    expect(rankRelatedMaps(guarded, "fertility").map((map) => map.id)).not.toContain("water");
+    expect(rankRelatedMaps(guarded, "water", 3, () => ["policy"]).map((map) => map.id))
+      .not.toContain("fertility");
+  });
+
+  it("lets an explicit shared subject tag connect different questions with text support", () => {
+    expect(rankRelatedMaps(guarded, "water", 3, () => ["resource-management"]).map((map) => map.id))
+      .toContain("fertility");
+  });
 
   it("puts a sibling first", () => {
     expect(rankRelatedMaps(tiny, "reactor-a", 1)[0]).toMatchObject({

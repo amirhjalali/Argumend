@@ -151,6 +151,12 @@ test("related links stay on nearby subjects and an isolated map still offers bro
   await drivingQuestion.click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Are self-driving cars safer than human drivers?");
 
+  await page.goto("/topics/global-water-crisis");
+  for (const id of ["declining-birth-rates", "lab-diamonds-ethics"]) {
+    await expect(relatedMaps.locator(`a[href="/topics/${id}"]`)).toHaveCount(0);
+  }
+  await expect(relatedMaps.getByRole("link", { name: "Browse all maps →", exact: true })).toBeVisible();
+
   await page.goto("/topics/dark-matter-vs-mond");
   await expect(relatedMaps.locator('a[href^="/topics/"]')).toHaveCount(0);
   const browse = relatedMaps.getByRole("link", { name: "Browse all maps →", exact: true });
