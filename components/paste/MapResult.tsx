@@ -11,6 +11,7 @@ import { ANSWER_SIDES, CLAIM_SIDES, type SideWords } from "@/lib/mapNaming";
 import type {
   PasteMapCandidate,
   PasteMapCard,
+  PasteMapCrux,
   PasteMapMatch,
   PasteMapsResult,
 } from "@/lib/paste/types";
@@ -27,10 +28,10 @@ import { QuestionTakeaway } from "./NextStep";
  * scores side by side read as a side ahead on points, and the map page is
  * where a reader can see what a weight weighs.
  *
- * The page's one rust action, "Open the map at this crux", sits directly
- * under the crux box, and the long texts above it (what would change each
- * side's mind, each card's description) are clamped with "Show more", so on
- * a phone the action is about a screen into the result, not several.
+ * With one crux, its main action sits directly below the crux box. With
+ * two, each question has its own open and copy actions before any detailed
+ * conditions. Long text is clamped with "Show more" so the next action
+ * stays close to the result on a phone.
  */
 
 /** Sides by the answer to the map's question, else by the claim (lib/mapNaming.ts). */
@@ -142,24 +143,10 @@ function Card({ card, words }: { card: PasteMapCard; words: SideWords }) {
   );
 }
 
-function CruxPanel({ match }: { match: PasteMapMatch }) {
-  const crux = match.crux;
-  if (!crux) return null;
+function CruxDetails({ crux, words }: { crux: PasteMapCrux; words: SideWords }) {
   const flips = crux.supporterFlip && crux.skepticFlip;
-  const words = sideWordsFor(match);
-
-  const also = match.alsoCrux;
-
   return (
-    <div className="mt-6 rounded-md border border-[var(--border-divider)] border-t-[3px] border-t-crux bg-[var(--bg-paper)] px-5 pb-6 pt-5 dark:border-t-crux-light sm:px-8 sm:pb-8 sm:pt-6">
-      {/* Two cruxes when the text's words do not pick one: the reader knows
-          which of the two their argument is about; the lane does not. */}
-      <h3 className="label-caps text-crux dark:text-crux-text">
-        {also ? "It may turn on one of these" : "What the map says it turns on"}
-      </h3>
-      <p className="mt-3 font-serif text-[1.3125rem] leading-[1.3] text-[var(--text-heading)] sm:text-[1.625rem]">
-        {crux.question}
-      </p>
+    <>
       {flips ? (
         <dl className="mt-4 divide-y divide-[var(--border-divider)] border-t border-[var(--border-divider)]">
           <div className="py-4">
@@ -205,19 +192,79 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
           ) : null}
         </dl>
       )}
+    </>
+  );
+}
+
+function OpenMapAction({ href, label, choice = false }: { href: string; label: string; choice?: boolean }) {
+  return (
+    <Button
+      href={href}
+      variant={choice ? "secondary" : "primary"}
+      size={choice ? "md" : "lg"}
+      onClick={() => trackEvent({ action: "cta_click", ctaName: "open_map_at_crux", location: "analyze" })}
+    >
+      {label}
+    </Button>
+  );
+}
+
+function CruxPanel({ match }: { match: PasteMapMatch }) {
+  const crux = match.crux;
+  if (!crux) return null;
+  const words = sideWordsFor(match);
+  const also = match.alsoCrux;
+  const hasDetails = Boolean((crux.supporterFlip && crux.skepticFlip) || crux.settle || crux.fight);
+
+  return (
+    <div className="mt-6 rounded-md border border-[var(--border-divider)] border-t-[3px] border-t-crux bg-[var(--bg-paper)] px-5 pb-6 pt-5 dark:border-t-crux-light sm:px-8 sm:pb-8 sm:pt-6">
+      <h3 className="label-caps text-crux dark:text-crux-text">
+        {also ? "It may turn on one of these" : "What the map says it turns on"}
+      </h3>
       {also ? (
-        <div className="mt-2 border-t border-[var(--border-divider)] pt-4">
-          <p className="label-caps">Or</p>
-          <p className="mt-2 font-serif text-[1.1875rem] leading-[1.35] sm:text-[1.375rem]">
-            <Link
-              href={also.href}
-              className="text-[var(--text-heading)] underline decoration-[var(--border-default)] underline-offset-4 hover:decoration-deep"
-            >
-              {also.question}
-            </Link>
+        <>
+          <p className="mt-3 font-sans text-sm leading-relaxed text-[var(--text-secondary)]">
+            Your text could fit either question. Choose which to explore or take back to the conversation.
           </p>
-        </div>
-      ) : null}
+          <div className="mt-5 grid gap-6 lg:grid-cols-2">
+            {([
+              { ordinal: "first", label: "First", crux },
+              { ordinal: "second", label: "Second", crux: also },
+            ] as const).map(({ ordinal, label, crux: option }) => (
+              <section key={`${option.href}:${option.question}`} aria-label={`${label} possible crux`} className="border-t border-[var(--border-divider)] pt-5">
+                <p className="label-caps">{label} question</p>
+                <h4 className="mt-2 font-serif text-[1.3125rem] leading-[1.3] text-[var(--text-heading)] sm:text-[1.5rem]">
+                  {option.question}
+                </h4>
+                <QuestionTakeaway
+                  question={option.question}
+                  href={option.href}
+                  scope={match.kind === "flagship" ? match.claim : undefined}
+                  leadingAction={<OpenMapAction choice href={option.href} label={`Open the map at the ${ordinal} crux`} />}
+                  copyLabel={`Copy the ${ordinal} question`}
+                  previewLabel={`Preview the ${ordinal} takeaway`}
+                  fallbackLabel={`${label} question to copy`}
+                />
+              </section>
+            ))}
+          </div>
+          {hasDetails ? (
+            <details className="mt-6 border-t border-[var(--border-divider)] pt-2">
+              <summary className={textActionClasses("cursor-pointer")}>
+                More on the first question
+              </summary>
+              <CruxDetails crux={crux} words={words} />
+            </details>
+          ) : null}
+        </>
+      ) : (
+        <>
+          <p className="mt-3 font-serif text-[1.3125rem] leading-[1.3] text-[var(--text-heading)] sm:text-[1.625rem]">
+            {crux.question}
+          </p>
+          <CruxDetails crux={crux} words={words} />
+        </>
+      )}
     </div>
   );
 }
@@ -263,18 +310,16 @@ export function MapMatch({
   // A map with no card on one side at all still shows two cards, but not
   // under a heading that promises one per side.
   const words = sideWordsFor(match);
+  const hasTwoCruxes = Boolean(match.crux && match.alsoCrux);
   const missingSide = cards.length > 0 && new Set(cards.map((card) => card.side)).size === 1
     ? (cards[0].side === "for" ? "against" : "for")
     : null;
 
   const openMapAction = (
-    <Button
+    <OpenMapAction
       href={match.crux?.href ?? match.href}
-      size="lg"
-      onClick={() => trackEvent({ action: "cta_click", ctaName: "open_map_at_crux", location: "analyze" })}
-    >
-      {match.crux ? (match.alsoCrux ? "Open the map at the first crux" : "Open the map at this crux") : "Open the map"}
-    </Button>
+      label={match.crux ? "Open the map at this crux" : "Open the map"}
+    />
   );
 
   return (
@@ -308,23 +353,26 @@ export function MapMatch({
 
       <CruxPanel match={match} />
 
-      <div className="mt-6">
-        {match.crux ? (
-          <QuestionTakeaway
-            key={`${match.crux.href}:${match.crux.question}`}
-            question={match.crux.question}
-            href={match.crux.href}
-            scope={match.kind === "flagship" ? match.claim : undefined}
-            leadingAction={openMapAction}
-            copyLabel={match.alsoCrux ? "Copy the first question" : undefined}
-          />
-        ) : openMapAction}
-      </div>
+      {!hasTwoCruxes ? (
+        <div className="mt-6">
+          {match.crux ? (
+            <QuestionTakeaway
+              key={`${match.crux.href}:${match.crux.question}`}
+              question={match.crux.question}
+              href={match.crux.href}
+              scope={match.kind === "flagship" ? match.claim : undefined}
+              leadingAction={openMapAction}
+            />
+          ) : openMapAction}
+        </div>
+      ) : null}
 
       {cards.length > 0 ? (
         <div className="mt-10">
           <h3 className="label-caps">
-            {missingSide
+            {hasTwoCruxes
+              ? "Evidence from the map"
+              : missingSide
               ? cards.length === 1
                 ? "The strongest card"
                 : "The strongest cards"

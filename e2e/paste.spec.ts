@@ -250,6 +250,65 @@ test("an unmapped personal argument becomes conversation notes without another r
   expect(apiCalls).toEqual(["POST /api/analyze"]);
 });
 
+test("either plausible crux can be previewed, copied and opened without reading the paste again", async ({ page }, testInfo) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async (text: string) => { document.documentElement.dataset.copiedQuestion = text; } },
+    });
+  });
+  const apiCalls: string[] = [];
+  page.on("request", (request) => {
+    const path = new URL(request.url()).pathname;
+    if (path.startsWith("/api/")) apiCalls.push(`${request.method()} ${path}`);
+  });
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("Drip irrigation uses less water on each field, but does that conserve a river basin if farms expand and less water returns downstream? Can water technology solve scarcity without limits on pumping?");
+  await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+  const result = page.getByRole("region", { name: "Result" });
+  await expect(result.getByRole("heading", { name: "It may turn on one of these" })).toBeVisible();
+  await expect(result.getByRole("heading", { name: "Evidence from the map" })).toBeVisible();
+  const details = result.getByText("More on the first question", { exact: true }).locator("..");
+  await expect(details).not.toHaveAttribute("open");
+  const choices = [
+    { ordinal: "first", label: "First", anchor: "supply-depletion" },
+    { ordinal: "second", label: "Second", anchor: "technology-adaptation" },
+  ];
+  if (testInfo.project.name === "phone") {
+    const second = result.getByRole("link", { name: "Open the map at the second crux", exact: true });
+    const screens = await second.evaluate((link) => {
+      const result = document.querySelector('section[aria-label="Result"]')!;
+      return (link.getBoundingClientRect().top - result.getBoundingClientRect().top) / innerHeight;
+    });
+    expect(screens).toBeLessThan(2);
+  }
+  for (const { ordinal, label, anchor } of choices) {
+    const choice = result.getByRole("region", { name: `${label} possible crux`, exact: true });
+    const question = await choice.getByRole("heading", { level: 4 }).innerText();
+    const href = `/topics/global-water-crisis#crux-${anchor}`;
+    const preview = choice.getByText(`Preview the ${ordinal} takeaway`, { exact: true });
+    await preview.click();
+    const starter = await preview.locator("..").locator("p").innerText();
+    expect(starter).toBe(`Could we start with this question?\n\n${question}\n\nRead the evidence: https://argumend.org${href}`);
+    await preview.click();
+    const copy = choice.getByRole("button", { name: `Copy the ${ordinal} question`, exact: true });
+    await copy.click();
+    await expect(page.locator("html")).toHaveAttribute("data-copied-question", starter);
+    await expect(choice.getByRole("button", { name: "Copied", exact: true })).toBeVisible();
+    await choice.getByRole("link", { name: `Open the map at the ${ordinal} crux`, exact: true }).click();
+    await expect(page).toHaveURL(new RegExp(`${href}$`));
+    const fold = page.locator(`#crux-${anchor} > details`);
+    await expect(fold).toHaveAttribute("open", "");
+    await expect(fold.locator(":scope > summary")).toBeFocused();
+    await page.getByRole("link", { name: "Paste an argument", exact: true }).first().click();
+    await expect(result.getByRole("region", { name: "First possible crux", exact: true })).toBeVisible();
+    await expect(result.getByRole("region", { name: "Second possible crux", exact: true })).toBeVisible();
+  }
+  expect(apiCalls).toEqual(["POST /api/analyze"]);
+});
+
 test("question copy recovers from a blocked clipboard and preserves the argument on return", async ({ page }) => {
   await page.addInitScript(() => {
     Object.defineProperty(navigator, "clipboard", {

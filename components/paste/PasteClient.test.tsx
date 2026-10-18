@@ -143,7 +143,7 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(fetchMock.mock.calls.map(([url]) => url)).toEqual(["/api/analyze"]);
   });
 
-  it("names the map, its sibling once, then the crux with its action right under it", async () => {
+  it("names the map and sibling once, then offers actions for both plausible cruxes", async () => {
     const sibling = { id: "open-borders", title: "The Case for Open Borders", claim: "A claim.", href: "/topics/open-borders" };
     const alsoCrux = {
       question: "Do long-run growth gains outweigh short-term costs for low-skill native workers?",
@@ -159,13 +159,18 @@ describe("PasteClient with every lane off (production today)", () => {
 
     const mapHeading = await waitFor(() => view.getByRole("heading", { name: "This argument is already mapped" }));
     const cruxHeading = view.getByRole("heading", { name: "It may turn on one of these" });
-    const cta = view.getByRole("link", { name: "Open the map at the first crux" });
-    const cardsHeading = view.getByRole("heading", { name: "The strongest card on each side" });
-    // Node.DOCUMENT_POSITION_FOLLOWING === 4: map, crux, its action, then the cards.
+    const first = within(view.getByRole("region", { name: "First possible crux" }));
+    const second = within(view.getByRole("region", { name: "Second possible crux" }));
+    const cta = first.getByRole("link", { name: "Open the map at the first crux" });
+    const secondCta = second.getByRole("link", { name: "Open the map at the second crux" });
+    const cardsHeading = view.getByRole("heading", { name: "Evidence from the map" });
     expect(mapHeading.compareDocumentPosition(cruxHeading) & 4).toBe(4);
     expect(cruxHeading.compareDocumentPosition(cta) & 4).toBe(4);
-    expect(cta.compareDocumentPosition(cardsHeading) & 4).toBe(4);
-    expect(view.getByRole("link", { name: alsoCrux.question }).getAttribute("href")).toBe(alsoCrux.href);
+    expect(secondCta.compareDocumentPosition(cardsHeading) & 4).toBe(4);
+    expect(second.getByRole("heading", { name: alsoCrux.question })).toBeTruthy();
+    expect(secondCta.getAttribute("href")).toBe(alsoCrux.href);
+    expect(first.getByRole("button", { name: "Copy the first question" })).toBeTruthy();
+    expect(second.getByRole("button", { name: "Copy the second question" })).toBeTruthy();
     // The sibling is named once, under the map's claim, on the first screen.
     const mapBlock = within(view.getByRole("region", { name: "This argument is already mapped" }));
     expect(mapBlock.getAllByText(/Closely related/)).toHaveLength(1);

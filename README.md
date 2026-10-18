@@ -99,7 +99,10 @@ subject cues before falling back to a map's lead question.
 Matched results offer an optional preview before copying questions to explore together,
 with the map link and conditions that could change each side's mind. A matched crux
 also offers a short, previewable conversation starter to copy beside its map link.
-When two cruxes are close, the action explicitly copies the first question.
+When two cruxes are close, each question has its own open, preview and copy
+controls. Detailed conditions for the first question are labelled as such;
+the cards present evidence from the map and may come from another of its
+cruxes. Each question links directly to its own evidence.
 The short takeaway retains the flagship map's stated scope.
 On a map, choosing a reflection question also offers a preview and a copyable
 conversation starter with a link directly to that crux and its evidence. The starter

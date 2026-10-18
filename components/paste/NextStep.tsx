@@ -114,12 +114,17 @@ export function NextStep({
 }
 
 /** A short, previewable takeaway shared by paste results and map reflections. */
-export function QuestionTakeaway({ question, href, scope, leadingAction, copyLabel = "Copy this question" }: {
+export function QuestionTakeaway({
+  question, href, scope, leadingAction, copyLabel = "Copy this question",
+  previewLabel = "Preview conversation starter", fallbackLabel = "Question to copy",
+}: {
   question: string;
   href: string;
   scope?: string;
   leadingAction: ReactNode;
   copyLabel?: string;
+  previewLabel?: string;
+  fallbackLabel?: string;
 }) {
   const starter = [
     "Could we start with this question?",
@@ -164,7 +169,7 @@ export function QuestionTakeaway({ question, href, scope, leadingAction, copyLab
       </p>
       <details className="mt-1">
         <summary className="min-h-11 cursor-pointer py-2.5 text-xs text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text">
-          Preview conversation starter
+          {previewLabel}
         </summary>
         <p className="whitespace-pre-wrap break-words border-l-2 border-divider pl-3 text-sm leading-relaxed text-secondary dark:text-stone-300">
           {starter}
@@ -179,7 +184,7 @@ export function QuestionTakeaway({ question, href, scope, leadingAction, copyLab
             The clipboard was not available. Select the conversation starter and copy it by hand.
           </p>
           <textarea
-            aria-label="Question to copy"
+            aria-label={fallbackLabel}
             readOnly
             value={starter}
             rows={6}

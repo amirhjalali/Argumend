@@ -147,14 +147,52 @@ describe("the map block on a phone", () => {
       .toContain("What would settle the second question?");
   });
 
-  it("says which question it copies when the argument could turn on two cruxes", async () => {
+  it("previews and copies either plausible crux without mixing their questions or links", async () => {
     const copy = vi.spyOn(clipboard, "copyTextToClipboard").mockResolvedValue();
     const match = matched.match!;
-    const view = render(<MapMatch match={{ ...match, alsoCrux: { question: "Could the other question matter?", href: "/topics/another#crux-other" } }} />);
+    const also = { question: "Could the other question matter?", href: "/topics/another#crux-other" };
+    const view = render(<MapMatch match={{ ...match, alsoCrux: also }} />);
     expect(view.queryByRole("button", { name: "Copy this question" })).toBeNull();
-    await act(async () => fireEvent.click(view.getByRole("button", { name: "Copy the first question" })));
-    expect(copy.mock.calls[0][0]).toContain(match.crux!.question);
-    expect(copy.mock.calls[0][0]).not.toContain("Could the other question matter?");
+    for (const [ordinal, label, crux, other] of [
+      ["first", "First", match.crux!, also],
+      ["second", "Second", also, match.crux!],
+    ] as const) {
+      const choice = within(view.getByRole("region", { name: `${label} possible crux` }));
+      const expected = [
+        "Could we start with this question?", crux.question,
+        `Read the evidence: https://argumend.org${crux.href}`,
+      ].join("\n\n");
+      expect(choice.getByText(`Preview the ${ordinal} takeaway`).closest("details")?.querySelector("p")?.textContent)
+        .toBe(expected);
+      expect(choice.getByRole("link", { name: `Open the map at the ${ordinal} crux` }).getAttribute("href"))
+        .toBe(crux.href);
+      await act(async () => fireEvent.click(choice.getByRole("button", { name: `Copy the ${ordinal} question` })));
+      expect(copy).toHaveBeenLastCalledWith(expected);
+      expect(expected).not.toContain(other.question);
+      expect(choice.getByRole("button", { name: "Copied" })).toBeTruthy();
+    }
+    const details = view.getByText("More on the first question").closest("details")!;
+    expect(details.open).toBe(false);
+    expect(details.textContent).toContain(match.crux!.supporterFlip);
+    expect(view.getByRole("heading", { name: "Evidence from the map" })).toBeTruthy();
+  });
+
+  it("keeps a failed copy scoped to its question while the other can still be copied", async () => {
+    const copy = vi.spyOn(clipboard, "copyTextToClipboard").mockRejectedValueOnce(new Error("Blocked"));
+    const match = matched.match!;
+    const also = { question: "Could the other question matter?", href: "/topics/another#crux-other" };
+    const view = render(<MapMatch match={{ ...match, alsoCrux: also }} />);
+    const first = within(view.getByRole("region", { name: "First possible crux" }));
+    const second = within(view.getByRole("region", { name: "Second possible crux" }));
+    await act(async () => fireEvent.click(second.getByRole("button", { name: "Copy the second question" })));
+    expect(second.getByRole("textbox", { name: "Second question to copy" }).getAttribute("readonly"))
+      .not.toBeNull();
+    expect(first.queryByRole("textbox")).toBeNull();
+    copy.mockResolvedValueOnce();
+    await act(async () => fireEvent.click(first.getByRole("button", { name: "Copy the first question" })));
+    expect(first.getByRole("button", { name: "Copied" })).toBeTruthy();
+    expect(second.queryByRole("button", { name: "Copied" })).toBeNull();
+    expect(second.getByRole("textbox", { name: "Second question to copy" })).toBeTruthy();
   });
 
   it("clamps what would change each side's mind and each card, behind a named Show more", () => {
