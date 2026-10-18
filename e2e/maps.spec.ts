@@ -136,6 +136,29 @@ test("a legacy map leads with a question and a crux sheet, never a score", async
   expect(text).not.toMatch(/\bverdict\b/i);
 });
 
+test("related links stay on nearby subjects and an isolated map still offers browsing", async ({ page }) => {
+  await page.goto("/topics/congestion-pricing");
+  const relatedMaps = page.getByRole("navigation", { name: "Related maps" });
+  await expect(relatedMaps.locator('a[href="/topics/self-driving-car-safety"]')).toBeVisible();
+  for (const id of ["universal-basic-income", "immigration-border-crisis", "daylight-saving-time-abolition"]) {
+    await expect(relatedMaps.locator(`a[href="/topics/${id}"]`)).toHaveCount(0);
+  }
+
+  await page.goto("/questions/does-congestion-pricing-work");
+  const relatedQuestions = page.locator("#related");
+  const drivingQuestion = relatedQuestions.locator('a[href="/questions/are-self-driving-cars-safer-than-human-drivers"]');
+  await expect(drivingQuestion).toBeVisible();
+  await drivingQuestion.click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Are self-driving cars safer than human drivers?");
+
+  await page.goto("/topics/dark-matter-vs-mond");
+  await expect(relatedMaps.locator('a[href^="/topics/"]')).toHaveCount(0);
+  const browse = relatedMaps.getByRole("link", { name: "Browse all maps →", exact: true });
+  await expect(browse).toBeVisible();
+  await browse.click();
+  await expect(page).toHaveURL(/\/topics$/);
+});
+
 test("the embed widget shows no verdict, margin or winner", async ({ page }) => {
   const response = await page.goto("/embed/nuclear-energy-safety");
   expect(response?.status()).toBe(200);
