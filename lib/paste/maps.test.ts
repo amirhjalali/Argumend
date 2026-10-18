@@ -564,7 +564,6 @@ describe("findMaps", () => {
     ["gig-economy-regulation", "The courier app sets delivery prices and can deactivate workers without warning. The company says they are independent contractors, but they want employee benefits and a guaranteed minimum wage."],
     ["veganism-environmental-impact", "Replacing meat and dairy with plant-based food would reduce greenhouse gas emissions and free up land. Others say we should improve farming rather than expect everyone to become vegan."],
     ["seed-oils-health", "My brother says canola and sunflower oil cause inflammation and that we should cook with butter instead. I think replacing saturated fat with these oils lowers heart disease risk."],
-    ["global-water-crisis", "Aquifers are being pumped faster than rainfall replenishes them. Farmers say they need the water now, but others fear groundwater depletion will cause food shortages and conflict."],
     ["four-day-work-week", "Companies should let people work 4 days a week for the same salary. With fewer meetings they can get the same work done, but shops and hospitals would need to hire more staff."],
     ["four-day-work-week", "Cutting the working week to 32 hours without reducing pay could improve wellbeing. Critics say maintaining output would be impossible in factories and hospitals."],
     ["electoral-college-reform", "The president should be chosen by whoever gets the most votes nationwide. Small states say replacing the Electoral College with a popular vote would leave them ignored."],
@@ -580,6 +579,15 @@ describe("findMaps", () => {
     );
     expect(result.match?.id).toBe("ai-replacing-doctors");
     expect([...result.related, ...result.closest].map((map) => map.id)).not.toContain("ai-in-education");
+  });
+
+  it.each([
+    "Aquifers are being pumped faster than rainfall replenishes them. Farmers say they need the water now, but others fear groundwater depletion will cause food shortages and conflict.",
+    "Farmers in western Kansas keep pumping the Ogallala aquifer faster than it recharges. They say efficient irrigation will buy time, but neighbors worry their wells will stop supporting crops before pumping limits can help.",
+  ])("keeps an aquifer argument on the supply-depletion question: %s", async (text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe("global-water-crisis");
+    expect(result.match?.crux?.href).toBe("/topics/global-water-crisis#crux-supply-depletion");
   });
 
   it("keeps a water conflict separate from diamond ethics", async () => {

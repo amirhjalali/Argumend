@@ -330,7 +330,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "chernobyls lcoe torch unscear yucca lazard safest standalone fukushima mountain overruns vogtle corrosion earthquakes edfs"
+    "keywords": "chernobyls lcoe torch unscear yucca lazard safest standalone fukushima millennia mountain overruns vogtle corrosion earthquakes"
   },
   {
     "id": "universal-healthcare",
@@ -356,7 +356,7 @@
     "aliases": [
       "Universal medical coverage"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein phoenix simplification treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix simplification treatable"
   },
   {
     "id": "gun-control-effectiveness",
@@ -884,9 +884,9 @@
     "title": "Is the World Heading for Water Wars?",
     "question": "Is the world heading for water wars?",
     "meta_claim": "Freshwater scarcity will become the defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
-    "confidence_score": 67,
-    "balance": 67,
-    "weight": 73,
+    "confidence_score": 66,
+    "balance": 66,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -899,7 +899,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination irrigation cubic brine groundwater drip glaciers indus kansas aquifer drought hectares pacific abeyance arbitration"
+    "keywords": "desalination irrigation cubic brine groundwater drip drought feet hectares pacific abeyance arbitration gerd glacier hindu"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -3468,7 +3468,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "latin buffer fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats"
+    "keywords": "buffer latin fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats"
   },
   {
     "id": "dark-matter-vs-mond",

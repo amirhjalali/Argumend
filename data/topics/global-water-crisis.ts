@@ -28,114 +28,114 @@ export const globalWaterCrisisData = {
       id: "supply-depletion",
       title: "Supply Depletion",
       short_summary:
-        "Groundwater extraction rates are far exceeding natural recharge in critical aquifers worldwide. The Ogallala Aquifer in the US Great Plains has lost over 400 cubic kilometers of water since the 1950s, India pumps more groundwater than any nation on Earth with water tables dropping 1-3 meters per year in key agricultural states, and Himalayan glaciers that supply water to 1.6 billion people are melting at accelerating rates. Whether these trends constitute an existential crisis or a manageable resource challenge is fiercely debated.",
+        "Groundwater observations show substantial depletion in particular regions, with large differences across wells, aquifers and periods. Glacier change adds another source of uncertainty for some river systems. The disagreement is whether feasible reductions in pumping and changes in farming can preserve water supplies and livelihoods before local constraints become severe.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Water scarcity is real but regionally concentrated, not a global crisis. The Earth contains approximately 10.6 million cubic kilometers of fresh groundwater, and total renewable freshwater resources far exceed current human consumption. The Ogallala depletion narrative ignores that portions of the aquifer are being managed sustainably and that agricultural efficiency has improved dramatically — the US produces far more food per unit of water than it did 50 years ago. India's groundwater crisis is primarily a governance problem (free electricity for pumping, lack of metering, perverse subsidies) rather than an absolute scarcity problem. Glacier retreat is concerning but glacial meltwater contributes only 1-10% of total water supply in most downstream basins, with monsoon rainfall being the dominant source. Desalination costs have fallen 80% since 1990, water recycling technology is advancing rapidly, and historical precedent shows that societies adapt to resource constraints through pricing, technology, and institutional reform rather than through conflict.",
+        "Regional depletion does not establish a single global exhaustion date or an unavoidable path to war. Kansas measurements show that local pumping restrictions can be associated with slower groundwater declines. Better allocation, crop choices and irrigation management may extend the useful life of an aquifer, although benefits and costs differ among users. FAO's water-accounting guidance also makes clear that genuine conservation needs basin-scale evidence: applying less water to a field alone does not establish that more water is available elsewhere.",
       proponent_rebuttal:
-        "The aggregate numbers conceal localized catastrophes unfolding right now. The Ogallala Aquifer supplies 30% of US irrigation water, and USGS studies project parts of it will be effectively depleted within 25 years — 'portions being managed sustainably' does not help farmers in western Kansas where the saturated thickness has already dropped below usable levels. India's groundwater crisis may be a governance problem in theory, but in practice 600 million Indians face 'high to extreme water stress' according to NITI Aayog, 21 Indian cities are projected to run out of groundwater by 2030, and the political economy makes subsidy reform nearly impossible. The 'glaciers contribute only 1-10%' framing ignores seasonality: during dry seasons when rivers run low and demand is highest, glacial meltwater can constitute 30-70% of flow in the Indus, Ganges, and Brahmaputra basins. As glaciers shrink, this critical buffer disappears. NASA GRACE satellite data shows that 21 of the world's 37 largest aquifers have passed their tipping points, with extraction exceeding recharge. We are not facing a future crisis — we are already in one, masked by the unsustainable mining of fossil water that took millennia to accumulate.",
+        "Successful conservation in one management area does not establish that every stressed region can adapt in time. USGS estimates document a large historical loss of High Plains groundwater storage, while a satellite study found substantial depletion in northwestern India during 2002-2008. Slower decline still means declining water levels, and reduced pumping can impose costs on farmers and communities. The relevant risk is that feasible action may arrive too slowly to preserve viable irrigation, reliable domestic supplies and ecosystems in particular places.",
       crux: {
         id: "aquifer-depletion-timeline",
         title: "The Aquifer Depletion Timeline Test",
         question:
           "Can adaptation keep pace with aquifer depletion before farming in key regions collapses?",
         description:
-          "The core disagreement is whether major aquifer depletion will reach critical thresholds within decades, forcing sudden agricultural collapse and displacement, or whether gradual price signals, efficiency gains, and technological substitution will allow smooth adaptation. If depletion outpaces adaptation, regions dependent on fossil water face catastrophic supply failure.",
+          "The question is whether aquifer-dependent farming can reduce net depletion while preserving viable livelihoods. Pumping, recharge, return flows and crop-water consumption must be distinguished. Local well yields and costs can become limiting before all groundwater is exhausted; an aggregate storage estimate cannot supply a universal date for agricultural collapse.",
         methodology:
-          "Combine NASA GRACE satellite gravity data with ground-based well monitoring to produce high-resolution depletion models for the 10 most-stressed aquifers (Ogallala, Northwest India, North China Plain, Arabian Peninsula, Central Valley California, etc.). Model extraction rates against recharge rates under multiple climate scenarios. Overlay agricultural dependency data to identify populations at risk of supply failure within 10, 25, and 50 year horizons. Cross-reference with economic models of adaptation cost and technological substitution timelines.",
+          "Combine local well observations with regional storage estimates and explicit uncertainty. Compare pumping, recharge, crop consumption and recoverable return flows under plausible climate and management changes. Track irrigated area, well yields, farm incomes and who bears adjustment costs. Validate forecasts on withheld years and compare conservation programs with credible counterfactuals. Count reductions in net depletion separately from reductions in water applied per hectare.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "High-resolution depletion models for the most stressed aquifers, combining NASA GRACE satellite gravity data with well monitoring, that set extraction against recharge and against how fast efficiency gains and price signals are cutting demand.",
+            "Well and pumping records combined with basin water budgets, tested against withheld years and credible conservation comparisons, showing whether net depletion slows enough to preserve viable farming and reliable supplies, with costs and uncertainty reported.",
         },
         cost_to_verify:
-          "$5-10M (Satellite data analysis + hydrological modeling + agricultural impact assessment across multiple basins)",
+          "Not costed here; scope depends on basin data, program evaluation and hydrological validation.",
         falsification: {
           supporter_flip:
-            "If high-resolution depletion models combining GRACE data and well monitoring showed that price signals, efficiency gains, and substitution were closing the gap faster than aquifers are drawn down — so stressed basins reach a new equilibrium well before wells run dry — the 'existential crisis' framing would soften to 'a costly but manageable regional adjustment.'",
+            "If independently checked conservation programs and subsequent well records showed durable reductions in net depletion while farming and essential supplies remained viable at manageable costs, the case that local water scarcity must produce catastrophic disruption would weaken.",
           skeptic_flip:
-            "If GRACE and well data kept placing major fossil-water aquifers like the Ogallala, which recharge at ~25 mm/yr, past their tipping points, scarcity would look less like a regional governance problem and more like a loss no reform can reverse on a human timescale.",
+            "If credible program evaluations and well records showed that feasible pumping reductions and adaptation could not prevent severe losses of viable irrigation and essential supplies in heavily dependent regions, confidence in a manageable transition would weaken.",
           common_ground:
-            "Both sides agree groundwater depletion is real and physically measured in specific basins (Ogallala, northwest India, North China Plain), and that current extraction in those basins exceeds natural recharge.",
+            "Both cases distinguish measured water levels from estimated storage, slower depletion from recovery, and field irrigation efficiency from basin-scale conservation.",
           live_disagreement:
-            "Whether adaptation (efficiency, pricing, substitution, recharge management) can keep pace with depletion before critical aquifers cross thresholds that force abrupt agricultural collapse — resolvable only by basin-by-basin models comparing depletion timelines against realistic adaptation rates.",
+            "Whether realistic changes in pumping and farming can preserve reliable water supplies and livelihoods within local hydrological and economic constraints.",
         },
       },
       evidence: [
         {
           id: "ogallala-depletion",
           title:
-            "Ogallala Aquifer Has Lost Over 400 Cubic Kilometers Since the 1950s",
+            "USGS Estimates High Plains Groundwater Storage Loss Through 2019",
           description:
-            "The Ogallala (High Plains) Aquifer, which supplies 30% of US agricultural irrigation water across eight states, has experienced cumulative depletion exceeding 400 cubic kilometers since large-scale pumping began in the 1950s. In western Kansas and the Texas Panhandle, saturated thickness has declined by more than 50%, rendering wells uneconomical. A 2023 Kansas Geological Survey study found that at current extraction rates, 70% of the Kansas portion of the aquifer will be unable to support irrigation within 25 years. The aquifer recharges at roughly 25 millimeters per year in most areas — a rate that would require thousands of years to restore what has been extracted in decades.",
+            "USGS's 2024 report estimates recoverable High Plains aquifer storage in 2019 at about 2.91 billion acre-feet, 286.4 million acre-feet below predevelopment conditions around 1950. Water-level changes varied widely by well and region. The storage estimates combine water-level mapping with aquifer properties; they are not a direct satellite measurement or a uniform deadline for when irrigation becomes unviable.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 9,
-            directness: 9,
+            replicability: 8,
+            directness: 6,
           },
-          source: "USGS; Kansas Geological Survey",
+          source: "McGuire and Strauch, USGS Scientific Investigations Report 2023-5143 (published 2024)",
           sourceUrl:
-            "https://www.usgs.gov/mission-areas/water-resources/science/high-plains-aquifer",
+            "https://pubs.usgs.gov/publication/sir20235143",
           reasoning:
-            "USGS depletion data is based on direct well measurements and satellite gravity observations. The depletion is physically measured, not modeled. However, the crisis is geographically concentrated in the southern and western portions — the northern Ogallala in Nebraska remains relatively healthy, and critics argue this nuance is lost in aggregate depletion figures.",
+            "Well observations support a substantial historical storage decline, with uncertainty from spatial interpolation and aquifer properties. Regional variation and economic pumping constraints matter for local consequences; this report does not estimate a causal effect on conflict.",
         },
         {
           id: "india-groundwater-crisis",
           title:
-            "India Extracts More Groundwater Than Any Nation — 600 Million Face Extreme Water Stress",
+            "Northwestern India: Satellite-Based Depletion Estimate for 2002-2008",
           description:
-            "India extracts approximately 250 cubic kilometers of groundwater annually — more than the US and China combined — accounting for 25% of global groundwater withdrawal. A 2018 report by India's government think tank NITI Aayog warned that 21 major Indian cities would run out of groundwater by 2020 (later revised to 2030), and that 600 million Indians face 'high to extreme water stress.' Satellite data from NASA GRACE (Rodell et al., Nature 2009) shows that groundwater in northwestern India — the Punjab, Haryana, Delhi and Rajasthan region — was depleting at roughly 17.7 ± 4.5 cubic kilometers per year over 2002–2008. The Punjab and Haryana breadbasket regions, which produce a disproportionate share of India's wheat and rice, have seen water tables drop 1-3 meters per year in some districts.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 9,
-          },
-          source: "NITI Aayog; NASA GRACE Mission (Rodell et al., Nature 2009)",
-          sourceUrl: "https://www.nature.com/articles/nature08238",
-          reasoning:
-            "NITI Aayog is India's own government planning body, making this an authoritative domestic assessment rather than an external critique. NASA GRACE satellite data provides independent physical confirmation of depletion. The depletion rate is given as the peer-reviewed Rodell et al. (2009) estimate of ~17.7 km³/yr for the three-state northwestern region; an earlier draft cited ~54 km³/yr, which overstated the published figure roughly threefold. The NITI Aayog timeline predictions have proven overly aggressive (cities have not fully 'run out' as predicted), but the underlying depletion trend is confirmed by multiple data sources.",
-        },
-        {
-          id: "glacier-retreat-asia",
-          title:
-            "Himalayan Glaciers Losing Ice at Accelerating Rates, Threatening 1.6 Billion People",
-          description:
-            "ICIMOD's 2023 Hindu Kush Himalaya assessment (HI-WISE) found that the region's glaciers disappeared 65% faster in 2011–2020 than in the previous decade. The Hindu Kush Himalayan region, sometimes called the 'Third Pole,' contains the largest store of frozen freshwater outside the polar regions and feeds 12 major river systems including the Indus, Ganges, Brahmaputra, Yangtze, and Mekong, supplying water to roughly 240 million mountain residents and 1.65 billion people downstream. ICIMOD projects that at 1.5–2 degrees C of warming the region will lose 30–50% of its glacier volume by 2100, rising to up to 75–80% on current emissions trajectories. The peer-reviewed Rounce et al. (Science, 2023) global glacier model reinforces that every increment of warming sharply increases projected loss. During dry seasons, glacial meltwater provides 30-70% of river flow in the upper Indus Basin, making it critical for Pakistan's agriculture and India's northern plains.",
+            "Rodell and colleagues combined GRACE satellite storage observations with modeled soil-water changes to estimate groundwater depletion of 17.7 ± 4.5 cubic kilometers per year across Rajasthan, Punjab and Haryana, including Delhi, from August 2002 to October 2008. This is a regional storage-change estimate for that period, rather than a current national withdrawal total or a forecast of when particular cities will run out of water.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 9,
-            directness: 8,
+            replicability: 8,
+            directness: 6,
           },
-          source: "ICIMOD HI-WISE Hindu Kush Himalaya Assessment (2023); Rounce et al., Science (2023)",
+          source: "Rodell, Velicogna and Famiglietti, Nature 460, 999-1002 (2009)",
+          sourceUrl: "https://www.nature.com/articles/nature08238",
+          reasoning:
+            "Satellite gravity provides regional water-storage information; separating groundwater from other stores requires modeling and carries uncertainty. The result establishes depletion in its study region and period, without directly measuring every local well or remaining usable supply.",
+        },
+        {
+          id: "glacier-retreat-asia",
+          title:
+            "Hindu Kush Himalayan Glacier Loss Accelerated in 2011-2020",
+          description:
+            "ICIMOD's 2023 HI-WISE assessment reports glacier loss 65% faster in 2011-2020 than in the previous decade. Its projection of up to 80% volume loss by 2100 depends on the emissions trajectory. The assessment describes 240 million mountain residents and 1.65 billion people downstream receiving water and ecosystem services from the region; those population totals are not counts of people facing the same imminent water shortage. Effects vary by river, season and source of flow.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "ICIMOD, Water, ice, society, and ecosystems in the Hindu Kush Himalaya (HI-WISE, 2023)",
           sourceUrl:
             "https://www.icimod.org/press-release/landmark-report-on-impacts-of-disappearing-snow-and-ice-in-the-hindu-kush-himalaya-current-emissions-path-threatens-two-billion-people-and-is-accelerating-species-extinction/",
           reasoning:
-            "Glacier retreat rates are measured by satellite and ground-based observations with high confidence. The '65% faster' acceleration and the downstream population and volume-loss figures come from ICIMOD's 2023 HI-WISE regional assessment; an earlier draft attributed the 65% figure to the Science (Rounce et al.) paper, which actually models global glacier loss by temperature scenario rather than reporting the HKH decadal acceleration. The long-term threat to dry-season river flow is physically well-understood. However, the timeline matters enormously — glacier loss is a multi-decadal process, and near-term water supply depends more on monsoon variability than glacier volume. The 'crisis' framing may understate how much adaptation time remains.",
+            "Observed glacier change and future scenarios provide evidence of changing water risks. Glacier volume, snowmelt, rainfall and population exposure are different measures, so local supply impacts require basin-specific analysis rather than a blanket flow percentage or deadline.",
         },
         {
           id: "water-efficiency-gains",
           title:
-            "Agricultural Water Efficiency Has Improved Dramatically — More Crop per Drop",
+            "Sheridan-6: Slower Water-Level Declines Under Local Pumping Limits",
           description:
-            "Global agricultural water productivity (crop output per unit of water consumed) has roughly doubled since 1980. Drip irrigation, which can reduce water use by 30-60% compared to flood irrigation, is expanding rapidly — Israel irrigates over 75% of its farmland with drip systems and produces more agricultural output per cubic meter of water than almost any nation on Earth. The US produces approximately 2.4 times more food per acre-foot of water than it did in 1960. Even in stressed regions, efficiency improvements offer substantial headroom: India loses an estimated 40-50% of its water supply to leaky infrastructure and inefficient flood irrigation practices, suggesting that governance and technology reform could dramatically extend existing supplies without new sources.",
+            "Kansas Geological Survey's 2023 assessment reports average annual groundwater declines in the Sheridan-6 management area of 0.5 feet during 2013-2022, compared with 2.0 feet during 2002-2012. The program combined local pumping limits, monitoring and farmer adjustments. This observational comparison supports the potential for conservation to slow depletion, while the continued decline and local setting limit claims about full recovery or results elsewhere.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 9,
             independence: 8,
-            replicability: 8,
-            directness: 7,
+            replicability: 7,
+            directness: 6,
           },
-          source: "FAO; World Bank Water Global Practice",
+          source: "Kansas Geological Survey, 2023 Status of the High Plains Aquifer in Kansas, institutional summary (December 2023)",
           sourceUrl:
-            "https://www.worldbank.org/en/topic/water",
+            "https://kgs.ku.edu/node/512",
           reasoning:
-            "Efficiency gains are well-documented and represent genuine progress. Israel demonstrates that advanced agriculture is possible in arid conditions. However, the 'Jevons paradox' applies: efficiency gains often enable expanded production rather than reduced consumption, and the political obstacles to reforming water subsidies in countries like India have proven intractable for decades.",
+            "Measured well records and water-use reporting make this a concrete adaptation example. Before-and-after comparisons still require care about climate and land use, and the result concerns a managed area rather than technology alone or a randomized global intervention.",
         },
       ],
     },
@@ -382,6 +382,26 @@ export const globalWaterCrisisData = {
     },
   ],
   references: [
+    {
+      title: "McGuire and Strauch, High Plains aquifer storage changes through 2019, USGS SIR 2023-5143 (2024)",
+      url: "https://pubs.usgs.gov/publication/sir20235143",
+    },
+    {
+      title: "Rodell, Velicogna and Famiglietti, Satellite-based estimates of groundwater depletion in India (2009)",
+      url: "https://doi.org/10.1038/nature08238",
+    },
+    {
+      title: "ICIMOD, HI-WISE assessment findings on Hindu Kush Himalayan ice and water (2023)",
+      url: "https://www.icimod.org/press-release/landmark-report-on-impacts-of-disappearing-snow-and-ice-in-the-hindu-kush-himalaya-current-emissions-path-threatens-two-billion-people-and-is-accelerating-species-extinction/",
+    },
+    {
+      title: "Kansas Geological Survey, 2023 High Plains aquifer assessment summary",
+      url: "https://kgs.ku.edu/node/512",
+    },
+    {
+      title: "FAO, Guidance on realizing real water savings with crop water productivity interventions (2021)",
+      url: "https://openknowledge.fao.org/3/cb3844en/cb3844en.pdf",
+    },
     {
       title: "Wheeler et al., Understanding and managing new risks on the Nile with the Grand Ethiopian Renaissance Dam (2020)",
       url: "https://doi.org/10.1038/s41467-020-19089-x",
