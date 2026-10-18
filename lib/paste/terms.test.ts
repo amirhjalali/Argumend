@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pasteTerms, porterStem, termPairs } from "./terms";
+import { contiguousTermPairs, pasteTerms, porterStem, termPairs } from "./terms";
 
 describe("porterStem", () => {
   it("matches the reference outputs of Porter (1980)", () => {
@@ -41,5 +41,19 @@ describe("pasteTerms", () => {
 describe("termPairs", () => {
   it("pairs adjacent terms, skipping a word repeated in place", () => {
     expect(termPairs(["data", "center", "center", "power"])).toEqual(["data_center", "center_power"]);
+  });
+});
+
+describe("contiguousTermPairs", () => {
+  it("does not invent phrases across removed filler or sentence boundaries", () => {
+    expect(contiguousTermPairs("Childcare costs so much. Should the government pay?"))
+      .not.toContain("cost_govern");
+    expect(contiguousTermPairs("Is space worth the cost? Government-funded exploration."))
+      .not.toContain("cost_govern");
+  });
+
+  it("keeps adjacent subject phrases, abbreviations and inflections", () => {
+    expect(contiguousTermPairs("Rent controls and SMRs"))
+      .toEqual(["rent_control", "small_modular", "modular_reactor"]);
   });
 });

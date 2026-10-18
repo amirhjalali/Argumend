@@ -532,6 +532,14 @@ describe("findMaps", () => {
     expect([result.match?.id, ...result.closest.map((map) => map.id)]).toContain(id);
   });
 
+  it("does not suggest space exploration through an invented cost-government phrase", async () => {
+    const result = await findMaps(
+      "People are having fewer children because housing and childcare cost so much. Should the government pay families to have babies, or should we accept a smaller population?",
+    );
+    expect(result.match?.id).toBe("declining-birth-rates");
+    expect(result.closest).toEqual([]);
+  });
+
   it.each([
     ["fluoride-water-supplies", "Our town wants to stop adding fluoride to drinking water because children swallow it. Dentists say it prevents cavities and people can already use toothpaste."],
     ["rfk-health-policy", "RFK says the childhood vaccine schedule has not been properly tested. Doctors say changing established recommendations puts children at risk. The disagreement is whether his MAHA agenda improves public health."],

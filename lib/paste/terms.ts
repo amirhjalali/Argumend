@@ -84,3 +84,13 @@ export function termPairs(terms: readonly string[]): string[] {
   }
   return pairs;
 }
+
+/** Content-word pairs that occur together, without crossing filler or sentences. */
+export function contiguousTermPairs(text: string): string[] {
+  return text.split(/[.!?;:\n]+/).flatMap((sentence) => {
+    const content = new Set(pasteTerms(sentence));
+    return termPairs(pasteTerms(sentence, { keepStopwords: true })).filter((pair) =>
+      pair.split("_").every((word) => content.has(word)),
+    );
+  });
+}

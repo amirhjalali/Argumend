@@ -54,7 +54,7 @@ import {
   type MapRanking,
   type RankedMap,
 } from "./mapIndex";
-import { pasteTerms, termPairs } from "./terms";
+import { contiguousTermPairs, pasteTerms, termPairs } from "./terms";
 import type {
   PasteMapCandidate,
   PasteMapCard,
@@ -639,7 +639,7 @@ function nameMatches(index: MapIndex, id: string, pasteTermSet: ReadonlySet<stri
 
 const nameTermsCache = new WeakMap<MapIndex, Map<string, Set<string>>>();
 
-/** True when the paste uses a word or pair of any of the map's names that few maps use. */
+/** Rare name words or contiguous phrases qualify; scoring pairs can skip filler. */
 function sharesTellingNameWord(index: MapIndex, id: string, pasteTermSet: ReadonlySet<string>): boolean {
   let perIndex = nameTermsCache.get(index);
   if (!perIndex) {
@@ -648,9 +648,9 @@ function sharesTellingNameWord(index: MapIndex, id: string, pasteTermSet: Readon
   }
   let terms = perIndex.get(id);
   if (!terms) {
-    const entries = (index.byId.get(id)?.document.fields.name ?? []).map((entry) => pasteTerms(entry));
+    const entries = index.byId.get(id)?.document.fields.name ?? [];
     terms = new Set(
-      [...entries.flat(), ...entries.flatMap((words) => termPairs(words))].filter(
+      [...entries.flatMap((entry) => pasteTerms(entry)), ...entries.flatMap(contiguousTermPairs)].filter(
         (term) => (index.documentFrequency.get(term) ?? 0) <= MAP_MATCH.listedNameWordMaxMaps,
       ),
     );
@@ -722,6 +722,7 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
   const ranking = rankMaps(index, text);
   const pasteWords = pasteTerms(text);
   const pasteTermSet = new Set([...pasteWords, ...termPairs(pasteWords)]);
+  const tellingNameTerms = new Set([...pasteWords, ...contiguousTermPairs(text)]);
   // Qualifiers such as "raise rent only" distinguish a policy limit from
   // a personal rent increase. They must not add points to the keyword score.
   const subjectTermSet = new Set(pasteTerms(text, { keepStopwords: true }));
@@ -748,7 +749,7 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
       const own = ownNameWords(index).get(id);
       return Boolean(own && pasteWords.some((word) => own.has(word)));
     },
-    (id) => sharesTellingNameWord(index, id, pasteTermSet),
+    (id) => sharesTellingNameWord(index, id, tellingNameTerms),
     introMapId,
   );
   const matchedMs = performance.now() - indexed;

@@ -77,6 +77,8 @@ surrogacy and school-start-time arguments do not qualify through shared words
 about children or school. In an ambiguous result, rejecting an unrelated leader
 can still leave a closest map if that finalist independently meets the overlap
 floors and the paste uses a telling word of its name.
+Phrase overlap qualifies a listed map only when the words occur together in
+both texts, without joining across filler words or sentence boundaries.
 Maps ruled out by subject checks cannot compete as rivals or take over as siblings;
 generic school vocabulary also does not qualify a homeschooling match.
 Crux selection keeps filler words as phrase boundaries and checks for independent
