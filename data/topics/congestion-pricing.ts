@@ -15,30 +15,30 @@ export const congestionPricingData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "When Stockholm began charging drivers in 2006, traffic across its cordon fell about 20%, and the drop has held. In London, vehicle entries fell about 21% after 2003, but the reported journey-time benefit shrank from about 30% to roughly 7% within a few years. Both records are real. The fight is over which effect lasts, and whether the toll revenue is large and steady enough to matter for transit.",
+      "Stockholm's 2014 overview reported cordon traffic about 20% below 2005 levels when charges applied through 2013. TfL found London's congestion back at its pre-charging 2002 level in 2007 despite lower traffic volumes. Counting fewer vehicles and measuring faster journeys are different outcomes.",
     confidence: 84,
     source:
-      "Eliasson, 'The Stockholm congestion charges: an overview,' CTS Working Paper 2014:7 (KTH); Transport for London monitoring reports",
-    sourceUrl: "https://swopec.hhs.se/ctswps/abs/ctswps2014_007.htm",
+      "Eliasson (2014), Table 1; London's primary monitoring report is linked in the evidence",
+    sourceUrl: "https://www.transportportal.se/swopec/cts2014-7.pdf",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that congestion pricing in London, Stockholm, Singapore and New York produced an immediate, measurable drop in vehicles entering the charged zone, and that the schemes raise real money ring-fenced for transit.",
-    "They split over whether the drop in cars, or the faster journey times, holds up over the years as road space is reallocated and exemptions grow; and over whether net toll revenue, such as New York's roughly $500 million target, is large and stable enough to fund transit through litigation, toll cuts and politics.",
+    "Congestion pricing charges drivers for entering busy city centers or using crowded roads. Its goals include fewer vehicles, faster journeys and money for buses and other transport. Each outcome needs its own test.",
+    "The split concerns whether travel improvements last and whether receipts after costs remain large enough to support transport plans. Compare measures with the same geography, period and baseline.",
   ],
-  last_updated: "2026-06-16",
+  last_updated: "2026-10-18",
   tags: ["transport", "cities", "traffic", "taxation", "transit"],
   pillars: [
     {
       id: "traffic-reduction",
       title: "Cutting Traffic",
       short_summary:
-        "Cordon pricing has reliably cut the number of vehicles entering charged zones — typically 10-25% — across London, Stockholm, Singapore, and New York.",
+        "London and Stockholm records report fewer vehicles after pricing. Travel delay and vehicle totals are different measures that need to be tracked separately.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Pricing reduces vehicle counts at the cordon, but the headline congestion benefit erodes. London's vehicle entries fell ~21%, yet TfL's own data show the congestion (journey-time) improvement decayed from ~30% in 2003 to roughly 7% by 2006-07, and central-London speeds later returned close to pre-charge levels as road reallocation, roadworks, and exempt private-hire vehicles filled the freed space. A charge can shrink car counts while leaving people no better off on the clock — and it can simply displace trips to the boundary and untolled hours rather than eliminate them.",
+        "Fewer entries do not guarantee faster journeys when road capacity changes. TfL's 2008 report found that London's early congestion improvement had disappeared against a fixed baseline. The case for caution is to measure travel delay, diversions and conditions outside charging hours, rather than treat a lower vehicle count as the entire result.",
       proponent_rebuttal:
-        "Every major scheme has produced a durable, measured cut in traffic entering the zone, which is the variable pricing directly controls. Stockholm's cordon traffic dropped ~20% on day one of the 2006 trial and the reduction has held — even grown slightly — for nearly two decades. New York's first-year program (2025) saw roughly 11-12% fewer vehicles and morning crossing times up to ~50% faster at some tunnels. London's later speed decline was driven by deliberate road-space reallocation to buses, bikes, and pedestrians and by an Uber-era surge in exempt private-hire cars — fixable design choices, not failure of the price mechanism itself.",
+        "The case for pricing is that reducing peak-time driving demand frees road space, even when later works or a deliberate reallocation of lanes absorb that gain. Stockholm's counts show persistence over the reported period. New York's early monitoring also reports lower entries, although its historical comparison is not a long-run controlled study.",
       crux: {
         id: "cordon-traffic-elasticity",
         title: "Does the Traffic Cut Persist?",
@@ -56,21 +56,21 @@ export const congestionPricingData = {
         cost_to_verify: "$0 (published government count data)",
         falsification: {
           supporter_flip:
-            "If long-run cordon counts and speed telemetry showed the traffic cut consistently rebounding to baseline within a few years once drivers re-adapt — the way London's journey-time benefit decayed from ~30% to ~7% — across multiple cities rather than just one, the 'durable cut' case would weaken to 'a transient shock that fades.'",
+            "If credible comparisons across several cities found repeated rebounds in vehicle entries and no lasting reduction in travel delay, the case for durable traffic benefits would weaken.",
           skeptic_flip:
-            "If more cities held a cordon reduction for a decade or more the way Stockholm has held about 20% since the charge became permanent, and London's later speed decline traced to road-space reallocation and exempt private-hire growth, the expectation of rebound would lose its footing.",
+            "If priced zones maintained lower entries and shorter delays against credible controls over many years, after accounting for capacity changes and diversions, the expectation that benefits fade would need revision.",
           common_ground:
-            "Both sides agree pricing produces an immediate, measurable drop in vehicles entering the cordon; the dispute is about what happens to congestion (journey times) over the following years.",
+            "Both cases distinguish vehicle entries from travel delay and accept that changes in road capacity affect the comparison.",
           live_disagreement:
-            "Whether the durable variable is the car-count reduction or the time-savings benefit — which only multi-city cordon counts and journey-time telemetry tracked for 5-15 years, controlling for road reallocation, ride-hail growth, and exemptions, can settle.",
+            "Whether pricing durably reduces driving demand and travel delay, after accounting for road capacity, other transport changes and trips diverted outside the priced area or hours.",
         },
       },
       evidence: [
         {
           id: "stockholm-persistent-cut",
-          title: "Stockholm: ~20% Cordon Traffic Cut, Sustained 15+ Years",
+          title: "Stockholm: Lower Cordon Traffic in Charging Periods Through 2013",
           description:
-            "Traffic across the Stockholm cordon fell ~20% when charges launched in 2006; after a referendum made them permanent in 2007 the reduction held and, controlling for external factors, increased slightly over time. About a quarter of person-trips across the cordon shifted off the road, roughly 10 percentage points to transit.",
+            "The 2014 overview reports weekday cordon traffic 21.0% below 2005 during the 2006 trial and 22.1% below in 2013. Traffic rebounded when the trial ended and fell again when charges returned in 2007. Adjusted estimates end in 2011; the 2012-2013 figures do not adjust for outside factors.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -79,16 +79,16 @@ export const congestionPricingData = {
             directness: 9,
           },
           source:
-            "Eliasson, J. (2014), 'The Stockholm congestion charges: an overview', CTS Working Paper 2014:7, Centre for Transport Studies (KTH)",
-          sourceUrl: "https://swopec.hhs.se/ctswps/abs/ctswps2014_007.htm",
+            "Jonas Eliasson, 'The Stockholm congestion charges: an overview,' CTS Working Paper 2014:7, Table 1, p. 9",
+          sourceUrl: "https://www.transportportal.se/swopec/cts2014-7.pdf",
           reasoning:
-            "Peer-reviewed-grade synthesis by a lead researcher, drawing on official cordon counts over many years. Directly addresses both the size and the persistence of the traffic cut, the load-bearing question.",
+            "A dated working paper with published counts and adjustment assumptions. It supports persistence across the years studied, without establishing current traffic levels.",
         },
         {
           id: "nyc-first-year",
-          title: "New York: ~11-12% Fewer Vehicles in Year One (2025)",
+          title: "New York: 11% Fewer Entries Against a Historical Baseline, Jan-Oct 2025",
           description:
-            "After tolling Manhattan below 60th St from Jan 5, 2025, the official program reported on the order of 11-12% fewer vehicles entering the zone (tens of millions fewer over the year), morning crossing times up to ~50% faster at some tunnels, and a ~14% drop in crashes within the zone.",
+            "MTA estimated 11% fewer entries from January 5 through October 2025 than a seasonally adjusted historical baseline, including untolled roadways. Weekday morning inbound crossing speeds averaged 23% higher than in 2024; peak-hour speeds in the zone and untolled roadways rose 4.6%. These are different measures and observational comparisons.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -97,17 +97,16 @@ export const congestionPricingData = {
             directness: 9,
           },
           source:
-            "Office of NY Governor Hochul, press release, Sept 9, 2025 (MTA monitoring data)",
-          sourceUrl:
-            "https://www.governor.ny.gov/news/less-traffic-safer-streets-summer-comes-end-governor-hochul-highlights-continued-success",
+            "MTA, 'Congestion Relief Zone Tolling: First Evaluation Report' (January 2026), pp. 7-9 and 23-24",
+          sourceUrl: "https://www.mta.info/document/195631",
           reasoning:
-            "Recent and very direct, but the source is the program's own government sponsor, so independence is moderate; figures are first-year and dated, not yet replicated by long-run independent study.",
+            "Operator analysis over a short period, not independent replication.",
         },
         {
           id: "london-congestion-decay",
-          title: "London: Congestion Benefit Decayed from ~30% to ~7%",
+          title: "London: Congestion Returned to Its 2002 Level in 2007 Despite Lower Traffic",
           description:
-            "Vehicle entries fell ~21% after 2003, but TfL's reported congestion (journey-time) improvement fell from ~30% to ~22% in 2006 and to roughly 7% by 2006-07; central-London speeds later returned close to pre-charge levels as road space was reallocated and exempt private-hire trips surged.",
+            "TfL's 2008 report found 21% fewer vehicles with four or more wheels entering the original zone in 2007 than in 2002, but congestion was back at the 2002 level. TfL linked this to lost effective capacity, including roadworks and road-space reallocation, and still estimated relief relative to a scenario without charging.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -116,10 +115,11 @@ export const congestionPricingData = {
             directness: 8,
           },
           source:
-            "Transport for London monitoring reports, summarized with citations in 'London congestion charge', Wikipedia; corroborated by The Conversation (2018)",
-          sourceUrl: "https://en.wikipedia.org/wiki/London_congestion_charge",
+            "Transport for London, 'Central London Congestion Charging: Impacts Monitoring, Sixth Annual Report' (July 2008), pp. 3-4 and 40",
+          sourceUrl:
+            "https://content.tfl.gov.uk/central-london-congestion-charging-impacts-monitoring-sixth-annual-report.pdf",
           reasoning:
-            "Shows the steelman against durability directly using TfL's own figures. Marked down because the primary numbers reach us via an encyclopedia synthesis of TfL reports rather than a single peer-reviewed paper; the underlying TfL data are nonetheless real and widely cited.",
+            "Primary monitoring distinguishes traffic volume, measured congestion and an estimated counterfactual. Returning to an old baseline does not show what would have happened without the charge.",
         },
       ],
     },
@@ -127,12 +127,12 @@ export const congestionPricingData = {
       id: "transit-funding",
       title: "Funding Transit",
       short_summary:
-        "Net toll revenue is earmarked for public transport, but whether the sums are large, stable, and politically durable enough to count as a transit funding source is disputed.",
+        "Compare money available for transport after operating and financing costs with the commitments it must support. Annual receipts and capital borrowing are different quantities.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Tolls fund operations and skimming before transit. London's charge has often barely covered its own collection and enforcement costs, leaving modest net surpluses. New York's program was originally pitched to back ~$15 billion in MTA capital bonds (implying roughly $1 billion/year), but the relaunched 2025 scheme targets only ~$500 million net — about half — and remains legally and politically contested. Revenue that can be halved, paused, or sued out of existence is a fragile funding base for multi-decade infrastructure.",
+        "The case for caution concerns money available after operating, enforcement and financing costs, and whether it will persist. Rates and exemptions can change. New York's 2024 revision changed the initial toll while keeping the stated financing goal; a lower opening toll alone does not establish a capital-funding shortfall.",
       proponent_rebuttal:
-        "The schemes do raise real, ring-fenced money for transit and active travel. New York hit its ~$500 million net-revenue target in its first year and is using it to back MTA capital investment, while London channels its surplus into bus and transport improvements. Even a 'halved' New York take is a large, recurring, dedicated stream that no fare increase or general tax was willing to provide — and the traffic-cutting and funding goals reinforce each other, since fewer cars also speed up the buses the revenue supports.",
+        "The case for funding is that a dedicated recurring source can support capital borrowing and transport upgrades. Agency accounts report surpluses, but the money available for new projects must be checked after financing and startup costs. Early receipts show that a stream exists; its future size still needs testing.",
       crux: {
         id: "net-revenue-durability",
         title: "Is the Net Revenue Large and Durable?",
@@ -150,21 +150,21 @@ export const congestionPricingData = {
         cost_to_verify: "$0 (published agency financial filings)",
         falsification: {
           supporter_flip:
-            "If audited multi-year filings showed net (post-collection-cost) revenue is chronically small relative to the transit gap it is meant to close, or repeatedly slashed by toll cuts, exemptions, litigation, or rate freezes — as New York's drop from a ~$1B/year plan to a ~$500M target hints — then 'a large, durable funding source' would collapse to 'a modest, fragile one.'",
+            "If multi-year accounts showed funds available for transport repeatedly falling below the commitments they must support, after all operating and financing costs, the case for a durable funding source would weaken.",
           skeptic_flip:
-            "If New York's first-year net take of about $548M against a ~$500M target held for several years and supported bonding, a halved but recurring dedicated stream would look like real funding rather than a fragile one.",
+            "If audited receipts remained large enough after all costs to sustain transport commitments through rate changes and economic cycles, the claim that this is a fragile funding base would need revision.",
           common_ground:
-            "Both sides agree the schemes do raise real, ring-fenced money for transit; the dispute is whether the net amount is materially large and politically/legally durable enough to bond against for decades.",
+            "Both cases distinguish gross charges, operating costs, financing costs and funds actually available for transport.",
           live_disagreement:
-            "Whether net revenue stays both sizeable relative to transit needs and stable across litigation, exemptions, and rate changes — which only multi-year audited gross-minus-cost filings compared against the funding gap can resolve.",
+            "How much money remains available for transport over time, and whether that stream can sustain commitments through changes in rates, exemptions, costs and political decisions.",
         },
       },
       evidence: [
         {
           id: "nyc-revenue-target-met",
-          title: "New York Met Its ~$500M Net-Revenue Target (2025)",
+          title: "New York: $467.8M Net Operating Revenue Through October 2025",
           description:
-            "The MTA set a 2025 net-revenue goal of about $500 million after expenses and reported roughly $548 million by year-end, earmarked to support its capital program.",
+            "MTA reported unaudited January-October 2025 toll income of $573.1 million minus $105.3 million in operating costs, leaving $467.8 million. Net operating revenue is calculated before infrastructure debt service; some receipts helped pay infrastructure financing costs. This is not a final year-end total.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -173,36 +173,35 @@ export const congestionPricingData = {
             directness: 8,
           },
           source:
-            "Office of NY Governor Hochul / MTA, Sept 9, 2025 press release and MTA financial reporting",
-          sourceUrl:
-            "https://www.governor.ny.gov/news/less-traffic-safer-streets-summer-comes-end-governor-hochul-highlights-continued-success",
+            "MTA, 'Congestion Relief Zone Tolling: First Evaluation Report' (January 2026), Table 6-1 and p. 68",
+          sourceUrl: "https://www.mta.info/document/195631",
           reasoning:
-            "Directly shows real, dedicated transit revenue at the targeted level, but the figure comes from the program's sponsor and is a single dated year, so independence and replicability are moderate.",
+            "Same operator report as the traffic card. Financing limits the amount available for new projects.",
         },
         {
           id: "nyc-revenue-shortfall",
-          title: "Relaunched Program Raises ~Half the Original Plan",
+          title: "New York's 2024 Revision Lowered the Initial Toll, Keeping Its Financing Goal",
           description:
-            "The 2025 program's ~$500 million net target is roughly half the ~$1 billion/year implied by the original design meant to back ~$15 billion in MTA capital bonds, after the toll was cut from $15 to $9 and litigation delayed the launch.",
-          side: "against" as const,
+            "The November 2024 plan lowered the initial daytime car E-ZPass toll from $15 to $9, with higher phases later. It still projected support for $15 billion in transit financing. Rate revisions introduce planning uncertainty, but this document does not establish that capital funding was halved.",
+          side: "for" as const,
           weight: {
             sourceReliability: 6,
             independence: 6,
             replicability: 6,
-            directness: 7,
+            directness: 4,
           },
           source:
-            "Reporting on the MTA's revised toll and revenue plan (e.g., 6sqft summary of MTA figures); original $15B bonding goal in MTA capital documents",
+            "New York Governor's Office, revised congestion-pricing plan announcement (November 14, 2024)",
           sourceUrl:
-            "https://www.6sqft.com/one-year-of-congestion-pricing-in-nyc-27-million-fewer-vehicles-less-traffic/",
+            "https://www.governor.ny.gov/news/putting-commuters-first-keeping-costs-down-governor-hochul-unveils-plans-future-transit-and",
           reasoning:
-            "Captures the genuine gap between promised and delivered funding. Down-weighted because it relies on secondary reporting rather than a single audited filing, though the $15B/$9-toll facts are well documented.",
+            "A policy plan, not an outcome audit. It documents rate changes and financing intent; it cannot by itself establish a cash shortfall or long-term durability.",
         },
         {
           id: "london-revenue-modest",
-          title: "London's Net Surplus Is Modest Relative to Costs",
+          title: "London: Net Charging Income Declined in 2024/25",
           description:
-            "A large share of London's gross charge income is consumed by collection and enforcement; the scheme's primary purpose is traffic management, with the net surplus reinvested in transport but small relative to London's overall transit budget.",
+            "TfL's accounts show £341.6 million in Congestion Charge income for the year ended March 31, 2025, less £128.0 million for toll facilities and traffic management and £4.1 million for administration, support and depreciation. Net income was £209.5 million, down from £235.6 million the previous year, and supports the Mayor's Transport Strategy. These figures exclude the separate emissions-zone accounts.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -211,10 +210,11 @@ export const congestionPricingData = {
             directness: 6,
           },
           source:
-            "Transport for London monitoring/financial reporting, summarized in 'London congestion charge', Wikipedia",
-          sourceUrl: "https://en.wikipedia.org/wiki/London_congestion_charge",
+            "Transport for London, 'Annual Report and Statement of Accounts 2024/25,' Note 1(c), p. 138",
+          sourceUrl:
+            "https://content.tfl.gov.uk/tfl-annual-report-and-statement-of-accounts-2024-25.pdf",
           reasoning:
-            "Supports the 'fragile funding base' steelman, but the precise cost-ratio varies by year and reaches us via encyclopedia synthesis rather than a primary audited statement, so weights are moderate.",
+            "Shows year-to-year variation in net receipts, not failure to cover costs. One decline does not establish chronic funding failure or erase the recorded surplus.",
         },
       ],
     },
