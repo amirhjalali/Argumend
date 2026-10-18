@@ -13,7 +13,7 @@ export const immigrationWageImpactData = {
       "David Card's 1990 study found little wage change for less-skilled Miami workers after the Mariel boatlift. George Borjas's 2017 reanalysis estimated a 10-30% relative decline for non-Hispanic men aged 25-59 without a high school diploma. These are different samples of the Current Population Survey. Later research disputes how sample composition affects the comparison.",
     confidence: 80,
     source:
-      "Card (1990); Borjas (2017); methodological critique and reply linked in further reading",
+      "Card (1990); reanalysis and methodological debate linked in the evidence and further reading",
     sourceUrl:
       "https://davidcard.berkeley.edu/papers/mariel-impact.pdf",
   },
@@ -131,63 +131,10 @@ export const immigrationWageImpactData = {
             "Gold-standard consensus report synthesizing decades of research. Conclusion that effects are small and concentrated undercuts the 'significantly depresses' framing of the meta-claim.",
         },
         {
-          id: "cbo-fiscal-impact",
-          title: "CBO: Immigration Raises GDP and Has Mixed Fiscal Effects",
-          description:
-            "The Congressional Budget Office estimates that the 2021-2026 immigration surge raises GDP substantially — boosting nominal GDP by $8.9 trillion (2.4%) over 2024-2034 and by about 3.2% in 2034 alone. Net federal fiscal effects are positive (deficits lowered by roughly $0.9 trillion over the decade), but effects are often negative at state and local levels in the short term.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 7,
-            directness: 5,
-          },
-          source:
-            "Congressional Budget Office, 'Effects of the Immigration Surge on the Federal Budget and the Economy' (2024)",
-          sourceUrl: "https://www.cbo.gov/publication/60165",
-          reasoning:
-            "Highly authoritative and nonpartisan. GDP effects don't directly address distributional wage impacts on low-skill natives, reducing directness.",
-        },
-      ],
-    },
-    {
-      id: "long-term-economic-effects",
-      title: "Long-Term Economic Effects",
-      short_summary:
-        "Immigrants started 55% of U.S. billion-dollar startups. They also compete for entry-level jobs. Both facts are true simultaneously.",
-      icon_name: "Target" as const,
-      skeptic_premise:
-        "Immigrants are net fiscal contributors over their lifetimes and their children even more so. Innovation rates among immigrants are disproportionately high — immigrants are about 80% more likely to found a firm than native-born Americans (Azoulay, Jones, Kim & Miranda), and immigrant-founded firms are roughly 35% more likely to hold a patent. H-1B and other high-skill workers tend to raise wages for complementary native workers with different skills rather than displacing them.",
-      proponent_rebuttal:
-        "Aggregate GDP gains say little about distribution. The National Academies' 2017 consensus report finds that when immigration does depress wages, the losses concentrate on prior immigrants and native-born workers without a high-school degree — exactly the groups least able to absorb them. Short-term fiscal costs are also real and unevenly borne: education, healthcare, and housing costs land disproportionately on state and local governments, while school overcrowding and housing-price pressure are felt acutely by receiving communities even as national output grows. The gains tend to accrue to capital owners and high-skill workers; the costs fall on low-wage natives and earlier arrivals.",
-      crux: {
-        id: "distributional-impact",
-        title: "Distributional Analysis of Immigration Benefits and Costs",
-        question:
-          "Do long-run growth gains outweigh short-term costs for low-skill native workers?",
-        description:
-          "Who specifically gains and who loses from immigration — broken down by income quintile, skill level, geographic area, and timeframe.",
-        methodology:
-          "General equilibrium modeling with heterogeneous agents calibrated to US data, tracing how immigration-driven GDP growth is distributed across native workers by skill level, region, and over 1, 5, 10, and 30 year horizons.",
-        verification_status: "theoretical" as const,
-        cost_to_verify: "$2M (Multi-year modeling project with panel data)",
-        falsification: {
-          supporter_flip:
-            "If general-equilibrium analysis showed immigration's gains are broadly shared — reaching low-skill natives and receiving communities, not just capital owners and high-skill workers — the 'costs fall on the most vulnerable' argument would weaken.",
-          skeptic_flip:
-            "If distributional data found the wage and local-fiscal costs concentrated on prior immigrants, native dropouts and receiving communities, testing the National Academies' account, aggregate GDP gains would no longer answer the worry about who pays.",
-          common_ground:
-            "Both sides agree immigration raises aggregate GDP and that immigrants found firms and patent at high rates; the dispute is who captures the gains and who bears the costs.",
-          live_disagreement:
-            "How immigration's net benefits distribute across skill levels, regions, and time horizons — whether the concentrated short-term costs to low-skill natives are outweighed for them by long-run growth, which heterogeneous-agent models estimate but haven't settled.",
-        },
-      },
-      evidence: [
-        {
           id: "peri-sparber-complementarity",
-          title: "Peri & Sparber: Immigrants Complement Rather Than Compete With Natives",
+          title: "Peri and Sparber: Task Specialization Can Limit Wage Pressure",
           description:
-            "Giovanni Peri and Chad Sparber find that less-educated immigrants specialize in manual/physical tasks while comparably-educated natives shift toward communication-language-intensive jobs. This task specialization reallocation substantially reduces the downward wage pressure immigration would otherwise place on less-educated native workers, helping explain why measured wage effects are modest.",
+            "Using occupational task data and U.S. Census data, Peri and Sparber find that less-educated immigrants specialize in manual and physical tasks while similarly educated native workers shift toward communication-intensive jobs. They argue that this adjustment helps explain modest wage effects. It does not establish that no native worker faces competition.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -196,16 +143,69 @@ export const immigrationWageImpactData = {
             directness: 6,
           },
           source:
-            "Giovanni Peri & Chad Sparber, 'Task Specialization, Immigration, and Wages,' American Economic Journal: Applied Economics, Vol. 1, No. 3 (2009), pp. 135-169",
+            "Giovanni Peri and Chad Sparber, 'Task Specialization, Immigration, and Wages,' American Economic Journal: Applied Economics 1(3), 135-169 (2009)",
           sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/app.1.3.135",
           reasoning:
-            "Influential research from a leading immigration economist. Task-based framework is theoretically compelling but hard to verify empirically at scale; the paper's contribution is the specialization mechanism rather than a single headline native wage-gain figure.",
+            "An empirical test of a task-specialization mechanism. Its findings concern adjustment among less-educated workers, rather than a guarantee that all immigration raises all native wages.",
+        },
+      ],
+    },
+    {
+      id: "long-term-economic-effects",
+      title: "Long-Term Economic Effects",
+      short_summary:
+        "Entrepreneurship and growth projections can show gains while local budgets bear costs. The question is whether the same workers eventually benefit.",
+      icon_name: "Target" as const,
+      skeptic_premise:
+        "In the case against substantial wage harm, entrepreneurship, complementary jobs and additional demand can expand opportunities for native workers. The evidence below includes a national firm-founding study and CBO's projection of higher total output. Whether these gains reach low-skilled native workers has to be tested separately.",
+      proponent_rebuttal:
+        "The case for concern separates output from distribution. A larger economy does not guarantee higher wages for directly competing workers. Public-service costs can arise before tax revenues catch up, and federal gains need not cover state and local costs. CBO's 2025 analysis estimated net state and local costs in 2023. Neither that fiscal estimate nor entrepreneurial success identifies the full long-run effect on low-skilled native wages.",
+      crux: {
+        id: "distributional-impact",
+        title: "Distributional Analysis of Immigration Benefits and Costs",
+        question:
+          "Do long-run growth gains outweigh short-term costs for low-skill native workers?",
+        description:
+          "Track wages, taxes and service use for matched low-skilled worker cohorts and receiving communities over a decade or more. Compare places with different immigration exposure, accounting for worker mobility and local demand.",
+        methodology:
+          "General equilibrium modeling with heterogeneous agents calibrated to US data, tracing how immigration-driven GDP growth is distributed across native workers by skill level, region, and over 1, 5, 10, and 30 year horizons.",
+        verification_status: "theoretical" as const,
+        cost_to_verify: "$2M (Multi-year modeling project with panel data)",
+        falsification: {
+          supporter_flip:
+            "If credible comparisons showed that low-skilled native workers and receiving communities gained over time after accounting for early wage and public-service costs, the case for lasting concentrated losses would weaken.",
+          skeptic_flip:
+            "If the same workers and communities bore persistent net losses across credible comparisons, higher aggregate output would not establish that they benefited.",
+          common_ground:
+            "Both cases distinguish total output from the distribution of wages and public-service costs.",
+          live_disagreement:
+            "Whether low-skilled native workers and receiving communities share enough in long-run gains to offset costs they bear, using consistent worker groups, geography and time horizons.",
+        },
+      },
+      evidence: [
+        {
+          id: "cbo-local-2025",
+          title: "CBO (2025): Immigration Surge Added Net State and Local Costs in 2023",
+          description:
+            "CBO estimated that the surge beginning in 2021 added $10.1 billion in state and local revenues and $19.3 billion in spending in 2023, a direct net cost of $9.2 billion. Its alternative measure, including broader effects and nonbudgetary costs, estimated a potential net cost of $9.8 billion. These estimates cover one year and a specific surge, rather than all immigration.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Congressional Budget Office, 'Effects of the Surge in Immigration on State and Local Budgets in 2023' (June 2025)",
+          sourceUrl: "https://www.cbo.gov/publication/61256",
+          reasoning:
+            "A nonpartisan estimate with explicit accounting limits. It shares an agency and some assumptions with the federal projection, but covers different budgets and a different period. Fiscal costs are not a direct estimate of native workers' wage losses.",
         },
         {
           id: "fair-cost-estimates",
-          title: "FAIR: Immigration Costs $150B+ Annually at State/Local Level",
+          title: "FAIR (2023): $150.7B Net Cost Estimate Across All Government Levels",
           description:
-            "The Federation for American Immigration Reform's 2023 study estimates the net cost of illegal immigration at about $150.7 billion annually — roughly $182 billion in gross costs for services (K-12 education ~$78B, healthcare ~$43B, law enforcement) offset by only ~$31 billion in taxes paid by an estimated 15.5 million illegal aliens and their dependents. Most of these costs fall on state and local governments.",
+            "The restrictionist advocacy group FAIR estimated $182.1 billion in annual public spending and $31.4 billion in tax receipts, a net cost of $150.7 billion across federal, state and local governments. Its population includes an estimated 15.5 million unauthorized residents and 5.4 million U.S.-born children. This is not a state/local-only figure or an estimate for all immigrants.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -218,13 +218,13 @@ export const immigrationWageImpactData = {
           sourceUrl:
             "https://www.fairus.org/issue/publications-resources/fiscal-burden-illegal-immigration-united-states-taxpayers-2023",
           reasoning:
-            "Advocacy organization with restrictionist stance; covers illegal immigration specifically, not all immigration. Methodology criticized (e.g., by the Cato Institute) for counting US-citizen children of immigrants as costs and undercounting tax revenue, inflating estimates. Low independence and reliability due to clear agenda.",
+            "An advocacy estimate whose population and accounting choices matter. Its annual totals cannot be compared directly with CBO's estimate for the incremental effect of a recent surge. Including U.S.-born children also differs from measuring only immigrants' own fiscal contributions.",
         },
         {
           id: "immigrant-entrepreneurship",
-          title: "Immigrants Are 80% More Likely to Found Companies",
+          title: "Azoulay and Colleagues: Higher Immigrant Firm-Founding Rates in 2005-2010",
           description:
-            "An NBER study (Azoulay, Jones, Kim & Miranda) finds immigrants are about 80% more likely to found a firm than native-born Americans (0.83% vs 0.46% of the workforce launched a business in 2005-2010), and immigrant-founded firms were ~35% more likely to hold a patent than native-founded firms. A separate National Foundation for American Policy analysis found 55% (50 of 91) of US billion-dollar startups had at least one immigrant founder.",
+            "For firms founded in 2005-2010 and surviving at least five years, Azoulay, Jones, Kim and Miranda estimated firm-founding rates of 0.83% among immigrants in the U.S. workforce and 0.46% among native-born workers, about 80% higher. Firms with an immigrant founder were 35% more likely to hold a patent. These are findings about the studied firms and period, not a current startup count.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -233,16 +233,16 @@ export const immigrationWageImpactData = {
             directness: 5,
           },
           source:
-            "Pierre Azoulay, Benjamin F. Jones, J. Daniel Kim & Javier Miranda, 'Immigration and Entrepreneurship in the United States,' NBER WP 27778 (2020); National Foundation for American Policy (2022)",
-          sourceUrl: "https://www.nber.org/papers/w27778",
+            "Pierre Azoulay, Benjamin F. Jones, J. Daniel Kim and Javier Miranda, 'Immigration and Entrepreneurship in the United States,' American Economic Review: Insights 4(1), 71-88 (2022), previously NBER WP 27778 (2020)",
+          sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aeri.20200588",
           reasoning:
-            "Strong data on immigrant entrepreneurship, but this primarily reflects high-skilled immigrants and doesn't directly address wage effects on low-skilled native workers.",
+            "Administrative and firm data support an entrepreneurship comparison across firm sizes. This does not by itself show whether low-skilled native workers receive higher wages, or establish the causal effect of changing immigration policy.",
         },
         {
           id: "cbo-2024-immigration",
           title: "CBO 2024: Recent Immigration Surge Projected to Add ~$8.9T to GDP",
           description:
-            "The CBO projects that the 2021-2026 immigration surge will increase nominal GDP by about $8.9 trillion (2.4%) over 2024-2034, add roughly 5.2 million people to the labor force by 2033, boost federal revenues by about $1.2 trillion, and lower deficits by roughly $0.9 trillion over the decade. Per-capita GDP effects are far more modest than the aggregate figures.",
+            "In July 2024, CBO projected that its defined 2021-2026 surge would add $8.9 trillion to cumulative nominal GDP over 2024-2034, compared with a scenario without the surge. It projected $1.2 trillion more federal revenue and $0.9 trillion lower deficits, excluding discretionary spending changes and state/local budgets. These are projections from that report, not measured gains or a current forecast.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -254,7 +254,7 @@ export const immigrationWageImpactData = {
             "Congressional Budget Office, 'Effects of the Immigration Surge on the Federal Budget and the Economy' (2024)",
           sourceUrl: "https://www.cbo.gov/publication/60165",
           reasoning:
-            "Highly authoritative. Aggregate GDP gains don't address whether low-skill native workers share in them — directness is low for the specific meta-claim about wage depression.",
+            "A model-based comparison with substantial uncertainty. Cumulative nominal GDP is not annual income or GDP per person. The federal-budget result and aggregate output do not establish whether low-skilled native workers benefit.",
         },
       ],
     },

@@ -518,13 +518,12 @@
     "title": "Immigration and Wages",
     "question": "Does large-scale immigration significantly cut low-skilled native wages?",
     "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
-    "confidence_score": 30,
-    "balance": 30,
-    "weight": 68,
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 67,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
@@ -534,7 +533,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sparber boatlift peri mariel chad giovanni azoulay miranda diploma javier marielitos reexamining birthplace cuban pierre"
+    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad giovanni javier marielitos nonbudgetary reexamining birthplace cuban"
   },
   {
     "id": "open-borders",
@@ -1801,7 +1800,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -3099,7 +3098,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "solvency crfb oasdi payable trustees actuarial taxable cbos"
+    "keywords": "solvency crfb oasdi payable trustees actuarial taxable"
   },
   {
     "id": "estate-inheritance-tax",
