@@ -57,8 +57,8 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["privacy-vs-convenience", 0, "The 'resistance is futile' framing overstates"],
   ["privacy-vs-convenience", 1, "The surveillance picture is more nuanced"],
   ["privacy-vs-convenience", 2, "The 'privacy is dead' narrative confuses"],
-  ["rent-control-effectiveness", 0, "The supply-reduction narrative overstates the evidence"],
-  ["rent-control-effectiveness", 1, "The 'insider vs outsider' framing fundamentally mischaracterizes"],
+  ["rent-control-effectiveness", 0, "Protecting existing tenants from large rent increases"],
+  ["rent-control-effectiveness", 1, "Preventing displacement has value beyond the rent payment itself"],
   ["rent-control-effectiveness", 2, "Supply-side solutions are correct in the long run"],
   ["autonomous-weapons-ban", 0, "Existing international humanitarian law already assigns responsibility"],
   // Round 3, finishing the audit's suspects list.

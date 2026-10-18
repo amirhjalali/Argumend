@@ -203,6 +203,7 @@ export function decideMatch(
   offSubject: (id: string) => boolean = () => false,
   ownNameWord: (id: string) => boolean = () => false,
   sharesName: (id: string) => boolean = () => true,
+  introMapId?: string,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -258,6 +259,12 @@ export function decideMatch(
       (best, map) => (nameMatch(map.id).size > nameMatch(best.id).size ? map : best),
       top,
     );
+    if (named === top && introMapId) {
+      const contextual = siblings.find((map) =>
+        map.id === introMapId && map.score >= MAP_MATCH.siblingNameShare * top.score,
+      );
+      if (contextual) named = contextual;
+    }
     if (named === top) {
       named = siblings
         .filter((map) =>
@@ -702,6 +709,20 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
   // Qualifiers such as "raise rent only" distinguish a policy limit from
   // a personal rent increase. They must not add points to the keyword score.
   const subjectTermSet = new Set(pasteTerms(text, { keepStopwords: true }));
+  // A long article can introduce its subject, then mention a nearby topic
+  // as supporting context. A clear opening can distinguish close siblings;
+  // it never supplies the full paste's missing score, coverage or rival lead.
+  const paragraphs = text.trim().split(/\n\s*\n/);
+  let introMapId: string | undefined;
+  if (paragraphs.length > 1) {
+    const [first, second] = rankMaps(index, paragraphs[0]).ranked;
+    if (
+      first && first.score >= MAP_MATCH.minScore &&
+      (!second || first.score >= MAP_MATCH.minLead * second.score)
+    ) {
+      introMapId = first.id;
+    }
+  }
   const decision = decideMatch(
     ranking,
     (a, b) => mapSimilarity(index, a, b) >= MAP_MATCH.siblingSimilarity,
@@ -712,6 +733,7 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
       return Boolean(own && pasteWords.some((word) => own.has(word)));
     },
     (id) => sharesTellingNameWord(index, id, pasteTermSet),
+    introMapId,
   );
   const matchedMs = performance.now() - indexed;
 

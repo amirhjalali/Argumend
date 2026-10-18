@@ -49,7 +49,9 @@ function expectCruxFirstOrder(container: HTMLElement, { agreement }: { agreement
 }
 
 /** Scoreboard framing that must never reach a topic page, folds included. */
-const SCOREBOARD = /\bpts\b|\/100|\bWinner\b|Established|\bverdict\b/i;
+// "Established" can also describe a scientific finding in source text. The
+// retired status label is checked separately against topic.verdict.label.
+const SCOREBOARD = /\bpts\b|\/100|\bWinner\b|\bverdict\b/i;
 
 async function renderLegacy(id: string) {
   const topic = (await loadTopicById(id))!;

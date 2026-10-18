@@ -316,10 +316,10 @@
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
     "confidence_score": 54,
     "balance": 54,
-    "weight": 66,
+    "weight": 61,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence roughly balanced — moderately evidenced",
+      "quadrant": "moderate"
     },
     "status": "contested",
     "category": "policy",
@@ -330,7 +330,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "chernobyl lcoe fukushima repository torch unscear lazard safest standalone overruns vogtle ember markandya messmer sovacool"
+    "keywords": "chernobyls lcoe torch unscear yucca lazard safest standalone fukushima mountain overruns vogtle corrosion earthquakes edfs"
   },
   {
     "id": "universal-healthcare",
@@ -353,7 +353,10 @@
     "tags": [
       "policy"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
+    "aliases": [
+      "Universal medical coverage"
+    ],
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein phoenix simplification treatable"
   },
   {
     "id": "gun-control-effectiveness",
@@ -464,7 +467,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "denver star cahoots vera ariel politifact pyne rialto sutherland farrar dispatched eugene portland fy2021 siepr"
+    "keywords": "denver star cahoots vera ariel politifact pyne rialto sutherland farrar portland dispatched eugene fy2021 siepr"
   },
   {
     "id": "mandatory-voting",
@@ -1732,7 +1735,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "bloom metros andy jassy moodys indeed boise ctrip downtown nashville ying gentrification nicholas zoom goldman"
+    "keywords": "bloom metros andy jassy moodys indeed boise ctrip downtown gentrification nashville ying nicholas zoom goldman"
   },
   {
     "id": "college-value-proposition",
@@ -1976,7 +1979,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity louis overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
+    "keywords": "fred bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
   },
   {
     "id": "global-housing-bubble",
@@ -2071,22 +2074,22 @@
     "title": "Does Rent Control Help or Hurt Renters?",
     "question": "Does rent control make housing less affordable in the long run?",
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 45,
-    "balance": 45,
-    "weight": 68,
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 63,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence roughly balanced — moderately evidenced",
+      "quadrant": "moderate"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 11,
-    "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
+    "evidenceCount": 10,
+    "firstCrux": "Can rent stabilization preserve both new construction and existing rental supply?",
     "tags": [
       "economics"
     ],
-    "keywords": "rental decontrol mcquade palmer pathak qian autor diamond queue stockholm citywide appreciation misallocation tenants portland"
+    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm citywide decontrol appreciation tenants luttmer yorker"
   },
   {
     "id": "degrowth-economics",
@@ -2870,7 +2873,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "nhtsa swiss cruise rider tesla driverless geofenced gode kalra kusano paddock pe24031 victor aired atzei"
+    "keywords": "nhtsa swiss cruise rider tesla driverless geofenced gode kalra kusano paddock pe24031 victor phoenix aired"
   },
   {
     "id": "net-neutrality",
@@ -3221,7 +3224,7 @@
       "international-law",
       "warfare"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus favour governmental unoda"
+    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus favour governmental milder"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3275,7 +3278,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "youngest convincing kazda underdiagnosed barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund underdiagnosis"
+    "keywords": "milder youngest convincing kazda underdiagnosed barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
   },
   {
     "id": "vaping-harm-reduction",

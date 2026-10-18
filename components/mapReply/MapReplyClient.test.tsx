@@ -150,8 +150,8 @@ describe("MapReplyClient", () => {
     expect(view.getByText("A key term being used to mean two things")).toBeTruthy();
     expect(view.getByText("This thread touched")).toBeTruthy();
     expect(view.getByText("It never reached")).toBeTruthy();
-    expect(view.getAllByText("The Construction Response Test").length).toBeGreaterThan(0);
-    expect(view.getAllByText("The Displacement vs Mobility Net Welfare Test").length).toBeGreaterThan(0);
+    expect(view.getAllByText("The Rental Supply Response Test").length).toBeGreaterThan(0);
+    expect(view.getAllByText("Neighborhood stability and access for new renters").length).toBeGreaterThan(0);
     expect(view.getByText("Supports the map's claim")).toBeTruthy();
     expect(view.getByText("Cuts against the map's claim")).toBeTruthy();
     // No score beside a side; the weights explain the choice in the fold.

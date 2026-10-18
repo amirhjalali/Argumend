@@ -1,5 +1,5 @@
 /**
- * Positive subject checks for five maps whose body/evidence also discusses
+ * Positive subject checks for maps whose body/evidence also discusses
  * nearby, uncovered questions. These checks do not add ranking points: a
  * paste must still clear the ordinary score, coverage and rival thresholds.
  *
@@ -12,6 +12,9 @@ import { pasteTerms } from "./terms";
 export type SubjectAnchors = readonly (readonly string[])[];
 
 export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
+  // General school-policy vocabulary also occurs in uniform and funding disputes.
+  "school-phone-bans": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
+  "children-smartphone-age": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
   // Abortion language alone is not artificial-reproduction technology,
   // even when the writer never uses the literal word "abortion".
   "artificial-reproduction-ethics": [

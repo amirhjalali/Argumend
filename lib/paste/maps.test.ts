@@ -112,7 +112,14 @@ describe("decideMatch", () => {
       ? new Set(["generic", "specific", "name"])
       : new Set(["generic"]);
     const siblings = (a: string, b: string) => [a, b].every((id) => id !== "map-3");
-    expect(decideMatch(tied, siblings, names).named?.id).toBe("map-1");
+    expect(decideMatch(tied, siblings, names, undefined, undefined, undefined, "map-2").named?.id).toBe("map-1");
+  });
+
+  it("uses an article's opening to distinguish close siblings without overriding a clear full-text lead", () => {
+    const close = ranking([40, 37, 10]);
+    expect(decideMatch(close, zeroAndOne, undefined, undefined, undefined, undefined, "map-1").named?.id).toBe("map-1");
+    expect(decideMatch(ranking([40, 20, 10]), zeroAndOne, undefined, undefined, undefined, undefined, "map-1").named?.id).toBe("map-0");
+    expect(decideMatch(close, noSiblings, undefined, undefined, undefined, undefined, "map-1").named).toBeNull();
   });
 
   it("needs enough of the paste behind the map: a score floor, or a share of its words", () => {
@@ -348,6 +355,12 @@ describe("findMaps", () => {
     const result = await findMaps(
       "My landlord raised the rent by thirty percent. I cannot afford the new price and have to move. Can I get my deposit back?",
     );
+    expect(result.status).toBe("none");
+    expect(result.closest).toEqual([]);
+  });
+
+  it("does not offer phone maps for a school-uniform policy dispute", async () => {
+    const result = await findMaps("Should schools make kids wear uniforms? It stops the brand-name competition and bullying over clothes, but it costs parents more and kids hate them.");
     expect(result.status).toBe("none");
     expect(result.closest).toEqual([]);
   });
