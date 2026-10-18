@@ -382,22 +382,52 @@ export function pickPillars(
 }
 
 /**
- * One card per side, strongest first, from the crux's own evidence. A side
- * the crux has no card for is taken from the map's other cruxes (the sides
- * answer the map's question or claim, not the crux), so "the strongest card
- * on each side" is not two cards on one side (r9 live review #7).
+ * Reuse the crux text scorer to find evidence that speaks to the paste.
+ * The map's existing card order is retained on ties or no overlap. Array positions are keys because authored IDs can repeat.
+ * These are reading suggestions, not new evidence-strength scores.
+ */
+export function evidenceForPaste<T>(
+  items: readonly T[],
+  text: string,
+  corpusIdf: (term: string) => number,
+  fields: (item: T) => Omit<CruxText, "id">,
+): T[] {
+  const { scores } = pickCruxes(
+    items.map((item, index) => ({ id: String(index), ...fields(item) })),
+    text,
+    corpusIdf,
+  );
+  return scores
+    .map(({ id, score }) => ({ index: Number(id), score }))
+    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .map(({ index }) => items[index]);
+}
+
+/**
+ * One card per side from the crux's own evidence, selected for this paste.
+ * A side absent from that crux borrows from the others, with its origin
+ * preserved. The sides answer the map's question or claim, not the crux.
  */
 function cardsFrom(
   items: readonly LegacyEvidenceItem[],
   others: readonly LegacyEvidenceItem[],
   cruxes: ReadonlyMap<LegacyEvidenceItem, Pick<PasteMapCrux, "question" | "href">>,
+  text: string,
+  corpusIdf: (term: string) => number,
 ): PasteMapCard[] {
+  const fields = (item: LegacyEvidenceItem) => ({
+    name: [item.title],
+    body: [item.description, item.source],
+    evidence: [],
+  });
+  const own = evidenceForPaste(items, text, corpusIdf, fields);
+  const other = evidenceForPaste(others, text, corpusIdf, fields);
   const picked = (["for", "against"] as const)
-    .map((side) => items.find((item) => item.side === side) ?? others.find((item) => item.side === side))
+    .map((side) => own.find((item) => item.side === side) ?? other.find((item) => item.side === side))
     .filter((item): item is LegacyEvidenceItem => Boolean(item));
   if (picked.length < 2) {
     // One-sided evidence still gets two cards, each labelled with its own side.
-    const filler = items.find((item) => !picked.includes(item));
+    const filler = own.find((item) => !picked.includes(item));
     if (filler) picked.push(filler);
   }
   return picked.map((item) => ({
@@ -441,17 +471,17 @@ function pillarMatch(topic: Topic, text: string, corpusIdf: (term: string) => nu
 
   const crux: PasteMapCrux | null = entry ? pillarCrux(topic, entry) : null;
 
-  // A crux without cards borrows the map's strongest ones rather than showing
-  // an empty section. No weight is carried: the cards are two readings, not a
-  // contest, and the map page is where a reader can see what a weight weighs.
+  // A crux without cards borrows from the map rather than showing an empty
+  // section. No weight is carried: these are starting points for reading,
+  // and the map page is where a reader can see what a weight weighs.
   const evidenceCruxes = new Map<LegacyEvidenceItem, Pick<PasteMapCrux, "question" | "href">>();
   for (const owner of cruxes) {
     const origin = { question: owner.question, href: topicHref(topic.id, owner.anchor) };
     for (const item of owner.evidence) evidenceCruxes.set(item, origin);
   }
   const otherEvidence = cruxes.filter((item) => item !== entry).flatMap((item) => item.evidence);
-  let cards = cardsFrom(entry?.evidence ?? [], otherEvidence, evidenceCruxes);
-  if (cards.length === 0) cards = cardsFrom(cruxes.flatMap((item) => item.evidence), [], evidenceCruxes);
+  let cards = cardsFrom(entry?.evidence ?? [], otherEvidence, evidenceCruxes, text, corpusIdf);
+  if (cards.length === 0) cards = cardsFrom(cruxes.flatMap((item) => item.evidence), [], evidenceCruxes, text, corpusIdf);
 
   return {
     id: topic.id,
@@ -480,6 +510,8 @@ function flagshipCards(
   graph: ArgumentGraph,
   claimId: string,
   crux: Pick<PasteMapCrux, "question" | "href">,
+  text: string,
+  corpusIdf: (term: string) => number,
 ): PasteMapCard[] {
   const byId = new Map(graph.nodes.map((node) => [node.id, node]));
   const ranked = graph.edges
@@ -492,8 +524,13 @@ function flagshipCards(
     })
     .sort((a, b) => evidenceWeight(b.node) - evidenceWeight(a.node) || a.node.id.localeCompare(b.node.id));
 
+  const relevant = evidenceForPaste(ranked, text, corpusIdf, ({ node }) => ({
+    name: [node.summary ?? node.statement],
+    body: [node.relevance, node.source.title],
+    evidence: [],
+  }));
   const picked = (["for", "against"] as const)
-    .map((side) => ranked.find((item) => item.side === side))
+    .map((side) => relevant.find((item) => item.side === side))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
   return picked.map(({ node, side }) => ({
@@ -579,7 +616,7 @@ async function flagshipMatch(
     kind: "flagship",
     crux,
     ...(second ? { alsoCrux: { question: second.question, href: second.href } } : {}),
-    cards: top && crux ? flagshipCards(topic.graph, top.id, crux) : [],
+    cards: top && crux ? flagshipCards(topic.graph, top.id, crux, text, corpusIdf) : [],
     cardsAbout: "crux-claim",
   };
 }

@@ -24,7 +24,8 @@ import { QuestionTakeaway } from "./NextStep";
  *
  * Everything shown is copied from the map itself: its title and claim, the
  * question its crux asks with what would change each side's mind, and the
- * strongest card on each side (said plainly when the map has none on one). The cards carry no weight score here. Two
+ * evidence to explore on each side (said plainly when the map has none on
+ * one), chosen for overlap with the paste. The cards carry no weight score here. Two
  * scores side by side read as a side ahead on points, and the map page is
  * where a reader can see what a weight weighs.
  *
@@ -344,7 +345,7 @@ export function MapMatch({
         This argument is already mapped
       </h2>
       <p className="mt-3 max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-        Argumend has a map of it, with the best evidence on each side. Argumend does not say who is
+        Argumend has a map of it, with questions and cited evidence to explore. Argumend does not say who is
         right.
       </p>
 
@@ -381,13 +382,7 @@ export function MapMatch({
       {cards.length > 0 ? (
         <div className="mt-10">
           <h3 className="label-caps">
-            {hasTwoCruxes
-              ? "Evidence from the map"
-              : missingSide
-              ? cards.length === 1
-                ? "The strongest card"
-                : "The strongest cards"
-              : "The strongest card on each side"}
+            {hasTwoCruxes ? "Evidence from the map" : "Evidence to explore"}
           </h3>
           <p className="mt-1 max-w-[36rem] font-sans text-[0.9375rem] text-[var(--text-secondary)]">
             {match.cardsAbout === "map-question"

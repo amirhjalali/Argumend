@@ -240,7 +240,7 @@ describe("the map block on a phone", () => {
     const view = render(<MapMatch match={matched.match!} related={matched.related} />);
     const cta = view.getByRole("link", { name: /^Open the map at (this|the first) crux$/ });
     const lastFlip = view.getAllByRole("button", { name: /^Show more/ })[1];
-    const cardsHeading = view.getByRole("heading", { name: "The strongest card on each side" });
+    const cardsHeading = view.getByRole("heading", { name: "Evidence to explore" });
     expect(lastFlip.compareDocumentPosition(cta) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(cta.compareDocumentPosition(cardsHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
@@ -256,8 +256,7 @@ describe("the map block on a phone", () => {
       ],
     };
     const view = render(<MapMatch match={oneSided} related={matched.related} />);
-    expect(view.queryByRole("heading", { name: "The strongest card on each side" })).toBeNull();
-    view.getByRole("heading", { name: "The strongest cards" });
+    view.getByRole("heading", { name: "Evidence to explore" });
     view.getByText(/No card here is labelled “(Points to no|Cuts against it)”/);
   });
 });

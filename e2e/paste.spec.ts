@@ -88,13 +88,18 @@ test("AI-written essays lead to independent learning rather than the achievement
   await expect(match).toContainText("Do students who learn with AI do better or worse when tested without it?");
   await expect(match).not.toContainText("Does AI tutoring help disadvantaged students most, or the already advantaged?");
   await expect(match.locator('a[href="https://doi.org/10.1038/s41598-025-97652-6"]')).toBeVisible();
-  await expect(match.locator('a[href="https://doi.org/10.1073/pnas.2422633122"]')).toBeVisible();
+  await expect(match.locator('a[href="https://arxiv.org/abs/2506.08872v2"]')).toBeVisible();
+  const essayCard = match.getByRole("heading", { level: 4, name: /^MIT/ }).locator("..");
+  await expect(essayCard).toContainText("preprint");
   await expect(match.locator('a[href="https://doi.org/10.1145/3626252.3630947"]')).toHaveCount(0);
   const open = match.getByRole("link", { name: "Open the map at this crux", exact: true });
   await expect(open).toHaveAttribute("href", "/topics/ai-in-education#crux-academic-integrity");
   await open.click();
   await expect(page).toHaveURL(/\/topics\/ai-in-education#crux-academic-integrity$/);
-  await expect(page.locator("#crux-academic-integrity > details")).toHaveAttribute("open", "");
+  const entry = page.locator("#crux-academic-integrity");
+  await expect(entry.locator(":scope > details")).toHaveAttribute("open", "");
+  await entry.getByText("Show the evidence on each side and the test", { exact: true }).click();
+  await expect(entry.locator('a[href="https://doi.org/10.1073/pnas.2422633122"]')).toBeVisible();
 });
 
 test("AI equity and teacher-support arguments keep their own cruxes and audited sources", async ({ page }) => {
@@ -106,7 +111,7 @@ test("AI equity and teacher-support arguments keep their own cruxes and audited 
     {
       text: "AI tutors could finally give low-income students the personal help wealthy families pay for. Others worry these tools will reach rich schools first and widen achievement gaps.",
       crux: "learning-outcomes",
-      sources: ["https://doi.org/10.3102/0034654315581420", "https://gem-report-2023.unesco.org/"],
+      sources: ["https://doi.org/10.3102/0034654315581420", "https://digitalpromise.org/wp-content/uploads/2024/09/SRM-Gates-Khanmigo-Report-Final.pdf"],
     },
     {
       text: "Schools are buying AI tools to reduce teacher workloads. I worry districts will use the savings to replace teachers rather than let them spend more time with students.",
@@ -168,7 +173,7 @@ for (const { subject, text, crux, sourceUrls } of [
     crux: "technology-adaptation",
     sourceUrls: [
       "https://doi.org/10.1016/j.scitotenv.2018.12.076",
-      "https://documents1.worldbank.org/curated/en/476041552622967264/pdf/135312-WP-PUBLIC-14-3-2019-12-3-35-W.pdf",
+      "https://www.oecd.org/en/publications/oecd-environmental-performance-reviews-israel-2023_0175ae95-en/full-report/component-6.html",
     ],
   },
 ]) {
@@ -250,6 +255,29 @@ test("an unmapped personal argument becomes conversation notes without another r
   expect(apiCalls).toEqual(["POST /api/analyze"]);
 });
 
+test("a focused FOSTA paste surfaces the GAO evidence and opens its question", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("FOSTA changed Section 230. Did it actually deter trafficking, or did liability cause platforms to remove lawful speech and useful safety tools?");
+  await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+  const result = page.getByRole("region", { name: "Result" });
+  await expect(result.getByRole("heading", { name: "Evidence to explore", exact: true })).toBeVisible();
+  const gao = result.getByRole("heading", { level: 4, name: /^GAO's 2021 Review:/ }).locator("..");
+  await expect(gao.locator('a[href="https://www.gao.gov/products/gao-21-385"]')).toBeVisible();
+  await expect(gao.getByText("From another question on this map", { exact: true })).toHaveCount(0);
+  expect(await gao.evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.left >= 0 && rect.right <= innerWidth;
+  })).toBe(true);
+  await result.getByRole("link", { name: "Open the map at this crux", exact: true }).click();
+  await expect(page).toHaveURL(/\/topics\/section-230-reform#crux-collateral-damage$/);
+  const entry = page.locator("#crux-collateral-damage");
+  await expect(entry.locator(":scope > details")).toHaveAttribute("open", "");
+  await entry.getByText("Show the evidence on each side and the test", { exact: true }).click();
+  await expect(entry.locator('a[href="https://www.gao.gov/products/gao-21-385"]')).toBeVisible();
+});
+
 test("a borrowed evidence card names its own question and keeps that link in the takeaway", async ({ page }) => {
   const apiCalls: string[] = [];
   page.on("request", (request) => {
@@ -269,7 +297,8 @@ test("a borrowed evidence card names its own question and keeps that link in the
   const origin = borrowedCard.getByRole("link", { name: question, exact: true });
   const href = "/topics/section-230-reform#crux-collateral-damage";
   await expect(origin).toHaveAttribute("href", href);
-  const ownCard = result.getByRole("heading", { level: 4, name: /^Anderson v. TikTok:/ }).locator("..");
+  const ownCard = result.getByRole("heading", { level: 4 }).locator("..").filter({ hasNotText: "From another question on this map" });
+  await expect(ownCard).toHaveCount(1);
   await expect(ownCard.getByText("From another question on this map", { exact: true })).toHaveCount(0);
   expect(await borrowedCard.evaluate((element) => {
     const rect = element.getBoundingClientRect();

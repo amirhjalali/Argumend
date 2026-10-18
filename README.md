@@ -104,7 +104,11 @@ controls. Detailed conditions for the first question are labelled as such;
 the cards present evidence from the map and may come from another of its
 cruxes. A card borrowed from another question names and links to that question;
 the copied summary preserves that additional evidence link without repeating it.
-Each question links directly to its own evidence.
+Each question links directly to its own evidence. Evidence previews select cards
+by text overlap within the chosen crux, retaining one per side when available.
+Missing sides borrow from other cruxes with their origin shown. The map's existing
+card order breaks ties and remains the fallback without overlap. These are reading
+suggestions, not strength scores or a claim that the cards settle the argument.
 The short takeaway retains the flagship map's stated scope.
 On a map, choosing a reflection question also offers a preview and a copyable
 conversation starter with a link directly to that crux and its evidence. The starter

@@ -5,7 +5,7 @@ import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import type { Pillar } from "@/lib/schemas/topic";
 import { EXPECTED_MAP_COUNT } from "./mapDocuments";
 import type { RankedMap } from "./mapIndex";
-import { decideMatch, findMaps, getMapIndex, MAP_MATCH, pickPillars } from "./maps";
+import { decideMatch, evidenceForPaste, findMaps, getMapIndex, MAP_MATCH, pickPillars } from "./maps";
 import { ASSISTED_LIVING_PASTE, LEGACY_NUCLEAR_EXAMPLE, NUCLEAR_PASTE } from "./testPastes";
 import { PasteMapsResultSchema } from "./schemas";
 
@@ -53,6 +53,24 @@ function pillar(id: string, text: string): Pillar {
     },
   };
 }
+
+describe("evidence reading suggestions", () => {
+  const broad = { id: "shared-id", title: "A general review of water supply", description: "A review covering several supply technologies." };
+  const focused = { id: "shared-id", title: "Wastewater reuse in agriculture", description: "An evaluation of treatment and reuse for irrigation." };
+  const fields = (item: typeof broad) => ({ name: [item.title], body: [item.description], evidence: [] });
+
+  it("surfaces the relevant source without changing the map's editorial order or collapsing repeated IDs", () => {
+    const ordered = [broad, focused];
+    expect(evidenceForPaste(ordered, "wastewater reuse for irrigation", () => 1, fields)).toEqual([focused, broad]);
+    expect(ordered).toEqual([broad, focused]);
+  });
+
+  it("retains editorial order without text overlap, including empty and single-card cases", () => {
+    expect(evidenceForPaste([broad, focused], "jury sentencing", () => 1, fields)).toEqual([broad, focused]);
+    expect(evidenceForPaste([], "wastewater reuse", () => 1, fields)).toEqual([]);
+    expect(evidenceForPaste([broad], "wastewater reuse", () => 1, fields)).toEqual([broad]);
+  });
+});
 
 describe("decideMatch", () => {
   it("names the top map when it leads the best map on a different subject", () => {
@@ -391,6 +409,19 @@ describe("findMaps", () => {
     }).success).toBe(false);
   });
 
+  it("surfaces the scoped GAO evidence for a FOSTA argument while keeping its question and a contrasting side", async () => {
+    const result = await findMaps("FOSTA changed Section 230. Did it actually deter trafficking, or did liability cause platforms to remove lawful speech and useful safety tools?");
+    const match = result.match!;
+    expect(match.id).toBe("section-230-reform");
+    expect(match.crux?.href).toBe("/topics/section-230-reform#crux-collateral-damage");
+    expect(new Set(match.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+    const gao = match.cards.find((card) => card.id === "fosta-gao")!;
+    expect(gao.sourceUrl).toBe("https://www.gao.gov/products/gao-21-385");
+    expect(gao.description).toContain("as of March 2021");
+    expect(gao.crux?.href).toBe(match.crux!.href);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
   it("offers no AI-education map for a choice between human and online piano lessons", async () => {
     const result = await findMaps("My parents want us to send our child to a private piano teacher. I prefer an online course because it is cheaper and easier to fit around school.");
     expect(result.match).toBeNull();
@@ -622,7 +653,7 @@ describe("findMaps", () => {
     expect(result.match?.crux?.href).toBe("/topics/global-water-crisis#crux-technology-adaptation");
     expect(result.match?.cards.map((card) => card.sourceUrl)).toEqual([
       "https://doi.org/10.1016/j.scitotenv.2018.12.076",
-      "https://documents1.worldbank.org/curated/en/476041552622967264/pdf/135312-WP-PUBLIC-14-3-2019-12-3-35-W.pdf",
+      "https://www.oecd.org/en/publications/oecd-environmental-performance-reviews-israel-2023_0175ae95-en/full-report/component-6.html",
     ]);
     expect(result.related).toEqual([]);
     expect(result.closest).toEqual([]);
