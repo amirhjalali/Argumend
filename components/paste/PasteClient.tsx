@@ -180,7 +180,7 @@ function mapReadingLine(reading: PasteMapReading): string {
     reading.coverage === null ? "" : ` The best match accounts for ${Math.round(reading.coverage * 100)}% of your words.`;
   return [
     `Best match ${formatScore(reading.topScore)}. ${lead}${coverage}`,
-    `A map is named only when it leads every eligible map on a different subject by ${reading.minLead} times, and by ${reading.minExclusiveLead} times on the words where they differ, with a score of at least ${reading.minScore} (or, for a short text, ${Math.round(reading.minCoverage * 100)}% of its words). A map can be ruled out if the paste lacks its subject language. Maps on the same subject are shown as closely related rather than counted against it. With no map named, closest maps are leads to explore, not a confirmed match. Subject checks can remove an unrelated leader while retaining a finalist with enough overlap and a telling word of its name.`,
+    `A map is named only when it leads every eligible map on a different subject by ${reading.minLead} times, and by ${reading.minExclusiveLead} times on the words where they differ, with a score of at least ${reading.minScore} (or, for a short text, ${Math.round(reading.minCoverage * 100)}% of its words). A map can be ruled out if the paste lacks its subject language. Maps grouped on the same subject do not count against it; related links still need a name or subject cue from your text. With no map named, closest maps are leads to explore, not a confirmed match. Subject checks can remove an unrelated leader while retaining a finalist with enough overlap and a name or subject cue.`,
     `These are keyword scores, comparable within one paste only. Took ${reading.matchMs} ms.`,
   ].join(" ");
 }

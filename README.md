@@ -79,6 +79,9 @@ can still leave a closest map if that finalist independently meets the overlap
 floors and the paste uses a telling word of its name.
 Phrase overlap qualifies a listed map only when the words occur together in
 both texts, without joining across filler words or sentence boundaries.
+Related maps also need a telling name cue or an explicit configured subject
+cue in the paste, such as a rent freeze. Similarity between two whole maps
+alone does not qualify a link on a particular result.
 Maps ruled out by subject checks cannot compete as rivals or take over as siblings;
 generic school vocabulary also does not qualify a homeschooling match.
 Crux selection keeps filler words as phrase boundaries and checks for independent

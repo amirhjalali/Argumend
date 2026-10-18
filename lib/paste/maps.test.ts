@@ -103,6 +103,16 @@ describe("decideMatch", () => {
     expect(decideMatch(tied, zeroAndOne).named?.id).toBe("map-0");
   });
 
+  it("does not list a sibling through shared context without a telling name cue", () => {
+    const sharesName = (id: string) => id !== "map-1";
+    const matched = decideMatch(ranking([40, 35, 10]), zeroAndOne, undefined, undefined, undefined, sharesName);
+    expect(matched.named?.id).toBe("map-0");
+    expect(matched.related).toEqual([]);
+    const ambiguous = decideMatch(ranking([40, 35, 34]), zeroAndOne, undefined, undefined, undefined, sharesName);
+    expect(ambiguous.named).toBeNull();
+    expect(ambiguous.closest.map((map) => map.id)).toEqual(["map-0", "map-2"]);
+  });
+
   it("does not overturn a specific sibling name preference with the word-coverage tie rule", () => {
     const tied = ranking([40, 39.8, 39.6, 10]);
     tied.ranked[0].wordScore = 30;
@@ -537,7 +547,16 @@ describe("findMaps", () => {
       "People are having fewer children because housing and childcare cost so much. Should the government pay families to have babies, or should we accept a smaller population?",
     );
     expect(result.match?.id).toBe("declining-birth-rates");
+    expect(result.related).toEqual([]);
     expect(result.closest).toEqual([]);
+  });
+
+  it("retains related space maps when a funding argument names Mars", async () => {
+    const result = await findMaps(
+      "We should keep funding NASA missions to Mars even if they cost billions. Critics say that money would do more good in schools and hospitals on Earth.",
+    );
+    expect(result.match?.id).toBe("space-exploration-value");
+    expect(result.related.map((map) => map.id)).toContain("space-colonization-feasibility");
   });
 
   it.each([

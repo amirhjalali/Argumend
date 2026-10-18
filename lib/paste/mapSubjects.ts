@@ -12,6 +12,11 @@ import { pasteTerms } from "./terms";
 export type SubjectAnchors = readonly (readonly string[])[];
 
 export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
+  // Reactor-safety arguments need not literally use the word "nuclear".
+  "nuclear-energy-safety": [
+    ["nuclear"], ["reactor"], ["atomic", "power"], ["atomic", "energy"],
+    ["Fukushima"], ["Chernobyl"], ["Three", "Mile", "Island"],
+  ],
   // General school-policy vocabulary also occurs in uniform and funding disputes.
   "school-phone-bans": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
   "children-smartphone-age": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],

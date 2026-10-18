@@ -124,6 +124,18 @@ test("AI equity and teacher-support arguments keep their own cruxes and audited 
   }
 });
 
+test("a birth-rate argument does not acquire income or space links through shared context", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("People are having fewer children because housing and childcare cost so much. Should the government pay families to have babies, or should we accept a smaller population?");
+  await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+  const result = page.getByRole("region", { name: "Result" });
+  await expect(result.locator('a[href="/topics/declining-birth-rates"]')).toBeVisible();
+  await expect(result.locator('a[href="/topics/universal-basic-income"]')).toHaveCount(0);
+  await expect(result.locator('a[href="/topics/space-exploration-value"]')).toHaveCount(0);
+});
+
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
   const apiCalls: string[] = [];
   page.on("request", (request) => {

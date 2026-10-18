@@ -235,10 +235,11 @@ export function decideMatch(
     (coverage >= MAP_MATCH.minCoverage && top.score >= MAP_MATCH.minShortScore);
   const clear = lead >= MAP_MATCH.minLead && exclusiveLead >= MAP_MATCH.minExclusiveLead;
   const shown = (map: RankedMap) => map.score >= MAP_MATCH.shownShare * top.score;
-  // A map on another subject is listed only when the paste uses a telling
-  // word of its name: one that scored on shared evidence and common words
+  // A map beside the leader needs a telling name or configured subject cue:
+  // one that scored on shared evidence and common words
   // alone (Medicare for All and GLP-1 drugs, a fired tweeter and DOGE) is
-  // not a lead (r9 live review #8). Siblings are on the paste's subject.
+  // not a lead (r9 live review #8). Whole-map similarity can also group maps
+  // whose shared context is not the subject of this particular paste.
   const listed = (map: RankedMap) => shown(map) && sharesName(map.id);
   const byOwnName =
     top.score >= MAP_MATCH.minShortScore && lead >= MAP_MATCH.minLead && ownNameWord(top.id);
@@ -286,7 +287,7 @@ export function decideMatch(
     }
     if (named !== top) {
       const others = [top, ...siblings.filter((map) => map !== named)]
-        .filter(shown)
+        .filter(listed)
         .filter((map) => !offSubject(map.id));
       const related = others.slice(0, MAP_MATCH.maxMaps - 1);
       const closest = rest
@@ -296,7 +297,7 @@ export function decideMatch(
       return { named, related, closest, top, rival, lead, exclusiveLead, coverage };
     }
     const related = siblings
-      .filter((map) => shown(map) && !offSubject(map.id))
+      .filter((map) => listed(map) && !offSubject(map.id))
       .slice(0, MAP_MATCH.maxMaps - 1);
     const closest = rest
       .filter((map) => !siblingIds.has(map.id) && listed(map))
@@ -318,7 +319,7 @@ export function decideMatch(
     !clear && !offSubject(top.id) && top.score >= MAP_MATCH.closestFloor && coverage >= MAP_MATCH.closestCoverage;
   let closest: RankedMap[] = [];
   if (cameClose) {
-    closest = [top, ...rest.filter((map) => (siblingIds.has(map.id) ? shown(map) : listed(map)))]
+    closest = [top, ...rest.filter(listed)]
       .slice(0, MAP_MATCH.maxMaps)
       .filter((map) => !offSubject(map.id));
   } else if (!clear && offSubject(top.id)) {
@@ -749,7 +750,13 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
       const own = ownNameWords(index).get(id);
       return Boolean(own && pasteWords.some((word) => own.has(word)));
     },
-    (id) => sharesTellingNameWord(index, id, tellingNameTerms),
+    (id) => {
+      if (sharesTellingNameWord(index, id, tellingNameTerms)) return true;
+      const anchors = index.byId.get(id)?.document.subjectAnchors;
+      // "Rent" is common across maps, but "rent freeze" explicitly names
+      // this policy. Reuse the subject check rather than lower rarity floors.
+      return Boolean(anchors?.length && fitsMapSubject(anchors, subjectTermSet));
+    },
     introMapId,
   );
   const matchedMs = performance.now() - indexed;
