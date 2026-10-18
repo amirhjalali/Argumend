@@ -7,6 +7,20 @@ import { expect, pageText, test } from "./fixtures";
  */
 const FLAGSHIP = "/topics/ai-mass-unemployment";
 
+test("a map's search, social, and structured descriptions frame the question", async ({ page }) => {
+  await page.goto("/topics/rent-control-effectiveness");
+  const question = await page.getByRole("heading", { level: 1 }).innerText();
+  const description = await page.locator('meta[name="description"]').getAttribute("content");
+  expect(description).toContain(question);
+  expect(description).toContain("evidence on each side");
+  await expect(page.locator('meta[property="og:description"]')).toHaveAttribute("content", description!);
+  await expect(page.locator('meta[name="twitter:description"]')).toHaveAttribute("content", description!);
+  const article = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) =>
+    scripts.map((script) => JSON.parse(script.textContent ?? "{}")).find((data) => data["@type"] === "Article"),
+  );
+  expect(article.description).toBe(description);
+});
+
 test("home's primary button opens the flagship map, crux first", async ({ page }) => {
   await page.goto("/");
   const cta = page.getByTestId("home-primary-cta");

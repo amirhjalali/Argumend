@@ -7,7 +7,7 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/lib/site";
-import { mapDisplayTitle } from "@/lib/mapNaming";
+import { mapDescription, mapDisplayTitle } from "@/lib/mapNaming";
 
 /**
  * Stable fallback publish date for topic items. Topic summaries carry no
@@ -60,7 +60,7 @@ export async function GET() {
     <item>
       <title>${escapeXml(mapDisplayTitle(topic))}</title>
       <link>${url}</link>
-      <description>${escapeXml(topic.meta_claim)}</description>
+      <description>${escapeXml(mapDescription(topic, topic.pillarCount))}</description>
       <pubDate>${pubDate}</pubDate>
       <category>${escapeXml(categoryLabel)}</category>
       <guid isPermaLink="true">${url}</guid>

@@ -5,6 +5,14 @@ import { CONTENT_LAST_UPDATED } from "@/lib/site";
 import { GET } from "./route";
 
 describe("GET /feed.xml", () => {
+  it("describes a map as a question with evidence on each side", async () => {
+    const body = await (await GET()).text();
+    const item = body.match(/<item>[\s\S]*?<\/item>/g)?.find((entry) => entry.includes("/topics/rent-control-effectiveness"));
+    expect(item).toContain("<description>Does rent control make housing less affordable in the long run?");
+    expect(item).toContain("evidence on each side");
+    expect(item).not.toContain("Rent control policies reduce housing affordability");
+  });
+
   it("returns deterministic, cacheable RSS covering every public article and topic", async () => {
     const first = await GET();
     const firstBody = await first.text();
