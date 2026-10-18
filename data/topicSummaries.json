@@ -644,7 +644,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic trifecta chamber gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "npvic compact trifecta chamber gore hillary mega oklahoma clinton whoever donald"
   },
   {
     "id": "surveillance-public-safety",
@@ -693,7 +693,7 @@
       "Is Military Action Against Iran Justified?",
       "Should the US strike Iran?"
     ],
-    "keywords": "jcpoa hezbollahs houthis iranian fordow soleimani barrels assassination militia amasses centrifuge irgc isfahan natanz jordan"
+    "keywords": "jcpoa hezbollahs houthis iranian iraq fordow soleimani barrels assassination militia amasses centrifuge irgc isfahan natanz"
   },
   {
     "id": "epstein-files",
@@ -766,7 +766,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "fy2023 trac migrant southwest syracuse fy2022 backlog binational venezuelan boatlift mariel patrol neglect afghans aics"
+    "keywords": "fy2023 southwest trac migrant syracuse fy2022 backlog binational venezuelan boatlift mariel patrol neglect afghans aics"
   },
   {
     "id": "social-media-elections",
@@ -788,7 +788,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "analytica mueller persuasion aral cisa extremist kalla untrustworthy vosoughi broockman personas iranian whistleblower boasting brad"
+    "keywords": "analytica mueller persuasion aral cisa extremist kalla untrustworthy vosoughi broockman iranian personas whistleblower boasting brad"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -886,7 +886,7 @@
     "meta_claim": "Freshwater scarcity will become the defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
     "confidence_score": 67,
     "balance": 67,
-    "weight": 74,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -899,7 +899,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "irrigation desalination cubic indus brine groundwater drip egypts glaciers pakistan dams ethiopia kansas aquifer hectares"
+    "keywords": "desalination irrigation cubic brine groundwater drip glaciers indus kansas aquifer drought hectares pacific abeyance arbitration"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1484,7 +1484,7 @@
       "Does psychedelic therapy actually work?",
       "Are the claims about psychedelic therapy exaggerated?"
     ],
-    "keywords": "mdma mapp2 psychopharmacology hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005 comp006"
+    "keywords": "mdma mapp2 psychopharmacology colorado hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005"
   },
   {
     "id": "lab-leak-theory",
@@ -3496,6 +3496,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli schombert phys priori bullet"
+    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli schombert bullet phys priori"
   }
 ]

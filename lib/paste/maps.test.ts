@@ -587,6 +587,7 @@ describe("findMaps", () => {
       "Rivers cross borders, but upstream dams can leave downstream countries without enough water. As droughts worsen, will shortages lead to war or force countries to cooperate?",
     );
     expect(result.match?.id).toBe("global-water-crisis");
+    expect(result.match?.crux?.href).toBe("/topics/global-water-crisis#crux-conflict-potential");
     expect([...result.related, ...result.closest].map((map) => map.id)).not.toContain("lab-diamonds-ethics");
   });
 

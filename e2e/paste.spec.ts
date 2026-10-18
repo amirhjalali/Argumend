@@ -146,6 +146,28 @@ test("health products and voting dates stay unmapped while AI diagnosis keeps it
   await expect(result.locator('a[href="/topics/ai-in-education"]')).toHaveCount(0);
 });
 
+test("a shared-river argument opens the conflict question with scoped primary evidence", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("Rivers cross borders, but upstream dams can leave downstream countries without enough water. As droughts worsen, will shortages lead to war or force countries to cooperate?");
+  await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+  const result = page.getByRole("region", { name: "Result" });
+  await expect(result.locator('a[href="/topics/global-water-crisis"]')).toBeVisible();
+  await expect(result.locator('a[href="/topics/lab-diamonds-ethics"]')).toHaveCount(0);
+  const sourceUrls = [
+    "https://doi.org/10.1038/s41467-020-19089-x",
+    "https://transboundarywaters.ceoas.oregonstate.edu/sites/transboundarywaters.ceoas.oregonstate.edu/files/Publications/Yoffe_Wolf_Giordano.pdf",
+  ];
+  for (const url of sourceUrls) await expect(result.locator(`a[href="${url}"]`)).toBeVisible();
+  await result.getByRole("link", { name: "Open the map at this crux", exact: true }).click();
+  await expect(page).toHaveURL(/\/topics\/global-water-crisis#crux-conflict-potential$/);
+  const entry = page.locator("#crux-conflict-potential");
+  await expect(entry.locator(":scope > details")).toHaveAttribute("open", "");
+  await entry.getByText("Show the evidence on each side and the test", { exact: true }).click();
+  for (const url of sourceUrls) await expect(entry.locator(`a[href="${url}"]`)).toBeVisible();
+});
+
 test("a family-policy argument keeps audited birth-rate evidence without unrelated links", async ({ page }) => {
   await page.goto("/analyze");
   const input = page.getByRole("textbox", { name: "The argument to read" });

@@ -9,16 +9,16 @@ export const globalWaterCrisisData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The last war between states fought over water was about 4,500 years ago, between the Sumerian city-states of Lagash and Umma, and from 1948 to 2008 cooperative water events outnumbered conflictive ones by more than two to one, with over 200 treaties signed. That record was built in an era of relative abundance. The fight is over whether it holds as absolute scarcity arrives.",
+      "The Pacific Institute's November 2025 update catalogued 420 reported water-related violent incidents in 2024. Its categories include water as a trigger, a weapon and a casualty of violence. That is not a count of wars caused by shortages. The disagreement concerns when pressure on shared water supplies escalates into armed violence, and how institutions can prevent it.",
     confidence: 84,
     source:
-      "Aaron T. Wolf, Oregon State University Transboundary Freshwater Dispute Database; International Water Event Database (1948–2008)",
-    sourceUrl: "https://transboundarywaters.ceoas.oregonstate.edu/",
+      "Pacific Institute, Water Conflict Chronology update (November 11, 2025)",
+    sourceUrl: "https://pacinst.org/announcement/pacific-institute-analysis-finds-surge-in-reported-water-related-violence/",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that groundwater depletion is real and measured in the Ogallala, northwest India and the North China Plain; that cooperative water events have outnumbered conflictive ones roughly 2:1, with no interstate water war in the modern era but real sub-national water violence; and that desalination and drip irrigation work where they can be afforded.",
-    "They split over whether efficiency, pricing and recharge can outrun aquifer depletion before key farm regions collapse; whether some level of absolute scarcity, on rivers like the Nile or the Indus, would break cooperation down into war; and whether that technology can reach the poorest, most water-stressed regions in time.",
+    "Both cases distinguish a water shortage from a dispute and a dispute from armed violence. Cooperation is part of the historical record, while water systems can also be attacked in existing conflicts. Physical depletion, affordability and governance therefore need separate evidence.",
+    "The map asks how quickly institutions and infrastructure can respond as water supply, demand and reservoir operations change. The disagreements concern local aquifer depletion, the risk of violent escalation on shared rivers, and who can afford effective adaptation. A hydrological deficit alone does not establish that war will follow.",
   ],
   pillars: [
     // =========================================================================
@@ -147,116 +147,116 @@ export const globalWaterCrisisData = {
       id: "conflict-potential",
       title: "Conflict Potential",
       short_summary:
-        "Transboundary rivers — the Nile, Indus, Colorado, Tigris-Euphrates, and Mekong — are flashpoints where upstream dams and diversions threaten downstream nations' survival. Historical precedent shows water disputes escalating tensions, but outright 'water wars' between nations remain rare. Whether scarcity will trigger conflict or cooperation is the central geopolitical question.",
+        "Shared rivers such as the Nile and Indus connect upstream dam operations with downstream water needs. Historical diplomatic interactions often involved cooperation, while newer violence records include attacks on water infrastructure. The question is which pressures and institutional failures lead to armed escalation.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The 'water wars' thesis has been predicted for decades and has consistently failed to materialize. Political scientist Aaron Wolf's comprehensive database of international water events found that cooperative events outnumber conflictive events by more than 2:1 over the past 60 years, and the last true 'water war' occurred 4,500 years ago between Sumerian city-states. The Nile dispute between Egypt and Ethiopia over the Grand Ethiopian Renaissance Dam (GERD) has been tense but has not led to military conflict despite years of threats. The Indus Waters Treaty between India and Pakistan has survived three wars and remains one of the most durable international agreements in history. Even the Colorado River crisis — where the river no longer reaches the sea — has been managed through interstate compacts and federal intervention, not violence. States have overwhelmingly chosen negotiation, treaties, and institutional frameworks over armed conflict when it comes to shared water resources. The reason is straightforward: water infrastructure is vulnerable to retaliation, agricultural systems require stability, and the economic costs of water conflict far exceed the costs of cooperation.",
+        "The historical record challenges the idea that scarcity automatically produces war. Yoffe, Wolf and Giordano's study of international water events from 1948 to 1999 found cooperation more common than conflict; most events were verbal exchanges. This is evidence of diplomatic activity, not proof that institutions will always succeed. Reservoir coordination can offer shared benefits, and the existence of a serious allocation dispute does not establish that fighting is unavoidable.",
       proponent_rebuttal:
-        "The historical record of water cooperation was built during an era of relative abundance. We are now entering uncharted territory where absolute scarcity — not just allocation disputes — will define the landscape. Ethiopia's GERD will give it control over 86% of the Nile's flow, threatening Egypt's agricultural lifeline in a country of 110 million people where 95% of the population depends on the Nile. Egypt's president has explicitly warned that the dam is 'an existential threat' and that 'all options are on the table.' The Indus Waters Treaty's durability is being tested as India constructs new dams on tributaries allocated to Pakistan under the treaty, and Pakistan — a nuclear-armed state where agriculture employs 40% of the workforce — views any reduction in Indus flow as a national security threat. The Colorado River compact, negotiated in 1922 based on abnormally wet conditions, allocated more water than the river actually carries, and the resulting crisis forced emergency cuts that have devastated farming communities across the American Southwest. Beyond state-to-state conflict, water scarcity is already driving sub-national violence: in 2022, fighting over shrinking water resources contributed to 700+ deaths in pastoral conflicts in the Horn of Africa. Water does not cause wars the way bullets do — it creates the desperate conditions in which wars become inevitable.",
+        "Cooperation can be put under serious strain by changing flows, new dams and wider political disputes. Nile simulations show why coordinating reservoir releases during prolonged drought matters. India's 2025 decision to hold the Indus Waters Treaty in abeyance shows that a longstanding framework can become contested. Recent records also document violence involving water systems. These cases warrant attention, while leaving open how much scarcity contributes independently of other causes.",
       crux: {
         id: "scarcity-conflict-threshold",
         title: "The Scarcity-to-Conflict Threshold Test",
         question:
           "Is there a level of water scarcity beyond which cooperation breaks down into war?",
         description:
-          "The key question is whether there exists a threshold of absolute water scarcity beyond which the historical pattern of cooperation breaks down and armed conflict becomes probable. If cooperation holds even under extreme scarcity, 'water wars' are a myth. If scarcity beyond a critical threshold overwhelms institutional capacity for cooperation, the historical record provides false comfort.",
+          "The question is whether worsening shortages increase armed-conflict risk under identifiable political and institutional conditions. Water availability, access and reservoir operations differ across basins; a single per-person threshold cannot establish when war becomes likely. Diplomatic hostility, armed violence and damage to water systems must be measured separately.",
         methodology:
-          "Conduct a comparative case study analysis of all transboundary river basins where per-capita water availability has dropped below 500 cubic meters per year (absolute scarcity). Map institutional capacity (treaty presence, joint commissions, third-party mediation), power asymmetry between riparian states, economic water dependency, and military capability. Model conflict probability under projected 2040 and 2060 scarcity scenarios using climate-adjusted hydrological models. Test whether institutional strength moderates the scarcity-conflict relationship or whether extreme scarcity overwhelms institutions.",
+          "Predefine comparable basin histories, hydrological shocks, allocation changes and outcomes. Separate interstate armed conflict from threats, local violence and attacks during existing wars. Measure treaty institutions, prior political relations, power asymmetry and economic dependence before the shock, account for reporting coverage, and validate predictions on withheld cases. Compare whether similar pressures produce different outcomes under different institutions; do not infer causation from a rising incident count alone.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "A comparison of transboundary river basins already below 500 cubic meters per person a year, recording whether disputes there went to treaties and joint commissions or to force, alongside treaty presence and power asymmetry.",
+            "A predefined comparison of basin histories linking measured water shocks to subsequent armed-conflict outcomes, accounting for prior political tensions, institutions and reporting coverage, with predictions checked on withheld cases.",
         },
         cost_to_verify:
-          "$3-5M (Multi-basin geopolitical modeling integrating climate projections, institutional analysis, and conflict risk assessment)",
+          "Not costed here; scope depends on basin coverage, event coding and independent validation.",
         falsification: {
           supporter_flip:
-            "If basins that have dropped below 500 m³ per capita (absolute scarcity) kept resolving disputes through treaties and joint commissions rather than force, the 'scarcity eventually overwhelms cooperation' thesis would fail, and extreme scarcity would look like a driver of institutional innovation, not war.",
+            "If comparable basins experiencing severe water shocks consistently avoided armed escalation through workable allocation and dispute-resolution institutions, the claim that scarcity makes water wars unavoidable would weaken.",
           skeptic_flip:
-            "If disputes like the Nile (GERD) and the Indus, now framed as 'existential' by the states involved, turned violent, or sub-national water violence kept rising, a cooperation record compiled in wetter, institution-building times would stop predicting the future.",
+            "If well-supported comparisons found that severe water shocks substantially increased armed-conflict risk even where credible cooperation mechanisms existed, confidence that institutions could contain the risk would weaken.",
           common_ground:
-            "Both sides agree that historically cooperative water events have outnumbered conflictive ones roughly 2:1 and that no interstate 'water war' has occurred in the modern era, while sub-national water-linked violence does occur.",
+            "Both cases distinguish diplomatic conflict from armed violence, and water contributing to a conflict from water being damaged during an existing war.",
           live_disagreement:
-            "Whether a threshold of absolute scarcity exists beyond which institutional capacity for cooperation breaks down into armed conflict — testable by tracking conflict outcomes in basins as they cross into absolute scarcity under climate-adjusted projections.",
+            "How water shocks interact with political tensions and institutions to change armed-conflict risk, rather than whether any single scarcity threshold makes war inevitable.",
         },
       },
       evidence: [
         {
           id: "nile-gerd-dispute",
           title:
-            "Ethiopia's GERD Dam Threatens Egypt's Existential Water Supply — Negotiations Have Stalled",
+            "GERD Modeling: Drought Risk Depends on Reservoir Coordination",
           description:
-            "The Grand Ethiopian Renaissance Dam on the Blue Nile, which provides 86% of the Nile's flow, began filling in 2020 despite unresolved negotiations with downstream Egypt and Sudan. Egypt receives 90% of its freshwater from the Nile, and the dam's reservoir (74 billion cubic meters) could reduce Egypt's water supply by 12-25% during filling years, depending on hydrological conditions and filling speed. Egyptian President el-Sisi has repeatedly described the dam as an 'existential threat' and Egypt's parliament authorized military action in 2020. After a decade of negotiations mediated by the African Union, the US, and the World Bank, no binding agreement has been reached. Ethiopia views the dam as essential for lifting 65 million people from energy poverty.",
+            "Wheeler and colleagues' 2020 Nile simulations examined GERD filling, subsequent operation and prolonged drought. Their modeled normal operation benefited Ethiopia and Sudan without significantly affecting Egyptian water users, while multi-year drought required careful reservoir coordination to reduce harmful impacts. These are conditional hydrological scenarios, not observed post-inauguration outcomes or a model predicting war. They show why operating rules matter, without establishing inevitable downstream catastrophe.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
           },
-          source: "International Crisis Group; Council on Foreign Relations",
+          source: "Wheeler et al., Nature Communications 11, 5222 (2020)",
           sourceUrl:
-            "https://www.crisisgroup.org/africa/horn-africa/ethiopia/271-nile-dam-talks-stalemate",
+            "https://doi.org/10.1038/s41467-020-19089-x",
           reasoning:
-            "The GERD dispute is the most prominent active water conflict globally, involving two nations with a combined population of 220 million. The existential framing by Egyptian leadership is not rhetorical — Egypt's agriculture literally depends on the Nile. However, the dispute has not escalated to military action in over a decade, which skeptics cite as evidence that rational deterrence and diplomatic norms restrain conflict even in extreme cases.",
+            "The model identifies conditional water-management risks and shared benefits. Results depend on flows and operating assumptions; they do not identify political motives or establish a causal effect on armed conflict.",
         },
         {
           id: "indus-waters-treaty-stress",
           title:
-            "India-Pakistan Indus Waters Treaty Under Growing Strain as India Builds Upstream Dams",
+            "Indus: India's 2025 Abeyance Decision and Continuing Arbitration",
           description:
-            "The 1960 Indus Waters Treaty — brokered by the World Bank — allocated the three eastern rivers (Ravi, Beas, Sutlej) to India and the three western rivers (Indus, Jhelm, Chenab) to Pakistan. India's construction of the Kishanganga and Ratle hydroelectric projects on tributaries of the western rivers has prompted Pakistan to invoke international arbitration, arguing the dams violate treaty terms. Pakistan's agriculture, which employs 40% of its workforce and feeds 230 million people, depends on the Indus system for 90% of its irrigation. India issued a notice in 2023 to 'modify' the treaty — the first formal challenge to its terms in 63 years. Both nations possess nuclear weapons.",
+            "India announced in April 2025 that the Indus Waters Treaty would be held in abeyance. On 27 June 2025, the treaty's Court of Arbitration ruled that its competence over the hydropower dispute was unaffected. India had challenged that competence. The PCA registry lists further proceedings and awards in 2026, including a treaty-status award on 31 August. This is evidence of a contested institutional framework, not proof that water caused military conflict.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
-            independence: 8,
-            replicability: 8,
-            directness: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 5,
           },
-          source: "World Bank; Stimson Center",
+          source: "PCA, supplemental competence award release (June 27, 2025), and case 2023-01 registry",
           sourceUrl:
-            "https://www.stimson.org/program/south-asia-program/",
+            "https://docs.pca-cpa.org/2025/06/b2159e4f-2023-01-20250627-press-release.pdf",
           reasoning:
-            "The Indus Waters Treaty has been remarkably resilient, surviving three India-Pakistan wars. However, India's formal notice to modify the treaty signals that the institutional framework is under unprecedented strain. Climate change is projected to reduce Indus flow by 30-40% by mid-century as glaciers recede, intensifying competition over a shrinking resource between nuclear-armed rivals. The combination of scarcity, institutional erosion, and nuclear capability makes this arguably the world's most dangerous water flashpoint.",
+            "The records establish procedural events and attributed positions. They do not measure a scarcity-driven causal effect, forecast river flows or show that dispute-resolution proceedings guarantee compliance.",
         },
         {
           id: "historical-cooperation-record",
           title:
-            "International Water Cooperation Outnumbers Conflict 2:1 Over 60 Years",
+            "1948-1999 Study: Cooperative Water Events Outnumbered Conflictive Ones",
           description:
-            "The Transboundary Freshwater Dispute Database maintained by Oregon State University, the most comprehensive record of international water interactions, documents over 1,800 water-related events between nations from 1948 to 2008. Cooperative events (treaties, joint commissions, data sharing, joint infrastructure) outnumber conflictive events (diplomatic protests, sanctions, military threats) by more than 2:1. Of 263 transboundary river basins worldwide, 145 have formal cooperative agreements. Researcher Aaron Wolf has found that 'the last true water war occurred 4,500 years ago between the Sumerian city-states of Lagash and Umma,' and that water scarcity has historically driven institutional innovation rather than conflict.",
+            "Yoffe, Wolf and Giordano's 2003 study classified 1,831 reported international water events from 1948 to 1999: 1,228 cooperative, 507 conflictive and the rest neutral. Most were verbal exchanges. These counts describe coded interactions, not numbers of wars or conflict probabilities. They belong to the original study, not the expanded 1948-2008 database, and cannot establish how future disputes will unfold.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 9,
-            directness: 8,
+            replicability: 8,
+            directness: 6,
           },
           source:
-            "Oregon State University Transboundary Freshwater Dispute Database",
+            "Yoffe, Wolf and Giordano, JAWRA 39(5), 1109-1126 (2003), especially p. 1112",
           sourceUrl:
-            "https://transboundarywaters.science.oregonstate.edu/",
+            "https://transboundarywaters.ceoas.oregonstate.edu/sites/transboundarywaters.ceoas.oregonstate.edu/files/Publications/Yoffe_Wolf_Giordano.pdf",
           reasoning:
-            "This is the most comprehensive empirical database on international water interactions and it strongly supports the cooperation thesis. However, the dataset primarily covers a period of relative hydrological stability and institutional build-up. Whether these patterns hold under conditions of accelerating scarcity, climate disruption, and state fragility in water-stressed regions is the untested assumption.",
+            "A defined historical sample supports the cooperation finding for its period and coding rules. Source coverage and event definitions limit generalization; it is not a controlled test of what scarcity causes.",
         },
         {
           id: "sub-national-water-violence",
           title:
-            "Water Scarcity Already Driving Sub-National Violence in Africa and South Asia",
+            "Pacific Institute Catalogued 420 Water-Linked Violent Incidents in 2024",
           description:
-            "While interstate water wars remain rare, sub-national water-related violence is escalating. In the Horn of Africa, competition over shrinking water resources between pastoralist and farming communities contributed to over 700 deaths in 2022 alone across Ethiopia, Kenya, and Somalia. In India, the Cauvery River dispute between Karnataka and Tamil Nadu has triggered riots, destruction of property, and deployment of paramilitary forces multiple times since 2016. In Iraq, the drying of the Mesopotamian marshes due to upstream Turkish and Iranian dams has displaced hundreds of thousands. The Pacific Institute's Water Conflict Chronology documents over 900 instances of water-related violence globally since 2000, with incidents increasing sharply over the past decade.",
+            "The Pacific Institute's November 2025 update reported 420 water-related violent incidents in 2024. The chronology includes disputes where water contributes to violence, deliberate use of water as a weapon, and damage to water systems during existing conflicts. Its reported-event totals are neither a count of interstate water wars nor an estimate of violence caused solely by scarcity.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 9,
             independence: 8,
             replicability: 7,
-            directness: 7,
+            directness: 5,
           },
-          source: "Pacific Institute Water Conflict Chronology; ACLED",
+          source: "Pacific Institute, Water Conflict Chronology update (November 11, 2025)",
           sourceUrl:
-            "https://www.worldwater.org/water-conflict/",
+            "https://pacinst.org/announcement/pacific-institute-analysis-finds-surge-in-reported-water-related-violence/",
           reasoning:
-            "The Pacific Institute database provides systematic documentation of water-related violence. Sub-national violence is less visible than interstate wars but affects millions. The trend of increasing incidents correlates with growing scarcity. However, attributing complex conflicts solely to water scarcity oversimplifies — these events typically involve intersecting ethnic, economic, and governance factors in which water is one stressor among several.",
+            "Open-source incident documentation shows forms of water-related harm. Reporting coverage, retrospective additions and overlapping causes limit causal claims and comparisons with other event datasets.",
         },
       ],
     },
@@ -383,6 +383,26 @@ export const globalWaterCrisisData = {
   ],
   references: [
     {
+      title: "Wheeler et al., Understanding and managing new risks on the Nile with the Grand Ethiopian Renaissance Dam (2020)",
+      url: "https://doi.org/10.1038/s41467-020-19089-x",
+    },
+    {
+      title: "Yoffe, Wolf and Giordano, Conflict and cooperation over international freshwater resources (2003)",
+      url: "https://transboundarywaters.ceoas.oregonstate.edu/sites/transboundarywaters.ceoas.oregonstate.edu/files/Publications/Yoffe_Wolf_Giordano.pdf",
+    },
+    {
+      title: "Pacific Institute, reported water-related violence, November 2025 update",
+      url: "https://pacinst.org/announcement/pacific-institute-analysis-finds-surge-in-reported-water-related-violence/",
+    },
+    {
+      title: "PCA, Indus Waters Western Rivers Arbitration, supplemental competence award release (June 2025)",
+      url: "https://docs.pca-cpa.org/2025/06/b2159e4f-2023-01-20250627-press-release.pdf",
+    },
+    {
+      title: "PCA case 2023-01, registry of decisions and procedural developments",
+      url: "https://pca-cpa.org/en/cases/284/",
+    },
+    {
       title:
         "United Nations World Water Development Report 2024 — Water for Prosperity and Peace",
       url: "https://www.unwater.org/publications/un-world-water-development-report-2024",
@@ -394,8 +414,8 @@ export const globalWaterCrisisData = {
     },
     {
       title:
-        "Transboundary Freshwater Dispute Database — Oregon State University",
-      url: "https://transboundarywaters.science.oregonstate.edu/",
+        "International Water Event Database, expanded 1948-2008 collection, Oregon State University",
+      url: "https://transboundarywaters.ceoas.oregonstate.edu/international-water-event-database",
     },
   ],
   questions: [
