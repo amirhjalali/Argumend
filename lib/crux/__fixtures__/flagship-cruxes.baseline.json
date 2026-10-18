@@ -46,7 +46,7 @@
       "claimId": "c-targeted-programs-can-help",
       "score": 0.767,
       "contestedness": 0.5,
-      "reach": 0.506,
+      "reach": 0.507,
       "directReach": 0.197,
       "discrimination": 1,
       "directDiscrimination": 0.2,
@@ -78,7 +78,7 @@
       "explanationFacts": [
         "Claim c-targeted-programs-can-help: Better-designed, targeted, employer-linked, long-horizon workforce programs can meaningfully improve displaced workers' earnings and employment, even though generic short retraining programs mostly do not.",
         "Status is contested because The WIA Gold Standard randomized evaluation found that staff-assisted intensive services increased earnings 7%-20%, while evidence on training itself was inconclusive within 30 months. That supports targeted case management, not generic retraining or effectiveness at the scale a national AI-displacement emergency would require..",
-        "Component scores: score 0.767, contestedness 0.500, reach 0.506, discrimination 1.000, tractability 1.000, implicit boost 1.000, scoping bonus 0.774.",
+        "Component scores: score 0.767, contestedness 0.500, reach 0.507, discrimination 1.000, tractability 1.000, implicit boost 1.000, scoping bonus 0.774.",
         "Position deltas: p-institutional-who-decides +0.442.",
         "Resolution: existing-evidence: randomized evaluations of well-funded, employer-linked programs for AI-displaced workers that follow earnings for years, at national scale and in a slack labor market as well as a tight one.",
         "Gates: c-displaced-workers-can-retrain-costlessly."
@@ -88,8 +88,8 @@
       "claimId": "c-displaced-workers-can-retrain-costlessly",
       "score": 0.716,
       "contestedness": 0.5,
-      "reach": 0.506,
-      "directReach": 0.506,
+      "reach": 0.507,
+      "directReach": 0.507,
       "discrimination": 1,
       "directDiscrimination": 1,
       "tractability": 1,
@@ -99,7 +99,7 @@
       "affectedPositions": [
         {
           "id": "p-automation-panic-redux",
-          "delta": -0.84
+          "delta": -0.844
         },
         {
           "id": "p-wage-collapse-not-unemployment",
@@ -130,8 +130,8 @@
       "explanationFacts": [
         "Claim c-displaced-workers-can-retrain-costlessly: Workers displaced from automated tasks can retrain and relocate into newly created tasks at a cost and delay small relative to the productivity gains.",
         "Status is contested because This is the strongest form of the optimists' assumption that new tasks will absorb displaced workers: adjustment can be costly in absolute terms but small next to the productivity gains, if new tasks and targeted programs work. The retraining evidence on this map finds weak results for ordinary programs, but it does not show that better-funded, employer-linked, AI-specific programs could not do better..",
-        "Component scores: score 0.716, contestedness 0.500, reach 0.506, discrimination 1.000, tractability 1.000, implicit boost 1.150, scoping bonus 0.000.",
-        "Position deltas: p-automation-panic-redux -0.840, p-wage-collapse-not-unemployment +0.725.",
+        "Component scores: score 0.716, contestedness 0.500, reach 0.507, discrimination 1.000, tractability 1.000, implicit boost 1.150, scoping bonus 0.000.",
+        "Position deltas: p-automation-panic-redux -0.844, p-wage-collapse-not-unemployment +0.725.",
         "Resolution: existing-evidence: realized costs for workers actually displaced by AI: time out of work, and earnings years later against their earlier pay, above all in the clerical jobs with the least capacity to adapt.",
         "Gates: none."
       ]
