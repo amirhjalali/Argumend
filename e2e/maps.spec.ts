@@ -60,6 +60,10 @@ test("home's primary button opens the flagship map, crux first", async ({ page }
   await expect(cta).toBeVisible();
   await expect(cta).toHaveAttribute("href", FLAGSHIP);
 
+  await page.getByRole("link", { name: "Method and limits", exact: true }).click();
+  await expect(page).toHaveURL(/#how-the-pilot-count-was-produced$/);
+  await expect(page.getByRole("heading", { name: "How the pilot count was produced", exact: true })).toBeInViewport();
+  await page.goBack();
   await cta.click();
   await expect(page).toHaveURL(new RegExp(`${FLAGSHIP}$`));
 

@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, within } from "@testing-library/react";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
-import { loadHomeCrux } from "@/components/home/homeModel";
+import { HOME_EVIDENCE_HREF, loadHomeCrux } from "@/components/home/homeModel";
 import { retiredTermsIn } from "@/lib/learn/retiredVocabulary";
 
 vi.mock("@/components/AppShell", () => ({
@@ -147,7 +147,7 @@ describe("/about", () => {
   it("links the public write-up behind its numbers, and GitHub for contributions", () => {
     const view = render(<AboutPage />);
     const hrefs = [...view.container.querySelectorAll("a")].map((a) => a.getAttribute("href"));
-    expect(hrefs).toContain("/blog/we-gave-a-model-that-cant-talk-1000-arguments");
+    expect(hrefs).toContain(HOME_EVIDENCE_HREF);
     expect(hrefs).toContain("https://github.com/amirhjalali/Argumend");
     expect(hrefs).toContain("/methodology");
     expect(hrefs).toContain("/faq");

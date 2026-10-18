@@ -122,12 +122,13 @@ export default function AboutPage() {
         <Section className={STORY_SECTION} id="why" title="Why it exists">
           <div className={PROSE}>
             <p>
-              Most arguments are not about what they seem. When we ran real
-              broadcasts through our tools, a four-minute TV panel on
-              immigration turned on one word, &ldquo;culture&rdquo;, that each
-              guest used differently, and 88 of 114 turns in a 36-minute TV
-              debate on trans athletes were not about the question in its
-              title.
+              Arguments can turn on different questions or different meanings
+              of a word. In one pilot on a 36-minute TV debate about trans
+              athletes, our model-based analysis classified 88 of 114 analyzed
+              turns as not making an argument about the mapped question. That
+              category included host questions, insults and tangents. It does
+              not measure how often debates go off topic or whether Argumend
+              improves them.
             </p>
             <p>
               Argumend exists to close that gap, between how much people think

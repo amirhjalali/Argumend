@@ -21,11 +21,10 @@ export const HOME_FLAGSHIP_ID = "ai-mass-unemployment";
 export const HOME_FLAGSHIP_HREF = `/topics/${HOME_FLAGSHIP_ID}`;
 
 /**
- * The public write-up behind home's one line of evidence (the 36-minute
- * televised debate on trans athletes, 88 of 114 turns off the question in
- * its title).
+ * The public write-up behind home's pilot result: model-based classification
+ * of 114 analyzed turns in a televised debate on trans athletes.
  */
-export const HOME_EVIDENCE_HREF = "/blog/we-gave-a-model-that-cant-talk-1000-arguments";
+export const HOME_EVIDENCE_HREF = "/blog/we-gave-a-model-that-cant-talk-1000-arguments#how-the-pilot-count-was-produced";
 
 export interface HomeCrux {
   topicId: string;

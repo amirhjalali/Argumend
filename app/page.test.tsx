@@ -54,27 +54,32 @@ describe("home: one argument, two doors", () => {
     expect(paste.getAttribute("href")).toBe(ANALYZE_HREF);
   });
 
-  it("links its one line of evidence to the public post it comes from", () => {
+  it("attributes its pilot result and links to the method and limits", () => {
     const view = renderHome();
-    const link = view.getByRole("link", { name: "How we measured it" });
+    const link = view.getByRole("link", { name: "Method and limits" });
     expect(link.getAttribute("href")).toBe(HOME_EVIDENCE_HREF);
-    const slug = HOME_EVIDENCE_HREF.replace("/blog/", "");
+    const [slug, anchor] = HOME_EVIDENCE_HREF.replace("/blog/", "").split("#");
+    expect(anchor).toBe("how-the-pilot-count-was-produced");
     const post = articles.find((candidate) => candidate.slug === slug);
     expect(post, "the evidence post must exist").toBeTruthy();
     // The numbers home quotes are the ones the post publishes.
-    expect(post?.content).toMatch(/\b114 substantive turns\b/);
-    expect(post?.content).toMatch(/\b88 were\b/);
+    expect(post?.content).toContain("114 analyzed turns");
+    expect(post?.content).toContain("classified 88");
+    expect(post?.content).toContain("only turns of at least 12 words");
+    expect(post?.content).toContain("not independently validated counts");
+    expect(post?.content).toContain("### How the pilot count was produced");
     expect(post?.content).toMatch(/\b36 minutes\b/);
     // It names the debate, as the post and /about do.
     expect(post?.content).toMatch(/trans athletes debate/);
-    const evidence = view.getByRole("complementary", { name: "What we measured" });
-    expect(evidence.textContent).toContain("televised debate on trans athletes, 88 of 114 turns");
+    const evidence = view.getByRole("complementary", { name: "One pilot test" });
+    expect(evidence.textContent).toContain("our model-based analysis classified 88 of 114 analyzed turns");
+    expect(evidence.textContent).toContain("including host questions");
   });
 
   it("puts the two doors before the evidence, so the rust button is high on a phone", () => {
     const view = renderHome();
     const primary = view.getByRole("link", { name: /See it on AI and jobs/ });
-    const evidence = view.getByRole("complementary", { name: "What we measured" });
+    const evidence = view.getByRole("complementary", { name: "One pilot test" });
     // Node.DOCUMENT_POSITION_FOLLOWING === 4. From md the grid places the
     // evidence in its own right-hand column, whatever the source order.
     expect(primary.compareDocumentPosition(evidence) & 4).toBe(4);
