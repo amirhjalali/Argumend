@@ -6,7 +6,7 @@
  * It asks which question would change the reader's mind, then shows what
  * would settle that question, the strongest card on each side of it (so
  * whichever answer the reader holds, the other side's best card is in front of
- * them), and a link to open the crux on the page: the tap leads somewhere.
+ * them), plus actions to open the crux or copy the question for a conversation.
  * Then it asks whether the map changed what they thought they were arguing
  * about: the north star's question, asked of the reader about themselves,
  * with the same control the paste result uses (./ChangedQuestion).
@@ -17,6 +17,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { TextAction, textActionClasses } from "@/components/ui";
 import { SOURCE_LINK, SettleAnswer } from "@/components/topic/cruxPrimitives";
+import { copyTextToClipboard } from "@/lib/copyToClipboard";
 import type { ChangedAnswer } from "@/lib/changedQuestion";
 import type { SettleView, StrongestCard } from "@/lib/topicPage/model";
 import {
@@ -126,6 +127,77 @@ function OtherSideCards({ cards }: { cards: readonly StrongestCard[] }) {
   );
 }
 
+/** A conversation starter with a stable link back to the picked question. */
+function QuestionToTakeBack({ topicId, picked }: { topicId: string; picked: ReflectionOption }) {
+  const starter = [
+    "Could we start with this question?",
+    picked.label,
+    `Read the evidence: https://argumend.org/topics/${topicId}#${picked.id}`,
+  ].join("\n\n");
+  const [copied, setCopied] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = window.setTimeout(() => setCopied(false), 2000);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
+
+  async function copy() {
+    setFailed(false);
+    try {
+      await copyTextToClipboard(starter);
+      setCopied(true);
+    } catch {
+      setFailed(true);
+    }
+  }
+
+  return (
+    <div className="mt-3">
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+        <a
+          href={`#${picked.id}`}
+          onClick={() => openCrux(picked.id)}
+          className={textActionClasses()}
+        >
+          Open this crux
+        </a>
+        <TextAction onClick={copy}>{copied ? "Copied" : "Copy this question"}</TextAction>
+      </div>
+      <p className="mt-1 text-xs leading-relaxed text-muted dark:text-stone-400">
+        Take a question back to the conversation, with a link to its evidence.
+      </p>
+      <details className="mt-1">
+        <summary className="min-h-11 cursor-pointer py-2.5 text-xs text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text">
+          Preview conversation starter
+        </summary>
+        <p className="whitespace-pre-wrap break-words border-l-2 border-divider pl-3 text-sm leading-relaxed text-secondary dark:text-stone-300">
+          {starter}
+        </p>
+      </details>
+      <p aria-live="polite" className="sr-only">
+        {copied ? "Question and evidence link copied to the clipboard." : ""}
+      </p>
+      {failed ? (
+        <div className="mt-2 space-y-2">
+          <p role="alert" className="text-sm text-error-text">
+            The clipboard was not available. Select the conversation starter and copy it by hand.
+          </p>
+          <textarea
+            aria-label="Question to copy"
+            readOnly
+            value={starter}
+            rows={6}
+            onFocus={(event) => event.currentTarget.select()}
+            className="w-full rounded-lg border border-divider bg-[var(--bg-input)] p-3 text-sm text-primary dark:text-stone-200"
+          />
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 /** What the announcement says appeared under the options after a pick. */
 function shownBelow(picked: ReflectionOption | undefined): string {
   const parts = picked
@@ -134,9 +206,11 @@ function shownBelow(picked: ReflectionOption | undefined): string {
         picked.strongest?.length ? "the strongest card on each side" : "",
       ].filter(Boolean)
     : [];
-  if (parts.length === 0) return "One more question below";
+  if (parts.length === 0) {
+    return picked ? "The question is ready to open or copy below, then one more question" : "One more question below";
+  }
   const shown = parts.join(" and ");
-  return `${shown.charAt(0).toUpperCase()}${shown.slice(1)} ${parts.length > 1 ? "are" : "is"} shown below, with a link to open this crux, then one more question`;
+  return `${shown.charAt(0).toUpperCase()}${shown.slice(1)} ${parts.length > 1 ? "are" : "is"} shown below, with a link to open this crux or copy the question, then one more question`;
 }
 
 export function CruxReflection({
@@ -224,7 +298,7 @@ export function CruxReflection({
         })}
       </ul>
 
-      {picked && (picked.settle || picked.strongest?.length) ? (
+      {picked ? (
         <div className="mt-5 border-t border-stone-200 pt-1 dark:border-[var(--border-divider)]">
           {picked.settle ? (
             <SettleAnswer
@@ -235,14 +309,8 @@ export function CruxReflection({
               label={picked.settle.label}
             />
           ) : null}
+          <QuestionToTakeBack key={`${topicId}:${picked.id}`} topicId={topicId} picked={picked} />
           {picked.strongest?.length ? <OtherSideCards cards={picked.strongest} /> : null}
-          <a
-            href={`#${picked.id}`}
-            onClick={() => openCrux(picked.id)}
-            className={textActionClasses("mt-3")}
-          >
-            Open this crux
-          </a>
         </div>
       ) : null}
 

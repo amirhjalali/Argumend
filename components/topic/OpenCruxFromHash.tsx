@@ -47,12 +47,31 @@ export function OpenCruxFromHash() {
       event.preventDefault();
       entry.scrollIntoView({ block: "start" });
     };
-    open();
+    const initialHash = window.location.hash;
+    const initialEntry = open();
+    let focusFrame: number | undefined;
+    const finishInitialNavigation = () => {
+      // Native fragment navigation can reset focus after hydration has
+      // opened the fold. Repair that once, after loading and layout finish.
+      focusFrame = window.requestAnimationFrame(() => {
+        if (!initialEntry?.isConnected || window.location.hash !== initialHash) return;
+        const active = document.activeElement;
+        if (active && active !== document.body && active !== document.documentElement && active !== initialEntry) return;
+        const details = initialEntry.querySelector("details");
+        if (details?.open) details.querySelector("summary")?.focus({ preventScroll: true });
+      });
+    };
+    if (initialEntry) {
+      if (document.readyState === "complete") finishInitialNavigation();
+      else window.addEventListener("load", finishInitialNavigation, { once: true });
+    }
     window.addEventListener("hashchange", open);
     document.addEventListener("click", reopen);
     return () => {
       window.removeEventListener("hashchange", open);
       document.removeEventListener("click", reopen);
+      window.removeEventListener("load", finishInitialNavigation);
+      if (focusFrame !== undefined) window.cancelAnimationFrame(focusFrame);
     };
   }, []);
   return null;

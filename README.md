@@ -72,6 +72,9 @@ AI-education and AI-employment maps require AI or automation subject language;
 ordinary online lessons and family disputes mentioning work do not qualify by themselves.
 Matched results offer an optional preview before copying questions to explore together,
 with the map link and conditions that could change each side's mind.
+On a map, choosing a reflection question also offers a preview and a copyable
+conversation starter with a link directly to that crux and its evidence. The starter
+includes the chosen question, not the reader's reflection answer or a verdict.
 Drafts over 20,000 characters remain intact in the input, including incoming
 handoffs. The reader must shorten them before submission; the app does not silently truncate them.
 When no map matches, the offline guide helps readers write their own mind-change

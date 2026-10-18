@@ -291,11 +291,12 @@ describe("the one-tap reflection", () => {
     expect(items).toHaveLength(2);
     expect([...items].map((li) => li.getAttribute("data-side"))).toEqual(["for", "against"]);
     expect(cards.textContent ?? "").not.toMatch(/weight|score|\d+\s*\/\s*10|winner|stronger side/i);
-    // The settle line comes first, then the cards, then the link to the crux.
+    // The next action stays above the long evidence cards.
     const settle = reflection.querySelector("[data-settle]")!;
     const open = scope.getByRole("link", { name: "Open this crux" });
-    expect(before(settle, cards)).toBe(true);
-    expect(before(cards, open)).toBe(true);
+    expect(before(settle, open)).toBe(true);
+    expect(before(open, cards)).toBe(true);
+    expect(before(scope.getByRole("button", { name: "Copy this question" }), cards)).toBe(true);
   });
 
   it("shows the flagship's cards too, and the announcement says so", async () => {

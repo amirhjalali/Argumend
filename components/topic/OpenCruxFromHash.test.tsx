@@ -26,6 +26,7 @@ describe("OpenCruxFromHash", () => {
   afterEach(() => {
     cleanup();
     window.history.replaceState(null, "", window.location.pathname);
+    vi.restoreAllMocks();
   });
 
   it("opens the crux fold the URL points at", () => {
@@ -79,5 +80,35 @@ describe("OpenCruxFromHash", () => {
     window.history.replaceState(null, "", "#crux-%E0%A4%A");
     expect(() => fireEvent(window, new Event("hashchange"))).not.toThrow();
     expect(details.open).toBe(false);
+  });
+
+  it("repairs focus reset by initial fragment navigation after loading", () => {
+    vi.spyOn(document, "readyState", "get").mockReturnValue("loading");
+    let frame!: FrameRequestCallback;
+    vi.spyOn(window, "requestAnimationFrame").mockImplementation((callback) => { frame = callback; return 1; });
+    window.history.replaceState(null, "", "#crux-a");
+    const view = render(<Page />);
+    const summary = view.container.querySelector("summary")!;
+    summary.blur();
+    fireEvent(window, new Event("load"));
+    frame(0);
+    expect(document.activeElement).toBe(summary);
+  });
+
+  it.each(["another control", "closed fold", "different fragment"])("does not override a reader's %s after loading", (change) => {
+    vi.spyOn(document, "readyState", "get").mockReturnValue("loading");
+    let frame!: FrameRequestCallback;
+    vi.spyOn(window, "requestAnimationFrame").mockImplementation((callback) => { frame = callback; return 1; });
+    window.history.replaceState(null, "", "#crux-a");
+    const view = render(<Page />);
+    const summary = view.container.querySelector("summary")!;
+    summary.blur();
+    if (change === "another control") view.getByRole("link", { name: "Return to A" }).focus();
+    if (change === "closed fold") view.container.querySelector("details")!.open = false;
+    if (change === "different fragment") window.history.replaceState(null, "", "#other");
+    const active = document.activeElement;
+    fireEvent(window, new Event("load"));
+    frame(0);
+    expect(document.activeElement).toBe(active);
   });
 });
