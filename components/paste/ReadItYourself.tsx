@@ -82,6 +82,23 @@ function Cues({ cues }: { cues: readonly TextCue[] }) {
 const INPUT =
   "mt-1 w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-input)] px-3 py-2.5 font-sans text-base text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-focus";
 
+export interface ConversationNotes {
+  yourCondition: string;
+  theirCondition: string;
+  agreement: string;
+}
+
+export const EMPTY_CONVERSATION_NOTES: ConversationNotes = {
+  yourCondition: "",
+  theirCondition: "",
+  agreement: "",
+};
+
+export interface ConversationNotesState {
+  value: ConversationNotes;
+  onChange: (value: ConversationNotes) => void;
+}
+
 /** One line the reader can choose to include in their conversation notes. */
 function FillIn({ label, describedBy, value, onChange }: {
   label: string;
@@ -126,17 +143,21 @@ function Step({ number, title, children }: { number: number; title: string; chil
 export function ReadItYourself({
   text,
   diagnosisOn,
+  notesState,
 }: {
   /** The pasted text, read here for cues only. */
   text: string;
   /** Whether the AI diagnosis lane runs on this deployment. */
   diagnosisOn: boolean;
+  /** Keeps notes in page memory while the same argument is read again. */
+  notesState?: ConversationNotesState;
 }) {
   const cues = readCues(text);
   const noteId = useId();
-  const [yourCondition, setYourCondition] = useState("");
-  const [theirCondition, setTheirCondition] = useState("");
-  const [agreement, setAgreement] = useState("");
+  const [localNotes, setLocalNotes] = useState(EMPTY_CONVERSATION_NOTES);
+  const noteValues = notesState?.value ?? localNotes;
+  const setNotes = notesState?.onChange ?? setLocalNotes;
+  const { yourCondition, theirCondition, agreement } = noteValues;
   const notes = [
     ["I would think again if", yourCondition],
     ["You might think again if", theirCondition],
@@ -193,8 +214,8 @@ export function ReadItYourself({
             start with what you would need to learn before deciding.
           </p>
           <div className="mt-4 space-y-4">
-            <FillIn label="You would think again if…" describedBy={noteId} value={yourCondition} onChange={setYourCondition} />
-            <FillIn label="They would think again if…" describedBy={noteId} value={theirCondition} onChange={setTheirCondition} />
+            <FillIn label="You would think again if…" describedBy={noteId} value={yourCondition} onChange={(value) => setNotes({ ...noteValues, yourCondition: value })} />
+            <FillIn label="They would think again if…" describedBy={noteId} value={theirCondition} onChange={(value) => setNotes({ ...noteValues, theirCondition: value })} />
           </div>
         </Step>
 
@@ -204,7 +225,7 @@ export function ReadItYourself({
             same facts. Naming it shows how much is really in dispute.
           </p>
           <div className="mt-4">
-            <FillIn label="We both agree that…" describedBy={noteId} value={agreement} onChange={setAgreement} />
+            <FillIn label="We both agree that…" describedBy={noteId} value={agreement} onChange={(value) => setNotes({ ...noteValues, agreement: value })} />
           </div>
         </Step>
       </ol>

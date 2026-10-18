@@ -14,7 +14,7 @@ import type {
   PasteMapMatch,
   PasteMapsResult,
 } from "@/lib/paste/types";
-import { ReadItYourself } from "./ReadItYourself";
+import { ReadItYourself, type ConversationNotesState } from "./ReadItYourself";
 
 /**
  * "This argument is already mapped": the part of a paste result that takes
@@ -347,6 +347,7 @@ export function MapNoMatch({
   text = "",
   diagnosisOn = false,
   guide = true,
+  notesState,
 }: {
   maps: PasteMapsResult;
   /** The submitted paste, for the guide's word cues. */
@@ -354,6 +355,7 @@ export function MapNoMatch({
   diagnosisOn?: boolean;
   /** False when a diagnosis of the text is already on the page. */
   guide?: boolean;
+  notesState?: ConversationNotesState;
 }) {
   const closest = maps.status === "closest";
   return (
@@ -382,7 +384,7 @@ export function MapNoMatch({
         maps={maps.closest}
       />
       {guide ? (
-        <ReadItYourself text={text} diagnosisOn={diagnosisOn} />
+        <ReadItYourself text={text} diagnosisOn={diagnosisOn} notesState={notesState} />
       ) : (
         <TextAction href="/topics">Browse all maps</TextAction>
       )}

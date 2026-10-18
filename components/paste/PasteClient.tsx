@@ -32,6 +32,7 @@ import type { DisagreementReportV1 } from "@/types/disagreement";
 import { HowThisWasRead, ReadingNote } from "./HowThisWasRead";
 import { MapMatch, MapNoMatch } from "./MapResult";
 import { NextStep } from "./NextStep";
+import { EMPTY_CONVERSATION_NOTES } from "./ReadItYourself";
 
 /**
  * The one paste flow at /analyze.
@@ -197,6 +198,8 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const [step, setStep] = useState(0);
   // The text as submitted: the box can be edited again before the next submit.
   const [submitted, setSubmitted] = useState("");
+  const [conversationNotes, setConversationNotes] = useState(EMPTY_CONVERSATION_NOTES);
+  const notesForText = useRef("");
 
   const runRef = useRef(0);
   const resultsRef = useRef<HTMLElement>(null);
@@ -208,6 +211,10 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const submit = useCallback(
     async (text: string, type: PasteContentType) => {
       if (text.trim().length < minChars) return;
+      if (text !== notesForText.current) {
+        setConversationNotes(EMPTY_CONVERSATION_NOTES);
+        notesForText.current = text;
+      }
       const run = ++runRef.current;
       setPhase("loading");
       setError("");
@@ -333,6 +340,8 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   }, [phase]);
 
   function startOver() {
+    setConversationNotes(EMPTY_CONVERSATION_NOTES);
+    notesForText.current = "";
     runRef.current += 1;
     setPhase("idle");
     setMaps(null);
@@ -530,6 +539,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
                 text={submitted}
                 diagnosisOn={diagnosisOn}
                 guide={showGuide}
+                notesState={{ value: conversationNotes, onChange: setConversationNotes }}
               />
             )
           ) : mapsError ? (

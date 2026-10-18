@@ -36,6 +36,21 @@ test("an unmapped personal argument becomes conversation notes without another r
   expect(apiCalls).toEqual(["POST /api/analyze"]);
 });
 
+test("reanalyzing unchanged text keeps conversation notes", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("My partner wants to spend our savings on a holiday. I want to keep the money for emergencies. They say we never do anything fun. I say we cannot afford the risk.");
+  await page.getByRole("button", { name: "Find what it turns on" }).click();
+  const note = page.getByLabel("You would think again if…");
+  await note.fill("we kept an emergency fund");
+  await page.getByRole("button", { name: "Edit", exact: true }).click();
+  await page.getByRole("button", { name: "Find what it turns on" }).click();
+  await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+  await expect(note).toHaveValue("we kept an emergency fund");
+  await expect(page.getByRole("button", { name: "Copy your notes" })).toBeVisible();
+});
+
 /**
  * The paste flow at /analyze, offline: the built-in example goes to the
  * server's own map lane (/api/analyze) and comes back as a map and its crux.

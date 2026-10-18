@@ -179,6 +179,47 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(view.queryByRole("heading", { name: "Closely related" })).toBeNull();
   });
 
+  it("preserves notes for unchanged text and clears them for a different argument or a fresh start", async () => {
+    stubFetch({ "/api/analyze": () => jsonResponse({ maps: unmatched }) });
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    const first = "My partner wants a holiday. I want to keep our savings for emergencies.";
+    const second = "My sibling wants to sell our parents' house. I want to keep it in the family.";
+    const waitForResult = () => waitFor(() => view.getByRole("heading", { name: /^No map/ }));
+    const read = () => fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+
+    fireEvent.change(view.getByLabelText("The argument to read"), { target: { value: first } });
+    read();
+    await waitForResult();
+    for (const [label, value] of [
+      ["You would think again if…", "we kept an emergency fund"],
+      ["They would think again if…", "we planned time together"],
+      ["We both agree that…", "we want less stress"],
+    ]) {
+      fireEvent.change(view.getByLabelText(label), { target: { value } });
+    }
+    fireEvent.click(view.getByRole("button", { name: "Edit" }));
+    read();
+    await waitForResult();
+    expect((view.getByLabelText("You would think again if…") as HTMLInputElement).value).toBe("we kept an emergency fund");
+    expect((view.getByLabelText("They would think again if…") as HTMLInputElement).value).toBe("we planned time together");
+    expect((view.getByLabelText("We both agree that…") as HTMLInputElement).value).toBe("we want less stress");
+
+    fireEvent.click(view.getByRole("button", { name: "Edit" }));
+    fireEvent.change(view.getByLabelText("The argument to read"), { target: { value: second } });
+    read();
+    await waitForResult();
+    expect(view.queryByRole("region", { name: "Your conversation notes" })).toBeNull();
+    expect((view.getByLabelText("You would think again if…") as HTMLInputElement).value).toBe("");
+
+    fireEvent.change(view.getByLabelText("We both agree that…"), { target: { value: "family matters" } });
+    fireEvent.click(view.getByRole("button", { name: "Paste another" }));
+    fireEvent.change(view.getByLabelText("The argument to read"), { target: { value: second } });
+    read();
+    await waitForResult();
+    expect(view.queryByRole("region", { name: "Your conversation notes" })).toBeNull();
+    expect((view.getByLabelText("We both agree that…") as HTMLInputElement).value).toBe("");
+  });
+
   it("gives a family argument no map covers a guide to read it, and no closest maps", async () => {
     const assisted = await findMaps(ASSISTED_LIVING_PASTE);
     const fetchMock = stubFetch({ "/api/analyze": () => jsonResponse({ maps: assisted }) });

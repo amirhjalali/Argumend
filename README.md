@@ -68,7 +68,8 @@ unfamiliar subjects can still receive a closest-map list.
 When no map matches, the offline guide helps readers write their own mind-change
 conditions and common ground, with definitions and simple word cues in optional help.
 Those notes stay in page memory and can be copied
-for a conversation. Copying includes only the reader's notes, not the original
+for a conversation. Reanalyzing unchanged text preserves them; submitting different
+text or choosing "Paste another" clears them. Copying includes only the reader's notes, not the original
 paste or an AI diagnosis; neither the notes nor the reflection answer is sent or saved.
 
 Database-backed sessions and debate persistence are enabled only when a
