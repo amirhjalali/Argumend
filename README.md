@@ -77,6 +77,8 @@ surrogacy and school-start-time arguments do not qualify through shared words
 about children or school. In an ambiguous result, rejecting an unrelated leader
 can still leave a closest map if that finalist independently meets the overlap
 floors and the paste uses a telling word of its name.
+Crux selection keeps filler words as phrase boundaries and checks for independent
+subject cues before falling back to a map's lead question.
 Matched results offer an optional preview before copying questions to explore together,
 with the map link and conditions that could change each side's mind.
 On a map, choosing a reflection question also offers a preview and a copyable

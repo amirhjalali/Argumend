@@ -137,9 +137,13 @@ function termContributions(
     for (const term of frequency.keys()) cruxCount.set(term, (cruxCount.get(term) ?? 0) + 1);
   }
 
-  const sequence = pasteTerms(text);
+  // Stopwords separate phrases even though they add no scoring weight:
+  // "ChatGPT to write her essays" carries separate cues, whereas
+  // "Andrew Tate" is one name. Removing the separators would let the
+  // incidental-phrase check discard several independent cues together.
+  const sequence = pasteTerms(text, { keepStopwords: true });
   const queryCount = new Map<string, number>();
-  for (const term of sequence) queryCount.set(term, (queryCount.get(term) ?? 0) + 1);
+  for (const term of pasteTerms(text)) queryCount.set(term, (queryCount.get(term) ?? 0) + 1);
 
   const shares = frequencies.map((frequency) => {
     const share = new Map<string, number>();
@@ -246,8 +250,18 @@ export function pickCruxes(
     const rest = rank(deciding);
     const leaderRest = rest.find((entry) => entry.position === best.position)!;
     const otherRest = rest.find((entry) => entry.position !== best.position)!;
+    // A second cue that only this crux uses can independently support the
+    // reading: "essays" still points to learning independently after
+    // "ChatGPT" is removed. Shared words do not establish that support.
+    let independent = 0;
+    for (const [term, contribution] of shares[best.position]) {
+      if (
+        !deciding.has(term) &&
+        shares.every((share, position) => position === best.position || !share.has(term))
+      ) independent += contribution;
+    }
     const rests =
-      !inName &&
+      !inName && independent < params.minScore &&
       (leaderRest.score < params.minScore || leaderRest.score < params.restLead * otherRest.score);
     if (rests && best.position !== 0) return { ids: [cruxes[0].id, best.id], scores };
     if (rests && second.score >= params.minSecond) return { ids: [best.id, second.id], scores };

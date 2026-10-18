@@ -78,6 +78,22 @@ test("uncovered family and school arguments stay unmapped while vaccine requirem
   await expect(page.getByRole("heading", { level: 1, name: "Are government vaccine mandates a justified public-health measure?" })).toBeVisible();
 });
 
+test("AI-written essays lead to independent learning rather than the achievement gap", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("My daughter uses ChatGPT to write her essays. I say she is skipping the thinking that school is meant to teach, but her teacher says the tool can help her learn if she explains each revision.");
+  await page.getByRole("button", { name: "Find what it turns on" }).click();
+  const match = page.getByRole("region", { name: "This argument is already mapped" });
+  await expect(match).toContainText("Do students who learn with AI do better or worse when tested without it?");
+  await expect(match).not.toContainText("Does AI tutoring help disadvantaged students most, or the already advantaged?");
+  const open = match.getByRole("link", { name: "Open the map at this crux", exact: true });
+  await expect(open).toHaveAttribute("href", "/topics/ai-in-education#crux-academic-integrity");
+  await open.click();
+  await expect(page).toHaveURL(/\/topics\/ai-in-education#crux-academic-integrity$/);
+  await expect(page.locator("#crux-academic-integrity > details")).toHaveAttribute("open", "");
+});
+
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
   const apiCalls: string[] = [];
   page.on("request", (request) => {

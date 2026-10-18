@@ -415,6 +415,18 @@ describe("findMaps", () => {
   });
 
   it.each([
+    ["academic-integrity", "My daughter uses ChatGPT to write her essays. I say she is skipping the thinking that school is meant to teach, but her teacher says the tool can help her learn if she explains each revision."],
+    ["academic-integrity", "My son has ChatGPT write every homework essay. His teacher says AI feedback helps him learn, but I worry he will never be able to write without it."],
+    ["learning-outcomes", "AI tutors could finally give low-income students the personal help wealthy families pay for. Others worry these tools will reach rich schools first and widen achievement gaps."],
+    ["teacher-role-implementation", "Schools are buying AI tools to reduce teacher workloads. I worry districts will use the savings to replace teachers rather than let them spend more time with students."],
+  ])("opens the relevant AI-education crux, %s: %s", async (pillarId, text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe("ai-in-education");
+    expect(result.match?.crux?.href).toBe(`/topics/ai-in-education#crux-${pillarId}`);
+    expect(result.match?.alsoCrux).toBeUndefined();
+  });
+
+  it.each([
     "Will automation and chatbots take office jobs faster than workers can retrain? Some people expect mass unemployment, while others expect new kinds of work.",
     "Could large language models cause mass unemployment by automating office jobs? Some expect falling demand for junior workers. Others expect higher productivity to create new jobs and expand output.",
   ])("keeps AI-employment arguments on their map: %s", async (text) => {
