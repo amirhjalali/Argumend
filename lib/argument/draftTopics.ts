@@ -157,7 +157,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
           { camp: "Not fewer jobs — worse ones", reading: "both are true and both miss it — the damage shows up in wages and career ladders, which neither number tracks." },
           { camp: "Wrong question — who decides?", reading: "neither number settles anything; deployment terms are set in contracts and law, not forecasts." },
         ],
-        take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers since late 2022. Both are real. Which one you think is the story is which camp you're in — and the honest answer is that firm-level data to settle attribution doesn't exist yet.",
+        take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers since late 2022. Firm-level studies now track AI adoption and staffing, but neither observation establishes how much AI caused.",
       },
       takeaways: [
         "Employment among early-career workers in AI-exposed jobs fell ~16% relative to less-exposed peers — but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
@@ -167,7 +167,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       cruxNotes: {
         "c-firms-cut-hiring-not-output": {
           fight:
-            "Everyone agrees AI makes some teams faster. Nobody has the firm-level data showing what bosses then do with the slack — hire fewer, or sell more.",
+            "Firm surveys already track AI use and staffing, and most users report augmenting tasks. The open question is when productivity gains lead to fewer hires, more output, or different jobs.",
           soWhat:
             "If it's “hire fewer,” the displacement case gains its mechanism. If it's “sell more,” the historical pattern holds and the jobs can come back somewhere else.",
         },
