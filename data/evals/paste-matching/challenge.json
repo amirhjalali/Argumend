@@ -1,0 +1,357 @@
+{
+  "version": 1,
+  "set": "challenge-2026-10-12",
+  "description": "Independent realistic paraphrases, adjacent uncovered subjects, and incidental or mixed-topic language. Labels fixed before running the matcher; not generated from its rankings.",
+  "cases": [
+    {
+      "id": "challenge-healthcare-job-lock",
+      "form": "conversation",
+      "text": "A: I can't quit my job because my daughter's treatment is covered by the company plan. B: That's why medical coverage should follow every resident, paid for through taxes, instead of depending on an employer. A: Then we'd all pay more and wait months to see specialists.",
+      "expected": [
+        "universal-healthcare"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-repair-parts",
+      "form": "reply",
+      "text": "If I paid for the tractor, I should be able to fix it. The manufacturer locks the diagnostics and won't sell replacement parts unless an authorized technician does the work. They say opening it up creates safety risks; I say it's a repair monopoly.",
+      "expected": [
+        "right-to-repair"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-net-neutrality-fast-lanes",
+      "form": "conversation",
+      "text": "A: My internet provider shouldn't be able to slow a competitor's video service while its own streams normally. B: Charging websites extra for fast lanes pays for building the network. A: Then a tiny startup never gets a fair shot.",
+      "expected": [
+        "net-neutrality"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-licensing-hair",
+      "form": "reply",
+      "text": "Why must someone spend hundreds of hours in beauty school to braid hair? Requiring a government license protects established salons from competition. Supporters call it consumer safety, but the rules barely teach braiding.",
+      "expected": [
+        "occupational-licensing-reform"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-jones-shipping",
+      "form": "conversation",
+      "text": "A: Shipping supplies from the mainland to Puerto Rico costs too much because vessels have to be American built and crewed. B: Letting foreign ships carry cargo between our ports would destroy the merchant fleet we need in wartime.",
+      "expected": [
+        "jones-act"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-pfas-tap",
+      "form": "reply",
+      "text": "The chemicals used to keep frying pans nonstick and jackets waterproof never break down. Tiny amounts are turning up in drinking water. Should we ban PFAS even if treating water and replacing those products costs billions?",
+      "expected": [
+        "pfas-forever-chemicals"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-sat-optional",
+      "form": "conversation",
+      "text": "A: Universities should keep admissions test optional because rich families can buy SAT tutoring. B: Grades vary wildly by school; a common exam can uncover talented poor students that an essay polished by a consultant misses.",
+      "expected": [
+        "standardized-testing-debate"
+      ],
+      "related": [
+        "affirmative-action-meritocracy"
+      ]
+    },
+    {
+      "id": "challenge-robots-targets",
+      "form": "conversation",
+      "text": "A: No machine should select a human target and kill them without a person approving each strike. B: Autonomous weapons could react faster and make fewer mistakes than frightened soldiers. A: We need an international treaty before an arms race starts.",
+      "expected": [
+        "autonomous-weapons-ban"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-terminal-choice",
+      "form": "reply",
+      "text": "If a mentally competent adult has terminal cancer and asks a doctor for medication to end their suffering, that choice should be legal. I'm worried about pressure on disabled patients, but a blanket ban forces dying people through unbearable pain.",
+      "expected": [
+        "assisted-dying-euthanasia"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-auditable-weights",
+      "form": "reply",
+      "text": "Publishing the weights lets outsiders audit frontier models and small companies build on them. But once those weights are downloadable, you can't recall them if somebody removes the safeguards and uses the model to design a pathogen.",
+      "expected": [
+        "open-weight-ai-models"
+      ],
+      "related": [
+        "ai-risk"
+      ]
+    },
+    {
+      "id": "challenge-third-place",
+      "form": "reply",
+      "text": "We've lost libraries, clubs and places to gather without buying anything. So many adults have no close friends. Is loneliness really a public health problem on the level of smoking, or are we medicalizing ordinary sadness?",
+      "expected": [
+        "loneliness-epidemic"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-chips-ownership",
+      "form": "conversation",
+      "text": "A: When robots make everything and software does the office work, salaries disappear. Who can afford what the companies sell? B: We'd need ordinary households to own the machines and share the profits, otherwise owners get everything.",
+      "expected": [
+        "capitalism-after-ai"
+      ],
+      "related": [
+        "ai-mass-unemployment",
+        "universal-basic-income"
+      ]
+    },
+    {
+      "id": "challenge-zoning-apartments",
+      "form": "reply",
+      "text": "The city says homes are too expensive, then makes it illegal to put a duplex on almost every residential lot. Allow apartments near the train station and let builders add supply. Neighbors say new buildings will ruin the character of the area.",
+      "expected": [
+        "housing-affordability-crisis"
+      ],
+      "related": [
+        "rent-control-effectiveness"
+      ]
+    },
+    {
+      "id": "challenge-watermark-law",
+      "form": "reply",
+      "text": "Computer generated pictures and synthetic videos should have a mandatory visible label. Without one, voters get fooled. But a rule requiring a watermark won't stop somebody who deliberately wants to spread a fake.",
+      "expected": [
+        "ai-content-labeling"
+      ],
+      "related": [
+        "ai-deepfakes-truth-collapse"
+      ]
+    },
+    {
+      "id": "challenge-facial-lineup",
+      "form": "conversation",
+      "text": "A: Police identified him from a face recognition match and arrested the wrong man. B: It should be a lead, never proof; the software also helps find missing children. A: Its errors fall disproportionately on Black people.",
+      "expected": [
+        "facial-recognition-policing"
+      ],
+      "related": [
+        "surveillance-public-safety"
+      ]
+    },
+    {
+      "id": "challenge-retire-roofer",
+      "form": "reply",
+      "text": "Raising Social Security's retirement age might help the trust fund, but a roofer can't keep doing that job at seventy. Office workers live longer and can keep working; poorer workers would get smaller lifetime benefits.",
+      "expected": [
+        "social-security-retirement-age"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-feelings-program",
+      "form": "conversation",
+      "text": "A: If a chatbot says it feels pain, how do we know it's just pretending? B: It's predicting words. A: Humans are physical systems too. If an AI really had subjective experience, switching it off could carry moral obligations.",
+      "expected": [
+        "consciousness-ai-systems"
+      ],
+      "related": [
+        "consciousness-hard-problem"
+      ]
+    },
+    {
+      "id": "challenge-food-timer",
+      "form": "conversation",
+      "text": "A: I only eat between noon and eight, and I've lost weight. B: Is the eating window doing something special, or did you just stop snacking and eat fewer calories? A: That's what I want to know about intermittent fasting.",
+      "expected": [
+        "intermittent-fasting-efficacy"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-mixed-repair-ai",
+      "form": "article",
+      "text": "The repair debate concerns whether phone makers should sell parts and diagnostic tools to independent shops. Manufacturers cite battery fires; repair advocates cite waste and monopoly prices. Separately, my cousin lost a translation contract to AI and says automation is coming for everyone's job.",
+      "expected": [
+        "right-to-repair",
+        "ai-mass-unemployment"
+      ],
+      "related": [],
+      "note": "Either explicitly covered topic is valid; both should compete rather than treating incidental shared words as a third topic."
+    },
+    {
+      "id": "challenge-mixed-carbon-reactors",
+      "form": "conversation",
+      "text": "A: Taxing carbon makes polluters pay and lets us return a dividend to households. B: I'd rather build nuclear power plants; they produce electricity without carbon emissions. A: But nuclear reactors take years and cost too much. We still need a price on pollution.",
+      "expected": [
+        "carbon-tax-effectiveness",
+        "nuclear-energy-safety"
+      ],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-caffeine",
+      "form": "reply",
+      "text": "Coffee after lunch ruins my sleep, but my coworker drinks espresso at midnight and sleeps fine. Is caffeine bad for your heart or is it healthy in moderation?",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-abortion-bodily",
+      "form": "conversation",
+      "text": "A: Ending a pregnancy is killing a child, no matter when it happens. B: You can't force someone to use their body to keep another person alive. A: A fetus has rights too. B: A woman has bodily autonomy and should decide whether to remain pregnant.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-train-fares",
+      "form": "reply",
+      "text": "Public transit should be free. Charging bus fares punishes poor riders while drivers get subsidized roads. The city says eliminating fares would leave no money for reliable service and that frequency matters more than price.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-pension-investment",
+      "form": "conversation",
+      "text": "A: Our pension fund should divest from fossil fuels. B: Its job is to maximize retirement returns, not make a political statement. A: Oil stocks will become stranded assets anyway. B: Pensioners shouldn't be forced to gamble on that prediction.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-pets-rental",
+      "form": "conversation",
+      "text": "A: Landlords should never be allowed to ban pets; they're family. B: Dogs damage apartments and some tenants have allergies. A: Then charge a deposit instead of making renters give up their animals.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-dental-bill",
+      "form": "reply",
+      "text": "My dentist says I need a root canal and a crown, but the bill is enormous and my insurance won't cover most of it. My brother says to pull the tooth. Does anyone know how to decide if keeping it is worth the cost?",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-remote-inheritance",
+      "form": "conversation",
+      "text": "A: Dad left the house to me because I cared for him while you worked remotely overseas. B: I paid for his home aide for three years. A: That doesn't mean we split the inheritance equally. B: Family care isn't measured just in hours.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-child-sports",
+      "form": "conversation",
+      "text": "A: Youth football is too dangerous because repeated hits damage kids' brains. B: Team sports teach discipline and children should learn to take risks. A: Let them play flag football instead of tackle until high school.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-library-books",
+      "form": "reply",
+      "text": "The school board wants to remove books with sexual content from the library. Parents should choose what their children read, but banning books for everyone lets one group dictate other families' choices.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-news-subscription",
+      "form": "reply",
+      "text": "Local newspapers should put articles outside the paywall during elections. Voters need information, but reporters still need a salary. If everything is free, who pays for investigating the mayor?",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-apple-cable",
+      "form": "conversation",
+      "text": "A: Forcing Apple to switch charging ports was pointless government meddling. B: One USB-C cable for every device means less electronic waste. A: You just made millions of old Lightning accessories useless.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-private-schools",
+      "form": "reply",
+      "text": "Taxpayers shouldn't fund vouchers for private religious schools. Public schools lose funding and private schools can reject difficult students. Supporters say parents, especially poor parents, deserve the same school choice rich families already have.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-airbnb",
+      "form": "reply",
+      "text": "Our town should ban short-term holiday rentals. Every apartment that becomes an Airbnb leaves one fewer home for local residents. Hosts say tourists support restaurants and that owners have the right to rent their property.",
+      "expected": [],
+      "related": [
+        "housing-affordability-crisis"
+      ],
+      "note": "Specific short-term rental ban is not the broad government-intervention housing question."
+    },
+    {
+      "id": "challenge-neg-smartwatch",
+      "form": "reply",
+      "text": "My teenager wants a smartwatch so she can message us without a smartphone. The school says watches are distracting too. We agreed to keep the phone at home, but I want her to reach us on the bus.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-dad-reactor-job",
+      "form": "conversation",
+      "text": "A: Dad has worked at the nuclear plant for twenty years and deserves a retirement party. B: We can't invite fifty people to our apartment. A: His coworkers will be hurt if we leave them out. B: Then book a restaurant instead.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-chatgpt-homework-specific",
+      "form": "reply",
+      "text": "My lab partner used ChatGPT to write our biology report without telling me. Now the teacher is asking both of us to redo it. I did my part honestly and shouldn't lose marks for something I couldn't control.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-hydrogen-water-bottle",
+      "form": "reply",
+      "text": "These hydrogen water bottles claim they reduce inflammation and give you more energy. My sister bought one for two hundred dollars. Is there actual evidence they do anything beyond plain tap water?",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-diamond-proposal",
+      "form": "conversation",
+      "text": "A: I want a lab-grown diamond because we could get a bigger stone for the same price. B: An engagement ring should hold its value. A: We're not buying it to resell. B: I still want something rare and natural.",
+      "expected": [],
+      "related": [],
+      "note": "Price and symbolic rarity are not the lab-versus-mined ethics question."
+    },
+    {
+      "id": "challenge-neg-voting-sunday",
+      "form": "reply",
+      "text": "Election day should be on a Sunday instead of a workday. People shouldn't have to choose between a shift and voting. A national holiday would help too, but service workers would still work.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-vitamin-d",
+      "form": "conversation",
+      "text": "A: Everyone should take vitamin D all winter. B: Unless you're deficient, supplements don't prevent cancer or heart disease. A: My doctor said my levels were low. B: Then that's different from handing pills to everyone.",
+      "expected": [],
+      "related": []
+    },
+    {
+      "id": "challenge-neg-garage-allocation",
+      "form": "conversation",
+      "text": "A: Our apartment building should let residents rent the garage spots first. B: The visitor spaces need to stay available on weekends. A: We can reserve two visitor spots.",
+      "expected": [],
+      "related": [],
+      "note": "Independent parent browser probe found irrelevant rent-control, housing and standardized-testing closest cards."
+    }
+  ]
+}

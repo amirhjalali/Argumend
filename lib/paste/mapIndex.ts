@@ -34,6 +34,12 @@ export interface MapDocument {
   fields: Record<FieldName, readonly string[]>;
   /** Subjects the map discusses but is not about (`Topic.notAbout`). */
   notAbout?: readonly string[];
+  /**
+   * At least one of these term groups must occur in the paste before this
+   * map can be named or offered. Each group is a conjunction; groups are
+   * alternatives. Used only for demonstrated adjacent-subject confusion.
+   */
+  subjectAnchors?: readonly (readonly string[])[];
 }
 
 export interface IndexParams {

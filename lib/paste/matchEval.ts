@@ -68,8 +68,10 @@ export interface PasteEvalSummary {
   falsePositives: number;
   /** correct / positives: the right map named, out of every paste that has one. */
   top1: number;
-  /** correct / positives that named a map: how often a named map is right. */
+  /** correct / every named answer, including uncovered pastes named anyway. */
   precisionWhenNamed: number;
+  /** Uncovered pastes offered any map, including an unnamed closest list. */
+  negativesOffered: number;
   /** wrong / positives. */
   wrongRate: number;
   /** (wrong + sibling) / positives. */
@@ -118,7 +120,8 @@ export function summarize(rows: readonly PasteEvalRow[]): PasteEvalSummary {
   const sibling = count("sibling");
   const wrong = count("wrong");
   const miss = count("miss");
-  const named = correct + sibling + wrong;
+  const falsePositives = count("false-positive");
+  const named = correct + sibling + wrong + falsePositives;
   return {
     cases: rows.length,
     positives: positives.length,
@@ -128,7 +131,8 @@ export function summarize(rows: readonly PasteEvalRow[]): PasteEvalSummary {
     wrong,
     miss,
     rejected: count("rejected"),
-    falsePositives: count("false-positive"),
+    falsePositives,
+    negativesOffered: rows.filter((row) => row.expected.length === 0 && row.shown.length > 0).length,
     top1: ratio(correct, positives.length),
     precisionWhenNamed: ratio(correct, named),
     wrongRate: ratio(wrong, positives.length),
@@ -151,5 +155,6 @@ export function formatSummary(label: string, summary: PasteEvalSummary): string 
     `  no map named (miss)          ${summary.miss}  ${percent(summary.missRate)}`,
     `  right map among those shown  ${percent(summary.top3)}`,
     `  negatives named as a map     ${summary.falsePositives}/${summary.negatives}`,
+    `  negatives offered any map    ${summary.negativesOffered}/${summary.negatives}`,
   ].join("\n");
 }
