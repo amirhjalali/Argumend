@@ -103,6 +103,7 @@ const questionItems = getAllQuestionVariations(topicSummaries).map((variation) =
     question: variation.question,
     topicTitle: mapDisplayTitle(topic),
     topicId: variation.topicId,
+    topicAliases: topic.aliases,
   };
 });
 const topicsWithQuestions = new Set(questionItems.map((item) => item.topicId));
@@ -158,6 +159,16 @@ function report(label: string, rows: Row[]) {
 }
 
 describe("the site-search eval set", () => {
+  it.each([
+    "should landlords limit rent increases",
+    "should rent hikes be capped",
+    "does rent stabilization help tenants",
+  ])("finds the rent-control map by everyday policy wording: %s", (query) => {
+    for (const [surface, search] of Object.entries(RUNNERS)) {
+      expect(search(query)[0], surface).toBe("rent-control-effectiveness");
+    }
+  });
+
   it("is big enough and labelled with maps that exist", () => {
     const all = [...SETS.dev, ...SETS.holdout];
     expect(SETS.dev.length).toBeGreaterThanOrEqual(40);

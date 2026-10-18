@@ -4,6 +4,12 @@ export const rentControlEffectivenessData = {
   id: "rent-control-effectiveness",
   title: "Does Rent Control Help or Hurt Renters?",
   question: "Does rent control make housing less affordable in the long run?",
+  aliases: [
+    "Limits on landlords' rent increases",
+    "Caps on rent hikes",
+    "Rent stabilization for tenants",
+    "Rent freezes",
+  ],
   meta_claim:
     "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
   status: "contested" as const,

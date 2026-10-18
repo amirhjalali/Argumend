@@ -49,6 +49,30 @@ test("a typed question finds the nuclear-power map in the library and on /questi
   );
 });
 
+/** Alternate names for a policy remain findable across the discovery surfaces. */
+test("everyday rent-policy wording finds the same map in all three search boxes", async ({ page }) => {
+  const query = "should landlords limit rent increases";
+  await page.goto(`/topics?q=${encodeURIComponent(query)}`);
+  await expect(page.getByRole("main").locator('a[href^="/topics/"]').first()).toHaveAttribute(
+    "href",
+    "/topics/rent-control-effectiveness",
+  );
+
+  const searchButton = page.getByRole("banner").getByRole("button", { name: "Search" });
+  await waitForHydration(searchButton);
+  await searchButton.click();
+  const dialog = page.getByRole("dialog", { name: "Search Argumend" });
+  await dialog.getByRole("combobox", { name: "Search Argumend" }).fill(query);
+  await expect(dialog.getByRole("option").first()).toContainText("Does rent control make housing less affordable in the long run?");
+  await dialog.getByRole("combobox", { name: "Search Argumend" }).press("Escape");
+
+  await page.goto(`/questions?q=${encodeURIComponent(query)}`);
+  await expect(page.locator("#question-search-results").getByRole("link").first()).toHaveAttribute(
+    "href",
+    "/questions/does-rent-control-hurt-housing-affordability",
+  );
+});
+
 /** A subject no map covers names itself as missing (r6 review #4), in the library and the header search. */
 test("abortion finds no map, and the empty state says so and offers paste", async ({ page, isMobile }) => {
   await page.goto("/topics?q=abortion");

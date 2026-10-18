@@ -115,6 +115,7 @@ export default async function QuestionsIndexPage({ searchParams }: PageProps) {
       return topic ? mapDisplayTitle(topic) : "";
     })(),
     topicId: v.topicId,
+    topicAliases: topicById.get(v.topicId)?.aliases,
   }));
 
   const jsonLd = {
