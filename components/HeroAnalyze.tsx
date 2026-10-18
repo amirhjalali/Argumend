@@ -5,23 +5,29 @@ import { useRouter } from "next/navigation";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
+import { PASTE_LIMITS } from "@/lib/paste/limits";
 import { PAGE_GUTTER } from "@/components/ui/PageContainer";
+import { TextAction } from "@/components/ui";
 
-interface HeroAnalyzeProps {
-  onTopicSelect: (id: string) => void;
-}
-
-export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps) {
+export function HeroAnalyze() {
   const router = useRouter();
   const [content, setContent] = useState("");
   const [contentType] = useState("freeform");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [handoffFailed, setHandoffFailed] = useState(false);
+  const tooLong = content.length > PASTE_LIMITS.maxCharacters;
 
   const handleAnalyze = useCallback(() => {
-    if (!content.trim()) return;
+    if (!content.trim() || content.length > PASTE_LIMITS.maxCharacters) return;
     // /analyze reads this once and, when nothing leaves the server, submits
     // it straight away (lib/paste/handoff.ts): one press, not two.
-    sessionStorage.setItem(PASTE_PREFILL_KEY, JSON.stringify({ content, contentType }));
+    try {
+      sessionStorage.setItem(PASTE_PREFILL_KEY, JSON.stringify({ content, contentType }));
+    } catch {
+      setHandoffFailed(true);
+      textareaRef.current?.focus();
+      return;
+    }
     // The canonical paste tool is chosen in one place: lib/nav.ts.
     router.push(ANALYZE_HREF);
   }, [content, contentType, router]);
@@ -46,7 +52,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
     [content, handleAnalyze]
   );
 
-  const ready = content.trim().length > 0;
+  const ready = content.trim().length > 0 && !tooLong;
 
   // Same left edge, rule and heading scale as the other home sections. The
   // submit button is ink rather than rust: the page keeps rust for its one
@@ -72,13 +78,31 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
           <textarea
             ref={textareaRef}
             value={content}
-            onChange={(e) => setContent(e.target.value)}
+            onChange={(e) => {
+              setContent(e.target.value);
+              setHandoffFailed(false);
+            }}
             onKeyDown={handleKeyDown}
             placeholder="Paste text here"
             aria-label="Text to analyze"
+            aria-invalid={tooLong || undefined}
+            aria-describedby={tooLong || handoffFailed ? "home-paste-error" : undefined}
             rows={6}
             className="block min-h-[9rem] w-full resize-y rounded-lg border border-stone-300/80 bg-card px-4 py-3 text-base leading-relaxed text-primary dark:text-stone-200 placeholder:text-muted/80 transition-colors focus:border-deep/50 sm:text-[0.9375rem] focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider dark:placeholder:text-stone-500"
           />
+
+          {tooLong || handoffFailed ? (
+            <p id="home-paste-error" role="alert" className="mt-3 text-sm leading-relaxed text-primary dark:text-stone-200">
+              {tooLong ? (
+                `Shorten your text to ${PASTE_LIMITS.maxCharacters.toLocaleString("en-US")} characters or fewer so the whole argument can be read. Your draft is still here.`
+              ) : (
+                <>
+                  Your browser could not carry this draft to the paste tool. Copy your text, then{" "}
+                  <TextAction href={ANALYZE_HREF}>Open the paste tool</TextAction>.
+                </>
+              )}
+            </p>
+          ) : null}
 
           <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
             <button

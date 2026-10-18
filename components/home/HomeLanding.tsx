@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { FeaturedTopicHero } from "@/components/FeaturedTopicHero";
-import { HomePasteBox } from "@/components/home/HomePasteBox";
+import { HeroAnalyze } from "@/components/HeroAnalyze";
 import { Button, PAGE_GUTTER, PageHeader, Section, TextAction } from "@/components/ui";
 import { MAP_COUNT } from "@/data/topicIndex";
 import { ANALYZE_HREF } from "@/lib/nav";
@@ -48,7 +48,7 @@ export function HomeLanding() {
       <HomeBeat>
         <HomeMaps maps={maps} />
       </HomeBeat>
-      <HomePasteBox />
+      <HeroAnalyze />
     </>
   );
 }
