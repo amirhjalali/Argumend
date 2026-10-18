@@ -39,6 +39,8 @@ export interface PasteMapCard {
   description: string;
   source?: string;
   sourceUrl?: string;
+  /** The map's own question associated with this card, when available. */
+  crux?: Pick<PasteMapCrux, "question" | "href">;
 }
 
 export interface PasteMapCrux {
@@ -71,11 +73,11 @@ export interface PasteMapMatch extends PasteMapCandidate {
   /**
    * A second crux, when the paste's words do not pick one crux over the
    * other: the result then says it may turn on one of the two. Only its
-   * question and its anchor; what would change each side's mind, and the
-   * cards, stay with `crux`.
+   * question and its anchor. Mind-change conditions describe `crux`;
+   * cards prefer that crux but can come from another question on the map.
    */
   alsoCrux?: Pick<PasteMapCrux, "question" | "href">;
-  /** At most one card per side, strongest first. */
+  /** Up to two cards, preferring one from each side. */
   cards: PasteMapCard[];
   /**
    * What the cards' sides (and the crux's two mind-changes) are relative to:

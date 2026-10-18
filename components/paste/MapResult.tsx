@@ -112,13 +112,24 @@ function ClampedText({
   );
 }
 
-function Card({ card, words }: { card: PasteMapCard; words: SideWords }) {
+function Card({ card, words, selectedCruxHref }: { card: PasteMapCard; words: SideWords; selectedCruxHref?: string }) {
+  const otherCrux = card.crux && card.crux.href !== selectedCruxHref ? card.crux : undefined;
   return (
-    <li className="flex flex-col border-t-2 border-[var(--border-divider)] pt-4">
+    <li className="flex min-w-0 flex-col border-t-2 border-[var(--border-divider)] pt-4">
       <p className={`font-sans text-sm font-medium ${SIDE_TEXT[card.side]}`}>{sideLabel(card.side, words)}</p>
       <h4 className="mt-2 font-serif text-[1.25rem] leading-snug text-[var(--text-heading)]">
         {card.title}
       </h4>
+      {otherCrux ? (
+        <div className="mt-3 border-l-2 border-[var(--border-default)] pl-3">
+          <p className="font-sans text-sm leading-relaxed text-[var(--text-secondary)]">
+            {selectedCruxHref ? "From another question on this map" : "From a question on this map"}
+          </p>
+          <Link href={otherCrux.href} className={textActionClasses("w-full text-sm leading-relaxed")}>
+            {otherCrux.question}
+          </Link>
+        </div>
+      ) : null}
       <ClampedText
         text={card.description}
         about={`: ${card.title}`}
@@ -390,7 +401,7 @@ export function MapMatch({
           </p>
           <ul className="mt-5 grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
             {cards.map((card) => (
-              <Card key={card.id} card={card} words={words} />
+              <Card key={card.id} card={card} words={words} selectedCruxHref={match.crux?.href} />
             ))}
           </ul>
         </div>

@@ -195,6 +195,21 @@ describe("the map block on a phone", () => {
     expect(second.getByRole("textbox", { name: "Second question to copy" })).toBeTruthy();
   });
 
+  it("identifies and links a card from another crux without relabelling cards from the selected one", async () => {
+    const maps = await findMaps("Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.");
+    const match = maps.match!;
+    const borrowed = match.cards.find((card) => card.crux?.href !== match.crux?.href)!;
+    const own = match.cards.find((card) => card.crux?.href === match.crux?.href)!;
+    const view = render(<MapMatch match={match} />);
+    const borrowedCard = within(view.getByRole("heading", { name: borrowed.title }).closest("li")!);
+    expect(borrowedCard.getByText("From another question on this map")).toBeTruthy();
+    expect(borrowedCard.getByRole("link", { name: borrowed.crux!.question }).getAttribute("href"))
+      .toBe(borrowed.crux!.href);
+    const ownCard = within(view.getByRole("heading", { name: own.title }).closest("li")!);
+    expect(ownCard.queryByText("From another question on this map")).toBeNull();
+    expect(ownCard.getByRole("link", { name: /Open the source/ }).getAttribute("href")).toBe(own.sourceUrl);
+  });
+
   it("clamps what would change each side's mind and each card, behind a named Show more", () => {
     const match = matched.match!;
     const view = render(<MapMatch match={match} related={matched.related} />);

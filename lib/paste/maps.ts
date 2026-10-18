@@ -389,7 +389,8 @@ export function pickPillars(
  */
 function cardsFrom(
   items: readonly LegacyEvidenceItem[],
-  others: readonly LegacyEvidenceItem[] = [],
+  others: readonly LegacyEvidenceItem[],
+  cruxes: ReadonlyMap<LegacyEvidenceItem, Pick<PasteMapCrux, "question" | "href">>,
 ): PasteMapCard[] {
   const picked = (["for", "against"] as const)
     .map((side) => items.find((item) => item.side === side) ?? others.find((item) => item.side === side))
@@ -406,6 +407,7 @@ function cardsFrom(
     description: item.description,
     ...(item.source ? { source: item.source } : {}),
     ...(item.sourceUrl ? { sourceUrl: item.sourceUrl } : {}),
+    ...(cruxes.has(item) ? { crux: cruxes.get(item)! } : {}),
   }));
 }
 
@@ -442,9 +444,14 @@ function pillarMatch(topic: Topic, text: string, corpusIdf: (term: string) => nu
   // A crux without cards borrows the map's strongest ones rather than showing
   // an empty section. No weight is carried: the cards are two readings, not a
   // contest, and the map page is where a reader can see what a weight weighs.
+  const evidenceCruxes = new Map<LegacyEvidenceItem, Pick<PasteMapCrux, "question" | "href">>();
+  for (const owner of cruxes) {
+    const origin = { question: owner.question, href: topicHref(topic.id, owner.anchor) };
+    for (const item of owner.evidence) evidenceCruxes.set(item, origin);
+  }
   const otherEvidence = cruxes.filter((item) => item !== entry).flatMap((item) => item.evidence);
-  let cards = cardsFrom(entry?.evidence ?? [], otherEvidence);
-  if (cards.length === 0) cards = cardsFrom(cruxes.flatMap((item) => item.evidence));
+  let cards = cardsFrom(entry?.evidence ?? [], otherEvidence, evidenceCruxes);
+  if (cards.length === 0) cards = cardsFrom(cruxes.flatMap((item) => item.evidence), [], evidenceCruxes);
 
   return {
     id: topic.id,
@@ -469,7 +476,11 @@ function evidenceWeight(evidence: GraphEvidence): number {
   return weight.sourceReliability + weight.independence + weight.replicability + weight.directness;
 }
 
-function flagshipCards(graph: ArgumentGraph, claimId: string): PasteMapCard[] {
+function flagshipCards(
+  graph: ArgumentGraph,
+  claimId: string,
+  crux: Pick<PasteMapCrux, "question" | "href">,
+): PasteMapCard[] {
   const byId = new Map(graph.nodes.map((node) => [node.id, node]));
   const ranked = graph.edges
     .filter((edge) => edge.type === "evidences" && edge.to === claimId)
@@ -492,6 +503,7 @@ function flagshipCards(graph: ArgumentGraph, claimId: string): PasteMapCard[] {
     description: node.relevance,
     source: node.source.title,
     ...(node.source.url ? { sourceUrl: node.source.url } : {}),
+    crux: { question: crux.question, href: crux.href },
   }));
 }
 
@@ -556,6 +568,7 @@ async function flagshipMatch(
   const topic = loadArgumentTopic(id);
   if (!topic) return null;
   const [top, also] = pickFlagshipClaims(topic, text, corpusIdf);
+  const crux = top ? flagshipCrux(topic, top) : null;
   const second = also ? flagshipCrux(topic, also) : null;
 
   return {
@@ -564,9 +577,9 @@ async function flagshipMatch(
     claim: topic.graph.question.statement,
     href: topicHref(id),
     kind: "flagship",
-    crux: top ? flagshipCrux(topic, top) : null,
+    crux,
     ...(second ? { alsoCrux: { question: second.question, href: second.href } } : {}),
-    cards: top ? flagshipCards(topic.graph, top.id) : [],
+    cards: top && crux ? flagshipCards(topic.graph, top.id, crux) : [],
     cardsAbout: "crux-claim",
   };
 }

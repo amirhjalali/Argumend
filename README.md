@@ -102,7 +102,9 @@ also offers a short, previewable conversation starter to copy beside its map lin
 When two cruxes are close, each question has its own open, preview and copy
 controls. Detailed conditions for the first question are labelled as such;
 the cards present evidence from the map and may come from another of its
-cruxes. Each question links directly to its own evidence.
+cruxes. A card borrowed from another question names and links to that question;
+the copied summary preserves that additional evidence link without repeating it.
+Each question links directly to its own evidence.
 The short takeaway retains the flagship map's stated scope.
 On a map, choosing a reflection question also offers a preview and a copyable
 conversation starter with a link directly to that crux and its evidence. The starter

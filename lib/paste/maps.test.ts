@@ -7,6 +7,7 @@ import { EXPECTED_MAP_COUNT } from "./mapDocuments";
 import type { RankedMap } from "./mapIndex";
 import { decideMatch, findMaps, getMapIndex, MAP_MATCH, pickPillars } from "./maps";
 import { ASSISTED_LIVING_PASTE, LEGACY_NUCLEAR_EXAMPLE, NUCLEAR_PASTE } from "./testPastes";
+import { PasteMapsResultSchema } from "./schemas";
 
 /**
  * A ranking with the given scores. Every word of the paste is scored, so
@@ -368,14 +369,24 @@ describe("findMaps", () => {
     expect(match?.cards.length).toBe(2);
   });
 
-  it("shows a card on each side when the crux's own evidence is one-sided", async () => {
-    // r9 live review #7: the Section 230 paste's crux has only "yes" cards,
-    // and was shown two of them under "The strongest card on each side".
+  it("keeps a contrasting card's own crux when the selected crux has evidence on only one side", async () => {
     const result = await findMaps(
       "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
     );
     expect(result.match?.id).toBe("section-230-reform");
     expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+    const own = result.match!.cards.find((card) => card.id === "anderson-tiktok")!;
+    const borrowed = result.match!.cards.find((card) => card.id === "fosta-gao")!;
+    expect(own.crux?.href).toBe(result.match!.crux!.href);
+    expect(borrowed.crux).toEqual({
+      question: "Can a reform deter targeted harms without a net loss of lawful speech?",
+      href: "/topics/section-230-reform#crux-collateral-damage",
+    });
+    expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(result.match!.cards);
+    expect(PasteMapsResultSchema.safeParse({
+      ...result,
+      match: { ...result.match, cards: [{ ...borrowed, crux: { question: borrowed.crux!.question, href: 12 } }] },
+    }).success).toBe(false);
   });
 
   it("offers no AI-education map for a choice between human and online piano lessons", async () => {
@@ -458,6 +469,17 @@ describe("findMaps", () => {
     "Could large language models cause mass unemployment by automating office jobs? Some expect falling demand for junior workers. Others expect higher productivity to create new jobs and expand output.",
   ])("keeps AI-employment arguments on their map: %s", async (text) => {
     expect((await findMaps(text)).match?.id).toBe("ai-mass-unemployment");
+  });
+
+  it("keeps flagship evidence attached to its graph crux", async () => {
+    const result = await findMaps("Will automation and chatbots take office jobs faster than workers can retrain? Some people expect mass unemployment, while others expect new kinds of work.");
+    const match = result.match!;
+    expect(match.kind).toBe("flagship");
+    expect(match.cards.length).toBeGreaterThan(0);
+    for (const card of match.cards) {
+      expect(card.crux).toEqual({ question: match.crux!.question, href: match.crux!.href });
+    }
+    expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(match.cards);
   });
 
   it("still offers the AI-employment map for a broader hiring question about language models", async () => {

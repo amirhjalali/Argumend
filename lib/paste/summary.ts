@@ -65,7 +65,15 @@ export function buildPasteSummary({
       if (match.crux.skepticFlip) lines.push(`${words.noChangesMind}: ${match.crux.skepticFlip}`);
       if (match.alsoCrux) lines.push(`Or: ${match.alsoCrux.question} ${SITE_URL}${match.alsoCrux.href}`);
     }
-    lines.push(`Both sides' best evidence: ${SITE_URL}${match.crux?.href ?? match.href}`);
+    const evidenceHref = match.crux?.href ?? match.href;
+    lines.push(`Read the evidence: ${SITE_URL}${evidenceHref}`);
+    const linkedQuestions = new Set([evidenceHref]);
+    if (match.crux && match.alsoCrux) linkedQuestions.add(match.alsoCrux.href);
+    for (const card of match.cards) {
+      if (!card.crux || linkedQuestions.has(card.crux.href)) continue;
+      linkedQuestions.add(card.crux.href);
+      lines.push(`Related evidence: ${card.crux.question} ${SITE_URL}${card.crux.href}`);
+    }
     const sibling = maps.related?.[0];
     if (sibling) lines.push(`Closely related map: ${sibling.title}, ${SITE_URL}${sibling.href}`);
   } else if (maps && maps.closest.length > 0) {

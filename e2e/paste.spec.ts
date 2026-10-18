@@ -250,6 +250,45 @@ test("an unmapped personal argument becomes conversation notes without another r
   expect(apiCalls).toEqual(["POST /api/analyze"]);
 });
 
+test("a borrowed evidence card names its own question and keeps that link in the takeaway", async ({ page }) => {
+  const apiCalls: string[] = [];
+  page.on("request", (request) => {
+    const path = new URL(request.url()).pathname;
+    if (path.startsWith("/api/")) apiCalls.push(`${request.method()} ${path}`);
+  });
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.");
+  await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+  const result = page.getByRole("region", { name: "Result" });
+  const question = "Can a reform deter targeted harms without a net loss of lawful speech?";
+  const borrowedCard = result.getByRole("heading", { level: 4, name: /^FOSTA Carve-Out:/ }).locator("..");
+  await expect(borrowedCard.getByText("From another question on this map", { exact: true })).toBeVisible();
+  const origin = borrowedCard.getByRole("link", { name: question, exact: true });
+  const href = "/topics/section-230-reform#crux-collateral-damage";
+  await expect(origin).toHaveAttribute("href", href);
+  const ownCard = result.getByRole("heading", { level: 4, name: /^Anderson v. TikTok:/ }).locator("..");
+  await expect(ownCard.getByText("From another question on this map", { exact: true })).toHaveCount(0);
+  expect(await borrowedCard.evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.left >= 0 && rect.right <= innerWidth;
+  })).toBe(true);
+  await result.getByText("Preview summary", { exact: true }).click();
+  const preview = result.getByRole("region", { name: "Summary preview" });
+  await expect(preview).toContainText(`Related evidence: ${question} https://argumend.org${href}`);
+  await origin.click();
+  await expect(page).toHaveURL(new RegExp(`${href}$`));
+  const entry = page.locator("#crux-collateral-damage");
+  await expect(entry.locator(":scope > details")).toHaveAttribute("open", "");
+  await expect(entry.locator(":scope > details > summary")).toBeFocused();
+  await entry.getByText("Show the evidence on each side and the test", { exact: true }).click();
+  await expect(entry).toContainText("FOSTA Carve-Out:");
+  await page.getByRole("link", { name: "Paste an argument", exact: true }).first().click();
+  await expect(origin).toHaveAttribute("href", href);
+  expect(apiCalls).toEqual(["POST /api/analyze"]);
+});
+
 test("either plausible crux can be previewed, copied and opened without reading the paste again", async ({ page }, testInfo) => {
   await page.addInitScript(() => {
     Object.defineProperty(navigator, "clipboard", {

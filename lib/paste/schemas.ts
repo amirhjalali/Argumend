@@ -33,6 +33,7 @@ export const PasteMapsResultSchema: z.ZodType<PasteMapsResult> = z.object({
       description: z.string(),
       source: z.string().optional(),
       sourceUrl: z.string().optional(),
+      crux: CruxSchema.pick({ question: true, href: true }).optional(),
     })),
     cardsAbout: z.enum(["map-question", "map-claim", "crux-claim"]),
   }).nullable(),
