@@ -70,6 +70,8 @@ word overlap and a few calibrated subject checks, not semantic understanding;
 unfamiliar subjects can still receive a closest-map list.
 AI-education and AI-employment maps require AI or automation subject language;
 ordinary online lessons and family disputes mentioning work do not qualify by themselves.
+Congestion-pricing matches also recognize downtown driving charges and city-center
+entry fees; driver wording alone does not qualify unrelated fares or fees.
 Matched results offer an optional preview before copying questions to explore together,
 with the map link and conditions that could change each side's mind.
 On a map, choosing a reflection question also offers a preview and a copyable

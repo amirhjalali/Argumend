@@ -198,6 +198,17 @@ describe("the site-search eval set", () => {
     }
   });
 
+  it.each([
+    "road pricing",
+    "downtown driving charges",
+    "city center entry fees",
+    "motorist charges on central streets",
+  ])("finds congestion pricing by its road-charge names: %s", (query) => {
+    for (const [surface, search] of Object.entries(RUNNERS)) {
+      expect(search(query)[0], surface).toBe("congestion-pricing");
+    }
+  });
+
   it("is big enough and labelled with maps that exist", () => {
     const all = [...SETS.dev, ...SETS.holdout];
     expect(SETS.dev.length).toBeGreaterThanOrEqual(40);

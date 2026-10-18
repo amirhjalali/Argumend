@@ -1734,7 +1734,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "bloom metros andy jassy moodys indeed boise ctrip downtown gentrification nashville ying nicholas zoom goldman"
+    "keywords": "bloom metros andy jassy moodys indeed boise ctrip gentrification nashville ying downtown nicholas zoom goldman"
   },
   {
     "id": "college-value-proposition",
@@ -2769,6 +2769,12 @@
       "traffic",
       "taxation",
       "transit"
+    ],
+    "aliases": [
+      "Road pricing",
+      "Downtown driving charges",
+      "City center entry fees",
+      "Motorist charges on central streets"
     ],
     "keywords": "cordon stockholm hochul relaunched eliasson mtas reinvested sqft tfls journey earmarked manhattan"
   },

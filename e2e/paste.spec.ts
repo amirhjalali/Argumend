@@ -37,6 +37,12 @@ test("common policy names find maps while a hairstyle dispute stays unmapped", a
   await submit.click();
   await expect(match.locator('a[href="/topics/occupational-licensing-reform"]')).toBeVisible();
   await page.getByRole("button", { name: "Edit", exact: true }).click();
+  await input.fill("The city should charge people for driving downtown at peak times. The money would improve public transportation. Critics say commuters without a bus alternative would be unfairly punished.");
+  await submit.click();
+  await expect(match.locator('a[href="/topics/congestion-pricing"]')).toBeVisible();
+  await expect(page.locator('a[href="/topics/drug-decriminalization"]')).toHaveCount(0);
+  await expect(page.locator('a[href="/topics/police-reform"]')).toHaveCount(0);
+  await page.getByRole("button", { name: "Edit", exact: true }).click();
   await input.fill("My sister wants me to braid her hair for a wedding. I prefer loose curls because braids pull too tightly.");
   await submit.click();
   await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();

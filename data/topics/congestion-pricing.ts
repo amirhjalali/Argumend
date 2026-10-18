@@ -2,6 +2,12 @@ export const congestionPricingData = {
   id: "congestion-pricing",
   title: "Congestion Pricing",
   question: "Does congestion pricing cut traffic and fund transit effectively?",
+  aliases: [
+    "Road pricing",
+    "Downtown driving charges",
+    "City center entry fees",
+    "Motorist charges on central streets",
+  ],
   meta_claim:
     "Congestion pricing is an effective policy for cutting urban traffic and funding transit.",
   status: "contested" as const,

@@ -347,6 +347,16 @@ describe("findMaps", () => {
       id: "occupational-licensing-reform",
       text: "States should reduce job licensing requirements for barbers and hair braiders. Training can protect customers, but expensive classes and fees may exclude people who already know the trade.",
     },
+    {
+      subject: "drug possession penalties",
+      id: "drug-decriminalization",
+      text: "Should people go to prison for possessing small amounts of heroin? I think treatment is better than punishment. My friend worries that dropping criminal penalties will encourage open drug use.",
+    },
+    {
+      subject: "policing and mental-health calls",
+      id: "police-reform",
+      text: "We should send mental-health teams instead of armed police to crisis calls. My neighbor says trained officers are still needed when a situation turns violent, but I think the police budget should fund social services.",
+    },
   ])("finds the map for everyday wording about $subject", async ({ id, text }) => {
     const result = await findMaps(text);
     expect(result.match?.id).toBe(id);
@@ -441,6 +451,28 @@ describe("findMaps", () => {
       "It should cost drivers money to bring a car into the center of the city. Charging vehicles at the busiest times could pay for faster buses.",
     );
     expect(roadCharge.match?.id).toBe("congestion-pricing");
+  });
+
+  it.each([
+    "Our city should charge drivers to enter downtown during rush hour. It would cut gridlock and pay for buses. My neighbor says it just prices working people off roads they already paid for.",
+    "The city should charge people for driving downtown at peak times. The money would improve public transportation. Critics say commuters without a bus alternative would be unfairly punished.",
+    "Drivers should pay an entry fee to get into the city center. It would keep the streets moving and fund reliable buses, but outer neighborhoods have few alternatives.",
+    "Charging motorists to enter busy central streets will ease gridlock. My colleague thinks it will hurt small shops because customers will go elsewhere.",
+  ])("finds congestion pricing when the charge is described through drivers: %s", async (text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe("congestion-pricing");
+    expect(result.match?.crux?.href).toMatch(/^\/topics\/congestion-pricing#crux-/);
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    "Public transit should be free. Charging bus fares punishes poor riders while drivers get subsidized roads. The city says eliminating fares would leave no money for reliable service and that frequency matters more than price.",
+    "The delivery company wants to charge drivers for parcels that go missing. Drivers say they should not have to pay for customers making false claims, while the company says it needs to recover the cost.",
+    "Drivers should pay a fee for renewing their license every year instead of every five years. I think the paperwork is pointless, but my friend says regular vision checks keep everyone safer.",
+  ])("does not treat unrelated fares or driver charges as congestion pricing: %s", async (text) => {
+    const result = await findMaps(text);
+    expect([result.match?.id, ...result.related.map((map) => map.id), ...result.closest.map((map) => map.id)])
+      .not.toContain("congestion-pricing");
   });
 
   it.each([

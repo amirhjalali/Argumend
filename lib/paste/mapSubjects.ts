@@ -51,7 +51,22 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
   "congestion-pricing": [
     ["congestion"], ["traffic"], ["toll"], ["car", "charge"],
     ["vehicle", "charge"],
+    // Driver language needs an entry/place qualifier: bus-fare arguments
+    // also mention charges and drivers using subsidized roads.
+    ...["driver", "drive", "motorist"].flatMap((roadUser) =>
+      ["charge", "fee"].flatMap((price) =>
+        [["downtown"], ["city", "center"], ["central", "street"], ["enter"]]
+          .map((place) => [roadUser, price, ...place]),
+      ),
+    ),
   ],
+  // Transit funding and "punishing" commuters are not drug or police policy.
+  "drug-decriminalization": [
+    ["drug"], ["narcotic"], ["heroin"], ["cocaine"], ["fentanyl"],
+    ["meth"], ["opioid"], ["cannabis"], ["marijuana"],
+    ["controlled", "substance"], ["possession", "decriminalize"],
+  ],
+  "police-reform": [["police"], ["policing"], ["cop"], ["law", "enforcement"]],
   "housing-affordability-crisis": [
     ["affordable"], ["affordability"], ["zoning"], ["supply"],
     ["single", "family"], ["duplex"],
