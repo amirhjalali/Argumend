@@ -1,6 +1,6 @@
 import type { Topic } from "@/lib/schemas/topic";
 
-type QuestionTopic = Pick<Topic, "id" | "meta_claim">;
+type QuestionTopic = Pick<Topic, "id">;
 
 // ============================================================================
 // Question Variation Type
@@ -560,7 +560,7 @@ export function getQuestionVariations(topic: QuestionTopic): QuestionVariation[]
   return questions.map((question, index) => ({
     slug: questionToSlug(question),
     question,
-    metaDescription: `${question} What both sides agree on, what the disagreement turns on, and what would settle it. ${topic.meta_claim}`,
+    metaDescription: `${question} Explore the arguments on each side, where they agree, and what would change a mind.`,
     topicId: topic.id,
     primary: index === 0,
   }));
