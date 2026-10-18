@@ -1,6 +1,7 @@
 import { readdir, stat } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import { join, relative, sep } from "node:path";
+import { OFFLINE_SERVER_ENV } from "./offline-server-env.mjs";
 
 const root = process.cwd();
 const standaloneDir = join(root, ".next", "standalone");
@@ -45,30 +46,9 @@ await stat(staticDir);
 
 const childEnv = {
   ...process.env,
-  NODE_ENV: "production",
-  NEXT_TELEMETRY_DISABLED: "1",
+  ...OFFLINE_SERVER_ENV,
   HOSTNAME: "127.0.0.1",
   PORT: port,
-  DATABASE_URL: "",
-  ANTHROPIC_API_KEY: "",
-  OPENAI_API_KEY: "",
-  GOOGLE_AI_API_KEY: "",
-  GEMINI_API_KEY: "",
-  XAI_API_KEY: "",
-  GROK_API_KEY: "",
-  REPLICATE_API_TOKEN: "",
-  MOLTBOOK_API_KEY: "",
-  AUTH_SECRET: "",
-  AUTH_GOOGLE_ID: "",
-  AUTH_GOOGLE_SECRET: "",
-  NEXT_PUBLIC_GA_MEASUREMENT_ID: "",
-  ENABLE_LIVE_ANALYZE_API: "false",
-  ENABLE_LIVE_DEBATE_API: "false",
-  ENABLE_LIVE_JUDGING_API: "false",
-  NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API: "false",
-  NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API: "false",
-  NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API: "false",
-  NEXT_PUBLIC_ENABLE_AUTH: "false",
 };
 
 const child = spawn(process.execPath, ["server.js"], {

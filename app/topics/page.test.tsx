@@ -242,6 +242,21 @@ describe("/topics: saved on this device", () => {
     // Device-local: never written to the shareable URL.
     expect(window.location.search).toBe("");
   });
+
+  it("keeps the device-local saved filter when navigating to its next page", () => {
+    const saved = LIBRARY_ENTRIES.slice(0, TOPICS_PAGE_SIZE + 6).map((entry) => entry.id);
+    window.localStorage.setItem(SAVED_TOPICS_KEY, JSON.stringify(saved));
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    fireEvent.click(view.getByRole("button", { name: `Saved on this device (${saved.length})` }));
+
+    view.rerender(<TopicsPageClient initialState={{ ...defaultState, page: 2 }} />);
+    expect(view.getByRole("button", { name: /Saved on this device/ }).getAttribute("aria-pressed")).toBe("true");
+    expect([...view.container.querySelectorAll("ul li a")].map((link) => link.getAttribute("href"))).toEqual(
+      filterLibrary(defaultState, { savedIds: new Set(saved) }).slice(TOPICS_PAGE_SIZE).map((entry) => entry.href),
+    );
+    expect(view.getByRole("status").textContent).toContain("Showing 25–30 of 30 matching maps");
+    expect(window.location.search).toBe("?page=2");
+  });
 });
 
 describe("/topics: order and pagination", () => {
@@ -269,6 +284,50 @@ describe("/topics: order and pagination", () => {
     const view = render(<TopicsPageClient initialState={defaultState} />);
     expect(view.getByRole("link", { name: "Next" }).getAttribute("href")).toBe("/topics?page=2");
     expect(view.getByRole("link", { name: "Page 1" }).getAttribute("aria-current")).toBe("page");
+  });
+
+  it("follows query navigation when Next preserves the mounted library", () => {
+    window.history.replaceState({}, "", "/topics");
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    const firstPage = legacyTopicLinks(view.container).map((link) => link.getAttribute("href"));
+
+    // Next's same-route Links deliver new server props without remounting the
+    // client component. Exercise Next, Previous, and a new filtered URL.
+    window.history.replaceState({}, "", "/topics?page=2");
+    view.rerender(<TopicsPageClient initialState={{ ...defaultState, page: 2 }} />);
+    expect(view.getByRole("link", { name: "Page 2" }).getAttribute("aria-current")).toBe("page");
+    expect(legacyTopicLinks(view.container).map((link) => link.getAttribute("href"))).toEqual(
+      filterLibrary(defaultState).slice(TOPICS_PAGE_SIZE, TOPICS_PAGE_SIZE * 2).map((entry) => entry.href),
+    );
+    expect(window.location.search).toBe("?page=2");
+
+    window.history.replaceState({}, "", "/topics");
+    view.rerender(<TopicsPageClient initialState={{ ...defaultState }} />);
+    expect(legacyTopicLinks(view.container).map((link) => link.getAttribute("href"))).toEqual(firstPage);
+
+    const filtered = { ...defaultState, category: "technology" as const, search: "AI", sort: "title-asc" as const };
+    view.rerender(<TopicsPageClient initialState={filtered} />);
+    expect((view.getByRole("searchbox", { name: "Search maps" }) as HTMLInputElement).value).toBe("AI");
+    expect((view.getByRole("combobox", { name: "Order:" }) as HTMLSelectElement).value).toBe("title-asc");
+    expect([...view.container.querySelectorAll("ul li a")].map((link) => link.getAttribute("href"))).toEqual(
+      filterLibrary(filtered).slice(0, TOPICS_PAGE_SIZE).map((entry) => entry.href),
+    );
+    expect(window.location.search).toBe("?category=technology&sort=title-asc&q=AI");
+  });
+
+  it("restores the server query after local filter changes, even when its values repeat", () => {
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    fireEvent.change(view.getByRole("searchbox", { name: "Search maps" }), {
+      target: { value: "nuclear" },
+    });
+    expect(window.location.search).toBe("?q=nuclear");
+
+    // A navigation to the bare library supplies the same query values that
+    // originally mounted it, but still needs to discard the typed search.
+    view.rerender(<TopicsPageClient initialState={{ ...defaultState }} />);
+    expect((view.getByRole("searchbox", { name: "Search maps" }) as HTMLInputElement).value).toBe("");
+    expect(view.getByRole("heading", { name: "Start here" })).toBeTruthy();
+    expect(window.location.search).toBe("");
   });
 
   it("still groups by category when that order is chosen, and writes it to the URL", async () => {

@@ -83,24 +83,26 @@ describe("production packaging contracts", () => {
     expect(packageJson.devDependencies["@playwright/test"]).toMatch(/^\d+\.\d+\.\d+$/);
 
     expect(read("vitest.config.mts")).toContain('"e2e/**"');
-    expect(read("e2e/playwright.config.ts")).toContain('ENABLE_LIVE_ANALYZE_API: "false"');
+    expect(read("e2e/playwright.config.ts")).toContain("...OFFLINE_SERVER_ENV");
   });
 
   it("smokes every core offline workflow with providers and persistence disabled", () => {
     const smoke = read("scripts/smoke-standalone.mjs");
+    const offlineEnv = read("scripts/offline-server-env.mjs");
 
-    expect(smoke).toContain('DATABASE_URL: ""');
-    expect(smoke).toContain('GEMINI_API_KEY: ""');
-    expect(smoke).toContain('GROK_API_KEY: ""');
-    expect(smoke).toContain('AUTH_SECRET: ""');
-    expect(smoke).toContain('MOLTBOOK_API_KEY: ""');
+    expect(smoke).toContain("...OFFLINE_SERVER_ENV");
+    expect(offlineEnv).toContain('DATABASE_URL: ""');
+    expect(offlineEnv).toContain('GEMINI_API_KEY: ""');
+    expect(offlineEnv).toContain('GROK_API_KEY: ""');
+    expect(offlineEnv).toContain('AUTH_SECRET: ""');
+    expect(offlineEnv).toContain('MOLTBOOK_API_KEY: ""');
     expect(smoke).toContain("persistence skipped");
-    expect(smoke).toContain('ENABLE_LIVE_ANALYZE_API: "false"');
-    expect(smoke).toContain('ENABLE_LIVE_DEBATE_API: "false"');
-    expect(smoke).toContain('ENABLE_LIVE_JUDGING_API: "false"');
-    expect(smoke).toContain('NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API: "false"');
-    expect(smoke).toContain('NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API: "false"');
-    expect(smoke).toContain('NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API: "false"');
+    expect(offlineEnv).toContain('ENABLE_LIVE_ANALYZE_API: "false"');
+    expect(offlineEnv).toContain('ENABLE_LIVE_DEBATE_API: "false"');
+    expect(offlineEnv).toContain('ENABLE_LIVE_JUDGING_API: "false"');
+    expect(offlineEnv).toContain('NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API: "false"');
+    expect(offlineEnv).toContain('NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API: "false"');
+    expect(offlineEnv).toContain('NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API: "false"');
     for (const endpoint of ["/api/analyze", "/api/debate", "/api/judge"]) {
       expect(smoke).toContain("`${origin}" + endpoint + "`");
     }

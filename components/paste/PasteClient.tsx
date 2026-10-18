@@ -14,6 +14,12 @@ import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { bandLabel, characterBucket, latencyBucket } from "@/lib/disagreement/labels";
 import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
 import { minCharactersFor, PASTE_LIMITS } from "@/lib/paste/limits";
+import {
+  PasteDiagnosisResponseSchema,
+  PasteErrorResponseSchema,
+  PasteMapsResponseSchema,
+  PastePrefillSchema,
+} from "@/lib/paste/schemas";
 import { buildPasteSummary } from "@/lib/paste/summary";
 import type {
   PasteContentType,
@@ -81,11 +87,13 @@ async function fetchMaps(
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ content, contentType }),
     });
-    const data = (await response.json()) as { maps?: PasteMapsResult; error?: string };
-    if (!response.ok || !data.maps) {
-      return { error: data.error || "The maps could not be searched just now." };
+    const data: unknown = await response.json();
+    const parsed = PasteMapsResponseSchema.safeParse(data);
+    if (!response.ok || !parsed.success) {
+      const failure = PasteErrorResponseSchema.safeParse(data);
+      return { error: (failure.success && failure.data.error) || "The maps could not be searched just now." };
     }
-    return { maps: data.maps };
+    return { maps: parsed.data.maps };
   } catch {
     return { error: "The maps could not be searched just now. Check your connection and try again." };
   }
@@ -98,18 +106,14 @@ async function fetchDiagnosis(content: string, contentType: PasteContentType): P
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ content, contentType }),
     });
-    const data = (await response.json()) as {
-      report?: DisagreementReportV1;
-      graph?: ArgumentGraph;
-      execution?: { model?: string; promptVersion?: string; latencyMs?: number };
-      publishing?: { token?: string; unavailableReason?: string };
-      error?: string;
-      code?: string;
-    };
-    if (!response.ok || !data.report || !data.graph) {
-      trackEvent({ action: "disagreement_analysis_failed", errorCode: data.code || "INTERNAL_ERROR" });
-      return { status: "failed", message: data.error || "The reading failed." };
+    const raw: unknown = await response.json();
+    const parsed = PasteDiagnosisResponseSchema.safeParse(raw);
+    if (!response.ok || !parsed.success) {
+      const failure = PasteErrorResponseSchema.safeParse(raw);
+      trackEvent({ action: "disagreement_analysis_failed", errorCode: (failure.success && failure.data.code) || "INTERNAL_ERROR" });
+      return { status: "failed", message: (failure.success && failure.data.error) || "The reading failed." };
     }
+    const data = parsed.data;
     trackEvent({
       action: "disagreement_analysis_completed",
       diagnosisPattern: data.report.diagnosis.pattern,
@@ -273,13 +277,15 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
       } catch {
         // Storage can vanish between the read and the write; the text is in hand.
       }
-      let parsed: { content?: unknown; contentType?: unknown };
+      let data: unknown;
       try {
-        parsed = JSON.parse(raw as string) as typeof parsed;
+        data = JSON.parse(raw as string);
       } catch {
         return;
       }
-      if (typeof parsed.content !== "string" || !parsed.content.trim()) return;
+      const prefill = PastePrefillSchema.safeParse(data);
+      if (!prefill.success || !prefill.data.content.trim()) return;
+      const parsed = prefill.data;
       // The home box has no length limit; this one does.
       const text = parsed.content.slice(0, PASTE_LIMITS.maxCharacters);
       const type = toContentType(parsed.contentType);
