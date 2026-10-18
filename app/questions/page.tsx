@@ -116,6 +116,7 @@ export default async function QuestionsIndexPage({ searchParams }: PageProps) {
     })(),
     topicId: v.topicId,
     topicAliases: topicById.get(v.topicId)?.aliases,
+    topicTags: topicById.get(v.topicId)?.tags,
   }));
 
   const jsonLd = {

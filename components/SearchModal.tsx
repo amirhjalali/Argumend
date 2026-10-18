@@ -619,7 +619,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                             </span>
                           )}
                         </div>
-                        <div className="text-xs text-muted dark:text-stone-400 truncate mt-0.5">
+                        <div className={`mt-0.5 text-xs text-muted dark:text-stone-400 ${isMap ? "line-clamp-2" : "truncate"}`}>
                           {result.subtitle}
                         </div>
                       </div>
