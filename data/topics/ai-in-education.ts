@@ -159,6 +159,10 @@ export const aiInEducationData = {
         methodology:
           "Run a longitudinal randomized trial across one academic year. Assign students to three conditions: (1) no AI access, (2) AI access with metacognitive scaffolding (must explain, critique, and revise AI output), and (3) unrestricted AI access. Administer quarterly closed-book transfer exams testing deep conceptual understanding and novel problem-solving. Compare long-term retention at 6 and 12 months post-course. Measure critical thinking skills using validated instruments (e.g., Watson-Glaser, Collegiate Learning Assessment).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A preregistered randomized comparison of structured AI tutoring, unrestricted chatbot use and teaching without AI. Use common unaided transfer tests after learning and several months later, track actual use, and compare results by prior attainment.",
+        },
         cost_to_verify:
           "Not costed here; depends on participating institutions, assessment design and follow-up.",
         falsification: {

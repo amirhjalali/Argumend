@@ -184,7 +184,7 @@ export interface MapDecision {
   top: RankedMap | null;
   /** The best-scoring eligible map that is not a sibling of the top one. */
   rival: RankedMap | null;
-  /** Top score over the rival's. Infinity when no other map shares a word. */
+  /** Top score over the eligible rival's. Infinity when none qualifies. */
   lead: number;
   /** The same, counting only the words where the two maps differ. */
   exclusiveLead: number;
