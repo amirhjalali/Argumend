@@ -209,6 +209,15 @@ describe("the site-search eval set", () => {
     }
   });
 
+  it.each([
+    "school vaccination requirements",
+    "required childhood immunizations",
+  ])("finds vaccine mandates by its everyday names: %s", (query) => {
+    for (const [surface, search] of Object.entries(RUNNERS)) {
+      expect(search(query)[0], surface).toBe("vaccine-mandates");
+    }
+  });
+
   it("is big enough and labelled with maps that exist", () => {
     const all = [...SETS.dev, ...SETS.holdout];
     expect(SETS.dev.length).toBeGreaterThanOrEqual(40);

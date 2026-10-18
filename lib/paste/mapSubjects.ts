@@ -15,6 +15,29 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
   // General school-policy vocabulary also occurs in uniform and funding disputes.
   "school-phone-bans": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
   "children-smartphone-age": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
+  // Children, consent and pregnancy also occur in unrelated family disputes.
+  "fluoride-water-supplies": [["fluoride"]],
+  "rfk-health-policy": [
+    ["rfk"], ["kennedy"], ["maha"], ["make", "america", "healthy", "again"],
+    ["health", "secretary"], ["hhs", "overhaul"],
+    ["advisory", "committee", "fire"], ["advisory", "committee", "replace"],
+  ],
+  // School schedules are not college borrowing or admissions preferences.
+  "student-debt-forgiveness": [
+    ["student", "debt"], ["student", "loan"], ["college", "debt"],
+    ["college", "loan"], ["university", "loan"], ["education", "loan"],
+    ["tuition", "borrow"], ["tuition", "debt"], ["tuition", "loan"],
+  ],
+  "affirmative-action-meritocracy": [
+    ["affirmative", "action"], ["meritocracy"],
+    ["race", "admission"], ["racial", "admission"], ["diversity", "admission"],
+    ["race", "hire"], ["racial", "hire"], ["race", "preference"],
+    ["racial", "quota"], ["minority", "enrollment"], ["legacy", "admission"],
+  ],
+  "standardized-testing-debate": [
+    ["standardized", "test"], ["sat"], ["act"], ["test", "admission"],
+    ["test", "optional"], ["entrance", "exam"], ["college", "exam"],
+  ],
   // Hairstyles and salon prices alone are not occupational-licensing policy.
   "occupational-licensing-reform": [
     ["license"], ["certification"], ["government", "permission"],

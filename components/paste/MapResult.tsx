@@ -339,7 +339,7 @@ export function MapMatch({
 
 /**
  * "No map, rather than the wrong map", and what the reader gets instead:
- * the closest maps when several on the text's subject competed, then three
+ * possible maps from an ambiguous reading, then three
  * questions to read the argument themselves (ReadItYourself). The guide is
  * left out when the diagnosis lane has already read the text above.
  */
@@ -381,7 +381,7 @@ export function MapNoMatch({
       <ClosestMaps
         title="Closest maps"
         level={3}
-        lede="These share the most words with your text. One of them may still be what you are arguing about."
+        lede="Word overlap suggests a connection. Check whether the map asks the same question as your argument."
         maps={maps.closest}
       />
       {guide ? (

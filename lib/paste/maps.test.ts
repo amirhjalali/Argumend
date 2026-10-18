@@ -195,6 +195,37 @@ describe("decideMatch", () => {
     expect(decision.closest).toEqual([]);
   });
 
+  it("keeps an independently qualified original finalist when an ambiguous leader is off subject", () => {
+    const decision = decideMatch(
+      ranking([26, 25, 20]), noSiblings,
+      (id) => new Set(id === "map-1" ? ["vaccine"] : []),
+      (id) => id === "map-0",
+    );
+    expect(decision.named).toBeNull();
+    expect(decision.closest.map((map) => map.id)).toEqual(["map-1"]);
+  });
+
+  it("does not look beyond the original finalists after rejecting their subjects", () => {
+    const decision = decideMatch(
+      ranking([26, 25, 24, 23]), noSiblings, () => new Set(["subject"]),
+      (id) => id !== "map-3",
+    );
+    expect(decision.closest).toEqual([]);
+  });
+
+  it.each([
+    { scores: [8, 7, 6], ceiling: 10, sharesName: true },
+    { scores: [26, 25, 20], ceiling: 200, sharesName: true },
+    { scores: [26, 25, 20], ceiling: 100, sharesName: false },
+  ])("requires the finalist's own score, coverage and telling subject word: %j", ({ scores, ceiling, sharesName }) => {
+    const decision = decideMatch(
+      ranking(scores, ceiling), noSiblings, () => new Set(["subject"]),
+      (id) => id === "map-0", undefined, () => sharesName,
+    );
+    expect(decision.named).toBeNull();
+    expect(decision.closest).toEqual([]);
+  });
+
   it("does not backfill a filtered closest candidate with a weaker map", () => {
     const decision = decideMatch(ranking([26, 25, 20, 19]), noSiblings, undefined, (id) => id === "map-1");
     expect(decision.closest.map((map) => map.id)).toEqual(["map-0", "map-2"]);
@@ -440,6 +471,41 @@ describe("findMaps", () => {
     const result = await findMaps("Should schools make kids wear uniforms? It stops the brand-name competition and bullying over clothes, but it costs parents more and kids hate them.");
     expect(result.status).toBe("none");
     expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["surrogacy", "My sister wants to hire a surrogate to carry her baby. I think paying someone for pregnancy exploits women with less money, but she says consenting adults should be free to make that choice."],
+    ["school start times", "Our teenager is exhausted when school starts at 7:20. I want classes to begin later so students can sleep, but the district says buses and after-school sports make that impossible."],
+    ["a family pregnancy decision", "My partner wants another baby, but I worry pregnancy will damage my health and we cannot afford childcare. He thinks the choice should be ours rather than dictated by money."],
+    ["a school bus schedule", "The district wants children at the bus stop before dawn. Parents want a later start so students can sleep, but coaches say it would mean cutting after-school sports."],
+  ])("offers no health or college-policy map for %s", async (_, text) => {
+    const result = await findMaps(text);
+    expect(result.status).toBe("none");
+    expect(result.match).toBeNull();
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["fluoride-water-supplies", "Our town wants to stop adding fluoride to drinking water because children swallow it. Dentists say it prevents cavities and people can already use toothpaste."],
+    ["rfk-health-policy", "RFK says the childhood vaccine schedule has not been properly tested. Doctors say changing established recommendations puts children at risk. The disagreement is whether his MAHA agenda improves public health."],
+    ["rfk-health-policy", "Removing every member of the vaccine advisory committee will free it from pharmaceutical industry influence. Doctors say replacing the panel with vaccine skeptics will undermine public trust."],
+    ["student-debt-forgiveness", "The government should cancel student loans because graduates cannot afford homes or start families. My brother says taxpayers who skipped college should not have to pay off someone else's debt."],
+    ["affirmative-action-meritocracy", "Universities should consider race in admissions to offset unequal opportunities. My colleague says applicants should be judged on their own merit rather than their racial background."],
+    ["standardized-testing-debate", "Universities should bring back the SAT because test scores predict academic performance. Critics say standardized tests favor wealthy families who can afford expensive preparation."],
+  ])("retains the covered subject for %s", async (id, text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe(id);
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    "Our school should require routine childhood vaccines to protect vulnerable children. Another parent says the government cannot force a medical procedure on their child.",
+    "Schools should require routine childhood immunizations before children can attend classes. Parents say their medical choices are private and the state should not be allowed to impose vaccination.",
+  ])("offers the vaccine-requirements map without unrelated childhood-health maps: %s", async (text) => {
+    const result = await findMaps(text);
+    expect(result.status).toBe("closest");
+    expect(result.closest.map((map) => map.id)).toEqual(["vaccine-mandates"]);
+    expect(result.related).toEqual([]);
   });
 
   it("retains artificial reproduction and charging road vehicles without their exact map names", async () => {

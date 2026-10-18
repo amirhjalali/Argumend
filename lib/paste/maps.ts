@@ -312,11 +312,23 @@ export function decideMatch(
   // and student debt on "school" and "public" (r9 live review #9).
   const cameClose =
     !clear && !offSubject(top.id) && top.score >= MAP_MATCH.closestFloor && coverage >= MAP_MATCH.closestCoverage;
-  const closest = cameClose
-    ? [top, ...rest.filter((map) => (siblingIds.has(map.id) ? shown(map) : listed(map)))]
-        .slice(0, MAP_MATCH.maxMaps)
-        .filter((map) => !offSubject(map.id))
-    : [];
+  let closest: RankedMap[] = [];
+  if (cameClose) {
+    closest = [top, ...rest.filter((map) => (siblingIds.has(map.id) ? shown(map) : listed(map)))]
+      .slice(0, MAP_MATCH.maxMaps)
+      .filter((map) => !offSubject(map.id));
+  } else if (!clear && offSubject(top.id)) {
+    // A rejected leader cannot supply another map's score or coverage. In
+    // an ambiguous reading, an original finalist may still be useful if its
+    // own overlap clears both floors and the paste names its subject. For
+    // example, school vaccine requirements belong on the mandates map,
+    // even when shared childhood-health words put the RFK map just ahead.
+    closest = rest.slice(0, MAP_MATCH.maxMaps - 1).filter((map) =>
+      !offSubject(map.id) && listed(map) && nameMatch(map.id).size > 0 &&
+      map.score >= MAP_MATCH.closestFloor && ranking.ceiling > 0 &&
+      map.wordScore / ranking.ceiling >= MAP_MATCH.closestCoverage,
+    );
+  }
   return { named: null, related: [], closest, top, rival, lead, exclusiveLead, coverage };
 }
 

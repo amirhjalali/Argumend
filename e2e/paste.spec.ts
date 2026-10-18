@@ -50,6 +50,34 @@ test("common policy names find maps while a hairstyle dispute stays unmapped", a
   await expect(page.getByLabel("You would think again if…")).toBeVisible();
 });
 
+test("uncovered family and school arguments stay unmapped while vaccine requirements keep their map", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  const submit = page.getByRole("button", { name: "Find what it turns on" });
+  const result = page.getByRole("region", { name: "Result" });
+  for (const text of [
+    "My sister wants to hire a surrogate to carry her baby. I think paying someone for pregnancy exploits women with less money, but she says consenting adults should be free to make that choice.",
+    "Our teenager is exhausted when school starts at 7:20. I want classes to begin later so students can sleep, but the district says buses and after-school sports make that impossible.",
+  ]) {
+    await input.fill(text);
+    await submit.click();
+    await expect(result.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+    await expect(result.locator('a[href^="/topics/"]')).toHaveCount(0);
+    await expect(page.getByLabel("You would think again if…")).toBeVisible();
+    await page.getByRole("button", { name: "Edit", exact: true }).click();
+  }
+  await input.fill("Our school should require routine childhood vaccines to protect vulnerable children. Another parent says the government cannot force a medical procedure on their child.");
+  await submit.click();
+  const vaccineMap = result.locator('a[href="/topics/vaccine-mandates"]');
+  await expect(vaccineMap).toBeVisible();
+  await expect(result.locator('a[href^="/topics/"]')).toHaveCount(1);
+  await expect(page.getByRole("region", { name: "This argument is already mapped" })).toHaveCount(0);
+  await vaccineMap.click();
+  await expect(page).toHaveURL(/\/topics\/vaccine-mandates$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Are government vaccine mandates a justified public-health measure?" })).toBeVisible();
+});
+
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
   const apiCalls: string[] = [];
   page.on("request", (request) => {

@@ -72,6 +72,11 @@ AI-education and AI-employment maps require AI or automation subject language;
 ordinary online lessons and family disputes mentioning work do not qualify by themselves.
 Congestion-pricing matches also recognize downtown driving charges and city-center
 entry fees; driver wording alone does not qualify unrelated fares or fees.
+Health and college-policy maps also require their own subject language, so
+surrogacy and school-start-time arguments do not qualify through shared words
+about children or school. In an ambiguous result, rejecting an unrelated leader
+can still leave a closest map if that finalist independently meets the overlap
+floors and the paste uses a telling word of its name.
 Matched results offer an optional preview before copying questions to explore together,
 with the map link and conditions that could change each side's mind.
 On a map, choosing a reflection question also offers a preview and a copyable
