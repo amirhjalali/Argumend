@@ -8,6 +8,7 @@ import { DisagreementReportView } from "@/components/disagreement/DisagreementRe
 import { ShareReport } from "@/components/disagreement/ShareReport";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
 import { Button, PageContainer, PageHeader, TextAction, textActionClasses } from "@/components/ui";
+import { useIsHydrated } from "@/hooks/useMediaQuery";
 import { buildPasteConsentLine, formatProviderList } from "@/lib/aiProviders";
 import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
@@ -41,7 +42,7 @@ import { EMPTY_CONVERSATION_NOTES, type ConversationNotes } from "./ReadItYourse
  * this component only renders what they return, in one document:
  *
  * 1. the diagnosis of the pasted text, when that lane is on;
- * 2. "This argument is already mapped": the map, its crux, the best card on
+ * 2. "This argument is already mapped": the map, its crux, evidence to explore on
  *    each side, or an honest "no map" with the closest maps;
  * 3. the next step: open the map at the crux, copy a summary, and the
  *    north-star question;
@@ -202,6 +203,7 @@ function diagnosisReadLine(
 }
 
 export function PasteClient({ lanes }: { lanes: PasteLanes }) {
+  const hydrated = useIsHydrated();
   const diagnosisLane = lanes.diagnosis;
   const diagnosisOn = diagnosisLane.enabled;
   const providerIds = diagnosisLane.enabled ? diagnosisLane.providerIds : [];
@@ -443,6 +445,9 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const done = phase === "done";
   const busy = phase === "loading";
+  // Early edits can be replaced when React takes over this controlled input.
+  // Wait for its handlers before accepting a draft.
+  const inputDisabled = busy || !hydrated;
   const consent = buildPasteConsentLine(providerIds);
   const match = maps?.match ?? null;
   const related = match ? (maps?.related ?? []) : [];
@@ -520,7 +525,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           <AnalyzeInput
             content={content}
             contentType={contentType}
-            disabled={busy}
+            disabled={inputDisabled}
             onContentChange={setContent}
             onTypeChange={setContentType}
             label="The argument to read"
@@ -539,12 +544,12 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
               size="lg"
               onClick={() => void submit(content, contentType)}
               aria-describedby={CONSENT_ID}
-              disabled={busy || tooShort || tooLong}
+              disabled={inputDisabled || tooShort || tooLong}
             >
               Find what it turns on
             </Button>
             <TextAction
-              disabled={busy}
+              disabled={inputDisabled}
               onClick={() => {
                 setContentType("conversation");
                 setContent(DISAGREEMENT_EXAMPLE_SOURCE);

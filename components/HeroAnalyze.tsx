@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useIsHydrated } from "@/hooks/useMediaQuery";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
@@ -10,6 +11,7 @@ import { PAGE_GUTTER } from "@/components/ui/PageContainer";
 import { TextAction } from "@/components/ui";
 
 export function HeroAnalyze() {
+  const hydrated = useIsHydrated();
   const router = useRouter();
   const [content, setContent] = useState("");
   const [contentType] = useState("freeform");
@@ -53,7 +55,7 @@ export function HeroAnalyze() {
     [content, handleAnalyze]
   );
 
-  const ready = content.trim().length > 0 && !tooLong;
+  const ready = hydrated && content.trim().length > 0 && !tooLong;
 
   // Same left edge, rule and heading scale as the other home sections. The
   // submit button is ink rather than rust: the page keeps rust for its one
@@ -71,7 +73,7 @@ export function HeroAnalyze() {
           </h2>
           <p className="mt-4 max-w-md text-base leading-relaxed text-secondary dark:text-stone-400">
             Paste an article, a thread, or your own draft. See which map it is already on,
-            the question it turns on, and the strongest evidence on each side.
+            the question it turns on, and cited evidence to explore.
           </p>
         </div>
 
@@ -79,6 +81,7 @@ export function HeroAnalyze() {
           <textarea
             ref={textareaRef}
             value={content}
+            disabled={!hydrated}
             onChange={(e) => {
               setContent(e.target.value);
               setHandoffFailed(false);
@@ -109,6 +112,7 @@ export function HeroAnalyze() {
             <button
               type="button"
               onClick={handleTryExample}
+              disabled={!hydrated}
               className="inline-flex min-h-11 items-center rounded-lg text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-[#8bb5b1] dark:decoration-[#8bb5b1]/40"
             >
               Try an example

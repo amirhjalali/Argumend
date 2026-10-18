@@ -1,6 +1,43 @@
 import { expect, test, waitForHydration } from "./fixtures";
 import { PASTE_LIMITS } from "../lib/paste/limits";
 
+for (const entry of [
+  { name: "paste form", path: "/analyze", label: "The argument to read", example: "See an example" },
+  { name: "home form", path: "/", label: "Text to analyze", example: "Try an example" },
+]) {
+  test(`the ${entry.name} waits for its handlers before accepting a draft`, async ({ page }) => {
+    let releaseScripts!: () => void;
+    const scripts = new Promise<void>((resolve) => { releaseScripts = resolve; });
+    await page.route("**/_next/static/**/*.js", async (route) => {
+      await scripts;
+      await route.continue();
+    });
+    try {
+      await page.goto(entry.path, { waitUntil: "commit" });
+      const input = page.getByRole("textbox", { name: entry.label, exact: true });
+      await expect(input).toBeDisabled();
+      if (entry.path === "/analyze") {
+        for (const type of ["Conversation", "Article", "My own draft"]) {
+          await expect(page.getByRole("radio", { name: type, exact: true })).toBeDisabled();
+        }
+      }
+      await expect(page.getByRole("button", { name: entry.example, exact: true })).toBeDisabled();
+      releaseScripts();
+      await expect(input).toBeEnabled();
+      const draft = "My ISP says paid fast lanes help fund better networks. I worry that an internet provider will favor its own video service over competing websites.";
+      await input.fill(draft);
+      await expect(input).toHaveValue(draft);
+      await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+      const result = page.getByRole("region", { name: "Result" });
+      await expect(result.locator('a[href="/topics/net-neutrality"]')).toBeVisible();
+      await page.getByRole("button", { name: "Edit", exact: true }).click();
+      await expect(page.getByRole("textbox", { name: "The argument to read", exact: true })).toHaveValue(draft);
+    } finally {
+      releaseScripts();
+    }
+  });
+}
+
 test("an oversized paste keeps its ending and waits for the reader to shorten it", async ({ page }) => {
   const requests: string[] = [];
   page.on("request", (request) => {
