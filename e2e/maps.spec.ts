@@ -7,6 +7,36 @@ import { expect, pageText, test } from "./fixtures";
  */
 const FLAGSHIP = "/topics/ai-mass-unemployment";
 
+test("a blocked clipboard leaves a selectable map link and a keyboard way back", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "share", { configurable: true, value: undefined });
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async () => { throw new DOMException("Blocked", "NotAllowedError"); } },
+    });
+    Object.defineProperty(document, "execCommand", { configurable: true, value: () => false });
+  });
+  await page.goto(FLAGSHIP);
+  const share = page.getByRole("button", { name: "Share", exact: true }).first();
+  await share.click();
+  const panel = page.getByRole("group", { name: "Share this map" });
+  await panel.getByRole("button", { name: "Copy link", exact: true }).click();
+  const manualLink = panel.getByRole("textbox", { name: "Link to copy" });
+  await expect(manualLink).toHaveValue("https://argumend.org/topics/ai-mass-unemployment");
+  await expect(panel.getByRole("button", { name: "Link copied" })).toHaveCount(0);
+  expect(await panel.evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.left >= 0 && rect.right <= innerWidth;
+  })).toBe(true);
+  await manualLink.focus();
+  expect(await manualLink.evaluate((element: HTMLInputElement) =>
+    element.selectionStart === 0 && element.selectionEnd === element.value.length,
+  )).toBe(true);
+  await manualLink.press("Escape");
+  await expect(panel).toHaveCount(0);
+  await expect(share).toBeFocused();
+});
+
 test("a map's search, social, and structured descriptions frame the question", async ({ page }) => {
   await page.goto("/topics/rent-control-effectiveness");
   const question = await page.getByRole("heading", { level: 1 }).innerText();
