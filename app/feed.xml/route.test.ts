@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { articleSummaries } from "@/data/blogIndex";
 import { topicSummaries } from "@/data/topicIndex";
 import { CONTENT_LAST_UPDATED } from "@/lib/site";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { GET } from "./route";
 
 describe("GET /feed.xml", () => {
@@ -28,11 +29,20 @@ describe("GET /feed.xml", () => {
     );
     expect(firstBody).toBe(secondBody);
     expect((firstBody.match(/<item>/g) ?? []).length).toBe(
-      articleSummaries.length + topicSummaries.length,
+      articleSummaries.length + topicSummaries.length + argumentTopicIndex.length,
     );
     expect(firstBody).toContain(
       new Date(`${CONTENT_LAST_UPDATED}T00:00:00Z`).toUTCString(),
     );
+  });
+
+  it("includes each flagship map exactly once under its canonical URL", async () => {
+    const body = await (await GET()).text();
+    const guids = [...body.matchAll(/<guid isPermaLink="true">([^<]+)<\/guid>/g)].map((match) => match[1]);
+    for (const topic of argumentTopicIndex) {
+      const url = `https://argumend.org/topics/${topic.id}`;
+      expect(guids.filter((guid) => guid === url), topic.id).toHaveLength(1);
+    }
   });
 
   it("does not mutate the shared article ordering while sorting feed items", async () => {

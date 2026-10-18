@@ -19,6 +19,7 @@ Argumend turns public questions into structured maps of positions, evidence, cru
 - Presents contested questions as crux-first maps of positions, evidence, and what would change each side’s mind
 - Offers interactive diagrams for legacy topic maps
 - Matches pasted arguments to existing maps offline, without storing the paste
+- Publishes essays and all public maps, including the flagship maps, in `/feed.xml`
 - Optionally enables source-only AI disagreement diagnosis, debate generation, and judging
 - Uses saved topic data so core flows can be developed without paid API calls
 - Keeps the pruned CORE surface (`/`, `/topics`, `/analyze`, `/about`) crawlable with stable `?page=` URLs; hidden and merge-pending routes still serve directly but are excluded from the sitemap per `docs/PRODUCT_PRUNING_AUDIT.md`
