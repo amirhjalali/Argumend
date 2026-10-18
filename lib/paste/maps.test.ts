@@ -327,6 +327,44 @@ describe("findMaps", () => {
   });
 
   it.each([
+    {
+      subject: "streaming access",
+      id: "net-neutrality",
+      text: "My broadband company wants to charge streaming sites for faster access to customers. I think providers should deliver all lawful traffic equally. Otherwise small websites cannot compete with the video service the ISP owns.",
+    },
+    {
+      subject: "paid internet fast lanes",
+      id: "net-neutrality",
+      text: "My ISP says it needs paid fast lanes for websites to fund better networks. I worry it will slow competing video streams and favor its own services.",
+    },
+    {
+      subject: "hair-braiding licenses",
+      id: "occupational-licensing-reform",
+      text: "You should not need hundreds of hours of beauty school and a government license just to braid hair. Salon owners say those rules protect customers; opponents say they keep new competitors out.",
+    },
+    {
+      subject: "job licensing requirements",
+      id: "occupational-licensing-reform",
+      text: "States should reduce job licensing requirements for barbers and hair braiders. Training can protect customers, but expensive classes and fees may exclude people who already know the trade.",
+    },
+  ])("finds the map for everyday wording about $subject", async ({ id, text }) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe(id);
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["wedding hairstyles", "My sister wants me to braid her hair for a wedding. I prefer loose curls because braids pull too tightly."],
+    ["a billing dispute", "My internet provider overcharged me for last month. I think they should refund the difference. They say the promotional price expired."],
+    ["a theme-park queue", "We need to book the fast lane pass at the theme park. I think it is unfair if people pay extra to skip the queue."],
+    ["haircut prices", "Salons in our town are charging too much for haircuts. My friend says we should cut our own hair instead."],
+  ])("offers no policy map for %s", async (_, text) => {
+    const result = await findMaps(text);
+    expect(result.match).toBeNull();
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
     "Schools should use AI tutors to close achievement gaps. Critics worry students will rely on generated answers instead of learning to think.",
     "ChatGPT can give each student individual feedback, but teachers worry that it makes cheating and cognitive offloading too easy.",
     "Should schools use large language models for tutoring and feedback? Some say every child could get a personal tutor. Others worry they undermine independent thinking and academic integrity.",

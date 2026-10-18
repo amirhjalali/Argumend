@@ -31,8 +31,9 @@ describe("the fixed subject-boundary challenge", () => {
     const detail = formatSummary(set.set, summary);
     // Recorded origin/main baseline on 2026-10-18: 14/20 named, 18/20 shown,
     // 3/21 uncovered pastes named, and 12/21 offered at least one map.
-    expect(summary.correct, detail).toBeGreaterThanOrEqual(14);
-    expect(summary.top3, detail).toBeGreaterThanOrEqual(0.9);
+    // Common policy names recover fast-lane and hair-braiding arguments.
+    expect(summary.correct, detail).toBeGreaterThanOrEqual(16);
+    expect(summary.top3, detail).toBe(1);
     expect(summary.wrong, detail).toBe(0);
     expect(summary.falsePositives, detail).toBe(0);
     expect(summary.negativesOffered, detail).toBeLessThanOrEqual(6);

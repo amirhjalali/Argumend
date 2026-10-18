@@ -15,6 +15,11 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
   // General school-policy vocabulary also occurs in uniform and funding disputes.
   "school-phone-bans": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
   "children-smartphone-age": [["phone"], ["smartphone"], ["mobile"], ["screen"], ["device"]],
+  // Hairstyles and salon prices alone are not occupational-licensing policy.
+  "occupational-licensing-reform": [
+    ["license"], ["certification"], ["government", "permission"],
+    ["occupational", "qualification"],
+  ],
   // Online classes and human tutoring do not, by themselves, make AI the subject.
   "ai-in-education": [
     ["ai"], ["artificial", "intelligence"], ["chatgpt"], ["chatbot"],

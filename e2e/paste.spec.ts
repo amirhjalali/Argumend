@@ -23,6 +23,27 @@ test("an oversized paste keeps its ending and waits for the reader to shorten it
   expect(requests).toEqual([]);
 });
 
+test("common policy names find maps while a hairstyle dispute stays unmapped", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  await input.fill("My ISP says it needs paid fast lanes for websites to fund better networks. I worry it will slow competing video streams and favor its own services.");
+  const submit = page.getByRole("button", { name: "Find what it turns on" });
+  await submit.click();
+  const match = page.getByRole("region", { name: "This argument is already mapped" });
+  await expect(match.locator('a[href="/topics/net-neutrality"]')).toBeVisible();
+  await page.getByRole("button", { name: "Edit", exact: true }).click();
+  await input.fill("States should reduce job licensing requirements for barbers and hair braiders. Training can protect customers, but expensive classes and fees may exclude people who already know the trade.");
+  await submit.click();
+  await expect(match.locator('a[href="/topics/occupational-licensing-reform"]')).toBeVisible();
+  await page.getByRole("button", { name: "Edit", exact: true }).click();
+  await input.fill("My sister wants me to braid her hair for a wedding. I prefer loose curls because braids pull too tightly.");
+  await submit.click();
+  await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+  await expect(match).toHaveCount(0);
+  await expect(page.getByLabel("You would think again if…")).toBeVisible();
+});
+
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
   const apiCalls: string[] = [];
   page.on("request", (request) => {

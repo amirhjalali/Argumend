@@ -18,7 +18,7 @@ Argumend turns public questions into structured maps of positions, evidence, cru
 
 - Presents contested questions as crux-first maps of positions, evidence, and what would change each side’s mind
 - Offers interactive diagrams for legacy topic maps
-- Shares alternate policy names across header, map-library, and question search, including rent caps and stabilization
+- Shares alternate policy names across header, map-library, and question search, including rent caps, internet fast lanes, and job licensing
 - Matches pasted arguments to existing maps offline, without storing the paste
 - Publishes essays and all public maps, including the flagship maps, in `/feed.xml`
 - Optionally enables source-only AI disagreement diagnosis, debate generation, and judging
