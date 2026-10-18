@@ -155,13 +155,13 @@ describe("saved topic storage", () => {
     );
     const { result } = renderHook(useSavedTopicIds);
 
-    act(() => result.current.remove(" ai-risk "));
+    act(() => expect(result.current.remove(" ai-risk ")).toBe(true));
     expect(result.current.ids).toEqual(["moon-landing"]);
 
     vi.spyOn(window.localStorage, "setItem").mockImplementation(() => {
       throw new Error("quota exceeded");
     });
-    act(() => result.current.remove("moon-landing"));
+    act(() => expect(result.current.remove("moon-landing")).toBe(false));
     expect(result.current.ids).toEqual(["moon-landing"]);
     expect(result.current.error).toMatch(/could not update/i);
 
@@ -169,7 +169,7 @@ describe("saved topic storage", () => {
     vi.spyOn(window.localStorage, "getItem").mockImplementation(() => {
       throw new Error("storage blocked");
     });
-    act(() => result.current.remove("moon-landing"));
+    act(() => expect(result.current.remove("moon-landing")).toBe(false));
     expect(result.current.ids).toEqual(["moon-landing"]);
     expect(result.current.error).toMatch(/could not be read/i);
   });

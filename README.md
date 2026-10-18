@@ -97,6 +97,8 @@ set `NEXT_PUBLIC_ENABLE_AUTH=true` to expose sign-in, the account dashboard,
 and topic-follow controls. With the flag off, bookmarks remain device-local at
 `/saved`; account-only navigation and follow controls are hidden, and direct
 dashboard visits return to the local saved-topics view.
+Removing a saved map announces the outcome and keeps keyboard focus on a remaining
+map, or on Browse maps when the list becomes empty.
 
 Enable live model-backed flows with environment flags:
 

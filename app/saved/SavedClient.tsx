@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { AlertCircle, X } from "lucide-react";
 import { useSavedTopicIds } from "@/hooks/useSavedTopics";
@@ -17,6 +17,10 @@ const ENTRIES_BY_ID = new Map(LIBRARY_ENTRIES.map((entry) => [entry.id, entry]))
  */
 export function SavedClient() {
   const { ids, hydrated, error, remove } = useSavedTopicIds();
+  const listRef = useRef<HTMLUListElement>(null);
+  const emptyRef = useRef<HTMLDivElement>(null);
+  const pendingFocus = useRef<string | null>(null);
+  const [announcement, setAnnouncement] = useState("");
 
   // Resolve saved ids through the library's own rows, in save order. Ids that
   // no longer name a map (removed from the dataset) are dropped.
@@ -27,6 +31,29 @@ export function SavedClient() {
     }),
     [ids],
   );
+
+  function removeMap(id: string) {
+    const index = savedMaps.findIndex((map) => map.id === id);
+    if (index < 0) return;
+    if (!remove(id)) {
+      setAnnouncement("");
+      return;
+    }
+    const next = savedMaps[index + 1] ?? savedMaps[index - 1];
+    pendingFocus.current = next?.href ?? "";
+    const remaining = savedMaps.length - 1;
+    setAnnouncement(`Removed "${savedMaps[index].title}" from saved. ${remaining} saved ${remaining === 1 ? "map" : "maps"} remaining.`);
+  }
+
+  useEffect(() => {
+    if (pendingFocus.current === null) return;
+    const href = pendingFocus.current;
+    pendingFocus.current = null;
+    const links = [...listRef.current?.querySelectorAll<HTMLAnchorElement>("a") ?? []];
+    const target = links.find((link) => link.getAttribute("href") === href)
+      ?? links[0] ?? emptyRef.current?.querySelector<HTMLAnchorElement>("a");
+    target?.focus();
+  }, [savedMaps]);
 
   return (
     <PageContainer>
@@ -45,6 +72,7 @@ export function SavedClient() {
         }
         className="!mb-8 sm:!mb-10"
       />
+      <p role="status" aria-label="Saved map updates" className="sr-only">{announcement}</p>
 
       {!hydrated ? (
         // Matches the server render (no localStorage there), so nothing
@@ -68,7 +96,7 @@ export function SavedClient() {
           </p>
         </div>
       ) : savedMaps.length === 0 ? (
-        <div className="border-t border-stone-300/70 py-10 dark:border-divider">
+        <div ref={emptyRef} className="border-t border-stone-300/70 py-10 dark:border-divider">
           <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
             Nothing saved yet
           </h2>
@@ -81,9 +109,9 @@ export function SavedClient() {
         </div>
       ) : (
         <>
-          <ul className="grid gap-x-12 lg:grid-cols-2">
+          <ul ref={listRef} className="grid gap-x-12 lg:grid-cols-2">
             {savedMaps.map((map) => (
-              <SavedRow key={map.id} map={map} onRemove={remove} />
+              <SavedRow key={map.id} map={map} onRemove={removeMap} />
             ))}
           </ul>
           <p className="mt-6 border-t border-stone-300/70 pt-2 dark:border-divider">

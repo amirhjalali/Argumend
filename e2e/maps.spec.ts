@@ -1,4 +1,4 @@
-import { expect, pageText, test } from "./fixtures";
+import { expect, pageText, test, waitForHydration } from "./fixtures";
 
 /**
  * The crux-first topic page (components/topic/TopicPage.tsx): a question as
@@ -6,6 +6,40 @@ import { expect, pageText, test } from "./fixtures";
  * score, a verdict or a winner.
  */
 const FLAGSHIP = "/topics/ai-mass-unemployment";
+
+test("saved maps survive a return visit and keyboard removal keeps a useful next action", async ({ page }) => {
+  for (const id of ["ai-mass-unemployment", "nuclear-energy-safety", "climate-change"]) {
+    await page.goto(`/topics/${id}`);
+    const save = page.getByRole("button", { name: "Save this map on this device", exact: true });
+    await waitForHydration(save);
+    await save.click();
+    await expect(page.getByRole("button", { name: "Remove this map from saved", exact: true })).toBeVisible();
+  }
+  await page.getByRole("contentinfo").getByRole("link", { name: "Saved", exact: true }).click();
+  await expect(page).toHaveURL(/\/saved$/);
+  await page.reload();
+  const main = page.getByRole("main");
+  const status = main.getByRole("status", { name: "Saved map updates" });
+  await expect(main.getByText("3 saved, in the order you saved them", { exact: true })).toBeVisible();
+  const nuclear = main.getByRole("button", { name: /^Remove "Should nuclear power/ });
+  await nuclear.press("Enter");
+  const climate = main.getByRole("link", { name: /^Is climate change/ });
+  await expect(climate).toBeFocused();
+  await expect(status).toContainText("2 saved maps remaining.");
+  await climate.press("Enter");
+  await expect(page).toHaveURL(/\/topics\/climate-change$/);
+  await expect(page.getByRole("button", { name: "Remove this map from saved", exact: true })).toBeVisible();
+  await page.getByRole("contentinfo").getByRole("link", { name: "Saved", exact: true }).click();
+  await expect(page).toHaveURL(/\/saved$/);
+  await main.getByRole("button", { name: /^Remove "Is climate change/ }).press("Enter");
+  await expect(main.getByRole("link", { name: /^Will AI cause mass unemployment/ })).toBeFocused();
+  await expect(status).toContainText("1 saved map remaining.");
+  await main.getByRole("button", { name: /^Remove "Will AI cause/ }).press("Enter");
+  await expect(main.getByRole("link", { name: "Browse maps", exact: true })).toBeFocused();
+  await expect(status).toContainText("0 saved maps remaining.");
+  await page.reload();
+  await expect(main.getByRole("heading", { name: "Nothing saved yet", exact: true })).toBeVisible();
+});
 
 test("a blocked clipboard leaves a selectable map link and a keyboard way back", async ({ page }) => {
   await page.addInitScript(() => {
