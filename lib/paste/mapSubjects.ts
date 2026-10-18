@@ -45,6 +45,12 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
     ["algorithm", "diagnosis"], ["computer", "diagnosis"], ["robot", "doctor"],
   ],
   // A voting holiday is not a shorter working week or a different voting system.
+  "gig-economy-regulation": [
+    ["gig"], ["uber"], ["lyft"], ["doordash"], ["deliveroo"], ["instacart"],
+    ["grubhub"], ["rideshare"], ["ride", "hail"], ["platform", "worker"],
+    ["platform", "work"], ["app", "driver"], ["app", "courier"],
+    ["app", "delivery"], ["prop", "22"], ["proposition", "22"],
+  ],
   "four-day-work-week": [
     ["four", "day"], ["4", "day"], ["32", "hour"], ["thirty", "two", "hour"],
     ["shorter", "week"], ["shorter", "workweek"],

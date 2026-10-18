@@ -146,7 +146,7 @@ test("health products and voting dates stay unmapped while AI diagnosis keeps it
   await expect(result.locator('a[href="/topics/ai-in-education"]')).toHaveCount(0);
 });
 
-test("a birth-rate argument does not acquire income or space links through shared context", async ({ page }) => {
+test("a family-policy argument keeps audited birth-rate evidence without unrelated links", async ({ page }) => {
   await page.goto("/analyze");
   const input = page.getByRole("textbox", { name: "The argument to read" });
   await waitForHydration(input);
@@ -156,6 +156,10 @@ test("a birth-rate argument does not acquire income or space links through share
   await expect(result.locator('a[href="/topics/declining-birth-rates"]')).toBeVisible();
   await expect(result.locator('a[href="/topics/universal-basic-income"]')).toHaveCount(0);
   await expect(result.locator('a[href="/topics/space-exploration-value"]')).toHaveCount(0);
+  await expect(result.getByRole("link", { name: "Open the map at this crux", exact: true }))
+    .toHaveAttribute("href", "/topics/declining-birth-rates#crux-choice-theory");
+  await expect(result.locator('a[href="https://www.unfpa.org/sites/default/files/pub-pdf/EN_State%20of%20World%20Population%20report%202025.pdf"]')).toBeVisible();
+  await expect(result.locator('a[href="https://doi.org/10.1257/aer.20121607"]')).toBeVisible();
 });
 
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {

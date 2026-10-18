@@ -63,7 +63,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids lowe"
+    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes lowe regimen lipids"
   },
   {
     "id": "daylight-saving-time-abolition",
@@ -943,7 +943,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "yoti coppa anxious circumvention ofcom yougov murthy anglophone birthdate drama pinpoint tough tweens candice penguin"
+    "keywords": "yoti coppa anxious circumvention ofcom murthy yougov anglophone birthdate drama pinpoint tough tweens candice penguin"
   },
   {
     "id": "social-media-mental-health",
@@ -1557,7 +1557,7 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison progeroid"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison healthspan"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -2361,7 +2361,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "commenced anglosphere assent babel esafety kick rausch snapchat twitch undifferentiated abrahamsson pediatricians reddit scandinavia threads"
+    "keywords": "commenced anglosphere assent babel esafety kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2383,7 +2383,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya backsliding technocratic montreal deadlock autocratic deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion"
+    "keywords": "famine amartya backsliding technocratic montreal deadlock autocratic deliberative gothenburg maos contentious defamation dissatisfied gerrymandering hungary"
   },
   {
     "id": "geoengineering-climate",
@@ -2478,9 +2478,9 @@
     "title": "The Global Fertility Collapse",
     "question": "Is falling fertility an existential crisis that demands policy action?",
     "meta_claim": "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 64,
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 60,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2493,7 +2493,12 @@
     "tags": [
       "economics"
     ],
-    "keywords": "birthrate contraception demography eurobarometer natalist peacetime elder slowest lows religion"
+    "aliases": [
+      "Falling birth rates and family policy",
+      "Should governments help people have the children they want?",
+      "Do housing and childcare costs explain low fertility?"
+    ],
+    "keywords": "unfpa childbearing kenyan duflo dupas kremer desa pcap fieldwork ninth totl yougov"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2537,7 +2542,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa cisgender skeletal hemoglobin woman swimming devolved collegiate ahrendt ball biomechanics coventry genital harper"
+    "keywords": "olympic ncaa cisgender skeletal hemoglobin swimming devolved collegiate ahrendt ball biomechanics coventry genital harper hematocrit"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2627,7 +2632,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian tripwire zelensky putin manpower rusi emboldens haass jamestown kupchan unjust facto armor ceasefire depots"
+    "keywords": "ukrainian tripwire zelensky putin manpower rusi emboldens haass jamestown kupchan unjust facto armor bonuses ceasefire"
   },
   {
     "id": "trump-tariffs",
@@ -3108,7 +3113,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "solvency crfb oasdi payable trustees actuarial taxable"
+    "keywords": "solvency crfb oasdi payable trustees actuarial longevity taxable"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3409,7 +3414,7 @@
       "global-health",
       "longtermism"
     ],
-    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory kremer maertens miguel pryce utilitas haushofer bankman"
+    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory maertens miguel pryce utilitas haushofer kremer bankman"
   },
   {
     "id": "alcohol-no-safe-level",

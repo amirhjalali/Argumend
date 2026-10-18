@@ -547,6 +547,7 @@ describe("findMaps", () => {
       "People are having fewer children because housing and childcare cost so much. Should the government pay families to have babies, or should we accept a smaller population?",
     );
     expect(result.match?.id).toBe("declining-birth-rates");
+    expect(result.match?.crux?.href).toBe("/topics/declining-birth-rates#crux-choice-theory");
     expect(result.related).toEqual([]);
     expect(result.closest).toEqual([]);
   });
@@ -560,6 +561,7 @@ describe("findMaps", () => {
   });
 
   it.each([
+    ["gig-economy-regulation", "The courier app sets delivery prices and can deactivate workers without warning. The company says they are independent contractors, but they want employee benefits and a guaranteed minimum wage."],
     ["veganism-environmental-impact", "Replacing meat and dairy with plant-based food would reduce greenhouse gas emissions and free up land. Others say we should improve farming rather than expect everyone to become vegan."],
     ["seed-oils-health", "My brother says canola and sunflower oil cause inflammation and that we should cook with butter instead. I think replacing saturated fat with these oils lowers heart disease risk."],
     ["global-water-crisis", "Aquifers are being pumped faster than rainfall replenishes them. Farmers say they need the water now, but others fear groundwater depletion will cause food shortages and conflict."],

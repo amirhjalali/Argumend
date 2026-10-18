@@ -76,6 +76,8 @@ Water scarcity, seed oils, vegan diets and AI diagnosis require their respective
 subject cues; generic health benefits, inflammation or supplements do not qualify.
 Voting dates and holidays do not qualify as a shorter working week, Electoral
 College reform or social-media election influence without those subject cues.
+Gig-worker classification also requires platform-work language, such as courier
+apps or ride-hailing; generic shifts and voting schedules do not qualify.
 Diamond ethics requires both a diamond subject cue and an ethical, environmental
 or livelihood concern; conflict over water does not qualify through conflict alone.
 Congestion-pricing matches also recognize downtown driving charges and city-center
