@@ -277,7 +277,7 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(view.getByRole("link", { name: "What a crux is" }).getAttribute("href")).toBe("/concepts/cruxes");
     expect(view.getByRole("link", { name: "Browse all maps" }).getAttribute("href")).toBe("/topics");
     expect(announcer?.textContent).toBe(
-      "Result below. No map matches it, rather than a wrong one. Then three questions to read it yourself.",
+      "Result below. No map stood out for this text. Then three questions to read it yourself.",
     );
 
     // What the reader writes stays in the page: no request, nothing stored.

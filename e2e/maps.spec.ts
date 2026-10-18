@@ -20,15 +20,18 @@ test("a blocked clipboard leaves a selectable map link and a keyboard way back",
   const share = page.getByRole("button", { name: "Share", exact: true }).first();
   await share.click();
   const panel = page.getByRole("group", { name: "Share this map" });
-  await panel.getByRole("button", { name: "Copy link", exact: true }).click();
+  const copy = panel.getByRole("button", { name: "Copy link", exact: true });
+  await copy.click();
   const manualLink = panel.getByRole("textbox", { name: "Link to copy" });
   await expect(manualLink).toHaveValue("https://argumend.org/topics/ai-mass-unemployment");
   await expect(panel.getByRole("button", { name: "Link copied" })).toHaveCount(0);
+  await expect(copy).toBeFocused();
   expect(await panel.evaluate((element) => {
     const rect = element.getBoundingClientRect();
     return rect.left >= 0 && rect.right <= innerWidth;
   })).toBe(true);
-  await manualLink.focus();
+  for (let step = 0; step < 3; step += 1) await page.keyboard.press("Tab");
+  await expect(manualLink).toBeFocused();
   expect(await manualLink.evaluate((element: HTMLInputElement) =>
     element.selectionStart === 0 && element.selectionEnd === element.value.length,
   )).toBe(true);

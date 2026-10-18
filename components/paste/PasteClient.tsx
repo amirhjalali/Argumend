@@ -388,7 +388,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
             .join(" ")
         : maps
           ? [
-              "Result below. No map matches it, rather than a wrong one.",
+              "Result below. No map stood out for this text.",
               maps.status === "closest" ? "The closest maps are listed." : "",
               showGuide ? "Then three questions to read it yourself." : "",
             ]
@@ -399,7 +399,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const lede = diagnosisOn
     ? "Paste a conversation, an article or your own draft. Argumend separates what the sides agree on from what they don’t, finds the question it turns on, and takes you to the map that lays out both sides’ best evidence."
-    : "Paste a conversation, an article or your own draft. Argumend finds the map it is already on, the question it turns on, and the strongest evidence on each side.";
+    : "Paste a conversation, an article or your own draft. Find a map with questions and evidence on each side, or write conversation notes with a guide built around three questions.";
 
   return (
     <PageContainer width="default">
