@@ -63,8 +63,8 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["autonomous-weapons-ban", 0, "Existing international humanitarian law already assigns responsibility"],
   // Round 3, finishing the audit's suspects list.
   ["encryption-backdoors", 1, "The 'going dark' threat has been demonstrably overstated"],
-  ["section-230-reform", 0, "Section 230's exceptions already preserve liability"],
-  ["section-230-reform", 2, "Removing 230 would not primarily punish Big Tech"],
+  ["section-230-reform", 0, "Existing law already distinguishes third-party content, moderation and specified exceptions."],
+  ["section-230-reform", 2, "Fixed legal costs may be harder for a small forum or startup to absorb"],
   ["us-national-debt-crisis", 2, "Reports of the dollar's demise have been greatly exaggerated"],
   ["congressional-term-limits", 2, "The bar is far higher than popularity suggests."],
   ["facial-recognition-policing", 2, "A governance gap is an argument for governance, not abolition."],

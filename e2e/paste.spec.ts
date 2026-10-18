@@ -263,7 +263,8 @@ test("a borrowed evidence card names its own question and keeps that link in the
   await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
   const result = page.getByRole("region", { name: "Result" });
   const question = "Can a reform deter targeted harms without a net loss of lawful speech?";
-  const borrowedCard = result.getByRole("heading", { level: 4, name: /^FOSTA Carve-Out:/ }).locator("..");
+  const borrowedCard = result.getByText("From another question on this map", { exact: true }).locator("..").locator("..");
+  const borrowedTitle = await borrowedCard.getByRole("heading", { level: 4 }).innerText();
   await expect(borrowedCard.getByText("From another question on this map", { exact: true })).toBeVisible();
   const origin = borrowedCard.getByRole("link", { name: question, exact: true });
   const href = "/topics/section-230-reform#crux-collateral-damage";
@@ -283,7 +284,7 @@ test("a borrowed evidence card names its own question and keeps that link in the
   await expect(entry.locator(":scope > details")).toHaveAttribute("open", "");
   await expect(entry.locator(":scope > details > summary")).toBeFocused();
   await entry.getByText("Show the evidence on each side and the test", { exact: true }).click();
-  await expect(entry).toContainText("FOSTA Carve-Out:");
+  await expect(entry).toContainText(borrowedTitle);
   await page.getByRole("link", { name: "Paste an argument", exact: true }).first().click();
   await expect(origin).toHaveAttribute("href", href);
   expect(apiCalls).toEqual(["POST /api/analyze"]);

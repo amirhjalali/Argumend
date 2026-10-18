@@ -375,8 +375,10 @@ describe("findMaps", () => {
     );
     expect(result.match?.id).toBe("section-230-reform");
     expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
-    const own = result.match!.cards.find((card) => card.id === "anderson-tiktok")!;
-    const borrowed = result.match!.cards.find((card) => card.id === "fosta-gao")!;
+    const own = result.match!.cards.find((card) => card.crux?.href === result.match!.crux!.href)!;
+    const borrowed = result.match!.cards.find((card) => card.crux?.href !== result.match!.crux!.href)!;
+    expect(own).toBeDefined();
+    expect(borrowed).toBeDefined();
     expect(own.crux?.href).toBe(result.match!.crux!.href);
     expect(borrowed.crux).toEqual({
       question: "Can a reform deter targeted harms without a net loss of lawful speech?",

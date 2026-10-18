@@ -423,7 +423,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "portugal recidivism emcdda overdose incarceration marijuana provisional hotline vera ticketed czech decriminalisation euda greenwald kptv"
+    "keywords": "portugal recidivism emcdda overdose incarceration marijuana provisional hotline vera ticketed czech decriminalisation euda fentanyl greenwald"
   },
   {
     "id": "death-penalty-deterrence",
@@ -2498,7 +2498,7 @@
       "Should governments help people have the children they want?",
       "Do housing and childcare costs explain low fertility?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer desa pcap fieldwork ninth totl yougov"
+    "keywords": "unfpa childbearing kenyan duflo dupas kremer desa pcap fieldwork totl ninth yougov"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -3206,17 +3206,17 @@
     "title": "Reforming Section 230",
     "question": "Should Section 230 be significantly reformed or repealed?",
     "meta_claim": "Section 230 should be significantly reformed or repealed.",
-    "confidence_score": 42,
-    "balance": 42,
+    "confidence_score": 53,
+    "balance": 53,
     "weight": 61,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
     "tags": [
       "technology",
@@ -3226,7 +3226,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "anderson fosta csam durbin nera oakmont prodigy stratton ccia courtrooms dick ecpa graham nylah shwartz"
+    "keywords": "aggravated fosta anderson ninth clerk backpages copia nera netchoice reconsideration subsection disincentives myanmar remanded restitution"
   },
   {
     "id": "autonomous-weapons-ban",
