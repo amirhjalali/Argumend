@@ -518,9 +518,9 @@
     "title": "Immigration and Wages",
     "question": "Does large-scale immigration significantly cut low-skilled native wages?",
     "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
-    "confidence_score": 21,
-    "balance": 21,
-    "weight": 65,
+    "confidence_score": 30,
+    "balance": 30,
+    "weight": 68,
     "verdict": {
       "label": "Evidence clearly leans toward the counterclaim",
       "quadrant": "moderate",
@@ -529,12 +529,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
     "tags": [
       "policy"
     ],
-    "keywords": "boatlift mariel sparber peri chad giovanni azoulay cuban miranda javier marielitos pierre reappraisal aliens benjamin"
+    "keywords": "sparber boatlift peri mariel chad giovanni azoulay miranda diploma javier marielitos reexamining birthplace cuban pierre"
   },
   {
     "id": "open-borders",
@@ -2583,7 +2583,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam hunkering italians jews norc complementarity diploma dispersed resettlement scandinavian refugee"
+    "keywords": "putnam hunkering italians jews norc complementarity dispersed resettlement scandinavian diploma refugee"
   },
   {
     "id": "affirmative-action-meritocracy",

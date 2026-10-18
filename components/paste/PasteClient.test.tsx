@@ -126,17 +126,13 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(view.getByText("Points to yes")).toBeTruthy();
     expect(view.getByText("Points to no")).toBeTruthy();
     expect(view.queryByText(/Supports it|Cuts against it/)).toBeNull();
-    // The example exchange is about both of the map's cruxes (wages now,
-    // growth later), so both are shown, and the action opens the first.
-    expect(view.getByRole("heading", { name: "It may turn on one of these" })).toBeTruthy();
+    // Complementarity and added demand answer the wage mechanism directly.
+    // The example does not need the broader long-run distribution question.
+    expect(view.getByRole("heading", { name: "What the map says it turns on" })).toBeTruthy();
     expect(
-      view.getByRole("link", { name: "Open the map at the first crux" }).getAttribute("href"),
+      view.getByRole("link", { name: "Open the map at this crux" }).getAttribute("href"),
     ).toBe("/topics/immigration-wage-impact#crux-labor-market-economics");
-    expect(
-      view
-        .getByRole("link", { name: "Do long-run growth gains outweigh short-term costs for low-skill native workers?" })
-        .getAttribute("href"),
-    ).toBe("/topics/immigration-wage-impact#crux-long-term-economic-effects");
+    expect(view.queryByRole("link", { name: "Do long-run growth gains outweigh short-term costs for low-skill native workers?" })).toBeNull();
     expect(view.getByRole("button", { name: "Copy a summary" })).toBeTruthy();
     expect(view.getByText("Did this change what you thought you were arguing about?")).toBeTruthy();
     // The same answers the question has under every map.
@@ -149,7 +145,14 @@ describe("PasteClient with every lane off (production today)", () => {
 
   it("names the map, its sibling once, then the crux with its action right under it", async () => {
     const sibling = { id: "open-borders", title: "The Case for Open Borders", claim: "A claim.", href: "/topics/open-borders" };
-    stubFetch({ "/api/analyze": () => jsonResponse({ maps: { ...matched, related: [sibling], closest: [] } }) });
+    const alsoCrux = {
+      question: "Do long-run growth gains outweigh short-term costs for low-skill native workers?",
+      href: "/topics/immigration-wage-impact#crux-long-term-economic-effects",
+    };
+    // Exercise the ambiguous-result layout independently of corpus wording.
+    stubFetch({ "/api/analyze": () => jsonResponse({ maps: {
+      ...matched, match: { ...matched.match!, alsoCrux }, related: [sibling], closest: [],
+    } }) });
     const view = render(<PasteClient lanes={OFFLINE} />);
     fireEvent.click(view.getByRole("button", { name: "See an example" }));
     fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
@@ -162,6 +165,7 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(mapHeading.compareDocumentPosition(cruxHeading) & 4).toBe(4);
     expect(cruxHeading.compareDocumentPosition(cta) & 4).toBe(4);
     expect(cta.compareDocumentPosition(cardsHeading) & 4).toBe(4);
+    expect(view.getByRole("link", { name: alsoCrux.question }).getAttribute("href")).toBe(alsoCrux.href);
     // The sibling is named once, under the map's claim, on the first screen.
     const mapBlock = within(view.getByRole("region", { name: "This argument is already mapped" }));
     expect(mapBlock.getAllByText(/Closely related/)).toHaveLength(1);
