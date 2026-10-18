@@ -182,7 +182,7 @@ export interface MapDecision {
   /** Other maps worth a look: beside a named map, or instead of one. */
   closest: RankedMap[];
   top: RankedMap | null;
-  /** The best-scoring map that is not a sibling of the top one. */
+  /** The best-scoring eligible map that is not a sibling of the top one. */
   rival: RankedMap | null;
   /** Top score over the rival's. Infinity when no other map shares a word. */
   lead: number;
@@ -219,9 +219,13 @@ export function decideMatch(
     };
   }
 
-  const siblings = rest.slice(0, MAP_MATCH.siblingWindow).filter((map) => isSibling(top.id, map.id));
+  const siblings = rest.slice(0, MAP_MATCH.siblingWindow)
+    .filter((map) => isSibling(top.id, map.id) && !offSubject(map.id));
   const siblingIds = new Set(siblings.map((map) => map.id));
-  const rival = rest.find((map) => !siblingIds.has(map.id)) ?? null;
+  // A subject check that rules a map out also rules it out as a competing
+  // reading. Shared school/equity words on the SAT map cannot block a
+  // paste that explicitly concerns AI tutoring and never mentions testing.
+  const rival = rest.find((map) => !siblingIds.has(map.id) && !offSubject(map.id)) ?? null;
   const lead = rival ? top.score / rival.score : Number.POSITIVE_INFINITY;
   const exclusiveLead = rival ? ranking.exclusiveLead(top.id, rival.id) : Number.POSITIVE_INFINITY;
   const coverage = ranking.ceiling > 0 ? Math.min(1, top.wordScore / ranking.ceiling) : 0;

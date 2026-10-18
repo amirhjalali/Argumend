@@ -189,6 +189,23 @@ describe("decideMatch", () => {
     expect(decideMatch(ranking([40, 20, 12, 10]), noSiblings, undefined, (id) => id === "map-1").named?.id).toBe("map-0");
   });
 
+  it("does not let a ruled-out rival block an eligible leader", () => {
+    const decision = decideMatch(ranking([26, 25, 12, 10]), noSiblings, undefined, (id) => id === "map-1");
+    expect(decision.named?.id).toBe("map-0");
+    expect(decision.rival?.id).toBe("map-2");
+    expect(decision.closest.map((map) => map.id)).not.toContain("map-1");
+  });
+
+  it("cannot switch a matched leader to a sibling ruled out by its subject", () => {
+    const decision = decideMatch(
+      ranking([40, 35, 10]), (a, b) => [a, b].every((id) => ["map-0", "map-1"].includes(id)),
+      (id) => new Set(id === "map-1" ? ["school", "test"] : []),
+      (id) => id === "map-1",
+    );
+    expect(decision.named?.id).toBe("map-0");
+    expect(decision.related).toEqual([]);
+  });
+
   it("does not use an off-subject leader to justify weaker closest maps", () => {
     const decision = decideMatch(ranking([26, 25, 20]), noSiblings, undefined, (id) => id === "map-0");
     expect(decision.named).toBeNull();
@@ -498,6 +515,24 @@ describe("findMaps", () => {
   });
 
   it.each([
+    ["holiday rentals", "Our town should ban short-term holiday rentals. Every apartment that becomes an Airbnb leaves one fewer home for local residents. Hosts say tourists support restaurants and that owners have the right to rent their property."],
+    ["bus timetables", "Parents want school buses to arrive later so children can sleep. The district says changing the timetable would disrupt after-school activities."],
+  ])("does not promote a nearby map after exclusions for %s", async (_, text) => {
+    const result = await findMaps(text);
+    expect(result.status).toBe("none");
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["homeschooling-effectiveness", "Home education lets parents adapt lessons to each child, but children might miss learning alongside classmates in school."],
+    ["global-housing-bubble", "House prices are far above local wages and buyers are borrowing more than they can repay. If mortgage rates stay high, could the property bubble burst?"],
+    ["declining-birth-rates", "People are having fewer children because housing and childcare cost so much. Should the government pay families to have babies, or should we accept a smaller population?"],
+  ])("retains the covered subject after exclusions: %s", async (id, text) => {
+    const result = await findMaps(text);
+    expect([result.match?.id, ...result.closest.map((map) => map.id)]).toContain(id);
+  });
+
+  it.each([
     ["fluoride-water-supplies", "Our town wants to stop adding fluoride to drinking water because children swallow it. Dentists say it prevents cavities and people can already use toothpaste."],
     ["rfk-health-policy", "RFK says the childhood vaccine schedule has not been properly tested. Doctors say changing established recommendations puts children at risk. The disagreement is whether his MAHA agenda improves public health."],
     ["rfk-health-policy", "Removing every member of the vaccine advisory committee will free it from pharmaceutical industry influence. Doctors say replacing the panel with vaccine skeptics will undermine public trust."],
@@ -515,8 +550,7 @@ describe("findMaps", () => {
     "Schools should require routine childhood immunizations before children can attend classes. Parents say their medical choices are private and the state should not be allowed to impose vaccination.",
   ])("offers the vaccine-requirements map without unrelated childhood-health maps: %s", async (text) => {
     const result = await findMaps(text);
-    expect(result.status).toBe("closest");
-    expect(result.closest.map((map) => map.id)).toEqual(["vaccine-mandates"]);
+    expect([result.match?.id, ...result.closest.map((map) => map.id)].filter(Boolean)).toEqual(["vaccine-mandates"]);
     expect(result.related).toEqual([]);
   });
 

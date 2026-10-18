@@ -38,6 +38,23 @@ export const MAP_SUBJECT_ANCHORS: Readonly<Record<string, SubjectAnchors>> = {
     ["standardized", "test"], ["sat"], ["act"], ["test", "admission"],
     ["test", "optional"], ["entrance", "exam"], ["college", "exam"],
   ],
+  "homeschooling-effectiveness": [
+    ["homeschool"], ["home", "school"], ["home", "educate"],
+    ["home", "education"], ["teach", "home"],
+  ],
+  // A rental-policy dispute is not a forecast of a housing-market crash.
+  "global-housing-bubble": [
+    ["bubble"], ["housing", "crash"], ["housing", "correction"],
+    ["home", "price"], ["house", "price"], ["property", "price"],
+    ["mortgage"], ["speculation"], ["housing", "market"],
+  ],
+  // Family income and school access alone do not concern falling fertility.
+  "declining-birth-rates": [
+    ["birth"], ["birthrate"], ["fertility"], ["natal"], ["population"],
+    ["demographic"], ["childless"], ["replacement", "rate"],
+    ["fewer", "child"], ["fewer", "kid"], ["fewer", "baby"],
+    ["baby", "bonus"],
+  ],
   // Hairstyles and salon prices alone are not occupational-licensing policy.
   "occupational-licensing-reform": [
     ["license"], ["certification"], ["government", "permission"],

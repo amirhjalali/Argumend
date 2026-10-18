@@ -97,6 +97,33 @@ test("AI-written essays lead to independent learning rather than the achievement
   await expect(page.locator("#crux-academic-integrity > details")).toHaveAttribute("open", "");
 });
 
+test("AI equity and teacher-support arguments keep their own cruxes and audited sources", async ({ page }) => {
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  const match = page.getByRole("region", { name: "This argument is already mapped" });
+  for (const { text, crux, sources } of [
+    {
+      text: "AI tutors could finally give low-income students the personal help wealthy families pay for. Others worry these tools will reach rich schools first and widen achievement gaps.",
+      crux: "learning-outcomes",
+      sources: ["https://doi.org/10.3102/0034654315581420", "https://gem-report-2023.unesco.org/"],
+    },
+    {
+      text: "Schools are buying AI tools to reduce teacher workloads. I worry districts will use the savings to replace teachers rather than let them spend more time with students.",
+      crux: "teacher-role-implementation",
+      sources: ["https://www.nfer.ac.uk/publications/chatgpt-in-lesson-preparation-a-teacher-choices-trial/", "https://www.rand.org/pubs/research_reports/RRA956-31.html"],
+    },
+  ]) {
+    await input.fill(text);
+    await page.getByRole("button", { name: "Find what it turns on" }).click();
+    await expect(match.getByRole("link", { name: "Open the map at this crux", exact: true }))
+      .toHaveAttribute("href", `/topics/ai-in-education#crux-${crux}`);
+    for (const source of sources) await expect(match.locator(`a[href="${source}"]`)).toBeVisible();
+    await expect(page.getByRole("region", { name: "Result" }).locator('a[href="/topics/declining-birth-rates"]')).toHaveCount(0);
+    await page.getByRole("button", { name: "Edit", exact: true }).click();
+  }
+});
+
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
   const apiCalls: string[] = [];
   page.on("request", (request) => {
