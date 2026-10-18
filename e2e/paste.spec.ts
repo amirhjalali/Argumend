@@ -12,6 +12,16 @@ test("an unmapped personal argument becomes conversation notes without another r
   await input.fill("My partner wants us to spend our savings on a holiday. I want to keep the money for emergencies. They say we never do anything fun, and I say we cannot afford to take the risk.");
   await page.getByRole("button", { name: "Find what it turns on" }).click();
   await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+  const firstNote = page.getByLabel("You would think again if…");
+  const screensBeforeWriting = await firstNote.evaluate((input) => {
+    const result = document.querySelector('section[aria-label="Result"]')!;
+    return (input.getBoundingClientRect().top - result.getBoundingClientRect().top) / innerHeight;
+  });
+  expect(screensBeforeWriting).toBeLessThan(1.1);
+  const help = page.getByText("Help me tell them apart", { exact: true });
+  await help.click();
+  await expect(page.getByText("Is the new route actually faster at rush hour?", { exact: false })).toBeVisible();
+  await help.click();
   await page.getByLabel("You would think again if…").fill("we kept an emergency fund");
   await page.getByLabel("They would think again if…").fill("we planned time together");
   await page.getByLabel("We both agree that…").fill("we want to enjoy life without worrying about money");

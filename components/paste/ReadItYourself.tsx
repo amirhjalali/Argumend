@@ -155,32 +155,42 @@ export function ReadItYourself({
         Read it yourself
       </h3>
       <p className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-        Three questions that find what most arguments rest on. They work on any argument, mapped
-        or not.
+        Use three questions to write a starting point for your next conversation.
+      </p>
+      <p id={noteId} className="mt-3 font-sans text-sm text-[var(--text-muted)]">
+        Your notes are not sent or saved. Copy them before leaving this page.
       </p>
 
       <ol className="mt-6 space-y-8">
         <Step number={1} title="Is this about a fact, a value, or a word?">
-          <dl className="mt-4 space-y-4">
-            {KINDS.map((kind) => (
-              <div key={kind.kind}>
-                <dt className="font-serif text-lg text-[var(--text-heading)]">
-                  {kind.name} <span className="text-[var(--text-muted)]">&middot; {kind.term}</span>
-                </dt>
-                <dd className="mt-0.5 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-                  {kind.says} <span className="italic">For example: {kind.example}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <Cues cues={cues} />
+          <p className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+            Something to check, a priority to weigh, or a word you mean differently?
+            An argument can involve all three.
+          </p>
+          <details className="mt-3">
+            <summary className="min-h-11 cursor-pointer py-2.5 font-sans text-sm text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#8bb5b1]">
+              Help me tell them apart
+            </summary>
+            <dl className="mt-4 space-y-4">
+              {KINDS.map((kind) => (
+                <div key={kind.kind}>
+                  <dt className="font-serif text-lg text-[var(--text-heading)]">
+                    {kind.name} <span className="text-[var(--text-muted)]">&middot; {kind.term}</span>
+                  </dt>
+                  <dd className="mt-0.5 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+                    {kind.says} <span className="italic">For example: {kind.example}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <Cues cues={cues} />
+          </details>
         </Step>
 
         <Step number={2} title="What would change each person’s mind?">
           <p className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-            Name one thing that would make each of you think again. If neither of you can name
-            anything yet, try a smaller question: what would you need to learn before deciding?
-            A disagreement can involve facts, values, and definitions at the same time.
+            Name one thing that would make each of you think again. If nothing comes to mind,
+            start with what you would need to learn before deciding.
           </p>
           <div className="mt-4 space-y-4">
             <FillIn label="You would think again if…" describedBy={noteId} value={yourCondition} onChange={setYourCondition} />
@@ -198,10 +208,6 @@ export function ReadItYourself({
           </div>
         </Step>
       </ol>
-
-      <p id={noteId} className="mt-6 font-sans text-sm text-[var(--text-muted)]">
-        Your notes are not sent or saved. They stay on this page unless you choose to copy them.
-      </p>
 
       <p className="mt-8 font-serif text-lg leading-relaxed text-[var(--text-primary)]">
         Where the answers meet is the crux: the question that, once answered, would change a mind.
@@ -221,8 +227,7 @@ export function ReadItYourself({
       ) : null}
       {diagnosisOn ? null : (
         <p className="mt-3 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-          A fuller reading of an argument that is not on a map, one that lays out each side and
-          finds its crux, needs Argumend’s AI diagnosis, which is not switched on here.
+          These are your notes, not an automated reading of either person’s position.
         </p>
       )}
       <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">

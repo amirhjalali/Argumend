@@ -200,8 +200,8 @@ describe("PasteClient with every lane off (production today)", () => {
     // Cues quote the reader's own sentence, labelled as a word search.
     expect(view.getByText("A word search, not a reading. It can be wrong.")).toBeTruthy();
     expect(view.getByText("“Assisted living is the responsible choice.”")).toBeTruthy();
-    // The honest line about the lane that is off, the crux concept and the library.
-    expect(view.getByText(/needs Argumend’s AI diagnosis, which is not switched on here/)).toBeTruthy();
+    // The guide distinguishes the reader's notes from automated analysis.
+    expect(view.getByText(/These are your notes, not an automated reading/)).toBeTruthy();
     expect(view.getByRole("link", { name: "What a crux is" }).getAttribute("href")).toBe("/concepts/cruxes");
     expect(view.getByRole("link", { name: "Browse all maps" }).getAttribute("href")).toBe("/topics");
     expect(announcer?.textContent).toBe(
