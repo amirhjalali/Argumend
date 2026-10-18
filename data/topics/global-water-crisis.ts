@@ -6,6 +6,7 @@ export const globalWaterCrisisData = {
     "Freshwater scarcity will become the defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
   status: "contested" as const,
   category: "policy" as const,
+  last_updated: "2026-10-18",
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
@@ -268,115 +269,115 @@ export const globalWaterCrisisData = {
       id: "technology-adaptation",
       title: "Technology and Adaptation",
       short_summary:
-        "Desalination costs have fallen 80% since 1990, Israel recycles 90% of its wastewater, and precision agriculture can cut water use by 30-60%. Techno-optimists argue innovation will solve the water crisis as it has solved previous resource scarcity predictions. Critics counter that technology is too expensive, energy-intensive, and slow to deploy at the scale needed to avert catastrophe in the most vulnerable regions.",
+        "Desalination and wastewater reuse can supplement water supplies, but success in one setting does not establish affordable access everywhere. Costs depend on location, infrastructure and financing. Irrigation efficiency also needs water accounting: reducing field withdrawals does not necessarily reduce basin depletion. The disagreement concerns how quickly workable combinations can reach the people most exposed to shortages.",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Desalination, water recycling, precision agriculture, and atmospheric water harvesting represent real, scalable solutions that are already transforming water management. Israel — a desert nation — has achieved water abundance through technology and policy, producing surplus freshwater from desalination plants powered by natural gas at costs below $0.50 per cubic meter. Singapore meets 40% of its water needs through recycled wastewater (NEWater). Saudi Arabia and the UAE desalinate billions of liters daily. Precision agriculture using soil moisture sensors, drip irrigation, and deficit irrigation strategies routinely achieves 30-60% water savings. Atmospheric water generators are becoming commercially viable in humid regions. The cost trajectory of desalination mirrors solar energy: steady technological improvement and economies of scale are driving exponential cost reduction. Every resource scarcity prediction from Malthus to Paul Ehrlich has underestimated human ingenuity. Water is no different — it is the most abundant molecule on Earth's surface, and the challenge is not absolute scarcity but engineering and economics.",
+        "Water scarcity is not a fixed technological ceiling. The World Bank's desalination review documents operating plants and substantial differences in production costs. OECD's Israel review describes extensive wastewater treatment and reuse. These examples support adaptation as a practical possibility. Comparing locally suitable supply projects with conservation and demand management is more useful than assuming a shortage must become a catastrophe.",
       proponent_rebuttal:
-        "Technology is real but the deployment gap is catastrophic. Israel spends $1.5 billion annually on desalination and water infrastructure — a manageable investment for a wealthy nation of 9 million people. Scaling this to India (1.4 billion), sub-Saharan Africa (1.2 billion), or even Pakistan (230 million) requires investments of hundreds of billions of dollars that these governments cannot finance. Desalination is energy-intensive — producing 1 cubic meter of freshwater requires 3-4 kilowatt-hours of electricity — meaning water security becomes dependent on energy security, creating a compounding vulnerability in regions that lack both. The brine waste from desalination (1.5 liters of toxic brine per liter of freshwater) is already damaging marine ecosystems in the Persian Gulf. Precision agriculture requires capital investment, technical knowledge, and reliable electricity that smallholder farmers in South Asia and Africa — who produce the majority of food in the most water-stressed regions — simply do not have. The comparison to solar energy ignores that solar panels can be deployed modularly and incrementally, while desalination plants require massive centralized infrastructure, coastal access, and energy supply. Technology will help wealthy nations adapt. It will not arrive fast enough to prevent catastrophe in the poorest, most water-stressed regions where the crisis is already unfolding.",
+        "Technical feasibility does not establish timely, affordable delivery. Desalination projects need financing, energy, transport infrastructure and brine management. Israel's experience also involves institutions and sustained investment, rather than equipment alone. For irrigation, lower application rates may leave basin consumption unchanged if return flows fall or farming expands. A successful transition must therefore demonstrate reliable service and lower depletion, including for users who cannot readily finance new systems.",
       crux: {
         id: "technology-deployment-gap",
         title: "The Technology Deployment Gap Test",
         question:
           "Can water technology reach the poorest, most stressed regions before their tipping points?",
         description:
-          "The decisive question is whether desalination, water recycling, and precision agriculture can be deployed at sufficient scale and speed in the most water-stressed regions — particularly South Asia, Sub-Saharan Africa, and the Middle East — before aquifer depletion and climate disruption trigger irreversible agricultural collapse and mass displacement. If technology scales fast enough, the water crisis is a solvable engineering problem. If the deployment gap persists, technology will save wealthy nations while the poorest face catastrophe.",
+          "Test whether locally suitable investments and conservation can maintain essential supplies and viable livelihoods before specific service or farming constraints become severe. Define those constraints by basin and population, rather than assuming a shared tipping-point date. A low plant price, installed capacity or improved field efficiency alone does not establish successful adaptation.",
         methodology:
-          "Model the cost and timeline to deploy sufficient desalination and water recycling capacity to close the projected water deficit in the 20 most water-stressed nations by 2050. Include capital costs, energy requirements (and the energy infrastructure needed to support them), brine disposal capacity, institutional requirements, and financing mechanisms. Compare deployment timelines against aquifer depletion and climate disruption timelines to determine whether technological solutions can arrive before tipping points are reached.",
+          "Predefine representative coastal and inland cases, service needs and local hydrological limits. Compare supply projects, reuse, leakage reduction, pumping limits and crop changes using consistent water budgets. Include construction schedules, financing, energy reliability, transport, maintenance, environmental safeguards and household or farm affordability. Check modeled delivery against completed projects and subsequent service records. Report who gains access, who bears costs and whether basin depletion actually falls under alternative climate and demand scenarios.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Cost-and-timeline models for desalination, recycling and precision irrigation in the 20 most water-stressed nations, counting energy, brine disposal and financing, set against each region's aquifer depletion timeline.",
+            "Comparable basin plans checked against completed projects and service records, showing whether feasible investment and conservation deliver reliable, affordable water before defined local constraints, with net depletion, costs and distributional effects reported.",
         },
         cost_to_verify:
-          "$2-4M (Techno-economic modeling across 20 water-stressed nations integrating infrastructure, energy, and climate projections)",
+          "Not costed here; scope depends on the selected basins, project records and affordability analysis.",
         falsification: {
           supporter_flip:
-            "If techno-economic modeling showed desalination, recycling, and precision irrigation could realistically be financed and built fast enough — given energy, brine-disposal, and institutional constraints — to close the projected deficit in the 20 most-stressed nations before aquifer and climate tipping points, then the 'deployment gap dooms the poorest' argument would collapse into a financing-and-engineering problem with a solvable timeline.",
+            "If independently checked projects and conservation programs delivered reliable, affordable supplies to vulnerable users before defined local constraints while reducing net depletion, the claim that the deployment gap must cause catastrophic disruption would weaken.",
           skeptic_flip:
-            "If desalination stayed near $0.50/m³ and 3–4 kWh/m³, far above the groundwater farmers use, and drip irrigation stayed under 5% of farmland in South Asia and Sub-Saharan Africa despite subsidies, 'technology will scale like solar' would not reach landlocked smallholders in time.",
+            "If credible project and service records showed persistent delivery failures, unaffordable costs or continuing net depletion despite feasible investment and management changes, confidence that technology could secure a manageable transition would weaken.",
           common_ground:
-            "Both sides agree the core technologies work and are getting cheaper (Israel and Singapore prove it at national scale), and that the binding constraints in poor regions are cost, energy, and institutions rather than physics.",
+            "Both cases distinguish working technology from affordable delivery, installed capacity from reliable service, and irrigation efficiency from basin conservation.",
           live_disagreement:
-            "Whether deployment in the most water-stressed, low-income regions can outpace depletion and climate disruption timelines — resolvable by modeling realistic capital, energy, and adoption curves against basin-specific tipping-point dates.",
+            "Whether locally feasible investment and management changes can deliver reliable water to vulnerable users quickly enough, at costs they and their institutions can sustain.",
         },
       },
       evidence: [
         {
           id: "desalination-cost-decline",
           title:
-            "Desalination Costs Have Fallen 80% Since 1990 to Below $0.50/Cubic Meter",
+            "World Bank's 2019 Review: Desalination Costs Vary Substantially by Site",
           description:
-            "The cost of reverse osmosis desalination has declined from approximately $2.50 per cubic meter in 1990 to below $0.50 per cubic meter at the most efficient modern plants (such as Israel's Sorek B, the world's largest reverse osmosis facility). Energy consumption has fallen from 20 kWh/m3 in the 1970s to 2.5-3.5 kWh/m3 today, approaching the thermodynamic minimum of ~1 kWh/m3. Global desalination capacity exceeds 100 million cubic meters per day across 21,000 plants in 170 countries. The technology is mature, declining in cost, and being deployed at scale — particularly in the Middle East, North Africa, and Australia.",
+            "The World Bank's 2019 review reports seawater reverse-osmosis production costs ranging from US$0.64 to US$2.86 per cubic meter in its sample, at 2016 values. The report cautions that the lowest first-year bid prices involved special delivery conditions and later price increases. This is a historical project comparison, not a current universal price or a delivered tariff for households and farms.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
-            replicability: 9,
-            directness: 8,
+            replicability: 7,
+            directness: 6,
           },
-          source: "International Desalination Association; MIT Water Research",
+          source: "World Bank, The Role of Desalination in an Increasingly Water-Scarce World (2019), Table ES.1 and chapter 4",
           sourceUrl:
-            "https://www.desalination.com/",
+            "https://documents1.worldbank.org/curated/en/476041552622967264/pdf/135312-WP-PUBLIC-14-3-2019-12-3-35-W.pdf",
           reasoning:
-            "Desalination cost trends are well-documented and the technology is proven at scale. The cost decline trajectory is encouraging and mirrors other energy technologies. However, $0.50/m3 remains significantly more expensive than groundwater pumping or surface water treatment, making it economically viable primarily for municipal supply in wealthy coastal nations — not for irrigating crops in landlocked developing countries where the water crisis is most acute.",
+            "Operating projects demonstrate a supply option. Differences in geography, financing, subsidies and utilization limit transferring the cheapest price to another setting or forecasting a universal cost trajectory.",
         },
         {
           id: "israel-water-model",
           title:
-            "Israel Recycles 90% of Wastewater and Has Achieved Water Surplus Through Technology",
+            "OECD's 2023 Israel Review Reports Extensive Wastewater Reuse",
           description:
-            "Israel recycles approximately 90% of its wastewater for agricultural irrigation — the highest rate in the world (Spain, the second-highest, recycles ~20%). Combined with five large-scale desalination plants that provide over 80% of domestic water supply, Israel has transformed from chronic water scarcity to surplus in under two decades. The country's agricultural sector produces more food per unit of water than almost any nation, using precision drip irrigation on 75% of irrigated land. Israel's water technology sector generates over $2 billion in annual exports. The 'Israeli model' is frequently cited as proof that water scarcity is an engineering problem, not an existential threat.",
+            "OECD's 2023 review reports that about 94% of Israel's wastewater is collected and treated, and 87% is reused, primarily for agriculture. These are wastewater shares, not shares of total freshwater demand. The review also describes tariff-funded infrastructure and long-term public-private desalination arrangements. This demonstrates substantial reuse within a particular institutional system, without establishing a universal water surplus or easy transfer to other countries.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 7,
+            independence: 8,
             replicability: 6,
-            directness: 7,
+            directness: 6,
           },
-          source: "Israel Water Authority; World Bank",
+          source: "OECD Environmental Performance Reviews: Israel 2023, water management and infrastructure investment",
           sourceUrl:
-            "https://www.gov.il/en/departments/israel_water_authority",
+            "https://www.oecd.org/en/publications/oecd-environmental-performance-reviews-israel-2023_0175ae95-en/full-report/component-6.html",
           reasoning:
-            "Israel's water transformation is genuinely impressive and demonstrates what is technically possible. However, replicability is scored lower because Israel's success depends on factors that are difficult to transfer: a wealthy, technologically advanced economy; a small population (9 million); Mediterranean coastal access for desalination; strong centralized governance; and massive defense-driven R&D investment. India, with 150 times the population and a fraction of the per-capita GDP, faces fundamentally different constraints.",
+            "The national example supports the feasibility of extensive reuse. Infrastructure, water quality, institutions and financing affect transferability; a wastewater reuse percentage alone does not measure universal access or ecological recovery.",
         },
         {
           id: "desalination-energy-brine",
           title:
-            "Desalination Produces More Brine Than Fresh Water, and Disposing of It Is Costly",
+            "2019 Global Inventory Estimates Substantial Brine Production",
           description:
-            "A 2019 global synthesis by the United Nations University counted 15,906 operational desalination plants producing about 95 million cubic meters of fresh water a day, nearly half of it in the Middle East and North Africa. The same plants discharge about 142 million cubic meters of hypersaline brine a day, roughly 1.5 times the fresh water they make and about 50% more than earlier estimates. Saudi Arabia, the UAE, Kuwait and Qatar alone account for 55% of the world's brine. The authors conclude that brine disposal is both costly and associated with negative environmental impacts, and that better brine management is needed to support further desalination.",
+            "Jones and colleagues' 2019 synthesis identified 15,906 operational desalination plants producing about 95 million cubic meters of fresh water and an estimated 142 million cubic meters of brine daily. The authors identify disposal costs and environmental impacts as constraints. The roughly 1.5-to-1 ratio is an aggregate across the inventory, not a fixed ratio for every technology or plant, and these figures are not a current plant count.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 9,
             independence: 9,
-            replicability: 8,
-            directness: 7,
+            replicability: 7,
+            directness: 6,
           },
           source:
-            "Jones et al., \"The state of desalination and brine production: A global outlook,\" Science of the Total Environment (2019), United Nations University (UNU-INWEH)",
+            "Jones et al., The state of desalination and brine production: A global outlook, Science of the Total Environment 657 (2019)",
           sourceUrl: "https://doi.org/10.1016/j.scitotenv.2018.12.076",
           reasoning:
-            "The brine constraint on desalination is well quantified and is a genuine limit to scaling, concentrated in the regions that rely on desalination most. However, it is an engineering and cost challenge, not a physical impossibility: brine mining for mineral recovery and zero-liquid-discharge systems are under active development. The question is whether these solutions can mature fast enough to keep pace with growing demand.",
+            "The inventory supports including waste management in expansion plans. It does not establish identical local ecosystem damage at every outfall or show that environmentally managed desalination is impossible.",
         },
         {
           id: "smart-agriculture-adoption",
           title:
-            "Precision Agriculture Adoption Remains Below 5% in Water-Stressed Developing Countries",
+            "FAO: Irrigation Efficiency Alone Does Not Establish Real Water Savings",
           description:
-            "Despite proven water savings of 30-60%, precision and drip irrigation covers less than 5% of irrigated farmland in South Asia and Sub-Saharan Africa — the regions facing the most acute water stress. In India, which accounts for 25% of global groundwater extraction, drip irrigation covers approximately 10 million hectares out of 70 million hectares of irrigated land (14%), and adoption rates have plateaued despite government subsidies. Barriers include high upfront costs ($1,000-$2,500 per hectare), requirement for pressurized water supply, technical maintenance knowledge, and fragmented smallholder farms averaging less than 2 hectares. A 2023 World Bank analysis concluded that even with aggressive policy support, drip irrigation could reach only 30-40% of Indian farmland by 2040.",
+            "FAO's 2021 guidance distinguishes lower water withdrawals from real savings in consumption and non-recoverable return flows. Field improvements can reduce water applied without making more water available to other users. Evaluating irrigation technology therefore needs district or basin accounting, including return flows and changes in crop consumption, rather than an assumed universal savings percentage.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 9,
-            replicability: 8,
-            directness: 8,
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
           },
-          source: "World Bank; International Water Management Institute",
+          source: "Van Opstal et al., FAO, Guidance on realizing real water savings with crop water productivity interventions (2021)",
           sourceUrl:
-            "https://www.iwmi.cgiar.org/",
+            "https://openknowledge.fao.org/3/cb3844en/cb3844en.pdf",
           reasoning:
-            "Adoption data demonstrates the gap between technological potential and real-world deployment. The barriers are not technological but economic and institutional — which means they are solvable in theory but have proven resistant to policy intervention in practice. This evidence directly addresses whether technology can solve the water crisis 'in time' for the populations most at risk.",
+            "This is methodological guidance for measuring conservation, not an adoption survey or a prediction that irrigation programs must fail. Its relevance is to the claimed hydrological benefit of adaptation.",
         },
       ],
     },
@@ -423,14 +424,24 @@ export const globalWaterCrisisData = {
       url: "https://pca-cpa.org/en/cases/284/",
     },
     {
-      title:
-        "United Nations World Water Development Report 2024 — Water for Prosperity and Peace",
-      url: "https://www.unwater.org/publications/un-world-water-development-report-2024",
+      title: "World Bank, The Role of Desalination in an Increasingly Water-Scarce World (2019)",
+      url: "https://documents1.worldbank.org/curated/en/476041552622967264/pdf/135312-WP-PUBLIC-14-3-2019-12-3-35-W.pdf",
     },
     {
-      title:
-        "Rodell et al. — Emerging Trends in Global Freshwater Availability (Nature, 2018)",
-      url: "https://www.nature.com/articles/s41586-018-0123-1",
+      title: "OECD Environmental Performance Reviews: Israel 2023, water management and investment",
+      url: "https://www.oecd.org/en/publications/oecd-environmental-performance-reviews-israel-2023_0175ae95-en/full-report/component-6.html",
+    },
+    {
+      title: "Jones et al., The state of desalination and brine production: A global outlook (2019)",
+      url: "https://doi.org/10.1016/j.scitotenv.2018.12.076",
+    },
+    {
+      title: "World Bank, Groundswell: Acting on Internal Climate Migration, findings (2021)",
+      url: "https://www.worldbank.org/en/news/feature/2021/09/13/millions-on-the-move-in-their-own-countries-the-human-face-of-climate-change",
+    },
+    {
+      title: "Alex de Sherbinin, Groundswell lead author's explanation of the migration scenarios (2021)",
+      url: "https://news.climate.columbia.edu/2021/09/14/climate-migration-projections/",
     },
     {
       title:
@@ -442,23 +453,23 @@ export const globalWaterCrisisData = {
     {
       id: "q1",
       title:
-        "Will water scarcity trigger the next great wave of mass migration?",
+        "What does the 216 million climate-migration projection say about water?",
       content:
-        "The World Bank estimates that by 2050, water scarcity amplified by climate change could force 216 million people to migrate within their own countries. The Sahel, Central Asia, and South Asia face overlapping crises of aquifer depletion, glacier loss, and population growth. If agricultural regions become unviable — as parts of the Ogallala region and northwestern India are projected to within decades — where do hundreds of millions of farmers go? Unlike sea-level rise, which unfolds visibly over generations, aquifer depletion can trigger sudden agricultural collapse when wells run dry. Is the international system remotely prepared for water-driven displacement at this scale?",
+        "The World Bank's 2021 Groundswell findings describe up to 216 million internal climate migrants by 2050 across six regions. A lead author identifies that figure as the high end of the pessimistic scenario. The modeling includes water availability, crop productivity and sea-level rise; it is not a count of people displaced by water scarcity alone, a cross-border migration forecast or an observed outcome. Emissions, development and adaptation assumptions change the results. The useful question is which local water and livelihood changes increase pressure to move, and how policy can support people who stay or relocate.",
     },
     {
       id: "q2",
       title:
-        "Should water be priced as a scarce commodity or guaranteed as a human right?",
+        "How can water conservation and affordable essential access work together?",
       content:
-        "The UN recognized access to clean water as a human right in 2010, yet economists argue that the chronic underpricing of water — particularly for agricultural irrigation, which consumes 70% of global freshwater — is the root cause of overextraction. Farmers in India and the American West pay virtually nothing for groundwater pumping, creating a 'tragedy of the commons' that depletes shared aquifers. Raising water prices would incentivize efficiency and reduce waste, but would also disproportionately burden the poorest populations and potentially price subsistence farmers out of their livelihoods. Can water markets and human rights coexist, or are they fundamentally in tension?",
+        "Compare policies on both net depletion and access to essential services. Prices, pumping limits, infrastructure investment and support for low-income users can distribute costs differently. A smaller irrigation withdrawal is not automatically a basin saving if recoverable return flows also fall. A credible proposal should specify the water budget, who pays, how essential access is protected and whether households or farmers can adapt. The disagreement is over workable combinations and their distributional effects, rather than a choice between charging for every use and allowing unlimited extraction.",
     },
     {
       id: "q3",
       title:
-        "Is the 'water wars' narrative a useful warning or a dangerous oversimplification?",
+        "What does calling a dispute a 'water war' explain?",
       content:
-        "The phrase 'water wars' generates headlines and political attention, but some water policy experts argue it does more harm than good. By framing water as a source of conflict rather than cooperation, it may undermine the very diplomatic frameworks that have historically resolved water disputes peacefully. The securitization of water can justify military spending over infrastructure investment, empower nationalist narratives over shared governance, and obscure the fact that most water crises are caused by domestic mismanagement rather than foreign aggression. Yet proponents argue that only existential threat language generates the political urgency needed to mobilize trillion-dollar investments in water infrastructure before it is too late. Does the framing of the problem shape the solution?",
+        "Separate water contributing to a dispute, water being used as a weapon, and water infrastructure being damaged during another conflict. Those categories require different evidence and responses. Historical cooperation does not guarantee future peace, while a rising count of reported water-linked incidents does not establish that shortages caused more interstate wars. A useful account identifies the actors, water shock, prior political tensions and institutions, then asks what would have happened without that shock. The framing should help compare plausible responses rather than assume either inevitable war or effortless cooperation.",
     },
   ],
 };

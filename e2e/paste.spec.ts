@@ -162,6 +162,15 @@ for (const { subject, text, crux, sourceUrls } of [
     crux: "supply-depletion",
     sourceUrls: ["https://pubs.usgs.gov/publication/sir20235143", "https://kgs.ku.edu/node/512"],
   },
+  {
+    subject: "a desalination argument",
+    text: "Desalination plants and wastewater recycling could provide reliable water during droughts. Some say technology will make shortages manageable, but others say inland farmers cannot afford the energy and pipelines.",
+    crux: "technology-adaptation",
+    sourceUrls: [
+      "https://doi.org/10.1016/j.scitotenv.2018.12.076",
+      "https://documents1.worldbank.org/curated/en/476041552622967264/pdf/135312-WP-PUBLIC-14-3-2019-12-3-35-W.pdf",
+    ],
+  },
 ]) {
   test(`${subject} opens its crux with scoped primary evidence`, async ({ page }) => {
     await page.goto("/analyze");

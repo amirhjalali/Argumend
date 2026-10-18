@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "singleton malthusian ostrom bostrom axelrod hanson hardin polycentric montreal folk nash malthus theorem leviathan pinker"
+    "keywords": "singleton malthusian ostrom bostrom axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash theorem"
   },
   {
     "id": "ai-2027",
@@ -555,7 +555,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens bier isil milton sidewalk migrant clemenss feudal kahanec peasant zaiceva zimmermann circular"
+    "keywords": "carens remittances clemens bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular countercyclical"
   },
   {
     "id": "universal-basic-income",
@@ -766,7 +766,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "fy2023 southwest trac migrant syracuse fy2022 backlog binational venezuelan boatlift mariel patrol neglect afghans aics"
+    "keywords": "fy2023 southwest trac syracuse fy2022 backlog binational venezuelan boatlift mariel patrol neglect afghans aics caseload"
   },
   {
     "id": "social-media-elections",
@@ -884,9 +884,9 @@
     "title": "Is the World Heading for Water Wars?",
     "question": "Is the world heading for water wars?",
     "meta_claim": "Freshwater scarcity will become the defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 72,
+    "confidence_score": 67,
+    "balance": 67,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -899,7 +899,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination irrigation cubic brine groundwater drip drought feet hectares pacific abeyance arbitration gerd glacier hindu"
+    "keywords": "desalination brine groundwater reuse wastewater cubic drought feet irrigation pacific abeyance arbitration gerd glacier hindu"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1344,7 +1344,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons tropical argentina"
+    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons tropical"
   },
   {
     "id": "factory-farming-ban",
@@ -1455,7 +1455,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "grazing nemecek dietetics eutrophication mottet micronutrients scarborough vegetarian farmland livestock agric forage grassland grazers headey"
+    "keywords": "grazing nemecek dietetics eutrophication mottet farmland micronutrients scarborough vegetarian livestock agric forage grassland grazers headey"
   },
   {
     "id": "psychedelics-mental-health",
@@ -1601,7 +1601,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "plastic phthalate polyethylene sperm tons polymers micrograms micrometers testicular efsa maternal rats arterial butyl interleukin"
+    "keywords": "plastic recycling phthalate polyethylene sperm tons polymers micrograms micrometers testicular efsa maternal rats arterial butyl"
   },
   {
     "id": "glp1-weight-loss-drugs",
@@ -1800,7 +1800,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial pakistan theirs afghanistan funder opensecrets super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2116,7 +2116,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity groundswell scotland irena jason sight biocapacity biophysical garment giorgos greek"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason sight biocapacity biophysical garment giorgos greek"
   },
   {
     "id": "free-will",

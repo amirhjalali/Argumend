@@ -590,6 +590,20 @@ describe("findMaps", () => {
     expect(result.match?.crux?.href).toBe("/topics/global-water-crisis#crux-supply-depletion");
   });
 
+  it("keeps a desalination argument on technology delivery with its primary evidence", async () => {
+    const result = await findMaps(
+      "Desalination plants and wastewater recycling could provide reliable water during droughts. Some say technology will make shortages manageable, but others say inland farmers cannot afford the energy and pipelines.",
+    );
+    expect(result.match?.id).toBe("global-water-crisis");
+    expect(result.match?.crux?.href).toBe("/topics/global-water-crisis#crux-technology-adaptation");
+    expect(result.match?.cards.map((card) => card.sourceUrl)).toEqual([
+      "https://doi.org/10.1016/j.scitotenv.2018.12.076",
+      "https://documents1.worldbank.org/curated/en/476041552622967264/pdf/135312-WP-PUBLIC-14-3-2019-12-3-35-W.pdf",
+    ]);
+    expect(result.related).toEqual([]);
+    expect(result.closest).toEqual([]);
+  });
+
   it("keeps a water conflict separate from diamond ethics", async () => {
     const result = await findMaps(
       "Rivers cross borders, but upstream dams can leave downstream countries without enough water. As droughts worsen, will shortages lead to war or force countries to cooperate?",
