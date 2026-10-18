@@ -250,6 +250,75 @@ test("an unmapped personal argument becomes conversation notes without another r
   expect(apiCalls).toEqual(["POST /api/analyze"]);
 });
 
+test("question copy recovers from a blocked clipboard and preserves the argument on return", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async () => { throw new DOMException("Blocked", "NotAllowedError"); } },
+    });
+    Object.defineProperty(document, "execCommand", { configurable: true, value: () => false });
+  });
+  const apiCalls: string[] = [];
+  page.on("request", (request) => {
+    const path = new URL(request.url()).pathname;
+    if (path.startsWith("/api/")) apiCalls.push(`${request.method()} ${path}`);
+  });
+  await page.goto("/analyze");
+  const example = page.getByRole("button", { name: "See an example" });
+  await waitForHydration(example);
+  await example.click();
+  await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+  const result = page.getByRole("region", { name: "Result" });
+  const openMap = result.getByRole("link", { name: "Open the map at this crux", exact: true });
+  const href = await openMap.getAttribute("href");
+  const preview = result.getByText("Preview conversation starter", { exact: true });
+  await preview.click();
+  const starter = await preview.locator("..").locator("p").innerText();
+  expect(starter).toMatch(/^Could we start with this question\?/);
+  expect(starter).toContain(`Read the evidence: https://argumend.org${href}`);
+  await preview.click();
+  const copy = result.getByRole("button", { name: "Copy this question", exact: true });
+  await copy.click();
+  const manual = result.getByRole("textbox", { name: "Question to copy" });
+  await expect(manual).toHaveValue(starter);
+  await expect(result.getByRole("button", { name: "Copied", exact: true })).toHaveCount(0);
+  await expect(copy).toBeFocused();
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Tab");
+  await expect(manual).toBeFocused();
+  expect(await manual.evaluate((element: HTMLTextAreaElement) =>
+    element.selectionStart === 0 && element.selectionEnd === element.value.length,
+  )).toBe(true);
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async (text: string) => { document.documentElement.dataset.copiedQuestion = text; } },
+    });
+  });
+  const resting = await copy.evaluate((button) => ({
+    top: button.getBoundingClientRect().top - button.parentElement!.getBoundingClientRect().top,
+    width: button.getBoundingClientRect().width,
+  }));
+  await copy.click();
+  const copied = result.getByRole("button", { name: "Copied", exact: true });
+  await expect(copied).toBeVisible();
+  await expect(page.locator("html")).toHaveAttribute("data-copied-question", starter);
+  await expect(manual).toHaveCount(0);
+  const feedback = await copied.evaluate((button) => ({
+    top: button.getBoundingClientRect().top - button.parentElement!.getBoundingClientRect().top,
+    width: button.getBoundingClientRect().width,
+  }));
+  expect(Math.abs(feedback.top - resting.top)).toBeLessThan(1);
+  expect(Math.abs(feedback.width - resting.width)).toBeLessThan(1);
+  await openMap.click();
+  await expect(page).toHaveURL(new RegExp(`${href}$`));
+  await page.getByRole("link", { name: "Paste an argument", exact: true }).first().click();
+  await expect(result).toBeVisible();
+  await expect(openMap).toHaveAttribute("href", href!);
+  await expect(result.getByRole("button", { name: "Copy this question", exact: true })).toBeVisible();
+  expect(apiCalls).toEqual(["POST /api/analyze"]);
+});
+
 test("reanalyzing unchanged text keeps conversation notes", async ({ page }) => {
   await page.goto("/analyze");
   const input = page.getByRole("textbox", { name: "The argument to read" });

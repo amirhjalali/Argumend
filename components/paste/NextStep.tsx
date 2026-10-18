@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Check, Copy } from "lucide-react";
 import { ChangedQuestion, changedLabel } from "@/components/topic/ChangedQuestion";
 import { TextAction } from "@/components/ui";
 import { copyTextToClipboard } from "@/lib/copyToClipboard";
 import type { ChangedAnswer } from "@/lib/changedQuestion";
+import { SITE_URL } from "@/lib/site";
 
 /**
  * What to do with a paste result: copy a plain summary, and answer the
@@ -42,6 +43,7 @@ export function NextStep({
 
   async function copy() {
     if (!summary) return;
+    setCopiedSummary(null);
     setCopyFailed(false);
     try {
       await copyTextToClipboard(summary);
@@ -108,5 +110,84 @@ export function NextStep({
         {answer ? `You answered ${changedLabel(answer).toLowerCase()}. Your answer is not sent or counted.` : ""}
       </p>
     </section>
+  );
+}
+
+/** A short, previewable takeaway shared by paste results and map reflections. */
+export function QuestionTakeaway({ question, href, scope, leadingAction, copyLabel = "Copy this question" }: {
+  question: string;
+  href: string;
+  scope?: string;
+  leadingAction: ReactNode;
+  copyLabel?: string;
+}) {
+  const starter = [
+    "Could we start with this question?",
+    ...(scope ? [`Map scope: ${scope}`] : []),
+    question,
+    `Read the evidence: ${SITE_URL}${href}`,
+  ].join("\n\n");
+  const [copied, setCopied] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = window.setTimeout(() => setCopied(false), 2000);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
+
+  async function copy() {
+    setCopied(false);
+    setFailed(false);
+    try {
+      await copyTextToClipboard(starter);
+      setCopied(true);
+    } catch {
+      setFailed(true);
+    }
+  }
+
+  return (
+    <div className="mt-3">
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+        {leadingAction}
+        <TextAction onClick={copy}>
+          <span className="inline-grid">
+            {/* Keep feedback from moving a wrapped action into another row. */}
+            <span aria-hidden="true" className="invisible col-start-1 row-start-1">{copyLabel}</span>
+            <span className="col-start-1 row-start-1">{copied ? "Copied" : copyLabel}</span>
+          </span>
+        </TextAction>
+      </div>
+      <p className="mt-1 text-xs leading-relaxed text-muted dark:text-stone-400">
+        Take a question back to the conversation, with a link to its evidence.
+      </p>
+      <details className="mt-1">
+        <summary className="min-h-11 cursor-pointer py-2.5 text-xs text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text">
+          Preview conversation starter
+        </summary>
+        <p className="whitespace-pre-wrap break-words border-l-2 border-divider pl-3 text-sm leading-relaxed text-secondary dark:text-stone-300">
+          {starter}
+        </p>
+      </details>
+      <p aria-live="polite" className="sr-only">
+        {copied ? "Question and evidence link copied to the clipboard." : ""}
+      </p>
+      {failed ? (
+        <div className="mt-2 space-y-2">
+          <p role="alert" className="text-sm text-error-text">
+            The clipboard was not available. Select the conversation starter and copy it by hand.
+          </p>
+          <textarea
+            aria-label="Question to copy"
+            readOnly
+            value={starter}
+            rows={6}
+            onFocus={(event) => event.currentTarget.select()}
+            className="w-full rounded-lg border border-divider bg-[var(--bg-input)] p-3 text-sm text-primary dark:text-stone-200"
+          />
+        </div>
+      ) : null}
+    </div>
   );
 }

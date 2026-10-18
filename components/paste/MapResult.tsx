@@ -15,6 +15,7 @@ import type {
   PasteMapsResult,
 } from "@/lib/paste/types";
 import { ReadItYourself, type ConversationNotesState } from "./ReadItYourself";
+import { QuestionTakeaway } from "./NextStep";
 
 /**
  * "This argument is already mapped": the part of a paste result that takes
@@ -266,6 +267,16 @@ export function MapMatch({
     ? (cards[0].side === "for" ? "against" : "for")
     : null;
 
+  const openMapAction = (
+    <Button
+      href={match.crux?.href ?? match.href}
+      size="lg"
+      onClick={() => trackEvent({ action: "cta_click", ctaName: "open_map_at_crux", location: "analyze" })}
+    >
+      {match.crux ? (match.alsoCrux ? "Open the map at the first crux" : "Open the map at this crux") : "Open the map"}
+    </Button>
+  );
+
   return (
     <section aria-labelledby="map-match-heading" className="scroll-mt-24">
       <p className="label-caps">On the map</p>
@@ -298,13 +309,16 @@ export function MapMatch({
       <CruxPanel match={match} />
 
       <div className="mt-6">
-        <Button
-          href={match.crux?.href ?? match.href}
-          size="lg"
-          onClick={() => trackEvent({ action: "cta_click", ctaName: "open_map_at_crux", location: "analyze" })}
-        >
-          {match.crux ? (match.alsoCrux ? "Open the map at the first crux" : "Open the map at this crux") : "Open the map"}
-        </Button>
+        {match.crux ? (
+          <QuestionTakeaway
+            key={`${match.crux.href}:${match.crux.question}`}
+            question={match.crux.question}
+            href={match.crux.href}
+            scope={match.kind === "flagship" ? match.claim : undefined}
+            leadingAction={openMapAction}
+            copyLabel={match.alsoCrux ? "Copy the first question" : undefined}
+          />
+        ) : openMapAction}
       </div>
 
       {cards.length > 0 ? (

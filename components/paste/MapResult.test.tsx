@@ -103,6 +103,60 @@ describe("the map block on a phone", () => {
     expect(view.getByText(matched.match!.claim)).toBeTruthy();
   });
 
+  it("previews and copies just the crux question and evidence link", async () => {
+    const copy = vi.spyOn(clipboard, "copyTextToClipboard").mockResolvedValue();
+    const match = matched.match!;
+    const view = render(<MapMatch match={match} related={matched.related} />);
+    const expected = [
+      "Could we start with this question?",
+      match.crux!.question,
+      `Read the evidence: https://argumend.org${match.crux!.href}`,
+    ].join("\n\n");
+    const preview = view.getByText("Preview conversation starter").closest("details")!;
+    expect(preview.querySelector("p")?.textContent).toBe(expected);
+    await act(async () => fireEvent.click(view.getByRole("button", { name: "Copy this question" })));
+    expect(copy).toHaveBeenCalledExactlyOnceWith(expected);
+    expect(view.getByRole("button", { name: "Copied" })).toBeTruthy();
+    expect(expected).not.toContain(match.crux!.supporterFlip);
+    expect(expected).not.toContain(DISAGREEMENT_EXAMPLE_SOURCE);
+  });
+
+  it("keeps the flagship map's geographic and time scope in the short takeaway", async () => {
+    const copy = vi.spyOn(clipboard, "copyTextToClipboard").mockResolvedValue();
+    const maps = await findMaps("Will AI cause mass unemployment in the U.S. within the next 15 years?");
+    expect(maps.match?.kind).toBe("flagship");
+    const view = render(<MapMatch match={maps.match!} />);
+    await act(async () => fireEvent.click(view.getByRole("button", { name: /^Copy (this|the first) question$/ })));
+    expect(copy.mock.calls[0][0]).toContain(`Map scope: ${maps.match!.claim}`);
+    expect(copy.mock.calls[0][0]).toContain(maps.match!.crux!.question);
+    expect(copy.mock.calls[0][0]).toContain(`https://argumend.org${maps.match!.crux!.href}`);
+  });
+
+  it("keeps a selectable question after a blocked copy and clears it for another crux", async () => {
+    vi.spyOn(clipboard, "copyTextToClipboard").mockRejectedValue(new Error("Blocked"));
+    const match = matched.match!;
+    const view = render(<MapMatch match={match} />);
+    await act(async () => fireEvent.click(view.getByRole("button", { name: "Copy this question" })));
+    const fallback = view.getByRole("textbox", { name: "Question to copy" }) as HTMLTextAreaElement;
+    expect(fallback.readOnly).toBe(true);
+    expect(fallback.value).toContain(match.crux!.question);
+    expect(view.queryByRole("button", { name: "Copied" })).toBeNull();
+    view.rerender(<MapMatch match={{ ...match, crux: { ...match.crux!, question: "What would settle the second question?", href: "/topics/another#crux-second" } }} />);
+    expect(view.queryByRole("textbox", { name: "Question to copy" })).toBeNull();
+    expect(view.getByText("Preview conversation starter").closest("details")?.textContent)
+      .toContain("What would settle the second question?");
+  });
+
+  it("says which question it copies when the argument could turn on two cruxes", async () => {
+    const copy = vi.spyOn(clipboard, "copyTextToClipboard").mockResolvedValue();
+    const match = matched.match!;
+    const view = render(<MapMatch match={{ ...match, alsoCrux: { question: "Could the other question matter?", href: "/topics/another#crux-other" } }} />);
+    expect(view.queryByRole("button", { name: "Copy this question" })).toBeNull();
+    await act(async () => fireEvent.click(view.getByRole("button", { name: "Copy the first question" })));
+    expect(copy.mock.calls[0][0]).toContain(match.crux!.question);
+    expect(copy.mock.calls[0][0]).not.toContain("Could the other question matter?");
+  });
+
   it("clamps what would change each side's mind and each card, behind a named Show more", () => {
     const match = matched.match!;
     const view = render(<MapMatch match={match} related={matched.related} />);
@@ -152,6 +206,24 @@ describe("the map block on a phone", () => {
     expect(view.queryByRole("heading", { name: "The strongest card on each side" })).toBeNull();
     view.getByRole("heading", { name: "The strongest cards" });
     view.getByText(/No card here is labelled “(Points to no|Cuts against it)”/);
+  });
+});
+
+describe("copy feedback", () => {
+  it.each(["question", "summary"] as const)("clears an earlier success when a %s copy retry fails", async (kind) => {
+    vi.spyOn(clipboard, "copyTextToClipboard")
+      .mockResolvedValueOnce()
+      .mockRejectedValueOnce(new Error("Blocked"));
+    const view = render(kind === "question"
+      ? <MapMatch match={matched.match!} />
+      : <NextStep summary="A conversation summary." />);
+    await act(async () => fireEvent.click(view.getByRole("button", {
+      name: kind === "question" ? "Copy this question" : "Copy a summary",
+    })));
+    await act(async () => fireEvent.click(view.getByRole("button", { name: "Copied" })));
+    expect(view.queryByRole("button", { name: "Copied" })).toBeNull();
+    expect(view.getByRole("textbox", { name: kind === "question" ? "Question to copy" : "Summary to copy" }))
+      .toBeTruthy();
   });
 });
 
