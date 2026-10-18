@@ -7,6 +7,7 @@ import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { FakeDisagreementProvider } from "@/lib/disagreement/model/fake";
 import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "@/lib/disagreement/prompts/v1/examples";
 import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
+import { PASTE_LIMITS } from "@/lib/paste/limits";
 import { findMaps } from "@/lib/paste/maps";
 import { ASSISTED_LIVING_PASTE } from "@/lib/paste/testPastes";
 import type { PasteLanes, PasteMapsResult } from "@/lib/paste/types";
@@ -72,6 +73,36 @@ describe("PasteClient with every lane off (production today)", () => {
       "Nothing you paste leaves our server",
     );
     expect(view.queryByText(/Programmatic|Include .*Judg/i)).toBeNull();
+  });
+
+  it("keeps an oversized draft intact and blocks submission until it is shortened", () => {
+    const fetchMock = stubFetch({});
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    const input = view.getByLabelText("The argument to read") as HTMLTextAreaElement;
+    const draft = `${"a".repeat(PASTE_LIMITS.maxCharacters)} ORIGINAL ENDING`;
+    fireEvent.change(input, { target: { value: draft } });
+    expect(input.value).toBe(draft);
+    expect(input.getAttribute("maxlength")).toBeNull();
+    expect(input.getAttribute("aria-invalid")).toBe("true");
+    expect(view.getByRole("alert").textContent).toContain("Your full draft is still here");
+    const submit = view.getByRole("button", { name: "Find what it turns on" }) as HTMLButtonElement;
+    expect(submit.disabled).toBe(true);
+    fireEvent.click(submit);
+    expect(fetchMock).not.toHaveBeenCalled();
+    fireEvent.change(input, { target: { value: "a".repeat(PASTE_LIMITS.maxCharacters) } });
+    expect(submit.disabled).toBe(false);
+    expect(view.queryByRole("alert")).toBeNull();
+  });
+
+  it("preserves an oversized incoming handoff without auto-submitting a shortened draft", async () => {
+    const fetchMock = stubFetch({ "/api/analyze": () => jsonResponse({ maps: matched }) });
+    const draft = `${"a".repeat(PASTE_LIMITS.maxCharacters)} ORIGINAL ENDING`;
+    sessionStorage.setItem(PASTE_PREFILL_KEY, JSON.stringify({ content: draft }));
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    await act(async () => { await Promise.resolve(); });
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect((view.getByLabelText("The argument to read") as HTMLTextAreaElement).value).toBe(draft);
+    expect(view.getByRole("alert").textContent).toContain("Your full draft is still here");
   });
 
   it("shows the map, its crux and the next step, and asks only the map lane", async () => {

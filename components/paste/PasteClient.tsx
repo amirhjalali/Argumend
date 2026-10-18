@@ -207,10 +207,11 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const trimmedLength = content.trim().length;
   const tooShort = trimmedLength < minChars;
+  const tooLong = content.length > PASTE_LIMITS.maxCharacters;
 
   const submit = useCallback(
     async (text: string, type: PasteContentType) => {
-      if (text.trim().length < minChars) return;
+      if (text.trim().length < minChars || text.length > PASTE_LIMITS.maxCharacters) return;
       if (text !== notesForText.current) {
         setConversationNotes(EMPTY_CONVERSATION_NOTES);
         notesForText.current = text;
@@ -293,20 +294,22 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
       const prefill = PastePrefillSchema.safeParse(data);
       if (!prefill.success || !prefill.data.content.trim()) return;
       const parsed = prefill.data;
-      // The home box has no length limit; this one does.
-      const text = parsed.content.slice(0, PASTE_LIMITS.maxCharacters);
+      // Keep the whole draft, including handoffs from older entry points.
+      const text = parsed.content;
       const type = toContentType(parsed.contentType);
       setContent(text);
       setContentType(type);
-      if (autoSubmitAllowed && text.trim().length >= minChars) {
+      if (autoSubmitAllowed && text.trim().length >= minChars && text.length <= PASTE_LIMITS.maxCharacters) {
         void submit(text, type);
       } else {
         // A lane that sends text somewhere waits for the visitor to read the
         // consent line and press the button.
         window.setTimeout(() => {
-          const button = document.getElementById(SUBMIT_ID);
-          button?.scrollIntoView({ block: "center" });
-          button?.focus({ preventScroll: true });
+          const target = text.trim().length < minChars || text.length > PASTE_LIMITS.maxCharacters
+            ? textareaWrapRef.current?.querySelector("textarea")
+            : document.getElementById(SUBMIT_ID);
+          target?.scrollIntoView({ block: "center" });
+          target?.focus({ preventScroll: true });
         }, 50);
       }
     });
@@ -446,7 +449,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
               size="lg"
               onClick={() => void submit(content, contentType)}
               aria-describedby={CONSENT_ID}
-              disabled={busy || tooShort}
+              disabled={busy || tooShort || tooLong}
             >
               Find what it turns on
             </Button>

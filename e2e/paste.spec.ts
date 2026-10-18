@@ -1,4 +1,27 @@
 import { expect, test, waitForHydration } from "./fixtures";
+import { PASTE_LIMITS } from "../lib/paste/limits";
+
+test("an oversized paste keeps its ending and waits for the reader to shorten it", async ({ page }) => {
+  const requests: string[] = [];
+  page.on("request", (request) => {
+    if (new URL(request.url()).pathname === "/api/analyze") requests.push(request.method());
+  });
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read" });
+  await waitForHydration(input);
+  const draft = `${"a".repeat(PASTE_LIMITS.maxCharacters)} ORIGINAL ENDING`;
+  await input.fill(draft);
+  await expect(input).toHaveValue(draft);
+  await expect(input).toHaveAttribute("aria-invalid", "true");
+  const limitError = page.getByRole("alert").filter({ hasText: "Your full draft is still here" });
+  await expect(limitError).toBeVisible();
+  const submit = page.getByRole("button", { name: "Find what it turns on" });
+  await expect(submit).toBeDisabled();
+  await input.fill("a".repeat(PASTE_LIMITS.maxCharacters));
+  await expect(submit).toBeEnabled();
+  await expect(limitError).toHaveCount(0);
+  expect(requests).toEqual([]);
+});
 
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
   const apiCalls: string[] = [];

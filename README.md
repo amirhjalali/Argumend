@@ -66,6 +66,8 @@ closest maps only when their overlap is strong enough to be useful. A matched
 result links to the relevant crux on the reading page. Matching uses local
 word overlap and a few calibrated subject checks, not semantic understanding;
 unfamiliar subjects can still receive a closest-map list.
+Drafts over 20,000 characters remain intact in the input, including incoming
+handoffs. The reader must shorten them before submission; the app does not silently truncate them.
 When no map matches, the offline guide helps readers write their own mind-change
 conditions and common ground, with definitions and simple word cues in optional help.
 Those notes stay in page memory and can be copied
