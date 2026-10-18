@@ -85,8 +85,8 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         alt: "Two crowds of office workers stand on opposite sides of a widening crack in the ground; one side's floor stays level, the other tilts away.",
       },
       tagline:
-        "Employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers while unemployment sat near 4%. Which number matters? The whole fight in five questions.",
-      hook: "Among 22–25-year-olds in the most AI-exposed occupations, employment fell 16% relative to less-exposed peers since late 2022, after controlling for firm-level shocks — while overall U.S. unemployment sat near 4%. Both numbers are real. The fight is over what they mean.",
+        "The November 2025 Stanford/ADP study found young workers' employment in AI-exposed jobs down 16% relative to less-exposed peers. Its August 2026 update estimates 19%. Is AI responsible?",
+      hook: "The November 2025 Stanford/ADP study found employment among 22–25-year-olds in the most AI-exposed occupations down 16% relative to less-exposed peers. Its August 2026 update estimates 19%, while finding no widespread economy-wide displacement. The authors call these descriptive patterns, not causal estimates. The fight is over what they mean.",
       contextNote:
         "“AI-exposed” means jobs whose everyday tasks overlap most with what current AI systems do — software, clerical, customer service, analysis.",
       tldr: "This is three fights in a trench coat: whether AI is what broke entry-level hiring (the data can't yet say), whether the harm arrives as unemployment or as worse jobs (history mostly says worse jobs), and who gets to set the pace of deployment (no dataset settles that). Five questions carry almost all of it.",

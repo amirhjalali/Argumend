@@ -59,11 +59,11 @@ export const THINKING_DOTS = {
 } as const;
 
 // Example text for the "Try an Example" buttons on analyze pages
-export const EXAMPLE_ANALYSIS_TEXT = `The debate over nuclear energy has intensified. Proponents argue it's essential for meeting climate goals — nuclear produces minimal carbon emissions and provides reliable baseload power that renewables can't match. France generates 70% of its electricity from nuclear and has among the lowest carbon emissions in Europe.
+export const EXAMPLE_ANALYSIS_TEXT = `Should nuclear energy play a larger role in cutting emissions? Supporters argue that nuclear power provides low-carbon electricity around the clock. France generated 65% of its electricity from nuclear in 2023, showing that it can supply a large share of a country's grid.
 
-Critics counter that nuclear is too expensive and too slow to build. The Vogtle plant in Georgia came in at $35 billion, more than double its original estimate. Meanwhile, solar and wind costs have plummeted 90% in a decade. There are also unresolved questions about waste storage — the US still has no permanent repository despite decades of trying.
+Critics point to the cost overruns at Georgia's Vogtle reactors and ask whether new nuclear plants can cut emissions quickly enough. Wind and solar can be cheaper to build, but comparing individual plants does not settle the cost of providing equally reliable electricity. Nuclear waste also requires secure management over very long periods.
 
-Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical — Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`;
+Supporters hope that small modular reactors could reduce construction costs and delays. Critics answer that commercial results are still needed. The disagreement turns on which mix of nuclear power, renewables, storage, and grid upgrades can deliver reliable low-carbon electricity at an acceptable cost and pace.`;
 
 // ---------------------------------------------------------------------------
 // Two-axis confidence: Balance (tilt) + Weight (how much we know)

@@ -6,7 +6,7 @@ import type { Pillar } from "@/lib/schemas/topic";
 import { EXPECTED_MAP_COUNT } from "./mapDocuments";
 import type { RankedMap } from "./mapIndex";
 import { decideMatch, findMaps, getMapIndex, MAP_MATCH, pickPillars } from "./maps";
-import { ASSISTED_LIVING_PASTE, NUCLEAR_PASTE } from "./testPastes";
+import { ASSISTED_LIVING_PASTE, LEGACY_NUCLEAR_EXAMPLE, NUCLEAR_PASTE } from "./testPastes";
 
 /**
  * A ranking with the given scores. Every word of the paste is scored, so
@@ -259,8 +259,10 @@ describe("findMaps", () => {
   });
 
   it("keeps a nuclear-power article on the nuclear map although it mentions small modular reactors", async () => {
-    const result = await findMaps(EXAMPLE_ANALYSIS_TEXT);
-    expect(result.match?.id).toBe("nuclear-energy-safety");
+    for (const text of [EXAMPLE_ANALYSIS_TEXT, LEGACY_NUCLEAR_EXAMPLE]) {
+      const result = await findMaps(text);
+      expect(result.match?.id).toBe("nuclear-energy-safety");
+    }
   });
 
   // The first paste in a process reads every map to build the index.

@@ -34,6 +34,7 @@ export function HeroAnalyze() {
 
   const handleTryExample = useCallback(() => {
     setContent(EXAMPLE_ANALYSIS_TEXT);
+    setHandoffFailed(false);
     setTimeout(() => {
       textareaRef.current?.focus();
       textareaRef.current?.scrollIntoView({

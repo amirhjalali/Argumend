@@ -20,6 +20,9 @@ test("an unmapped personal argument becomes conversation notes without another r
   await expect(notes.getByRole("button", { name: "Copy your notes" })).toBeVisible();
   await notes.getByRole("button", { name: "A little" }).click();
   await expect(notes.getByRole("button", { name: "A little" })).toHaveAttribute("aria-pressed", "true");
+  await page.getByLabel("We both agree that…").fill(`we should check https://example.org/${"evidence".repeat(80)}`);
+  await expect(notes).toContainText("https://example.org/");
+  expect(await notes.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
   expect(apiCalls).toEqual(["POST /api/analyze"]);
 });
 

@@ -213,7 +213,7 @@ export function ReadItYourself({
             These are your words. Check your understanding of the other person’s view with them.
             Only the notes below are copied, not your original paste.
           </p>
-          <p className="whitespace-pre-wrap border-l-2 border-[var(--border-default)] pl-4 font-serif text-lg leading-relaxed">
+          <p className="whitespace-pre-wrap break-words border-l-2 border-[var(--border-default)] pl-4 font-serif text-lg leading-relaxed">
             {summary}
           </p>
           <NextStep summary={summary} kind="notes" />

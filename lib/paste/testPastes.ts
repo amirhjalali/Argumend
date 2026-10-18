@@ -17,3 +17,10 @@ export const NUCLEAR_PASTE =
   "A: Nuclear power is too dangerous, look at Chernobyl and Fukushima. B: Per terawatt-hour nuclear kills fewer " +
   "people than coal or gas, and new plants are safer. A: Even so, the waste lasts thousands of years and new " +
   "reactors are years late and billions over budget.";
+
+/** Previous built-in article, retained as a routing regression, not factual guidance. */
+export const LEGACY_NUCLEAR_EXAMPLE = `The debate over nuclear energy has intensified. Proponents argue it's essential for meeting climate goals: nuclear produces minimal carbon emissions and provides reliable baseload power that renewables can't match. France generates 70% of its electricity from nuclear and has among the lowest carbon emissions in Europe.
+
+Critics counter that nuclear is too expensive and too slow to build. The Vogtle plant in Georgia came in at $35 billion, more than double its original estimate. Meanwhile, solar and wind costs have plummeted 90% in a decade. There are also unresolved questions about waste storage: the US still has no permanent repository despite decades of trying.
+
+Supporters respond that newer reactor designs like SMRs could dramatically cut costs and construction times, and that the waste problem is more political than technical: Finland's Onkalo facility proves deep geological storage works. The real question may be whether we can afford to exclude any zero-carbon source while facing a climate emergency.`;

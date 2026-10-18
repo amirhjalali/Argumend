@@ -10,14 +10,14 @@ export const rentControlEffectivenessData = {
   category: "economics" as const,
   keystone_fact: {
     statement:
-      "When San Francisco extended rent control to small pre-1980 buildings in 1994, the tenants it covered moved about 20% less and were displaced less often; and the landlords it covered cut their rental supply by 15%. The same study found both effects. The fight is over what they mean for the next renter, and for different cap levels and protections against rental withdrawals.",
+      "When San Francisco extended rent control to small pre-1980 buildings in 1994, the tenants it covered moved about 20% less and were displaced less often. The landlords it covered cut their rental supply by 15%. The same study found both effects. The fight is over what they mean for the next renter, and for different cap levels and protections against rental withdrawals.",
     confidence: 85,
     source: "Diamond, McQuade & Qian, American Economic Review, 109(9): 3365-94 (2019)",
     sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
   },
   simple_case: [
-    "Both sides accept that strict 1970s-style rent ceilings cut rental supply, that rent control moves money to the tenants who already hold a controlled lease, and that a cap adds no homes of its own.",
-    "They split over whether different stabilization designs can avoid that supply harm; San Francisco already exempted new buildings and allowed rents to reset between tenants; whether keeping today's tenants in place is worth the higher rents and longer searches it leaves newcomers; and whether a cap buys time for new supply or delays it.",
+    "The San Francisco study found both protection against displacement for covered tenants and a loss of rental supply. Its policy already exempted new buildings and allowed rents to reset between tenants, so those exemptions alone did not prevent the supply loss.",
+    "The disagreement is whether other stabilization designs can avoid that harm, how to weigh current tenants' stability against newcomers' rents and search costs, and whether caps buy time for more housing or delay the reforms that would build it.",
   ],
   pillars: [
     // =========================================================================
