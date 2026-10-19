@@ -33,7 +33,7 @@ import type { DisagreementReportV1 } from "@/types/disagreement";
 import { HowThisWasRead, ReadingNote } from "./HowThisWasRead";
 import { MapMatch, MapNoMatch } from "./MapResult";
 import { NextStep } from "./NextStep";
-import { EMPTY_CONVERSATION_NOTES, type ConversationNotes } from "./ReadItYourself";
+import { EMPTY_CONVERSATION_NOTES, ReadItYourself, type ConversationNotes } from "./ReadItYourself";
 
 /**
  * The one paste flow at /analyze.
@@ -102,6 +102,23 @@ function toContentType(value: unknown): PasteContentType {
   return "freeform";
 }
 
+/** Our endpoints send Retry-After as whole seconds. Unknown values keep a general retry hint. */
+function limitedReadingMessage(response: Response, action: "map searches" | "full readings"): string | null {
+  if (response.status !== 429) return null;
+  const header = response.headers.get("Retry-After");
+  const seconds = header && /^\d+$/.test(header) ? Number(header) : NaN;
+  let retry = "Try again later.";
+  if (Number.isSafeInteger(seconds) && seconds > 0 && seconds <= 86_400) {
+    // Round up so the displayed minute does not send someone back too soon.
+    const retryAt = new Date(Math.ceil((Date.now() + seconds * 1000) / 60_000) * 60_000);
+    const when = new Intl.DateTimeFormat(undefined, {
+      month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+    }).format(retryAt);
+    retry = `Try again after ${when}.`;
+  }
+  return `This connection has reached the limit for ${action}. ${retry}`;
+}
+
 async function fetchMaps(
   content: string,
   contentType: PasteContentType,
@@ -112,6 +129,8 @@ async function fetchMaps(
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ content, contentType }),
     });
+    const limited = limitedReadingMessage(response, "map searches");
+    if (limited) return { error: limited };
     const data: unknown = await response.json();
     const parsed = PasteMapsResponseSchema.safeParse(data);
     if (!response.ok || !parsed.success) {
@@ -131,6 +150,11 @@ async function fetchDiagnosis(content: string, contentType: PasteContentType): P
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ content, contentType }),
     });
+    const limited = limitedReadingMessage(response, "full readings");
+    if (limited) {
+      trackEvent({ action: "disagreement_analysis_failed", errorCode: "RATE_LIMITED" });
+      return { status: "failed", message: limited };
+    }
     const raw: unknown = await response.json();
     const parsed = PasteDiagnosisResponseSchema.safeParse(raw);
     if (!response.ok || !parsed.success) {
@@ -231,6 +255,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const runRef = useRef(0);
   const resultsRef = useRef<HTMLElement>(null);
+  const recoveryRef = useRef<HTMLElement>(null);
   const textareaWrapRef = useRef<HTMLDivElement>(null);
   const editRequested = useRef(false);
   const attachInput = useCallback((node: HTMLDivElement | null) => {
@@ -416,18 +441,22 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   }, [diagnosis.status]);
 
   useEffect(() => {
-    if (phase !== "done") return;
-    const region = resultsRef.current;
+    if (phase !== "done" && phase !== "error") return;
+    const region = phase === "error" ? recoveryRef.current : resultsRef.current;
     if (!region) return;
     region.focus({ preventScroll: true });
-    // The input has just collapsed into one line, so the result starts on
-    // the first screen: go back to the top rather than aiming at the region,
-    // which overshot under the sticky top bar. AppShell's <main> can own the
-    // scroll, so reset whichever element does.
     const reduce =
       typeof window.matchMedia === "function" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const behavior: ScrollBehavior = reduce ? "auto" : "smooth";
+    if (phase === "error") {
+      region.scrollIntoView?.({ block: "start", behavior });
+      return;
+    }
+    // The input has just collapsed into one line, so the result starts on
+    // the first screen: go back to the top rather than aiming at the region,
+    // which overshot under the sticky top bar. AppShell's <main> can own the
+    // scroll, so reset whichever element does.
     const main = region.closest("main");
     if (main && main.scrollHeight > main.clientHeight) main.scrollTo?.({ top: 0, behavior });
     window.scrollTo?.({ top: 0, behavior });
@@ -456,6 +485,14 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   // With no map, the "read it yourself" guide stands in for the diagnosis:
   // always when that lane is off, and when it is on but did not run.
   const showGuide = !diagnosisOn || diagnosis.status === "failed";
+  const hasNotes = Object.values(conversationNotes).some((value) => value.trim());
+  const notesGuide = (
+    <ReadItYourself
+      text={submitted}
+      diagnosisOn={false}
+      notesState={{ value: conversationNotes, onChange: setConversationNotes }}
+    />
+  );
 
   // What a screen reader hears when the result lands. Focus moves to the
   // result region too, but "Result, region" alone does not say what came back.
@@ -582,13 +619,24 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
       ) : null}
 
       {phase === "error" ? (
-        <div role="alert" className="mt-8 max-w-3xl space-y-2 border-l-2 border-[var(--text-muted)] pl-4">
-          <p className="text-[var(--text-primary)]">{error}</p>
+        <section ref={recoveryRef} tabIndex={-1} aria-label="Continue with your argument" className="mt-8 max-w-3xl scroll-mt-24 space-y-4 focus:outline-none">
+          <div role="alert" className="space-y-2 border-l-2 border-[var(--text-muted)] pl-4">
+            <p className="text-[var(--text-primary)]">{error}</p>
+            <p className="font-sans text-sm text-[var(--text-secondary)]">
+              Your draft is still here. You can retry, browse maps or work through the argument yourself.
+            </p>
+          </div>
           <div className="flex flex-wrap gap-x-5">
-            <TextAction onClick={() => void submit(content, contentType)}>Try again</TextAction>
+            <TextAction disabled={inputDisabled || tooShort || tooLong} onClick={() => void submit(content, contentType)}>Try again</TextAction>
             <TextAction href="/topics">Browse every map</TextAction>
           </div>
-        </div>
+          <details open={hasNotes}>
+            <summary className="min-h-11 cursor-pointer py-2.5 font-sans text-sm text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#8bb5b1]">
+              Work through it yourself
+            </summary>
+            <div className="mt-4">{notesGuide}</div>
+          </details>
+        </section>
       ) : null}
 
       {done ? (
@@ -636,7 +684,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
                 maps={maps}
                 text={submitted}
                 diagnosisOn={diagnosisOn}
-                guide={showGuide}
+                guide={showGuide || hasNotes}
                 notesState={{ value: conversationNotes, onChange: setConversationNotes }}
               />
             )
@@ -651,6 +699,15 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           ) : null}
 
           {match ? <ClosestMaps title="Closest other maps" level={2} maps={maps?.closest ?? []} /> : null}
+
+          {(match || !maps) && hasNotes ? (
+            <details>
+              <summary className="min-h-11 cursor-pointer py-2.5 font-sans text-sm text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#8bb5b1]">
+                Your conversation notes
+              </summary>
+              <div className="mt-4">{notesGuide}</div>
+            </details>
+          ) : null}
 
           <div className="space-y-6">
             {diagnosis.status === "done" && diagnosis.publishing?.token ? (

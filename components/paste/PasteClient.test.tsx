@@ -418,6 +418,60 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(view.queryByRole("region", { name: "Result" })).toBeNull();
   });
 
+  it("explains a timed limit and preserves locally written notes through return and a successful retry", async () => {
+    vi.spyOn(Date, "now").mockReturnValue(Date.parse("2026-10-18T14:00:31Z"));
+    let calls = 0;
+    const fetchMock = stubFetch({
+      "/api/analyze": () => ++calls === 1
+        ? Promise.resolve(new Response("temporarily limited", { status: 429, headers: { "Retry-After": "90" } }))
+        : jsonResponse({ maps: matched }),
+    });
+    const first = render(<PasteClient lanes={OFFLINE} />);
+    fireEvent.click(first.getByRole("button", { name: "See an example" }));
+    fireEvent.click(first.getByRole("button", { name: "Find what it turns on" }));
+    const alert = await waitFor(() => first.getByRole("alert"));
+    expect(document.activeElement).toBe(first.getByRole("region", { name: "Continue with your argument" }));
+    const retryTime = new Intl.DateTimeFormat(undefined, {
+      month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+    }).format(new Date("2026-10-18T14:03:00Z"));
+    expect(alert.textContent).toContain(`This connection has reached the limit for map searches. Try again after ${retryTime}.`);
+    expect(first.queryByRole("heading", { name: /^No map/ })).toBeNull();
+    fireEvent.click(first.getByText("Work through it yourself", { exact: true }));
+    fireEvent.change(first.getByLabelText("You would think again if…"), { target: { value: "we checked the local wage data" } });
+    expect(alert.querySelector("input")).toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    first.unmount();
+
+    const returned = render(<PasteClient lanes={OFFLINE} />);
+    await waitFor(() => expect((returned.getByLabelText("You would think again if…") as HTMLInputElement).value).toBe("we checked the local wage data"));
+    const input = returned.getByLabelText("The argument to read") as HTMLTextAreaElement;
+    expect(input.value).toBe(DISAGREEMENT_EXAMPLE_SOURCE);
+    fireEvent.change(input, { target: { value: "short" } });
+    expect((returned.getByRole("button", { name: "Try again" }) as HTMLButtonElement).disabled).toBe(true);
+    fireEvent.change(input, { target: { value: DISAGREEMENT_EXAMPLE_SOURCE } });
+    fireEvent.click(returned.getByRole("button", { name: "Try again" }));
+    await waitFor(() => returned.getByRole("heading", { name: "This argument is already mapped" }));
+    fireEvent.click(returned.getByText("Your conversation notes", { exact: true }));
+    expect((returned.getByLabelText("You would think again if…") as HTMLInputElement).value).toBe("we checked the local wage data");
+    const notes = returned.getByRole("region", { name: "Your conversation notes" });
+    expect(notes.textContent).toContain("we checked the local wage data");
+    expect(notes.textContent).not.toContain(DISAGREEMENT_EXAMPLE_SOURCE);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it.each([null, "tomorrow", "-1", "1.5", "0", "99999999999999999"])("keeps a usable limit message for an unknown delay (%s)", async (delay) => {
+    stubFetch({ "/api/analyze": () => Promise.resolve(new Response("not JSON", {
+      status: 429,
+      headers: delay === null ? {} : { "Retry-After": delay },
+    })) });
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+    const alert = await waitFor(() => view.getByRole("alert"));
+    expect(alert.textContent).toContain("This connection has reached the limit for map searches. Try again later.");
+    expect(view.getByText("Work through it yourself", { exact: true })).toBeTruthy();
+  });
+
   it("keeps the input and offers a retry when the map lane fails", async () => {
     stubFetch({
       "/api/analyze": () => jsonResponse({ error: "The maps could not be searched just now." }, false),
@@ -474,6 +528,19 @@ describe("PasteClient with the diagnosis lane on", () => {
     expect(masthead.compareDocumentPosition(mapHeading) & 4).toBe(4);
     expect(view.queryByRole("button", { name: /shareable link/i })).toBeNull();
     expect(view.getByText(/test fixtures, not a live model/)).toBeTruthy();
+  });
+
+  it("keeps the ready map when a full reading is limited, even if the error body is not JSON", async () => {
+    stubFetch({
+      "/api/analyze": () => jsonResponse({ maps: matched }),
+      "/api/disagreements/analyze": () => Promise.resolve(new Response("temporarily limited", { status: 429 })),
+    });
+    const view = render(<PasteClient lanes={FIXTURES} />);
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+    await waitFor(() => view.getByRole("heading", { name: "This argument is already mapped" }));
+    expect(view.getByText(/This connection has reached the limit for full readings. Try again later/)).toBeTruthy();
+    expect(view.queryByRole("alert")).toBeNull();
   });
 
   it("still shows the map when the diagnosis fails", async () => {

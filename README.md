@@ -120,6 +120,10 @@ connect water scarcity to birth rates. Broad categories do not fill empty slots:
 a page may show fewer than three neighbours and always offers Browse all maps.
 Drafts over 20,000 characters remain intact in the input, including incoming
 handoffs. The reader must shorten them before submission; the app does not silently truncate them.
+If a search fails, the draft remains editable and an optional conversation guide
+works without another request. Notes survive a retry and remain accessible when
+a map is found. Rate-limit responses show a local retry time when the server
+supplies a valid delay.
 When no map matches, the offline guide helps readers write their own mind-change
 conditions and common ground, with definitions and simple word cues in optional help.
 The current draft, result and notes stay in tab memory across site navigation,
@@ -408,6 +412,7 @@ types/                  Shared TypeScript types
 - Use offline mode unless a task specifically needs live model behavior.
 - Keep topic data deterministic so graph behavior is easy to test.
 - Prefer typed schemas at boundaries; do not let raw model output flow directly into UI state.
+- GitHub CI checks pushes to `main` and `codex/**` branches, plus pull requests.
 - Run `bun run test` and `bun run lint` before opening a PR. (`bun test`
   invokes Bun's separate native runner and does not load this project's Vitest
   configuration.)

@@ -38,6 +38,60 @@ for (const entry of [
   });
 }
 
+test("a limited search keeps a usable draft and conversation notes while browsing", async ({ page, consoleErrors }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async (text: string) => { document.documentElement.dataset.copiedNotes = text; } },
+    });
+  });
+  let requests = 0;
+  await page.route("**/api/analyze", async (route) => {
+    requests += 1;
+    await route.fulfill({
+      status: 429,
+      headers: { "Retry-After": "120", "content-type": "application/json" },
+      body: JSON.stringify({ error: "Rate limited. Please try again later.", code: "RATE_LIMITED" }),
+    });
+  });
+  await page.goto("/analyze");
+  const input = page.getByRole("textbox", { name: "The argument to read", exact: true });
+  await input.fill("My family disagrees about spending our bonus. I think we should save it for emergencies, but my partner wants us to take a holiday together.");
+  const draft = await input.inputValue();
+  await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
+  const recovery = page.getByRole("region", { name: "Continue with your argument" });
+  await expect(recovery).toBeFocused();
+  await expect(recovery.getByRole("alert")).toBeInViewport();
+  await page.keyboard.press("Tab");
+  await expect(recovery.getByRole("button", { name: "Try again", exact: true })).toBeFocused();
+  await expect(recovery.getByRole("alert")).toContainText("This connection has reached the limit for map searches. Try again after");
+  await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toHaveCount(0);
+  await expect(input).toHaveValue(draft);
+  await recovery.getByText("Work through it yourself", { exact: true }).click();
+  const condition = page.getByLabel("You would think again if…");
+  await condition.fill("we already had an emergency fund");
+  await page.getByLabel("We both agree that…").fill("we want time together and financial security");
+  await recovery.getByRole("button", { name: "Copy your notes", exact: true }).click();
+  const copied = await page.evaluate(() => document.documentElement.dataset.copiedNotes);
+  expect(copied).toContain("I would think again if: we already had an emergency fund");
+  expect(copied).not.toContain(draft);
+  expect(await recovery.evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.left >= 0 && rect.right <= innerWidth;
+  })).toBe(true);
+  await recovery.getByRole("link", { name: "Browse every map", exact: true }).click();
+  await expect(page).toHaveURL(/\/topics$/);
+  await page.getByRole("link", { name: "Paste an argument", exact: true }).first().click();
+  await expect(input).toHaveValue(draft);
+  await expect(condition).toHaveValue("we already had an emergency fund");
+  await input.fill("short");
+  await expect(page.getByRole("button", { name: "Try again", exact: true })).toBeDisabled();
+  expect(requests).toBe(1);
+  // Only the deliberately simulated 429 is expected; other console errors still fail the fixture.
+  expect(consoleErrors).toEqual([expect.stringMatching(/Failed to load resource:.*429/)]);
+  consoleErrors.splice(0, 1);
+});
+
 test("an oversized paste keeps its ending and waits for the reader to shorten it", async ({ page }) => {
   const requests: string[] = [];
   page.on("request", (request) => {
