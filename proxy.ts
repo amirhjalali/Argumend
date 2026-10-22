@@ -1,9 +1,34 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { legacyHomeTopicPath, shouldServeNamedNotFound } from "@/lib/dynamicRoutePolicy";
+import { apiJson } from "@/app/api/v1/_shared/http";
+import { ogErrorResponse } from "@/lib/og";
 
 const INTERNAL_NOT_FOUND_PATH = "/__argumend-dynamic-not-found__";
+const PUBLIC_TOPIC_API_PATH = /^\/api\/(v1\/topics|og|verdict-card)\/[^/]+\/?$/;
 
 export function proxy(request: NextRequest) {
+  const publicApi = request.nextUrl.pathname.match(PUBLIC_TOPIC_API_PATH);
+  if (publicApi) {
+    // Next decodes dynamic route params before calling the handler. Reject
+    // malformed encoding here so a bad topic id cannot become a framework 500.
+    try {
+      decodeURIComponent(request.nextUrl.pathname);
+    } catch {
+      if (publicApi[1] === "v1/topics") {
+        return apiJson(
+          { error: "Invalid topic id.", code: "INVALID_TOPIC_ID" },
+          { status: 400, cache: false },
+        );
+      }
+      if (publicApi[1] === "og") return ogErrorResponse(400, "INVALID_TOPIC_ID");
+      return new Response("Invalid topic ID encoding", {
+        status: 400,
+        headers: { "Cache-Control": "no-store" },
+      });
+    }
+    return NextResponse.next();
+  }
+
   // Old home-canvas links, `/?topic=<id>[&view=…]`: one 308 to the map's
   // page or diagram, without the stale `topic`/`view` parameters.
   if (request.nextUrl.pathname === "/") {
@@ -30,6 +55,9 @@ export const config = {
   matcher: [
     // Only home requests that carry `?topic=` reach the proxy.
     { source: "/", has: [{ type: "query", key: "topic" }] },
+    "/api/v1/topics/:id",
+    "/api/og/:id",
+    "/api/verdict-card/:topicId",
     "/topics/:id",
     "/topics/:id/map",
     "/blog/:slug",
