@@ -78,3 +78,14 @@ export const CLAIM_SIDES: SideWords = {
 export function sideWords(map: { question?: string | null }): SideWords {
   return map.question?.trim() ? ANSWER_SIDES : CLAIM_SIDES;
 }
+
+/** Evidence shown below a crux still answers the map's question. */
+export function evidenceLabels(map: { question?: string | null }): Record<"for" | "against", string> {
+  if (!map.question?.trim()) {
+    return { for: "Supports the claim", against: "Challenges the claim" };
+  }
+  return {
+    for: `${ANSWER_SIDES.yesEvidence} on the map’s question`,
+    against: `${ANSWER_SIDES.noEvidence} on the map’s question`,
+  };
+}

@@ -66,11 +66,26 @@ describe("DiagramDetail", () => {
     if (evidence.kind !== "evidence") throw new Error("not evidence");
     render(<DiagramDetail model={diagram} node={evidence} onClose={() => {}} />);
     const dialog = screen.getByRole("dialog");
-    expect(dialog.textContent).toContain(evidence.side === "for" ? "Supports the claim" : "Challenges the claim");
+    expect(dialog.textContent).toContain(evidence.sideLabel);
     expect(dialog.textContent).toContain(evidence.description);
     const source = screen.getByRole("link", { name: /opens in a new tab/ });
     expect(source.getAttribute("href")).toBe(evidence.sourceUrl);
     expect(source.getAttribute("target")).toBe("_blank");
     expect(dialog.textContent).not.toMatch(/\/40|· (?:Strong|Moderate|Weak|Minimal)/);
+  });
+
+  it("names the map's answer when a crux asks the opposite question", () => {
+    expect(diagram.title).toBe("Should nuclear power be expanded to help decarbonize electricity?");
+    const crux = diagram.nodes.find((node) => node.kind === "crux" && node.label.includes("risks outweigh"));
+    expect(crux).toBeDefined();
+    for (const side of ["supporters", "skeptics"] as const) {
+      const branch = diagram.nodes.find((node) => node.kind === "side" && node.parentId === crux!.id && node.side === side)!;
+      const evidence = diagram.nodes.find((node) => node.kind === "evidence" && node.parentId === branch.id)!;
+      const view = render(<DiagramDetail model={diagram} node={evidence} onClose={() => {}} />);
+      const text = screen.getByRole("dialog").textContent;
+      expect(text).toContain(side === "supporters" ? "Points to yes on the map’s question" : "Points to no on the map’s question");
+      expect(text).toContain(`On: ${crux!.label}`);
+      view.unmount();
+    }
   });
 });
