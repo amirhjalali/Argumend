@@ -8,6 +8,7 @@ import { TextAction } from "@/components/ui/Button";
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
 import { ANALYZE_HREF } from "@/lib/nav";
+import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
 /**
  * Loads a published report, treating every failure path the same way: an
@@ -19,7 +20,7 @@ async function loadPublishedReport(slug: string) {
   try {
     return await getPublishedDisagreementReport(slug);
   } catch (error) {
-    console.error("Failed to load published report", { slug: Boolean(slug), error: String(error) });
+    console.error("Failed to load published report", { slug: Boolean(slug), error: sanitizeServerLog(error) });
     return null;
   }
 }
