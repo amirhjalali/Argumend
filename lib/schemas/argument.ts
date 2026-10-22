@@ -243,6 +243,39 @@ export const ArgumentGraphSchema = z
   })
   .strict()
   .superRefine((graph, ctx) => {
+    const nodeIds = new Set<string>();
+    graph.nodes.forEach((node, index) => {
+      if (nodeIds.has(node.id)) {
+        ctx.addIssue({
+          code: "custom",
+          message: `Duplicate node id "${node.id}"`,
+          path: ["nodes", index, "id"],
+        });
+      }
+      nodeIds.add(node.id);
+    });
+
+    const edgeIds = new Set<string>();
+    graph.edges.forEach((edge, index) => {
+      if (edgeIds.has(edge.id)) {
+        ctx.addIssue({
+          code: "custom",
+          message: `Duplicate edge id "${edge.id}"`,
+          path: ["edges", index, "id"],
+        });
+      }
+      edgeIds.add(edge.id);
+      for (const endpoint of ["from", "to"] as const) {
+        if (!nodeIds.has(edge[endpoint])) {
+          ctx.addIssue({
+            code: "custom",
+            message: `Edge references missing ${endpoint} node "${edge[endpoint]}"`,
+            path: ["edges", index, endpoint],
+          });
+        }
+      }
+    });
+
     const questionNodes = graph.nodes.filter((node) => node.type === "question");
 
     if (questionNodes.length !== 1) {

@@ -59,6 +59,21 @@ const STOP_WORDS = new Set([
 
 export function validateArgumentGraph(graph: ArgumentGraph): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
+  const nodeIds = new Set<string>();
+  for (const node of graph.nodes) {
+    if (nodeIds.has(node.id)) {
+      addIssue(issues, {
+        rule: "node-id-unique",
+        severity: "error",
+        nodeId: node.id,
+        message: `Duplicate node id "${node.id}".`,
+      });
+    }
+    nodeIds.add(node.id);
+  }
+  // Ambiguous identity would make every later lookup depend on array order.
+  if (issues.length > 0) return issues;
+
   const nodesById = new Map(graph.nodes.map((node) => [node.id, node]));
   const edgeById = new Set<string>();
 
