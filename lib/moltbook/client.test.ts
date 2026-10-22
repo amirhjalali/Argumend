@@ -125,6 +125,30 @@ describe("MoltbookClient HTTP boundary", () => {
     ]);
   });
 
+  it("keeps post and comment identifiers inside a single URL segment", async () => {
+    const fetchMock = vi.fn().mockImplementation(() => Promise.resolve(ok([])));
+    vi.stubGlobal("fetch", fetchMock);
+    const client = new MoltbookClient("key");
+    const id = "item/one?draft=true#comment";
+    const encodedId = "item%2Fone%3Fdraft%3Dtrue%23comment";
+
+    await client.getPost(id);
+    await client.upvotePost(id);
+    await client.downvotePost(id);
+    await client.createComment(id, "A reply");
+    await client.upvoteComment(id);
+    await client.downvoteComment(id);
+
+    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([
+      `${apiBase}/posts/${encodedId}`,
+      `${apiBase}/posts/${encodedId}/upvote`,
+      `${apiBase}/posts/${encodedId}/downvote`,
+      `${apiBase}/posts/${encodedId}/comments`,
+      `${apiBase}/comments/${encodedId}/upvote`,
+      `${apiBase}/comments/${encodedId}/downvote`,
+    ]);
+  });
+
   it("serializes optional comment parent state explicitly", async () => {
     const fetchMock = vi
       .fn()
