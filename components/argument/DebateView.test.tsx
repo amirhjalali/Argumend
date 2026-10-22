@@ -126,6 +126,48 @@ function enrichedWorkedExampleGraph(): ArgumentGraph {
 }
 
 describe("DebateView", () => {
+  it("shows the current METR trial that challenges an inference with its source disclosure", () => {
+    const topic = loadArgumentTopic("ai-mass-unemployment")!;
+    const trial = topic.graph.nodes.find((node) => node.id === "e-metr-dev-slowdown-rct") as Evidence;
+    const view = render(<DebateView meta={topic.meta} graph={topic.graph} cruxes={topic.cruxes} />);
+
+    const targetCrux = view.container.querySelector("#crux-c-firms-cut-hiring-not-output")!;
+    const inference = topic.graph.nodes.find((node) => node.id === "i-productivity-rct-generalization");
+    expect(inference?.type).toBe("inference");
+    expect(targetCrux.textContent).toContain(trial.finding);
+    expect(targetCrux.textContent).toContain(trial.source.interest);
+    expect(targetCrux.textContent).toContain("Challenges this reasoning:");
+    expect(targetCrux.textContent).toContain(inference?.type === "inference" ? inference.warrant : "missing warrant");
+    expect(targetCrux.querySelector(`a[href="${trial.source.url}"]`)?.textContent)
+      .toContain(trial.source.title);
+  });
+
+  it.each(["claim", "evidence"] as const)("shows only current %s challenges to a reasoning step", (type) => {
+    for (const superseded of [false, true]) {
+      const graph = workedExampleGraph();
+      const statement = "The inference does not establish the claimed causal connection.";
+      graph.edges = graph.edges.filter((edge) => edge.type !== "undercuts");
+      graph.nodes.push(type === "claim"
+        ? { ...claim("test-challenge", statement), status: superseded ? "superseded" : "contested" }
+        : { ...evidence("test-challenge", statement, "Test review"), status: superseded ? "superseded" : "current" });
+      graph.edges.push({ id: "test-undercut", from: "test-challenge", to: "i1", type: "undercuts" });
+      const target = graph.nodes.find((node) => node.id === "c2") as Claim;
+      target.cruxOverride = "pin";
+      target.overrideBasis = "Keep the challenged conclusion visible.";
+      const view = render(<DebateView meta={TEST_META} graph={graph} cruxes={identifyCruxes(graph)} />);
+      const targetCrux = view.container.querySelector("#crux-c2")!;
+
+      if (superseded) {
+        expect(targetCrux.textContent).not.toContain(statement);
+        expect(targetCrux.textContent).not.toContain("Challenges to the reasoning");
+      } else {
+        expect(targetCrux.textContent).toContain(statement);
+        expect(targetCrux.textContent).toContain("Challenges to the reasoning");
+      }
+      view.unmount();
+    }
+  });
+
   it.each([
     { type: "opposes", from: "c-caveat", to: "c2" },
     { type: "contradicts", from: "c0", to: "c2" },

@@ -527,8 +527,19 @@ function ClaimEvidence({
     const other = nodesById.get(edge.to === claim.id ? edge.from : edge.to);
     return other?.type === "claim" && other.status !== "superseded";
   });
+  const reasoningChallenges = graph.edges.flatMap((edge) => {
+    if (edge.type !== "concludes" || edge.to !== claim.id) return [];
+    const inference = nodesById.get(edge.from);
+    if (inference?.type !== "inference") return [];
+    const challenges = graph.edges.filter((challenge) => {
+      if (challenge.type !== "undercuts" || challenge.to !== inference.id) return false;
+      const source = nodesById.get(challenge.from);
+      return (source?.type === "claim" || source?.type === "evidence") && source.status !== "superseded";
+    });
+    return challenges.length > 0 ? [{ inference, challenges }] : [];
+  });
 
-  if (evidenceEdges.length === 0 && objections.length === 0) return null;
+  if (evidenceEdges.length === 0 && objections.length === 0 && reasoningChallenges.length === 0) return null;
 
   return (
     <div className="space-y-3">
@@ -558,6 +569,36 @@ function ClaimEvidence({
           </ul>
         </DetailBlock>
       )}
+      {reasoningChallenges.length > 0 && (
+        <DetailBlock label="Challenges to the reasoning">
+          <div className="space-y-3">
+            {reasoningChallenges.map(({ inference, challenges }) => (
+              <div key={inference.id} className="space-y-2">
+                <p className="text-sm leading-relaxed">
+                  <span className="font-medium">Reasoning step:</span> {inference.warrant}
+                </p>
+                <ul className="space-y-2.5">
+                  {challenges.map((edge) => {
+                    const source = nodesById.get(edge.from);
+                    if (source?.type === "evidence") {
+                      return <EvidenceItem key={edge.id} edge={edge} graph={graph} nodesById={nodesById} />;
+                    }
+                    if (source?.type !== "claim") return null;
+                    return (
+                      <li key={edge.id} className="text-sm leading-relaxed">
+                        <span className="font-medium text-[#8B5A3C] dark:text-[#d4805f]">
+                          Challenges this reasoning:
+                        </span>{" "}
+                        {source.summary ?? source.statement}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </DetailBlock>
+      )}
     </div>
   );
 }
@@ -573,7 +614,9 @@ function EvidenceItem({
 }) {
   const node = nodesById.get(edge.from);
   if (node?.type !== "evidence") return null;
-  const polarity = POLARITY_RENDER[edge.polarity ?? "qualifying"];
+  const polarity = edge.type === "undercuts"
+    ? { ...POLARITY_RENDER.challenging, label: "Challenges this reasoning" }
+    : POLARITY_RENDER[edge.polarity ?? "qualifying"];
   const scopeLimits = graph.edges.filter((edge) => {
     if (edge.type !== "limits_scope" || edge.to !== node.id) return false;
     const limiter = nodesById.get(edge.from);
