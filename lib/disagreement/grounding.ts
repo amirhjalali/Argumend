@@ -95,7 +95,7 @@ export function groundQuotes(
     const located = locateQuote(source, quote);
     if (!located) {
       dropped += 1;
-      warnings.push(`Dropped ungrounded quote at ${idPrefix}[${index}]`);
+      warnings.push(`Dropped ungrounded quote at index ${index}.`);
       continue;
     }
     refs.push({

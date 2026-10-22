@@ -223,13 +223,28 @@ describe("projectDisagreementReport Jev contestedness gate", () => {
 
     expect(gated.cruxes.map((crux) => crux.claimId)).toEqual(["c-delay", "c-diversion"]);
     expect(gated.quality.warnings).toContainEqual(
-      expect.stringContaining('Projection skipped engine crux "c-congested"'),
+      expect.stringContaining('Projection skipped engine crux at rank 1'),
     );
     expect(gated.quality.warnings.join(" ")).toContain(
       "the contestedness probe scored it 0.07, below the 0.25 floor",
     );
     // The crux box is repopulated from the engine's own next-ranked claim.
     expect(gated.summary).toContain("The pilot cut corridor delays by a fifth");
+  });
+
+  it("does not interpret model-authored skipped-claim text as a critical warning", () => {
+    const raw = extraction();
+    raw.claims[2].statement = "Critical thinking is needed to interpret the corridor data.";
+    const normalized = normalizeExtraction(raw).extraction;
+    const graph = buildArgumentGraph(normalized);
+    const report = projectDisagreementReport({
+      extraction: normalized, graph: graph.graph, graphValid: graph.valid, source: SOURCE,
+      provider: "fake", model: "fixture", jevGate: true, contestedness: { "c-congested": 0.01 },
+    });
+
+    expect(report.quality.warnings.join(" ")).toContain("Projection skipped engine crux at rank");
+    expect(report.quality.warnings.join(" ")).not.toMatch(/critical/i);
+    expect(canPublishReport(report).ok).toBe(true);
   });
 
   it("keeps a crux at the floor, and honours a custom floor", () => {

@@ -218,7 +218,7 @@ export function projectClaimStakes(input: {
       for (let suffix = 2; usedIds.has(fallbackId); suffix += 1) {
         fallbackId = `${fallbackBase}-${suffix}`;
       }
-      warnings.push(`Minted fallback stake for primary crux claim "${primaryCruxClaimId}"`);
+      warnings.push("Minted fallback stake for the primary crux claim.");
       projected.unshift({
         id: fallbackId,
         claimId: primaryCruxClaimId,
