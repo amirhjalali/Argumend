@@ -101,6 +101,18 @@ describe("judge response parsing", () => {
     });
   });
 
+  it.each([
+    'A closing brace "}" is part of the quoted argument.',
+    'The notation "{" opens the set.',
+    'The path ends in \\ and the quoted example is "}".',
+    'The transcript contains ```json and a literal } symbol.',
+  ])("preserves JSON string content in reasoning: %s", (overallReasoning) => {
+    const response = { ...validResponse, overallReasoning };
+
+    expect(parseJudgeResponse(`Judgment follows:\n${JSON.stringify(response)}\nEnd.`))
+      .toMatchObject({ overallReasoning });
+  });
+
   it("treats a provider's null confidence as missing rather than numeric zero", () => {
     const parsed = parseJudgeResponse(
       JSON.stringify({
@@ -115,6 +127,8 @@ describe("judge response parsing", () => {
   it.each([
     ["not-json", "malformed JSON"],
     ["{\"forScore\":", "truncated JSON"],
+    [JSON.stringify([validResponse]), "array containing a judgment"],
+    [`prefix {"incomplete": ${JSON.stringify(validResponse)}`, "nested fragment"],
     [JSON.stringify({ ...validResponse, winner: "undecided" }), "invalid winner"],
     [
       JSON.stringify({

@@ -126,6 +126,26 @@ describe("extractArguments", () => {
     );
   });
 
+  it.each([
+    'A closing brace "}" is part of the quoted argument.',
+    'The notation "{" opens the set.',
+    'The path ends in \\ and the quoted example is "}".',
+    'The transcript contains ```json and a literal } symbol.',
+  ])("preserves JSON string content in the claim: %s", async (claim) => {
+    const extraction = {
+      ...validExtraction,
+      positions: [{ side: "for", arguments: [{ claim }] }],
+    };
+    mocks.executeAgent.mockResolvedValue({
+      content: `Extraction follows:\n${JSON.stringify(extraction)}\nEnd.`,
+      agentId: "extractor",
+    });
+
+    const result = await extractArguments("content");
+
+    expect(result.positions[0].arguments[0].claim).toBe(claim);
+  });
+
   it("surfaces executor failures without attempting to parse empty content", async () => {
     mocks.executeAgent.mockResolvedValue({
       content: "",
@@ -142,6 +162,8 @@ describe("extractArguments", () => {
     ["not json", "malformed JSON"],
     [JSON.stringify({ ...validExtraction, confidence: 4 }), "schema-invalid JSON"],
     ["prefix {\"topic\":", "truncated JSON"],
+    [JSON.stringify([validExtraction]), "array containing an extraction"],
+    [`prefix {"incomplete": ${JSON.stringify(validExtraction)}`, "nested fragment"],
   ])("rejects %s responses", async (content) => {
     vi.spyOn(console, "warn").mockImplementation(() => undefined);
     mocks.executeAgent.mockResolvedValue({ content, agentId: "extractor" });
