@@ -65,6 +65,9 @@ export function normalizeExtraction(
     const normalized = participantMap.get(id);
     return normalized ? duplicateParticipantIds.get(normalized) ?? normalized : undefined;
   };
+  const remapParticipantIds = (ids: string[]) => [
+    ...new Set(ids.map(remapParticipant).filter((id): id is string => Boolean(id))),
+  ];
   let droppedQuoteAttributions = 0;
   const remapGroundingQuotes = (quotes: RawGroundingQuote[]) => quotes.map((quote) => {
     if (quote.participantId === undefined) return quote;
@@ -79,10 +82,8 @@ export function normalizeExtraction(
       warnings.push(`Renamed position identifier at index ${index}.`);
     }
     positionMap.set(position.id, nextId);
-    const participantIds = position.participantIds
-      .map((id) => remapParticipant(id))
-      .filter((id): id is string => Boolean(id));
-    if (participantIds.length < position.participantIds.length) {
+    const participantIds = remapParticipantIds(position.participantIds);
+    if (position.participantIds.some((id) => !remapParticipant(id))) {
       warnings.push(`Dropped dangling participant on position at index ${index}.`);
     }
     return {
@@ -113,15 +114,9 @@ export function normalizeExtraction(
       ...claim,
       id: nextId,
       groundingQuotes: remapGroundingQuotes(claim.groundingQuotes),
-      participantIds: claim.participantIds
-        .map((id) => remapParticipant(id))
-        .filter((id): id is string => Boolean(id)),
-      acceptedByParticipantIds: claim.acceptedByParticipantIds
-        .map((id) => remapParticipant(id))
-        .filter((id): id is string => Boolean(id)),
-      disputedByParticipantIds: claim.disputedByParticipantIds
-        .map((id) => remapParticipant(id))
-        .filter((id): id is string => Boolean(id)),
+      participantIds: remapParticipantIds(claim.participantIds),
+      acceptedByParticipantIds: remapParticipantIds(claim.acceptedByParticipantIds),
+      disputedByParticipantIds: remapParticipantIds(claim.disputedByParticipantIds),
       stanceByPosition: claim.stanceByPosition
         .map((stance) => {
           const positionId = remapPosition(stance.positionId);
@@ -164,9 +159,7 @@ export function normalizeExtraction(
   const commonGroundCandidates = raw.commonGroundCandidates.map((item) => ({
     ...item,
     groundingQuotes: remapGroundingQuotes(item.groundingQuotes),
-    participantIds: item.participantIds
-      .map((id) => remapParticipant(id))
-      .filter((id): id is string => Boolean(id)),
+    participantIds: remapParticipantIds(item.participantIds),
   })).filter((item) => {
     if (item.participantIds.length === 0) {
       warnings.push("Dropped common-ground item with no participants");
@@ -197,7 +190,13 @@ export function normalizeExtraction(
           positionId,
         };
       })
-      .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance)),
+      .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance))
+      // Aliases can repeat one stance. Keep different wording or positions.
+      .filter((stance, index, stances) => stances.findIndex((other) =>
+        other.participantId === stance.participantId &&
+        other.positionId === stance.positionId &&
+        other.stance === stance.stance,
+      ) === index),
   }));
 
   // Stakes are normalized by COPYING to new objects, never by mutating the raw
