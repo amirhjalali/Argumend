@@ -128,6 +128,24 @@ describe("live debate stream cancellation", () => {
 });
 
 describe("Grok SSE boundary", () => {
+  it.each(["\n", "\r\n", "\r"])("preserves content at every byte split with %j endings", async (ending) => {
+    const encoder = new TextEncoder();
+    const bytes = encoder.encode(`: heartbeat${ending}data:{"choices":${ending}data:[{"delta":{"content":"🧭 Café"}}]}${ending}${ending}data:{"choices":[{"delta":{"content":" second"}}]}${ending}${ending}data:[DONE]${ending}${ending}`);
+    for (let split = 1; split < bytes.length; split += 1) {
+      const upstream = new ReadableStream({ start(controller) {
+        controller.enqueue(bytes.slice(0, split));
+        controller.enqueue(bytes.slice(split));
+        controller.close();
+      } });
+      vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(upstream)));
+      const events = eventsFrom(await (await POST(request("grok"))).text());
+      expect(events.filter((event) => event.type === "token"), `split ${split}`).toEqual([
+        { type: "token", token: "🧭 Café" }, { type: "token", token: " second" },
+      ]);
+      expect(events.at(-1)).toMatchObject({ type: "complete", execution: { actual: "live" } });
+    }
+  });
+
   function grokResponse(...chunks: string[]) {
     const cancel = vi.fn();
     const upstream = new ReadableStream({
