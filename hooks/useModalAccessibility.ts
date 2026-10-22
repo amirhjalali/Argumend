@@ -5,16 +5,27 @@ import { useEffect, useRef, type RefObject } from "react";
 interface ModalAccessibilityOptions {
   isOpen: boolean;
   onClose: () => void;
+  /** A replacement trigger when responsive layout unmounts the original. */
+  getFallbackFocus?: () => HTMLElement | null;
 }
 
 let scrollLockCount = 0;
 let restorePageScroll: (() => void) | null = null;
-const activeModals: HTMLElement[] = [];
+interface ModalOwner {
+  element: HTMLElement;
+  returnFocus: () => HTMLElement | null;
+}
+const activeModals: ModalOwner[] = [];
+
+/** Outside-pointer handlers must respect the same owner as keyboard input. */
+export function isTopModal(element: HTMLElement | null): boolean {
+  return element !== null && activeModals.at(-1)?.element === element;
+}
 
 function updateModalOwners() {
   const top = activeModals.at(-1);
   for (const modal of activeModals) {
-    modal.setAttribute("aria-modal", String(modal === top));
+    modal.element.setAttribute("aria-modal", String(modal === top));
   }
 }
 
@@ -70,16 +81,19 @@ export function lockPageScroll(): () => void {
 export function useModalAccessibility<T extends HTMLElement>({
   isOpen,
   onClose,
+  getFallbackFocus,
 }: ModalAccessibilityOptions): RefObject<T | null> {
   const modalRef = useRef<T>(null);
   const onCloseRef = useRef(onClose);
+  const fallbackFocusRef = useRef(getFallbackFocus);
   const returnFocusRef = useRef<HTMLElement | null>(null);
 
   // Consumers often pass an inline callback. Keep the current callback in a
   // ref so callback identity changes cannot tear down an otherwise-open modal.
   useEffect(() => {
     onCloseRef.current = onClose;
-  }, [onClose]);
+    fallbackFocusRef.current = getFallbackFocus;
+  }, [onClose, getFallbackFocus]);
 
   // Initial focus, Escape, focus containment/restoration, and scroll locking
   // belong to one lifecycle so they cannot drift apart during modal teardown.
@@ -93,7 +107,16 @@ export function useModalAccessibility<T extends HTMLElement>({
     const previouslyFocused = modal.contains(focusedBeforeOpen) ? returnFocusRef.current : focusedBeforeOpen;
     returnFocusRef.current = previouslyFocused;
     const unlockScroll = lockPageScroll();
-    activeModals.push(modal);
+    const parent = [...activeModals].reverse().find((owner) =>
+      owner.element.contains(previouslyFocused),
+    );
+    const owner: ModalOwner = {
+      element: modal,
+      returnFocus: () => previouslyFocused?.isConnected
+        ? previouslyFocused
+        : fallbackFocusRef.current?.() ?? parent?.returnFocus() ?? null,
+    };
+    activeModals.push(owner);
     // Setup also restores semantics when AnimatePresence reuses a dialog
     // that reopened before its exit animation removed the DOM node.
     updateModalOwners();
@@ -110,7 +133,7 @@ export function useModalAccessibility<T extends HTMLElement>({
       );
 
     function handleKeyDown(event: KeyboardEvent): void {
-      if (activeModals.at(-1) !== modal) return;
+      if (!isTopModal(modal)) return;
       if (event.isComposing || event.keyCode === 229) return;
       if (event.key === "Escape") {
         event.preventDefault();
@@ -138,7 +161,7 @@ export function useModalAccessibility<T extends HTMLElement>({
 
     document.addEventListener("keydown", handleKeyDown);
     const frame = requestAnimationFrame(() => {
-      if (activeModals.at(-1) !== modal) return;
+      if (!isTopModal(modal)) return;
       const initialFocus =
         modal.querySelector<HTMLElement>("[data-modal-initial-focus]") ??
         getFocusableElements()[0] ??
@@ -150,7 +173,7 @@ export function useModalAccessibility<T extends HTMLElement>({
       cancelAnimationFrame(frame);
       document.removeEventListener("keydown", handleKeyDown);
       unlockScroll();
-      const index = activeModals.indexOf(modal);
+      const index = activeModals.indexOf(owner);
       if (index !== -1) activeModals.splice(index, 1);
       // AnimatePresence may keep this subtree mounted after `isOpen` becomes
       // false. Retire its modal semantics immediately so it no longer blocks
@@ -160,10 +183,13 @@ export function useModalAccessibility<T extends HTMLElement>({
       // A dialog opened over another returns to its trigger inside that
       // dialog. Closing a lower layer must not steal the upper layer's focus.
       const restoreFocus = () => {
-        if (!previouslyFocused?.isConnected) return;
-        const activeModal = activeModals.at(-1);
-        if (!activeModal || activeModal.contains(previouslyFocused)) {
-          previouslyFocused.focus();
+        const focusedNow = document.activeElement;
+        if (focusedNow && focusedNow !== document.body && !modal.contains(focusedNow)) return;
+        const target = owner.returnFocus();
+        if (!target?.isConnected) return;
+        const activeModal = activeModals.at(-1)?.element;
+        if (!activeModal || activeModal.contains(target)) {
+          target.focus();
         }
       };
       requestAnimationFrame(() => restoreFocus());

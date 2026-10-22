@@ -14,6 +14,8 @@ test("search over an embed dialog closes one layer at a time and releases page s
   const input = search.getByRole("combobox");
   await expect(input).toBeFocused();
   await expect(embedDialog).toHaveAttribute("aria-modal", "false");
+  await input.click();
+  await expect(embedDialog).toBeVisible();
   await input.press("Shift+Tab");
   await expect(search.getByRole("option").last()).toBeFocused();
 
@@ -30,6 +32,40 @@ test("search over an embed dialog closes one layer at a time and releases page s
   expect(await page.evaluate(() => document.documentElement.style.overflow)).toBe("");
   expect(await page.evaluate(() => document.body.style.overflow)).toBe("");
 });
+
+for (const startWidth of [1280, 900]) {
+  for (const searchOpen of [false, true]) {
+    test(`resizing an embed across the rail breakpoint (width=${startWidth}, search=${searchOpen}) releases hidden state`, async ({ page }) => {
+      await page.setViewportSize({ width: startWidth, height: 900 });
+      await page.goto("/topics/nuclear-energy-safety");
+      const embed = page.getByRole("button", { name: "Embed", exact: true });
+      await waitForHydration(embed);
+      await embed.click();
+      const embedDialog = page.getByRole("dialog", { name: "Embed this topic" });
+      await expect(embedDialog.getByRole("button", { name: "Close", exact: true })).toBeFocused();
+      const search = page.getByRole("dialog", { name: "Search Argumend" });
+      if (searchOpen) {
+        await page.keyboard.press("ControlOrMeta+k");
+        await expect(search.getByRole("combobox")).toBeFocused();
+      }
+
+      await page.setViewportSize({ width: startWidth === 1280 ? 900 : 1280, height: 900 });
+
+      await expect(page.locator("#topic-embed-dialog")).toHaveCount(0);
+      if (searchOpen) {
+        await expect(search.getByRole("combobox")).toBeFocused();
+        expect(await page.evaluate(() => document.documentElement.style.overflow)).toBe("hidden");
+        await page.keyboard.press("Escape");
+        await expect(search).toBeHidden();
+      }
+      await expect(embed).toBeFocused();
+      expect(await page.evaluate(() => document.documentElement.style.overflow)).toBe("");
+      expect(await page.evaluate(() => document.body.style.overflow)).toBe("");
+      await page.setViewportSize({ width: startWidth, height: 900 });
+      await expect(page.locator("#topic-embed-dialog")).toHaveCount(0);
+    });
+  }
+}
 
 for (const fallbackSucceeds of [true, false]) {
   test(`share copy keeps keyboard focus when clipboard is denied and fallback succeeds=${fallbackSucceeds}`, async ({ page }) => {
