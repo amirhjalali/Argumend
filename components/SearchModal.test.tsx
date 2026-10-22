@@ -119,12 +119,13 @@ describe("SearchModal keyboard lifecycle", () => {
     fireEvent.change(input, { target: { value: "nuclear energy safe" } });
     const firstResult = input.getAttribute("aria-activedescendant");
 
-    for (const key of ["ArrowDown", "ArrowUp", "Enter"]) {
+    for (const key of ["ArrowDown", "ArrowUp", "Enter", "Escape"]) {
       const event = new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true, ...composition });
       fireEvent(input, event);
       expect(event.defaultPrevented).toBe(false);
       expect(input.getAttribute("aria-activedescendant")).toBe(firstResult);
       expect(push).not.toHaveBeenCalled();
+      expect(view.getByRole("dialog", { name: "Search Argumend" })).toBeTruthy();
     }
 
     fireEvent.keyDown(input, { key: "Enter" });
