@@ -49,7 +49,7 @@ export function CollectionPagination({
             className={`inline-flex h-11 min-w-11 items-center justify-center rounded-lg px-2 font-mono text-sm transition-colors ${
               page === currentPage
                 ? "bg-deep text-white"
-                : "text-stone-500 hover:bg-deep/5 hover:text-accent-text dark:text-stone-400"
+                : "text-muted hover:bg-deep/5 hover:text-accent-text dark:text-stone-400"
             }`}
           >
             {page}
