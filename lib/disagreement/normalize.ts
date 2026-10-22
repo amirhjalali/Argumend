@@ -144,16 +144,21 @@ export function normalizeExtraction(
     const normalized = claimMap.get(id);
     return normalized ? duplicateClaimIds.get(normalized) ?? normalized : undefined;
   };
-  const claimRelations = raw.claimRelations.filter((relation) => {
+  const claimRelations = raw.claimRelations.flatMap((relation) => {
     const fromClaimId = remapClaim(relation.fromClaimId);
     const toClaimId = remapClaim(relation.toClaimId);
     if (!fromClaimId || !toClaimId || !claimIds.has(fromClaimId) || !claimIds.has(toClaimId)) {
       warnings.push("Dropped dangling claim relation");
-      return false;
+      return [];
     }
-    relation.fromClaimId = fromClaimId;
-    relation.toClaimId = toClaimId;
-    return true;
+    // An alias is the same assertion, so merging distinct identities must
+    // not invent a self-dependency or self-support. Original self-edges still
+    // reach graph validation unchanged.
+    if (relation.fromClaimId !== relation.toClaimId && fromClaimId === toClaimId) {
+      warnings.push("Dropped relation between aliases of the same claim.");
+      return [];
+    }
+    return [{ ...relation, fromClaimId, toClaimId }];
   });
 
   const commonGroundCandidates = raw.commonGroundCandidates.map((item) => ({
@@ -199,9 +204,8 @@ export function normalizeExtraction(
       ) === index),
   }));
 
-  // Stakes are normalized by COPYING to new objects, never by mutating the raw
-  // input (the claimRelations loop above mutates in place; that pattern must
-  // not spread). A stake whose claim or participant no longer resolves is a
+  // Stakes are normalized by copying to new objects, never by mutating the raw
+  // input. A stake whose claim or participant no longer resolves is a
   // reference to nothing and is dropped; a stake whose OPTIONAL position
   // reference disappears still says something true about the claim, so it
   // survives without the positionId and says so in a warning.
