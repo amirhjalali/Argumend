@@ -113,7 +113,8 @@ corrections use an explicit Save correction action.
 
 The diagnosis, map-reply, debate, and judging APIs cancel provider work when the client disconnects.
 Canceled requests return `499 REQUEST_ABORTED` when a response can still be sent;
-server deadlines retain their `504` timeout responses. Cancellation also prevents
+diagnosis and map-reply deadlines retain their `504` timeout responses. Debate
+and judging retain their offline fallback policy. Cancellation also prevents
 later provider stages, retries, pending gap-metric inserts, and judgment
 persistence from starting. A database operation already dispatched may still
 commit; cancellation does not roll it back.

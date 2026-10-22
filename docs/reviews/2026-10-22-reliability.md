@@ -6,8 +6,9 @@ The original checkout and its existing work remain untouched. No branch was
 pushed or merged, no site was deployed, and no live database or model provider was
 used. Environment files and credentials were not read or copied.
 
-This record is being updated through the final integration checks. Intermediate
-checkpoints below identify the revision they actually tested.
+The final runtime revision is `0a3250c`. Subsequent changes only complete this
+record, the file inventory, and README wording. Checkpoints below identify the
+revision they actually tested.
 
 ## Confirmed fixes
 
@@ -31,9 +32,24 @@ checkpoints below identify the revision they actually tested.
   their schema limits while retaining complete source assertions. Exact claim
   aliases preserve their references; claims with different attribution or
   stances remain distinct. Fallback stakes receive unique identities.
+- When exact claim aliases merge, a relation between those aliases no longer
+  becomes an invented self-loop that removes the graph and its cruxes. Genuine
+  original self-dependencies and cycles still reach graph validation. Relation
+  normalization also preserves the caller's raw extraction.
 - Private diagnosis validation retains grounded quotations beyond the public
   report's combined `1_500` character cap. Publication and stored public reads
   continue to enforce that cap, including an inclusive boundary test.
+- Repeated quotation references no longer inflate grounding coverage within a
+  report object or stake. Accounting preserves case distinctions used by the
+  quote matcher and counts whitespace or punctuation variants matching the same
+  source span once. Distinct source spans and participant assessments remain
+  distinct. Tests demonstrate that repetition cannot turn insufficient grounding
+  into publication eligibility.
+- Generated repair diagnostics use positions, counts, and fixed rule names.
+  A participant label such as "Critical Rationalist" no longer becomes an
+  accidental publication severity marker. Existing critical-warning blocks
+  remain intact. Canonical participant aliases do not repeat bylines or
+  identical stance rows; distinct stance wording and position references remain.
 - Argument views retain challenges to reasoning and exclude retired objections.
   Diagram evidence labels identify the side of the map question they address.
 - Publication receipts and deletion receipts are validated before confirming
@@ -44,6 +60,8 @@ checkpoints below identify the revision they actually tested.
   images use `no-store`. Publication retries only a recognized slug collision.
   Provider and database diagnostics avoid private text and configurable judge
   identifiers.
+- Map-reply failure logs retain request IDs, stable codes, lengths, and timing,
+  without provider error text that can echo a private answer identifier.
 
 ### Request lifecycle and persistence
 
@@ -68,6 +86,9 @@ checkpoints below identify the revision they actually tested.
 - Topic and worksheet registries reject inherited object keys. The worksheet
   and draft-topic guards protect direct renderers and loader callers; the
   existing proxy already returns `404` for those unknown public routes.
+- Malformed percent encoding in the public topic JSON, social-image, and
+  verdict-card API paths returns `400` before Next.js route decoding can fail.
+  Valid paths retain their handlers, and JSON API error responses retain CORS.
 
 ### Browser behavior
 
@@ -83,6 +104,13 @@ checkpoints below identify the revision they actually tested.
 - Homepage paste handoff works through temporary browser memory when session
   storage refuses a write. A consumed handoff is not replayed later in the same
   application session if storage also refuses removal.
+- Desktop diagrams show a polite loading status before hydration and while the
+  canvas downloads. Phone outlines remain server-rendered. A production browser
+  regression delays the canvas chunk to verify both the pending and ready states.
+- Existing theme tokens improve active input hints, pagination labels, and
+  newsletter confirmation text. Four browser cases measure the rendered colors
+  on solid surfaces in both themes at desktop and phone sizes. Newsletter
+  success is mocked in the browser, with no real subscription request.
 
 ## Verification checkpoints
 
@@ -106,13 +134,35 @@ All repository gates ran in isolated worktrees through package scripts.
 | `dfa83d4` integration | Clean environment build, below | 0 | Unchanged retry after intermittent copying failure |
 | `dfa83d4` integration | Clean environment smoke, below | 0 | Offline standalone passed |
 | `dfa83d4` integration | Clean environment E2E, below | 0 | 72 passed, 4 intentional skips |
+| `85c369c` integration | `bun run test:ci` | 0 | 290 files, 3,675 tests |
+| `85c369c` integration | `bun run lint` | 0 | Zero warnings |
+| `85c369c` integration | `bun run typecheck` | 0 | Passed |
+| `85c369c` integration | Clean environment build with pinned Bun `1.3.14` | 0 | Production standalone assembled |
+| `85c369c` integration | Clean environment smoke, below | 0 | Offline standalone passed |
+| `85c369c` integration plus `eded406` HTTP tests | Clean environment E2E, below | 0 | 78 passed, 5 intentional skips |
+| `50a86d0` integration | `bun run test:ci` | 0 | 295 files, 3,714 tests |
+| `50a86d0` integration | `bun run lint` | 0 | Zero warnings |
+| `50a86d0` integration | `bun run typecheck` | 0 | Passed |
+| `50a86d0` integration | Clean environment build with pinned Bun `1.3.14` | 0 | Production standalone assembled |
+| `50a86d0` integration | Clean environment smoke, below | 0 | Offline standalone passed |
+| `50a86d0` integration | Clean environment E2E, below | 0 | 82 passed, 5 intentional skips |
+| `50a86d0` integration | Clean environment offline evaluation, below | 0 | 48/48 fixtures |
+| `50a86d0` integration | Clean environment fake corpus, below | 0 | 159/159 completed; smoke coverage, not model quality |
+| Final runtime `0a3250c` | `bun run test:ci` | 0 | 296 files, 3,723 tests |
+| Final runtime `0a3250c` | `bun run lint` | 0 | Zero warnings |
+| Final runtime `0a3250c` | `bun run typecheck` | 0 | Passed |
+| Final runtime `0a3250c` | Clean environment build with pinned Bun `1.3.14` | 0 | Production standalone assembled |
+| Final runtime `0a3250c` | Clean environment smoke, below | 0 | Offline standalone passed |
+| Final runtime `0a3250c` | Clean environment E2E, below | 0 | 82 passed, 5 intentional skips |
+| Final runtime `0a3250c` | Clean environment offline evaluation, below | 0 | 48/48 fixtures |
+| Final runtime `0a3250c` | Clean environment fake corpus, below | 0 | 159/159 completed; smoke coverage, not model quality |
 | `a557aa2` integration | Clean environment offline evaluation, below | 0 | 48/48 fixtures |
 | `a557aa2` integration | Clean environment fake corpus, below | 0 | 159/159 completed; smoke coverage, not model quality |
 
-Exact production and evaluation commands (run from the integration worktree):
+Exact final production and evaluation commands (run from the integration worktree):
 
 ```sh
-env -i PATH="$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 bun run build
+env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 bun run build
 env -i PATH="$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 PORT=3328 HOSTNAME=127.0.0.1 bun run start
 env -i PATH="$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 bun run smoke:standalone
 env -i PATH="$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 CI=1 E2E_BASE_URL=http://127.0.0.1:3328 E2E_CHROMIUM_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" bun run test:e2e
@@ -126,6 +176,9 @@ Next.js local port access and the `tsx` IPC socket; those attempts exited 1. The
 same commands passed with approved local process access and unchanged product
 configuration. One concurrent typecheck exited 2 because the build removed its
 generated `.next/types` inputs; its sequential rerun passed.
+Earlier builds used `PATH="$PATH"` with the installed runtime. The five final E2E
+skips are layout-specific: three desktop-canvas cases do not apply to phones,
+and two phone-only paste/search cases do not apply to desktop.
 
 Browser corpus checks used the package's E2E command with a task-specific config
 under `/tmp/argumend-reliability-corpus-audit-20261022`. The first run exited 0:
@@ -144,9 +197,44 @@ env -i PATH="$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 CI=1
 env -i PATH="$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 CI=1 bun run test:e2e -c /tmp/argumend-reliability-corpus-audit-20261022/playwright.config.ts -g "core flows survive"
 ```
 
+A deterministic projection check at `73d84fa` passed 500 combinations of
+schema-valid extraction variations through report projection, report validation,
+reference checks, and graph construction. It used
+`bun run test:ci output/reliability-projection-combinations.test.ts`, exit 0.
+The temporary test was removed from the worktree after execution; its source is
+retained at `/tmp/argumend-reliability-projection-combinations-20261022.ts`.
+An initial harness attempt exited 1 because its fixture text was below the
+pipeline's minimum length. Correcting that fixture required no product change.
+
+The contrast audit measured 5,808 text samples across 24 route, theme, and viewport
+combinations. Targeted regressions cover the changed solid-surface hints and
+status text at a contrast ratio of at least `4.5`. This is targeted contrast
+coverage, not a claim of complete accessibility conformance. The threshold comes
+from [WCAG contrast minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
+
+## Change inventory
+
+The complete [file inventory](./2026-10-22-reliability-files.txt) lists 170 paths
+relative to `9ecfc38`, including 90 test files. The unit and component suite grew
+from 3,198 to 3,723 cases, a net increase of 525, across 296 files. New tests cover
+cancellation and late results, typed API receipts, privacy in failure logging,
+publication and private-report boundaries, graph and grounding invariants,
+modal ownership, keyboard focus, storage failures, malformed public API paths,
+diagram loading, and text contrast.
+
+Independent final reviewers inspected API lifecycle, ownership, persistence,
+privacy, report schemas, grounding accounting, and alias interactions. That review
+found and corrected an integration regression where a duplicate claim alias
+created a self-loop and removed an otherwise valid five-node graph with two
+cruxes. Nine permanent cases now exercise that boundary. A second reviewer
+checked the correction independently. The review also narrowed README's deadline
+description to distinguish diagnosis/map-reply `504` responses from the existing
+debate/judging fallback policy. These reviews do not substitute for the live
+provider and database checks listed as untested below.
+
 ## Compatibility with existing work
 
-Three separate compatibility checkouts projected the original uncommitted work,
+Four separate compatibility checkouts projected the original uncommitted work,
 excluding all environment files and unrelated scratch/research material. The
 second checkpoint, `/tmp/argumend-reliability-compat2-20261022`, includes `bbc1e4e`,
 the webhook deadline fix, and the modal import contract correction. Its results:
@@ -186,12 +274,69 @@ It verifies exact report and graph preservation, alongside the public cap tests.
 Its supplemental patch is
 `/tmp/argumend-reliability-compat3-20261022-private-diagnosis-schema-test-only.patch`.
 
+The fourth checkpoint, `/tmp/argumend-reliability-compat4-20261022`, integrates
+runtime revision `50a86d0` as local `339b846`. Before the uncommitted user changes,
+its committed tree exactly matches the integration tree
+`bd6e95a65d7c61fa9441d1743071b0f9aad860ee`. Results with the projected user work:
+
+- `bun run test:ci`: exit 0, 298 files, 3,757 tests.
+- `bun run typecheck`: exit 0.
+- `bun run lint`: exit 0, zero warnings.
+- Clean environment `bun run build` with pinned Bun `1.3.14`: exit 0 on its first attempt.
+- Clean environment `SMOKE_PORT=3331 bun run smoke:standalone`: exit 0.
+- Clean environment production E2E with `E2E_PORT=3330` and installed Chrome:
+  exit 0, 88 passed, 5 intentional skips. All four new contrast cases passed
+  alongside the user's topic search changes.
+
+These checks validate the combined work without committing the user's changes or
+modifying the original checkout. Compatibility conflict resolutions are retained
+in the isolated checkout for a later integration decision.
+
+The same fourth checkout then integrated the final alias fix, `0a3250c`, as local
+`bf7ba06`. Its committed tree matched
+`1ccd3d78b9a85c4a89b1effba5df7725978ea02d` before projected user changes. Final
+verification with that user work:
+
+- `bun run test:ci`: exit 0, 299 files, 3,766 tests.
+- `bun run typecheck`: exit 0.
+- `bun run lint`: exit 0, zero warnings.
+- Pinned clean environment `bun run build`: initial exit 1 from the standalone
+  copy failure described below; identical unchanged retry exit 0.
+- Clean environment `SMOKE_PORT=3331 bun run smoke:standalone`: exit 0.
+- Clean environment production E2E with `E2E_PORT=3330` and installed Chrome:
+  exit 0, 88 passed, 5 intentional skips.
+
+Exact final compatibility commands, run from that worktree:
+
+```sh
+env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 bun run test:ci
+env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 bun run lint
+env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 bun run typecheck
+env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 bun run build
+env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 SMOKE_PORT=3331 bun run smoke:standalone
+env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 CI=1 E2E_PORT=3330 E2E_CHROMIUM_PATH='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' bun run test:e2e
+git diff --check -- . ':(exclude).env*' ':(exclude)**/.env*'
+```
+
+The final comparison, exact command exits, source hashes, and unchanged-main
+verification are retained in
+`/tmp/argumend-reliability-compat4-20261022-final2-source-comparison.json`.
+No user work was staged or committed. Both compatibility server ports were
+closed after verification.
+
 ## Build runtime investigation
 
 The installed Bun is `1.3.6`; the repository, CI, and Docker pin `1.3.14`.
 Two separate checkouts encountered an intermittent `EBADF` while Next.js copied
 edge chunks into the standalone directory under `1.3.6`. Both identical retries
 passed with no source or configuration changes.
+
+The final compatibility build also encountered `EBADF` under verified Bun
+`1.3.14`, while copying an `@vercel/og` resvg WASM chunk after successful compile,
+typechecking, and 1,379 prerendered pages. The first attempt exited 1. The pinned
+runtime therefore does not eliminate this intermittent failure. No application
+or build configuration workaround was introduced. An identical unchanged retry
+exited 0, then standalone smoke and production browser checks both passed.
 
 The official macOS ARM64 `1.3.14` archive was downloaded into
 `/tmp/argumend-reliability-bun-20261022`. Its SHA256,
@@ -205,10 +350,17 @@ env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HO
 env -i PATH="/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64:$PATH" HOME="$HOME" TMPDIR="$TMPDIR" NEXT_TELEMETRY_DISABLED=1 SMOKE_PORT=3331 bun run smoke:standalone
 ```
 
-One successful pinned-runtime build does not establish the cause of the
-intermittent failure. Details and exact commands are retained in
+Successful pinned-runtime builds do not establish the cause of the intermittent
+failure. Details and exact commands are retained in
 `/tmp/argumend-reliability-bun-20261022/verification.json`. The official release is
 <https://github.com/oven-sh/bun/releases/tag/bun-v1.3.14>.
+
+Upstream review located the traced-file packaging calls in
+[Next.js](https://github.com/vercel/next.js/blob/v16.2.12/packages/next/src/build/utils.ts)
+and the Darwin copy implementation in
+[Bun](https://github.com/oven-sh/bun/blob/bun-v1.3.14/src/runtime/node/node_fs.zig#L3544-L3639).
+It did not establish which native operation failed or identify a confirmed
+matching upstream bug. Runtime attribution remains unverified.
 
 ## Limits
 
@@ -224,3 +376,9 @@ intermittent failure. Details and exact commands are retained in
 - Historical duplicate database feedback rows were not migrated or deleted.
 - Nonconvergence is retained in quality diagnostics; the scoring formula and
   current default public UI remain unchanged.
+- Grounding checks source-text matching and reference accounting. It does not
+  establish whether model-assigned speakers are semantically correct or whether
+  different overlapping excerpts provide independent evidence. The existing
+  policy for reuse across different report objects remains unchanged.
+- Browser automation used installed Chrome. Safari and Firefox were not tested.
+  Native computer-use service startup failed; Chromium automation remained usable.
