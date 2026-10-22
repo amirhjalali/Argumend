@@ -8,6 +8,7 @@ import {
 import {
   RawDisagreementExtractionSchema,
   DisagreementReportSchema,
+  PublishedDisagreementReportSchema,
   collectRawExtractionReferenceIssues,
   collectReportQuoteCharacters,
   collectReportReferenceIssues,
@@ -509,7 +510,9 @@ describe("public report schema", () => {
     expect(collectReportQuoteCharacters(value)).toBeGreaterThan(
       DISAGREEMENT_LIMITS.maxPublishedQuoteCharactersTotal,
     );
-    expect(DisagreementReportSchema.safeParse(value).success).toBe(false);
+    expect(DisagreementReportSchema.safeParse(value).success).toBe(true);
+    expect(PublishedDisagreementReportSchema.safeParse(value).success).toBe(false);
+    expect(parseDisagreementReport(value).success).toBe(false);
   });
 
   it("flags share metrics that do not match counts", () => {

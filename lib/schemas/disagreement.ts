@@ -439,6 +439,7 @@ export const ArgumentAccountabilitySchema = z
   })
   .strict();
 
+/** Private diagnoses keep all grounded quotes within the per-object limits. */
 export const DisagreementReportSchema = z
   .object({
     schemaVersion: z.literal(DISAGREEMENT_REPORT_SCHEMA_VERSION),
@@ -512,7 +513,11 @@ export const DisagreementReportSchema = z
         path: ["caveats"],
       });
     }
+  });
 
+/** Publication and stored public data have an additional total quote budget. */
+export const PublishedDisagreementReportSchema = DisagreementReportSchema
+  .superRefine((value, ctx) => {
     const quoteChars = collectReportQuoteCharacters(value);
     if (quoteChars > L.maxPublishedQuoteCharactersTotal) {
       ctx.addIssue({
@@ -958,8 +963,9 @@ export function parseRawDisagreementExtraction(input: unknown) {
   return { success: true as const, data: parsed.data };
 }
 
+/** Validate persisted report limits and references before publication or reads. */
 export function parseDisagreementReport(input: unknown) {
-  const parsed = DisagreementReportSchema.safeParse(input);
+  const parsed = PublishedDisagreementReportSchema.safeParse(input);
   if (!parsed.success) {
     return { success: false as const, error: parsed.error };
   }
