@@ -74,6 +74,17 @@ describe("judge prompt construction", () => {
 });
 
 describe("judge response parsing", () => {
+  it("reads a fenced judgment after prose mentioning the score range", () => {
+    expect(parseJudgeResponse(`Scores use [0, 10].\n\`\`\`json\n${JSON.stringify(validResponse)}\n\`\`\``))
+      .toMatchObject({ winner: "for" });
+  });
+
+  it("rejects a schema-invalid authoritative fence instead of a later valid judgment", () => {
+    vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    expect(parseJudgeResponse(`Judgment:\n\`\`\`json\n[]\n\`\`\`\nAlternative:\n\`\`\`json\n${JSON.stringify(validResponse)}\n\`\`\``))
+      .toBeNull();
+  });
+
   it("extracts fenced JSON from surrounding provider prose and applies defaults", () => {
     const parsed = parseJudgeResponse(
       `Judgment follows:\n\`\`\`json\n${JSON.stringify(validResponse)}\n\`\`\`\nEnd.`,

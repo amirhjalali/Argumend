@@ -1,6 +1,6 @@
 /**
- * Read a complete JSON value, or the first balanced object/array in provider
- * prose. String contents, including escaped quotes and braces, stay intact.
+ * Read a complete JSON value, an explicit JSON fence, or the first balanced
+ * object/array in provider prose. String contents stay intact.
  * Consumers must still validate the returned value against their schema.
  */
 export function parseModelJson(text: string): unknown {
@@ -8,6 +8,23 @@ export function parseModelJson(text: string): unknown {
     return JSON.parse(text);
   } catch {
     // Providers sometimes add prose or Markdown fences around the payload.
+  }
+
+  // A leading container is already the payload, even if prose follows it.
+  // Otherwise an explicit JSON block outranks incidental examples in prose.
+  if (!/^[\s]*[\[{]/.test(text)) {
+    const fence = /(?:^|\n)[ \t]*(`{3,})[ \t]*json[ \t]*\r?(?:\n|$)/i.exec(text);
+    if (fence) {
+      const contents = text.slice(fence.index + fence[0].length);
+      const closing = new RegExp("^[ \\t]*`{" + fence[1].length + ",}[ \\t]*\\r?$", "m").exec(contents);
+      if (!closing) return undefined;
+      try {
+        return JSON.parse(contents.slice(0, closing.index));
+      } catch {
+        // A malformed authoritative block must not reveal a later fragment.
+        return undefined;
+      }
+    }
   }
 
   let start = -1;
