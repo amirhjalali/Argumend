@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 import { RENT_CONTROL_JEV_FIXTURES, RENT_CONTROL_THREAD } from "@/lib/mapReply/__fixtures__";
-import { FakeJevProvider, getJevProvider } from "@/lib/jev/client";
+import { FakeJevProvider, HttpJevProvider, getJevProvider } from "@/lib/jev/client";
 import { logGapObservation } from "@/lib/gapMetric/log";
 import type { JevResult } from "@/lib/jev/types";
 
@@ -60,6 +60,31 @@ describe("POST /api/map-reply", () => {
     expect(body.code).toBe("FEATURE_DISABLED");
     expect(body.error).toBe("Map replies are not enabled.");
     expect(response.headers.get("x-request-id")).toBeTruthy();
+  });
+
+  it("keeps provider-returned answer identifiers out of failure diagnostics", async () => {
+    const privateText = "private transcript detail from the provider response";
+    const errorLog = vi.spyOn(console, "error").mockImplementation(() => undefined);
+    vi.mocked(getJevProvider).mockReturnValue(new HttpJevProvider({
+      apiKey: "test-key",
+      fetchImpl: async () => new Response(JSON.stringify({
+        answers: { [privateText]: null },
+      }), { status: 200, headers: { "content-type": "application/json" } }),
+    }));
+
+    const response = await POST(post({ text: RENT_CONTROL_THREAD }));
+    const body = await response.json();
+
+    expect(response.status).toBe(503);
+    expect(body.code).toBe("PROVIDER_UNAVAILABLE");
+    expect(errorLog).toHaveBeenCalledWith("[argumend:map-reply]", expect.objectContaining({
+      code: "PROVIDER_UNAVAILABLE",
+      requestId: body.requestId,
+      characterCount: RENT_CONTROL_THREAD.trim().length,
+    }));
+    expect(JSON.stringify(errorLog.mock.calls)).not.toContain(privateText);
+    expect(JSON.stringify(body)).not.toContain(privateText);
+    expect(logGapObservation).not.toHaveBeenCalled();
   });
 
   it("does not create a provider for an already-aborted request", async () => {

@@ -24,7 +24,6 @@ import { runMapReply } from "@/lib/mapReply/pipeline";
 import { logGapObservation } from "@/lib/gapMetric/log";
 import { gapFromMapReply } from "@/lib/gapMetric/record";
 import { rateLimit } from "@/lib/rate-limit";
-import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
 export const runtime = "nodejs";
 
@@ -152,12 +151,13 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (request.signal.aborted) return requestAborted(requestId);
     const mapped = toMapReplyError(error);
+    // Provider errors may echo submitted text in unexpected answer identifiers.
+    // The stable code and request metadata identify the failure without it.
     console.error("[argumend:map-reply]", {
       requestId,
       code: mapped.code,
       characterCount: text.length,
       latencyMs: Date.now() - startedAt,
-      message: sanitizeServerLog(error),
     });
     return mapReplyJsonError(requestId, mapped);
   }
