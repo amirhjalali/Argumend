@@ -389,14 +389,14 @@ export function projectDisagreementReport(input: {
   const contestedness = normalizeContestednessOverrides(input.contestedness);
   const contestednessFloor = input.contestednessFloor ?? DEFAULT_CANDIDACY_FLOOR;
 
-  for (const result of ranked) {
+  for (const [rankIndex, result] of ranked.entries()) {
     if (cruxes.length >= DISAGREEMENT_LIMITS.maxCruxes) break;
     const claim = claimsById.get(result.claimId);
     if (jevGate && claim) {
       const probe = contestedness.get(result.claimId);
       if (probe !== undefined && probe < contestednessFloor) {
         warnings.push(
-          `Projection skipped engine crux "${claim.id}" (${claim.statement}): ${describeProbeSkip(probe, contestednessFloor)}.`,
+          `Projection skipped engine crux at rank ${rankIndex + 1}: ${describeProbeSkip(probe, contestednessFloor)}.`,
         );
         continue;
       }

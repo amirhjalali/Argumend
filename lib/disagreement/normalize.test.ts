@@ -111,8 +111,8 @@ describe("participant identity normalization", () => {
     expect(parseDisagreementReport(result.report).success).toBe(true);
     expect(result.report.disagreements[0].participantStances[0].positionId).toBeUndefined();
     expect(result.report.accountability!.stakes.find((stake) => stake.id === "stake-one")!.positionId).toBeUndefined();
-    expect(result.report.quality.warnings).toContain("Preserved stake \"stake-one\" without its dropped position reference");
-    expect(result.report.quality.warnings).toContain("Preserved disagreement \"d-rate\" stance without its dropped position reference");
+    expect(result.report.quality.warnings).toContain("Preserved stake at index 0 without its dropped position reference.");
+    expect(result.report.quality.warnings).toContain("Preserved stance for disagreement at index 0 without its dropped position reference.");
     expect(result.graph.edges.some((edge) => edge.to === "position-to-drop")).toBe(false);
   });
 
