@@ -1,5 +1,6 @@
 import { DISAGREEMENT_LIMITS } from "./constants";
 import { groundQuotes } from "./grounding";
+import { countQuoteCoverage } from "./quoteCoverage";
 import type { NormalizedExtraction } from "./normalize";
 import type {
   ArgumentAccountability,
@@ -177,13 +178,13 @@ export function projectClaimStakes(input: {
       if (!seen.has(key)) freshQuoteKeys.add(key);
       seen.add(key);
     }
-    expectedQuoteCount += freshQuoteKeys.size;
-
     const grounding = groundQuotes(source, candidate.groundingQuotes, candidate.id);
-    const groundedQuoteKeys = new Set(
-      grounding.refs.map((ref) => normalizeQuoteText(ref.quote)).filter((key) => freshQuoteKeys.has(key)),
+    const coverage = countQuoteCoverage(
+      candidate.groundingQuotes.filter((quote) => freshQuoteKeys.has(normalizeQuoteText(quote.quote))),
+      grounding.refs.filter((ref) => freshQuoteKeys.has(normalizeQuoteText(ref.quote))),
     );
-    groundedQuoteCount += groundedQuoteKeys.size;
+    expectedQuoteCount += coverage.expected;
+    groundedQuoteCount += coverage.grounded;
     warnings.push(...grounding.warnings);
 
     projected.push({
