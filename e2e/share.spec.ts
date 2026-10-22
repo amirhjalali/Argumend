@@ -1,5 +1,36 @@
 import { expect, test, waitForHydration } from "./fixtures";
 
+test("search over an embed dialog closes one layer at a time and releases page scrolling", async ({ page }) => {
+  await page.goto("/topics/nuclear-energy-safety");
+  const embed = page.getByRole("button", { name: "Embed", exact: true });
+  await waitForHydration(embed);
+  await embed.click();
+  const embedDialog = page.getByRole("dialog", { name: "Embed this topic" });
+  const embedClose = embedDialog.getByRole("button", { name: "Close", exact: true });
+  await expect(embedClose).toBeFocused();
+
+  await page.keyboard.press("ControlOrMeta+k");
+  const search = page.getByRole("dialog", { name: "Search Argumend" });
+  const input = search.getByRole("combobox");
+  await expect(input).toBeFocused();
+  await expect(embedDialog).toHaveAttribute("aria-modal", "false");
+  await input.press("Shift+Tab");
+  await expect(search.getByRole("option").last()).toBeFocused();
+
+  await page.keyboard.press("Escape");
+  await expect(search).toBeHidden();
+  await expect(embedDialog).toBeVisible();
+  await expect(embedDialog).toHaveAttribute("aria-modal", "true");
+  await expect(embedClose).toBeFocused();
+  expect(await page.evaluate(() => document.documentElement.style.overflow)).toBe("hidden");
+
+  await page.keyboard.press("Escape");
+  await expect(embedDialog).toBeHidden();
+  await expect(embed).toBeFocused();
+  expect(await page.evaluate(() => document.documentElement.style.overflow)).toBe("");
+  expect(await page.evaluate(() => document.body.style.overflow)).toBe("");
+});
+
 for (const fallbackSucceeds of [true, false]) {
   test(`share copy keeps keyboard focus when clipboard is denied and fallback succeeds=${fallbackSucceeds}`, async ({ page }) => {
     await page.addInitScript((succeeds) => {
