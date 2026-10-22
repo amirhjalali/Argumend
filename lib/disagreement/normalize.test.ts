@@ -91,4 +91,62 @@ describe("participant identity normalization", () => {
     });
     expect(result.warnings).toContain("Removed 1 unresolved quote participant attribution(s); quoted text was retained.");
   });
+
+  it("removes references to a position dropped because its participant is unknown", async () => {
+    const extraction = structuredClone(example.extraction);
+    extraction.positions.push({ ...extraction.positions[0], id: "position-to-drop", participantIds: ["missing-person"] });
+    extraction.disagreementCandidates[0].participantStances[0].positionId = "position-to-drop";
+    extraction.claims[0].stanceByPosition.push({ positionId: "position-to-drop", relation: "supports" });
+    extraction.claimStakeCandidates = [{
+      id: "stake-one", claimId: "c-rate", participantId: "maya", positionId: "position-to-drop",
+      targetConclusion: "The uninsured rate is near 8 percent.", role: "hinge", ifFalseEffect: "reconsider",
+      consequence: "The estimate would need revision.", basis: "explicit", groundingQuotes: [],
+    }];
+
+    const result = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "dropped-position-test",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(parseDisagreementReport(result.report).success).toBe(true);
+    expect(result.report.disagreements[0].participantStances[0].positionId).toBeUndefined();
+    expect(result.report.accountability!.stakes.find((stake) => stake.id === "stake-one")!.positionId).toBeUndefined();
+    expect(result.report.quality.warnings).toContain("Preserved stake \"stake-one\" without its dropped position reference");
+    expect(result.report.quality.warnings).toContain("Preserved disagreement \"d-rate\" stance without its dropped position reference");
+    expect(result.graph.edges.some((edge) => edge.to === "position-to-drop")).toBe(false);
+  });
+
+  it.each(["c-rate", "pos-uninsured-8"])("reserves the generated question ID when the model assigns it to %s", async (id) => {
+    const extraction: RawDisagreementExtractionV1 = JSON.parse(JSON.stringify(example.extraction)
+      .replaceAll(JSON.stringify(id), '"q-main"'));
+    const result = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "reserved-question-test",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(result.graph.nodes.length).toBeGreaterThan(1);
+    expect(result.graph.question.id).toBe("q-main");
+    expect(result.graph.nodes.some((node) => node.id === "q-main-2")).toBe(true);
+    expect(new Set(result.graph.nodes.map((node) => node.id)).size).toBe(result.graph.nodes.length);
+    expect(parseDisagreementReport(result.report).success).toBe(true);
+  });
+
+  it("keeps valid cross-kind IDs distinct while resolving each reference by kind", async () => {
+    const extraction: RawDisagreementExtractionV1 = JSON.parse(JSON.stringify(example.extraction)
+      .replaceAll('"maya"', '"shared-id"')
+      .replaceAll('"pos-uninsured-8"', '"shared-id"')
+      .replaceAll('"c-rate"', '"shared-id"'));
+    expect(parseRawDisagreementExtraction(extraction).success).toBe(true);
+    const result = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "cross-kind-identity-test",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(result.report.participants[0].id).toBe("shared-id");
+    expect(result.report.positions[0].id).toBe("shared-id-2");
+    expect(result.report.positions[0].participantIds).toEqual(["shared-id"]);
+    expect(result.report.positions[0].grounding[0].participantId).toBe("shared-id");
+    expect(result.graph.nodes.some((node) => node.type === "claim" && node.id === "shared-id-3")).toBe(true);
+    expect(parseDisagreementReport(result.report).success).toBe(true);
+  });
 });

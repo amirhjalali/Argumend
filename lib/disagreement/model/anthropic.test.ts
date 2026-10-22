@@ -106,6 +106,22 @@ describe("AnthropicDisagreementProvider", () => {
     expect(mocks.create).toHaveBeenCalledTimes(2);
   });
 
+  it("repairs a reused participant ID before ambiguous attribution can reach the report", async () => {
+    const { AnthropicDisagreementProvider } = await import("./anthropic");
+    const ambiguous = structuredClone(EXTRACTION);
+    ambiguous.participants[1].id = ambiguous.participants[0].id;
+    mocks.create
+      .mockResolvedValueOnce(toolResponse(ambiguous))
+      .mockResolvedValueOnce(toolResponse(EXTRACTION));
+    const provider = new AnthropicDisagreementProvider("req-1", { model: "claude-test", maxOutputTokens: 4096 });
+
+    const result = await provider.extract(REQUEST);
+
+    expect(result.data.participants.map((participant) => participant.id)).toEqual(["maya", "noah"]);
+    expect(mocks.create).toHaveBeenCalledTimes(2);
+    expect(userMessageFrom(mocks.create.mock.calls[1])).toContain("participants.[].id");
+  });
+
   it("does not spend the repair budget on transient failures", async () => {
     const { AnthropicDisagreementProvider } = await import("./anthropic");
     mocks.create

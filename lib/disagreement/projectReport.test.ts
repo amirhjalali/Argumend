@@ -6,6 +6,7 @@ import { projectDisagreementReport } from "./projectReport";
 import { oscillatingGraph } from "@/lib/crux/__fixtures__/oscillatingGraph";
 import { PROPAGATION_NON_CONVERGENCE_WARNING } from "@/lib/crux/propagate";
 import { DisagreementReportSchema } from "@/lib/schemas/disagreement";
+import { DISAGREEMENT_LIMITS } from "./constants";
 
 const SOURCE = [
   "Ada: The pilot cut delays by a fifth, so we should extend it citywide.",
@@ -157,6 +158,30 @@ describe("projectDisagreementReport numerical diagnostics", () => {
 
     expect(report.quality.warnings.filter((warning) => warning === PROPAGATION_NON_CONVERGENCE_WARNING)).toHaveLength(1);
     expect(report.quality.warnings).toContain("Another quality warning");
+  });
+});
+
+describe("projectDisagreementReport caveat capacity", () => {
+  it.each([
+    Array.from({ length: DISAGREEMENT_LIMITS.maxCaveats }, (_, index) => `Caveat ${index + 1} applies.`),
+    ["A".repeat(DISAGREEMENT_LIMITS.maxSummaryCharacters), "B".repeat(DISAGREEMENT_LIMITS.maxSummaryCharacters)],
+  ])("reserves the required disclaimer while retaining complete model caveats", (...caveats) => {
+    const raw = extraction();
+    raw.caveats = caveats;
+    const normalized = normalizeExtraction(raw).extraction;
+    const graph = buildArgumentGraph(normalized);
+
+    const report = projectDisagreementReport({
+      extraction: normalized, graph: graph.graph, graphValid: graph.valid, source: SOURCE,
+      provider: "fake", model: "fixture",
+    });
+
+    expect(report.caveats[0]).toBe(caveats[0]);
+    expect(report.caveats.at(-1)).toMatch(/^This analysis maps the submitted text\./);
+    expect(report.caveats.slice(0, -1)).toEqual(caveats.slice(0, report.caveats.length - 1));
+    expect(report.caveats.length).toBeLessThanOrEqual(DISAGREEMENT_LIMITS.maxCaveats);
+    expect(report.caveats.join("").length).toBeLessThanOrEqual(DISAGREEMENT_LIMITS.maxCaveatsCombinedCharacters);
+    expect(DisagreementReportSchema.safeParse(report).success).toBe(true);
   });
 });
 
