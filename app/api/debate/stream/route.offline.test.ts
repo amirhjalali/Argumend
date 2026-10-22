@@ -387,13 +387,14 @@ describe("POST /api/debate/stream offline boundary", () => {
     expect(create).toHaveBeenCalledWith(expect.objectContaining({
       model: "gpt-4o",
       stream: true,
-    }));
+    }), { signal: expect.any(AbortSignal) });
   });
 
   it("streams Gemini text while ignoring empty chunks", async () => {
     mocks.isLiveDebateEnabled.mockReturnValue(true);
     mocks.auth.mockResolvedValue({ user: { id: "user-1" } });
     const generateContentStream = vi.fn().mockResolvedValue({
+      response: Promise.resolve({}),
       stream: (async function* () {
         yield { text: () => "" };
         yield { text: () => "Gemini token" };
@@ -411,10 +412,10 @@ describe("POST /api/debate/stream offline boundary", () => {
       execution: { actual: "live", actualModel: "gemini" },
     });
     expect(getGenerativeModel).toHaveBeenCalledWith({ model: "gemini-1.5-pro" });
-    expect(generateContentStream).toHaveBeenCalledWith("system\n\n---\n\nuser");
+    expect(generateContentStream).toHaveBeenCalledWith("system\n\n---\n\nuser", { signal: expect.any(AbortSignal) });
   });
 
-  it("parses split Grok SSE chunks and skips malformed lines", async () => {
+  it("parses split Grok SSE chunks and ignores comments and unrelated fields", async () => {
     mocks.isLiveDebateEnabled.mockReturnValue(true);
     mocks.auth.mockResolvedValue({ user: { id: "user-1" } });
     process.env.XAI_API_KEY = "xai-test-key";
@@ -422,7 +423,7 @@ describe("POST /api/debate/stream offline boundary", () => {
     const upstream = new ReadableStream({
       start(controller) {
         controller.enqueue(encoder.encode(
-          'event: ping\ndata: {bad}\ndata: {"choices":[{"delta":{"cont',
+          'event: ping\n: keep-alive\n\ndata: {"choices":[{"delta":{"cont',
         ));
         controller.enqueue(encoder.encode(
           'ent":"Grok token"}}]}\n\ndata: [DONE]\n',
@@ -539,7 +540,7 @@ describe("POST /api/debate/stream offline boundary", () => {
     const rest = await reader.read();
 
     expect(rest.done).toBe(true);
-    expect(generatorClosed).toBe(true);
+    await vi.waitFor(() => expect(generatorClosed).toBe(true));
     expect(mocks.generateProgrammaticDebateTurn).not.toHaveBeenCalled();
   });
 });
