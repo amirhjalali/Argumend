@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { LoaderCircle } from "lucide-react";
 import { PAGE_GUTTER, PAGE_WIDTHS, TextAction } from "@/components/ui";
 import { MobileArgumentList } from "@/components/MobileArgumentList";
 import { useIsHydrated, useIsMobile } from "@/hooks/useMediaQuery";
@@ -8,7 +9,23 @@ import type { DiagramModel } from "@/lib/diagram/model";
 
 // React Flow (+CSS) ships only to desktop sessions of this route. Phones get
 // the outline, which is server-rendered from the same model.
-const DesktopCanvas = dynamic(() => import("@/components/DesktopCanvas"), { ssr: false });
+const DesktopCanvas = dynamic(() => import("@/components/DesktopCanvas"), {
+  ssr: false,
+  loading: DiagramLoading,
+});
+
+function DiagramLoading() {
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      className="flex h-full items-center justify-center gap-2 px-6 text-sm text-secondary dark:text-stone-400"
+    >
+      <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin motion-reduce:animate-none" />
+      <span>Loading diagram&hellip;</span>
+    </div>
+  );
+}
 
 /**
  * On desktop the route is exactly one screen: the shell's 57px header, a
@@ -47,11 +64,15 @@ export function TopicDiagram({ diagram }: { diagram: DiagramModel }) {
         <div className="md:hidden">
           <MobileArgumentList diagram={diagram} />
         </div>
-        {hydrated && !isMobile && (
+        {!hydrated ? (
+          <div className="absolute inset-0 hidden md:block">
+            <DiagramLoading />
+          </div>
+        ) : !isMobile ? (
           <div className="absolute inset-0">
             <DesktopCanvas diagram={diagram} />
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
