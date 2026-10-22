@@ -231,6 +231,7 @@ async function executeWithWebhook(
 ): Promise<string> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  const requestSignal = signal ? AbortSignal.any([controller.signal, signal]) : controller.signal;
 
   try {
     const response = await fetch(webhookUrl, {
@@ -242,15 +243,16 @@ async function executeWithWebhook(
         systemPrompt,
         userPrompt,
       }),
-      signal: signal ? AbortSignal.any([controller.signal, signal]) : controller.signal,
+      signal: requestSignal,
     });
-    signal?.throwIfAborted();
+    requestSignal.throwIfAborted();
 
     if (!response.ok) {
       throw new Error(`Webhook error: HTTP ${response.status}`);
     }
 
     const data = await response.json();
+    requestSignal.throwIfAborted();
     return data.content || data.response || data.text || "";
   } finally {
     clearTimeout(timeoutId);
