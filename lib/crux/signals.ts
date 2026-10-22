@@ -5,6 +5,7 @@ import {
   overriddenContestedness,
 } from "./contestedness";
 import { buildInfluenceGraph, evidenceWeight, type InfluenceGraph } from "./influence";
+import { currentScoringGraph } from "./graph";
 import { propagate } from "./propagate";
 
 export interface DeltaTarget {
@@ -112,15 +113,7 @@ export function computeCruxSignals(
   const influenceGraph = buildInfluenceGraph(graph);
   // Scoring and propagation must read the same current graph. Retired cards
   // must not contribute inflow, evidence coverage, or gate reach either.
-  const activeGraph: ArgumentGraph = {
-    ...graph,
-    nodes: graph.nodes.filter((node) => !influenceGraph.excludedNodeIds.has(node.id)),
-    edges: graph.edges.filter(
-      (edge) =>
-        !influenceGraph.excludedNodeIds.has(edge.from) &&
-        !influenceGraph.excludedNodeIds.has(edge.to),
-    ),
-  };
+  const activeGraph = currentScoringGraph(graph);
   const activeClaims = activeGraph.nodes.filter(
     (node): node is Claim => node.type === "claim"
   );

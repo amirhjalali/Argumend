@@ -1,4 +1,5 @@
 import type { ArgumentEdge, ArgumentGraph, ArgumentNode } from "@/types/argument";
+import { currentScoringGraph } from "./graph";
 
 export type InfluenceRelation =
   | "supports"
@@ -36,16 +37,13 @@ export interface InfluenceGraph {
 }
 
 export function buildInfluenceGraph(graph: ArgumentGraph): InfluenceGraph {
+  const { nodes: activeNodes, edges: activeEdges } = currentScoringGraph(graph);
   const excludedNodeIds = new Set(
     graph.nodes
       .filter((node) => isSupersededNode(node))
       .map((node) => node.id)
   );
-  const activeNodes = graph.nodes.filter((node) => !excludedNodeIds.has(node.id));
   const originalNodeById = new Map(activeNodes.map((node) => [node.id, node]));
-  const activeEdges = graph.edges.filter(
-    (edge) => !excludedNodeIds.has(edge.from) && !excludedNodeIds.has(edge.to)
-  );
   const evidenceAttenuation = evidenceScopeAttenuation(activeEdges, originalNodeById);
   const nodes = activeNodes.map((node) => ({
     id: node.id,
