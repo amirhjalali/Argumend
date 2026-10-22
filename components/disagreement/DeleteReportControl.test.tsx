@@ -109,6 +109,42 @@ describe("DeleteReportControl", () => {
     expect(view.getByRole("button", { name: /delete public report/i })).toBeTruthy();
   });
 
+  it.each([{}, { ok: false }, null])("keeps the management token until deletion is confirmed: %j", async (payload) => {
+    window.localStorage.setItem(KEY, "token-123");
+    vi.mocked(fetch).mockResolvedValue({ ok: true, json: async () => payload } as Response);
+    const onDeleted = vi.fn();
+    const view = render(<DeleteReportControl slug={SLUG} onDeleted={onDeleted} />);
+
+    fireEvent.click(await view.findByRole("button", { name: /delete public report/i }));
+
+    await view.findByRole("alert");
+    expect(window.localStorage.getItem(KEY)).toBe("token-123");
+    expect(onDeleted).not.toHaveBeenCalled();
+    expect(view.queryByText("This public report has been deleted.")).toBeNull();
+    const retry = view.getByRole("button", { name: /delete public report/i });
+    expect(retry.hasAttribute("disabled")).toBe(false);
+
+    vi.mocked(fetch).mockResolvedValue({ ok: true, json: async () => ({ ok: true }) } as Response);
+    fireEvent.click(retry);
+    await view.findByText("This public report has been deleted.");
+    expect(onDeleted).toHaveBeenCalledTimes(1);
+    expect(window.localStorage.getItem(KEY)).toBeNull();
+  });
+
+  it("renders a fallback for a malformed error without losing the deletion token", async () => {
+    window.localStorage.setItem(KEY, "token-123");
+    vi.mocked(fetch).mockResolvedValue({
+      ok: false,
+      json: async () => ({ error: { message: "Unexpected response" } }),
+    } as Response);
+    const view = render(<DeleteReportControl slug={SLUG} />);
+
+    fireEvent.click(await view.findByRole("button", { name: /delete public report/i }));
+
+    expect((await view.findByRole("alert")).textContent).toBe("Could not delete this report. Please try again.");
+    expect(window.localStorage.getItem(KEY)).toBe("token-123");
+  });
+
   it("keeps the public report readable when browser storage access is denied", () => {
     Object.defineProperty(window, "localStorage", {
       configurable: true,
@@ -124,7 +160,7 @@ describe("DeleteReportControl", () => {
     vi.spyOn(window.localStorage, "removeItem").mockImplementation(() => {
       throw new DOMException("Blocked", "SecurityError");
     });
-    vi.mocked(fetch).mockResolvedValue({ ok: true } as Response);
+    vi.mocked(fetch).mockResolvedValue({ ok: true, json: async () => ({ ok: true }) } as Response);
     const onDeleted = vi.fn();
     const view = render(<DeleteReportControl slug={SLUG} onDeleted={onDeleted} />);
 

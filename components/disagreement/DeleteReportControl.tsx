@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { z } from "zod";
+
+const DeleteReceiptSchema = z.object({ ok: z.literal(true) });
+const ErrorReceiptSchema = z.object({ error: z.string().min(1) });
 
 function manageTokenKey(slug: string) {
   return `argumend-manage:${slug}`;
@@ -64,9 +68,10 @@ export function DeleteReportControl({
         method: "DELETE",
         headers: { authorization: `Bearer ${token}` },
       });
-      if (!response.ok) {
-        const data = (await response.json().catch(() => ({}))) as { error?: string };
-        setError(data.error || "Could not delete this report. Please try again.");
+      const data: unknown = await response.json().catch(() => null);
+      if (!response.ok || !DeleteReceiptSchema.safeParse(data).success) {
+        const failure = ErrorReceiptSchema.safeParse(data);
+        setError(failure.success ? failure.data.error : "Could not delete this report. Please try again.");
         return;
       }
       try {
