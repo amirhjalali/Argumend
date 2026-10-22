@@ -5,6 +5,7 @@ import type { ArgumentGraph } from "@/types/argument";
 import { workedExampleGraph } from "@/lib/argument/fixtures";
 import { buildInfluenceGraph } from "./influence";
 import { identifyCruxes } from "./rank";
+import { oscillatingGraph } from "./__fixtures__/oscillatingGraph";
 
 function withRelations(): ArgumentGraph {
   const graph = workedExampleGraph();
@@ -59,6 +60,22 @@ describe("scoring is invariant to repeated assertions", () => {
 });
 
 describe("scoring input invariants", () => {
+  it("keeps diagnostics ordered when separate cycles are reordered", () => {
+    const first = oscillatingGraph();
+    const second = oscillatingGraph();
+    const graph: ArgumentGraph = {
+      ...first,
+      nodes: [...first.nodes, ...second.nodes.filter((node) => node.type !== "question")
+        .map((node) => ({ ...node, id: `${node.id}-2` }))],
+      edges: [...first.edges, ...second.edges.map((edge) => ({ ...edge,
+        id: `${edge.id}-2`, from: `${edge.from}-2`, to: `${edge.to}-2`,
+      }))],
+    };
+
+    expect(identifyCruxes({ ...graph, nodes: [...graph.nodes].reverse(), edges: [...graph.edges].reverse() }))
+      .toEqual(identifyCruxes(graph));
+  });
+
   it.each(["c1", "c2", "c3", "c4", "c5", "c6", "e1", "e2", "e3"])(
     "excludes superseded %s exactly as removing that card and its connections",
     (id) => {
