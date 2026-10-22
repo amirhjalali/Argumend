@@ -1,5 +1,6 @@
-import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
+import { DrizzleQueryError } from "drizzle-orm";
 import { analyzeDisagreement } from "@/lib/disagreement/analyze";
 import { FakeDisagreementProvider } from "@/lib/disagreement/model/fake";
 import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "@/lib/disagreement/prompts/v1/examples";
@@ -56,6 +57,10 @@ describe("POST /api/disagreements/[slug]/feedback", () => {
     mocks.rateLimit.mockReturnValue({ success: true, remaining: 19, resetAt: Date.now() + 1000 });
     mocks.getReport.mockResolvedValue({ id: "report-1", visibility: "unlisted", deletedAt: null, report });
     mocks.saveFeedback.mockResolvedValue({ id: "feedback-1" });
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it("hashes the anonymous session and persists a valid report-wide vote", async () => {
@@ -172,5 +177,22 @@ describe("POST /api/disagreements/[slug]/feedback", () => {
     expect(response.status).toBe(400);
     expect(mocks.getReport).not.toHaveBeenCalled();
     expect(mocks.saveFeedback).not.toHaveBeenCalled();
+  });
+
+  it("never logs private correction text from a failed database write", async () => {
+    const privateLine = "This second correction line must stay private.";
+    const correction = `A correction heading\n${privateLine}`;
+    const logging = vi.spyOn(console, "error").mockImplementation(() => {});
+    mocks.saveFeedback.mockRejectedValueOnce(new DrizzleQueryError(
+      "insert into disagreement_feedback values ($1)",
+      [correction],
+      new Error("write failed"),
+    ));
+
+    const response = await POST(post(payload({ correction })), context);
+
+    expect(response.status).toBe(500);
+    expect(JSON.stringify(logging.mock.calls)).not.toContain(privateLine);
+    expect(JSON.stringify(await response.json())).not.toContain(privateLine);
   });
 });

@@ -108,7 +108,8 @@ export async function POST(
     });
 
     return NextResponse.json({ ok: true }, { headers: { "x-request-id": requestId } });
-  } catch (error) {
-    return handleDisagreementError(error, requestId);
+  } catch {
+    // Database query errors can contain the private correction in parameters.
+    return handleDisagreementError(new Error("Could not save report feedback"), requestId);
   }
 }
