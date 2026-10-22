@@ -120,3 +120,50 @@ describe("stake grounding coverage", () => {
     expect(report.quality.groundingCoverage).toBe(0.667);
   });
 });
+
+describe("grounding coverage within a report object", () => {
+  it.each(["position", "common-ground", "disagreement"])("does not let a repeated %s quote make a report publishable", async (surface) => {
+    const extraction = structuredClone(example.extraction);
+    const quote = extraction.positions[0].groundingQuotes[0];
+    extraction.positions[0].groundingQuotes = [];
+    extraction.positions[1].groundingQuotes = [
+      { quote: "This first invented quote does not exist in the source.", participantId: "noah" },
+      { quote: "This second invented quote also does not exist in the source.", participantId: "noah" },
+    ];
+    const target = surface === "position" ? extraction.positions[0]
+      : surface === "common-ground" ? extraction.commonGroundCandidates[0] : extraction.disagreementCandidates[0];
+    const run = async () => analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "duplicate-report-quotes",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+    target.groundingQuotes = [quote];
+    const original = await run();
+    expect(original.report.quality.groundingCoverage).toBe(0.333);
+    expect(canPublishReport(original.report).ok).toBe(false);
+
+    target.groundingQuotes = Array.from({ length: 4 }, () => ({ ...quote }));
+    const duplicated = await run();
+
+    expect(duplicated.report.quality.groundingCoverage).toBe(original.report.quality.groundingCoverage);
+    expect(canPublishReport(duplicated.report).ok).toBe(false);
+    const displayed = surface === "position" ? duplicated.report.positions[0]
+      : surface === "common-ground" ? duplicated.report.commonGround[0] : duplicated.report.disagreements[0];
+    expect(displayed.grounding).toHaveLength(4);
+  });
+
+  it("keeps the existing coverage policy when different report objects reuse a quote", async () => {
+    const extraction = structuredClone(example.extraction);
+    const quote = extraction.positions[0].groundingQuotes[0];
+    extraction.commonGroundCandidates[0].groundingQuotes = [quote];
+    extraction.disagreementCandidates[0].groundingQuotes = [quote];
+    extraction.positions[1].groundingQuotes = [{ quote: "This invented quote does not exist in the source." }];
+
+    const { report } = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "cross-object-report-quotes",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(report.quality.groundingCoverage).toBe(0.75);
+    expect(report.quality.droppedUngroundedQuoteCount).toBe(1);
+  });
+});
