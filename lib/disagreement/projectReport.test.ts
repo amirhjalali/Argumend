@@ -7,6 +7,7 @@ import { oscillatingGraph } from "@/lib/crux/__fixtures__/oscillatingGraph";
 import { PROPAGATION_NON_CONVERGENCE_WARNING } from "@/lib/crux/propagate";
 import { DisagreementReportSchema } from "@/lib/schemas/disagreement";
 import { DISAGREEMENT_LIMITS } from "./constants";
+import { canPublishReport } from "./quality";
 
 const SOURCE = [
   "Ada: The pilot cut delays by a fifth, so we should extend it citywide.",
@@ -158,6 +159,20 @@ describe("projectDisagreementReport numerical diagnostics", () => {
 
     expect(report.quality.warnings.filter((warning) => warning === PROPAGATION_NON_CONVERGENCE_WARNING)).toHaveLength(1);
     expect(report.quality.warnings).toContain("Another quality warning");
+  });
+
+  it("retains a late critical warning and its publication block even when its detail exceeds the limit", () => {
+    const existing = Array.from({ length: DISAGREEMENT_LIMITS.maxQualityWarnings }, (_, i) => `Existing quality warning ${i}`);
+    const report = projectOscillation([
+      ...existing,
+      `${"Long diagnostic detail. ".repeat(20)}Critical quality failure.`,
+    ]);
+
+    expect(report.quality.warnings[0]).toBe(PROPAGATION_NON_CONVERGENCE_WARNING);
+    expect(report.quality.warnings[1]).toMatch(/^Critical quality warning: /);
+    expect(report.quality.warnings).toHaveLength(DISAGREEMENT_LIMITS.maxQualityWarnings);
+    expect(DisagreementReportSchema.safeParse(report).success).toBe(true);
+    expect(canPublishReport(report).reasons).toContain("Critical quality warnings remain.");
   });
 });
 

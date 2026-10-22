@@ -487,7 +487,7 @@ export const DisagreementReportSchema = z
         groundingCoverage: z.number().min(0).max(1),
         droppedUngroundedQuoteCount: z.number().int().nonnegative(),
         inferredPositionCount: z.number().int().nonnegative(),
-        warnings: z.array(z.string().max(280)).max(40),
+        warnings: z.array(z.string().max(L.maxQualityWarningCharacters)).max(L.maxQualityWarnings),
       })
       .strict(),
     provenance: z

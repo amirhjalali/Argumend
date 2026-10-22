@@ -37,6 +37,8 @@ export const DISAGREEMENT_LIMITS = {
   maxSteelmanCharacters: 500,
   maxQuestionCharacters: 500,
   maxSummaryCharacters: 500,
+  maxQualityWarnings: 40,
+  maxQualityWarningCharacters: 280,
   maxCaveats: 12,
   maxCaveatsCombinedCharacters: 1_000,
   maxCorrectionCharacters: 2_000,
