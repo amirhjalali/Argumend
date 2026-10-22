@@ -331,6 +331,60 @@ describe("CliDisagreementProvider", () => {
     expect(runner.calls).toHaveLength(1);
   });
 
+  it("never starts a runner for an already-aborted request", async () => {
+    const controller = new AbortController();
+    controller.abort();
+    const runner = runnerReturning([{ stdout: claudeEnvelope(EXTRACTION) }]);
+    const provider = new CliDisagreementProvider("req-1", { kind: "claude", model: "sonnet", runner: runner.run });
+
+    await expect(provider.extract(REQUEST, { signal: controller.signal })).rejects.toMatchObject({ name: "AbortError" });
+    expect(runner.calls).toHaveLength(0);
+  });
+
+  it("propagates cancellation to a pending runner without a repair attempt", async () => {
+    const controller = new AbortController();
+    let started!: (signal: AbortSignal) => void;
+    const runnerStarted = new Promise<AbortSignal>((resolve) => { started = resolve; });
+    const calls: CliRunInput[] = [];
+    const provider = new CliDisagreementProvider("req-1", {
+      kind: "claude",
+      model: "sonnet",
+      runner: (input) => {
+        calls.push(input);
+        started(input.signal!);
+        return new Promise((resolve) => {
+          input.signal!.addEventListener("abort", () => {
+            resolve({ stdout: "", stderr: "", code: null, timedOut: true });
+          }, { once: true });
+        });
+      },
+    });
+    const extraction = provider.extract(REQUEST, { signal: controller.signal });
+    const assertion = expect(extraction).rejects.toMatchObject({ name: "AbortError" });
+    expect(await runnerStarted).toBe(controller.signal);
+    controller.abort();
+
+    await assertion;
+    expect(calls).toHaveLength(1);
+  });
+
+  it("does not repair output returned after cancellation", async () => {
+    const controller = new AbortController();
+    let calls = 0;
+    const provider = new CliDisagreementProvider("req-1", {
+      kind: "claude",
+      model: "sonnet",
+      runner: async () => {
+        calls += 1;
+        controller.abort();
+        return { stdout: "invalid", stderr: "", code: 0, timedOut: false };
+      },
+    });
+
+    await expect(provider.extract(REQUEST, { signal: controller.signal })).rejects.toMatchObject({ name: "AbortError" });
+    expect(calls).toBe(1);
+  });
+
   it("maps a nonzero exit such as a usage limit to MODEL_UNAVAILABLE", async () => {
     const runner = runnerReturning([{ code: 1, stderr: "You've hit your usage limit." }]);
     const provider = new CliDisagreementProvider("req-1", {

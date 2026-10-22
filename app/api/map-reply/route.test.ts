@@ -1,6 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 import { RENT_CONTROL_JEV_FIXTURES, RENT_CONTROL_THREAD } from "@/lib/mapReply/__fixtures__";
+import { FakeJevProvider, getJevProvider } from "@/lib/jev/client";
+import { logGapObservation } from "@/lib/gapMetric/log";
+import type { JevResult } from "@/lib/jev/types";
 
 vi.mock("@/lib/jev/client", async () => {
   const actual = await vi.importActual<typeof import("@/lib/jev/client")>("@/lib/jev/client");
@@ -8,9 +11,11 @@ vi.mock("@/lib/jev/client", async () => {
     ...actual,
     // The route never reaches the network in tests: it always gets the
     // recorded answers, on the lane the env says it should be using.
-    getJevProvider: () => new actual.FakeJevProvider(RENT_CONTROL_JEV_FIXTURES),
+    getJevProvider: vi.fn(),
   };
 });
+
+vi.mock("@/lib/gapMetric/log", () => ({ logGapObservation: vi.fn().mockResolvedValue(undefined) }));
 
 import { POST } from "./route";
 
@@ -18,7 +23,7 @@ let clientCounter = 0;
 
 function post(
   body: unknown,
-  options: { ip?: string; raw?: string; headers?: Record<string, string> } = {},
+  options: { ip?: string; raw?: string; headers?: Record<string, string>; signal?: AbortSignal } = {},
 ) {
   clientCounter += 1;
   return new NextRequest(new URL("http://localhost/api/map-reply"), {
@@ -29,6 +34,7 @@ function post(
       ...options.headers,
     },
     body: options.raw ?? JSON.stringify(body),
+    signal: options.signal,
   });
 }
 
@@ -37,6 +43,8 @@ describe("POST /api/map-reply", () => {
     vi.stubEnv("ENABLE_JEV_MAP_REPLY", "true");
     vi.stubEnv("ARGUMEND_JEV_PROVIDER", "fake");
     vi.stubEnv("MAP_REPLY_TOPIC_CONFIDENCE", "");
+    vi.mocked(getJevProvider).mockReset().mockReturnValue(new FakeJevProvider(RENT_CONTROL_JEV_FIXTURES));
+    vi.mocked(logGapObservation).mockClear();
   });
 
   afterEach(() => {
@@ -52,6 +60,72 @@ describe("POST /api/map-reply", () => {
     expect(body.code).toBe("FEATURE_DISABLED");
     expect(body.error).toBe("Map replies are not enabled.");
     expect(response.headers.get("x-request-id")).toBeTruthy();
+  });
+
+  it("does not create a provider for an already-aborted request", async () => {
+    const controller = new AbortController();
+    controller.abort();
+
+    const response = await POST(post({ text: RENT_CONTROL_THREAD }, { signal: controller.signal }));
+
+    expect(response.status).toBe(499);
+    expect((await response.json()).code).toBe("REQUEST_ABORTED");
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(getJevProvider).not.toHaveBeenCalled();
+    expect(logGapObservation).not.toHaveBeenCalled();
+  });
+
+  it.each(["reject", "resolve"] as const)(
+    "cancels deferred provider work and skips later stages and metrics when it %ss",
+    async (settlement) => {
+      const controller = new AbortController();
+      const fake = new FakeJevProvider(RENT_CONTROL_JEV_FIXTURES);
+      let started!: (signal: AbortSignal) => void;
+      const providerStarted = new Promise<AbortSignal>((resolve) => { started = resolve; });
+      let finish!: () => void;
+      const systemOne = vi.fn((...args: Parameters<typeof fake.systemOne>) => {
+        const signal = args[2]!.signal!;
+        const reply = fake.systemOne(...args);
+        started(signal);
+        return new Promise<JevResult>((resolve, reject) => {
+          finish = () => {
+            if (settlement === "reject") reject(signal.reason);
+            else resolve(reply);
+          };
+        });
+      });
+      vi.mocked(getJevProvider).mockReturnValue({ lane: "fake", systemOne });
+
+      const responsePromise = POST(post({ text: RENT_CONTROL_THREAD }, { signal: controller.signal }));
+      const providerSignal = await providerStarted;
+      controller.abort(new Error("Client disconnected"));
+      expect(providerSignal.aborted).toBe(true);
+      finish();
+      const response = await responsePromise;
+
+      expect(response.status).toBe(499);
+      expect((await response.json()).code).toBe("REQUEST_ABORTED");
+      expect(systemOne).toHaveBeenCalledTimes(1);
+      expect(logGapObservation).not.toHaveBeenCalled();
+    },
+  );
+
+  it("preserves the 504 timeout contract when the server deadline expires", async () => {
+    const deadline = new AbortController();
+    vi.spyOn(AbortSignal, "timeout").mockReturnValue(deadline.signal);
+    vi.mocked(getJevProvider).mockReturnValue({
+      lane: "fake",
+      systemOne: async () => {
+        deadline.abort(new DOMException("Deadline exceeded", "TimeoutError"));
+        throw deadline.signal.reason;
+      },
+    });
+
+    const response = await POST(post({ text: RENT_CONTROL_THREAD }));
+
+    expect(response.status).toBe(504);
+    expect((await response.json()).code).toBe("PROVIDER_TIMEOUT");
+    expect(logGapObservation).not.toHaveBeenCalled();
   });
 
   it("is a 404 when the flag is simply unset", async () => {

@@ -14,10 +14,11 @@ export function isGapMetricLoggingEnabled(): boolean {
   return process.env.ENABLE_GAP_METRIC_LOGGING === "true";
 }
 
-async function insertGapObservation(record: GapObservation): Promise<void> {
+async function insertGapObservation(record: GapObservation, signal?: AbortSignal): Promise<void> {
   const { getDb, isDatabaseConfigured } = await import("@/lib/db");
-  if (!isDatabaseConfigured()) return;
+  if (signal?.aborted || !isDatabaseConfigured()) return;
   const { gapObservations } = await import("@/lib/db/schema");
+  if (signal?.aborted) return;
   await getDb().insert(gapObservations).values(record);
 }
 
@@ -26,8 +27,8 @@ async function insertGapObservation(record: GapObservation): Promise<void> {
  * derivation bug is swallowed with the rest. Returns the insert promise for
  * tests; callers do not await it.
  */
-export function logGapObservation(derive: () => GapObservation | null): Promise<void> {
-  if (!isGapMetricLoggingEnabled()) return Promise.resolve();
+export function logGapObservation(derive: () => GapObservation | null, signal?: AbortSignal): Promise<void> {
+  if (signal?.aborted || !isGapMetricLoggingEnabled()) return Promise.resolve();
   try {
     const candidate = derive();
     if (!candidate) return Promise.resolve();
@@ -37,7 +38,7 @@ export function logGapObservation(derive: () => GapObservation | null): Promise<
       console.warn("[argumend:gap-metric] record refused by schema");
       return Promise.resolve();
     }
-    return insertGapObservation(parsed.data).catch((error: unknown) => {
+    return insertGapObservation(parsed.data, signal).catch((error: unknown) => {
       console.warn(`[argumend:gap-metric] insert failed: ${sanitizeServerLog(error)}`);
     });
   } catch (error) {

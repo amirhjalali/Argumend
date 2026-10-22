@@ -22,6 +22,7 @@ export async function analyzeDisagreement(input: {
   provider: DisagreementModelProvider;
   signal?: AbortSignal;
 }): Promise<DisagreementAnalysisBundleV1> {
+  input.signal?.throwIfAborted();
   const request = validateAnalyzeRequest({
     content: input.content,
     contentType: input.contentType,
@@ -29,6 +30,7 @@ export async function analyzeDisagreement(input: {
   });
 
   const extracted = await input.provider.extract(request, { signal: input.signal });
+  input.signal?.throwIfAborted();
   const parsed = parseRawDisagreementExtraction(extracted.data);
 
   // A structurally invalid payload is unusable. Dangling references are not:

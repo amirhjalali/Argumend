@@ -220,6 +220,52 @@ describe("HttpJevProvider", () => {
     await expect(
       provider(fetchImpl).systemOne({}, QUESTIONS, { signal: controller.signal }),
     ).rejects.toThrow(/Aborted/);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not dispatch an already-aborted request", async () => {
+    const controller = new AbortController();
+    controller.abort();
+    const fetchImpl = vi.fn(async () => ok(ANSWER)) as unknown as typeof fetch;
+
+    await expect(
+      provider(fetchImpl).systemOne({}, QUESTIONS, { signal: controller.signal }),
+    ).rejects.toMatchObject({ name: "AbortError" });
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it("interrupts Retry-After sleep on client cancellation without another attempt", async () => {
+    const controller = new AbortController();
+    const fetchImpl = vi.fn(async () => {
+      setTimeout(() => controller.abort(), 0);
+      return fail(429, { "retry-after": "9" });
+    }) as unknown as typeof fetch;
+
+    await expect(
+      provider(fetchImpl, { sleepImpl: undefined }).systemOne({}, QUESTIONS, { signal: controller.signal }),
+    ).rejects.toMatchObject({ name: "AbortError" });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it("stops retrying when cancellation happens during network-error backoff", async () => {
+    const controller = new AbortController();
+    const fetchImpl = vi.fn(async () => { throw new TypeError("Network failure"); }) as unknown as typeof fetch;
+    const sleepImpl = vi.fn(async () => { controller.abort(); });
+
+    await expect(
+      provider(fetchImpl, { sleepImpl }).systemOne({}, QUESTIONS, { signal: controller.signal }),
+    ).rejects.toMatchObject({ name: "AbortError" });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(sleepImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it("interrupts retry sleep at the total deadline and preserves JEV_TIMEOUT", async () => {
+    const fetchImpl = vi.fn(async () => fail(503, { "retry-after": "9" })) as unknown as typeof fetch;
+
+    await expect(
+      provider(fetchImpl, { sleepImpl: undefined, totalTimeoutMs: 5 }).systemOne({}, QUESTIONS),
+    ).rejects.toMatchObject({ code: "JEV_TIMEOUT" });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 
   it("refuses once the daily token ceiling is reached", async () => {
