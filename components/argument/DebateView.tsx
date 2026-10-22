@@ -521,10 +521,12 @@ function ClaimEvidence({
     const source = nodesById.get(e.from);
     return source?.type === "evidence" && source.status !== "superseded";
   });
-  const objections = graph.edges.filter(
-    (e) => (e.type === "opposes" || e.type === "contradicts") &&
-      (e.to === claim.id || (e.type === "contradicts" && e.from === claim.id))
-  );
+  const objections = graph.edges.filter((edge) => {
+    if (edge.type !== "opposes" && edge.type !== "contradicts") return false;
+    if (edge.to !== claim.id && !(edge.type === "contradicts" && edge.from === claim.id)) return false;
+    const other = nodesById.get(edge.to === claim.id ? edge.from : edge.to);
+    return other?.type === "claim" && other.status !== "superseded";
+  });
 
   if (evidenceEdges.length === 0 && objections.length === 0) return null;
 
@@ -572,9 +574,11 @@ function EvidenceItem({
   const node = nodesById.get(edge.from);
   if (node?.type !== "evidence") return null;
   const polarity = POLARITY_RENDER[edge.polarity ?? "qualifying"];
-  const scopeLimits = graph.edges.filter(
-    (e) => e.type === "limits_scope" && e.to === node.id
-  );
+  const scopeLimits = graph.edges.filter((edge) => {
+    if (edge.type !== "limits_scope" || edge.to !== node.id) return false;
+    const limiter = nodesById.get(edge.from);
+    return limiter?.type === "claim" && limiter.status !== "superseded";
+  });
 
   return (
     <li className="text-sm leading-relaxed">
