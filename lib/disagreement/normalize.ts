@@ -1,4 +1,4 @@
-import type { RawDisagreementExtractionV1 } from "@/types/disagreement";
+import type { RawDisagreementExtractionV1, RawGroundingQuote } from "@/types/disagreement";
 
 export interface NormalizedExtraction {
   extraction: RawDisagreementExtractionV1;
@@ -44,11 +44,12 @@ export function normalizeExtraction(
   });
 
   const seenLabels = new Map<string, string>();
+  const duplicateParticipantIds = new Map<string, string>();
   const dedupedParticipants = participants.filter((participant) => {
     const key = participant.label.trim().toLowerCase();
     const existing = seenLabels.get(key);
     if (existing) {
-      participantMap.set(participant.id, existing);
+      duplicateParticipantIds.set(participant.id, existing);
       warnings.push(`Deduplicated participant label "${participant.label}"`);
       return false;
     }
@@ -56,7 +57,17 @@ export function normalizeExtraction(
     return true;
   });
 
-  const remapParticipant = (id: string) => participantMap.get(id);
+  const remapParticipant = (id: string) => {
+    const normalized = participantMap.get(id);
+    return normalized ? duplicateParticipantIds.get(normalized) ?? normalized : undefined;
+  };
+  let droppedQuoteAttributions = 0;
+  const remapGroundingQuotes = (quotes: RawGroundingQuote[]) => quotes.map((quote) => {
+    if (quote.participantId === undefined) return quote;
+    const participantId = remapParticipant(quote.participantId);
+    if (participantId === undefined) droppedQuoteAttributions += 1;
+    return { ...quote, participantId };
+  });
 
   const positions = raw.positions.map((position, index) => {
     const nextId = uniqueId(slugify(position.id, `position-${index + 1}`), used);
@@ -70,7 +81,12 @@ export function normalizeExtraction(
     if (participantIds.length < position.participantIds.length) {
       warnings.push(`Dropped dangling participant on position "${position.id}"`);
     }
-    return { ...position, id: nextId, participantIds };
+    return {
+      ...position,
+      id: nextId,
+      participantIds,
+      groundingQuotes: remapGroundingQuotes(position.groundingQuotes),
+    };
   }).filter((position) => {
     if (position.participantIds.length === 0) {
       warnings.push(`Dropped position "${position.id}" with no participants`);
@@ -86,6 +102,7 @@ export function normalizeExtraction(
     return {
       ...claim,
       id: nextId,
+      groundingQuotes: remapGroundingQuotes(claim.groundingQuotes),
       participantIds: claim.participantIds
         .map((id) => remapParticipant(id))
         .filter((id): id is string => Boolean(id)),
@@ -127,6 +144,7 @@ export function normalizeExtraction(
 
   const commonGroundCandidates = raw.commonGroundCandidates.map((item) => ({
     ...item,
+    groundingQuotes: remapGroundingQuotes(item.groundingQuotes),
     participantIds: item.participantIds
       .map((id) => remapParticipant(id))
       .filter((id): id is string => Boolean(id)),
@@ -141,6 +159,7 @@ export function normalizeExtraction(
   const disagreementCandidates = raw.disagreementCandidates.map((item, index) => ({
     ...item,
     id: uniqueId(slugify(item.id, `disagreement-${index + 1}`), used),
+    groundingQuotes: remapGroundingQuotes(item.groundingQuotes),
     claimIds: item.claimIds.flatMap((id) => {
       const mapped = claimMap.get(id);
       return mapped && claimIds.has(mapped) ? [mapped] : [];
@@ -185,8 +204,19 @@ export function normalizeExtraction(
         warnings.push(`Preserved stake "${stake.id}" without its dropped position reference`);
       }
     }
-    return { ...stake, id: nextId, claimId, participantId, positionId };
+    return {
+      ...stake,
+      id: nextId,
+      claimId,
+      participantId,
+      positionId,
+      groundingQuotes: remapGroundingQuotes(stake.groundingQuotes),
+    };
   }).filter((stake): stake is NonNullable<typeof stake> => Boolean(stake));
+
+  if (droppedQuoteAttributions > 0) {
+    warnings.push(`Removed ${droppedQuoteAttributions} unresolved quote participant attribution(s); quoted text was retained.`);
+  }
 
   return {
     extraction: {
