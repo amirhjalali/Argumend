@@ -89,7 +89,7 @@ describe("agent executor provider adapters", () => {
       max_tokens: 2048,
       system: "Base system",
       messages: [{ role: "user", content: "User prompt" }],
-    });
+    }, { signal: undefined });
   });
 
   it.each([
@@ -108,7 +108,7 @@ describe("agent executor provider adapters", () => {
         { role: "system", content: "Base system" },
         { role: "user", content: "User prompt" },
       ],
-    });
+    }, { signal: undefined });
     expect(mocks.anthropicCreate).not.toHaveBeenCalled();
   });
 
@@ -122,6 +122,7 @@ describe("agent executor provider adapters", () => {
     expect(mocks.geminiConstructor).toHaveBeenCalledWith("gemini-key");
     expect(mocks.geminiGenerate).toHaveBeenCalledWith(
       "Base system\n\n---\n\nUser prompt",
+      { signal: undefined },
     );
   });
 
@@ -168,5 +169,45 @@ describe("agent executor provider adapters", () => {
     const result = await executeAgent(request("gpt-4"));
     expect(result.content).toBe("");
     expect(result.error).toBeUndefined();
+  });
+
+  it("does not load SDK clients for an already-cancelled execution", async () => {
+    const { executeAgent } = await import("./executor");
+    const controller = new AbortController();
+    controller.abort();
+    await expect(executeAgent({ ...request("claude"), signal: controller.signal })).rejects.toMatchObject({ name: "AbortError" });
+    expect(mocks.anthropicConstructor).not.toHaveBeenCalled();
+    expect(mocks.anthropicCreate).not.toHaveBeenCalled();
+  });
+
+  it.each(["claude", "gpt-4", "gpt-5", "gemini"] as const)("forwards caller cancellation to %s without retries", async (model) => {
+    vi.stubEnv("GEMINI_API_KEY", "gemini-key");
+    const { executeAgent } = await import("./executor");
+    let started!: (signal: AbortSignal) => void;
+    const began = new Promise<AbortSignal>((resolve) => { started = resolve; });
+    const create = model === "claude" ? mocks.anthropicCreate : model === "gemini" ? mocks.geminiGenerate : mocks.openaiCreate;
+    create.mockImplementationOnce((_body, { signal }: { signal: AbortSignal }) => {
+      started(signal);
+      return new Promise((_resolve, reject) => signal.addEventListener("abort", () => reject(new Error("SDK request was aborted")), { once: true }));
+    });
+    const controller = new AbortController();
+    const pending = executeAgent({ ...request(model), signal: controller.signal });
+    const assertion = expect(pending).rejects.toMatchObject({ name: "AbortError" });
+    const signal = await began;
+    controller.abort();
+    expect(signal.aborted).toBe(true);
+    await assertion;
+    expect(create).toHaveBeenCalledOnce();
+  });
+
+  it("rejects a successful SDK result received after caller cancellation", async () => {
+    const { executeAgent } = await import("./executor");
+    const controller = new AbortController();
+    mocks.anthropicCreate.mockImplementationOnce(async () => {
+      controller.abort();
+      return { content: [{ type: "text", text: "Late private output" }] };
+    });
+    await expect(executeAgent({ ...request("claude"), signal: controller.signal })).rejects.toMatchObject({ name: "AbortError" });
+    expect(mocks.anthropicCreate).toHaveBeenCalledOnce();
   });
 });

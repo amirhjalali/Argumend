@@ -200,9 +200,10 @@ describe("POST /api/judge", () => {
       expect(mocks.judgeDebate).toHaveBeenCalledWith(
         expect.any(Array),
         "A bounded claim",
+        { signal: expect.any(AbortSignal) },
       );
     } else {
-      expect(mocks.judgeContent).toHaveBeenCalledWith("A balanced article.", "article");
+      expect(mocks.judgeContent).toHaveBeenCalledWith("A balanced article.", "article", { signal: expect.any(AbortSignal) });
     }
   });
 

@@ -60,6 +60,8 @@ export interface AgentExecutionRequest {
   userPrompt: string;
   /** Optional previous context for conversational agents */
   context?: string;
+  /** Caller cancellation, forwarded to provider requests and retry waits. */
+  signal?: AbortSignal;
 }
 
 /**

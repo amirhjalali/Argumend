@@ -237,12 +237,13 @@ export class JudgeCouncil {
    */
   async judgeDebate(
     messages: DebateMessage[],
-    topic?: string
+    topic?: string,
+    options: { signal?: AbortSignal } = {},
   ): Promise<JudgingResult> {
     const systemPrompt = buildJudgeSystemPrompt(this.rubric);
     const userPrompt = buildJudgeDebatePrompt(messages, topic);
 
-    return this.executeJudgment(systemPrompt, userPrompt);
+    return this.executeJudgment(systemPrompt, userPrompt, options.signal);
   }
 
   /**
@@ -250,12 +251,13 @@ export class JudgeCouncil {
    */
   async judgeContent(
     content: string,
-    contentType: "transcript" | "article" | "freeform" = "freeform"
+    contentType: "transcript" | "article" | "freeform" = "freeform",
+    options: { signal?: AbortSignal } = {},
   ): Promise<JudgingResult> {
     const systemPrompt = buildJudgeSystemPrompt(this.rubric);
     const userPrompt = buildJudgeContentPrompt(content, contentType);
 
-    return this.executeJudgment(systemPrompt, userPrompt);
+    return this.executeJudgment(systemPrompt, userPrompt, options.signal);
   }
 
   /**
@@ -263,8 +265,10 @@ export class JudgeCouncil {
    */
   private async executeJudgment(
     systemPrompt: string,
-    userPrompt: string
+    userPrompt: string,
+    signal?: AbortSignal,
   ): Promise<JudgingResult> {
+    signal?.throwIfAborted();
     // Execute all judges in parallel
     const judgePromises = this.judges.map(async (judge, index) => {
       const judgeStartTime = Date.now();
@@ -272,7 +276,9 @@ export class JudgeCouncil {
         agent: judge,
         systemPrompt,
         userPrompt,
+        ...(signal ? { signal } : {}),
       });
+      signal?.throwIfAborted();
 
       if (response.error) {
         // Upstream errors can echo the private prompt. Configurable agent
@@ -298,6 +304,7 @@ export class JudgeCouncil {
     });
 
     const results = await Promise.all(judgePromises);
+    signal?.throwIfAborted();
     const verdicts = results.filter((v): v is JudgeVerdict => v !== null);
 
     // Track which judges failed

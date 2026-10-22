@@ -56,6 +56,32 @@ describe("JudgeCouncil production orchestration", () => {
     vi.restoreAllMocks();
   });
 
+  it("does not dispatch judges for an already-aborted request", async () => {
+    const controller = new AbortController();
+    controller.abort();
+    const council = new JudgeCouncil({ judges, rubric });
+    await expect(council.judgeContent("Private input", "freeform", { signal: controller.signal })).rejects.toMatchObject({ name: "AbortError" });
+    expect(mocks.executeAgent).not.toHaveBeenCalled();
+  });
+
+  it("forwards cancellation to every judge and rejects late results without diagnostics", async () => {
+    const controller = new AbortController();
+    let finish!: () => void;
+    const pending = new Promise<void>((resolve) => { finish = resolve; });
+    mocks.executeAgent.mockImplementation(async ({ agent, signal }) => {
+      expect(signal).toBe(controller.signal);
+      await pending;
+      return { content: verdictJson("for", 8, 4), agentId: agent.id };
+    });
+    const council = new JudgeCouncil({ judges, rubric });
+    const running = council.judgeContent("Private input", "freeform", { signal: controller.signal });
+    const assertion = expect(running).rejects.toMatchObject({ name: "AbortError" });
+    expect(mocks.executeAgent).toHaveBeenCalledTimes(3);
+    controller.abort();
+    finish();
+    await assertion;
+  });
+
   it("aggregates valid provider verdicts and preserves model attribution", async () => {
     mocks.executeAgent
       .mockResolvedValueOnce({ content: verdictJson("for", 9, 4), agentId: "judge-a" })
