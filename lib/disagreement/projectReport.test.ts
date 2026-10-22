@@ -3,6 +3,9 @@ import type { RawDisagreementExtractionV1 } from "@/types/disagreement";
 import { buildArgumentGraph } from "./buildGraph";
 import { normalizeExtraction } from "./normalize";
 import { projectDisagreementReport } from "./projectReport";
+import { oscillatingGraph } from "@/lib/crux/__fixtures__/oscillatingGraph";
+import { PROPAGATION_NON_CONVERGENCE_WARNING } from "@/lib/crux/propagate";
+import { DisagreementReportSchema } from "@/lib/schemas/disagreement";
 
 const SOURCE = [
   "Ada: The pilot cut delays by a fifth, so we should extend it citywide.",
@@ -113,6 +116,49 @@ function project(options: GateOptions = {}) {
  * becomes the presented crux.
  */
 const BASELINE_CRUXES = ["c-congested", "c-delay", "c-diversion"];
+
+function projectOscillation(extraWarnings: string[] = []) {
+  const raw = extraction();
+  raw.claims = ["x", "a", "b", "c"].map((id) => claim(id, `Claim ${id} matters to the pilot`));
+  raw.claimRelations = [];
+  return projectDisagreementReport({
+    extraction: normalizeExtraction(raw).extraction,
+    graph: oscillatingGraph(),
+    graphValid: true,
+    source: SOURCE,
+    provider: "fake",
+    model: "fixture",
+    extraWarnings,
+  });
+}
+
+describe("projectDisagreementReport numerical diagnostics", () => {
+  it("retains one content-free nonconvergence warning alongside other quality warnings", () => {
+    const existing = Array.from({ length: 39 }, (_, i) => `Existing quality warning ${i}`);
+    const report = projectOscillation(existing);
+
+    expect(report.quality.warnings).toContain(PROPAGATION_NON_CONVERGENCE_WARNING);
+    expect(report.quality.warnings.filter((warning) => warning === PROPAGATION_NON_CONVERGENCE_WARNING)).toHaveLength(1);
+    expect(report.quality.warnings).toEqual(expect.arrayContaining(existing));
+    expect(DisagreementReportSchema.safeParse(report).success).toBe(true);
+  });
+
+  it("reserves room for the numerical diagnostic when the warning capacity is full", () => {
+    const report = projectOscillation(Array.from({ length: 40 }, (_, i) => `Existing quality warning ${i}`));
+
+    expect(report.quality.warnings).toHaveLength(40);
+    expect(report.quality.warnings[0]).toBe(PROPAGATION_NON_CONVERGENCE_WARNING);
+    expect(report.quality.warnings[1]).toBe("Existing quality warning 0");
+    expect(DisagreementReportSchema.safeParse(report).success).toBe(true);
+  });
+
+  it("does not duplicate a diagnostic already supplied by the caller", () => {
+    const report = projectOscillation([PROPAGATION_NON_CONVERGENCE_WARNING, "Another quality warning"]);
+
+    expect(report.quality.warnings.filter((warning) => warning === PROPAGATION_NON_CONVERGENCE_WARNING)).toHaveLength(1);
+    expect(report.quality.warnings).toContain("Another quality warning");
+  });
+});
 
 describe("projectDisagreementReport Jev contestedness gate", () => {
   it("presents the engine's ranked cruxes when the gate is off", () => {

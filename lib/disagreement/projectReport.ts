@@ -4,6 +4,7 @@ import {
   identifyCruxes,
   jevProjectionGateEnabled,
   normalizeContestednessOverrides,
+  PROPAGATION_NON_CONVERGENCE_WARNING,
 } from "@/lib/crux";
 import type { ArgumentGraph } from "@/types/argument";
 import type {
@@ -294,6 +295,9 @@ export function projectDisagreementReport(input: {
 
   const positionLabels = new Map(positions.map((position) => [position.id, position.label]));
   const ranked = input.graphValid ? identifyCruxes(graph) : [];
+  const hasUnstableInfluence = ranked.some((result) =>
+    result.cycleWarnings.includes(PROPAGATION_NON_CONVERGENCE_WARNING),
+  );
   const claimsById = new Map(extraction.claims.map((claim) => [claim.id, claim]));
 
   // Several ranked claims can belong to one disagreement candidate. Reusing that
@@ -513,7 +517,13 @@ export function projectDisagreementReport(input: {
       groundingCoverage,
       droppedUngroundedQuoteCount: dropped,
       inferredPositionCount,
-      warnings,
+      // Reserve one of the schema's 40 slots for this aggregate diagnostic.
+      // Do not copy graph statements or per-component node ids into it.
+      warnings: hasUnstableInfluence
+        ? [PROPAGATION_NON_CONVERGENCE_WARNING, ...warnings.filter((warning) => warning !== PROPAGATION_NON_CONVERGENCE_WARNING)]
+          .slice(0, 40)
+          .map((warning) => warning.slice(0, 280))
+        : warnings,
     },
     provenance: {
       promptVersion: DISAGREEMENT_PROMPT_VERSION,
