@@ -222,10 +222,10 @@ function isLimiterRebutted(limiterId: string, edges: ArgumentEdge[]): boolean {
   if (
     edges.some(
       (edge) =>
-        edge.to === limiterId &&
-        (edge.type === "opposes" ||
-          edge.type === "contradicts" ||
-          (edge.type === "evidences" && edge.polarity === "challenging"))
+        (edge.type === "contradicts" && (edge.from === limiterId || edge.to === limiterId)) ||
+        (edge.to === limiterId &&
+          (edge.type === "opposes" ||
+            (edge.type === "evidences" && edge.polarity === "challenging")))
     )
   ) {
     return true;
