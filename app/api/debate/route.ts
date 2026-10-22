@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
-import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 import { generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
 import { isAuthConfigured } from "@/lib/auth-config";
 import {
@@ -40,33 +39,34 @@ function requireArgument(value: unknown, provider: string): string {
   return value;
 }
 
-async function hasAuthenticatedUser(): Promise<boolean> {
+async function hasAuthenticatedUser(signal: AbortSignal): Promise<boolean> {
   if (!isAuthConfigured()) return false;
   try {
     const { auth } = await import("@/lib/auth");
     const session = await auth();
     return Boolean(session?.user);
-  } catch (error) {
-    console.warn(
-      "Auth unavailable; using programmatic debate fallback:",
-      sanitizeServerLog(error),
-    );
+  } catch {
+    signal.throwIfAborted();
+    console.warn("Auth unavailable; using programmatic debate fallback");
     return false;
   }
 }
 
 async function generateWithClaude(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal: AbortSignal,
 ): Promise<GenerationResult> {
   try {
     const client = await getAnthropic();
+    signal.throwIfAborted();
     const response = await client.messages.create({
       model: "claude-sonnet-4-20250514",
       max_tokens: 1024,
       system: systemPrompt,
       messages: [{ role: "user", content: userPrompt }],
-    });
+    }, { signal });
+    signal.throwIfAborted();
 
     const textBlock = response.content.find((block) => block.type === "text");
     return {
@@ -86,9 +86,11 @@ async function generateWithOpenAI(
   systemPrompt: string,
   userPrompt: string,
   requestedModel: "gpt-4" | "gpt-5",
+  signal: AbortSignal,
 ): Promise<GenerationResult> {
   try {
     const client = await getOpenAI();
+    signal.throwIfAborted();
     const response = await client.chat.completions.create({
       model: requestedModel === "gpt-5" ? "gpt-5" : "gpt-4o",
       max_tokens: 1024,
@@ -96,7 +98,8 @@ async function generateWithOpenAI(
         { role: "system", content: systemPrompt },
         { role: "user", content: userPrompt },
       ],
-    });
+    }, { signal });
+    signal.throwIfAborted();
 
     return {
       argument: requireArgument(
@@ -113,17 +116,20 @@ async function generateWithOpenAI(
 
 async function generateWithGemini(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal: AbortSignal,
 ): Promise<GenerationResult> {
   try {
     const client = await getGemini();
+    signal.throwIfAborted();
     const model = client.getGenerativeModel({ model: "gemini-1.5-pro" });
 
     // Gemini uses a different format - combine system and user prompts
     const fullPrompt = `${systemPrompt}\n\n---\n\n${userPrompt}`;
 
-    const result = await model.generateContent(fullPrompt);
+    const result = await model.generateContent(fullPrompt, { signal });
     const response = await result.response;
+    signal.throwIfAborted();
     const text = response.text();
 
     return {
@@ -138,7 +144,8 @@ async function generateWithGemini(
 
 async function generateWithGrok(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal: AbortSignal,
 ): Promise<GenerationResult> {
   // Grok uses OpenAI-compatible API format with x.ai endpoint
   const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
@@ -147,6 +154,7 @@ async function generateWithGrok(
   }
 
   try {
+    signal.throwIfAborted();
     const response = await fetch("https://api.x.ai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -161,16 +169,20 @@ async function generateWithGrok(
         ],
         max_tokens: 1024,
       }),
+      signal,
     });
+    signal.throwIfAborted();
 
     if (!response.ok) {
       // Upstream error bodies can echo request/prompt content. The status is
       // sufficient for diagnostics and avoids copying private debate text into
       // application logs.
+      await response.body?.cancel().catch(() => undefined);
       throw new Error(`HTTP ${response.status}`);
     }
 
     const data = GrokCompletionSchema.parse(await response.json());
+    signal.throwIfAborted();
     return {
       argument: requireArgument(data.choices[0].message.content, "Grok"),
       actualModel: "grok",
@@ -181,7 +193,14 @@ async function generateWithGrok(
   }
 }
 
+function requestAborted() {
+  return NextResponse.json({ error: "Request cancelled", code: "REQUEST_ABORTED" }, {
+    status: 499, headers: { "Cache-Control": "no-store" },
+  });
+}
+
 export async function POST(request: NextRequest) {
+  if (request.signal.aborted) return requestAborted();
   // Rate limit: 20 requests per hour per IP (higher limit since each debate round is a separate call)
   const ip = clientIp(request);
   const limit = rateLimit(`debate:${ip}`, { maxRequests: 20, windowMs: 60 * 60 * 1000 });
@@ -196,12 +215,14 @@ export async function POST(request: NextRequest) {
   try {
     raw = await request.json();
   } catch {
+    if (request.signal.aborted) return requestAborted();
     return NextResponse.json(
       { error: "Invalid JSON", code: "INVALID_JSON" },
       { status: 400 }
     );
   }
 
+  if (request.signal.aborted) return requestAborted();
   try {
     const parseResult = DebateTurnRequestSchema.safeParse(raw);
     if (!parseResult.success) {
@@ -216,7 +237,8 @@ export async function POST(request: NextRequest) {
     let result: GenerationResult;
     let execution: DebateTurnExecution;
     const liveDebateEnabled = isLiveDebateEnabled();
-    const authenticated = liveDebateEnabled ? await hasAuthenticatedUser() : false;
+    const authenticated = liveDebateEnabled ? await hasAuthenticatedUser(request.signal) : false;
+    request.signal.throwIfAborted();
     if (!liveDebateEnabled || !authenticated) {
       result = {
         argument: generateProgrammaticDebateTurn({
@@ -242,20 +264,20 @@ export async function POST(request: NextRequest) {
       try {
         switch (model) {
           case "claude":
-            result = await generateWithClaude(systemPrompt, userPrompt);
+            result = await generateWithClaude(systemPrompt, userPrompt, request.signal);
             break;
           case "gpt-4":
           case "gpt-5":
-            result = await generateWithOpenAI(systemPrompt, userPrompt, model);
+            result = await generateWithOpenAI(systemPrompt, userPrompt, model, request.signal);
             break;
           case "gemini":
-            result = await generateWithGemini(systemPrompt, userPrompt);
+            result = await generateWithGemini(systemPrompt, userPrompt, request.signal);
             break;
           case "grok":
-            result = await generateWithGrok(systemPrompt, userPrompt);
+            result = await generateWithGrok(systemPrompt, userPrompt, request.signal);
             break;
           default:
-            result = await generateWithClaude(systemPrompt, userPrompt);
+            result = await generateWithClaude(systemPrompt, userPrompt, request.signal);
         }
         execution = {
           requested: "live",
@@ -263,11 +285,9 @@ export async function POST(request: NextRequest) {
           requestedModel: model,
           actualModel: result.actualModel,
         };
-      } catch (error) {
-        console.warn(
-          "Live debate generation failed, falling back to programmatic mode:",
-          sanitizeServerLog(error),
-        );
+      } catch {
+        request.signal.throwIfAborted();
+        console.warn("Live debate generation failed; falling back to programmatic mode");
         result = {
           argument: generateProgrammaticDebateTurn({
             topic,
@@ -288,12 +308,14 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    request.signal.throwIfAborted();
     return NextResponse.json(DebateTurnSuccessSchema.parse({
       argument: result.argument,
       execution,
     }));
-  } catch (error) {
-    console.error("Debate API error:", sanitizeServerLog(error));
+  } catch {
+    if (request.signal.aborted) return requestAborted();
+    console.error("Debate API request failed");
     return NextResponse.json(
       { error: "Failed to generate debate argument", code: "DEBATE_FAILED" },
       { status: 500 }

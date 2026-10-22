@@ -236,7 +236,7 @@ describe("POST /api/debate", () => {
     },
   );
 
-  it("redacts credentials from live-provider fallback diagnostics", async () => {
+  it("keeps provider diagnostics and credentials out of fallback logs", async () => {
     process.env.ENABLE_LIVE_DEBATE_API = "true";
     mocks.auth.mockResolvedValue({ user: { id: "user-1" } });
     const databaseUrl = "postgresql://admin:private-password@db.internal/app";
@@ -252,7 +252,7 @@ describe("POST /api/debate", () => {
 
     expect(res.status).toBe(200);
     expect(body.execution.fallbackCode).toBe("PROVIDER_ERROR");
-    expect(diagnostic).toContain("[redacted database URL]");
+    expect(diagnostic).toContain("Live debate generation failed");
     expect(diagnostic).not.toContain(databaseUrl);
     expect(diagnostic).not.toContain(providerKey);
     expect(JSON.stringify(body)).not.toContain("private-password");
@@ -278,7 +278,7 @@ describe("POST /api/debate", () => {
 
     expect(res.status).toBe(200);
     expect(body.execution.fallbackCode).toBe("PROVIDER_ERROR");
-    expect(diagnostic).toContain("HTTP 502");
+    expect(diagnostic).toContain("Live debate generation failed");
     expect(diagnostic).not.toContain(privateUpstreamBody);
     expect(JSON.stringify(body)).not.toContain(privateUpstreamBody);
   });

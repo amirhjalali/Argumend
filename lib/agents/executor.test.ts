@@ -159,6 +159,40 @@ describe("agent executor", () => {
     expect(fetchMock).toHaveBeenCalledOnce();
   });
 
+  it("cancels a pending webhook without waiting for its existing timeout", async () => {
+    const controller = new AbortController();
+    const fetchMock = vi.fn((_url: unknown, init: RequestInit) => new Promise((_resolve, reject) => {
+      init.signal?.addEventListener("abort", () => reject(new Error("Fetch aborted")), { once: true });
+    }));
+    vi.stubGlobal("fetch", fetchMock);
+    const pending = executeAgent({ ...webhookRequest("cancelled"), signal: controller.signal });
+    const assertion = expect(pending).rejects.toMatchObject({ name: "AbortError" });
+    controller.abort();
+    expect(fetchMock.mock.calls[0][1].signal?.aborted).toBe(true);
+    await assertion;
+    expect(fetchMock).toHaveBeenCalledOnce();
+  });
+
+  it("interrupts Grok retry backoff on cancellation without another request", async () => {
+    vi.useFakeTimers();
+    vi.stubEnv("XAI_API_KEY", "test-key");
+    const fetchMock = vi.fn().mockResolvedValue(new Response("busy", { status: 503 }));
+    vi.stubGlobal("fetch", fetchMock);
+    const controller = new AbortController();
+    const pending = executeAgent({
+      agent: { id: "cancelled-grok", name: "Grok", type: "local-llm", model: "grok" },
+      systemPrompt: "system", userPrompt: "private content", signal: controller.signal,
+    });
+    const assertion = expect(pending).rejects.toMatchObject({ name: "AbortError" });
+    await vi.advanceTimersByTimeAsync(0);
+    expect(fetchMock).toHaveBeenCalledOnce();
+    controller.abort();
+    await assertion;
+    await vi.runAllTimersAsync();
+    expect(fetchMock).toHaveBeenCalledOnce();
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
   it("preserves request order and isolates failures during parallel execution", async () => {
     vi.stubGlobal(
       "fetch",
