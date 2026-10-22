@@ -126,7 +126,7 @@ export interface StakeProjectionResult {
 }
 
 function normalizeQuoteText(quote: string): string {
-  return quote.trim().toLowerCase().replace(/\s+/g, " ");
+  return quote.trim().replace(/\s+/g, " ");
 }
 
 /**
