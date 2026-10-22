@@ -12,6 +12,9 @@ const TEMPERATURE = 1;
 const MAX_ITERATIONS = 40;
 const CONVERGENCE_DELTA = 0.001;
 
+export const PROPAGATION_NON_CONVERGENCE_WARNING =
+  `Crux influence did not converge within ${MAX_ITERATIONS} iterations at its final damping level; influence estimates may be unstable.`;
+
 export function propagate(
   ig: InfluenceGraph,
   clamps: Map<string, number> = new Map()
@@ -28,7 +31,7 @@ export function propagate(
       activations: first.activations,
       iterations: first.iterations,
       converged: first.converged,
-      cycleWarnings: [],
+      cycleWarnings: first.converged ? [] : [PROPAGATION_NON_CONVERGENCE_WARNING],
     };
   }
 
@@ -37,9 +40,12 @@ export function propagate(
     activations: second.activations,
     iterations: first.iterations + second.iterations,
     converged: second.converged,
-    cycleWarnings: cycleNodeSets.map(
-      (component) => `Cycle damping applied to ${component.sort().join(", ")}.`
-    ),
+    cycleWarnings: [
+      ...cycleNodeSets.map(
+        (component) => `Cycle damping applied to ${component.sort().join(", ")}.`
+      ),
+      ...(second.converged ? [] : [PROPAGATION_NON_CONVERGENCE_WARNING]),
+    ].sort(),
   };
 }
 

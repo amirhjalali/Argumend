@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
-import type { InfluenceGraph } from "./influence";
+import { buildInfluenceGraph, type InfluenceGraph } from "./influence";
 import { propagate } from "./propagate";
+import { identifyCruxes } from "./rank";
+import { oscillatingGraph } from "./__fixtures__/oscillatingGraph";
 
 function ig(overrides: Partial<InfluenceGraph> = {}): InfluenceGraph {
   const nodes = [
@@ -52,6 +54,26 @@ describe("propagate", () => {
       })
     );
 
-    expect(result.cycleWarnings).toEqual([expect.stringContaining("a, b")]);
+    expect(result.cycleWarnings).toContainEqual(expect.stringContaining("a, b"));
+    expect(result.converged).toBe(false);
+    expect(result.cycleWarnings).toContainEqual(expect.stringContaining("did not converge"));
+  });
+
+  it("warns when a positive-only oscillation reaches the iteration limit", () => {
+    const result = propagate(buildInfluenceGraph(oscillatingGraph()), new Map([["x", 1]]));
+
+    expect(result.converged).toBe(false);
+    expect(result.iterations).toBe(40);
+    // Reporting the failure must not silently change the numerical policy.
+    expect(result.activations.get("a")).toBeCloseTo(0.1784599635599105, 12);
+    expect(result.cycleWarnings).toContainEqual(expect.stringContaining("did not converge"));
+  });
+
+  it("keeps a failed counterfactual's warning in the ranked crux", () => {
+    const candidate = identifyCruxes(oscillatingGraph()).find((crux) => crux.claimId === "x");
+
+    expect(candidate?.score).toBe(0.4);
+    expect(candidate?.affectedPositions).toEqual([{ id: "pos-1", delta: 0.299 }]);
+    expect(candidate?.cycleWarnings).toContainEqual(expect.stringContaining("did not converge"));
   });
 });
