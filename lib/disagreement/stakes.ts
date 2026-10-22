@@ -212,9 +212,15 @@ export function projectClaimStakes(input: {
   if (primaryCruxClaimId && !primaryStaked && projected.length < DISAGREEMENT_LIMITS.maxStakesInLedger) {
     const claim = claimsById.get(primaryCruxClaimId);
     if (claim) {
+      const usedIds = new Set(projected.map((stake) => stake.id));
+      const fallbackBase = "stake-primary-crux-fallback";
+      let fallbackId = fallbackBase;
+      for (let suffix = 2; usedIds.has(fallbackId); suffix += 1) {
+        fallbackId = `${fallbackBase}-${suffix}`;
+      }
       warnings.push(`Minted fallback stake for primary crux claim "${primaryCruxClaimId}"`);
       projected.unshift({
-        id: "stake-primary-crux-fallback",
+        id: fallbackId,
         claimId: primaryCruxClaimId,
         claim: claim.statement,
         targetConclusion: extraction.mainQuestion,

@@ -149,4 +149,75 @@ describe("participant identity normalization", () => {
     expect(result.graph.nodes.some((node) => node.type === "claim" && node.id === "shared-id-3")).toBe(true);
     expect(parseDisagreementReport(result.report).success).toBe(true);
   });
+
+  it("keeps references to an exact duplicate claim after giving it a canonical identity", async () => {
+    const extraction = structuredClone(example.extraction);
+    extraction.claims.push({ ...structuredClone(extraction.claims[0]), id: "same-claim-again" });
+    extraction.claimRelations = [{ fromClaimId: "same-claim-again", toClaimId: "c-under", type: "opposes" }];
+    extraction.disagreementCandidates[0].claimIds = ["same-claim-again"];
+    extraction.claimStakeCandidates = [{
+      id: "explicit-stake", claimId: "same-claim-again", participantId: "maya",
+      targetConclusion: "The estimate is useful.", role: "hinge", ifFalseEffect: "reconsider",
+      consequence: "The estimate would need revision.", basis: "explicit", groundingQuotes: [],
+    }];
+
+    const result = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "claim-alias-test",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(result.graph.nodes.some((node) => node.id === "same-claim-again")).toBe(false);
+    expect(result.graph.edges).toContainEqual(expect.objectContaining({ from: "c-rate", to: "c-under", type: "opposes" }));
+    expect(result.report.disagreements[0].relatedClaimIds).toEqual(["c-rate"]);
+    expect(result.report.accountability!.stakes).toContainEqual(expect.objectContaining({
+      id: "explicit-stake", claimId: "c-rate", participantId: "maya", basis: "explicit",
+    }));
+    expect(parseDisagreementReport(result.report).success).toBe(true);
+  });
+
+  it("preserves a repeated statement with distinct attribution or stance instead of inventing a merge", () => {
+    const extraction = structuredClone(example.extraction);
+    extraction.claims.push({
+      ...structuredClone(extraction.claims[0]),
+      id: "same-proposition-different-speaker",
+      participantIds: ["noah"],
+      acceptedByParticipantIds: ["noah"],
+      disputedByParticipantIds: ["maya"],
+      stanceByPosition: [{ positionId: "pos-underinsured", relation: "supports" }],
+    });
+
+    const result = normalizeExtraction(extraction).extraction;
+
+    expect(result.claims).toHaveLength(3);
+    expect(result.claims[0].participantIds).toEqual(["maya"]);
+    expect(result.claims[2]).toMatchObject({
+      id: "same-proposition-different-speaker", participantIds: ["noah"],
+      stanceByPosition: [{ positionId: "pos-underinsured", relation: "supports" }],
+    });
+  });
+
+  it("keeps authored stake IDs distinct from the generated primary-crux fallback", async () => {
+    const extraction = structuredClone(example.extraction);
+    const baseline = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "stake-identity-baseline",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+    const otherClaim = extraction.claims.find((claim) => claim.id !== baseline.report.cruxes[0].claimId)!;
+    extraction.claimStakeCandidates = ["stake-primary-crux-fallback", "stake-primary-crux-fallback-2"].map((id) => ({
+      id, claimId: otherClaim.id, participantId: "maya", targetConclusion: "The estimate is useful.",
+      role: "hinge", ifFalseEffect: "reconsider", consequence: "The estimate would need revision.",
+      basis: "explicit", groundingQuotes: [],
+    }));
+
+    const result = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "fallback-stake-identity-test",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(parseDisagreementReport(result.report).success).toBe(true);
+    const stakes = result.report.accountability!.stakes;
+    expect(new Set(stakes.map((stake) => stake.id)).size).toBe(stakes.length);
+    expect(stakes[0]).toMatchObject({ id: "stake-primary-crux-fallback-3", basis: "unstated" });
+    expect(stakes.slice(1).every((stake) => stake.basis === "explicit")).toBe(true);
+  });
 });

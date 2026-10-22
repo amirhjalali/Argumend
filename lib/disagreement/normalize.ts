@@ -102,7 +102,8 @@ export function normalizeExtraction(
     return normalized && retainedPositionIds.has(normalized) ? normalized : undefined;
   };
 
-  const seenClaims = new Set<string>();
+  const seenClaimDefinitions = new Map<string, string>();
+  const duplicateClaimIds = new Map<string, string>();
   const claims = raw.claims.map((claim, index) => {
     const nextId = uniqueId(slugify(claim.id, `claim-${index + 1}`), used);
     claimMap.set(claim.id, nextId);
@@ -128,19 +129,27 @@ export function normalizeExtraction(
         .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance)),
     };
   }).filter((claim) => {
-    const key = claim.statement.trim().toLowerCase();
-    if (seenClaims.has(key)) {
-      warnings.push(`Dropped duplicate claim "${claim.id}"`);
+    // An identical proposition can have different attribution, stances, or
+    // resolution conditions. Only a repeated complete definition is an alias.
+    const key = JSON.stringify({ ...claim, id: undefined });
+    const existing = seenClaimDefinitions.get(key);
+    if (existing) {
+      duplicateClaimIds.set(claim.id, existing);
+      warnings.push(`Deduplicated claim "${claim.id}"`);
       return false;
     }
-    seenClaims.add(key);
+    seenClaimDefinitions.set(key, claim.id);
     return true;
   });
 
   const claimIds = new Set(claims.map((claim) => claim.id));
+  const remapClaim = (id: string) => {
+    const normalized = claimMap.get(id);
+    return normalized ? duplicateClaimIds.get(normalized) ?? normalized : undefined;
+  };
   const claimRelations = raw.claimRelations.filter((relation) => {
-    const fromClaimId = claimMap.get(relation.fromClaimId);
-    const toClaimId = claimMap.get(relation.toClaimId);
+    const fromClaimId = remapClaim(relation.fromClaimId);
+    const toClaimId = remapClaim(relation.toClaimId);
     if (!fromClaimId || !toClaimId || !claimIds.has(fromClaimId) || !claimIds.has(toClaimId)) {
       warnings.push("Dropped dangling claim relation");
       return false;
@@ -169,7 +178,7 @@ export function normalizeExtraction(
     id: uniqueId(slugify(item.id, `disagreement-${index + 1}`), used),
     groundingQuotes: remapGroundingQuotes(item.groundingQuotes),
     claimIds: item.claimIds.flatMap((id) => {
-      const mapped = claimMap.get(id);
+      const mapped = remapClaim(id);
       return mapped && claimIds.has(mapped) ? [mapped] : [];
     }),
     participantStances: item.participantStances
@@ -197,7 +206,7 @@ export function normalizeExtraction(
   // survives without the positionId and says so in a warning.
   const claimStakeCandidates = (raw.claimStakeCandidates ?? []).map((stake, index) => {
     const nextId = uniqueId(slugify(stake.id, `stake-${index + 1}`), used);
-    const claimId = claimMap.get(stake.claimId);
+    const claimId = remapClaim(stake.claimId);
     if (!claimId || !claimIds.has(claimId)) {
       warnings.push(`Dropped stake "${stake.id}" referencing an unknown claim`);
       return null;
