@@ -2,6 +2,15 @@ import "@/test/setup-dom";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { EmbedButton } from "./EmbedButton";
+import { useModalAccessibility } from "@/hooks/useModalAccessibility";
+
+function LayeredEmbed({ searchOpen }: { searchOpen: boolean }) {
+  const ref = useModalAccessibility<HTMLDivElement>({ isOpen: searchOpen, onClose: () => {} });
+  return <>
+    <EmbedButton topicId="topic one" />
+    {searchOpen && <div ref={ref} role="dialog" aria-label="Search" aria-modal="true"><input aria-label="Search input" /></div>}
+  </>;
+}
 
 describe("EmbedButton", () => {
   afterEach(() => {
@@ -42,6 +51,22 @@ describe("EmbedButton", () => {
       'src="https://argumend.org/embed/topic%20one"',
     );
     expect(view.getByRole("button", { name: "Embed code copied" })).toBeTruthy();
+  });
+
+  it("keeps Embed open when a pointer event belongs to the modal above it", async () => {
+    const view = render(<LayeredEmbed searchOpen={false} />);
+    fireEvent.click(view.getByRole("button", { name: "Embed this topic" }));
+    await waitFor(() => expect(document.activeElement).toBe(view.getByRole("button", { name: "Close" })));
+    view.rerender(<LayeredEmbed searchOpen />);
+    const searchInput = view.getByRole("textbox", { name: "Search input" });
+    await waitFor(() => expect(document.activeElement).toBe(searchInput));
+
+    fireEvent.mouseDown(searchInput);
+
+    expect(view.getByRole("dialog", { name: "Embed this topic" })).toBeTruthy();
+    expect(document.activeElement).toBe(searchInput);
+    view.rerender(<LayeredEmbed searchOpen={false} />);
+    await waitFor(() => expect(document.activeElement).toBe(view.getByRole("button", { name: "Close" })));
   });
 
   it("does not claim success when clipboard and fallback copying fail", async () => {
