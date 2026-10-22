@@ -67,6 +67,25 @@ describe("buildInfluenceGraph", () => {
     );
   });
 
+  it.each([
+    ["c1", "c3"],
+    ["c3", "c1"],
+  ])("recognizes a contradiction rebutting limiter %s from %s", (limiterId, rebuttalId) => {
+    // Contradictions are symmetric, stored once in lexicographic id order.
+    const [from, to] = [limiterId, rebuttalId].sort();
+    const ig = buildInfluenceGraph(
+      graph([
+        { id: "scope", from: limiterId, to: "e1", type: "limits_scope" },
+        { id: "rebuttal", from, to, type: "contradicts" },
+        { id: "evidence", from: "e1", to: "c2", type: "evidences", polarity: "supporting" },
+      ]),
+    );
+
+    expect(ig.edges).toContainEqual(
+      expect.objectContaining({ from: "e1", to: "c2", weight: 0.6 }),
+    );
+  });
+
   it("excludes superseded claims and evidence entirely", () => {
     const supersededClaim = {
       ...claim("c4", "Old claim"),
