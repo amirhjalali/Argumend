@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
-import { auth } from "@/lib/auth";
+import { isAuthConfigured } from "@/lib/auth-config";
+import { isDatabaseConfigured } from "@/lib/db";
 import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import {
@@ -23,7 +24,7 @@ const CreateRequestSchema = z.object({
 
 const SaveRoundRequestSchema = z.object({
   action: z.literal("saveRound"),
-  debateId: z.string().min(1),
+  debateId: z.uuid(),
   roundNumber: z.number().int().min(1).max(20),
   forContent: z.string().min(1).max(50000),
   againstContent: z.string().min(1).max(50000),
@@ -31,7 +32,7 @@ const SaveRoundRequestSchema = z.object({
 
 const UpdateStatusRequestSchema = z.object({
   action: z.literal("updateStatus"),
-  debateId: z.string().min(1),
+  debateId: z.uuid(),
   status: DebatePersistenceStatusSchema,
   winner: z.string().max(50).optional(),
 });
@@ -44,8 +45,24 @@ const PersistRequestSchema = z.discriminatedUnion("action", [
 
 export async function POST(req: NextRequest) {
   // Require authentication for persisting debate data
-  const session = await auth();
-  const userId = session?.user?.id;
+  if (!isAuthConfigured()) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  let userId: string | undefined;
+  try {
+    const { auth } = await import("@/lib/auth");
+    const session = await auth();
+    userId = session?.user?.id;
+  } catch (error) {
+    console.error("Debate persistence authentication failed:", sanitizeServerLog(error));
+    return NextResponse.json(
+      {
+        error: "Sign-in is temporarily unavailable. Please try again later.",
+        code: "AUTH_UNAVAILABLE",
+      },
+      { status: 503 },
+    );
+  }
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -61,7 +78,15 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const raw = await req.json();
+    let raw: unknown;
+    try {
+      raw = await req.json();
+    } catch {
+      return NextResponse.json(
+        { error: "Invalid JSON body", code: "INVALID_JSON" },
+        { status: 400 },
+      );
+    }
     const parseResult = PersistRequestSchema.safeParse(raw);
     if (!parseResult.success) {
       return NextResponse.json(
@@ -70,6 +95,13 @@ export async function POST(req: NextRequest) {
       );
     }
     const body = parseResult.data;
+
+    if (!isDatabaseConfigured()) {
+      return NextResponse.json(
+        { error: "Debate storage is unavailable", code: "PERSISTENCE_UNAVAILABLE" },
+        { status: 503 },
+      );
+    }
 
     switch (body.action) {
       case "create": {
