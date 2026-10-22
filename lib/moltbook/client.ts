@@ -8,6 +8,7 @@
  */
 
 import { buildSearchParams } from "@/lib/utils";
+import { z } from "zod";
 
 const MOLTBOOK_API_BASE = "https://www.moltbook.com/api/v1";
 
@@ -63,6 +64,13 @@ interface ApiResponse<T> {
   hint?: string;
 }
 
+const ApiResponseSchema = z.object({
+  success: z.boolean(),
+  data: z.unknown().optional(),
+  error: z.string().optional(),
+  hint: z.string().optional(),
+});
+
 /**
  * Moltbook API Client
  */
@@ -97,7 +105,15 @@ export class MoltbookClient {
       };
     }
 
-    return response.json();
+    if (!response.ok) {
+      throw new Error("Moltbook request failed");
+    }
+
+    const parsed = ApiResponseSchema.safeParse(await response.json());
+    if (!parsed.success) {
+      throw new Error("Moltbook returned an invalid response");
+    }
+    return parsed.data as ApiResponse<T>;
   }
 
   // ==================== Agent Management ====================

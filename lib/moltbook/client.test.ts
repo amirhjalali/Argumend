@@ -73,6 +73,29 @@ describe("MoltbookClient HTTP boundary", () => {
     });
   });
 
+  it.each([
+    null,
+    [],
+    "unavailable",
+    { success: "true", data: [] },
+    { success: false, error: "Rate limited", hint: 12 },
+  ].map((body) => [body]))("rejects a malformed API envelope %j", async (body) => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify(body))));
+    const client = new MoltbookClient("key");
+
+    await expect(client.getFeed()).rejects.toThrow("Moltbook returned an invalid response");
+  });
+
+  it("rejects unsuccessful HTTP statuses even with a successful JSON envelope", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(
+      JSON.stringify({ success: true, data: [] }),
+      { status: 503 },
+    )));
+    const client = new MoltbookClient("key");
+
+    await expect(client.getFeed()).rejects.toThrow("Moltbook request failed");
+  });
+
   it("builds feed queries without serializing absent options", async () => {
     const fetchMock = vi.fn().mockResolvedValue(ok([]));
     vi.stubGlobal("fetch", fetchMock);
