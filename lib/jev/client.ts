@@ -13,6 +13,7 @@
  * Authorization header. Request bodies are never logged either: they carry the
  * text a user pasted.
  */
+import { setTimeout as sleep } from "node:timers/promises";
 import {
   isJevBudgetExhausted,
   recordJevTokens,
@@ -70,11 +71,11 @@ export interface HttpJevProviderOptions {
   /** Injectable for tests; defaults to the global fetch. */
   fetchImpl?: typeof fetch;
   /** Injectable for tests; defaults to setTimeout-based sleeping. */
-  sleepImpl?: (ms: number) => Promise<void>;
+  sleepImpl?: (ms: number, signal?: AbortSignal) => Promise<void>;
 }
 
-function defaultSleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+function defaultSleep(ms: number, signal?: AbortSignal): Promise<void> {
+  return sleep(ms, undefined, { signal });
 }
 
 /**
@@ -163,7 +164,7 @@ export class HttpJevProvider implements JevProvider {
   private readonly totalTimeoutMs: number;
   private readonly maxAttempts: number;
   private readonly fetchImpl: typeof fetch;
-  private readonly sleepImpl: (ms: number) => Promise<void>;
+  private readonly sleepImpl: (ms: number, signal?: AbortSignal) => Promise<void>;
 
   constructor(options: HttpJevProviderOptions) {
     if (!options.apiKey) {
@@ -184,6 +185,7 @@ export class HttpJevProvider implements JevProvider {
     questions: JevQuestionSet,
     options: JevCallOptions = {},
   ): Promise<JevResult> {
+    options.signal?.throwIfAborted();
     if (Object.keys(questions).length === 0) {
       throw new JevError("JEV_REQUEST_FAILED", "A Jev request needs at least one question.");
     }
@@ -197,16 +199,28 @@ export class HttpJevProvider implements JevProvider {
     // Two clocks: one per attempt, one across the whole call so a retry storm
     // cannot outlive the page request that started it.
     const total = AbortSignal.timeout(options.totalTimeoutMs ?? this.totalTimeoutMs);
+    const callSignal = options.signal ? AbortSignal.any([total, options.signal]) : total;
     const perAttemptMs = options.timeoutMs ?? this.timeoutMs;
     const maxAttempts = Math.max(1, options.maxAttempts ?? this.maxAttempts);
     const body = JSON.stringify({ state, model: this.model, questions });
+    const waitBeforeRetry = async (ms: number) => {
+      try {
+        await this.sleepImpl(ms, callSignal);
+      } catch (error) {
+        options.signal?.throwIfAborted();
+        if (total.aborted) throw new JevError("JEV_TIMEOUT");
+        throw error;
+      }
+      options.signal?.throwIfAborted();
+      if (total.aborted) throw new JevError("JEV_TIMEOUT");
+    };
 
     let retries = 0;
     for (;;) {
+      options.signal?.throwIfAborted();
+      if (total.aborted) throw new JevError("JEV_TIMEOUT");
       const attemptDeadline = AbortSignal.timeout(perAttemptMs);
-      const signals: AbortSignal[] = [total, attemptDeadline];
-      if (options.signal) signals.push(options.signal);
-      const signal = AbortSignal.any(signals);
+      const signal = AbortSignal.any([callSignal, attemptDeadline]);
 
       const startedAt = performance.now();
       let response: Response;
@@ -231,7 +245,7 @@ export class HttpJevProvider implements JevProvider {
           );
         }
         retries += 1;
-        await this.sleepImpl(backoffDelayMs(retries));
+        await waitBeforeRetry(backoffDelayMs(retries));
         continue;
       }
 
@@ -242,6 +256,8 @@ export class HttpJevProvider implements JevProvider {
         try {
           payload = await response.json();
         } catch {
+          options.signal?.throwIfAborted();
+          if (signal.aborted) throw new JevError("JEV_TIMEOUT");
           throw new JevError("JEV_BAD_RESPONSE", "Jev returned invalid JSON.");
         }
         let parsed: JevResponse;
@@ -280,8 +296,7 @@ export class HttpJevProvider implements JevProvider {
       }
 
       retries += 1;
-      await this.sleepImpl(retryAfterMs ?? backoffDelayMs(retries));
-      if (total.aborted) throw new JevError("JEV_TIMEOUT");
+      await waitBeforeRetry(retryAfterMs ?? backoffDelayMs(retries));
     }
   }
 }

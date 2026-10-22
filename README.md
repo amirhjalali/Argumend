@@ -95,6 +95,11 @@ no build-time flag is involved. Without it, `/analyze` runs only the offline map
 Publishing unlisted `/d/<slug>` reports also requires `ENABLE_DISAGREEMENT_PUBLISHING`,
 `REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`.
 
+The diagnosis and map-reply APIs cancel provider work when the client disconnects.
+Canceled requests return `499 REQUEST_ABORTED` when a response can still be sent;
+server deadlines retain their `504` timeout responses. Cancellation also prevents
+later provider stages, retries, and pending gap-metric inserts from starting.
+
 The unprefixed `ENABLE_LIVE_*` flags are the server-side authorization boundary
 for provider calls. Their matching `NEXT_PUBLIC_ENABLE_LIVE_*` flags only expose
 the corresponding mode in the browser UI and never authorize backend live work

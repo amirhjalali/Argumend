@@ -196,6 +196,7 @@ export function buildCliCommand(input: {
 
 const defaultRunner: CliRunner = (input) =>
   new Promise<CliRunOutput>((resolve, reject) => {
+    input.signal?.throwIfAborted();
     const child = spawn(input.bin, input.args, { stdio: ["pipe", "pipe", "pipe"] });
     let stdout = "";
     let stderr = "";
@@ -266,6 +267,8 @@ export class CliDisagreementProvider implements DisagreementModelProvider {
       );
     }
 
+    options.signal?.throwIfAborted();
+
     const started = Date.now();
     const system = cliSystemPrompt();
     const user = buildDisagreementUserPrompt(request);
@@ -290,6 +293,7 @@ export class CliDisagreementProvider implements DisagreementModelProvider {
 
       let output: CliRunOutput;
       try {
+        options.signal?.throwIfAborted();
         output = await this.runner({
           bin: command.bin,
           args: command.args,
@@ -298,8 +302,10 @@ export class CliDisagreementProvider implements DisagreementModelProvider {
           signal: options.signal,
         });
       } catch {
+        options.signal?.throwIfAborted();
         throw new DisagreementError("MODEL_UNAVAILABLE", this.requestId);
       }
+      options.signal?.throwIfAborted();
 
       if (output.timedOut) {
         throw new DisagreementError("MODEL_TIMEOUT", this.requestId);

@@ -4,6 +4,8 @@ import { JevError } from "@/lib/jev/errors";
 import type { JevCallOptions, JevProvider, JevQuestionSet, JevResult } from "@/lib/jev/types";
 import { runMapReply } from "./pipeline";
 import { RENT_CONTROL_JEV_FIXTURES, RENT_CONTROL_THREAD } from "./__fixtures__";
+import { loadTopicById } from "@/data/topicLoader";
+import type { Topic } from "@/lib/schemas/topic";
 
 function fakeProvider() {
   return new FakeJevProvider(RENT_CONTROL_JEV_FIXTURES);
@@ -127,6 +129,32 @@ describe("runMapReply on the recorded rent-control thread", () => {
 
     await runMapReply({ text: RENT_CONTROL_THREAD, provider: spy });
     expect(labels).toEqual(["topic-select", "turns-0", "thread", "crux"]);
+  });
+
+  it("does not start parallel provider stages after cancellation during map loading", async () => {
+    const controller = new AbortController();
+    const provider = fakeProvider();
+    const systemOne = vi.spyOn(provider, "systemOne");
+    let started!: () => void;
+    const loadingStarted = new Promise<void>((resolve) => { started = resolve; });
+    let finish!: (topic: Topic | null) => void;
+    const loading = new Promise<Topic | null>((resolve) => { finish = resolve; });
+    const reply = runRentControl({
+      provider,
+      signal: controller.signal,
+      loadTopic: () => {
+        started();
+        return loading;
+      },
+    });
+    const assertion = expect(reply).rejects.toMatchObject({ name: "AbortError" });
+    await loadingStarted;
+    controller.abort();
+    finish(await loadTopicById("rent-control-effectiveness"));
+
+    await assertion;
+    expect(systemOne).toHaveBeenCalledTimes(1);
+    expect(systemOne.mock.calls[0][2]?.label).toBe("topic-select");
   });
 });
 

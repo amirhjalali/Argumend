@@ -1,3 +1,4 @@
+import { setTimeout as sleep } from "node:timers/promises";
 import { DISAGREEMENT_MODEL_TIMEOUT_MS } from "@/lib/disagreement/constants";
 import { DisagreementError } from "@/lib/disagreement/errors";
 import { RawDisagreementExtractionSchema } from "@/lib/schemas/disagreement";
@@ -11,24 +12,6 @@ import type {
   DisagreementExtractResult,
   DisagreementModelProvider,
 } from "./provider";
-
-function sleep(ms: number, signal?: AbortSignal): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (signal?.aborted) {
-      reject(new DOMException("Aborted", "AbortError"));
-      return;
-    }
-    const timer = setTimeout(resolve, ms);
-    signal?.addEventListener(
-      "abort",
-      () => {
-        clearTimeout(timer);
-        reject(new DOMException("Aborted", "AbortError"));
-      },
-      { once: true },
-    );
-  });
-}
 
 function isRetryable(error: unknown): boolean {
   const message = error instanceof Error ? error.message.toLowerCase() : String(error).toLowerCase();
@@ -58,6 +41,7 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
     request: DisagreementExtractRequest,
     options: { signal?: AbortSignal } = {},
   ): Promise<DisagreementExtractResult> {
+    options.signal?.throwIfAborted();
     const started = Date.now();
     const userPrompt = buildDisagreementUserPrompt(request);
     let lastIssuePaths: string[] = [];
@@ -81,6 +65,7 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
         repairNote,
         signal: options.signal,
       });
+      options.signal?.throwIfAborted();
       const parsed = RawDisagreementExtractionSchema.safeParse(payload);
       if (parsed.success) {
         return {
@@ -104,9 +89,9 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
 
   /**
    * Bounded exponential backoff for transient HTTP failures (429/5xx/network),
-   * independent of the schema-repair budget in `extract`. AbortError always
-   * maps to MODEL_TIMEOUT immediately; a non-retryable or exhausted-retry
-   * error maps to MODEL_UNAVAILABLE.
+   * independent of the schema-repair budget in `extract`. Caller cancellation
+   * propagates immediately, provider deadlines map to MODEL_TIMEOUT, and a
+   * non-retryable or exhausted-retry error maps to MODEL_UNAVAILABLE.
    */
   private async callModel(input: {
     userPrompt: string;
@@ -115,13 +100,16 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
   }): Promise<unknown> {
     for (let transientAttempt = 0; transientAttempt < 3; transientAttempt += 1) {
       try {
+        input.signal?.throwIfAborted();
         return await this.sendToModel(input);
       } catch (error) {
+        input.signal?.throwIfAborted();
+        if (error instanceof DisagreementError) throw error;
         if (error instanceof DOMException && error.name === "AbortError") {
           throw new DisagreementError("MODEL_TIMEOUT", this.requestId);
         }
         if (transientAttempt < 2 && isRetryable(error)) {
-          await sleep(250 * 2 ** transientAttempt, input.signal);
+          await sleep(250 * 2 ** transientAttempt, undefined, { signal: input.signal });
           continue;
         }
         throw new DisagreementError("MODEL_UNAVAILABLE", this.requestId);
@@ -136,6 +124,7 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
     signal?: AbortSignal;
   }): Promise<unknown> {
     const AnthropicClass = (await import("@anthropic-ai/sdk")).default;
+    input.signal?.throwIfAborted();
     const client = new AnthropicClass();
     const timeout = AbortSignal.timeout(DISAGREEMENT_MODEL_TIMEOUT_MS);
     const signal = input.signal ? AbortSignal.any([input.signal, timeout]) : timeout;
@@ -156,7 +145,11 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
         ],
       },
       { signal },
-    );
+    ).catch((error: unknown) => {
+      input.signal?.throwIfAborted();
+      if (signal.aborted) throw new DisagreementError("MODEL_TIMEOUT", this.requestId);
+      throw error;
+    });
 
     return toolInputFromResponse(response.content as Array<{ type: string; name?: string; input?: unknown }>);
   }
