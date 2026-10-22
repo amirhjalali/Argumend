@@ -34,6 +34,7 @@ import {
 import { groundQuotes } from "./grounding";
 import type { NormalizedExtraction } from "./normalize";
 import { computeGroundingCoverage } from "./quality";
+import { countQuoteCoverage } from "./quoteCoverage";
 import { projectClaimStakes } from "./stakes";
 
 function typeFromEpistemic(
@@ -276,19 +277,14 @@ export function projectDisagreementReport(input: {
   const seenQuoteTexts = new Set<string>();
 
   const ground = (quotes: { quote: string; participantId?: string }[], prefix: string) => {
-    // Repeating an identical quote and attribution within one object is not
-    // additional support. Keep display refs intact and count each pair once.
-    const quoteKey = (item: { quote: string; participantId?: string }) =>
-      JSON.stringify([item.quote, item.participantId ?? null]);
-    const expectedKeys = new Set(quotes.map(quoteKey));
-    expectedQuotes += expectedKeys.size;
     for (const item of quotes) {
       seenQuoteTexts.add(item.quote.trim().replace(/\s+/g, " "));
     }
     const result = groundQuotes(source, quotes, prefix);
-    const groundedKeys = new Set(result.refs.map(quoteKey));
-    dropped += expectedKeys.size - groundedKeys.size;
-    groundedQuotes += groundedKeys.size;
+    const coverage = countQuoteCoverage(quotes, result.refs);
+    expectedQuotes += coverage.expected;
+    dropped += coverage.dropped;
+    groundedQuotes += coverage.grounded;
     warnings.push(...result.warnings);
     return result.refs;
   };
