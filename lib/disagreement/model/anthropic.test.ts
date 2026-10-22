@@ -184,4 +184,18 @@ describe("AnthropicDisagreementProvider", () => {
     await expect(provider.extract(REQUEST, {})).rejects.toMatchObject({ code: "MODEL_TIMEOUT" });
     expect(mocks.create).toHaveBeenCalledTimes(1);
   });
+
+  it.each(["valid", "invalid"] as const)("rejects a late %s SDK result after its own deadline", async (kind) => {
+    const { AnthropicDisagreementProvider } = await import("./anthropic");
+    const deadline = new AbortController();
+    vi.spyOn(AbortSignal, "timeout").mockReturnValue(deadline.signal);
+    mocks.create.mockImplementationOnce(async () => {
+      deadline.abort(new DOMException("Deadline exceeded", "TimeoutError"));
+      return toolResponse(kind === "valid" ? EXTRACTION : { mainQuestion: "invalid" });
+    });
+    const provider = new AnthropicDisagreementProvider("req-1", { model: "claude-test", maxOutputTokens: 4096 });
+
+    await expect(provider.extract(REQUEST)).rejects.toMatchObject({ code: "MODEL_TIMEOUT" });
+    expect(mocks.create).toHaveBeenCalledTimes(1);
+  });
 });

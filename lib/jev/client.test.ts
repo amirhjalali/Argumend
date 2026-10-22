@@ -52,6 +52,7 @@ describe("HttpJevProvider", () => {
 
   afterEach(() => {
     vi.unstubAllEnvs();
+    vi.restoreAllMocks();
     resetJevBudget();
   });
 
@@ -267,6 +268,33 @@ describe("HttpJevProvider", () => {
     ).rejects.toMatchObject({ code: "JEV_TIMEOUT" });
     expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
+
+  it.each(["attempt", "total", "caller"] as const)(
+    "rejects JSON returned after the %s signal aborts while preserving billed usage",
+    async (kind) => {
+      const attempt = new AbortController();
+      const total = new AbortController();
+      const caller = new AbortController();
+      vi.spyOn(AbortSignal, "timeout")
+        .mockReturnValueOnce(total.signal)
+        .mockReturnValueOnce(attempt.signal);
+      const response = ok(ANSWER);
+      vi.spyOn(response, "json").mockImplementationOnce(async () => {
+        const controller = kind === "attempt" ? attempt : kind === "total" ? total : caller;
+        controller.abort(kind === "caller"
+          ? new DOMException("Client disconnected", "AbortError")
+          : new DOMException("Deadline exceeded", "TimeoutError"));
+        return ANSWER;
+      });
+      const fetchImpl = vi.fn(async () => response) as unknown as typeof fetch;
+
+      await expect(provider(fetchImpl).systemOne({}, QUESTIONS, { signal: caller.signal })).rejects.toMatchObject(
+        kind === "caller" ? { name: "AbortError" } : { code: "JEV_TIMEOUT" },
+      );
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+      expect(jevTokensSpentToday()).toBe(ANSWER.usage.input_tokens + ANSWER.usage.output_tokens);
+    },
+  );
 
   it("refuses once the daily token ceiling is reached", async () => {
     vi.stubEnv("JEV_DAILY_TOKEN_CEILING", "150");
