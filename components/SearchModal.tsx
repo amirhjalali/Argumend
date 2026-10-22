@@ -379,6 +379,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
+      // Candidate selection belongs to the input method. Some browsers mark
+      // its final Enter with keyCode 229 after isComposing has become false.
+      if (e.nativeEvent.isComposing || e.nativeEvent.keyCode === 229) return;
       if (flatResults.length === 0) return;
 
       switch (e.key) {
@@ -479,7 +482,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             />
             {query && (
               <button
-                onClick={() => updateQuery("")}
+                onClick={() => {
+                  updateQuery("");
+                  inputRef.current?.focus();
+                }}
                 className="flex items-center justify-center h-11 w-11 rounded-md text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] transition-colors"
                 aria-label="Clear search"
               >

@@ -91,6 +91,46 @@ describe("SearchModal keyboard lifecycle", () => {
     expect(push).not.toHaveBeenCalled();
   });
 
+  it("returns focus to the search input after clearing a query by keyboard", async () => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+    fireEvent.change(input, { target: { value: "nuclear" } });
+
+    const clear = view.getByRole("button", { name: "Clear search" });
+    clear.focus();
+    fireEvent.click(clear);
+
+    expect(view.queryByRole("button", { name: "Clear search" })).toBeNull();
+    expect(document.activeElement).toBe(input);
+    expect((input as HTMLInputElement).value).toBe("");
+    expect(push).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    { isComposing: true, keyCode: 13 },
+    { isComposing: false, keyCode: 229 },
+  ])("leaves IME candidate keys alone (%j)", async (composition) => {
+    const view = render(<SearchHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open search" }));
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+    fireEvent.change(input, { target: { value: "nuclear energy safe" } });
+    const firstResult = input.getAttribute("aria-activedescendant");
+
+    for (const key of ["ArrowDown", "ArrowUp", "Enter"]) {
+      const event = new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true, ...composition });
+      fireEvent(input, event);
+      expect(event.defaultPrevented).toBe(false);
+      expect(input.getAttribute("aria-activedescendant")).toBe(firstResult);
+      expect(push).not.toHaveBeenCalled();
+    }
+
+    fireEvent.keyDown(input, { key: "Enter" });
+    expect(push).toHaveBeenCalledWith("/topics/nuclear-energy-safety");
+  });
+
   it("says there is no map yet for a subject none covers, and offers paste and a suggestion", async () => {
     const view = render(<SearchHarness />);
     fireEvent.click(view.getByRole("button", { name: "Open search" }));
