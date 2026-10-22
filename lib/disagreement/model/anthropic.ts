@@ -151,6 +151,8 @@ export class AnthropicDisagreementProvider implements DisagreementModelProvider 
       throw error;
     });
 
+    input.signal?.throwIfAborted();
+    if (signal.aborted) throw new DisagreementError("MODEL_TIMEOUT", this.requestId);
     return toolInputFromResponse(response.content as Array<{ type: string; name?: string; input?: unknown }>);
   }
 }

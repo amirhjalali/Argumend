@@ -260,16 +260,12 @@ export class HttpJevProvider implements JevProvider {
           if (signal.aborted) throw new JevError("JEV_TIMEOUT");
           throw new JevError("JEV_BAD_RESPONSE", "Jev returned invalid JSON.");
         }
-        let parsed: JevResponse;
-        try {
-          parsed = parseJevResponse(payload);
-        } catch (error) {
-          // A 200 we cannot use was still billed. If the payload reported its
-          // usage, charge it to the ceiling rather than losing the spend.
-          recordJevTokens(readUsageTokens(payload));
-          throw error;
-        }
-        recordJevTokens(parsed.usage.input_tokens + parsed.usage.output_tokens);
+        // A 200 may be billed even when invalid or received after cancellation.
+        // Preserve that spend before refusing an unusable or late response.
+        recordJevTokens(readUsageTokens(payload));
+        options.signal?.throwIfAborted();
+        if (signal.aborted) throw new JevError("JEV_TIMEOUT");
+        const parsed = parseJevResponse(payload);
         return { ...parsed, latencyMs, retries, label: options.label };
       }
 
