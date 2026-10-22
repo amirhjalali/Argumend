@@ -1,12 +1,23 @@
 import "@/test/setup-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { trackEvent } from "@/lib/analytics";
 import { NewsletterSignup } from "./NewsletterSignup";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
 describe("NewsletterSignup", () => {
+  it("dispatches one signup while an earlier submission is pending", () => {
+    vi.mocked(fetch).mockImplementation(() => new Promise(() => undefined));
+    const view = render(<NewsletterSignup />);
+    fireEvent.change(view.getByLabelText("Email address"), { target: { value: "reader@example.com" } });
+    const form = view.getByRole("form", { name: "Newsletter signup" });
+    act(() => {
+      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    });
+    expect(fetch).toHaveBeenCalledOnce();
+  });
   beforeEach(() => {
     vi.stubGlobal("fetch", vi.fn());
     vi.mocked(trackEvent).mockClear();

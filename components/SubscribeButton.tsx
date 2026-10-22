@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { Eye, LoaderCircle, RefreshCw } from "lucide-react";
 import {
@@ -14,12 +14,17 @@ interface SubscribeButtonProps {
 }
 
 export function SubscribeButton({ topicId }: SubscribeButtonProps) {
+  return <TopicSubscriptionControl key={topicId} topicId={topicId} />;
+}
+
+function TopicSubscriptionControl({ topicId }: SubscribeButtonProps) {
   const [status, setStatus] = useState<TopicSubscriptionStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [requestVersion, setRequestVersion] = useState(0);
   const statusId = useId();
+  const pendingMutation = useRef<AbortController | null>(null);
   const featureEnabled = process.env.NEXT_PUBLIC_ENABLE_AUTH === "true";
 
   useEffect(() => {
@@ -39,31 +44,34 @@ export function SubscribeButton({ topicId }: SubscribeButtonProps) {
           `/api/topic-subscriptions?topicId=${encodeURIComponent(topicId)}`,
           { signal: controller.signal },
         );
+        if (controller.signal.aborted) return;
         const payload: unknown = await response.json();
+        if (controller.signal.aborted) return;
         const parsed = TopicSubscriptionStatusSchema.safeParse(payload);
         if (!response.ok || !parsed.success) {
           throw new Error("Could not load follow status");
         }
         setStatus(parsed.data);
-      } catch (requestError) {
-        if (
-          requestError instanceof Error &&
-          requestError.name === "AbortError"
-        ) {
-          return;
-        }
+      } catch {
+        if (controller.signal.aborted) return;
         setError("Follow status is temporarily unavailable.");
       } finally {
         if (!controller.signal.aborted) setLoading(false);
       }
     })();
 
-    return () => controller.abort();
+    return () => {
+      controller.abort();
+      pendingMutation.current?.abort();
+      pendingMutation.current = null;
+    };
   }, [featureEnabled, requestVersion, topicId]);
 
   const toggle = useCallback(async () => {
-    if (!status?.authenticated || updating) return;
+    if (!status?.authenticated || pendingMutation.current) return;
 
+    const controller = new AbortController();
+    pendingMutation.current = controller;
     setUpdating(true);
     setError(null);
     try {
@@ -71,14 +79,17 @@ export function SubscribeButton({ topicId }: SubscribeButtonProps) {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ topicId, subscribe: !status.subscribed }),
+        signal: controller.signal,
       });
-      const payload: unknown = await response.json();
-      const parsed = TopicSubscriptionStatusSchema.safeParse(payload);
+      if (controller.signal.aborted) return;
 
       if (response.status === 401) {
         setStatus({ ...status, authenticated: false, subscribed: false });
         return;
       }
+      const payload: unknown = await response.json();
+      if (controller.signal.aborted) return;
+      const parsed = TopicSubscriptionStatusSchema.safeParse(payload);
       if (!response.ok || !parsed.success) {
         const apiError = TopicSubscriptionErrorSchema.safeParse(payload);
         throw new Error(
@@ -87,11 +98,17 @@ export function SubscribeButton({ topicId }: SubscribeButtonProps) {
       }
       setStatus(parsed.data);
     } catch {
-      setError("Your follow status was not changed. Please try again.");
+      if (!controller.signal.aborted) {
+        // The write may have committed before a connection or count read failed.
+        setError("Could not confirm your follow status. Please try again.");
+      }
     } finally {
-      setUpdating(false);
+      if (pendingMutation.current === controller) {
+        pendingMutation.current = null;
+        setUpdating(false);
+      }
     }
-  }, [status, topicId, updating]);
+  }, [status, topicId]);
 
   if (!featureEnabled) return null;
 
