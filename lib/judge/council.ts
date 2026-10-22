@@ -266,7 +266,7 @@ export class JudgeCouncil {
     userPrompt: string
   ): Promise<JudgingResult> {
     // Execute all judges in parallel
-    const judgePromises = this.judges.map(async (judge) => {
+    const judgePromises = this.judges.map(async (judge, index) => {
       const judgeStartTime = Date.now();
       const response = await executeAgent({
         agent: judge,
@@ -275,13 +275,15 @@ export class JudgeCouncil {
       });
 
       if (response.error) {
-        console.error(`Judge ${judge.id} failed:`, response.error);
+        // Upstream errors can echo the private prompt. Configurable agent
+        // IDs are free text too, so identify the judge only by panel position.
+        console.error("Judge request failed", { judgePosition: index + 1 });
         return null;
       }
 
       const parsed = parseJudgeResponse(response.content);
       if (!parsed) {
-        console.error(`Judge ${judge.id} returned invalid response`);
+        console.error("Judge returned invalid response", { judgePosition: index + 1 });
         return null;
       }
 
