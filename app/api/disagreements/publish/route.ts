@@ -22,6 +22,13 @@ function safeHttpUrl(value: unknown): string | null {
   }
 }
 
+function isSlugCollision(error: unknown): boolean {
+  const cause = error instanceof Error && error.cause ? error.cause : error;
+  return typeof cause === "object" && cause !== null &&
+    "code" in cause && cause.code === "23505" &&
+    "constraint_name" in cause && cause.constraint_name === "disagreement_reports_slug_idx";
+}
+
 export async function POST(request: NextRequest) {
   const requestId = request.headers.get("x-request-id") || createRequestId();
   if (!isDisagreementPublishingEnabled()) {
@@ -90,14 +97,18 @@ export async function POST(request: NextRequest) {
         });
         return NextResponse.json(
           { slug, url: `/d/${slug}`, manageToken: manage.raw },
-          { headers: { "x-request-id": requestId } },
+          { headers: { "x-request-id": requestId, "Cache-Control": "no-store" } },
         );
-      } catch {
+      } catch (error) {
+        // A lost response may follow a committed insert. Only a confirmed
+        // slug collision is safe to retry with a different public URL.
+        if (!isSlugCollision(error) || attempt === 2) throw error;
         slug = createReportSlug();
       }
     }
     throw new Error("Could not allocate a unique slug");
-  } catch (error) {
-    return handleDisagreementError(error, requestId);
+  } catch {
+    // Database query errors can include report text in their parameters.
+    return handleDisagreementError(new Error("Could not publish report"), requestId);
   }
 }
