@@ -383,6 +383,14 @@ A reviewable reconstruction of the exact probe source, package scripts, and
 results is retained at `/tmp/argumend-reliability-copy-probe-20261022`. The retained
 copy was syntax-checked but was not rerun; `results.json` records that distinction.
 
+A final read-only artifact inspection checked both successful standalone builds
+against 65 trace manifests each. All 1,863 unique traced files were present in
+each output, with no paths outside the worktree and no environment paths in the
+trace lists. The packaged resvg WASM hash matched its source in each checkout.
+`python3 /tmp/argumend-reliability-trace-audit-20261022.py` exited 0; its script and
+JSONL results are retained under that task-specific `/tmp` name. This checks the
+completed artifacts, not the reliability of a future build.
+
 ## Limits
 
 - Real provider and database behavior, production authentication sessions, and
