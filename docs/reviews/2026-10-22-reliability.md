@@ -362,6 +362,27 @@ and the Darwin copy implementation in
 It did not establish which native operation failed or identify a confirmed
 matching upstream bug. Runtime attribution remains unverified.
 
+A bounded copy probe on Darwin `25.6.0 arm64` compared Bun
+`1.3.14+0d9b296af` and Node `v22.11.0` using the same `1,378,357` byte public WASM
+file. Each runtime completed 200 copies at concurrency 10: ten fresh-destination
+rounds and ten overwrite rounds. All 200 hashes matched for each runtime, with
+zero failures. This did not reproduce the error outside the full build and does
+not exclude a workload-dependent failure.
+
+The probe used temporary package scripts in
+`/tmp/argumend-reliability-slug-contract-20261022`, both exit 0:
+
+```sh
+/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64/bun --no-env-file run diagnose:copyfile:bun
+/tmp/argumend-reliability-bun-20261022/bun-darwin-aarch64/bun --no-env-file run diagnose:copyfile:node
+```
+
+Temporary package entries, the script, and copy destinations were removed from
+the worktree. No runtime or application configuration was changed.
+A reviewable reconstruction of the exact probe source, package scripts, and
+results is retained at `/tmp/argumend-reliability-copy-probe-20261022`. The retained
+copy was syntax-checked but was not rerun; `results.json` records that distinction.
+
 ## Limits
 
 - Real provider and database behavior, production authentication sessions, and
