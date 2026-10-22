@@ -468,10 +468,18 @@ export function projectDisagreementReport(input: {
       ? `The argument turns on: ${cruxes[0].question}`
       : extraction.mainQuestion;
 
-  const caveats = [
-    ...extraction.caveats,
-    "This analysis maps the submitted text. It does not independently verify factual claims, identify hidden motives, or prove that a participant would endorse every inferred formulation.",
-  ];
+  const sourceOnlyCaveat = "This analysis maps the submitted text. It does not independently verify factual claims, identify hidden motives, or prove that a participant would endorse every inferred formulation.";
+  const caveats: string[] = [];
+  let caveatCharacters = sourceOnlyCaveat.length;
+  // Reserve room for the required caveat, retaining whole model caveats in
+  // their original order rather than truncating a qualification mid-sentence.
+  for (const caveat of extraction.caveats) {
+    if (caveats.length >= DISAGREEMENT_LIMITS.maxCaveats - 1 ||
+      caveatCharacters + caveat.length > DISAGREEMENT_LIMITS.maxCaveatsCombinedCharacters) break;
+    caveats.push(caveat);
+    caveatCharacters += caveat.length;
+  }
+  caveats.push(sourceOnlyCaveat);
 
   return {
     schemaVersion: DISAGREEMENT_REPORT_SCHEMA_VERSION,

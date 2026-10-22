@@ -335,7 +335,7 @@ export const RAW_EXTRACTION_TOOL = {
       },
       caveats: {
         type: "array",
-        maxItems: 12,
+        maxItems: L.maxCaveats,
         // The combined budget cannot be expressed in JSON Schema, so it is
         // stated here where the model will actually read it.
         description: `Each at most ${L.maxSummaryCharacters} characters, and at most ${L.maxCaveatsCombinedCharacters} characters in total across all caveats.`,

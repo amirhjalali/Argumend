@@ -1,4 +1,5 @@
 import type { RawDisagreementExtractionV1, RawGroundingQuote } from "@/types/disagreement";
+import { DISAGREEMENT_QUESTION_NODE_ID } from "./constants";
 
 export interface NormalizedExtraction {
   extraction: RawDisagreementExtractionV1;
@@ -29,7 +30,8 @@ export function normalizeExtraction(
   raw: RawDisagreementExtractionV1,
 ): NormalizedExtraction {
   const warnings: string[] = [];
-  const used = new Set<string>();
+  // The graph builder owns this identity, regardless of model-chosen IDs.
+  const used = new Set<string>([DISAGREEMENT_QUESTION_NODE_ID]);
   const participantMap = new Map<string, string>();
   const positionMap = new Map<string, string>();
   const claimMap = new Map<string, string>();
@@ -94,6 +96,11 @@ export function normalizeExtraction(
     }
     return true;
   });
+  const retainedPositionIds = new Set(positions.map((position) => position.id));
+  const remapPosition = (id: string) => {
+    const normalized = positionMap.get(id);
+    return normalized && retainedPositionIds.has(normalized) ? normalized : undefined;
+  };
 
   const seenClaims = new Set<string>();
   const claims = raw.claims.map((claim, index) => {
@@ -114,7 +121,8 @@ export function normalizeExtraction(
         .filter((id): id is string => Boolean(id)),
       stanceByPosition: claim.stanceByPosition
         .map((stance) => {
-          const positionId = positionMap.get(stance.positionId);
+          const positionId = remapPosition(stance.positionId);
+          if (!positionId) warnings.push(`Dropped dangling position stance on claim "${claim.id}"`);
           return positionId ? { ...stance, positionId } : null;
         })
         .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance)),
@@ -168,10 +176,14 @@ export function normalizeExtraction(
       .map((stance) => {
         const participantId = remapParticipant(stance.participantId);
         if (!participantId) return null;
+        const positionId = stance.positionId ? remapPosition(stance.positionId) : undefined;
+        if (stance.positionId && !positionId) {
+          warnings.push(`Preserved disagreement "${item.id}" stance without its dropped position reference`);
+        }
         return {
           ...stance,
           participantId,
-          positionId: stance.positionId ? positionMap.get(stance.positionId) : undefined,
+          positionId,
         };
       })
       .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance)),
@@ -197,7 +209,7 @@ export function normalizeExtraction(
     }
     let positionId: string | undefined;
     if (stake.positionId) {
-      const mappedPosition = positionMap.get(stake.positionId);
+      const mappedPosition = remapPosition(stake.positionId);
       if (mappedPosition) {
         positionId = mappedPosition;
       } else {

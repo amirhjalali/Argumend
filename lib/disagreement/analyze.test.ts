@@ -32,6 +32,19 @@ describe("validateAnalyzeRequest", () => {
 });
 
 describe("analyzeDisagreement", () => {
+  it("rejects reused participant identity instead of attributing both speakers to the last person", async () => {
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[0];
+    const extraction = JSON.parse(JSON.stringify(example.extraction)
+      .replaceAll('"maya"', '"speaker"').replaceAll('"noah"', '"speaker"'));
+
+    await expect(analyzeDisagreement({
+      content: `${example.source}\nBoth participants want reliable information about health coverage.`,
+      contentType: example.contentType,
+      requestId: REQUEST_ID,
+      provider: new FakeDisagreementProvider(extraction),
+    })).rejects.toMatchObject({ code: "MODEL_SCHEMA_INVALID" });
+  });
+
   it("builds a causal diagnosis from the immigration fixture", async () => {
     const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[1];
     const content = `${example.source}\n\n${"Context note for length. ".repeat(8)}`;

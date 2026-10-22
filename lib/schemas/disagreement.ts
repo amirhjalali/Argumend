@@ -289,9 +289,22 @@ export const RawDisagreementExtractionSchema = z
       .array(RawClaimStakeCandidateSchema)
       .max(L.maxClaimStakes)
       .default([]),
-    caveats: z.array(boundedText(L.maxSummaryCharacters)).max(12),
+    caveats: z.array(boundedText(L.maxSummaryCharacters)).max(L.maxCaveats),
   })
   .strict()
+  .superRefine((value, ctx) => {
+    // References name an entity kind, so IDs may be reused across kinds.
+    // Within one referenced kind, a duplicate makes attribution ambiguous.
+    for (const kind of ["participants", "positions", "claims"] as const) {
+      const seen = new Set<string>();
+      value[kind].forEach((entity, index) => {
+        if (seen.has(entity.id)) {
+          ctx.addIssue({ code: "custom", message: `Duplicate ${kind} id`, path: [kind, index, "id"] });
+        }
+        seen.add(entity.id);
+      });
+    }
+  })
   // The combined caveat budget is a presentation cap, not a correctness
   // property. Rejecting a whole extraction over it throws away minutes of work
   // and every position, claim, and quote in it because the model was slightly
@@ -451,7 +464,7 @@ export const DisagreementReportSchema = z
     disagreements: z.array(DisagreementItemSchema).max(L.maxDisagreements),
     cruxes: z.array(ReportCruxSchema).max(L.maxCruxes),
     resolutionPaths: z.array(ResolutionPathSchema).max(L.maxResolutionPaths),
-    caveats: z.array(boundedText(L.maxSummaryCharacters)).max(12),
+    caveats: z.array(boundedText(L.maxSummaryCharacters)).max(L.maxCaveats),
     // Optional: every report authored before stakes exists must keep parsing.
     accountability: ArgumentAccountabilitySchema.optional(),
     share: z

@@ -16,6 +16,8 @@ export const KNOWN_DISAGREEMENT_PROMPT_VERSIONS = [
 
 export const DISAGREEMENT_SOURCE_MODE = "source-only" as const;
 
+export const DISAGREEMENT_QUESTION_NODE_ID = "q-main";
+
 export const DISAGREEMENT_SHARE_EYEBROW = "THE REAL DISAGREEMENT" as const;
 
 export const DISAGREEMENT_LIMITS = {
@@ -35,6 +37,7 @@ export const DISAGREEMENT_LIMITS = {
   maxSteelmanCharacters: 500,
   maxQuestionCharacters: 500,
   maxSummaryCharacters: 500,
+  maxCaveats: 12,
   maxCaveatsCombinedCharacters: 1_000,
   maxCorrectionCharacters: 2_000,
   maxResolutionPaths: 8,
