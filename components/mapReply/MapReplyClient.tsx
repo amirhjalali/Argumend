@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { MapReplyErrorResponseSchema, MapReplyResultSchema } from "@/lib/mapReply/schema";
 import type { MapReplyResult } from "@/lib/mapReply/types";
 import { mapReplyErrorMessage } from "./errorCopy";
 import { MapReplyForm } from "./MapReplyForm";
@@ -27,12 +28,6 @@ interface ErrorState {
   requestId?: string;
 }
 
-interface MapReplyErrorBody {
-  error?: string;
-  code?: string;
-  requestId?: string;
-}
-
 export function MapReplyClient() {
   const [text, setText] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -41,6 +36,12 @@ export function MapReplyClient() {
   const [error, setError] = useState<ErrorState | null>(null);
   const [inputCollapsed, setInputCollapsed] = useState(false);
   const resultRef = useRef<HTMLDivElement>(null);
+  const pendingRequest = useRef<AbortController | null>(null);
+
+  useEffect(() => () => {
+    pendingRequest.current?.abort();
+    pendingRequest.current = null;
+  }, []);
 
   useEffect(() => {
     if (status !== "loading") return;
@@ -55,6 +56,9 @@ export function MapReplyClient() {
   }, [status]);
 
   async function submit() {
+    if (pendingRequest.current) return;
+    const controller = new AbortController();
+    pendingRequest.current = controller;
     setStep(0);
     setStatus("loading");
     setError(null);
@@ -65,31 +69,42 @@ export function MapReplyClient() {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ text }),
+        signal: controller.signal,
       });
+      if (controller.signal.aborted || pendingRequest.current !== controller) return;
       const body: unknown = await response.json();
-      const payload = (body ?? {}) as Partial<MapReplyResult> & MapReplyErrorBody;
+      if (controller.signal.aborted || pendingRequest.current !== controller) return;
+      const parsed = MapReplyResultSchema.safeParse(body);
 
-      // A "no map" answer arrives as 200 with `ok: false`; only a missing or
-      // non-boolean `ok` means the route sent an error envelope instead.
-      if (!response.ok || typeof payload.ok !== "boolean") {
+      // A complete "no map" answer is a result, rather than an error envelope.
+      if (!response.ok || !parsed.success) {
+        const failure = MapReplyErrorResponseSchema.safeParse(body);
         setError({
-          message: mapReplyErrorMessage(payload.code, payload.error),
-          requestId: payload.requestId,
+          message: mapReplyErrorMessage(
+            failure.success ? failure.data.code : undefined,
+            failure.success ? failure.data.error : undefined,
+          ),
+          requestId: failure.success ? failure.data.requestId : undefined,
         });
         setStatus("error");
         return;
       }
 
-      setResult(payload as MapReplyResult);
+      setResult(parsed.data);
       setInputCollapsed(true);
       setStatus("done");
     } catch {
+      if (controller.signal.aborted || pendingRequest.current !== controller) return;
       setError({ message: mapReplyErrorMessage("PROVIDER_UNAVAILABLE") });
       setStatus("error");
+    } finally {
+      if (pendingRequest.current === controller) pendingRequest.current = null;
     }
   }
 
   function reset() {
+    pendingRequest.current?.abort();
+    pendingRequest.current = null;
     setResult(null);
     setError(null);
     setStatus("idle");
