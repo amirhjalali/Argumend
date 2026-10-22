@@ -278,7 +278,7 @@ export function projectDisagreementReport(input: {
   const ground = (quotes: { quote: string; participantId?: string }[], prefix: string) => {
     expectedQuotes += quotes.length;
     for (const item of quotes) {
-      seenQuoteTexts.add(item.quote.trim().toLowerCase().replace(/\s+/g, " "));
+      seenQuoteTexts.add(item.quote.trim().replace(/\s+/g, " "));
     }
     const result = groundQuotes(source, quotes, prefix);
     dropped += result.dropped;

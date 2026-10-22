@@ -83,4 +83,40 @@ describe("stake grounding coverage", () => {
     expect(duplicated.report.quality.groundingCoverage).toBe(original.report.quality.groundingCoverage);
     expect(canPublishReport(duplicated.report).ok).toBe(false);
   });
+
+  it("counts a case-changed ungrounded stake quote as missing", async () => {
+    const extraction = structuredClone(example.extraction);
+    const quote = extraction.positions[0].groundingQuotes[0];
+    extraction.claimStakeCandidates = [{
+      ...stake("one", [{ ...quote, quote: quote.quote.toLowerCase() }]),
+      claimId: "c-rate", participantId: "maya", positionId: "pos-uninsured-8",
+    }];
+
+    const { report } = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "case-changed-stake-quotes",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(report.accountability!.stakes.find((item) => item.id === "one")!.grounding).toHaveLength(0);
+    expect(report.quality.droppedUngroundedQuoteCount).toBe(1);
+    expect(report.quality.groundingCoverage).toBe(0.667);
+  });
+
+  it("does not let an earlier rejected case variant suppress a later exact quote", async () => {
+    const extraction = structuredClone(example.extraction);
+    const quote = extraction.positions[0].groundingQuotes[0];
+    extraction.positions[0].groundingQuotes = [{ ...quote, quote: quote.quote.toLowerCase() }];
+    extraction.claimStakeCandidates = [{
+      ...stake("one", [quote]), claimId: "c-rate", participantId: "maya", positionId: "pos-uninsured-8",
+    }];
+
+    const { report } = await analyzeDisagreement({
+      content: source, contentType: example.contentType, requestId: "case-corrected-stake-quotes",
+      provider: new FakeDisagreementProvider(extraction),
+    });
+
+    expect(report.accountability!.stakes.find((item) => item.id === "one")!.grounding).toHaveLength(1);
+    expect(report.quality.droppedUngroundedQuoteCount).toBe(1);
+    expect(report.quality.groundingCoverage).toBe(0.667);
+  });
 });
