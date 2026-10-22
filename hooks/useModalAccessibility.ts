@@ -7,6 +7,17 @@ interface ModalAccessibilityOptions {
   onClose: () => void;
 }
 
+let scrollLockCount = 0;
+let restorePageScroll: (() => void) | null = null;
+const activeModals: HTMLElement[] = [];
+
+function updateModalOwners() {
+  const top = activeModals.at(-1);
+  for (const modal of activeModals) {
+    modal.setAttribute("aria-modal", String(modal === top));
+  }
+}
+
 /**
  * Stop the page behind a modal from scrolling; returns the undo.
  *
@@ -14,26 +25,39 @@ interface ModalAccessibilityOptions {
  * does not reach it: globals.css gives <html> `overflow-x: clip`, which stops
  * body's overflow from propagating to the viewport. So <html> is locked too.
  * Where the page shows a classic (space-taking) scrollbar, its gutter is kept
- * so the layout does not jump sideways while the modal is open. Each lock
- * restores the inline values it found, so nested modals unwind in order.
+ * so the layout does not jump sideways while the modal is open. The final
+ * lock restores the original inline values, regardless of teardown order.
  */
 export function lockPageScroll(): () => void {
-  const html = document.documentElement;
-  const body = document.body;
-  const previous = {
-    htmlOverflow: html.style.overflow,
-    htmlGutter: html.style.scrollbarGutter,
-    bodyOverflow: body.style.overflow,
-  };
-  const hasClassicScrollbar = window.innerWidth > html.clientWidth;
-  if (hasClassicScrollbar) html.style.scrollbarGutter = "stable";
-  html.style.overflow = "hidden";
-  body.style.overflow = "hidden";
+  if (scrollLockCount === 0) {
+    const html = document.documentElement;
+    const body = document.body;
+    const previous = {
+      htmlOverflow: html.style.overflow,
+      htmlGutter: html.style.scrollbarGutter,
+      bodyOverflow: body.style.overflow,
+    };
+    const hasClassicScrollbar = window.innerWidth > html.clientWidth;
+    if (hasClassicScrollbar) html.style.scrollbarGutter = "stable";
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    restorePageScroll = () => {
+      html.style.overflow = previous.htmlOverflow;
+      html.style.scrollbarGutter = previous.htmlGutter;
+      body.style.overflow = previous.bodyOverflow;
+    };
+  }
+  scrollLockCount += 1;
+  let released = false;
 
   return () => {
-    html.style.overflow = previous.htmlOverflow;
-    html.style.scrollbarGutter = previous.htmlGutter;
-    body.style.overflow = previous.bodyOverflow;
+    if (released) return;
+    released = true;
+    scrollLockCount -= 1;
+    if (scrollLockCount === 0) {
+      restorePageScroll?.();
+      restorePageScroll = null;
+    }
   };
 }
 
@@ -49,6 +73,7 @@ export function useModalAccessibility<T extends HTMLElement>({
 }: ModalAccessibilityOptions): RefObject<T | null> {
   const modalRef = useRef<T>(null);
   const onCloseRef = useRef(onClose);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   // Consumers often pass an inline callback. Keep the current callback in a
   // ref so callback identity changes cannot tear down an otherwise-open modal.
@@ -62,8 +87,16 @@ export function useModalAccessibility<T extends HTMLElement>({
     if (!isOpen || !modalRef.current) return;
 
     const modal = modalRef.current;
-    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const focusedBeforeOpen = document.activeElement as HTMLElement | null;
+    // A rapid reopen can still have focus inside the exiting dialog. Keep
+    // its original trigger so the eventual close returns outside the dialog.
+    const previouslyFocused = modal.contains(focusedBeforeOpen) ? returnFocusRef.current : focusedBeforeOpen;
+    returnFocusRef.current = previouslyFocused;
     const unlockScroll = lockPageScroll();
+    activeModals.push(modal);
+    // Setup also restores semantics when AnimatePresence reuses a dialog
+    // that reopened before its exit animation removed the DOM node.
+    updateModalOwners();
 
     const getFocusableElements = () =>
       Array.from(
@@ -77,6 +110,7 @@ export function useModalAccessibility<T extends HTMLElement>({
       );
 
     function handleKeyDown(event: KeyboardEvent): void {
+      if (activeModals.at(-1) !== modal) return;
       if (event.isComposing || event.keyCode === 229) return;
       if (event.key === "Escape") {
         event.preventDefault();
@@ -104,6 +138,7 @@ export function useModalAccessibility<T extends HTMLElement>({
 
     document.addEventListener("keydown", handleKeyDown);
     const frame = requestAnimationFrame(() => {
+      if (activeModals.at(-1) !== modal) return;
       const initialFocus =
         modal.querySelector<HTMLElement>("[data-modal-initial-focus]") ??
         getFocusableElements()[0] ??
@@ -115,21 +150,20 @@ export function useModalAccessibility<T extends HTMLElement>({
       cancelAnimationFrame(frame);
       document.removeEventListener("keydown", handleKeyDown);
       unlockScroll();
+      const index = activeModals.indexOf(modal);
+      if (index !== -1) activeModals.splice(index, 1);
       // AnimatePresence may keep this subtree mounted after `isOpen` becomes
       // false. Retire its modal semantics immediately so it no longer blocks
       // focus restoration or remains exposed as an active modal during exit.
       modal.removeAttribute("aria-modal");
-      // Exit animations can leave the modal subtree mounted for a few frames.
-      // Wait only for any *other* active modal, then focus outside this exiting
-      // subtree so its later removal cannot drop focus back to <body>.
-      const restoreFocus = (attempt = 0) => {
+      updateModalOwners();
+      // A dialog opened over another returns to its trigger inside that
+      // dialog. Closing a lower layer must not steal the upper layer's focus.
+      const restoreFocus = () => {
         if (!previouslyFocused?.isConnected) return;
-        if (!document.querySelector('[aria-modal="true"]')) {
+        const activeModal = activeModals.at(-1);
+        if (!activeModal || activeModal.contains(previouslyFocused)) {
           previouslyFocused.focus();
-          return;
-        }
-        if (attempt < 30) {
-          requestAnimationFrame(() => restoreFocus(attempt + 1));
         }
       };
       requestAnimationFrame(() => restoreFocus());

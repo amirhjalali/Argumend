@@ -91,6 +91,28 @@ describe("SearchModal keyboard lifecycle", () => {
     expect(push).not.toHaveBeenCalled();
   });
 
+  it("restores modal semantics when search reopens during its exit animation", async () => {
+    const view = render(<SearchHarness />);
+    const trigger = view.getByRole("button", { name: "Open search" });
+    trigger.focus();
+    fireEvent.click(trigger);
+    const input = view.getByRole("combobox", { name: "Search Argumend" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+    const dialog = view.getByRole("dialog", { name: "Search Argumend" });
+
+    fireEvent.keyDown(input, { key: "Escape" });
+    fireEvent.click(trigger);
+
+    expect(view.getByRole("dialog", { name: "Search Argumend" })).toBe(dialog);
+    expect(dialog.getAttribute("aria-modal")).toBe("true");
+    await waitFor(() => expect(document.activeElement).toBe(input));
+    expect(document.documentElement.style.overflow).toBe("hidden");
+
+    fireEvent.keyDown(input, { key: "Escape" });
+    await waitFor(() => expect(view.queryByRole("dialog")).toBeNull());
+    await waitFor(() => expect(document.activeElement).toBe(trigger));
+  });
+
   it("returns focus to the search input after clearing a query by keyboard", async () => {
     const view = render(<SearchHarness />);
     fireEvent.click(view.getByRole("button", { name: "Open search" }));

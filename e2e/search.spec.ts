@@ -35,6 +35,25 @@ test("search keeps clear and close usable on narrow phones in either theme", asy
   }
 });
 
+test("rapid search shortcut toggling preserves modal behavior", async ({ page }) => {
+  await page.goto("/topics");
+  const trigger = page.getByRole("banner").getByRole("button", { name: "Search", exact: true });
+  await waitForHydration(trigger);
+  await trigger.click();
+  const dialog = page.getByRole("dialog", { name: "Search Argumend" });
+  await expect(dialog.getByRole("combobox")).toBeFocused();
+
+  await page.keyboard.press("ControlOrMeta+k");
+  await page.keyboard.press("ControlOrMeta+k");
+
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveAttribute("aria-modal", "true");
+  await expect(dialog.getByRole("combobox")).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
+
 /** Site search (components/SearchModal.tsx): ⌘K on desktop, the header's search button on phones. */
 test("search lists a map and Enter opens it", async ({ page, isMobile }) => {
   await page.goto("/topics");
