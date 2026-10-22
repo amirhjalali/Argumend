@@ -107,6 +107,38 @@ describe("agent executor", () => {
     });
   });
 
+  it("rejects a late successful webhook response after its existing timeout", async () => {
+    vi.useFakeTimers();
+    let finish!: (response: Response) => void;
+    const fetchMock = vi.fn(() => new Promise<Response>((resolve) => { finish = resolve; }));
+    vi.stubGlobal("fetch", fetchMock);
+    const caller = new AbortController();
+    const pending = executeAgent({ ...webhookRequest("late-fetch", { timeoutMs: 25 }), signal: caller.signal });
+    await vi.advanceTimersByTimeAsync(25);
+    expect(caller.signal.aborted).toBe(false);
+    finish(jsonResponse({ content: "Late private output" }));
+    await expect(pending).resolves.toMatchObject({
+      content: "", agentId: "late-fetch", error: expect.stringMatching(/abort/i),
+    });
+  });
+
+  it("rejects webhook JSON delivered after its existing timeout", async () => {
+    vi.useFakeTimers();
+    let finish!: (body: unknown) => void;
+    const json = vi.fn(() => new Promise((resolve) => { finish = resolve; }));
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, json }));
+    const caller = new AbortController();
+    const pending = executeAgent({ ...webhookRequest("late-json", { timeoutMs: 25 }), signal: caller.signal });
+    await vi.advanceTimersByTimeAsync(0);
+    expect(json).toHaveBeenCalledOnce();
+    await vi.advanceTimersByTimeAsync(25);
+    expect(caller.signal.aborted).toBe(false);
+    finish({ content: "Late private output" });
+    await expect(pending).resolves.toMatchObject({
+      content: "", agentId: "late-json", error: expect.stringMatching(/abort/i),
+    });
+  });
+
   it("retries a transient Grok failure with backoff and then succeeds", async () => {
     vi.useFakeTimers();
     vi.stubEnv("XAI_API_KEY", "test-key");
