@@ -41,7 +41,7 @@ describe("modal accessibility source contract", () => {
       expect(source).toContain('aria-modal="true"');
       expect(source).toMatch(/aria-(?:label|labelledby)=/);
       expect(source).toMatch(
-        /import\s+\{\s*useModalAccessibility\s*\}\s+from\s+["']@\/hooks\/useModalAccessibility["']/,
+        /import\s+\{[^}]*\buseModalAccessibility\b[^}]*\}\s+from\s+["']@\/hooks\/useModalAccessibility["']/,
       );
       expect(source).toMatch(/useModalAccessibility<[^>]+>\s*\(/);
     },
