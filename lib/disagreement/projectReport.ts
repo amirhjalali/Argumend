@@ -47,6 +47,25 @@ function normalizeQuestion(value: string): string {
   return value.trim().toLowerCase().replace(/\s+/g, " ").replace(/[?.]+$/, "");
 }
 
+function withinLimit(preferred: string, fallback: string, maxCharacters: number): string {
+  return preferred.length <= maxCharacters ? preferred : fallback;
+}
+
+function projectQualityWarnings(warnings: string[], hasUnstableInfluence: boolean): string[] {
+  const isCritical = (warning: string) => warning.toLowerCase().includes("critical");
+  const numerical = hasUnstableInfluence ? [PROPAGATION_NON_CONVERGENCE_WARNING] : [];
+  const remaining = warnings.filter((warning) => !numerical.includes(warning));
+  // Publication checks these warnings for "critical". Reserve their slots and
+  // retain that marker even when an overlong diagnostic needs shortening.
+  const ordered = [...numerical, ...remaining.filter(isCritical), ...remaining.filter((warning) => !isCritical(warning))];
+  const max = DISAGREEMENT_LIMITS.maxQualityWarningCharacters;
+  return ordered.slice(0, DISAGREEMENT_LIMITS.maxQualityWarnings).map((warning) => {
+    if (warning.length <= max) return warning;
+    const prefix = isCritical(warning) ? "Critical quality warning: " : "";
+    return `${prefix}${warning.slice(0, max - prefix.length - 1)}…`;
+  });
+}
+
 const QUESTION_STOP_WORDS = new Set([
   "the", "a", "an", "and", "or", "but", "if", "is", "are", "was", "were", "be", "to", "of", "in",
   "on", "for", "with", "as", "by", "at", "from", "it", "its", "not", "do", "does", "will", "would",
@@ -101,10 +120,18 @@ function whyItMatters(input: {
     .filter((label): label is string => Boolean(label));
 
   if (named.length >= 2) {
-    return `Settling this moves ${named.slice(0, 3).join(", ")} — they do not stand or fall together on it.`;
+    return withinLimit(
+      `Settling this moves ${named.slice(0, 3).join(", ")}; they do not stand or fall together on it.`,
+      `Settling this affects ${named.length} positions; their cases depend on how this claim is resolved.`,
+      DISAGREEMENT_LIMITS.maxSummaryCharacters,
+    );
   }
   if (named.length === 1) {
-    return `${named[0]} depends on this; the other positions do not turn on it.`;
+    return withinLimit(
+      `${named[0]} depends on this; the other positions do not turn on it.`,
+      "One position depends on this; the other positions do not turn on it.",
+      DISAGREEMENT_LIMITS.maxSummaryCharacters,
+    );
   }
   return "The positions diverge here, though the source does not say how much rests on it.";
 }
@@ -133,7 +160,11 @@ function cruxBranches(input: {
   // keeps its own capitals ("If Immigrants grow ... holds" read as a typo),
   // and a claim that already opens with "If" no longer reads "If If ...".
   const stated = asCondition(claim.statement);
-  const condition = `If “${stated}” holds`;
+  const wrappedCondition = `If “${stated}” holds`;
+  const condition = withinLimit(wrappedCondition, claim.statement, DISAGREEMENT_LIMITS.maxSummaryCharacters);
+  // Keep the complete assertion if the conditional wrapper would overflow.
+  // In that case the consequence carries the conditional wording instead.
+  const consequencePrefix = condition === wrappedCondition ? "" : "If this holds: ";
   const stanceFor = new Map(claim.stanceByPosition.map((stance) => [stance.positionId, stance.relation]));
   const named = affectedPositionIds.filter((id) => stanceFor.has(id));
   const strengthened = named.filter((id) => stanceFor.get(id) === "supports");
@@ -143,18 +174,23 @@ function cruxBranches(input: {
   // read as names of cases, not as the subject of a sentence.
   const cases = (ids: string[]) =>
     `The case for ${ids.map((id) => `“${positionLabels.get(id) ?? id}”`).join(" and ")}`;
+  const consequenceFor = (ids: string[], direction: "stronger" | "weaker") => withinLimit(
+    `${consequencePrefix}${cases(ids)} gets ${direction}.`,
+    `${consequencePrefix}The case for ${ids.length === 1 ? "one affected position" : `${ids.length} affected positions`} gets ${direction}.`,
+    DISAGREEMENT_LIMITS.maxSummaryCharacters,
+  );
   const branches: Array<{ condition: string; consequence: string }> = [];
 
   if (strengthened.length > 0) {
     branches.push({
       condition,
-      consequence: `${cases(strengthened)} gets stronger.`,
+      consequence: consequenceFor(strengthened, "stronger"),
     });
   }
   if (weakened.length > 0) {
     branches.push({
       condition,
-      consequence: `${cases(weakened)} gets weaker.`,
+      consequence: consequenceFor(weakened, "weaker"),
     });
   }
 
@@ -162,7 +198,7 @@ function cruxBranches(input: {
   if (branches.length === 0 && affectedPositionIds.length > 0) {
     branches.push({
       condition,
-      consequence: "The balance between the positions shifts, but the source does not say which way.",
+      consequence: `${consequencePrefix}The balance between the positions shifts, but the source does not say which way.`,
     });
   }
   return branches.slice(0, DISAGREEMENT_LIMITS.maxBranchesPerCrux);
@@ -369,7 +405,11 @@ export function projectDisagreementReport(input: {
     // Statement first, question after: splicing the claim into "Is it true
     // that ..." would lowercase proper nouns or keep a stray capital.
     const claimQuestion = claim
-      ? `${asCondition(claim.statement).replace(/[?!]+$/, "")}. Is that true?`
+      ? withinLimit(
+        `${asCondition(claim.statement).replace(/[?!]+$/, "")}. Is that true?`,
+        claim.statement,
+        DISAGREEMENT_LIMITS.maxQuestionCharacters,
+      )
       : undefined;
     const question = [related?.question, claimQuestion].find(
       (candidate) => candidate && !seenQuestions.has(normalizeQuestion(candidate)),
@@ -465,7 +505,7 @@ export function projectDisagreementReport(input: {
   const headline = diagnosisHeadline(pattern);
   const insight =
     cruxes[0]?.question
-      ? `The argument turns on: ${cruxes[0].question}`
+      ? withinLimit(`The argument turns on: ${cruxes[0].question}`, cruxes[0].question, DISAGREEMENT_LIMITS.maxSummaryCharacters)
       : extraction.mainQuestion;
 
   const sourceOnlyCaveat = "This analysis maps the submitted text. It does not independently verify factual claims, identify hidden motives, or prove that a participant would endorse every inferred formulation.";
@@ -483,10 +523,10 @@ export function projectDisagreementReport(input: {
 
   return {
     schemaVersion: DISAGREEMENT_REPORT_SCHEMA_VERSION,
-    title: extraction.mainQuestion.replace(/\?$/, ""),
+    title: extraction.mainQuestion.replace(/\?$/, "").trim() || extraction.mainQuestion,
     question: extraction.mainQuestion.endsWith("?")
       ? extraction.mainQuestion
-      : `${extraction.mainQuestion}?`,
+      : withinLimit(`${extraction.mainQuestion}?`, extraction.mainQuestion, DISAGREEMENT_LIMITS.maxQuestionCharacters),
     sourceMode: "source-only",
     summary: insight,
     diagnosis: {
@@ -525,13 +565,7 @@ export function projectDisagreementReport(input: {
       groundingCoverage,
       droppedUngroundedQuoteCount: dropped,
       inferredPositionCount,
-      // Reserve one of the schema's 40 slots for this aggregate diagnostic.
-      // Do not copy graph statements or per-component node ids into it.
-      warnings: hasUnstableInfluence
-        ? [PROPAGATION_NON_CONVERGENCE_WARNING, ...warnings.filter((warning) => warning !== PROPAGATION_NON_CONVERGENCE_WARNING)]
-          .slice(0, 40)
-          .map((warning) => warning.slice(0, 280))
-        : warnings,
+      warnings: projectQualityWarnings(warnings, hasUnstableInfluence),
     },
     provenance: {
       promptVersion: DISAGREEMENT_PROMPT_VERSION,
