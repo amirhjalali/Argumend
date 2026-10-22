@@ -45,6 +45,7 @@ describe("ShareReport", () => {
   afterEach(() => {
     cleanup();
     vi.unstubAllGlobals();
+    vi.restoreAllMocks();
   });
 
   it("shows a delete control once a link is published, and deleting clears the stored token", async () => {
@@ -89,5 +90,72 @@ describe("ShareReport", () => {
     });
     expect(window.localStorage.getItem("argumend-manage:abc123")).toBeNull();
     expect(view.queryByRole("button", { name: "Copy link" })).toBeNull();
+  });
+
+  it("retains delete access for the publishing visit when browser storage rejects the token", async () => {
+    vi.spyOn(window.localStorage, "setItem").mockImplementation(() => {
+      throw new DOMException("Quota exceeded", "QuotaExceededError");
+    });
+    vi.mocked(fetch)
+      .mockResolvedValueOnce(Response.json({ url: "/d/abc123", manageToken: "token-xyz" }))
+      .mockResolvedValueOnce(Response.json({ ok: true }));
+    const view = render(<ShareReport report={report} graph={graph} publicationToken="pub-token" surface="session" />);
+
+    fireEvent.click(view.getByRole("button", { name: "Create shareable link" }));
+    fireEvent.click(view.getByRole("button", { name: "Create unlisted link" }));
+
+    const button = await view.findByRole("button", { name: "Delete public report" });
+    expect(view.getByRole("button", { name: "Copy link" })).toBeTruthy();
+    expect(view.getByRole("alert").textContent).toMatch(/keep this page open/i);
+    fireEvent.click(button);
+    await view.findByText("This public report has been deleted.");
+    expect(fetch).toHaveBeenLastCalledWith("/api/disagreements/abc123", expect.objectContaining({
+      method: "DELETE", headers: { authorization: "Bearer token-xyz" },
+    }));
+  });
+
+  it("handles a network failure and lets the same confirmation retry", async () => {
+    vi.mocked(fetch).mockRejectedValueOnce(new TypeError("Failed to fetch"));
+    const view = render(<ShareReport report={report} graph={graph} publicationToken="pub-token" surface="session" />);
+    fireEvent.click(view.getByRole("button", { name: "Create shareable link" }));
+    fireEvent.click(view.getByRole("button", { name: "Create unlisted link" }));
+
+    await view.findByRole("alert");
+    const retry = view.getByRole("button", { name: "Create unlisted link" }) as HTMLButtonElement;
+    expect(retry.disabled).toBe(false);
+    vi.mocked(fetch).mockResolvedValueOnce(Response.json({ url: "/d/abc123", manageToken: "token-xyz" }));
+    fireEvent.click(retry);
+    await view.findByRole("button", { name: "Copy link" });
+    expect(view.queryByRole("alert")).toBeNull();
+  });
+
+  it.each([
+    { url: "https://outside.example/report", manageToken: "token" },
+    { url: "/d/example" },
+    { url: { unexpected: true }, manageToken: "token" },
+  ])("refuses malformed publication receipts: %j", async (receipt) => {
+    vi.mocked(fetch).mockResolvedValueOnce(Response.json(receipt));
+    const view = render(<ShareReport report={report} graph={graph} publicationToken="pub-token" surface="session" />);
+    fireEvent.click(view.getByRole("button", { name: "Create shareable link" }));
+    fireEvent.click(view.getByRole("button", { name: "Create unlisted link" }));
+    await view.findByRole("alert");
+    expect(view.queryByRole("button", { name: "Copy link" })).toBeNull();
+    expect(view.queryByRole("link", { name: "Share to X" })).toBeNull();
+  });
+
+  it("offers the public URL for manual copy after both clipboard paths fail", async () => {
+    vi.mocked(fetch).mockResolvedValueOnce(Response.json({ url: "/d/abc123", manageToken: "token-xyz" }));
+    vi.mocked(navigator.clipboard.writeText).mockRejectedValueOnce(new Error("Denied"));
+    Object.defineProperty(document, "execCommand", { configurable: true, value: vi.fn(() => false) });
+    const view = render(<ShareReport report={report} graph={graph} publicationToken="pub-token" surface="session" />);
+    fireEvent.click(view.getByRole("button", { name: "Create shareable link" }));
+    fireEvent.click(view.getByRole("button", { name: "Create unlisted link" }));
+    fireEvent.click(await view.findByRole("button", { name: "Copy link" }));
+
+    await view.findByRole("alert");
+    const manual = view.getByRole("textbox", { name: "Link to copy" }) as HTMLInputElement;
+    expect(manual.value).toBe(`${window.location.origin}/d/abc123`);
+    expect(manual.readOnly).toBe(true);
+    expect(view.queryByText("Link copied.")).toBeNull();
   });
 });

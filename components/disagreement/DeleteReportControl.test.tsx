@@ -108,4 +108,29 @@ describe("DeleteReportControl", () => {
     expect(window.localStorage.getItem(KEY)).toBe("token-123");
     expect(view.getByRole("button", { name: /delete public report/i })).toBeTruthy();
   });
+
+  it("keeps the public report readable when browser storage access is denied", () => {
+    Object.defineProperty(window, "localStorage", {
+      configurable: true,
+      get: () => { throw new DOMException("Blocked", "SecurityError"); },
+    });
+
+    const view = render(<DeleteReportControl slug={SLUG} />);
+    expect(view.queryByRole("button", { name: /delete public report/i })).toBeNull();
+  });
+
+  it("confirms server deletion even if the browser refuses token cleanup", async () => {
+    window.localStorage.setItem(KEY, "token-123");
+    vi.spyOn(window.localStorage, "removeItem").mockImplementation(() => {
+      throw new DOMException("Blocked", "SecurityError");
+    });
+    vi.mocked(fetch).mockResolvedValue({ ok: true } as Response);
+    const onDeleted = vi.fn();
+    const view = render(<DeleteReportControl slug={SLUG} onDeleted={onDeleted} />);
+
+    fireEvent.click(await view.findByRole("button", { name: /delete public report/i }));
+    await view.findByText("This public report has been deleted.");
+    expect(onDeleted).toHaveBeenCalledTimes(1);
+    expect(view.queryByRole("alert")).toBeNull();
+  });
 });

@@ -276,7 +276,7 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
             value={copyFailure.text}
             onFocus={(event) => event.currentTarget.select()}
             rows={copyFailure.crux ? 4 : 2}
-            className="mt-2 block w-full min-w-0 rounded border border-stone-300 bg-white p-2 text-xs text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:border-divider dark:bg-card dark:text-stone-200"
+            className="mt-2 block w-full min-w-0 rounded border border-stone-300 bg-white p-2 text-xs text-primary dark:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:border-divider dark:bg-card"
           />
         </div>
       )}

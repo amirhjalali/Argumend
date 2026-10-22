@@ -13,9 +13,12 @@ function manageTokenKey(slug: string) {
  */
 export function DeleteReportControl({
   slug,
+  manageToken,
   onDeleted,
 }: {
   slug: string;
+  /** Keeps deletion available in the publishing visit if storage is blocked. */
+  manageToken?: string;
   onDeleted?: () => void;
 }) {
   const [token, setToken] = useState<string | null>(null);
@@ -24,8 +27,17 @@ export function DeleteReportControl({
   const [error, setError] = useState("");
 
   useEffect(() => {
-    setToken(window.localStorage.getItem(manageTokenKey(slug)));
-  }, [slug]);
+    if (manageToken) {
+      setToken(manageToken);
+      return;
+    }
+    try {
+      setToken(window.localStorage.getItem(manageTokenKey(slug)));
+    } catch {
+      // An optional management control must not prevent reading the report.
+      setToken(null);
+    }
+  }, [slug, manageToken]);
 
   if (deleted) {
     return (
@@ -57,7 +69,11 @@ export function DeleteReportControl({
         setError(data.error || "Could not delete this report. Please try again.");
         return;
       }
-      window.localStorage.removeItem(manageTokenKey(slug));
+      try {
+        window.localStorage.removeItem(manageTokenKey(slug));
+      } catch {
+        // The report is already deleted. Local cleanup cannot undo that.
+      }
       setDeleted(true);
       onDeleted?.();
     } catch {
