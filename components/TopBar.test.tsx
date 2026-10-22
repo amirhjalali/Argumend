@@ -10,8 +10,12 @@ vi.mock("next/navigation", () => ({
   usePathname: () => pathname,
   useRouter: () => ({ push: vi.fn() }),
 }));
-// The search modal is code-split; its own tests cover it.
-vi.mock("next/dynamic", () => ({ default: () => () => null }));
+// Resolve the split component synchronously so menu-to-search focus handoffs
+// cover the loaded modal as well as its first opening.
+vi.mock("next/dynamic", async () => {
+  const { SearchModal } = await import("./SearchModal");
+  return { default: () => SearchModal };
+});
 
 import { TopBar } from "./TopBar";
 import { nextThemeChoice } from "./ThemeToggle";
@@ -121,6 +125,35 @@ describe("TopBar (the site header)", () => {
     fireEvent.keyDown(document, { key: "Escape" });
     await waitFor(() => expect(view.queryByRole("dialog")).toBeNull());
     await waitFor(() => expect(document.activeElement).toBe(menuButton));
+  });
+
+  it.each([false, true])("returns Search opened from the menu to its persistent header control (resize=%s)", async (resize) => {
+    const setDesktop = mockResizableViewport(false);
+    const view = render(<TopBar />);
+    const search = view.getByRole("button", { name: "Search" });
+    search.focus();
+    fireEvent.click(search);
+    await waitFor(() => expect(document.activeElement).toBe(view.getByRole("combobox")));
+    fireEvent.keyDown(document, { key: "Escape" });
+    await waitFor(() => expect(document.activeElement).toBe(search));
+
+    const menu = view.getByRole("button", { name: "Open menu" });
+    menu.focus();
+    fireEvent.click(menu);
+    await waitFor(() => expect(document.activeElement).toBe(view.getByRole("button", { name: "Close menu" })));
+    fireEvent.keyDown(document, { key: "k", ctrlKey: true });
+    const input = view.getByRole("combobox");
+    await waitFor(() => expect(document.activeElement).toBe(input));
+    expect(view.queryByRole("dialog", { name: "Menu" })).toBeNull();
+
+    if (resize) {
+      setDesktop(true);
+      expect(document.activeElement).toBe(input);
+    }
+    fireEvent.keyDown(input, { key: "Escape" });
+    await waitFor(() => expect(document.activeElement).toBe(search));
+    expect(document.documentElement.style.overflow).toBe("");
+    expect(document.body.style.overflow).toBe("");
   });
 
   it("closes the menu when a link in it is followed", () => {

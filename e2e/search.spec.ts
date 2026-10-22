@@ -54,6 +54,36 @@ test("rapid search shortcut toggling preserves modal behavior", async ({ page })
   await expect(trigger).toBeFocused();
 });
 
+for (const warmed of [false, true]) {
+  for (const resize of [false, true]) {
+    test(`menu to search returns focus to the header control (warmed=${warmed}, resize=${resize})`, async ({ page }) => {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto("/topics");
+      const menu = page.getByRole("button", { name: "Open menu" });
+      await waitForHydration(menu);
+      const search = page.getByRole("dialog", { name: "Search Argumend" });
+      if (warmed) {
+        await page.getByRole("banner").getByRole("button", { name: "Search", exact: true }).click();
+        await expect(search.getByRole("combobox")).toBeFocused();
+        await page.keyboard.press("Escape");
+        await expect(search).toBeHidden();
+      }
+      await menu.click();
+      await expect(page.getByRole("button", { name: "Close menu" })).toBeFocused();
+      await page.keyboard.press("ControlOrMeta+k");
+      await expect(search.getByRole("combobox")).toBeFocused();
+      if (resize) {
+        await page.setViewportSize({ width: 1280, height: 900 });
+        await expect(search.getByRole("combobox")).toBeFocused();
+      }
+      await page.keyboard.press("Escape");
+      await expect(search).toBeHidden();
+      await expect(page.getByRole("banner").getByRole("button", { name: "Search", exact: true })).toBeFocused();
+      expect(await page.evaluate(() => document.documentElement.style.overflow)).toBe("");
+    });
+  }
+}
+
 /** Site search (components/SearchModal.tsx): ⌘K on desktop, the header's search button on phones. */
 test("search lists a map and Enter opens it", async ({ page, isMobile }) => {
   await page.goto("/topics");
