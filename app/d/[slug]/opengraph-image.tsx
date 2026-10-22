@@ -1,20 +1,25 @@
 import { ImageResponse } from "next/og";
-import { OG_HEIGHT, OG_IMAGE_CACHE_CONTROL, OG_NOT_FOUND_CACHE_CONTROL, OG_WIDTH, truncateOgText } from "@/lib/og";
+import { OG_HEIGHT, OG_WIDTH, truncateOgText } from "@/lib/og";
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 export const size = { width: OG_WIDTH, height: OG_HEIGHT };
 export const contentType = "image/png";
+
+function reportNotFound() {
+  return new Response("Not found", { status: 404, headers: { "cache-control": "no-store" } });
+}
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   if (!isDatabaseConfigured()) {
-    return new Response("Not found", { status: 404, headers: { "cache-control": OG_NOT_FOUND_CACHE_CONTROL } });
+    return reportNotFound();
   }
-  const row = await getPublishedDisagreementReport(slug);
+  const row = await getPublishedDisagreementReport(slug).catch(() => undefined);
   if (!row) {
-    return new Response("Not found", { status: 404, headers: { "cache-control": OG_NOT_FOUND_CACHE_CONTROL } });
+    return reportNotFound();
   }
 
   const headline = truncateOgText(row.report.share.headline, 90);
@@ -61,7 +66,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     {
       width: OG_WIDTH,
       height: OG_HEIGHT,
-      headers: { "cache-control": OG_IMAGE_CACHE_CONTROL },
+      // Management-token deletion must take effect on the next image request.
+      headers: { "cache-control": "no-store" },
     },
   );
 }
