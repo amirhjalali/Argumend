@@ -230,4 +230,82 @@ describe("Argument schemas", () => {
     expect(parsed.ok).toBe(false);
     if (!parsed.ok) expect(parsed.errors[0]).toContain("ArgumentGraph.question");
   });
+
+  it.each([
+    claim(),
+    claim({ id: " c1 " }),
+    evidence({ id: "c1" }),
+  ])("rejects duplicate node identity across contents, whitespace, and node types: %j", (duplicate) => {
+    const q1 = question();
+    const parsed = parseArgumentGraph({
+      topicId: "topic-1",
+      modelVersion: 2,
+      question: q1,
+      nodes: [q1, position(), claim(), duplicate],
+      edges: [{ id: "edge-1", from: "c1", to: "p1", type: "supports" }],
+    });
+
+    expect(parsed.ok).toBe(false);
+    if (!parsed.ok) expect(parsed.errors).toContain('nodes.3.id: Duplicate node id "c1"');
+  });
+
+  it("rejects a non-question node reusing the canonical question id", () => {
+    const q1 = question();
+    const parsed = parseArgumentGraph({
+      topicId: "topic-1",
+      modelVersion: 2,
+      question: q1,
+      nodes: [q1, claim({ id: "q1" })],
+      edges: [],
+    });
+
+    expect(parsed.ok).toBe(false);
+    if (!parsed.ok) expect(parsed.errors).toContain('nodes.1.id: Duplicate node id "q1"');
+  });
+
+  it("rejects duplicate edge ids even when their endpoints differ", () => {
+    const q1 = question();
+    const parsed = parseArgumentGraph({
+      topicId: "topic-1",
+      modelVersion: 2,
+      question: q1,
+      nodes: [q1, position(), claim(), claim({ id: "c2" })],
+      edges: [
+        { id: "edge-1", from: "c1", to: "p1", type: "supports" },
+        { id: " edge-1 ", from: "c2", to: "p1", type: "opposes" },
+      ],
+    });
+
+    expect(parsed.ok).toBe(false);
+    if (!parsed.ok) expect(parsed.errors).toContain('edges.1.id: Duplicate edge id "edge-1"');
+  });
+
+  it.each(["from", "to"] as const)("rejects missing edge %s references at the parse boundary", (endpoint) => {
+    const q1 = question();
+    const parsed = parseArgumentGraph({
+      topicId: "topic-1",
+      modelVersion: 2,
+      question: q1,
+      nodes: [q1, position(), claim()],
+      edges: [{ id: "edge-1", from: "c1", to: "p1", type: "supports", [endpoint]: "missing" }],
+    });
+
+    expect(parsed.ok).toBe(false);
+    if (!parsed.ok) expect(parsed.errors).toContain(`edges.0.${endpoint}: Edge references missing ${endpoint} node "missing"`);
+  });
+
+  it("keeps authoring semantics separate from structural parsing", () => {
+    const q1 = question();
+    const parsed = parseArgumentGraph({
+      topicId: "topic-1",
+      modelVersion: 2,
+      question: q1,
+      nodes: [q1, position(), claim()],
+      // This relation needs semantic review, but both endpoints exist and
+      // edge ids occupy their own namespace independently of node ids.
+      edges: [{ id: "c1", from: "p1", to: "c1", type: "supports" }],
+    });
+
+    expect(parsed.ok).toBe(true);
+  });
 });

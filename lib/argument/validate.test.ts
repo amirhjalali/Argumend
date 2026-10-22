@@ -28,6 +28,27 @@ describe("validateArgumentGraph", () => {
     expect(errors).toEqual([]);
   });
 
+  it("rejects repeated node ids even when the repeated node is identical", () => {
+    const graph = cloneGraph();
+    graph.nodes.push(structuredClone(graph.nodes.find((node) => node.id === "c1")!));
+
+    expect(validateArgumentGraph(graph)).toContainEqual({
+      rule: "node-id-unique",
+      severity: "error",
+      nodeId: "c1",
+      message: 'Duplicate node id "c1".',
+    });
+  });
+
+  it.each(["first", "last"] as const)("rejects cross-type node collisions with the conflicting node %s", (order) => {
+    const graph = cloneGraph();
+    const collision = { ...graph.nodes.find((node) => node.type === "evidence")!, id: "c1" };
+    if (order === "first") graph.nodes.unshift(collision);
+    else graph.nodes.push(collision);
+
+    expect(errorRules(graph)).toContain("node-id-unique");
+  });
+
   it("rejects invalid role node types", () => {
     const graph = cloneGraph();
     graph.nodes.push({ ...baseNode("bad", "claim", "Invalid role"), type: "objection" } as never);
