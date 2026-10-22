@@ -12,7 +12,7 @@ import { buildPasteConsentLine, formatProviderList } from "@/lib/aiProviders";
 import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { bandLabel, characterBucket, latencyBucket } from "@/lib/disagreement/labels";
-import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
+import { clearPastePrefill, readPastePrefill } from "@/lib/paste/handoff";
 import { minCharactersFor, PASTE_LIMITS } from "@/lib/paste/limits";
 import { buildPasteSummary } from "@/lib/paste/summary";
 import type {
@@ -276,20 +276,11 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   // Strict Mode's double effect cannot drop it.
   useEffect(() => {
     let cancelled = false;
-    let raw: string | null = null;
-    try {
-      raw = sessionStorage.getItem(PASTE_PREFILL_KEY);
-    } catch {
-      return;
-    }
+    const raw = readPastePrefill();
     if (!raw) return;
     queueMicrotask(() => {
       if (cancelled) return;
-      try {
-        sessionStorage.removeItem(PASTE_PREFILL_KEY);
-      } catch {
-        // Storage can vanish between the read and the write; the text is in hand.
-      }
+      clearPastePrefill();
       let parsed: { content?: unknown; contentType?: unknown };
       try {
         parsed = JSON.parse(raw as string) as typeof parsed;

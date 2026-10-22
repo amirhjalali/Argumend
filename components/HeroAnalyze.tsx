@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { ANALYZE_HREF } from "@/lib/nav";
-import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
+import { savePastePrefill } from "@/lib/paste/handoff";
 import { PAGE_GUTTER } from "@/components/ui/PageContainer";
 
 interface HeroAnalyzeProps {
@@ -21,7 +21,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
     if (!content.trim()) return;
     // /analyze reads this once and, when nothing leaves the server, submits
     // it straight away (lib/paste/handoff.ts): one press, not two.
-    sessionStorage.setItem(PASTE_PREFILL_KEY, JSON.stringify({ content, contentType }));
+    savePastePrefill({ content, contentType });
     // The canonical paste tool is chosen in one place: lib/nav.ts.
     router.push(ANALYZE_HREF);
   }, [content, contentType, router]);
