@@ -23,9 +23,9 @@ afterEach(() => {
 
 describe("home paste handoff with unavailable browser storage", () => {
   it.each(["SecurityError", "QuotaExceededError"])("keeps the paste through navigation after %s and consumes it once", async (name) => {
-    vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => { throw new DOMException("Storage unavailable", name); });
-    vi.spyOn(Storage.prototype, "getItem").mockImplementation(() => { throw new DOMException("Storage unavailable", name); });
-    vi.spyOn(Storage.prototype, "removeItem").mockImplementation(() => { throw new DOMException("Storage unavailable", name); });
+    const blocked = () => { throw new DOMException("Storage unavailable", name); };
+    const storage = { setItem: vi.fn(blocked), getItem: vi.fn(blocked), removeItem: vi.fn(blocked) } as unknown as Storage;
+    vi.spyOn(window, "sessionStorage", "get").mockReturnValue(storage);
     const content = "Nuclear energy has low carbon emissions, but its costs and long construction times are contested.";
     const home = render(<HeroAnalyze onTopicSelect={vi.fn()} />);
     fireEvent.change(home.getByRole("textbox", { name: "Text to analyze" }), { target: { value: content } });
@@ -33,9 +33,11 @@ describe("home paste handoff with unavailable browser storage", () => {
     fireEvent.click(home.getByRole("button", { name: "Find what it turns on" }));
 
     expect(navigation.push).toHaveBeenCalledWith("/analyze");
+    expect(storage.setItem).toHaveBeenCalledTimes(1);
     home.unmount();
     const paste = render(<StrictMode><PasteClient lanes={{ maps: true, diagnosis: { enabled: false } }} /></StrictMode>);
     await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
+    expect(storage.removeItem).toHaveBeenCalledTimes(1);
     expect(JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body))).toEqual({ content, contentType: "freeform" });
     expect((paste.getByLabelText("The argument to read") as HTMLTextAreaElement).value).toBe(content);
     paste.unmount();
