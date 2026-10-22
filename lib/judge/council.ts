@@ -314,7 +314,12 @@ export class JudgeCouncil {
 
     if (failedJudges.length > 0) {
       console.warn(
-        `Judges failed: ${failedJudges.join(", ")}. ${verdicts.length}/${this.judges.length} returned valid verdicts.`
+        "Some judges failed",
+        {
+          judgePositions: results.flatMap((result, index) => result === null ? [index + 1] : []),
+          returnedVerdicts: verdicts.length,
+          totalJudges: this.judges.length,
+        },
       );
     }
 
