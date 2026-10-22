@@ -100,6 +100,10 @@ and `ANTHROPIC_API_KEY` (see `lib/paste/lanes.ts`). It is a runtime server varia
 no build-time flag is involved. Without it, `/analyze` runs only the offline map match.
 Publishing unlisted `/d/<slug>` reports also requires `ENABLE_DISAGREEMENT_PUBLISHING`,
 `REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`.
+Private diagnoses retain grounded quotations within their individual limits.
+Publishing and reading a stored public report also enforce the combined
+`1_500` character quotation limit. Exceeding that publication limit does not
+discard an otherwise valid private diagnosis.
 Publishing confirms success only after a valid server receipt. The publishing
 page retains the deletion token for the current visit if browser storage rejects
 it, and explains that the page must stay open to use that token. Public report
