@@ -34,6 +34,21 @@ describe("educator worksheets", () => {
     ).resolves.toMatchObject({ robots: { index: false, follow: true } });
   });
 
+  it.each(["constructor", "__proto__", "toString", "hasOwnProperty", "missing"])(
+    "rejects unknown worksheet id %s in metadata and page rendering",
+    async (id) => {
+      await expect(
+        generateMetadata({ params: Promise.resolve({ id }) }),
+      ).resolves.toMatchObject({
+        title: "Worksheet Not Found",
+        robots: { index: false, follow: true },
+      });
+      await expect(
+        WorksheetPage({ params: Promise.resolve({ id }) }),
+      ).rejects.toThrow("NEXT_HTTP_ERROR_FALLBACK;404");
+    },
+  );
+
   it.each(generateStaticParams())(
     "publishes route-specific canonical and social metadata for $id",
     async ({ id }) => {
