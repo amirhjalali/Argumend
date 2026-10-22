@@ -2,7 +2,11 @@
 
 import { useId, useState } from "react";
 import { CheckCircle, Loader2 } from "lucide-react";
+import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
+
+const SignupReceiptSchema = z.object({ success: z.literal(true) });
+const SignupErrorSchema = z.object({ error: z.string() });
 
 interface NewsletterSignupProps {
   variant?: "default" | "compact";
@@ -40,10 +44,11 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
         }),
       });
 
-      const data = await res.json();
+      const data: unknown = await res.json();
 
-      if (!res.ok) {
-        setError(data.error || "Something went wrong. Please try again.");
+      if (!res.ok || !SignupReceiptSchema.safeParse(data).success) {
+        const failure = SignupErrorSchema.safeParse(data);
+        setError((failure.success && failure.data.error) || "Something went wrong. Please try again.");
         return;
       }
 
