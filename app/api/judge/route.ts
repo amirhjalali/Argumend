@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createJudgeCouncil } from "@/lib/judge/council";
 import { judgeContentOffline, judgeDebateOffline } from "@/lib/judge/offline";
-import { saveJudgment } from "@/lib/db/queries";
+import { isDebateOwnershipError, saveJudgment } from "@/lib/db/queries";
 import { isDatabaseConfigured } from "@/lib/db";
 import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
@@ -24,22 +24,22 @@ const JudgeRequestSchema = z.object({
   content: z.string().max(50000).optional(),
   contentType: z.enum(["transcript", "article", "freeform"]).optional(),
   judgeModels: z.array(z.enum(["claude", "gpt-4", "gemini", "grok"])).max(4).optional(),
-  debateId: z.string().max(200).optional(),
+  debateId: z.uuid().optional(),
 });
 
 function isLiveJudgingEnabled(): boolean {
   return process.env.ENABLE_LIVE_JUDGING_API === "true";
 }
 
-async function hasAuthenticatedUser(): Promise<boolean> {
-  if (!isAuthConfigured()) return false;
+async function authenticatedUserId(): Promise<string | null> {
+  if (!isAuthConfigured()) return null;
   try {
     const { auth } = await import("@/lib/auth");
     const session = await auth();
-    return Boolean(session?.user);
+    return session?.user?.id || null;
   } catch {
     console.warn("Judge authentication unavailable; continuing with offline-safe behavior");
-    return false;
+    return null;
   }
 }
 
@@ -99,10 +99,14 @@ export async function POST(request: NextRequest) {
     const defaultModels: LLMModel[] = ["claude", "gpt-4", "gemini"];
     const models = judgeModels && judgeModels.length > 0 ? judgeModels : defaultModels;
     const judges = modelsToAgents(models);
-    const authenticated = isLiveJudgingEnabled() ? await hasAuthenticatedUser() : false;
+    const liveJudgingEnabled = isLiveJudgingEnabled();
+    const databaseConfigured = isDatabaseConfigured();
+    const userId = liveJudgingEnabled || (databaseConfigured && body.debateId)
+      ? await authenticatedUserId()
+      : null;
 
     let result: JudgingResult;
-    if (isLiveJudgingEnabled() && authenticated) {
+    if (liveJudgingEnabled && userId) {
       try {
         const council = createJudgeCouncil({ judges });
         if (type === "debate") {
@@ -124,15 +128,21 @@ export async function POST(request: NextRequest) {
       result = judgeContentOffline(content!, contentType || "freeform", models);
     }
 
-    // Persist when a database is configured. Offline mode still returns the
-    // computed judgment when persistence is unavailable.
+    // A private debate link requires a verified owner, including in offline
+    // mode. Anonymous callers still receive their computed judgment.
     let saved: Awaited<ReturnType<typeof saveJudgment>> | null = null;
-    if (isDatabaseConfigured()) {
+    if (databaseConfigured && (!body.debateId || userId)) {
       try {
         saved = await saveJudgment(result, {
           debateId: body.debateId,
-        });
-      } catch {
+        }, userId);
+      } catch (error) {
+        if (isDebateOwnershipError(error)) {
+          return NextResponse.json(
+            { error: "Forbidden", code: error.code },
+            { status: 403 },
+          );
+        }
         console.warn("Judgment persistence failed; returning the computed judgment");
       }
     }

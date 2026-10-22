@@ -190,14 +190,28 @@ export async function listDebates(limit = 20) {
 
 export async function saveJudgment(
   result: JudgingResult,
-  link: { debateId?: string; analysisId?: string }
+  link: { debateId?: string; analysisId?: string },
+  userId?: string | null,
 ) {
+  if (link.debateId !== undefined && !userId) {
+    throw new DebateOwnershipError();
+  }
   const database = getDb();
 
   // The parent judgment and its individual verdicts form one logical record.
   // Keep them atomic so a verdict insert failure cannot leave an incomplete
   // judgment visible to readers.
   return database.transaction(async (transaction) => {
+    if (link.debateId !== undefined) {
+      const ownedDebate = await transaction.query.debates.findFirst({
+        where: and(eq(debates.id, link.debateId), eq(debates.userId, userId!)),
+        columns: { id: true },
+      });
+      if (!ownedDebate) {
+        throw new DebateOwnershipError();
+      }
+    }
+
     const [judgment] = await transaction
       .insert(judgments)
       .values({
