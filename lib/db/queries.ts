@@ -1,4 +1,4 @@
-import { eq, desc, and, gte, sql, count } from "drizzle-orm";
+import { eq, desc, and, gte, sql, count, isNull } from "drizzle-orm";
 import { getDb } from "./index";
 import {
   analyses,
@@ -15,6 +15,8 @@ import {
 import type { ExtractedArguments } from "@/lib/analyze/extractor";
 import type { JudgingResult } from "@/lib/judge/rubric";
 import type { DebatePersistenceStatus } from "@/lib/debate/status";
+import { parseDisagreementReport } from "@/lib/schemas/disagreement";
+import { parseArgumentGraph } from "@/lib/schemas/argument";
 
 export const DEBATE_OWNERSHIP_ERROR_CODE = "DEBATE_FORBIDDEN" as const;
 
@@ -403,12 +405,21 @@ export async function publishDisagreementReport(input: {
 }
 
 export async function getPublishedDisagreementReport(slug: string) {
-  return getDb().query.disagreementReports.findFirst({
+  const row = await getDb().query.disagreementReports.findFirst({
     where: and(
       eq(disagreementReports.slug, slug),
       eq(disagreementReports.visibility, "unlisted"),
+      isNull(disagreementReports.deletedAt),
     ),
   });
+  if (!row) return undefined;
+
+  // Stored JSON is a data boundary too. Invalid reports must never reach a
+  // public renderer, and validation failures must not log their private text.
+  const report = parseDisagreementReport(row.report);
+  const graph = parseArgumentGraph(row.graph);
+  if (!report.success || !graph.ok) return undefined;
+  return { ...row, report: report.data, graph: graph.graph };
 }
 
 export async function getDisagreementReportBySlug(slug: string) {
@@ -443,7 +454,9 @@ export async function upsertDisagreementFeedback(input: {
     .values({
       reportId: input.reportId,
       section: input.section,
-      targetId: input.targetId ?? null,
+      // PostgreSQL treats NULLs as distinct in the existing composite index.
+      // An empty target gives report-wide feedback a stable conflict key.
+      targetId: input.targetId ?? "",
       vote: input.vote ?? null,
       correction: input.correction ?? null,
       anonymousSessionHash: input.anonymousSessionHash,
