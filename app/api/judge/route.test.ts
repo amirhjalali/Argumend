@@ -16,13 +16,16 @@ vi.mock("@/lib/judge/council", () => ({
   createJudgeCouncil: mocks.createJudgeCouncil,
 }));
 
-vi.mock("@/lib/db/queries", () => ({
+vi.mock("@/lib/db/queries", async () => ({
+  ...await vi.importActual<typeof import("@/lib/db/queries")>("@/lib/db/queries"),
   saveJudgment: mocks.saveJudgment,
   listJudgments: vi.fn(async () => []),
 }));
 
-import { listJudgments, saveJudgment } from "@/lib/db/queries";
+import { DebateOwnershipError, listJudgments, saveJudgment } from "@/lib/db/queries";
 import { GET, POST } from "./route";
+
+const DEBATE_ID = "11111111-1111-4111-8111-111111111111";
 
 function postRequest(body: unknown): NextRequest {
   return new NextRequest(new URL("http://localhost/api/judge"), {
@@ -234,22 +237,104 @@ describe("POST /api/judge", () => {
     expect(warnings).not.toContain("private:password");
   });
 
-  it("returns a saved judgment id when optional persistence succeeds", async () => {
+  it("authenticates an offline judgment before saving it to an owned debate", async () => {
     process.env.DATABASE_URL = "postgres://configured";
     mocks.saveJudgment.mockResolvedValue({ id: "judgment-1" });
 
     const response = await POST(postRequest({
       type: "content",
       content: "A persistable offline result.",
-      debateId: "debate-1",
+      debateId: DEBATE_ID,
     }));
 
     expect(response.status).toBe(200);
     await expect(response.json()).resolves.toMatchObject({ id: "judgment-1" });
+    expect(mocks.auth).toHaveBeenCalledOnce();
+    expect(mocks.createJudgeCouncil).not.toHaveBeenCalled();
     expect(mocks.saveJudgment).toHaveBeenCalledWith(
       expect.objectContaining({ verdicts: expect.any(Array) }),
-      { debateId: "debate-1" },
+      { debateId: DEBATE_ID },
+      "user-1",
     );
+  });
+
+  it.each([
+    ["anonymous", null],
+    ["missing a user id", { user: { name: "Visitor" } }],
+  ])("returns an offline judgment without saving a debate link when %s", async (_label, session) => {
+    process.env.DATABASE_URL = "postgres://configured";
+    mocks.auth.mockResolvedValue(session);
+
+    const response = await POST(postRequest({
+      type: "content",
+      content: "An argument that must not be attached to somebody else's debate.",
+      debateId: DEBATE_ID,
+    }));
+
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.verdicts).toHaveLength(3);
+    expect(body.id).toBeUndefined();
+    expect(mocks.saveJudgment).not.toHaveBeenCalled();
+  });
+
+  it("does not save a private debate link when authentication fails", async () => {
+    process.env.DATABASE_URL = "postgres://configured";
+    mocks.auth.mockRejectedValue(new Error("Authentication unavailable"));
+
+    const response = await POST(postRequest({
+      type: "content",
+      content: "An offline-safe argument.",
+      debateId: DEBATE_ID,
+    }));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).id).toBeUndefined();
+    expect(mocks.saveJudgment).not.toHaveBeenCalled();
+  });
+
+  it("does not initialize authentication for a debate link without persistence", async () => {
+    const response = await POST(postRequest({
+      type: "content",
+      content: "An offline-safe argument.",
+      debateId: DEBATE_ID,
+    }));
+
+    expect(response.status).toBe(200);
+    expect(mocks.auth).not.toHaveBeenCalled();
+    expect(mocks.saveJudgment).not.toHaveBeenCalled();
+  });
+
+  it("rejects a debate link that the authenticated user does not own", async () => {
+    process.env.DATABASE_URL = "postgres://configured";
+    mocks.saveJudgment.mockRejectedValue(new DebateOwnershipError());
+
+    const response = await POST(postRequest({
+      type: "content",
+      content: "A result for another user's debate.",
+      debateId: DEBATE_ID,
+    }));
+
+    expect(response.status).toBe(403);
+    await expect(response.json()).resolves.toEqual({
+      error: "Forbidden",
+      code: "DEBATE_FORBIDDEN",
+    });
+    expect(console.warn).not.toHaveBeenCalled();
+  });
+
+  it("rejects malformed debate identifiers before authentication or persistence", async () => {
+    process.env.DATABASE_URL = "postgres://configured";
+
+    const response = await POST(postRequest({
+      type: "content",
+      content: "An argument with an invalid debate link.",
+      debateId: "not-a-uuid",
+    }));
+
+    expect(response.status).toBe(400);
+    expect(mocks.auth).not.toHaveBeenCalled();
+    expect(mocks.saveJudgment).not.toHaveBeenCalled();
   });
 
   it("keeps the judgment available when optional persistence fails", async () => {
