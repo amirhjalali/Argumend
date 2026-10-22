@@ -247,12 +247,15 @@ describe("Moltbook API public errors", () => {
   });
 
   it.each([
+    ["feed", null],
+    ["feed", { success: false, error: "Rate limited", hint: 12 }],
     ["feed", { success: true, data: { private: "private feed body" } }],
     ["status", { success: true, data: "private profile body" }],
     ["feed", { success: "yes", data: [post] }],
-  ])("rejects malformed successful %s payloads without logging their body", async (action, payload) => {
+  ])("rejects malformed %s payloads without logging their body", async (action, payload) => {
     process.env.MOLTBOOK_API_KEY = "server-secret";
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const error = vi.spyOn(console, "error").mockImplementation(() => {});
     vi.stubGlobal(
       "fetch",
       vi.fn().mockResolvedValue(upstreamResponse(payload, 200)),
@@ -260,12 +263,28 @@ describe("Moltbook API public errors", () => {
 
     const response = await GET(getRequest(action));
     const text = await response.text();
-    const diagnostic = warn.mock.calls.flat().join(" ");
+    const diagnostic = [...warn.mock.calls, ...error.mock.calls].flat().join(" ");
 
     expect(response.status).toBe(502);
     expect(JSON.parse(text)).toMatchObject({ code: "UPSTREAM_UNAVAILABLE" });
     expect(text).not.toMatch(/private feed body|private profile body/i);
     expect(diagnostic).not.toMatch(/private feed body|private profile body/i);
+  });
+
+  it("does not treat an HTTP error as a successful feed", async () => {
+    process.env.MOLTBOOK_API_KEY = "server-secret";
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(
+      upstreamResponse({ success: true, data: [post] }, 503),
+    ));
+
+    const response = await GET(getRequest("feed"));
+
+    expect(response.status).toBe(502);
+    await expect(response.json()).resolves.toMatchObject({
+      success: false,
+      code: "UPSTREAM_UNAVAILABLE",
+    });
   });
 
   it("rejects malformed successful post data without constructing an undefined URL", async () => {
