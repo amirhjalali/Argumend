@@ -240,7 +240,7 @@ export default function TopicsPageClient({
               onChange={(e) => updateSearch(e.target.value)}
               placeholder="Search the maps"
               aria-label="Search maps"
-              className="min-h-11 w-full rounded-lg border border-stone-300/80 bg-card py-2.5 pl-9 pr-12 text-base text-primary dark:text-stone-200 placeholder:text-muted/80 focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider dark:placeholder:text-stone-500 sm:text-sm [&::-webkit-search-cancel-button]:hidden"
+              className="min-h-11 w-full rounded-lg border border-stone-300/80 bg-card py-2.5 pl-9 pr-12 text-base text-primary dark:text-stone-200 placeholder:text-muted focus:border-deep/50 focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider sm:text-sm [&::-webkit-search-cancel-button]:hidden"
             />
             {search && (
               <button
