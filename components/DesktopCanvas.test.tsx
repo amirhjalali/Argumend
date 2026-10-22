@@ -45,6 +45,11 @@ describe("DesktopCanvas", () => {
     const [question, crux] = flowNodes();
     expect(question.getAttribute("aria-label")).toBe(`The question: ${diagram.nodes[0].label}`);
     expect(crux.getAttribute("aria-label")).toMatch(/^Crux 1 of \d+/);
+    for (const evidence of diagram.nodes.filter((node) => node.kind === "evidence")) {
+      const box = flowNodes().find((node) => node.dataset.id === evidence.id)!;
+      expect(box.getAttribute("aria-label")).toBe(`${evidence.sideLabel}: ${evidence.label}`);
+      expect(box.getAttribute("aria-label")).toContain("on the map’s question");
+    }
   });
 
   it("opens a box's detail on Enter and closes it on Escape", async () => {

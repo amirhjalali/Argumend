@@ -19,10 +19,10 @@ import type { DiagramCruxNode, DiagramModel, DiagramNode } from "@/lib/diagram/m
 /** Width of the sheet in px; the canvas slides a box out from under it. */
 export const DETAIL_PANEL_WIDTH = 416;
 
-/** The page's evidence labels (components/ReadModeView.tsx). */
+/** The page's evidence glyphs and colors (components/ReadModeView.tsx). */
 const EVIDENCE_SIDE = {
-  for: { label: "Supports the claim", glyph: "＋", className: "!text-rust-700 dark:!text-rust-400" },
-  against: { label: "Challenges the claim", glyph: "−", className: "!text-skeptic dark:!text-[#cfa88a]" },
+  for: { glyph: "＋", className: "!text-rust-700 dark:!text-rust-400" },
+  against: { glyph: "−", className: "!text-skeptic dark:!text-[#cfa88a]" },
 } as const;
 
 const SIDE_LABEL = {
@@ -79,7 +79,7 @@ function Header({ node, model }: { node: DiagramNode; model: DiagramModel }) {
       label = (
         <span className={side.className}>
           <span aria-hidden="true">{side.glyph} </span>
-          {side.label}
+          {node.sideLabel}
         </span>
       );
       title = node.label;

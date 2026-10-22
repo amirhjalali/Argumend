@@ -54,6 +54,14 @@ describe("buildDiagram: the page's story as a tree", () => {
     });
   });
 
+  it("keeps claim-relative evidence labels for maps without a question", () => {
+    const withoutQuestion = buildDiagram({ ...topic, question: undefined });
+    for (const node of withoutQuestion.nodes) {
+      if (node.kind !== "evidence") continue;
+      expect(node.sideLabel).toBe(node.side === "for" ? "Supports the claim" : "Challenges the claim");
+    }
+  });
+
   it("lists nodes in reading order, each after its parent, with unique ids", () => {
     const seen = new Set<string>();
     for (const node of diagram.nodes) {

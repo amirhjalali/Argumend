@@ -19,7 +19,7 @@ import {
   type LegacyWeighing,
 } from "@/lib/topicPage/legacy";
 import { strongestPair, type RelatedMap } from "@/lib/topicPage/model";
-import { ANSWER_SIDES } from "@/lib/mapNaming";
+import { evidenceLabels } from "@/lib/mapNaming";
 import {
   CommonQuestions,
   TopicPage,
@@ -108,22 +108,9 @@ export function ReadModeView({
 // ---------------------------------------------------------------------------
 
 const SIDE = {
-  for: { label: "Supports the claim", glyph: "＋", className: "text-rust-700 dark:text-[#d4805f]" },
-  against: { label: "Challenges the claim", glyph: "−", className: "text-[#8B5A3C] dark:text-[#cfa88a]" },
+  for: { glyph: "＋", className: "text-rust-700 dark:text-[#d4805f]" },
+  against: { glyph: "−", className: "text-[#8B5A3C] dark:text-[#cfa88a]" },
 } as const;
-
-/**
- * The evidence blocks' labels. A map with a question names them by the
- * answer they point to, qualified because they sit under a crux question
- * that may be worded the other way round (lib/mapNaming.ts).
- */
-function evidenceLabels(topic: Topic): Record<"for" | "against", string> {
-  if (!topic.question?.trim()) return { for: SIDE.for.label, against: SIDE.against.label };
-  return {
-    for: `${ANSWER_SIDES.yesEvidence} on the map’s question`,
-    against: `${ANSWER_SIDES.noEvidence} on the map’s question`,
-  };
-}
 
 /** A side's first (strongest) card, in the reflection's shape. */
 function strongestCard(
