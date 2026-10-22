@@ -75,6 +75,23 @@ describe("ExtractedArgumentsSchema", () => {
 });
 
 describe("extractArguments", () => {
+  it("reads fenced extraction after provider prose with a valid JSON example", async () => {
+    mocks.executeAgent.mockResolvedValue({
+      content: `The example format was {"example": true}.\n\`\`\`json\n${JSON.stringify(validExtraction)}\n\`\`\``,
+      agentId: "extractor",
+    });
+    await expect(extractArguments("content")).resolves.toMatchObject({ topic: validExtraction.topic });
+  });
+
+  it("rejects a schema-invalid authoritative fence instead of a later valid extraction", async () => {
+    vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    mocks.executeAgent.mockResolvedValue({
+      content: `Extraction:\n\`\`\`json\n[]\n\`\`\`\nAlternative:\n\`\`\`json\n${JSON.stringify(validExtraction)}\n\`\`\``,
+      agentId: "extractor",
+    });
+    await expect(extractArguments("content")).rejects.toThrow("Failed to parse extraction response");
+  });
+
   it("parses fenced provider JSON with surrounding prose and applies schema defaults", async () => {
     mocks.executeAgent.mockResolvedValue({
       content: `Here is the extraction:\n\n\`\`\`json\n${JSON.stringify(validExtraction)}\n\`\`\`\nDone.`,
