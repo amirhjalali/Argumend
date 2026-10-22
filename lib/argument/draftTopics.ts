@@ -417,6 +417,7 @@ export function loadArgumentTopic(
   id: string,
   options: LoadArgumentTopicOptions = {},
 ): ArgumentTopic | null {
+  if (!Object.hasOwn(DRAFTS, id)) return null;
   const entry = DRAFTS[id];
   if (!entry) return null;
 
