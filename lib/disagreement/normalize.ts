@@ -29,6 +29,8 @@ function uniqueId(base: string, used: Set<string>): string {
 export function normalizeExtraction(
   raw: RawDisagreementExtractionV1,
 ): NormalizedExtraction {
+  // Warning severity is interpreted by legacy readers. Keep model text in
+  // report fields, never in these repair diagnostics.
   const warnings: string[] = [];
   // The graph builder owns this identity, regardless of model-chosen IDs.
   const used = new Set<string>([DISAGREEMENT_QUESTION_NODE_ID]);
@@ -39,7 +41,7 @@ export function normalizeExtraction(
   const participants = raw.participants.map((participant, index) => {
     const nextId = uniqueId(slugify(participant.id, `participant-${index + 1}`), used);
     if (nextId !== participant.id) {
-      warnings.push(`Renamed participant "${participant.id}" to "${nextId}"`);
+      warnings.push(`Renamed participant identifier at index ${index}.`);
     }
     participantMap.set(participant.id, nextId);
     return { ...participant, id: nextId };
@@ -47,12 +49,12 @@ export function normalizeExtraction(
 
   const seenLabels = new Map<string, string>();
   const duplicateParticipantIds = new Map<string, string>();
-  const dedupedParticipants = participants.filter((participant) => {
+  const dedupedParticipants = participants.filter((participant, index) => {
     const key = participant.label.trim().toLowerCase();
     const existing = seenLabels.get(key);
     if (existing) {
       duplicateParticipantIds.set(participant.id, existing);
-      warnings.push(`Deduplicated participant label "${participant.label}"`);
+      warnings.push(`Deduplicated participant label at index ${index}.`);
       return false;
     }
     seenLabels.set(key, participant.id);
@@ -74,14 +76,14 @@ export function normalizeExtraction(
   const positions = raw.positions.map((position, index) => {
     const nextId = uniqueId(slugify(position.id, `position-${index + 1}`), used);
     if (nextId !== position.id) {
-      warnings.push(`Renamed position "${position.id}" to "${nextId}"`);
+      warnings.push(`Renamed position identifier at index ${index}.`);
     }
     positionMap.set(position.id, nextId);
     const participantIds = position.participantIds
       .map((id) => remapParticipant(id))
       .filter((id): id is string => Boolean(id));
     if (participantIds.length < position.participantIds.length) {
-      warnings.push(`Dropped dangling participant on position "${position.id}"`);
+      warnings.push(`Dropped dangling participant on position at index ${index}.`);
     }
     return {
       ...position,
@@ -89,9 +91,9 @@ export function normalizeExtraction(
       participantIds,
       groundingQuotes: remapGroundingQuotes(position.groundingQuotes),
     };
-  }).filter((position) => {
+  }).filter((position, index) => {
     if (position.participantIds.length === 0) {
-      warnings.push(`Dropped position "${position.id}" with no participants`);
+      warnings.push(`Dropped position at index ${index} with no participants.`);
       return false;
     }
     return true;
@@ -123,19 +125,19 @@ export function normalizeExtraction(
       stanceByPosition: claim.stanceByPosition
         .map((stance) => {
           const positionId = remapPosition(stance.positionId);
-          if (!positionId) warnings.push(`Dropped dangling position stance on claim "${claim.id}"`);
+          if (!positionId) warnings.push(`Dropped dangling position stance on claim at index ${index}.`);
           return positionId ? { ...stance, positionId } : null;
         })
         .filter((stance): stance is NonNullable<typeof stance> => Boolean(stance)),
     };
-  }).filter((claim) => {
+  }).filter((claim, index) => {
     // An identical proposition can have different attribution, stances, or
     // resolution conditions. Only a repeated complete definition is an alias.
     const key = JSON.stringify({ ...claim, id: undefined });
     const existing = seenClaimDefinitions.get(key);
     if (existing) {
       duplicateClaimIds.set(claim.id, existing);
-      warnings.push(`Deduplicated claim "${claim.id}"`);
+      warnings.push(`Deduplicated claim at index ${index}.`);
       return false;
     }
     seenClaimDefinitions.set(key, claim.id);
@@ -187,7 +189,7 @@ export function normalizeExtraction(
         if (!participantId) return null;
         const positionId = stance.positionId ? remapPosition(stance.positionId) : undefined;
         if (stance.positionId && !positionId) {
-          warnings.push(`Preserved disagreement "${item.id}" stance without its dropped position reference`);
+          warnings.push(`Preserved stance for disagreement at index ${index} without its dropped position reference.`);
         }
         return {
           ...stance,
@@ -208,12 +210,12 @@ export function normalizeExtraction(
     const nextId = uniqueId(slugify(stake.id, `stake-${index + 1}`), used);
     const claimId = remapClaim(stake.claimId);
     if (!claimId || !claimIds.has(claimId)) {
-      warnings.push(`Dropped stake "${stake.id}" referencing an unknown claim`);
+      warnings.push(`Dropped stake at index ${index} referencing an unknown claim.`);
       return null;
     }
     const participantId = remapParticipant(stake.participantId);
     if (!participantId) {
-      warnings.push(`Dropped stake "${stake.id}" referencing an unknown participant`);
+      warnings.push(`Dropped stake at index ${index} referencing an unknown participant.`);
       return null;
     }
     let positionId: string | undefined;
@@ -222,7 +224,7 @@ export function normalizeExtraction(
       if (mappedPosition) {
         positionId = mappedPosition;
       } else {
-        warnings.push(`Preserved stake "${stake.id}" without its dropped position reference`);
+        warnings.push(`Preserved stake at index ${index} without its dropped position reference.`);
       }
     }
     return {
