@@ -203,21 +203,21 @@ export class MoltbookClient {
    * Get a specific post with comments
    */
   async getPost(postId: string): Promise<ApiResponse<MoltbookPost & { comments: MoltbookComment[] }>> {
-    return this.request(`/posts/${postId}`);
+    return this.request(`/posts/${encodeURIComponent(postId)}`);
   }
 
   /**
    * Upvote a post
    */
   async upvotePost(postId: string): Promise<ApiResponse<void>> {
-    return this.request(`/posts/${postId}/upvote`, { method: "POST" });
+    return this.request(`/posts/${encodeURIComponent(postId)}/upvote`, { method: "POST" });
   }
 
   /**
    * Downvote a post
    */
   async downvotePost(postId: string): Promise<ApiResponse<void>> {
-    return this.request(`/posts/${postId}/downvote`, { method: "POST" });
+    return this.request(`/posts/${encodeURIComponent(postId)}/downvote`, { method: "POST" });
   }
 
   // ==================== Comments ====================
@@ -231,7 +231,7 @@ export class MoltbookClient {
     content: string,
     parentId?: string
   ): Promise<ApiResponse<MoltbookComment>> {
-    return this.request(`/posts/${postId}/comments`, {
+    return this.request(`/posts/${encodeURIComponent(postId)}/comments`, {
       method: "POST",
       body: JSON.stringify({ content, parent_id: parentId }),
     });
@@ -241,14 +241,14 @@ export class MoltbookClient {
    * Upvote a comment
    */
   async upvoteComment(commentId: string): Promise<ApiResponse<void>> {
-    return this.request(`/comments/${commentId}/upvote`, { method: "POST" });
+    return this.request(`/comments/${encodeURIComponent(commentId)}/upvote`, { method: "POST" });
   }
 
   /**
    * Downvote a comment
    */
   async downvoteComment(commentId: string): Promise<ApiResponse<void>> {
-    return this.request(`/comments/${commentId}/downvote`, { method: "POST" });
+    return this.request(`/comments/${encodeURIComponent(commentId)}/downvote`, { method: "POST" });
   }
 
   // ==================== Submolts (Communities) ====================
