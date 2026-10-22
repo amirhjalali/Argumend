@@ -25,6 +25,20 @@ function featureDisabled() {
   );
 }
 
+async function loadSession() {
+  try {
+    return { ok: true as const, session: await auth() };
+  } catch {
+    return {
+      ok: false as const,
+      error: NextResponse.json(
+        { error: "Account saved topics are temporarily unavailable", code: "SAVED_TOPICS_UNAVAILABLE" },
+        { status: 503, headers: { "Cache-Control": "no-store" } },
+      ),
+    };
+  }
+}
+
 /**
  * GET /api/saved-topics
  *
@@ -33,14 +47,16 @@ function featureDisabled() {
 export async function GET() {
   if (!savedTopicsEnabled()) return featureDisabled();
 
-  const session = await auth();
+  const sessionResult = await loadSession();
+  if (!sessionResult.ok) return sessionResult.error;
+  const { session } = sessionResult;
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   try {
     const topicIds = await getSavedTopicIds(session.user.id);
-    return NextResponse.json({ topicIds });
+    return NextResponse.json({ topicIds }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     console.error("Failed to fetch saved topics:", sanitizeServerLog(error));
     return NextResponse.json(
@@ -59,7 +75,9 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   if (!savedTopicsEnabled()) return featureDisabled();
 
-  const session = await auth();
+  const sessionResult = await loadSession();
+  if (!sessionResult.ok) return sessionResult.error;
+  const { session } = sessionResult;
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -112,7 +130,9 @@ export async function POST(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
   if (!savedTopicsEnabled()) return featureDisabled();
 
-  const session = await auth();
+  const sessionResult = await loadSession();
+  if (!sessionResult.ok) return sessionResult.error;
+  const { session } = sessionResult;
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }

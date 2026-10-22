@@ -112,7 +112,7 @@ describe("SubscribeButton", () => {
     fireEvent.click(await view.findByRole("button", { name: /following 5/i }));
 
     await waitFor(() => {
-      expect(view.getByRole("alert").textContent).toMatch(/was not changed/i);
+      expect(view.getByRole("alert").textContent).toMatch(/could not confirm/i);
     });
     expect(view.getByRole("button", { name: /following 5/i })).toBeTruthy();
   });

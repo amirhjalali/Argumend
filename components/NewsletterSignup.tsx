@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { CheckCircle, Loader2 } from "lucide-react";
 import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
@@ -20,9 +20,11 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const submitting = useRef(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting.current) return;
     setError("");
 
     // Basic email format validation
@@ -32,6 +34,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
       return;
     }
 
+    submitting.current = true;
     setLoading(true);
 
     try {
@@ -57,6 +60,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
     } catch {
       setError("Network error. Please check your connection and try again.");
     } finally {
+      submitting.current = false;
       setLoading(false);
     }
   };
