@@ -3,6 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 import { Share2, Copy, Check, Lightbulb } from "lucide-react";
 import type { TopicStatus } from "@/lib/schemas/topic";
+import { copyTextToClipboard } from "@/lib/copyToClipboard";
 
 // ---------------------------------------------------------------------------
 // Web Share API availability (SSR-safe via useSyncExternalStore)
@@ -44,22 +45,6 @@ interface ShareButtonsProps {
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-
-function copyToClipboard(text: string) {
-  try {
-    navigator.clipboard.writeText(text);
-  } catch {
-    // Fallback for older browsers / non-HTTPS contexts
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand("copy");
-    document.body.removeChild(ta);
-  }
-}
 
 /**
  * Build the pre-filled tweet text for a topic analysis.
@@ -103,6 +88,7 @@ function buildCruxTweetText(topicTitle: string, cruxQuestion: string): string {
 export function ShareButtons({ title, url, description, topicMeta }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const [cruxCopied, setCruxCopied] = useState(false);
+  const [copyFailure, setCopyFailure] = useState<{ text: string; crux: boolean } | null>(null);
   const canShare = useSyncExternalStore(
     subscribeCanShare,
     getCanShareSnapshot,
@@ -112,9 +98,16 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
   // ---- handlers ----
 
   const handleCopy = async () => {
-    copyToClipboard(url);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopied(false);
+    setCruxCopied(false);
+    setCopyFailure(null);
+    try {
+      await copyTextToClipboard(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopyFailure({ text: url, crux: false });
+    }
   };
 
   const handleNativeShare = async () => {
@@ -150,12 +143,19 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
     ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(cruxTweetText)}&url=${encodeURIComponent(url)}`
     : null;
 
-  const handleCopyCrux = () => {
+  const handleCopyCrux = async () => {
     if (!topicMeta?.cruxQuestion) return;
     const text = `${buildCruxTweetText(topicMeta.topicTitle, topicMeta.cruxQuestion)} ${url}`;
-    copyToClipboard(text);
-    setCruxCopied(true);
-    setTimeout(() => setCruxCopied(false), 2500);
+    setCopied(false);
+    setCruxCopied(false);
+    setCopyFailure(null);
+    try {
+      await copyTextToClipboard(text);
+      setCruxCopied(true);
+      setTimeout(() => setCruxCopied(false), 2500);
+    } catch {
+      setCopyFailure({ text, crux: true });
+    }
   };
 
   // ---- shared styles ----
@@ -262,10 +262,23 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
       )}
 
       {/* Copied toast */}
-      {(copied || cruxCopied) && (
-        <span className="ml-1 text-xs font-medium text-deep animate-fade-in">
-          {cruxCopied ? "Crux copied!" : "Link copied!"}
-        </span>
+      <span role="status" className="ml-1 text-xs font-medium text-deep">
+        {cruxCopied ? "Crux copied!" : copied ? "Link copied!" : ""}
+      </span>
+      {copyFailure && (
+        <div className="w-full min-w-0 px-1 py-2">
+          <p role="alert" className="text-xs leading-relaxed text-error-text">
+            {copyFailure.crux ? "The crux text" : "The link"} could not be copied. Select and copy it below.
+          </p>
+          <textarea
+            readOnly
+            aria-label={copyFailure.crux ? "Crux text to copy" : "Link to copy"}
+            value={copyFailure.text}
+            onFocus={(event) => event.currentTarget.select()}
+            rows={copyFailure.crux ? 4 : 2}
+            className="mt-2 block w-full min-w-0 rounded border border-stone-300 bg-white p-2 text-xs text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:border-divider dark:bg-card dark:text-stone-200"
+          />
+        </div>
       )}
     </div>
   );
