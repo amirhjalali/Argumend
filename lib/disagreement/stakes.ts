@@ -171,18 +171,19 @@ export function projectClaimStakes(input: {
     const claim = claimsById.get(candidate.claimId);
     if (!claim) continue;
 
-    const freshQuotes = candidate.groundingQuotes.filter(
-      (quote) => !seen.has(normalizeQuoteText(quote.quote)),
-    );
-    expectedQuoteCount += freshQuotes.length;
+    const freshQuoteKeys = new Set<string>();
     for (const quote of candidate.groundingQuotes) {
-      seen.add(normalizeQuoteText(quote.quote));
+      const key = normalizeQuoteText(quote.quote);
+      if (!seen.has(key)) freshQuoteKeys.add(key);
+      seen.add(key);
     }
+    expectedQuoteCount += freshQuoteKeys.size;
 
     const grounding = groundQuotes(source, candidate.groundingQuotes, candidate.id);
-    groundedQuoteCount += grounding.refs.filter((ref) =>
-      freshQuotes.some((quote) => normalizeQuoteText(quote.quote) === normalizeQuoteText(ref.quote)),
-    ).length;
+    const groundedQuoteKeys = new Set(
+      grounding.refs.map((ref) => normalizeQuoteText(ref.quote)).filter((key) => freshQuoteKeys.has(key)),
+    );
+    groundedQuoteCount += groundedQuoteKeys.size;
     warnings.push(...grounding.warnings);
 
     projected.push({
