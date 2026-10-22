@@ -46,6 +46,26 @@ afterEach(() => {
 });
 
 describe("responsive topic actions", () => {
+  it.each([true, false])("restores the replacement trigger after two layout changes (desktop=%s)", async (desktop) => {
+    const resize = mockResizableViewport(desktop);
+    const view = render(<ResponsiveActions />);
+    const trigger = view.getByRole("button", { name: "Embed" });
+    trigger.focus();
+    fireEvent.click(trigger);
+    await waitFor(() => expect(document.activeElement).toBe(view.getByRole("button", { name: "Close" })));
+    view.rerender(<ResponsiveActions searchOpen />);
+    const input = view.getByRole("textbox", { name: "Search input" });
+    await waitFor(() => expect(document.activeElement).toBe(input));
+
+    resize(!desktop);
+    resize(desktop);
+    expect(document.activeElement).toBe(input);
+    view.rerender(<ResponsiveActions searchOpen={false} />);
+
+    await waitFor(() => expect(document.activeElement).toBe(view.getByRole("button", { name: "Embed" })));
+    expect(document.documentElement.style.overflow).toBe("");
+  });
+
   it.each([true, false])("releases a hidden Embed and focuses its replacement (desktop=%s)", async (desktop) => {
     const resize = mockResizableViewport(desktop);
     const view = render(<ResponsiveActions />);
