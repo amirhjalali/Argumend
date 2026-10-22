@@ -468,7 +468,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               value={query}
               onChange={(e) => updateQuery(e.target.value)}
               placeholder="Search maps, articles, concepts…"
-              className="flex-1 bg-transparent text-lg text-primary dark:text-stone-200 placeholder:text-stone-500 outline-none font-sans"
+              className="min-w-0 flex-1 bg-transparent text-lg text-primary dark:text-stone-200 placeholder:text-stone-500 outline-none font-sans"
               autoComplete="off"
               spellCheck={false}
               aria-label="Search Argumend"
@@ -486,7 +486,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   updateQuery("");
                   inputRef.current?.focus();
                 }}
-                className="flex items-center justify-center h-11 w-11 rounded-md text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] transition-colors"
+                className="flex shrink-0 items-center justify-center h-11 w-11 rounded-md text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 hover:bg-stone-100 dark:hover:bg-[var(--bg-muted)] transition-colors"
                 aria-label="Clear search"
               >
                 <X className="h-4 w-4" />
