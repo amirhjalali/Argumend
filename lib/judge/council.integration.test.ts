@@ -150,7 +150,7 @@ describe("JudgeCouncil production orchestration", () => {
   it("does not log vendor errors that echo private prompts or credentials", async () => {
     const privateText = "Private prompt content must stay out of diagnostic logs.";
     const error = vi.spyOn(console, "error").mockImplementation(() => undefined);
-    vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
     mocks.executeAgent.mockResolvedValue({
       content: "",
       agentId: "unused",
@@ -164,7 +164,11 @@ describe("JudgeCouncil production orchestration", () => {
     await council.judgeContent(privateText);
 
     expect(error).toHaveBeenCalledWith("Judge request failed", { judgePosition: 1 });
-    expect(JSON.stringify(error.mock.calls)).not.toMatch(/Private prompt|fixture-provider-secret|Authorization/);
+    expect(warn).toHaveBeenCalledWith("Some judges failed", {
+      judgePositions: [1], returnedVerdicts: 0, totalJudges: 1,
+    });
+    expect(JSON.stringify([...error.mock.calls, ...warn.mock.calls]))
+      .not.toMatch(/Private prompt|fixture-provider-secret|Authorization/);
   });
 
   it("returns a stable empty aggregate when every judge fails", async () => {
