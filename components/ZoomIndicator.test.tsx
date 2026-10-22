@@ -1,6 +1,6 @@
 import "@/test/setup-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render } from "@testing-library/react";
+import { act, cleanup, fireEvent, render } from "@testing-library/react";
 
 const flow = vi.hoisted(() => ({ fitView: vi.fn(), zoomIn: vi.fn(), zoomOut: vi.fn() }));
 
@@ -19,7 +19,12 @@ describe("diagram zoom controls", () => {
     window.sessionStorage.setItem("argumend-drag-hint", "1");
   });
 
-  afterEach(cleanup);
+  afterEach(() => {
+    cleanup();
+    vi.restoreAllMocks();
+    vi.useRealTimers();
+    window.sessionStorage.clear();
+  });
 
   it("labels every control and reports the zoom level", () => {
     const view = render(<ZoomIndicator />);
@@ -41,5 +46,31 @@ describe("diagram zoom controls", () => {
     for (const button of view.getAllByRole("button")) {
       expect(button.className).toContain("focus-visible:ring-focus");
     }
+  });
+
+  it("keeps zoom controls usable when browser storage access is denied", () => {
+    vi.spyOn(window, "sessionStorage", "get").mockImplementation(() => {
+      throw new DOMException("Storage is unavailable", "SecurityError");
+    });
+
+    const view = render(<ZoomIndicator />);
+    fireEvent.click(view.getByRole("button", { name: "Fit the whole diagram in view" }));
+    expect(flow.fitView).toHaveBeenCalled();
+  });
+
+  it("dismisses the optional hint when its storage write is rejected", () => {
+    vi.useFakeTimers();
+    window.sessionStorage.removeItem("argumend-drag-hint");
+    vi.spyOn(window.sessionStorage, "setItem").mockImplementation(() => {
+      throw new DOMException("Storage is full", "QuotaExceededError");
+    });
+
+    const view = render(<ZoomIndicator />);
+    act(() => vi.advanceTimersByTime(1500));
+    expect(view.getByText("Drag or scroll to move, pinch to zoom")).toBeTruthy();
+    act(() => vi.advanceTimersByTime(4500));
+    expect(view.queryByText("Drag or scroll to move, pinch to zoom")).toBeNull();
+    fireEvent.click(view.getByRole("button", { name: "Zoom in" }));
+    expect(flow.zoomIn).toHaveBeenCalled();
   });
 });
