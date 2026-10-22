@@ -19,6 +19,14 @@ describe("per-topic loader registry", () => {
     await expect(loadTopicById("not-a-real-topic")).resolves.toBeNull();
   });
 
+  it.each(["__proto__", "constructor", "hasOwnProperty", "toString", "valueOf"])(
+    "does not invoke inherited object properties for unknown id %s",
+    async (id) => {
+      expect(hasTopicLoader(id)).toBe(false);
+      await expect(loadTopicById(id)).resolves.toBeNull();
+    },
+  );
+
   it.each(["moon-landing", "ai-risk", "lab-leak-theory"])(
     "normalizes %s identically to the server corpus",
     async (topicId) => {
