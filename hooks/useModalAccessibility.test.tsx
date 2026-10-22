@@ -87,4 +87,26 @@ describe("useModalAccessibility", () => {
     expect(document.documentElement.style.overflow).toBe("");
     expect(document.body.style.overflow).toBe("clip");
   });
+
+  it.each([
+    { isComposing: true, keyCode: 27 },
+    { isComposing: false, keyCode: 229 },
+  ])("leaves composition Escape to the input method (%j)", async (composition) => {
+    const view = render(<ModalHarness />);
+    fireEvent.click(view.getByRole("button", { name: "Open dialog" }));
+    const first = view.getByRole("button", { name: "First action" });
+    await waitFor(() => expect(document.activeElement).toBe(first));
+
+    const event = new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true, ...composition });
+    fireEvent(first, event);
+
+    expect(event.defaultPrevented).toBe(false);
+    expect(view.getByRole("dialog", { name: "Test dialog" })).toBeTruthy();
+    expect(document.activeElement).toBe(first);
+    expect(document.body.style.overflow).toBe("hidden");
+
+    fireEvent.keyDown(first, { key: "Escape" });
+    await waitFor(() => expect(view.queryByRole("dialog")).toBeNull());
+    expect(document.body.style.overflow).toBe("clip");
+  });
 });
