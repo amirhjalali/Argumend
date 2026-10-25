@@ -17,6 +17,13 @@ describe("draft argument topics", () => {
     expect(loadArgumentTopic("missing-topic")).toBeNull();
   });
 
+  it.each(["constructor", "__proto__", "toString", "hasOwnProperty"])(
+    "returns null for inherited object key %s",
+    (id) => {
+      expect(loadArgumentTopic(id)).toBeNull();
+    },
+  );
+
   it("only returns cruxes whose claims exist in the graph", () => {
     const topic = loadArgumentTopic("ai-mass-unemployment");
     expect(topic).not.toBeNull();

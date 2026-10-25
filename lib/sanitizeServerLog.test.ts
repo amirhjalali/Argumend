@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { DrizzleQueryError } from "drizzle-orm/errors";
 import { sanitizeServerLog } from "./sanitizeServerLog";
 
 describe("sanitizeServerLog", () => {
@@ -69,6 +70,37 @@ describe("sanitizeServerLog", () => {
     expect(output).toContain('insert into "analyses"');
     expect(output).toContain("params: [redacted]");
     expect(output).not.toContain("private user argument text");
+  });
+
+  it.each(["\n", "\r\n"])("removes every line of bound debate text with %j line endings", (newline) => {
+    const error = new DrizzleQueryError(
+      'insert into "debate_rounds" ("for_content", "against_content") values ($1, $2)',
+      [`private first line${newline}private second line`, "private opposing argument"],
+      new Error("database unavailable"),
+    );
+
+    const output = sanitizeServerLog(error);
+
+    expect(output).toContain('insert into "debate_rounds"');
+    expect(output).toContain("params: [redacted]");
+    expect(output).not.toContain("private");
+    expect(sanitizeServerLog(output)).toBe(output);
+  });
+
+  it("redacts nested query errors before JSON escapes their line breaks", () => {
+    const error = new DrizzleQueryError(
+      'insert into "debate_rounds" values ($1)',
+      ["private first line\nprivate second line"],
+      new Error("database unavailable"),
+    );
+
+    const output = sanitizeServerLog({ operation: "save round", error, message: error.message });
+    const parsed = JSON.parse(output);
+
+    expect(parsed.operation).toBe("save round");
+    expect(parsed.error.message).toContain("params: [redacted]");
+    expect(parsed.message).toContain("params: [redacted]");
+    expect(output).not.toContain("private");
   });
 
   it("does not alter ordinary URLs or diagnostic identifiers", () => {

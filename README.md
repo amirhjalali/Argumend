@@ -62,6 +62,12 @@ non-empty `DATABASE_URL` is explicitly configured. Without it, authentication
 uses a degraded JWT mode and the browsing, analysis, and programmatic debate
 flows remain available without attempting to initialize a database connection.
 Persisted debates are private to the authenticated user who created them.
+Saving a judgment against an existing debate also requires that debate's owner.
+Anonymous offline judgments still return their computed result without attaching
+it to a stored debate.
+The debate persistence endpoint requires configured authentication and storage.
+Malformed JSON or debate identifiers return `400`; temporary authentication or
+storage unavailability returns `503` without attempting an unauthenticated write.
 The judging API accepts evaluations via `POST`; it does not expose a global
 recent-judgments collection, because verdict reasoning may derive from private
 debate content.
@@ -94,6 +100,28 @@ and `ANTHROPIC_API_KEY` (see `lib/paste/lanes.ts`). It is a runtime server varia
 no build-time flag is involved. Without it, `/analyze` runs only the offline map match.
 Publishing unlisted `/d/<slug>` reports also requires `ENABLE_DISAGREEMENT_PUBLISHING`,
 `REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`.
+Private diagnoses retain grounded quotations within their individual limits.
+Publishing and reading a stored public report also enforce the combined
+`1_500` character quotation limit. Exceeding that publication limit does not
+discard an otherwise valid private diagnosis.
+Publishing confirms success only after a valid server receipt. The publishing
+page retains the deletion token for the current visit if browser storage rejects
+it, and explains that the page must stay open to use that token. Public report
+images use `no-store` so a later request observes management-token deletion.
+Feedback confirms a successful save separately from a failed request; written
+corrections use an explicit Save correction action.
+
+The diagnosis, map-reply, debate, and judging APIs cancel provider work when the client disconnects.
+Canceled requests return `499 REQUEST_ABORTED` when a response can still be sent;
+diagnosis and map-reply deadlines retain their `504` timeout responses. Debate
+and judging retain their offline fallback policy. Cancellation also prevents
+later provider stages, retries, pending gap-metric inserts, and judgment
+persistence from starting. A database operation already dispatched may still
+commit; cancellation does not roll it back.
+The paste and map-reply clients cancel abandoned requests when the reader leaves
+the page. Starting another paste or resubmitting edited text cancels the prior
+paste run. Homepage paste handoffs can use temporary browser memory when session
+storage is unavailable, so the text still reaches the paste tool during navigation.
 
 The unprefixed `ENABLE_LIVE_*` flags are the server-side authorization boundary
 for provider calls. Their matching `NEXT_PUBLIC_ENABLE_LIVE_*` flags only expose

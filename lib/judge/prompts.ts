@@ -5,6 +5,7 @@
  */
 
 import { z } from "zod";
+import { parseModelJson } from "@/lib/parseModelJson";
 import { DEFAULT_RUBRIC, type RubricDimension } from "./rubric";
 
 /**
@@ -195,39 +196,9 @@ export type ParsedJudgeResponse = z.infer<typeof ParsedJudgeResponseSchema>;
  */
 export function parseJudgeResponse(response: string): ParsedJudgeResponse | null {
   try {
-    // Try to extract JSON from the response
-    let jsonStr = response.trim();
-
-    // Handle markdown code blocks
-    const jsonMatch = jsonStr.match(/```(?:json)?\s*([\s\S]*?)```/);
-    if (jsonMatch) {
-      jsonStr = jsonMatch[1].trim();
-    }
-
-    // Handle responses that start with non-JSON text
-    const jsonStart = jsonStr.indexOf("{");
-    if (jsonStart > 0) {
-      jsonStr = jsonStr.substring(jsonStart);
-    }
-
-    // Find the matching closing brace
-    let depth = 0;
-    let endIndex = -1;
-    for (let i = 0; i < jsonStr.length; i++) {
-      if (jsonStr[i] === "{") depth++;
-      if (jsonStr[i] === "}") {
-        depth--;
-        if (depth === 0) {
-          endIndex = i;
-          break;
-        }
-      }
-    }
-    if (endIndex > 0) {
-      jsonStr = jsonStr.substring(0, endIndex + 1);
-    }
-
-    const parsed = ParsedJudgeResponseSchema.safeParse(JSON.parse(jsonStr));
+    const payload = parseModelJson(response);
+    if (payload === undefined) return null;
+    const parsed = ParsedJudgeResponseSchema.safeParse(payload);
     if (!parsed.success) {
       console.warn("Invalid judge response:", parsed.error.flatten());
       return null;

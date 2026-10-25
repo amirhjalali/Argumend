@@ -106,6 +106,22 @@ describe("AnthropicDisagreementProvider", () => {
     expect(mocks.create).toHaveBeenCalledTimes(2);
   });
 
+  it("repairs a reused participant ID before ambiguous attribution can reach the report", async () => {
+    const { AnthropicDisagreementProvider } = await import("./anthropic");
+    const ambiguous = structuredClone(EXTRACTION);
+    ambiguous.participants[1].id = ambiguous.participants[0].id;
+    mocks.create
+      .mockResolvedValueOnce(toolResponse(ambiguous))
+      .mockResolvedValueOnce(toolResponse(EXTRACTION));
+    const provider = new AnthropicDisagreementProvider("req-1", { model: "claude-test", maxOutputTokens: 4096 });
+
+    const result = await provider.extract(REQUEST);
+
+    expect(result.data.participants.map((participant) => participant.id)).toEqual(["maya", "noah"]);
+    expect(mocks.create).toHaveBeenCalledTimes(2);
+    expect(userMessageFrom(mocks.create.mock.calls[1])).toContain("participants.[].id");
+  });
+
   it("does not spend the repair budget on transient failures", async () => {
     const { AnthropicDisagreementProvider } = await import("./anthropic");
     mocks.create
@@ -123,5 +139,79 @@ describe("AnthropicDisagreementProvider", () => {
     expect(mocks.create).toHaveBeenCalledTimes(2);
     const secondMessage = userMessageFrom(mocks.create.mock.calls[1]);
     expect(secondMessage).not.toContain("failed schema validation");
+  });
+
+  it("does not construct a client for an already-aborted request", async () => {
+    const { AnthropicDisagreementProvider } = await import("./anthropic");
+    const controller = new AbortController();
+    controller.abort();
+    const provider = new AnthropicDisagreementProvider("req-1", { model: "claude-test", maxOutputTokens: 4096 });
+
+    await expect(provider.extract(REQUEST, { signal: controller.signal })).rejects.toMatchObject({ name: "AbortError" });
+    expect(mocks.constructor).not.toHaveBeenCalled();
+    expect(mocks.create).not.toHaveBeenCalled();
+  });
+
+  it("forwards client cancellation to the SDK and does not retry its abort error", async () => {
+    const { AnthropicDisagreementProvider } = await import("./anthropic");
+    const controller = new AbortController();
+    let started!: (signal: AbortSignal) => void;
+    const modelStarted = new Promise<AbortSignal>((resolve) => { started = resolve; });
+    mocks.create.mockImplementationOnce((_body, { signal }: { signal: AbortSignal }) => {
+      started(signal);
+      return new Promise((_resolve, reject) => {
+        signal.addEventListener("abort", () => reject(new Error("Request was aborted.")), { once: true });
+      });
+    });
+    const provider = new AnthropicDisagreementProvider("req-1", { model: "claude-test", maxOutputTokens: 4096 });
+    const extraction = provider.extract(REQUEST, { signal: controller.signal });
+    const assertion = expect(extraction).rejects.toMatchObject({ name: "AbortError" });
+    const modelSignal = await modelStarted;
+    controller.abort();
+
+    await assertion;
+    expect(modelSignal.aborted).toBe(true);
+    expect(mocks.create).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not repair a late invalid response after cancellation", async () => {
+    const { AnthropicDisagreementProvider } = await import("./anthropic");
+    const controller = new AbortController();
+    mocks.create.mockImplementationOnce(async () => {
+      controller.abort();
+      return toolResponse({ mainQuestion: "invalid" });
+    });
+    const provider = new AnthropicDisagreementProvider("req-1", { model: "claude-test", maxOutputTokens: 4096 });
+
+    await expect(provider.extract(REQUEST, { signal: controller.signal })).rejects.toMatchObject({ name: "AbortError" });
+    expect(mocks.create).toHaveBeenCalledTimes(1);
+  });
+
+  it("maps an SDK abort at its own deadline to MODEL_TIMEOUT", async () => {
+    const { AnthropicDisagreementProvider } = await import("./anthropic");
+    const deadline = new AbortController();
+    vi.spyOn(AbortSignal, "timeout").mockReturnValue(deadline.signal);
+    mocks.create.mockImplementationOnce(async () => {
+      deadline.abort(new DOMException("Deadline exceeded", "TimeoutError"));
+      throw new Error("Request was aborted.");
+    });
+    const provider = new AnthropicDisagreementProvider("req-1", { model: "claude-test", maxOutputTokens: 4096 });
+
+    await expect(provider.extract(REQUEST, {})).rejects.toMatchObject({ code: "MODEL_TIMEOUT" });
+    expect(mocks.create).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(["valid", "invalid"] as const)("rejects a late %s SDK result after its own deadline", async (kind) => {
+    const { AnthropicDisagreementProvider } = await import("./anthropic");
+    const deadline = new AbortController();
+    vi.spyOn(AbortSignal, "timeout").mockReturnValue(deadline.signal);
+    mocks.create.mockImplementationOnce(async () => {
+      deadline.abort(new DOMException("Deadline exceeded", "TimeoutError"));
+      return toolResponse(kind === "valid" ? EXTRACTION : { mainQuestion: "invalid" });
+    });
+    const provider = new AnthropicDisagreementProvider("req-1", { model: "claude-test", maxOutputTokens: 4096 });
+
+    await expect(provider.extract(REQUEST)).rejects.toMatchObject({ code: "MODEL_TIMEOUT" });
+    expect(mocks.create).toHaveBeenCalledTimes(1);
   });
 });

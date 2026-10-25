@@ -8,6 +8,7 @@ import {
 import {
   RawDisagreementExtractionSchema,
   DisagreementReportSchema,
+  PublishedDisagreementReportSchema,
   collectRawExtractionReferenceIssues,
   collectReportQuoteCharacters,
   collectReportReferenceIssues,
@@ -390,20 +391,22 @@ describe("raw extraction schema", () => {
     expect(collectRawExtractionReferenceIssues(parsed).length).toBeGreaterThan(0);
   });
 
-  it("flags duplicate participant ids", () => {
-    const extraction = rawExtraction({
-      participants: [
-        { id: "p-a", label: "Alex", kind: "named" },
-        { id: "p-a", label: "Also Alex", kind: "named" },
-      ],
-    });
-    const parsed = RawDisagreementExtractionSchema.parse(extraction);
-    expect(
-      collectRawExtractionReferenceIssues(parsed).some((issue) =>
-        issue.message.includes("Duplicate"),
-      ),
-    ).toBe(true);
-  });
+  it.each(["participants", "positions", "claims"] as const)(
+    "rejects ambiguous duplicate IDs within %s at the model boundary",
+    (kind) => {
+      const extraction = rawExtraction();
+      const entities = extraction[kind];
+      const parsed = RawDisagreementExtractionSchema.safeParse({
+        ...extraction,
+        [kind]: [...entities, { ...entities[0] }],
+      });
+
+      expect(parsed.success).toBe(false);
+      if (!parsed.success) {
+        expect(parsed.error.issues).toContainEqual(expect.objectContaining({ path: [kind, entities.length, "id"] }));
+      }
+    },
+  );
 
   it("parseRawDisagreementExtraction returns issues instead of data when refs dangle", () => {
     const result = parseRawDisagreementExtraction(
@@ -507,7 +510,9 @@ describe("public report schema", () => {
     expect(collectReportQuoteCharacters(value)).toBeGreaterThan(
       DISAGREEMENT_LIMITS.maxPublishedQuoteCharactersTotal,
     );
-    expect(DisagreementReportSchema.safeParse(value).success).toBe(false);
+    expect(DisagreementReportSchema.safeParse(value).success).toBe(true);
+    expect(PublishedDisagreementReportSchema.safeParse(value).success).toBe(false);
+    expect(parseDisagreementReport(value).success).toBe(false);
   });
 
   it("flags share metrics that do not match counts", () => {

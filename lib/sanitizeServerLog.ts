@@ -4,9 +4,15 @@ const REDACTED_DATABASE_URL = "[redacted database URL]";
 const SENSITIVE_KEY =
   /^(?:api[_-]?key|access[_-]?token|auth(?:orization)?|bearer|client[_-]?secret|password|secret|token)$/i;
 
+function redactQueryParameters(message: string): string {
+  // Drizzle appends bound values after this marker, including any line breaks
+  // in private debate text. Redact before JSON can escape those line breaks.
+  return message.replace(/(\nparams:[ \t]*)[\s\S]*/gi, `$1${REDACTED}`);
+}
+
 function stringifyUnknown(value: unknown): string {
-  if (typeof value === "string") return value;
-  if (value instanceof Error) return value.message;
+  if (typeof value === "string") return redactQueryParameters(value);
+  if (value instanceof Error) return redactQueryParameters(value.message);
   if (value === null || value === undefined) return String(value);
   if (typeof value !== "object") return String(value);
 
@@ -14,11 +20,12 @@ function stringifyUnknown(value: unknown): string {
   try {
     return JSON.stringify(value, (key, nested) => {
       if (key && SENSITIVE_KEY.test(key)) return REDACTED;
+      if (typeof nested === "string") return redactQueryParameters(nested);
       if (typeof nested === "bigint") return nested.toString();
       if (nested instanceof Error) {
         return {
           name: nested.name,
-          message: nested.message,
+          message: redactQueryParameters(nested.message),
         };
       }
       if (nested && typeof nested === "object") {
@@ -38,10 +45,6 @@ function stringifyUnknown(value: unknown): string {
  */
 export function sanitizeServerLog(value: unknown): string {
   return stringifyUnknown(value)
-    // Drizzle includes bound values after a `params:` marker. Those values can
-    // contain private analysis/debate text even though the SQL itself is safe
-    // to retain for diagnosis.
-    .replace(/(\nparams:\s*)[^\n]*/gi, `$1${REDACTED}`)
     .replace(/\bpostgres(?:ql)?:\/\/[^\s"'<>]+/gi, REDACTED_DATABASE_URL)
     .replace(
       /(\bAuthorization\s*[:=]\s*)(?:(?:Bearer|Basic)\s+)?[^\s,"';}]+/gi,

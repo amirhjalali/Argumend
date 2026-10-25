@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { DISAGREEMENT_LIMITS } from "@/lib/disagreement/constants";
 import { createRequestId } from "@/lib/disagreement/errors";
 import { handleDisagreementError } from "@/lib/disagreement/http";
@@ -8,8 +9,21 @@ import { isDatabaseConfigured } from "@/lib/db";
 import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 
-const SECTIONS = new Set(["overall", "position", "common-ground", "crux", "abuse"]);
-const VOTES = new Set(["accurate", "mostly", "inaccurate"]);
+const FeedbackSchema = z.object({
+  section: z.enum(["overall", "position", "common-ground", "crux", "abuse"]),
+  targetId: z.string().min(1).optional(),
+  vote: z.enum(["accurate", "mostly", "inaccurate"]).optional(),
+  correction: z.string().max(DISAGREEMENT_LIMITS.maxCorrectionCharacters).optional(),
+  anonymousSessionId: z.string().refine((value) => value.trim().length > 0),
+}).superRefine((value, context) => {
+  const targeted = value.section === "position" || value.section === "common-ground" || value.section === "crux";
+  if (targeted !== (value.targetId !== undefined)) {
+    context.addIssue({ code: "custom", path: ["targetId"], message: "Invalid feedback target." });
+  }
+  if (!value.vote && !value.correction?.trim()) {
+    context.addIssue({ code: "custom", path: ["vote"], message: "Provide a vote or correction." });
+  }
+});
 
 export async function POST(
   request: NextRequest,
@@ -47,31 +61,21 @@ export async function POST(
     );
   }
 
-  const body = raw && typeof raw === "object" ? (raw as Record<string, unknown>) : {};
-  const section = typeof body.section === "string" ? body.section : "";
-  const vote = typeof body.vote === "string" ? body.vote : undefined;
-  const correction = typeof body.correction === "string" ? body.correction : undefined;
-  const sessionId = typeof body.anonymousSessionId === "string" ? body.anonymousSessionId : "";
-  const targetId = typeof body.targetId === "string" ? body.targetId : undefined;
-
-  if (!SECTIONS.has(section) || !sessionId) {
+  const parsed = FeedbackSchema.safeParse(raw);
+  if (!parsed.success) {
+    const correctionTooLong = parsed.error.issues.some(
+      (issue) => issue.path[0] === "correction" && issue.code === "too_big",
+    );
     return NextResponse.json(
-      { error: "The request could not be understood.", code: "INVALID_REQUEST", requestId },
+      {
+        error: correctionTooLong ? "Correction is too long." : "The request could not be understood.",
+        code: "INVALID_REQUEST",
+        requestId,
+      },
       { status: 400, headers: { "x-request-id": requestId } },
     );
   }
-  if (vote && !VOTES.has(vote)) {
-    return NextResponse.json(
-      { error: "The request could not be understood.", code: "INVALID_REQUEST", requestId },
-      { status: 400, headers: { "x-request-id": requestId } },
-    );
-  }
-  if (correction && correction.length > DISAGREEMENT_LIMITS.maxCorrectionCharacters) {
-    return NextResponse.json(
-      { error: "Correction is too long.", code: "INVALID_REQUEST", requestId },
-      { status: 400, headers: { "x-request-id": requestId } },
-    );
-  }
+  const { section, targetId, vote, correction, anonymousSessionId } = parsed.data;
 
   try {
     const { slug } = await context.params;
@@ -84,12 +88,9 @@ export async function POST(
     }
 
     if (targetId && (section === "position" || section === "common-ground" || section === "crux")) {
-      const ids = [
-        ...report.report.positions.map((item) => item.id),
-        ...report.report.commonGround.map((item) => item.id),
-        ...report.report.cruxes.map((item) => item.id),
-      ];
-      if (!ids.includes(targetId)) {
+      const targets = section === "position" ? report.report.positions
+        : section === "common-ground" ? report.report.commonGround : report.report.cruxes;
+      if (!targets.some((item) => item.id === targetId)) {
         return NextResponse.json(
           { error: "Unknown feedback target.", code: "INVALID_REQUEST", requestId },
           { status: 400, headers: { "x-request-id": requestId } },
@@ -103,11 +104,12 @@ export async function POST(
       targetId,
       vote,
       correction,
-      anonymousSessionHash: hashOpaque(sessionId),
+      anonymousSessionHash: hashOpaque(anonymousSessionId),
     });
 
     return NextResponse.json({ ok: true }, { headers: { "x-request-id": requestId } });
-  } catch (error) {
-    return handleDisagreementError(error, requestId);
+  } catch {
+    // Database query errors can contain the private correction in parameters.
+    return handleDisagreementError(new Error("Could not save report feedback"), requestId);
   }
 }

@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Code, Copy, Check, X } from "lucide-react";
 import { copyTextToClipboard } from "@/lib/copyToClipboard";
-import { useModalAccessibility } from "@/hooks/useModalAccessibility";
+import { isTopModal, useModalAccessibility } from "@/hooks/useModalAccessibility";
 import { buttonClasses } from "@/components/ui";
 
 interface EmbedButtonProps {
@@ -33,12 +33,15 @@ export function EmbedButton({ topicId, labelled = false, align = "left" }: Embed
   const dialogRef = useModalAccessibility<HTMLDivElement>({
     isOpen: open,
     onClose: close,
+    getFallbackFocus: () => Array.from(document.querySelectorAll<HTMLButtonElement>("[data-embed-topic]"))
+      .find((button) => button.dataset.embedTopic === topicId) ?? null,
   });
 
   // Close on outside click
   useEffect(() => {
     if (!open) return;
     function handleClick(e: MouseEvent) {
+      if (!isTopModal(dialogRef.current)) return;
       if (
         popoverRef.current &&
         !popoverRef.current.contains(e.target as Node)
@@ -48,7 +51,7 @@ export function EmbedButton({ topicId, labelled = false, align = "left" }: Embed
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, [open, close]);
+  }, [open, close, dialogRef]);
 
   const handleCopy = async () => {
     try {
@@ -66,6 +69,7 @@ export function EmbedButton({ topicId, labelled = false, align = "left" }: Embed
     <div className="relative" ref={popoverRef}>
       <button
         type="button"
+        data-embed-topic={topicId}
         onClick={() => {
           setCopyError(null);
           setOpen((value) => !value);

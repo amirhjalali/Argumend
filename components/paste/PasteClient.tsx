@@ -12,7 +12,7 @@ import { buildPasteConsentLine, formatProviderList } from "@/lib/aiProviders";
 import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { bandLabel, characterBucket, latencyBucket } from "@/lib/disagreement/labels";
-import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
+import { clearPastePrefill, readPastePrefill } from "@/lib/paste/handoff";
 import { minCharactersFor, PASTE_LIMITS } from "@/lib/paste/limits";
 import { buildPasteSummary } from "@/lib/paste/summary";
 import type {
@@ -74,12 +74,14 @@ function toContentType(value: unknown): PasteContentType {
 async function fetchMaps(
   content: string,
   contentType: PasteContentType,
+  signal: AbortSignal,
 ): Promise<{ maps: PasteMapsResult } | { error: string }> {
   try {
     const response = await fetch("/api/analyze", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ content, contentType }),
+      signal,
     });
     const data = (await response.json()) as { maps?: PasteMapsResult; error?: string };
     if (!response.ok || !data.maps) {
@@ -91,12 +93,13 @@ async function fetchMaps(
   }
 }
 
-async function fetchDiagnosis(content: string, contentType: PasteContentType): Promise<DiagnosisState> {
+async function fetchDiagnosis(content: string, contentType: PasteContentType, signal: AbortSignal): Promise<DiagnosisState> {
   try {
     const response = await fetch("/api/disagreements/analyze", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ content, contentType }),
+      signal,
     });
     const data = (await response.json()) as {
       report?: DisagreementReportV1;
@@ -106,6 +109,9 @@ async function fetchDiagnosis(content: string, contentType: PasteContentType): P
       error?: string;
       code?: string;
     };
+    // A decoded response can still arrive after reset or navigation.
+    // Cancelled work must not report a completed or failed analysis.
+    signal.throwIfAborted();
     if (!response.ok || !data.report || !data.graph) {
       trackEvent({ action: "disagreement_analysis_failed", errorCode: data.code || "INTERNAL_ERROR" });
       return { status: "failed", message: data.error || "The reading failed." };
@@ -195,6 +201,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const [submitted, setSubmitted] = useState("");
 
   const runRef = useRef(0);
+  const requestRef = useRef<AbortController | null>(null);
   const resultsRef = useRef<HTMLElement>(null);
   const textareaWrapRef = useRef<HTMLDivElement>(null);
 
@@ -205,6 +212,9 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
     async (text: string, type: PasteContentType) => {
       if (text.trim().length < minChars) return;
       const run = ++runRef.current;
+      requestRef.current?.abort();
+      const controller = new AbortController();
+      requestRef.current = controller;
       setPhase("loading");
       setError("");
       setMaps(null);
@@ -221,7 +231,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
         });
       }
 
-      const mapsTask = fetchMaps(text, type).then((outcome) => {
+      const mapsTask = fetchMaps(text, type, controller.signal).then((outcome) => {
         if (run !== runRef.current) return outcome;
         if ("maps" in outcome) {
           setMaps(outcome.maps);
@@ -233,13 +243,14 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
         return outcome;
       });
       const diagnosisTask: Promise<DiagnosisState | null> = diagnosisOn
-        ? fetchDiagnosis(text, type).then((outcome) => {
+        ? fetchDiagnosis(text, type, controller.signal).then((outcome) => {
             if (run === runRef.current) setDiagnosis(outcome);
             return outcome;
           })
         : Promise.resolve(null);
 
       const [mapsOutcome, diagnosisOutcome] = await Promise.all([mapsTask, diagnosisTask]);
+      if (requestRef.current === controller) requestRef.current = null;
       if (run !== runRef.current) return;
       if ("maps" in mapsOutcome || diagnosisOutcome?.status === "done") {
         setInputOpen(false);
@@ -254,25 +265,22 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
     [diagnosisOn, minChars],
   );
 
+  useEffect(() => () => {
+    runRef.current += 1;
+    requestRef.current?.abort();
+    requestRef.current = null;
+  }, []);
+
   // The home page's paste box parks the text in sessionStorage and navigates
   // here. Read it in a microtask, and remove it only once it is used, so
   // Strict Mode's double effect cannot drop it.
   useEffect(() => {
     let cancelled = false;
-    let raw: string | null = null;
-    try {
-      raw = sessionStorage.getItem(PASTE_PREFILL_KEY);
-    } catch {
-      return;
-    }
+    const raw = readPastePrefill();
     if (!raw) return;
     queueMicrotask(() => {
       if (cancelled) return;
-      try {
-        sessionStorage.removeItem(PASTE_PREFILL_KEY);
-      } catch {
-        // Storage can vanish between the read and the write; the text is in hand.
-      }
+      clearPastePrefill();
       let parsed: { content?: unknown; contentType?: unknown };
       try {
         parsed = JSON.parse(raw as string) as typeof parsed;
@@ -328,6 +336,8 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   function startOver() {
     runRef.current += 1;
+    requestRef.current?.abort();
+    requestRef.current = null;
     setPhase("idle");
     setMaps(null);
     setMapsError("");

@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { PgDialect } from "drizzle-orm/pg-core";
 
 const mocks = vi.hoisted(() => ({
   getDb: vi.fn(),
@@ -28,6 +29,7 @@ const mocks = vi.hoisted(() => ({
 vi.mock("./index", () => ({ getDb: mocks.getDb }));
 
 import {
+  DebateOwnershipError,
   getAnalysis,
   getDebate,
   getJudgment,
@@ -49,6 +51,7 @@ import {
 describe("database query state transitions", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mocks.findDebate.mockReset();
 
     const insertBuilder = {
       values: mocks.values,
@@ -212,6 +215,7 @@ describe("database query state transitions", () => {
   });
 
   it("writes normalized individual verdict rows after the parent judgment", async () => {
+    mocks.findDebate.mockResolvedValueOnce({ id: "debate-1" });
     const verdict = {
       judgeId: "judge-1",
       judgeName: "Judge One",
@@ -235,10 +239,14 @@ describe("database query state transitions", () => {
       timestamp: 1,
     };
 
-    await saveJudgment(result, { debateId: "debate-1" });
+    await saveJudgment(result, { debateId: "debate-1" }, "owner-1");
 
     expect(mocks.transaction).toHaveBeenCalledOnce();
     expect(mocks.getDb).toHaveBeenCalledOnce();
+    const ownershipQuery = new PgDialect().sqlToQuery(mocks.findDebate.mock.calls[0][0].where);
+    expect(ownershipQuery.sql).toContain('"debates"."id" = $1');
+    expect(ownershipQuery.sql).toContain('"debates"."user_id" = $2');
+    expect(ownershipQuery.params).toEqual(["debate-1", "owner-1"]);
     expect(mocks.insert).toHaveBeenCalledTimes(2);
     expect(mocks.values).toHaveBeenLastCalledWith([
       {
@@ -253,6 +261,50 @@ describe("database query state transitions", () => {
         latencyMs: 25,
       },
     ]);
+  });
+
+  it.each([undefined, null, ""])("refuses a private debate link without a user id (%s)", async (userId) => {
+    const result = {
+      verdicts: [],
+      winner: null,
+      hasConsensus: false,
+      aggregatedScores: {
+        for: { average: 0, byDimension: {} },
+        against: { average: 0, byDimension: {} },
+      },
+      disagreements: [],
+      flaggedForReview: true,
+      timestamp: 1,
+    };
+
+    await expect(
+      saveJudgment(result, { debateId: "debate-1" }, userId),
+    ).rejects.toBeInstanceOf(DebateOwnershipError);
+    expect(mocks.getDb).not.toHaveBeenCalled();
+    expect(mocks.insert).not.toHaveBeenCalled();
+  });
+
+  it("refuses judgment and verdict writes when the debate is missing or belongs to another user", async () => {
+    mocks.findDebate.mockResolvedValueOnce(undefined);
+    const result = {
+      verdicts: [],
+      winner: null,
+      hasConsensus: false,
+      aggregatedScores: {
+        for: { average: 0, byDimension: {} },
+        against: { average: 0, byDimension: {} },
+      },
+      disagreements: [],
+      flaggedForReview: true,
+      timestamp: 1,
+    };
+
+    await expect(
+      saveJudgment(result, { debateId: "debate-1" }, "other-user"),
+    ).rejects.toBeInstanceOf(DebateOwnershipError);
+    expect(mocks.transaction).toHaveBeenCalledOnce();
+    expect(mocks.findDebate).toHaveBeenCalledOnce();
+    expect(mocks.insert).not.toHaveBeenCalled();
   });
 
   it("propagates a multi-verdict transaction failure without direct writes", async () => {

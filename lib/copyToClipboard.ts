@@ -12,6 +12,11 @@ export async function copyTextToClipboard(text: string): Promise<void> {
     // Continue to the selection fallback below.
   }
 
+  const previouslyFocused = document.activeElement;
+  const selection = window.getSelection();
+  const previousRanges = selection
+    ? Array.from({ length: selection.rangeCount }, (_, index) => selection.getRangeAt(index).cloneRange())
+    : [];
   const textarea = document.createElement("textarea");
   textarea.value = text;
   textarea.setAttribute("readonly", "");
@@ -26,5 +31,14 @@ export async function copyTextToClipboard(text: string): Promise<void> {
     }
   } finally {
     document.body.removeChild(textarea);
+    // Selecting the fallback textarea takes focus and replaces the reader's
+    // selection. Restore both, including when copying was refused.
+    if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
+      previouslyFocused.focus({ preventScroll: true });
+    }
+    if (selection) {
+      selection.removeAllRanges();
+      for (const range of previousRanges) selection.addRange(range);
+    }
   }
 }

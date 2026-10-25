@@ -75,6 +75,23 @@ describe("ExtractedArgumentsSchema", () => {
 });
 
 describe("extractArguments", () => {
+  it("reads fenced extraction after provider prose with a valid JSON example", async () => {
+    mocks.executeAgent.mockResolvedValue({
+      content: `The example format was {"example": true}.\n\`\`\`json\n${JSON.stringify(validExtraction)}\n\`\`\``,
+      agentId: "extractor",
+    });
+    await expect(extractArguments("content")).resolves.toMatchObject({ topic: validExtraction.topic });
+  });
+
+  it("rejects a schema-invalid authoritative fence instead of a later valid extraction", async () => {
+    vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    mocks.executeAgent.mockResolvedValue({
+      content: `Extraction:\n\`\`\`json\n[]\n\`\`\`\nAlternative:\n\`\`\`json\n${JSON.stringify(validExtraction)}\n\`\`\``,
+      agentId: "extractor",
+    });
+    await expect(extractArguments("content")).rejects.toThrow("Failed to parse extraction response");
+  });
+
   it("parses fenced provider JSON with surrounding prose and applies schema defaults", async () => {
     mocks.executeAgent.mockResolvedValue({
       content: `Here is the extraction:\n\n\`\`\`json\n${JSON.stringify(validExtraction)}\n\`\`\`\nDone.`,
@@ -126,6 +143,26 @@ describe("extractArguments", () => {
     );
   });
 
+  it.each([
+    'A closing brace "}" is part of the quoted argument.',
+    'The notation "{" opens the set.',
+    'The path ends in \\ and the quoted example is "}".',
+    'The transcript contains ```json and a literal } symbol.',
+  ])("preserves JSON string content in the claim: %s", async (claim) => {
+    const extraction = {
+      ...validExtraction,
+      positions: [{ side: "for", arguments: [{ claim }] }],
+    };
+    mocks.executeAgent.mockResolvedValue({
+      content: `Extraction follows:\n${JSON.stringify(extraction)}\nEnd.`,
+      agentId: "extractor",
+    });
+
+    const result = await extractArguments("content");
+
+    expect(result.positions[0].arguments[0].claim).toBe(claim);
+  });
+
   it("surfaces executor failures without attempting to parse empty content", async () => {
     mocks.executeAgent.mockResolvedValue({
       content: "",
@@ -142,6 +179,8 @@ describe("extractArguments", () => {
     ["not json", "malformed JSON"],
     [JSON.stringify({ ...validExtraction, confidence: 4 }), "schema-invalid JSON"],
     ["prefix {\"topic\":", "truncated JSON"],
+    [JSON.stringify([validExtraction]), "array containing an extraction"],
+    [`prefix {"incomplete": ${JSON.stringify(validExtraction)}`, "nested fragment"],
   ])("rejects %s responses", async (content) => {
     vi.spyOn(console, "warn").mockImplementation(() => undefined);
     mocks.executeAgent.mockResolvedValue({ content, agentId: "extractor" });

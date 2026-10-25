@@ -69,6 +69,16 @@ describe("saved topics account API", () => {
     expect(await response.json()).toEqual({ topicIds: ["ai-risk"] });
   });
 
+  it.each(["GET", "POST", "DELETE"] as const)("returns a controlled response when %s authentication is unavailable", async (method) => {
+    mocks.auth.mockRejectedValueOnce(new Error("Session database unavailable"));
+    const response = await (method === "GET" ? GET() : method === "POST" ? POST(request("POST", { topicId: "ai-risk" })) : DELETE(request("DELETE", { topicId: "ai-risk" })));
+    expect(response.status).toBe(503);
+    expect(await response.json()).toMatchObject({ code: "SAVED_TOPICS_UNAVAILABLE" });
+    expect(mocks.getSavedTopicIds).not.toHaveBeenCalled();
+    expect(mocks.saveTopic).not.toHaveBeenCalled();
+    expect(mocks.unsaveTopic).not.toHaveBeenCalled();
+  });
+
   it("persists and removes a validated topic slug", async () => {
     const saved = await POST(request("POST", { topicId: "ai-risk" }));
     const removed = await DELETE(request("DELETE", { topicId: "ai-risk" }));

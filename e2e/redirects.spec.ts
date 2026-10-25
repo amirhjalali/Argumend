@@ -28,3 +28,23 @@ for (const [from, to] of REDIRECTS) {
     expect(landing.status()).toBe(200);
   });
 }
+
+for (const prefix of ["/api/v1/topics", "/api/og", "/api/verdict-card"]) {
+  test(`${prefix} rejects malformed path encoding before route dispatch`, async ({ request }) => {
+    for (const id of ["%", "%ZZ", "%C3%28", "%E0%A4"]) {
+      const response = await request.get(`${prefix}/${id}`, { maxRedirects: 0 });
+      expect(response.status(), `${prefix}/${id}`).toBe(400);
+      expect(response.headers()["cache-control"]).toBe("no-store");
+      if (prefix === "/api/v1/topics") {
+        expect(response.headers()["access-control-allow-origin"]).toBe("*");
+        expect(await response.json()).toMatchObject({ code: "INVALID_TOPIC_ID" });
+      }
+    }
+
+    const unknown = await request.get(`${prefix}/%6eot-a-topic`);
+    expect(unknown.status()).toBe(404);
+    const valid = await request.get(`${prefix}/nuclear-energy-safety?query=%ZZ`);
+    expect(valid.status()).toBe(200);
+    expect(valid.headers()["content-type"]).toContain(prefix === "/api/v1/topics" ? "application/json" : "image/");
+  });
+}

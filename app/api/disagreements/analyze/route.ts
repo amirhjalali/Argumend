@@ -22,6 +22,13 @@ function clientKey(request: NextRequest): string {
   return hashClientKey(clientIp(request));
 }
 
+function requestAborted(requestId: string) {
+  return NextResponse.json(
+    { error: "Request cancelled", code: "REQUEST_ABORTED", requestId },
+    { status: 499, headers: { "x-request-id": requestId, "Cache-Control": "no-store" } },
+  );
+}
+
 export async function POST(request: NextRequest) {
   const requestId = request.headers.get("x-request-id") || createRequestId();
   if (!isDisagreementV2Enabled()) {
@@ -30,6 +37,8 @@ export async function POST(request: NextRequest) {
       { status: 404, headers: { "x-request-id": requestId } },
     );
   }
+
+  if (request.signal.aborted) return requestAborted(requestId);
 
   const key = clientKey(request);
   const hourly = rateLimit(`disagreement-hour:${key}`, {
@@ -59,6 +68,7 @@ export async function POST(request: NextRequest) {
   try {
     raw = await request.json();
   } catch {
+    if (request.signal.aborted) return requestAborted(requestId);
     return NextResponse.json(
       { error: "The request could not be understood.", code: "INVALID_REQUEST", requestId },
       { status: 400, headers: { "x-request-id": requestId } },
@@ -66,18 +76,20 @@ export async function POST(request: NextRequest) {
   }
 
   const body = raw && typeof raw === "object" ? (raw as { content?: unknown; contentType?: unknown }) : {};
+  const signal = AbortSignal.any([request.signal, AbortSignal.timeout(resolveAnalyzeTimeoutMs())]);
 
   try {
+    signal.throwIfAborted();
     const started = Date.now();
     const provider = createDisagreementProvider(requestId);
-    const timeout = AbortSignal.timeout(resolveAnalyzeTimeoutMs());
     const bundle = await analyzeDisagreement({
       content: typeof body.content === "string" ? body.content : "",
       contentType: body.contentType as "conversation" | "article" | "freeform" | undefined,
       requestId,
       provider,
-      signal: timeout,
+      signal,
     });
+    signal.throwIfAborted();
 
     const publishable = canPublishReport(bundle.report);
     const publishingEnabled = isDisagreementPublishingEnabled();
@@ -108,7 +120,7 @@ export async function POST(request: NextRequest) {
     });
 
     // North-star gap metric: counts and ids only, flag-gated, never awaited.
-    void logGapObservation(() => gapFromDisagreementReport(bundle.report));
+    void logGapObservation(() => gapFromDisagreementReport(bundle.report), signal);
 
     return NextResponse.json(
       {
@@ -126,6 +138,10 @@ export async function POST(request: NextRequest) {
       { headers: { "x-request-id": requestId } },
     );
   } catch (error) {
+    if (request.signal.aborted) return requestAborted(requestId);
+    if (signal.aborted) {
+      return handleDisagreementError(new DisagreementError("MODEL_TIMEOUT", requestId), requestId);
+    }
     if (error instanceof DisagreementError) {
       logDisagreementEvent({ requestId, code: error.code });
     }

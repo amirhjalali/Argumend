@@ -10,6 +10,7 @@ import { SaveTopicButton } from "@/components/SaveTopicButton";
 import { EmbedButton } from "@/components/EmbedButton";
 import { ShareButtons } from "@/components/ShareButtons";
 import { Button } from "@/components/ui";
+import { useIsHydrated, useMediaQuery } from "@/hooks/useMediaQuery";
 
 function subscribeNothing() {
   return () => {};
@@ -28,6 +29,13 @@ export function TopicActions({
   embeddable: boolean;
   stacked?: boolean;
 }) {
+  const hydrated = useIsHydrated();
+  const desktop = useMediaQuery("(min-width: 1024px)");
+  // CSS keeps both server-rendered placements correct before hydration.
+  // Afterwards only the visible placement owns interactive state, so a
+  // breakpoint cannot hide an open dialog while leaving its scroll lock.
+  if (hydrated && desktop !== stacked) return null;
+
   return (
     <div
       role="group"

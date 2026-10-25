@@ -91,11 +91,20 @@ export function TopBar() {
     sheetWasOpen.current = sheetOpen;
   }, [sheetOpen]);
 
-  const openSearch = useCallback(() => {
+  const searchTriggerRef = useRef<HTMLButtonElement>(null);
+  const prepareSearch = useCallback(() => {
+    // Search may already be mounted when the menu closes. Give it a stable,
+    // visible return target before removing the focused sheet control.
+    if (sheetRef.current?.contains(document.activeElement)) {
+      searchTriggerRef.current?.focus();
+    }
     setMenuOpen(false);
     setHasOpenedSearch(true);
+  }, [sheetRef]);
+  const openSearch = useCallback(() => {
+    prepareSearch();
     setSearchOpen(true);
-  }, []);
+  }, [prepareSearch]);
   const closeSearch = useCallback(() => setSearchOpen(false), []);
 
   // Global Cmd+K / Ctrl+K shortcut
@@ -103,14 +112,13 @@ export function TopBar() {
     function handleKeyDown(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
-        setMenuOpen(false);
-        setHasOpenedSearch(true);
+        prepareSearch();
         setSearchOpen((prev) => !prev);
       }
     }
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [prepareSearch]);
 
   const savedLabel = `Saved maps (${savedCount})`;
 
@@ -165,6 +173,7 @@ export function TopBar() {
             <button
               type="button"
               onClick={openSearch}
+              ref={searchTriggerRef}
               aria-label="Search"
               aria-haspopup="dialog"
               className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-lg px-2.5 text-secondary dark:text-stone-400 transition-colors hover:bg-subtle hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:hover:text-stone-200"

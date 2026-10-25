@@ -18,14 +18,19 @@ import type {
  */
 async function withRetry<T>(
   fn: () => Promise<T>,
+  signal?: AbortSignal,
   maxRetries: number = 2,
-  baseDelayMs: number = 1000
+  baseDelayMs: number = 1000,
 ): Promise<T> {
   let lastError: Error | null = null;
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     try {
-      return await fn();
+      signal?.throwIfAborted();
+      const result = await fn();
+      signal?.throwIfAborted();
+      return result;
     } catch (error) {
+      signal?.throwIfAborted();
       lastError = error instanceof Error ? error : new Error(String(error));
       const msg = lastError.message.toLowerCase();
 
@@ -43,7 +48,17 @@ async function withRetry<T>(
 
       // Exponential backoff: 1s, 2s, 4s...
       const delay = baseDelayMs * Math.pow(2, attempt);
-      await new Promise((resolve) => setTimeout(resolve, delay));
+      await new Promise<void>((resolve, reject) => {
+        const onAbort = () => {
+          clearTimeout(timer);
+          reject(signal?.reason);
+        };
+        const timer = setTimeout(() => {
+          signal?.removeEventListener("abort", onAbort);
+          resolve();
+        }, delay);
+        signal?.addEventListener("abort", onAbort, { once: true });
+      });
     }
   }
   throw lastError;
@@ -93,22 +108,24 @@ async function getGemini(): Promise<GoogleGenerativeAI> {
  */
 async function executeWithClaude(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal?: AbortSignal,
 ): Promise<string> {
   return withRetry(async () => {
     const client = await getAnthropic();
+    signal?.throwIfAborted();
     const response = await client.messages.create({
       model: "claude-sonnet-4-20250514",
       max_tokens: 2048,
       system: systemPrompt,
       messages: [{ role: "user", content: userPrompt }],
-    });
+    }, { signal });
 
     const textBlock = response.content.find(
       (block) => block.type === "text"
     );
     return textBlock && "text" in textBlock ? textBlock.text : "";
-  });
+  }, signal);
 }
 
 /**
@@ -118,9 +135,11 @@ async function executeWithOpenAI(
   systemPrompt: string,
   userPrompt: string,
   requestedModel: "gpt-4" | "gpt-5",
+  signal?: AbortSignal,
 ): Promise<string> {
   return withRetry(async () => {
     const client = await getOpenAI();
+    signal?.throwIfAborted();
     const response = await client.chat.completions.create({
       model: requestedModel === "gpt-5" ? "gpt-5" : "gpt-4o",
       max_tokens: 2048,
@@ -128,10 +147,10 @@ async function executeWithOpenAI(
         { role: "system", content: systemPrompt },
         { role: "user", content: userPrompt },
       ],
-    });
+    }, { signal });
 
     return response.choices[0]?.message?.content || "";
-  });
+  }, signal);
 }
 
 /**
@@ -139,19 +158,21 @@ async function executeWithOpenAI(
  */
 async function executeWithGemini(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal?: AbortSignal,
 ): Promise<string> {
   return withRetry(async () => {
     const client = await getGemini();
+    signal?.throwIfAborted();
     const model = client.getGenerativeModel({ model: "gemini-1.5-pro" });
 
     // Gemini uses a different format - combine system and user prompts
     const fullPrompt = `${systemPrompt}\n\n---\n\n${userPrompt}`;
-    const result = await model.generateContent(fullPrompt);
+    const result = await model.generateContent(fullPrompt, { signal });
     const response = await result.response;
 
     return response.text() || "";
-  });
+  }, signal);
 }
 
 /**
@@ -159,7 +180,8 @@ async function executeWithGemini(
  */
 async function executeWithGrok(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal?: AbortSignal,
 ): Promise<string> {
   const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
   if (!apiKey) {
@@ -183,7 +205,9 @@ async function executeWithGrok(
         ],
         max_tokens: 2048,
       }),
+      signal,
     });
+    signal?.throwIfAborted();
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -192,7 +216,7 @@ async function executeWithGrok(
 
     const data = await response.json();
     return data.choices[0]?.message?.content || "";
-  });
+  }, signal);
 }
 
 /**
@@ -202,10 +226,12 @@ async function executeWithWebhook(
   webhookUrl: string,
   systemPrompt: string,
   userPrompt: string,
-  timeoutMs: number = 30000
+  timeoutMs: number = 30000,
+  signal?: AbortSignal,
 ): Promise<string> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  const requestSignal = signal ? AbortSignal.any([controller.signal, signal]) : controller.signal;
 
   try {
     const response = await fetch(webhookUrl, {
@@ -217,14 +243,16 @@ async function executeWithWebhook(
         systemPrompt,
         userPrompt,
       }),
-      signal: controller.signal,
+      signal: requestSignal,
     });
+    requestSignal.throwIfAborted();
 
     if (!response.ok) {
       throw new Error(`Webhook error: HTTP ${response.status}`);
     }
 
     const data = await response.json();
+    requestSignal.throwIfAborted();
     return data.content || data.response || data.text || "";
   } finally {
     clearTimeout(timeoutId);
@@ -237,31 +265,32 @@ async function executeWithWebhook(
 export async function executeAgent(
   request: AgentExecutionRequest
 ): Promise<AgentResponse> {
-  const { agent, systemPrompt, userPrompt } = request;
+  const { agent, systemPrompt, userPrompt, signal } = request;
   const startTime = Date.now();
 
   try {
+    signal?.throwIfAborted();
     let content: string;
 
     switch (agent.type) {
       case "local-llm":
         switch (agent.model) {
           case "claude":
-            content = await executeWithClaude(systemPrompt, userPrompt);
+            content = await executeWithClaude(systemPrompt, userPrompt, signal);
             break;
           case "gpt-4":
           case "gpt-5":
-            content = await executeWithOpenAI(systemPrompt, userPrompt, agent.model);
+            content = await executeWithOpenAI(systemPrompt, userPrompt, agent.model, signal);
             break;
           case "gemini":
-            content = await executeWithGemini(systemPrompt, userPrompt);
+            content = await executeWithGemini(systemPrompt, userPrompt, signal);
             break;
           case "grok":
-            content = await executeWithGrok(systemPrompt, userPrompt);
+            content = await executeWithGrok(systemPrompt, userPrompt, signal);
             break;
           default:
             // Default to Claude
-            content = await executeWithClaude(systemPrompt, userPrompt);
+            content = await executeWithClaude(systemPrompt, userPrompt, signal);
         }
         break;
 
@@ -273,21 +302,23 @@ export async function executeAgent(
           agent.webhookUrl,
           systemPrompt,
           userPrompt,
-          agent.timeoutMs
+          agent.timeoutMs,
+          signal,
         );
         break;
 
       case "moltbook":
         // Moltbook agents would be handled through the Moltbook API
         // For now, fall back to local execution
-        content = await executeWithClaude(systemPrompt, userPrompt);
+        content = await executeWithClaude(systemPrompt, userPrompt, signal);
         break;
 
       case "custom":
         // Custom agents use the provided system prompt
         content = await executeWithClaude(
           agent.systemPrompt || systemPrompt,
-          userPrompt
+          userPrompt,
+          signal,
         );
         break;
 
@@ -295,12 +326,14 @@ export async function executeAgent(
         throw new Error(`Unknown agent type: ${agent.type}`);
     }
 
+    signal?.throwIfAborted();
     return {
       content,
       agentId: agent.id,
       latencyMs: Date.now() - startTime,
     };
   } catch (error) {
+    signal?.throwIfAborted();
     const message = error instanceof Error ? error.message : "Unknown error";
     return {
       content: "",

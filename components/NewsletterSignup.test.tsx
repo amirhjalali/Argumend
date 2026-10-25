@@ -1,13 +1,26 @@
 import "@/test/setup-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { trackEvent } from "@/lib/analytics";
 import { NewsletterSignup } from "./NewsletterSignup";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
 describe("NewsletterSignup", () => {
+  it("dispatches one signup while an earlier submission is pending", () => {
+    vi.mocked(fetch).mockImplementation(() => new Promise(() => undefined));
+    const view = render(<NewsletterSignup />);
+    fireEvent.change(view.getByLabelText("Email address"), { target: { value: "reader@example.com" } });
+    const form = view.getByRole("form", { name: "Newsletter signup" });
+    act(() => {
+      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    });
+    expect(fetch).toHaveBeenCalledOnce();
+  });
   beforeEach(() => {
     vi.stubGlobal("fetch", vi.fn());
+    vi.mocked(trackEvent).mockClear();
   });
 
   afterEach(() => {
@@ -63,6 +76,33 @@ describe("NewsletterSignup", () => {
     expect(input.getAttribute("aria-describedby")).toBe(
       view.getByRole("alert").id,
     );
+  });
+
+  it.each([{}, { success: false }, { success: "true" }, null])("does not confirm an invalid success receipt %j", async (body) => {
+    vi.mocked(fetch).mockResolvedValueOnce(new Response(JSON.stringify(body), { status: 200 }));
+    const view = render(<NewsletterSignup />);
+    fireEvent.change(view.getByLabelText("Email address"), { target: { value: "reader@example.com" } });
+    fireEvent.submit(view.getByRole("form", { name: "Newsletter signup" }));
+
+    await waitFor(() => expect(view.getByRole("alert").textContent).toMatch(/try again/i));
+    expect(view.queryByText(/you.re subscribed/i)).toBeNull();
+    expect((view.getByLabelText("Email address") as HTMLInputElement).value).toBe("reader@example.com");
+    expect(trackEvent).not.toHaveBeenCalled();
+  });
+
+  it("handles a non-text API error and lets the reader retry", async () => {
+    vi.mocked(fetch)
+      .mockResolvedValueOnce(new Response(JSON.stringify({ error: { detail: "Unavailable" } }), { status: 503 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 200 }));
+    const view = render(<NewsletterSignup />);
+    fireEvent.change(view.getByLabelText("Email address"), { target: { value: "reader@example.com" } });
+    fireEvent.submit(view.getByRole("form", { name: "Newsletter signup" }));
+    await waitFor(() => expect(view.getByRole("alert").textContent).toMatch(/try again/i));
+    expect(trackEvent).not.toHaveBeenCalled();
+
+    fireEvent.submit(view.getByRole("form", { name: "Newsletter signup" }));
+    await waitFor(() => expect(view.getByRole("status").textContent).toMatch(/you.re subscribed/i));
+    expect(trackEvent).toHaveBeenCalledTimes(1);
   });
 
   it("uses unique error relationships when multiple forms share a page", async () => {

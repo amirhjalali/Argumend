@@ -47,6 +47,7 @@ const NODES: DiagramNodeModel[] = [
     id: "crux-safety--supporters--deaths",
     parentId: "crux-safety--supporters",
     side: "for",
+    sideLabel: "Points to yes on the map’s question",
     label: "Deaths per TWh comparison",
     description: "Nuclear causes 0.03 deaths per TWh.",
   },

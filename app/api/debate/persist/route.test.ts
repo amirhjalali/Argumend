@@ -1,14 +1,18 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 
 const mocks = vi.hoisted(() => ({
   auth: vi.fn(),
+  isAuthConfigured: vi.fn(),
+  isDatabaseConfigured: vi.fn(),
   saveDebate: vi.fn(),
   saveDebateRound: vi.fn(),
   updateDebateStatus: vi.fn(),
 }));
 
 vi.mock("@/lib/auth", () => ({ auth: mocks.auth }));
+vi.mock("@/lib/auth-config", () => ({ isAuthConfigured: mocks.isAuthConfigured }));
+vi.mock("@/lib/db", () => ({ isDatabaseConfigured: mocks.isDatabaseConfigured }));
 vi.mock("@/lib/db/queries", () => ({
   saveDebate: mocks.saveDebate,
   saveDebateRound: mocks.saveDebateRound,
@@ -21,6 +25,8 @@ vi.mock("@/lib/db/queries", () => ({
 }));
 
 import { POST } from "./route";
+
+const debateId = "d9428888-122b-41e1-b85c-61cd3cbb3210";
 
 function request(body: unknown): NextRequest {
   return new NextRequest("http://localhost/api/debate/persist", {
@@ -36,11 +42,95 @@ function request(body: unknown): NextRequest {
 describe("POST /api/debate/persist", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mocks.isAuthConfigured.mockReturnValue(true);
+    mocks.isDatabaseConfigured.mockReturnValue(true);
     mocks.auth.mockResolvedValue({ user: { id: "user-1" } });
     mocks.saveDebate.mockResolvedValue({ id: "debate-1" });
     mocks.saveDebateRound.mockResolvedValue({ id: "round-1" });
     mocks.updateDebateStatus.mockResolvedValue(undefined);
   });
+
+  afterEach(() => vi.restoreAllMocks());
+
+  it("does not invoke authentication when offline auth is unconfigured", async () => {
+    mocks.isAuthConfigured.mockReturnValue(false);
+
+    const response = await POST(request({ action: "create" }));
+
+    expect(response.status).toBe(401);
+    await expect(response.json()).resolves.toEqual({ error: "Unauthorized" });
+    expect(mocks.auth).not.toHaveBeenCalled();
+    expect(mocks.saveDebate).not.toHaveBeenCalled();
+  });
+
+  it("returns a safe JSON response when authentication fails", async () => {
+    mocks.auth.mockRejectedValueOnce(new Error("private session diagnostic"));
+    vi.spyOn(console, "error").mockImplementation(() => {});
+
+    const response = await POST(request({ action: "create" }));
+
+    expect(response.status).toBe(503);
+    await expect(response.json()).resolves.toEqual({
+      error: "Sign-in is temporarily unavailable. Please try again later.",
+      code: "AUTH_UNAVAILABLE",
+    });
+    expect(mocks.saveDebate).not.toHaveBeenCalled();
+  });
+
+  it("returns 400 for malformed JSON without trying to persist", async () => {
+    const response = await POST(new NextRequest("http://localhost/api/debate/persist", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: "{not-json",
+    }));
+
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toEqual({
+      error: "Invalid JSON body",
+      code: "INVALID_JSON",
+    });
+    expect(mocks.saveDebate).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    {
+      action: "create",
+      topicTitle: "A disputed claim",
+      forModel: "claude",
+      againstModel: "gpt-4",
+      totalRounds: 3,
+    },
+    { action: "saveRound", debateId, roundNumber: 1, forContent: "For", againstContent: "Against" },
+    { action: "updateStatus", debateId, status: "completed" },
+  ])("does not write $action when database persistence is unavailable", async (body) => {
+    mocks.isDatabaseConfigured.mockReturnValue(false);
+
+    const response = await POST(request(body));
+
+    expect(response.status).toBe(503);
+    await expect(response.json()).resolves.toEqual({
+      error: "Debate storage is unavailable",
+      code: "PERSISTENCE_UNAVAILABLE",
+    });
+    expect(mocks.saveDebate).not.toHaveBeenCalled();
+    expect(mocks.saveDebateRound).not.toHaveBeenCalled();
+    expect(mocks.updateDebateStatus).not.toHaveBeenCalled();
+  });
+
+  it.each(["not-a-uuid", " ", "d9428888-122b-41e1-b85c-61cd3cbb3210-extra"])(
+    "rejects malformed debate id %s before storage",
+    async (invalidId) => {
+      for (const body of [
+        { action: "saveRound", debateId: invalidId, roundNumber: 1, forContent: "For", againstContent: "Against" },
+        { action: "updateStatus", debateId: invalidId, status: "completed" },
+      ]) {
+        const response = await POST(request(body));
+        expect(response.status).toBe(400);
+      }
+      expect(mocks.saveDebateRound).not.toHaveBeenCalled();
+      expect(mocks.updateDebateStatus).not.toHaveBeenCalled();
+    },
+  );
 
   it("requires an authenticated user", async () => {
     mocks.auth.mockResolvedValueOnce(null);
@@ -78,7 +168,7 @@ describe("POST /api/debate/persist", () => {
     const response = await POST(
       request({
         action: "saveRound",
-        debateId: "debate-1",
+        debateId,
         roundNumber: 1,
         forContent: "For",
         againstContent: "Against",
@@ -87,7 +177,7 @@ describe("POST /api/debate/persist", () => {
 
     expect(response.status).toBe(200);
     expect(mocks.saveDebateRound).toHaveBeenCalledWith("user-1", {
-      debateId: "debate-1",
+      debateId,
       roundNumber: 1,
       forContent: "For",
       againstContent: "Against",
@@ -98,7 +188,7 @@ describe("POST /api/debate/persist", () => {
     const completed = await POST(
       request({
         action: "updateStatus",
-        debateId: "debate-1",
+        debateId,
         status: "completed",
         winner: "for",
       })
@@ -106,7 +196,7 @@ describe("POST /api/debate/persist", () => {
     expect(completed.status).toBe(200);
     expect(mocks.updateDebateStatus).toHaveBeenCalledWith(
       "user-1",
-      "debate-1",
+      debateId,
       "completed",
       "for"
     );
@@ -114,7 +204,7 @@ describe("POST /api/debate/persist", () => {
     const legacy = await POST(
       request({
         action: "updateStatus",
-        debateId: "debate-1",
+        debateId,
         status: "complete",
       })
     );
@@ -129,7 +219,7 @@ describe("POST /api/debate/persist", () => {
     const response = await POST(
       request({
         action: "saveRound",
-        debateId: "someone-elses-debate",
+        debateId,
         roundNumber: 1,
         forContent: "For",
         againstContent: "Against",

@@ -96,6 +96,7 @@ function summarizeExecution(
 
 export async function runMapReply(options: RunMapReplyOptions): Promise<MapReplyResult> {
   const { text, provider, signal } = options;
+  signal?.throwIfAborted();
   const startedAt = performance.now();
   const characterCount = text.length;
   const threshold = resolveTopicConfidenceThreshold(options.topicConfidenceThreshold);
@@ -164,6 +165,7 @@ export async function runMapReply(options: RunMapReplyOptions): Promise<MapReply
       { label: "topic-select", signal },
     ),
   );
+  signal?.throwIfAborted();
   timings.topicMs = topicMs;
   results.push(topicResult);
 
@@ -194,6 +196,7 @@ export async function runMapReply(options: RunMapReplyOptions): Promise<MapReply
   }
 
   const topic = await loadTopic(chosen.id);
+  signal?.throwIfAborted();
   if (!topic) {
     return noMatch("map_unavailable", "That map could not be loaded.", candidates, topicChoice);
   }
@@ -233,6 +236,7 @@ export async function runMapReply(options: RunMapReplyOptions): Promise<MapReply
       }),
     ),
   ]);
+  signal?.throwIfAborted();
   timings.turnsMs = turnsMs;
   timings.threadMs = threadMs;
   timings.cruxMs = cruxMs;

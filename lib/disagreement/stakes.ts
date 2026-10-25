@@ -1,5 +1,6 @@
 import { DISAGREEMENT_LIMITS } from "./constants";
 import { groundQuotes } from "./grounding";
+import { countQuoteCoverage } from "./quoteCoverage";
 import type { NormalizedExtraction } from "./normalize";
 import type {
   ArgumentAccountability,
@@ -126,7 +127,7 @@ export interface StakeProjectionResult {
 }
 
 function normalizeQuoteText(quote: string): string {
-  return quote.trim().toLowerCase().replace(/\s+/g, " ");
+  return quote.trim().replace(/\s+/g, " ");
 }
 
 /**
@@ -171,18 +172,19 @@ export function projectClaimStakes(input: {
     const claim = claimsById.get(candidate.claimId);
     if (!claim) continue;
 
-    const freshQuotes = candidate.groundingQuotes.filter(
-      (quote) => !seen.has(normalizeQuoteText(quote.quote)),
-    );
-    expectedQuoteCount += freshQuotes.length;
+    const freshQuoteKeys = new Set<string>();
     for (const quote of candidate.groundingQuotes) {
-      seen.add(normalizeQuoteText(quote.quote));
+      const key = normalizeQuoteText(quote.quote);
+      if (!seen.has(key)) freshQuoteKeys.add(key);
+      seen.add(key);
     }
-
     const grounding = groundQuotes(source, candidate.groundingQuotes, candidate.id);
-    groundedQuoteCount += grounding.refs.filter((ref) =>
-      freshQuotes.some((quote) => normalizeQuoteText(quote.quote) === normalizeQuoteText(ref.quote)),
-    ).length;
+    const coverage = countQuoteCoverage(
+      candidate.groundingQuotes.filter((quote) => freshQuoteKeys.has(normalizeQuoteText(quote.quote))),
+      grounding.refs.filter((ref) => freshQuoteKeys.has(normalizeQuoteText(ref.quote))),
+    );
+    expectedQuoteCount += coverage.expected;
+    groundedQuoteCount += coverage.grounded;
     warnings.push(...grounding.warnings);
 
     projected.push({
@@ -212,9 +214,15 @@ export function projectClaimStakes(input: {
   if (primaryCruxClaimId && !primaryStaked && projected.length < DISAGREEMENT_LIMITS.maxStakesInLedger) {
     const claim = claimsById.get(primaryCruxClaimId);
     if (claim) {
-      warnings.push(`Minted fallback stake for primary crux claim "${primaryCruxClaimId}"`);
+      const usedIds = new Set(projected.map((stake) => stake.id));
+      const fallbackBase = "stake-primary-crux-fallback";
+      let fallbackId = fallbackBase;
+      for (let suffix = 2; usedIds.has(fallbackId); suffix += 1) {
+        fallbackId = `${fallbackBase}-${suffix}`;
+      }
+      warnings.push("Minted fallback stake for the primary crux claim.");
       projected.unshift({
-        id: "stake-primary-crux-fallback",
+        id: fallbackId,
         claimId: primaryCruxClaimId,
         claim: claim.statement,
         targetConclusion: extraction.mainQuestion,

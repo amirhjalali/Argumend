@@ -73,6 +73,29 @@ describe("MoltbookClient HTTP boundary", () => {
     });
   });
 
+  it.each([
+    null,
+    [],
+    "unavailable",
+    { success: "true", data: [] },
+    { success: false, error: "Rate limited", hint: 12 },
+  ].map((body) => [body]))("rejects a malformed API envelope %j", async (body) => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify(body))));
+    const client = new MoltbookClient("key");
+
+    await expect(client.getFeed()).rejects.toThrow("Moltbook returned an invalid response");
+  });
+
+  it("rejects unsuccessful HTTP statuses even with a successful JSON envelope", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(
+      JSON.stringify({ success: true, data: [] }),
+      { status: 503 },
+    )));
+    const client = new MoltbookClient("key");
+
+    await expect(client.getFeed()).rejects.toThrow("Moltbook request failed");
+  });
+
   it("builds feed queries without serializing absent options", async () => {
     const fetchMock = vi.fn().mockResolvedValue(ok([]));
     vi.stubGlobal("fetch", fetchMock);
@@ -99,6 +122,30 @@ describe("MoltbookClient HTTP boundary", () => {
       `${apiBase}/agents/profile?name=agent%2Fname%20%2B%20one`,
       `${apiBase}/submolts/hard%20questions%2Fethics/subscribe`,
       `${apiBase}/search?q=nuclear%20%26%20climate%3F`,
+    ]);
+  });
+
+  it("keeps post and comment identifiers inside a single URL segment", async () => {
+    const fetchMock = vi.fn().mockImplementation(() => Promise.resolve(ok([])));
+    vi.stubGlobal("fetch", fetchMock);
+    const client = new MoltbookClient("key");
+    const id = "item/one?draft=true#comment";
+    const encodedId = "item%2Fone%3Fdraft%3Dtrue%23comment";
+
+    await client.getPost(id);
+    await client.upvotePost(id);
+    await client.downvotePost(id);
+    await client.createComment(id, "A reply");
+    await client.upvoteComment(id);
+    await client.downvoteComment(id);
+
+    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([
+      `${apiBase}/posts/${encodedId}`,
+      `${apiBase}/posts/${encodedId}/upvote`,
+      `${apiBase}/posts/${encodedId}/downvote`,
+      `${apiBase}/posts/${encodedId}/comments`,
+      `${apiBase}/comments/${encodedId}/upvote`,
+      `${apiBase}/comments/${encodedId}/downvote`,
     ]);
   });
 

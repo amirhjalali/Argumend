@@ -1,4 +1,7 @@
-import { DISAGREEMENT_PUBLICATION_MIN_GROUNDING_COVERAGE } from "./constants";
+import {
+  DISAGREEMENT_LIMITS,
+  DISAGREEMENT_PUBLICATION_MIN_GROUNDING_COVERAGE,
+} from "./constants";
 import { collectReportQuoteCharacters } from "@/lib/schemas/disagreement";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 
@@ -33,7 +36,7 @@ export function canPublishReport(report: DisagreementReportV1): {
   ) {
     reasons.push("Need common ground, a disagreement, or a crux.");
   }
-  if (collectReportQuoteCharacters(report) > 1500) {
+  if (collectReportQuoteCharacters(report) > DISAGREEMENT_LIMITS.maxPublishedQuoteCharactersTotal) {
     reasons.push("Persisted quotes exceed the publication cap.");
   }
 

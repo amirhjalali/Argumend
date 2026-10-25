@@ -7,6 +7,7 @@
 
 import { z } from "zod";
 import { executeAgent } from "@/lib/agents/executor";
+import { parseModelJson } from "@/lib/parseModelJson";
 import type { AgentConfig } from "@/lib/agents/types";
 import type { DebateMessageInput } from "@/types/debate";
 export {
@@ -313,39 +314,9 @@ Please extract the arguments, positions, cruxes, and any potential fallacies fro
  */
 function parseExtractionResponse(response: string): ExtractedArguments | null {
   try {
-    // Try to extract JSON from the response
-    let jsonStr = response.trim();
-
-    // Handle markdown code blocks
-    const jsonMatch = jsonStr.match(/```(?:json)?\s*([\s\S]*?)```/);
-    if (jsonMatch) {
-      jsonStr = jsonMatch[1].trim();
-    }
-
-    // Handle responses that start with non-JSON text
-    const jsonStart = jsonStr.indexOf("{");
-    if (jsonStart > 0) {
-      jsonStr = jsonStr.substring(jsonStart);
-    }
-
-    // Find the matching closing brace
-    let depth = 0;
-    let endIndex = -1;
-    for (let i = 0; i < jsonStr.length; i++) {
-      if (jsonStr[i] === "{") depth++;
-      if (jsonStr[i] === "}") {
-        depth--;
-        if (depth === 0) {
-          endIndex = i;
-          break;
-        }
-      }
-    }
-    if (endIndex > 0) {
-      jsonStr = jsonStr.substring(0, endIndex + 1);
-    }
-
-    const parsed = ExtractedArgumentsSchema.safeParse(JSON.parse(jsonStr));
+    const payload = parseModelJson(response);
+    if (payload === undefined) return null;
+    const parsed = ExtractedArgumentsSchema.safeParse(payload);
     if (!parsed.success) {
       console.warn("Invalid extraction response:", parsed.error.flatten());
       return null;

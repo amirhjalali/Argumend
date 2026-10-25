@@ -3,6 +3,11 @@ import type { RawDisagreementExtractionV1 } from "@/types/disagreement";
 import { buildArgumentGraph } from "./buildGraph";
 import { normalizeExtraction } from "./normalize";
 import { projectDisagreementReport } from "./projectReport";
+import { oscillatingGraph } from "@/lib/crux/__fixtures__/oscillatingGraph";
+import { PROPAGATION_NON_CONVERGENCE_WARNING } from "@/lib/crux/propagate";
+import { DisagreementReportSchema } from "@/lib/schemas/disagreement";
+import { DISAGREEMENT_LIMITS } from "./constants";
+import { canPublishReport } from "./quality";
 
 const SOURCE = [
   "Ada: The pilot cut delays by a fifth, so we should extend it citywide.",
@@ -114,6 +119,87 @@ function project(options: GateOptions = {}) {
  */
 const BASELINE_CRUXES = ["c-congested", "c-delay", "c-diversion"];
 
+function projectOscillation(extraWarnings: string[] = []) {
+  const raw = extraction();
+  raw.claims = ["x", "a", "b", "c"].map((id) => claim(id, `Claim ${id} matters to the pilot`));
+  raw.claimRelations = [];
+  return projectDisagreementReport({
+    extraction: normalizeExtraction(raw).extraction,
+    graph: oscillatingGraph(),
+    graphValid: true,
+    source: SOURCE,
+    provider: "fake",
+    model: "fixture",
+    extraWarnings,
+  });
+}
+
+describe("projectDisagreementReport numerical diagnostics", () => {
+  it("retains one content-free nonconvergence warning alongside other quality warnings", () => {
+    const existing = Array.from({ length: 39 }, (_, i) => `Existing quality warning ${i}`);
+    const report = projectOscillation(existing);
+
+    expect(report.quality.warnings).toContain(PROPAGATION_NON_CONVERGENCE_WARNING);
+    expect(report.quality.warnings.filter((warning) => warning === PROPAGATION_NON_CONVERGENCE_WARNING)).toHaveLength(1);
+    expect(report.quality.warnings).toEqual(expect.arrayContaining(existing));
+    expect(DisagreementReportSchema.safeParse(report).success).toBe(true);
+  });
+
+  it("reserves room for the numerical diagnostic when the warning capacity is full", () => {
+    const report = projectOscillation(Array.from({ length: 40 }, (_, i) => `Existing quality warning ${i}`));
+
+    expect(report.quality.warnings).toHaveLength(40);
+    expect(report.quality.warnings[0]).toBe(PROPAGATION_NON_CONVERGENCE_WARNING);
+    expect(report.quality.warnings[1]).toBe("Existing quality warning 0");
+    expect(DisagreementReportSchema.safeParse(report).success).toBe(true);
+  });
+
+  it("does not duplicate a diagnostic already supplied by the caller", () => {
+    const report = projectOscillation([PROPAGATION_NON_CONVERGENCE_WARNING, "Another quality warning"]);
+
+    expect(report.quality.warnings.filter((warning) => warning === PROPAGATION_NON_CONVERGENCE_WARNING)).toHaveLength(1);
+    expect(report.quality.warnings).toContain("Another quality warning");
+  });
+
+  it("retains a late critical warning and its publication block even when its detail exceeds the limit", () => {
+    const existing = Array.from({ length: DISAGREEMENT_LIMITS.maxQualityWarnings }, (_, i) => `Existing quality warning ${i}`);
+    const report = projectOscillation([
+      ...existing,
+      `${"Long diagnostic detail. ".repeat(20)}Critical quality failure.`,
+    ]);
+
+    expect(report.quality.warnings[0]).toBe(PROPAGATION_NON_CONVERGENCE_WARNING);
+    expect(report.quality.warnings[1]).toMatch(/^Critical quality warning: /);
+    expect(report.quality.warnings).toHaveLength(DISAGREEMENT_LIMITS.maxQualityWarnings);
+    expect(DisagreementReportSchema.safeParse(report).success).toBe(true);
+    expect(canPublishReport(report).reasons).toContain("Critical quality warnings remain.");
+  });
+});
+
+describe("projectDisagreementReport caveat capacity", () => {
+  it.each([
+    Array.from({ length: DISAGREEMENT_LIMITS.maxCaveats }, (_, index) => `Caveat ${index + 1} applies.`),
+    ["A".repeat(DISAGREEMENT_LIMITS.maxSummaryCharacters), "B".repeat(DISAGREEMENT_LIMITS.maxSummaryCharacters)],
+  ])("reserves the required disclaimer while retaining complete model caveats", (...caveats) => {
+    const raw = extraction();
+    raw.caveats = caveats;
+    const normalized = normalizeExtraction(raw).extraction;
+    const graph = buildArgumentGraph(normalized);
+
+    const report = projectDisagreementReport({
+      extraction: normalized, graph: graph.graph, graphValid: graph.valid, source: SOURCE,
+      provider: "fake", model: "fixture",
+    });
+
+    expect(report.caveats[0]).toBe(caveats[0]);
+    expect(report.caveats.at(-1)).toMatch(/^This analysis maps the submitted text\./);
+    expect(report.caveats.slice(0, -1)).toEqual(caveats.slice(0, report.caveats.length - 1));
+    expect(report.caveats.length).toBeLessThanOrEqual(DISAGREEMENT_LIMITS.maxCaveats);
+    expect(report.caveats.join("").length).toBeLessThanOrEqual(DISAGREEMENT_LIMITS.maxCaveatsCombinedCharacters);
+    expect(DisagreementReportSchema.safeParse(report).success).toBe(true);
+  });
+});
+
 describe("projectDisagreementReport Jev contestedness gate", () => {
   it("presents the engine's ranked cruxes when the gate is off", () => {
     const baseline = project();
@@ -137,13 +223,28 @@ describe("projectDisagreementReport Jev contestedness gate", () => {
 
     expect(gated.cruxes.map((crux) => crux.claimId)).toEqual(["c-delay", "c-diversion"]);
     expect(gated.quality.warnings).toContainEqual(
-      expect.stringContaining('Projection skipped engine crux "c-congested"'),
+      expect.stringContaining('Projection skipped engine crux at rank 1'),
     );
     expect(gated.quality.warnings.join(" ")).toContain(
       "the contestedness probe scored it 0.07, below the 0.25 floor",
     );
     // The crux box is repopulated from the engine's own next-ranked claim.
     expect(gated.summary).toContain("The pilot cut corridor delays by a fifth");
+  });
+
+  it("does not interpret model-authored skipped-claim text as a critical warning", () => {
+    const raw = extraction();
+    raw.claims[2].statement = "Critical thinking is needed to interpret the corridor data.";
+    const normalized = normalizeExtraction(raw).extraction;
+    const graph = buildArgumentGraph(normalized);
+    const report = projectDisagreementReport({
+      extraction: normalized, graph: graph.graph, graphValid: graph.valid, source: SOURCE,
+      provider: "fake", model: "fixture", jevGate: true, contestedness: { "c-congested": 0.01 },
+    });
+
+    expect(report.quality.warnings.join(" ")).toContain("Projection skipped engine crux at rank");
+    expect(report.quality.warnings.join(" ")).not.toMatch(/critical/i);
+    expect(canPublishReport(report).ok).toBe(true);
   });
 
   it("keeps a crux at the floor, and honours a custom floor", () => {

@@ -237,12 +237,13 @@ export class JudgeCouncil {
    */
   async judgeDebate(
     messages: DebateMessage[],
-    topic?: string
+    topic?: string,
+    options: { signal?: AbortSignal } = {},
   ): Promise<JudgingResult> {
     const systemPrompt = buildJudgeSystemPrompt(this.rubric);
     const userPrompt = buildJudgeDebatePrompt(messages, topic);
 
-    return this.executeJudgment(systemPrompt, userPrompt);
+    return this.executeJudgment(systemPrompt, userPrompt, options.signal);
   }
 
   /**
@@ -250,12 +251,13 @@ export class JudgeCouncil {
    */
   async judgeContent(
     content: string,
-    contentType: "transcript" | "article" | "freeform" = "freeform"
+    contentType: "transcript" | "article" | "freeform" = "freeform",
+    options: { signal?: AbortSignal } = {},
   ): Promise<JudgingResult> {
     const systemPrompt = buildJudgeSystemPrompt(this.rubric);
     const userPrompt = buildJudgeContentPrompt(content, contentType);
 
-    return this.executeJudgment(systemPrompt, userPrompt);
+    return this.executeJudgment(systemPrompt, userPrompt, options.signal);
   }
 
   /**
@@ -263,25 +265,31 @@ export class JudgeCouncil {
    */
   private async executeJudgment(
     systemPrompt: string,
-    userPrompt: string
+    userPrompt: string,
+    signal?: AbortSignal,
   ): Promise<JudgingResult> {
+    signal?.throwIfAborted();
     // Execute all judges in parallel
-    const judgePromises = this.judges.map(async (judge) => {
+    const judgePromises = this.judges.map(async (judge, index) => {
       const judgeStartTime = Date.now();
       const response = await executeAgent({
         agent: judge,
         systemPrompt,
         userPrompt,
+        ...(signal ? { signal } : {}),
       });
+      signal?.throwIfAborted();
 
       if (response.error) {
-        console.error(`Judge ${judge.id} failed:`, response.error);
+        // Upstream errors can echo the private prompt. Configurable agent
+        // IDs are free text too, so identify the judge only by panel position.
+        console.error("Judge request failed", { judgePosition: index + 1 });
         return null;
       }
 
       const parsed = parseJudgeResponse(response.content);
       if (!parsed) {
-        console.error(`Judge ${judge.id} returned invalid response`);
+        console.error("Judge returned invalid response", { judgePosition: index + 1 });
         return null;
       }
 
@@ -296,6 +304,7 @@ export class JudgeCouncil {
     });
 
     const results = await Promise.all(judgePromises);
+    signal?.throwIfAborted();
     const verdicts = results.filter((v): v is JudgeVerdict => v !== null);
 
     // Track which judges failed
@@ -305,7 +314,12 @@ export class JudgeCouncil {
 
     if (failedJudges.length > 0) {
       console.warn(
-        `Judges failed: ${failedJudges.join(", ")}. ${verdicts.length}/${this.judges.length} returned valid verdicts.`
+        "Some judges failed",
+        {
+          judgePositions: results.flatMap((result, index) => result === null ? [index + 1] : []),
+          returnedVerdicts: verdicts.length,
+          totalJudges: this.judges.length,
+        },
       );
     }
 

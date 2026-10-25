@@ -1,4 +1,57 @@
-import { expect, test } from "./fixtures";
+import { expect, test, waitForHydration } from "./fixtures";
+
+test("the desktop diagram announces loading while its canvas downloads", async ({ page, isMobile }) => {
+  test.skip(isMobile, "phones render the outline without the canvas");
+  let releaseCanvas!: () => void;
+  const canvasReady = new Promise<void>((resolve) => { releaseCanvas = resolve; });
+  let canvasRequested = false;
+  await page.route("**/_next/static/chunks/*.js", async (route) => {
+    const response = await route.fetch();
+    // Match the lazy dependency by its stable CSS hook, not a build-specific
+    // chunk hash. All other route code can hydrate while this download waits.
+    if ((await response.text()).includes("react-flow__node")) {
+      canvasRequested = true;
+      await canvasReady;
+    }
+    await route.fulfill({ response });
+  });
+
+  try {
+    await page.goto("/topics/climate-change/map", { waitUntil: "domcontentloaded" });
+    const diagram = page.getByTestId("topic-diagram");
+    const loading = diagram.getByRole("status").filter({ hasText: "Loading diagram…" });
+    await expect.poll(() => canvasRequested).toBe(true);
+    await waitForHydration(page.getByRole("link", { name: "Back to the map page" }));
+    await expect(loading).toHaveText("Loading diagram…");
+    await expect(loading).toBeVisible();
+    await expect(diagram.locator(".react-flow__node")).toHaveCount(0);
+    await test.info().attach("diagram-loading", { body: await page.screenshot(), contentType: "image/png" });
+
+    releaseCanvas();
+
+    await expect(diagram.locator(".react-flow__node").first()).toBeVisible();
+    await expect(loading).toHaveCount(0);
+  } finally {
+    releaseCanvas();
+    await page.unrouteAll({ behavior: "wait" });
+  }
+});
+
+test.describe("before diagram hydration", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("shows a desktop loading status or the phone outline before JavaScript runs", async ({ page, isMobile }) => {
+    await page.goto("/topics/climate-change/map");
+    const diagram = page.getByTestId("topic-diagram");
+    if (isMobile) {
+      await expect(diagram.locator("button[aria-expanded]").first()).toBeVisible();
+      await expect(diagram.getByRole("status")).toHaveCount(0);
+    } else {
+      await expect(diagram.getByRole("status")).toHaveText("Loading diagram…");
+      await expect(diagram.getByRole("status")).toBeVisible();
+    }
+  });
+});
 
 /**
  * /topics/[id]/map draws React Flow on desktop and the pillar outline on

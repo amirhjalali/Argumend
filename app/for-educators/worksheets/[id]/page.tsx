@@ -318,7 +318,7 @@ type PageProps = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const ws = worksheets[id];
+  const ws = Object.hasOwn(worksheets, id) ? worksheets[id] : undefined;
   if (!ws) {
     return {
       title: "Worksheet Not Found",
@@ -537,7 +537,7 @@ function RenderTable({
 
 export default async function WorksheetPage({ params }: PageProps) {
   const { id } = await params;
-  const ws = worksheets[id];
+  const ws = Object.hasOwn(worksheets, id) ? worksheets[id] : undefined;
 
   if (!ws) {
     notFound();

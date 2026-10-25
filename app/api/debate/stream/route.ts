@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { z } from "zod";
 import { clientIp } from "@/lib/clientIp";
 import { rateLimit } from "@/lib/rate-limit";
 import { chunkForSse, generateProgrammaticDebateTurn } from "@/lib/debate/programmatic";
@@ -46,15 +47,17 @@ function sseEvent(data: DebateStreamEvent): Uint8Array {
  */
 async function* streamClaude(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal: AbortSignal,
 ): AsyncGenerator<string> {
   const client = await getAnthropic();
+  signal.throwIfAborted();
   const stream = client.messages.stream({
     model: "claude-sonnet-4-20250514",
     max_tokens: 1024,
     system: systemPrompt,
     messages: [{ role: "user", content: userPrompt }],
-  });
+  }, { signal });
 
   for await (const event of stream) {
     if (
@@ -73,8 +76,10 @@ async function* streamOpenAI(
   systemPrompt: string,
   userPrompt: string,
   requestedModel: "gpt-4" | "gpt-5",
+  signal: AbortSignal,
 ): AsyncGenerator<string> {
   const client = await getOpenAI();
+  signal.throwIfAborted();
   const stream = await client.chat.completions.create({
     model: requestedModel === "gpt-5" ? "gpt-5" : "gpt-4o",
     max_tokens: 1024,
@@ -83,7 +88,8 @@ async function* streamOpenAI(
       { role: "system", content: systemPrompt },
       { role: "user", content: userPrompt },
     ],
-  });
+  }, { signal });
+  signal.throwIfAborted();
 
   for await (const chunk of stream) {
     const delta = chunk.choices?.[0]?.delta?.content;
@@ -96,13 +102,19 @@ async function* streamOpenAI(
  */
 async function* streamGemini(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal: AbortSignal,
 ): AsyncGenerator<string> {
   const client = await getGemini();
+  signal.throwIfAborted();
   const model = client.getGenerativeModel({ model: "gemini-1.5-pro" });
   const fullPrompt = `${systemPrompt}\n\n---\n\n${userPrompt}`;
 
-  const result = await model.generateContentStream(fullPrompt);
+  const result = await model.generateContentStream(fullPrompt, { signal });
+  // The SDK aggregates a parallel copy of the stream even when callers only
+  // iterate its chunks. Observe its rejection when the fetch is cancelled.
+  void result.response.catch(() => undefined);
+  signal.throwIfAborted();
 
   for await (const chunk of result.stream) {
     const text = chunk.text();
@@ -110,13 +122,22 @@ async function* streamGemini(
   }
 }
 
+const GrokChunkSchema = z.object({
+  choices: z.array(z.object({
+    delta: z.object({ content: z.string().nullish() }),
+  })),
+  error: z.never().optional(),
+});
+
 /**
  * Stream Grok response (OpenAI-compatible SSE)
  */
 async function* streamGrok(
   systemPrompt: string,
-  userPrompt: string
+  userPrompt: string,
+  signal: AbortSignal,
 ): AsyncGenerator<string> {
+  signal.throwIfAborted();
   const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
   if (!apiKey) throw new Error("XAI_API_KEY is required");
 
@@ -135,43 +156,70 @@ async function* streamGrok(
       ],
       max_tokens: 1024,
     }),
+    signal,
   });
 
   if (!response.ok || !response.body) {
+    await response.body?.cancel().catch(() => undefined);
     throw new Error(`Grok API failed: HTTP ${response.status}`);
   }
 
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
+  let data: string[] = [];
+  let eventName = "";
+  const cancel = () => { void reader.cancel().catch(() => undefined); };
+  signal.addEventListener("abort", cancel, { once: true });
 
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-
-    buffer += decoder.decode(value, { stream: true });
-    const lines = buffer.split("\n");
-    buffer = lines.pop() || "";
-
-    for (const line of lines) {
-      const trimmed = line.trim();
-      if (!trimmed.startsWith("data: ")) continue;
-      const payload = trimmed.slice(6);
-      if (payload === "[DONE]") return;
-      try {
-        const parsed = JSON.parse(payload);
+  try {
+    signal.throwIfAborted();
+    while (true) {
+      const { done, value } = await reader.read();
+      signal.throwIfAborted();
+      buffer += decoder.decode(value, { stream: !done });
+      // A CR at a byte boundary may be the first half of CRLF. Keep it
+      // together so multiline data is not dispatched as separate events.
+      const pendingCr = !done && buffer.endsWith("\r");
+      const lines = (pendingCr ? buffer.slice(0, -1) : buffer).split(/\r\n|\r|\n/);
+      buffer = done ? "" : (lines.pop() ?? "") + (pendingCr ? "\r" : "");
+      const payloads: Array<{ data: string; eventName: string }> = [];
+      for (const line of lines) {
+        if (line === "") {
+          if (data.length) payloads.push({ data: data.join("\n"), eventName });
+          data = [];
+          eventName = "";
+        } else if (line === "data" || line.startsWith("data:")) {
+          const value = line.slice(5);
+          data.push(value.startsWith(" ") ? value.slice(1) : value);
+        } else if (line.startsWith("event:")) {
+          eventName = line.slice(6).trim();
+        }
+      }
+      // Some compatible providers close immediately after their final data
+      // line. Flush that record instead of silently losing the final token.
+      if (done && data.length) payloads.push({ data: data.join("\n"), eventName });
+      for (const { data: payload, eventName } of payloads) {
+        if (eventName === "error") throw new Error("Grok stream error");
+        if (!payload.trim()) continue;
+        if (payload.trim() === "[DONE]") return;
+        const parsed = GrokChunkSchema.parse(JSON.parse(payload));
         const delta = parsed.choices?.[0]?.delta?.content;
         if (delta) yield delta;
-      } catch {
-        // skip malformed lines
       }
+      if (done) return;
     }
+  } finally {
+    signal.removeEventListener("abort", cancel);
+    await reader.cancel().catch(() => undefined);
+    reader.releaseLock();
   }
 }
 
 type StreamGenerator = (
   systemPrompt: string,
   userPrompt: string,
+  signal: AbortSignal,
 ) => AsyncGenerator<string>;
 
 function getStreamGenerator(model: DebateModel): StreamGenerator {
@@ -179,11 +227,11 @@ function getStreamGenerator(model: DebateModel): StreamGenerator {
     case "claude":
       return streamClaude;
     case "gpt-4":
-      return (systemPrompt, userPrompt) =>
-        streamOpenAI(systemPrompt, userPrompt, "gpt-4");
+      return (systemPrompt, userPrompt, signal) =>
+        streamOpenAI(systemPrompt, userPrompt, "gpt-4", signal);
     case "gpt-5":
-      return (systemPrompt, userPrompt) =>
-        streamOpenAI(systemPrompt, userPrompt, "gpt-5");
+      return (systemPrompt, userPrompt, signal) =>
+        streamOpenAI(systemPrompt, userPrompt, "gpt-5", signal);
     case "gemini":
       return streamGemini;
     case "grok":
@@ -297,21 +345,36 @@ export async function POST(request: NextRequest) {
     const systemPrompt = buildSystemPrompt(side, topic, pillars);
     const userPrompt = buildUserPrompt(round, previousMessages, side);
     const streamFn = getStreamGenerator(model);
+    const cancellation = new AbortController();
+    const signal = AbortSignal.any([request.signal, cancellation.signal]);
+    let closed = false;
 
     const stream = new ReadableStream({
       async start(controller) {
+        const close = () => {
+          if (closed) return;
+          closed = true;
+          controller.close();
+        };
+        const emit = (event: DebateStreamEvent) => {
+          if (closed || signal.aborted) return;
+          controller.enqueue(sseEvent(event));
+        };
+        signal.addEventListener("abort", close, { once: true });
         try {
-          const generator = streamFn(systemPrompt, userPrompt);
+          signal.throwIfAborted();
+          const generator = streamFn(systemPrompt, userPrompt, signal);
           let streamedContent = "";
           for await (const token of generator) {
-            if (request.signal.aborted) return;
+            if (signal.aborted) return;
             streamedContent += token;
-            controller.enqueue(sseEvent({ type: "token", token }));
+            emit({ type: "token", token });
           }
+          if (signal.aborted) return;
           if (!streamedContent.trim()) {
             throw new Error("Provider returned no debate content");
           }
-          controller.enqueue(sseEvent({
+          emit({
             type: "complete",
             execution: {
               requested: "live",
@@ -319,17 +382,17 @@ export async function POST(request: NextRequest) {
               requestedModel: model,
               actualModel: model,
             },
-          }));
+          });
         } catch {
-          if (request.signal.aborted) return;
+          if (signal.aborted) return;
           console.warn("Live debate stream failed; falling back to programmatic mode");
           try {
             const programmaticTokens = buildProgrammaticTokens(body);
-            controller.enqueue(sseEvent({ type: "replace" }));
+            emit({ type: "replace" });
             for (const token of programmaticTokens) {
-              controller.enqueue(sseEvent({ type: "token", token }));
+              emit({ type: "token", token });
             }
-            controller.enqueue(sseEvent({
+            emit({
               type: "complete",
               execution: {
                 requested: "live",
@@ -338,20 +401,24 @@ export async function POST(request: NextRequest) {
                 actualModel: null,
                 fallbackCode: "PROVIDER_ERROR",
               },
-            }));
+            });
           } catch {
+            if (signal.aborted) return;
             console.error("Programmatic debate fallback failed");
-            controller.enqueue(
-              sseEvent({
-                type: "error",
-                code: "DEBATE_GENERATION_FAILED",
-                message: DEBATE_GENERATION_ERROR_MESSAGE,
-              })
-            );
+            emit({
+              type: "error",
+              code: "DEBATE_GENERATION_FAILED",
+              message: DEBATE_GENERATION_ERROR_MESSAGE,
+            });
           }
         } finally {
-          controller.close();
+          signal.removeEventListener("abort", close);
+          close();
         }
+      },
+      cancel(reason) {
+        closed = true;
+        cancellation.abort(reason);
       },
     });
 

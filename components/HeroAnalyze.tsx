@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { ANALYZE_HREF } from "@/lib/nav";
-import { PASTE_PREFILL_KEY } from "@/lib/paste/handoff";
+import { savePastePrefill } from "@/lib/paste/handoff";
 import { PAGE_GUTTER } from "@/components/ui/PageContainer";
 
 interface HeroAnalyzeProps {
@@ -21,7 +21,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
     if (!content.trim()) return;
     // /analyze reads this once and, when nothing leaves the server, submits
     // it straight away (lib/paste/handoff.ts): one press, not two.
-    sessionStorage.setItem(PASTE_PREFILL_KEY, JSON.stringify({ content, contentType }));
+    savePastePrefill({ content, contentType });
     // The canonical paste tool is chosen in one place: lib/nav.ts.
     router.push(ANALYZE_HREF);
   }, [content, contentType, router]);
@@ -77,7 +77,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
             placeholder="Paste text here"
             aria-label="Text to analyze"
             rows={6}
-            className="block min-h-[9rem] w-full resize-y rounded-lg border border-stone-300/80 bg-card px-4 py-3 text-base leading-relaxed text-primary dark:text-stone-200 placeholder:text-muted/80 transition-colors focus:border-deep/50 sm:text-[0.9375rem] focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider dark:placeholder:text-stone-500"
+            className="block min-h-[9rem] w-full resize-y rounded-lg border border-stone-300/80 bg-card px-4 py-3 text-base leading-relaxed text-primary dark:text-stone-200 placeholder:text-muted transition-colors focus:border-deep/50 sm:text-[0.9375rem] focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider"
           />
 
           <div className="mt-3 flex flex-wrap items-center justify-between gap-3">

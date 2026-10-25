@@ -184,6 +184,8 @@ export function hasTopicLoader(topicId: string): boolean {
  * triggering any dynamic import; successful loads are shared and cached.
  */
 export function loadTopicById(topicId: string): Promise<Topic | null> {
+  if (!hasTopicLoader(topicId)) return Promise.resolve(null);
+
   const existing = topicPromiseCache.get(topicId);
   if (existing) return existing;
 

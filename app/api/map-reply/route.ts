@@ -24,7 +24,6 @@ import { runMapReply } from "@/lib/mapReply/pipeline";
 import { logGapObservation } from "@/lib/gapMetric/log";
 import { gapFromMapReply } from "@/lib/gapMetric/record";
 import { rateLimit } from "@/lib/rate-limit";
-import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
 export const runtime = "nodejs";
 
@@ -39,6 +38,13 @@ function rateLimited(requestId: string, resetAt: number, remaining: number) {
   });
 }
 
+function requestAborted(requestId: string) {
+  return NextResponse.json(
+    { error: "Request cancelled", code: "REQUEST_ABORTED", requestId },
+    { status: 499, headers: { "x-request-id": requestId, "Cache-Control": "no-store" } },
+  );
+}
+
 export async function POST(request: NextRequest) {
   const requestId = resolveRequestId(request.headers.get("x-request-id"));
 
@@ -51,6 +57,8 @@ export async function POST(request: NextRequest) {
   if (lane === "fake" && process.env.NODE_ENV === "production") {
     return mapReplyJsonError(requestId, new MapReplyError("PROVIDER_NOT_CONFIGURED"));
   }
+
+  if (request.signal.aborted) return requestAborted(requestId);
 
   // The hourly bucket is flood protection and is spent on every attempt. The
   // daily bucket is the third-party spend budget and is only spent on a
@@ -74,8 +82,11 @@ export async function POST(request: NextRequest) {
   try {
     raw = await request.json();
   } catch {
+    if (request.signal.aborted) return requestAborted(requestId);
     return mapReplyJsonError(requestId, new MapReplyError("INVALID_REQUEST"));
   }
+
+  if (request.signal.aborted) return requestAborted(requestId);
 
   const parsed = MapReplyRequestSchema.safeParse(raw);
   if (!parsed.success) {
@@ -99,12 +110,15 @@ export async function POST(request: NextRequest) {
   }
 
   const startedAt = Date.now();
+  const signal = AbortSignal.any([request.signal, AbortSignal.timeout(MAP_REPLY_TIMEOUT_MS)]);
   try {
+    signal.throwIfAborted();
     const result = await runMapReply({
       text,
       provider: getJevProvider(),
-      signal: AbortSignal.timeout(MAP_REPLY_TIMEOUT_MS),
+      signal,
     });
+    signal.throwIfAborted();
 
     // Lengths, timings, model, tokens, topic id. Never the text itself.
     console.info("[argumend:map-reply]", {
@@ -128,20 +142,22 @@ export async function POST(request: NextRequest) {
     });
 
     // North-star gap metric: counts and ids only, flag-gated, never awaited.
-    void logGapObservation(() => gapFromMapReply(result));
+    void logGapObservation(() => gapFromMapReply(result), signal);
 
     return NextResponse.json(
       { requestId, ...result },
       { headers: { "x-request-id": requestId, "Cache-Control": "no-store" } },
     );
   } catch (error) {
+    if (request.signal.aborted) return requestAborted(requestId);
     const mapped = toMapReplyError(error);
+    // Provider errors may echo submitted text in unexpected answer identifiers.
+    // The stable code and request metadata identify the failure without it.
     console.error("[argumend:map-reply]", {
       requestId,
       code: mapped.code,
       characterCount: text.length,
       latencyMs: Date.now() - startedAt,
-      message: sanitizeServerLog(error),
     });
     return mapReplyJsonError(requestId, mapped);
   }

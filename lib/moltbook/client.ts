@@ -8,6 +8,7 @@
  */
 
 import { buildSearchParams } from "@/lib/utils";
+import { z } from "zod";
 
 const MOLTBOOK_API_BASE = "https://www.moltbook.com/api/v1";
 
@@ -63,6 +64,13 @@ interface ApiResponse<T> {
   hint?: string;
 }
 
+const ApiResponseSchema = z.object({
+  success: z.boolean(),
+  data: z.unknown().optional(),
+  error: z.string().optional(),
+  hint: z.string().optional(),
+});
+
 /**
  * Moltbook API Client
  */
@@ -97,7 +105,15 @@ export class MoltbookClient {
       };
     }
 
-    return response.json();
+    if (!response.ok) {
+      throw new Error("Moltbook request failed");
+    }
+
+    const parsed = ApiResponseSchema.safeParse(await response.json());
+    if (!parsed.success) {
+      throw new Error("Moltbook returned an invalid response");
+    }
+    return parsed.data as ApiResponse<T>;
   }
 
   // ==================== Agent Management ====================
@@ -187,21 +203,21 @@ export class MoltbookClient {
    * Get a specific post with comments
    */
   async getPost(postId: string): Promise<ApiResponse<MoltbookPost & { comments: MoltbookComment[] }>> {
-    return this.request(`/posts/${postId}`);
+    return this.request(`/posts/${encodeURIComponent(postId)}`);
   }
 
   /**
    * Upvote a post
    */
   async upvotePost(postId: string): Promise<ApiResponse<void>> {
-    return this.request(`/posts/${postId}/upvote`, { method: "POST" });
+    return this.request(`/posts/${encodeURIComponent(postId)}/upvote`, { method: "POST" });
   }
 
   /**
    * Downvote a post
    */
   async downvotePost(postId: string): Promise<ApiResponse<void>> {
-    return this.request(`/posts/${postId}/downvote`, { method: "POST" });
+    return this.request(`/posts/${encodeURIComponent(postId)}/downvote`, { method: "POST" });
   }
 
   // ==================== Comments ====================
@@ -215,7 +231,7 @@ export class MoltbookClient {
     content: string,
     parentId?: string
   ): Promise<ApiResponse<MoltbookComment>> {
-    return this.request(`/posts/${postId}/comments`, {
+    return this.request(`/posts/${encodeURIComponent(postId)}/comments`, {
       method: "POST",
       body: JSON.stringify({ content, parent_id: parentId }),
     });
@@ -225,14 +241,14 @@ export class MoltbookClient {
    * Upvote a comment
    */
   async upvoteComment(commentId: string): Promise<ApiResponse<void>> {
-    return this.request(`/comments/${commentId}/upvote`, { method: "POST" });
+    return this.request(`/comments/${encodeURIComponent(commentId)}/upvote`, { method: "POST" });
   }
 
   /**
    * Downvote a comment
    */
   async downvoteComment(commentId: string): Promise<ApiResponse<void>> {
-    return this.request(`/comments/${commentId}/downvote`, { method: "POST" });
+    return this.request(`/comments/${encodeURIComponent(commentId)}/downvote`, { method: "POST" });
   }
 
   // ==================== Submolts (Communities) ====================

@@ -1,8 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { CheckCircle, Loader2 } from "lucide-react";
+import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
+
+const SignupReceiptSchema = z.object({ success: z.literal(true) });
+const SignupErrorSchema = z.object({ error: z.string() });
 
 interface NewsletterSignupProps {
   variant?: "default" | "compact";
@@ -16,9 +20,11 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const submitting = useRef(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting.current) return;
     setError("");
 
     // Basic email format validation
@@ -28,6 +34,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
       return;
     }
 
+    submitting.current = true;
     setLoading(true);
 
     try {
@@ -40,10 +47,11 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
         }),
       });
 
-      const data = await res.json();
+      const data: unknown = await res.json();
 
-      if (!res.ok) {
-        setError(data.error || "Something went wrong. Please try again.");
+      if (!res.ok || !SignupReceiptSchema.safeParse(data).success) {
+        const failure = SignupErrorSchema.safeParse(data);
+        setError((failure.success && failure.data.error) || "Something went wrong. Please try again.");
         return;
       }
 
@@ -52,6 +60,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
     } catch {
       setError("Network error. Please check your connection and try again.");
     } finally {
+      submitting.current = false;
       setLoading(false);
     }
   };
@@ -77,8 +86,8 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
         }`}
       >
         <div className={`flex items-center gap-3 ${isCompact ? "" : "justify-center"}`}>
-          <CheckCircle className="h-5 w-5 text-deep flex-shrink-0" />
-          <p className="text-deep font-medium text-sm">
+          <CheckCircle className="h-5 w-5 text-accent-text flex-shrink-0" />
+          <p className="text-accent-text font-medium text-sm">
             You&apos;re subscribed. New arguments will land here weekly.
           </p>
         </div>
@@ -129,7 +138,7 @@ export function NewsletterSignup({ variant = "default", source }: NewsletterSign
             aria-invalid={error ? true : undefined}
             aria-describedby={error ? errorId : undefined}
             disabled={loading}
-            className={`min-h-11 w-full bg-white dark:bg-[var(--bg-card)] border border-stone-300 dark:border-[var(--border-default)] rounded-lg text-primary dark:text-stone-200 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-focus focus:border-rust-500/50 transition-colors ${
+            className={`min-h-11 w-full bg-white dark:bg-[var(--bg-card)] border border-stone-300 dark:border-[var(--border-default)] rounded-lg text-primary dark:text-stone-200 placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-focus focus:border-rust-500/50 transition-colors ${
               isCompact ? "px-3 py-2 text-sm" : "px-4 py-2.5 text-sm"
             } ${error ? "border-error focus:ring-error focus:border-error/50" : ""} ${loading ? "opacity-60" : ""}`}
           />

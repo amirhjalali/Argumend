@@ -183,7 +183,7 @@ describe("projectClaimStakes", () => {
   });
 
   it("does not double-count a quote already grounded elsewhere", () => {
-    const seen = new Set<string>(["the load test passed."]);
+    const seen = new Set<string>(["The load test passed."]);
     const result = project(
       extraction({
         stakes: [

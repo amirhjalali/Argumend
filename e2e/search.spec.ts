@@ -1,5 +1,89 @@
 import { expect, test, waitForHydration } from "./fixtures";
 
+test("search keeps clear and close usable on narrow phones in either theme", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "The phone project checks the narrow search controls.");
+  await page.addInitScript(() => localStorage.removeItem("theme"));
+
+  for (const width of [320, 390]) {
+    for (const colorScheme of ["light", "dark"] as const) {
+      await page.setViewportSize({ width, height: 844 });
+      await page.emulateMedia({ colorScheme });
+      await page.goto("/topics");
+      const search = page.getByRole("banner").getByRole("button", { name: "Search", exact: true });
+      await waitForHydration(search);
+      await search.click();
+
+      const dialog = page.getByRole("dialog", { name: "Search Argumend" });
+      const input = dialog.getByRole("combobox");
+      await input.fill("nuclear");
+      const clear = dialog.getByRole("button", { name: "Clear search" });
+      const close = dialog.getByRole("button", { name: "Close search (Esc)" });
+      await expect(dialog).toHaveCSS("transform", "none");
+      await expect(clear).toBeInViewport({ ratio: 1 });
+      await expect(close).toBeInViewport({ ratio: 1 });
+      expect((await clear.boundingBox())!.width, `clear target at ${width}px in ${colorScheme}`).toBeGreaterThanOrEqual(44);
+
+      await clear.focus();
+      await clear.press("Enter");
+      await expect(input).toBeFocused();
+      await expect(input).toHaveValue("");
+      await input.fill("climate");
+      await close.click();
+      await expect(dialog).toBeHidden();
+      await expect(search).toBeFocused();
+    }
+  }
+});
+
+test("rapid search shortcut toggling preserves modal behavior", async ({ page }) => {
+  await page.goto("/topics");
+  const trigger = page.getByRole("banner").getByRole("button", { name: "Search", exact: true });
+  await waitForHydration(trigger);
+  await trigger.click();
+  const dialog = page.getByRole("dialog", { name: "Search Argumend" });
+  await expect(dialog.getByRole("combobox")).toBeFocused();
+
+  await page.keyboard.press("ControlOrMeta+k");
+  await page.keyboard.press("ControlOrMeta+k");
+
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toHaveAttribute("aria-modal", "true");
+  await expect(dialog.getByRole("combobox")).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
+
+for (const warmed of [false, true]) {
+  for (const resize of [false, true]) {
+    test(`menu to search returns focus to the header control (warmed=${warmed}, resize=${resize})`, async ({ page }) => {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await page.goto("/topics");
+      const menu = page.getByRole("button", { name: "Open menu" });
+      await waitForHydration(menu);
+      const search = page.getByRole("dialog", { name: "Search Argumend" });
+      if (warmed) {
+        await page.getByRole("banner").getByRole("button", { name: "Search", exact: true }).click();
+        await expect(search.getByRole("combobox")).toBeFocused();
+        await page.keyboard.press("Escape");
+        await expect(search).toBeHidden();
+      }
+      await menu.click();
+      await expect(page.getByRole("button", { name: "Close menu" })).toBeFocused();
+      await page.keyboard.press("ControlOrMeta+k");
+      await expect(search.getByRole("combobox")).toBeFocused();
+      if (resize) {
+        await page.setViewportSize({ width: 1280, height: 900 });
+        await expect(search.getByRole("combobox")).toBeFocused();
+      }
+      await page.keyboard.press("Escape");
+      await expect(search).toBeHidden();
+      await expect(page.getByRole("banner").getByRole("button", { name: "Search", exact: true })).toBeFocused();
+      expect(await page.evaluate(() => document.documentElement.style.overflow)).toBe("");
+    });
+  }
+}
+
 /** Site search (components/SearchModal.tsx): ⌘K on desktop, the header's search button on phones. */
 test("search lists a map and Enter opens it", async ({ page, isMobile }) => {
   await page.goto("/topics");

@@ -289,9 +289,22 @@ export const RawDisagreementExtractionSchema = z
       .array(RawClaimStakeCandidateSchema)
       .max(L.maxClaimStakes)
       .default([]),
-    caveats: z.array(boundedText(L.maxSummaryCharacters)).max(12),
+    caveats: z.array(boundedText(L.maxSummaryCharacters)).max(L.maxCaveats),
   })
   .strict()
+  .superRefine((value, ctx) => {
+    // References name an entity kind, so IDs may be reused across kinds.
+    // Within one referenced kind, a duplicate makes attribution ambiguous.
+    for (const kind of ["participants", "positions", "claims"] as const) {
+      const seen = new Set<string>();
+      value[kind].forEach((entity, index) => {
+        if (seen.has(entity.id)) {
+          ctx.addIssue({ code: "custom", message: `Duplicate ${kind} id`, path: [kind, index, "id"] });
+        }
+        seen.add(entity.id);
+      });
+    }
+  })
   // The combined caveat budget is a presentation cap, not a correctness
   // property. Rejecting a whole extraction over it throws away minutes of work
   // and every position, claim, and quote in it because the model was slightly
@@ -426,6 +439,7 @@ export const ArgumentAccountabilitySchema = z
   })
   .strict();
 
+/** Private diagnoses keep all grounded quotes within the per-object limits. */
 export const DisagreementReportSchema = z
   .object({
     schemaVersion: z.literal(DISAGREEMENT_REPORT_SCHEMA_VERSION),
@@ -451,7 +465,7 @@ export const DisagreementReportSchema = z
     disagreements: z.array(DisagreementItemSchema).max(L.maxDisagreements),
     cruxes: z.array(ReportCruxSchema).max(L.maxCruxes),
     resolutionPaths: z.array(ResolutionPathSchema).max(L.maxResolutionPaths),
-    caveats: z.array(boundedText(L.maxSummaryCharacters)).max(12),
+    caveats: z.array(boundedText(L.maxSummaryCharacters)).max(L.maxCaveats),
     // Optional: every report authored before stakes exists must keep parsing.
     accountability: ArgumentAccountabilitySchema.optional(),
     share: z
@@ -474,7 +488,7 @@ export const DisagreementReportSchema = z
         groundingCoverage: z.number().min(0).max(1),
         droppedUngroundedQuoteCount: z.number().int().nonnegative(),
         inferredPositionCount: z.number().int().nonnegative(),
-        warnings: z.array(z.string().max(280)).max(40),
+        warnings: z.array(z.string().max(L.maxQualityWarningCharacters)).max(L.maxQualityWarnings),
       })
       .strict(),
     provenance: z
@@ -499,7 +513,11 @@ export const DisagreementReportSchema = z
         path: ["caveats"],
       });
     }
+  });
 
+/** Publication and stored public data have an additional total quote budget. */
+export const PublishedDisagreementReportSchema = DisagreementReportSchema
+  .superRefine((value, ctx) => {
     const quoteChars = collectReportQuoteCharacters(value);
     if (quoteChars > L.maxPublishedQuoteCharactersTotal) {
       ctx.addIssue({
@@ -945,8 +963,9 @@ export function parseRawDisagreementExtraction(input: unknown) {
   return { success: true as const, data: parsed.data };
 }
 
+/** Validate persisted report limits and references before publication or reads. */
 export function parseDisagreementReport(input: unknown) {
-  const parsed = DisagreementReportSchema.safeParse(input);
+  const parsed = PublishedDisagreementReportSchema.safeParse(input);
   if (!parsed.success) {
     return { success: false as const, error: parsed.error };
   }

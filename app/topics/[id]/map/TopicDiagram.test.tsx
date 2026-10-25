@@ -1,14 +1,14 @@
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
-import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { loadTopicById } from "@/data/topicLoader";
 import { buildDiagram, type DiagramModel } from "@/lib/diagram/model";
 import { legacyTopicPage } from "@/lib/topicPage/legacy";
 import type { Topic } from "@/lib/schemas/topic";
 
-// Phone session, after hydration.
+const viewport = vi.hoisted(() => ({ hydrated: true, mobile: true }));
 vi.mock("@/hooks/useMediaQuery", () => ({
-  useIsHydrated: () => true,
-  useIsMobile: () => true,
+  useIsHydrated: () => viewport.hydrated,
+  useIsMobile: () => viewport.mobile,
   useMediaQuery: () => false,
 }));
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
@@ -25,9 +25,37 @@ beforeAll(async () => {
   diagram = buildDiagram(topic);
 });
 
-describe("TopicDiagram on a phone", () => {
-  afterEach(cleanup);
+beforeEach(() => {
+  viewport.hydrated = true;
+  viewport.mobile = true;
+});
 
+afterEach(cleanup);
+
+describe("TopicDiagram desktop loading", () => {
+  it("shows a desktop-only loading status before the screen size is known", () => {
+    viewport.hydrated = false;
+    render(<TopicDiagram diagram={diagram} />);
+
+    const status = screen.getByRole("status");
+    expect(status.textContent).toBe("Loading diagram…");
+    expect(status.getAttribute("aria-live")).toBe("polite");
+    expect(status.parentElement?.className).toContain("hidden md:block");
+    expect(screen.queryByTestId("canvas")).toBeNull();
+    expect(screen.getByTestId("topic-diagram").querySelector("button[aria-expanded]")).toBeTruthy();
+  });
+
+  it("announces the pending desktop canvas and removes the status when it loads", async () => {
+    viewport.mobile = false;
+    render(<TopicDiagram diagram={diagram} />);
+
+    expect(screen.getByRole("status").textContent).toBe("Loading diagram…");
+    await waitFor(() => expect(screen.getByTestId("canvas")).toBeTruthy());
+    expect(screen.queryByRole("status")).toBeNull();
+  });
+});
+
+describe("TopicDiagram on a phone", () => {
   it("renders the outline straight from the model: no loading state, no canvas", () => {
     render(<TopicDiagram diagram={diagram} />);
     const outline = screen.getByTestId("topic-diagram");

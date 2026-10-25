@@ -1,10 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { z } from "zod";
 import { trackEvent } from "@/lib/analytics";
+import { copyTextToClipboard } from "@/lib/copyToClipboard";
 import type { ArgumentGraph } from "@/types/argument";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 import { DeleteReportControl } from "./DeleteReportControl";
+
+const PublicationReceiptSchema = z.object({
+  url: z.string().regex(/^\/d\/[A-Za-z0-9_-]+$/),
+  manageToken: z.string().min(1),
+});
+const PublicationErrorSchema = z.object({ error: z.string().min(1) });
 
 /** Deterministic share copy anchored on the primary crux (spec 12). */
 export function shareIntentCopy(report: DisagreementReportV1): string {
@@ -43,44 +51,66 @@ export function ShareReport({
   const [busy, setBusy] = useState(false);
   const [deleted, setDeleted] = useState(false);
   const [confirming, setConfirming] = useState(false);
+  const [manageToken, setManageToken] = useState("");
+  const [storageWarning, setStorageWarning] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   async function publish() {
+    if (busy) return;
     if (!publicationToken || !graph) {
       setError(unavailableReason || "This report is not ready to share.");
       setConfirming(false);
       return;
     }
     setBusy(true);
+    setError("");
     try {
       const response = await fetch("/api/disagreements/publish", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ report, graph, publicationToken }),
       });
-      const data = (await response.json()) as { url?: string; manageToken?: string; error?: string };
-      if (!response.ok || !data.url) {
-        setError(data.error || "Could not publish.");
+      const data: unknown = await response.json();
+      if (!response.ok) {
+        const failure = PublicationErrorSchema.safeParse(data);
+        setError(failure.success ? failure.data.error : "Could not publish. Please try again.");
         return;
       }
-      const absolute = new URL(data.url, window.location.origin).toString();
+      const receipt = PublicationReceiptSchema.parse(data);
+      const publishedSlug = receipt.url.slice("/d/".length);
+      const absolute = new URL(receipt.url, window.location.origin).toString();
       setUrl(absolute);
-      setSlug(data.url.replace("/d/", ""));
+      setSlug(publishedSlug);
+      setManageToken(receipt.manageToken);
       setConfirming(false);
-      if (data.manageToken) {
-        localStorage.setItem(`argumend-manage:${data.url.replace("/d/", "")}`, data.manageToken);
+      try {
+        window.localStorage.setItem(`argumend-manage:${publishedSlug}`, receipt.manageToken);
+      } catch {
+        // The report already exists. Retain delete access for this visit.
+        setStorageWarning(true);
       }
       trackEvent({
         action: "disagreement_public_link_created",
         diagnosisPattern: report.diagnosis.pattern,
       });
+    } catch {
+      setError("Could not create a link. Please check your connection and try again.");
     } finally {
       setBusy(false);
     }
   }
 
   async function copy(target: string) {
-    await navigator.clipboard.writeText(target);
-    trackEvent({ action: "disagreement_share_clicked", platform: "copy", surface });
+    setCopied(false);
+    setCopyError(false);
+    try {
+      await copyTextToClipboard(target);
+      setCopied(true);
+      trackEvent({ action: "disagreement_share_clicked", platform: "copy", surface });
+    } catch {
+      setCopyError(true);
+    }
   }
 
   const shareUrl = url;
@@ -109,6 +139,7 @@ export function ShareReport({
               </button>
               <button
                 type="button"
+                disabled={busy}
                 className="min-h-11 rounded-full border border-[var(--border-default)] px-5"
                 onClick={() => setConfirming(false)}
               >
@@ -137,10 +168,33 @@ export function ShareReport({
           </a>
         </div>
       ) : null}
-      {shareUrl && slug ? (
-        <DeleteReportControl slug={slug} onDeleted={() => setDeleted(true)} />
+      {shareUrl && !deleted && storageWarning ? (
+        <p className="text-sm text-error-text" role="alert">
+          Your link was created, but this browser could not save your delete access.
+          Keep this page open to delete the report.
+        </p>
       ) : null}
-      {error ? <p className="text-sm text-[#a23b3b]">{error}</p> : null}
+      {shareUrl && !deleted ? (
+        <>
+          <p className="text-sm text-[var(--text-muted)]" role="status">{copied ? "Link copied." : ""}</p>
+          {copyError ? (
+            <div className="space-y-2">
+              <p className="text-sm text-error-text" role="alert">Could not copy the link. Select and copy it below.</p>
+              <input
+                aria-label="Link to copy"
+                readOnly
+                value={shareUrl}
+                onFocus={(event) => event.currentTarget.select()}
+                className="min-h-11 w-full rounded border border-[var(--border-default)] bg-transparent px-3 text-sm"
+              />
+            </div>
+          ) : null}
+        </>
+      ) : null}
+      {shareUrl && slug ? (
+        <DeleteReportControl slug={slug} manageToken={manageToken} onDeleted={() => setDeleted(true)} />
+      ) : null}
+      {error ? <p className="text-sm text-error-text" role="alert">{error}</p> : null}
     </section>
   );
 }

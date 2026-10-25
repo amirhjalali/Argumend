@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { z } from "zod";
+
+const DeleteReceiptSchema = z.object({ ok: z.literal(true) });
+const ErrorReceiptSchema = z.object({ error: z.string().min(1) });
 
 function manageTokenKey(slug: string) {
   return `argumend-manage:${slug}`;
@@ -13,9 +17,12 @@ function manageTokenKey(slug: string) {
  */
 export function DeleteReportControl({
   slug,
+  manageToken,
   onDeleted,
 }: {
   slug: string;
+  /** Keeps deletion available in the publishing visit if storage is blocked. */
+  manageToken?: string;
   onDeleted?: () => void;
 }) {
   const [token, setToken] = useState<string | null>(null);
@@ -24,8 +31,17 @@ export function DeleteReportControl({
   const [error, setError] = useState("");
 
   useEffect(() => {
-    setToken(window.localStorage.getItem(manageTokenKey(slug)));
-  }, [slug]);
+    if (manageToken) {
+      setToken(manageToken);
+      return;
+    }
+    try {
+      setToken(window.localStorage.getItem(manageTokenKey(slug)));
+    } catch {
+      // An optional management control must not prevent reading the report.
+      setToken(null);
+    }
+  }, [slug, manageToken]);
 
   if (deleted) {
     return (
@@ -52,12 +68,17 @@ export function DeleteReportControl({
         method: "DELETE",
         headers: { authorization: `Bearer ${token}` },
       });
-      if (!response.ok) {
-        const data = (await response.json().catch(() => ({}))) as { error?: string };
-        setError(data.error || "Could not delete this report. Please try again.");
+      const data: unknown = await response.json().catch(() => null);
+      if (!response.ok || !DeleteReceiptSchema.safeParse(data).success) {
+        const failure = ErrorReceiptSchema.safeParse(data);
+        setError(failure.success ? failure.data.error : "Could not delete this report. Please try again.");
         return;
       }
-      window.localStorage.removeItem(manageTokenKey(slug));
+      try {
+        window.localStorage.removeItem(manageTokenKey(slug));
+      } catch {
+        // The report is already deleted. Local cleanup cannot undo that.
+      }
       setDeleted(true);
       onDeleted?.();
     } catch {

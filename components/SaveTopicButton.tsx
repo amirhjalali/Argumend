@@ -1,10 +1,13 @@
 "use client";
 
-import { useCallback, useId, useState } from "react";
+import { useCallback, useId, useRef, useState } from "react";
 import { Bookmark } from "lucide-react";
+import { z } from "zod";
 
 import { useSavedTopics } from "@/hooks/useSavedTopics";
 import { buttonClasses } from "@/components/ui";
+
+const SavedTopicReceiptSchema = z.object({ success: z.literal(true) });
 
 interface SaveTopicButtonProps {
   topicId: string;
@@ -16,6 +19,7 @@ export function SaveTopicButton({ topicId, labelled = false }: SaveTopicButtonPr
   const { saved, hydrated, error, toggle } = useSavedTopics(topicId);
   const [syncing, setSyncing] = useState(false);
   const [syncError, setSyncError] = useState<string | null>(null);
+  const pendingSync = useRef(false);
   const statusId = useId();
   const accountSavingEnabled =
     process.env.NEXT_PUBLIC_ENABLE_AUTH === "true";
@@ -29,9 +33,11 @@ export function SaveTopicButton({ topicId, labelled = false }: SaveTopicButtonPr
         : "Save this map on this device";
 
   const handleToggle = useCallback(async () => {
+    if (pendingSync.current) return;
     const nextSaved = toggle();
     if (nextSaved === null || !accountSavingEnabled) return;
 
+    pendingSync.current = true;
     setSyncing(true);
     setSyncError(null);
     const unavailableMessage = nextSaved
@@ -46,12 +52,13 @@ export function SaveTopicButton({ topicId, labelled = false }: SaveTopicButtonPr
 
       // Signed-out visitors still keep the successful device-local bookmark.
       if (response.status === 401) return;
-      if (!response.ok) {
+      if (!response.ok || !SavedTopicReceiptSchema.safeParse(await response.json()).success) {
         setSyncError(unavailableMessage);
       }
     } catch {
       setSyncError(unavailableMessage);
     } finally {
+      pendingSync.current = false;
       setSyncing(false);
     }
   }, [accountSavingEnabled, toggle, topicId]);

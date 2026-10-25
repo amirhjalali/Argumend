@@ -1,6 +1,6 @@
 import "@/test/setup-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { SAVED_TOPICS_KEY } from "@/hooks/useSavedTopics";
 import { SaveTopicButton } from "./SaveTopicButton";
 
@@ -46,7 +46,7 @@ describe("SaveTopicButton", () => {
 
   it("syncs a local bookmark to the account API when enabled", async () => {
     vi.stubEnv("NEXT_PUBLIC_ENABLE_AUTH", "true");
-    vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 200 }));
+    vi.mocked(fetch).mockResolvedValueOnce(Response.json({ success: true }));
     const view = render(<SaveTopicButton topicId="ai-risk" />);
 
     fireEvent.click(await view.findByRole("button", { name: /save this map on this device/i }));
@@ -72,5 +72,27 @@ describe("SaveTopicButton", () => {
     expect(JSON.parse(window.localStorage.getItem(SAVED_TOPICS_KEY) ?? "[]"))
       .toEqual(["ai-risk"]);
     expect(view.getByRole("button").getAttribute("aria-pressed")).toBe("true");
+  });
+
+  it("does not treat a malformed account receipt as confirmed sync", async () => {
+    vi.stubEnv("NEXT_PUBLIC_ENABLE_AUTH", "true");
+    vi.mocked(fetch).mockResolvedValueOnce(Response.json({ success: false }));
+    const view = render(<SaveTopicButton topicId="ai-risk" />);
+    fireEvent.click(await view.findByRole("button", { name: /save this map on this device/i }));
+    expect((await view.findByRole("alert")).textContent).toMatch(/saved on this device/i);
+    expect(JSON.parse(window.localStorage.getItem(SAVED_TOPICS_KEY) ?? "[]")).toEqual(["ai-risk"]);
+  });
+
+  it("does not dispatch opposing account writes before the disabled state renders", async () => {
+    vi.stubEnv("NEXT_PUBLIC_ENABLE_AUTH", "true");
+    vi.mocked(fetch).mockImplementation(() => new Promise(() => undefined));
+    const view = render(<SaveTopicButton topicId="ai-risk" />);
+    const button = await view.findByRole("button", { name: /save this map on this device/i });
+    act(() => {
+      button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    expect(fetch).toHaveBeenCalledOnce();
+    expect(JSON.parse(window.localStorage.getItem(SAVED_TOPICS_KEY) ?? "[]")).toEqual(["ai-risk"]);
   });
 });

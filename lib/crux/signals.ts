@@ -5,6 +5,7 @@ import {
   overriddenContestedness,
 } from "./contestedness";
 import { buildInfluenceGraph, evidenceWeight, type InfluenceGraph } from "./influence";
+import { currentScoringGraph } from "./graph";
 import { propagate } from "./propagate";
 
 export interface DeltaTarget {
@@ -110,9 +111,11 @@ export function computeCruxSignals(
   const overrides = normalizeContestednessOverrides(options.contestednessOverrides);
   const candidacyFloor = options.candidacyFloor ?? DEFAULT_CANDIDACY_FLOOR;
   const influenceGraph = buildInfluenceGraph(graph);
-  const activeClaims = graph.nodes.filter(
-    (node): node is Claim =>
-      node.type === "claim" && !influenceGraph.excludedNodeIds.has(node.id)
+  // Scoring and propagation must read the same current graph. Retired cards
+  // must not contribute inflow, evidence coverage, or gate reach either.
+  const activeGraph = currentScoringGraph(graph);
+  const activeClaims = activeGraph.nodes.filter(
+    (node): node is Claim => node.type === "claim"
   );
   const editorialCandidates = activeClaims.filter((claim) => isCandidate(claim));
   const droppedIds = new Set(
@@ -135,11 +138,11 @@ export function computeCruxSignals(
   );
   const candidateIds = new Set(candidates.map((claim) => claim.id));
   const claimCount = activeClaims.length;
-  const positionIds = graph.nodes
-    .filter((node) => node.type === "position" && !influenceGraph.excludedNodeIds.has(node.id))
+  const positionIds = activeGraph.nodes
+    .filter((node) => node.type === "position")
     .map((node) => node.id);
   const rawSignals = candidates.map((claim) =>
-    directSignal(graph, influenceGraph, claim, claimCount, positionIds, overrides.get(claim.id))
+    directSignal(activeGraph, influenceGraph, claim, claimCount, positionIds, overrides.get(claim.id))
   );
   const rawById = new Map(rawSignals.map((signal) => [signal.claim.id, signal]));
   const directMassById = new Map(
@@ -148,14 +151,14 @@ export function computeCruxSignals(
   const gateMassById = new Map<string, number>();
 
   for (const signal of rawSignals) {
-    for (const gatedId of gatedCandidateIds(graph.edges, signal.claim.id, candidateIds)) {
+    for (const gatedId of gatedCandidateIds(activeGraph.edges, signal.claim.id, candidateIds)) {
       gateMassById.set(signal.claim.id, (gateMassById.get(signal.claim.id) ?? 0) + (directMassById.get(gatedId) ?? 0));
     }
   }
 
   const maxGateMass = Math.max(0, ...gateMassById.values());
   const signals = rawSignals.map((signal) => {
-    const gatedIds = gatedCandidateIds(graph.edges, signal.claim.id, candidateIds);
+    const gatedIds = gatedCandidateIds(activeGraph.edges, signal.claim.id, candidateIds);
     const scopedSignals = gatedIds
       .map((claimId) => rawById.get(claimId))
       .filter((scoped): scoped is CruxSignal => scoped !== undefined);
@@ -180,8 +183,8 @@ export function computeCruxSignals(
       directScoreMass,
       baseScore: directScoreMass + 0.15 * scopingBonus,
       gatesClaimIds: gatedIds,
-      gatesRemovedByProbeIds: gatedCandidateIds(graph.edges, signal.claim.id, droppedIds),
-      gatesResolvedByLedgerIds: gatedCandidateIds(graph.edges, signal.claim.id, resolvedIds),
+      gatesRemovedByProbeIds: gatedCandidateIds(activeGraph.edges, signal.claim.id, droppedIds),
+      gatesResolvedByLedgerIds: gatedCandidateIds(activeGraph.edges, signal.claim.id, resolvedIds),
     };
   });
 

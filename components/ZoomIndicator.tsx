@@ -17,12 +17,21 @@ export function ZoomIndicator() {
 
   // Show "Drag to explore" hint once on first render, then fade away
   useEffect(() => {
-    const hasSeenHint = sessionStorage.getItem("argumend-drag-hint");
+    let hasSeenHint = false;
+    try {
+      hasSeenHint = sessionStorage.getItem("argumend-drag-hint") !== null;
+    } catch {
+      // The optional hint must not prevent diagrams opening without storage.
+    }
     if (!hasSeenHint) {
       const showTimer = setTimeout(() => setShowDragHint(true), 1500);
       const hideTimer = setTimeout(() => {
         setShowDragHint(false);
-        sessionStorage.setItem("argumend-drag-hint", "1");
+        try {
+          sessionStorage.setItem("argumend-drag-hint", "1");
+        } catch {
+          // The hint can repeat on a later visit if this browser refuses writes.
+        }
       }, 6000);
       return () => {
         clearTimeout(showTimer);

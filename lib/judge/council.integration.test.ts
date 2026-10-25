@@ -56,6 +56,32 @@ describe("JudgeCouncil production orchestration", () => {
     vi.restoreAllMocks();
   });
 
+  it("does not dispatch judges for an already-aborted request", async () => {
+    const controller = new AbortController();
+    controller.abort();
+    const council = new JudgeCouncil({ judges, rubric });
+    await expect(council.judgeContent("Private input", "freeform", { signal: controller.signal })).rejects.toMatchObject({ name: "AbortError" });
+    expect(mocks.executeAgent).not.toHaveBeenCalled();
+  });
+
+  it("forwards cancellation to every judge and rejects late results without diagnostics", async () => {
+    const controller = new AbortController();
+    let finish!: () => void;
+    const pending = new Promise<void>((resolve) => { finish = resolve; });
+    mocks.executeAgent.mockImplementation(async ({ agent, signal }) => {
+      expect(signal).toBe(controller.signal);
+      await pending;
+      return { content: verdictJson("for", 8, 4), agentId: agent.id };
+    });
+    const council = new JudgeCouncil({ judges, rubric });
+    const running = council.judgeContent("Private input", "freeform", { signal: controller.signal });
+    const assertion = expect(running).rejects.toMatchObject({ name: "AbortError" });
+    expect(mocks.executeAgent).toHaveBeenCalledTimes(3);
+    controller.abort();
+    finish();
+    await assertion;
+  });
+
   it("aggregates valid provider verdicts and preserves model attribution", async () => {
     mocks.executeAgent
       .mockResolvedValueOnce({ content: verdictJson("for", 9, 4), agentId: "judge-a" })
@@ -111,14 +137,38 @@ describe("JudgeCouncil production orchestration", () => {
       degraded: true,
       failedJudges: ["judge-a", "judge-b"],
     });
-    expect(error).toHaveBeenCalledWith("Judge judge-a failed:", "provider unavailable");
-    expect(error).toHaveBeenCalledWith("Judge judge-b returned invalid response");
+    expect(error).toHaveBeenCalledWith("Judge request failed", { judgePosition: 1 });
+    expect(error).toHaveBeenCalledWith("Judge returned invalid response", { judgePosition: 2 });
     expect(warn).toHaveBeenCalledWith(
       "Only 1 judges returned valid verdicts (minimum: 2)",
     );
     expect(mocks.executeAgent.mock.calls[0][0].userPrompt).toContain(
       "argumentative article or essay",
     );
+  });
+
+  it("does not log vendor errors that echo private prompts or credentials", async () => {
+    const privateText = "Private prompt content must stay out of diagnostic logs.";
+    const error = vi.spyOn(console, "error").mockImplementation(() => undefined);
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    mocks.executeAgent.mockResolvedValue({
+      content: "",
+      agentId: "unused",
+      error: `Grok API error: HTTP 400: ${privateText} Authorization: Bearer fixture-provider-secret`,
+    });
+    const council = new JudgeCouncil({
+      judges: [{ ...judges[0], id: privateText }],
+      rubric,
+    });
+
+    await council.judgeContent(privateText);
+
+    expect(error).toHaveBeenCalledWith("Judge request failed", { judgePosition: 1 });
+    expect(warn).toHaveBeenCalledWith("Some judges failed", {
+      judgePositions: [1], returnedVerdicts: 0, totalJudges: 1,
+    });
+    expect(JSON.stringify([...error.mock.calls, ...warn.mock.calls]))
+      .not.toMatch(/Private prompt|fixture-provider-secret|Authorization/);
   });
 
   it("returns a stable empty aggregate when every judge fails", async () => {

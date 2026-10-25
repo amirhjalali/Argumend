@@ -133,7 +133,8 @@ export function useSavedTopicIds(): {
   ids: string[];
   hydrated: boolean;
   error: string | null;
-  remove: (topicId: string) => void;
+  /** Whether the updated list was saved, so callers can confirm the action. */
+  remove: (topicId: string) => boolean;
 } {
   const [ids, setIds] = useState<string[]>([]);
   const [hydrated, setHydrated] = useState(false);
@@ -160,18 +161,20 @@ export function useSavedTopicIds(): {
 
   const remove = useCallback((topicId: string) => {
     const normalizedTopicId = topicId.trim();
-    if (!normalizedTopicId) return;
+    if (!normalizedTopicId) return false;
     const result = readSaved();
     if (result.error) {
       setError(result.error);
-      return;
+      return false;
     }
     const next = result.ids.filter((id) => id !== normalizedTopicId);
     if (writeSaved(next)) {
       setIds(next);
       setError(null);
+      return true;
     } else {
       setError(STORAGE_ERROR);
+      return false;
     }
   }, []);
 

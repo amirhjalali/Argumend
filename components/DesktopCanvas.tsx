@@ -61,7 +61,7 @@ function accessibleName(node: DiagramNodeModel, model: DiagramModel): string {
     case "side":
       return `${node.heading} on ${node.lead}: ${node.label}`;
     case "evidence":
-      return `Evidence that ${node.side === "for" ? "supports" : "challenges"} the claim: ${node.label}`;
+      return `${node.sideLabel}: ${node.label}`;
   }
 }
 

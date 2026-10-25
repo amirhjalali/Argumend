@@ -25,6 +25,7 @@ import {
   type LegacyEvidenceItem,
 } from "@/lib/topicPage/legacy";
 import type { RunInText, SettleView, TopicHook } from "@/lib/topicPage/model";
+import { evidenceLabels } from "@/lib/mapNaming";
 
 export type DiagramSide = "supporters" | "skeptics";
 
@@ -78,6 +79,8 @@ export interface DiagramEvidenceNode {
   id: string;
   parentId: string;
   side: LegacyEvidenceItem["side"];
+  /** The page's label, naming the map's question when one is authored. */
+  sideLabel: string;
   /** The evidence card's title, as the page lists it. */
   label: string;
   description: string;
@@ -110,6 +113,7 @@ export const QUESTION_NODE_ID = "question";
 export function buildDiagram(topic: Topic): DiagramModel {
   const { page, cruxes } = legacyTopicPage(topic);
   const positions = new Map(page.positions.map((card) => [card.id, card]));
+  const labels = evidenceLabels(topic);
 
   const nodes: DiagramNode[] = [
     {
@@ -162,6 +166,7 @@ export function buildDiagram(topic: Topic): DiagramModel {
           id: `${sideId}--${item.id}`,
           parentId: sideId,
           side: item.side,
+          sideLabel: labels[item.side],
           label: item.title,
           description: item.description,
           source: item.source,
