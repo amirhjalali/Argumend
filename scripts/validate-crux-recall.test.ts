@@ -116,6 +116,16 @@ describe("evaluateNamedTest", () => {
       .toBe(false);
     expect(evaluateNamedTest({ id: "t", description: "", withinTopK: -1 }, ranked).pass).toBe(false);
   });
+
+  it("uses the unbounded ranking only for an explicitly unbounded named test", () => {
+    const full = [...ranked, "c-beyond-window"];
+    const named = { id: "t", description: "", claimId: "c-beyond-window", withinTopK: -1 };
+    expect(evaluateNamedTest(named, ranked, full)).toMatchObject({
+      pass: true,
+      claims: [{ claimId: "c-beyond-window", rank: 0, unboundedRank: 7 }],
+    });
+    expect(evaluateNamedTest({ ...named, withinTopK: 10 }, ranked, full).pass).toBe(false);
+  });
 });
 
 describe("describeMiss", () => {
@@ -134,7 +144,8 @@ describe("describeMiss", () => {
     expect(text).toContain(`scored top-${SCORED_WINDOW}`);
     expect(text).toContain(`c-near at rank 12 of the top-${RANK_LIMIT}`);
     expect(text).toContain(`c-far outside the top-${RANK_LIMIT} (rank 21 of 25 in the unbounded ranking)`);
-    expect(text).toContain("c-never never ranked");
+    expect(text).toContain("c-never absent from both rankings");
+    expect(text).not.toContain("not a crux candidate");
     expect(text).not.toContain("in top-15");
   });
 });
@@ -187,6 +198,23 @@ describe("ground truth file", () => {
       "c-mass-unemployment-definition-strict",
     ]);
     expect(outcome.spearman.n).toBe(4);
+  });
+
+  it("counts top-five recoveries in the cumulative Recall@10 metric", () => {
+    const spec = truth.topics["ai-mass-unemployment"]!;
+    const parsed = parseArgumentGraph(JSON.parse(readFileSync(spec.draft, "utf8")));
+    if (!parsed.ok) throw new Error("parse failed");
+    const ranked = scoreGraph("ai-mass-unemployment", spec, parsed.graph).rankedIds;
+    expect(ranked).toHaveLength(RANK_LIMIT);
+    const allRanked = scoreGraph("ai-mass-unemployment", {
+      ...spec,
+      propositions: ranked.map((claimId) => proposition(claimId, [claimId])),
+      namedTests: [],
+    }, parsed.graph);
+
+    expect(allRanked.recoveredAt5).toBe(5);
+    expect(allRanked.recoveredAt10).toBe(10);
+    expect(allRanked.misses).toHaveLength(RANK_LIMIT - SCORED_WINDOW);
   });
 });
 
