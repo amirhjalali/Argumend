@@ -1,5 +1,5 @@
 /**
- * Pre-registered crux-engine validation per docs/CRUX_ENGINE.md "Validation & acceptance".
+ * Whole-topic proxy for the pre-registered validation in docs/CRUX_ENGINE.md.
  *
  * Runs identifyCruxes over each flagship draft map and scores Recall@5 / Recall@10
  * against the human-identified disagreement propositions encoded in
@@ -48,7 +48,7 @@ export interface NamedTest {
   claimId?: string;
   /** Multi-claim form (named test 1): every listed claim must satisfy withinTopK. */
   claimIds?: string[];
-  /** -1 means "appears in the ranked output at all". */
+  /** -1 means "appears in the unbounded ranked output at all". */
   withinTopK: number;
 }
 
@@ -136,7 +136,9 @@ export interface TopicOutcome {
   rankedIds: string[];
   unboundedRankedIds: string[];
   mappedPropositions: number;
+  /** Number of mapped propositions recovered within the first five slots. */
   recoveredAt5: number;
+  /** Cumulative first-ten recovery, including the first five slots. */
   recoveredAt10: number;
   misses: Miss[];
   hardGateViolations: string[];
@@ -150,8 +152,8 @@ export function namedTestClaimIds(test: NamedTest): string[] {
 }
 
 /**
- * A named test passes only if every listed claim is ranked and, unless withinTopK
- * is -1, sits at or above that cutoff in the scored ranking.
+ * A named test passes only if every listed claim is within its scored cutoff.
+ * With withinTopK -1, every claim must instead appear in the unbounded ranking.
  */
 export function evaluateNamedTest(
   test: NamedTest,
@@ -165,8 +167,8 @@ export function evaluateNamedTest(
   }));
   const pass =
     claims.length > 0 &&
-    claims.every(({ rank }) =>
-      test.withinTopK === -1 ? rank > 0 : rank > 0 && rank <= test.withinTopK,
+    claims.every(({ rank, unboundedRank }) =>
+      test.withinTopK === -1 ? unboundedRank > 0 : rank > 0 && rank <= test.withinTopK,
     );
   return { id: test.id, pass, claims };
 }
@@ -271,7 +273,7 @@ export function scoreGraph(
   const misses: Miss[] = [];
   for (const proposition of mapped) {
     if (proposition.claimIds.some((id) => top5.has(id))) recoveredAt5 += 1;
-    else if (proposition.claimIds.some((id) => top10.has(id))) recoveredAt10 += 1;
+    if (proposition.claimIds.some((id) => top10.has(id))) recoveredAt10 += 1;
     else {
       misses.push({
         id: proposition.id,
@@ -353,7 +355,7 @@ export function describeClaimRank(claim: ClaimRank, unboundedTotal: number): str
   if (claim.unboundedRank > 0) {
     return `${claim.claimId} outside the top-${RANK_LIMIT} (rank ${claim.unboundedRank} of ${unboundedTotal} in the unbounded ranking)`;
   }
-  return `${claim.claimId} never ranked (not a crux candidate)`;
+  return `${claim.claimId} absent from both rankings (candidacy and selection both apply)`;
 }
 
 export function describeMiss(miss: Miss, unboundedTotal: number): string {
@@ -381,7 +383,10 @@ function main(): void {
 
   let failed = false;
 
-  console.log("=== Crux-engine pre-registered validation ===\n");
+  console.log("=== Crux-engine recall diagnostic (whole-topic proxy) ===\n");
+  console.log(`Scored windows: first 5 and 10 of each whole-topic top-${RANK_LIMIT} ranking, without public crux ledgers.`);
+  console.log("The targets were pre-registered per sub-question; this corpus has no sub-question partition.");
+  console.log("Limit-dependent redundancy means these windows need not match the served default top-5.\n");
   // Printed only when a lever is on, so the default run's output is unchanged.
   if (anyCruxLeverOn({ ...CRUX_LEVERS_OFF, ...levers, projectionSkipUncontested: false })) {
     console.log(`Engine levers (off-by-default, lib/crux/flags.ts): ${describeLevers(levers)}\n`);
@@ -392,7 +397,7 @@ function main(): void {
       `${outcome.topicId} [${outcome.set}] — ${outcome.mappedPropositions} mapped propositions`,
     );
     console.log(
-      `  Recall@5: ${outcome.recoveredAt5}/${outcome.mappedPropositions}  Recall@10(+misses beyond): ${outcome.recoveredAt10}/${outcome.mappedPropositions}`,
+      `  Recall@5: ${outcome.recoveredAt5}/${outcome.mappedPropositions}  Recall@10: ${outcome.recoveredAt10}/${outcome.mappedPropositions}`,
     );
     for (const miss of outcome.misses) {
       console.log(`  ${describeMiss(miss, unboundedTotal)}`);
@@ -429,14 +434,14 @@ function main(): void {
   const pooledAt5 = primary.reduce((sum, outcome) => sum + outcome.recoveredAt5, 0);
   const pooledAt10 = primary.reduce((sum, outcome) => sum + outcome.recoveredAt10, 0);
   const recall5 = pooledMapped === 0 ? 0 : pooledAt5 / pooledMapped;
-  const recall10 = pooledMapped === 0 ? 0 : (pooledAt5 + pooledAt10) / pooledMapped;
+  const recall10 = pooledMapped === 0 ? 0 : pooledAt10 / pooledMapped;
 
   console.log("=== Pooled primary recall ===");
   console.log(
     `  Recall@5:  ${pooledAt5}/${pooledMapped} = ${recall5.toFixed(3)}  (target >= ${truth.primaryRecallTargets.recallAt5})`,
   );
   console.log(
-    `  Recall@10: ${pooledAt5 + pooledAt10}/${pooledMapped} = ${recall10.toFixed(3)}  (target >= ${truth.primaryRecallTargets.recallAt10})`,
+    `  Recall@10: ${pooledAt10}/${pooledMapped} = ${recall10.toFixed(3)}  (target >= ${truth.primaryRecallTargets.recallAt10})`,
   );
 
   if (recall5 < truth.primaryRecallTargets.recallAt5) {
