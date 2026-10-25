@@ -18,17 +18,18 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-/** Replaces every participant label, longest first so "Ann Lee" goes before "Ann". */
+/** Replaces whole participant labels across case and equivalent Unicode spellings. */
 export function withoutNames(text: string, labels: readonly string[]): string {
-  return [...labels]
-    .map((label) => label.trim())
+  const names = [...labels]
+    .map((label) => label.trim().normalize("NFC"))
     .filter((label) => label.length > 0)
     .sort((a, b) => b.length - a.length)
-    .reduce(
-      (current, label) =>
-        current.replace(new RegExp(`(^|[^\\p{L}\\p{N}_])${escapeRegExp(label)}(?=$|[^\\p{L}\\p{N}_])`, "gu"), "$1one participant"),
-      text,
-    );
+    .map(escapeRegExp);
+  if (names.length === 0) return text;
+  // One pass avoids redacting our replacement again when a label is "one".
+  // Longest alternatives win, and combining marks stay inside word boundaries.
+  const pattern = new RegExp(`(^|[^\\p{L}\\p{N}\\p{M}_])(?:${names.join("|")})(?=$|[^\\p{L}\\p{N}\\p{M}_])`, "giu");
+  return text.normalize("NFC").replace(pattern, "$1one participant");
 }
 
 export function buildPasteSummary({
