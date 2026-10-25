@@ -17,6 +17,10 @@ export interface QuestionSearchItem {
   /** The name of the map the question belongs to (its question). */
   topicTitle: string;
   topicId: string;
+  /** Other names for the same policy or subject, shared with map search. */
+  topicAliases?: readonly string[];
+  /** Subject tags keep broad theme searches useful across question phrasings. */
+  topicTags?: readonly string[];
 }
 
 type Ranker<T> = (query: string) => (SearchableItem & { item: T })[];
@@ -40,7 +44,8 @@ function rankerFor<T extends QuestionSearchItem>(items: readonly T[]): Ranker<T>
         item.topicTitle,
         ...(phrasings.get(item.topicId) ?? []).filter((q) => q !== item.question),
       ].join(" | "),
-      aliases: item.topicId.replace(/-/g, " "),
+      aliases: [item.topicId.replace(/-/g, " "), ...(item.topicAliases ?? [])].join(" | "),
+      tags: item.topicTags?.join(" "),
       item,
     })),
   );

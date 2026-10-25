@@ -39,6 +39,7 @@ export function ClosestMaps({
                 {map.title}
               </span>
               <span className="mt-1 block font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+                <span className="font-medium">Examines: </span>
                 {map.claim}
               </span>
             </Link>

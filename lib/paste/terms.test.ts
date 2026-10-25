@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { pasteTerms, porterStem, termPairs } from "./terms";
+import { contiguousTermPairs, pasteTerms, porterStem, termPairs } from "./terms";
+import { fitsMapSubject } from "./mapSubjects";
 
 describe("porterStem", () => {
   it("matches the reference outputs of Porter (1980)", () => {
@@ -36,10 +37,33 @@ describe("pasteTerms", () => {
   it("keeps 'wrongful', which a map about wrongful convictions needs", () => {
     expect(pasteTerms("wrongful executions")).toEqual(["wrong", "execut"]);
   });
+
+  it("keeps numeric subject qualifiers without adding single digits to ranking", () => {
+    const terms = new Set(pasteTerms("A 4-day week and omega-3 supplements", { keepStopwords: true }));
+    expect(fitsMapSubject([["4", "day"]], terms)).toBe(true);
+    expect(fitsMapSubject([["5", "day"]], terms)).toBe(false);
+    expect(fitsMapSubject([["omega", "3"]], terms)).toBe(true);
+    expect(fitsMapSubject([["omega", "6"]], terms)).toBe(false);
+    expect(pasteTerms("4-day week")).not.toContain("4");
+  });
 });
 
 describe("termPairs", () => {
   it("pairs adjacent terms, skipping a word repeated in place", () => {
     expect(termPairs(["data", "center", "center", "power"])).toEqual(["data_center", "center_power"]);
+  });
+});
+
+describe("contiguousTermPairs", () => {
+  it("does not invent phrases across removed filler or sentence boundaries", () => {
+    expect(contiguousTermPairs("Childcare costs so much. Should the government pay?"))
+      .not.toContain("cost_govern");
+    expect(contiguousTermPairs("Is space worth the cost? Government-funded exploration."))
+      .not.toContain("cost_govern");
+  });
+
+  it("keeps adjacent subject phrases, abbreviations and inflections", () => {
+    expect(contiguousTermPairs("Rent controls and SMRs"))
+      .toEqual(["rent_control", "small_modular", "modular_reactor"]);
   });
 });

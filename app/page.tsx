@@ -17,7 +17,7 @@ import {
 
 const TITLE = "ARGUMEND — Find what the argument actually turns on";
 const DESCRIPTION =
-  "Most arguments are not about what they seem. Argumend maps the few questions a fight really turns on, and what would change each side's mind. It never names a winner.";
+  "Argumend maps the questions behind a disagreement, the evidence on each side, and what would change each side's mind. It never names a winner.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

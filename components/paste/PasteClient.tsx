@@ -8,12 +8,19 @@ import { DisagreementReportView } from "@/components/disagreement/DisagreementRe
 import { ShareReport } from "@/components/disagreement/ShareReport";
 import { ClosestMaps } from "@/components/mapReply/ClosestMaps";
 import { Button, PageContainer, PageHeader, TextAction, textActionClasses } from "@/components/ui";
+import { useIsHydrated } from "@/hooks/useMediaQuery";
 import { buildPasteConsentLine, formatProviderList } from "@/lib/aiProviders";
 import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { bandLabel, characterBucket, latencyBucket } from "@/lib/disagreement/labels";
 import { clearPastePrefill, readPastePrefill } from "@/lib/paste/handoff";
 import { minCharactersFor, PASTE_LIMITS } from "@/lib/paste/limits";
+import {
+  PasteDiagnosisResponseSchema,
+  PasteErrorResponseSchema,
+  PasteMapsResponseSchema,
+  PastePrefillSchema,
+} from "@/lib/paste/schemas";
 import { buildPasteSummary } from "@/lib/paste/summary";
 import type {
   PasteContentType,
@@ -26,6 +33,7 @@ import type { DisagreementReportV1 } from "@/types/disagreement";
 import { HowThisWasRead, ReadingNote } from "./HowThisWasRead";
 import { MapMatch, MapNoMatch } from "./MapResult";
 import { NextStep } from "./NextStep";
+import { EMPTY_CONVERSATION_NOTES, ReadItYourself, type ConversationNotes } from "./ReadItYourself";
 
 /**
  * The one paste flow at /analyze.
@@ -34,7 +42,7 @@ import { NextStep } from "./NextStep";
  * this component only renders what they return, in one document:
  *
  * 1. the diagnosis of the pasted text, when that lane is on;
- * 2. "This argument is already mapped": the map, its crux, the best card on
+ * 2. "This argument is already mapped": the map, its crux, evidence to explore on
  *    each side, or an honest "no map" with the closest maps;
  * 3. the next step: open the map at the crux, copy a summary, and the
  *    north-star question;
@@ -64,11 +72,51 @@ type DiagnosisState =
     }
   | { status: "failed"; message: string };
 
+interface WorkingPaste {
+  configuration: string;
+  content: string;
+  contentType: PasteContentType;
+  phase: Phase;
+  error: string;
+  maps: PasteMapsResult | null;
+  mapsError: string;
+  diagnosis: DiagnosisState;
+  inputOpen: boolean;
+  submitted: string;
+  notes: ConversationNotes;
+  notesForText: string;
+}
+
+// One working argument in this document's memory, never browser storage or
+// history state. Client effects are the only writers, so SSR holds no text.
+let workingPaste: WorkingPaste | null = null;
+
+export function clearWorkingPaste() {
+  workingPaste = null;
+}
+
 function toContentType(value: unknown): PasteContentType {
   if (value === "conversation" || value === "article" || value === "freeform") return value;
   // The legacy analyzer called a conversation a "transcript".
   if (value === "transcript") return "conversation";
   return "freeform";
+}
+
+/** Our endpoints send Retry-After as whole seconds. Unknown values keep a general retry hint. */
+function limitedReadingMessage(response: Response, action: "map searches" | "full readings"): string | null {
+  if (response.status !== 429) return null;
+  const header = response.headers.get("Retry-After");
+  const seconds = header && /^\d+$/.test(header) ? Number(header) : NaN;
+  let retry = "Try again later.";
+  if (Number.isSafeInteger(seconds) && seconds > 0 && seconds <= 86_400) {
+    // Round up so the displayed minute does not send someone back too soon.
+    const retryAt = new Date(Math.ceil((Date.now() + seconds * 1000) / 60_000) * 60_000);
+    const when = new Intl.DateTimeFormat(undefined, {
+      month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
+    }).format(retryAt);
+    retry = `Try again after ${when}.`;
+  }
+  return `This connection has reached the limit for ${action}. ${retry}`;
 }
 
 async function fetchMaps(
@@ -83,11 +131,15 @@ async function fetchMaps(
       body: JSON.stringify({ content, contentType }),
       signal,
     });
-    const data = (await response.json()) as { maps?: PasteMapsResult; error?: string };
-    if (!response.ok || !data.maps) {
-      return { error: data.error || "The maps could not be searched just now." };
+    const limited = limitedReadingMessage(response, "map searches");
+    if (limited) return { error: limited };
+    const data: unknown = await response.json();
+    const parsed = PasteMapsResponseSchema.safeParse(data);
+    if (!response.ok || !parsed.success) {
+      const failure = PasteErrorResponseSchema.safeParse(data);
+      return { error: (failure.success && failure.data.error) || "The maps could not be searched just now." };
     }
-    return { maps: data.maps };
+    return { maps: parsed.data.maps };
   } catch {
     return { error: "The maps could not be searched just now. Check your connection and try again." };
   }
@@ -101,21 +153,23 @@ async function fetchDiagnosis(content: string, contentType: PasteContentType, si
       body: JSON.stringify({ content, contentType }),
       signal,
     });
-    const data = (await response.json()) as {
-      report?: DisagreementReportV1;
-      graph?: ArgumentGraph;
-      execution?: { model?: string; promptVersion?: string; latencyMs?: number };
-      publishing?: { token?: string; unavailableReason?: string };
-      error?: string;
-      code?: string;
-    };
-    // A decoded response can still arrive after reset or navigation.
-    // Cancelled work must not report a completed or failed analysis.
+    // Cancelled requests must not record a completion or failure, even when
+    // a response arrived before the browser handled the cancellation.
     signal.throwIfAborted();
-    if (!response.ok || !data.report || !data.graph) {
-      trackEvent({ action: "disagreement_analysis_failed", errorCode: data.code || "INTERNAL_ERROR" });
-      return { status: "failed", message: data.error || "The reading failed." };
+    const limited = limitedReadingMessage(response, "full readings");
+    if (limited) {
+      trackEvent({ action: "disagreement_analysis_failed", errorCode: "RATE_LIMITED" });
+      return { status: "failed", message: limited };
     }
+    const raw: unknown = await response.json();
+    signal.throwIfAborted();
+    const parsed = PasteDiagnosisResponseSchema.safeParse(raw);
+    if (!response.ok || !parsed.success) {
+      const failure = PasteErrorResponseSchema.safeParse(raw);
+      trackEvent({ action: "disagreement_analysis_failed", errorCode: (failure.success && failure.data.code) || "INTERNAL_ERROR" });
+      return { status: "failed", message: (failure.success && failure.data.error) || "The reading failed." };
+    }
+    const data = parsed.data;
     trackEvent({
       action: "disagreement_analysis_completed",
       diagnosisPattern: data.report.diagnosis.pattern,
@@ -152,13 +206,13 @@ function mapReadingLine(reading: PasteMapReading): string {
   const times = (value: number | null) => (value === null ? "without limit" : `${value.toFixed(1)} times`);
   const lead =
     reading.rivalScore === null
-      ? "No map on a different subject shares a word with it."
+      ? "No eligible map on a different subject competes with it."
       : `The best map on a different subject scores ${formatScore(reading.rivalScore)}: a lead of ${times(reading.lead)}, and ${times(reading.exclusiveLead)} on the words where the two differ.`;
   const coverage =
     reading.coverage === null ? "" : ` The best match accounts for ${Math.round(reading.coverage * 100)}% of your words.`;
   return [
     `Best match ${formatScore(reading.topScore)}. ${lead}${coverage}`,
-    `A map is named only when it leads every map on a different subject by ${reading.minLead} times, and by ${reading.minExclusiveLead} times on the words where they differ, with a score of at least ${reading.minScore} (or, for a short text, ${Math.round(reading.minCoverage * 100)}% of its words). Maps on the same subject are shown as closely related rather than counted against it. With no map named, the closest maps are listed only when several maps on one subject share much of your text; a word or two in common is not enough.`,
+    `A map is named only when it leads every eligible map on a different subject by ${reading.minLead} times, and by ${reading.minExclusiveLead} times on the words where they differ, with a score of at least ${reading.minScore} (or, for a short text, ${Math.round(reading.minCoverage * 100)}% of its words). A map can be ruled out if the paste lacks its subject language. Maps grouped on the same subject do not count against it; related links still need a name or subject cue from your text. With no map named, closest maps are leads to explore, not a confirmed match. Subject checks can remove an unrelated leader while retaining a finalist with enough overlap and a name or subject cue.`,
     `These are keyword scores, comparable within one paste only. Took ${reading.matchMs} ms.`,
   ].join(" ");
 }
@@ -180,6 +234,7 @@ function diagnosisReadLine(
 }
 
 export function PasteClient({ lanes }: { lanes: PasteLanes }) {
+  const hydrated = useIsHydrated();
   const diagnosisLane = lanes.diagnosis;
   const diagnosisOn = diagnosisLane.enabled;
   const providerIds = diagnosisLane.enabled ? diagnosisLane.providerIds : [];
@@ -199,18 +254,67 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   const [step, setStep] = useState(0);
   // The text as submitted: the box can be edited again before the next submit.
   const [submitted, setSubmitted] = useState("");
+  const [conversationNotes, setConversationNotes] = useState(EMPTY_CONVERSATION_NOTES);
+  const notesForText = useRef("");
+  const configuration = JSON.stringify(lanes);
+  const previousConfiguration = useRef(configuration);
+  const [readyFor, setReadyFor] = useState<string | null>(null);
 
   const runRef = useRef(0);
   const requestRef = useRef<AbortController | null>(null);
   const resultsRef = useRef<HTMLElement>(null);
+  const recoveryRef = useRef<HTMLElement>(null);
   const textareaWrapRef = useRef<HTMLDivElement>(null);
+  const editRequested = useRef(false);
+  const attachInput = useCallback((node: HTMLDivElement | null) => {
+    textareaWrapRef.current = node;
+    if (node && editRequested.current) {
+      editRequested.current = false;
+      node.querySelector("textarea")?.focus();
+    }
+  }, []);
+
+  const resetForm = useCallback((type: PasteContentType = "conversation") => {
+    setContent("");
+    setContentType(type);
+    setPhase("idle");
+    setError("");
+    setMaps(null);
+    setMapsError("");
+    setDiagnosis({ status: "off" });
+    setInputOpen(true);
+    setSubmitted("");
+    setConversationNotes(EMPTY_CONVERSATION_NOTES);
+    notesForText.current = "";
+  }, []);
+
+  const restoreWorkingPaste = useCallback((saved: WorkingPaste) => {
+    setContent(saved.content);
+    setContentType(saved.contentType);
+    setPhase(saved.phase === "loading" ? "idle" : saved.phase);
+    setError(saved.error);
+    setMaps(saved.maps);
+    setMapsError(saved.mapsError);
+    setDiagnosis(saved.diagnosis.status === "loading"
+      ? { status: "failed", message: "The reading was interrupted when you left. Submit again to retry it." }
+      : saved.diagnosis);
+    setInputOpen(saved.phase === "loading" || saved.inputOpen);
+    setSubmitted(saved.submitted);
+    setConversationNotes(saved.notes);
+    notesForText.current = saved.notesForText;
+  }, []);
 
   const trimmedLength = content.trim().length;
   const tooShort = trimmedLength < minChars;
+  const tooLong = content.length > PASTE_LIMITS.maxCharacters;
 
   const submit = useCallback(
     async (text: string, type: PasteContentType) => {
-      if (text.trim().length < minChars) return;
+      if (text.trim().length < minChars || text.length > PASTE_LIMITS.maxCharacters) return;
+      if (text !== notesForText.current) {
+        setConversationNotes(EMPTY_CONVERSATION_NOTES);
+        notesForText.current = text;
+      }
       const run = ++runRef.current;
       requestRef.current?.abort();
       const controller = new AbortController();
@@ -275,40 +379,69 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   // here. Read it in a microtask, and remove it only once it is used, so
   // Strict Mode's double effect cannot drop it.
   useEffect(() => {
+    runRef.current += 1;
     let cancelled = false;
+    requestRef.current?.abort();
+    requestRef.current = null;
     const raw = readPastePrefill();
-    if (!raw) return;
+    const saved = workingPaste;
     queueMicrotask(() => {
       if (cancelled) return;
+      const changed = previousConfiguration.current !== configuration;
+      previousConfiguration.current = configuration;
+      setReadyFor(configuration);
+      if (!raw) {
+        if (saved?.configuration === configuration) restoreWorkingPaste(saved);
+        else {
+          clearWorkingPaste();
+          if (changed) resetForm();
+        }
+        return;
+      }
+      clearWorkingPaste();
       clearPastePrefill();
-      let parsed: { content?: unknown; contentType?: unknown };
+      let data: unknown;
       try {
-        parsed = JSON.parse(raw as string) as typeof parsed;
+        data = JSON.parse(raw as string);
       } catch {
         return;
       }
-      if (typeof parsed.content !== "string" || !parsed.content.trim()) return;
-      // The home box has no length limit; this one does.
-      const text = parsed.content.slice(0, PASTE_LIMITS.maxCharacters);
+      const prefill = PastePrefillSchema.safeParse(data);
+      if (!prefill.success || !prefill.data.content.trim()) return;
+      const parsed = prefill.data;
+      // Keep the whole draft, including handoffs from older entry points.
+      const text = parsed.content;
       const type = toContentType(parsed.contentType);
       setContent(text);
       setContentType(type);
-      if (autoSubmitAllowed && text.trim().length >= minChars) {
+      if (autoSubmitAllowed && text.trim().length >= minChars && text.length <= PASTE_LIMITS.maxCharacters) {
         void submit(text, type);
       } else {
         // A lane that sends text somewhere waits for the visitor to read the
         // consent line and press the button.
         window.setTimeout(() => {
-          const button = document.getElementById(SUBMIT_ID);
-          button?.scrollIntoView({ block: "center" });
-          button?.focus({ preventScroll: true });
+          const target = text.trim().length < minChars || text.length > PASTE_LIMITS.maxCharacters
+            ? textareaWrapRef.current?.querySelector("textarea")
+            : document.getElementById(SUBMIT_ID);
+          target?.scrollIntoView({ block: "center" });
+          target?.focus({ preventScroll: true });
         }, 50);
       }
     });
     return () => {
       cancelled = true;
     };
-  }, [autoSubmitAllowed, minChars, submit]);
+  }, [autoSubmitAllowed, configuration, minChars, resetForm, restoreWorkingPaste, submit]);
+
+  useEffect(() => {
+    if (readyFor !== configuration) return;
+    workingPaste = {
+      configuration, content, contentType, phase, error, maps, mapsError,
+      diagnosis, inputOpen, submitted, notes: conversationNotes,
+      notesForText: notesForText.current,
+    };
+  }, [configuration, readyFor, content, contentType, phase, error, maps, mapsError,
+    diagnosis, inputOpen, submitted, conversationNotes]);
 
   useEffect(() => {
     if (diagnosis.status !== "loading") return;
@@ -317,33 +450,33 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   }, [diagnosis.status]);
 
   useEffect(() => {
-    if (phase !== "done") return;
-    const region = resultsRef.current;
+    if (phase !== "done" && phase !== "error") return;
+    const region = phase === "error" ? recoveryRef.current : resultsRef.current;
     if (!region) return;
     region.focus({ preventScroll: true });
-    // The input has just collapsed into one line, so the result starts on
-    // the first screen: go back to the top rather than aiming at the region,
-    // which overshot under the sticky top bar. AppShell's <main> can own the
-    // scroll, so reset whichever element does.
     const reduce =
       typeof window.matchMedia === "function" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const behavior: ScrollBehavior = reduce ? "auto" : "smooth";
+    if (phase === "error") {
+      region.scrollIntoView?.({ block: "start", behavior });
+      return;
+    }
+    // The input has just collapsed into one line, so the result starts on
+    // the first screen: go back to the top rather than aiming at the region,
+    // which overshot under the sticky top bar. AppShell's <main> can own the
+    // scroll, so reset whichever element does.
     const main = region.closest("main");
     if (main && main.scrollHeight > main.clientHeight) main.scrollTo?.({ top: 0, behavior });
     window.scrollTo?.({ top: 0, behavior });
   }, [phase]);
 
   function startOver() {
+    clearWorkingPaste();
     runRef.current += 1;
     requestRef.current?.abort();
     requestRef.current = null;
-    setPhase("idle");
-    setMaps(null);
-    setMapsError("");
-    setDiagnosis({ status: "off" });
-    setContent("");
-    setInputOpen(true);
+    resetForm(contentType);
     trackEvent({ action: "disagreement_analyze_another", surface: "session" });
     window.setTimeout(() => {
       textareaWrapRef.current?.querySelector("textarea")?.focus();
@@ -352,6 +485,9 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const done = phase === "done";
   const busy = phase === "loading";
+  // Early edits can be replaced when React takes over this controlled input.
+  // Wait for its handlers before accepting a draft.
+  const inputDisabled = busy || !hydrated;
   const consent = buildPasteConsentLine(providerIds);
   const match = maps?.match ?? null;
   const related = match ? (maps?.related ?? []) : [];
@@ -360,6 +496,14 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
   // With no map, the "read it yourself" guide stands in for the diagnosis:
   // always when that lane is off, and when it is on but did not run.
   const showGuide = !diagnosisOn || diagnosis.status === "failed";
+  const hasNotes = Object.values(conversationNotes).some((value) => value.trim());
+  const notesGuide = (
+    <ReadItYourself
+      text={submitted}
+      diagnosisOn={false}
+      notesState={{ value: conversationNotes, onChange: setConversationNotes }}
+    />
+  );
 
   // What a screen reader hears when the result lands. Focus moves to the
   // result region too, but "Result, region" alone does not say what came back.
@@ -380,7 +524,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
             .join(" ")
         : maps
           ? [
-              "Result below. No map matches it, rather than a wrong one.",
+              "Result below. No map stood out for this text.",
               maps.status === "closest" ? "The closest maps are listed." : "",
               showGuide ? "Then three questions to read it yourself." : "",
             ]
@@ -391,7 +535,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const lede = diagnosisOn
     ? "Paste a conversation, an article or your own draft. Argumend separates what the sides agree on from what they don’t, finds the question it turns on, and takes you to the map that lays out both sides’ best evidence."
-    : "Paste a conversation, an article or your own draft. Argumend finds the map it is already on, the question it turns on, and the strongest evidence on each side.";
+    : "Paste a conversation, an article or your own draft. Find a map with questions and evidence on each side, or write conversation notes with a guide built around three questions.";
 
   return (
     <PageContainer width="default">
@@ -419,14 +563,17 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           <p className="font-sans text-sm text-muted">
             Your text, {submitted.length.toLocaleString("en-US")} characters
           </p>
-          <TextAction onClick={() => setInputOpen(true)}>Edit</TextAction>
+          <TextAction onClick={() => {
+            editRequested.current = true;
+            setInputOpen(true);
+          }}>Edit</TextAction>
         </div>
       ) : (
-        <div ref={textareaWrapRef} className={`max-w-3xl space-y-6 ${done ? "mt-8" : ""}`}>
+        <div ref={attachInput} className={`max-w-3xl space-y-6 ${done ? "mt-8" : ""}`}>
           <AnalyzeInput
             content={content}
             contentType={contentType}
-            disabled={busy}
+            disabled={inputDisabled}
             onContentChange={setContent}
             onTypeChange={setContentType}
             label="The argument to read"
@@ -434,6 +581,10 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
           {/* The disclosure sits at the click, and names the lane that will run. */}
           <AiConsentLine id={CONSENT_ID} consent={consent} className="max-w-[36rem]" />
+          <p className="max-w-[36rem] text-xs leading-relaxed text-muted dark:text-stone-400">
+            Your current draft and notes stay in this tab while you explore maps.
+            Reload or choose Paste another to clear them.
+          </p>
 
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             <Button
@@ -441,12 +592,12 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
               size="lg"
               onClick={() => void submit(content, contentType)}
               aria-describedby={CONSENT_ID}
-              disabled={busy || tooShort}
+              disabled={inputDisabled || tooShort || tooLong}
             >
               Find what it turns on
             </Button>
             <TextAction
-              disabled={busy}
+              disabled={inputDisabled}
               onClick={() => {
                 setContentType("conversation");
                 setContent(DISAGREEMENT_EXAMPLE_SOURCE);
@@ -479,13 +630,24 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
       ) : null}
 
       {phase === "error" ? (
-        <div role="alert" className="mt-8 max-w-3xl space-y-2 border-l-2 border-[var(--text-muted)] pl-4">
-          <p className="text-[var(--text-primary)]">{error}</p>
+        <section ref={recoveryRef} tabIndex={-1} aria-label="Continue with your argument" className="mt-8 max-w-3xl scroll-mt-24 space-y-4 focus:outline-none">
+          <div role="alert" className="space-y-2 border-l-2 border-[var(--text-muted)] pl-4">
+            <p className="text-[var(--text-primary)]">{error}</p>
+            <p className="font-sans text-sm text-[var(--text-secondary)]">
+              Your draft is still here. You can retry, browse maps or work through the argument yourself.
+            </p>
+          </div>
           <div className="flex flex-wrap gap-x-5">
-            <TextAction onClick={() => void submit(content, contentType)}>Try again</TextAction>
+            <TextAction disabled={inputDisabled || tooShort || tooLong} onClick={() => void submit(content, contentType)}>Try again</TextAction>
             <TextAction href="/topics">Browse every map</TextAction>
           </div>
-        </div>
+          <details open={hasNotes}>
+            <summary className="min-h-11 cursor-pointer py-2.5 font-sans text-sm text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#8bb5b1]">
+              Work through it yourself
+            </summary>
+            <div className="mt-4">{notesGuide}</div>
+          </details>
+        </section>
       ) : null}
 
       {done ? (
@@ -533,7 +695,8 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
                 maps={maps}
                 text={submitted}
                 diagnosisOn={diagnosisOn}
-                guide={showGuide}
+                guide={showGuide || hasNotes}
+                notesState={{ value: conversationNotes, onChange: setConversationNotes }}
               />
             )
           ) : mapsError ? (
@@ -547,6 +710,15 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
           ) : null}
 
           {match ? <ClosestMaps title="Closest other maps" level={2} maps={maps?.closest ?? []} /> : null}
+
+          {(match || !maps) && hasNotes ? (
+            <details>
+              <summary className="min-h-11 cursor-pointer py-2.5 font-sans text-sm text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#8bb5b1]">
+                Your conversation notes
+              </summary>
+              <div className="mt-4">{notesGuide}</div>
+            </details>
+          ) : null}
 
           <div className="space-y-6">
             {diagnosis.status === "done" && diagnosis.publishing?.token ? (

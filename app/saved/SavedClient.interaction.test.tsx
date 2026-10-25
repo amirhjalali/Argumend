@@ -34,11 +34,12 @@ describe("SavedClient keyboard removal", () => {
   ])("moves focus after removing saved map $removed", async ({ removed, next }) => {
     const view = render(<SavedClient />);
     const buttons = view.getAllByRole("button", { name: /from saved$/ });
+    const nextLink = view.container.querySelector<HTMLAnchorElement>(`a[href="/topics/${SAVED_MAPS[next]}"]`);
     buttons[removed].focus();
 
     fireEvent.click(buttons[removed]);
 
-    await waitFor(() => expect(document.activeElement).toBe(buttons[next]));
+    await waitFor(() => expect(document.activeElement).toBe(nextLink));
     expect(view.getAllByRole("button", { name: /from saved$/ })).toHaveLength(2);
     expect(JSON.parse(window.localStorage.getItem(SAVED_TOPICS_KEY) ?? "[]"))
       .toEqual(SAVED_MAPS.filter((_, index) => index !== removed));
@@ -52,7 +53,7 @@ describe("SavedClient keyboard removal", () => {
 
     fireEvent.click(remove);
 
-    const empty = view.getByRole("heading", { name: "Nothing saved yet" });
+    const empty = view.getByRole("link", { name: "Browse maps" });
     await waitFor(() => expect(document.activeElement).toBe(empty));
     expect(window.localStorage.getItem(SAVED_TOPICS_KEY)).toBe("[]");
   });

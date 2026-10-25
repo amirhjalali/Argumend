@@ -15,6 +15,7 @@ import { getAllQuestionVariations } from "@/lib/questions";
 import type { Topic } from "@/lib/schemas/topic";
 import type { MapDocument } from "./mapIndex";
 import { mapDisplayTitle } from "@/lib/mapNaming";
+import { MAP_SUBJECT_ANCHORS } from "./mapSubjects";
 
 /** The reader-facing phrasings for each topic, from the two search catalogues. */
 function phrasingsByTopic(): Map<string, string[]> {
@@ -45,6 +46,7 @@ export function pillarMapDocument(topic: Topic, phrasings: readonly string[] = [
     claim: topic.meta_claim,
     kind: "map",
     ...(topic.notAbout?.length ? { notAbout: topic.notAbout } : {}),
+    ...(MAP_SUBJECT_ANCHORS[topic.id] ? { subjectAnchors: MAP_SUBJECT_ANCHORS[topic.id] } : {}),
     fields: {
       name: present([topic.title, topic.question, topic.id.replace(/-/g, " "), ...phrasings, ...(topic.aliases ?? [])]),
       claim: present([
@@ -85,6 +87,7 @@ async function flagshipDocument(entry: (typeof argumentTopicIndex)[number]): Pro
     title: meta.title,
     claim: graph.question.statement,
     kind: "flagship",
+    ...(MAP_SUBJECT_ANCHORS[entry.id] ? { subjectAnchors: MAP_SUBJECT_ANCHORS[entry.id] } : {}),
     fields: {
       name: present([meta.title, graph.question.statement, entry.id.replace(/-/g, " "), ...entry.aliases]),
       claim: present([

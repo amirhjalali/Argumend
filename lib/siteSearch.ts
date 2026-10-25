@@ -32,6 +32,10 @@
  *      them. Weak results (a name holding under half the query, or a query
  *      word no map uses at all) are capped at `MAX_WEAK_RESULTS`, and when
  *      no name answers more than half the query only the best is listed.
+ *      When a name covers a whole multiword query, other listed names must
+ *      cover it too, so "rent control" does not also list "gun control".
+ *      A recognized subject tag also admits results holding every query word
+ *      across their fields; broad category searches keep the ordinary ranking.
  *
  * Pure and client-safe: no data imports; the caller supplies the items.
  */
@@ -123,6 +127,9 @@ export function noMapLine(query: string): string {
 export function searchTerms(text: string): string[] {
   return searchWords(text).map((word) => word.term);
 }
+
+// Category-level searches remain broad even when one title uses both words.
+const CATEGORY_QUERY_TERMS = new Set(searchTerms("policy economics economic economy science technology tech philosophy"));
 
 /**
  * Typos forgiven in a query word the index has never seen: none for short
@@ -270,6 +277,10 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
   ms.addAll(items as readonly SearchableItem[] as SearchableItem[]);
   const byId = new Map(items.map((item) => [item.id, item]));
   const runsById = new Map(items.map((item) => [item.id, nameRuns(item)]));
+  const tagsById = new Map(items.map((item) => [item.id, new Set(
+    (item.tags ?? "").split(/\s+/).map((tag) => searchTerms(tag).join(" ")),
+  )]));
+  const tagQueries = new Set([...tagsById.values()].flatMap((tags) => [...tags]));
 
   const vocabulary = new Set<string>();
   for (const item of items) {
@@ -333,6 +344,8 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
       }
     }
     const unknownWord = queryWords.some((word) => word.unknown);
+    const allWordCount = new Set(queryWords.map((word) => word.term)).size;
+    const queryKey = queryWords.map((word) => word.term).join(" ");
     // A result has to hold at least half of what was typed.
     const needed = Math.ceil(queryWords.length / 2);
     const scored = ms
@@ -355,6 +368,7 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
         }
         if (held.size < needed) return [];
         const { coverage, phrase } = nameCoverage(queryWords, runsById.get(item.id) ?? []);
+        const exactTag = tagsById.get(item.id)?.has(queryKey) ?? false;
         // A query word no map uses, and a name that holds none of the rest:
         // nothing ties this result to what was asked.
         if (unknownWord && coverage === 0) return [];
@@ -364,15 +378,28 @@ export function createSiteSearch<T extends SearchableItem>(items: readonly T[]):
           (0.25 + coverage) ** 2 *
           (phrase ? 2 : 1) *
           (item.flagship && coverage === 1 ? FLAGSHIP_LIFT : 1);
-        return [{ item, score, weak: unknownWord || coverage < 0.5, answers: !unknownWord && coverage > 0.5 }];
+        return [{
+          item, score,
+          weak: unknownWord || (coverage < 0.5 && !exactTag),
+          answers: !unknownWord && (coverage > 0.5 || exactTag),
+          completeName: !unknownWord && coverage === 1,
+          complete: held.size >= allWordCount,
+        }];
       });
     scored.sort((a, b) => b.score - a.score);
+    // Once a name answers the whole query, a shared generic word alone is
+    // noise: "AI jobs" should not list every AI map and every jobs map.
+    const specificQuery = queryWords.some((word) => !CATEGORY_QUERY_TERMS.has(word.term));
+    const tagQuery = tagQueries.has(queryKey);
+    const relevant = allWordCount > 1 && specificQuery && scored.some((result) => result.completeName)
+      ? scored.filter((result) => result.completeName || (tagQuery && result.complete))
+      : scored;
     // When no name answers more than half of what was typed ("legalize
     // weed", "school vouchers": every map found holds one of the two words),
     // the best guess is listed, not a pile of them (r9 review #13).
-    if (!scored.some((result) => result.answers)) return scored.slice(0, 1).map(({ item }) => item);
+    if (!relevant.some((result) => result.answers)) return relevant.slice(0, 1).map(({ item }) => item);
     let weak = 0;
-    return scored
+    return relevant
       .filter((result) => !result.weak || (weak += 1) <= MAX_WEAK_RESULTS)
       .map(({ item }) => item);
   };

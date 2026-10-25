@@ -19,7 +19,7 @@ export const argumentTopicIndex = [
     id: REGISTERED_ARGUMENT_TOPIC_IDS[0],
     title: "Will AI cause mass unemployment?",
     tagline:
-      "Employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers while unemployment sat near 4%. Which number matters? The whole fight in five questions.",
+      "The November 2025 Stanford/ADP study found young workers' employment in AI-exposed jobs down 16% relative to less-exposed peers. Its August 2026 update estimates 19%. Is AI responsible?",
     aliases: [
       "artificial intelligence job loss",
       "AI jobs automation employment workforce",

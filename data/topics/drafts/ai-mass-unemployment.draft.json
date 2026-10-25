@@ -55,7 +55,7 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "summary": "Early-career workers in AI-exposed jobs are down 16% since 2022. Believers say that's the front edge of a crisis, not a blip."
+   "summary": "A November 2025 study finds young workers' relative employment down 16% in the most AI-exposed jobs. This camp sees a crisis beginning."
   },
   {
    "id": "p-automation-panic-redux",
@@ -114,7 +114,7 @@
    "statement": "Early-career workers in the most AI-exposed occupations have experienced a relative employment decline since 2022.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "Two independently designed studies using different data (ADP payroll microdata; Census Quarterly Workforce Indicators) and different methods both find a double-digit relative decline for 22-25-year-olds in AI-exposed occupations, but both cover a short post-treatment window, the Stanford team's own broadest-controls specification pushes significant timing to 2024, and Strada's 2026 employer survey reports mixed expectations rather than a one-way collapse.",
+   "statusBasis": "Independent studies using ADP payroll microdata (ages 22-25) and Census Quarterly Workforce Indicators (ages 22-24) find double-digit relative employment declines in highly AI-exposed work. Both cover short windows. Stanford's broadest controls push significant timing to 2024, and Census finds evidence of earlier trend shifts around COVID, so the decline alone cannot establish AI causation.",
    "attributedTo": [
     "Brynjolfsson",
     "Chandar",
@@ -238,10 +238,10 @@
   {
    "id": "c-aggregate-unemployment-normal",
    "type": "claim",
-   "statement": "U.S. aggregate unemployment stayed below 4.5% through mid-2026, while labor-force participation declined from 62.3% to 61.5% between December 2022 and June 2026.",
+   "statement": "The BLS reported U.S. unemployment of 4.2% and labor-force participation of 61.5% in June 2026. Participation fell 0.3 percentage point that month.",
    "epistemicType": "empirical",
    "status": "uncontested",
-   "statusBasis": "Direct BLS unemployment and labor-force-participation series show no strict U-3 mass-unemployment crisis through June 2026, but the participation decline means the macro record should not be summarized as simply normal under broader labor-market definitions.",
+   "statusBasis": "The archived June 2026 BLS release reports both figures and the monthly participation decline. These aggregate measures do not identify AI causation, and a low unemployment rate alone does not establish that workers are doing well under broader definitions.",
    "tags": [
     "macro",
     "aggregate",
@@ -700,10 +700,10 @@
   {
    "id": "c-productivity-above-trend",
    "type": "claim",
-   "statement": "U.S. nonfarm business labor productivity growth from 2024 through mid-2026 has been running well above its 2005-2019 trend, consistent with AI-driven productivity gains already appearing in the aggregate data.",
+   "statement": "U.S. nonfarm business labor productivity grew faster in the business cycle beginning in late 2019 than in the previous cycle. AI could be contributing, but the aggregate figures do not identify its share.",
    "epistemicType": "empirical",
    "status": "contested",
-   "statusBasis": "The raw productivity figures (3.0% in 2024, 2.1% in 2025, 2.2% year-over-year in 2026 Q2, versus a roughly 1.4-1.5% 2005-2019 trend) are uncontested BLS data, but whether three-plus years running about 50% above trend represents an AI-driven acceleration, or ordinary cyclical variation, is itself disputed.",
+   "statusBasis": "The August 2026 BLS release reports 2.2% growth from the same quarter a year earlier, and 2.1% annualized growth from the fourth quarter of 2019 through the second quarter of 2026, versus 1.5% in the prior business cycle. These are different time windows. The AI-attributable share remains disputed.",
    "tags": [
     "productivity-paradox",
     "macro"
@@ -1290,10 +1290,10 @@
   {
    "id": "c-ai-increases-output-per-worker",
    "type": "claim",
-   "statement": "Randomized trials of AI coding and consulting assistance find AI increases individual worker output and task-completion rates.",
+   "statement": "Randomized studies of AI coding tools have found task-completion gains in some settings and slower completion in others.",
    "epistemicType": "empirical",
    "status": "broadly_accepted",
-   "statusBasis": "Multiple independent randomized trials (a 4,867-developer study at Microsoft, Accenture, and a Fortune 100 company finding +26.08% completed tasks; a BCG consultant trial finding faster, higher-quality work inside the AI's capability frontier) converge on this, though they measure productivity, not employer headcount decisions.",
+   "statusBasis": "Three field experiments across 4,867 developers report a pooled 26.08% increase in completed tasks. METR's early-2025 trial with 16 experienced developers and 246 tasks reports 19% longer completion. These findings concern tasks in studied settings, rather than employer headcount decisions.",
    "tags": [
     "productivity",
     "rct"
@@ -1416,7 +1416,7 @@
     "independence": 7,
     "replicability": 6,
     "directness": 8,
-    "weightBasis": "Large administrative payroll dataset (ADP) with firm-time controls, but the research lab's flagship finding is the result under dispute and it is not yet independently replicated by a separate team; the follow-up defending the finding comes from the same authors."
+    "weightBasis": "Large administrative payroll dataset (ADP) with firm-time controls. The follow-up comes from the same authors. Independent Census evidence using a different dataset finds a comparable early-career decline, but is not an exact replication of the ADP design, and neither study alone establishes AI causation."
    },
    "provenance": {
     "origin": "extracted",
@@ -1460,7 +1460,7 @@
   {
    "id": "e-census-qwi-12pct",
    "type": "evidence",
-   "finding": "Using Quarterly Workforce Indicators, early-career workers aged 22-24 in the most AI-exposed industry-state cells show a 12% regression-adjusted employment decline over 10 quarters after ChatGPT's release, driven by lower hiring.",
+   "finding": "Using Quarterly Workforce Indicators, early-career workers aged 22-24 in the most AI-exposed industry-state cells show a 12% regression-adjusted employment decline over 10 quarters after ChatGPT's release, driven by lower hiring. The paper also finds evidence of earlier trend shifts around COVID, leaving competing explanations for part of the decline.",
    "source": {
     "title": "Census Working Paper CES-WP-26-27",
     "url": "https://www.census.gov/library/working-papers/2026/adrm/CES-WP-26-27.html",
@@ -1469,13 +1469,13 @@
     "kind": "government",
     "verification": "verified-live"
    },
-   "relevance": "An independent data source and method (QWI industry-state cells versus ADP payroll microdata) converging on a comparable early-career decline, strengthening the displacement-now case beyond a single study.",
+   "relevance": "An independent dataset and method find a comparable early-career decline. Earlier trend shifts and possible remote-work and education effects limit how confidently the decline can be attributed to AI.",
    "weight": {
     "sourceReliability": 9,
     "independence": 9,
     "replicability": 7,
     "directness": 8,
-    "weightBasis": "Federal statistical agency working paper using administrative QWI data, methodologically independent of the Stanford/ADP study yet converging on a similar magnitude; independence and government sourcing make this among the most load-bearing nodes in the causal-attribution dispute."
+    "weightBasis": "Federal statistical agency working paper using independent administrative QWI data. Its comparable decline strengthens the descriptive employment evidence, but earlier trend shifts around COVID and competing explanations limit causal attribution to AI."
    },
    "provenance": {
     "origin": "extracted",
@@ -1484,7 +1484,7 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "statement": "Using Quarterly Workforce Indicators, early-career workers aged 22-24 in the most AI-exposed industry-state cells show a 12% regression-adjusted employment decline over 10 quarters after ChatGPT's release, driven by lower hiring."
+   "statement": "Using Quarterly Workforce Indicators, early-career workers aged 22-24 in the most AI-exposed industry-state cells show a 12% regression-adjusted employment decline over 10 quarters after ChatGPT's release, driven by lower hiring. The paper also finds evidence of earlier trend shifts around COVID, leaving competing explanations for part of the decline."
   },
   {
    "id": "e-signalfire-2026",
@@ -1569,7 +1569,7 @@
   {
    "id": "e-klarna-700-agents",
    "type": "evidence",
-   "finding": "Klarna's OpenAI-powered assistant handled 2.3 million conversations in one month, two-thirds of customer-service chats, doing the equivalent work of 700 full-time agents and cutting average resolution time from 11 minutes to under 2 minutes.",
+   "finding": "Klarna reported that its OpenAI-powered assistant handled 2.3 million conversations in one month, two-thirds of customer-service chats, with workload equivalent to 700 full-time agents and average resolution time falling from 11 minutes to under 2 minutes. These are company claims, not audited job losses.",
    "source": {
     "title": "Klarna AI assistant handles two-thirds of customer service chats in its first month",
     "url": "https://www.prnewswire.co.uk/news-releases/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month-302072744.html",
@@ -1578,7 +1578,7 @@
     "interest": "Klarna press release promoting its own AI deployment.",
     "verification": "verified-live"
    },
-   "relevance": "The most-cited customer-support displacement example; often quoted as proof of AI-driven headcount cuts, though it is a workload-equivalence figure from a company's own press release.",
+   "relevance": "A company-reported workload equivalence, not measured headcount cuts. It is consistent with either labor substitution or expanded service and cannot distinguish those outcomes by itself.",
    "weight": {
     "sourceReliability": 3,
     "independence": 2,
@@ -1593,57 +1593,62 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "statement": "Klarna's OpenAI-powered assistant handled 2.3 million conversations in one month, two-thirds of customer-service chats, doing the equivalent work of 700 full-time agents and cutting average resolution time from 11 minutes to under 2 minutes."
+   "statement": "Klarna reported that its OpenAI-powered assistant handled 2.3 million conversations in one month, two-thirds of customer-service chats, with workload equivalent to 700 full-time agents and average resolution time falling from 11 minutes to under 2 minutes. These are company claims, not audited job losses."
   },
   {
    "id": "e-microsoft-accenture-rct",
    "type": "evidence",
-   "finding": "A randomized trial across Microsoft, Accenture, and a Fortune 100 company covering 4,867 developers finds AI coding assistants increased completed tasks by 26.08%, with larger gains among less experienced developers.",
+   "finding": "Pooled results from three randomized field experiments involving 4,867 developers estimate 26.08% more completed tasks with AI coding assistance (standard error: 10.3%). Results vary across experiments, and less-experienced developers show larger gains.",
    "source": {
     "title": "The Effects of Generative AI on High-Skilled Work",
     "url": "https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2025.00535",
     "institution": "Management Science",
     "kind": "peer-reviewed",
-    "verification": "verified-live"
+    "verification": "verified-live",
+    "publishedAt": "2026-02-27",
+    "verifiedAt": "2026-10-18",
+    "interest": "The experiments were run by the participating companies. Two coauthors were affiliated with Microsoft Research; the paper acknowledges MIT GenAI Initiative funding for two authors."
    },
-   "relevance": "The strongest available randomized evidence that AI raises individual output per worker; serves as the premise evidence for the productivity-to-headcount generalization inference.",
+   "relevance": "Provides experimental evidence of coding-assistance gains in these settings. It measures developer output, rather than how firms change hiring or staffing.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-flagship-draft-v1",
-    "sourceRef": "a-empirical-record.md \u00a73 Directly Exposed Sectors"
+    "sourceRef": "a-empirical-record.md §3 Directly Exposed Sectors"
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "statement": "A randomized trial across Microsoft, Accenture, and a Fortune 100 company covering 4,867 developers finds AI coding assistants increased completed tasks by 26.08%, with larger gains among less experienced developers."
+   "statement": "Pooled results from three randomized field experiments involving 4,867 developers estimate 26.08% more completed tasks with AI coding assistance (standard error: 10.3%). Results vary across experiments, and less-experienced developers show larger gains."
   },
   {
    "id": "e-metr-dev-slowdown-rct",
    "type": "evidence",
-   "finding": "METR's randomized trial of 16 experienced open-source developers on 246 real tasks found AI access increased completion time by 19%, showing productivity gains are not universal and may depend on task familiarity, codebase complexity, and review burden.",
+   "finding": "With early-2025 tools, 16 experienced open-source developers took 19% longer when allowed AI on 246 tasks in repositories they knew well. The study does not establish effects for most developers or newer tools.",
    "source": {
-    "title": "AI coding tools may not speed up every developer, study shows",
-    "url": "https://techcrunch.com/2025/07/11/ai-coding-tools-may-not-speed-up-every-developer-study-shows/",
-    "institution": "METR (reported via TechCrunch)",
-    "kind": "journalism",
+    "title": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity",
+    "url": "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/",
+    "institution": "METR",
+    "kind": "institutional",
     "interest": "METR is an AI-safety-funded evaluation nonprofit with access and partnership relationships with OpenAI and Anthropic; METR's public materials state it accepts no payment for evaluations, but the funding and the circles it moves in are disclosed here as a possible bias.",
-    "verification": "verified-live"
+    "verification": "verified-live",
+    "publishedAt": "2025-07-10",
+    "verifiedAt": "2026-10-18"
    },
-   "relevance": "Directly undercuts the generalization from other productivity RCTs to broad headcount-reducing conclusions: a comparably rigorous randomized trial found the opposite sign for experienced developers on real, unfamiliar codebases.",
+   "relevance": "Qualifies extrapolation from productivity gains to broad hiring reductions: experienced developers working on familiar projects saw a slowdown in this early-2025 setting.",
    "weight": {
     "sourceReliability": 8,
     "independence": 6,
     "replicability": 7,
     "directness": 7,
-    "weightBasis": "Randomized design on real open-source tasks with experienced developers is methodologically strong and directly comparable to the Microsoft/Accenture trial it is used to qualify; independence is moderate given METR's evaluation-partnership relationships with frontier labs, disclosed per the corpus's source-hygiene addendum."
+    "weightBasis": "Task-level randomization in mature repositories supports this within-study comparison. Generalization is limited by the small experienced-developer sample, its familiar projects, and early-2025 tools."
    },
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-flagship-draft-v1",
-    "sourceRef": "a-empirical-record.md \u00a73 Directly Exposed Sectors"
+    "sourceRef": "a-empirical-record.md §3 Directly Exposed Sectors"
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "statement": "METR's randomized trial of 16 experienced open-source developers on 246 real tasks found AI access increased completion time by 19%, showing productivity gains are not universal and may depend on task familiarity, codebase complexity, and review burden."
+   "statement": "With early-2025 tools, 16 experienced open-source developers took 19% longer when allowed AI on 246 tasks in repositories they knew well. The study does not establish effects for most developers or newer tools."
   },
   {
    "id": "e-acemoglu-tfp-modest",
@@ -2244,13 +2249,13 @@
     "kind": "institutional",
     "verification": "verified-live"
    },
-   "relevance": "The national-scale evaluation grounding the claim that generic U.S. retraining programs show modest-to-negative earnings effects for participants.",
+   "relevance": "A national evaluation of assistance for trade-displaced workers, relevant by analogy to AI displacement. It tests this program, rather than establishing that retraining in general fails.",
    "weight": {
     "sourceReliability": 8,
     "independence": 8,
     "replicability": 7,
-    "directness": 8,
-    "weightBasis": "National random-assignment-adjacent evaluation commissioned to assess a specific federal program with no commercial stake in the outcome; high directness because it directly measures the policy tool (retraining) most often proposed as the AI-displacement remedy."
+    "directness": 6,
+    "weightBasis": "National evaluation using propensity-score matched comparison workers, not random assignment. The source has no commercial stake, but unobserved differences may remain. Directness is limited because it studies a specific program for trade-displaced workers, not workers displaced by AI."
    },
    "provenance": {
     "origin": "extracted",
@@ -2272,7 +2277,7 @@
     "kind": "institutional",
     "verification": "verified-live"
    },
-   "relevance": "Shows that better-targeted case-management and intensive-services programs can outperform generic retraining, supporting the claim that program design and funding, not retraining per se, determine effectiveness.",
+   "relevance": "Randomized evidence supports staff-assisted intensive services. Training results were inconclusive, so this study alone does not establish that case management outperforms retraining or that either will offset AI displacement.",
    "provenance": {
     "origin": "extracted",
     "modelId": "sonnet-flagship-draft-v1",
@@ -2748,17 +2753,48 @@
    "statement": "The 2025 ILO-NASK refined global index finds that globally about 25% of employment is in occupations with some GenAI exposure, high-income countries are at 34%, and Gradient 4 highest-exposure jobs are 9.6% of female employment in high-income countries versus 3.5% of male employment, roughly a 2.7x ratio."
   },
   {
+   "id": "e-bls-employment-june-2026",
+   "type": "evidence",
+   "finding": "The July 2, 2026 BLS release reports June unemployment at 4.2% and labor-force participation at 61.5%. Participation fell 0.3 percentage point from May. The release cautions that annual population-control adjustments affect comparisons over time.",
+   "source": {
+    "title": "BLS Employment Situation, June 2026",
+    "url": "https://www.bls.gov/news.release/archives/empsit_07022026.htm",
+    "institution": "U.S. Bureau of Labor Statistics",
+    "publishedAt": "2026-07-02",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-10-18"
+   },
+   "relevance": "Supports the dated unemployment and participation figures used as common ground. Neither measure identifies how much AI caused, and unemployment excludes people outside the labor force.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "https://www.bls.gov/news.release/archives/empsit_07022026.htm"
+   },
+   "createdAt": "2026-10-18T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 10,
+    "independence": 10,
+    "replicability": 10,
+    "directness": 8,
+    "weightBasis": "Official BLS household-survey measures are reliable and replicable for this dated observation. Directness is lower because aggregate labor-market indicators cannot attribute changes to AI."
+   },
+   "statement": "The July 2, 2026 BLS release reports June unemployment at 4.2% and labor-force participation at 61.5%. Participation fell 0.3 percentage point from May. The release cautions that annual population-control adjustments affect comparisons over time."
+  },
+  {
    "id": "e-bls-macro-series",
    "type": "evidence",
-   "finding": "BLS macro series show U-3 unemployment at 3.5% in December 2022, 3.7% in December 2023, 4.1% in December 2024, 4.4% in December 2025, and 4.2% in June 2026; labor-force participation declined from 62.3% in December 2022 to 61.5% in June 2026; nonfarm business labor productivity rose 3.0% in 2024, 2.1% in 2025, and 2.2% year over year in 2026 Q2, versus a roughly 1.4-1.5% pre-2020 trend.",
+   "finding": "The August 2026 BLS release reports nonfarm business labor productivity up 2.2% from the same quarter a year earlier. Growth averaged 2.1% at an annualized rate from the fourth quarter of 2019 through the second quarter of 2026, versus 1.5% in the previous business cycle, from the fourth quarter of 2007 through the fourth quarter of 2019.",
    "source": {
-    "title": "BLS Employment Situation and Productivity Series",
-    "url": "https://www.bls.gov/news.release/empsit.htm",
+    "title": "BLS Productivity and Costs, Second Quarter 2026, Preliminary",
+    "url": "https://www.bls.gov/news.release/archives/prod2_08062026.htm",
     "institution": "U.S. Bureau of Labor Statistics",
     "kind": "government",
-    "verification": "verified-live"
+    "verification": "verified-live",
+    "publishedAt": "2026-08-06",
+    "verifiedAt": "2026-10-18"
    },
-   "relevance": "Provides the aggregate macro evidence for both the no-strict-mass-unemployment claim and the above-trend-productivity counter-reading.",
+   "relevance": "Establishes measured aggregate productivity growth and the comparison periods. It does not estimate the share caused by AI.",
    "provenance": {
     "origin": "curator",
     "modelId": "fairness-fix-v1",
@@ -2766,13 +2802,13 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "statement": "BLS macro series show U-3 unemployment at 3.5% in December 2022, 3.7% in December 2023, 4.1% in December 2024, 4.4% in December 2025, and 4.2% in June 2026; labor-force participation declined from 62.3% in December 2022 to 61.5% in June 2026; nonfarm business labor productivity rose 3.0% in 2024, 2.1% in 2025, and 2.2% year over year in 2026 Q2, versus a roughly 1.4-1.5% pre-2020 trend.",
+   "statement": "The August 2026 BLS release reports nonfarm business labor productivity up 2.2% from the same quarter a year earlier. Growth averaged 2.1% at an annualized rate from the fourth quarter of 2019 through the second quarter of 2026, versus 1.5% in the previous business cycle, from the fourth quarter of 2007 through the fourth quarter of 2019.",
    "weight": {
     "sourceReliability": 10,
     "independence": 10,
     "replicability": 10,
     "directness": 8,
-    "weightBasis": "Official BLS macro series are highly reliable and replicable for unemployment, participation, and productivity; directness is lower only because these aggregate indicators cannot attribute changes specifically to AI."
+    "weightBasis": "Official BLS output-per-hour measures are reliable and replicable. Directness is lower because aggregate growth does not identify an AI contribution."
    }
   },
   {
@@ -3277,7 +3313,7 @@
    "from": "e-metr-dev-slowdown-rct",
    "to": "i-productivity-rct-generalization",
    "type": "undercuts",
-   "note": "A comparably rigorous randomized trial found AI access increased completion time by 19% for experienced developers on unfamiliar real codebases, breaking the generalization from other productivity RCTs to a uniform headcount-reduction conclusion."
+   "note": "A randomized study found a 19% slowdown with early-2025 tools on developers' familiar repositories, qualifying any inference of uniform productivity gains."
   },
   {
    "id": "edge-024",
@@ -3632,7 +3668,7 @@
    "from": "e-klarna-700-agents",
    "to": "c-firms-cut-hiring-not-output",
    "type": "evidences",
-   "polarity": "supporting"
+   "polarity": "qualifying"
   },
   {
    "id": "edge-079",
@@ -4087,7 +4123,7 @@
   },
   {
    "id": "edge-145",
-   "from": "e-bls-macro-series",
+   "from": "e-bls-employment-june-2026",
    "to": "c-aggregate-unemployment-normal",
    "type": "evidences",
    "polarity": "supporting"
@@ -4173,6 +4209,13 @@
    "id": "edge-157",
    "from": "e-sffed-productivity-regime-2026",
    "to": "c-productivity-above-trend",
+   "type": "evidences",
+   "polarity": "qualifying"
+  },
+  {
+   "id": "edge-158",
+   "from": "e-metr-dev-slowdown-rct",
+   "to": "c-ai-increases-output-per-worker",
    "type": "evidences",
    "polarity": "qualifying"
   }

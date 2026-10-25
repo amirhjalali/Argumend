@@ -2,23 +2,23 @@
 
 import { useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useIsHydrated } from "@/hooks/useMediaQuery";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { savePastePrefill } from "@/lib/paste/handoff";
+import { PASTE_LIMITS } from "@/lib/paste/limits";
 import { PAGE_GUTTER } from "@/components/ui/PageContainer";
 
-interface HeroAnalyzeProps {
-  onTopicSelect: (id: string) => void;
-}
-
-export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps) {
+export function HeroAnalyze() {
+  const hydrated = useIsHydrated();
   const router = useRouter();
   const [content, setContent] = useState("");
   const [contentType] = useState("freeform");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const tooLong = content.length > PASTE_LIMITS.maxCharacters;
 
   const handleAnalyze = useCallback(() => {
-    if (!content.trim()) return;
+    if (!content.trim() || content.length > PASTE_LIMITS.maxCharacters) return;
     // /analyze reads this once and, when nothing leaves the server, submits
     // it straight away (lib/paste/handoff.ts): one press, not two.
     savePastePrefill({ content, contentType });
@@ -46,7 +46,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
     [content, handleAnalyze]
   );
 
-  const ready = content.trim().length > 0;
+  const ready = hydrated && content.trim().length > 0 && !tooLong;
 
   // Same left edge, rule and heading scale as the other home sections. The
   // submit button is ink rather than rust: the page keeps rust for its one
@@ -64,7 +64,7 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
           </h2>
           <p className="mt-4 max-w-md text-base leading-relaxed text-secondary dark:text-stone-400">
             Paste an article, a thread, or your own draft. See which map it is already on,
-            the question it turns on, and the strongest evidence on each side.
+            the question it turns on, and cited evidence to explore.
           </p>
         </div>
 
@@ -72,18 +72,30 @@ export function HeroAnalyze({ onTopicSelect: _onTopicSelect }: HeroAnalyzeProps)
           <textarea
             ref={textareaRef}
             value={content}
-            onChange={(e) => setContent(e.target.value)}
+            disabled={!hydrated}
+            onChange={(e) => {
+              setContent(e.target.value);
+            }}
             onKeyDown={handleKeyDown}
             placeholder="Paste text here"
             aria-label="Text to analyze"
+            aria-invalid={tooLong || undefined}
+            aria-describedby={tooLong ? "home-paste-error" : undefined}
             rows={6}
             className="block min-h-[9rem] w-full resize-y rounded-lg border border-stone-300/80 bg-card px-4 py-3 text-base leading-relaxed text-primary dark:text-stone-200 placeholder:text-muted transition-colors focus:border-deep/50 sm:text-[0.9375rem] focus:outline-none focus:ring-2 focus:ring-focus dark:border-divider"
           />
+
+          {tooLong ? (
+            <p id="home-paste-error" role="alert" className="mt-3 text-sm leading-relaxed text-primary dark:text-stone-200">
+              Shorten your text to {PASTE_LIMITS.maxCharacters.toLocaleString("en-US")} characters or fewer so the whole argument can be read. Your draft is still here.
+            </p>
+          ) : null}
 
           <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
             <button
               type="button"
               onClick={handleTryExample}
+              disabled={!hydrated}
               className="inline-flex min-h-11 items-center rounded-lg text-sm font-medium text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-[#8bb5b1] dark:decoration-[#8bb5b1]/40"
             >
               Try an example

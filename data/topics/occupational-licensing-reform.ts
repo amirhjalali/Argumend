@@ -2,6 +2,11 @@ export const occupationalLicensingReformData = {
   id: "occupational-licensing-reform",
   title: "Occupational Licensing Reform",
   question: "Does occupational licensing do more economic harm than good?",
+  aliases: [
+    "Job licensing requirements",
+    "Government licenses to work in a trade",
+    "Licenses for hair braiding and beauty salons",
+  ],
   meta_claim:
     "Occupational licensing does more economic harm than good and should be rolled back.",
   status: "contested" as const,

@@ -85,8 +85,8 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         alt: "Two crowds of office workers stand on opposite sides of a widening crack in the ground; one side's floor stays level, the other tilts away.",
       },
       tagline:
-        "Employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers while unemployment sat near 4%. Which number matters? The whole fight in five questions.",
-      hook: "Among 22–25-year-olds in the most AI-exposed occupations, employment fell 16% relative to less-exposed peers since late 2022, after controlling for firm-level shocks — while overall U.S. unemployment sat near 4%. Both numbers are real. The fight is over what they mean.",
+        "The November 2025 Stanford/ADP study found young workers' employment in AI-exposed jobs down 16% relative to less-exposed peers. Its August 2026 update estimates 19%. Is AI responsible?",
+      hook: "The November 2025 Stanford/ADP study found employment among 22–25-year-olds in the most AI-exposed occupations down 16% relative to less-exposed peers. Its August 2026 update estimates 19%, while finding no widespread economy-wide displacement. The authors call these descriptive patterns, not causal estimates. The fight is over what they mean.",
       contextNote:
         "“AI-exposed” means jobs whose everyday tasks overlap most with what current AI systems do — software, clerical, customer service, analysis.",
       tldr: "This is three fights in a trench coat: whether AI is what broke entry-level hiring (the data can't yet say), whether the harm arrives as unemployment or as worse jobs (history mostly says worse jobs), and who gets to set the pace of deployment (no dataset settles that). Five questions carry almost all of it.",
@@ -119,7 +119,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       },
       shareCard: {
         left: { value: "4.2%", label: "U.S. unemployment, June 2026 — still far below a mass-unemployment threshold" },
-        right: { value: "−16%", label: "Relative employment change for ages 22–25 in the most AI-exposed occupations since late 2022" },
+        right: { value: "−16%", label: "Relative employment change for ages 22–25 in the most AI-exposed occupations, November 2025 study" },
         line: "Both numbers are true. The whole fight is the gap between them.",
         attribution: "BLS · Stanford Digital Economy Lab / ADP — argumend.org",
       },
@@ -127,7 +127,7 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         {
           fact: "−16%",
           context:
-            "Relative employment decline for 22–25-year-olds in the most AI-exposed jobs since late 2022 — while U-3 unemployment stayed near 4%.",
+            "The November 2025 Stanford/ADP study estimates a 16% employment decline relative to less-exposed peers. Its August 2026 update estimates 19%; neither estimate alone establishes AI causation.",
           source: "Stanford Digital Economy Lab / ADP payroll data",
         },
         {
@@ -150,14 +150,14 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
         },
       ],
       closer: {
-        heading: "All four camps accept both numbers. They disagree about which one is the story.",
+        heading: "The same numbers can support different readings. Attribution is the live disagreement.",
         splits: [
           { camp: "Yes — it's already starting", reading: "the −16% employment decline is the leading edge; the 4.2% is a lagging average that will catch up." },
-          { camp: "No — we've panicked before", reading: "the 4.2% is the story; the −16% is a confounded slice, half of it predating ChatGPT." },
+          { camp: "No — we've panicked before", reading: "the 4.2% is the story; the relative employment decline has competing explanations. Separately, much of the tech job-postings decline predates ChatGPT." },
           { camp: "Not fewer jobs — worse ones", reading: "both are true and both miss it — the damage shows up in wages and career ladders, which neither number tracks." },
           { camp: "Wrong question — who decides?", reading: "neither number settles anything; deployment terms are set in contracts and law, not forecasts." },
         ],
-        take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers since late 2022. Both are real. Which one you think is the story is which camp you're in — and the honest answer is that firm-level data to settle attribution doesn't exist yet.",
+        take: "Unemployment is near 4% and employment among 22–25-year-olds in the most AI-exposed occupations fell 16% relative to less-exposed peers since late 2022. Firm-level studies now track AI adoption and staffing, but neither observation establishes how much AI caused.",
       },
       takeaways: [
         "Employment among early-career workers in AI-exposed jobs fell ~16% relative to less-exposed peers — but nearly half the tech-postings collapse happened before ChatGPT existed. Attribution is the live fight, not the decline itself.",
@@ -167,15 +167,15 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
       cruxNotes: {
         "c-firms-cut-hiring-not-output": {
           fight:
-            "Everyone agrees AI makes some teams faster. Nobody has the firm-level data showing what bosses then do with the slack — hire fewer, or sell more.",
+            "Firm surveys already track AI use and staffing, and most users report augmenting tasks. The open question is when productivity gains lead to fewer hires, more output, or different jobs.",
           soWhat:
             "If it's “hire fewer,” the displacement case gains its mechanism. If it's “sell more,” the historical pattern holds and the jobs can come back somewhere else.",
         },
         "c-targeted-programs-can-help": {
           fight:
-            "America's flagship retraining program left participants earning less than workers who got nothing. Defenders say that indicts the design, not the idea — better-funded, employer-linked programs do show gains.",
+            "A matched comparison of Trade Adjustment Assistance participants found lower earnings than among otherwise similar workers ineligible for that program. Other evaluations find gains from intensive services and some employer-linked programs, but AI-specific results remain uncertain.",
           soWhat:
-            "If serious retraining works, displacement is a budget problem. If it doesn't, the main proposed remedy cannot carry the load.",
+            "Effective programs could reduce transition costs. Whether they work at the scale and pace of AI displacement depends on access, design, labor demand, and funding.",
         },
         "c-displaced-workers-can-retrain-costlessly": {
           fight:

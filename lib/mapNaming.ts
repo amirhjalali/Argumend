@@ -23,6 +23,12 @@ export function mapDisplayTitle(map: NamedMap): string {
   return map.question?.trim() || map.title;
 }
 
+/** Public descriptions frame the question, rather than assert one side's claim. */
+export function mapDescription(map: NamedMap, questionCount: number): string {
+  const questions = questionCount === 1 ? "question" : `${questionCount} questions`;
+  return `${mapDisplayTitle(map)} Explore the ${questions} it turns on, evidence on each side, and what would change a mind.`;
+}
+
 /**
  * The words for a pillar map's two sides.
  *

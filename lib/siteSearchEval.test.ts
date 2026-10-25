@@ -103,6 +103,8 @@ const questionItems = getAllQuestionVariations(topicSummaries).map((variation) =
     question: variation.question,
     topicTitle: mapDisplayTitle(topic),
     topicId: variation.topicId,
+    topicAliases: topic.aliases,
+    topicTags: topic.tags,
   };
 });
 const topicsWithQuestions = new Set(questionItems.map((item) => item.topicId));
@@ -158,6 +160,64 @@ function report(label: string, rows: Row[]) {
 }
 
 describe("the site-search eval set", () => {
+  it.each([
+    { query: "rent control", expected: "rent-control-effectiveness", unrelated: ["gun-control-effectiveness", "nuclear-proliferation-new-arms-race"], surfaces: ["palette", "library", "questions"] as Surface[] },
+    { query: "nuclear power", expected: "nuclear-energy-safety", unrelated: ["nuclear-weapons-abolition"], surfaces: ["palette", "library", "questions"] as Surface[] },
+    { query: "AI jobs", expected: "ai-mass-unemployment", unrelated: ["minimum-wage-effects", "ai-content-labeling"], surfaces: ["palette", "library"] as Surface[] },
+  ])("keeps $query results on the requested subject when a name answers the whole query", ({ query, expected, unrelated, surfaces }) => {
+    for (const surface of surfaces) {
+      const results = RUNNERS[surface](query);
+      expect(results[0], surface).toBe(expected);
+      for (const id of unrelated) expect(results, surface).not.toContain(id);
+    }
+  });
+
+  it("keeps broad category searches available", () => {
+    for (const [surface, search] of Object.entries(RUNNERS)) {
+      expect(search("economic policy").length, surface).toBeGreaterThan(0);
+    }
+    expect(palette("economic policy").length).toBeGreaterThan(1);
+  });
+
+  it("keeps several public-health topics discoverable through their shared subject tag", () => {
+    for (const [surface, search] of Object.entries(RUNNERS)) {
+      const results = search("public health");
+      for (const id of ["vaccine-mandates", "vaping-harm-reduction", "alcohol-no-safe-level", "sex-work-decriminalization"]) {
+        expect(results, surface).toContain(id);
+      }
+    }
+  });
+
+  it.each([
+    "should landlords limit rent increases",
+    "should rent hikes be capped",
+    "does rent stabilization help tenants",
+  ])("finds the rent-control map by everyday policy wording: %s", (query) => {
+    for (const [surface, search] of Object.entries(RUNNERS)) {
+      expect(search(query)[0], surface).toBe("rent-control-effectiveness");
+    }
+  });
+
+  it.each([
+    "road pricing",
+    "downtown driving charges",
+    "city center entry fees",
+    "motorist charges on central streets",
+  ])("finds congestion pricing by its road-charge names: %s", (query) => {
+    for (const [surface, search] of Object.entries(RUNNERS)) {
+      expect(search(query)[0], surface).toBe("congestion-pricing");
+    }
+  });
+
+  it.each([
+    "school vaccination requirements",
+    "required childhood immunizations",
+  ])("finds vaccine mandates by its everyday names: %s", (query) => {
+    for (const [surface, search] of Object.entries(RUNNERS)) {
+      expect(search(query)[0], surface).toBe("vaccine-mandates");
+    }
+  });
+
   it("is big enough and labelled with maps that exist", () => {
     const all = [...SETS.dev, ...SETS.holdout];
     expect(SETS.dev.length).toBeGreaterThanOrEqual(40);

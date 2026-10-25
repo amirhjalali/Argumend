@@ -6,7 +6,7 @@
  * It asks which question would change the reader's mind, then shows what
  * would settle that question, the strongest card on each side of it (so
  * whichever answer the reader holds, the other side's best card is in front of
- * them), and a link to open the crux on the page: the tap leads somewhere.
+ * them), plus actions to open the crux or copy the question for a conversation.
  * Then it asks whether the map changed what they thought they were arguing
  * about: the north star's question, asked of the reader about themselves,
  * with the same control the paste result uses (./ChangedQuestion).
@@ -17,6 +17,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { TextAction, textActionClasses } from "@/components/ui";
 import { SOURCE_LINK, SettleAnswer } from "@/components/topic/cruxPrimitives";
+import { QuestionTakeaway } from "@/components/paste/NextStep";
 import type { ChangedAnswer } from "@/lib/changedQuestion";
 import type { SettleView, StrongestCard } from "@/lib/topicPage/model";
 import {
@@ -126,6 +127,21 @@ function OtherSideCards({ cards }: { cards: readonly StrongestCard[] }) {
   );
 }
 
+/** A conversation starter with a stable link back to the picked question. */
+function QuestionToTakeBack({ topicId, picked }: { topicId: string; picked: ReflectionOption }) {
+  return (
+    <QuestionTakeaway
+      question={picked.label}
+      href={`/topics/${topicId}#${picked.id}`}
+      leadingAction={(
+        <a href={`#${picked.id}`} onClick={() => openCrux(picked.id)} className={textActionClasses()}>
+          Open this crux
+        </a>
+      )}
+    />
+  );
+}
+
 /** What the announcement says appeared under the options after a pick. */
 function shownBelow(picked: ReflectionOption | undefined): string {
   const parts = picked
@@ -134,9 +150,11 @@ function shownBelow(picked: ReflectionOption | undefined): string {
         picked.strongest?.length ? "the strongest card on each side" : "",
       ].filter(Boolean)
     : [];
-  if (parts.length === 0) return "One more question below";
+  if (parts.length === 0) {
+    return picked ? "The question is ready to open or copy below, then one more question" : "One more question below";
+  }
   const shown = parts.join(" and ");
-  return `${shown.charAt(0).toUpperCase()}${shown.slice(1)} ${parts.length > 1 ? "are" : "is"} shown below, with a link to open this crux, then one more question`;
+  return `${shown.charAt(0).toUpperCase()}${shown.slice(1)} ${parts.length > 1 ? "are" : "is"} shown below, with a link to open this crux or copy the question, then one more question`;
 }
 
 export function CruxReflection({
@@ -224,7 +242,7 @@ export function CruxReflection({
         })}
       </ul>
 
-      {picked && (picked.settle || picked.strongest?.length) ? (
+      {picked ? (
         <div className="mt-5 border-t border-stone-200 pt-1 dark:border-[var(--border-divider)]">
           {picked.settle ? (
             <SettleAnswer
@@ -235,14 +253,8 @@ export function CruxReflection({
               label={picked.settle.label}
             />
           ) : null}
+          <QuestionToTakeBack key={`${topicId}:${picked.id}`} topicId={topicId} picked={picked} />
           {picked.strongest?.length ? <OtherSideCards cards={picked.strongest} /> : null}
-          <a
-            href={`#${picked.id}`}
-            onClick={() => openCrux(picked.id)}
-            className={textActionClasses("mt-3")}
-          >
-            Open this crux
-          </a>
         </div>
       ) : null}
 

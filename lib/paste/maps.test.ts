@@ -5,8 +5,9 @@ import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import type { Pillar } from "@/lib/schemas/topic";
 import { EXPECTED_MAP_COUNT } from "./mapDocuments";
 import type { RankedMap } from "./mapIndex";
-import { decideMatch, findMaps, getMapIndex, MAP_MATCH, pickPillars } from "./maps";
-import { ASSISTED_LIVING_PASTE, NUCLEAR_PASTE } from "./testPastes";
+import { decideMatch, evidenceForPaste, findMaps, getMapIndex, MAP_MATCH, pickPillars } from "./maps";
+import { ASSISTED_LIVING_PASTE, LEGACY_NUCLEAR_EXAMPLE, NUCLEAR_PASTE } from "./testPastes";
+import { PasteMapsResultSchema } from "./schemas";
 
 /**
  * A ranking with the given scores. Every word of the paste is scored, so
@@ -53,6 +54,24 @@ function pillar(id: string, text: string): Pillar {
   };
 }
 
+describe("evidence reading suggestions", () => {
+  const broad = { id: "shared-id", title: "A general review of water supply", description: "A review covering several supply technologies." };
+  const focused = { id: "shared-id", title: "Wastewater reuse in agriculture", description: "An evaluation of treatment and reuse for irrigation." };
+  const fields = (item: typeof broad) => ({ name: [item.title], body: [item.description], evidence: [] });
+
+  it("surfaces the relevant source without changing the map's editorial order or collapsing repeated IDs", () => {
+    const ordered = [broad, focused];
+    expect(evidenceForPaste(ordered, "wastewater reuse for irrigation", () => 1, fields)).toEqual([focused, broad]);
+    expect(ordered).toEqual([broad, focused]);
+  });
+
+  it("retains editorial order without text overlap, including empty and single-card cases", () => {
+    expect(evidenceForPaste([broad, focused], "jury sentencing", () => 1, fields)).toEqual([broad, focused]);
+    expect(evidenceForPaste([], "wastewater reuse", () => 1, fields)).toEqual([]);
+    expect(evidenceForPaste([broad], "wastewater reuse", () => 1, fields)).toEqual([broad]);
+  });
+});
+
 describe("decideMatch", () => {
   it("names the top map when it leads the best map on a different subject", () => {
     const decision = decideMatch(ranking([40, 20, 12, 10]), noSiblings);
@@ -87,6 +106,49 @@ describe("decideMatch", () => {
     expect(decision.named?.id).toBe("map-0");
     expect(decision.related.map((map) => map.id)).toEqual(["map-1"]);
     expect(decision.rival?.id).toBe("map-2");
+  });
+
+  it("uses word coverage to resolve a tiny sibling phrase-bonus tie", () => {
+    const tied = ranking([40, 39.8, 10]);
+    tied.ranked[0].wordScore = 30;
+    tied.ranked[1].wordScore = 35;
+    expect(decideMatch(tied, zeroAndOne).named?.id).toBe("map-1");
+    expect(decideMatch(tied, noSiblings).named).toBeNull();
+    const separated = ranking([40, 37, 10]);
+    separated.ranked[0].wordScore = 30;
+    separated.ranked[1].wordScore = 35;
+    expect(decideMatch(separated, zeroAndOne).named?.id).toBe("map-0");
+    tied.ranked[1].wordScore = 31;
+    expect(decideMatch(tied, zeroAndOne).named?.id).toBe("map-0");
+  });
+
+  it("does not list a sibling through shared context without a telling name cue", () => {
+    const sharesName = (id: string) => id !== "map-1";
+    const matched = decideMatch(ranking([40, 35, 10]), zeroAndOne, undefined, undefined, undefined, sharesName);
+    expect(matched.named?.id).toBe("map-0");
+    expect(matched.related).toEqual([]);
+    const ambiguous = decideMatch(ranking([40, 35, 34]), zeroAndOne, undefined, undefined, undefined, sharesName);
+    expect(ambiguous.named).toBeNull();
+    expect(ambiguous.closest.map((map) => map.id)).toEqual(["map-0", "map-2"]);
+  });
+
+  it("does not overturn a specific sibling name preference with the word-coverage tie rule", () => {
+    const tied = ranking([40, 39.8, 39.6, 10]);
+    tied.ranked[0].wordScore = 30;
+    tied.ranked[1].wordScore = 32;
+    tied.ranked[2].wordScore = 35;
+    const names = (id: string) => id === "map-1"
+      ? new Set(["generic", "specific", "name"])
+      : new Set(["generic"]);
+    const siblings = (a: string, b: string) => [a, b].every((id) => id !== "map-3");
+    expect(decideMatch(tied, siblings, names, undefined, undefined, undefined, "map-2").named?.id).toBe("map-1");
+  });
+
+  it("uses an article's opening to distinguish close siblings without overriding a clear full-text lead", () => {
+    const close = ranking([40, 37, 10]);
+    expect(decideMatch(close, zeroAndOne, undefined, undefined, undefined, undefined, "map-1").named?.id).toBe("map-1");
+    expect(decideMatch(ranking([40, 20, 10]), zeroAndOne, undefined, undefined, undefined, undefined, "map-1").named?.id).toBe("map-0");
+    expect(decideMatch(close, noSiblings, undefined, undefined, undefined, undefined, "map-1").named).toBeNull();
   });
 
   it("needs enough of the paste behind the map: a score floor, or a share of its words", () => {
@@ -156,6 +218,65 @@ describe("decideMatch", () => {
     expect(decideMatch(ranking([40, 20, 12, 10]), noSiblings, undefined, (id) => id === "map-1").named?.id).toBe("map-0");
   });
 
+  it("does not let a ruled-out rival block an eligible leader", () => {
+    const decision = decideMatch(ranking([26, 25, 12, 10]), noSiblings, undefined, (id) => id === "map-1");
+    expect(decision.named?.id).toBe("map-0");
+    expect(decision.rival?.id).toBe("map-2");
+    expect(decision.closest.map((map) => map.id)).not.toContain("map-1");
+  });
+
+  it("cannot switch a matched leader to a sibling ruled out by its subject", () => {
+    const decision = decideMatch(
+      ranking([40, 35, 10]), (a, b) => [a, b].every((id) => ["map-0", "map-1"].includes(id)),
+      (id) => new Set(id === "map-1" ? ["school", "test"] : []),
+      (id) => id === "map-1",
+    );
+    expect(decision.named?.id).toBe("map-0");
+    expect(decision.related).toEqual([]);
+  });
+
+  it("does not use an off-subject leader to justify weaker closest maps", () => {
+    const decision = decideMatch(ranking([26, 25, 20]), noSiblings, undefined, (id) => id === "map-0");
+    expect(decision.named).toBeNull();
+    expect(decision.closest).toEqual([]);
+  });
+
+  it("keeps an independently qualified original finalist when an ambiguous leader is off subject", () => {
+    const decision = decideMatch(
+      ranking([26, 25, 20]), noSiblings,
+      (id) => new Set(id === "map-1" ? ["vaccine"] : []),
+      (id) => id === "map-0",
+    );
+    expect(decision.named).toBeNull();
+    expect(decision.closest.map((map) => map.id)).toEqual(["map-1"]);
+  });
+
+  it("does not look beyond the original finalists after rejecting their subjects", () => {
+    const decision = decideMatch(
+      ranking([26, 25, 24, 23]), noSiblings, () => new Set(["subject"]),
+      (id) => id !== "map-3",
+    );
+    expect(decision.closest).toEqual([]);
+  });
+
+  it.each([
+    { scores: [8, 7, 6], ceiling: 10, sharesName: true },
+    { scores: [26, 25, 20], ceiling: 200, sharesName: true },
+    { scores: [26, 25, 20], ceiling: 100, sharesName: false },
+  ])("requires the finalist's own score, coverage and telling subject word: %j", ({ scores, ceiling, sharesName }) => {
+    const decision = decideMatch(
+      ranking(scores, ceiling), noSiblings, () => new Set(["subject"]),
+      (id) => id === "map-0", undefined, () => sharesName,
+    );
+    expect(decision.named).toBeNull();
+    expect(decision.closest).toEqual([]);
+  });
+
+  it("does not backfill a filtered closest candidate with a weaker map", () => {
+    const decision = decideMatch(ranking([26, 25, 20, 19]), noSiblings, undefined, (id) => id === "map-1");
+    expect(decision.closest.map((map) => map.id)).toEqual(["map-0", "map-2"]);
+  });
+
   it("never shows more than three maps", () => {
     const decision = decideMatch(ranking([60, 55, 50, 30, 29, 28]), (a, b) => a !== b && [a, b].every((id) => ["map-0", "map-1", "map-2"].includes(id)));
     expect(1 + decision.related.length + decision.closest.length).toBeLessThanOrEqual(MAP_MATCH.maxMaps);
@@ -215,8 +336,10 @@ describe("findMaps", () => {
   });
 
   it("keeps a nuclear-power article on the nuclear map although it mentions small modular reactors", async () => {
-    const result = await findMaps(EXAMPLE_ANALYSIS_TEXT);
-    expect(result.match?.id).toBe("nuclear-energy-safety");
+    for (const text of [EXAMPLE_ANALYSIS_TEXT, LEGACY_NUCLEAR_EXAMPLE]) {
+      const result = await findMaps(text);
+      expect(result.match?.id).toBe("nuclear-energy-safety");
+    }
   });
 
   // The first paste in a process reads every map to build the index.
@@ -264,14 +387,137 @@ describe("findMaps", () => {
     expect(match?.cards.length).toBe(2);
   });
 
-  it("shows a card on each side when the crux's own evidence is one-sided", async () => {
-    // r9 live review #7: the Section 230 paste's crux has only "yes" cards,
-    // and was shown two of them under "The strongest card on each side".
+  it("keeps a contrasting card's own crux when the selected crux has evidence on only one side", async () => {
     const result = await findMaps(
       "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
     );
     expect(result.match?.id).toBe("section-230-reform");
     expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+    const own = result.match!.cards.find((card) => card.crux?.href === result.match!.crux!.href)!;
+    const borrowed = result.match!.cards.find((card) => card.crux?.href !== result.match!.crux!.href)!;
+    expect(own).toBeDefined();
+    expect(borrowed).toBeDefined();
+    expect(own.crux?.href).toBe(result.match!.crux!.href);
+    expect(borrowed.crux).toEqual({
+      question: "Can a reform deter targeted harms without a net loss of lawful speech?",
+      href: "/topics/section-230-reform#crux-collateral-damage",
+    });
+    expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(result.match!.cards);
+    expect(PasteMapsResultSchema.safeParse({
+      ...result,
+      match: { ...result.match, cards: [{ ...borrowed, crux: { question: borrowed.crux!.question, href: 12 } }] },
+    }).success).toBe(false);
+  });
+
+  it("surfaces the scoped GAO evidence for a FOSTA argument while keeping its question and a contrasting side", async () => {
+    const result = await findMaps("FOSTA changed Section 230. Did it actually deter trafficking, or did liability cause platforms to remove lawful speech and useful safety tools?");
+    const match = result.match!;
+    expect(match.id).toBe("section-230-reform");
+    expect(match.crux?.href).toBe("/topics/section-230-reform#crux-collateral-damage");
+    expect(new Set(match.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+    const gao = match.cards.find((card) => card.id === "fosta-gao")!;
+    expect(gao.sourceUrl).toBe("https://www.gao.gov/products/gao-21-385");
+    expect(gao.description).toContain("as of March 2021");
+    expect(gao.crux?.href).toBe(match.crux!.href);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("offers no AI-education map for a choice between human and online piano lessons", async () => {
+    const result = await findMaps("My parents want us to send our child to a private piano teacher. I prefer an online course because it is cheaper and easier to fit around school.");
+    expect(result.match).toBeNull();
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    {
+      subject: "streaming access",
+      id: "net-neutrality",
+      text: "My broadband company wants to charge streaming sites for faster access to customers. I think providers should deliver all lawful traffic equally. Otherwise small websites cannot compete with the video service the ISP owns.",
+    },
+    {
+      subject: "paid internet fast lanes",
+      id: "net-neutrality",
+      text: "My ISP says it needs paid fast lanes for websites to fund better networks. I worry it will slow competing video streams and favor its own services.",
+    },
+    {
+      subject: "hair-braiding licenses",
+      id: "occupational-licensing-reform",
+      text: "You should not need hundreds of hours of beauty school and a government license just to braid hair. Salon owners say those rules protect customers; opponents say they keep new competitors out.",
+    },
+    {
+      subject: "job licensing requirements",
+      id: "occupational-licensing-reform",
+      text: "States should reduce job licensing requirements for barbers and hair braiders. Training can protect customers, but expensive classes and fees may exclude people who already know the trade.",
+    },
+    {
+      subject: "drug possession penalties",
+      id: "drug-decriminalization",
+      text: "Should people go to prison for possessing small amounts of heroin? I think treatment is better than punishment. My friend worries that dropping criminal penalties will encourage open drug use.",
+    },
+    {
+      subject: "policing and mental-health calls",
+      id: "police-reform",
+      text: "We should send mental-health teams instead of armed police to crisis calls. My neighbor says trained officers are still needed when a situation turns violent, but I think the police budget should fund social services.",
+    },
+  ])("finds the map for everyday wording about $subject", async ({ id, text }) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe(id);
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["wedding hairstyles", "My sister wants me to braid her hair for a wedding. I prefer loose curls because braids pull too tightly."],
+    ["a billing dispute", "My internet provider overcharged me for last month. I think they should refund the difference. They say the promotional price expired."],
+    ["a theme-park queue", "We need to book the fast lane pass at the theme park. I think it is unfair if people pay extra to skip the queue."],
+    ["haircut prices", "Salons in our town are charging too much for haircuts. My friend says we should cut our own hair instead."],
+  ])("offers no policy map for %s", async (_, text) => {
+    const result = await findMaps(text);
+    expect(result.match).toBeNull();
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    "Schools should use AI tutors to close achievement gaps. Critics worry students will rely on generated answers instead of learning to think.",
+    "ChatGPT can give each student individual feedback, but teachers worry that it makes cheating and cognitive offloading too easy.",
+    "Should schools use large language models for tutoring and feedback? Some say every child could get a personal tutor. Others worry they undermine independent thinking and academic integrity.",
+    "Khanmigo could give students individual tutoring and help disadvantaged children catch up. Critics worry it gives away answers and undermines learning.",
+  ])("keeps actual AI-education disagreements on their map: %s", async (text) => {
+    expect((await findMaps(text)).match?.id).toBe("ai-in-education");
+  });
+
+  it.each([
+    ["academic-integrity", "My daughter uses ChatGPT to write her essays. I say she is skipping the thinking that school is meant to teach, but her teacher says the tool can help her learn if she explains each revision."],
+    ["academic-integrity", "My son has ChatGPT write every homework essay. His teacher says AI feedback helps him learn, but I worry he will never be able to write without it."],
+    ["learning-outcomes", "AI tutors could finally give low-income students the personal help wealthy families pay for. Others worry these tools will reach rich schools first and widen achievement gaps."],
+    ["teacher-role-implementation", "Schools are buying AI tools to reduce teacher workloads. I worry districts will use the savings to replace teachers rather than let them spend more time with students."],
+  ])("opens the relevant AI-education crux, %s: %s", async (pillarId, text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe("ai-in-education");
+    expect(result.match?.crux?.href).toBe(`/topics/ai-in-education#crux-${pillarId}`);
+    expect(result.match?.alsoCrux).toBeUndefined();
+  });
+
+  it.each([
+    "Will automation and chatbots take office jobs faster than workers can retrain? Some people expect mass unemployment, while others expect new kinds of work.",
+    "Could large language models cause mass unemployment by automating office jobs? Some expect falling demand for junior workers. Others expect higher productivity to create new jobs and expand output.",
+  ])("keeps AI-employment arguments on their map: %s", async (text) => {
+    expect((await findMaps(text)).match?.id).toBe("ai-mass-unemployment");
+  });
+
+  it("keeps flagship evidence attached to its graph crux", async () => {
+    const result = await findMaps("Will automation and chatbots take office jobs faster than workers can retrain? Some people expect mass unemployment, while others expect new kinds of work.");
+    const match = result.match!;
+    expect(match.kind).toBe("flagship");
+    expect(match.cards.length).toBeGreaterThan(0);
+    for (const card of match.cards) {
+      expect(card.crux).toEqual({ question: match.crux!.question, href: match.crux!.href });
+    }
+    expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(match.cards);
+  });
+
+  it("still offers the AI-employment map for a broader hiring question about language models", async () => {
+    const result = await findMaps("Could large language models reduce hiring for junior office workers? The dispute is whether productivity leads firms to hire fewer people or expand output.");
+    expect([result.match?.id, ...result.closest.map((map) => map.id)]).toContain("ai-mass-unemployment");
   });
 
   it("offers no closest maps for a family argument no map covers", async () => {
@@ -298,6 +544,211 @@ describe("findMaps", () => {
       "If artificial wombs can carry a fetus from 22 weeks, viability no longer depends on the mother's body, and the abortion debate changes.",
     );
     expect(wombs.match?.id).toBe("artificial-reproduction-ethics");
+  });
+
+  it.each([
+    "Landlords may raise rent only 5% each year.",
+    "We should prevent steep annual rent hikes. Families cannot stay in their apartments if landlords double the rent, but owners say they need to cover rising costs.",
+  ])("retains a rent-limit paraphrase without the words rent control: %s", async (text) => {
+    expect((await findMaps(text)).match?.id).toBe("rent-control-effectiveness");
+  });
+
+  it("keeps personal rent-increase advice separate from rent-limit policy", async () => {
+    const result = await findMaps(
+      "My landlord raised the rent by thirty percent. I cannot afford the new price and have to move. Can I get my deposit back?",
+    );
+    expect(result.status).toBe("none");
+    expect(result.closest).toEqual([]);
+  });
+
+  it("does not offer phone maps for a school-uniform policy dispute", async () => {
+    const result = await findMaps("Should schools make kids wear uniforms? It stops the brand-name competition and bullying over clothes, but it costs parents more and kids hate them.");
+    expect(result.status).toBe("none");
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["surrogacy", "My sister wants to hire a surrogate to carry her baby. I think paying someone for pregnancy exploits women with less money, but she says consenting adults should be free to make that choice."],
+    ["school start times", "Our teenager is exhausted when school starts at 7:20. I want classes to begin later so students can sleep, but the district says buses and after-school sports make that impossible."],
+    ["a family pregnancy decision", "My partner wants another baby, but I worry pregnancy will damage my health and we cannot afford childcare. He thinks the choice should be ours rather than dictated by money."],
+    ["a school bus schedule", "The district wants children at the bus stop before dawn. Parents want a later start so students can sleep, but coaches say it would mean cutting after-school sports."],
+  ])("offers no health or college-policy map for %s", async (_, text) => {
+    const result = await findMaps(text);
+    expect(result.status).toBe("none");
+    expect(result.match).toBeNull();
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["holiday rentals", "Our town should ban short-term holiday rentals. Every apartment that becomes an Airbnb leaves one fewer home for local residents. Hosts say tourists support restaurants and that owners have the right to rent their property."],
+    ["bus timetables", "Parents want school buses to arrive later so children can sleep. The district says changing the timetable would disrupt after-school activities."],
+  ])("does not promote a nearby map after exclusions for %s", async (_, text) => {
+    const result = await findMaps(text);
+    expect(result.status).toBe("none");
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["homeschooling-effectiveness", "Home education lets parents adapt lessons to each child, but children might miss learning alongside classmates in school."],
+    ["global-housing-bubble", "House prices are far above local wages and buyers are borrowing more than they can repay. If mortgage rates stay high, could the property bubble burst?"],
+    ["declining-birth-rates", "People are having fewer children because housing and childcare cost so much. Should the government pay families to have babies, or should we accept a smaller population?"],
+  ])("retains the covered subject after exclusions: %s", async (id, text) => {
+    const result = await findMaps(text);
+    expect([result.match?.id, ...result.closest.map((map) => map.id)]).toContain(id);
+  });
+
+  it("does not suggest space exploration through an invented cost-government phrase", async () => {
+    const result = await findMaps(
+      "People are having fewer children because housing and childcare cost so much. Should the government pay families to have babies, or should we accept a smaller population?",
+    );
+    expect(result.match?.id).toBe("declining-birth-rates");
+    expect(result.match?.crux?.href).toBe("/topics/declining-birth-rates#crux-choice-theory");
+    expect(result.related).toEqual([]);
+    expect(result.closest).toEqual([]);
+  });
+
+  it("retains related space maps when a funding argument names Mars", async () => {
+    const result = await findMaps(
+      "We should keep funding NASA missions to Mars even if they cost billions. Critics say that money would do more good in schools and hospitals on Earth.",
+    );
+    expect(result.match?.id).toBe("space-exploration-value");
+    expect(result.related.map((map) => map.id)).toContain("space-colonization-feasibility");
+  });
+
+  it.each([
+    ["gig-economy-regulation", "The courier app sets delivery prices and can deactivate workers without warning. The company says they are independent contractors, but they want employee benefits and a guaranteed minimum wage."],
+    ["veganism-environmental-impact", "Replacing meat and dairy with plant-based food would reduce greenhouse gas emissions and free up land. Others say we should improve farming rather than expect everyone to become vegan."],
+    ["seed-oils-health", "My brother says canola and sunflower oil cause inflammation and that we should cook with butter instead. I think replacing saturated fat with these oils lowers heart disease risk."],
+    ["four-day-work-week", "Companies should let people work 4 days a week for the same salary. With fewer meetings they can get the same work done, but shops and hospitals would need to hire more staff."],
+    ["four-day-work-week", "Cutting the working week to 32 hours without reducing pay could improve wellbeing. Critics say maintaining output would be impossible in factories and hospitals."],
+    ["electoral-college-reform", "The president should be chosen by whoever gets the most votes nationwide. Small states say replacing the Electoral College with a popular vote would leave them ignored."],
+    ["social-media-elections", "Facebook and TikTok algorithms amplify misleading political posts during elections. But is there evidence these feeds actually change votes, rather than reflect divisions that were there already?"],
+  ])("retains a covered question through broader health and policy vocabulary: %s", async (id, text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe(id);
+  });
+
+  it("keeps AI diagnosis separate from AI education", async () => {
+    const result = await findMaps(
+      "Could an AI system diagnose routine illnesses more accurately than a doctor? I want a human to check its decisions, but my colleague says the model makes fewer mistakes.",
+    );
+    expect(result.match?.id).toBe("ai-replacing-doctors");
+    expect([...result.related, ...result.closest].map((map) => map.id)).not.toContain("ai-in-education");
+  });
+
+  it.each([
+    "Aquifers are being pumped faster than rainfall replenishes them. Farmers say they need the water now, but others fear groundwater depletion will cause food shortages and conflict.",
+    "Farmers in western Kansas keep pumping the Ogallala aquifer faster than it recharges. They say efficient irrigation will buy time, but neighbors worry their wells will stop supporting crops before pumping limits can help.",
+  ])("keeps an aquifer argument on the supply-depletion question: %s", async (text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe("global-water-crisis");
+    expect(result.match?.crux?.href).toBe("/topics/global-water-crisis#crux-supply-depletion");
+  });
+
+  it("keeps a desalination argument on technology delivery with its primary evidence", async () => {
+    const result = await findMaps(
+      "Desalination plants and wastewater recycling could provide reliable water during droughts. Some say technology will make shortages manageable, but others say inland farmers cannot afford the energy and pipelines.",
+    );
+    expect(result.match?.id).toBe("global-water-crisis");
+    expect(result.match?.crux?.href).toBe("/topics/global-water-crisis#crux-technology-adaptation");
+    expect(result.match?.cards.map((card) => card.sourceUrl)).toEqual([
+      "https://doi.org/10.1016/j.scitotenv.2018.12.076",
+      "https://www.oecd.org/en/publications/oecd-environmental-performance-reviews-israel-2023_0175ae95-en/full-report/component-6.html",
+    ]);
+    expect(result.related).toEqual([]);
+    expect(result.closest).toEqual([]);
+  });
+
+  it("keeps a water conflict separate from diamond ethics", async () => {
+    const result = await findMaps(
+      "Rivers cross borders, but upstream dams can leave downstream countries without enough water. As droughts worsen, will shortages lead to war or force countries to cooperate?",
+    );
+    expect(result.match?.id).toBe("global-water-crisis");
+    expect(result.match?.crux?.href).toBe("/topics/global-water-crisis#crux-conflict-potential");
+    expect([...result.related, ...result.closest].map((map) => map.id)).not.toContain("lab-diamonds-ethics");
+  });
+
+  it.each([
+    ["alkaline water", "My friend says alkaline water reduces inflammation and prevents disease. I think those expensive bottles are just ordinary drinking water with marketing on the label."],
+    ["weekend polling", "Polling stations should be open on Saturday and Sunday. People who work long shifts cannot easily vote on a Tuesday, but keeping staff there longer would cost more."],
+    ["multivitamins", "My dad says everyone needs a daily multivitamin to prevent heart disease. His doctor says supplements help a deficiency but do not replace eating a varied diet."],
+  ])("does not substitute a neighboring map for %s", async (_, text) => {
+    const result = await findMaps(text);
+    expect(result.status).toBe("none");
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    ["fluoride-water-supplies", "Our town wants to stop adding fluoride to drinking water because children swallow it. Dentists say it prevents cavities and people can already use toothpaste."],
+    ["rfk-health-policy", "RFK says the childhood vaccine schedule has not been properly tested. Doctors say changing established recommendations puts children at risk. The disagreement is whether his MAHA agenda improves public health."],
+    ["rfk-health-policy", "Removing every member of the vaccine advisory committee will free it from pharmaceutical industry influence. Doctors say replacing the panel with vaccine skeptics will undermine public trust."],
+    ["student-debt-forgiveness", "The government should cancel student loans because graduates cannot afford homes or start families. My brother says taxpayers who skipped college should not have to pay off someone else's debt."],
+    ["affirmative-action-meritocracy", "Universities should consider race in admissions to offset unequal opportunities. My colleague says applicants should be judged on their own merit rather than their racial background."],
+    ["standardized-testing-debate", "Universities should bring back the SAT because test scores predict academic performance. Critics say standardized tests favor wealthy families who can afford expensive preparation."],
+  ])("retains the covered subject for %s", async (id, text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe(id);
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    "Our school should require routine childhood vaccines to protect vulnerable children. Another parent says the government cannot force a medical procedure on their child.",
+    "Schools should require routine childhood immunizations before children can attend classes. Parents say their medical choices are private and the state should not be allowed to impose vaccination.",
+  ])("offers the vaccine-requirements map without unrelated childhood-health maps: %s", async (text) => {
+    const result = await findMaps(text);
+    expect([result.match?.id, ...result.closest.map((map) => map.id)].filter(Boolean)).toEqual(["vaccine-mandates"]);
+    expect(result.related).toEqual([]);
+  });
+
+  it("retains artificial reproduction and charging road vehicles without their exact map names", async () => {
+    const reproduction = await findMaps(
+      "An ectogenesis device could let premature babies grow outside the body. Is that technology safe enough to use in a neonatal unit?",
+    );
+    expect(reproduction.match?.id).toBe("artificial-reproduction-ethics");
+    const roadCharge = await findMaps(
+      "It should cost drivers money to bring a car into the center of the city. Charging vehicles at the busiest times could pay for faster buses.",
+    );
+    expect(roadCharge.match?.id).toBe("congestion-pricing");
+  });
+
+  it.each([
+    "Our city should charge drivers to enter downtown during rush hour. It would cut gridlock and pay for buses. My neighbor says it just prices working people off roads they already paid for.",
+    "The city should charge people for driving downtown at peak times. The money would improve public transportation. Critics say commuters without a bus alternative would be unfairly punished.",
+    "Drivers should pay an entry fee to get into the city center. It would keep the streets moving and fund reliable buses, but outer neighborhoods have few alternatives.",
+    "Charging motorists to enter busy central streets will ease gridlock. My colleague thinks it will hurt small shops because customers will go elsewhere.",
+  ])("finds congestion pricing when the charge is described through drivers: %s", async (text) => {
+    const result = await findMaps(text);
+    expect(result.match?.id).toBe("congestion-pricing");
+    expect(result.match?.crux?.href).toMatch(/^\/topics\/congestion-pricing#crux-/);
+    expect(result.closest).toEqual([]);
+  });
+
+  it.each([
+    "Public transit should be free. Charging bus fares punishes poor riders while drivers get subsidized roads. The city says eliminating fares would leave no money for reliable service and that frequency matters more than price.",
+    "The delivery company wants to charge drivers for parcels that go missing. Drivers say they should not have to pay for customers making false claims, while the company says it needs to recover the cost.",
+    "Drivers should pay a fee for renewing their license every year instead of every five years. I think the paperwork is pointless, but my friend says regular vision checks keep everyone safer.",
+  ])("does not treat unrelated fares or driver charges as congestion pricing: %s", async (text) => {
+    const result = await findMaps(text);
+    expect([result.match?.id, ...result.related.map((map) => map.id), ...result.closest.map((map) => map.id)])
+      .not.toContain("congestion-pricing");
+  });
+
+  it.each([
+    "Lab-grown diamonds avoid blood diamonds and exploited workers, so they are the ethical choice. But mined diamonds support livelihoods in Botswana and the conflict certification scheme has reduced abuses.",
+    "Are lab diamonds really greener? Growing them takes enormous amounts of electricity, often from coal, while extracting natural stones tears up land. We need to compare their full carbon footprint rather than just advertising claims.",
+    "Buying a mined diamond helps support Botswana's economy. If everyone buys factory-grown stones instead, what happens to the people whose livelihoods depend on diamond exports?",
+    "A: I want a lab-grown diamond because I do not want my ring to finance wars or child labor. B: The Kimberley Process certifies mined diamonds, and lab-grown stones can be produced with coal power.",
+    "The diamond industry says factory-made stones are sustainable. Is that true when production happens on dirty grids in China and India, or is mining still worse because it destroys land and water?",
+  ])("retains the actual diamond ethics question: %s", async (text) => {
+    expect((await findMaps(text)).match?.id).toBe("lab-diamonds-ethics");
+  });
+
+  it("keeps a factory-reactor article on SMRs when nuclear power is background context", async () => {
+    const result = await findMaps(
+      "Small modular reactors are supposed to be built on an assembly line and shipped to old coal sites. NuScale cancelled its Idaho project after the cost per megawatt-hour rose sharply. Without hundreds of orders, a factory cannot deliver the promised savings.\n\n" +
+      "Nuclear energy supplies reliable low-carbon electricity, but the question here is whether these small reactors will be cheaper than the large plants, not whether nuclear power in general helps climate goals.",
+    );
+    expect(result.match?.id).toBe("nuclear-renaissance-smr");
   });
 
   it("names nothing for text with no words in common with any map", async () => {

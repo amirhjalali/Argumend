@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { FeaturedTopicHero } from "@/components/FeaturedTopicHero";
-import { HomePasteBox } from "@/components/home/HomePasteBox";
+import { HeroAnalyze } from "@/components/HeroAnalyze";
 import { Button, PAGE_GUTTER, PageHeader, Section, TextAction } from "@/components/ui";
 import { MAP_COUNT } from "@/data/topicIndex";
 import { ANALYZE_HREF } from "@/lib/nav";
@@ -48,7 +48,7 @@ export function HomeLanding() {
       <HomeBeat>
         <HomeMaps maps={maps} />
       </HomeBeat>
-      <HomePasteBox />
+      <HeroAnalyze />
     </>
   );
 }
@@ -72,7 +72,7 @@ function HomeHero() {
         size="display"
         titleId="home-heading"
         title="Find what the argument actually turns on."
-        lede="Most arguments are not about what they seem. Argumend maps the few questions a fight really turns on, and what would change each side’s mind. It never names a winner."
+        lede="Argumend maps the questions behind a disagreement, the evidence on each side, and what would change each side’s mind. It never names a winner."
         className="!mb-0 pb-10 pt-7 md:pb-16 md:pt-14"
       >
         {/* Phone order: the two doors, then the evidence, so the rust
@@ -90,18 +90,19 @@ function HomeHero() {
           </div>
 
           <aside
-            aria-label="What we measured"
+            aria-label="One pilot test"
             className="border-t border-divider pt-3 md:col-start-2 md:row-start-1"
           >
-            <p className="label-caps">What we measured</p>
+            <p className="label-caps">One pilot test</p>
             <p className="mt-1 text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
-              In a 36-minute televised debate on trans athletes, 88 of 114 turns
-              were not about the question in its title.{" "}
+              In a televised debate on trans athletes, our model-based analysis
+              classified 88 of 114 analyzed turns as not arguing the mapped
+              question, including host questions.{" "}
               <Link
                 href={HOME_EVIDENCE_HREF}
                 className="py-3 text-deep underline decoration-deep/30 underline-offset-4 transition-colors hover:decoration-deep dark:text-accent-text dark:decoration-accent-text/40"
               >
-                How we measured it
+                Method and limits
               </Link>
             </p>
           </aside>

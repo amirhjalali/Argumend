@@ -309,7 +309,7 @@ describe("DebateView", () => {
         // The tag and what it means read as one unit in the summary.
         expect(
           within(summary).getByText(/A hidden assumption/).parentElement?.textContent,
-        ).toMatch(/A hidden assumption: nobody in the debate says it out loud/);
+        ).toMatch(/A hidden assumption: the map identifies a premise these positions rely on/);
       }
     }
 
@@ -424,7 +424,7 @@ describe("DebateView", () => {
 
     expect(view.container.querySelectorAll("summary").length).toBeGreaterThanOrEqual(40);
     // The redesigned flagship leads with its hook, not inventory.
-    expect(view.container.textContent).toContain("Both numbers are real.");
+    expect(view.container.textContent).toContain(topic!.meta.hook);
   });
 });
 

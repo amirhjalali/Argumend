@@ -18,11 +18,12 @@ test("saved maps survive navigation and keyboard removal keeps a useful focus ta
   await removals.first().press("Enter");
   await expect(removals).toHaveCount(1);
   await expect(removals.first()).toHaveAttribute("aria-label", secondName!);
-  await expect(removals.first()).toBeFocused();
+  await expect(main.getByRole("link", { name: /^Will AI cause mass unemployment/ })).toBeFocused();
 
+  await removals.first().focus();
   await removals.first().press("Enter");
   const empty = main.getByRole("heading", { name: "Nothing saved yet" });
-  await expect(empty).toBeFocused();
+  await expect(main.getByRole("link", { name: "Browse maps" })).toBeFocused();
   await expect(removals).toHaveCount(0);
   await page.reload();
   await expect(empty).toBeVisible();
@@ -53,6 +54,6 @@ test("a rejected bookmark write keeps the map and keyboard focus until a success
   await expect(removal).toHaveCount(1);
 
   await removal.press("Enter");
-  await expect(main.getByRole("heading", { name: "Nothing saved yet" })).toBeFocused();
+  await expect(main.getByRole("link", { name: "Browse maps" })).toBeFocused();
   await expect(main.getByRole("alert")).toHaveCount(0);
 });

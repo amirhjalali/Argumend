@@ -18,8 +18,8 @@ export const ARGUMENT_TOPICS_LAST_UPDATED = "2026-08-12";
  * founder's legal review; bump this whenever either page's substance changes
  * so visitors can tell which version they read.
  */
-export const LEGAL_LAST_UPDATED = "2026-09-21";
-export const LEGAL_LAST_UPDATED_LABEL = "21 September 2026";
+export const LEGAL_LAST_UPDATED = "2026-10-18";
+export const LEGAL_LAST_UPDATED_LABEL = "18 October 2026";
 /** Placeholder contact route — see docs/PRIVACY_AND_CONSENT.md. */
 export const LEGAL_CONTACT_EMAIL = "privacy@argumend.org";
 

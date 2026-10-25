@@ -29,7 +29,7 @@ describe("/ai with the real AI maps", () => {
   it("says what it is and is dated as of the latest recorded entry", async () => {
     const view = await renderPage();
     expect(view.getByRole("heading", { level: 1 }).textContent).toBe("The AI argument, on one page");
-    expect(view.container.textContent).toMatch(/A living map, as of September 22, 2026/);
+    expect(view.container.textContent).toMatch(/A living map, as of October 18, 2026/);
   });
 
   it("shows 5–6 crux cards, each naming its map and a settle line", async () => {
@@ -115,7 +115,7 @@ describe("/ai with the real AI maps", () => {
     expect(log.hasAttribute("open")).toBe(false);
     const rows = view.getAllByTestId("ai-changelog-entry");
     expect(log.querySelector("summary")?.textContent).toContain(
-      `${rows.length} entries, the latest recorded September 22, 2026`,
+      `${rows.length} entries, the latest recorded October 18, 2026`,
     );
   });
 
@@ -129,7 +129,7 @@ describe("/ai with the real AI maps", () => {
 
   it("shows what moved in the default 90-day window, with evidence sources", async () => {
     const view = await renderPage();
-    const section = view.getByRole("heading", { name: /What has moved since June 24, 2026/ })
+    const section = view.getByRole("heading", { name: /What has moved since July 20, 2026/ })
       .closest("section")!;
     expect(section.querySelectorAll('ul[aria-label="Evidence behind this entry"]').length).toBeGreaterThan(0);
     expect(section.textContent).toMatch(/Link checked live/);
@@ -172,7 +172,7 @@ describe("/ai link parameters", () => {
   it("ignores an unknown map and a malformed since", async () => {
     const view = await renderPage({ map: "not-a-map", since: "2026-02-30" });
     expect(view.getAllByTestId("ai-crux-card").length).toBe(6);
-    expect(view.getByRole("heading", { name: /since June 24, 2026/ })).toBeTruthy();
+    expect(view.getByRole("heading", { name: /since July 20, 2026/ })).toBeTruthy();
   });
 
   it("reads a since before the first entry as since the first entry", async () => {

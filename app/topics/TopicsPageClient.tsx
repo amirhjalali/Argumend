@@ -45,7 +45,26 @@ export default function TopicsPageClient({
   const [sortBy, setSortBy] = useState<SortOption>(initialState.sort);
   const [page, setPage] = useState(initialState.page);
   const [savedOnly, setSavedOnly] = useState(false);
+  const [previousNavigationState, setPreviousNavigationState] = useState(initialState);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Same-route Next Links update the server props while preserving this
+  // component. Apply the incoming query before rendering (and before the URL
+  // effect runs), while device-local saves stay selected across pagination.
+  if (initialState !== previousNavigationState) {
+    setPreviousNavigationState(initialState);
+    setActiveCategory(initialState.category);
+    setSearch(initialState.search);
+    setSortBy(initialState.sort);
+    setPage(initialState.page);
+    if (
+      initialState.category !== activeCategory ||
+      initialState.search !== search ||
+      initialState.sort !== sortBy
+    ) {
+      setSavedOnly(false);
+    }
+  }
 
   // Saves live in this browser only, so the filter appears after mount and
   // only when there is something saved that the library can list.

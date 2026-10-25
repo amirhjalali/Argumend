@@ -1,6 +1,7 @@
 import { beforeAll, describe, expect, it, vi } from "vitest";
 import { z } from "zod";
 import { ArgumentGraphSchema } from "@/lib/schemas/argument";
+import { PasteDiagnosisResponseSchema } from "@/lib/paste/schemas";
 import {
   collectReportQuoteCharacters,
   collectReportReferenceIssues,
@@ -57,6 +58,15 @@ describe("private and published report quote budgets", () => {
       graph: ArgumentGraphSchema,
     });
     expect(privateResponse.safeParse(bundle).success).toBe(true);
+  });
+
+  it("preserves the grounded private diagnosis through the paste response schema", () => {
+    const response = PasteDiagnosisResponseSchema.parse(bundle);
+    expect(collectReportQuoteCharacters(response.report)).toBeGreaterThan(
+      DISAGREEMENT_LIMITS.maxPublishedQuoteCharactersTotal,
+    );
+    expect(response.report).toEqual(bundle.report);
+    expect(response.graph).toEqual(bundle.graph);
   });
 
   it("still rejects publishing and reading that report as persisted public data", async () => {

@@ -29,7 +29,7 @@ const FLOORS = {
   /** Near sibling named in place of the right map (the right one is then shown beside it). */
   siblingRate: 0.06,
   /** A right map among the (up to three) maps an answer shows. */
-  top3: 0.93,
+  top3: 0.94,
   /**
    * Pastes no map covers that were named as a map anyway. Zero since the
    * abortion pastes stopped naming the artificial-wombs map (Topic.notAbout).
@@ -48,7 +48,8 @@ const FLOORS = {
  * higher floor, coverage or lead) cost as many real pastes their right map
  * (Germany's nuclear exit, the moon-landing flag, arms to Israel).
  */
-const CLOSEST_FOR_NEGATIVES = 3;
+// AI-specific subject checks reduced the combined dev and holdout count to two.
+const CLOSEST_FOR_NEGATIVES = 2;
 
 const SETS = [dev, holdout] as PasteEvalSet[];
 const CASES: PasteEvalCase[] = SETS.flatMap((set) => set.cases);

@@ -55,17 +55,20 @@ function stemOf(token: string): string {
 /**
  * Terms for the paste index. Stopwords are dropped before stemming (they are
  * listed unstemmed), and terms shorter than two characters after stemming are
- * dropped. "AI" survives as "ai".
+ * dropped. "AI" survives as "ai". Subject guards can keep qualifiers like
+ * "only" and single-digit numbers; ranking and crux scoring always use the
+ * default stopword removal.
  */
-export function pasteTerms(text: string): string[] {
+export function pasteTerms(text: string, options: { keepStopwords?: boolean } = {}): string[] {
   const lowered = expandAbbreviations(text.toLowerCase().replace(/[‘’]/g, "'"));
   const terms: string[] = [];
   for (const raw of lowered.split(/[^a-z0-9']+/)) {
     // Possessives and quote marks go; contractions collapse ("don't" to "dont").
     const token = raw.replace(/'s$/, "").replace(/'/g, "");
-    if (token.length < 2 || isStopword(token)) continue;
+    const keepNumber = options.keepStopwords && /^\d$/.test(token);
+    if ((!keepNumber && token.length < 2) || (!options.keepStopwords && isStopword(token))) continue;
     const stemmed = stemOf(token);
-    if (stemmed.length < 2 || isStopword(stemmed)) continue;
+    if ((!keepNumber && stemmed.length < 2) || (!options.keepStopwords && isStopword(stemmed))) continue;
     terms.push(stemmed);
   }
   return terms;
@@ -82,4 +85,14 @@ export function termPairs(terms: readonly string[]): string[] {
     if (terms[index] !== terms[index - 1]) pairs.push(`${terms[index - 1]}_${terms[index]}`);
   }
   return pairs;
+}
+
+/** Content-word pairs that occur together, without crossing filler or sentences. */
+export function contiguousTermPairs(text: string): string[] {
+  return text.split(/[.!?;:\n]+/).flatMap((sentence) => {
+    const content = new Set(pasteTerms(sentence));
+    return termPairs(pasteTerms(sentence, { keepStopwords: true })).filter((pair) =>
+      pair.split("_").every((word) => content.has(word)),
+    );
+  });
 }

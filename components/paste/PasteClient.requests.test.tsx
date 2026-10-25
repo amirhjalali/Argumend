@@ -5,7 +5,7 @@ import { trackEvent } from "@/lib/analytics";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import { findMaps } from "@/lib/paste/maps";
 import type { PasteLanes, PasteMapsResult } from "@/lib/paste/types";
-import { PasteClient } from "./PasteClient";
+import { clearWorkingPaste, PasteClient } from "./PasteClient";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
@@ -29,6 +29,7 @@ beforeAll(async () => {
 }, 60_000);
 
 beforeEach(() => {
+  clearWorkingPaste();
   requests = [];
   sessionStorage.clear();
   vi.mocked(trackEvent).mockClear();
@@ -65,6 +66,21 @@ describe("paste request lifecycle", () => {
     view.unmount();
 
     for (const request of requests) expect(request.signal?.aborted).toBe(true);
+  });
+
+  it("cancels both active lanes when the server changes the lane configuration", async () => {
+    const view = render(<PasteClient lanes={HOSTED} />);
+    submit(view);
+    expect(requests).toHaveLength(2);
+
+    view.rerender(<PasteClient lanes={OFFLINE} />);
+
+    for (const request of requests) expect(request.signal?.aborted).toBe(true);
+    await waitFor(() => expect((view.getByLabelText("The argument to read") as HTMLTextAreaElement).value).toBe(""));
+    await reply(requests[0], { maps });
+    await reply(requests[1], { error: "Old provider result", code: "PROVIDER_ERROR" }, false);
+    expect(view.queryByRole("region", { name: "Result" })).toBeNull();
+    expect(vi.mocked(trackEvent).mock.calls.some(([event]) => event.action === "disagreement_analysis_failed")).toBe(false);
   });
 
   it("cancels a pending diagnosis when the reader starts another paste", async () => {

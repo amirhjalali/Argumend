@@ -23,6 +23,21 @@ describe("draft argument topics", () => {
       expect(loadArgumentTopic(id)).toBeNull();
     },
   );
+  it("qualifies the headcount inference with Klarna's workload claim", () => {
+    const topic = loadArgumentTopic("ai-mass-unemployment")!;
+
+    expect(topic.graph.edges).toContainEqual(expect.objectContaining({
+      from: "e-klarna-700-agents",
+      to: "c-firms-cut-hiring-not-output",
+      type: "evidences",
+      polarity: "qualifying",
+    }));
+    expect(topic.graph.edges).not.toContainEqual(expect.objectContaining({
+      from: "e-klarna-700-agents",
+      to: "c-firms-cut-hiring-not-output",
+      polarity: "supporting",
+    }));
+  });
 
   it("only returns cruxes whose claims exist in the graph", () => {
     const topic = loadArgumentTopic("ai-mass-unemployment");

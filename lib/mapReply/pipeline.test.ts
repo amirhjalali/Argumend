@@ -61,7 +61,7 @@ describe("runMapReply on the recorded rent-control thread", () => {
     if (!result.ok) throw new Error("expected a match");
 
     expect(result.dominantSection?.id).toBe("supply-effects");
-    expect(result.dominantSection?.cruxTitle).toBe("The Construction Response Test");
+    expect(result.dominantSection?.cruxTitle).toBe("The Rental Supply Response Test");
     const counts = Object.fromEntries(result.sectionCounts.map((s) => [s.id, s.count]));
     expect(counts["supply-effects"]).toBe(4);
     expect(counts.none).toBe(1);

@@ -9,34 +9,68 @@ export const decliningBirthRatesData = {
     "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
   status: "contested" as const,
   category: "economics" as const,
+  last_updated: "2026-10-18",
+  aliases: [
+    "Falling birth rates and family policy",
+    "Should governments help people have the children they want?",
+    "Do housing and childcare costs explain low fertility?",
+  ],
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "South Korea's fertility rate fell to 0.72 in 2023, the lowest ever recorded in peacetime, after the government spent roughly ₩380 trillion (about $270 billion) on low-birthrate and family programs since 2006. In France, people say they want 2.4 children on average and have 1.8. Both figures are real. What divides the sides is whether that gap reflects barriers policy can remove, and whether falling fertility is a crisis at all.",
-    confidence: 84,
+      "South Korea's total fertility rate rose from 0.72 in 2023 to 0.80 in 2025. It remains far below the roughly 2.1 replacement benchmark. The rate reflects that year's birth patterns, not women's eventual family sizes. The disagreement concerns what policy can change and how societies should adapt.",
+    confidence: 90,
     source:
-      "Statistics Korea; OECD Family Database",
-    sourceUrl: "https://kostat.go.kr/",
+      "Korea Ministry of Data and Statistics, Birth Statistics in 2025, Table 1 (released August 2026)",
+    sourceUrl: "https://www.mods.go.kr/boardDownload.es?bid=11773&list_no=447264&seq=1",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that global fertility has fallen from about 5.0 in 1950 to roughly 2.3, that below-replacement fertility raises dependency ratios and strains pay-as-you-go pensions, that income per person rather than total GDP is what matters for living standards, and that most rich countries show a gap between desired and actual family size.",
-    "They split over whether there is a fertility level below which falling income per person becomes self-reinforcing; whether the gap between desired and actual family size comes mostly from removable barriers like housing and childcare or from shifting preferences; and whether AI productivity gains and immigration can grow fast enough, in sectors like elder care, to offset shrinking workforces.",
+    "The UN's 2024 estimates put global fertility at 2.25 births per woman, with more than half of countries and areas below replacement. Low fertility and longer lives can strain pensions and care services, while a smaller population does not by itself imply lower income per person. Survey wishes, one-year birth rates and completed family sizes measure different things.",
+    "The disagreement concerns the scope for adapting public finances, the barriers that prevent people from having the families they want, and whether productivity gains can sustain essential services with fewer workers. Demographic forecasts describe conditional paths, not a verdict on which family choices people should make.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1504439904031-93ded9f93e4e?auto=format&fit=crop&w=800&q=60",
   references: [
     {
-      title: "World Population Prospects — United Nations Population Division",
-      url: "https://population.un.org/wpp/",
+      title: "Korea Ministry of Data and Statistics, Birth Statistics in 2025, Table 1",
+      url: "https://www.mods.go.kr/boardDownload.es?bid=11773&list_no=447264&seq=1",
     },
     {
-      title: "Fertility and the Future — The Lancet",
-      url: "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)00550-6/fulltext",
+      title: "UN DESA, World Population Prospects 2024: Summary of Results",
+      url: "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/wpp2024_summary_of_results_final_web.pdf",
     },
     {
-      title: "Empty Planet: The Shock of Global Population Decline — Darrell Bricker & John Ibbitson",
-      url: "https://www.penguinrandomhouse.com/books/545028/empty-planet-by-darrell-bricker-and-john-ibbitson/",
+      title: "OECD, Pensions at a Glance 2025: Demographic old-age to working-age ratio",
+      url: "https://www.oecd.org/en/publications/pensions-at-a-glance-2025_e40274c1-en/full-report/demographic-old-age-to-working-age-ratio_25476b96.html",
+    },
+    {
+      title: "OECD, Society at a Glance 2024: Fertility trends and policy",
+      url: "https://www.oecd.org/en/publications/society-at-a-glance-2024_918d8db3-en/full-report/fertility-trends-across-the-oecd-underlying-drivers-and-the-role-for-policy_770679b8.html",
+    },
+    {
+      title: "World Bank WDI, Japan real GDP per capita, NY.GDP.PCAP.KD",
+      url: "https://data.worldbank.org/indicator/NY.GDP.PCAP.KD?locations=JP",
+    },
+    {
+      title: "World Bank WDI, Japan population, SP.POP.TOTL",
+      url: "https://data.worldbank.org/indicator/SP.POP.TOTL?locations=JP",
+    },
+    {
+      title: "UNFPA, State of World Population 2025, survey findings and methodology",
+      url: "https://www.unfpa.org/sites/default/files/pub-pdf/EN_State%20of%20World%20Population%20report%202025.pdf",
+    },
+    {
+      title: "Duflo, Dupas and Kremer, Education, HIV, and Early Fertility (AER, 2015)",
+      url: "https://doi.org/10.1257/aer.20121607",
+    },
+    {
+      title: "McKinsey, The economic potential of generative AI (2023)",
+      url: "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
+    },
+    {
+      title: "Japan Ministry of Health, Labour and Welfare, projected care-worker requirements (July 2024)",
+      url: "https://www.mhlw.go.jp/stf/newpage_41379.html",
     },
   ],
   questions: [
@@ -44,19 +78,19 @@ export const decliningBirthRatesData = {
       id: "q1",
       title: "Is the birth rate decline a crisis or a natural adjustment?",
       content:
-        "Some argue lower birth rates reduce environmental strain, reflect women's empowerment and access to contraception, and represent rational individual choices. Others see civilizational decline, economic collapse, and the end of pension systems. Is humanity choosing its own contraction, and is that choice wise or catastrophic?",
+        "A smaller future population could reduce some resource demands while making pensions and care services harder to staff and fund. Whether those pressures justify trying to raise birth rates involves values as well as economic evidence. How should governments balance adaptation, family support and reproductive freedom?",
     },
     {
       id: "q2",
       title: "Can any government policy actually raise birth rates?",
       content:
-        "Pro-natalist policies in Hungary (tax exemptions, free IVF), Singapore (cash bonuses), Japan (childcare subsidies), and Scandinavia (parental leave) have shown limited effectiveness despite billions spent. If no policy reliably raises fertility, is the decline irreversible?",
+        "OECD analysis links family policy, housing and employment conditions to fertility, but leaves much of the variation unexplained. Low birth rates in countries with substantial family support do not tell us what rates would have been without that support. A policy can help families without restoring replacement fertility.",
     },
     {
       id: "q3",
       title: "Will technology make population decline irrelevant?",
       content:
-        "If AI and robotics increase productivity per worker by 10x, fewer workers may be sufficient to support aging populations. Immigration can supplement domestic birth rates. Could the economic consequences of population decline be managed through technological substitution rather than population growth?",
+        "Higher productivity, immigration and longer working lives can help support an ageing population. Their effects depend on adoption costs, employment, health and the services people need. Can these responses maintain household incomes and care quality as the workforce changes?",
     },
   ],
   pillars: [
@@ -67,90 +101,90 @@ export const decliningBirthRatesData = {
       id: "demographic-doom-loop",
       title: "The Demographic Doom Loop",
       short_summary:
-        "Below-replacement fertility creates a self-reinforcing cycle: fewer workers supporting more retirees, higher taxes on the working population, which further discourages childbearing. Japan's 1.2 TFR and shrinking economy provide a preview, while South Korea at 0.72 TFR represents the most extreme case of a society contracting faster than it can adapt.",
+        "Sustained low fertility can shrink future cohorts of workers relative to older residents, putting pressure on pensions and care. Whether that produces a self-reinforcing fall in income per person depends on productivity, employment, migration and policy responses.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The 'doom loop' framing confuses a challenging transition with civilizational collapse. Population growth is not inherently necessary for economic prosperity — per capita GDP can rise even as total GDP stagnates. Japan's per capita GDP has actually grown at rates comparable to the US over the past two decades despite population decline, because productivity gains offset the smaller workforce. Pension systems can be reformed through gradually increasing retirement ages (in line with increasing healthy lifespan), shifting from defined-benefit to defined-contribution models, and drawing on the massive wealth accumulated during the high-growth era. The demographic transition is a one-time shift from high-fertility/high-mortality to low-fertility/low-mortality equilibrium — once the bulge of elderly dependents passes (over approximately 50-70 years), the population stabilizes at a smaller, more sustainable size.",
+        "The 'doom loop' framing confuses a challenging transition with inevitable collapse. World Bank data show Japan's real GDP per person rising between 2010 and 2023 while its population fell. That observation does not establish what caused the growth or guarantee future fiscal sustainability. Employment, productivity, migration and pension design can change the burden on contributors. A population does not automatically stabilize after one generation if fertility remains below replacement and migration does not offset the decline.",
       proponent_rebuttal:
-        "The demographic doom loop is not theoretical — it is happening now in East Asia and will reach the West within a decade. South Korea's total fertility rate of 0.72 (2023) means each generation is roughly one-third the size of its predecessor. Japan's population has already shrunk by over 3 million since its 2008 peak and is projected to fall from 125 million to 87 million by 2070. Every pension and social insurance system in the developed world was designed for population growth or stability — they become mathematically insolvent below replacement fertility. The old-age dependency ratio in the OECD is projected to rise from roughly 31% in 2023 to about 52% by 2060, meaning the number of retirees per working-age person increases by more than half. No combination of productivity gains, immigration, or retirement age increases can fully offset a demographic contraction of this magnitude.",
+        "Adaptation could still require difficult trade-offs in taxes, benefits, retirement and care provision. OECD projections put the average number of people aged 65 and over per 100 people aged 20 to 64 at 32.6 in 2024 and 55.2 in 2054. Those age groups are not the same as retirees and employed contributors. The projection identifies a financing challenge, not inevitable insolvency: the risk is that feasible reforms and productivity gains may be too small or too slow to preserve living standards and services.",
       crux: {
         id: "economic-sustainability-modeling",
         title: "The Sub-Replacement Sustainability Model",
         question:
           "Is there a fertility level below which falling income per person becomes self-reinforcing?",
         description:
-          "The crux is whether economies can sustain or grow per capita prosperity at fertility rates significantly below replacement (1.0-1.5 TFR) over multi-generational timeframes. If economic modeling shows that productivity gains, capital deepening, and institutional reforms can maintain living standards during the demographic transition, the crisis framing is overblown. If models show that below a certain fertility threshold, economic contraction becomes self-reinforcing, the crisis is real.",
+          "The question is under which conditions sustained low fertility threatens income per person and public services. A single demographic rate cannot establish an economic tipping point independently of employment, migration, productivity and institutions. Models can compare plausible paths; they cannot prove a universal threshold by assuming away possible responses.",
         methodology:
-          "Develop dynamic economic models that simulate 50-year and 100-year GDP, per capita income, fiscal sustainability, and capital stock trajectories under various fertility scenarios (0.7, 1.0, 1.3, 1.6, 2.1 TFR). Incorporate AI-driven productivity assumptions, immigration scenarios, retirement age flexibility, and pension system reform options. Identify the fertility threshold below which no combination of interventions prevents per capita income decline. Validate against Japan and South Korea's actual economic trajectories.",
+          "Compare long-horizon demographic and fiscal models under alternative fertility, mortality, migration, employment and productivity assumptions. Test pension and care reforms, report uncertainty and distributional effects, and validate near-term predictions on data excluded from model fitting. Track income per person, public finances and service quality separately from total GDP. A threshold found in one model should be tested under other plausible assumptions.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Dynamic 50- and 100-year models of income per person, debt and capital stock at fertility rates from 0.7 to 2.1, with productivity, immigration and pension options varied, checked against Japan's and South Korea's actual paths.",
+            "Independently tested demographic and fiscal models, validated on withheld country data, comparing income per person, public finances and care provision under plausible productivity, migration, employment and pension reforms, with uncertainty reported.",
         },
         cost_to_verify:
-          "$500K-1.5M (Multi-scenario long-horizon macroeconomic modeling)",
+          "Not costed here; scope depends on countries, datasets and independent model validation.",
         falsification: {
           supporter_flip:
-            "If long-horizon models (validated against Japan and South Korea's actual trajectories) showed that productivity gains, capital deepening, and pension reform can hold per-capita living standards roughly flat through the demographic transition even at 1.0-1.3 TFR, the 'doom loop' framing would collapse into 'hard transition, not collapse.'",
+            "If independently validated models and subsequent observations showed that feasible reforms preserved income per person and essential services through sustained low fertility, the case for inevitable demographic collapse would weaken.",
           skeptic_flip:
-            "If the OECD old-age dependency ratio tracked its projected rise from about 31% toward 52% by 2060, South Korea at 0.72 TFR kept shrinking to roughly a third each generation, and Japan's gains proved tied to a 263%-of-GDP debt load, 'manageable decline' would be hard to hold.",
+            "If independently tested models and subsequent observations showed persistent declines in income per person and care provision across plausible, feasible adaptation policies, the claim that societies could manage the transition would weaken.",
           common_ground:
-            "Both sides agree below-replacement fertility raises dependency ratios and strains pay-as-you-go pension systems, and that per-capita GDP — not total GDP — is the metric that matters for living standards.",
+            "Both cases distinguish population size from income per person, and demographic age ratios from the number of people actually working and paying contributions.",
           live_disagreement:
-            "Whether there is a fertility threshold below which per-capita income decline becomes self-reinforcing — which only dynamic 50-to-100-year macro models, stress-tested against the East Asian cases, can locate.",
+            "Whether feasible institutional and economic responses can preserve household living standards and essential services through sustained low fertility.",
         },
       },
       evidence: [
         {
           id: "south-korea-tfr-record",
-          title: "South Korea's Fertility Rate Hits Record Low of 0.72 (2023)",
+          title: "South Korea: Fertility Rose to 0.80 in 2025 After 0.72 in 2023",
           description:
-            "South Korea's total fertility rate fell to 0.72 in 2023, the lowest ever recorded by any nation in peacetime. This means Korean women are having roughly one-third the children needed for population replacement. At this rate, South Korea's population will halve within 50 years and shrink by 75% within a century. The government has spent roughly ₩380 trillion (about $270 billion) on low-birthrate and related family/aging programs since 2006 — much of it pro-natalist measures such as childcare subsidies — with virtually no effect on fertility trends.",
+            "Korea's national birth statistics report fertility rates of 0.72 in 2023, 0.75 in 2024 and 0.80 in 2025. These describe annual birth patterns, not completed family sizes or a forecast of population decline. Without a policy counterfactual, the series cannot measure the effects of family spending.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
             replicability: 10,
-            directness: 9,
+            directness: 5,
           },
-          source: "Statistics Korea; World Bank",
-          sourceUrl: "https://kostat.go.kr/",
+          source: "Korea Ministry of Data and Statistics, Birth Statistics in 2025, Table 1 (2026)",
+          sourceUrl: "https://www.mods.go.kr/boardDownload.es?bid=11773&list_no=447264&seq=1",
           reasoning:
-            "South Korea's TFR data comes from its national statistics office and is independently verifiable. The 0.72 figure is historically unprecedented and directly demonstrates the extreme end of fertility decline. The failure of roughly $270 billion (₩380 trillion) in family/low-birthrate spending directly challenges the claim that policy can reverse the trend.",
+            "Official birth registrations provide strong descriptive evidence. The series does not identify why fertility changed, estimate completed family size or establish an economic collapse threshold.",
         },
         {
           id: "japan-per-capita-gdp-growth",
           title: "Japan's Per Capita GDP Has Grown Despite Population Decline",
           description:
-            "Despite Japan's population declining since 2008 and its total GDP growth being among the slowest in the developed world, Japan's GDP per capita has still grown at roughly 0.9-1.2% annually over 2010-2023 — positive growth, though the US outpaced it over the same window even on a PPP-adjusted basis. Unemployment is at historic lows (2.5%), crime rates are minimal, and quality of life indicators remain high. This suggests that population decline does not necessarily mean declining living standards for those who remain.",
+            "World Bank WDI data put Japan's real GDP per person at about $33,311 in 2010 and $37,903 in 2023, in constant 2015 US dollars, an increase of about 14%. The population series falls from about 128.1 million to 124.5 million over that period. The two trends show that a smaller population can coexist with rising average output per person. They do not identify a causal effect or establish how gains were distributed.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
             replicability: 8,
-            directness: 8,
+            directness: 5,
           },
-          source: "World Bank; OECD; Bank of Japan",
-          sourceUrl: "https://data.worldbank.org/indicator/NY.GDP.PCAP.KD.ZG?locations=JP",
+          source: "World Bank WDI, NY.GDP.PCAP.KD and SP.POP.TOTL, 2010 and 2023 (accessed October 2026)",
+          sourceUrl: "https://data.worldbank.org/indicator/NY.GDP.PCAP.KD?locations=JP",
           reasoning:
-            "World Bank and OECD economic data is highly reliable and independent. Japan's per capita GDP growth directly challenges the doom loop narrative by showing that a declining population can maintain rising living standards. However, Japan has also accumulated the world's highest public debt-to-GDP ratio (263%), raising questions about long-term fiscal sustainability.",
+            "The comparison uses real output per person rather than nominal GDP or dollar exchange-rate movements. It is descriptive evidence from one country and period, not a controlled test of population decline or a guarantee of future fiscal sustainability.",
         },
         {
           id: "un-global-fertility-projections",
-          title: "UN Projects Two-Thirds of Countries Below Replacement by 2050",
+          title: "UN 2024: Low Fertility Is Widespread, While Global Population Still Grows",
           description:
-            "The United Nations Population Division projects that by 2050, approximately two-thirds of all countries will have fertility rates below the replacement level of 2.1. Global fertility has already fallen from 5.0 in 1950 to 2.3 in 2023 and is projected to reach 1.8-2.0 by mid-century. This means population decline is not an East Asian phenomenon but a global trajectory, with only sub-Saharan Africa maintaining above-replacement fertility by 2100.",
+            "World Population Prospects 2024 estimates global fertility at 2.25 births per woman, down from 3.31 in 1990, with more than half of countries and areas below 2.1. Its central population projection still rises to about 10.3 billion in the mid-2080s before declining. National population decline and continued global growth can therefore occur together. Future paths depend on fertility, mortality and migration assumptions.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 8,
-            directness: 7,
+            replicability: 7,
+            directness: 5,
           },
-          source: "United Nations Population Division",
-          sourceUrl: "https://population.un.org/wpp/",
+          source: "UN DESA Population Division, World Population Prospects 2024: Summary of Results",
+          sourceUrl: "https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/wpp2024_summary_of_results_final_web.pdf",
           reasoning:
-            "UN population projections are the gold standard for demographic forecasting. The global scope of fertility decline makes the challenge universal, not limited to specific cultures. However, UN projections at the 2100 horizon carry significant uncertainty — the directness score reflects that projections are not the same as observed data.",
+            "The UN separates demographic estimates from conditional projections. These establish the scale and uneven timing of demographic change; they do not demonstrate inevitable economic collapse or determine which policy response is justified.",
         },
       ],
     },
@@ -162,73 +196,74 @@ export const decliningBirthRatesData = {
       id: "choice-theory",
       title: "The Choice Theory",
       short_summary:
-        "Declining fertility reflects rational individual choices in response to high costs of child-rearing, career opportunity costs, changed values, and women's educational empowerment. Rather than a crisis, it may represent the largest expansion of reproductive freedom in human history.",
+        "Lower fertility can reflect greater reproductive choice as well as barriers to having wanted children. Distinguishing preferences, postponement and constraints requires following people over time, rather than comparing survey ideals with a one-year national birth rate.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Framing declining fertility as a 'crisis' ignores that it results from the most significant expansion of reproductive autonomy in human history. For the first time, billions of women can choose when, whether, and how many children to have. The correlation between female education and declining fertility is one of the strongest and most consistent relationships in social science: as women gain access to education, contraception, and economic opportunity, they choose to have fewer children. This is not a crisis — it is freedom. The 'crisis' framing implicitly treats women's bodies as economic infrastructure and children as pension system inputs. Moreover, lower population reduces environmental pressure, per capita resource availability increases, and the quality of parental investment in fewer children can increase significantly.",
+        "Choosing a smaller family or no children can be an exercise of reproductive freedom. Evidence from a Kenyan education-subsidy trial shows that schooling opportunities can change early childbearing, but it does not explain fertility trends in every society. A national birth-rate target cannot tell us which births people want. Policies should be judged partly by whether people can make their own reproductive decisions, including choosing fewer children, and not only by whether they increase the birth rate.",
       proponent_rebuttal:
-        "The choice theory is only half the story. Surveys consistently show that people in developed countries want more children than they actually have — the 'fertility gap' between desired and actual fertility ranges from 0.3 to 0.7 children across OECD countries. In the US, the average desired family size is 2.5 children, but actual fertility is 1.6. This gap indicates that declining fertility is not purely a free choice but reflects structural barriers: unaffordable housing, inadequate childcare, student debt, career penalties for parenthood (especially motherhood), and a lack of family-friendly workplace policies. Characterizing the decline as pure choice absolves society of responsibility for the structural barriers that prevent people from having the families they want.",
+        "High housing and childcare costs can prevent people from having wanted children. Survey respondents report financial constraints, but that does not show how much any subsidy would change completed births. Removing a barrier could still help families even if preferences change and replacement fertility is never restored.",
       crux: {
         id: "fertility-gap-causation",
         title: "The Fertility Gap Decomposition",
         question:
           "Is the gap between desired and actual family size mostly removable barriers, or shifting preferences?",
         description:
-          "The crux is whether the gap between desired and actual fertility (people wanting more children than they have) is primarily caused by removable structural barriers (cost, childcare, workplace flexibility) or by irreducible preference shifts that surveys fail to capture (stated preferences for children may not reflect revealed preferences). If removing structural barriers closes most of the fertility gap, policy intervention can meaningfully raise birth rates. If the gap persists even after removing barriers, declining fertility is a deeper preference shift that policy cannot reverse.",
+          "Barriers such as housing costs, childcare access and work schedules can coexist with changing preferences. The question is how much removing a specific constraint helps people realize their own prior family-size intentions. Comparing survey ideals with a one-year fertility rate cannot answer that: the latter is a hypothetical lifetime built from that year's age-specific birth rates.",
         methodology:
-          "Conduct a natural experiment comparison between countries that have comprehensively addressed structural barriers (Nordic nations with universal childcare, extensive parental leave, housing support) and those that have not, measuring both desired and actual fertility. If Nordic fertility remains significantly below desired levels despite comprehensive support, the fertility gap reflects preference shifts beyond structural barriers. Additionally, longitudinal surveys tracking young people's fertility intentions versus outcomes can reveal when and why the gap emerges.",
+          "Follow comparable cohorts, repeatedly measuring personal intentions, births, relationships, health and costs. Evaluate clearly defined housing, childcare or leave-policy changes against credible comparison groups, checking prior trends and whether the intervention actually reduced the intended barrier. Follow participants far enough to distinguish earlier births from larger completed families. A cross-country comparison alone cannot establish that every relevant barrier was removed or isolate a policy effect.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Desired and actual family size measured side by side in Nordic countries with universal childcare, long parental leave and housing support, against countries without them, tracked over time to see if the gap persists.",
+            "Longitudinal cohorts recording intentions before a clearly defined policy change, with credible comparison groups, verified changes in costs or access, and follow-up that separates changes in birth timing from completed family size.",
         },
         cost_to_verify:
-          "$300K-800K (Cross-national comparison with longitudinal fertility intention tracking)",
+          "Not costed here; a design needs cohort follow-up, policy comparisons and a sampling plan.",
         falsification: {
           supporter_flip:
-            "If Nordic countries with universal childcare, long parental leave, and housing support still showed fertility far below stated desires — and longitudinal tracking found the gap appearing even where barriers are removed — then the decline would look like a genuine preference shift, not a fixable structural problem, weakening the case that policy can raise birth rates.",
+            "If well-identified policy changes substantially reduced the targeted barriers but long-term cohort tracking found little change in completed births, alongside declining personal intentions, the case that those barriers explain most of the decline would weaken.",
           skeptic_flip:
-            "If new surveys kept finding desired fertility 0.3-0.7 children above actual, as in France (2.4 vs 1.8), Germany (2.0 vs 1.4) and Japan (2.4 vs 1.2), and births rose where barriers were removed, the decline would look less like pure free choice.",
+            "If credible policy comparisons showed sustained increases in completed births toward participants' previously stated intentions, without comparable changes in untreated groups, the case that low fertility mostly reflects unconstrained preferences would weaken.",
           common_ground:
-            "Both sides agree female education and contraception access are the strongest correlates of lower fertility, and that a measurable gap between desired and actual family size exists in most rich countries.",
+            "Both cases distinguish reproductive choice from constraints, stated intentions from later outcomes, and completed family size from a one-year fertility rate.",
           live_disagreement:
-            "What share of the desired-vs-actual gap is driven by removable barriers (cost, childcare, workplace flexibility) versus irreducible preference shifts that surveys overstate — resolvable only by comparing fertility in comprehensively supported systems against stated desires over time.",
+            "How much specific, feasible policies help people realize their prior family intentions, after accounting for changing preferences, health, relationships and birth timing.",
         },
       },
       evidence: [
         {
+          // Keep the evidence id stable for existing links; the source is now UNFPA.
           id: "fertility-gap-oecd-data",
-          title: "OECD: Actual Fertility Is 0.3-0.7 Children Below Desired Fertility",
+          title: "UNFPA Survey: Financial Barriers Affect Desired Family Size",
           description:
-            "OECD surveys consistently show that individuals in developed countries report wanting more children than they actually have. In France, desired fertility is 2.4 versus actual 1.8. In Germany, 2.0 versus 1.4. In Japan, 2.4 versus 1.2. This 'fertility gap' suggests that structural barriers — not pure preference — drive much of the decline. If these barriers were removed, fertility would be higher, though still potentially below replacement.",
+            "UNFPA's 2025 report draws on an online YouGov survey of 14,256 adults across 14 countries. Among about 10,000 respondents who had or wanted children, 39% said finances had affected or would affect their desired family size. Coverage and representativeness varied by country. These self-reports identify perceived barriers; they do not establish a worldwide average shortfall in children or the causal effect of a subsidy.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 8,
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 6,
           },
-          source: "OECD Family Database; Eurobarometer",
-          sourceUrl: "https://www.oecd.org/els/family/database.htm",
+          source: "UNFPA, State of World Population 2025, pp. 18 and 143 (fieldwork November-December 2024)",
+          sourceUrl: "https://www.unfpa.org/sites/default/files/pub-pdf/EN_State%20of%20World%20Population%20report%202025.pdf",
           reasoning:
-            "OECD surveys use standardized methodology across countries, providing reliable and comparable data. The fertility gap directly challenges the 'pure choice' theory by showing that people want more children than they have. However, stated preferences in surveys may reflect social desirability bias (people saying they want children because it is expected), slightly limiting the directness.",
+            "The survey supports the existence of reported constraints in the sampled populations. Online-only coverage in some countries, urban bias, missing data and changing intentions limit generalization and causal interpretation.",
         },
         {
           id: "female-education-fertility-correlation",
-          title: "Female Education Is the Strongest Predictor of Fertility Decline",
+          title: "Kenyan Trial: School Subsidies Reduced Early Childbearing",
           description:
-            "The correlation between female educational attainment and fertility decline is one of the most robust relationships in demography. Across every country, every era, and every culture, as women's average years of schooling increase from 0 to 12+, fertility drops from 5+ to below 2. This relationship holds controlling for income, religion, urbanization, and contraception access. UNESCO data shows that women with secondary education have 1.5 fewer children on average than women without, and women with university education have 2+ fewer children.",
+            "Duflo, Dupas and Kremer's seven-year randomized evaluation in 328 western Kenyan schools found that providing free school uniforms reduced girls' dropout, pregnancy and marriage. It demonstrates that an education-cost intervention can change adolescent childbearing in that setting. It does not establish a universal education-fertility relationship, completed lifetime family size, or the cause of below-replacement fertility in rich countries.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 10,
-            directness: 8,
+            replicability: 7,
+            directness: 4,
           },
-          source: "UNESCO; World Bank; Demographic and Health Surveys",
-          sourceUrl: "https://www.worldbank.org/en/topic/education/brief/girls-education",
+          source: "Duflo, Dupas and Kremer, American Economic Review 105(9), 2757-2797 (2015)",
+          sourceUrl: "https://doi.org/10.1257/aer.20121607",
           reasoning:
-            "The education-fertility correlation is one of the most replicated findings in social science, supported by data from virtually every country. It directly supports the choice theory by showing that fertility decline accompanies women's empowerment. The near-perfect replicability gives maximum confidence in the relationship.",
+            "Random assignment supports a causal effect of the subsidy in the study population. Its relevance to this map is indirect: earlier schooling and childbearing outcomes do not by themselves explain later completed fertility or establish that all low fertility is freely chosen.",
         },
       ],
     },
@@ -240,73 +275,73 @@ export const decliningBirthRatesData = {
       id: "technology-escape-valve",
       title: "Technology as Escape Valve",
       short_summary:
-        "AI and automation could maintain economic output with fewer workers, immigration can supplement domestic birth rates, and longevity science may extend productive working years. The question is whether technological solutions can offset demographic decline before the economic consequences become unmanageable.",
+        "Higher productivity could help a smaller workforce support an ageing population, alongside migration and changes in employment. The question is whether gains reach essential services and public finances after adoption costs, rather than remaining aggregate economic-value projections.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "Technology offers a plausible escape from the demographic trap. AI and automation could increase output per worker by 5-10x over the next two decades, potentially allowing a smaller workforce to produce the same or greater economic output. McKinsey estimates that generative AI alone could add $4.4 trillion annually to the global economy by 2040. If each worker produces dramatically more, fewer workers are needed. Simultaneously, immigration from higher-fertility regions can supplement domestic labor forces — the US has maintained closer-to-replacement fertility partly through immigration. Longevity science may extend healthy working years by a decade or more, reducing the dependency ratio by keeping people productive longer. The combination of AI productivity, immigration, and extended healthspan could make below-replacement fertility manageable.",
+        "Productivity growth can help sustain output as workforce numbers change. McKinsey's 2023 scenarios put generative AI's contribution to annual productivity growth through 2040 at 0.1 to 0.6 percentage points, conditional on adoption and redeployment of work. These are projections, not measured economy-wide gains. Together with employment and migration changes, useful technologies could make demographic adjustment less costly without requiring a return to replacement fertility.",
       proponent_rebuttal:
-        "The technology escape valve is speculative optimism dressed up as policy. AI productivity gains are real but distribution matters — if AI increases GDP while eliminating jobs that workers need for income, the economic output increase does not solve the pension funding problem. Japan has invested heavily in robotics for decades yet still faces severe labor shortages in healthcare, elder care, construction, and agriculture — sectors resistant to automation because they require physical presence, human empathy, and adaptive judgment. Immigration can supplement but not replace domestic fertility: countries competing for immigrants will face a global labor market where every developed nation is bidding for the same shrinking pool of young workers. And longevity extension, while promising, may increase healthcare costs faster than it extends productive working years, worsening the dependency ratio rather than improving it.",
+        "Aggregate productivity potential does not guarantee adequate care, household incomes or pension revenues. Gains can be uneven across sectors and households, and adoption uses capital, staff time and training. Japan's care-workforce planning illustrates rising service demand, but does not establish a future shortage or prove that automation cannot help. The challenge is whether feasible deployment and policy responses can deliver enough net benefit where an ageing population needs it.",
       crux: {
         id: "ai-demographic-offset-capacity",
         title: "The AI Productivity Offset Model",
         question:
           "Can AI productivity gains grow fast enough to offset shrinking workforces?",
         description:
-          "The crux is whether AI-driven productivity gains can grow fast enough to offset declining worker populations in maintaining or growing per capita GDP. If realistic AI adoption scenarios show that productivity growth per worker exceeds the rate of workforce decline, population reduction is economically manageable. If AI productivity gains are insufficient, concentrated in non-essential sectors, or create more problems than they solve (unemployment, inequality), demographic decline remains an economic crisis.",
+          "Faster output growth per worker could offset falling worker numbers in total production, but living standards also depend on population size, distribution, public revenues and service needs. The test is whether net gains support households and essential services, rather than whether a technology has a large estimated commercial value.",
         methodology:
-          "Build sector-by-sector models of AI productivity impact for the 20 largest economic sectors, incorporating realistic adoption timelines, capital investment requirements, and displacement effects. Compare projected productivity gains against projected workforce decline under various fertility scenarios. Focus especially on sectors critical for aging populations (healthcare, elder care, construction) where automation is most difficult. Run models for the US, Japan, South Korea, Germany, and China to capture diverse economic structures.",
+          "Combine measured deployment effects with sector-level workforce and service-demand projections. Include adoption costs, worker transitions, tax revenues, care quality and waiting times. Validate model predictions against subsequent deployments and compare plausible fertility, migration and employment paths. Report effects on total output and household living standards separately, with uncertainty around future capabilities.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Models for the 20 largest sectors comparing projected output gains per worker with workforce decline, starting with elder care, healthcare and construction, set beside Japan's record of high robot density and care-worker shortfalls.",
+            "Measured net productivity effects in care and other essential services, combined with independently checked workforce scenarios, showing effects on household income, public revenue, service quality and waiting times after deployment costs.",
         },
         cost_to_verify:
-          "$1-3M (Sector-level AI productivity modeling across multiple economies)",
+          "Not costed here; the design needs sector data, deployment comparisons and independent validation.",
         falsification: {
           supporter_flip:
-            "If sector-by-sector modeling showed AI and automation productivity growth per worker reliably outpacing workforce decline — including in hard-to-automate elder care, healthcare, and construction — then a smaller population would be economically manageable and the 'technology can't save us' rebuttal would fail.",
+            "If measured technology deployments and independently validated models showed durable gains sufficient to preserve household incomes and essential services despite workforce decline, the claim that raising birth rates is economically necessary would weaken.",
           skeptic_flip:
-            "If Japan's care sector, despite the world's highest industrial-robot density, kept falling short by hundreds of thousands of workers (a projected 570,000 by 2040), the hope that technology covers a shrinking workforce would be hard to hold where aging societies need it most.",
+            "If sustained deployment trials showed that net gains in essential services fell well short of growing needs, and credible models found feasible adoption and employment responses insufficient, confidence in a technology-led demographic offset would weaken.",
           common_ground:
-            "Both sides agree AI will raise productivity in many sectors and that immigration can supplement domestic labor; the dispute is magnitude, timing, and whether gains land in the sectors an aging society actually depends on.",
+            "Both cases distinguish potential economic value from realized productivity, national output from household welfare, and planned staffing requirements from measured shortages.",
           live_disagreement:
-            "Whether realistic AI productivity gains can grow fast enough, in the right sectors, to offset workforce decline before fiscal strain becomes unmanageable — answerable only by sector-level adoption modeling across diverse economies (US, Japan, South Korea, Germany, China).",
+            "Whether feasible technology adoption can sustain the incomes, revenues and services an ageing population needs, after accounting for costs and uneven gains.",
         },
       },
       evidence: [
         {
           id: "mckinsey-ai-productivity-estimate",
-          title: "McKinsey: Generative AI Could Add $4.4T to Global Economy Annually",
+          title: "McKinsey Models $2.6-4.4 Trillion in Annual Generative-AI Value",
           description:
-            "McKinsey Global Institute estimates that generative AI could add $2.6-4.4 trillion annually to the global economy by automating tasks equivalent to 60-70% of current work activities. The largest impacts would be in knowledge work, customer operations, sales/marketing, software engineering, and R&D. If realized, this productivity boost could partially offset the economic impact of a shrinking workforce, maintaining per capita output even as total worker numbers decline.",
+            "McKinsey's 2023 analysis estimates $2.6-4.4 trillion in potential annual value across 63 generative-AI use cases. Its separate estimate that activities occupying 60-70% of employee time could be technically automated includes other technologies as well as generative AI. Neither figure is a measured GDP gain or a forecast that a specified care-worker gap will be filled.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
             independence: 6,
-            replicability: 5,
-            directness: 6,
+            replicability: 4,
+            directness: 4,
           },
-          source: "McKinsey Global Institute",
-          sourceUrl: "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-AI-the-next-productivity-frontier",
+          source: "McKinsey, The economic potential of generative AI (June 2023)",
+          sourceUrl: "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
           reasoning:
-            "McKinsey is a respected consultancy, but their AI estimates are projections with significant uncertainty, not measured outcomes. Independence is lower because McKinsey has commercial incentives to promote AI adoption among its corporate clients. The estimates address aggregate productivity, not the specific question of whether gains will offset demographic decline in healthcare, pensions, and elder care.",
+            "This commercial consultancy scenario depends on adoption and worker transitions. It offers a possible scale of benefit, not a causal demonstration that technology offsets demographic pressure.",
         },
         {
           id: "japan-robotics-labor-shortages",
-          title: "Japan: Heavy Robotics Investment Has Not Solved Critical Labor Shortages",
+          title: "Japan Projects a Need for 2.72 Million Care Workers by 2040",
           description:
-            "Japan has the world's highest density of industrial robots and has invested billions in robotics, yet still faces severe labor shortages in healthcare and elder care (Japan's health ministry has projected a shortfall on the order of 300,000+ long-term care workers around 2025, rising toward 570,000 by 2040), construction, agriculture, and logistics. The sectors most critical for an aging population — those requiring human presence, empathy, and physical caregiving — have proven most resistant to automation. Japan's experience suggests that the 'robots will replace workers' narrative overstates current and near-term automation capability for the specific tasks that demographic decline makes most critical.",
+            "Japan's health ministry's July 2024 planning estimate puts required care staffing at about 2.72 million in 2040, 570,000 above the 2.15 million workforce in 2022. The increase is projected demand relative to that baseline, not a measured or supply-adjusted 2040 shortage. It identifies the scale of care provision that adaptation must address, without isolating what automation will achieve.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
-            directness: 8,
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 6,
+            directness: 6,
           },
-          source: "International Federation of Robotics (IFR) — World Robotics Report, Robot Density press release",
-          sourceUrl: "https://ifr.org/ifr-press-releases/news/robot-density-surges-in-europe-asia-and-americas",
+          source: "Japan Ministry of Health, Labour and Welfare, care-worker requirements under the ninth long-term care insurance plans (July 2024)",
+          sourceUrl: "https://www.mhlw.go.jp/stf/newpage_41379.html",
           reasoning:
-            "Japan's 30+ year experience with automation in the context of population aging is the best available natural experiment. The persistent labor shortages despite massive robotics investment directly challenge the 'technology escape valve' thesis. The evidence is particularly strong because Japan had both the incentive and the capability to automate but could not solve its demographic challenges through technology alone.",
+            "An official planning estimate is relevant to service demand, but its assumptions can change. It is not an experiment on care automation, and manufacturing robot counts would not measure that effect either.",
         },
       ],
     },

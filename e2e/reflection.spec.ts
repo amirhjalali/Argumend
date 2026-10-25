@@ -8,6 +8,13 @@ import { expect, horizontalOverflow, test, waitForHydration } from "./fixtures";
  */
 for (const id of ["ai-mass-unemployment", "nuclear-energy-safety"]) {
   test(`the reflection on ${id} leads to the crux it picked`, async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, "clipboard", {
+        configurable: true,
+        value: { writeText: async () => { throw new DOMException("Blocked", "NotAllowedError"); } },
+      });
+      Object.defineProperty(document, "execCommand", { configurable: true, value: () => false });
+    });
     await page.goto(`/topics/${id}`);
     const reflection = page.locator("#reflect");
     await reflection.scrollIntoViewIfNeeded();
@@ -41,8 +48,36 @@ for (const id of ["ai-mass-unemployment", "nuclear-energy-safety"]) {
     const open = reflection.getByRole("link", { name: "Open this crux" });
     const href = await open.getAttribute("href");
     expect(href).toMatch(/^#crux-/);
+    const starter = [
+      "Could we start with this question?",
+      await first.locator("span").last().innerText(),
+      `Read the evidence: https://argumend.org/topics/${id}${href}`,
+    ].join("\n\n");
+    const copy = reflection.getByRole("button", { name: "Copy this question", exact: true });
+    expect(await copy.evaluate((element) => element.getBoundingClientRect().top)).toBeLessThan(
+      await reflection.locator("[data-other-side-cards]").evaluate((element) => element.getBoundingClientRect().top),
+    );
+    await reflection.getByText("Preview conversation starter", { exact: true }).click();
+    await expect(reflection.locator("details > p")).toHaveText(starter);
+    await copy.click();
+    const manual = reflection.getByRole("textbox", { name: "Question to copy" });
+    await expect(manual).toHaveValue(starter);
+    await expect(copy).toBeFocused();
+    await expect(reflection.getByRole("button", { name: "Copied", exact: true })).toHaveCount(0);
+    await manual.focus();
+    expect(await manual.evaluate((element: HTMLTextAreaElement) =>
+      element.selectionStart === 0 && element.selectionEnd === element.value.length,
+    )).toBe(true);
+    expect(await horizontalOverflow(page)).toEqual([]);
     await open.click();
     await expect(page).toHaveURL(new RegExp(`${href}$`));
     await expect(page.locator(href!)).toBeInViewport();
+    // Leave the map first: navigating to its current fragment can be a
+    // same-document visit rather than the fresh load a recipient makes.
+    await page.goto("/");
+    await page.goto(`/topics/${id}${href}`);
+    const linkedCrux = page.locator(href!).locator(":scope > details");
+    await expect(linkedCrux).toHaveAttribute("open", "");
+    await expect(linkedCrux.locator(":scope > summary")).toBeFocused();
   });
 }

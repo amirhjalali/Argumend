@@ -1,25 +1,8 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
-import { Share2, Copy, Check, Lightbulb } from "lucide-react";
-import type { TopicStatus } from "@/lib/schemas/topic";
+import { useEffect, useRef, useState } from "react";
+import { Copy, Check } from "lucide-react";
 import { copyTextToClipboard } from "@/lib/copyToClipboard";
-
-// ---------------------------------------------------------------------------
-// Web Share API availability (SSR-safe via useSyncExternalStore)
-// ---------------------------------------------------------------------------
-
-function subscribeCanShare(_onStoreChange: () => void) {
-  return () => {};
-}
-
-function getCanShareSnapshot() {
-  return typeof navigator !== "undefined" && typeof navigator.share === "function";
-}
-
-function getServerCanShareSnapshot() {
-  return false;
-}
 
 // ---------------------------------------------------------------------------
 // Props
@@ -28,135 +11,37 @@ function getServerCanShareSnapshot() {
 interface ShareButtonsProps {
   title: string;
   url: string;
-  description?: string;
-  /** Topic-specific fields for richer share text */
-  topicMeta?: {
-    metaClaim: string;
-    verdictLabel: string;
-    balance: number;
-    weight: number;
-    status: TopicStatus;
-    /** The first crux question title from pillars[0].crux.title */
-    cruxQuestion?: string;
-    topicTitle: string;
-  };
 }
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
+/** Map-sharing controls, with confirmed copy success and a manual fallback. */
+export function ShareButtons({ title, url }: ShareButtonsProps) {
+  const [copyResult, setCopyResult] = useState<{ url: string; status: "copied" | "failed" } | null>(null);
+  const requestId = useRef(0);
+  const copied = copyResult?.url === url && copyResult.status === "copied";
+  const copyFailed = copyResult?.url === url && copyResult.status === "failed";
 
-/**
- * Build the pre-filled tweet text for a topic analysis.
- *
- * Template:
- *   "[meta_claim]. Verdict: [verdict label].
- *
- *    The crux: [first crux question]
- *
- *    See the full argument map →"
- */
-function buildTweetText(meta: NonNullable<ShareButtonsProps["topicMeta"]>): string {
-  let text = `${meta.metaClaim} Verdict: ${meta.verdictLabel}.`;
+  useEffect(() => () => { requestId.current += 1; }, [url]);
 
-  if (meta.cruxQuestion) {
-    text += `\n\nThe crux: ${meta.cruxQuestion}`;
-  }
-
-  text += "\n\nSee the full argument map \u2192";
-  return text;
-}
-
-/**
- * Build the "Share the Crux" tweet text.
- *
- * Template:
- *   "What's the ONE question that would resolve the [topic] debate?
- *
- *    → [crux question]
- *
- *    Map the full argument: [url]"
- */
-function buildCruxTweetText(topicTitle: string, cruxQuestion: string): string {
-  return `What\u2019s the ONE question that would resolve the ${topicTitle} debate?\n\n\u2192 ${cruxQuestion}\n\nMap the full argument:`;
-}
-
-// ---------------------------------------------------------------------------
-// ShareButtons — reusable horizontal share row
-// ---------------------------------------------------------------------------
-
-export function ShareButtons({ title, url, description, topicMeta }: ShareButtonsProps) {
-  const [copied, setCopied] = useState(false);
-  const [cruxCopied, setCruxCopied] = useState(false);
-  const [copyFailure, setCopyFailure] = useState<{ text: string; crux: boolean } | null>(null);
-  const canShare = useSyncExternalStore(
-    subscribeCanShare,
-    getCanShareSnapshot,
-    getServerCanShareSnapshot,
-  );
-
-  // ---- handlers ----
+  useEffect(() => {
+    if (!copied) return;
+    const timer = window.setTimeout(() => setCopyResult(null), 2000);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
 
   const handleCopy = async () => {
-    setCopied(false);
-    setCruxCopied(false);
-    setCopyFailure(null);
+    const currentRequest = ++requestId.current;
+    setCopyResult(null);
     try {
       await copyTextToClipboard(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      if (requestId.current === currentRequest) setCopyResult({ url, status: "copied" });
     } catch {
-      setCopyFailure({ text: url, crux: false });
+      if (requestId.current === currentRequest) setCopyResult({ url, status: "failed" });
     }
   };
 
-  const handleNativeShare = async () => {
-    const shareText = topicMeta
-      ? buildTweetText(topicMeta)
-      : (description ?? title);
-    try {
-      await navigator.share({
-        title,
-        text: shareText,
-        url,
-      });
-    } catch {
-      // User cancelled or API unavailable — nothing to do
-    }
-  };
-
-  // Build Twitter href — use rich text for topics, fallback for generic
-  const tweetText = topicMeta
-    ? buildTweetText(topicMeta)
-    : title;
-
-  const twitterHref = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(url)}`;
+  const twitterHref = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
 
   const linkedInHref = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-
-  // "Share the Crux" — only available when topic has a crux question
-  const cruxTweetText = topicMeta?.cruxQuestion
-    ? buildCruxTweetText(topicMeta.topicTitle, topicMeta.cruxQuestion)
-    : null;
-
-  const cruxTwitterHref = cruxTweetText
-    ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(cruxTweetText)}&url=${encodeURIComponent(url)}`
-    : null;
-
-  const handleCopyCrux = async () => {
-    if (!topicMeta?.cruxQuestion) return;
-    const text = `${buildCruxTweetText(topicMeta.topicTitle, topicMeta.cruxQuestion)} ${url}`;
-    setCopied(false);
-    setCruxCopied(false);
-    setCopyFailure(null);
-    try {
-      await copyTextToClipboard(text);
-      setCruxCopied(true);
-      setTimeout(() => setCruxCopied(false), 2500);
-    } catch {
-      setCopyFailure({ text, crux: true });
-    }
-  };
 
   // ---- shared styles ----
 
@@ -218,68 +103,24 @@ export function ShareButtons({ title, url, description, topicMeta }: ShareButton
         </svg>
       </a>
 
-      {/* Native Web Share API (mobile) */}
-      {canShare && (
-        <button
-          type="button"
-          onClick={handleNativeShare}
-          className={btnClass}
-          aria-label="Share"
-          title="Share"
-        >
-          <Share2 className="h-4 w-4" />
-        </button>
-      )}
-
-      {/* Share the Crux — prominent CTA when crux data is available */}
-      {cruxTwitterHref && (
-        <div className="flex items-center gap-1 ml-1 pl-2 border-l border-stone-200/60 dark:border-[var(--border-divider)]">
-          <a
-            href={cruxTwitterHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-rust-600 to-rust-700 text-white hover:from-rust-700 hover:to-rust-800 transition-all shadow-sm"
-            aria-label="Share the crux question on X"
-            title="Share the crux question"
-          >
-            <Lightbulb className="h-3.5 w-3.5" />
-            Share the Crux
-          </a>
-          <button
-            type="button"
-            onClick={handleCopyCrux}
-            className="inline-flex items-center justify-center h-8 w-8 rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 dark:hover:text-stone-300 dark:hover:bg-[var(--bg-muted)] transition-colors"
-            aria-label={cruxCopied ? "Crux copied" : "Copy crux text"}
-            title={cruxCopied ? "Copied!" : "Copy crux text"}
-          >
-            {cruxCopied ? (
-              <Check className="h-3.5 w-3.5 text-deep" />
-            ) : (
-              <Copy className="h-3.5 w-3.5" />
-            )}
-          </button>
-        </div>
-      )}
-
-      {/* Copied toast */}
-      <span role="status" className="ml-1 text-xs font-medium text-deep">
-        {cruxCopied ? "Crux copied!" : copied ? "Link copied!" : ""}
+      <span role="status" className={copied ? "ml-1 text-xs font-medium text-deep" : "sr-only"}>
+        {copied ? "Link copied!" : ""}
       </span>
-      {copyFailure && (
-        <div className="w-full min-w-0 px-1 py-2">
-          <p role="alert" className="text-xs leading-relaxed text-error-text">
-            {copyFailure.crux ? "The crux text" : "The link"} could not be copied. Select and copy it below.
+      {copyFailed ? (
+        <div className="w-40 space-y-2 p-2">
+          <p role="alert" className="font-sans text-sm text-error-text">
+            The link could not be copied. Select and copy it below.
           </p>
-          <textarea
+          <input
+            type="text"
             readOnly
-            aria-label={copyFailure.crux ? "Crux text to copy" : "Link to copy"}
-            value={copyFailure.text}
+            aria-label="Link to copy"
+            value={url}
             onFocus={(event) => event.currentTarget.select()}
-            rows={copyFailure.crux ? 4 : 2}
-            className="mt-2 block w-full min-w-0 rounded border border-stone-300 bg-white p-2 text-xs text-primary dark:text-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:border-divider dark:bg-card"
+            className="w-full rounded border border-[var(--border-default)] bg-[var(--bg-input)] p-2 font-sans text-sm text-[var(--text-primary)]"
           />
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

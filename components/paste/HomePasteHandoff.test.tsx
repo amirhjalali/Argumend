@@ -3,7 +3,8 @@ import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { StrictMode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { HeroAnalyze } from "@/components/HeroAnalyze";
-import { PasteClient } from "./PasteClient";
+import { clearWorkingPaste, PasteClient } from "./PasteClient";
+import { clearPastePrefill } from "@/lib/paste/handoff";
 
 const navigation = vi.hoisted(() => ({ push: vi.fn() }));
 vi.mock("next/navigation", () => ({ useRouter: () => navigation }));
@@ -12,6 +13,8 @@ vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 beforeEach(() => {
   navigation.push.mockReset();
   sessionStorage.clear();
+  clearPastePrefill();
+  clearWorkingPaste();
   vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({ error: "Test response" }), { status: 503 })));
 });
 
@@ -27,7 +30,7 @@ describe("home paste handoff with unavailable browser storage", () => {
     const storage = { setItem: vi.fn(blocked), getItem: vi.fn(blocked), removeItem: vi.fn(blocked) } as unknown as Storage;
     vi.spyOn(window, "sessionStorage", "get").mockReturnValue(storage);
     const content = "Nuclear energy has low carbon emissions, but its costs and long construction times are contested.";
-    const home = render(<HeroAnalyze onTopicSelect={vi.fn()} />);
+    const home = render(<HeroAnalyze />);
     fireEvent.change(home.getByRole("textbox", { name: "Text to analyze" }), { target: { value: content } });
 
     fireEvent.click(home.getByRole("button", { name: "Find what it turns on" }));
@@ -43,7 +46,7 @@ describe("home paste handoff with unavailable browser storage", () => {
     paste.unmount();
 
     render(<PasteClient lanes={{ maps: true, diagnosis: { enabled: false } }} />);
-    await waitFor(() => expect(document.querySelector("textarea")?.value).toBe(""));
+    await waitFor(() => expect(document.querySelector("textarea")?.value).toBe(content));
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 });

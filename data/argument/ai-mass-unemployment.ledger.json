@@ -236,6 +236,7 @@
     },
     {
       "id": "ai-mass-unemployment:c-productivity-above-trend:2026-02-11:1",
+      "supersededBy": "ai-mass-unemployment:c-productivity-above-trend:2026-02-11:2",
       "topicId": "ai-mass-unemployment",
       "claimId": "c-productivity-above-trend",
       "date": "2026-02-11",
@@ -265,6 +266,38 @@
         "basis": "Abdelrahman and Foerster, 'Have We Entered an Era of High Productivity Growth?', FRBSF Economic Letter 2026-14, 2026-05-26 (PDF read 2026-09-22). No AI-attributable share is estimated, so the resolution condition is unmet."
       },
       "createdAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-productivity-above-trend:2026-02-11:2",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-productivity-above-trend",
+      "date": "2026-02-11",
+      "noticedAt": "2026-10-18",
+      "status": "open",
+      "evidenceNodeIds": ["e-kcfed-industry-productivity-ai"],
+      "note": "Kansas City Fed: productivity gains are concentrated in a few industries. AI adoption tracks within-industry growth but explains little of the aggregate shift. The AI-attributable share remains open.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "Correction checked 2026-10-18 against the February 11 Kansas City Fed article: this entry now cites only evidence available on its source date. The BLS second-quarter release was published August 6 and belongs to its own dated entry."
+      },
+      "createdAt": "2026-10-18T00:00:00Z"
+    },
+    {
+      "id": "ai-mass-unemployment:c-productivity-above-trend:2026-08-06:1",
+      "topicId": "ai-mass-unemployment",
+      "claimId": "c-productivity-above-trend",
+      "date": "2026-08-06",
+      "noticedAt": "2026-10-18",
+      "status": "open",
+      "evidenceNodeIds": ["e-bls-macro-series"],
+      "note": "BLS reports 2.2% productivity growth over four quarters and 2.1% annualized growth in the business cycle since late 2019, versus 1.5% in the prior cycle. These aggregate figures do not identify AI's contribution.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "BLS Productivity and Costs, Second Quarter 2026, Preliminary, August 6 release, checked 2026-10-18. The four-quarter and business-cycle growth rates use different windows. Neither estimates the AI-attributable share required by the claim's resolution."
+      },
+      "createdAt": "2026-10-18T00:00:00Z"
     }
   ]
 }

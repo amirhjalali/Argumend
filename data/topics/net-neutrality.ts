@@ -3,6 +3,10 @@ export const netNeutralityData = {
   title: "Net Neutrality",
   question:
     "Are net-neutrality rules needed to keep the internet open and competitive?",
+  aliases: [
+    "Internet fast lanes and paid prioritization",
+    "Internet providers blocking or slowing competing websites and video services",
+  ],
   meta_claim:
     "Net-neutrality regulation is necessary to protect an open, competitive internet.",
   status: "contested" as const,

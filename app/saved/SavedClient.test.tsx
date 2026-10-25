@@ -1,6 +1,6 @@
 import "@/test/setup-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, fireEvent, render } from "@testing-library/react";
 
 const savedState = vi.hoisted(() => ({
   ids: [] as string[],
@@ -21,7 +21,7 @@ describe("SavedClient empty and unavailable states", () => {
     savedState.ids = [];
     savedState.hydrated = true;
     savedState.error = null;
-    savedState.remove.mockClear();
+    savedState.remove.mockReset();
   });
 
   it("shows the normal empty state when storage is readable", () => {
@@ -80,5 +80,48 @@ describe("SavedClient empty and unavailable states", () => {
     expect(view.container.textContent).not.toMatch(/Evidence (largely converges|still divided|still thin)/);
     expect(view.container.textContent).not.toMatch(/verdict|leans|toward|balance|pillar/i);
     expect(view.container.querySelector(".rounded-full")).toBeNull();
+  });
+
+  it("announces removal and continues at the next map, previous map, or browse action", () => {
+    savedState.ids = ["ai-mass-unemployment", "nuclear-energy-safety", "climate-change"];
+    savedState.remove.mockImplementation((id: string) => {
+      savedState.ids = savedState.ids.filter((saved) => saved !== id);
+      return true;
+    });
+    const view = render(<SavedClient />);
+    const status = view.getByRole("status", { name: "Saved map updates" });
+    expect(status.textContent).toBe("");
+    const removeNuclear = view.getByRole("button", { name: /^Remove "Should nuclear power/ });
+    removeNuclear.focus();
+    fireEvent.click(removeNuclear);
+    expect(document.activeElement).toBe(view.getByRole("link", { name: /^Is climate change/ }));
+    expect(status.textContent).toContain("2 saved maps remaining.");
+    const removeClimate = view.getByRole("button", { name: /^Remove "Is climate change/ });
+    removeClimate.focus();
+    fireEvent.click(removeClimate);
+    expect(document.activeElement).toBe(view.getByRole("link", { name: /^Will AI cause mass unemployment/ }));
+    expect(status.textContent).toContain("1 saved map remaining.");
+    const removeAi = view.getByRole("button", { name: /^Remove "Will AI cause/ });
+    removeAi.focus();
+    fireEvent.click(removeAi);
+    expect(document.activeElement).toBe(view.getByRole("link", { name: "Browse maps" }));
+    expect(status.textContent).toContain("0 saved maps remaining.");
+  });
+
+  it("keeps the map and focus when storage rejects removal, without announcing success", () => {
+    savedState.ids = ["climate-change"];
+    savedState.remove.mockImplementation(() => {
+      savedState.error = "Could not update saved topics on this device.";
+      return false;
+    });
+    const view = render(<SavedClient />);
+    const remove = view.getByRole("button", { name: /^Remove "Is climate change/ });
+    remove.focus();
+    fireEvent.click(remove);
+    view.rerender(<SavedClient />);
+    expect(document.activeElement).toBe(remove);
+    expect(view.getByRole("link", { name: /^Is climate change/ })).toBeTruthy();
+    expect(view.getByRole("status", { name: "Saved map updates" }).textContent).toBe("");
+    expect(view.getByRole("alert").textContent).toContain("existing bookmarks have not changed");
   });
 });

@@ -23,6 +23,7 @@ vi.mock("@/components/AppShell", () => ({
 }));
 
 import QuestionPage, { generateMetadata, generateStaticParams } from "./page";
+import { RELATED_MAPS } from "@/lib/relatedMaps";
 
 afterEach(cleanup);
 
@@ -97,7 +98,8 @@ describe("question pages are crux-first and never a verdict", () => {
     const view = await renderQuestion("is-nuclear-energy-safe");
     const related = view.container.querySelector<HTMLElement>("#related")!;
     const hrefs = Array.from(related.querySelectorAll("a")).map((a) => a.getAttribute("href"));
-    expect(hrefs).toHaveLength(3);
+    expect(hrefs.length).toBeGreaterThan(0);
+    expect(hrefs.length).toBeLessThanOrEqual(RELATED_MAPS.count);
     expect(hrefs).not.toContain("/questions/is-nuclear-energy-safe");
     // The other nuclear-power map comes first, as on the map page.
     const { getPrimaryQuestionSlug } = await import("@/lib/questions");

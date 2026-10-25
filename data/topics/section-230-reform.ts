@@ -9,112 +9,124 @@ export const section230ReformData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "Section 230 passed the House 420-4 to undo Stratton Oakmont v. Prodigy, a 1995 ruling that made a platform which moderated some posts liable for all of them. It already excludes federal crimes, intellectual property and sex trafficking, and in 2024 the Third Circuit held in Anderson v. TikTok that it does not bar claims over TikTok's own recommendations. Both sides accept this history. The fight is over how far immunity should reach for what platforms amplify.",
-    confidence: 92,
+      "On August 4, 1995, the House approved the Cox amendment to H.R. 1555 by 420-4. That was an amendment vote, not a measure of the effects of changing Section 230 today. The map separates questions about platform liability, lawful speech and competition rather than treating a historical vote or a single lawsuit as a verdict on reform.",
+    confidence: 95,
     source:
-      "EFF, Section 230 legislative history; 47 U.S.C. § 230(e); Anderson v. TikTok, No. 22-3061 (3d Cir. 2024)",
-    sourceUrl: "https://www.eff.org/issues/cda230/legislative-history",
+      "U.S. House Clerk, Roll Call 631, Cox amendment to H.R. 1555 (August 4, 1995)",
+    sourceUrl: "https://clerk.house.gov/Votes/1995631",
   },
   // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that platforms' engagement-optimizing recommendation systems shape what users, including minors, see and that some harmful content reaches children through them; that the First Amendment protects most lawful speech regardless of Section 230; that full repeal would revive the Stratton Oakmont 'moderator's dilemma'; and that FOSTA, poorly drafted as it was, is the cleanest natural experiment available.",
-    "They split over whether a platform's ranking choice is legally its own conduct that causes a specific, provable injury, the question the Third Circuit took up in Anderson v. TikTok; whether a reform can deter targeted harms without a net loss of lawful speech; and whether removing immunity would burden small platforms most or meaningfully constrain dominant ones.",
+    "An immunity defense, proof of an injury and a judgment that a reform would improve outcomes are different questions. Court decisions depend on the allegations and legal duties before them. Enforcement counts and industry projections also need their dates, scope and assumptions kept visible.",
+    "The disagreement concerns which platform conduct should face liability, whether a particular reform would improve safety without excessive restrictions on lawful speech, and how its costs would fall across services of different sizes. Each question requires its own evidence, with legislative proposals distinguished from law and observational reports distinguished from controlled comparisons.",
   ],
-  last_updated: "2026-06-16",
+  last_updated: "2026-10-18",
   tags: ["section-230", "content-moderation", "free-speech", "platform-liability", "internet-policy"],
   pillars: [
     {
       id: "accountability-gap",
       title: "The Accountability Gap",
       short_summary:
-        "Section 230(c)(1) bars treating platforms as the 'publisher or speaker' of user content, and courts have read it broadly enough that victims of algorithmically amplified harms often cannot sue.",
+        "Recommendation-related claims have received different treatment in published appellate opinions. The issue is which alleged conduct and duties fall within immunity, and whether changing those rules would improve redress and safety.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Section 230's exceptions already preserve liability for the worst conduct — federal crimes, sex-trafficking claims (18 U.S.C. 1591/1595/2421A after FOSTA), intellectual property, and ECPA all override the shield. Courts are also already narrowing immunity where a platform's own conduct is at issue: in Anderson v. TikTok (3d Cir. 2024) the court held 230 does not bar claims that TikTok's algorithm itself recommended the deadly 'Blackout Challenge,' treating the recommendation as the platform's own expressive activity. The doctrine is evolving case-by-case without a blunt statutory repeal that would also sweep away protection for moderating ordinary speech. The harm from amplification is real, but causation between any single platform's ranking and a given injury is contested and hard to prove.",
+        "Existing law already distinguishes third-party content, moderation and specified exceptions. Case-specific decisions can permit some claims without repeal. Legal protection, the merits of an underlying claim and constitutional speech questions need separate analysis; a court allowing a claim to proceed does not establish injury, causation or damages.",
       proponent_rebuttal:
-        "Section 230's near-absolute immunity now shields trillion-dollar companies that profit from engagement-optimized recommendation systems, not the fledgling 1996 message boards Congress had in mind. When a platform's own algorithm pushes a lethal 'challenge' to a 10-year-old, or amplifies hate and self-harm content to teenagers, the people harmed frequently have no defendant to sue, because courts have extended 230 to cover the platform's own ranking and recommendation choices. The 2023 US Surgeon General advisory found algorithmic design pushes harmful content to minors and concluded there is not yet enough evidence that social media is safe for children. Reform would restore the ordinary tort principle that those who design and profit from a dangerous product can be held accountable for it.",
+        "Reform supporters ask why platforms that curate feeds and algorithmically promote posts should have publisher immunity when someone sues: are they neutral bulletin boards, or responsible for their own recommendations? A claim can fail at the immunity stage before its merits are decided, as the Ninth Circuit's April 2026 Doe 1 v. Meta opinion illustrates for its allegations. Supporters must also show which liability changes would improve redress and safety; concern about youth mental health alone does not identify an effective rule.",
       crux: {
         id: "amplification-causation",
         title: "Does Algorithmic Amplification Cause Compensable Harm?",
         question:
           "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
         description:
-          "The load-bearing disagreement is whether a platform's own recommendation system is conduct distinct from hosting third-party speech, such that it can cause legally cognizable harm that Section 230 should not shield.",
+          "Separate the legal characterization of a recommendation from evidence that particular conduct caused an injury. A ruling about immunity is not a trial finding of causation, and evidence of harm does not by itself decide what statutory rule should apply.",
         methodology:
-          "Track post-Anderson v. TikTok appellate decisions on whether algorithmic recommendation counts as first-party 'expressive activity' outside 230; pair with empirical studies measuring whether engagement-ranked feeds (vs. chronological) increase exposure to harmful content for minors. A randomized feed-ordering experiment plus a circuit-split survey would isolate the causation question.",
+          "Compare published opinions by jurisdiction, procedural stage, alleged design feature, duty and disposition. Distinguish majority holdings from separate opinions. Evaluate exposure and injury with suitable comparisons and explicit confounders, rather than assuming a change in feed ranking measures a particular legal injury. Assess specific reform designs and report uncertainty, redress and lawful-speech effects separately.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Post-Anderson v. TikTok appellate rulings on whether algorithmic ranking is the platform's own conduct, alongside randomized feed-ordering experiments comparing engagement-ranked and chronological feeds on minors' exposure to harmful content.",
+            "Compare case records by jurisdiction and procedural stage, separating immunity decisions from adjudicated injuries. Evaluate specified reforms against suitable comparison groups for changes in redress, safety and access to lawful speech.",
         },
-        cost_to_verify: "$2M (multi-platform randomized feed study + legal docket review)",
+        cost_to_verify: "Not costed here; scope depends on legal case coding and the design of empirical evaluations.",
         falsification: {
           supporter_flip:
-            "If post-Anderson appellate courts consolidated on treating algorithmic ranking as protected third-party hosting (not first-party 'expressive activity'), and randomized feed-ordering studies showed engagement-ranked feeds do not measurably increase minors' exposure to harmful content versus chronological feeds, the case that amplification is distinct, compensable harm would collapse into ordinary publisher immunity.",
+            "If existing rules consistently allowed well-supported claims to be resolved on their merits, and credible evaluations found that proposed reforms added costs without improving redress or safety, the case for those reforms would weaken.",
           skeptic_flip:
-            "If more appellate courts followed the Third Circuit in Anderson v. TikTok, treating a recommendation such as the 'Blackout Challenge' as the platform's own conduct, and studies confirmed the pattern the 2023 Surgeon General advisory describes, 'amplification is just neutral hosting' would be hard to hold.",
+            "If credible evaluations showed that a specified reform improved redress or reduced attributable harm without greater restrictions on lawful speech or disproportionate costs, the case for retaining the existing rule unchanged would weaken.",
           common_ground:
-            "Both sides agree platforms run engagement-optimizing recommendation systems that materially shape what users (including minors) see, and that some genuinely harmful content reaches children through those systems.",
+            "An immunity ruling is distinct from proof of an injury, and an observed association is distinct from a causal effect of a liability reform.",
           live_disagreement:
-            "Whether a platform's ranking choice is legally distinct conduct that causes a specific injury — which turns on whether courts settle the post-Anderson circuit split AND whether a randomized feed-ordering experiment can isolate amplification's causal contribution to harm from background exposure.",
+            "Which platform conduct should face liability, and whether particular changes would improve redress and safety at acceptable costs. Evidence informs that judgment without settling every value tradeoff.",
         },
       },
       evidence: [
         {
           id: "anderson-tiktok",
-          title: "Anderson v. TikTok: Algorithm Is Not Shielded Third-Party Speech",
+          title: "Anderson v. TikTok: Recommendation Claims Survived an Immunity Dismissal (2024)",
           description:
-            "The Third Circuit held (Aug 27, 2024, No. 22-3061) that Section 230 does not bar claims that TikTok's algorithm recommended the 'Blackout Challenge' to 10-year-old Nylah Anderson, who died attempting it — because the recommendation is TikTok's own 'expressive activity,' not merely third-party content.",
+            "The Third Circuit's August 27, 2024 opinion treated the alleged For You Page recommendation as TikTok's own expressive activity and held Section 230 did not bar those claims. The court reversed in part, vacated in part and remanded. It accepted allegations for the dismissal-stage review; this was not a finding that TikTok caused an injury or owed damages. The opinion expressly reserved search-result algorithms.",
           side: "for" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 10,
             independence: 9,
-            replicability: 6,
-            directness: 8,
+            replicability: 7,
+            directness: 5,
           },
           source:
-            "Anderson v. TikTok, Inc., No. 22-3061 (3d Cir. Aug. 27, 2024), Judge Shwartz",
-          sourceUrl: "https://en.wikipedia.org/wiki/Anderson_v._TikTok",
+            "Anderson v. TikTok, No. 22-3061 (3d Cir. August 27, 2024), majority opinion, pp. 4 and 10-13",
+          sourceUrl: "https://www2.ca3.uscourts.gov/opinarch/223061p.pdf",
           reasoning:
-            "A federal appellate opinion is highly reliable and directly supports reform's premise that broad 230 immunity has overreached. Weighted down on replicability/directness because it relied on a contested reading of Moody v. NetChoice, is binding only in the Third Circuit, and is itself an example of courts narrowing 230 without statutory change — so it cuts partly against the need for repeal.",
+            "The opinion establishes a case-specific legal outcome. It also illustrates a route under existing law, rather than demonstrating that statutory repeal is necessary.",
+        },
+        {
+          id: "doe-meta-2026",
+          title: "Doe 1 v. Meta: Claims Dismissed Under Ninth Circuit Precedent (2026)",
+          description:
+            "On April 28, 2026, a Ninth Circuit panel affirmed dismissal of recommendation-related claims concerning Facebook content in Myanmar. Applying circuit precedent, the panel treated the alleged promotion of third-party posts as publishing conduct protected by Section 230. Separate concurrences urged reconsideration of that precedent; those views were not a holding removing immunity. The opinion addresses the allegations before it, not every possible product-design claim.",
+          side: "for" as const,
+          weight: { sourceReliability: 10, independence: 9, replicability: 7, directness: 5 },
+          source: "Doe 1 v. Meta Platforms, No. 24-1672 (9th Cir. April 28, 2026), majority pp. 12-17 and separate concurrences",
+          sourceUrl: "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/04/28/24-1672.pdf",
+          reasoning:
+            "The dismissal illustrates a barrier to these claims. It does not establish whether the allegations were true or whether a different statute would improve outcomes.",
         },
         {
           id: "surgeon-general-advisory",
-          title: "Surgeon General: Algorithms Push Harmful Content to Youth",
+          title: "2023 Surgeon General Advisory: Youth Mental-Health Risks and Evidence Limits",
           description:
-            "The 2023 US Surgeon General advisory (Dr. Vivek Murthy, May 23, 2023) found that harmful content reaches children through algorithmic design, that adolescents exceeding ~3 hours/day on social media face double the risk of poor mental-health outcomes, and that there is 'not yet enough evidence' that social media is safe for children.",
+            "The advisory cites a longitudinal U.S. cohort of 6,595 adolescents aged 12-15 in which more than three hours of daily social-media use was associated with about double the risk of poor mental-health outcomes, after adjustment for baseline mental health. That association is not proof that a recommendation algorithm caused an individual injury. The advisory discusses both benefits and harms and identifies substantial evidence gaps; it does not evaluate a Section 230 repeal.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 7,
+            sourceReliability: 9,
+            independence: 8,
             replicability: 6,
-            directness: 6,
+            directness: 4,
           },
           source:
-            "U.S. Surgeon General, 'Social Media and Youth Mental Health' Advisory (2023)",
+            "U.S. Surgeon General, Social Media and Youth Mental Health (2023), pp. 6-7",
           sourceUrl:
             "https://www.hhs.gov/sites/default/files/sg-youth-mental-health-social-media-advisory.pdf",
           reasoning:
-            "An official federal public-health advisory synthesizing the literature is reliable, but it documents correlational harm and platform design choices — it does not establish that removing 230 immunity is the right remedy, and the underlying mental-health causation literature is genuinely contested, so directness to the legal claim is moderate.",
+            "The advisory supports concern and further study. Its cited observational association does not identify the effect of a particular liability reform.",
         },
         {
           id: "durbin-graham-sunset",
-          title: "Bipartisan Senate Bill to Sunset Section 230 (Dec 2025)",
+          title: "S. 3546 as Introduced: A Proposed Repeal After Two Years",
           description:
-            "Per a Dec 18, 2025 Senate Judiciary press release, Sens. Durbin (D) and Graham (R) introduced a bill to repeal Section 230 two years after enactment, framed as opening courtrooms to victims of child exploitation, harassment, CSAM, and fentanyl sales. (Post-cutoff; reported as a legislative proposal, not enacted law.)",
+            "S. 3546, introduced on December 17, 2025, proposes repealing Section 230 with an effective date two years after enactment. The introduced text identifies a concrete legislative design. Introduction, sponsorship and proposed wording are not evidence of enactment or of the proposal's effects on safety, speech or investment.",
           side: "for" as const,
           weight: {
-            sourceReliability: 6,
-            independence: 4,
-            replicability: 5,
-            directness: 7,
+            sourceReliability: 10,
+            independence: 8,
+            replicability: 9,
+            directness: 4,
           },
           source:
-            "Office of Sen. Dick Durbin, press release, Dec. 18, 2025 (bipartisan 'sunset' bill)",
+            "U.S. Government Publishing Office, S. 3546, introduced-in-Senate text (December 17, 2025), section 2(c)",
           sourceUrl:
-            "https://www.durbin.senate.gov/newsroom/press-releases/durbin-graham-introduce-bill-to-sunset-section-230-immunity-for-tech-companies-protect-americans-online",
+            "https://www.govinfo.gov/content/pkg/BILLS-119s3546is/html/BILLS-119s3546is.htm",
           reasoning:
-            "A genuine bipartisan reform proposal directly on the meta-claim, but it is a partisan press release advocating a position (low independence), reflects intent rather than evidence of effect, and is post-cutoff — so it is attributed and dated and given low overall weight.",
+            "The text directly documents a proposal. Its desired policy effects remain claims to evaluate, rather than outcomes established by the bill.",
         },
       ],
     },
@@ -122,91 +134,91 @@ export const section230ReformData = {
       id: "collateral-damage",
       title: "Collateral Damage to Speech",
       short_summary:
-        "Without 230, platforms face the 'moderator's dilemma': either over-remove lawful speech to avoid liability, or stop moderating entirely. A real-world carve-out (FOSTA) offers a natural experiment.",
+        "Liability changes may affect moderation and access to lawful speech. GAO's FOSTA review documents a limited enforcement snapshot, while concurrent market changes prevent treating it as a clean estimate of reform's effects.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Repeal would force platforms to choose between two bad options. To limit liability for user posts they cannot fully vet, large platforms would aggressively over-remove lawful-but-controversial speech (the heckler's-veto problem), while some sites might stop moderating to avoid the Stratton Oakmont trap that prompted 230 in the first place. The 2018 FOSTA carve-out is the cleanest natural experiment available: GAO found the new criminal provision was used only once in three years and produced no restitution, while platforms preemptively shut down screening tools that sex workers and even investigators relied on — the opposite of the intended effect.",
+        "Legal exposure may encourage services to remove lawful material or withdraw useful features. Moderation protections have a stated policy purpose, but their importance should be assessed for a particular reform. GAO's report raises questions for evaluation; its enforcement count does not establish the size of speech or safety effects caused by FOSTA.",
       proponent_rebuttal:
-        "The 'moderator's dilemma' framing assumes courts would snap back to the 1995 Stratton Oakmont rule, but reform proposals are narrower than full repeal — most would condition immunity on duties of care or strip it only for algorithmically amplified or paid content, leaving the host-and-moderate baseline intact. FOSTA was a poorly drafted criminal statute, not evidence that all reform fails; a well-designed reform could target the specific harms (amplification, known illegal content) without the over-removal that a blunt repeal would cause. The First Amendment independently protects most lawful speech regardless of 230.",
+        "Full repeal and targeted changes can create different obligations. An unfavorable outcome after a legal change does not establish that every reform would fail. Supporters must specify the duties, safeguards and remedies they propose, then assess access to lawful material and actual safety outcomes rather than assume that more liability necessarily improves them.",
       crux: {
         id: "over-removal-vs-deterrence",
         title: "Would Reform Suppress Lawful Speech More Than It Deters Harm?",
         question:
           "Can a reform deter targeted harms without a net loss of lawful speech?",
         description:
-          "The decisive question is the net effect: does narrowing platform immunity chill more lawful speech (over-removal, abandoned moderation) than the harm it deters — and can a reform be drafted to avoid FOSTA's documented backfire?",
+          "Compare the effects of a specified reform on targeted harms, redress and access to lawful speech. Those outcomes may move differently. FOSTA's enactment and Backpage's seizure occurred together, so a simple before-and-after comparison cannot assign every subsequent change to the statute.",
         methodology:
-          "Use FOSTA (2018) as a difference-in-differences natural experiment: compare prosecutions, takedowns, and documented safety outcomes for affected populations before/after the carve-out, against control categories of speech that kept full 230 immunity. Combine GAO enforcement data with platform takedown-rate audits.",
-        verification_status: "verified" as const,
+          "Predefine affected services, outcomes and comparison groups. Test pre-change trends and account for simultaneous enforcement actions, platform exits and market displacement. Separate aggravated FOSTA charges from other prosecutions, allegations from judgments, and removals from measured safety effects. Report spillovers and missing data. If a credible comparison cannot be constructed, describe the evidence as observational rather than a completed causal test.",
+        verification_status: "theoretical" as const,
         settle: {
           condition:
-            "FOSTA (2018) as a natural experiment: prosecutions, takedowns and safety outcomes for affected groups before and after the carve-out, against speech that kept full immunity, using GAO enforcement data and platform takedown audits.",
+            "A credible comparison of specified reforms reporting lawful-speech access, safety and redress, with concurrent enforcement actions, market changes and uncertainty accounted for.",
         },
-        cost_to_verify: "$0 (analysis of existing GAO data and takedown audits)",
+        cost_to_verify: "Not costed here; existing administrative counts alone do not supply the necessary outcome data or causal comparison.",
         falsification: {
           supporter_flip:
-            "If a narrowed carve-out again produced what GAO-21-385 found for FOSTA, one prosecution in three years with no restitution while platforms shut down screening tools, the over-removal worry would look like a cost of reform rather than a side issue.",
+            "If a well-supported comparison found that a particular reform restricted lawful activity or worsened safety without offsetting improvements in redress, support for that design would weaken.",
           skeptic_flip:
-            "If a narrowly drafted reform, conditioning immunity on a duty of care or stripping it only for paid or algorithmically amplified content, were audited and found to deter measurable harm without FOSTA's over-removal and abandoned screening, the moderator's dilemma would look avoidable.",
+            "If a credible comparison found that a particular reform improved safety and redress while preserving lawful participation and useful moderation, the concern that such costs are unavoidable would weaken.",
           common_ground:
-            "Both sides agree FOSTA was poorly drafted and is the cleanest natural experiment available, that the First Amendment independently protects most lawful speech regardless of 230, and that full repeal would revive the Stratton Oakmont 'moderator's dilemma.'",
+            "An enforcement count is not a measure of all prosecutions, deterrence or speech loss. A causal comparison must account for other changes occurring at the same time.",
           live_disagreement:
-            "Whether a reform can be drafted to deter targeted harms without net suppression of lawful speech — resolvable by a FOSTA-style difference-in-differences study comparing takedown rates and documented safety outcomes for affected categories against control speech that retained full immunity.",
+            "Whether a specified reform can improve safety and redress without unacceptable losses of lawful speech. The balance depends on its design and on credible outcome evidence.",
         },
       },
       evidence: [
         {
           id: "fosta-gao",
-          title: "FOSTA Carve-Out: One Prosecution in 3 Years, Backfired Effects",
+          title: "GAO's 2021 Review: One Aggravated FOSTA Case Through March 2021",
           description:
-            "GAO-21-385 (June 21, 2021) found the FOSTA criminal provision (section 3) was used only once from 2018-2021, with no restitution sought; meanwhile platforms preemptively removed screening tools, which advocates and the GAO noted made trafficking harder to investigate — evidence that carving back 230 produced over-removal without deterrence.",
+            "GAO identified one case with aggravated charges under FOSTA section 3 as of March 2021; restitution had not been sought or awarded in that ongoing case. Its review excluded a non-aggravated case. The report also describes concurrent disruption from FOSTA and Backpage's seizure. This is a bounded enforcement snapshot, not a count of all trafficking prosecutions or an isolated estimate of the law's speech and safety effects.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 9,
-            replicability: 7,
-            directness: 8,
+            replicability: 8,
+            directness: 4,
           },
           source:
-            "U.S. Government Accountability Office, 'Sex Trafficking: Online Platforms and Federal Prosecutions,' GAO-21-385 (2021)",
+            "U.S. GAO, GAO-21-385 (June 2021), pp. 25-28 and scope notes on pp. 32-33",
           sourceUrl: "https://www.gao.gov/products/gao-21-385",
           reasoning:
-            "A nonpartisan government audit of the only real-world 230 carve-out is highly reliable and independent, and directly tests whether narrowing immunity works. Slightly down on replicability because the harm-displacement evidence is partly observational/advocacy-sourced, but the single-prosecution finding is hard data.",
+            "Administrative findings are strong evidence within their stated scope. They do not establish a FOSTA-only causal effect or a general verdict on reform.",
         },
         {
           id: "moderators-dilemma-history",
-          title: "Section 230 Was Written to Solve the 'Moderator's Dilemma'",
+          title: "1995 House Vote: Cox Amendment Approved by 420-4",
           description:
-            "Stratton Oakmont v. Prodigy (1995) held that a platform that moderated some posts became liable as 'publisher' for all of them. Section 230 (enacted Feb 8, 1996; House vote 420-4) was Cox-Wyden's fix so platforms could moderate without assuming liability for everything — repeal would revive the dilemma.",
+            "The House Clerk records adoption of the Cox amendment to H.R. 1555 by 420-4 on August 4, 1995. The later-enacted statute lists removing disincentives to blocking and filtering among its policies. This documents a legislative choice and its stated purpose, not the effects of a future reform. It does not establish that every reform would restore a particular 1995 state-court rule.",
           side: "against" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 9,
+            directness: 2,
           },
           source:
-            "Electronic Frontier Foundation, 'Section 230 Legislative History'; Stratton Oakmont, Inc. v. Prodigy Services Co. (N.Y. Sup. Ct. 1995)",
-          sourceUrl: "https://www.eff.org/issues/cda230/legislative-history",
+            "U.S. House Clerk, Roll Call 631 (August 4, 1995); 47 U.S.C. 230(b)(4)",
+          sourceUrl: "https://clerk.house.gov/Votes/1995631",
           reasoning:
-            "Accurate, well-documented legal history that establishes the structural risk of repeal. EFF is an advocacy organization (mild independence discount), but the Stratton Oakmont holding and the 420-4 vote are verifiable facts; directness is high for the repeal scenario but lower for narrowly tailored reforms.",
+            "The recorded vote is directly verifiable. Historical support for a policy does not measure the consequences of changing it today.",
         },
         {
           id: "statute-existing-exceptions",
-          title: "230 Already Exempts the Worst Conduct",
+          title: "Section 230 Separates Moderation Protections and Specific Exceptions",
           description:
-            "47 U.S.C. 230(e) already preserves liability under federal criminal law, intellectual property law, ECPA, and sex-trafficking statutes (1591/1595/2421A). Reformers' strongest harms (CSAM, trafficking, federal crimes) are already outside the shield, weakening the case that broad repeal is necessary.",
+            "Section 230(c)(1) addresses treatment as the publisher or speaker of information provided by another content provider; (c)(2) separately addresses certain filtering actions. Subsection (e) preserves federal criminal enforcement, intellectual-property and communications-privacy law, and specified trafficking actions subject to stated conditions. Those provisions are not a blanket exception for every harm or every civil claim involving criminal conduct.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
+            sourceReliability: 10,
             independence: 9,
             replicability: 9,
-            directness: 6,
+            directness: 3,
           },
-          source: "47 U.S.C. § 230(e) (statutory exceptions to immunity)",
-          sourceUrl: "https://www.law.cornell.edu/uscode/text/47/230",
+          source: "Office of the Law Revision Counsel, 47 U.S.C. 230(c) and (e), text through Public Law 119-120 (October 7, 2026)",
+          sourceUrl: "https://uscode.house.gov/us/usc/119-120/t47/s230/",
           reasoning:
-            "The statute itself is maximally reliable, independent, and replicable. Directness is moderate because existing exceptions don't cover every alleged harm (e.g., negligent algorithmic design), which is precisely the gap reformers target — so it rebuts the necessity of repeal but not all reform.",
+            "The statutory text defines distinct protections and exceptions. Application depends on the claim and relevant precedent, not a general category of worst conduct.",
         },
       ],
     },
@@ -214,59 +226,69 @@ export const section230ReformData = {
       id: "innovation-competition",
       title: "Innovation and Competition Costs",
       short_summary:
-        "Industry-funded analyses estimate Section 230 underpins large investment and job effects; critics counter that the burden of repeal would fall hardest on small platforms, entrenching incumbents.",
+        "Litigation and compliance costs may affect small services differently from incumbents. Advocacy articles and projections identify hypotheses, but do not establish the investment or competition effects of a particular reform.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Removing 230 would not primarily punish Big Tech — incumbents can absorb litigation costs and armies of lawyers, while startups and small forums cannot. An industry analysis (NERA/Internet Association) projected hundreds of billions in GDP and millions of jobs tied to intermediary-liability protections, and warned a large majority of investors would hesitate to fund intermediaries without them. The likely result of blunt repeal is entrenchment of the very giants reformers want to check, plus a litigation tax on every comment section and review site.",
+        "Fixed legal costs may be harder for a small forum or startup to absorb than for a large platform. Broader exposure could discourage entry or investment. These are plausible mechanisms to test; an industry advocacy article or a funding comparison does not establish their magnitude or show that every reform would entrench incumbents.",
       proponent_rebuttal:
-        "Even granting economic value, the cost of the status quo is externalized onto harmed users while the benefits accrue to platforms — and economic-value estimates come largely from industry-funded studies with obvious incentives. A liability regime that internalizes the cost of harmful design could redirect investment toward safer products rather than maximally engaging ones.",
+        "Costs imposed by a particular liability rule may also encourage safer design or improve redress. Supporters argue that obligations and procedures can account for service size and risk. That argument needs evidence about actual burdens and benefits, rather than treating a large projected industry loss as either decisive or irrelevant.",
       crux: {
         id: "who-bears-repeal-cost",
-        title: "Who Actually Bears the Cost of Repeal — Incumbents or Startups?",
+        title: "Who Bears the Cost of Repeal: Incumbents or Startups?",
         question:
           "Would removing immunity burden small platforms most, or meaningfully constrain dominant ones?",
         description:
-          "The competition crux is whether stripping immunity disproportionately burdens small platforms (entrenching incumbents) or meaningfully constrains dominant platforms' harmful practices.",
+          "The issue is how particular liability rules distribute costs, entry opportunities and safety benefits across firms and users. A difference in national venture funding does not isolate the contribution of intermediary-liability law.",
         methodology:
-          "Model litigation-cost exposure per active user across platform size tiers; compare survival/investment rates of startups under 230 vs. comparable sectors under stricter liability (e.g., the EU eCommerce Directive), controlling for confounders. Audit whether reform's burden scales with firm size.",
+          "Measure legal and compliance costs, service exits, investment and safety outcomes by firm size and business model. Compare particular legal changes using suitable controls and pre-change trends. Account for capital markets, demand, enforcement and other regulatory differences. Distinguish projected losses from observed outcomes, and test assumptions about costs per user and access to legal defenses.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Litigation-cost exposure per active user modeled across platform size tiers, plus startup survival and investment under Section 230 compared with sectors under stricter liability such as the EU eCommerce Directive.",
+            "Transparent comparisons of specified liability changes reporting costs, investment, entry and safety by service size, with assumptions and competing explanations assessed.",
         },
-        cost_to_verify: "$500K (cross-jurisdiction econometric study)",
+        cost_to_verify: "Not costed here; scope depends on access to firm-level cost and investment data.",
         falsification: {
           supporter_flip:
-            "If litigation costs were measured, a fixed burden that in-house legal teams absorb but a forum or startup cannot, a blunt repeal would look likeliest to hit small players, whatever weight the industry-funded loss estimates carry.",
+            "If credible evidence showed a proposed reform mostly burdened small services and reduced entry without offsetting improvements in safety or redress, support for that design would weaken.",
           skeptic_flip:
-            "If cross-jurisdiction data showed startups under stricter regimes, such as the EU eCommerce Directive, surviving and attracting investment at rates like those under broad immunity, the worry that repeal entrenches incumbents would lose its footing.",
+            "If credible evidence showed that a proposed reform improved safety or redress while keeping legal burdens manageable for small services and preserving entry, the prediction of inevitable incumbent entrenchment would weaken.",
           common_ground:
-            "Both sides agree the NERA/Internet Association GDP and jobs projections are industry-commissioned with strong conflict-of-interest incentives, and that litigation-cost exposure per user is the right quantity to measure across platform size tiers.",
+            "Projections, advocacy statements and observed outcomes are different kinds of evidence. The distribution of costs and benefits matters alongside aggregate totals.",
           live_disagreement:
-            "Whether stripping immunity disproportionately burdens small platforms (entrenching incumbents) or meaningfully constrains dominant platforms — resolvable by modeling per-user litigation exposure across size tiers and comparing startup survival/investment under 230 versus stricter-liability regimes, controlling for confounders.",
+            "How particular liability rules would affect smaller services, competition and harmed users, and which safeguards could change that distribution.",
         },
       },
       evidence: [
         {
           id: "nera-economic-value",
-          title: "Industry Study: Weakening 230 Risks Jobs and GDP",
+          title: "2019 Industry Advocacy Article Argues Immunity Supports Investment",
           description:
-            "A NERA Economic Consulting analysis for the Internet Association estimated that weakening intermediary-liability protections could cost ~$440B in GDP and ~4.25M jobs per decade, and reported US internet firms are far likelier than EU peers to raise large venture rounds — used to argue repeal would chill investment and hit small platforms hardest.",
+            "The Disruptive Competition Project's 2019 article argues that intermediary-liability protections support investment. It cites NERA/Internet Association projections and investor polling, then a separate Copia/NetChoice comparison of U.S. and EU funding. These are different sources. The article is evidence of an advocacy argument, not an observed causal estimate showing what a particular repeal would cost or which firms would bear it.",
           side: "against" as const,
           weight: {
             sourceReliability: 5,
             independence: 3,
-            replicability: 4,
-            directness: 6,
+            replicability: 3,
+            directness: 3,
           },
           source:
-            "NERA Economic Consulting / Internet Association (2019), summarized by CCIA Disruptive Competition Project",
+            "Disruptive Competition Project, An Economic Case for Section 230 (2019), advocacy article",
           sourceUrl:
             "https://project-disco.org/innovation/090619-an-economic-case-for-section-230/",
           reasoning:
-            "Directly relevant to the economic stakes of repeal, but it is an industry-commissioned projection with strong conflict-of-interest incentives and contested modeling assumptions; the primary Internet Association host has since dissolved, so it is cited via a CCIA summary and given low reliability/independence weight accordingly.",
+            "The article documents its publisher’s economic argument. It does not independently validate the underlying models or isolate liability law from other investment differences.",
         },
       ],
     },
+  ],
+  references: [
+    { title: "U.S. House Clerk, Cox amendment roll call 631 (1995)", url: "https://clerk.house.gov/Votes/1995631" },
+    { title: "Office of the Law Revision Counsel, 47 U.S.C. 230, October 2026 text", url: "https://uscode.house.gov/us/usc/119-120/t47/s230/" },
+    { title: "Anderson v. TikTok, Third Circuit majority opinion (2024)", url: "https://www2.ca3.uscourts.gov/opinarch/223061p.pdf" },
+    { title: "Doe 1 v. Meta Platforms, Ninth Circuit opinion and concurrences (2026)", url: "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/04/28/24-1672.pdf" },
+    { title: "U.S. Surgeon General, Social Media and Youth Mental Health (2023)", url: "https://www.hhs.gov/sites/default/files/sg-youth-mental-health-social-media-advisory.pdf" },
+    { title: "GAO-21-385, Sex Trafficking: Online Platforms and Federal Prosecutions (2021)", url: "https://www.gao.gov/products/gao-21-385" },
+    { title: "S. 3546, introduced-in-Senate text (December 17, 2025)", url: "https://www.govinfo.gov/content/pkg/BILLS-119s3546is/html/BILLS-119s3546is.htm" },
+    { title: "Disruptive Competition Project, An Economic Case for Section 230 (2019), advocacy source", url: "https://project-disco.org/innovation/090619-an-economic-case-for-section-230/" },
   ],
 };

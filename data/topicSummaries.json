@@ -63,7 +63,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids lowe"
+    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes lowe regimen lipids"
   },
   {
     "id": "daylight-saving-time-abolition",
@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "singleton malthusian ostrom bostrom axelrod hanson hardin polycentric montreal folk nash malthus theorem leviathan pinker"
+    "keywords": "singleton malthusian ostrom bostrom axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash theorem"
   },
   {
     "id": "ai-2027",
@@ -316,10 +316,10 @@
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
     "confidence_score": 54,
     "balance": 54,
-    "weight": 66,
+    "weight": 61,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence roughly balanced — moderately evidenced",
+      "quadrant": "moderate"
     },
     "status": "contested",
     "category": "policy",
@@ -330,7 +330,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "chernobyl lcoe fukushima repository torch unscear lazard safest standalone overruns vogtle ember markandya messmer sovacool"
+    "keywords": "chernobyls lcoe torch unscear yucca lazard safest standalone fukushima millennia mountain overruns vogtle corrosion earthquakes"
   },
   {
     "id": "universal-healthcare",
@@ -353,7 +353,10 @@
     "tags": [
       "policy"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
+    "aliases": [
+      "Universal medical coverage"
+    ],
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix simplification treatable"
   },
   {
     "id": "gun-control-effectiveness",
@@ -397,7 +400,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "cengiz krueger eitc dube lindner oxfam zipperer budgetary bunching inwegen jardim neumark plotnick reich vigdor"
+    "keywords": "cengiz krueger eitc dube lindner oxfam zipperer budgetary bunching inwegen jardim neumark plotnick vigdor wascher"
   },
   {
     "id": "drug-decriminalization",
@@ -420,7 +423,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "portugal recidivism emcdda overdose incarceration marijuana provisional hotline vera ticketed czech decriminalisation euda greenwald kptv"
+    "keywords": "portugal recidivism emcdda overdose incarceration marijuana provisional hotline vera ticketed czech decriminalisation euda fentanyl greenwald"
   },
   {
     "id": "death-penalty-deterrence",
@@ -464,7 +467,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "denver star cahoots vera ariel politifact pyne rialto sutherland farrar dispatched eugene portland fy2021 siepr"
+    "keywords": "denver star cahoots vera ariel politifact pyne rialto sutherland farrar portland dispatched eugene fy2021 siepr"
   },
   {
     "id": "mandatory-voting",
@@ -515,23 +518,22 @@
     "title": "Immigration and Wages",
     "question": "Does large-scale immigration significantly cut low-skilled native wages?",
     "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
-    "confidence_score": 21,
-    "balance": 21,
-    "weight": 65,
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 67,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
     "tags": [
       "policy"
     ],
-    "keywords": "boatlift mariel sparber peri chad giovanni azoulay cuban miranda javier marielitos pierre reappraisal aliens benjamin"
+    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad giovanni javier marielitos nonbudgetary reexamining benjamin birthplace"
   },
   {
     "id": "open-borders",
@@ -553,7 +555,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens bier isil milton sidewalk migrant clemenss feudal kahanec peasant zaiceva zimmermann circular"
+    "keywords": "carens remittances clemens bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular countercyclical"
   },
   {
     "id": "universal-basic-income",
@@ -620,7 +622,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dartmouth prep briggs nacac derek sttf chetty deming gazette ibisworld overlooking princetonian sats technavio unintentionally"
+    "keywords": "dartmouth coaching prep briggs nacac derek sttf chetty deming gazette ibisworld overlooking princetonian sats technavio"
   },
   {
     "id": "electoral-college-reform",
@@ -642,7 +644,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic trifecta chamber gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "npvic compact trifecta chamber gore hillary mega oklahoma clinton whoever donald"
   },
   {
     "id": "surveillance-public-safety",
@@ -691,7 +693,7 @@
       "Is Military Action Against Iran Justified?",
       "Should the US strike Iran?"
     ],
-    "keywords": "jcpoa hezbollahs houthis iranian fordow soleimani barrels assassination militia amasses centrifuge irgc isfahan natanz jordan"
+    "keywords": "jcpoa hezbollahs houthis iranian iraq fordow soleimani barrels assassination militia amasses centrifuge irgc isfahan natanz"
   },
   {
     "id": "epstein-files",
@@ -764,7 +766,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "fy2023 trac migrant southwest syracuse fy2022 backlog binational venezuelan boatlift mariel patrol neglect afghans aics"
+    "keywords": "fy2023 southwest trac syracuse fy2022 backlog binational venezuelan boatlift mariel patrol neglect afghans aics caseload"
   },
   {
     "id": "social-media-elections",
@@ -786,7 +788,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "analytica mueller persuasion aral cisa extremist kalla untrustworthy vosoughi broockman personas iranian whistleblower boasting brad"
+    "keywords": "analytica mueller persuasion aral cisa extremist kalla untrustworthy vosoughi broockman iranian personas whistleblower boasting brad"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -884,7 +886,7 @@
     "meta_claim": "Freshwater scarcity will become the defining geopolitical conflict of the 21st century, potentially triggering wars and mass migration.",
     "confidence_score": 67,
     "balance": 67,
-    "weight": 74,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -897,7 +899,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "irrigation desalination cubic indus brine groundwater drip egypts glaciers pakistan dams ethiopia kansas aquifer hectares"
+    "keywords": "desalination brine groundwater reuse wastewater cubic drought feet irrigation pacific abeyance arbitration gerd glacier hindu"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -919,7 +921,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin rivera scarborough sugary caries earmarked satiety allcott"
+    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin rivera earmarked scarborough sugary caries satiety allcott"
   },
   {
     "id": "social-media-age-limits",
@@ -941,7 +943,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "yoti coppa anxious circumvention ofcom yougov murthy anglophone birthdate drama pinpoint tough tweens candice penguin"
+    "keywords": "yoti coppa anxious circumvention ofcom murthy yougov anglophone birthdate drama pinpoint tough tweens candice penguin"
   },
   {
     "id": "social-media-mental-health",
@@ -963,7 +965,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "odgers braghieri comic coyne makarin jensen unfounded joiner michaeline sisyphean stockdale wertham zurcher candice historians"
+    "keywords": "odgers braghieri comic coyne makarin jensen unfounded joiner michaeline sisyphean stockdale wertham zurcher candice television"
   },
   {
     "id": "ai-risk",
@@ -1124,12 +1126,12 @@
     "title": "AI in Education: Revolution or Risk?",
     "question": "Will AI in education close achievement gaps and outweigh its risks?",
     "meta_claim": "AI tutoring systems and large language models in education will democratize high-quality learning and close achievement gaps, outweighing risks of academic dishonesty and reduced critical thinking.",
-    "confidence_score": 39,
-    "balance": 39,
-    "weight": 64,
+    "confidence_score": 43,
+    "balance": 43,
+    "weight": 65,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
@@ -1139,7 +1141,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "khanmigo moocs learners kulik mindspark scaffolded fletcher classroom jersey chatgpt curricula estudia ganimian kosmyna muralidharan"
+    "keywords": "chatgpt khanmigo unaided mooc quiz bastani estudia kestin kosmyna kulik mindspark ruiperez unguarded valiente fletcher"
   },
   {
     "id": "ai-regulation",
@@ -1271,7 +1273,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine chatbots clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver chatgpt"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1342,7 +1344,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons tropical argentina"
+    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons tropical"
   },
   {
     "id": "factory-farming-ban",
@@ -1431,7 +1433,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars perseverance collisions constellation didymos dimorphoss earthdata"
+    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars perseverance collisions irreplaceable constellation didymos dimorphoss"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1453,7 +1455,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "grazing nemecek dietetics eutrophication mottet micronutrients scarborough vegetarian farmland livestock agric forage grassland grazers headey"
+    "keywords": "grazing nemecek dietetics eutrophication mottet farmland micronutrients scarborough vegetarian livestock agric forage grassland grazers headey"
   },
   {
     "id": "psychedelics-mental-health",
@@ -1482,7 +1484,7 @@
       "Does psychedelic therapy actually work?",
       "Are the claims about psychedelic therapy exaggerated?"
     ],
-    "keywords": "mdma mapp2 psychopharmacology hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005 comp006"
+    "keywords": "mdma mapp2 psychopharmacology colorado hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005"
   },
   {
     "id": "lab-leak-theory",
@@ -1555,7 +1557,7 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison progeroid"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison healthspan"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -1599,7 +1601,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "plastic phthalate polyethylene sperm tons polymers micrograms micrometers testicular efsa maternal rats arterial butyl interleukin"
+    "keywords": "plastic recycling phthalate polyethylene sperm tons polymers micrograms micrometers testicular efsa maternal rats arterial butyl"
   },
   {
     "id": "glp1-weight-loss-drugs",
@@ -1732,7 +1734,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "bloom metros andy jassy moodys indeed boise ctrip downtown nashville ying gentrification nicholas zoom goldman"
+    "keywords": "bloom metros andy jassy moodys indeed boise ctrip gentrification nashville ying downtown nicholas zoom goldman"
   },
   {
     "id": "college-value-proposition",
@@ -1798,7 +1800,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial pakistan theirs afghanistan funder opensecrets super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -1864,7 +1866,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna sued cftc chainalysis gensler silvergate"
+    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd sued contagion luna cftc chainalysis gensler silvergate"
   },
   {
     "id": "gig-economy-regulation",
@@ -1976,7 +1978,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity louis overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
+    "keywords": "fred bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
   },
   {
     "id": "global-housing-bubble",
@@ -2071,22 +2073,28 @@
     "title": "Does Rent Control Help or Hurt Renters?",
     "question": "Does rent control make housing less affordable in the long run?",
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 45,
-    "balance": 45,
-    "weight": 68,
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 63,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence roughly balanced — moderately evidenced",
+      "quadrant": "moderate"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 11,
-    "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
+    "evidenceCount": 10,
+    "firstCrux": "Can rent stabilization preserve both new construction and existing rental supply?",
     "tags": [
       "economics"
     ],
-    "keywords": "rental decontrol mcquade palmer pathak qian autor diamond queue stockholm citywide appreciation misallocation tenants portland"
+    "aliases": [
+      "Limits on landlords' rent increases",
+      "Caps on rent hikes",
+      "Rent stabilization for tenants",
+      "Rent freezes"
+    ],
+    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm citywide decontrol appreciation luttmer yorker glaeser"
   },
   {
     "id": "degrowth-economics",
@@ -2108,7 +2116,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity groundswell scotland irena jason sight biocapacity biophysical garment giorgos greek"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason sight biocapacity biophysical garment giorgos greek"
   },
   {
     "id": "free-will",
@@ -2130,7 +2138,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace preregistered schurger vohs philpapers schooler bourget brass compatibilism damasio"
+    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace schurger vohs philpapers preregistered schooler bourget brass compatibilism damasio"
   },
   {
     "id": "simulation-hypothesis",
@@ -2353,7 +2361,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "commenced anglosphere assent babel esafety kick rausch snapchat twitch undifferentiated abrahamsson pediatricians reddit scandinavia threads"
+    "keywords": "commenced anglosphere assent babel esafety kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2375,7 +2383,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya backsliding technocratic montreal deadlock autocratic deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion"
+    "keywords": "famine amartya backsliding technocratic montreal deadlock autocratic deliberative gothenburg maos contentious defamation dissatisfied gerrymandering hungary"
   },
   {
     "id": "geoengineering-climate",
@@ -2470,9 +2478,9 @@
     "title": "The Global Fertility Collapse",
     "question": "Is falling fertility an existential crisis that demands policy action?",
     "meta_claim": "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 64,
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 60,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2485,7 +2493,12 @@
     "tags": [
       "economics"
     ],
-    "keywords": "birthrate contraception demography eurobarometer natalist peacetime elder slowest lows religion"
+    "aliases": [
+      "Falling birth rates and family policy",
+      "Should governments help people have the children they want?",
+      "Do housing and childcare costs explain low fertility?"
+    ],
+    "keywords": "unfpa childbearing kenyan duflo dupas kremer desa pcap fieldwork totl ninth yougov"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2529,7 +2542,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa cisgender skeletal hemoglobin woman swimming devolved collegiate ahrendt ball biomechanics coventry genital harper"
+    "keywords": "olympic ncaa cisgender skeletal hemoglobin swimming devolved collegiate ahrendt ball biomechanics coventry genital harper hematocrit"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2574,7 +2587,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam hunkering italians jews norc complementarity diploma dispersed resettlement scandinavian refugee"
+    "keywords": "putnam hunkering italians jews norc complementarity dispersed resettlement scandinavian diploma refugee"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2619,7 +2632,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian tripwire zelensky putin manpower rusi emboldens haass jamestown kupchan unjust facto armor ceasefire depots"
+    "keywords": "ukrainian tripwire zelensky putin manpower rusi emboldens haass jamestown kupchan unjust facto armor bonuses ceasefire"
   },
   {
     "id": "trump-tariffs",
@@ -2642,7 +2655,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "yard fence ieepa piie cavallo chris aluminum usitc krugman truce usmca renegotiation scattered aerospace conditionalist"
+    "keywords": "fence yard ieepa piie cavallo chris aluminum usitc krugman truce usmca renegotiation scattered aerospace conditionalist"
   },
   {
     "id": "rfk-health-policy",
@@ -2742,8 +2755,8 @@
     "title": "Congestion Pricing",
     "question": "Does congestion pricing cut traffic and fund transit effectively?",
     "meta_claim": "Congestion pricing is an effective policy for cutting urban traffic and funding transit.",
-    "confidence_score": 53,
-    "balance": 53,
+    "confidence_score": 68,
+    "balance": 68,
     "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -2762,7 +2775,13 @@
       "taxation",
       "transit"
     ],
-    "keywords": "cordon stockholm hochul relaunched eliasson mtas reinvested sqft tfls journey earmarked manhattan"
+    "aliases": [
+      "Road pricing",
+      "Downtown driving charges",
+      "City center entry fees",
+      "Motorist charges on central streets"
+    ],
+    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas mayors roadworks unaudited zpass wheels depreciation"
   },
   {
     "id": "right-to-repair",
@@ -2870,7 +2889,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "nhtsa swiss cruise rider tesla driverless geofenced gode kalra kusano paddock pe24031 victor aired atzei"
+    "keywords": "nhtsa swiss pedestrian cruise rider tesla driverless geofenced gode kalra kusano paddock pe24031 victor phoenix"
   },
   {
     "id": "net-neutrality",
@@ -2896,6 +2915,10 @@
       "fcc",
       "internet",
       "regulation"
+    ],
+    "aliases": [
+      "Internet fast lanes and paid prioritization",
+      "Internet providers blocking or slowing competing websites and video services"
     ],
     "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte dunn facetime"
   },
@@ -3032,6 +3055,10 @@
       "law",
       "ethics"
     ],
+    "aliases": [
+      "School vaccination requirements",
+      "Required childhood immunizations"
+    ],
     "keywords": "osha measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel kraaijeveld"
   },
   {
@@ -3086,7 +3113,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "solvency crfb oasdi payable trustees actuarial taxable cbos"
+    "keywords": "solvency crfb oasdi payable trustees actuarial longevity taxable"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3140,6 +3167,11 @@
       "wages",
       "competition"
     ],
+    "aliases": [
+      "Job licensing requirements",
+      "Government licenses to work in a trade",
+      "Licenses for hair braiding and beauty salons"
+    ],
     "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher interior"
   },
   {
@@ -3174,17 +3206,17 @@
     "title": "Reforming Section 230",
     "question": "Should Section 230 be significantly reformed or repealed?",
     "meta_claim": "Section 230 should be significantly reformed or repealed.",
-    "confidence_score": 42,
-    "balance": 42,
+    "confidence_score": 53,
+    "balance": 53,
     "weight": 61,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
     "tags": [
       "technology",
@@ -3194,7 +3226,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "anderson fosta csam durbin nera oakmont prodigy stratton ccia courtrooms dick ecpa graham nylah shwartz"
+    "keywords": "aggravated fosta anderson ninth clerk backpages copia nera netchoice reconsideration subsection disincentives myanmar remanded restitution"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3221,7 +3253,7 @@
       "international-law",
       "warfare"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus favour governmental unoda"
+    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus favour governmental milder"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3275,7 +3307,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "youngest convincing kazda underdiagnosed barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund underdiagnosis"
+    "keywords": "milder youngest convincing kazda underdiagnosed barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3382,7 +3414,7 @@
       "global-health",
       "longtermism"
     ],
-    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory kremer maertens miguel pryce utilitas haushofer bankman"
+    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory maertens miguel pryce utilitas haushofer kremer bankman"
   },
   {
     "id": "alcohol-no-safe-level",
@@ -3436,7 +3468,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "latin buffer fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats"
+    "keywords": "buffer latin fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats"
   },
   {
     "id": "dark-matter-vs-mond",
@@ -3464,6 +3496,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli schombert phys priori bullet"
+    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli schombert bullet phys priori"
   }
 ]

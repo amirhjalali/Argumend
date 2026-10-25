@@ -82,8 +82,7 @@ export function WorkedCrux({ crux }: { crux: HomeCrux }) {
             <p
               className={`${ENTRY_COLUMN} mt-2 max-w-2xl font-serif text-[1rem] italic leading-snug text-muted dark:text-stone-400`}
             >
-              A hidden assumption: nobody in the debate says it out loud,
-              but the positions lean on it.
+              A hidden assumption: the map identifies a premise these positions rely on.
             </p>
           ) : null}
           <p className={`${ENTRY_COLUMN} max-w-2xl`}>

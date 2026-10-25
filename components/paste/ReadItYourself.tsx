@@ -1,9 +1,10 @@
 "use client";
 
-import { useId, type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { TextAction } from "@/components/ui";
 import { questionKinds } from "@/lib/questionMeta";
 import { readCues, type CueKind, type TextCue } from "@/lib/paste/cues";
+import { NextStep } from "./NextStep";
 
 /**
  * "Read it yourself": what a paste with no map gets instead of a map.
@@ -14,7 +15,8 @@ import { readCues, type CueKind, type TextCue } from "@/lib/paste/cues";
  * mind; what do both already agree on. Deterministic and offline: the only
  * thing read from the paste is a word search (lib/paste/cues.ts), labelled as
  * a simple cue and never as a reading. The lines a reader types stay in this
- * component's inputs: they are not sent, stored or put in the summary.
+ * component's state: they are not sent or saved. Readers can choose to copy
+ * their own notes, separately from the pasted argument and the word cues.
  */
 
 const KINDS: ReadonlyArray<{ kind: CueKind; name: string; term: string; says: string; example: string }> = [
@@ -80,15 +82,45 @@ function Cues({ cues }: { cues: readonly TextCue[] }) {
 const INPUT =
   "mt-1 w-full rounded-lg border border-[var(--border-default)] bg-[var(--bg-input)] px-3 py-2.5 font-sans text-base text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-focus";
 
-/** One line the reader can write in. Uncontrolled: nothing reads it back. */
-function FillIn({ label, describedBy }: { label: string; describedBy: string }) {
+export interface ConversationNotes {
+  yourCondition: string;
+  theirCondition: string;
+  agreement: string;
+}
+
+export const EMPTY_CONVERSATION_NOTES: ConversationNotes = {
+  yourCondition: "",
+  theirCondition: "",
+  agreement: "",
+};
+
+export interface ConversationNotesState {
+  value: ConversationNotes;
+  onChange: (value: ConversationNotes) => void;
+}
+
+/** One line the reader can choose to include in their conversation notes. */
+function FillIn({ label, describedBy, value, onChange }: {
+  label: string;
+  describedBy: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
   const id = useId();
   return (
     <div>
       <label htmlFor={id} className="font-sans text-sm font-medium text-[var(--text-secondary)]">
         {label}
       </label>
-      <input id={id} type="text" autoComplete="off" aria-describedby={describedBy} className={INPUT} />
+      <input
+        id={id}
+        type="text"
+        autoComplete="off"
+        aria-describedby={describedBy}
+        className={INPUT}
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+      />
     </div>
   );
 }
@@ -111,14 +143,29 @@ function Step({ number, title, children }: { number: number; title: string; chil
 export function ReadItYourself({
   text,
   diagnosisOn,
+  notesState,
 }: {
   /** The pasted text, read here for cues only. */
   text: string;
   /** Whether the AI diagnosis lane runs on this deployment. */
   diagnosisOn: boolean;
+  /** Keeps notes in page memory while the same argument is read again. */
+  notesState?: ConversationNotesState;
 }) {
   const cues = readCues(text);
   const noteId = useId();
+  const [localNotes, setLocalNotes] = useState(EMPTY_CONVERSATION_NOTES);
+  const noteValues = notesState?.value ?? localNotes;
+  const setNotes = notesState?.onChange ?? setLocalNotes;
+  const { yourCondition, theirCondition, agreement } = noteValues;
+  const notes = [
+    ["I would think again if", yourCondition],
+    ["You might think again if", theirCondition],
+    ["I think we both agree that", agreement],
+  ].filter(([, value]) => value.trim());
+  const summary = notes.length > 0
+    ? ["My notes for our conversation", ...notes.map(([label, value]) => `${label}: ${value.trim()}`)].join("\n\n")
+    : undefined;
 
   return (
     <section aria-labelledby="read-yourself-heading" className="max-w-[40rem]">
@@ -129,35 +176,47 @@ export function ReadItYourself({
         Read it yourself
       </h3>
       <p className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-        Three questions that find what most arguments rest on. They work on any argument, mapped
-        or not.
+        Use three questions to write a starting point for your next conversation.
+      </p>
+      <p id={noteId} className="mt-3 font-sans text-sm text-[var(--text-muted)]">
+        Your notes stay in this tab while you explore maps. Copy them before
+        reloading or choosing Paste another.
       </p>
 
       <ol className="mt-6 space-y-8">
         <Step number={1} title="Is this about a fact, a value, or a word?">
-          <dl className="mt-4 space-y-4">
-            {KINDS.map((kind) => (
-              <div key={kind.kind}>
-                <dt className="font-serif text-lg text-[var(--text-heading)]">
-                  {kind.name} <span className="text-[var(--text-muted)]">&middot; {kind.term}</span>
-                </dt>
-                <dd className="mt-0.5 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-                  {kind.says} <span className="italic">For example: {kind.example}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <Cues cues={cues} />
+          <p className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+            Something to check, a priority to weigh, or a word you mean differently?
+            An argument can involve all three.
+          </p>
+          <details className="mt-3">
+            <summary className="min-h-11 cursor-pointer py-2.5 font-sans text-sm text-deep underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-[#8bb5b1]">
+              Help me tell them apart
+            </summary>
+            <dl className="mt-4 space-y-4">
+              {KINDS.map((kind) => (
+                <div key={kind.kind}>
+                  <dt className="font-serif text-lg text-[var(--text-heading)]">
+                    {kind.name} <span className="text-[var(--text-muted)]">&middot; {kind.term}</span>
+                  </dt>
+                  <dd className="mt-0.5 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+                    {kind.says} <span className="italic">For example: {kind.example}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <Cues cues={cues} />
+          </details>
         </Step>
 
         <Step number={2} title="What would change each person’s mind?">
           <p className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-            Name one thing that would make each of you think again. If neither of you can name
-            anything, it is probably a question of value, and that is worth knowing too.
+            Name one thing that would make each of you think again. If nothing comes to mind,
+            start with what you would need to learn before deciding.
           </p>
           <div className="mt-4 space-y-4">
-            <FillIn label="You would think again if…" describedBy={noteId} />
-            <FillIn label="They would think again if…" describedBy={noteId} />
+            <FillIn label="You would think again if…" describedBy={noteId} value={yourCondition} onChange={(value) => setNotes({ ...noteValues, yourCondition: value })} />
+            <FillIn label="They would think again if…" describedBy={noteId} value={theirCondition} onChange={(value) => setNotes({ ...noteValues, theirCondition: value })} />
           </div>
         </Step>
 
@@ -167,22 +226,30 @@ export function ReadItYourself({
             same facts. Naming it shows how much is really in dispute.
           </p>
           <div className="mt-4">
-            <FillIn label="We both agree that…" describedBy={noteId} />
+            <FillIn label="We both agree that…" describedBy={noteId} value={agreement} onChange={(value) => setNotes({ ...noteValues, agreement: value })} />
           </div>
         </Step>
       </ol>
 
-      <p id={noteId} className="mt-6 font-sans text-sm text-[var(--text-muted)]">
-        What you write in these lines stays on this page. It is not sent or saved.
-      </p>
-
       <p className="mt-8 font-serif text-lg leading-relaxed text-[var(--text-primary)]">
         Where the answers meet is the crux: the question that, once answered, would change a mind.
       </p>
+      {summary ? (
+        <section aria-label="Your conversation notes" className="mt-8 space-y-5">
+          <h4 className="font-serif text-2xl text-[var(--text-heading)]">Take this back to the conversation</h4>
+          <p className="font-sans text-sm leading-relaxed text-[var(--text-secondary)]">
+            These are your words. Check your understanding of the other person’s view with them.
+            Only the notes below are copied, not your original paste.
+          </p>
+          <p className="whitespace-pre-wrap break-words border-l-2 border-[var(--border-default)] pl-4 font-serif text-lg leading-relaxed">
+            {summary}
+          </p>
+          <NextStep summary={summary} kind="notes" />
+        </section>
+      ) : null}
       {diagnosisOn ? null : (
         <p className="mt-3 font-sans text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
-          A fuller reading of an argument that is not on a map, one that lays out each side and
-          finds its crux, needs Argumend’s AI diagnosis, which is not switched on here.
+          These are your notes, not an automated reading of either person’s position.
         </p>
       )}
       <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">

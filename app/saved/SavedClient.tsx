@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { AlertCircle, X } from "lucide-react";
 import { useSavedTopicIds } from "@/hooks/useSavedTopics";
@@ -18,8 +18,9 @@ const ENTRIES_BY_ID = new Map(LIBRARY_ENTRIES.map((entry) => [entry.id, entry]))
 export function SavedClient() {
   const { ids, hydrated, error, remove } = useSavedTopicIds();
   const listRef = useRef<HTMLUListElement>(null);
-  const emptyHeadingRef = useRef<HTMLHeadingElement>(null);
-  const removalFocus = useRef<{ index: number; trigger: HTMLButtonElement } | null>(null);
+  const emptyRef = useRef<HTMLDivElement>(null);
+  const pendingFocus = useRef<{ href: string; trigger: HTMLButtonElement } | null>(null);
+  const [announcement, setAnnouncement] = useState("");
 
   // Resolve saved ids through the library's own rows, in save order. Ids that
   // no longer name a map (removed from the dataset) are dropped.
@@ -31,23 +32,31 @@ export function SavedClient() {
     [ids],
   );
 
-  const removeMap = (id: string, trigger: HTMLButtonElement) => {
+  function removeMap(id: string, trigger: HTMLButtonElement) {
+    const index = savedMaps.findIndex((map) => map.id === id);
+    if (index < 0) return;
     const wasFocused = document.activeElement === trigger;
-    if (remove(id) && wasFocused) {
-      removalFocus.current = { index: savedMaps.findIndex((map) => map.id === id), trigger };
+    if (!remove(id)) {
+      setAnnouncement("");
+      return;
     }
-  };
+    const next = savedMaps[index + 1] ?? savedMaps[index - 1];
+    if (wasFocused) pendingFocus.current = { href: next?.href ?? "", trigger };
+    const remaining = savedMaps.length - 1;
+    setAnnouncement(`Removed "${savedMaps[index].title}" from saved. ${remaining} saved ${remaining === 1 ? "map" : "maps"} remaining.`);
+  }
 
   useEffect(() => {
-    const pending = removalFocus.current;
-    removalFocus.current = null;
+    const pending = pendingFocus.current;
+    pendingFocus.current = null;
     if (!pending) return;
-    // Only an explicit, successful removal moves focus. Background storage
-    // updates and a reader who has already moved elsewhere keep their place.
+    // Successful removal restores the reader's place unless they have already
+    // moved to another control. Background list updates never take focus.
     if (document.activeElement !== document.body && document.activeElement !== pending.trigger) return;
-    const buttons = listRef.current?.querySelectorAll<HTMLButtonElement>("[data-remove-saved-map]");
-    const next = buttons?.[Math.min(pending.index, buttons.length - 1)];
-    (next ?? emptyHeadingRef.current)?.focus();
+    const links = [...listRef.current?.querySelectorAll<HTMLAnchorElement>("a") ?? []];
+    const target = links.find((link) => link.getAttribute("href") === pending.href)
+      ?? links[0] ?? emptyRef.current?.querySelector<HTMLAnchorElement>("a");
+    target?.focus();
   }, [savedMaps]);
 
   return (
@@ -67,6 +76,7 @@ export function SavedClient() {
         }
         className="!mb-8 sm:!mb-10"
       />
+      <p role="status" aria-label="Saved map updates" className="sr-only">{announcement}</p>
 
       {!hydrated ? (
         // Matches the server render (no localStorage there), so nothing
@@ -90,8 +100,8 @@ export function SavedClient() {
           </p>
         </div>
       ) : savedMaps.length === 0 ? (
-        <div className="border-t border-stone-300/70 py-10 dark:border-divider">
-          <h2 ref={emptyHeadingRef} tabIndex={-1} className="font-serif text-2xl text-primary dark:text-stone-200">
+        <div ref={emptyRef} className="border-t border-stone-300/70 py-10 dark:border-divider">
+          <h2 className="font-serif text-2xl text-primary dark:text-stone-200">
             Nothing saved yet
           </h2>
           <p className="mt-2 max-w-md text-[0.9375rem] leading-relaxed text-secondary dark:text-stone-400">
@@ -127,10 +137,7 @@ export function SavedClient() {
 }
 
 /** One saved map: a /topics row with a remove button in its corner. */
-function SavedRow({ map, onRemove }: {
-  map: LibraryEntry;
-  onRemove: (id: string, trigger: HTMLButtonElement) => void;
-}) {
+function SavedRow({ map, onRemove }: { map: LibraryEntry; onRemove: (id: string, trigger: HTMLButtonElement) => void }) {
   return (
     <li className="relative border-t border-stone-300/70 dark:border-divider">
       <Link

@@ -1,13 +1,16 @@
 import { articleSummaries } from "@/data/blogIndex";
 import { topicSummaries, CATEGORY_LABELS } from "@/data/topicIndex";
+import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import {
+  ARGUMENT_TOPICS_FIRST_PUBLISHED,
+  ARGUMENT_TOPICS_LAST_UPDATED,
   CONTENT_FIRST_PUBLISHED,
   CONTENT_LAST_UPDATED,
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
 } from "@/lib/site";
-import { mapDisplayTitle } from "@/lib/mapNaming";
+import { mapDescription, mapDisplayTitle } from "@/lib/mapNaming";
 
 /**
  * Stable fallback publish date for topic items. Topic summaries carry no
@@ -60,7 +63,7 @@ export async function GET() {
     <item>
       <title>${escapeXml(mapDisplayTitle(topic))}</title>
       <link>${url}</link>
-      <description>${escapeXml(topic.meta_claim)}</description>
+      <description>${escapeXml(mapDescription(topic, topic.pillarCount))}</description>
       <pubDate>${pubDate}</pubDate>
       <category>${escapeXml(categoryLabel)}</category>
       <guid isPermaLink="true">${url}</guid>
@@ -68,11 +71,26 @@ export async function GET() {
     })
     .join("");
 
-  const rssItems = blogItems + topicItems;
+  const flagshipItems = argumentTopicIndex
+    .map((topic) => {
+      const url = `${SITE_URL}/topics/${topic.id}`;
+      return `
+    <item>
+      <title>${escapeXml(topic.title)}</title>
+      <link>${url}</link>
+      <description>${escapeXml(topic.tagline)}</description>
+      <pubDate>${new Date(`${ARGUMENT_TOPICS_FIRST_PUBLISHED}T00:00:00Z`).toUTCString()}</pubDate>
+      <guid isPermaLink="true">${url}</guid>
+    </item>`;
+    })
+    .join("");
+
+  const rssItems = blogItems + flagshipItems + topicItems;
 
   const lastBuildDate = new Date(
     Math.max(
       new Date(`${CONTENT_LAST_UPDATED}T00:00:00Z`).getTime(),
+      new Date(`${ARGUMENT_TOPICS_LAST_UPDATED}T00:00:00Z`).getTime(),
       ...sortedArticles.map((article) =>
         new Date(article.publishedAt).getTime(),
       ),

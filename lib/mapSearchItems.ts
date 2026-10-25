@@ -10,6 +10,7 @@
  * Client-safe: only the lightweight indexes (no full topic data).
  */
 import { CATEGORY_LABELS, topicSummaries, type TopicCategory } from "@/data/topicIndex";
+import argumentSummaries from "@/data/argumentTopicSummaries.json";
 import { argumentTopicIndex } from "@/lib/argument/topicIds";
 import { mapDisplayTitle } from "@/lib/mapNaming";
 import { getTopicQuestionPhrasings } from "@/lib/questions";
@@ -19,7 +20,7 @@ export interface MapSearchItem extends SearchableItem {
   /** The map's id (its /topics/[id] slug). */
   mapId: string;
   href: string;
-  /** One line under the name: the flagship tagline or the legacy claim. */
+  /** A question the map turns on, shown under its name. */
   subtitle: string;
   kind: "debate-map" | "topic";
   category?: TopicCategory;
@@ -34,13 +35,21 @@ function idWords(id: string): string {
   return id.replace(/-/g, " ");
 }
 
+const ARGUMENT_CRUX = new Map(argumentSummaries.map((topic) => [topic.id, topic.firstCrux] as const));
+
+function mapSubtitle(firstCrux: string | undefined): string {
+  return firstCrux?.trim()
+    ? `Turns on: ${firstCrux.trim()}`
+    : "Explore the positions, evidence, and what would change a mind.";
+}
+
 /** Flagship (ArgumentGraph) maps: named by their question, with aliases. */
 export const DEBATE_MAP_SEARCH_ITEMS: MapSearchItem[] = argumentTopicIndex.map((topic) => ({
   id: `map-${topic.id}`,
   mapId: topic.id,
   href: `/topics/${topic.id}`,
   title: topic.title,
-  subtitle: topic.tagline,
+  subtitle: mapSubtitle(ARGUMENT_CRUX.get(topic.id)),
   kind: "debate-map",
   meta_claim: topic.tagline,
   tags: "argument map debate map flagship cruxes positions",
@@ -55,7 +64,7 @@ export const TOPIC_SEARCH_ITEMS: MapSearchItem[] = topicSummaries.map((topic) =>
   href: `/topics/${topic.id}`,
   title: mapDisplayTitle(topic),
   altNames: [topic.title, ...getTopicQuestionPhrasings(topic.id), ...(topic.aliases ?? [])].join(" | "),
-  subtitle: topic.meta_claim,
+  subtitle: mapSubtitle(topic.firstCrux),
   kind: "topic",
   category: topic.category,
   meta_claim: topic.meta_claim,

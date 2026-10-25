@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { defineConfig, devices } from "@playwright/test";
+import { OFFLINE_SERVER_ENV } from "../scripts/offline-server-env.mjs";
 
 /**
  * End-to-end suite: drives the production build in Chromium at phone and
@@ -15,9 +16,11 @@ import { defineConfig, devices } from "@playwright/test";
  *    on `.next` (a plain `bun --bun next build`, e.g. inside a worktree, where
  *    the standalone copy step does not apply).
  *
- * The server runs offline, as CI's smoke test does: no database, no provider
- * keys, every live flag off. Tests also block every request that leaves the
- * server's own host (e2e/fixtures.ts).
+ * A server started here runs with the smoke test's offline runtime overrides:
+ * no database, no provider keys, every live flag off. Build with offline public
+ * flags too: launch overrides cannot replace values baked into client bundles.
+ * E2E_BASE_URL servers keep their own configuration. Tests also block browser
+ * requests that leave the server's own host (e2e/fixtures.ts).
  *
  * `E2E_CHROMIUM_PATH` points Playwright at a Chromium binary already on disk
  * instead of the one `playwright install` downloads.
@@ -39,25 +42,9 @@ const serverCommand = standaloneReady
 
 /** The same offline environment scripts/smoke-standalone.mjs gives the server. */
 const offlineServerEnv: Record<string, string> = {
-  NODE_ENV: "production",
-  NEXT_TELEMETRY_DISABLED: "1",
+  ...OFFLINE_SERVER_ENV,
   HOSTNAME: "127.0.0.1",
   PORT: String(PORT),
-  DATABASE_URL: "",
-  ANTHROPIC_API_KEY: "",
-  OPENAI_API_KEY: "",
-  GOOGLE_AI_API_KEY: "",
-  GEMINI_API_KEY: "",
-  XAI_API_KEY: "",
-  GROK_API_KEY: "",
-  TYPESAFE_API_KEY: "",
-  AUTH_SECRET: "",
-  ENABLE_LIVE_ANALYZE_API: "false",
-  ENABLE_LIVE_DEBATE_API: "false",
-  ENABLE_LIVE_JUDGING_API: "false",
-  ENABLE_DISAGREEMENT_V2: "false",
-  ENABLE_JEV_MAP_REPLY: "false",
-  ENABLE_GAP_METRIC_LOGGING: "false",
 };
 
 const chromiumPath = process.env.E2E_CHROMIUM_PATH;

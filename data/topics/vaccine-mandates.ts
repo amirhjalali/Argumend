@@ -3,6 +3,7 @@ export const vaccineMandatesData = {
   title: "Government Vaccine Mandates",
   question:
     "Are government vaccine mandates a justified public-health measure?",
+  aliases: ["School vaccination requirements", "Required childhood immunizations"],
   meta_claim:
     "Government vaccine mandates are a justified public-health measure.",
   status: "contested" as const,

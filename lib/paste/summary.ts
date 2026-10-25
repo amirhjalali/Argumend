@@ -38,7 +38,7 @@ export function buildPasteSummary({
   maps: PasteMapsResult | null;
   report: DisagreementReportV1 | null;
 }): string {
-  const lines: string[] = ["What this argument turns on (read with Argumend)"];
+  const lines: string[] = ["Questions to explore together (from Argumend)"];
 
   if (report) {
     const labels = report.participants.map((participant) => participant.label);
@@ -50,24 +50,36 @@ export function buildPasteSummary({
   const match = maps?.match;
   if (match) {
     const named = /[.?!]$/.test(match.title) ? match.title : `${match.title}.`;
-    lines.push("", `It is already mapped: ${named} ${match.claim}`);
+    lines.push("", `A map to explore: ${named}`);
+    if (match.kind === "flagship" && match.claim !== match.title) {
+      lines.push(`Scope: ${match.claim}`);
+    }
     if (match.crux) {
       const words = match.cardsAbout === "map-question" ? ANSWER_SIDES : CLAIM_SIDES;
       lines.push(
         match.alsoCrux
-          ? `It may turn on one of these questions from the map: ${match.crux.question}`
-          : `The question the map says it turns on: ${match.crux.question}`,
+          ? `Possible questions from the map: ${match.crux.question}`
+          : `A question from the map: ${match.crux.question}`,
       );
       if (match.crux.supporterFlip) lines.push(`${words.yesChangesMind}: ${match.crux.supporterFlip}`);
       if (match.crux.skepticFlip) lines.push(`${words.noChangesMind}: ${match.crux.skepticFlip}`);
       if (match.alsoCrux) lines.push(`Or: ${match.alsoCrux.question} ${SITE_URL}${match.alsoCrux.href}`);
     }
-    lines.push(`Both sides' best evidence: ${SITE_URL}${match.crux?.href ?? match.href}`);
+    const evidenceHref = match.crux?.href ?? match.href;
+    lines.push(`Read the evidence: ${SITE_URL}${evidenceHref}`);
+    const linkedQuestions = new Set([evidenceHref]);
+    if (match.crux && match.alsoCrux) linkedQuestions.add(match.alsoCrux.href);
+    for (const card of match.cards) {
+      if (!card.crux || linkedQuestions.has(card.crux.href)) continue;
+      linkedQuestions.add(card.crux.href);
+      lines.push(`Related evidence: ${card.crux.question} ${SITE_URL}${card.crux.href}`);
+    }
     const sibling = maps.related?.[0];
     if (sibling) lines.push(`Closely related map: ${sibling.title}, ${SITE_URL}${sibling.href}`);
   } else if (maps && maps.closest.length > 0) {
     lines.push("", `Closest map: ${maps.closest[0].title}, ${SITE_URL}${maps.closest[0].href}`);
   }
 
+  lines.push("", "What would make each of us think again?");
   return lines.join("\n");
 }

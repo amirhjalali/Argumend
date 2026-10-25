@@ -94,39 +94,36 @@ describe("ShareButtons copy feedback", () => {
     expect(view.getByRole("status").textContent).toBe("");
   });
 
-  it("does not claim the crux was copied when copying fails", async () => {
-    const writeText = vi.fn().mockRejectedValue(new Error("Clipboard permission denied"));
+  it("does not announce an old link after navigation while copying is pending", async () => {
+    let finish!: () => void;
+    mockClipboard(vi.fn(() => new Promise<void>((resolve) => { finish = resolve; })));
+    const view = render(<ShareButtons title={TITLE} url={URL} />);
+
+    fireEvent.click(view.getByRole("button", { name: "Copy link" }));
+    view.rerender(<ShareButtons title="Another map" url="https://argumend.org/topics/climate-change" />);
+    await act(async () => { finish(); });
+
+    expect(view.getByRole("status").textContent).toBe("");
+    expect(view.getByRole("button", { name: "Copy link" })).toBeTruthy();
+    expect(view.queryByRole("alert")).toBeNull();
+  });
+
+  it("keeps a confirmed retry when an older copy request later fails", async () => {
+    let rejectFirst!: (error: Error) => void;
+    const writeText = vi.fn()
+      .mockImplementationOnce(() => new Promise<void>((_resolve, reject) => { rejectFirst = reject; }))
+      .mockResolvedValue(undefined);
     mockClipboard(writeText);
     mockFallback(false);
-    const view = render(
-      <ShareButtons
-        title={TITLE}
-        url={URL}
-        topicMeta={{
-          metaClaim: "Nuclear energy is safe",
-          verdictLabel: "Open",
-          balance: 50,
-          weight: 50,
-          status: "contested",
-          cruxQuestion: "Which risks count?",
-          topicTitle: TITLE,
-        }}
-      />,
-    );
+    const view = render(<ShareButtons title={TITLE} url={URL} />);
 
-    fireEvent.click(view.getByRole("button", { name: "Copy crux text" }));
+    fireEvent.click(view.getByRole("button", { name: "Copy link" }));
+    fireEvent.click(view.getByRole("button", { name: "Copy link" }));
+    await waitFor(() => expect(view.getByRole("status").textContent).toBe("Link copied!"));
+    await act(async () => { rejectFirst(new Error("Late clipboard failure")); });
 
-    const alert = await view.findByRole("alert");
-    expect(alert.textContent).toContain("The crux text could not be copied");
-    expect(view.queryByRole("button", { name: "Crux copied" })).toBeNull();
-    const manual = view.getByRole("textbox", { name: "Crux text to copy" }) as HTMLTextAreaElement;
-    expect(manual.value).toBe(writeText.mock.calls[0][0]);
-    expect(manual.value).toContain("Which risks count?");
-    expect(manual.value).toContain(URL);
-
-    writeText.mockResolvedValue(undefined);
-    fireEvent.click(view.getByRole("button", { name: "Copy crux text" }));
-    await waitFor(() => expect(view.getByRole("status").textContent).toBe("Crux copied!"));
+    expect(view.getByRole("status").textContent).toBe("Link copied!");
     expect(view.queryByRole("alert")).toBeNull();
+    expect(view.queryByRole("textbox")).toBeNull();
   });
 });

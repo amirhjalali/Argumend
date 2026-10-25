@@ -1,6 +1,7 @@
 export const universalHealthcareData = {
   id: "universal-healthcare",
   title: "Universal Healthcare in the US",
+  aliases: ["Universal medical coverage"],
   question:
     "Should the US replace employer-based insurance with universal healthcare?",
   meta_claim:

@@ -362,7 +362,7 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
               className={`${ENTRY_COLUMN} mt-3 font-serif text-[0.9375rem] italic leading-snug text-muted dark:text-stone-400`}
             >
               <span className="label-caps !text-[0.9375rem] not-italic">A hidden assumption:</span>{" "}
-              nobody in the debate says it out loud, but the positions lean on it.
+              the map identifies a premise these positions rely on.
             </span>
           )}
         </summary>

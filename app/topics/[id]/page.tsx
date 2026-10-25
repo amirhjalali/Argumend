@@ -19,7 +19,7 @@ import {
   CONTENT_FIRST_PUBLISHED,
   CONTENT_LAST_UPDATED,
 } from "@/lib/site";
-import { mapDisplayTitle } from "@/lib/mapNaming";
+import { mapDescription, mapDisplayTitle } from "@/lib/mapNaming";
 import { getRelatedMaps } from "@/lib/relatedMaps";
 
 // ---------------------------------------------------------------------------
@@ -88,7 +88,8 @@ export async function generateMetadata({
 
   // Crux-first, never the verdict: what the argument turns on and what both
   // sides already agree on is what the page leads with.
-  const description = `${topic.meta_claim} The ${topic.pillarCount === 1 ? "question" : `${topic.pillarCount} questions`} the argument turns on, what both sides already agree on, and what would change each side's mind.`;
+  const pageTitle = mapDisplayTitle(topic);
+  const description = mapDescription(topic, topic.pillarCount);
   const categoryLabel = CATEGORY_LABELS[topic.category];
   const media = getGeneratedMedia("topic", topic.id);
   const socialImage = media?.hero
@@ -96,8 +97,6 @@ export async function generateMetadata({
     : buildTopicOgUrl(topic.id);
   // The question the map answers when one is authored (what the h1 shows);
   // otherwise the short label.
-  const pageTitle = mapDisplayTitle(topic);
-
   return {
     // The map's headline alone, as on the flagship maps: the /topics layout's
     // template adds "| ARGUMEND", like every other page title on the site.
@@ -255,7 +254,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           "@context": "https://schema.org",
           "@type": "Article",
           headline: mapDisplayTitle(topic),
-          description: topic.meta_claim,
+          description: mapDescription(topic, topic.pillars.length),
           url: `https://argumend.org/topics/${topic.id}`,
           image: socialImage,
           articleSection: categoryLabel,

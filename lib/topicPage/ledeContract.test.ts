@@ -120,7 +120,7 @@ describe("opening contract", () => {
   it("passes the flagship pattern: two facts both sides accept, then what the fight is over", () => {
     expect(
       rules(
-        "Among 22–25-year-olds in the most AI-exposed occupations, employment fell 16% relative to less-exposed peers since late 2022, after controlling for firm-level shocks — while overall U.S. unemployment sat near 4%. Both numbers are real. The fight is over what they mean.",
+        "The November 2025 Stanford/ADP study found employment among 22–25-year-olds in the most AI-exposed occupations down 16% relative to less-exposed peers. Its August 2026 update estimates 19%, while finding no widespread economy-wide displacement. The authors call these descriptive patterns, not causal estimates. The fight is over what they mean.",
         ["Is AI what broke entry-level hiring, or did rates and the post-pandemic correction?"],
       ),
     ).toEqual([]);
