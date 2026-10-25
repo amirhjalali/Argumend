@@ -116,6 +116,23 @@ Measurement, including the thresholds' instability and the effect on definitiona
 cruxes, is in `docs/reviews/2026-09-21-jev-contestedness-gate.md`. Both flags are off; nothing about
 the shipped ranking has changed.
 
+## Experimental evaluation options
+
+The September evaluation branch adds three options, all disabled by default:
+`CRUX_LEVER_REDUNDANCY_CLAIMS_ONLY`, `CRUX_LEVER_POSITION_AWARE_REACH`, and
+`CRUX_PROJECTION_SKIP_UNCONTESTED`. The first two are scoring experiments.
+Their disabled path is checked against the current flagship rankings, including
+the existing probe and ledger behavior. `bun run eval:crux --levers` compares
+configurations without enabling them in deployment.
+
+The projection option preserves engine order and skips claims with no recorded
+participant, position, or claim relation disputing them. An exact common-ground
+statement supplies a more specific explanation for the omission. Shared words
+alone do not establish agreement: word order, comparison signs, quantities,
+case-sensitive units, and tense remain significant. Contradictory extraction
+fields keep the disputed claim visible even when another field calls it common
+ground. This option does not use a model or change engine scores.
+
 ## v1.3: ledger status
 
 Governing spec: `docs/plans/2026-09-22-crux-ledger-and-living-ai-map-spec.md` §1.3. The crux ledger
