@@ -52,11 +52,13 @@ export function disagreementAbout(type: DisagreementType): string {
  * How settleable a question is, in a sentence rather than a band. The band
  * follows the crux's resolution kind (lib/disagreement/diagnosis.ts): checkable
  * or agreeable is "high", waiting on the future is "medium", values are "low".
+ * Weak grounding or confidence can also lower the band, so the band alone
+ * cannot establish that the disagreement is about values.
  */
 const RESOLVABILITY_SENTENCE: Record<ResolvabilityBand, string> = {
   high: "Something checkable, or a shared definition, could settle much of it.",
   medium: "It could be settled in part, or only with time.",
-  low: "Evidence alone is unlikely to settle it: it rests on values.",
+  low: "It may be hard to settle from this text alone.",
   unknown: "The text doesn’t show what would settle it.",
 };
 
