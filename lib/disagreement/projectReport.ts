@@ -18,6 +18,7 @@ import type {
   DisagreementItem,
   DisagreementReportV1,
   DisagreementType,
+  GroundingRef,
   ReportCrux,
   ReportPosition,
   ResolutionPath,
@@ -350,21 +351,28 @@ function derivePrimaryType(
  */
 function commonGroundAttested(
   participantIds: string[],
-  grounding: Array<{ participantId?: string }>,
+  grounding: GroundingRef[],
   narratorIds: ReadonlySet<string>,
 ): boolean {
   const attributed = new Set(participantIds);
   if (attributed.size < 2) return false;
-  const quoted = new Set<string>();
   for (const ref of grounding) {
-    if (!ref.participantId) continue;
-    if (!attributed.has(ref.participantId)) {
-      if (narratorIds.has(ref.participantId)) return true;
-      continue;
+    if (ref.participantId && !attributed.has(ref.participantId) && narratorIds.has(ref.participantId)) {
+      return true;
     }
-    quoted.add(ref.participantId);
   }
-  return quoted.size === attributed.size;
+  // Model-supplied participant IDs do not turn one passage into independent
+  // statements. Require a separate source span for each person, including when
+  // a second quote is only a nested excerpt of the first. Try alternatives so a
+  // duplicate reference cannot hide genuine, separately grounded agreement.
+  const participants = [...attributed];
+  const covered = (index: number, selected: GroundingRef[]): boolean => {
+    if (index === participants.length) return true;
+    return grounding.some((ref) => ref.participantId === participants[index] &&
+      selected.every((other) => ref.end <= other.start || ref.start >= other.end) &&
+      covered(index + 1, [...selected, ref]));
+  };
+  return covered(0, []);
 }
 
 export function projectDisagreementReport(input: {
