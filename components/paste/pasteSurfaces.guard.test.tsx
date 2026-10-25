@@ -37,7 +37,7 @@ import { PasteClient } from "./PasteClient";
 function forbiddenWords(text: string): string[] {
   return [
     ...(text.match(/\b(?:FOR|AGAINST)\b/g) ?? []),
-    ...(text.match(/aggregate|winner|judg|\bverdict\b|\d+\s*\/\s*(?:10|40)\b/gi) ?? []),
+    ...(text.match(/\baggregate(?:d)?\s+scores?\b|winner|judg|\bverdict\b|\d+\s*\/\s*(?:10|40)\b/gi) ?? []),
   ];
 }
 
@@ -77,6 +77,13 @@ afterEach(() => {
 });
 
 describe("paste surfaces never score sides or name a winner", () => {
+  it("guards side scores without rejecting aggregate economic evidence", () => {
+    expect(forbiddenWords("Aggregate Scores FOR 4.7 / AGAINST 5.0")).toEqual([
+      "FOR", "AGAINST", "Aggregate Scores",
+    ]);
+    expect(forbiddenWords("These aggregate figures do not identify AI's contribution.")).toEqual([]);
+  });
+
   it.each([
     ["the input, lanes off", OFFLINE],
     ["the input, diagnosis on", FIXTURES],
