@@ -46,9 +46,23 @@ At that release revision, `bun run lint`, `bun run typecheck`, `bun run build`, 
 - Source URL checks covered 1,639 URLs: 3 dead, 0 malformed, 162 redirected, 402 blocked, 61 bot challenges, and 30 network errors. The three dead links were repaired. Blocked responses, bot challenges, redirects, and network errors do not establish source correctness. A successful HTTP response alone was not treated as factual verification.
 - Freshness manifests retain overdue reviews and missing source dates. The scoped capitalism audit does not claim a full-map or headline review of unrelated evidence.
 - Live model calls, authenticated production flows, production database behavior, payment services, and email delivery were not exercised. No production or vendor state was changed by verification.
-- Browser checks use Chromium device emulation. Native mobile browsers and other browser engines remain untested. Report visual verification covered the offline 404 state; report-generation behavior was checked with deterministic fixtures.
+- Browser checks use Chromium device emulation. Native mobile browsers and other browser engines remain untested. Report visual verification covered the offline 404 state. A later real fake-provider browser run passed four phone/desktop, light/dark journeys covering consent, report focus, quote expansion, summary copying, editing, and reset without external requests. Its twelve screenshots were not visually inspected before the user requested an early stop, and failure/retry scenarios were not exercised.
 - The shared checkout's environment-file edit and untracked research note are intentionally preserved. Existing worktree contents are preserved when branch references are detached or removed.
 
 ## Handoff
 
-Push, remote CI, branch cleanup, and final revision details will be recorded here after they complete.
+The verified code and integration audit were pushed to main as `f51078a480d09f5447e31d4a42c9db31a3bed3a1`. Both GitHub Actions jobs passed: [CI run 40163834131](https://github.com/amirhjalali/Argumend/actions/runs/40163834131), including the Linux build, unit suite, smoke test, and end-to-end suite. The final follow-up commit updates only this audit and its validation appendix.
+
+The shared checkout is on main. Its original `.env.example` edit and `docs/plans/2026-09-26-guided-conversations-idea.md` remain untouched. All 36 preserved implementation file hashes were rechecked before the handoff. The original source bytes remain reachable in preservation commit `4ad23bc40e6cf6c778a246c96f10f719459d2a2b`.
+
+Deleted 175 original non-main local branch refs, 20 remote branches, and nine temporary task branch refs. Only main remains locally and remotely. Each deleted tip was first proven reachable from pushed main. Remote deletions used an atomic push with explicit expected-tip leases. Local deletions used expected-SHA ref transactions after detaching worktrees at their current commits. Worktree files, ignored artifacts, and dirty source files remain intact; only one stale worktree registration was pruned.
+
+Handoff commands completed with exit 0:
+
+```text
+git push origin HEAD:main
+python3 /tmp/argumend-closeout-20261025/prepare-main.py --apply
+python3 /tmp/argumend-closeout-20261025/cleanup-original-branches.py --apply
+```
+
+The user requested an early stop because of credits. Additional AI-employment source-comparison corrections remain uncommitted in the detached worktree `/tmp/argumend-closeout-20261025/freshness`: four source files, one regression test file, and a provenance report. Their scoped 346-test run, lint, typecheck, and freshness diagnostic passed, but the final prose adjustment has not received a release build or browser check. These changes are not in main. The review-date wording proposal was not implemented. Two untracked browser QA files and their artifacts remain in `/tmp/argumend-closeout-20261025/report-browser`; its task-owned server was stopped.
