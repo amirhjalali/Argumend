@@ -1,5 +1,6 @@
-import { render } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import "@/test/setup-dom";
+import { cleanup, fireEvent, render } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { OpenCruxFromHash } from "./OpenCruxFromHash";
 
 function Page() {
@@ -15,6 +16,7 @@ function Page() {
           <summary>B</summary>body
         </details>
       </li>
+      <li><a href="#crux-a">Return to A</a></li>
       <OpenCruxFromHash />
     </ul>
   );
@@ -22,20 +24,60 @@ function Page() {
 
 describe("OpenCruxFromHash", () => {
   afterEach(() => {
-    window.location.hash = "";
+    cleanup();
+    window.history.replaceState(null, "", window.location.pathname);
   });
 
   it("opens the crux fold the URL points at", () => {
-    window.location.hash = "#crux-a";
+    window.history.replaceState(null, "", "#crux-a");
     const { container } = render(<Page />);
     const [a, b] = container.querySelectorAll("details");
     expect(a.open).toBe(true);
     expect(b.open).toBe(false);
+    expect(document.activeElement).toBe(a.querySelector("summary"));
   });
 
   it("leaves folds alone for non-crux anchors", () => {
-    window.location.hash = "#other";
+    window.history.replaceState(null, "", "#other");
     const { container } = render(<Page />);
     for (const d of container.querySelectorAll("details")) expect(d.open).toBe(false);
+  });
+
+  it("opens and focuses a different crux after fragment navigation", () => {
+    const { container } = render(<Page />);
+    window.history.replaceState(null, "", "#crux-a");
+    fireEvent(window, new Event("hashchange"));
+    const details = container.querySelector("details")!;
+    expect(details.open).toBe(true);
+    expect(document.activeElement).toBe(details.querySelector("summary"));
+  });
+
+  it("reopens a collapsed crux when a link repeats the current fragment", () => {
+    window.history.replaceState(null, "", "#crux-a");
+    const view = render(<Page />);
+    const entry = view.container.querySelector<HTMLElement>("#crux-a")!;
+    const details = entry.querySelector("details")!;
+    details.open = false;
+    const scroll = vi.fn();
+    entry.scrollIntoView = scroll;
+
+    fireEvent.click(view.getByRole("link", { name: "Return to A" }));
+
+    expect(details.open).toBe(true);
+    expect(document.activeElement).toBe(details.querySelector("summary"));
+    expect(scroll).toHaveBeenCalledWith({ block: "start" });
+  });
+
+  it("does not intercept modified clicks or malformed fragments", () => {
+    window.history.replaceState(null, "", "#crux-a");
+    const view = render(<Page />);
+    const details = view.container.querySelector("details")!;
+    details.open = false;
+    fireEvent.click(view.getByRole("link", { name: "Return to A" }), { ctrlKey: true });
+    expect(details.open).toBe(false);
+
+    window.history.replaceState(null, "", "#crux-%E0%A4%A");
+    expect(() => fireEvent(window, new Event("hashchange"))).not.toThrow();
+    expect(details.open).toBe(false);
   });
 });

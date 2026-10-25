@@ -1578,7 +1578,7 @@
     "interest": "Klarna press release promoting its own AI deployment.",
     "verification": "verified-live"
    },
-   "relevance": "The corpus's canonical customer-support displacement anecdote; frequently cited as proof of AI-driven headcount reduction, though it is a workload-equivalence figure from a company's own press release.",
+   "relevance": "The corpus's canonical customer-support displacement anecdote; frequently cited as proof of AI-driven headcount reduction, though it is a workload-equivalence figure from a company's own press release, not a measured reduction in hiring or headcount.",
    "weight": {
     "sourceReliability": 3,
     "independence": 2,
@@ -2249,8 +2249,8 @@
     "sourceReliability": 8,
     "independence": 8,
     "replicability": 7,
-    "directness": 8,
-    "weightBasis": "National random-assignment-adjacent evaluation commissioned to assess a specific federal program with no commercial stake in the outcome; high directness because it directly measures the policy tool (retraining) most often proposed as the AI-displacement remedy."
+    "directness": 6,
+    "weightBasis": "National matched-comparison evaluation using propensity scores, not random assignment of workers. It measures earnings and employment after trade displacement; its application to AI displacement is an analogy, and unobserved differences between participants and comparisons may remain."
    },
    "provenance": {
     "origin": "extracted",
@@ -3632,7 +3632,8 @@
    "from": "e-klarna-700-agents",
    "to": "c-firms-cut-hiring-not-output",
    "type": "evidences",
-   "polarity": "supporting"
+   "polarity": "qualifying",
+   "note": "Workload equivalence demonstrates task automation, not an observed hiring or headcount reduction; the release does not distinguish fewer workers from expanded service capacity."
   },
   {
    "id": "edge-079",

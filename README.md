@@ -16,10 +16,10 @@ Argumend turns public questions into structured maps of positions, evidence, cru
 
 ## What It Does
 
-- Maps controversial topics into interactive argument graphs
-- Shows positions, evidence, cruxes, fallacies, and confidence signals
-- Runs offline by default with static/programmatic topic data
-- Optionally enables live AI extraction, debate generation, and judging
+- Presents contested questions as crux-first maps of positions, evidence, and what would change each side’s mind
+- Offers interactive diagrams for legacy topic maps
+- Matches pasted arguments to existing maps offline, without storing the paste
+- Optionally enables source-only AI disagreement diagnosis, debate generation, and judging
 - Uses saved topic data so core flows can be developed without paid API calls
 - Keeps the pruned CORE surface (`/`, `/topics`, `/analyze`, `/about`) crawlable with stable `?page=` URLs; hidden and merge-pending routes still serve directly but are excluded from the sitemap per `docs/PRODUCT_PRUNING_AUDIT.md`
 
@@ -55,7 +55,16 @@ blank and every live-mode flag is disabled.
 
 Argumend defaults to offline/programmatic generation and judging so the product can be developed and demoed without live model calls.
 
-In offline mode, `/api/analyze`, `/api/judge`, `/api/debate`, and `/api/debate/stream` return deterministic/programmatic results without requiring auth, model API keys, or `DATABASE_URL`. If database persistence is unavailable, those endpoints still return the computed result and skip saving.
+`/api/analyze` always matches pasted text against the existing map library offline;
+it does not call a model or store the paste. In offline mode, `/api/judge`,
+`/api/debate`, and `/api/debate/stream` also return programmatic results without
+requiring auth, model API keys, or `DATABASE_URL`. If database persistence is
+unavailable, debate and judging still return the computed result and skip saving.
+The paste matcher withholds a map when the subject is unclear and offers
+closest maps only when their overlap is strong enough to be useful. A matched
+result links to the relevant crux on the reading page. Matching uses local
+word overlap and a few calibrated subject checks, not semantic understanding;
+unfamiliar subjects can still receive a closest-map list.
 
 Database-backed sessions and debate persistence are enabled only when a
 non-empty `DATABASE_URL` is explicitly configured. Without it, authentication
@@ -74,9 +83,6 @@ dashboard visits return to the local saved-topics view.
 Enable live model-backed flows with environment flags:
 
 ```bash
-ENABLE_LIVE_ANALYZE_API=true
-NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API=true
-
 ENABLE_LIVE_JUDGING_API=true
 NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true
 
@@ -95,9 +101,13 @@ no build-time flag is involved. Without it, `/analyze` runs only the offline map
 Publishing unlisted `/d/<slug>` reports also requires `ENABLE_DISAGREEMENT_PUBLISHING`,
 `REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`.
 
-The unprefixed `ENABLE_LIVE_*` flags are the server-side authorization boundary
-for provider calls. Their matching `NEXT_PUBLIC_ENABLE_LIVE_*` flags only expose
-the corresponding mode in the browser UI and never authorize backend live work
+The legacy `ENABLE_LIVE_ANALYZE_API` and `NEXT_PUBLIC_ENABLE_LIVE_ANALYZE_API`
+flags no longer enable extraction at `/api/analyze`; use the disagreement lane
+above for model-backed diagnosis.
+
+The unprefixed debate and judging `ENABLE_LIVE_*` flags are the server-side
+authorization boundary for their provider calls. Their matching
+`NEXT_PUBLIC_ENABLE_LIVE_*` flags only expose the corresponding mode in the browser UI and never authorize backend live work
 on their own; enable both halves together for a live user-facing flow.
 Because Next.js embeds `NEXT_PUBLIC_*` values in client assets, set those values
 at build time. The unprefixed server flags and all credentials remain runtime
@@ -120,21 +130,18 @@ preview deployments. Enable it explicitly by setting a measurement ID:
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
-Canonical interactive map links use the root canvas route:
+Every map has a canonical crux-first reading page at `/topics/<topic-id>`. The
+three flagship ArgumentGraph maps and legacy topic maps share that page
+structure, with positions, crux questions, evidence, and resolution conditions.
+The reading experience is server-rendered and works offline without API keys or
+a database.
 
-```text
-/?topic=<topic-id>&view=logic-map
-```
-
-Three flagship ArgumentGraph debate maps use canonical `/topics/<argument-id>`
-URLs. Their core reading experience is server-rendered, works offline without
-API keys or a database, and presents four positions, three-to-five crux
-questions, evidence, and resolution conditions through native progressive
-disclosure. These debate maps are deliberately distinct from the legacy
-interactive canvas topics, whose canonical links continue to use the root
-`?topic=...&view=logic-map` route above.
-
-Legacy topic graph links such as `/topics/<topic-id>?view=graph` redirect to that canvas URL.
+Legacy maps also offer an interactive diagram at `/topics/<topic-id>/map`.
+Old `/?topic=<topic-id>&view=logic-map` and `/topics/<topic-id>?view=graph` links
+redirect to that diagram; old root topic links without a diagram view redirect
+to the reading page. Flagship maps use their reading page for old root links.
+Crux links open their disclosure and move keyboard focus to its heading, so
+readers can continue from the linked question.
 
 Known public dynamic routes are validated in `proxy.ts` against lightweight
 content indexes before App Router rendering begins. Invalid topic, blog, guide,
@@ -157,6 +164,7 @@ bun run typecheck    # TypeScript without emitting files
 bun run test         # Vitest, one complete run
 bun run test:watch   # Vitest watch mode
 bun run test:coverage
+bun run test:e2e     # Chromium desktop/phone flows; run after a production build
 bun run check:sources # validate and probe shipped evidence citations
 bun run db:generate  # generate Drizzle migrations
 bun run db:migrate   # apply committed, reviewed migrations
@@ -286,7 +294,13 @@ bun run smoke:standalone
 That smoke check starts the packaged server with every optional integration
 disabled; verifies health, the homepage, public and Next static assets, API v1,
 offline analysis, programmatic debate, and offline judging without persistence;
-then sends `SIGTERM` and requires the process to stop promptly.
+then sends `SIGTERM` and requires the process to stop promptly. The smoke and
+Playwright launchers share optional-service overrides in
+`scripts/offline-server-env.mjs`, so inherited runtime flags cannot enable
+diagnosis, Jev, publishing, or metric logging during these checks. Build with
+public live/auth/Jev flags disabled and analytics unset before running offline
+checks: runtime overrides cannot change `NEXT_PUBLIC_*` values already embedded
+in client assets.
 
 ## Database Migrations
 
@@ -314,7 +328,9 @@ components/             Product UI, graph views, topic cards, shell
 components/nodes/       React Flow node components
 data/                   Static topics, guides, blog content, mock debates
 hooks/                  Client state and graph orchestration
-lib/analyze/            Argument extraction and offline analysis
+lib/paste/              Offline paste-to-map matching and lane selection
+lib/disagreement/       Optional source-only disagreement diagnosis
+lib/analyze/            Legacy argument extraction utilities
 lib/debate/             Debate generation and persistence
 lib/judge/              Multi-model judging
 lib/db/                 Drizzle schema and database helpers

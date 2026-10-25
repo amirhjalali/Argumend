@@ -10,14 +10,14 @@ export const rentControlEffectivenessData = {
   category: "economics" as const,
   keystone_fact: {
     statement:
-      "When San Francisco extended rent control to small pre-1980 buildings in 1994, the tenants it covered moved about 20% less and were displaced less often — and the landlords it covered cut their rental supply by 15%. Both findings come from one study that neither side disputes. The fight is over what they mean for the next renter, and for the milder, modern version of the law.",
+      "When San Francisco extended rent control to small pre-1980 buildings in 1994, the tenants it covered moved about 20% less and were displaced less often — and the landlords it covered cut their rental supply by 15%. Both findings come from one study that neither side disputes. The fight is over what they mean for the next renter, and for different cap levels and protections against rental withdrawals.",
     confidence: 85,
     source: "Diamond, McQuade & Qian, American Economic Review, 109(9): 3365-94 (2019)",
     sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
   },
   simple_case: [
     "Both sides accept that strict 1970s-style rent ceilings cut rental supply, that rent control moves money to the tenants who already hold a controlled lease, and that building more housing is the durable fix.",
-    "They split over whether modern stabilization, which exempts new buildings and resets rents between tenants, avoids that supply harm; whether keeping today's tenants in place is worth the higher rents and longer searches it leaves newcomers; and whether a cap buys time for new supply or delays it.",
+    "They split over whether different stabilization designs can avoid that supply harm — San Francisco already exempted new buildings and allowed rents to reset between tenants; whether keeping today's tenants in place is worth the higher rents and longer searches it leaves newcomers; and whether a cap buys time for new supply or delays it.",
   ],
   pillars: [
     // =========================================================================
@@ -30,36 +30,36 @@ export const rentControlEffectivenessData = {
         "Economists have long argued that rent control reduces new construction by lowering expected returns for developers. The landmark Stanford/San Francisco natural experiment by Diamond, McQuade, and Qian (2019) found that rent control caused landlords to remove 15% of controlled units from the rental market through condo conversion, demolition, or owner move-in. However, critics argue that supply effects depend heavily on policy design, and that second-generation rent stabilization with vacancy decontrol preserves construction incentives while protecting tenants from displacement.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The supply-reduction narrative overstates the evidence and ignores critical policy design distinctions. The Stanford/San Francisco study examined a specific, pre-1994 form of strict rent control with no vacancy decontrol — a policy design that virtually no economist defends today. Modern rent stabilization policies (used in Oregon, California, and most European cities) allow rents to reset to market rate upon vacancy, preserving landlord incentives for new construction. A study by Autor, Palmer, and Pathak (Journal of Political Economy, 2014) of Cambridge, Massachusetts found that the 1995 elimination of rent control generated large property-value spillovers — much of which accrued to never-controlled units — yet residential investment explains only a small fraction of those gains, implying decontrol did not produce a commensurate surge in new construction and complicating the simple 'remove rent control and supply will follow' story. In Germany, where rent stabilization has been the norm for decades, housing construction rates are comparable to or higher than unregulated US markets. The supply effects depend almost entirely on policy design: exemptions for new construction, vacancy decontrol provisions, and allowances for maintenance cost pass-throughs can preserve building incentives while protecting tenants from rent spikes of 30-50% that cause displacement and homelessness.",
+        "The supply-reduction narrative overstates the evidence and ignores critical policy design distinctions. The Stanford/San Francisco study examined the 1994 expansion of rent stabilization to older small buildings. New construction was already exempt, and rents could reset between tenants; the observed supply loss came from landlords converting or redeveloping covered buildings. Its results therefore cannot be dismissed as evidence only about strict controls without those exemptions. Modern rent stabilization policies (used in Oregon, California, and most European cities) allow rents to reset to market rate upon vacancy, preserving landlord incentives for new construction. A study by Autor, Palmer, and Pathak (Journal of Political Economy, 2014) of Cambridge, Massachusetts found that the 1995 elimination of rent control generated large property-value spillovers — much of which accrued to never-controlled units — yet residential investment explains only a small fraction of those gains, implying decontrol did not produce a commensurate surge in new construction and complicating the simple 'remove rent control and supply will follow' story. In Germany, where rent stabilization has been the norm for decades, housing construction rates are comparable to or higher than unregulated US markets. The supply effects depend almost entirely on policy design: exemptions for new construction, vacancy decontrol provisions, and allowances for maintenance cost pass-throughs can preserve building incentives while protecting tenants from rent spikes of 30-50% that cause displacement and homelessness.",
       proponent_rebuttal:
         "Rent control is one of the few policies where economists across the political spectrum agree on the harm. When you cap what landlords can charge, you reduce the incentive to build new housing, maintain existing units, and keep properties on the rental market. The Stanford study of San Francisco's 1994 rent control expansion found that affected landlords reduced rental supply by 15% — converting apartments to condos, demolishing buildings, or simply withdrawing units. This contraction raised market rents by 5.1% citywide, meaning rent control literally made housing more expensive for everyone not lucky enough to already hold a controlled unit. New York City's decades-long experience shows the same pattern: rent-stabilized buildings receive less maintenance investment, vacancy rates in controlled units are artificially low (tenants never leave even when their needs change), and the city's chronic housing shortage is directly exacerbated by disincentives to build. The textbook prediction is clear — price ceilings below market rates create shortages.",
       crux: {
         id: "construction-response-test",
-        title: "The Construction Response Test",
+        title: "The Rental Supply Response Test",
         question:
-          "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
+          "Can rent stabilization preserve both new construction and existing rental supply?",
         description:
-          "Measure whether rent control policies with new-construction exemptions actually reduce housing starts compared to unregulated markets. If construction rates decline in rent-controlled jurisdictions even when new buildings are exempt, the supply argument holds. If construction is unaffected or responds primarily to zoning and land-use policy, the supply critique is overstated.",
+          "Measure both new housing starts and withdrawals of existing rental units under rent stabilization. Stable construction alone does not establish stable rental supply: conversions to owner occupancy can remove rentals even when new buildings are exempt.",
         methodology:
-          "Compare housing permit issuance and construction starts in jurisdictions that adopted rent stabilization (with new-construction exemptions) against matched control jurisdictions without rent regulation, using a difference-in-differences design. Control for confounding variables including zoning stringency, interest rates, land costs, population growth, and construction labor supply. Examine Oregon (statewide rent stabilization adopted 2019), California (AB 1482 adopted 2019), and St. Paul, Minnesota (rent control adopted 2021) as natural experiments.",
+          "Compare permits, completed rentals, conversions to owner occupancy, demolitions, and net rental stock against matched jurisdictions using a difference-in-differences design. Control for zoning, financing costs, population growth, and construction costs. Track the actual policy periods in Oregon and California from 2019 and in St. Paul separately before and after its amendments effective in 2023 and 2025; do not treat its original 2021 ordinance as a new-construction-exempt policy.",
         equation:
-          "\\Delta_{construction} = \\beta_0 + \\beta_1 \\cdot RentControl_i + \\beta_2 \\cdot X_i + \\varepsilon_i",
+          "\\Delta_{rental_stock} = \\beta_0 + \\beta_1 \\cdot RentControl_i + \\beta_2 \\cdot X_i + \\varepsilon_i",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Difference-in-differences on permits and construction starts in Oregon, California and St. Paul after rent stabilization with new-building exemptions, against matched places without rent rules, controlling for zoning, interest rates and land costs.",
+            "Matched-market estimates of new rental completions and losses of existing rentals to conversion, demolition or withdrawal, showing the net rental-stock effect. Separate each policy version and its exemption rules, including St. Paul before and after its 2023 and 2025 changes.",
         },
         cost_to_verify:
           "$200K-500K (Econometric analysis of housing permit and construction data across multiple jurisdictions)",
         falsification: {
           supporter_flip:
-            "If well-designed rent stabilization with new-construction exemptions shows no measurable drop in housing starts versus matched unregulated markets (Oregon, California, and St. Paul are the live natural experiments), the supply-harm argument largely collapses for modern policy.",
+            "If matched-market studies find no meaningful loss in either rental completions or the existing rental stock under a specified stabilization design, the supply-harm objection weakens for that design.",
           skeptic_flip:
-            "If those same Oregon/California/St. Paul experiments show construction falling even where new buildings are exempt, the 'modern designs are different' defense fails and the supply critique holds.",
+            "If comparable markets show fewer rental completions or more withdrawals of existing rentals even with new-building exemptions, those exemptions alone do not answer the supply critique.",
           common_ground:
-            "Both sides accept that old-style strict ceilings — no vacancy decontrol, no new-build exemption — reduced rental supply; the San Francisco study is not really disputed.",
+            "The San Francisco study found a loss of rental supply from covered older buildings despite new-building exemptions and vacancy decontrol; it also found protection against displacement for incumbent tenants.",
           live_disagreement:
-            "Whether modern rent stabilization, which exempts new construction and resets rents at vacancy, avoids the supply harm that strict 1970s-style controls caused.",
+            "Which cap levels, exemptions and limits on rental withdrawal can protect incumbent tenants without reducing the rental supply available to newcomers.",
         },
       },
       evidence: [
@@ -80,7 +80,7 @@ export const rentControlEffectivenessData = {
             "Diamond, McQuade & Qian, American Economic Review, 109(9): 3365-94 (2019)",
           sourceUrl: "https://www.aeaweb.org/articles?id=10.1257/aer.20181289",
           reasoning:
-            "Published in the American Economic Review, the top economics journal, using a rigorous natural experiment design. The 15% supply reduction is stated directly in the abstract (verified); the 5.1% citywide rent figure appears in the paper body and is widely cited. The study examined a strict policy without vacancy decontrol or new-construction exemptions — limiting generalizability to modern rent stabilization designs.",
+            "Published in the American Economic Review, the top economics journal, using a rigorous natural experiment design. The 15% supply reduction is stated directly in the abstract (verified); the 5.1% citywide rent figure appears in the paper body and is widely cited. The study examined stabilization with new-construction exemptions and vacancy decontrol, not a strict ceiling on all rents. It directly tests withdrawals from existing rental stock; extrapolation to different cap levels and conversion rules still needs evidence.",
         },
         {
           id: "cambridge-decontrol-study",
@@ -125,7 +125,7 @@ export const rentControlEffectivenessData = {
           title:
             "IGM Forum Survey: Roughly 82% of Economists Reject the Claim That Rent Control Has Improved Affordable Housing",
           description:
-            "The University of Chicago IGM Economic Experts Panel surveyed leading economists on February 7, 2012, on the statement: 'Local ordinances that limit rent increases for some rental housing units, such as in New York and San Francisco, have had a positive impact over the past three decades on the amount and quality of broadly affordable rental housing in cities that have used them.' Of the panelists who responded, 13 strongly disagreed and 24 disagreed (about 82% of respondents), only 1 agreed (Bengt Holmström, who reported low confidence), and 3 were uncertain. This near-unanimous rejection is one of the stronger consensus positions in economics. However, the question referenced traditional rent-ceiling ordinances rather than modern rent stabilization with vacancy decontrol and new-construction exemptions.",
+            "The University of Chicago IGM Economic Experts Panel surveyed leading economists on February 7, 2012, on the statement: 'Local ordinances that limit rent increases for some rental housing units, such as in New York and San Francisco, have had a positive impact over the past three decades on the amount and quality of broadly affordable rental housing in cities that have used them.' Of the panelists who responded, 13 strongly disagreed and 24 disagreed (about 82% of respondents), only 1 agreed (Bengt Holmström, who reported low confidence), and 3 were uncertain. This near-unanimous rejection is one of the stronger consensus positions in economics. The survey explicitly named New York and San Francisco; it did not isolate the effects of particular cap levels, exemptions or withdrawal rules.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -137,7 +137,7 @@ export const rentControlEffectivenessData = {
             "University of Chicago Booth IGM / Kent Clark Center Forum (Feb. 2012)",
           sourceUrl: "https://www.igmchicago.org/surveys/rent-control/",
           reasoning:
-            "The IGM Forum polls top economists from leading universities and is a respected measure of expert opinion. The response distribution is verified directly against the survey page (~82% disagree/strongly disagree; one panelist agreed). Note: an earlier draft framed this as '81% agree rent control reduces quantity/quality,' which inverted the actual question — the panel was asked whether rent control had a positive impact, and overwhelmingly said no. Directness is lower because the question addressed traditional rent ceilings, not modern policy designs.",
+            "The IGM Forum polls top economists from leading universities and is a respected measure of expert opinion. The response distribution is verified directly against the survey page (~82% disagree/strongly disagree; one panelist agreed). Note: an earlier draft framed this as '81% agree rent control reduces quantity/quality,' which inverted the actual question — the panel was asked whether rent control had a positive impact, and overwhelmingly said no. Directness is lower because this is expert opinion on a broad affordability question, not a causal estimate for a specific policy design.",
         },
       ],
     },
@@ -152,7 +152,7 @@ export const rentControlEffectivenessData = {
         "Rent control clearly benefits current tenants who hold controlled leases — reducing their housing cost burden and preventing displacement from gentrifying neighborhoods. But critics argue this comes at the expense of new renters, who face higher market-rate rents, longer housing searches, and reduced mobility. The distributional question — who benefits and who pays — is the central equity debate in rent control policy.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "The 'insider vs outsider' framing fundamentally mischaracterizes who benefits from rent stabilization and why. The primary beneficiaries are not affluent tenants gaming the system — they are low-income households, elderly residents on fixed incomes, and communities of color who would be displaced by gentrification without price protections. The Stanford/San Francisco study (Diamond, McQuade & Qian 2019) found that rent control measurably lowered the displacement of incumbent tenants and reduced renter mobility by about 20%, with benefits concentrated among more vulnerable incumbents who were able to stay in place. Displacement is not merely an inconvenience — it ruptures social networks, disrupts children's education, increases commute times, and is associated with increased homelessness. The 'misallocation' argument assumes that the only efficient housing market is one where the highest bidder always wins — but this framework ignores the social value of neighborhood stability, community institutions, and mixed-income neighborhoods. Stockholm's 9-year queue reflects insufficient supply (a zoning and construction problem), not a fundamental flaw of rent regulation. Modern policies with vacancy decontrol address the lock-in problem by allowing rents to reset when tenants voluntarily move.",
+        "The 'insider vs outsider' framing fundamentally mischaracterizes who benefits from rent stabilization and why. The primary beneficiaries are not affluent tenants gaming the system — they are low-income households, elderly residents on fixed incomes, and communities of color who would be displaced by gentrification without price protections. The Stanford/San Francisco study (Diamond, McQuade & Qian 2019) found that rent control measurably lowered the displacement of incumbent tenants and reduced renter mobility by about 20%, with benefits concentrated among more vulnerable incumbents who were able to stay in place. Displacement is not merely an inconvenience — it ruptures social networks, disrupts children's education, increases commute times, and is associated with increased homelessness. The 'misallocation' argument assumes that the only efficient housing market is one where the highest bidder always wins — but this framework ignores the social value of neighborhood stability, community institutions, and mixed-income neighborhoods. Stockholm's 9-year queue reflects insufficient supply (a zoning and construction problem), not a fundamental flaw of rent regulation. Vacancy decontrol allows landlords to reset rents after voluntary departures, but does not remove the incumbent tenant's incentive to keep a below-market lease.",
       proponent_rebuttal:
         "Rent control creates a two-tier housing market that protects insiders at the expense of outsiders. Current tenants in controlled units pay below-market rents and rationally never leave — even if their apartment no longer fits their needs (empty nesters in family-sized units, workers who commute long distances rather than give up a cheap lease). This misallocation reduces vacancy rates to near zero in controlled units, forcing newcomers — disproportionately young people, immigrants, and workers relocating for jobs — into an overheated uncontrolled market where rents are inflated by the artificial scarcity rent control creates. In Stockholm, the average wait for a first-hand rent-regulated contract is on the order of nine years (and far longer — 15-20 years — for central neighborhoods), with over 700,000 people in the municipal housing queue. In New York, rent-stabilized tenants typically have markedly longer median tenure than market-rate tenants, so units turn over far less often. The policy effectively taxes housing mobility and transfers wealth from future renters to current ones — the opposite of progressive housing policy.",
       crux: {
@@ -164,18 +164,19 @@ export const rentControlEffectivenessData = {
           "Determine whether the welfare gains from preventing displacement of incumbent tenants exceed the welfare losses imposed on newcomers who face higher rents and reduced housing access. If displacement causes severe, measurable harm (homelessness, health impacts, educational disruption) that outweighs the efficiency costs of reduced mobility, rent control is net welfare-positive. If the mobility costs and market distortions outweigh displacement prevention benefits, alternative anti-displacement tools would be preferable.",
         methodology:
           "Conduct a longitudinal study tracking both displaced and non-displaced tenants in gentrifying neighborhoods with and without rent stabilization. Measure outcomes including: housing cost burden, residential stability, employment access, children's school performance, physical and mental health, and social network disruption. Simultaneously measure costs borne by new market entrants: time to find housing, rent premium over controlled areas, commute distance, and housing quality. Calculate net social welfare using willingness-to-pay and quality-adjusted life year frameworks.",
-        verification_status: "theoretical" as const,
+        verification_status: "impossible" as const,
         settle: {
           condition:
-            "A longitudinal study of tenants in gentrifying neighborhoods with and without stabilization, measuring stability, health and schooling for those already housed, and search time and rent premiums for new arrivals. Weighing one group's gains against the other's costs is a value choice.",
+            "Evidence can measure incumbent stability, health and schooling alongside newcomers' search costs and rent premiums. Choosing how to weigh these groups' gains and losses requires an explicit value judgment; no welfare study chooses those weights for the reader.",
+          kind: "value-difference" as const,
         },
         cost_to_verify:
           "$1-3M (Multi-year longitudinal study across multiple housing markets)",
         falsification: {
           supporter_flip:
-            "If rigorous longitudinal welfare accounting shows displacement-prevention benefits to incumbents (health, schooling, stability) exceed the mobility and market-distortion costs imposed on newcomers, the 'protects insiders at outsiders' expense' objection loses its force.",
+            "If longitudinal studies show incumbent benefits exceeding newcomer costs under explicitly agreed welfare weights, the case against stabilization weakens under those weights.",
           skeptic_flip:
-            "If longitudinal welfare accounting showed newcomer harms plus lock-in and misallocation costs outweighing the benefits to incumbents, targeted anti-displacement tools would look better than broad rent control, even to sympathetic observers.",
+            "If newcomer harms exceed incumbent benefits under explicitly agreed welfare weights, targeted anti-displacement tools look better than broad stabilization under those weights.",
           common_ground:
             "Both sides agree rent control transfers wealth to incumbent tenants and reduces their mobility; the SF study documents both the benefit and the lock-in.",
           live_disagreement:
@@ -383,6 +384,14 @@ export const rentControlEffectivenessData = {
     },
   ],
   references: [
+    {
+      title: "Diamond, McQuade & Qian: Author manuscript, policy history in section 2 (2019)",
+      url: "https://web.stanford.edu/~diamondr/DMQ.pdf",
+    },
+    {
+      title: "Saint Paul: Rent Stabilization ordinance and amendment timeline",
+      url: "https://www.stpaul.gov/departments/safety-inspections/rent-buy-sell-property/renting-property/rent-stabilization",
+    },
     {
       title:
         "The Effects of Rent Control Expansion on Tenants, Landlords, and Inequality — Diamond, McQuade & Qian, American Economic Review (2019)",

@@ -302,10 +302,10 @@
     "meta_claim": "Nuclear energy should be expanded as a key tool for decarbonizing electricity generation.",
     "confidence_score": 54,
     "balance": 54,
-    "weight": 66,
+    "weight": 61,
     "verdict": {
-      "label": "Well-mapped, evidence still divided",
-      "quadrant": "contested"
+      "label": "Evidence roughly balanced — moderately evidenced",
+      "quadrant": "moderate"
     },
     "status": "contested",
     "category": "policy",
@@ -2033,7 +2033,7 @@
     "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
     "confidence_score": 58,
     "balance": 58,
-    "weight": 70,
+    "weight": 66,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2042,7 +2042,7 @@
     "category": "economics",
     "pillarCount": 3,
     "evidenceCount": 12,
-    "firstCrux": "Does modern rent stabilization, which exempts new buildings, avoid the supply harm of 1970s-style controls?",
+    "firstCrux": "Can rent stabilization preserve both new construction and existing rental supply?",
     "tags": [
       "economics"
     ]

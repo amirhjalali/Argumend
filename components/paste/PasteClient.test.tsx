@@ -234,6 +234,39 @@ describe("PasteClient with every lane off (production today)", () => {
     expect(sessionStorage.getItem(PASTE_PREFILL_KEY)).toBeNull();
   });
 
+  it.each(["null", "[]", "42", '"old format"', '{"content":null}', "invalid JSON"])(
+    "ignores a malformed home-page handoff (%s) without submitting or breaking the input",
+    async (prefill) => {
+      const fetchMock = stubFetch({});
+      sessionStorage.setItem(PASTE_PREFILL_KEY, prefill);
+      const view = render(<PasteClient lanes={OFFLINE} />);
+
+      await act(async () => { await Promise.resolve(); });
+
+      expect((view.getByLabelText("The argument to read") as HTMLTextAreaElement).value).toBe("");
+      expect(fetchMock).not.toHaveBeenCalled();
+      expect(sessionStorage.getItem(PASTE_PREFILL_KEY)).toBeNull();
+    },
+  );
+
+  it.each([
+    ["missing result fields", { maps: {} }],
+    ["invalid reading fields", () => ({ maps: { ...matched, reading: { ...matched.reading, topScore: "high" } } })],
+    ["a non-string error", { error: { message: "Unavailable" } }],
+  ])("keeps a retryable input when the map response has %s", async (_label, body) => {
+    stubFetch({ "/api/analyze": () => jsonResponse(typeof body === "function" ? body() : body) });
+    const view = render(<PasteClient lanes={OFFLINE} />);
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+
+    await waitFor(() => view.getByRole("alert"));
+
+    expect(view.getByRole("alert").textContent).toContain("The maps could not be searched just now.");
+    expect(view.getByRole("button", { name: "Try again" })).toBeTruthy();
+    expect(view.getByLabelText("The argument to read")).toBeTruthy();
+    expect(view.queryByRole("region", { name: "Result" })).toBeNull();
+  });
+
   it("keeps the input and offers a retry when the map lane fails", async () => {
     stubFetch({
       "/api/analyze": () => jsonResponse({ error: "The maps could not be searched just now." }, false),
@@ -305,6 +338,48 @@ describe("PasteClient with the diagnosis lane on", () => {
     await waitFor(() => view.getByText(/The full reading did not run this time/));
     expect(view.getByRole("heading", { name: "This argument is already mapped" })).toBeTruthy();
     expect(view.queryByRole("alert")).toBeNull();
+  });
+
+  it("keeps the map usable when a successful diagnosis response has an invalid graph", async () => {
+    stubFetch({
+      "/api/analyze": () => jsonResponse({ maps: matched }),
+      "/api/disagreements/analyze": () => jsonResponse({ ...(diagnosis as object), graph: {} }),
+    });
+    const view = render(<PasteClient lanes={FIXTURES} />);
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+
+    await waitFor(() => view.getByText(/The full reading did not run this time: The reading failed/));
+
+    expect(view.getByRole("heading", { name: "This argument is already mapped" })).toBeTruthy();
+    expect(view.queryByText("Argumend diagnosis")).toBeNull();
+    expect(view.queryByRole("alert")).toBeNull();
+  });
+
+  it("ignores an earlier diagnosis that arrives after starting another paste", async () => {
+    let finishFirst!: (response: Response) => void;
+    const firstDiagnosis = new Promise<Response>((resolve) => { finishFirst = resolve; });
+    let readings = 0;
+    stubFetch({
+      "/api/analyze": () => jsonResponse({ maps: matched }),
+      "/api/disagreements/analyze": () => ++readings === 1
+        ? firstDiagnosis
+        : jsonResponse({ error: "The second reading failed." }, false),
+    });
+    const view = render(<PasteClient lanes={FIXTURES} />);
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+    await waitFor(() => view.getByRole("heading", { name: "This argument is already mapped" }));
+
+    fireEvent.click(view.getByRole("button", { name: "Paste another" }));
+    fireEvent.click(view.getByRole("button", { name: "See an example" }));
+    fireEvent.click(view.getByRole("button", { name: "Find what it turns on" }));
+    await waitFor(() => view.getByText(/The second reading failed/));
+
+    await act(async () => { finishFirst(await jsonResponse(diagnosis)); });
+
+    expect(view.queryByText("Argumend diagnosis")).toBeNull();
+    expect(view.getByText(/The second reading failed/)).toBeTruthy();
   });
 
   it("waits for the button when the lane would send the handed-off text to a provider", async () => {

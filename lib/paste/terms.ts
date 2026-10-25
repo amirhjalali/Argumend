@@ -55,17 +55,18 @@ function stemOf(token: string): string {
 /**
  * Terms for the paste index. Stopwords are dropped before stemming (they are
  * listed unstemmed), and terms shorter than two characters after stemming are
- * dropped. "AI" survives as "ai".
+ * dropped. "AI" survives as "ai". Subject guards can keep qualifiers like
+ * "only"; ranking and crux scoring always use the default stopword removal.
  */
-export function pasteTerms(text: string): string[] {
+export function pasteTerms(text: string, options: { keepStopwords?: boolean } = {}): string[] {
   const lowered = expandAbbreviations(text.toLowerCase().replace(/[‘’]/g, "'"));
   const terms: string[] = [];
   for (const raw of lowered.split(/[^a-z0-9']+/)) {
     // Possessives and quote marks go; contractions collapse ("don't" to "dont").
     const token = raw.replace(/'s$/, "").replace(/'/g, "");
-    if (token.length < 2 || isStopword(token)) continue;
+    if (token.length < 2 || (!options.keepStopwords && isStopword(token))) continue;
     const stemmed = stemOf(token);
-    if (stemmed.length < 2 || isStopword(stemmed)) continue;
+    if (stemmed.length < 2 || (!options.keepStopwords && isStopword(stemmed))) continue;
     terms.push(stemmed);
   }
   return terms;

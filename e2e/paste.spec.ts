@@ -2,14 +2,14 @@ import { expect, test, waitForHydration } from "./fixtures";
 
 /**
  * The paste flow at /analyze, offline: the built-in example goes to the
- * server's own map lane (/api/analyze) and comes back as a map and its crux,
- * or as the honest no-match state. Nothing may reach a third party; the
+ * server's own map lane (/api/analyze) and comes back as a map and its crux.
+ * The reader continues at that crux by keyboard. Nothing may reach a third party; the
  * fixture blocks and records any attempt, and this test asserts on it.
  */
-test("the example finds a map and links to its crux, without leaving the server", async ({
+test("the example opens its crux and continues there by keyboard, without leaving the server", async ({
   page,
   externalRequests,
-}) => {
+}, testInfo) => {
   const apiCalls: string[] = [];
   page.on("request", (request) => {
     const url = new URL(request.url());
@@ -30,11 +30,47 @@ test("the example finds a map and links to its crux, without leaving the server"
   await expect(result).toBeVisible({ timeout: 15_000 });
 
   const cruxLink = result.getByRole("link", { name: /^Open the map/ });
-  const noMatch = result.getByRole("heading", { name: /^No map/ });
-  await expect(cruxLink.or(noMatch).first()).toBeVisible();
-  if ((await cruxLink.count()) > 0) {
-    await expect(cruxLink.first()).toHaveAttribute("href", /^\/topics\/[a-z0-9-]+/);
+  await expect(cruxLink).toBeVisible();
+  const href = await cruxLink.getAttribute("href");
+  expect(href).toMatch(/^\/topics\/[a-z0-9-]+#crux-/);
+  await cruxLink.click();
+  await expect(page).toHaveURL(new RegExp(`${href}$`));
+
+  const fragment = new URL(page.url()).hash;
+  const entry = page.locator(fragment);
+  const fold = entry.locator(":scope > details");
+  const summary = fold.locator(":scope > summary");
+  await expect(fold).toHaveAttribute("open", "");
+  await expect(summary).toBeFocused();
+  await expect(summary).toBeInViewport();
+
+  // Tab continues into this crux's evidence, rather than the site header or
+  // a link left behind on the paste result.
+  await page.keyboard.press("Tab");
+  expect(await entry.evaluate((element) => element.contains(document.activeElement))).toBe(true);
+  await expect(summary).not.toBeFocused();
+
+  // Close the destination, then follow a link to the same fragment again.
+  // The desktop rail is a native anchor: no hashchange fires on this visit.
+  await summary.focus();
+  await page.keyboard.press("Enter");
+  await expect(fold).not.toHaveAttribute("open");
+  let returnLink;
+  if (testInfo.project.name === "desktop") {
+    returnLink = page.getByRole("complementary", { name: "On this page" }).locator(`a[href="${fragment}"]`);
+  } else {
+    const question = await entry.locator("h3 > span").first().innerText();
+    const reflection = page.locator("#reflect");
+    const choice = reflection.getByRole("button", { name: question, exact: true });
+    await waitForHydration(choice);
+    await choice.click();
+    returnLink = reflection.getByRole("link", { name: "Open this crux" });
   }
+  await returnLink.focus();
+  await page.keyboard.press("Enter");
+  await expect(fold).toHaveAttribute("open", "");
+  await expect(summary).toBeFocused();
+  await expect(summary).toBeInViewport();
 
   expect(apiCalls).toContain("POST /api/analyze");
   expect(externalRequests).toEqual([]);

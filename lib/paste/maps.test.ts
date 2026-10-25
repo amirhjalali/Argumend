@@ -88,6 +88,32 @@ describe("decideMatch", () => {
     expect(decision.rival?.id).toBe("map-2");
   });
 
+  it("uses word coverage to resolve a tiny sibling phrase-bonus tie", () => {
+    const tied = ranking([40, 39.8, 10]);
+    tied.ranked[0].wordScore = 30;
+    tied.ranked[1].wordScore = 35;
+    expect(decideMatch(tied, zeroAndOne).named?.id).toBe("map-1");
+    expect(decideMatch(tied, noSiblings).named).toBeNull();
+    const separated = ranking([40, 37, 10]);
+    separated.ranked[0].wordScore = 30;
+    separated.ranked[1].wordScore = 35;
+    expect(decideMatch(separated, zeroAndOne).named?.id).toBe("map-0");
+    tied.ranked[1].wordScore = 31;
+    expect(decideMatch(tied, zeroAndOne).named?.id).toBe("map-0");
+  });
+
+  it("does not overturn a specific sibling name preference with the word-coverage tie rule", () => {
+    const tied = ranking([40, 39.8, 39.6, 10]);
+    tied.ranked[0].wordScore = 30;
+    tied.ranked[1].wordScore = 32;
+    tied.ranked[2].wordScore = 35;
+    const names = (id: string) => id === "map-1"
+      ? new Set(["generic", "specific", "name"])
+      : new Set(["generic"]);
+    const siblings = (a: string, b: string) => [a, b].every((id) => id !== "map-3");
+    expect(decideMatch(tied, siblings, names).named?.id).toBe("map-1");
+  });
+
   it("needs enough of the paste behind the map: a score floor, or a share of its words", () => {
     const low = MAP_MATCH.minScore - 2;
     expect(low).toBeGreaterThanOrEqual(MAP_MATCH.minShortScore);
@@ -132,6 +158,17 @@ describe("decideMatch", () => {
     expect(decision.top?.id).toBe("map-0");
     // Another map being off its subject changes nothing.
     expect(decideMatch(ranking([40, 20, 12, 10]), noSiblings, undefined, (id) => id === "map-1").named?.id).toBe("map-0");
+  });
+
+  it("does not use an off-subject leader to justify weaker closest maps", () => {
+    const decision = decideMatch(ranking([26, 25, 20]), noSiblings, undefined, (id) => id === "map-0");
+    expect(decision.named).toBeNull();
+    expect(decision.closest).toEqual([]);
+  });
+
+  it("does not backfill a filtered closest candidate with a weaker map", () => {
+    const decision = decideMatch(ranking([26, 25, 20, 19]), noSiblings, undefined, (id) => id === "map-1");
+    expect(decision.closest.map((map) => map.id)).toEqual(["map-0", "map-2"]);
   });
 
   it("never shows more than three maps", () => {
@@ -264,6 +301,50 @@ describe("findMaps", () => {
       "If artificial wombs can carry a fetus from 22 weeks, viability no longer depends on the mother's body, and the abortion debate changes.",
     );
     expect(wombs.match?.id).toBe("artificial-reproduction-ethics");
+  });
+
+  it.each([
+    "Landlords may raise rent only 5% each year.",
+    "We should prevent steep annual rent hikes. Families cannot stay in their apartments if landlords double the rent, but owners say they need to cover rising costs.",
+  ])("retains a rent-limit paraphrase without the words rent control: %s", async (text) => {
+    expect((await findMaps(text)).match?.id).toBe("rent-control-effectiveness");
+  });
+
+  it("keeps personal rent-increase advice separate from rent-limit policy", async () => {
+    const result = await findMaps(
+      "My landlord raised the rent by thirty percent. I cannot afford the new price and have to move. Can I get my deposit back?",
+    );
+    expect(result.status).toBe("none");
+    expect(result.closest).toEqual([]);
+  });
+
+  it("retains artificial reproduction and charging road vehicles without their exact map names", async () => {
+    const reproduction = await findMaps(
+      "An ectogenesis device could let premature babies grow outside the body. Is that technology safe enough to use in a neonatal unit?",
+    );
+    expect(reproduction.match?.id).toBe("artificial-reproduction-ethics");
+    const roadCharge = await findMaps(
+      "It should cost drivers money to bring a car into the center of the city. Charging vehicles at the busiest times could pay for faster buses.",
+    );
+    expect(roadCharge.match?.id).toBe("congestion-pricing");
+  });
+
+  it.each([
+    "Lab-grown diamonds avoid blood diamonds and exploited workers, so they are the ethical choice. But mined diamonds support livelihoods in Botswana and the conflict certification scheme has reduced abuses.",
+    "Are lab diamonds really greener? Growing them takes enormous amounts of electricity, often from coal, while extracting natural stones tears up land. We need to compare their full carbon footprint rather than just advertising claims.",
+    "Buying a mined diamond helps support Botswana's economy. If everyone buys factory-grown stones instead, what happens to the people whose livelihoods depend on diamond exports?",
+    "A: I want a lab-grown diamond because I do not want my ring to finance wars or child labor. B: The Kimberley Process certifies mined diamonds, and lab-grown stones can be produced with coal power.",
+    "The diamond industry says factory-made stones are sustainable. Is that true when production happens on dirty grids in China and India, or is mining still worse because it destroys land and water?",
+  ])("retains the actual diamond ethics question: %s", async (text) => {
+    expect((await findMaps(text)).match?.id).toBe("lab-diamonds-ethics");
+  });
+
+  it("keeps a factory-reactor article on SMRs when nuclear power is background context", async () => {
+    const result = await findMaps(
+      "Small modular reactors are supposed to be built on an assembly line and shipped to old coal sites. NuScale cancelled its Idaho project after the cost per megawatt-hour rose sharply. Without hundreds of orders, a factory cannot deliver the promised savings.\n\n" +
+      "Nuclear energy supplies reliable low-carbon electricity, but the question here is whether these small reactors will be cheaper than the large plants, not whether nuclear power in general helps climate goals.",
+    );
+    expect(result.match?.id).toBe("nuclear-renaissance-smr");
   });
 
   it("names nothing for text with no words in common with any map", async () => {

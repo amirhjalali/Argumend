@@ -8,7 +8,7 @@ AI-powered argument mapping platform. Visualizes controversial topics as interac
 bun install          # install deps (uses bun.lock)
 bun dev              # dev server at localhost:3000
 bun run build        # production build (standalone output)
-bun test             # run vitest tests
+bun run test:ci      # run Vitest tests (bun test uses a separate runner)
 bun run lint         # eslint
 bun run db:generate  # generate drizzle migrations
 bun run db:push      # push schema to postgres
@@ -81,9 +81,12 @@ const db = getDb(); // throws if unavailable, but doesn't crash at import time
 
 Set via environment variables. All default to off (offline mode):
 
-- `ENABLE_LIVE_ANALYZE_API=true` — live argument extraction via AI
-- `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API=true` — live debate generation
-- `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API=true` — live multi-model judging
+- `ENABLE_LIVE_DEBATE_API=true` — authorizes live debate generation; the matching
+  `NEXT_PUBLIC_ENABLE_LIVE_DEBATE_API` flag exposes the browser mode
+- `ENABLE_LIVE_JUDGING_API=true` — authorizes live multi-model judging; the matching
+  `NEXT_PUBLIC_ENABLE_LIVE_JUDGING_API` flag exposes the browser mode
+- The legacy `ENABLE_LIVE_ANALYZE_API` flags no longer enable extraction at
+  `/api/analyze`, which always matches against existing maps offline.
 - `ENABLE_DISAGREEMENT_V2=true` — source-only disagreement diagnosis, shown above the
   map match at `/analyze` (with the flag off, `/analyze` still matches pasted text to a
   map offline; `/analyze-v2` redirects to `/analyze`)
