@@ -22,12 +22,13 @@ function claim(overrides: Partial<ProjectionClaimFacts> = {}): ProjectionClaimFa
 }
 
 describe("statementsMatch", () => {
-  it("matches after case, whitespace, and terminal punctuation normalisation", () => {
-    expect(statementsMatch("Ellis is out for six weeks.", "  ellis IS out  for six weeks")).toBe(true);
+  it("matches after whitespace, Unicode, and terminal period normalization", () => {
+    expect(statementsMatch("Ellis is out for six weeks.", "  Ellis is out  for six weeks")).toBe(true);
+    expect(statementsMatch("André pays the fee.", "Andre\u0301 pays the fee")).toBe(true);
   });
 
-  it("matches when at least 80% of each side's content words are shared", () => {
-    expect(statementsMatch("Ellis will be out for six weeks", "Ellis is out for six weeks.")).toBe(true);
+  it("does not infer agreement from shared vocabulary or a changed tense", () => {
+    expect(statementsMatch("Ellis will be out for six weeks", "Ellis is out for six weeks.")).toBe(false);
     expect(
       statementsMatch("The reservoir is above its design limit", "The dam passes every federal check"),
     ).toBe(false);
@@ -53,6 +54,22 @@ describe("statementsMatch", () => {
     expect(statementsMatch("The bridge passed all safety checks", "The bridge never passed all safety checks")).toBe(false);
     expect(statementsMatch("The inspection can rule out structural damage", "The inspection can't rule out structural damage")).toBe(false);
     expect(statementsMatch("The repairs cost 5 million dollars", "The repairs cost 10 million dollars")).toBe(false);
+  });
+
+  it.each([
+    ["Alex pays Bob the annual project fee", "Bob pays Alex the annual project fee"],
+    ["Revenue > 5 million dollars", "Revenue < 5 million dollars"],
+    ["The annual project budget should increase by 5 million", "The annual project budget should decrease by 5 million"],
+    ["The structural failure risk is above 5 percent", "The structural failure risk is below 5 percent"],
+    ["Transfer the benefits before the children leave", "Transfer the benefits after the children leave"],
+    ["The device consumes 5 mW", "The device consumes 5 MW"],
+    ["The bridge is safe", "The bridge is safe?"],
+  ])("preserves meaningful differences between %s and %s", (a, b) => {
+    expect(statementsMatch(a, b)).toBe(false);
+    expect(uncontestedCruxReason(claim({ statement: a, disputedByParticipantIds: ["gio"] }), {
+      commonGroundStatements: [b],
+      claimRelations: [],
+    })).toBeUndefined();
   });
 });
 
@@ -91,13 +108,24 @@ describe("isUndisputed", () => {
 });
 
 describe("uncontestedCruxReason", () => {
-  it("names explicit common ground before the undisputed test", () => {
-    const reason = uncontestedCruxReason(claim({ disputedByParticipantIds: ["gio"] }), {
+  it("names explicit common ground when nothing contests the claim", () => {
+    const reason = uncontestedCruxReason(claim(), {
       commonGroundStatements: ["Ellis is out for six weeks."],
       claimRelations: [],
     });
     expect(reason).toBe("explicit-common-ground");
     expect(isExplicitCommonGround(claim(), ["The rookie needs reps."])).toBe(false);
+  });
+
+  it("keeps a disputed claim even when the common-ground text is identical", () => {
+    expect(uncontestedCruxReason(claim({ disputedByParticipantIds: ["gio"] }), {
+      commonGroundStatements: ["Ellis is out for six weeks."],
+      claimRelations: [],
+    })).toBeUndefined();
+    expect(uncontestedCruxReason(claim(), {
+      commonGroundStatements: ["Ellis is out for six weeks."],
+      claimRelations: [{ fromClaimId: "c-other", toClaimId: "c-fact", type: "contradicts" }],
+    })).toBeUndefined();
   });
 
   it("returns undisputed when nothing contests the claim and it is not common ground", () => {

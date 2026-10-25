@@ -11,7 +11,9 @@ const GROUND_TRUTH_PATH = "data/evals/crux-recall/flagship-propositions.json";
 
 /**
  * Flags-off top-15 of each current flagship draft, captured on 2026-10-25
- * from the integration engine before the sprint levers were added.
+ * from the integration engine before the sprint levers were added. Capitalism
+ * was recaptured against that same pre-lever engine after its seven sourced
+ * evidence additions; full results also match the integrated flags-off engine.
  * Every lever defaults off, so this must never change unless the engine or a
  * draft changes on purpose.
  */
@@ -34,21 +36,21 @@ const FLAGS_OFF_SNAPSHOT: Record<string, string[]> = {
     "c-offshoring-rival-explanation:0.389"
   ],
   "capitalism-after-ai": [
-    "c-ai-ownership-stays-concentrated:0.828",
-    "c-reallocation-keeps-pace:0.750",
-    "c-survival-definition-contested:0.715",
-    "c-demand-collapse-without-recycling:0.606",
-    "c-wage-channel-loses-primacy:0.590",
-    "c-ai-task-generality-breaks-analogy:0.498",
-    "c-reinstatement-will-recur:0.486",
-    "c-open-models-lower-entry-barriers:0.473",
-    "c-ai-markets-tip-into-durable-oligopoly:0.470",
-    "c-task-automation-lowers-labor-share:0.462",
-    "c-capital-owners-recycle-demand:0.447",
-    "c-automation-complements-labor-historically:0.441",
-    "c-agi-transformative-claim-unverified:0.337",
-    "c-data-ownership-boundaries-contested:0.322",
-    "c-broad-labor-income-definition:0.276"
+    "c-ai-ownership-stays-concentrated:0.805",
+    "c-reallocation-keeps-pace:0.713",
+    "c-survival-definition-contested:0.702",
+    "c-demand-collapse-without-recycling:0.608",
+    "c-open-models-lower-entry-barriers:0.552",
+    "c-wage-channel-loses-primacy:0.545",
+    "c-ai-task-generality-breaks-analogy:0.487",
+    "c-reinstatement-will-recur:0.474",
+    "c-automation-complements-labor-historically:0.472",
+    "c-ai-markets-tip-into-durable-oligopoly:0.466",
+    "c-task-automation-lowers-labor-share:0.436",
+    "c-capital-owners-recycle-demand:0.434",
+    "c-agi-transformative-claim-unverified:0.327",
+    "c-data-ownership-boundaries-contested:0.326",
+    "c-high-tax-ubi-still-capitalism:0.275"
   ],
   "us-israel-support": [
     "c-regional-stability-depends-on-alliance:0.807",

@@ -8,8 +8,8 @@
  *
  * Two reasons, both drawn only from what the report already records:
  *  - "explicit-common-ground": the claim's statement matches a common-ground
- *    item the report presents (exact after normalisation, or at least 80% of
- *    each side's content words shared).
+ *    item after harmless whitespace and Unicode normalization, with no
+ *    participant, position, or claim relation recorded as contesting it.
  *  - "undisputed": no participant is recorded as disputing the claim, no
  *    position stands in an `opposes` relation to it, and no other claim
  *    contradicts, opposes, or undercuts it (or is contradicted, opposed, or
@@ -37,45 +37,15 @@ export type UncontestedReason = "explicit-common-ground" | "undisputed";
 
 const CONTEST_RELATIONS: ReadonlySet<string> = new Set(["contradicts", "opposes", "undercuts"]);
 
-const STOP_WORDS = new Set([
-  "the", "a", "an", "and", "or", "but", "if", "is", "are", "was", "were", "be", "to", "of", "in",
-  "on", "for", "with", "as", "by", "at", "from", "it", "its", "not", "do", "does", "will", "would",
-  "should", "can", "could", "this", "that", "what", "which", "how", "why", "whether", "true",
-]);
-
 function normalizeStatement(value: string): string {
-  return value.trim().toLowerCase().replace(/\s+/g, " ").replace(/[?.!]+$/, "");
+  return value.normalize("NFC").trim().replace(/\s+/g, " ").replace(/\.$/, "");
 }
 
-function contentWords(value: string): Set<string> {
-  return new Set(
-    normalizeStatement(value)
-      .replace(/[^a-z0-9\s-]/g, " ")
-      .split(/\s+/)
-      .filter((word) => word.length > 2 && !STOP_WORDS.has(word)),
-  );
-}
-
-/** True when the two statements share at least 80% of each other's content words. */
+/** Shared words cannot establish agreement about roles, direction, or modality. */
 export function statementsMatch(a: string, b: string): boolean {
   const normalizedA = normalizeStatement(a);
   const normalizedB = normalizeStatement(b);
-  if (!normalizedA || !normalizedB) return false;
-  if (normalizedA === normalizedB) return true;
-  // Shared vocabulary alone cannot turn a denial or a different quantity
-  // into common ground. Keep those distinctions before fuzzy matching.
-  const negated = (value: string) => /\b(?:no|not|never|neither|without|cannot)\b|\b\w+n['’]t\b/.test(value);
-  if (negated(normalizedA) !== negated(normalizedB)) return false;
-  const quantities = (value: string) => (value.match(/[+-]?\d+(?:[.,]\d+)*/g) ?? []).join("|");
-  if (quantities(normalizedA) !== quantities(normalizedB)) return false;
-  const wordsA = contentWords(a);
-  const wordsB = contentWords(b);
-  if (wordsA.size === 0 || wordsB.size === 0) return false;
-  let shared = 0;
-  for (const word of wordsA) {
-    if (wordsB.has(word)) shared += 1;
-  }
-  return shared / wordsA.size >= 0.8 && shared / wordsB.size >= 0.8;
+  return normalizedA.length > 0 && normalizedA === normalizedB;
 }
 
 export function isExplicitCommonGround(
@@ -102,9 +72,10 @@ export function uncontestedCruxReason(
   claim: ProjectionClaimFacts,
   context: ProjectionFilterContext,
 ): UncontestedReason | undefined {
+  // Conflicting extraction fields are not permission to hide a disagreement.
+  if (!isUndisputed(claim, context.claimRelations)) return undefined;
   if (isExplicitCommonGround(claim, context.commonGroundStatements)) return "explicit-common-ground";
-  if (isUndisputed(claim, context.claimRelations)) return "undisputed";
-  return undefined;
+  return "undisputed";
 }
 
 export function describeUncontestedReason(reason: UncontestedReason): string {
