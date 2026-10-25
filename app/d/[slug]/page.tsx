@@ -7,16 +7,17 @@ import { RepresentationFeedback } from "@/components/disagreement/Representation
 import { TextAction } from "@/components/ui/Button";
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
+import { isReportSlug } from "@/lib/disagreement/reportSlug";
 import { ANALYZE_HREF } from "@/lib/nav";
 import { sanitizeServerLog } from "@/lib/sanitizeServerLog";
 
 /**
  * Loads a published report, treating every failure path the same way: an
- * unconfigured database, an unreachable one, or an absent slug all mean "no
- * report here" — a crawl-safe 404, never a 500.
+ * malformed slug, unconfigured database, unreachable database, or absent
+ * report all produce a crawl-safe 404, never a 500.
  */
 async function loadPublishedReport(slug: string) {
-  if (!isDatabaseConfigured()) return null;
+  if (!isReportSlug(slug) || !isDatabaseConfigured()) return null;
   try {
     return await getPublishedDisagreementReport(slug);
   } catch (error) {

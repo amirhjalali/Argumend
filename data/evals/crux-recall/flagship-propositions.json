@@ -42,6 +42,12 @@
       ],
       "namedTests": [
         {
+          "id": "named-1-causal-and-definitional-top5",
+          "description": "CRUX_ENGINE acceptance test 1: the causal-attribution claim (worked-example c2) AND the definitional 'mass unemployment' claim (c3) both land top-5. The spec scopes this to 'their sub-question'; the harness has no sub-question partition, so it is evaluated on the whole-topic ranking.",
+          "claimIds": ["c-decline-caused-by-ai", "c-mass-unemployment-definition-strict"],
+          "withinTopK": 5
+        },
+        {
           "id": "named-2-normative-survives",
           "description": "CRUX_ENGINE acceptance test 2: the normative care-adjustment claim lands top-5 despite value-difference tractability.",
           "claimId": "c-care-reallocation-counts-as-adjustment",

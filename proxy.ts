@@ -71,5 +71,6 @@ export const config = {
     "/for-educators/worksheets/:id",
     "/embed/:topicId",
     "/analysis/:id",
+    "/d/:slug",
   ],
 };

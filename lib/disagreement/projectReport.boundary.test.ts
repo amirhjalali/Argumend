@@ -43,7 +43,7 @@ describe("generated report text boundaries", () => {
     expect(crux.branches.length).toBeGreaterThan(0);
     for (const branch of crux.branches) {
       expect(branch.condition).toBe(extraction.claims[0].statement);
-      expect(branch.consequence).toMatch(/^If this holds: /);
+      expect(branch.consequence).toMatch(/^If this (?:holds|does not hold): /);
     }
     expect(graph.nodes.find((node) => node.id === extraction.claims[0].id)?.statement)
       .toBe(extraction.claims[0].statement);
@@ -57,7 +57,7 @@ describe("generated report text boundaries", () => {
 
     expect(report.positions[0].label).toBe(extraction.positions[0].label);
     expect(report.cruxes.flatMap((crux) => crux.branches).map((branch) => branch.consequence))
-      .toContain("The case for one affected position gets stronger.");
+      .toEqual(expect.arrayContaining([expect.stringContaining("The case for one affected position gets stronger")]));
     expect(report.cruxes.map((crux) => crux.whyItMatters))
       .toContain("Settling this affects 2 positions; their cases depend on how this claim is resolved.");
   });

@@ -1,0 +1,120 @@
+{
+  "id": "numeric-heavy-budget",
+  "contentType": "conversation",
+  "source": "Farah: The shelter program is over budget. We approved $3.9M for FY25 and the ledger shows $4.62M spent through Q3, which is 118% of the full-year figure with a quarter still to go.\nGus: It is not over budget. The $4.62M includes $810,000 of pass-through county reimbursement that lands in the same cost center. Net of that, spend is $3.81M, or 97.7% of the approved amount.\nFarah: The reimbursement has not been received. The county has paid $290,000 of the $810,000 and the rest is an invoice, not cash.\nGus: The invoice is due in 30 days and the county has never missed one. Booking it as spend when it is owed back to us is what makes the number look like 118%.\nFarah: Until the $520,000 arrives, we are carrying it. If it slips into FY26 the program has spent 105% of its budget in FY25 whatever the ledger says.\nGus: And if it arrives on time, which it will, we are under budget by $90,000. The only question is whether you count receivables.",
+  "allowedPatterns": ["single-empirical-crux", "definition-mismatch"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Is the shelter program over its FY25 budget?",
+    "participants": [
+      { "id": "farah", "label": "Farah", "kind": "named" },
+      { "id": "gus", "label": "Gus", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-over-budget",
+        "label": "The program is over budget",
+        "participantIds": ["farah"],
+        "thesis": "Gross spend of $4.62M against a $3.9M budget means the program is over budget until the outstanding $520,000 reimbursement is actually received.",
+        "steelman": "A receivable is a promise, not money; while the town is carrying $520,000 of unpaid county invoice, the program has consumed more than it was given.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The shelter program is over budget.", "participantId": "farah" },
+          { "quote": "Until the $520,000 arrives, we are carrying it.", "participantId": "farah" }
+        ]
+      },
+      {
+        "id": "pos-not-over-budget",
+        "label": "The program is within budget",
+        "participantIds": ["gus"],
+        "thesis": "Net of $810,000 in county reimbursement, spend is $3.81M, which is 97.7% of the approved amount and under budget.",
+        "steelman": "Pass-through reimbursement is owed back by a county that has never missed an invoice; counting it as spend double-counts money that was never the program's cost.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Net of that, spend is $3.81M, or 97.7% of the approved amount.", "participantId": "gus" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-reimbursement-will-arrive-fy25",
+        "statement": "The remaining $520,000 of county reimbursement will be received within FY25.",
+        "participantIds": ["gus"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-not-over-budget", "relation": "supports" },
+          { "positionId": "pos-over-budget", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["gus"],
+        "disputedByParticipantIds": ["farah"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "Whether the county pays the $520,000 invoice before the fiscal year closes."
+        },
+        "groundingQuotes": [
+          { "quote": "The invoice is due in 30 days and the county has never missed one.", "participantId": "gus" },
+          { "quote": "If it slips into FY26 the program has spent 105% of its budget in FY25 whatever the ledger says.", "participantId": "farah" }
+        ]
+      },
+      {
+        "id": "claim-gross-spend-exceeds-budget",
+        "statement": "Gross spend through Q3 is $4.62M, which is 118% of the $3.9M full-year budget.",
+        "participantIds": ["farah"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-over-budget", "relation": "supports" },
+          { "positionId": "pos-not-over-budget", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["farah", "gus"],
+        "disputedByParticipantIds": [],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "The FY25 ledger for the cost center."
+        },
+        "groundingQuotes": [
+          { "quote": "the ledger shows $4.62M spent through Q3, which is 118% of the full-year figure", "participantId": "farah" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "The ledger shows $4.62M against a $3.9M budget, of which $810,000 is county reimbursement and $290,000 has been paid so far.",
+        "participantIds": ["farah", "gus"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The county has paid $290,000 of the $810,000 and the rest is an invoice, not cash.", "participantId": "farah" },
+          { "quote": "The $4.62M includes $810,000 of pass-through county reimbursement", "participantId": "gus" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-receivables-count",
+        "question": "Will the outstanding $520,000 reimbursement arrive before FY25 closes?",
+        "type": "empirical",
+        "summary": "Both accept every figure. Farah counts the unpaid $520,000 as spend until it arrives; Gus counts it as a receivable that will arrive on time.",
+        "claimIds": ["claim-reimbursement-will-arrive-fy25"],
+        "participantStances": [
+          { "participantId": "farah", "positionId": "pos-over-budget", "stance": "Not yet received, so it is spend until it lands." },
+          { "participantId": "gus", "positionId": "pos-not-over-budget", "stance": "Due in 30 days from a county that has never missed." }
+        ],
+        "resolutionCondition": "Observe whether the county pays within the fiscal year.",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The only question is whether you count receivables.", "participantId": "gus" }
+        ]
+      }
+    ],
+    "caveats": ["The two speakers agree on every dollar figure; the dispute is about whether an unpaid reimbursement counts against the budget. Figures are taken from the text and not verified."]
+  }
+}

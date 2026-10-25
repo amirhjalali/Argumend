@@ -60,3 +60,56 @@ export function isKnownSoft404Url(raw: string): boolean {
     return false;
   }
 }
+
+export type SourceUrlStatus =
+  | "OK"
+  | "REDIRECTED"
+  | "DEAD"
+  | "MALFORMED"
+  | "BLOCKED"
+  | "BOT_WALL"
+  | "ERROR";
+
+/**
+ * Springer Nature bounces cookie-less clients through idp.nature.com and back
+ * to the article with `?error=cookies_not_supported&code=<uuid>` appended.
+ * The final URL is not a canonical location, so it must never be reported as
+ * a redirect worth canonicalizing.
+ */
+export function isCookieWallUrl(raw: string): boolean {
+  try {
+    return new URL(raw).searchParams.get("error") === "cookies_not_supported";
+  } catch {
+    return false;
+  }
+}
+
+export type FetchOutcome = {
+  /** HTTP status of the final response. */
+  code: number;
+  /** URL of the final response (after redirects). */
+  finalUrl: string;
+  redirected: boolean;
+  /** The validated, normalized URL that was requested. */
+  requestedUrl: string;
+};
+
+/**
+ * Classify a completed fetch. Pure so the bot-wall rules can be unit tested.
+ *
+ * Cookie-wall bounces: Nature still serves the real article (HTTP 200) behind
+ * the bounce, and serves a 404 for DOIs that do not exist (verified against
+ * Crossref and doi.org). So a 2xx behind the wall is "alive but unverifiable
+ * by a bot" (BOT_WALL), while a 404/410 behind the wall is still DEAD — the
+ * wall must not hide fabricated citations.
+ */
+export function classifyFetchOutcome(outcome: FetchOutcome): SourceUrlStatus {
+  const { code, finalUrl, redirected, requestedUrl } = outcome;
+  const notFound = code === 404 || code === 410 || isKnownSoft404Url(finalUrl);
+  if (notFound) return "DEAD";
+  if (isCookieWallUrl(finalUrl)) return "BOT_WALL";
+  if (code === 403 || code === 429) return "BLOCKED";
+  if (code >= 400) return "ERROR";
+  if (redirected && finalUrl !== requestedUrl) return "REDIRECTED";
+  return "OK";
+}

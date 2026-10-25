@@ -73,7 +73,7 @@ export function PublicShareControls({
         </p>
       ) : null}
       {copyError ? (
-        <p className="text-sm text-[#a23b3b]" role="alert">
+        <p className="text-sm text-[#a23b3b] dark:text-crux-light" role="alert">
           Could not copy the link. You can select and copy it manually: {publicUrl}
         </p>
       ) : null}

@@ -1,0 +1,67 @@
+{
+  "id": "dangling-position-dropped",
+  "contentType": "article",
+  "source": "Opinion: Move the farmers market to Saturday mornings. For eleven years the market has run on Wednesday afternoons, when most of the people who would like to shop there are at work. Vendors tell me the same thing every week: the crowd is retirees and a handful of parents, and the produce that does not sell by four goes into the truck. A Saturday market would reach two-earner households, double the foot traffic on Main Street, and give the vendors a reason to bring more than they can carry home. The Wednesday slot was chosen when the market was a farm-stand experiment with six tables. It has outgrown its day.",
+  "allowedPatterns": ["not-a-disagreement"],
+  "expectCrux": false,
+  "minPositions": 1,
+  "maxPositions": 1,
+  "extraction": {
+    "mainQuestion": "Should the farmers market move from Wednesday afternoons to Saturday mornings?",
+    "participants": [
+      { "id": "columnist", "label": "Columnist", "kind": "author" }
+    ],
+    "positions": [
+      {
+        "id": "pos-move-to-saturday",
+        "label": "Move the market to Saturday",
+        "participantIds": ["columnist"],
+        "thesis": "The market should move to Saturday mornings because the Wednesday slot excludes working households and leaves vendors with unsold produce.",
+        "steelman": "The current day was chosen for a six-table experiment; the market has outgrown it, and a weekend slot reaches the customers the vendors are missing.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Move the farmers market to Saturday mornings.", "participantId": "columnist" },
+          { "quote": "It has outgrown its day.", "participantId": "columnist" }
+        ]
+      },
+      {
+        "id": "pos-keep-wednesday",
+        "label": "Keep the Wednesday market",
+        "participantIds": ["wednesday-regulars"],
+        "thesis": "The market should stay on Wednesday because its current shoppers depend on that slot.",
+        "steelman": "The retirees and parents who shop on Wednesday would lose their market if it moved.",
+        "explicitness": "inferred",
+        "confidence": "low",
+        "groundingQuotes": []
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-wednesday-excludes-workers",
+        "statement": "Most people who would shop at the market are at work on Wednesday afternoons.",
+        "participantIds": ["columnist"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-move-to-saturday", "relation": "supports" },
+          { "positionId": "pos-keep-wednesday", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["columnist"],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Shopper counts and household surveys by day of week."
+        },
+        "groundingQuotes": [
+          { "quote": "when most of the people who would like to shop there are at work", "participantId": "columnist" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [],
+    "caveats": ["This fixture stands in for a model that invented an opposing position and attributed it to a group that never speaks in the source. The invented position references a participant that does not exist and must be dropped, leaving the one-sided article with its single position."]
+  }
+}

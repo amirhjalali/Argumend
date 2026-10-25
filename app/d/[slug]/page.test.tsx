@@ -22,12 +22,22 @@ describe("published report load failures", () => {
 
   afterEach(() => vi.restoreAllMocks());
 
+  it.each(["", "short", "a".repeat(13), "invalid/slug", "invalid slug"])("rejects malformed slug %j before reading reports", async (slug) => {
+    const props = { params: Promise.resolve({ slug }) };
+    await expect(PublicDisagreementPage(props)).rejects.toThrow("NOT_FOUND");
+    expect(await generateMetadata(props)).toEqual({
+      title: "Report not found",
+      robots: { index: false, follow: false },
+    });
+    expect(mocks.getPublishedDisagreementReport).not.toHaveBeenCalled();
+  });
+
   it("keeps database credentials and private bound values out of page and metadata logs", async () => {
     const log = vi.spyOn(console, "error").mockImplementation(() => undefined);
     mocks.getPublishedDisagreementReport.mockRejectedValue(new Error(
       "Failed query on postgres://fixture-user:fixture-password@db.invalid/fixture\nparams: private-first-line\nprivate-second-line",
     ));
-    const props = { params: Promise.resolve({ slug: "private-report-slug" }) };
+    const props = { params: Promise.resolve({ slug: "private-text" }) };
 
     await expect(PublicDisagreementPage(props)).rejects.toThrow("NOT_FOUND");
     expect(await generateMetadata(props)).toEqual({
@@ -39,6 +49,6 @@ describe("published report load failures", () => {
     const logged = JSON.stringify(log.mock.calls);
     expect(logged).toContain("[redacted database URL]");
     expect(logged).toContain("[redacted]");
-    expect(logged).not.toMatch(/fixture-user|fixture-password|private-first-line|private-second-line|private-report-slug/);
+    expect(logged).not.toMatch(/fixture-user|fixture-password|private-first-line|private-second-line|private-text/);
   });
 });

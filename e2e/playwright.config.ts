@@ -45,6 +45,8 @@ const offlineServerEnv: Record<string, string> = {
   ...OFFLINE_SERVER_ENV,
   HOSTNAME: "127.0.0.1",
   PORT: String(PORT),
+  // Local fixtures simulate exactly one proxy-appended client address.
+  TRUSTED_PROXY_HOPS: "1",
 };
 
 const chromiumPath = process.env.E2E_CHROMIUM_PATH;

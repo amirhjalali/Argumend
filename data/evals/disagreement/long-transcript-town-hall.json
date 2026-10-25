@@ -1,0 +1,203 @@
+{
+  "id": "long-transcript-town-hall",
+  "contentType": "conversation",
+  "source": "Chair Okafor: We are here on the future of the Linden Street rail depot. The building has been empty since the freight line closed. Three proposals came in. Lena, you filed the library annex proposal, so please start.\nLena: The east wards have no branch within walking distance, and the main library's own count shows visits from those wards up thirty percent in two years. The depot is the only public building on that side of the river. We should fit it out as a library annex with meeting rooms and a homework center.\nMarcus: I filed the food hall proposal. I want to be clear that I am not against libraries. I am against the town carrying a building it cannot afford. The roof alone is nine hundred thousand dollars. A commercial lease to a food hall operator covers that roof within six years and puts the building on the tax roll.\nDot: My proposal is the boring one. Stabilize the roof, board it properly, and decide in three years when we know whether the housing on Mill Road actually gets built. Every other plan assumes demand that is not here yet.\nTeo: I am with Lena. I coach at the middle school and half my kids go home to an empty apartment because there is nowhere to go after the bell. The homework center is not a luxury on that side of town.\nChair Okafor: Marcus, Lena says demand already exists. How does the lease plan respond to that?\nMarcus: It does not deny it. It says a food hall can host a reading room on the mezzanine, paid for by the tenants downstairs, and the town keeps the deed. A library annex costs us money every year forever. A leased hall pays us.\nLena: A reading room in a food hall is a corner with a bookshelf. A homework center needs quiet, staff, and hours that match the school day, and a commercial tenant will not run it at a loss.\nDot: Both of you are counting on the roof being the main cost. The engineer's letter says the roof is nine hundred thousand only if the trusses are sound, and nobody has opened the ceiling to look.\nMarcus: The lease operator takes that risk under the draft terms. That is the whole point of a lease.\nTeo: And if the operator walks in year two, the town has a half-finished food hall and still no homework center.\nChair Okafor: Let me ask the priority question directly. If the numbers came in the same for both plans, what should decide it?\nLena: Public use. This is a public building on the only public land east of the river. We do not hand that to a tenant because it pencils out.\nMarcus: Solvency. A town that cannot fund its existing library hours should not add a second building it has to staff.\nDot: Reversibility. Whatever we do should be undoable in five years if the housing does not come.\nTeo: Kids first. Everything else is a spreadsheet.\nChair Okafor: Marcus, on the six-year payback. Where does that number come from?\nMarcus: From the operator's letter of intent. Rent starts at one hundred and fifty thousand a year and escalates.\nLena: A letter of intent is not a lease. The same operator pulled out of the Garfield market after eighteen months.\nMarcus: Different town, different terms. This draft has a personal guarantee.\nDot: Which is exactly why I want to wait. The lease revenue is a projection, the annex demand is a projection, and the roof number is a projection. Stabilizing costs two hundred thousand and keeps every option open.\nTeo: Waiting is not free either. Three more years of kids with nowhere to go is a cost. It just does not show up in the capital budget.\nLena: And the thirty percent increase in visits is not a projection. It is the count from the last two years.\nChair Okafor: We will take written comments through the fifteenth. Thank you all.",
+  "allowedPatterns": ["priority-tradeoff"],
+  "expectCrux": true,
+  "minPositions": 3,
+  "maxPositions": 3,
+  "extraction": {
+    "mainQuestion": "What should the town do with the Linden Street rail depot?",
+    "participants": [
+      { "id": "chair-okafor", "label": "Chair Okafor", "kind": "named" },
+      { "id": "lena", "label": "Lena", "kind": "named" },
+      { "id": "marcus", "label": "Marcus", "kind": "named" },
+      { "id": "dot", "label": "Dot", "kind": "named" },
+      { "id": "teo", "label": "Teo", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-library-annex",
+        "label": "Library annex",
+        "participantIds": ["lena", "teo"],
+        "thesis": "The town should fit out the depot as a library annex with a homework center because the east wards already show unmet demand and the building is the only public space there.",
+        "steelman": "Demand is measured, not projected; the building is the one piece of public land east of the river, and a commercial tenant will not run a quiet, staffed homework center at a loss.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We should fit it out as a library annex with meeting rooms and a homework center.", "participantId": "lena" },
+          { "quote": "The homework center is not a luxury on that side of town.", "participantId": "teo" }
+        ]
+      },
+      {
+        "id": "pos-food-hall-lease",
+        "label": "Lease to a food hall",
+        "participantIds": ["marcus"],
+        "thesis": "The town should lease the depot to a food hall operator so that rent covers the roof and the building stops costing the town money.",
+        "steelman": "A town that cannot fund existing library hours should not add a building it must staff forever; a lease keeps the deed, shifts repair risk to the tenant, and can still host a reading room.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "A commercial lease to a food hall operator covers that roof within six years and puts the building on the tax roll.", "participantId": "marcus" }
+        ]
+      },
+      {
+        "id": "pos-stabilize-and-wait",
+        "label": "Stabilize and wait",
+        "participantIds": ["dot"],
+        "thesis": "The town should spend a small sum stabilizing the roof and defer the decision until the Mill Road housing question is settled.",
+        "steelman": "Every figure on the table is a projection; a two-hundred-thousand-dollar stabilization keeps every option open and is the only plan that is reversible.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Stabilize the roof, board it properly, and decide in three years when we know whether the housing on Mill Road actually gets built.", "participantId": "dot" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-lease-covers-roof",
+        "statement": "Rent from a food hall lease would cover the roof repair within about six years.",
+        "participantIds": ["marcus"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-food-hall-lease", "relation": "supports" },
+          { "positionId": "pos-library-annex", "relation": "opposes" },
+          { "positionId": "pos-stabilize-and-wait", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["marcus"],
+        "disputedByParticipantIds": ["lena", "dot"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "A signed lease with a personal guarantee, and the operator's record at comparable sites."
+        },
+        "groundingQuotes": [
+          { "quote": "Rent starts at one hundred and fifty thousand a year and escalates.", "participantId": "marcus" },
+          { "quote": "A letter of intent is not a lease.", "participantId": "lena" }
+        ]
+      },
+      {
+        "id": "claim-annex-demand-exists",
+        "statement": "The east wards already show enough library demand to justify an annex.",
+        "participantIds": ["lena"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-library-annex", "relation": "supports" },
+          { "positionId": "pos-stabilize-and-wait", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["lena", "teo"],
+        "disputedByParticipantIds": ["dot"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "The main library's visit counts by ward for the last two years."
+        },
+        "groundingQuotes": [
+          { "quote": "the main library's own count shows visits from those wards up thirty percent in two years", "participantId": "lena" },
+          { "quote": "Every other plan assumes demand that is not here yet.", "participantId": "dot" }
+        ]
+      },
+      {
+        "id": "claim-public-use-priority",
+        "statement": "A public building on the only public land east of the river should stay in public use even if a lease would pay better.",
+        "participantIds": ["lena", "teo"],
+        "epistemicType": "normative",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-library-annex", "relation": "supports" },
+          { "positionId": "pos-food-hall-lease", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["lena", "teo"],
+        "disputedByParticipantIds": ["marcus"],
+        "confidence": "high",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "The town decides whether public use or solvency governs when the two conflict."
+        },
+        "groundingQuotes": [
+          { "quote": "We do not hand that to a tenant because it pencils out.", "participantId": "lena" },
+          { "quote": "A town that cannot fund its existing library hours should not add a second building it has to staff.", "participantId": "marcus" }
+        ]
+      },
+      {
+        "id": "claim-waiting-keeps-options",
+        "statement": "Stabilizing first keeps every option open at the lowest cost and is the only reversible plan.",
+        "participantIds": ["dot"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-stabilize-and-wait", "relation": "supports" },
+          { "positionId": "pos-library-annex", "relation": "opposes" },
+          { "positionId": "pos-food-hall-lease", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["dot"],
+        "disputedByParticipantIds": ["teo", "marcus"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "value-difference",
+          "condition": "Whether the town counts three years without a homework center as a cost against reversibility."
+        },
+        "groundingQuotes": [
+          { "quote": "Stabilizing costs two hundred thousand and keeps every option open.", "participantId": "dot" },
+          { "quote": "Waiting is not free either.", "participantId": "teo" }
+        ]
+      }
+    ],
+    "claimRelations": [
+      { "fromClaimId": "claim-annex-demand-exists", "toClaimId": "claim-waiting-keeps-options", "type": "contradicts" }
+    ],
+    "commonGroundCandidates": [
+      {
+        "statement": "The depot roof needs roughly nine hundred thousand dollars of repair, and that figure depends on trusses nobody has inspected.",
+        "participantIds": ["marcus", "dot"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The roof alone is nine hundred thousand dollars.", "participantId": "marcus" },
+          { "quote": "nobody has opened the ceiling to look", "participantId": "dot" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-public-use-vs-solvency",
+        "question": "Should public use or cost recovery decide what happens to the depot?",
+        "type": "priority",
+        "summary": "Lena and Teo rank public use and children's access first; Marcus ranks solvency first; Dot ranks reversibility first.",
+        "claimIds": ["claim-public-use-priority", "claim-waiting-keeps-options"],
+        "participantStances": [
+          { "participantId": "lena", "positionId": "pos-library-annex", "stance": "Public use governs on the only public land east of the river." },
+          { "participantId": "marcus", "positionId": "pos-food-hall-lease", "stance": "Solvency governs; the town should not staff a second building." },
+          { "participantId": "dot", "positionId": "pos-stabilize-and-wait", "stance": "Reversibility governs until the housing question is settled." },
+          { "participantId": "teo", "positionId": "pos-library-annex", "stance": "Children's access comes before any budget consideration." }
+        ],
+        "resolutionCondition": "The council states an explicit ranking among public use, solvency, and reversibility.",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Kids first. Everything else is a spreadsheet.", "participantId": "teo" }
+        ]
+      },
+      {
+        "id": "disagreement-lease-revenue",
+        "question": "Would a food hall lease actually cover the roof repair?",
+        "type": "predictive",
+        "summary": "Marcus relies on the operator's letter of intent; Lena and Dot treat the revenue as an unproven projection from an operator with a prior exit.",
+        "claimIds": ["claim-lease-covers-roof"],
+        "participantStances": [
+          { "participantId": "marcus", "positionId": "pos-food-hall-lease", "stance": "Yes, under the draft terms with a personal guarantee." },
+          { "participantId": "lena", "positionId": "pos-library-annex", "stance": "A letter of intent from an operator who left Garfield is not proof." },
+          { "participantId": "dot", "positionId": "pos-stabilize-and-wait", "stance": "It is a projection like every other number here." }
+        ],
+        "resolutionCondition": "A signed lease and the operator's performance record at comparable sites.",
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "The same operator pulled out of the Garfield market after eighteen months.", "participantId": "lena" }
+        ]
+      }
+    ],
+    "caveats": ["Chair Okafor moderates and takes no position. The transcript states figures for the roof, rent, and library visits that this analysis does not verify."]
+  }
+}

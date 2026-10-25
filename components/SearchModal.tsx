@@ -538,7 +538,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   <button
                     type="button"
                     onClick={() => navigate(PASTE_PAGE)}
-                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors dark:text-accent-text"
+                    className="text-deep underline underline-offset-2 hover:text-deep-dark dark:hover:text-accent-text transition-colors dark:text-accent-text"
                   >
                     Paste the argument you&rsquo;re in
                   </button>{" "}
@@ -546,7 +546,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   <button
                     type="button"
                     onClick={() => navigate(CONTRIBUTE_PAGE)}
-                    className="text-deep underline underline-offset-2 hover:text-deep-dark transition-colors dark:text-accent-text"
+                    className="text-deep underline underline-offset-2 hover:text-deep-dark dark:hover:text-accent-text transition-colors dark:text-accent-text"
                   >
                     suggest a map
                   </button>

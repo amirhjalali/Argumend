@@ -8,7 +8,7 @@ import { glossaryByLetter, type GlossaryEntry } from "@/lib/learn/glossary";
 import { indexCrumbs } from "@/lib/learn/sections";
 
 const LINK =
-  "inline-flex min-h-11 items-center rounded-sm font-sans text-sm text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text";
+  "inline-flex min-h-11 items-center rounded-sm font-sans text-sm text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark dark:hover:text-accent-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-accent-text";
 
 function Entry({ entry }: { entry: GlossaryEntry }) {
   const hasMore = Boolean(entry.rest || entry.example || entry.readMore);

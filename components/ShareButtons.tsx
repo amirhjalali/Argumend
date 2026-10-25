@@ -59,7 +59,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         title={copied ? "Copied!" : "Copy link"}
       >
         {copied ? (
-          <Check className="h-4 w-4 text-deep" />
+          <Check className="h-4 w-4 text-accent-text" />
         ) : (
           <Copy className="h-4 w-4" />
         )}
@@ -103,7 +103,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
         </svg>
       </a>
 
-      <span role="status" className={copied ? "ml-1 text-xs font-medium text-deep" : "sr-only"}>
+      <span role="status" className={copied ? "ml-1 text-xs font-medium text-accent-text" : "sr-only"}>
         {copied ? "Link copied!" : ""}
       </span>
       {copyFailed ? (

@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { test as base, expect, type Locator, type Page } from "@playwright/test";
 
 /**
@@ -19,6 +20,25 @@ interface Guards {
 }
 
 export const test = base.extend<Guards>({
+  extraHTTPHeaders: async ({ extraHTTPHeaders, baseURL }, provide, testInfo) => {
+    const hostname = new URL(baseURL ?? "http://127.0.0.1").hostname;
+    if (!["127.0.0.1", "localhost", "[::1]"].includes(hostname)) {
+      await provide(extraHTTPHeaders);
+      return;
+    }
+    // The local standalone server has no proxy. Give each browser scenario
+    // its own simulated visitor, so the full suite does not spend one shared
+    // 60-search hourly allowance. Requests within a scenario still share a
+    // real rate-limit bucket; production limits and remote headers stay intact.
+    // A common untrusted first value must lose to the appended visitor address.
+    const suffix = createHash("sha256")
+      .update(`${testInfo.testId}:${testInfo.retry}:${testInfo.workerIndex}`)
+      .digest("hex")
+      .slice(0, 24)
+      .match(/.{4}/g)!
+      .join(":");
+    await provide({ ...extraHTTPHeaders, "x-forwarded-for": `192.0.2.1, 2001:db8:${suffix}` });
+  },
   externalRequests: [
     async ({ context, baseURL }, provide) => {
       const ownHost = new URL(baseURL ?? "http://127.0.0.1").host;

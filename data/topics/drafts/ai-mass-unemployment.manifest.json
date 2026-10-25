@@ -1,0 +1,81 @@
+{
+  "topicId": "ai-mass-unemployment",
+  "manifestVersion": 1,
+  "owner": "founder",
+  "cadence": "fast-moving-statistics",
+  "lastFullReview": "2026-08-12",
+  "lastHeadlineCheck": "2026-08-12",
+  "nextHeadlineCheckDue": "2026-09-11",
+  "nextFullReviewDue": "2026-11-10",
+  "fastMovingNodes": [
+    {
+      "id": "e-bls-macro-series",
+      "why": "Monthly BLS Employment Situation series. The share card and closer quote U-3 at 4.2% for June 2026; every new release can move the headline number the whole map is framed around."
+    },
+    {
+      "id": "e-challenger-2026-ai-layoffs",
+      "why": "Challenger, Gray & Christmas publishes monthly; the 'through June 2026' cumulative AI-attributed cut counts are superseded every month."
+    },
+    {
+      "id": "e-stanford-adp-16pct",
+      "why": "The map's headline -16% result. Stanford Digital Economy Lab has already issued one follow-up; further releases can revise the magnitude, window, or occupational scope of the figure that travels furthest."
+    },
+    {
+      "id": "e-stanford-followup-rates",
+      "why": "February 2026 follow-up in an ongoing research series; later updates may change the interest-rate and firm-time control findings this node carries."
+    },
+    {
+      "id": "e-indeed-postings-decline",
+      "why": "Indeed Hiring Lab job-postings tracker updates continuously; the 'down 36% by July 2025' level and the pre-ChatGPT share of the decline are both time-stamped snapshots."
+    },
+    {
+      "id": "e-linkedin-april-2026",
+      "why": "LinkedIn Economic Graph publishes monthly hiring-rate updates; the April 2026 year-over-year figures are a single-month snapshot."
+    },
+    {
+      "id": "e-signalfire-2026",
+      "why": "Annual State of Talent report; the new-grad hiring shares versus 2019 are revised with each yearly edition."
+    },
+    {
+      "id": "e-census-btos-ai-adoption",
+      "why": "Census Business Trends and Outlook Survey is biweekly; the 5.4% adoption rate is a 2024 reading and adoption is the variable most likely to have moved."
+    },
+    {
+      "id": "e-metr-time-horizon-doubling",
+      "why": "METR updates its time-horizon series with each frontier model release; doubling-time estimates and the underlying model set change within months."
+    },
+    {
+      "id": "e-metr-p50-p80-gap",
+      "why": "Model-specific P50/P80 horizon numbers are superseded by every new frontier model; the named models will not stay current."
+    },
+    {
+      "id": "e-benchmark-gap-osworld-swebench",
+      "why": "Benchmark leaderboards (SWE-bench Verified, OSWorld 2.0) move monthly; the quoted top scores are a dated snapshot."
+    },
+    {
+      "id": "e-strada-employer-survey-2026",
+      "why": "May 2026 survey of employer expectations for 2026 hiring; expectations are superseded by realized 2026 hiring data and by the next annual wave."
+    },
+    {
+      "id": "e-bls-care-projections",
+      "why": "BLS Employment Projections are re-issued annually (2024-34 is the current vintage); the next vintage supersedes the home-health growth and median-wage figures used in the highlights and takeaways."
+    }
+  ],
+  "triggerEvents": [
+    "A BLS Employment Situation release moves U-3, prime-age participation, or the June 2026 figures quoted on the page materially (immediate headline check; founder to set the threshold).",
+    "Stanford Digital Economy Lab or ADP publishes a revision, extension, or retraction of the 22-25-year-old AI-exposed employment result.",
+    "A firm-level panel links AI adoption to headcount, output, and pricing decisions over multiple years (resolution condition for c-firms-cut-hiring-not-output).",
+    "A national-scale evaluation of an AI-displacement-specific workforce program reports earnings and reemployment outcomes (resolution condition for c-targeted-programs-can-help and c-displaced-workers-can-retrain-costlessly).",
+    "BLS releases the next Employment Projections vintage (supersedes the 2024-34 care-work growth and wage figures).",
+    "METR publishes a new time-horizon update or a frontier model release materially changes the P50/P80 figures.",
+    "Challenger's monthly report or a major employer announcement changes the AI-attributed layoff picture, including a public walk-back of an AI-replacement claim.",
+    "A Census BTOS release shows AI adoption materially different from the 2024 reading."
+  ],
+  "correctionLog": [],
+  "notes": [
+    "lastFullReview is the date of the last commit touching ai-mass-unemployment.draft.json (ebba650, 2026-08-12, 'feat: harden flagship debate maps'). No later review has been logged, so lastHeadlineCheck is set to the same date rather than a guessed later one.",
+    "As of manifest creation (2026-09-14) the thirty-day headline check is overdue. Per the north-star, overdue cards should be treated as dated snapshots until the check is done; nothing on the page has been rephrased yet.",
+    "Fast-moving selection rule: evidence nodes whose finding is a recurring statistical series, a leaderboard, an annual report vintage, or a forecast about the current year. One-off studies, historical events (Klarna 2024, xAI 2025 layoffs), and completed RCTs are excluded even when their interpretation is live. Klarna's 700-agents node is excluded but the public narrative around it has evolved; keep it phrased as a dated press-release claim.",
+    "No evidence node in this graph carries source.publishedAt or source.verifiedAt. Backfilling them is the first item for the next headline check, since the freshness diagnostic can only fall back to manifest dates until then."
+  ]
+}

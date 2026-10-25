@@ -33,6 +33,9 @@ const invalidDynamicRoutes = [
   "/for-educators/worksheets/definitely-missing",
   "/embed/definitely-missing",
   "/analysis/definitely-missing",
+  "/d/too-short",
+  "/d/AbC123_-xYz9extra",
+  "/d/AbC123_-xYz.",
 ] as const;
 
 const validDynamicRoutes = [
@@ -52,6 +55,7 @@ const validDynamicRoutes = [
   // New-model maps embed too (they used to 404 here).
   "/embed/ai-mass-unemployment",
   "/analysis/123e4567-e89b-12d3-a456-426614174000",
+  "/d/AbC123_-xYz9",
 ] as const;
 
 describe("early dynamic-route 404 policy", () => {

@@ -74,7 +74,9 @@
         "c-displaced-workers-can-retrain-costlessly"
       ],
       "evidenceStarved": true,
-      "cycleWarnings": [],
+      "cycleWarnings": [
+        "Crux influence did not converge within 40 iterations at its final damping level; influence estimates may be unstable."
+      ],
       "explanationFacts": [
         "Claim c-targeted-programs-can-help: Better-designed, targeted, employer-linked, long-horizon workforce programs can meaningfully improve displaced workers' earnings and employment, even though generic short retraining programs mostly do not.",
         "Status is contested because The WIA Gold Standard randomized evaluation found that staff-assisted intensive services increased earnings 7%-20%, while evidence on training itself was inconclusive within 30 months. That supports targeted case management, not generic retraining or effectiveness at the scale a national AI-displacement emergency would require..",

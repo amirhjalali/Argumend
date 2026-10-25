@@ -148,7 +148,12 @@ describe("grounding coverage within a report object", () => {
     expect(canPublishReport(duplicated.report).ok).toBe(false);
     const displayed = surface === "position" ? duplicated.report.positions[0]
       : surface === "common-ground" ? duplicated.report.commonGround[0] : duplicated.report.disagreements[0];
-    expect(displayed.grounding).toHaveLength(4);
+    if (surface === "common-ground") {
+      // Repeated words from one participant cannot attest shared ground.
+      expect(displayed).toBeUndefined();
+    } else {
+      expect(displayed.grounding).toHaveLength(4);
+    }
   });
 
   it("keeps the existing coverage policy when different report objects reuse a quote", async () => {

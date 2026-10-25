@@ -1,0 +1,165 @@
+{
+  "id": "long-article-quoted-officials",
+  "contentType": "article",
+  "source": "Ridership on the Harbor Line fell eleven percent last year, the steepest drop since the line opened, and the two officials responsible for it cannot agree on why.\n\nTransit director Ingrid Halvorsen says the answer is the schedule. In March the agency cut evening frequency from every ten minutes to every twenty to cover a driver shortage. \"People do not plan their lives around a train that might come,\" Halvorsen said at Tuesday's board meeting. \"When we went to twenty minutes after seven, the evening riders left, and they did not come back when we restored the tens in September.\" The agency's own counts show evening boardings down twenty-six percent, against a daytime decline of four percent.\n\nCouncilmember Rafael Ibarra, who chairs the transportation committee, reads the same numbers differently. The fare rose from two dollars to two seventy-five in February, a month before the schedule change. \"The director keeps pointing at the timetable because the timetable was her decision to make,\" Ibarra said. \"The fare increase was the council's, and it hit exactly the riders who have a choice. Evening riders are the discretionary trips. Raise the price and the discretionary trips are the first to go.\" Ibarra noted that the neighboring Valley Line, which kept its ten-minute evening service, still lost seven percent of its evening riders after the same fare increase.\n\nHalvorsen does not dispute the Valley Line figure but says it cuts the other way. \"Valley lost seven with no schedule change. We lost twenty-six with one. The gap between seven and twenty-six is the schedule.\" Ibarra responds that the Valley Line serves a wealthier corridor where a seventy-five-cent increase matters less, so the two lines cannot be compared rider for rider.\n\nBoth agree that the restored September schedule has not brought evening riders back, and both agree the agency should not raise fares again this year. Where they part is what to do next. Halvorsen wants a six-month guarantee of ten-minute evening service, advertised heavily, to rebuild the habit. Ibarra wants a fare rollback to two twenty-five on evening trips, which he says would test his explanation directly.\n\nThe board will take up both proposals in November. An agency analyst who asked not to be named said the two effects were hard to separate because they happened within weeks of each other, and that the agency has no rider survey from the period.",
+  "allowedPatterns": ["causal-model-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "What caused the eleven percent drop in Harbor Line ridership last year?",
+    "participants": [
+      { "id": "reporter", "label": "Reporter", "kind": "author" },
+      { "id": "halvorsen", "label": "Ingrid Halvorsen", "kind": "named" },
+      { "id": "ibarra", "label": "Rafael Ibarra", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-schedule-cut",
+        "label": "The schedule cut drove riders away",
+        "participantIds": ["halvorsen"],
+        "thesis": "Cutting evening frequency from ten to twenty minutes caused the ridership loss, because unreliable evening service made riders abandon the train.",
+        "steelman": "Evening boardings fell twenty-six percent while daytime fell only four, and the line that kept ten-minute evening service lost far less; the gap is the schedule.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "When we went to twenty minutes after seven, the evening riders left, and they did not come back when we restored the tens in September.", "participantId": "halvorsen" },
+          { "quote": "The gap between seven and twenty-six is the schedule.", "participantId": "halvorsen" }
+        ]
+      },
+      {
+        "id": "pos-fare-increase",
+        "label": "The fare increase drove riders away",
+        "participantIds": ["ibarra"],
+        "thesis": "The fare increase from two dollars to two seventy-five caused the ridership loss, because discretionary evening trips are the first to go when prices rise.",
+        "steelman": "The fare rose a month before the schedule changed, evening trips are the price-sensitive ones, and even the Valley Line lost evening riders with no schedule change at all.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Raise the price and the discretionary trips are the first to go.", "participantId": "ibarra" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-evening-drop-from-schedule",
+        "statement": "Most of the evening ridership decline is attributable to the reduced evening frequency rather than the fare.",
+        "participantIds": ["halvorsen"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-schedule-cut", "relation": "supports" },
+          { "positionId": "pos-fare-increase", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["halvorsen"],
+        "disputedByParticipantIds": ["ibarra"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Compare evening ridership on lines that changed only the fare with lines that changed both, adjusted for corridor income."
+        },
+        "groundingQuotes": [
+          { "quote": "Valley lost seven with no schedule change. We lost twenty-six with one.", "participantId": "halvorsen" }
+        ]
+      },
+      {
+        "id": "claim-evening-drop-from-fare",
+        "statement": "Most of the evening ridership decline is attributable to the fare increase hitting discretionary trips.",
+        "participantIds": ["ibarra"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-fare-increase", "relation": "supports" },
+          { "positionId": "pos-schedule-cut", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ibarra"],
+        "disputedByParticipantIds": ["halvorsen"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "Roll evening fares back and observe whether evening boardings recover with the schedule held constant."
+        },
+        "groundingQuotes": [
+          { "quote": "Evening riders are the discretionary trips.", "participantId": "ibarra" }
+        ]
+      },
+      {
+        "id": "claim-valley-comparison-invalid",
+        "statement": "The Valley Line cannot be compared rider for rider because its corridor is wealthier and less fare-sensitive.",
+        "participantIds": ["ibarra"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-fare-increase", "relation": "supports" },
+          { "positionId": "pos-schedule-cut", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ibarra"],
+        "disputedByParticipantIds": ["halvorsen"],
+        "confidence": "low",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Fare elasticity estimates by corridor income for the two lines."
+        },
+        "groundingQuotes": [
+          { "quote": "the two lines cannot be compared rider for rider", "participantId": "reporter" }
+        ]
+      }
+    ],
+    "claimRelations": [
+      { "fromClaimId": "claim-valley-comparison-invalid", "toClaimId": "claim-evening-drop-from-schedule", "type": "opposes" }
+    ],
+    "commonGroundCandidates": [
+      {
+        "statement": "Restoring the September schedule has not brought evening riders back, and fares should not rise again this year.",
+        "participantIds": ["halvorsen", "ibarra"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Both agree that the restored September schedule has not brought evening riders back, and both agree the agency should not raise fares again this year.", "participantId": "reporter" }
+        ]
+      },
+      {
+        "statement": "Evening boardings fell twenty-six percent and the Valley Line lost seven percent of its evening riders.",
+        "participantIds": ["halvorsen", "ibarra"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Halvorsen does not dispute the Valley Line figure", "participantId": "reporter" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-cause-of-decline",
+        "question": "Did the schedule cut or the fare increase cause the evening ridership loss?",
+        "type": "causal",
+        "summary": "Both accept the same counts; Halvorsen attributes the evening loss to the frequency cut, Ibarra to the fare increase.",
+        "claimIds": ["claim-evening-drop-from-schedule", "claim-evening-drop-from-fare", "claim-valley-comparison-invalid"],
+        "participantStances": [
+          { "participantId": "halvorsen", "positionId": "pos-schedule-cut", "stance": "The schedule; the Valley Line gap proves it." },
+          { "participantId": "ibarra", "positionId": "pos-fare-increase", "stance": "The fare; discretionary evening trips are price-sensitive." }
+        ],
+        "resolutionCondition": "Vary one factor while holding the other constant, as Ibarra's proposed fare rollback would do.",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "the two effects were hard to separate because they happened within weeks of each other", "participantId": "reporter" }
+        ]
+      },
+      {
+        "id": "disagreement-valley-comparison",
+        "question": "Is the Valley Line a fair comparison for the Harbor Line's evening loss?",
+        "type": "empirical",
+        "summary": "Halvorsen uses the Valley Line's seven percent evening loss as a control for the fare effect; Ibarra says its wealthier corridor makes the comparison invalid.",
+        "claimIds": ["claim-valley-comparison-invalid"],
+        "participantStances": [
+          { "participantId": "halvorsen", "positionId": "pos-schedule-cut", "stance": "Valley isolates the fare effect; the remaining gap is the schedule." },
+          { "participantId": "ibarra", "positionId": "pos-fare-increase", "stance": "A wealthier corridor is less fare-sensitive, so the lines cannot be compared." }
+        ],
+        "resolutionCondition": "Fare elasticity estimates by corridor income for both lines.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The reporter presents both officials without taking a side and is not assigned a position. The unnamed analyst is quoted but not treated as a participant. Ibarra's remark about why the director favors the timetable explanation is his own assertion and is not adopted by this analysis."]
+  }
+}
