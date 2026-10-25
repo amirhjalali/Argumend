@@ -313,7 +313,7 @@ describe("ContestednessProvider", () => {
 });
 
 describe("flagship regression with no overrides", () => {
-  // Frozen from main at 2026-09-21. The override input must not move a single
+  // Frozen from main at 2026-09-21; capitalism-after-ai updated 2026-10-25. The override input must not move a single
   // id on a map that was never probed.
   const EXPECTED_TOP_5: Record<string, string[]> = {
     "ai-mass-unemployment": [
@@ -328,7 +328,10 @@ describe("flagship regression with no overrides", () => {
       "c-reallocation-keeps-pace",
       "c-survival-definition-contested",
       "c-demand-collapse-without-recycling",
-      "c-wage-channel-loses-primacy",
+      // 2026-10-25: sourced evidence nodes for the ledger moved
+      // c-open-models-lower-entry-barriers in and c-wage-channel-loses-primacy
+      // to sixth (a deliberate graph edit, not an override).
+      "c-open-models-lower-entry-barriers",
     ],
     "us-israel-support": [
       "c-regional-stability-depends-on-alliance",

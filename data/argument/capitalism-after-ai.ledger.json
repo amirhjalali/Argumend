@@ -16,7 +16,8 @@
         "curator": "Argumend editors",
         "basis": "Henry Snow, \"We're Still Living Under Capitalism, Not 'Techno-Feudalism'\", Jacobin, 2023-10-27, https://jacobin.com/2023/10/cloud-capitalism-technofeudalism-serfs-cloud-big-data-yanis-varoufakis — reviews Varoufakis's Technofeudalism: What Killed Capitalism, which holds that rents replacing profits and monopoly replacing competition mean capitalism has ended; the review reads the same 'cloud capital' as capitalism in a novel form. Same facts, divergent criteria for what counts as capitalism."
       },
-      "createdAt": "2026-09-22T00:00:00Z"
+      "createdAt": "2026-09-22T00:00:00Z",
+      "supersededBy": "capitalism-after-ai:c-survival-definition-contested:2023-10-27:2"
     },
     {
       "id": "capitalism-after-ai:c-ai-ownership-stays-concentrated:2025-04-07:1",
@@ -33,7 +34,8 @@
         "curator": "Argumend editors",
         "basis": "Stanford HAI, The 2025 AI Index Report, published 2025-04-07, https://hai.stanford.edu/ai-index/2025-ai-index-report (release date confirmed at https://www.infodocket.com/2025/04/07/stanford-hai-publishes-2025-artificial-intelligence-index-report/) — 'Open-weight models are also closing the gap with closed models, reducing the performance difference from 8% to just 1.7% on some benchmarks in a single year.' Narrows the model-capability layer of the claim; compute, chip, cloud and ownership layers untouched."
       },
-      "createdAt": "2026-09-22T00:00:00Z"
+      "createdAt": "2026-09-22T00:00:00Z",
+      "supersededBy": "capitalism-after-ai:c-ai-ownership-stays-concentrated:2025-04-07:2"
     },
     {
       "id": "capitalism-after-ai:c-ai-ownership-stays-concentrated:2026-04-13:1",
@@ -50,7 +52,8 @@
         "curator": "Argumend editors",
         "basis": "Stanford HAI, The 2026 AI Index Report, Technical Performance chapter, https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance — 'As of March 2026, the top closed model leads the top open model by 3.3%, up from 0.5% in August 2024. Six of the top ten models on the Arena Leaderboard are now closed.' Date from HAI's 'Inside the AI Index: 12 Takeaways from the 2026 Report', 2026-04-13, https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report, which also reports $581.7B corporate AI investment in 2025 and that giant models are concentrated within the largest AI companies."
       },
-      "createdAt": "2026-09-22T00:00:00Z"
+      "createdAt": "2026-09-22T00:00:00Z",
+      "supersededBy": "capitalism-after-ai:c-ai-ownership-stays-concentrated:2026-04-13:2"
     },
     {
       "id": "capitalism-after-ai:c-reallocation-keeps-pace:2026-08-12:1",
@@ -66,7 +69,8 @@
         "curator": "Argumend editors",
         "basis": "Brynjolfsson, Chandar, Chen, 'Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence', Stanford Digital Economy Lab, revised 2026-08-12, https://digitaleconomy.stanford.edu/publications/canaries-in-the-coal-mine/ — ADP payroll data through June 2026; young workers in AI-exposed occupations 19% below where they would be had they kept pace with less-exposed peers; operates 'primarily through reduced hiring of young workers rather than increased separations'; authors call these descriptive, not causal."
       },
-      "createdAt": "2026-09-22T00:00:00Z"
+      "createdAt": "2026-09-22T00:00:00Z",
+      "supersededBy": "capitalism-after-ai:c-reallocation-keeps-pace:2026-08-12:2"
     },
     {
       "id": "capitalism-after-ai:c-reallocation-keeps-pace:2026-09-15:1",
@@ -82,7 +86,8 @@
         "curator": "Argumend editors",
         "basis": "The Budget Lab at Yale, 'Tracking the Impact of AI on the Labor Market', published 2026-07-16, updated 2026-09-15, https://budgetlab.yale.edu/research/tracking-impact-ai-labor-market — key takeaways: occupational mix 'not yet changing in ways that clearly align with the introduction of AI'; AI usage measures 'show no connection to changes in employment or unemployment'; synthetic DiD 'does not yet clearly indicate an AI-related labor market footprint'. Aggregate stability, not displaced-worker re-employment tracking."
       },
-      "createdAt": "2026-09-22T00:00:00Z"
+      "createdAt": "2026-09-22T00:00:00Z",
+      "supersededBy": "capitalism-after-ai:c-reallocation-keeps-pace:2026-10-14:1"
     },
     {
       "id": "capitalism-after-ai:c-demand-collapse-without-recycling:2026-09-03:1",
@@ -98,7 +103,8 @@
         "curator": "Argumend editors",
         "basis": "FRED PRS85006173, Nonfarm Business Sector: Labor Share for All Workers, updated 2026-09-03, https://fred.stlouisfed.org/series/PRS85006173 — Q2 2025 96.723, Q2 2026 93.446 (revised from 93.547; the graph node now carries the revision). FRED PCEC96, Real Personal Consumption Expenditures, updated 2026-08-26, https://fred.stlouisfed.org/series/PCEC96 — 15,317.1 (Nov 2022) to 16,901.3 (Jul 2026), chained 2017 $bn SAAR. FRED W209RC1 compensation received rose from 13,689.2 (Q4 2022) to 16,307.2 (Jul 2026), $bn SAAR, https://fred.stlouisfed.org/series/W209RC1."
       },
-      "createdAt": "2026-09-22T00:00:00Z"
+      "createdAt": "2026-09-22T00:00:00Z",
+      "supersededBy": "capitalism-after-ai:c-demand-collapse-without-recycling:2026-09-30:1"
     },
     {
       "id": "capitalism-after-ai:c-wage-channel-loses-primacy:2026-08-26:1",
@@ -114,7 +120,123 @@
         "curator": "Argumend editors",
         "basis": "BEA via FRED, updated 2026-08-26: W209RC1 Compensation of Employees, Received, https://fred.stlouisfed.org/series/W209RC1 — 16,307.2 (Jul 2026); PI Personal Income, https://fred.stlouisfed.org/series/PI — 27,114.8 (Jul 2026); both $bn SAAR. Ratio 60.1% (Jul 2026) vs 60.3% (Q4 2022: 13,689.2 over mean monthly PI 22,714.2). Aggregate, all households; the claim concerns non-owners, which these series do not split out."
       },
-      "createdAt": "2026-09-22T00:00:00Z"
+      "createdAt": "2026-09-22T00:00:00Z",
+      "supersededBy": "capitalism-after-ai:c-wage-channel-loses-primacy:2026-09-30:1"
+    },
+    {
+      "id": "capitalism-after-ai:c-survival-definition-contested:2023-10-27:2",
+      "topicId": "capitalism-after-ai",
+      "claimId": "c-survival-definition-contested",
+      "date": "2023-10-27",
+      "noticedAt": "2026-10-25",
+      "status": "unresolvable",
+      "resolutionKind": "definitional-choice",
+      "evidenceNodeIds": ["e-snow-technofeudalism-review"],
+      "note": "The 2023 review classifies platform rents differently from Varoufakis. A survival verdict still needs an explicit criterion; the review does not settle how AI will change ownership.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "Correction adds the checked evidence node. Henry Snow, Jacobin, 2023-10-27: https://jacobin.com/2023/10/cloud-capitalism-technofeudalism-serfs-cloud-big-data-yanis-varoufakis. Only the accessible introduction and standfirst were reviewed."
+      },
+      "createdAt": "2026-10-25"
+    },
+    {
+      "id": "capitalism-after-ai:c-ai-ownership-stays-concentrated:2025-04-07:2",
+      "topicId": "capitalism-after-ai",
+      "claimId": "c-ai-ownership-stays-concentrated",
+      "date": "2025-04-07",
+      "noticedAt": "2026-10-25",
+      "status": "narrowed",
+      "resolutionKind": "future-observable",
+      "evidenceNodeIds": ["e-ai-index-2025-open-gap"],
+      "note": "The 2025 AI Index records an open-weight performance gap of 1.7% on selected benchmarks, down from 8%. This narrows a capability claim, not the claims about ownership, compute or deployment.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "Correction links the checked 2025 report: https://hai.stanford.edu/ai-index/2025-ai-index-report. Its release date is confirmed by Stanford: https://hai.stanford.edu/news/ai-index-2025-state-of-ai-in-10-charts. Benchmark performance is not market concentration."
+      },
+      "createdAt": "2026-10-25"
+    },
+    {
+      "id": "capitalism-after-ai:c-ai-ownership-stays-concentrated:2026-04-13:2",
+      "topicId": "capitalism-after-ai",
+      "claimId": "c-ai-ownership-stays-concentrated",
+      "date": "2026-04-13",
+      "noticedAt": "2026-10-25",
+      "status": "narrowed",
+      "resolutionKind": "future-observable",
+      "evidenceNodeIds": ["e-ai-index-2026-open-gap"],
+      "note": "In March 2026, the top closed model led the top open model by 3.3% on Arena, with six closed models in the top ten. This qualifies the capability picture without measuring ownership or downstream market entry.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "Correction links the checked Arena snapshot: https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance. Report release: https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report. The 2025 selected-benchmark figure is not a like-for-like comparison."
+      },
+      "createdAt": "2026-10-25"
+    },
+    {
+      "id": "capitalism-after-ai:c-reallocation-keeps-pace:2026-08-12:2",
+      "topicId": "capitalism-after-ai",
+      "claimId": "c-reallocation-keeps-pace",
+      "date": "2026-08-12",
+      "noticedAt": "2026-10-25",
+      "status": "open",
+      "evidenceNodeIds": ["e-canaries-2026-update"],
+      "note": "Young workers in exposed occupations were 19% below the employment path implied by less-exposed peers through June 2026, mainly through lower hiring. This descriptive comparison does not measure displaced workers' re-employment.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "Corrects the earlier note's level-comparison shorthand and adds the checked node. Stanford working paper, revised 2026-08-12: https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/. The gap attenuates with education controls and is not a causal estimate."
+      },
+      "createdAt": "2026-10-25"
+    },
+    {
+      "id": "capitalism-after-ai:c-reallocation-keeps-pace:2026-10-14:1",
+      "topicId": "capitalism-after-ai",
+      "claimId": "c-reallocation-keeps-pace",
+      "date": "2026-10-14",
+      "noticedAt": "2026-10-25",
+      "status": "open",
+      "evidenceNodeIds": ["e-yale-budget-lab-tracker-2026"],
+      "note": "Yale's October tracker finds no clear aggregate AI labor-market footprint. These analyses do not measure displaced workers' re-employment and leave the reallocation forecast open.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "Updates the September source snapshot and links the checked evidence. The Budget Lab, updated 2026-10-14: https://budgetlab.yale.edu/research/tracking-impact-ai-labor-market. An undetected aggregate association does not establish that displacement is absent."
+      },
+      "createdAt": "2026-10-25"
+    },
+    {
+      "id": "capitalism-after-ai:c-demand-collapse-without-recycling:2026-09-30:1",
+      "topicId": "capitalism-after-ai",
+      "claimId": "c-demand-collapse-without-recycling",
+      "date": "2026-09-30",
+      "noticedAt": "2026-10-25",
+      "status": "open",
+      "evidenceNodeIds": ["e-labor-share-fred", "e-real-pce-fred"],
+      "note": "The labor-share index was 93.446 in Q2 2026, while real consumption rose from July to August. These aggregates do not establish whether income recycling can absorb future losses of labor income.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "Updates the data vintage and limits the inference. FRED PRS85006173, updated 2026-09-03: https://fred.stlouisfed.org/series/PRS85006173. PCEC96, updated 2026-09-30: https://fred.stlouisfed.org/series/PCEC96, July 16,862.5 and August 16,955.3, chained 2017 dollars in billions, SAAR. Consumption alone does not measure the recycling trigger."
+      },
+      "createdAt": "2026-10-25"
+    },
+    {
+      "id": "capitalism-after-ai:c-wage-channel-loses-primacy:2026-09-30:1",
+      "topicId": "capitalism-after-ai",
+      "claimId": "c-wage-channel-loses-primacy",
+      "date": "2026-09-30",
+      "noticedAt": "2026-10-25",
+      "status": "open",
+      "evidenceNodeIds": ["e-compensation-share-personal-income"],
+      "note": "Employee compensation was 59.7% of personal income in August 2026. This aggregate includes benefits and owners of capital, so it does not directly test whether wages remain the main channel for non-owners.",
+      "author": {
+        "kind": "editorial",
+        "curator": "Argumend editors",
+        "basis": "Updates the data vintage and limits the inference. FRED releases updated 2026-09-30: https://fred.stlouisfed.org/series/W209RC1, August 16,485.6; https://fred.stlouisfed.org/series/PI, August 27,626.9, both dollars in billions, SAAR. Argumend calculation: 16,485.6 / 27,626.9 * 100 = 59.6723%, rounded to 59.7%."
+      },
+      "createdAt": "2026-10-25"
     }
   ]
 }

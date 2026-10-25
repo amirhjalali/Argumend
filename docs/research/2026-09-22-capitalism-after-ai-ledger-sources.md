@@ -1,5 +1,9 @@
 # Capitalism-after-AI crux ledger: sources
 
+This is the original September 22 research record. Its figures and missing-node notes describe
+that review, not the current map. The October 25 integration review below records updated
+sources, evidence links, and append-only ledger corrections.
+
 Companion to `data/argument/capitalism-after-ai.ledger.json`. Written 2026-09-22 against the spec
 in `docs/plans/2026-09-22-crux-ledger-and-living-ai-map-spec.md` §1.1–1.2 and the draft graph
 `data/topics/drafts/capitalism-after-ai.draft.json`. Every URL below was opened on 2026-09-22 and
@@ -243,3 +247,50 @@ Once a node lands, its ledger entry can be superseded by one listing the node in
   day. It is a good candidate for a future entry or node.
 - Yale Budget Lab, "Current State of Affairs" (2025-10-01). Superseded by the 2026-09-15 tracker
   update and quoted above for context only.
+
+## Integration review: 2026-10-25
+
+The seven proposed nodes were checked against their sources for integration. Their original
+creation dates remain September 22; `source.verifiedAt` now records October 25. This was a review
+of these nodes and the existing labor-share series, not a complete re-review of the map.
+
+| Evidence node | Checked source and current finding | Scope of the evidence |
+|---|---|---|
+| e-ai-index-2025-open-gap | [2025 AI Index](https://hai.stanford.edu/ai-index/2025-ai-index-report): the selected-benchmark gap contracted from 8% to 1.7%. | Capability comparisons do not measure market ownership. |
+| e-ai-index-2026-open-gap | [2026 technical-performance chapter](https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance): March Arena gap 3.3%, versus 0.5% in August 2024; six of the top ten models were closed. | The Arena measure is not directly interchangeable with the earlier selected-benchmark figure. |
+| e-snow-technofeudalism-review | [Henry Snow's review](https://jacobin.com/2023/10/cloud-capitalism-technofeudalism-serfs-cloud-big-data-yanis-varoufakis), October 27, 2023: disputes Varoufakis's classification of platform capitalism. | Only the accessible introduction and standfirst were checked. An opinion review documents the disagreement, not AI's future effects. |
+| e-canaries-2026-update | [Stanford's revised paper page](https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/), August 12, 2026: young exposed workers' employment was 19% below the path implied by less-exposed peers through June. | Descriptive, mainly a hiring effect; education controls attenuate it. It does not track displaced workers' re-employment. |
+| e-yale-budget-lab-tracker-2026 | [Yale tracker](https://budgetlab.yale.edu/research/tracking-impact-ai-labor-market), updated October 14: no clear aggregate AI footprint in the reported analyses. | Limited detected association does not establish absence of displacement. |
+| e-real-pce-fred | [PCEC96](https://fred.stlouisfed.org/series/PCEC96), September 30 release: July 16,862.5 and August 16,955.3 billion chained 2017 dollars, SAAR. | The 0.55% monthly rise concerns aggregate real consumption, not whether the income-recycling mechanism is sufficient. |
+| e-compensation-share-personal-income | September 30 releases: [W209RC1](https://fred.stlouisfed.org/series/W209RC1), August 16,485.6; [PI](https://fred.stlouisfed.org/series/PI), August 27,626.9; billions of dollars, SAAR. Argumend's ratio is 59.7%. | Includes benefits and owners of capital. It does not isolate the non-owners in the claim. |
+
+Stanford's own release posts confirm the report dates of
+[April 7, 2025](https://hai.stanford.edu/news/ai-index-2025-state-of-ai-in-10-charts) and
+[April 13, 2026](https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report).
+The existing [labor-share series](https://fred.stlouisfed.org/series/PRS85006173) still reports
+Q2 2026 at 93.446 (2017 = 100), updated September 3. The newer FRED consumption and income
+figures supersede the August vintage quoted in the historical sections above.
+
+The graph adds seven evidence nodes and ten explicit evidence edges. The consumption edge is
+`qualifying`: observing growing spending does not establish that the conditional recycling
+mechanism holds. The open-model claim gains a question, resolution condition and reader note;
+its displayed position follows the recomputed ranking, not a manual priority override.
+
+The ledger keeps all seven original entries unchanged apart from `supersededBy` pointers and
+appends seven replacements. Four evidence-link corrections retain their original source dates
+with sequence 2. The Yale replacement uses October 14; consumption and compensation replacements
+use September 30. All replacements have `noticedAt` and `createdAt` of October 25. Original
+notes and source vintages remain recoverable. No status is upgraded: ownership stays `narrowed`,
+the definitional fork stays `unresolvable`, and the empirical forecasts stay `open`.
+
+The earlier Canaries note's shorthand about being below peers is corrected to a comparison
+against the employment path implied by those peers. The earlier Yale note's assertion that
+re-employment data do not exist is narrowed to what this tracker actually measures. The demand
+note no longer infers the absence of an income-recycling problem from rising consumption alone.
+
+Regenerating the empty-ledger baseline from the combined graph changes capitalism's top five
+from ownership (0.828), reallocation (0.750), definition (0.715), demand (0.606), and wage-channel
+(0.590) to ownership (0.805), reallocation (0.713), definition (0.702), demand (0.608), and
+open-model entry barriers (0.552). This is a graph-evidence change; the ledger does not alter
+these scores. Other flagship scores and ordering are unchanged. The baseline also records an
+existing nonconvergence warning from the reliability engine for AI-jobs' targeted-programs claim.

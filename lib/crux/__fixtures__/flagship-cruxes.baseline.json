@@ -74,7 +74,9 @@
         "c-displaced-workers-can-retrain-costlessly"
       ],
       "evidenceStarved": true,
-      "cycleWarnings": [],
+      "cycleWarnings": [
+        "Crux influence did not converge within 40 iterations at its final damping level; influence estimates may be unstable."
+      ],
       "explanationFacts": [
         "Claim c-targeted-programs-can-help: Better-designed, targeted, employer-linked, long-horizon workforce programs can meaningfully improve displaced workers' earnings and employment, even though generic short retraining programs mostly do not.",
         "Status is contested because The WIA Gold Standard randomized evaluation found that staff-assisted intensive services increased earnings 7%-20%, while evidence on training itself was inconclusive within 30 months. That supports targeted case management, not generic retraining or effectiveness at the scale a national AI-displacement emergency would require..",
@@ -209,84 +211,84 @@
   "capitalism-after-ai": [
     {
       "claimId": "c-ai-ownership-stays-concentrated",
-      "score": 0.828,
-      "contestedness": 0.688,
-      "reach": 0.592,
-      "directReach": 0.592,
+      "score": 0.805,
+      "contestedness": 0.632,
+      "reach": 0.576,
+      "directReach": 0.576,
       "discrimination": 1,
       "directDiscrimination": 1,
       "tractability": 0.9,
       "implicitBoost": 1.15,
       "scopingBonus": 0,
-      "evidenceCoverage": 0.333,
+      "evidenceCoverage": 1,
       "affectedPositions": [
         {
           "id": "p-breaks-fundamentally",
-          "delta": 0.739
+          "delta": 0.747
         },
         {
           "id": "p-adapts-as-always",
-          "delta": -0.643
+          "delta": -0.664
         },
         {
           "id": "p-definitional-skeptic",
-          "delta": -0.162
+          "delta": -0.141
         },
         {
           "id": "p-requires-restructuring",
-          "delta": 0.151
+          "delta": 0.12
         }
       ],
       "affectedClaims": [
         {
           "id": "c-open-models-lower-entry-barriers",
-          "delta": -0.664
+          "delta": -0.639
         },
         {
           "id": "c-wage-channel-loses-primacy",
-          "delta": 0.508
+          "delta": 0.502
         },
         {
           "id": "c-ai-markets-tip-into-durable-oligopoly",
-          "delta": 0.43
+          "delta": 0.421
         },
         {
           "id": "c-demand-collapse-without-recycling",
-          "delta": 0.256
+          "delta": 0.225
         }
       ],
       "gatesClaimIds": [],
-      "evidenceStarved": true,
+      "evidenceStarved": false,
       "cycleWarnings": [],
       "explanationFacts": [
         "Claim c-ai-ownership-stays-concentrated: Ownership and control of frontier AI models, compute, and the data that trains them will remain concentrated in a small number of firms and individuals rather than diffusing broadly over the next decade.",
         "Status is contested because No one argues this outright, but the demand-collapse and post-capitalist conclusions do not follow unless ownership stays concentrated rather than spreading, so it is a hidden assumption those positions rest on..",
-        "Component scores: score 0.828, contestedness 0.688, reach 0.592, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
-        "Position deltas: p-breaks-fundamentally +0.739, p-adapts-as-always -0.643, p-definitional-skeptic -0.162, p-requires-restructuring +0.151.",
+        "Component scores: score 0.805, contestedness 0.632, reach 0.576, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
+        "Position deltas: p-breaks-fundamentally +0.747, p-adapts-as-always -0.664, p-definitional-skeptic -0.141, p-requires-restructuring +0.120.",
         "Resolution: future-observable: a decade of repeated market-share, entry, switching-cost, and beneficial-ownership measurements, taken separately for frontier models, cloud compute, AI chips, and equity ownership.",
         "Gates: none."
       ]
     },
     {
       "claimId": "c-reallocation-keeps-pace",
-      "score": 0.75,
-      "contestedness": 0.734,
-      "reach": 0.431,
-      "directReach": 0.431,
+      "score": 0.713,
+      "contestedness": 0.669,
+      "reach": 0.356,
+      "directReach": 0.356,
       "discrimination": 1,
       "directDiscrimination": 1,
       "tractability": 0.9,
       "implicitBoost": 1.15,
       "scopingBonus": 0,
-      "evidenceCoverage": 0.667,
+      "evidenceCoverage": 1,
       "affectedPositions": [
         {
           "id": "p-adapts-as-always",
-          "delta": 0.811
+          "delta": 0.596
         },
         {
           "id": "p-breaks-fundamentally",
-          "delta": -0.697
+          "delta": -0.463
         }
       ],
       "affectedClaims": [
@@ -300,33 +302,33 @@
         }
       ],
       "gatesClaimIds": [],
-      "evidenceStarved": true,
+      "evidenceStarved": false,
       "cycleWarnings": [],
       "explanationFacts": [
         "Claim c-reallocation-keeps-pace: Workers displaced from AI-exposed tasks will be able to re-enter higher-productivity complementary jobs at a pace that avoids sustained aggregate underemployment, as occurred in prior automation waves.",
         "Status is contested because The market-optimist case does not say this outright, but its conclusion that adapting is surviving assumes reallocation keeps pace with displacement, so it is a hidden assumption that case rests on..",
-        "Component scores: score 0.750, contestedness 0.734, reach 0.431, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
-        "Position deltas: p-adapts-as-always +0.811, p-breaks-fundamentally -0.697.",
+        "Component scores: score 0.713, contestedness 0.669, reach 0.356, discrimination 1.000, tractability 0.900, implicit boost 1.150, scoping bonus 0.000.",
+        "Position deltas: p-adapts-as-always +0.596, p-breaks-fundamentally -0.463.",
         "Resolution: future-observable: longitudinal evidence tracking displaced workers' re-employment time, earnings recovery, and movement into complementary jobs alongside the duration and scale of aggregate underemployment after broad AI adoption.",
         "Gates: none."
       ]
     },
     {
       "claimId": "c-survival-definition-contested",
-      "score": 0.715,
+      "score": 0.702,
       "contestedness": 0.5,
-      "reach": 0.289,
-      "directReach": 0.077,
+      "reach": 0.223,
+      "directReach": 0.082,
       "discrimination": 1,
       "directDiscrimination": 0.2,
       "tractability": 0.8,
       "implicitBoost": 1,
       "scopingBonus": 1,
-      "evidenceCoverage": 0,
+      "evidenceCoverage": 0.333,
       "affectedPositions": [
         {
           "id": "p-definitional-skeptic",
-          "delta": 0.464
+          "delta": 0.492
         }
       ],
       "affectedClaims": [],
@@ -340,36 +342,36 @@
       "explanationFacts": [
         "Claim c-survival-definition-contested: Whether capitalism has 'survived' AI depends on which criterion is used: private ownership and market allocation persisting, or labor remaining the primary channel through which households obtain purchasing power.",
         "Status is contested because The two readings predict different things about what counts as survival, and much of the wider dispute follows from this unresolved choice rather than from any further evidence..",
-        "Component scores: score 0.715, contestedness 0.500, reach 0.289, discrimination 1.000, tractability 0.800, implicit boost 1.000, scoping bonus 1.000.",
-        "Position deltas: p-definitional-skeptic +0.464.",
+        "Component scores: score 0.702, contestedness 0.500, reach 0.223, discrimination 1.000, tractability 0.800, implicit boost 1.000, scoping bonus 1.000.",
+        "Position deltas: p-definitional-skeptic +0.492.",
         "Resolution: definitional-choice: the field converges on a stipulated threshold definition of 'capitalism' before further empirical work is treated as dispositive.",
         "Gates: c-ai-markets-tip-into-durable-oligopoly, c-demand-collapse-without-recycling, c-wage-channel-loses-primacy."
       ]
     },
     {
       "claimId": "c-demand-collapse-without-recycling",
-      "score": 0.606,
+      "score": 0.608,
       "contestedness": 0.875,
-      "reach": 0.235,
-      "directReach": 0.235,
+      "reach": 0.213,
+      "directReach": 0.213,
       "discrimination": 1,
       "directDiscrimination": 1,
       "tractability": 0.9,
       "implicitBoost": 1,
       "scopingBonus": 0,
-      "evidenceCoverage": 0,
+      "evidenceCoverage": 0.667,
       "affectedPositions": [
         {
           "id": "p-definitional-skeptic",
-          "delta": -0.637
-        },
-        {
-          "id": "p-adapts-as-always",
-          "delta": -0.485
+          "delta": -0.654
         },
         {
           "id": "p-requires-restructuring",
-          "delta": 0.286
+          "delta": 0.423
+        },
+        {
+          "id": "p-adapts-as-always",
+          "delta": -0.204
         }
       ],
       "affectedClaims": [],
@@ -379,57 +381,69 @@
       "explanationFacts": [
         "Claim c-demand-collapse-without-recycling: If labor income falls faster than transfers, capital-income diffusion, new work, or falling prices recycle purchasing power to non-owners, aggregate consumer demand will fall short of what AI-augmented output capacity could otherwise support.",
         "Status is contested because This is the modern formalization (Korinek's AGI scenario) of a demand-collapse argument that predates AI (Keynes, Hobson); it is a coherent mechanism but its empirical trigger conditions have not yet been observed at AI-relevant scale..",
-        "Component scores: score 0.606, contestedness 0.875, reach 0.235, discrimination 1.000, tractability 0.900, implicit boost 1.000, scoping bonus 0.000.",
-        "Position deltas: p-definitional-skeptic -0.637, p-adapts-as-always -0.485, p-requires-restructuring +0.286.",
+        "Component scores: score 0.608, contestedness 0.875, reach 0.213, discrimination 1.000, tractability 0.900, implicit boost 1.000, scoping bonus 0.000.",
+        "Position deltas: p-definitional-skeptic -0.654, p-requires-restructuring +0.423, p-adapts-as-always -0.204.",
         "Resolution: future-observable: observing whether transfers, capital income, price declines, new goods, and investment demand offset a falling wage bill without chronic underemployment.",
         "Gates: none."
       ]
     },
     {
-      "claimId": "c-wage-channel-loses-primacy",
-      "score": 0.59,
-      "contestedness": 0.875,
-      "reach": 0.289,
-      "directReach": 0.289,
+      "claimId": "c-open-models-lower-entry-barriers",
+      "score": 0.552,
+      "contestedness": 0.838,
+      "reach": 0.564,
+      "directReach": 0.564,
       "discrimination": 1,
       "directDiscrimination": 1,
       "tractability": 0.9,
       "implicitBoost": 1,
       "scopingBonus": 0,
-      "evidenceCoverage": 0,
+      "evidenceCoverage": 0.667,
       "affectedPositions": [
         {
-          "id": "p-breaks-fundamentally",
-          "delta": 0.573
-        },
-        {
-          "id": "p-definitional-skeptic",
-          "delta": -0.311
-        },
-        {
           "id": "p-adapts-as-always",
-          "delta": -0.277
+          "delta": 0.845
+        },
+        {
+          "id": "p-breaks-fundamentally",
+          "delta": -0.541
         },
         {
           "id": "p-requires-restructuring",
-          "delta": 0.091
+          "delta": -0.138
+        },
+        {
+          "id": "p-definitional-skeptic",
+          "delta": 0.1
         }
       ],
       "affectedClaims": [
         {
+          "id": "c-ai-ownership-stays-concentrated",
+          "delta": -0.664
+        },
+        {
+          "id": "c-ai-markets-tip-into-durable-oligopoly",
+          "delta": -0.59
+        },
+        {
+          "id": "c-wage-channel-loses-primacy",
+          "delta": -0.35
+        },
+        {
           "id": "c-demand-collapse-without-recycling",
-          "delta": 0.479
+          "delta": -0.159
         }
       ],
       "gatesClaimIds": [],
       "evidenceStarved": true,
       "cycleWarnings": [],
       "explanationFacts": [
-        "Claim c-wage-channel-loses-primacy: Wages will cease to be the primary mechanism by which non-owners of capital gain access to the social product, forcing any surviving system to route purchasing power through some other channel.",
-        "Status is contested because The strongest theoretical lineage for this claim (the Marxian 'Fragment on Machines' argument) is disputed even by scholars sympathetic to it as to whether it implies collapse of the wage channel or merely its diminished centrality..",
-        "Component scores: score 0.590, contestedness 0.875, reach 0.289, discrimination 1.000, tractability 0.900, implicit boost 1.000, scoping bonus 0.000.",
-        "Position deltas: p-breaks-fundamentally +0.573, p-definitional-skeptic -0.311, p-adapts-as-always -0.277, p-requires-restructuring +0.091.",
-        "Resolution: future-observable: longitudinal household-income data showing whether wages cease to be the largest income source for non-owners, paired with an explicit preregistered threshold for what counts as losing primacy.",
+        "Claim c-open-models-lower-entry-barriers: Open-weight models, model routing, synthetic data, and cheaper inference will lower entry barriers for downstream firms enough to offset concentration at the frontier-model and compute layers.",
+        "Status is contested because Consistent with recent microdata findings that generative-AI exposure creates opportunities for smaller firms as well as advantages for incumbents, but it is a prediction about a still-unsettled competitive dynamic, not a settled trend..",
+        "Component scores: score 0.552, contestedness 0.838, reach 0.564, discrimination 1.000, tractability 0.900, implicit boost 1.000, scoping bonus 0.000.",
+        "Position deltas: p-adapts-as-always +0.845, p-breaks-fundamentally -0.541, p-requires-restructuring -0.138, p-definitional-skeptic +0.100.",
+        "Resolution: future-observable: repeated measurements of downstream market entry and share (firms building on open-weight or routed models versus the frontier labs' own products) alongside the open-versus-closed capability gap, over enough years to see whether entry offsets concentration at the model and compute layers.",
         "Gates: none."
       ]
     }

@@ -561,7 +561,12 @@
     "sourceRef": "antitrust concern paragraph"
    },
    "createdAt": "2026-08-11T00:00:00Z",
-   "modelVersion": 2
+   "modelVersion": 2,
+   "summary": "Can open models make it cheap enough for new firms to compete?",
+   "resolution": {
+    "kind": "future-observable",
+    "condition": "repeated measurements of downstream market entry and share (firms building on open-weight or routed models versus the frontier labs' own products) alongside the open-versus-closed capability gap, over enough years to see whether entry offsets concentration at the model and compute layers"
+   }
   },
   {
    "id": "c-reinstatement-will-recur",
@@ -1582,6 +1587,212 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2
+  },
+  {
+   "id": "e-ai-index-2025-open-gap",
+   "type": "evidence",
+   "finding": "Stanford's 2025 AI Index puts the open-weight versus closed-model performance gap at 1.7% on selected benchmarks, compared with 8% a year earlier.",
+   "statement": "Stanford's 2025 AI Index puts the open-weight versus closed-model performance gap at 1.7% on selected benchmarks, compared with 8% a year earlier.",
+   "source": {
+    "title": "The 2025 AI Index Report",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-10-25",
+    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
+    "institution": "Stanford Institute for Human-Centered Artificial Intelligence",
+    "publishedAt": "2025-04-07"
+   },
+   "relevance": "Shows near-frontier model capability available outside the few closed labs as of 2024, which bears on whether control of the model layer stays concentrated and on whether open models lower entry barriers. It is a benchmark gap, not a measure of ownership, compute, or deployment.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "ledger sources \u00a72a"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 8,
+    "independence": 7,
+    "replicability": 7,
+    "directness": 5,
+    "weightBasis": "Annual index from an academic institute that compiles public benchmark and leaderboard results, so the figure can be rechecked; 'on some benchmarks' limits it, and a capability gap bears only indirectly on ownership and control of the stack."
+   }
+  },
+  {
+   "id": "e-ai-index-2026-open-gap",
+   "type": "evidence",
+   "finding": "Stanford's March 2026 Arena snapshot places the leading closed model 3.3% ahead of the leading open model, versus 0.5% in August 2024; six of the ten highest-ranked models are closed.",
+   "statement": "Stanford's March 2026 Arena snapshot places the leading closed model 3.3% ahead of the leading open model, versus 0.5% in August 2024; six of the ten highest-ranked models are closed.",
+   "source": {
+    "title": "The 2026 AI Index Report: Technical Performance",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-10-25",
+    "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+    "institution": "Stanford Institute for Human-Centered Artificial Intelligence",
+    "publishedAt": "2026-04-13"
+   },
+   "relevance": "The Arena snapshot qualifies both concentration and entry-barrier forecasts. It measures relative capability, not ownership or downstream entry, and is not a like-for-like comparison with the 2025 report's selected-benchmark figure.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "ledger sources \u00a72b"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 8,
+    "independence": 7,
+    "replicability": 7,
+    "directness": 5,
+    "weightBasis": "Same institute and method as the 2025 figure, now on the Arena leaderboard at a dated snapshot; reproducible from the public leaderboard, but still a capability gap rather than a measure of who owns or controls models, compute, or data."
+   }
+  },
+  {
+   "id": "e-snow-technofeudalism-review",
+   "type": "evidence",
+   "finding": "Henry Snow's review of Varoufakis's Technofeudalism treats platform rents as a development within capitalism, disputing their classification as a replacement economic system.",
+   "statement": "Henry Snow's review of Varoufakis's Technofeudalism treats platform rents as a development within capitalism, disputing their classification as a replacement economic system.",
+   "source": {
+    "title": "We're Still Living Under Capitalism, Not \"Techno-Feudalism\"",
+    "kind": "journalism",
+    "verification": "verified-live",
+    "verifiedAt": "2026-10-25",
+    "url": "https://jacobin.com/2023/10/cloud-capitalism-technofeudalism-serfs-cloud-big-data-yanis-varoufakis",
+    "author": "Henry Snow",
+    "institution": "Jacobin",
+    "publishedAt": "2023-10-27",
+    "interest": "Jacobin is a socialist magazine and the piece is an argued book review, not a neutral survey; it is cited as a dated instance of the definitional disagreement, not for its side of it. Most of the review is behind a paywall; only the open portion was read."
+   },
+   "relevance": "This public disagreement illustrates competing criteria for classifying platform economies. It is about cloud platforms generally, not AI specifically, and does not establish that all empirical premises are shared or that the disagreement is only definitional.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "ledger sources \u00a71"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 5,
+    "independence": 7,
+    "replicability": 8,
+    "directness": 6,
+    "weightBasis": "An opinion review, useful as a public record of competing classifications rather than as empirical evidence about AI. The accessible introduction supports this limited use."
+   }
+  },
+  {
+   "id": "e-canaries-2026-update",
+   "type": "evidence",
+   "finding": "In ADP data through June 2026, employment among 22-25-year-olds in AI-exposed occupations was 19% below the path implied by less-exposed peers, primarily because of lower hiring. The study did not find widespread economy-wide displacement.",
+   "statement": "In ADP data through June 2026, employment among 22-25-year-olds in AI-exposed occupations was 19% below the path implied by less-exposed peers, primarily because of lower hiring. The study did not find widespread economy-wide displacement.",
+   "source": {
+    "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence (revised 2026-08-12)",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-10-25",
+    "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+    "author": "Brynjolfsson, Chandar, Chen",
+    "institution": "Stanford Digital Economy Lab",
+    "publishedAt": "2026-08-12"
+   },
+   "relevance": "This is descriptive evidence about entry into exposed jobs, not a causal estimate or a measure of displaced workers' re-employment. Education controls reduce the gap, and national-survey comparisons show weaker patterns than the ADP sample.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "ledger sources \u00a73a"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 7,
+    "independence": 7,
+    "replicability": 6,
+    "directness": 5,
+    "weightBasis": "Large administrative payroll sample from established researchers, updated with a year more data; a working paper, not yet peer-reviewed, and the authors label the results descriptive indicators, so directness to the reallocation claim is partial."
+   }
+  },
+  {
+   "id": "e-yale-budget-lab-tracker-2026",
+   "type": "evidence",
+   "finding": "Yale's October 14, 2026 tracker reports no clear alignment between AI and occupational-mix changes, no employment or unemployment relationship with usage measures, and no clear AI footprint in its synthetic differences-in-differences analysis.",
+   "statement": "Yale's October 14, 2026 tracker reports no clear alignment between AI and occupational-mix changes, no employment or unemployment relationship with usage measures, and no clear AI footprint in its synthetic differences-in-differences analysis.",
+   "source": {
+    "title": "Tracking the Impact of AI on the Labor Market (updated 2026-10-14)",
+    "kind": "institutional",
+    "verification": "verified-live",
+    "verifiedAt": "2026-10-25",
+    "url": "https://budgetlab.yale.edu/research/tracking-impact-ai-labor-market",
+    "institution": "The Budget Lab at Yale",
+    "publishedAt": "2026-10-14"
+   },
+   "relevance": "These aggregate analyses do not establish whether displaced workers find replacement jobs quickly. Their limited detected footprint leaves the reallocation forecast open; it does not establish that displacement is absent.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "ledger sources \u00a73b"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 8,
+    "independence": 8,
+    "replicability": 7,
+    "directness": 4,
+    "weightBasis": "Nonpartisan policy lab using public BLS and CPS data with a stated method, updated regularly; low directness because aggregate stability does not track displaced workers' re-employment, which is what the claim turns on."
+   }
+  },
+  {
+   "id": "e-real-pce-fred",
+   "type": "evidence",
+   "finding": "The September 30, 2026 FRED release records U.S. real personal consumption expenditures at 16,862.5 billion chained 2017 dollars in July and 16,955.3 billion in August (seasonally adjusted annual rates), a 0.55% monthly increase.",
+   "statement": "The September 30, 2026 FRED release records U.S. real personal consumption expenditures at 16,862.5 billion chained 2017 dollars in July and 16,955.3 billion in August (seasonally adjusted annual rates), a 0.55% monthly increase.",
+   "source": {
+    "title": "Real Personal Consumption Expenditures (PCEC96)",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-10-25",
+    "url": "https://fred.stlouisfed.org/series/PCEC96",
+    "institution": "Federal Reserve Bank of St. Louis / U.S. Bureau of Economic Analysis",
+    "publishedAt": "2026-09-30"
+   },
+   "relevance": "Rising aggregate real consumption provides no evidence of a realized aggregate demand collapse in these months. This series alone cannot establish whether labor income is being recycled adequately or how demand is distributed across households.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "ledger sources \u00a74"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 9,
+    "independence": 8,
+    "replicability": 9,
+    "directness": 5,
+    "weightBasis": "An official, reproducible national-accounts series that is subject to revisions. It measures consumption directly but only indirectly bears on the conditional income-recycling mechanism."
+   }
+  },
+  {
+   "id": "e-compensation-share-personal-income",
+   "type": "evidence",
+   "finding": "In August 2026, employee compensation was 16,485.6 billion dollars and personal income 27,626.9 billion dollars (seasonally adjusted annual rates). Their ratio was 59.7%, calculated from the September 30 FRED releases of W209RC1 and PI.",
+   "statement": "In August 2026, employee compensation was 16,485.6 billion dollars and personal income 27,626.9 billion dollars (seasonally adjusted annual rates). Their ratio was 59.7%, calculated from the September 30 FRED releases of W209RC1 and PI.",
+   "source": {
+    "title": "Compensation of Employees, Received (W209RC1) and Personal Income (PI)",
+    "kind": "government",
+    "verification": "verified-live",
+    "verifiedAt": "2026-10-25",
+    "url": "https://fred.stlouisfed.org/series/W209RC1",
+    "institution": "Federal Reserve Bank of St. Louis / U.S. Bureau of Economic Analysis",
+    "publishedAt": "2026-09-30"
+   },
+   "relevance": "Compensation remains a majority of aggregate personal income in this snapshot. The ratio is Argumend's calculation using PI at https://fred.stlouisfed.org/series/PI. It includes employer benefits and all households, so it does not isolate non-owners or establish a long-run trend.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "ledger sources \u00a75"
+   },
+   "createdAt": "2026-09-22T00:00:00Z",
+   "modelVersion": 2,
+   "weight": {
+    "sourceReliability": 9,
+    "independence": 8,
+    "replicability": 9,
+    "directness": 5,
+    "weightBasis": "Two official national-accounts series anyone can recompute; directness is moderate because the aggregate mixes owners and non-owners and compensation includes employer benefit contributions, not only wages."
+   }
   }
  ],
  "edges": [
@@ -2340,6 +2551,86 @@
    "type": "evidences",
    "polarity": "challenging",
    "note": "The modeled wage-collapse scenario bears against universal reallocation optimism only conditionally; it is not observed AI-era worker-flow evidence."
+  },
+  {
+   "id": "edge-117",
+   "from": "e-ai-index-2025-open-gap",
+   "to": "c-ai-ownership-stays-concentrated",
+   "type": "evidences",
+   "polarity": "challenging",
+   "note": "Near-frontier open-weight models cut against concentrated control of the model layer; compute, chips, data, and ownership are untouched by a benchmark gap."
+  },
+  {
+   "id": "edge-118",
+   "from": "e-ai-index-2025-open-gap",
+   "to": "c-open-models-lower-entry-barriers",
+   "type": "evidences",
+   "polarity": "supporting",
+   "note": "A 1.7% gap is the capability precondition for open models lowering entry barriers; it does not show downstream firms actually entering or offsetting concentration."
+  },
+  {
+   "id": "edge-119",
+   "from": "e-ai-index-2026-open-gap",
+   "to": "c-ai-ownership-stays-concentrated",
+   "type": "evidences",
+   "polarity": "qualifying",
+   "note": "The gap reopened and the leaderboard top tier is mostly closed, but open models stayed within single digits, so this sharpens the concentration forecast to the top tier rather than confirming or refuting it."
+  },
+  {
+   "id": "edge-120",
+   "from": "e-ai-index-2026-open-gap",
+   "to": "c-open-models-lower-entry-barriers",
+   "type": "evidences",
+   "polarity": "qualifying",
+   "note": "Open models remained near the frontier but fell further behind in 2025, which limits how much of the frontier they can stand in for without settling whether entry barriers fall."
+  },
+  {
+   "id": "edge-121",
+   "from": "e-snow-technofeudalism-review",
+   "to": "c-survival-definition-contested",
+   "type": "evidences",
+   "polarity": "supporting",
+   "note": "The review disputes how platform rents should be classified; it illustrates a definitional disagreement without establishing identical empirical premises or AI-specific outcomes."
+  },
+  {
+   "id": "edge-122",
+   "from": "e-canaries-2026-update",
+   "to": "c-reallocation-keeps-pace",
+   "type": "evidences",
+   "polarity": "challenging",
+   "note": "Reduced hiring of young workers into AI-exposed jobs is a failure of entry, one route by which reallocation lags; it is descriptive and does not measure displaced workers' re-employment."
+  },
+  {
+   "id": "edge-123",
+   "from": "e-yale-budget-lab-tracker-2026",
+   "to": "c-reallocation-keeps-pace",
+   "type": "evidences",
+   "polarity": "qualifying",
+   "note": "The tracker detects no clear aggregate AI footprint, but does not measure displaced workers' re-employment or establish that displacement is absent."
+  },
+  {
+   "id": "edge-124",
+   "from": "e-real-pce-fred",
+   "to": "c-demand-collapse-without-recycling",
+   "type": "evidences",
+   "polarity": "qualifying",
+   "note": "Rising real consumption in July and August 2026 bears on observed demand, not on whether the conditional labor-income recycling mechanism holds."
+  },
+  {
+   "id": "edge-125",
+   "from": "e-labor-share-fred",
+   "to": "c-demand-collapse-without-recycling",
+   "type": "evidences",
+   "polarity": "qualifying",
+   "note": "A falling labor share is the input the claim's trigger depends on, but a falling share alongside rising labor income in dollars is not the trigger itself."
+  },
+  {
+   "id": "edge-126",
+   "from": "e-compensation-share-personal-income",
+   "to": "c-wage-channel-loses-primacy",
+   "type": "evidences",
+   "polarity": "challenging",
+   "note": "Employee compensation remains a majority of aggregate personal income in August 2026. This snapshot bears against a present loss of primacy, but does not isolate non-owners or settle the long-run forecast."
   }
  ]
 }
