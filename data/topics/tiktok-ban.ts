@@ -601,7 +601,7 @@ export const tiktokBanData = {
           id: "fcc-foreign-ownership-rules",
           title: "FCC Foreign Ownership Restrictions on Broadcast Media Since 1934",
           description:
-            "The Communications Act of 1934 restricts foreign ownership of broadcast licenses to 25%, a rule that has been in effect for 90 years without expanding into broader censorship. This provides a counter-example to the 'precedent expansion' concern — a targeted foreign ownership restriction in media that remained narrow for nearly a century. Proponents argue that platform ownership restrictions are a natural extension of this established principle.",
+            "Section 310(b)(3) sets a 20% limit on direct foreign ownership of covered radio licensees, while Section 310(b)(4) establishes a 25% threshold for foreign ownership of their controlling U.S. parent companies, subject to FCC public-interest review. These longstanding broadcast ownership rules provide a precedent for ownership-based restrictions. Proponents draw an analogy to platform ownership limits, but the statute alone does not establish that such restrictions cannot expand into censorship.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -610,9 +610,9 @@ export const tiktokBanData = {
             directness: 7,
           },
           source: "47 U.S.C. § 310(b), U.S. House Office of the Law Revision Counsel",
-          sourceUrl: "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title47-section310&num=0&edition=prelim",
+          sourceUrl: "https://uscode.house.gov/us/usc/119-118/t47/s310/",
           reasoning:
-            "This is strong evidence that foreign ownership restrictions in media can exist without sliding into censorship. However, the analogy is imperfect because broadcast licensing is fundamentally different from banning an internet platform — broadcasting requires scarce spectrum while internet access does not.",
+            "The statute is direct evidence of an established ownership restriction, with different treatment of licensees and parent companies. Applying that precedent to internet platforms is an analogy: the law does not demonstrate that platform restrictions would remain narrow or avoid effects on speech.",
         },
       ],
     },

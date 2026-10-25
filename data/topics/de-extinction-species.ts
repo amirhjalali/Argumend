@@ -102,7 +102,7 @@ export const deExtinctionSpeciesData = {
           source:
             "IUCN SSC Canid Specialist Group, 'Conservation perspectives on gene editing in wild canids' (April 18, 2025)",
           sourceUrl:
-            "https://www.canids.org/resources/CSG%20gene%20editing%20in%20wild%20canids.pdf",
+            "https://canids.org/wp-content/uploads/2026/08/CSG-gene-editing-in-wild-canids.pdf",
           reasoning:
             "The IUCN SSC is the world's authoritative, independent body on species status, with no commercial stake. Its formal repudiation directly addresses both the species-definition claim and the conservation-value claim. Highly direct and reliable; replicability is the standard-applied-to-facts kind (others applying IUCN's own published guiding principles reach the same conclusion).",
         },
@@ -248,9 +248,9 @@ export const deExtinctionSpeciesData = {
         {
           id: "no-habitat-niche",
           title:
-            "Most De-Extinction Candidates Have No Surviving Habitat or Niche",
+            "The Dire Wolf's Original Ecological Context No Longer Exists",
           description:
-            "A recurring expert objection is that the ecosystems extinct species occupied are often gone or radically altered, leaving revived organisms with no functional niche to return to. The IUCN SSC noted the dire wolf 'has no ecological niche' to fill, and reintroduction of any large carnivore raises habitat-availability and human-conflict problems. Conservation scientists argue that without restored habitat, a de-extinct animal becomes a captive curiosity rather than a functioning ecological actor — undermining the central justification that proxies restore lost ecosystem function.",
+            "The IUCN SSC Canid Specialist Group argues that the dire wolf's original prey community is gone and that gray wolves already occupy the corresponding role in today's altered ecosystems. Its statement therefore questions the conservation value of a dire-wolf-like proxy and emphasizes protecting viable habitats for living species. It does not assess habitat viability for most other de-extinction candidates.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -259,11 +259,11 @@ export const deExtinctionSpeciesData = {
             directness: 7,
           },
           source:
-            "IUCN SSC Canid Specialist Group (2025); de-extinction ethics literature",
+            "IUCN SSC Canid Specialist Group (April 18, 2025)",
           sourceUrl:
-            "https://www.canids.org/resources/CSG%20gene%20editing%20in%20wild%20canids.pdf",
+            "https://canids.org/wp-content/uploads/2026/08/CSG-gene-editing-in-wild-canids.pdf",
           reasoning:
-            "A logically strong and widely held objection grounded in the authoritative IUCN statement and conservation-biology consensus that habitat loss, not absence of the animal, is usually the binding constraint. Directness is solid for the ecosystem-restoration claim; replicability is lower because it is a general principle whose force varies case by case (it bites harder for the dire wolf than for, say, a recently lost keystone herbivore).",
+            "The specialist group's statement directly addresses the proposed dire-wolf proxy's ecological role. Its relevance to other de-extinction projects depends on their habitat, prey and restoration goals; this source does not establish a general failure rate for such projects.",
         },
       ],
     },
@@ -396,7 +396,7 @@ export const deExtinctionSpeciesData = {
     {
       title:
         "Conservation Perspectives on Gene Editing in Wild Canids — IUCN SSC Canid Specialist Group (2025)",
-      url: "https://www.canids.org/resources/CSG%20gene%20editing%20in%20wild%20canids.pdf",
+      url: "https://canids.org/wp-content/uploads/2026/08/CSG-gene-editing-in-wild-canids.pdf",
     },
     {
       title:

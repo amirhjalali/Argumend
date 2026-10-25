@@ -149,9 +149,9 @@ The judging API accepts evaluations via `POST`; it does not expose a global
 recent-judgments collection, because verdict reasoning may derive from private
 debate content.
 After configuring the database, Google OAuth credentials, and `AUTH_SECRET`,
-set `NEXT_PUBLIC_ENABLE_AUTH=true` to expose sign-in, the account dashboard,
-and topic-follow controls. With the flag off, bookmarks remain device-local at
-`/saved`; account-only navigation and follow controls are hidden, and direct
+set `NEXT_PUBLIC_ENABLE_AUTH=true` to expose sign-in and the account dashboard.
+With the flag off, bookmarks remain device-local at `/saved`; account-only
+navigation is hidden, and direct
 dashboard visits return to the local saved-topics view.
 Removing a saved map announces the outcome and keeps keyboard focus on a remaining
 map, or on Browse maps when the list becomes empty.
