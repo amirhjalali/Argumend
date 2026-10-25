@@ -638,11 +638,7 @@ export function projectDisagreementReport(input: {
 
   for (const item of disagreements) {
     item.resolvability = deriveResolvability({
-      resolutionKind:
-        item.type === "normative" ? "value-difference" :
-        item.type === "definitional" ? "definitional-choice" :
-        item.type === "predictive" ? "future-observable" :
-        "existing-evidence",
+      resolutionKind: kindsForType(item.type)[0],
       confidence: item.confidence,
       groundingCoverage,
     });
