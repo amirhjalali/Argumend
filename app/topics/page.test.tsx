@@ -5,6 +5,9 @@ import { CATEGORY_ORDER, topicSummaries } from "@/data/topicIndex";
 import { argumentTopicIds, argumentTopicIndex } from "@/lib/argument/topicIds";
 import { SAVED_TOPICS_KEY } from "@/hooks/useSavedTopics";
 
+const navigation = vi.hoisted(() => ({ searchParams: null as URLSearchParams | null }));
+vi.mock("next/navigation", () => ({ useSearchParams: () => navigation.searchParams }));
+
 vi.mock("next/link", () => ({
   default: ({ children, href, prefetch: _prefetch, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string; prefetch?: boolean }) => (
     <a href={href} {...props}>{children}</a>
@@ -32,6 +35,8 @@ const defaultState: TopicsQueryState = {
   sort: "mixed",
   page: 1,
 };
+
+beforeEach(() => { navigation.searchParams = null; });
 
 const legacyTopicLinks = (container: HTMLElement) =>
   [...container.querySelectorAll('ul a[href^="/topics/"]')].filter((link) =>
@@ -313,6 +318,46 @@ describe("/topics: order and pagination", () => {
       filterLibrary(filtered).slice(0, TOPICS_PAGE_SIZE).map((entry) => entry.href),
     );
     expect(window.location.search).toBe("?category=technology&sort=title-asc&q=AI");
+  });
+
+  it("restores the current URL when browser Back provides cached server props", () => {
+    window.history.replaceState({}, "", "/topics?q=nuclear");
+    navigation.searchParams = new URLSearchParams("q=nuclear");
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    expect((view.getByRole("searchbox", { name: "Search maps" }) as HTMLInputElement).value).toBe("nuclear");
+    expect(window.location.search).toBe("?q=nuclear");
+
+    window.history.replaceState({}, "", "/topics?sort=title-asc&page=2");
+    navigation.searchParams = new URLSearchParams("sort=title-asc&page=2");
+    view.rerender(<TopicsPageClient initialState={{ ...defaultState }} />);
+    expect((view.getByRole("combobox", { name: "Order:" }) as HTMLSelectElement).value).toBe("title-asc");
+    expect(view.getByRole("link", { name: "Page 2" }).getAttribute("aria-current")).toBe("page");
+    expect(window.location.search).toBe("?sort=title-asc&page=2");
+  });
+
+  it("does not replace newer typing with a delayed shallow URL update", () => {
+    window.history.replaceState({}, "", "/topics");
+    navigation.searchParams = new URLSearchParams();
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    const search = view.getByRole("searchbox", { name: "Search maps" });
+    fireEvent.change(search, { target: { value: "n" } });
+    fireEvent.change(search, { target: { value: "nu" } });
+
+    navigation.searchParams = new URLSearchParams("q=n");
+    view.rerender(<TopicsPageClient initialState={defaultState} />);
+
+    expect((search as HTMLInputElement).value).toBe("nu");
+    expect(window.location.search).toBe("?q=nu");
+  });
+
+  it("uses the first repeated query value just as the server does", () => {
+    window.history.replaceState({}, "", "/topics?q=nuclear&q=water&sort=title-asc&sort=category");
+    navigation.searchParams = new URLSearchParams(window.location.search);
+    const state = { ...defaultState, search: "nuclear", sort: "title-asc" as const };
+    const view = render(<TopicsPageClient initialState={state} />);
+    expect((view.getByRole("searchbox", { name: "Search maps" }) as HTMLInputElement).value).toBe("nuclear");
+    expect((view.getByRole("combobox", { name: "Order:" }) as HTMLSelectElement).value).toBe("title-asc");
+    expect(window.location.search).toBe("?sort=title-asc&q=nuclear");
   });
 
   it("restores the server query after local filter changes, even when its values repeat", () => {

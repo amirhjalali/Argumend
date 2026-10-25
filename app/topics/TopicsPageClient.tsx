@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { CATEGORY_LABELS, CATEGORY_ORDER } from "@/data/topicIndex";
 import type { TopicCategory } from "@/data/topicIndex";
@@ -19,6 +20,7 @@ import {
   LIBRARY_ENTRIES,
   SORT_OPTIONS,
   filterLibrary,
+  parseTopicsQuery,
   queryForTopicsState,
   showsStartHere,
   type LibraryEntry,
@@ -40,27 +42,38 @@ export default function TopicsPageClient({
 }: {
   initialState: TopicsQueryState;
 }) {
-  const [activeCategory, setActiveCategory] = useState<TopicCategory | "all">(initialState.category);
-  const [search, setSearch] = useState(initialState.search);
-  const [sortBy, setSortBy] = useState<SortOption>(initialState.sort);
-  const [page, setPage] = useState(initialState.page);
+  const searchParams = useSearchParams();
+  const navigationState = useMemo(
+    () => searchParams ? parseTopicsQuery({
+      category: searchParams.getAll("category"),
+      q: searchParams.getAll("q"),
+      sort: searchParams.getAll("sort"),
+      page: searchParams.getAll("page"),
+    }) : initialState,
+    [searchParams, initialState],
+  );
+  const [activeCategory, setActiveCategory] = useState<TopicCategory | "all">(navigationState.category);
+  const [search, setSearch] = useState(navigationState.search);
+  const [sortBy, setSortBy] = useState<SortOption>(navigationState.sort);
+  const [page, setPage] = useState(navigationState.page);
   const [savedOnly, setSavedOnly] = useState(false);
   const [previousNavigationState, setPreviousNavigationState] = useState(initialState);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Same-route Next Links update the server props while preserving this
-  // component. Apply the incoming query before rendering (and before the URL
-  // effect runs), while device-local saves stay selected across pagination.
+  // Browser Back can restore cached server props from before a shallow filter
+  // change. The current URL is authoritative, including on a cached remount.
+  // Reconcile when route props arrive, not on our own shallow URL updates,
+  // which can lag behind typing. Keep local saves across pagination.
   if (initialState !== previousNavigationState) {
     setPreviousNavigationState(initialState);
-    setActiveCategory(initialState.category);
-    setSearch(initialState.search);
-    setSortBy(initialState.sort);
-    setPage(initialState.page);
+    setActiveCategory(navigationState.category);
+    setSearch(navigationState.search);
+    setSortBy(navigationState.sort);
+    setPage(navigationState.page);
     if (
-      initialState.category !== activeCategory ||
-      initialState.search !== search ||
-      initialState.sort !== sortBy
+      navigationState.category !== activeCategory ||
+      navigationState.search !== search ||
+      navigationState.sort !== sortBy
     ) {
       setSavedOnly(false);
     }

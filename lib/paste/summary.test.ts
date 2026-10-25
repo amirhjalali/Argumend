@@ -1,5 +1,8 @@
 import { beforeAll, describe, expect, it } from "vitest";
+import { analyzeDisagreement } from "@/lib/disagreement/analyze";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
+import { FakeDisagreementProvider } from "@/lib/disagreement/model/fake";
+import { DISAGREEMENT_FEW_SHOT_EXAMPLES } from "@/lib/disagreement/prompts/v1/examples";
 import { findMaps, getMapIndex } from "./maps";
 import { buildPasteSummary, withoutNames } from "./summary";
 
@@ -14,10 +17,43 @@ describe("withoutNames", () => {
     expect(withoutNames("user.1 said so", ["user.1"])).toBe("one participant said so");
     expect(withoutNames("userx1 said so", ["user.1"])).toBe("userx1 said so");
   });
+
+  it("removes case variants of Unicode participant labels without matching parts of other names", () => {
+    expect(withoutNames("ALEX, alex and ÉLODIE disagree; Alexei and Élodienne do not.", ["Alex", "Élodie"])).toBe(
+      "one participant, one participant and one participant disagree; Alexei and Élodienne do not.",
+    );
+  });
+
+  it("recognizes canonically equivalent Unicode names and keeps combining marks inside word boundaries", () => {
+    expect(withoutNames("ZOE\u0308 disagrees with Zoë. Ann\u0308a has another view.", ["Zoë", "Ann"])).toBe(
+      "one participant disagrees with one participant. Ann\u0308a has another view.",
+    );
+  });
+
+  it("does not process its replacement text as another participant label", () => {
+    expect(withoutNames("Alex and one disagree.", ["Alex", "one"])).toBe(
+      "one participant and one participant disagree.",
+    );
+  });
 });
 
 describe("buildPasteSummary", () => {
   beforeAll(() => getMapIndex(), 60_000);
+
+  it("removes participant names from both the diagnosis and primary question in copied prose", async () => {
+    const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[1];
+    const { report } = await analyzeDisagreement({
+      content: example.source,
+      requestId: "summary-privacy-fixture",
+      provider: new FakeDisagreementProvider(structuredClone(example.extraction)),
+    });
+    report.diagnosis.headline = "ALEX and blair disagree about immigration's effect on wages.";
+    report.cruxes[0].question = "Would Alex and BLAIR agree after checking wage data?";
+    const summary = buildPasteSummary({ maps: null, report });
+    expect(summary).not.toMatch(/alex|blair/i);
+    expect(summary).toContain("one participant and one participant disagree about immigration's effect on wages.");
+    expect(summary).toContain("Would one participant and one participant agree after checking wage data?");
+  });
 
   it("names the map and its crux, links the crux, and carries no scores", async () => {
     const maps = await findMaps(DISAGREEMENT_EXAMPLE_SOURCE);
