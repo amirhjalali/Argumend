@@ -343,23 +343,28 @@ function derivePrimaryType(
 
 /**
  * Common ground is a claim about two or more people. It is attested when the
- * grounded quotes come from at least two of the people it is attributed to
- * (or all of them), or from someone outside that set describing them, as a
- * reporter's "both agree that ..." does. One side's words, or no words at all,
- * do not show that the other side holds it.
+ * grounded quotes cover everyone it is attributed to, or an identified
+ * narrator describes their agreement. One side's words cannot establish
+ * agreement by an unquoted person, and an outside participant's own view is
+ * not narrator attestation.
  */
 function commonGroundAttested(
   participantIds: string[],
   grounding: Array<{ participantId?: string }>,
+  narratorIds: ReadonlySet<string>,
 ): boolean {
   const attributed = new Set(participantIds);
+  if (attributed.size < 2) return false;
   const quoted = new Set<string>();
   for (const ref of grounding) {
     if (!ref.participantId) continue;
-    if (!attributed.has(ref.participantId)) return true;
+    if (!attributed.has(ref.participantId)) {
+      if (narratorIds.has(ref.participantId)) return true;
+      continue;
+    }
     quoted.add(ref.participantId);
   }
-  return quoted.size >= 2 || (attributed.size > 0 && quoted.size >= attributed.size);
+  return quoted.size === attributed.size;
 }
 
 export function projectDisagreementReport(input: {
@@ -438,6 +443,9 @@ export function projectDisagreementReport(input: {
   });
 
   const commonGround: CommonGroundItem[] = [];
+  const narratorIds = new Set(extraction.participants
+    .filter((participant) => participant.kind === "author")
+    .map((participant) => participant.id));
   extraction.commonGroundCandidates.forEach((item, index) => {
     const grounding = ground(item.groundingQuotes, `cg-${index + 1}`);
     // Shared ground is a claim about every person it is attributed to, and it
@@ -446,9 +454,9 @@ export function projectDisagreementReport(input: {
     // the agreement), the report cannot back it for the others. The report has
     // no "inferred" label for common ground, so the item is dropped and the
     // gap recorded; §10.4 already refuses "uncontested" for such a claim.
-    if (!commonGroundAttested(item.participantIds, grounding)) {
+    if (!commonGroundAttested(item.participantIds, grounding, narratorIds)) {
       warnings.push(
-        `Dropped common-ground item cg-${index + 1}: quoted from fewer than two of the participants it is attributed to`,
+        `Dropped common-ground item cg-${index + 1}: agreement was not attested for every attributed participant in a group of at least two.`,
       );
       return;
     }
