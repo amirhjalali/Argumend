@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { OG_HEIGHT, OG_WIDTH, truncateOgText } from "@/lib/og";
 import { isDatabaseConfigured } from "@/lib/db";
 import { getPublishedDisagreementReport } from "@/lib/db/queries";
+import { isReportSlug } from "@/lib/disagreement/reportSlug";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -14,7 +15,7 @@ function reportNotFound() {
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (!isDatabaseConfigured()) {
+  if (!isReportSlug(slug) || !isDatabaseConfigured()) {
     return reportNotFound();
   }
   const row = await getPublishedDisagreementReport(slug).catch(() => undefined);

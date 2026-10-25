@@ -1,11 +1,5 @@
-import type { CruxBranch, DisagreementReportV1, EvidenceState } from "@/types/disagreement";
-
-/** Spec 6.6: the three evidence states, said plainly. */
-const EVIDENCE_STATE_COPY: Record<EvidenceState, string> = {
-  "not-independently-checked": "Argumend has not checked this against outside sources.",
-  "asserted-in-source": "The text asserts evidence; Argumend has not checked it.",
-  "no-evidence-provided": "The text gives no evidence for it.",
-};
+import type { CruxBranch, DisagreementReportV1 } from "@/types/disagreement";
+import { EvidenceStateSection } from "./EvidenceStateSection";
 
 /**
  * Branches that share a condition are drawn once, with each consequence under
@@ -68,20 +62,15 @@ export function ArgumentHinge({ report }: { report: DisagreementReportV1 }) {
           </div>
         ) : null}
 
-        <dl className="mt-6 grid gap-4 border-t border-[var(--border-divider)] pt-5 font-sans text-[0.9375rem] sm:grid-cols-2 sm:gap-8">
+        <dl className="mt-6 grid gap-4 border-t border-[var(--border-divider)] pt-5 font-sans text-[0.9375rem] sm:gap-8">
           <div>
             <dt className="label-caps">What could settle it</dt>
             <dd className="mt-1 leading-relaxed text-[var(--text-primary)]">
               {primary.resolution.condition}
             </dd>
           </div>
-          <div>
-            <dt className="label-caps">Evidence</dt>
-            <dd className="mt-1 leading-relaxed text-[var(--text-primary)]">
-              {EVIDENCE_STATE_COPY[primary.evidenceState] ?? EVIDENCE_STATE_COPY["not-independently-checked"]}
-            </dd>
-          </div>
         </dl>
+        <EvidenceStateSection report={report} />
       </div>
 
       {secondary.length > 0 ? (

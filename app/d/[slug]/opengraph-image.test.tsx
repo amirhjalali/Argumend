@@ -17,7 +17,7 @@ vi.mock("next/og", () => ({
 
 import Image from "./opengraph-image";
 
-const context = { params: Promise.resolve({ slug: "a-report" }) };
+const context = { params: Promise.resolve({ slug: "valid-report" }) };
 let report: DisagreementReportV1;
 
 describe("published disagreement social image privacy", () => {
@@ -47,6 +47,13 @@ describe("published disagreement social image privacy", () => {
     expect(deleted.status).toBe(404);
     expect(deleted.headers.get("Cache-Control")).toBe("no-store");
     expect(mocks.getReport).toHaveBeenCalledTimes(2);
+  });
+
+  it.each(["", "short", "a".repeat(13), "invalid/slug", "invalid slug"])("rejects malformed slug %j before reading reports", async (slug) => {
+    const response = await Image({ params: Promise.resolve({ slug }) });
+    expect(response.status).toBe(404);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(mocks.getReport).not.toHaveBeenCalled();
   });
 
   it("does not cache missing reports", async () => {

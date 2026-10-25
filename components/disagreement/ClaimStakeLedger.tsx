@@ -66,7 +66,7 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
             <tr key={stake.id} className="border-b border-[var(--border-divider)] align-top">
               <td className="py-4 pr-4">
                 <p className="font-serif text-[1.0625rem] leading-snug text-[var(--text-heading)]">
-                  &ldquo;{stake.claim}&rdquo;
+                  {stake.claim}
                   {marks(stake)}
                 </p>
                 {stake.participantId ? (
@@ -91,7 +91,7 @@ export function ClaimStakeLedger({ report }: { report: DisagreementReportV1 }) {
         {accountability.stakes.map((stake) => (
           <div key={stake.id} className="py-5 first:pt-0">
             <p className="font-serif text-[1.25rem] leading-snug text-[var(--text-heading)]">
-              &ldquo;{stake.claim}&rdquo;
+              {stake.claim}
               {marks(stake)}
             </p>
             {stake.participantId ? (

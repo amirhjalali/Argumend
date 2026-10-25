@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 const PROSE_LINK =
-  "text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark dark:text-accent-text";
+  "text-deep underline decoration-deep/30 underline-offset-2 transition-colors hover:text-deep-dark dark:hover:text-accent-text dark:text-accent-text";
 
 export default function FallaciesPage() {
   const jsonLd = {

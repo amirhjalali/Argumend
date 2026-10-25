@@ -120,6 +120,14 @@ export type DisagreementErrorCode =
   | "INSUFFICIENT_ARGUMENT_STRUCTURE"
   | "INTERNAL_ERROR";
 
+/**
+ * A verbatim quote and where it sits in the source. `start` and `end` index
+ * the source after §10.1 normalisation (`normalizeSourceText`: CRLF and CR
+ * become LF, NUL and control characters are removed), which is the text the
+ * pipeline grounds against and the text a browser textarea already holds. The
+ * report never carries the source itself; `provenance.sourceCharacterCount`
+ * is the normalised length, so a consumer can tell which text it has.
+ */
 export interface GroundingRef {
   id: string;
   quote: string;

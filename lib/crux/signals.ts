@@ -36,6 +36,8 @@ export interface CruxSignal {
   affectedPositions: DeltaTarget[];
   affectedClaims: DeltaTarget[];
   affectedSet: Set<string>;
+  /** `affectedSet` restricted to claims; the redundancy set under lever A. */
+  affectedClaimSet: Set<string>;
   gatesClaimIds: string[];
   /**
    * Claims this one gates that the candidacy floor removed. They are gone
@@ -93,6 +95,12 @@ export interface CruxSignalOptions {
    * are exempt — the curator's override wins over the ledger.
    */
   ledgerResolvedIds?: ReadonlySet<string>;
+  /**
+   * Lever B (CRUX_LEVER_POSITION_AWARE_REACH, default off): direct reach
+   * becomes max(R, min(1, sum |position delta| / position count)), computed
+   * before scoping inheritance so a gate inherits the lifted value too.
+   */
+  positionAwareReach?: boolean;
 }
 
 const TRACTABILITY: Record<ResolutionKind | "missing", number> = {
@@ -142,7 +150,7 @@ export function computeCruxSignals(
     .filter((node) => node.type === "position")
     .map((node) => node.id);
   const rawSignals = candidates.map((claim) =>
-    directSignal(activeGraph, influenceGraph, claim, claimCount, positionIds, overrides.get(claim.id))
+    directSignal(activeGraph, influenceGraph, claim, claimCount, positionIds, overrides.get(claim.id), options)
   );
   const rawById = new Map(rawSignals.map((signal) => [signal.claim.id, signal]));
   const directMassById = new Map(
@@ -236,7 +244,8 @@ function directSignal(
   claim: Claim,
   claimCount: number,
   positionIds: string[],
-  contestednessOverride: number | undefined
+  contestednessOverride: number | undefined,
+  options: CruxSignalOptions,
 ): CruxSignal {
   const directIg = {
     ...ig,
@@ -274,13 +283,27 @@ function directSignal(
       .filter((target) => Math.abs(target.delta) > 0.1)
       .map((target) => target.id)
   );
+  const affectedClaimSet = new Set(
+    affectedClaims.filter((target) => Math.abs(target.delta) > 0.1).map((target) => target.id)
+  );
   const downstreamImpactSum = [...downstream]
     .filter((id) => {
       const node = ig.nodeById.get(id);
       return node?.type === "claim" || node?.type === "position";
     })
     .reduce((sum, id) => sum + Math.abs(deltas.get(id) ?? 0), 0);
-  const directReach = Math.min(1, downstreamImpactSum / Math.max(0.15 * claimCount, 0.15));
+  const normalizedReach = Math.min(1, downstreamImpactSum / Math.max(0.15 * claimCount, 0.15));
+  // Lever B: position deltas averaged over the position count, so a leaf
+  // claim that moves two positions is not out-reached by a hub that nudges
+  // eight intermediate claims. Off by default; see lib/crux/flags.ts.
+  const positionReach = Math.min(
+    1,
+    affectedPositions.reduce((sum, target) => sum + Math.abs(target.delta), 0) /
+      Math.max(positionIds.length, 1)
+  );
+  const directReach = options.positionAwareReach
+    ? Math.max(normalizedReach, positionReach)
+    : normalizedReach;
   const directDiscrimination = discrimination(affectedPositions);
   const evidenceCoverage = evidenceCoverageFor(graph, claim.id);
   const contestedness = contestednessFor(graph, claim.id, claim.status, contestednessOverride);
@@ -309,6 +332,7 @@ function directSignal(
     affectedPositions,
     affectedClaims,
     affectedSet,
+    affectedClaimSet,
     gatesClaimIds: [],
     gatesRemovedByProbeIds: [],
     gatesResolvedByLedgerIds: [],

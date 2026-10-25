@@ -365,7 +365,7 @@ function FlagshipNumbers({ meta }: { meta: ArgumentTopicMeta }) {
           <ul className="grid gap-3 sm:grid-cols-2">
             {meta.highlights.map((highlight) => (
               <li key={highlight.fact} className="surface-paper rounded-lg p-4">
-                <p className="font-serif text-3xl text-[#3a6965] dark:text-[#6fa39e]">
+                <p className="font-serif text-3xl text-accent-text">
                   {highlight.fact}
                 </p>
                 <p className="mt-1.5 text-sm leading-snug text-secondary dark:text-stone-300">
@@ -465,7 +465,7 @@ const POLARITY_RENDER = {
   supporting: {
     glyph: "＋",
     label: "Supports",
-    className: "text-[#3a6965] dark:text-[#6fa39e]",
+    className: "text-accent-text",
   },
   challenging: {
     glyph: "−",

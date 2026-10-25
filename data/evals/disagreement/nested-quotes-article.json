@@ -1,0 +1,155 @@
+{
+  "id": "nested-quotes-article",
+  "contentType": "article",
+  "source": "Opinion: Do not close the Fenwick Bridge on the strength of one report. Mayor Quintrell announced the closure on Monday, and she leaned entirely on the inspection: “The inspection was unambiguous — the firm wrote that ‘the east pier cannot be certified for another season,’ and I will not gamble with a school bus route.” That sentence deserves a second look. The firm that wrote it, Calder & Voss, is one of three bidders on the replacement contract, a fact the mayor’s statement did not mention. A firm that profits from a replacement has every incentive to read a crack as a crisis. The bridge carried its full load through last winter without incident. Before the town spends four years and a detour on the mayor’s reading of one paragraph, it should commission an independent inspection from a firm with no bid on the table. If that inspection says close it, close it.",
+  "allowedPatterns": ["trust-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the Fenwick Bridge be closed on the basis of the Calder & Voss inspection?",
+    "participants": [
+      { "id": "columnist", "label": "Columnist", "kind": "author" },
+      { "id": "mayor-quintrell", "label": "Mayor Quintrell", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-independent-inspection-first",
+        "label": "Get an independent inspection first",
+        "participantIds": ["columnist"],
+        "thesis": "The bridge should stay open until a firm with no stake in the replacement contract confirms the east pier finding.",
+        "steelman": "The only evidence for closure comes from a bidder on the replacement, the bridge performed under full load last winter, and a second inspection is cheap compared with a four-year detour.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "it should commission an independent inspection from a firm with no bid on the table", "participantId": "columnist" },
+          { "quote": "Do not close the Fenwick Bridge on the strength of one report.", "participantId": "columnist" }
+        ]
+      },
+      {
+        "id": "pos-close-now",
+        "label": "Close the bridge now",
+        "participantIds": ["mayor-quintrell"],
+        "thesis": "The bridge should close because the inspection found the east pier cannot be certified for another season.",
+        "steelman": "An engineering firm has stated in writing that the pier cannot be certified, and the cost of being wrong on a school bus route is measured in lives.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I will not gamble with a school bus route", "participantId": "mayor-quintrell" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-inspection-finding-reliable",
+        "statement": "The Calder & Voss finding that the east pier cannot be certified is a reliable basis for closure.",
+        "participantIds": ["mayor-quintrell"],
+        "epistemicType": "empirical",
+        "explicitness": "inferred",
+        "stanceByPosition": [
+          { "positionId": "pos-close-now", "relation": "supports" },
+          { "positionId": "pos-independent-inspection-first", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["mayor-quintrell"],
+        "disputedByParticipantIds": ["columnist"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "An inspection by a firm with no bid on the replacement contract."
+        },
+        "groundingQuotes": [
+          { "quote": "The inspection was unambiguous", "participantId": "mayor-quintrell" }
+        ]
+      },
+      {
+        "id": "claim-firm-has-conflict",
+        "statement": "Calder & Voss is a bidder on the replacement contract and so has an incentive to overstate the damage.",
+        "participantIds": ["columnist"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-independent-inspection-first", "relation": "supports" },
+          { "positionId": "pos-close-now", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["columnist"],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "The bid list for the replacement contract."
+        },
+        "groundingQuotes": [
+          { "quote": "is one of three bidders on the replacement contract", "participantId": "columnist" }
+        ]
+      },
+      {
+        "id": "claim-bridge-carried-load",
+        "statement": "The bridge carried its full load through last winter without incident.",
+        "participantIds": ["columnist"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-independent-inspection-first", "relation": "supports" },
+          { "positionId": "pos-close-now", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["columnist"],
+        "disputedByParticipantIds": [],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Load and incident records for the bridge over the past year."
+        },
+        "groundingQuotes": [
+          { "quote": "The bridge carried its full load through last winter without incident.", "participantId": "columnist" }
+        ]
+      }
+    ],
+    "claimRelations": [
+      { "fromClaimId": "claim-firm-has-conflict", "toClaimId": "claim-inspection-finding-reliable", "type": "opposes" }
+    ],
+    "commonGroundCandidates": [
+      {
+        "statement": "If an inspection without a conflict of interest says the bridge must close, it should close.",
+        "participantIds": ["columnist", "mayor-quintrell"],
+        "basis": "strongly-implied",
+        "confidence": "medium",
+        "groundingQuotes": [
+          { "quote": "If that inspection says close it, close it.", "participantId": "columnist" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-trust-inspection",
+        "question": "Can the Calder & Voss inspection be trusted given the firm's bid on the replacement?",
+        "type": "trust",
+        "summary": "The mayor treats the firm's written finding as decisive; the columnist says a bidder's finding needs independent confirmation before it justifies a closure.",
+        "claimIds": ["claim-inspection-finding-reliable", "claim-firm-has-conflict"],
+        "participantStances": [
+          { "participantId": "mayor-quintrell", "positionId": "pos-close-now", "stance": "The firm's written finding is unambiguous and sufficient." },
+          { "participantId": "columnist", "positionId": "pos-independent-inspection-first", "stance": "A bidder's finding must be confirmed by a firm with no stake." }
+        ],
+        "resolutionCondition": "Obtain an inspection from a firm that has no bid on the replacement contract.",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "A firm that profits from a replacement has every incentive to read a crack as a crisis.", "participantId": "columnist" }
+        ]
+      },
+      {
+        "id": "disagreement-winter-performance",
+        "question": "Does the bridge carrying its full load last winter show the east pier is sound enough to stay open?",
+        "type": "empirical",
+        "summary": "The columnist offers last winter's incident-free service as evidence against closure; the mayor's statement treats the written inspection finding as overriding past performance.",
+        "claimIds": ["claim-bridge-carried-load"],
+        "participantStances": [
+          { "participantId": "columnist", "positionId": "pos-independent-inspection-first", "stance": "A full winter without incident argues against an emergency closure." },
+          { "participantId": "mayor-quintrell", "positionId": "pos-close-now", "stance": "The inspection finding, not past service, decides certification." }
+        ],
+        "resolutionCondition": "Whether a pier can pass a season under load and still fail certification, per an inspector without a bid.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The mayor is a participant because the column quotes her statement directly. Calder & Voss is quoted only inside the mayor's quote and is not treated as a participant. The columnist's claim about the firm's incentive is reported as the columnist's argument, not as a finding about the firm."]
+  }
+}

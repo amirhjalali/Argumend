@@ -6,8 +6,10 @@
  * `__fixtures__/flagship-cruxes.baseline.json` was captured from the engine
  * on the commit before any ledger code landed. If a deliberate GRAPH edit
  * changes a flagship's ranking, regenerate it with
- *   UPDATE_CRUX_BASELINE=1 bunx vitest run lib/crux/ledgerRegression.test.ts
+ *   UPDATE_CRUX_BASELINE=1 bun run test:ci lib/crux/ledgerRegression.test.ts
  * and review the diff in the same PR. A ledger change must never require it.
+ * The 2026-10-25 integration records the propagation nonconvergence warning
+ * already emitted by the reliability engine, without changing scores or order.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";

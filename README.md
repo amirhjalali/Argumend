@@ -177,6 +177,12 @@ no build-time flag is involved. Without it, `/analyze` runs only the offline map
 Publishing unlisted `/d/<slug>` reports also requires `ENABLE_DISAGREEMENT_PUBLISHING`,
 `REPORT_PUBLICATION_SECRET`, and `DATABASE_URL`.
 Private diagnoses retain grounded quotations within their individual limits.
+Diagnosis headings and resolution conditions follow the displayed primary crux.
+Reports with opposed positions but no supporting claims are marked as insufficient
+context. Statements without grounded quotations are not presented as explicit
+source positions or common ground, and paraphrases are not styled as quotations.
+Evidence-state labels describe what the submitted source provides; they do not
+claim independent verification of its evidence.
 Publishing and reading a stored public report also enforce the combined
 `1_500` character quotation limit. Exceeding that publication limit does not
 discard an otherwise valid private diagnosis.
@@ -399,6 +405,25 @@ diagnosis, Jev, publishing, or metric logging during these checks. Build with
 public live/auth/Jev flags disabled and analytics unset before running offline
 checks: runtime overrides cannot change `NEXT_PUBLIC_*` values already embedded
 in client assets.
+
+Review flagship evidence freshness and evaluate authored crux expectations with:
+
+```bash
+bun run freshness:argument
+bun run eval:crux
+```
+
+Freshness diagnostics report overdue reviews without changing public review dates.
+Missing or invalid manifests and references to absent graph nodes fail the command.
+The crux recall evaluation is a diagnostic with a quality threshold, so a failing
+result must be investigated rather than treated as a build failure or hidden.
+
+Three experimental crux options remain disabled by default:
+`CRUX_LEVER_REDUNDANCY_CLAIMS_ONLY`, `CRUX_LEVER_POSITION_AWARE_REACH`, and
+`CRUX_PROJECTION_SKIP_UNCONTESTED`. The first two change engine scoring for
+evaluation. The third filters explicitly uncontested claims from the displayed
+report cruxes while preserving engine order. Use `bun run eval:crux --levers` to
+compare configurations before considering any runtime change.
 
 ## Database Migrations
 

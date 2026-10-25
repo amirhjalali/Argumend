@@ -56,11 +56,11 @@ export function renderMarkdown(md: string): string {
     escapeRawHtmlTags(md)
       .replace(
         /^### (.+)$/gm,
-        '<h3 class="font-serif text-lg text-primary mt-10 mb-2">$1</h3>',
+        '<h3 class="font-serif text-lg text-primary dark:text-[var(--text-primary)] mt-10 mb-2">$1</h3>',
       )
       .replace(
         /^## (.+)$/gm,
-        '<h2 class="font-serif text-2xl sm:text-3xl text-primary mt-12 mb-4">$1</h2>',
+        '<h2 class="font-serif text-2xl sm:text-3xl text-primary dark:text-[var(--text-primary)] mt-12 mb-4">$1</h2>',
       ),
   );
 
@@ -88,15 +88,15 @@ export function renderMarkdown(md: string): string {
         const items = lines
           .map((l) => `<li>${l.replace(/^[-*]\s+/, "")}</li>`)
           .join("");
-        return `<ul class="list-disc pl-6 mb-6 space-y-1 leading-[1.8] text-primary">${items}</ul>`;
+        return `<ul class="list-disc pl-6 mb-6 space-y-1 leading-[1.8] text-primary dark:text-[var(--text-primary)]">${items}</ul>`;
       }
       if (isOl) {
         const items = lines
           .map((l) => `<li>${l.replace(/^\d+\.\s+/, "")}</li>`)
           .join("");
-        return `<ol class="list-decimal pl-6 mb-6 space-y-1 leading-[1.8] text-primary">${items}</ol>`;
+        return `<ol class="list-decimal pl-6 mb-6 space-y-1 leading-[1.8] text-primary dark:text-[var(--text-primary)]">${items}</ol>`;
       }
-      return `<p class="mb-6 leading-[1.8] text-primary">${trimmed.replace(
+      return `<p class="mb-6 leading-[1.8] text-primary dark:text-[var(--text-primary)]">${trimmed.replace(
         /\n/g,
         "<br/>",
       )}</p>`;

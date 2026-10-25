@@ -199,16 +199,15 @@ describe("projectClaimStakes", () => {
     expect(result.groundedQuoteCount).toBe(0);
   });
 
-  it("mints an unattributed fallback stake when the primary crux has none", () => {
+  it("never mints a stake with no participant when the primary crux has none", () => {
+    // A stake is a participant's commitment. One with no participant, role
+    // "unclear" and the report's question as its conclusion is not a finding
+    // about the source; it was reaching readers in the accountability box.
+    // The gap is still recorded as a warning for diagnostics.
     const result = project(extraction({ stakes: [] }), ["c-1"]);
-    const fallback = result.accountability.stakes.find(
-      (item) => item.id === "stake-primary-crux-fallback",
-    );
-    expect(fallback).toBeDefined();
-    expect(fallback?.participantId).toBeUndefined();
-    expect(fallback?.role).toBe("unclear");
-    expect(fallback?.basis).toBe("unstated");
-    expect(fallback?.diagnostic).toBe("unclear");
+    expect(result.accountability.stakes).toHaveLength(0);
+    expect(result.accountability.stakes.every((item) => item.participantId)).toBe(true);
+    expect(result.warnings.some((warning) => /primary crux/i.test(warning))).toBe(true);
     expect(result.accountability.headline).toBe("The source does not say what would change.");
   });
 

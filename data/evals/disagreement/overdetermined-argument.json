@@ -4,7 +4,7 @@
   "source": "Vera: We should switch to the four-day week; our output per hour is already the highest in the sector.\nHugo: Output per hour is high because we cut training, not because of any schedule magic.\nVera: Even if the training cuts explain all of it, I would still switch because burnout is unsustainable.",
   "allowedPatterns": [
     "mixed-disagreement",
-    "causal-model-split"
+    "value-conflict"
   ],
   "expectCrux": true,
   "minPositions": 2,

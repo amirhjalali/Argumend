@@ -135,9 +135,8 @@ function normalizeQuoteText(quote: string): string {
  *
  * Selection: every stake attached to a ranked crux claim first (in extraction
  * order), then remaining hinge/material stakes, capped at the ledger limit.
- * If the primary crux has no stake at all, one application-generated stake is
- * minted with NO participant attribution — it is our question about the
- * source, not the participant's commitment.
+ * If the primary crux has no participant stake, its absence is recorded in
+ * diagnostics. The application does not invent a commitment for the ledger.
  *
  * Coverage accounting: a stake quote identical (after whitespace folding) to
  * one already counted for another object is grounded for display but NOT
@@ -205,35 +204,10 @@ export function projectClaimStakes(input: {
     });
   }
 
-  // The primary crux carries the report; a stake-less primary crux would leave
-  // the reader with a hinge and no question attached to it. Mint a neutral,
-  // unattributed one rather than letting the model's silence stand as data.
-  const primaryStaked =
-    primaryCruxClaimId !== undefined &&
-    projected.some((stake) => stake.claimId === primaryCruxClaimId);
-  if (primaryCruxClaimId && !primaryStaked && projected.length < DISAGREEMENT_LIMITS.maxStakesInLedger) {
-    const claim = claimsById.get(primaryCruxClaimId);
-    if (claim) {
-      const usedIds = new Set(projected.map((stake) => stake.id));
-      const fallbackBase = "stake-primary-crux-fallback";
-      let fallbackId = fallbackBase;
-      for (let suffix = 2; usedIds.has(fallbackId); suffix += 1) {
-        fallbackId = `${fallbackBase}-${suffix}`;
-      }
-      warnings.push("Minted fallback stake for the primary crux claim.");
-      projected.unshift({
-        id: fallbackId,
-        claimId: primaryCruxClaimId,
-        claim: claim.statement,
-        targetConclusion: extraction.mainQuestion,
-        role: "unclear",
-        ifFalseEffect: "not-stated",
-        consequence: "The source does not state what changes if this claim is false.",
-        basis: "unstated",
-        diagnostic: "unclear",
-        grounding: [],
-      });
-    }
+  // A missing participant commitment is diagnostic information, not a stake
+  // the application can invent on the participant's behalf.
+  if (primaryCruxClaimId && !projected.some((stake) => stake.claimId === primaryCruxClaimId)) {
+    warnings.push("No participant stake attached to the primary crux claim.");
   }
 
   const ledger = projected.slice(0, DISAGREEMENT_LIMITS.maxStakesInLedger);

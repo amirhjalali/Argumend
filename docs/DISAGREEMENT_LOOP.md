@@ -173,3 +173,68 @@ DISAGREEMENT_LIVE_EVAL=true tsx scripts/eval-disagreement.ts   # same fixtures, 
 - It does not match diagnoses onto the topic library. Attaching `topicId` and
   `claimMatches` to real maps is Phase 4 in the spec and unchanged by this work.
 - It does not replace the human checkpoints. It produces the material they need.
+
+## 5. Rate limiting
+
+`POST /api/disagreements/analyze` limits anonymous callers to 3 analyses per
+hour and 10 per day, keyed by a hashed client IP (spec §11.3). Both windows are
+applied on every request. A denied request returns `429` with `Retry-After`
+(whole seconds), `X-RateLimit-Remaining`, and the typed `RATE_LIMITED` body.
+The raw IP is never logged and never reaches the limiter; the handler hashes it
+first.
+
+### The interface
+
+The limiter sits behind a small contract in `lib/disagreement/rateLimiter.ts`:
+
+```ts
+interface RateLimiter {
+  check(key: string): Promise<RateLimitDecision>;
+}
+
+interface RateLimitDecision {
+  allowed: boolean;   // false when any window is exhausted
+  remaining: number;  // requests left in the tightest window
+  resetAt: number;    // epoch ms; the latest reset across windows
+}
+```
+
+`check` records one request for `key` and consumes every configured window,
+including on calls it denies. The handler in `lib/disagreement/analyzeHandler.ts`
+takes a `RateLimiter` through `createDisagreementAnalyzeHandler({ rateLimiter })`;
+the route file exports the handler built with the default instance. Tests
+inject a stub to pin the `429` contract without touching shared state.
+
+### The MVP boundary: per-process only
+
+The only implementation is `InMemoryRateLimiter`, which wraps the existing
+`lib/rate-limit` Map. Counters live in the memory of the Node process that
+served the request. That means:
+
+- Two app instances behind one load balancer each keep their own counters, so a
+  client can get roughly `N x` the intended budget across `N` instances.
+- A restart or redeploy resets every counter.
+- Nothing is shared with the feedback endpoint or the legacy `/api/analyze`
+  limiter beyond living in the same Map.
+
+This is a deliberate MVP boundary per spec §11.3: use the existing in-memory
+limiter, add the interface, and do not introduce Redis or any new dependency.
+Provider spend is capped outside the application. Replace the limiter before
+any broad, multi-instance rollout.
+
+### What a shared implementation would need
+
+Only the interface contract is defined here. A shared `RateLimiter` must:
+
+- Implement `check(key)` so that one call atomically increments every window
+  and returns the combined decision (increment-then-compare, not read-then-write).
+- Return `resetAt` as an absolute epoch timestamp so `Retry-After` is computed
+  the same way regardless of backend.
+- Treat `key` as opaque and never persist or log anything that could be
+  reversed into an IP.
+- Fail closed or fail open by explicit choice when the backing store is
+  unreachable; the handler does not catch limiter errors today.
+
+Swap it in by passing the new instance to `createDisagreementAnalyzeHandler`
+in `app/api/disagreements/analyze/route.ts`. The handler and its tests need no
+other change.

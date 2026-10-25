@@ -196,7 +196,7 @@ describe("participant identity normalization", () => {
     });
   });
 
-  it("keeps authored stake IDs distinct from the generated primary-crux fallback", async () => {
+  it("keeps authored stake IDs without minting an unattributed primary-crux fallback", async () => {
     const extraction = structuredClone(example.extraction);
     const baseline = await analyzeDisagreement({
       content: source, contentType: example.contentType, requestId: "stake-identity-baseline",
@@ -217,7 +217,8 @@ describe("participant identity normalization", () => {
     expect(parseDisagreementReport(result.report).success).toBe(true);
     const stakes = result.report.accountability!.stakes;
     expect(new Set(stakes.map((stake) => stake.id)).size).toBe(stakes.length);
-    expect(stakes[0]).toMatchObject({ id: "stake-primary-crux-fallback-3", basis: "unstated" });
-    expect(stakes.slice(1).every((stake) => stake.basis === "explicit")).toBe(true);
+    expect(stakes).toHaveLength(2);
+    expect(stakes.map((stake) => stake.id)).toEqual(["stake-primary-crux-fallback", "stake-primary-crux-fallback-2"]);
+    expect(stakes.every((stake) => stake.basis === "explicit" && stake.participantId === "maya")).toBe(true);
   });
 });

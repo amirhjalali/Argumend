@@ -19,7 +19,7 @@ interface Fixture {
   extraction?: RawDisagreementExtractionV1;
 }
 
-const MIN_FILE_FIXTURES = 24;
+const MIN_FILE_FIXTURES = 54;
 const LIVE = process.env.DISAGREEMENT_LIVE_EVAL === "true";
 
 function pad(source: string): string {

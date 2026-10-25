@@ -71,7 +71,7 @@ function ReferenceEntry({ citation, num }: { citation: Citation; num: number }) 
               href={citation.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="-my-3 inline-flex min-h-11 min-w-11 items-center gap-1 text-deep underline decoration-deep/30 underline-offset-2 hover:text-deep-dark dark:text-accent-text"
+              className="-my-3 inline-flex min-h-11 min-w-11 items-center gap-1 text-deep underline decoration-deep/30 underline-offset-2 hover:text-deep-dark dark:hover:text-accent-text dark:text-accent-text"
             >
               Link
               <ExternalLink className="h-3 w-3" aria-hidden="true" />

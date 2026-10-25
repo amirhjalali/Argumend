@@ -43,12 +43,24 @@ function payload(extra: Record<string, unknown> = {}) {
 describe("POST /api/disagreements/[slug]/feedback", () => {
   beforeAll(async () => {
     const example = DISAGREEMENT_FEW_SHOT_EXAMPLES[1];
+    const extraction = structuredClone(example.extraction);
+    extraction.commonGroundCandidates = [{
+      statement: "Workers should earn a stable wage.",
+      participantIds: ["alex", "blair"],
+      basis: "explicit",
+      confidence: "high",
+      groundingQuotes: [
+        { quote: "We both want workers to earn a stable wage.", participantId: "alex" },
+        { quote: "Yes, workers should earn a stable wage.", participantId: "blair" },
+      ],
+    }];
     const bundle = await analyzeDisagreement({
-      content: example.source,
+      content: `${example.source}\nAlex: We both want workers to earn a stable wage.\nBlair: Yes, workers should earn a stable wage.`,
       requestId: "feedback-fixture",
-      provider: new FakeDisagreementProvider(example.extraction),
+      provider: new FakeDisagreementProvider(extraction),
     });
     report = bundle.report;
+    expect(report.commonGround).toHaveLength(1);
   });
 
   beforeEach(() => {

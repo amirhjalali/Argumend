@@ -1,0 +1,120 @@
+{
+  "id": "duplicate-speakers-case-variants",
+  "contentType": "conversation",
+  "source": "Priya: We should extend the sprint by a week. Eleven tickets are still open and four of them are large.\nTom: We should close the sprint on schedule. Most of those eleven are half a day each; the estimates are stale.\nPRIYA: The estimates were re-pointed on Monday. The four large ones are still eight points apiece.\ntom: Re-pointed by whom? I looked at the board this morning and the four large tickets still show the January sizes.\npriya: Then the board did not save. I sat in the re-pointing session and wrote the numbers down.\nTOM: If the numbers on the board are wrong, that is the first thing to fix before we talk about extending anything.\nPriya: Agreed on that much. But if the eight-point sizes are right, a week is the minimum.",
+  "allowedPatterns": ["single-empirical-crux"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Should the sprint be extended by a week?",
+    "participants": [
+      { "id": "priya", "label": "Priya", "kind": "named" },
+      { "id": "priya-caps", "label": "PRIYA", "kind": "speaker-label" },
+      { "id": "tom", "label": "Tom", "kind": "named" },
+      { "id": "tom-lower", "label": "tom", "kind": "speaker-label" }
+    ],
+    "positions": [
+      {
+        "id": "pos-extend-sprint",
+        "label": "Extend the sprint",
+        "participantIds": ["priya", "priya-caps"],
+        "thesis": "The sprint should be extended by a week because four large tickets remain at eight points each.",
+        "steelman": "If the re-pointed sizes are correct, eleven open tickets including four eight-point items cannot close on schedule, and a week is the minimum honest extension.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We should extend the sprint by a week.", "participantId": "priya" },
+          { "quote": "The four large ones are still eight points apiece.", "participantId": "priya" }
+        ]
+      },
+      {
+        "id": "pos-close-on-schedule",
+        "label": "Close on schedule",
+        "participantIds": ["tom", "tom-lower"],
+        "thesis": "The sprint should close on schedule because the remaining tickets are small and the large estimates are stale.",
+        "steelman": "The board shows the January sizes; until someone demonstrates the re-pointing happened, the visible estimates say the work fits.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "We should close the sprint on schedule.", "participantId": "tom" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-tickets-repointed-monday",
+        "statement": "The four large tickets were re-pointed on Monday to eight points each.",
+        "participantIds": ["priya"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-extend-sprint", "relation": "supports" },
+          { "positionId": "pos-close-on-schedule", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["priya"],
+        "disputedByParticipantIds": ["tom"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Check the re-pointing session notes against the board history."
+        },
+        "groundingQuotes": [
+          { "quote": "The estimates were re-pointed on Monday.", "participantId": "priya" },
+          { "quote": "the four large tickets still show the January sizes", "participantId": "tom" }
+        ]
+      },
+      {
+        "id": "claim-remaining-tickets-small",
+        "statement": "Most of the eleven open tickets are about half a day of work each.",
+        "participantIds": ["tom"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-close-on-schedule", "relation": "supports" },
+          { "positionId": "pos-extend-sprint", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["tom"],
+        "disputedByParticipantIds": ["priya"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Confirm current sizes for all eleven open tickets."
+        },
+        "groundingQuotes": [
+          { "quote": "Most of those eleven are half a day each", "participantId": "tom" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "The board's estimates must be corrected before any decision about extending the sprint.",
+        "participantIds": ["tom", "priya"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "that is the first thing to fix before we talk about extending anything", "participantId": "tom" },
+          { "quote": "Agreed on that much.", "participantId": "priya" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-ticket-sizes",
+        "question": "Are the four large tickets currently sized at eight points each?",
+        "type": "empirical",
+        "summary": "Priya says the tickets were re-pointed to eight on Monday; Tom says the board still shows the January sizes.",
+        "claimIds": ["claim-tickets-repointed-monday", "claim-remaining-tickets-small"],
+        "participantStances": [
+          { "participantId": "priya", "positionId": "pos-extend-sprint", "stance": "Yes, re-pointed Monday; the board failed to save." },
+          { "participantId": "tom", "positionId": "pos-close-on-schedule", "stance": "The board shows January sizes; show me the re-pointing." }
+        ],
+        "resolutionCondition": "Reconcile the re-pointing session record with the board.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["The transcript labels the same two speakers inconsistently (Priya, PRIYA, priya; Tom, tom, TOM). They are treated as two people, not six."]
+  }
+}

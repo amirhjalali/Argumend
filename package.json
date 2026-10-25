@@ -23,6 +23,8 @@
     "corpus:disagreement": "tsx scripts/disagreement/run-corpus.ts",
     "corpus:disagreement:live": "tsx scripts/disagreement/run-corpus.ts --provider cli",
     "metric:gap": "tsx scripts/gap-metric-report.ts",
+    "freshness:argument": "tsx scripts/argument-freshness.ts",
+    "eval:crux": "tsx scripts/validate-crux-recall.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",

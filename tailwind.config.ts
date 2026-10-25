@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import type { PluginUtils } from "tailwindcss/types/config";
 
 const config: Config = {
   darkMode: "class",
@@ -19,6 +20,13 @@ const config: Config = {
     "!./lib/**/*.test.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // Keep the card surface color from overriding the shadow-card geometry.
+    boxShadowColor: ({ theme }: PluginUtils) =>
+      Object.fromEntries(
+        Object.entries(theme("colors") as Record<string, string | Record<string, string>>).filter(
+          ([name]) => name !== "card",
+        ),
+      ),
     extend: {
       colors: {
         // Semantic surfaces use channel variables so Tailwind's opacity

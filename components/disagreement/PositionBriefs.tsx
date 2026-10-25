@@ -22,8 +22,11 @@ export function PositionBriefs({
     <ReportSection
       id="positions"
       title="The positions"
-      lede="Each position is put at its strongest. Showing it is not endorsing it, and the strongest version is the report’s own wording, not a quote."
+      lede={report.positions.length > 0 ? "Each position is put at its strongest. Showing it is not endorsing it, and the strongest version is the report’s own wording, not a quote." : undefined}
     >
+      {report.positions.length === 0 ? (
+        <p className="font-serif text-lg text-[var(--text-secondary)]">No position could be established from this text.</p>
+      ) : null}
       <div className="divide-y divide-[var(--border-divider)]">
         {report.positions.map((position) => {
           const speaker = position.participantIds

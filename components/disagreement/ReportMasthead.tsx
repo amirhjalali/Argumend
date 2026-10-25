@@ -40,10 +40,12 @@ export function ReportMasthead({
       <p className="mt-5 max-w-[36rem] font-serif text-xl leading-[1.5] text-[var(--text-secondary)] sm:text-[1.375rem]">
         {report.diagnosis.insight}
       </p>
+      {report.positions.length > 0 ? (
       <p className="mt-6 max-w-[36rem] font-sans text-[0.9375rem] leading-relaxed text-[var(--text-primary)]">
         {kind ? `${kind} ` : ""}
         {resolvabilitySentence(report.diagnosis.resolvability)}
       </p>
+      ) : null}
       <p className="mt-2 font-sans text-sm text-[var(--text-muted)]">
         Argumend does not say who is right.
       </p>

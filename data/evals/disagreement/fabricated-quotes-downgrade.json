@@ -1,0 +1,109 @@
+{
+  "id": "fabricated-quotes-downgrade",
+  "contentType": "conversation",
+  "source": "Ravi: The night shift should go back to eight hours. Twelve-hour shifts are why the error count doubled since spring.\nSuki: The error count doubled because we switched to the new labeling system in May, the same month the shifts changed. The shift length is a coincidence.\nRavi: The errors cluster in the last three hours of each shift. That is a fatigue pattern, not a software pattern.\nSuki: The last three hours are also when the label printer queue backs up. You are reading fatigue into a bottleneck.",
+  "allowedPatterns": ["insufficient-context"],
+  "expectCrux": false,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "What caused the night-shift error count to double since spring?",
+    "participants": [
+      { "id": "ravi", "label": "Ravi", "kind": "named" },
+      { "id": "suki", "label": "Suki", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-shift-length",
+        "label": "Twelve-hour shifts cause the errors",
+        "participantIds": ["ravi"],
+        "thesis": "Errors doubled because twelve-hour shifts produce fatigue, so the night shift should return to eight hours.",
+        "steelman": "Errors cluster in the final three hours of every shift, which is the signature of fatigue rather than of a system change.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Twelve-hour shifts are why the error count doubled since spring.", "participantId": "ravi" },
+          { "quote": "Fatigue is the only explanation that fits the data we have collected.", "participantId": "ravi" },
+          { "quote": "Every study of shift length says the same thing.", "participantId": "ravi" }
+        ]
+      },
+      {
+        "id": "pos-labeling-system",
+        "label": "The new labeling system causes the errors",
+        "participantIds": ["suki"],
+        "thesis": "Errors doubled because the labeling system changed in May, and the late-shift clustering matches the printer queue backing up.",
+        "steelman": "Two changes happened in the same month; the one with a documented bottleneck at exactly the hours where errors cluster is the software, not the schedule.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "The labeling rollout notes show a spike in reprints from day one.", "participantId": "suki" },
+          { "quote": "We measured the queue and it peaks at hour nine.", "participantId": "suki" },
+          { "quote": "Nobody on the day shift saw any change in error rate.", "participantId": "suki" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-errors-cluster-late-shift",
+        "statement": "Errors cluster in the last three hours of each shift.",
+        "participantIds": ["ravi", "suki"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-shift-length", "relation": "supports" },
+          { "positionId": "pos-labeling-system", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ravi", "suki"],
+        "disputedByParticipantIds": [],
+        "confidence": "high",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Error timestamps by hour of shift."
+        },
+        "groundingQuotes": [
+          { "quote": "The errors cluster in the last three hours of each shift.", "participantId": "ravi" }
+        ]
+      },
+      {
+        "id": "claim-printer-queue-backs-up",
+        "statement": "The label printer queue backs up in the same late-shift hours where errors cluster.",
+        "participantIds": ["suki"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-labeling-system", "relation": "supports" },
+          { "positionId": "pos-shift-length", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["suki"],
+        "disputedByParticipantIds": ["ravi"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Printer queue logs by hour compared with error timestamps."
+        },
+        "groundingQuotes": [
+          { "quote": "The last three hours are also when the label printer queue backs up.", "participantId": "suki" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-cause-of-errors",
+        "question": "Are the late-shift errors caused by fatigue or by the label printer bottleneck?",
+        "type": "causal",
+        "summary": "Both accept the late-shift clustering; Ravi reads it as fatigue from twelve-hour shifts, Suki as the printer queue from the May labeling change.",
+        "claimIds": ["claim-errors-cluster-late-shift", "claim-printer-queue-backs-up"],
+        "participantStances": [
+          { "participantId": "ravi", "positionId": "pos-shift-length", "stance": "Fatigue; the clustering is the signature." },
+          { "participantId": "suki", "positionId": "pos-labeling-system", "stance": "The printer queue; same hours, different cause." }
+        ],
+        "resolutionCondition": "Compare error timing with printer queue logs and with shift length on days the queue was clear.",
+        "confidence": "high",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["This fixture deliberately supplies position quotes that do not appear in the source, standing in for a model that invented supporting sentences. Every invented quote must be dropped and the diagnosis downgraded rather than repaired."]
+  }
+}

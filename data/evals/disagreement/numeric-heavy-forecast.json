@@ -1,0 +1,156 @@
+{
+  "id": "numeric-heavy-forecast",
+  "contentType": "conversation",
+  "source": "Ilse: Enrollment at Birchwood Elementary will hit 1,240 by 2030. The district grew 3.1% a year for the last five years, and the 640 new units on Quarry Road come online in 2027. We need the second wing funded now.\nRaj: I get 980 by 2030. The 3.1% was driven by two subdivisions that are now built out, and the Quarry Road units are 1- and 2-bedroom apartments averaging 0.4 school-age children per unit, not the 0.9 you are using for single-family homes.\nIlse: The 0.4 comes from the county's 2019 study. Rents on Quarry Road are 22% below the county median, and cheaper units attract families. I would put it at 0.7 at least.\nRaj: 0.7 still only gets you to 1,110. And the district's own kindergarten cohort fell from 168 to 151 this year. That is the leading indicator, and it is pointing down.\nIlse: One cohort is noise. The 2023 cohort was 172 and the 2022 cohort was 149. It bounces.\nRaj: Then average the three: 163. Multiply by seven grades and you get roughly 1,140 without Quarry Road, and the built-out subdivisions will shed students as those families age out. I do not see 1,240 on any assumption I can defend.",
+  "allowedPatterns": ["forecast-split"],
+  "expectCrux": true,
+  "minPositions": 2,
+  "maxPositions": 2,
+  "extraction": {
+    "mainQuestion": "Will Birchwood Elementary enrollment reach about 1,240 by 2030 and justify a second wing now?",
+    "participants": [
+      { "id": "ilse", "label": "Ilse", "kind": "named" },
+      { "id": "raj", "label": "Raj", "kind": "named" }
+    ],
+    "positions": [
+      {
+        "id": "pos-high-growth",
+        "label": "Enrollment reaches 1,240",
+        "participantIds": ["ilse"],
+        "thesis": "Continued 3.1% annual growth plus the Quarry Road units will push enrollment to about 1,240 by 2030, so the second wing should be funded now.",
+        "steelman": "Five years of steady growth is the base rate, and below-median rents on Quarry Road will draw more families than the county's 2019 per-unit figure assumes.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "Enrollment at Birchwood Elementary will hit 1,240 by 2030.", "participantId": "ilse" },
+          { "quote": "We need the second wing funded now.", "participantId": "ilse" }
+        ]
+      },
+      {
+        "id": "pos-lower-growth",
+        "label": "Enrollment stays near 980 to 1,140",
+        "participantIds": ["raj"],
+        "thesis": "The historical growth came from subdivisions that are now built out, the Quarry Road units yield few school-age children, and the kindergarten cohort is shrinking, so enrollment lands well below 1,240.",
+        "steelman": "The drivers behind the 3.1% rate have ended, the leading indicator is down, and even generous per-unit assumptions do not reach 1,240.",
+        "explicitness": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "I get 980 by 2030.", "participantId": "raj" },
+          { "quote": "I do not see 1,240 on any assumption I can defend.", "participantId": "raj" }
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-quarry-road-yield",
+        "statement": "Quarry Road units will yield at least 0.7 school-age children per unit because their rents are 22% below the county median.",
+        "participantIds": ["ilse"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-high-growth", "relation": "supports" },
+          { "positionId": "pos-lower-growth", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ilse"],
+        "disputedByParticipantIds": ["raj"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "Count school-age children per Quarry Road unit after the 2027 lease-up."
+        },
+        "groundingQuotes": [
+          { "quote": "Rents on Quarry Road are 22% below the county median, and cheaper units attract families.", "participantId": "ilse" },
+          { "quote": "averaging 0.4 school-age children per unit", "participantId": "raj" }
+        ]
+      },
+      {
+        "id": "claim-growth-rate-persists",
+        "statement": "The district's 3.1% annual growth rate will continue through 2030.",
+        "participantIds": ["ilse"],
+        "epistemicType": "predictive",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-high-growth", "relation": "supports" },
+          { "positionId": "pos-lower-growth", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["ilse"],
+        "disputedByParticipantIds": ["raj"],
+        "confidence": "medium",
+        "resolution": {
+          "kind": "future-observable",
+          "condition": "District enrollment counts for the next three years."
+        },
+        "groundingQuotes": [
+          { "quote": "The district grew 3.1% a year for the last five years", "participantId": "ilse" },
+          { "quote": "The 3.1% was driven by two subdivisions that are now built out", "participantId": "raj" }
+        ]
+      },
+      {
+        "id": "claim-kindergarten-cohort-signal",
+        "statement": "The drop in the kindergarten cohort from 168 to 151 is a leading indicator of declining enrollment rather than noise.",
+        "participantIds": ["raj"],
+        "epistemicType": "empirical",
+        "explicitness": "explicit",
+        "stanceByPosition": [
+          { "positionId": "pos-lower-growth", "relation": "supports" },
+          { "positionId": "pos-high-growth", "relation": "opposes" }
+        ],
+        "acceptedByParticipantIds": ["raj"],
+        "disputedByParticipantIds": ["ilse"],
+        "confidence": "low",
+        "resolution": {
+          "kind": "existing-evidence",
+          "condition": "Kindergarten cohort sizes over enough years to separate trend from year-to-year variation."
+        },
+        "groundingQuotes": [
+          { "quote": "the district's own kindergarten cohort fell from 168 to 151 this year", "participantId": "raj" },
+          { "quote": "One cohort is noise.", "participantId": "ilse" }
+        ]
+      }
+    ],
+    "claimRelations": [],
+    "commonGroundCandidates": [
+      {
+        "statement": "The district grew about 3.1% a year over the last five years, 640 Quarry Road units arrive in 2027, and recent kindergarten cohorts were 149, 172, 168, and 151.",
+        "participantIds": ["ilse", "raj"],
+        "basis": "explicit",
+        "confidence": "high",
+        "groundingQuotes": [
+          { "quote": "the 640 new units on Quarry Road come online in 2027", "participantId": "ilse" },
+          { "quote": "The 2023 cohort was 172 and the 2022 cohort was 149.", "participantId": "ilse" }
+        ]
+      }
+    ],
+    "disagreementCandidates": [
+      {
+        "id": "disagreement-2030-enrollment",
+        "question": "Which assumptions about growth and per-unit yield will hold through 2030?",
+        "type": "predictive",
+        "summary": "Ilse extends the five-year growth rate and raises the per-unit yield on Quarry Road; Raj treats the growth as exhausted and reads the kindergarten cohort as a downturn.",
+        "claimIds": ["claim-quarry-road-yield", "claim-growth-rate-persists", "claim-kindergarten-cohort-signal"],
+        "participantStances": [
+          { "participantId": "ilse", "positionId": "pos-high-growth", "stance": "Growth continues and Quarry Road yields at least 0.7 per unit." },
+          { "participantId": "raj", "positionId": "pos-lower-growth", "stance": "Growth drivers are built out and the cohort is shrinking." }
+        ],
+        "resolutionCondition": "Observe enrollment and Quarry Road household composition after 2027.",
+        "confidence": "high",
+        "groundingQuotes": []
+      },
+      {
+        "id": "disagreement-cohort-noise",
+        "question": "Is the kindergarten cohort decline a trend or noise?",
+        "type": "empirical",
+        "summary": "Raj reads the 168 to 151 drop as a leading indicator; Ilse points to the 149 and 172 cohorts as evidence it bounces.",
+        "claimIds": ["claim-kindergarten-cohort-signal"],
+        "participantStances": [
+          { "participantId": "raj", "positionId": "pos-lower-growth", "stance": "Leading indicator, pointing down." },
+          { "participantId": "ilse", "positionId": "pos-high-growth", "stance": "One cohort is noise; it bounces." }
+        ],
+        "resolutionCondition": "A longer cohort series with a trend test.",
+        "confidence": "medium",
+        "groundingQuotes": []
+      }
+    ],
+    "caveats": ["Both speakers agree on the historical figures and differ on which assumptions carry forward. None of the numbers are verified."]
+  }
+}
