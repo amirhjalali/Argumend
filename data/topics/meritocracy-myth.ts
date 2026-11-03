@@ -47,6 +47,19 @@ export const meritocracyMythData = {
         "If the current system falls short of meritocratic ideals, should we abandon the concept entirely or invest in removing barriers so merit can actually determine outcomes?",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "A child born into the bottom fifth of U.S. incomes has about a 7.5% chance of reaching the top fifth. The share of Americans who out-earn their parents fell from about 90% for those born in 1940 to about 50% for those born in 1980. Both figures come from Raj Chetty's research teams, and neither side disputes them. The fight is over how much of where people end up comes from background, and how much from talent and effort.",
+    confidence: 84,
+    source:
+      "Chetty et al., 'The fading American dream', Science (2017), and Opportunity Insights mobility estimates",
+    sourceUrl:
+      "https://doi.org/10.1126/science.aal4617",
+  },
+  simple_case: [
+    "The answer bears on admissions rules such as legacy preferences, on how schools are funded, and on what government should do to widen opportunity.",
+  ],
   pillars: [
     {
       id: "social-mobility-data",

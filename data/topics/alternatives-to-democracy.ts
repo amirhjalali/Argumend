@@ -45,6 +45,19 @@ export const alternativesToDemocracyData = {
         "Singapore and China demonstrate that expert-led governance can produce rapid economic development — but at the cost of civil liberties. Is prosperity without political freedom a viable and stable long-term social contract, or does the absence of accountability inevitably lead to corruption and abuse?",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In Pew's 2024 survey, satisfaction with democracy fell to 36% across 12 high-income democracies. V-Dem counted 44 countries becoming more autocratic at the end of 2025, against 18 becoming more democratic. Both sides accept those numbers. The fight is over whether democracies can reform fast enough for problems like climate change and AI, and whether any alternative would do better.",
+    confidence: 86,
+    source:
+      "Pew Research Center (June 2024); V-Dem Institute, Democracy Report 2026",
+    sourceUrl:
+      "https://www.pewresearch.org/short-reads/2024/06/18/satisfaction-with-democracy-has-declined-in-recent-years-in-high-income-nations/",
+  },
+  simple_case: [
+    "The answer bears on proposals to give more power to citizen assemblies, experts or long-term bodies, and on how much patience voters keep with the system they have.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Democratic Dysfunction

@@ -45,6 +45,19 @@ export const masculinityCrisisData = {
         "The tension between 'toxic masculinity' discourse and men's lived experience of purpose, protection, and provision is real. Can society articulate a positive vision of masculinity that honors traditionally valued traits while discarding genuinely harmful ones, without condescension?",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In the U.S., men die by suicide at nearly four times the rate of women, a gap that has run between three and four and a half times for more than a century. Men now earn about 42% of bachelor's degrees. Both sides accept those numbers. The fight is over whether they add up to a crisis of men as men, or a crisis of class that hits more men.",
+    confidence: 88,
+    source:
+      "CDC/NCHS Data Brief No. 464 (2023); American Foundation for Suicide Prevention; National Student Clearinghouse",
+    sourceUrl:
+      "https://www.cdc.gov/nchs/products/databriefs/db464.htm",
+  },
+  simple_case: [
+    "The answer bears on whether help for struggling young men should come as jobs and training, as cultural change, or both, and on whether either political side has an offer that reaches them.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Empirical Crisis Indicators
