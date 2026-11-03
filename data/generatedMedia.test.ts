@@ -1,7 +1,9 @@
 import { existsSync, readFileSync } from "fs";
 import path from "path";
 import { describe, expect, it } from "vitest";
-import { generatedMedia, getGeneratedMedia } from "./generatedMedia";
+import { articleSummaries } from "./blogIndex";
+import { generatedMedia, getGeneratedMedia, type GeneratedMediaKind } from "./generatedMedia";
+import { guides } from "./guides";
 import { topicSummaries } from "./topicIndex";
 
 describe("generatedMedia", () => {
@@ -28,11 +30,21 @@ describe("generatedMedia", () => {
     }
   });
 
-  it("registers topic heroes only for maps that exist, as real JPEGs of the declared size", () => {
-    const topicIds = new Set(topicSummaries.map((topic) => topic.id));
-    for (const item of generatedMedia.filter((media) => media.kind === "topic")) {
-      expect(topicIds.has(item.id), `topic:${item.id} is not a map id`).toBe(true);
+  it("registers heroes only for maps, guides and posts that exist", () => {
+    const ids: Record<GeneratedMediaKind, Set<string>> = {
+      topic: new Set(topicSummaries.map((topic) => topic.id)),
+      guide: new Set(guides.map((guide) => guide.id)),
+      blog: new Set(articleSummaries.map((article) => article.slug)),
+    };
+    const folders: Record<GeneratedMediaKind, string> = { topic: "topics", guide: "guides", blog: "blog" };
+    for (const item of generatedMedia) {
+      expect(ids[item.kind].has(item.id), `${item.kind}:${item.id} does not exist`).toBe(true);
+      expect(item.hero.src).toBe(`/images/generated/${folders[item.kind]}/${item.id}/hero.jpg`);
+    }
+  });
 
+  it("serves every hero as a real JPEG of the declared size", () => {
+    for (const item of generatedMedia) {
       const bytes = readFileSync(path.join(process.cwd(), "public", item.hero.src.slice(1)));
       expect(bytes[0], item.id).toBe(0xff);
       expect(bytes[1], item.id).toBe(0xd8);

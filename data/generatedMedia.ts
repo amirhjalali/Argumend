@@ -25,7 +25,9 @@ const basePrompt =
 // Topic-map heroes (round 15, GPT Image via Codex): the house prompt plus one
 // specific scene per map, held to the palette and kept calm. Saturated
 // orange/amber hues were pulled toward brick rust after generation, and the
-// files were saved as 1672x941 progressive JPEG at quality 82.
+// files were saved as 1672x941 progressive JPEG at quality 82. The guide and
+// blog heroes added the same day use the same prompt and processing, with a
+// scene drawn from each guide's or post's own content.
 const topicHeroStyle =
   "A few faint hairline ink dots and threads connect the motifs, subtle, never boxes or flowchart shapes. Restrained, desaturated palette of parchment cream, deep teal, muted brick rust, warm brown and stone grey; no amber, no orange, no gold, no bright red. Grown-up editorial mood, not a storybook. One clear focal motif, calm open parchment space, no human faces, no words, letters or numbers anywhere.";
 
@@ -62,6 +64,150 @@ export const generatedMedia = [
       ...IMAGE_DIMENSIONS,
       alt: "Three independent evidence paths converging on one verified point.",
       prompt: `${basePrompt} Three independent source paths converging on a verified point, triangulation and compass motifs.`,
+    },
+  },
+  {
+    kind: "guide",
+    id: "understanding-bias",
+    hero: {
+      src: "/images/generated/guides/understanding-bias/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Antique spectacles with one teal and one rust lens, the same sprig of leaves tinted differently through each, beside a balance scale with a small weight on one pan and a magnifying glass.",
+      prompt: topicHeroPrompt(
+        "A pair of antique reading spectacles on a writing desk, one lens tinted teal and one tinted rust, the same small sprig of leaves behind them seen through each lens in a different colour, a brass balance scale beside it with a small counterweight added to one pan, a magnifying glass. No people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "running-your-first-analysis",
+    hero: {
+      src: "/images/generated/guides/running-your-first-analysis/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A blank sheet laid on an unfolded parchment map, its corner touching a crimson mark where a teal path begins, with a compass and a pencil beside it.",
+      prompt: topicHeroPrompt(
+        "A single loose sheet of blank paper being laid onto a large unfolded parchment map of an argument landscape, its edge lining up with one marked path among many, a small crimson crux mark where the sheet meets the path, a teal compass and a pencil resting nearby. No readable writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "evaluating-source-credibility",
+    hero: {
+      src: "/images/generated/guides/evaluating-source-credibility/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Three springs pouring into three separate inkwells above a jeweller's loupe on old papers, two matching teal wax seals and a knotted rust thread winding away.",
+      prompt: topicHeroPrompt(
+        "An archivist's table with a jeweller's loupe resting on one old document, three separate springs feeding three separate inkwells, two matching teal wax seal impressions side by side, and a short straight thread from the document to a small crimson mark beside a long knotted thread that winds away. No writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "crux-test",
+    hero: {
+      src: "/images/generated/guides/crux-test/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A stone arch bridge over a calm river with a crimson keystone at its crown, a teal path and a rust path meeting on the arch, and loose stones on the bank.",
+      prompt: topicHeroPrompt(
+        "A stone arch bridge drawn in fine ink across a calm river, the single keystone at its crown picked out in crimson, a teal path and a rust path approaching from opposite banks and meeting on the arch, a few loose decorative stones lying on the bank that bear no load. No people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "bayesian-thinking",
+    hero: {
+      src: "/images/generated/guides/bayesian-thinking/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A brass balance tipping as teal pebbles are added to one pan, ghosted earlier positions of its beam above it and a bell curve shading from rust to teal behind.",
+      prompt: topicHeroPrompt(
+        "A brass balance scale on parchment with small teal pebbles being added one at a time to one pan, the beam tipping gradually, faint ghosted earlier positions of the beam showing a slow step-by-step shift, and a soft bell-shaped watercolour curve behind it sliding from rust toward teal. No numbers, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "argument-audit",
+    hero: {
+      src: "/images/generated/guides/argument-audit/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A pinned blank slip linked by rust threads to three separate source sketches, with an hourglass, a magnifying glass and a sliding rust-to-teal gauge on a desk.",
+      prompt: topicHeroPrompt(
+        "An inspector's desk with a single pinned paper slip, a small hourglass, a magnifying glass, and a fine thread traced from the slip back through three branching paths to three separate source documents, beside a small sliding gauge running from rust to teal. No writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "steelmanning-practice",
+    hero: {
+      src: "/images/generated/guides/steelmanning-practice/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A teal steel beam resting on an anvil beside a glowing forge, a hammer and tongs at rest, and a flimsy bundle of straw set aside on the floor.",
+      prompt: topicHeroPrompt(
+        "A blacksmith's anvil in a quiet forge with a teal-tempered steel beam laid across it, stronger than a flimsy bundle of straw set aside on the floor, soft rust embers glowing in the hearth, tongs and a hammer at rest, a small crimson crux mark. No people, no hands, no sparks of fire spraying.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "cognitive-bias-field-guide",
+    hero: {
+      src: "/images/generated/guides/cognitive-bias-field-guide/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A naturalist's plate of twelve pinned moths and beetles in teal, rust and brown, with a magnifying glass and a green field notebook beside it.",
+      prompt: topicHeroPrompt(
+        "A naturalist's field-guide plate of twelve distinct pinned moths and beetles arranged in a neat grid, each in muted teal, rust, brown and stone grey, a magnifying glass and a closed field notebook beside the plate. No labels, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "weighing-conflicting-evidence",
+    hero: {
+      src: "/images/generated/guides/weighing-conflicting-evidence/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A tall brass balance with a small stack of teal-bound books under a magnifying glass on one pan and a tall pile of loose rust pamphlets on the other, nearly level.",
+      prompt: topicHeroPrompt(
+        "A tall brass balance with a small dense block of teal-bound volumes on one pan and a tall loose pile of thin rust pamphlets on the other, the beam resting near level, a magnifying glass lying on the dense block, two study paths converging below. No writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "reading-confidence-like-a-forecaster",
+    hero: {
+      src: "/images/generated/guides/reading-confidence-like-a-forecaster/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A barometer with a blank dial, a weather vane and five glass jars of teal water filled to rising heights, rain clouds on the left and sunlight on the right.",
+      prompt: topicHeroPrompt(
+        "A weather forecaster's instrument table with a barometer, a wind vane and a row of small glass jars filled with teal water to different heights like calibration marks, a soft rain cloud and a patch of sunlight drawn across the sky behind them. No numerals on any dial, no people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "correlation-and-causation",
+    hero: {
+      src: "/images/generated/guides/correlation-and-causation/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Two potted plants growing side by side on a windowsill, each linked by a dotted line to the sun above, with a crossed-out dotted line running directly between them.",
+      prompt: topicHeroPrompt(
+        "Two potted plants growing tall side by side on a windowsill, their stems rising in parallel, a single sun above them sending a thread of light to each plant, a faint dotted line drawn directly between the two plants with a small crimson crux mark on it. No people.",
+      ),
+    },
+  },
+  {
+    kind: "guide",
+    id: "spotting-manufactured-doubt",
+    hero: {
+      src: "/images/generated/guides/spotting-manufactured-doubt/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Leather bellows puffing grey fog across a hillside where teal ribbons converge on one point, from which strings lead out to four small paper megaphones.",
+      prompt: topicHeroPrompt(
+        "A pair of old bellows puffing a soft grey fog across a clear landscape where several teal evidence paths converge on one point, the fog thinning to reveal the paths still meeting, and a cluster of small paper megaphones whose strings all trace back to one single root. No people, no smoke from cigarettes, no logos.",
+      ),
     },
   },
   {
@@ -252,6 +398,810 @@ export const generatedMedia = [
       ...IMAGE_DIMENSIONS,
       alt: "Two opposing economic node lattices meeting at a small crimson crux aperture.",
       prompt: `${basePrompt} Teal lattice of labour and growth nodes expanding from the left against a rust cluster of wage and absorption-capacity nodes pressing from the right, crimson crux aperture at the midpoint, no flags or borders.`,
+    },
+  },
+  {
+    kind: "blog",
+    id: "we-gave-a-model-that-cant-talk-1000-arguments",
+    hero: {
+      src: "/images/generated/blog/we-gave-a-model-that-cant-talk-1000-arguments/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A brass dial instrument with a needle between a teal arc and a rust arc, feeding a long ribbon of blank paper drawn from an unfolded argument map marked with a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A silent antique brass measuring instrument with a needle dial and no numerals, fed by a long ribbon of small blank paper slips drawn from a large unfolded argument map spread across the table, the needle resting between a teal arc and a rust arc, a small crimson crux mark on the map. No mouths, no speech bubbles, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "how-to-change-someones-mind",
+    hero: {
+      src: "/images/generated/blog/how-to-change-someones-mind/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Two armchairs, one teal and one rust, facing each other on a porch over two teacups, a thread from each chair meeting in a loose knot above the table beside an open door.",
+      prompt: topicHeroPrompt(
+        "Two empty armchairs on a front porch angled toward each other, two teacups on a small table between them, a teal thread from one chair and a rust thread from the other winding together into a loose knot above the table, the front door standing open. No people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "ai-in-debate-promise-and-pitfalls",
+    hero: {
+      src: "/images/generated/blog/ai-in-debate-promise-and-pitfalls/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A glass-domed brass gear mechanism topped by a teal network of nodes, its threads sorting blank cards into three columns while a magnifying glass rests on hollow paper shells.",
+      prompt: topicHeroPrompt(
+        "A glass-domed brass mechanism of fine gears topped by a small teal constellation of network nodes on a study desk, threads from it sorting a pile of blank argument cards into neat columns, while at the desk's edge a few hollow paper shells, convincing from the front and empty behind, sit under a magnifying glass. No people, no robots with faces.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "climate-change-finding-common-ground",
+    hero: {
+      src: "/images/generated/blog/climate-change-finding-common-ground/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A long stone bridge across a river from a green teal bank toward a rust bank, its final span missing and marked with a crimson cross, a wind turbine and a thermometer on the hills.",
+      prompt: topicHeroPrompt(
+        "A wide river valley drawn in watercolour with a teal bank and a rust bank, a broad stone bridge spanning most of the river as shared ground, one final unfinished span marked by a small crimson crux mark, a thermometer and a wind turbine on the far hills. No people, no flags.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "spot-misinformation-60-seconds",
+    hero: {
+      src: "/images/generated/blog/spot-misinformation-60-seconds/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A pocket watch and a magnifying glass beside a loose leaflet on a desk, a thread running from the leaflet up to three side-by-side panes of faint teal landscape sources.",
+      prompt: topicHeroPrompt(
+        "A pocket watch with a sweeping hand and no numerals lying beside a single loose leaflet on a desk, three side panes opened sideways like windows showing faint teal source documents, a fine thread traced from the leaflet back to one original record, a magnifying glass. No readable text, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "art-of-changing-your-mind",
+    hero: {
+      src: "/images/generated/blog/art-of-changing-your-mind/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A weathervane on a tiled rooftop swinging from a rust sky toward a teal one, ghosted earlier positions of its arrow behind it and blank cards blowing past on the wind.",
+      prompt: topicHeroPrompt(
+        "A weathervane on an old rooftop turning gently as the wind shifts, its arrow swinging from a rust quarter of the sky toward a teal one, a few blank paper cards carried on the breeze past it, calm open sky. No letters on the vane, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "false-balance-both-sides",
+    hero: {
+      src: "/images/generated/blog/false-balance-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A balance scale hung level from a string above it, a heavy teal stone on one pan and a single feather on the other, over a blank folded broadsheet.",
+      prompt: topicHeroPrompt(
+        "A balance scale held artificially level by a thin string pulled from above, a heavy teal stone block on one pan and a single feather on the other, a blank folded broadsheet lying beneath the scale. No readable text, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "argument-mapping-for-students",
+    hero: {
+      src: "/images/generated/blog/argument-mapping-for-students/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An open exercise book with an argument tree drawn across both pages in teal and rust, an apple and pencils on the desk and the same tree in pale lines on the chalkboard behind.",
+      prompt: topicHeroPrompt(
+        "A wooden school desk with an open exercise book showing a hand-drawn argument tree branching across the page in teal and rust ink, coloured pencils and an apple beside it, and a chalkboard behind carrying the same tree in faint pale lines. No writing, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "finding-the-crux-of-debates",
+    hero: {
+      src: "/images/generated/blog/finding-the-crux-of-debates/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A watercolour town plan seen from above with a tram on a new teal rail line, a teal path and a rust path winding through the blocks to meet at a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A city street plan seen from above with a new light-rail line sketched in teal ink and a small tram outline on it, two argument paths, teal and rust, branching out across the blocks and finally meeting at one junction marked by a small crimson crux mark. No people, no street names.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "microplastics-in-your-blood",
+    hero: {
+      src: "/images/generated/blog/microplastics-in-your-blood/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A sample vial in a lab rack, a plastic water bottle and a petri dish all flecked with tiny teal and rust plastic fragments, a magnifier enlarging them beside a microscope.",
+      prompt: topicHeroPrompt(
+        "A laboratory rack holding a capped glass sample vial filled with clear pale liquid beside a plastic water bottle and a petri dish, all speckled with tiny teal and rust plastic fragments drawn as fine confetti, a microscope and a magnifying glass on the bench, a small crimson crux mark. No blood, no organs, no gore, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "how-to-argue-like-a-philosopher",
+    hero: {
+      src: "/images/generated/blog/how-to-argue-like-a-philosopher/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Two marble benches facing each other in a stone colonnade, a scroll on one and an olive branch on the other, a teal path and a rust path crossing the floor between them.",
+      prompt: topicHeroPrompt(
+        "A quiet stone colonnade with two empty marble benches facing each other, an open scroll resting on one and an olive branch on the other, a teal path and a rust path across the floor tiles meeting between the benches. No people, no statues of real people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "steel-man-tiktok-ban",
+    hero: {
+      src: "/images/generated/blog/steel-man-tiktok-ban/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A riveted steel beam across a teal sea between two coastlines, a padlock on one end, an open book on the other and a phone with a glowing teal screen standing at its centre.",
+      prompt: topicHeroPrompt(
+        "A forged steel beam laid across a parchment chart between two coastlines, a smartphone outline with a blank teal-glowing screen resting at its centre, a padlock on one end of the beam and an open book on the other, data threads crossing the ocean, a small crimson crux mark. No logos, no flags.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "ozempic-evidence-review",
+    hero: {
+      src: "/images/generated/blog/ozempic-evidence-review/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An injection pen on a clinic tray beside a weighing scale, a teal curve dipping to a crimson cross and rising again in rust toward a blank wall calendar.",
+      prompt: topicHeroPrompt(
+        "A sleek injection pen on a clinic tray beside a doctor's weighing scale, a long teal curve that dips down and then climbs gently back up in rust, a grid of blank calendar squares behind it, a small crimson crux mark. No brands, no bodies, no needles in skin, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "arguing-about-ai-jobs",
+    hero: {
+      src: "/images/generated/blog/arguing-about-ai-jobs/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A teal robotic arm and a fountain pen drawing on the same open ledger toward a crimson cross, an open toolbox beside them and offices and a factory through the window.",
+      prompt: topicHeroPrompt(
+        "An office desk where a slender teal robotic arm and a fountain pen rest on the same open ledger, an open toolbox of new tools beside it, a calm skyline of offices and a factory through the window, teal and rust paths meeting at a small crimson crux mark. No people, no hands.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "kids-first-phone-science",
+    hero: {
+      src: "/images/generated/blog/kids-first-phone-science/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A phone resting on the high shelf above a doorframe marked with height notches, a kite, a bicycle and a small gift box by the door, teal and rust ribbons meeting at a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A doorframe with a pencil height chart of notches but no numbers, a smartphone resting on a high shelf above it, a bicycle and a kite leaning by the door, a small gift box tied with string on the floor, teal and rust paths meeting at a small crimson crux mark. No people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "longevity-science-debate",
+    hero: {
+      src: "/images/generated/blog/longevity-science-debate/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A white laboratory mouse beside an hourglass and test tubes, a magnifier over a cell, and a long narrow plank bridge reaching toward a distant open doorway.",
+      prompt: topicHeroPrompt(
+        "A small white laboratory mouse figurine beside a large antique hourglass on a lab bench, a cell drawn as a delicate rosette under a lens, a long narrow plank bridge stretching from the mouse toward a distant tall doorway, teal and rust. No real animals in distress, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "housing-crisis-argument-map",
+    hero: {
+      src: "/images/generated/blog/housing-crisis-argument-map/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A porch house raised on a plank between a dashed zoning fence and a stack of ledger books, teal and rust threads running from both to a house key on a surveyor's plan.",
+      prompt: topicHeroPrompt(
+        "A single house drawn in architectural elevation whose roof is held up by three different supports: a dashed zoning fence, a stack of investor deed ledgers and a horizontal price-ceiling beam, a house key resting on the surveyor's plan in front, teal and rust threads linking the three. No people, no signs.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "deepfakes-elections-evidence",
+    hero: {
+      src: "/images/generated/blog/deepfakes-elections-evidence/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A mirror on an easel reflecting a river landscape, beside a wooden ballot box, a sealed envelope with a teal wax seal, a magnifying glass and a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A tall mirror on an easel reflecting a landscape slightly different from the one before it, a wooden ballot box beside it, a photograph turned over to show a teal wax provenance seal on its back, a magnifying glass, a small crimson crux mark. No faces, no people, no flags.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "geoengineering-debate-mapped",
+    hero: {
+      src: "/images/generated/blog/geoengineering-debate-mapped/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A teal globe on a brass stand under a faint teal sky, facing a carbon-capture tower over a bed of grey rock, a thermometer and a rust thread running down to a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A globe on a brass stand beneath a parchment sky veiled by a thin teal shimmer, beside it a tall carbon-capture tower drawn in fine ink and a bed of crushed grey rock, a thermometer, a rust thread of risk running down to the base, a small crimson crux mark. No disaster, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "masculinity-debate-mapped",
+    hero: {
+      src: "/images/generated/blog/masculinity-debate-mapped/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A toolbox and work boots where two paths part, a teal path climbing to a lit schoolhouse and workshop, a rust path toward a lone house glowing with a screen's light.",
+      prompt: topicHeroPrompt(
+        "A pair of work boots and a toolbox at a crossroads, a teal path leading to a lit schoolhouse and workshop, a rust path leading toward a lone room glowing with a faint screen light, a small crimson crux mark at the junction. No people, no faces.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "declining-birth-rates-panic",
+    hero: {
+      src: "/images/generated/blog/declining-birth-rates-panic/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A barometer on a wall above an empty wooden cradle, beside an inverted pyramid of stone steps wide at the top and narrow at the base, crossed by a falling teal line.",
+      prompt: topicHeroPrompt(
+        "An antique barometer on a wall above a single empty wooden cradle, an inverted population pyramid of stacked stone blocks wide at the top and narrow at the base, a teal curve bending downward, a small crimson crux mark. No babies, no people, no numbers.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "social-media-mental-health-research",
+    hero: {
+      src: "/images/generated/blog/social-media-mental-health-research/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A phone tucked inside a half-closed wooden box on a desk beside stacked teal and rust journals and a houseplant, a teal and rust wave of mood drawn on the wall.",
+      prompt: topicHeroPrompt(
+        "A study desk with stacked research papers bound in teal and rust, a phone with a blank screen placed inside a small wooden box whose lid is half closed, a gentle wave chart of mood drawn on the wall behind, a houseplant, a small crimson crux mark. No people, no logos.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "ai-regulation-safety-experts-disagree",
+    hero: {
+      src: "/images/generated/blog/ai-regulation-safety-experts-disagree/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A teal network of nodes branching into three paths: to a closed iron garden gate, along an open country road, and through a narrow gate carved with scales and measuring marks.",
+      prompt: topicHeroPrompt(
+        "A teal constellation of network nodes at the centre with three paths leading away from it: one to a closed garden gate, one along an open road, one through a narrow gate fitted with measuring instruments and a dosage scale, a small crimson crux mark where the paths divide. No signs, no robots, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "housing-crisis-zoning-rent-control-data",
+    hero: {
+      src: "/images/generated/blog/housing-crisis-zoning-rent-control-data/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A city street of apartment facades either side of an empty lot behind a fence and a crane, a teal beam across the rooftops and teal and rust curves crossing in the sky.",
+      prompt: topicHeroPrompt(
+        "Architectural elevation of a city block with an empty lot fenced by dashed zoning lines, a construction crane, apartment facades under a horizontal price-ceiling beam, and two crossing curves, teal and rust, drawn faintly in the sky above, a small crimson crux mark. No people, no signs.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "gun-control-evidence-research",
+    hero: {
+      src: "/images/generated/blog/gun-control-evidence-research/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Five tied study folders in teal and rust joined by threads at a crimson cross, with a globe, a balance scale and a locked storage box with its key on the desk.",
+      prompt: topicHeroPrompt(
+        "An evidence reviewer's desk with five stacks of study folders in teal and rust, a closed safe-storage lockbox with its key, a small globe for international comparisons and a balance scale, threads from the folders meeting at a small crimson crux mark. No firearms, no ammunition, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "wealth-inequality-crux",
+    hero: {
+      src: "/images/generated/blog/wealth-inequality-crux/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A sliced pie on a table and a second pie baking in a brick oven, a tall stack of grey coins casting a long shadow and a rust thread passing three crimson crosses.",
+      prompt: topicHeroPrompt(
+        "A baker's table with a round pie being cut into uneven slices beside an oven where a second pie rises larger, a tall stack of stone-grey coins casting a long shadow across the table, and a thread running past three small crimson crux marks. No people, no currency symbols.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "nuclear-energy-safety-evidence",
+    hero: {
+      src: "/images/generated/blog/nuclear-energy-safety-evidence/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Five blank cards fanned on a desk below a reactor dome and cooling tower, a teal waste cask on a shelf and a balance weighing one small pellet against a heap of coal.",
+      prompt: topicHeroPrompt(
+        "An analyst's desk with five ledger cards fanned out, behind them a compact small modular reactor drawn as a squat cylinder beside a traditional cooling tower, a sealed teal waste cask on a shelf, and a balance weighing one tiny fuel pellet against a large heap of coal, a small crimson crux mark. No hazard symbols, no disaster.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "microplastics-body-health-evidence",
+    hero: {
+      src: "/images/generated/blog/microplastics-body-health-evidence/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A microscope slide of teal and rust plastic fragments, a magnifier and a balance scale, with a dotted line toward a pencil outline of a human figure broken by a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A laboratory bench with a microscope slide showing tiny teal and rust plastic fragments, a balance scale and a magnifier beside it, a dotted line from the slide toward a faint pencil outline of a human figure with a gap in the line marked by a small crimson crux mark. No face, no gore, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "iran-war-evidence-analysis",
+    hero: {
+      src: "/images/generated/blog/iran-war-evidence-analysis/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A balance scale on an antique chart of a narrow strait weighing a sealed green case against an olive branch, dotted lines meeting at a crimson mark in the water beside a compass rose.",
+      prompt: topicHeroPrompt(
+        "A calm antique nautical chart of a narrow strait with a compass rose, a brass scale on the chart balancing a sealed inspector's case against an olive branch, two tentative dotted lines of diplomacy approaching a small crimson crux marker in the water. No flags, no weapons, no aircraft, no explosions.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "inflation-who-is-to-blame",
+    hero: {
+      src: "/images/generated/blog/inflation-who-is-to-blame/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A basket of bread and eggs before a rising rust gauge, threads leading from it to a teal printing press, a rust container ship and a brown cash register.",
+      prompt: topicHeroPrompt(
+        "A market basket of bread and eggs on a counter, three threads leading from it to a small printing press in teal, a cargo ship stacked with containers in rust and a shop till in brown, a tall gauge rising in muted rust behind, a small crimson crux mark. No currency symbols, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "seed-oils-health-truth",
+    hero: {
+      src: "/images/generated/blog/seed-oils-health-truth/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Glass cruets of plant oil beside soybean pods and leafy sprigs, a steaming cast-iron pan, and an open notebook whose tangled threads unravel toward a crimson cross.",
+      prompt: topicHeroPrompt(
+        "Glass cruets of plant oil beside soybean pods and rapeseed sprigs drawn in teal ink, a frying pan with faint wisps of steam, an open notebook covered in a tangled web of threads that untangles toward one small crimson crux mark. No labels, no yellow flowers, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "tiktok-brain-rot-science",
+    hero: {
+      src: "/images/generated/blog/tiktok-brain-rot-science/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A teal brain under a glass dome with a column of small blank cards falling past it, beside an open book under a reading lamp.",
+      prompt: topicHeroPrompt(
+        "An anatomical brain sketched in teal ink beneath a glass dome, a narrow vertical stream of tiny blank screen cards falling past it like a waterfall, a calm open book and a reading lamp beside it, a small crimson crux mark. No logos, no faces, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "china-taiwan-invasion-analysis",
+    hero: {
+      src: "/images/generated/blog/china-taiwan-invasion-analysis/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An antique chart of a strait between a mainland coast and an island with a small silver microchip on it, dotted rings of shipping lanes around the island and an hourglass.",
+      prompt: topicHeroPrompt(
+        "A calm antique nautical chart of a wide strait between a stylised mainland coast and an island, a tiny silver microchip tile resting on the island, a ring of fine dotted teal shipping lanes encircling it, an hourglass on the chart, a small crimson crux marker in the water. No flags, no weapons, no warships.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "obesity-choice-or-disease",
+    hero: {
+      src: "/images/generated/blog/obesity-choice-or-disease/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A double helix twined with a flowering vine beside a table holding a plate of vegetables, a plain paper bag and an injection pen, teal and rust threads meeting at a crimson mark.",
+      prompt: topicHeroPrompt(
+        "A double helix drawn as a garden trellis with a vine climbing it, beside a kitchen table holding a plate of vegetables and a plain paper takeaway bag, a small injection pen resting between them, teal and rust threads meeting at a small crimson crux mark. No bodies, no logos, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "loneliness-epidemic-evidence",
+    hero: {
+      src: "/images/generated/blog/loneliness-epidemic-evidence/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An empty park bench under a lamppost with an old telephone and a teacup, behind it a terrace of windows each lit around a single chair, joined by a faint teal thread.",
+      prompt: topicHeroPrompt(
+        "A park bench with two empty seats under a lamppost at dusk, an old telephone and a teacup at one end, a row of apartment windows behind each lit around a single chair, faint teal threads beginning to link a few windows, a small crimson crux mark. No people, no faces.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "us-debt-crisis-real",
+    hero: {
+      src: "/images/generated/blog/us-debt-crisis-real/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A leaning tower of teal and rust books on a rocky shore with a clock and a globe at its base, teal waves at the rocks and a rust crack running to a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A tall leaning tower of stacked ledger books on a calm shore, a clock without numerals set into its base, teal waves of interest lapping at the rocks, a small globe with faint trade lanes beside it, a thin rust fault line with a small crimson crux mark. No flags, no dollar signs.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "return-to-office-evidence",
+    hero: {
+      src: "/images/generated/blog/return-to-office-evidence/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A home desk with a laptop and houseplant facing a glass office tower across a railway platform with a briefcase on its bench, a calendar of teal and rust squares above.",
+      prompt: topicHeroPrompt(
+        "An empty commuter platform bench with a briefcase, between a home desk with a laptop and a houseplant on one side and a tall glass office tower on the other, a grid of blank calendar squares half teal and half rust, a small crimson crux mark. No people, no text on screens.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "ad-hominem-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/ad-hominem-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Two wooden lecterns on a stage, a rust spotlight falling on an empty coat and hat on a stand beside one, while a teal thread leads to the open book on the lectern.",
+      prompt: topicHeroPrompt(
+        "Two wooden lecterns on a quiet stage, a rust spotlight falling on an empty coat and hat hung on a stand beside one lectern while the open book on that lectern sits in shadow, a teal thread leading back to the book. No people, no faces.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "straw-man-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/straw-man-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A bundle of straw tied to a leaning pole in a meadow, a teal thread running past it to a broad, untouched oak tree behind.",
+      prompt: topicHeroPrompt(
+        "A faceless bundle of straw tied to a pole in a field standing in front of a sturdy oak tree, the straw bundle knocked slightly askew, a teal thread running past it to the untouched oak behind. No people, no scarecrow face.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "false-dilemma-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/false-dilemma-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A fork in a country road with a teal path and a rust path under two blank signposts, while many faint paths fan out across the meadow between them.",
+      prompt: topicHeroPrompt(
+        "A fork in a country road with two bold paths drawn in teal and rust and two blank signposts, while many faint pencil paths fan out across the open meadow between them, a small crimson crux mark at the fork. No writing on the signs, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "slippery-slope-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/slippery-slope-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A row of dominoes standing down a stepped hillside with one gap circled in crimson, a teal surveyor's level on a tripod sighting along the slope.",
+      prompt: topicHeroPrompt(
+        "A gentle hillside of stone steps with a row of wooden dominoes standing down the slope, one clear gap in the row circled in crimson, a teal surveyor's level on a tripod checking the incline. No people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "appeal-to-authority-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/appeal-to-authority-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An academic gown and mortarboard on a stand casting a shadow toward a laboratory bench, where an open notebook lies under a magnifying glass beside test tubes.",
+      prompt: topicHeroPrompt(
+        "An academic gown and mortarboard hung on a stand casting a long shadow across a laboratory bench, where an open notebook and test tubes sit under a magnifying glass, a teal thread leading from the evidence on the bench and a rust thread from the gown. No people, no faces.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "universal-basic-income-both-sides",
+    hero: {
+      src: "/images/generated/blog/universal-basic-income-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A row of identical blank envelopes on a kitchen table beside an abacus, a factory and a farmhouse through the window, a teal ribbon and a rust ribbon meeting at a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A row of identical small unmarked envelopes laid out on a kitchen table beside a wooden abacus, a factory and a farmhouse seen through the window, a teal stream of payments and a rust stream of work hours meeting at a small crimson crux mark. No people, no money symbols.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "death-penalty-both-sides",
+    hero: {
+      src: "/images/generated/blog/death-penalty-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A courtroom bench with a gavel, an hourglass and a balance scale weighing a tied stack of case files against an open book, threads drifting toward a crimson cross.",
+      prompt: topicHeroPrompt(
+        "An empty courtroom bench with a gavel resting beside a balance scale, one pan holding a neat stack of case files and the other an open book of moral philosophy, an hourglass, the evidence threads stopping short of a small crimson crux mark. No execution imagery, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "drug-decriminalization-both-sides",
+    hero: {
+      src: "/images/generated/blog/drug-decriminalization-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Two coastlines across a teal sea, a lit clinic doorway below a lighthouse on one and a columned courthouse on the other, a dotted route between them marked with a crimson cross.",
+      prompt: topicHeroPrompt(
+        "An antique chart of two distant coastlines, one with a small clinic doorway lit in soft teal beside a lighthouse and the other with a stone courthouse column, a dotted sea route between them, a small crimson crux mark on the route. No drugs, no needles, no people, no flags.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "ai-policy-wars-five-debates-mapped",
+    hero: {
+      src: "/images/generated/blog/ai-policy-wars-five-debates-mapped/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Five small vignettes, a painter's palette, a street camera, a cable junction box, a driverless car and a glowing fusion ring, each threaded down to one crimson mark.",
+      prompt: topicHeroPrompt(
+        "Five small vignettes across a parchment chart joined by fine threads: a painter's palette and brush, a camera lens on a lamppost, a cable junction box, a small driverless car, and a glowing teal fusion ring, each thread meeting its own small crimson crux mark. No logos, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "contested-health-claims-mapped",
+    hero: {
+      src: "/images/generated/blog/contested-health-claims-mapped/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An ear of maize, a plain pill bottle and a vaccine vial in a tray, their teal threads twisting together at a crimson cross before one rust thread runs on to a balance scale.",
+      prompt: topicHeroPrompt(
+        "Three small still lifes on a parchment table: a stalk of maize, a plain unlabelled pill bottle and a capped vaccine vial in a tray, teal threads from them converging while one rust thread splits off toward a small balance scale of values, a small crimson crux mark. No needles in skin, no labels, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "economic-policy-fights-mapped",
+    hero: {
+      src: "/images/generated/blog/economic-policy-fights-mapped/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Four vignettes joined by threads at a crimson mark: a factory with a balance scale, a toll arch over a city road, a pocket watch on a ledger, and a toolbox beside an opened phone.",
+      prompt: topicHeroPrompt(
+        "Four small vignettes on a parchment chart joined by threads: a factory smokestack beside a brass price scale, a toll arch over a city road, a pocket watch resting on a pension ledger, and an open toolbox beside a disassembled phone circuit board, teal and rust paths meeting at a small crimson crux mark. No people, no numbers.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "rights-and-hard-tradeoffs-mapped",
+    hero: {
+      src: "/images/generated/blog/rights-and-hard-tradeoffs-mapped/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A balance scale on a library desk weighing an open book against a lamp and a glass of water, a row of cards running to the desk's edge and ending at a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A law library desk with a balance scale, an open leather-bound book of blank pages on one pan and a bedside lamp with a glass of water on the other, a stack of evidence cards running along the desk and stopping at its edge, a small crimson crux mark. No firearms, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "motte-and-bailey-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/motte-and-bailey-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A motte-and-bailey earthwork: a stone keep on a steep grassy mound above a palisaded bailey of cottages and fields, a dotted path winding between the two.",
+      prompt: topicHeroPrompt(
+        "A medieval motte-and-bailey earthwork drawn in fine ink, a small stone keep on a steep grassy mound above a wide open bailey of cottages and fields enclosed by a wooden palisade, a dotted path running back and forth between the bailey and the keep. No soldiers, no weapons, no flags.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "gish-gallop-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/gish-gallop-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An avalanche of small paper slips pouring down a hillside toward a lantern-lit desk, where one slip lies under a magnifying glass.",
+      prompt: topicHeroPrompt(
+        "An avalanche of hundreds of small loose paper slips tumbling down a hillside toward one lantern-lit writing desk, where a single slip lies under a magnifying glass being examined, teal and rust tones. No horses, no people, no writing.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "no-true-scotsman-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/no-true-scotsman-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A drawing compass tracing a boundary circle around several pebbles so that one sits just outside, fainter earlier circles beneath, and a folded teal and rust tartan scarf.",
+      prompt: topicHeroPrompt(
+        "A drawing compass redrawing a boundary circle on parchment so that one small stone now sits just outside it, earlier circles ghosted faintly beneath, a folded tartan scarf in teal and rust lying beside the drawing. No people, no flags.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "appeal-to-nature-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/appeal-to-nature-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A level balance scale with a foxglove stem and a mushroom on one pan and a plain glass bottle with a single pill on the other.",
+      prompt: topicHeroPrompt(
+        "A still life with a wild foxglove stem and a woodland mushroom on one side and a plain glass medicine bottle with a single pill on the other, a balance scale between them resting level, teal and rust. No labels, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "appeal-to-ignorance-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/appeal-to-ignorance-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A brass telescope at an arched window aimed at a dark empty patch in a starry sky, an empty specimen jar and a blank open notebook on the sill.",
+      prompt: topicHeroPrompt(
+        "An observatory window opening onto a night sky with one dark empty patch, a brass telescope aimed at it, an empty specimen jar and a blank open notebook on the sill, a small crimson crux mark. No people, no writing.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "tu-quoque-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/tu-quoque-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A soot-darkened cast-iron pot and kettle side by side on an old stove, a teal thread leading past them to an open notebook on the shelf above.",
+      prompt: topicHeroPrompt(
+        "A cast-iron pot and a kettle side by side on an old stove, both darkened with soot, a fine teal thread leading past them to an open notebook resting on the shelf above. No people, no writing.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "sunk-cost-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/sunk-cost-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A half-built stone bridge stopping midway over a river, a spilled sack of coins and tools at its base, and a teal path turning off along the bank to a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A half-built stone bridge reaching out over a river and stopping midway, a pile of spent coins and tools at its base, and a teal path turning away along the bank toward a simple ford downstream, a small crimson crux mark. No people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "post-hoc-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/post-hoc-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A rooster crowing on a farm fence at dawn, a dotted line drawn from it to the rising sun with a crimson cross halfway along.",
+      prompt: topicHeroPrompt(
+        "A rooster on a farm fence at dawn with the sun rising behind the hills, a faint dotted teal line drawn from the rooster to the sun with a small crimson crux mark on it. No people, no letters.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "hasty-generalization-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/hasty-generalization-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A single swallow flying over a field of grain, binoculars and a blank notebook on a fence post, and a faint flock of hundreds of birds along the horizon.",
+      prompt: topicHeroPrompt(
+        "A single swallow in flight over a wide field of grain, a pair of binoculars and an open blank tally notebook on a fence post, a faint flock of hundreds of swallows sketched in pencil along the far horizon. No people, no writing.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "circular-reasoning-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/circular-reasoning-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A closed loop of paper ribbon, teal inside and rust outside, marked with a crimson cross, beside a short loose length of chain.",
+      prompt: topicHeroPrompt(
+        "A long ribbon of paper curling into a closed loop with no beginning or end, resting on a desk beside a short chain whose links lead nowhere, teal on the inside of the loop and rust on the outside, a small crimson crux mark. No people, no writing.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "strong-argument-vs-persuasive",
+    hero: {
+      src: "/images/generated/blog/strong-argument-vs-persuasive/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An ornate rust-red footbridge on thin stilts beside a plain teal stone bridge on deep piers, a surveyor's level on the bank in front of both.",
+      prompt: topicHeroPrompt(
+        "Two bridges side by side over a river: one ornate and brightly painted in rust standing on thin stilts, the other plain teal stone set on deep foundations, a surveyor's level on the bank checking both. No people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "minimum-wage-both-sides",
+    hero: {
+      src: "/images/generated/blog/minimum-wage-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A spring balance at a shop counter weighing a stack of coins against blank staff rotas, stone steps rising behind it and teal and rust paths meeting at a crimson cross.",
+      prompt: topicHeroPrompt(
+        "A small shop counter with a spring balance weighing a short stack of coins against a stack of blank staff rotas, worn stone steps of rising wage floors behind it, teal and rust paths meeting at a small crimson crux mark. No people, no currency symbols.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "red-herring-fallacy-explained",
+    hero: {
+      src: "/images/generated/blog/red-herring-fallacy-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A smoked fish lying beside a woodland trail, a line of paw prints veering toward it while the path runs on to a crimson cross in the clearing.",
+      prompt: topicHeroPrompt(
+        "A smoked kipper in muted rust lying across a woodland trail, a faint line of teal paw prints veering off toward it while the main path continues straight ahead to a clearing with a small crimson crux mark. No people, no dogs.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "universal-healthcare-both-sides",
+    hero: {
+      src: "/images/generated/blog/universal-healthcare-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A teal umbrella over a row of houses and a clinic, a stethoscope on a pile of blank bills, and teal, pale and rust paths running from the houses.",
+      prompt: topicHeroPrompt(
+        "A wide teal umbrella over a row of small houses and a clinic, a stethoscope on a ledger of blank bills, and three paths rather than two leading from the houses, teal for coverage, rust for cost and a fainter third between them, a small crimson crux mark. No people, no red crosses.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "student-debt-forgiveness-both-sides",
+    hero: {
+      src: "/images/generated/blog/student-debt-forgiveness-both-sides/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A balance scale weighing a mortarboard and diploma against a long unrolled ledger, at the foot of a steep staircase up to a domed university.",
+      prompt: topicHeroPrompt(
+        "A university on a hill reached by a tall staircase whose steps rise steeply, a mortarboard and a rolled diploma on a balance scale at its foot weighed against a chain of ledger paper, teal and rust paths meeting at a small crimson crux mark. No people, no text.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "how-to-spot-a-bad-statistic",
+    hero: {
+      src: "/images/generated/blog/how-to-spot-a-bad-statistic/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A curiosity shelf of misleading tools: a warped ruler, a lens bulging a bar chart, a lopsided scale, a net holding only the biggest fish, and a graph under a glass dome.",
+      prompt: topicHeroPrompt(
+        "A cabinet of curiosities displaying misleading measuring tools: a bent ruler, a lopsided scale, a warped lens distorting a small bar chart, a fishing net that holds only the largest fish, and a truncated graph axis, in teal and rust ink. No numbers, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "bayesian-thinking-for-normal-people",
+    hero: {
+      src: "/images/generated/blog/bayesian-thinking-for-normal-people/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A glass jar of pale beans with a few teal ones among them, a magnifying glass over one teal bean, and a small test vial, against a curve shading from rust to teal.",
+      prompt: topicHeroPrompt(
+        "A large glass jar of many pale beans with only a few teal ones among them, a magnifying glass over a single teal bean on the table, and a small laboratory test vial beside it, a soft curve sliding from rust to teal behind. No numbers, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "survivorship-bias-explained",
+    hero: {
+      src: "/images/generated/blog/survivorship-bias-explained/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "Three sailing ships returning to harbour in a lighthouse's teal beam, while faint outlines of many other ships rest on the sea floor beneath them.",
+      prompt: topicHeroPrompt(
+        "A calm harbour at dusk with three sailing ships safely returning past a lighthouse, while below the water's surface faint pencil outlines of many other ships rest quietly on the sea floor, a teal beam of light falling only on the returning ships. No people, no wreckage debris.",
+      ),
     },
   },
   {
