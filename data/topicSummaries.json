@@ -63,7 +63,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes lowe regimen lipids"
+    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids lowe"
   },
   {
     "id": "daylight-saving-time-abolition",
@@ -457,29 +457,34 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix simplification treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein phoenix simplification treatable"
   },
   {
     "id": "gun-control-effectiveness",
     "title": "Gun Control Effectiveness",
-    "question": "Do stricter gun laws significantly reduce gun violence and mass shootings?",
-    "meta_claim": "Stricter gun control laws significantly reduce gun violence and mass shootings.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 68,
+    "question": "Do stricter gun laws save lives?",
+    "meta_claim": "Stricter gun laws, such as permits to buy, background checks, safe-storage rules and limits on assault weapons and large magazines, would cut US gun deaths substantially.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 83,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
+    "pillarCount": 4,
+    "evidenceCount": 18,
     "firstCrux": "How much of the US firearm death rate comes from gun availability and laws versus other factors?",
     "tags": [
       "policy"
     ],
-    "keywords": "guns erpo buyback deadlier everytown gertz ihme kleck swanson indiana shooters alpers chapman dgus ncvs"
+    "aliases": [
+      "Do stricter gun laws significantly reduce gun violence and mass shootings?",
+      "Does gun control work?",
+      "Would an assault weapons ban reduce mass shootings?"
+    ],
+    "keywords": "guns handgun rifles donohue everytown kleck erpo aneja conner dealer doherty hemenway ihme klarevas koper"
   },
   {
     "id": "minimum-wage-effects",
@@ -2089,7 +2094,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
+    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore advisors"
   },
   {
     "id": "global-housing-bubble",
@@ -2111,7 +2116,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals lows sellers belt hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
+    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
