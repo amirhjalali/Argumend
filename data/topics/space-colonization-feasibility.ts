@@ -44,6 +44,10 @@ export const spaceColonizationFeasibilityData = {
         equation:
           "P(\\text{colony}) = P(\\text{transport}) \\times P(\\text{habitat}) \\times P(\\text{ISRU}) \\times P(\\text{funding})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Public flight records of Starship missions: a completed ship-to-ship orbital refueling, then an uncrewed Mars landing with cargo intact, with the date of each set against the dates SpaceX announced.",
+        },
         cost_to_verify: "$0 (Monitor SpaceX mission outcomes)",
         falsification: {
           supporter_flip:
@@ -133,6 +137,10 @@ export const spaceColonizationFeasibilityData = {
         methodology:
           "Deploy ISRU demonstration payloads on Mars. Measure water extraction rates from regolith/ice, oxygen production from CO₂, and structural integrity of regolith-based construction materials over 2+ year periods.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Mars surface missions that extract water and make oxygen and building material from local resources at crew-supporting scale for months, building on NASA's MOXIE experiment, plus closed-habitat trials on Earth that run without resupply.",
+        },
         cost_to_verify: "$500M (Robotic ISRU demonstration mission)",
         falsification: {
           supporter_flip:

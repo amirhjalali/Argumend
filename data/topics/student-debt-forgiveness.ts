@@ -126,6 +126,10 @@ export const studentDebtForgivenessData = {
         methodology:
           "Compile a comprehensive list of federal debt forgiveness, bailout, and subsidy programs over the past 25 years: PPP loan forgiveness, TARP bank bailouts, farm subsidies, corporate tax expenditures, mortgage interest deductions, and disaster relief. For each, calculate: (1) total cost to taxpayers, (2) income distribution of beneficiaries, (3) whether moral hazard objections were raised, and (4) whether the forgiveness created subsequent moral hazard (e.g., did PPP loan forgiveness cause businesses to take riskier loans?). Compare with the proposed student debt forgiveness on all four metrics.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Agreement on one rule both sides would apply everywhere, for example that relief is fair when borrowers could not foresee the loss, then applied to PPP loans, farm aid, mortgage relief and student loans alike, with data on how much each group's borrowing rose after past rescues.",
+        },
         cost_to_verify:
           "$0 (Federal budget data, CBO scores, and program data are publicly available, but the comparative synthesis has not been systematically conducted)",
         falsification: {
@@ -217,6 +221,10 @@ export const studentDebtForgivenessData = {
         methodology:
           "Use a difference-in-differences analysis comparing tuition increases at institutions whose students received significant forgiveness benefits versus those whose students were largely unaffected. Simultaneously analyze university pricing committee minutes, budget documents, and tuition-setting models obtained through FOIA to determine whether anticipated forgiveness influenced pricing decisions. Survey university CFOs about whether forgiveness expectations factor into tuition models.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare tuition changes at colleges whose students received large shares of past relief, such as Public Service Loan Forgiveness and income-driven repayment discharges, with similar colleges whose students got little, using Department of Education IPEDS and College Scorecard data.",
+        },
         cost_to_verify:
           "$300K-800K (Econometric analysis combining institutional tuition data with FOIA-obtained pricing documents)",
         falsification: {

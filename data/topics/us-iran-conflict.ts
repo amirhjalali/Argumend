@@ -248,6 +248,10 @@ export const usIranConflictData = {
         methodology:
           "Compare proxy group metrics across three periods: pre-maximum-pressure (2015-2018), during JCPOA withdrawal and sanctions (2018-2024), and post-military strikes (2025-2026). Metrics include: Hezbollah rocket inventory, Houthi anti-ship missile launches, Iraqi militia attacks on US bases, and Hamas operational capacity. Use ACLED conflict data, CSIS assessments, and UN Panel of Experts reports.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Independent counts of weapons seizures, attacks, fighters and territory held by Hezbollah, the Houthis and Iraqi militias, tracked year by year across the sanctions periods by monitors such as ACLED and UN panels of experts.",
+        },
         cost_to_verify:
           "$500K-1M (Comprehensive multi-country conflict analysis requiring classified and open-source intelligence fusion)",
         falsification: {
@@ -375,6 +379,10 @@ export const usIranConflictData = {
         methodology:
           "Commission an independent epidemiological study comparing Iranian civilian mortality rates, disease outcomes, and nutritional status before and after each sanctions escalation (2012, 2018, 2025). Cross-reference with WHO, UNICEF, and Iranian health ministry data. Measure the gap between humanitarian goods legally permitted and actually delivered by tracking OFAC license approvals versus actual import volumes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Customs and trade records of medicine and food imports into Iran before and after each sanctions round, alongside shortages of specific drugs reported by hospitals and the World Health Organization, and records of how many licensed humanitarian payments banks processed or refused.",
+        },
         cost_to_verify:
           "$2-5M (Comprehensive independent epidemiological study requiring on-ground access in Iran)",
         falsification: {
