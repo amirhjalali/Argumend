@@ -832,6 +832,22 @@
       "expected": ["artificial-reproduction-ethics"],
       "related": [],
       "note": "In-vitro gametogenesis, no abortion words."
+    },
+    {
+      "id": "medicaid-work-rules-reply",
+      "form": "reply",
+      "text": "Making people on Medicaid prove they work 80 hours a month doesn't get anyone a job. Arkansas tried it, thousands got kicked off for missing paperwork, and employment didn't budge. Most of these folks already work or are caring for a kid.",
+      "expected": ["medicaid-work-requirements"],
+      "related": [],
+      "note": "Added 2026-11-03 with the map (round 12)."
+    },
+    {
+      "id": "data-center-power-bill",
+      "form": "conversation",
+      "text": "A: My electric bill is up again and the utility blames the new AI data centers going up all over the county. B: The tech companies pay for their own power, they signed a pledge. A: Then why did the capacity charge on my bill jump? Somebody is paying for all those new power lines.",
+      "expected": ["data-centers-electricity-bills"],
+      "related": ["ai-energy-water-footprint"],
+      "note": "Added 2026-11-03 with the map (round 12)."
     }
   ]
 }

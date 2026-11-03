@@ -56,6 +56,8 @@ import { scottCostDiseaseData } from "./topics/scott-cost-disease";
 import { molochData } from "./topics/moloch";
 import { ai2027Data } from "./topics/ai-2027";
 import { jonesActData } from "./topics/jones-act";
+import { medicaidWorkRequirementsData } from "./topics/medicaid-work-requirements";
+import { dataCentersElectricityBillsData } from "./topics/data-centers-electricity-bills";
 import { chinaTaiwanInvasionData } from "./topics/china-taiwan-invasion";
 import { returnToOfficeProductivityData } from "./topics/return-to-office-productivity";
 import { nuclearRenaissanceSmrData } from "./topics/nuclear-renaissance-smr";
@@ -340,6 +342,10 @@ export const moloch = buildTopic(molochData);
 export const ai2027 = buildTopic(ai2027Data);
 export const jonesAct = buildTopic(jonesActData);
 
+// New maps (2026-11, round 12)
+export const medicaidWorkRequirements = buildTopic(medicaidWorkRequirementsData);
+export const dataCentersElectricityBills = buildTopic(dataCentersElectricityBillsData);
+
 export const topics: Topic[] = [
   // --- New (2026-06-23, net-new initiative) ---
   sportsBettingLegalization,
@@ -358,6 +364,10 @@ export const topics: Topic[] = [
   moloch,
   ai2027,
   jonesAct,
+
+  // --- New maps (2026-11, round 12) ---
+  medicaidWorkRequirements,
+  dataCentersElectricityBills,
 
   // --- Policy & Governance ---
   nuclearEnergySafety,
