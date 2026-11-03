@@ -36,6 +36,16 @@ export interface ArticleSummary {
 /** Pre-computed summaries — no `content`, so importing this stays lightweight. */
 export const articleSummaries: ArticleSummary[] = [
   {
+    slug: "should-members-of-congress-trade-stocks",
+    title: "Should Members of Congress Trade Stocks? What the Fight Is Actually About",
+    description:
+      "Three in four Americans want members of Congress barred from trading individual stocks, yet the House bill passed in July stalled in the Senate in September. The real disagreement is over three narrower questions: whether lawmakers' trades beat the market where their power is, whether disclosure law already catches them, and what a ban should cost members and their families.",
+    tags: ["congress", "stock trading", "ethics", "insider trading", "stock act", "crux"],
+    category: "Analysis",
+    publishedAt: "2026-11-03T13:00:00Z",
+    readingTime: "10 min read",
+  },
+  {
     slug: "gerrymandering-redistricting-war-election-day",
     title: "Gerrymandering on Election Day: What the Redistricting War Is Actually About",
     description:

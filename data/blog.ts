@@ -12,6 +12,89 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // Should Members of Congress Trade Stocks? What the Fight Is Actually About
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "should-members-of-congress-trade-stocks",
+    title: "Should Members of Congress Trade Stocks? What the Fight Is Actually About",
+    description:
+      "Three in four Americans want members of Congress barred from trading individual stocks, yet the House bill passed in July stalled in the Senate in September. The real disagreement is over three narrower questions: whether lawmakers' trades beat the market where their power is, whether disclosure law already catches them, and what a ban should cost members and their families.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-03T13:00:00Z",
+    readingTime: "10 min read",
+    tags: ["congress", "stock trading", "ethics", "insider trading", "stock act", "crux"],
+    category: "Analysis",
+    content: `## Popular with everyone, passed by no one
+
+Few proposals in American politics poll like this one. In a May 2026 Economist/YouGov poll, 76% said members of Congress and other elected officials "should not be allowed to buy and sell individual stocks," including 80% of Democrats, 77% of Republicans and 72% of independents. Only 6% said they should.
+
+And yet, as of November 3, 2026, there is no ban. On July 22 the House passed the Stop Insider Trading Act (H.R. 7008), 232-198. It would bar members, their spouses and dependent children from buying individual stocks, and let them keep what they already own and sell it after public notice. On September 30 the Senate voted 53-47 to take it up, short of the 60 votes needed to begin debate. Every Democrat voted no, saying the bill "doesn't go far enough," leaves out the president and carried voter ID requirements that party leaders called voter suppression. Senate Majority Leader John Thune asked, "Will Democrats support commonsense measures like a stock trading ban, voter ID, and protection from higher energy costs?" Minority Leader Chuck Schumer said the bill was "designed to hide insider trading — not stop it." The Senate then left for the campaign recess.
+
+So the fight is not really about whether the public wants something. It is about three questions underneath: whether lawmakers actually trade on what their jobs tell them, whether the disclosure law already on the books is enough, and whether the risk justifies taking a freedom away from members and their families. Our map, [Should members of Congress be banned from trading individual stocks?](/topics/congress-stock-trading-ban), works through each one. Here is the short version.
+
+## What both sides accept
+
+- **Members hear market-moving news before the public does,** in closed briefings and in the bills and rules they shape.
+- **Insider-trading law already applies to them,** and it has been enforced. Former Rep. Chris Collins was sentenced in January 2020 to 26 months in prison for passing confidential news of a failed drug trial to his son and others.
+- **Since the 2012 STOCK Act, members must report trades within 45 days.** That disclosure is the reason anyone can track their portfolios at all.
+- **A ban would not mean no investing.** The proposals let members own diversified funds such as mutual funds; what is at stake is picking individual companies.
+- **The bills differ on the details that matter most.** H.R. 7008 lets members keep current holdings. A bipartisan House bill from Reps. Chip Roy and Seth Magaziner, the Restore Trust in Congress Act, would make current members sell within 180 days. A Democratic bill from Magaziner would also cover the president and vice president.
+
+## Crux one: do lawmakers trade on what they know?
+
+[The first crux](/topics/congress-stock-trading-ban#crux-do-they-beat-the-market) asks whether lawmakers' trades beat similar stocks by more than luck, with the gains showing up where their power and inside information are.
+
+This is the most interesting part of the argument, because the best research points in two directions at once.
+
+The case that the average member is an ordinary, even poor, stock picker is strong. Andrew Eggers and Jens Hainmueller studied members' actual holdings for 2004 to 2008 and found "the average member of Congress would have earned higher returns in a passive index fund." Re-examining the earlier studies of 1985-2001 trading as well, they concluded that "in neither period do members of Congress trade with an information advantage." For the disclosure era, Belmont, Sacerdote, Sehgal and Van Hoek used every reported trade from January 2012 to December 2020 and found "no evidence of superior investment performance," including for "Senators specifically accused of informed trading." Even the best returns, at the 95th and 99th percentiles, were "consistent with random stock picking." An earlier paper by the same team found stocks senators bought slightly trailed similar stocks at one, three and six months, and "no evidence that senators have industry specific stock picking ability related to their committee assignments."
+
+The case that averages hide the trades that matter is also real. A 2025 NBER working paper by Shang-Jin Wei and Yifan Zhou followed lawmakers who later became congressional leaders. Before their promotion they "perform similarly to matched peers"; after it they "outperform them by 47 percentage points annually." The gains were higher "when their party controls the chamber" and came with "sales of stocks preceding regulatory actions." The same Belmont team that found senators feckless overall also found that "stocks sold following the January 24th COVID-19 briefing do underperform the market," by a statistically significant 9%. And Eggers and Hainmueller, in a second paper, found that members "invest disproportionately in local firms and campaign contributors," and that those connected investments "generally outperform members' other investments."
+
+Then there is the number most people have seen. Unusual Whales estimated that in 2024 Democrats in Congress gained about 31% on average and Republicans about 26%, against 24.9% for the S&P 500, with Nancy Pelosi's portfolio up an estimated 70.9%. Fortune noted that the figures "should be treated as approximations," built only from "trackable active stock positions." One strong year of a tech-heavy mix can beat the index with no inside information at all, and these figures do not adjust for risk.
+
+Both sides agree on more here than the headlines suggest: the average member is not a market-beating investor, some well-timed trades have drawn investigations, and dollar-range disclosures make precise return estimates hard. The live question is whether gains cluster among members with power and private information, or whether the striking cases are what luck looks like across 535 portfolios.
+
+**What would settle it:** independent replication of the leadership finding on 2012-2026 disclosures, with each trade matched against stocks of similar industry and size, and tests around closed briefings and contract awards. The Wei-Zhou paper is unreviewed and covers a small group of leaders; a 47-point gap is large enough that replication matters before it carries full weight.
+
+## Crux two: is disclosure enough?
+
+[The second crux](/topics/congress-stock-trading-ban#crux-is-disclosure-enough) asks whether the STOCK Act's reports and insider-trading law catch and deter members who trade on what they learn in office.
+
+Opponents of a ban say the system already works where it should. The Collins case shows that a sitting member can be convicted. Disclosure lets journalists and the public watch. Writing in Reason in 2022, Jennifer Schulp argued that "justifying a stock-ownership ban based on insider trading rules also makes little sense," and that "at best, focusing only on stock ownership and trading provides an incomplete picture" of members' conflicts, which also run through real estate, family businesses and future jobs.
+
+Supporters answer that the disclosure rule is often broken and lightly punished. Business Insider's review found that 78 members of the 117th Congress violated the STOCK Act's reporting rules, and that "the standard penalty for such a violation is $200." Rep. Pat Fallon "waited months to disclose up to $17 million in trades," and Rep. Tom Suozzi filed late on nearly 300 transactions; the House Ethics Committee found no "clear evidence" that either made "knowing or willful" violations. And when the information comes from government work rather than a company, prosecutions are rare. Sen. Richard Burr and his wife made "at least 30 stock sales" worth $600,000 to $1.7 million between January 31 and February 13, 2020. A closed-door Senate Intelligence Committee briefing on the coronavirus had been held on January 24. Burr said he relied only on "public news reports." In January 2021 the Justice Department closed the case without charges, and probes of Sens. Inhofe and Feinstein and former Sen. Loeffler had ended the previous May.
+
+Note what the Collins and Burr cases have in common and where they differ. Collins passed on a company's secret, the kind of tip any corporate insider can be prosecuted for. Burr's case turned on what a senator might have learned as a senator, and closing it is not a finding that he traded on the briefing. It does show how hard such a case is to bring, which is the supporters' point.
+
+**What would settle it:** a complete 2012-2026 record of late filings, fines, ethics referrals and prosecutions, sorted by whether the alleged information came from a company or from government work, alongside returns on trades reported on time versus late. If late-reported trades earned more than on-time ones, and no case for trading on legislative information had ever been brought, the claim that current law suffices would be hard to sustain. If late filings proved rare once fully counted and penalties rose with repeat violations, the claim that disclosure cannot police Congress would weaken.
+
+## Crux three: is the risk worth a ban?
+
+[The third crux](/topics/congress-stock-trading-ban#crux-what-a-ban-costs) is the one the data will not close: is the risk of trading on public power reason enough to make members and their families give up individual stocks?
+
+The case for a ban rests on trust and on precedent. After two regional Federal Reserve presidents traded during the 2020 crisis, the Fed barred its policymakers and senior staff from owning individual stocks and bonds, limited them to diversified holdings such as mutual funds, and required 45 days' advance notice and a one-year hold for any trade. Dallas Fed President Robert Kaplan had "made trades of $1 million or more in 22 different stocks"; both he and Boston's Eric Rosengren resigned. Chair Jerome Powell said the rules "raise the bar high in order to assure the public we serve." Voters want the same of Congress: in a 2023 University of Maryland survey of 2,625 registered voters that tested arguments on both sides, 86% backed a ban, including 87% of Republicans and 88% of Democrats. The argument against they found most convincing persuaded only 28%.
+
+The case against rests on fairness to members and their families. "My wife ought to be able to trade her $50,000 that she got after a lifetime of teaching," Rep. Ed Perlmutter, a Colorado Democrat, said in 2022. Sen. Tommy Tuberville said "I think it's ridiculous," and Sen. Pat Toomey called it "a solution in search of a problem." In December 2021 then-Speaker Pelosi put the principle directly: "We're a free market economy. They should be able to participate in that." Rep. Patrick McHenry argued that "Congress should suffer under the same laws as every other American."
+
+The map marks this crux as a difference in values. The measurable pieces, such as excess returns, the cost of moving into funds, and whether rules like the Fed's change who serves, can be set side by side. Whether the appearance of conflict is itself a harm that justifies a ban, or members should keep a freedom other citizens have unless they abuse it, is a weighing no measurement settles. The analogy to the Fed is also partial: its officials are appointed staff, not elected officials whose spouses have careers of their own.
+
+## What would change minds
+
+Each side has named what would move it.
+
+- **Ban supporters** would lose their main empirical support if replications on 2012-2026 data found no excess returns after members gain power and no edge around briefings or contract awards. Some who back a ban on trust grounds would also have to reckon with it if a ban measurably drove capable people away from running and trust did not rise where similar rules apply.
+- **Ban opponents** would find the average-member studies no longer answer the concern if independent researchers confirmed that leaders and committee members beat matched stocks around events they learn about first, since a ban targets the trades with access, not the average. The claim that a ban punishes the honest would be harder to make if members could move into funds cheaply and candidate supply did not fall under similar rules.
+
+## What to watch next
+
+- **The Senate after the election.** Congress returns after the midterms. The question is whether any version can reach 60 votes, and whether the attached voter ID provision stays.
+- **What a final bill does with existing holdings, spouses and the president.** H.R. 7008 lets members keep what they own; the Roy-Magaziner bill makes them sell; Democrats want the president covered. Those choices decide whether the result is a ban on new purchases or a ban on ownership.
+- **Replication of the leadership study.** If other researchers confirm or fail to confirm the 47-point finding on recent data, crux one moves.
+- **Enforcement data.** Any systematic count of late filings and penalties since 2012 speaks directly to crux two.
+
+The disagreement is narrower than it looks from the outside. Nobody in it defends trading on secret information, and nobody claims the average member is a genius investor. What divides them is where the gains concentrate, whether the law can reach them, and how much freedom a public office should cost. You can see the evidence on each, weighted card by card, on the [full map](/topics/congress-stock-trading-ban). If you are arguing about it with someone right now, [paste the thread in](/analyze) to see which of the three questions you are actually on.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // Gerrymandering on Election Day: What the Redistricting War Is Actually About
   // ──────────────────────────────────────────────────────────────────────────
   {
