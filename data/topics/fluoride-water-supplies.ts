@@ -2,89 +2,85 @@ import type { TopicInput } from "@/lib/schemas/topic";
 
 export const fluorideWaterSuppliesData = {
   id: "fluoride-water-supplies",
-  title: "Fluoride in Water Supplies",
-  question: "Is fluoridating community water safe and effective?",
+  title: "Fluoride in Tap Water",
+  question: "Should towns keep adding fluoride to tap water?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "Is fluoridating community water safe and effective?",
+    "Does fluoride in water lower children's IQ?",
+    "Why did Utah and Florida ban fluoride?",
+  ],
   meta_claim:
-    "Community water fluoridation is a safe and effective public health measure",
+    "Adding fluoride to community water at the US target of 0.7 mg/L is safe and still worth doing.",
   status: "contested" as const,
   category: "science" as const,
+  // As of 3 November 2026: Utah (May 2025) and Florida (July 2025) remain the
+  // only statewide bans; CDC still recommends 0.7 mg/L; EPA opened a new
+  // fluoride toxicity assessment in January 2026; the Ninth Circuit vacated
+  // the 2024 TSCA ruling on 21 May 2026 and sent it back for a new decision.
+  last_updated: "2026-11-03",
+  tags: ["fluoride", "public-health", "dental-health", "drinking-water", "children"],
+  // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "U.S. tap water is fluoridated at 0.7 mg/L, and the 2024 National Toxicology Program review linked fluoride above 1.5 mg/L to lower child IQ. Since fluoride toothpaste spread in the 1970s, tooth decay has fallen in both fluoridated and non-fluoridated countries. Both sides accept all three facts. What divides them is whether that twofold margin is enough, and whether fluoride in the water still adds benefit beyond toothpaste.",
-    confidence: 80,
-    source: "US National Toxicology Program review (2024); WHO Oral Health Database",
-    sourceUrl: "https://ntp.niehs.nih.gov/research/assessments/noncancer/completed/fluoride",
+      "In 2025 Utah and Florida became the first US states to stop adding fluoride to tap water. About 63% of Americans still drink fluoridated water, at a target of 0.7 mg/L. Two reviews fuel the fight: a 2024 Cochrane review found the cavity benefit smaller and less certain since fluoride toothpaste spread, and a 2024 federal toxicology review linked fluoride above 1.5 mg/L, about twice the US target, to lower IQ in children. The question is whether the benefit that remains is worth the doubt about the dose.",
+    confidence: 92,
+    source:
+      "Good Morning America / ABC News (28 March 2025) on Utah HB 81; Central Florida Public Media (7 May 2025) on Florida SB 700; CDC 2022 water fluoridation statistics; Cochrane review CD010856.pub3 (2024); National Toxicology Program monograph (21 August 2024)",
+    sourceUrl:
+      "https://ntp.niehs.nih.gov/research/assessments/noncancer/completed/fluoride",
   },
   simple_case: [
-    "Both sides accept that the recommended level is 0.7 mg/L, that fluoride above 1.5 mg/L, as in parts of China and India, is associated with lower IQ, that cavity rates fell in fluoridated and non-fluoridated countries alike once fluoride toothpaste spread, and that public health already uses population-wide measures like chlorination without individual consent.",
-    "The policy has moved while the science has not settled: Utah's HB 81 (March 2025) and Florida's SB 700 (May 2025) ended fluoridation statewide, at least 21 states saw bills introduced in 2025, and HHS directed the CDC in April 2025 to reconvene an expert panel on fluoride, with the 0.7 mg/L recommendation still standing.",
-    "They split over whether swallowed fluoride still adds meaningful benefit beyond toothpaste — the CDC estimates about 25% less tooth decay, the 2024 Cochrane review a much smaller effect in the toothpaste era; whether the twofold margin to 1.5 mg/L is enough once toothpaste, food, tea, infants and pregnancy are counted; and whether fluoridating everyone's water is justified when most of Western Europe delivers fluoride other ways, and whether those alternatives reach the people who need it most.",
+    "The answer decides whether your town's water board keeps fluoridating, what dentists tell parents in towns that stop, and what EPA does with the fluoride standard it began reassessing in January 2026.",
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Dental Health Benefits vs. Alternatives
+    // PILLAR 1: Does it still prevent cavities? (what we know)
     // =========================================================================
     {
       id: "dental-health-benefits",
-      title: "Dental Health Benefits vs. Alternatives",
+      title: "Does It Still Prevent Cavities?",
       short_summary:
-        "The CDC calls water fluoridation one of the ten great public health achievements of the 20th century, citing a 25% reduction in tooth decay. However, the updated 2024 Cochrane review found that benefits have shrunk markedly since fluoride toothpaste became widespread in the 1970s — to roughly a quarter of one baby tooth per child, with low certainty. Cavity rates have declined similarly in countries that never fluoridated their water, raising questions about whether systemic ingestion still provides meaningful incremental benefit beyond topical application.",
+        "Fluoridation began in 1945, before fluoride toothpaste existed. Cavity rates have since fallen in towns with and without it, and even the CDC says fluoride works mainly on the tooth surface. Cochrane's 2024 review found the modern benefit to be about a quarter of a baby tooth per child, with low certainty. But towns that stopped, like Calgary and Juneau, saw more decay in children afterwards.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The original evidence for water fluoridation came from the 1940s-1950s Grand Rapids trial and similar studies conducted before fluoride toothpaste was widely available. Since the 1970s, fluoride toothpaste has become ubiquitous in developed nations, and cavity rates have declined dramatically in both fluoridated and non-fluoridated countries alike. The updated 2024 Cochrane Review — the gold standard of evidence synthesis — found that most studies supporting fluoridation predate 1975 and were at high risk of bias, and that contemporary (post-1975) studies show the benefit has shrunk to roughly a quarter of one decayed, missing or filled baby tooth, with low certainty of evidence. The review concluded there was insufficient evidence that water fluoridation reduces inequalities in dental health. European countries including Germany, the Netherlands, Sweden, and Switzerland ended water fluoridation decades ago without seeing increases in tooth decay. The mechanism of fluoride's benefit is now understood to be primarily topical (contact with tooth surfaces), not systemic (ingestion), undermining the rationale for adding it to drinking water.",
+        "The trials that made fluoridation policy were run in the 1940s and 1950s, before fluoride toothpaste. Since then cavities have fallen in communities with and without fluoridated water, and in 1999 the CDC itself wrote that fluoride's 'actions primarily are topical for both adults and children': it works on the tooth surface, which toothpaste reaches directly. The 2024 Cochrane review, the most rigorous synthesis available, found that most of the evidence predates 1975 and is at high risk of bias. In studies from the toothpaste era, starting fluoridation cut decay by about 0.24 of a baby tooth per child, a low-certainty estimate whose confidence interval includes no benefit at all. Cochrane found no eligible studies of adults and not enough evidence to say whether fluoridation narrows the gap between rich and poor children. Most of Western Europe does not fluoridate its water and has not seen a cavity epidemic. A benefit this small and this uncertain is a thin reason to dose a whole population.",
       proponent_rebuttal:
-        "The CDC estimates that community water fluoridation prevents approximately 25% of tooth decay across all age groups, including in the modern era of fluoride toothpaste availability. A 2018 systematic review in the Journal of Dental Research confirmed ongoing benefits even in countries with widespread toothpaste use. Water fluoridation is particularly important for low-income communities where access to dental care and consistent toothpaste use cannot be assumed — children from low-income families have 2-3x higher rates of untreated cavities. The Australian National Health and Medical Research Council's 2017 review found that fluoridation reduces cavities by 26-44% in children and 27% in adults. While European countries that stopped fluoridation often implemented other programs (school-based fluoride rinses, salt fluoridation), these require individual compliance and miss the most vulnerable populations. Water fluoridation remains the most equitable delivery mechanism precisely because it requires no individual action.",
+        "A small average across all children hides who gains. Fluoridation helps most where brushing is irregular and dentists are hard to reach, and the clearest modern test is what happens when a city stops. Calgary stopped in 2011. Seven years later, 65% of its second-graders had tooth decay against 55% in Edmonton, which kept fluoridating, a gap the researchers found was not explained by diet or income; by 2018-19 Calgary children needed decay treatment under general anaesthetic at 32 per 10,000 against Edmonton's 17. In Juneau, Alaska, which stopped in 2007, decay treatments for Medicaid children under six rose from 1.5 per child in 2003 to 2.5 in 2012. Calgary voters restored fluoride in 2021 by 62%. The 1999 CDC report that called fluoride topical also explained why water still works: fluoridated water keeps a little fluoride in saliva all day, and spreads it through food and drinks made with it. The CDC still puts the benefit at about 25% less tooth decay in children and adults.",
       crux: {
         id: "systemic-vs-topical-benefit",
-        title: "The Systemic vs. Topical Fluoride Benefit Test",
+        title: "The Toothpaste-Era Test",
         question:
-          "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
+          "In children who already use fluoride toothpaste, does fluoridated water still mean fewer cavities?",
         description:
-          "If systemic fluoride ingestion provides significant dental benefit beyond what topical fluoride (toothpaste, rinses) achieves alone, water fluoridation has a clear dental health rationale. If the benefit is entirely or predominantly topical, the case for adding fluoride to drinking water weakens substantially, since topical delivery can be achieved without mass ingestion.",
+          "Fluoride toothpaste reaches almost every child in rich countries. If fluoridated water adds little on top of it, the dental case for fluoridation shrinks to the children who do not brush. If towns that stop see decay climb even among brushing children, the case holds for everyone.",
         methodology:
-          "Conduct a large-scale randomized controlled trial (or analyze natural experiments from communities that recently started or stopped fluoridation) comparing three groups: (1) fluoridated water + fluoride toothpaste, (2) non-fluoridated water + fluoride toothpaste, and (3) non-fluoridated water + non-fluoride toothpaste. Measure DMFT (decayed, missing, filled teeth) scores over 5-10 years across age groups and socioeconomic strata, controlling for diet, dental care access, and other fluoride sources. Compare the incremental benefit of group 1 over group 2 to assess whether systemic fluoride adds meaningful protection beyond topical use.",
+          "Use the natural experiments that 2025 created. Utah and Florida stopped statewide; compare dentist-examined decay in their children over five to ten years with matched counties in neighbouring states that kept fluoridating, as the Calgary-Edmonton studies did. Record toothpaste use, sugar intake, dental insurance and income, and report results separately for low-income children.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Compare cavity rates, from dental exams rather than self-report, in children who all use fluoride toothpaste but differ in whether their tap water is fluoridated, including before-and-after comparisons where fluoridation stopped, as in Calgary in 2011 and Utah in 2025.",
         },
         cost_to_verify:
-          "$5-15M (Multi-year longitudinal dental health study across multiple communities with different fluoridation statuses)",
+          "$5-15M (school dental screenings in Utah, Florida and comparison counties over five to ten years)",
         falsification: {
           supporter_flip:
-            "If a rigorous trial showed fluoridated water adds little or no dental benefit beyond fluoride toothpaste alone (i.e., the benefit is essentially topical), the core dental rationale for adding it to drinking water would collapse.",
+            "If children in Utah and Florida who brush with fluoride toothpaste showed no rise in decay over five years against matched fluoridated counties, the dental case for adding fluoride to water would rest on children who do not brush.",
           skeptic_flip:
-            "If the same trial showed ingested fluoride still meaningfully cuts cavities on top of toothpaste — especially for low-income kids — the 'toothpaste made it obsolete' argument would fail.",
+            "If decay rose after Utah and Florida stopped, as it did in Calgary and Juneau, and the rise held among children who brush daily, 'toothpaste made water fluoride obsolete' would be hard to hold.",
           common_ground:
-            "Both sides agree cavity rates fell across fluoridated AND non-fluoridated countries after fluoride toothpaste spread, and that fluoride's benefit is at least partly topical.",
+            "Both sides agree cavities fell in places with and without fluoridated water once fluoride toothpaste spread, and that fluoride works at least partly on the tooth surface.",
           live_disagreement:
-            "Whether ingested fluoride still provides meaningful incremental benefit beyond topical toothpaste — and whether that benefit justifies community-wide dosing.",
+            "How much fluoridated water adds on top of toothpaste today, and for which children.",
         },
       },
       evidence: [
         {
-          id: "cdc-25-percent-reduction",
-          title: "CDC Estimates 25% Cavity Reduction from Water Fluoridation",
-          description:
-            "The Centers for Disease Control and Prevention reports that community water fluoridation reduces tooth decay by approximately 25% in children and adults, even in an era of widespread fluoride toothpaste use. The CDC designated water fluoridation as one of ten great public health achievements of the 20th century in 1999. CDC's 2022 water fluoridation statistics, published in 2024, report that 72.3% of the US population served by community water systems received fluoridated water (209,135,866 people, or 62.8% of the total US population).",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 7,
-            replicability: 7,
-            directness: 8,
-          },
-          source: "Centers for Disease Control and Prevention",
-          sourceUrl:
-            "https://www.cdc.gov/fluoridation/php/statistics/2022-water-fluoridation-statistics.html",
-          reasoning:
-            "The CDC is the US government's premier public health agency with strong institutional credibility. However, independence is somewhat lower because the CDC has been a longstanding advocate of fluoridation, creating a potential institutional bias. The 25% figure is an aggregate estimate; some recent studies show smaller effect sizes, particularly when controlling for other fluoride sources.",
-        },
-        {
           id: "cochrane-review-2024",
-          title: "2024 Cochrane Review: Fluoridation Benefit Has Shrunk in the Toothpaste Era",
+          title:
+            "Cochrane 2024: in the toothpaste era, fluoridation saved about a quarter of a baby tooth per child (low certainty)",
           description:
-            "The Cochrane Collaboration's 2024 systematic review (an update of its 2015 review) included 157 studies, all non-randomised, and downgraded the certainty of all of the evidence for risk of bias. Crucially, when it restricted analysis to contemporary studies conducted after fluoride toothpaste became widespread (post-1975), starting water fluoridation 'may lead to a slightly greater change in dmft' (decayed, missing or filled baby teeth) of 0.24, 'approximately one-quarter of a tooth in favour of CWF,' with low-certainty evidence and a confidence interval (-0.03 to 0.52) that 'includes the possibility of benefit and no benefit.' Contemporary gains in the share of caries-free children were 4 percentage points for baby teeth and 3 for permanent teeth, also low-certainty, and only one post-1975 study reported on socioeconomic disparities.",
+            "The Cochrane Collaboration's 2024 update of its fluoridation review included 157 studies, none randomised. In studies after 1975, when fluoride toothpaste was widespread, starting water fluoridation 'may lead to a slightly greater change in dmft' (decayed, missing or filled baby teeth) of 0.24, 'approximately one-quarter of a tooth in favour of CWF', with a 95% confidence interval of -0.03 to 0.52 that 'includes the possibility of benefit and no benefit.' The review found no eligible studies reporting caries in adults, and too little evidence to judge whether stopping fluoridation changes decay or whether fluoridation narrows the gap between rich and poor children.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
@@ -92,293 +88,358 @@ export const fluorideWaterSuppliesData = {
             replicability: 6,
             directness: 9,
           },
-          source: "Cochrane Database of Systematic Reviews (2024 update)",
+          source: "Iheozor-Ejiofor et al., Cochrane Database of Systematic Reviews (2024), CD010856.pub3",
           sourceUrl: "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010856.pub3/full",
           reasoning:
-            "Cochrane reviews are the gold standard of evidence-based medicine, conducted by independent researchers with rigorous methodology, hence the very high source-reliability and independence scores. Replicability is rated lower because Cochrane itself graded the contemporary effect estimate as low-certainty evidence — the direction of the finding (diminished modern benefit) is robust, but the precise magnitude is not. The 2024 update is a significant challenge to the confidence with which fluoridation is promoted; it does not prove fluoridation is ineffective, but it demonstrates the modern benefit is smaller and less certain than commonly assumed.",
+            "The most careful synthesis there is, by reviewers with no stake in the outcome. It shows the modern benefit is smaller and less certain than the 25% figure suggests. It does not show the benefit is zero: the estimate still leans toward fewer cavities, and Cochrane rated the evidence low-certainty, which cuts against confident claims either way. Replicability is 6 for that reason.",
         },
         {
-          id: "who-non-fluoridated-decline",
-          title: "WHO Data Shows Equal Cavity Decline in Non-Fluoridated Countries",
+          id: "calgary-juneau-cessation",
+          title:
+            "Calgary and Juneau stopped fluoridating; children's decay rose more than in comparison cities",
           description:
-            "World Health Organization data on DMFT (decayed, missing, filled teeth) scores across dozens of countries shows that tooth decay declined at similar rates from the 1970s onward in both fluoridated countries (US, Australia, Ireland) and non-fluoridated countries (Germany, Netherlands, Denmark, Sweden, Japan). This parallel decline is attributed primarily to the introduction of fluoride toothpaste in the 1970s, improved dental hygiene education, dietary changes, and better access to dental care — not water fluoridation specifically.",
+            "Calgary stopped fluoridating in 2011. About seven years later, researchers led by Lindsay McLaren surveyed 2,649 second-graders: 65% of Calgary children had tooth decay against 55% in still-fluoridated Edmonton, a statistically significant gap. A 2024 study found decay treatment under general anaesthetic ran at 32 per 10,000 Calgary children in 2018-19 against 17 per 10,000 in Edmonton. In Juneau, Alaska, which stopped in 2007, decay treatments for Medicaid children under six rose from 1.5 per child in 2003 to 2.5 in 2012, and inflation-adjusted treatment costs rose by an average of $303 per child. Calgary voters chose to restore fluoride in 2021, by 62%, and it went back into the water in 2025.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 8,
+          },
+          source:
+            "Science News, 'Two cities stopped adding fluoride to water. Science reveals what happened' (28 April 2025), on McLaren et al., Yazdanbakhsh et al. (2024) and Meyer et al.; Central Florida Public Media (30 July 2025) on Calgary's return",
+          sourceUrl: "https://www.sciencenews.org/?p=3154054",
+          reasoning:
+            "Stopping is the closest thing to an experiment the toothpaste era offers, and both cities point the same way. Directness is high because these are modern children who had toothpaste. But they are two cities, not trials: Edmonton is not a perfect twin for Calgary, Juneau's figures come from Medicaid claims rather than exams, and Cochrane counted only one cessation study as meeting its bar. Replicability is 6.",
+        },
+        {
+          id: "decline-without-fluoridation",
+          title:
+            "CDC 1999: cavities fell in towns without fluoridated water too, and fluoride works 'primarily' on the tooth surface",
+          description:
+            "The CDC's 1999 report naming fluoridation one of the century's public health achievements said that 'the prevalence of dental caries has declined in both communities with and communities without fluoridated water.' It credited the decline in unfluoridated towns largely to fluoride spreading through bottled and processed food and drink made where water is fluoridated, and to 'widespread use of fluoride toothpaste.' It also reported that fluoride 'prevents dental caries predominately after eruption of the tooth into the mouth' and that 'its actions primarily are topical for both adults and children.'",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
+            independence: 7,
+            replicability: 8,
+            directness: 6,
           },
-          source: "World Health Organization Oral Health Database",
-          sourceUrl: "https://www.who.int/news-room/fact-sheets/detail/oral-health",
+          source:
+            "CDC, 'Achievements in Public Health, 1900-1999: Fluoridation of Drinking Water to Prevent Dental Caries', MMWR 48(41) (1999)",
+          sourceUrl: "https://www.cdc.gov/mmwr/preview/mmwrhtml/mm4841a1.htm",
           reasoning:
-            "WHO data is collected from national health systems worldwide and is highly reliable. The parallel decline in non-fluoridated countries is strong ecological evidence that water fluoridation may not be the primary driver of improved dental health in recent decades. However, ecological comparisons across countries have confounders — different diets, healthcare systems, and dental hygiene cultures make direct attribution difficult.",
+            "Coming from fluoridation's main US champion, the admission that the effect is mostly topical, and that cavities fell without it, carries weight for the skeptic's case. Directness is 6 because the same report argues water still delivers topical fluoride through saliva and food, so it explains the decline without conceding that water fluoride is useless.",
         },
         {
-          id: "low-income-disparities",
-          title: "Low-Income Children Have 2-3x Higher Untreated Cavity Rates",
+          id: "cdc-25-percent-reduction",
+          title: "CDC (2024): fluoridation cuts tooth decay by about 25% in children and adults",
           description:
-            "CDC data from the National Health and Nutrition Examination Survey (NHANES) shows that children from families below the federal poverty level have 2-3 times higher rates of untreated dental cavities compared to higher-income children. Fluoridation proponents argue this disparity makes water fluoridation essential because these children are least likely to have access to regular dental care, fluoride treatments, or consistent toothpaste use. University of Calgary studies showed that cavity rates in children increased after the city stopped fluoridating water in 2011 (compared with still-fluoridated Edmonton), and Calgary residents voted in 2021 to reinstate fluoridation.",
+            "The CDC's scientific statement on fluoridation, dated 15 May 2024, says community water fluoridation reduces tooth decay by 'about 25% in children and adults' and calls it '1 of 10 great public health achievements of the 20th century.' In 2022, 62.8% of the US population, 209 million people, received fluoridated water, according to CDC statistics.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
-            replicability: 8,
+            independence: 6,
+            replicability: 6,
             directness: 7,
           },
-          source: "CDC/NCHS Data Brief No. 307 (NHANES); Journal of Dental Research; Community Dentistry and Oral Epidemiology",
-          sourceUrl: "https://www.cdc.gov/nchs/products/databriefs/db307.htm",
+          source:
+            "CDC, Scientific Statement on Community Water Fluoridation (15 May 2024); CDC, 2022 Water Fluoridation Statistics",
+          sourceUrl:
+            "https://www.cdc.gov/fluoridation/about/statement-on-the-evidence-supporting-the-safety-and-effectiveness-of-community-water-fluoridation.html",
           reasoning:
-            "NHANES is a rigorous nationally representative health survey. The equity argument — that fluoridation primarily benefits those who cannot access alternatives — is one of the strongest justifications for the policy. The Calgary natural experiment provides quasi-experimental evidence. However, directness is somewhat lower because the disparity could also be addressed through targeted interventions like school-based programs.",
+            "The official US estimate, and the number most local debates start from. Independence is 6 because the CDC has promoted fluoridation for decades. The 25% figure leans on older studies, which is exactly what the 2024 Cochrane review questions, so replicability is 6.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 2: Safety & Health Risks
+    // PILLAR 2: Is 0.7 mg/L safe for children's brains? (the risk)
     // =========================================================================
     {
       id: "safety-health-risks",
-      title: "Safety & Health Risks",
+      title: "Is 0.7 mg/L Safe for Children's Brains?",
       short_summary:
-        "The EPA's maximum contaminant level goal for fluoride is 4 mg/L, while the recommended level for fluoridation is 0.7 mg/L. Recent studies, including the 2024 NTP report, have found associations between fluoride exposure and lower IQ in children, reigniting debate about whether the safety margin at recommended levels is adequate — particularly for vulnerable populations like infants and pregnant women.",
+        "Fluoride at high levels, as in parts of China and India, is linked to lower IQ; the 2024 US toxicology review said so with moderate confidence above 1.5 mg/L. Whether anything happens at the US target of 0.7 mg/L is the open question. A Canadian birth cohort found lower IQ in boys at ordinary exposures; the same federal team's 2025 meta-analysis found no link with water below 1.5 mg/L, but a small one with fluoride measured in urine.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "The National Toxicology Program's 2024 systematic review — after years of suppression and political controversy — concluded with moderate confidence that fluoride exposure above 1.5 mg/L is associated with lower IQ in children, and that the association may extend to lower levels. The Bashash et al. (2017) study in JAMA Pediatrics found that prenatal fluoride exposure in Mexico City was associated with lower IQ scores in children, with each 0.5 mg/L increase in maternal urine fluoride associated with a 3.15-point decrease in child IQ. The Green et al. (2019) study in JAMA Pediatrics, funded by the Canadian government, found that fluoride exposure during pregnancy was associated with lower IQ in boys. A September 2024 federal district court ruling (Food & Water Watch v. EPA) found that fluoride at levels used in US water systems presents an unreasonable risk of injury to health, specifically regarding neurodevelopmental effects — though the Ninth Circuit vacated that ruling on procedural grounds in May 2026 and remanded the case, without itself deciding whether 0.7 mg/L poses an unreasonable risk. The safety margin between the recommended 0.7 mg/L and the level at which harm is documented (1.5 mg/L) is narrow, especially considering additional fluoride exposure from toothpaste, food, beverages, and dental treatments.",
+        "The margin between the US target and the level the government's own scientists link to lower IQ is only about twofold, and water is not the only source: toothpaste, tea, food and formula made with tap water all add to the dose, and infants get the most per kilogram. The National Toxicology Program concluded with moderate confidence in August 2024 that fluoride above 1.5 mg/L is associated with lower IQ in children, and said it had insufficient data to clear 0.7 mg/L. Its authors' January 2025 meta-analysis in JAMA Pediatrics found IQ fell about 1.6 points for each 1 mg/L of fluoride in children's urine, and that the link with urine fluoride held, though smaller, in studies below 1.5 mg/L. A Canadian cohort of 512 mothers, living at ordinary North American exposures, found that each 1 mg/L more fluoride in a pregnant woman's urine went with 4.5 fewer IQ points in her son. When a cheap alternative exists for the benefit, a credible signal of harm to developing brains is reason enough to stop swallowing it.",
       proponent_rebuttal:
-        "The recommended fluoridation level of 0.7 mg/L is well below the 1.5 mg/L threshold identified in the NTP report. Major health organizations — including the WHO, ADA, AMA, and AAP — have consistently found fluoridation at recommended levels to be safe. The IQ studies cited by critics have significant limitations: many were conducted in areas with naturally high fluoride levels (2-10+ mg/L) in China and India, far above US fluoridation levels. The Bashash and Green studies have been criticized for small sample sizes, potential confounders, and inconsistent results (the Green study found effects in boys but not girls). The EPA's maximum contaminant level provides a substantial safety factor. Decades of population-level studies in fluoridated communities have not found clinically significant health effects at 0.7 mg/L. Dental fluorosis — white spots on teeth from excess fluoride during development — is the only well-established side effect at recommended levels, and it is primarily cosmetic.",
+        "The US monograph found a link above 1.5 mg/L, more than twice the US target, mostly from studies in places with naturally high fluoride. Its own authors' 2025 meta-analysis found no association between water fluoride and IQ in studies below 1.5 mg/L: the estimate was 0.05, essentially zero. The Canadian finding appeared in boys but not girls, a split with no clear biological reason, and single-cohort urine measures vary from day to day. The NTP said plainly that its review was not designed to judge 0.7 mg/L. And no court has found harm on the scientific merits: the 2024 district court ruling that fluoride at US levels posed an 'unreasonable risk' was vacated by the Ninth Circuit in May 2026, which ordered a new decision on the original trial record. Withdrawing a proven dental benefit over an unconfirmed signal trades certain cavities for an uncertain gain.",
       crux: {
         id: "neurodevelopmental-risk-at-recommended-levels",
-        title: "The Low-Dose Neurodevelopmental Risk Assessment",
+        title: "The Low-Dose IQ Test",
         question:
-          "Is the twofold margin between 0.7 and 1.5 mg/L enough once other fluoride sources and vulnerable groups count?",
+          "Do children of mothers who drink water at 0.7 mg/L score lower on IQ tests?",
         description:
-          "If fluoride at the recommended 0.7 mg/L concentration poses measurable neurodevelopmental risk — even a small one — the risk-benefit calculus shifts dramatically, especially for pregnant women and infants. If the neurodevelopmental effects are limited to exposures well above recommended levels (>1.5 mg/L), the current safety margin is adequate.",
+          "Everyone accepts that fluoride lowers IQ at some dose. The question is whether the US target sits safely below that dose once every source of fluoride and the most exposed groups (pregnant women, formula-fed infants) are counted.",
         methodology:
-          "Conduct a prospective birth cohort study in US communities with fluoridated (0.7 mg/L) and non-fluoridated water. Enroll 5,000+ pregnant women, measure urinary fluoride throughout pregnancy and early childhood, and assess child neurodevelopment at ages 1, 2, 4, and 6 using standardized IQ and neurodevelopmental batteries (Bayley Scales, WISC). Control for maternal education, income, lead exposure, iodine status, breastfeeding duration, and other known confounders. This would definitively determine whether fluoride at US-recommended levels affects neurodevelopment.",
+          "Prospective birth cohorts in communities at 0.7 mg/L and in unfluoridated communities, measuring each mother's and child's urinary fluoride repeatedly, recording toothpaste, tea and formula use, adjusting for iodine, lead and parental education, and testing children's IQ by examiners who do not know their exposure. Run in several countries and share the data for pooled reanalysis. EPA's toxicity assessment, opened in January 2026, will review the same question.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Prospective birth cohorts in communities at 0.7 mg/L that measure each mother's and child's urinary fluoride, adjust for other fluoride sources and for iodine and lead, and test children's IQ blind, run in more than one country with the data shared openly for pooled reanalysis.",
         },
         cost_to_verify:
-          "$20-50M (Multi-site longitudinal birth cohort study over 6-8 years)",
+          "$20-50M (multi-site birth cohorts followed for six to eight years)",
         falsification: {
           supporter_flip:
-            "If a well-controlled US birth-cohort study found measurable neurodevelopmental harm at 0.7 mg/L — not just at the >1.5 mg/L levels seen abroad — the 'safe at recommended levels' position would have to change.",
+            "If new birth cohorts at 0.7 mg/L found that children of mothers with higher urinary fluoride scored lower on blind IQ tests, in girls as well as boys and in more than one country, 'safe at the recommended level' would no longer hold.",
           skeptic_flip:
-            "If such a study found no IQ effect at 0.7 mg/L after controlling for lead, iodine, and income, the strongest safety objection would lose its empirical basis.",
+            "If pooled birth cohorts at 0.7 mg/L found no IQ difference after adjusting for lead, iodine and income, the strongest safety objection to fluoridation would lose its footing.",
           common_ground:
-            "Both sides agree high fluoride (>1.5 mg/L, as in parts of China and India) is associated with lower IQ, and that the recommended level is 0.7 mg/L.",
+            "Both sides agree fluoride above 1.5 mg/L, as in parts of China and India, is linked to lower IQ, and that the US target is 0.7 mg/L.",
           live_disagreement:
-            "Whether the ~2x margin between 0.7 and 1.5 mg/L is adequate once other fluoride sources (toothpaste, food, tea) and vulnerable groups (infants, pregnancy) are accounted for.",
+            "Whether the roughly twofold margin between 0.7 and 1.5 mg/L is enough once toothpaste, food, tea and formula are counted and pregnant women and infants are considered.",
         },
       },
       evidence: [
         {
           id: "ntp-report-2024",
-          title: "NTP 2024 Report: Fluoride Above 1.5 mg/L Associated with Lower IQ",
+          title:
+            "NTP 2024: moderate confidence that fluoride above 1.5 mg/L is linked to lower child IQ; too little data on 0.7 mg/L",
           description:
-            "The National Toxicology Program's systematic review (monograph published August 2024), after years of political delays and controversy, concluded with moderate confidence that higher fluoride exposure — such as drinking water above 1.5 mg/L — is associated with lower IQ in children. The review drew on over 70 epidemiological studies across 12 countries (with a meta-analysis of higher-quality studies) and found a consistent inverse association between fluoride exposure and IQ. Critically, the NTP noted its review assessed total fluoride exposure from all sources and was not designed to evaluate fluoridated drinking water alone; it found insufficient data to determine whether the 0.7 mg/L level recommended for US community water has an effect on children's IQ.",
+            "The National Toxicology Program's monograph, published 21 August 2024 after years of delay and review, 'concluded, with moderate confidence, that higher levels of fluoride exposure, such as drinking water containing more than 1.5 milligrams of fluoride per liter, are associated with lower IQ in children.' It also found 'insufficient data to determine if the low fluoride level of 0.7 mg/L' recommended for US community water affects children's IQ. The review assessed total fluoride exposure from all sources, not fluoridated water alone.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 8,
-            directness: 7,
+            directness: 6,
           },
-          source: "National Toxicology Program, US Department of Health and Human Services",
+          source: "National Toxicology Program, NIEHS, 'Fluoride Exposure: Neurodevelopment and Cognition' monograph (21 August 2024)",
           sourceUrl: "https://ntp.niehs.nih.gov/research/assessments/noncancer/completed/fluoride",
           reasoning:
-            "The NTP is a highly credible US government scientific program. The report underwent extensive peer review, though its release was delayed amid political pressure, raising independence concerns. Directness is lower because the 1.5 mg/L threshold is above the US recommended level of 0.7 mg/L — but the inability to rule out effects at lower levels is concerning. The report does not prove harm at 0.7 mg/L but narrows the assumed safety margin.",
+            "A federal systematic review that took the safety question seriously, which is why it moved the policy debate. It establishes harm at about twice the US target and leaves the target itself unresolved, so directness is 6. It narrows the margin of safety; it does not show harm at 0.7 mg/L.",
         },
         {
-          id: "bashash-jama-2017",
-          title: "Bashash 2017: Prenatal Fluoride Linked to Lower IQ in JAMA Pediatrics",
+          id: "taylor-2025-urine-dose-response",
+          title:
+            "JAMA Pediatrics 2025: IQ fell 1.63 points per 1 mg/L of fluoride in children's urine across 74 studies",
           description:
-            "A 2017 study published in JAMA Pediatrics followed 299 mother-child pairs in Mexico City and found that higher prenatal fluoride exposure (measured via maternal urine) was associated with lower cognitive scores in children at ages 4 and 6-12. Each 0.5 mg/L increase in maternal urinary fluoride was associated with a 3.15-point decrease in General Cognitive Index at age 4 and a 2.5-point decrease in IQ at age 6-12. The study was funded by the US NIH and the Mexican government.",
+            "Taylor and colleagues, the NTP team, published their meta-analysis in JAMA Pediatrics on 6 January 2025. Across 74 studies (64 cross-sectional, 10 cohort), each 1 mg/L increase in urinary fluoride was associated with a 1.63-point lower IQ (95% CI -2.33 to -0.93); in low risk-of-bias studies the drop was 1.14 points. Below 4 mg/L the inverse association held for both water and urine fluoride. Below 1.5 mg/L, the urinary association was still inverse but small (β -0.08, 95% CI -0.15 to -0.003). The authors said data for water below 1.5 mg/L were limited and uncertain.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 8,
-            replicability: 6,
-            directness: 7,
-          },
-          source: "Bashash et al., JAMA Pediatrics (2017)",
-          sourceUrl: "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2748634",
-          reasoning:
-            "Published in a top-tier peer-reviewed journal with NIH funding, lending high credibility. However, replicability is lower due to the relatively small sample size (299 pairs), the single-city design, and the fact that Mexico City has different fluoride exposure patterns than US fluoridated communities. Urinary fluoride levels in the study participants were higher than typical US exposures. The study design is observational, not experimental, leaving room for unmeasured confounders.",
-        },
-        {
-          id: "federal-court-ruling-2024",
-          title: "2024 Federal Court Ruling on Fluoride Risk — Vacated on Appeal in 2026",
-          description:
-            "In September 2024, US District Judge Edward Chen ruled in Food & Water Watch v. EPA that fluoride at the 0.7 mg/L level used in US water fluoridation programs poses an unreasonable risk of reduced IQ in children under the Toxic Substances Control Act, and ordered the EPA to initiate rulemaking. However, on May 21, 2026, the Ninth Circuit Court of Appeals vacated that ruling and remanded the case, holding that the district court abused its discretion in how it handled the trial record. The appellate panel did not decide the underlying scientific question of whether 0.7 mg/L presents an unreasonable risk, so the legal status of fluoride risk under TSCA is now unresolved rather than settled.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 6,
             independence: 7,
-            replicability: 6,
+            replicability: 7,
             directness: 6,
           },
-          source: "Food & Water Watch v. EPA, US District Court (N.D. Cal., 2024); vacated, 9th Cir. No. 25-384 (May 21, 2026)",
-          sourceUrl: "https://www.courtlistener.com/docket/15075680/food-water-watch-inc-v-united-states-environmental-protection-agency/",
+          source:
+            "Taylor et al., 'Fluoride Exposure and Children's IQ Scores: A Systematic Review and Meta-Analysis', JAMA Pediatrics 179(3) (published online 6 January 2025)",
+          sourceUrl: "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2828425",
           reasoning:
-            "The 2024 district-court ruling drew attention because it accepted, under a legal 'preponderance of evidence' standard, that fluoride at US levels poses an unreasonable risk. But courts apply legal rather than scientific standards, and the Ninth Circuit vacated the ruling in May 2026 on procedural grounds without affirming the science — substantially reducing its evidentiary weight and directness. A vacated, remanded ruling is no longer authoritative legal precedent and should be read as an unresolved dispute, not a finding of harm.",
+            "A dose-response across many studies is harder to wave away than any single study. Most of the studies come from high-fluoride regions, and 64 of the 74 are cross-sectional, which cannot show which came first. The small inverse urine association at low exposure is the closest the paper gets to the US case, so directness is 6.",
         },
         {
-          id: "decades-population-safety-data",
-          title: "70+ Years of Population Data Show No Clinical Health Effects at 0.7 mg/L",
+          id: "taylor-2025-null-below-1-5",
+          title:
+            "Same 2025 meta-analysis: no link between water fluoride and IQ in studies below 1.5 mg/L",
           description:
-            "Water fluoridation has been practiced in the US since 1945, providing over 70 years of population-level safety data. Large-scale epidemiological studies, including the York Review (2000), the Australian NHMRC review (2017), and multiple CDC surveillance reports, have not identified clinically significant health effects — including cancer, bone fractures, kidney disease, or neurological disease — at the recommended fluoridation level of 0.7 mg/L. The only well-established effect is dental fluorosis (primarily mild cosmetic white spots on teeth), which occurs in approximately 25% of adolescents in fluoridated areas, though mostly in its mildest form.",
+            "In the same JAMA Pediatrics meta-analysis, restricting to studies where drinking water was below 1.5 mg/L, the association between water fluoride and IQ was null: β 0.05 (95% CI -0.36 to 0.45; P = .82). Water fluoride below 1.5 mg/L covers every US fluoridated system, which aims for 0.7 mg/L.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Taylor et al., JAMA Pediatrics 179(3) (published online 6 January 2025)",
+          sourceUrl: "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2828425",
+          reasoning:
+            "The exposure measure that maps onto policy, water concentration, shows nothing in the range that matters, from authors who found harm at higher doses. A null result in a small subset of studies can mean too little statistical power rather than no effect, and the urine measure in the same range did not come out null, so replicability is 6.",
+        },
+        {
+          id: "green-jama-pediatrics-2019",
+          title:
+            "Canadian cohort 2019: each 1 mg/L more fluoride in pregnant women's urine went with 4.5 fewer IQ points in boys",
+          description:
+            "Green, Lanphear, Till and colleagues followed 601 mother-child pairs in six Canadian cities (JAMA Pediatrics, August 2019). Among 512 pairs with urine data, each 1 mg/L increase in maternal urinary fluoride was associated with a 4.49-point lower full-scale IQ in boys at ages 3 to 4 (95% CI -8.38 to -0.60); in girls the estimate was +2.40 and not significant. A 1 mg increase in mothers' daily fluoride intake was associated with 3.66 fewer IQ points in boys and girls combined. The authors wrote that 'these findings were observed at fluoride levels typically found in white North American women.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
             independence: 8,
-            replicability: 9,
+            replicability: 5,
             directness: 8,
           },
-          source: "Australian NHMRC; York Centre for Reviews; CDC",
-          sourceUrl: "https://www.nhmrc.gov.au/about-us/publications/water-fluoridation-dental-and-other-human-health-outcomes",
+          source:
+            "Green et al., 'Association Between Maternal Fluoride Exposure During Pregnancy and IQ Scores in Offspring in Canada', JAMA Pediatrics 173(10):940-948 (2019)",
+          sourceUrl: "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2748634",
           reasoning:
-            "Multiple independent national reviews across different countries reaching similar safety conclusions is strong evidence. High replicability because the finding is consistent across studies. However, these reviews largely predate the most recent NTP report and neurodevelopmental studies, and population-level surveillance may not detect subtle cognitive effects. The absence of evidence for harm at 0.7 mg/L is meaningful but not the same as evidence of absence.",
+            "The study that brought the question home: a prospective cohort at North American exposures, so directness is high. Replicability is 5 because it is one cohort, the effect appeared in boys but not girls with no settled explanation, and single urine samples are a noisy measure of a pregnancy's exposure.",
+        },
+        {
+          id: "federal-court-ruling-2024",
+          title:
+            "A 2024 court found fluoride at US levels an 'unreasonable risk'; the Ninth Circuit vacated it in May 2026",
+          description:
+            "In September 2024, Judge Edward Chen ruled in Food & Water Watch v. EPA that fluoridation at 0.7 mg/L presents an unreasonable risk of reduced IQ under the Toxic Substances Control Act and ordered EPA to act. On 21 May 2026 the Ninth Circuit vacated that ruling in an unpublished memorandum (No. 25-384), holding that the district court abused its discretion by 'commandeering' the case, holding it in abeyance for new science and running a second trial. It sent the case back with instructions to 'rule based solely on the first trial record' and to address standing. The panel did not decide whether 0.7 mg/L presents an unreasonable risk. Separately, on 22 January 2026 EPA released a preliminary plan for a new fluoride toxicity assessment, focused on dental fluorosis and children's brain development, to inform any revision of the drinking-water standard.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 7,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Beveridge & Diamond, 'Ninth Circuit Vacates Order Requiring EPA to Regulate Fluoridation of Drinking Water under TSCA' (2026), on Food & Water Watch v. EPA, No. 25-384 (9th Cir. 21 May 2026); Federal Register 91(18) (28 January 2026) on EPA's assessment plan",
+          sourceUrl:
+            "https://www.bdlaw.com/publications/ninth-circuit-vacates-order-requiring-epa-to-regulate-fluoridation-of-drinking-water-under-tsca/",
+          reasoning:
+            "A federal judge weighing the full record under a legal standard found the risk real, which is why skeptics cite it. Vacated on procedure, it now settles nothing in either direction: the merits go back to the district court. Weights are low because courts apply legal, not scientific, tests, and the ruling no longer stands.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 3: Public Health Ethics & Consent
+    // PILLAR 3: Who decides, and what replaces it? (values and trade-offs)
     // =========================================================================
     {
       id: "public-health-ethics-consent",
-      title: "Public Health Ethics & Consent",
+      title: "Who Decides, and What Replaces It?",
       short_summary:
-        "Water fluoridation is sometimes described as mass medication without individual consent. Most Western European countries have chosen not to fluoridate their water supplies, while supporters argue that population-level public health interventions like fluoridation, water chlorination, and iodized salt are justified when they provide broad benefit at minimal risk — especially for communities with limited access to alternatives.",
+        "Fluoridated water reaches every child in town without anyone doing anything, which is both its selling point and its offence. Supporters compare it to iodised salt and say it saves about $20 for every $1 spent; a 2025 model projected 25 million more decayed teeth in five years if the US stopped. Opponents call it medication without consent and point to Europe, which uses toothpaste, salt and school programmes instead.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Water fluoridation administers a pharmacologically active substance to an entire population without individual consent, dosage control, or the ability to opt out. Unlike chlorination (which prevents acute waterborne disease) or iodized salt (which is voluntary), fluoride in water delivers a variable dose depending on individual water consumption, body weight, and age — with infants receiving the highest dose per kilogram. Most Western European countries — including Germany, France, the Netherlands, Sweden, Denmark, Norway, Austria, Belgium, and Switzerland — do not fluoridate their water, and many explicitly rejected it on ethical grounds of individual choice and the precautionary principle. The fact that alternatives exist (fluoride toothpaste, dental sealants, targeted varnish programs) that can deliver fluoride's dental benefits without mass dosing makes the ethical case for water fluoridation weaker than for interventions where no alternative exists. Low-income and minority communities, who disproportionately rely on tap water and have less access to filtered alternatives, receive higher effective doses without having meaningful input into the decision.",
+        "Water fluoridation gives a drug-like substance to everyone, at a dose nobody controls: people who drink more water get more, and an infant fed formula made with tap water gets the most per kilogram. Nobody can opt out without buying filters or bottled water, which the poorest can least afford. Most of Western Europe chose other routes, such as fluoride toothpaste, fluoridated salt and school brushing programmes, that deliver fluoride to teeth without putting it in every glass. Florida's governor called fluoridation 'forced medication' when he backed the 2025 ban. The Nuffield Council on Bioethics' 'intervention ladder' holds that the more an intervention removes individual choice, the stronger its justification must be, and a benefit Cochrane now rates as small and low-certainty does not clear that bar. In October 2025 the FDA concluded that swallowed fluoride supplements should not be used by children under three or by older children at low risk of decay.",
       proponent_rebuttal:
-        "Public health has always operated through population-level interventions that do not require individual consent: water chlorination, sewage treatment, food fortification (iodized salt, folic acid in flour, vitamin D in milk), vehicle safety standards, and building codes. The ethical framework is straightforward — when an intervention provides broad public benefit, poses minimal risk, and would be inequitably distributed if left to individual action, population-level delivery is justified. The American Dental Association, the American Medical Association, the American Academy of Pediatrics, and the World Health Organization all endorse water fluoridation as safe and effective. European countries that do not fluoridate water often use alternatives like salt fluoridation or school-based programs that still deliver fluoride to the population — they did not reject fluoride itself, only the delivery mechanism. Community fluoridation decisions are made democratically through local water boards and public referenda, providing a mechanism for consent. Cost-effectiveness analyses consistently show a strong return — CDC estimates roughly $32 saved per person per year and a return on investment on the order of $20 (and up to ~$38 in large communities) for every $1 invested — with the greatest savings accruing to low-income families who cannot afford dental care.",
+        "Public health has always worked through measures nobody opts into: chlorinated water, iodised salt, folic acid in flour, vitamin D in milk. Fluoridation fits the same test of broad benefit, low risk and fair reach. It needs no dentist, no prescription and no daily habit, which is why it helps the children who have the least of all three. It is also decided democratically: Calgary voters brought it back by 62% in 2021, which is consent at the level where the decision is made. Florida's ban took that choice away from every town in the state. The CDC estimates fluoridation saves about $20 for every $1 spent in communities of 1,000 or more, and a 2025 Mass General Brigham model projected that ending it nationwide would add 25.4 million decayed teeth in children within five years and $9.8 billion in dental costs, falling hardest on uninsured and publicly insured children. Europe's alternatives depend on school programmes and health systems that many US towns do not have.",
       crux: {
         id: "consent-alternatives-adequacy",
-        title: "The Alternative Delivery Adequacy Test",
+        title: "The Replacement Test",
         question:
-          "Is fluoridating everyone's water justified when alternatives exist, and do they reach those most in need?",
+          "Where towns stop fluoridating, do school fluoride programmes keep poor kids' cavities from rising?",
         description:
-          "If alternative fluoride delivery mechanisms (toothpaste, school programs, salt fluoridation) can achieve equivalent dental health outcomes for vulnerable populations without mass water treatment, the ethical justification for bypassing individual consent weakens considerably. If alternatives consistently fail to reach the most vulnerable populations and dental health disparities widen without water fluoridation, the population-level approach is justified on equity grounds.",
+          "The equity argument for fluoridation is that it reaches children nothing else reaches. If school varnish, sealant and brushing programmes can match it for low-income children, the consent objection carries the day for many people. If they cannot, the choice is a real trade between individual consent and poor children's teeth, and each side should say how much weight it gives each.",
         methodology:
-          "Compare dental health outcomes (DMFT scores, untreated cavities, emergency dental visits) in low-income children across three policy environments: (1) communities with water fluoridation, (2) communities without water fluoridation but with active alternative programs (school-based fluoride rinses, dental sealant programs, targeted varnish), and (3) communities with neither fluoridation nor alternative programs. Control for income, dental insurance coverage, dental care access, and dietary factors. If alternative programs achieve parity with fluoridation in reaching low-income children, the consent argument strengthens; if significant gaps persist, the equity case for fluoridation is confirmed.",
+          "In Utah and Florida, track cavity rates among low-income children from school dental screenings in districts that add fluoride varnish, sealant or supervised brushing programmes against districts that add nothing, and against matched fluoridated counties elsewhere. Count programme reach (share of children treated each year) and cost per child alongside cost per child of fluoridation.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Follow cavity rates among low-income children, from school dental screenings, in places that end fluoridation and replace it with school toothbrushing, varnish or salt programs, against similar places that keep it; how much consent should weigh against any gap that remains is a value each side should state up front.",
         },
         cost_to_verify:
-          "$2-5M (Comparative cross-community dental health study across policy environments)",
+          "$2-5M (school dental screening across Utah, Florida and comparison counties)",
         falsification: {
           supporter_flip:
-            "If alternative delivery (toothpaste, school rinses, sealants, salt fluoridation) were shown to reach low-income children as well as fluoridated water does, the case for bypassing individual consent would weaken sharply.",
+            "If districts in Utah and Florida that added school varnish and brushing programmes kept low-income children's decay as low as in fluoridated counties, at similar cost, the equity case for fluoridating everyone's water would weaken sharply.",
           skeptic_flip:
-            "If alternatives consistently failed to reach the most vulnerable and dental disparities widened without water fluoridation, the equity argument for the population-level approach would hold.",
+            "If decay among low-income children rose in Utah and Florida even where school programmes were added, while it held steady in fluoridated counties, the claim that alternatives can replace water fluoride would fail.",
           common_ground:
-            "Both sides agree public health already uses non-consensual population measures (chlorination, food fortification), and that most of Western Europe delivers fluoride by other means than the tap.",
+            "Both sides agree public health uses some population-wide measures without individual consent, such as chlorination and iodised salt, and that most of Western Europe delivers fluoride by means other than tap water.",
           live_disagreement:
-            "Whether opt-out-free water fluoridation is justified given that alternative delivery methods exist — and whether those alternatives actually reach the people who benefit most.",
+            "Whether school and clinic programmes can reach the children fluoridated water reaches, and how much individual consent should count if they cannot.",
         },
       },
       evidence: [
         {
-          id: "european-countries-rejected",
-          title: "Most Western European Countries Do Not Fluoridate Water",
-          description:
-            "Of 48 European countries, only Ireland, parts of the UK, Spain, and a few Eastern European countries practice water fluoridation. Germany stopped in 1971, the Netherlands in 1976, Sweden in 1971, and Switzerland has never fluoridated its municipal water (using salt fluoridation instead). Many of these countries explicitly cited ethical concerns about mass medication, individual choice, and the precautionary principle. Despite not fluoridating water, these countries have dental health outcomes comparable to or better than the United States, as documented by WHO and OECD oral health data.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "European Commission; WHO Oral Health Database; OECD Health Statistics",
-          sourceUrl: "https://www.who.int/news-room/fact-sheets/detail/oral-health",
-          reasoning:
-            "The policy choices of numerous developed democracies are well-documented facts. Their comparable dental health outcomes directly challenge the necessity argument for water fluoridation. However, European countries often have universal healthcare, different diets (less sugar), and alternative fluoride delivery mechanisms, making direct comparison imperfect. The ethical reasoning of European authorities is a relevant policy consideration, not a scientific finding.",
-        },
-        {
           id: "cost-effectiveness-32-to-1",
-          title: "Water Fluoridation Is Highly Cost-Effective per CDC Estimates",
+          title:
+            "CDC: fluoridation saves about $20 for every $1 spent in communities of 1,000 or more",
           description:
-            "CDC and multiple economic analyses have found that community water fluoridation is one of the most cost-effective public health interventions available. CDC estimates that fluoridated communities save roughly $32 per person per year in avoided dental treatment costs, and that the return on investment ranges from about $20 saved per $1 spent (averaged across communities of 1,000+ people) to roughly $38 per $1 in large communities over 20,000 people, where it costs about $0.50 per person annually. A 2016 Health Affairs study estimated that expanding fluoridation would prevent millions of cavities annually and save billions in dental treatment costs, with low-income and uninsured populations receiving the largest benefit.",
+            "The CDC's May 2024 scientific statement reports 'an average savings of $20 per dollar invested' in communities of 1,000 or more people. A Colorado analysis found one year of fluoridated water saved 'an average savings of $60 per person' once lifetime restoration costs were counted, and Medicaid data from three states showed annual dental treatment costs per child $28 to $67 lower in fluoridated communities.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
-            directness: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 6,
           },
-          source: "CDC; Health Affairs; American Journal of Preventive Medicine",
-          sourceUrl: "https://www.cdc.gov/fluoridation/index.html",
+          source: "CDC, Scientific Statement on Community Water Fluoridation (15 May 2024)",
+          sourceUrl:
+            "https://www.cdc.gov/fluoridation/about/statement-on-the-evidence-supporting-the-safety-and-effectiveness-of-community-water-fluoridation.html",
           reasoning:
-            "Cost-effectiveness analyses are methodologically standard in public health. The $32:$1 ratio is widely cited and has been replicated across multiple studies. Independence is somewhat lower because many analyses are conducted by organizations that support fluoridation. Directness is moderate because cost-effectiveness addresses the policy question but not the ethical question of consent — an intervention can be cost-effective while still raising legitimate consent concerns.",
+            "Cheap prevention matters most to families who pay for fillings out of pocket. But the savings rest on effect sizes from older studies, the same estimates Cochrane questioned, so a smaller real benefit means smaller savings. And cost-effectiveness answers the budget question, not the consent question. Directness is 6.",
+        },
+        {
+          id: "jama-health-forum-2025-projection",
+          title:
+            "JAMA Health Forum 2025: ending US fluoridation projected to add 25.4 million decayed teeth in five years",
+          description:
+            "Choi and Simon of Mass General Brigham simulated ending community water fluoridation using NHANES data on 8,484 children (JAMA Health Forum, 30 May 2025). The model projected a 7.5 percentage-point rise in children's tooth decay, 25.4 million more decayed teeth within five years, and $9.8 billion in added dental costs over five years, rising to $19.4 billion after ten. It also projected about 200,000 fewer cases of dental fluorosis. The authors said the harm would fall hardest on publicly insured and uninsured children. The model did not include cognitive effects.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 5,
+            directness: 6,
+          },
+          source:
+            "Choi & Simon, 'Projected Impact of Removing Fluoride from Public Water Systems in the United States', JAMA Health Forum (30 May 2025); Mass General Brigham news release via EurekAlert",
+          sourceUrl: "https://www.eurekalert.org/news-releases/1085850",
+          reasoning:
+            "It puts the trade in numbers a town council can use. But it is a model: its output depends on the size of benefit it assumes, and if the Cochrane estimate is closer to the truth the projected harm shrinks. Replicability is 5 until Utah and Florida produce real data to check it against.",
         },
         {
           id: "mass-medication-ethics-literature",
-          title: "Bioethics Literature Debates Mass Medication Without Consent",
+          title:
+            "Nuffield Council on Bioethics: the more a measure removes choice, the stronger its justification must be",
           description:
-            "The bioethics literature contains significant debate about the ethics of mass medication. The Nuffield Council on Bioethics' 'intervention ladder' framework suggests that population-level interventions that restrict individual choice require stronger justification as they become more intrusive. Opponents of fluoridation argue that it violates the principle of informed consent central to medical ethics since the Nuremberg Code. Supporters cite the 'harm principle' — that fluoridation's minimal risk justifies its broad benefit. The debate has no definitive resolution because it involves competing values (population health vs. individual autonomy) that cannot be settled by evidence alone.",
+            "The Nuffield Council on Bioethics' 2007 report 'Public health: ethical issues' used water fluoridation as one of four case studies. It set out an 'intervention ladder' for judging public health policies: 'Interventions that are higher up the ladder are more intrusive' and need stronger justification, and policies should be proportionate to their intended effect and backed by evidence, or by a programme to gather it where evidence is weak.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 7,
-            directness: 8,
+            replicability: 4,
+            directness: 5,
           },
-          source: "Nuffield Council on Bioethics; Journal of Medical Ethics; American Journal of Public Health",
+          source: "Nuffield Council on Bioethics, 'Public health: ethical issues' (2007)",
           sourceUrl: "https://www.nuffieldbioethics.org/publications/public-health",
           reasoning:
-            "The bioethics literature is peer-reviewed and draws on established ethical frameworks. The debate is genuine and unresolved — reasonable people disagree about where to draw the line between public health benefit and individual autonomy. Replicability is lower because ethical arguments are not empirically testable. This evidence supports the claim that fluoridation raises legitimate consent concerns, even if one ultimately concludes the benefits justify the policy.",
+            "The ladder gives the consent objection a principled shape: as the measured benefit shrinks, the justification for removing choice gets harder to meet. It does not settle the question either way; supporters argue fluoridation sits low on the ladder because it is cheap, low-risk and locally decided. Replicability is 4 because this is a values framework, not a measurement.",
         },
         {
-          id: "disparate-fluoride-exposure",
-          title: "Black Youth and Formula-Fed Infants Appear to Get Higher Fluoride Doses From Tap Water",
+          id: "fda-ingestible-fluoride-2025",
+          title:
+            "FDA (Oct 2025): swallowed fluoride supplements should not be given to children under 3 or at low decay risk",
           description:
-            "The first nationally representative look at urinary fluoride among US youth (NHANES 2015-2016, 2,408 children and adolescents) found that non-Hispanic Black youth tended to have higher urinary fluoride than most other groups, and that the link between tap-water fluoride and urinary fluoride was strongest for them. The authors conclude that Black youth may have greater fluoride exposure and get more of it from tap water, and that the possible disparity warrants investigation. Infants are a second group: formula reconstituted with fluoridated water can lead to excessive fluoride intake, and in a Canadian birth cohort the association between water fluoride and lower performance IQ was more pronounced among formula-fed than breastfed children. Uneven exposure raises environmental justice concerns about a policy often justified on equity grounds.",
+            "On 31 October 2025 the FDA published a scientific evaluation warning against ingestible prescription fluoride drops and tablets for children under three, or older children at low or moderate risk of tooth decay, and moved against four companies selling unapproved products. It left supplements available for high-risk children over three, and the action does not cover toothpaste or community water. The American Dental Association's president responded that tablets and drops are safe and effective for high-risk children whose water lacks fluoride, and that a doctor's judgment should guide their use.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 8,
-            replicability: 6,
-            directness: 7,
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 4,
+            directness: 4,
           },
           source:
-            "Khan et al., \"Urinary Fluoride Levels Among Youth in NHANES 2015-2016: Potential Differences According to Race,\" Nutrients (2025); Till et al., \"Fluoride exposure from infant formula and child IQ in a Canadian birth cohort,\" Environment International (2020)",
-          sourceUrl: "https://doi.org/10.3390/nu17020309",
+            "California Dental Association, 'FDA acts to limit fluoride supplements for children' (10 November 2025)",
+          sourceUrl:
+            "https://www.cda.org/newsroom/access-to-care/fda-acts-to-limit-fluoride-supplements-for-children/",
           reasoning:
-            "Urinary fluoride is the best-established biomarker of exposure, and NHANES is nationally representative, so the racial difference is a real signal. Replicability is moderate: it is one survey cycle, the authors frame the difference as potential, and the reasons for it are not yet established. The irony that a policy justified on equity grounds may expose some vulnerable groups to higher doses is a legitimate concern. However, this must be weighed against the dental health benefits that also disproportionately accrue to these populations.",
+            "It shows federal regulators now treat swallowed fluoride for young children as something to limit, which supports the skeptic's case that ingestion, not contact, is the problem. Weights are low: it concerns concentrated supplements, not 0.7 mg/L water; it came from an administration that has campaigned against fluoridation, so independence is 5; and dental groups dispute it. It also cuts the other way, since supplements were the fallback for towns that stop fluoridating.",
         },
       ],
     },
   ],
   references: [
     {
-      title: "Community Water Fluoridation — Centers for Disease Control and Prevention",
-      url: "https://www.cdc.gov/fluoridation/index.html",
-    },
-    {
-      title: "Water Fluoridation for the Prevention of Dental Caries — Cochrane Systematic Review (2024 update)",
-      url: "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010856.pub3/full",
-    },
-    {
-      title: "Fluoride Exposure: Neurodevelopment and Cognition — National Toxicology Program (Monograph, August 2024)",
+      title: "Fluoride Exposure: Neurodevelopment and Cognition — National Toxicology Program monograph (21 August 2024)",
       url: "https://ntp.niehs.nih.gov/research/assessments/noncancer/completed/fluoride",
     },
     {
-      title: "Oral Health Fact Sheet — World Health Organization",
-      url: "https://www.who.int/news-room/fact-sheets/detail/oral-health",
+      title: "Water Fluoridation for the Prevention of Dental Caries — Cochrane systematic review (2024 update)",
+      url: "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010856.pub3/full",
     },
     {
-      title: "Public Health Ethics: Intervention Ladder — Nuffield Council on Bioethics",
-      url: "https://www.nuffieldbioethics.org/publications/public-health",
+      title: "Fluoride Exposure and Children's IQ Scores: A Systematic Review and Meta-Analysis — Taylor et al., JAMA Pediatrics (January 2025)",
+      url: "https://jamanetwork.com/journals/jamapediatrics/fullarticle/2828425",
+    },
+    {
+      title: "Ninth Circuit Vacates Order Requiring EPA to Regulate Fluoridation of Drinking Water under TSCA — Beveridge & Diamond (2026)",
+      url: "https://www.bdlaw.com/publications/ninth-circuit-vacates-order-requiring-epa-to-regulate-fluoridation-of-drinking-water-under-tsca/",
+    },
+    {
+      title: "EPA, Review of Science on Fluoride in Drinking Water: Preliminary Assessment Plan — Federal Register (28 January 2026)",
+      url: "https://www.govinfo.gov/content/pkg/FR-2026-01-28/html/2026-01657.htm",
+    },
+    {
+      title: "Two cities stopped adding fluoride to water. Science reveals what happened — Science News (28 April 2025)",
+      url: "https://www.sciencenews.org/?p=3154054",
+    },
+    {
+      title: "Community Water Fluoridation Recommendations — CDC",
+      url: "https://www.cdc.gov/fluoridation/about/community-water-fluoridation-recommendations.html",
     },
   ],
   questions: [
@@ -386,19 +447,19 @@ export const fluorideWaterSuppliesData = {
       id: "q1",
       title: "Does water fluoridation still provide meaningful benefit in the toothpaste era?",
       content:
-        "When fluoridation began in the 1940s, fluoride toothpaste did not exist. Now that fluoride toothpaste is ubiquitous and cavity rates have declined similarly in fluoridated and non-fluoridated countries, does adding fluoride to water still provide significant incremental dental benefit — or is it a legacy policy whose original rationale has been overtaken by alternatives?",
+        "Fluoridation began in 1945, before fluoride toothpaste existed. Cavities have since fallen in towns with and without fluoridated water, and the 2024 Cochrane review found the modern benefit small and uncertain. Yet Calgary and Juneau saw children's decay rise more than in comparison cities after they stopped. Utah and Florida, which stopped in 2025, will show whether that pattern repeats.",
     },
     {
       id: "q2",
       title: "Is the safety margin between recommended levels and documented harm adequate?",
       content:
-        "The NTP report found neurodevelopmental associations above 1.5 mg/L (assessing total fluoride exposure, not water alone), while the US recommended water level is 0.7 mg/L. The NTP found insufficient data to judge whether 0.7 mg/L water itself affects IQ. Critics argue cumulative exposure from all sources (water, toothpaste, food, beverages) narrows the real-world margin further, though how often total intake actually reaches the 1.5 mg/L-equivalent harm range is itself disputed. Is the resulting safety margin sufficient for a substance added to an entire population's water supply — particularly for vulnerable groups like infants and pregnant women?",
+        "The National Toxicology Program linked fluoride above 1.5 mg/L to lower child IQ and found too little data to judge the US target of 0.7 mg/L. Its authors' 2025 meta-analysis found no link with water fluoride below 1.5 mg/L but a small one with urine fluoride, and a Canadian cohort found lower IQ in boys at ordinary exposures. Is a roughly twofold margin enough, once toothpaste, food and formula are counted?",
     },
     {
       id: "q3",
       title: "Can targeted alternatives achieve the same equity benefits without mass medication?",
       content:
-        "The strongest argument for water fluoridation is equity — it reaches low-income populations who lack access to dental care. But could school-based fluoride programs, community dental clinics, and targeted varnish treatments achieve the same results without adding a pharmacologically active substance to everyone's water? European countries suggest the answer is yes, but their universal healthcare systems provide infrastructure the US lacks.",
+        "The strongest argument for fluoridation is that it reaches children who lack dentists and regular brushing. School varnish, sealant and brushing programmes could reach some of them without putting fluoride in everyone's water, as much of Europe does. Whether US towns can run them well enough, and how much individual consent should weigh if they cannot, is the live question.",
     },
   ],
 } satisfies TopicInput;
