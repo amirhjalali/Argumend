@@ -75,7 +75,7 @@ export function formatReport(report: StudyReport): string {
   lines.push("Primary outcome (H1): post perception gap, adjusted for pre gap, topic, party, device; HC2 SEs.");
   lines.push("Estimate = comparison arm minus map arm, in percentage points (positive favours the map).");
   for (const c of report.primary) {
-    lines.push(`  map vs ${c.versus.padEnd(7)} ${fmt(c.estimate)} pp (SE ${fmt(c.se)}), p = ${fmt(c.p, 4)}, d = ${fmt(c.standardized)}`);
+    lines.push(`  map vs ${c.versus.padEnd(7)} ${fmt(c.estimate)} pp (SE ${fmt(c.se)}), p = ${fmt(c.p, 4)}, d = ${fmt(c.standardized)}${c.equivalent ? ", equivalent within ±0.20 d" : ""}`);
   }
   lines.push(`H1: ${report.h1} (both contrasts must favour the map with p < 0.05).`);
   lines.push("");

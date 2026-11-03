@@ -129,9 +129,13 @@ describe("the primary analysis", () => {
     expect(report.h1).toBe("not supported");
   });
 
-  it("does not support H1 when nothing differs", () => {
-    const report = analyseStudy(synthetic(20, { map: 5, chatbot: 5, article: 5 }, 11));
-    expect(report.h1).toBe("not supported");
+  it("does not support H1 when nothing differs, and calls the arms equivalent only with enough data", () => {
+    const small = analyseStudy(synthetic(20, { map: 5, chatbot: 5, article: 5 }, 11));
+    expect(small.h1).toBe("not supported");
+    const large = analyseStudy(synthetic(120, { map: 5, chatbot: 5, article: 5 }, 11));
+    expect(large.primary.every((c) => c.equivalent)).toBe(true);
+    const different = analyseStudy(synthetic(120, { map: 15, chatbot: 5, article: 5 }, 11));
+    expect(different.primary.some((c) => c.equivalent)).toBe(false);
   });
 
   it("reports insufficient data rather than a model on a handful of rows", () => {

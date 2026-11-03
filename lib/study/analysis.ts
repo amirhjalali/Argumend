@@ -246,7 +246,15 @@ export interface ContrastResult {
   pAdjusted: number;
   /** Map-favouring effect in SD units of the outcome's post score (pooled over arms). */
   standardized: number;
+  /**
+   * TOST at alpha 0.05: the 90% interval of the standardized effect lies inside
+   * ±SESOI. "The map is no better than this comparison" needs this, not just p > 0.05.
+   */
+  equivalent: boolean;
 }
+
+/** Smallest effect size of interest, in SD units of the post score (the plan's power and equivalence bound). */
+export const SESOI = 0.2;
 
 export interface StudyReport {
   totalRows: number;
@@ -314,6 +322,9 @@ function contrasts(
       p: c?.p ?? NaN,
       pAdjusted: c?.p ?? NaN,
       standardized: favour / scale,
+      equivalent:
+        Number.isFinite(estimate) &&
+        Math.abs(favour / scale) + 1.6448536 * ((c?.se ?? Infinity) / scale) < SESOI,
     };
   });
 }
