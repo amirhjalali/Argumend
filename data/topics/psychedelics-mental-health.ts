@@ -236,7 +236,7 @@ export const psychedelicsMentalHealthData = {
         },
         {
           id: "oregon-clients-seek-treatment",
-          title: "Thousands Use Oregon's Adult-Use Program to Treat Depression, Anxiety and PTSD",
+          title: "Over a Thousand Oregon Psilocybin Clients Named Anxiety or Depression as a Reason for Use (2025)",
           description:
             "Oregon's 2025 year-end data count 5,935 clients served at licensed service centers. Asked their reasons (select all that apply), 1,413 cited anxiety, 1,304 depression, 775 PTSD and 291 substance use, alongside 1,816 who cited general health and wellness. What the state collects for the year is reactions and denials, not symptom outcomes: 13 reports of emergency services being contacted, 7 severe adverse behavioral reactions and 2 severe adverse medical reactions, with clients free to opt out of the data form.",
           side: "against" as const,
