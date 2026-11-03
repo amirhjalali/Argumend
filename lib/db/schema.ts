@@ -14,6 +14,7 @@ import {
   date,
   pgEnum,
   check,
+  smallint,
 } from "drizzle-orm/pg-core";
 import { relations, sql } from "drizzle-orm";
 import type { DebatePersistenceStatus } from "@/lib/debate/status";
@@ -27,6 +28,14 @@ import type {
 import type { JudgeScore, JudgingResult } from "@/lib/judge/rubric";
 import type { DisagreementReportV1 } from "@/types/disagreement";
 import type { ArgumentGraph } from "@/types/argument";
+import {
+  DEVICES,
+  PARTY_STRENGTHS,
+  PRIOR_EXPOSURE,
+  STUDY_ARMS,
+  STUDY_PARTIES,
+  STUDY_TOPICS,
+} from "@/lib/study/constants";
 
 // ============================================================================
 // Auth.js tables — users, accounts, sessions, verification tokens
@@ -512,6 +521,89 @@ export const gapObservations = pgTable(
     check(
       "gap_observations_labels_partition",
       sql`${table.talkingPastCount} + ${table.definitionalCount} + ${table.undisputedCount} + ${table.contestedCount} = ${table.propositionCount}`,
+    ),
+  ],
+);
+
+// ── The perception-gap study (docs/plans/2026-11-03-study-plan.md) ──────────
+// No text or json column in either table: every value is an enum, a bounded
+// small integer, a fixed-length array of them, or a hex id pinned by CHECK.
+// The participant is a keyed HMAC of their Prolific id; the raw id is never
+// stored. Dates are days, not timestamps.
+
+export const studyTopicEnum = pgEnum("study_topic", STUDY_TOPICS);
+export const studyArmEnum = pgEnum("study_arm", STUDY_ARMS);
+export const studyPartyEnum = pgEnum("study_party", STUDY_PARTIES);
+export const studyPartyStrengthEnum = pgEnum("study_party_strength", PARTY_STRENGTHS);
+export const studyPriorExposureEnum = pgEnum("study_prior_exposure", PRIOR_EXPOSURE);
+export const studyDeviceEnum = pgEnum("study_device", DEVICES);
+
+/** One row per participant who reached assignment; counted for balance whether or not they finish. */
+export const studyAssignments = pgTable(
+  "study_assignments",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    pidHash: varchar("pid_hash", { length: 64 }).notNull(),
+    prolificStudyId: varchar("prolific_study_id", { length: 24 }).notNull(),
+    party: studyPartyEnum("party").notNull(),
+    topic: studyTopicEnum("topic").notNull(),
+    arm: studyArmEnum("arm").notNull(),
+    assignedOn: date("assigned_on", { mode: "string" }).notNull(),
+  },
+  (table) => [
+    uniqueIndex("study_assignments_pid_hash_idx").on(table.pidHash),
+    index("study_assignments_stratum_idx").on(table.prolificStudyId, table.party),
+    check("study_assignments_pid_hash_hex", sql`${table.pidHash} ~ '^[a-f0-9]{64}$'`),
+    check("study_assignments_study_id_hex", sql`${table.prolificStudyId} ~ '^[a-f0-9]{24}$'`),
+  ],
+);
+
+/** One row per completed participant. */
+export const studyResponses = pgTable(
+  "study_responses",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    version: varchar("version", { length: 16 }).notNull(),
+    pidHash: varchar("pid_hash", { length: 64 }).notNull(),
+    prolificStudyId: varchar("prolific_study_id", { length: 24 }).notNull(),
+    party: studyPartyEnum("party").notNull(),
+    partyStrength: studyPartyStrengthEnum("party_strength").notNull(),
+    topic: studyTopicEnum("topic").notNull(),
+    arm: studyArmEnum("arm").notNull(),
+    perceivedPre: smallint("perceived_pre").notNull(),
+    perceivedPost: smallint("perceived_post").notNull(),
+    attitudePre: smallint("attitude_pre").notNull(),
+    attitudePost: smallint("attitude_post").notNull(),
+    ownAgreePre: smallint("own_agree_pre").array().notNull(),
+    ownAgreePost: smallint("own_agree_post").array().notNull(),
+    otherEstimatePre: smallint("other_estimate_pre").array().notNull(),
+    otherEstimatePost: smallint("other_estimate_post").array().notNull(),
+    charityPre: smallint("charity_pre").array().notNull(),
+    charityPost: smallint("charity_post").array().notNull(),
+    cruxChoice: varchar("crux_choice", { length: 40 }).notNull(),
+    attention: smallint("attention").notNull(),
+    fairness: smallint("fairness").notNull(),
+    learned: smallint("learned").notNull(),
+    priorExposure: studyPriorExposureEnum("prior_exposure").notNull(),
+    stimulusSeconds: integer("stimulus_seconds").notNull(),
+    totalSeconds: integer("total_seconds").notNull(),
+    stimulusOpened: smallint("stimulus_opened").notNull(),
+    device: studyDeviceEnum("device").notNull(),
+    completedOn: date("completed_on", { mode: "string" }).notNull(),
+  },
+  (table) => [
+    uniqueIndex("study_responses_pid_hash_idx").on(table.pidHash),
+    check("study_responses_version_shape", sql`${table.version} ~ '^study-v[0-9]+$'`),
+    check("study_responses_pid_hash_hex", sql`${table.pidHash} ~ '^[a-f0-9]{64}$'`),
+    check("study_responses_study_id_hex", sql`${table.prolificStudyId} ~ '^[a-f0-9]{24}$'`),
+    check("study_responses_crux_choice_slug", sql`${table.cruxChoice} ~ '^[a-z0-9]+(-[a-z0-9]+)*$'`),
+    check(
+      "study_responses_array_lengths",
+      sql`cardinality(${table.ownAgreePre}) = 5 AND cardinality(${table.ownAgreePost}) = 5 AND cardinality(${table.otherEstimatePre}) = 5 AND cardinality(${table.otherEstimatePost}) = 5 AND cardinality(${table.charityPre}) = 3 AND cardinality(${table.charityPost}) = 3`,
+    ),
+    check(
+      "study_responses_scalar_ranges",
+      sql`${table.perceivedPre} BETWEEN 0 AND 10 AND ${table.perceivedPost} BETWEEN 0 AND 10 AND ${table.attitudePre} BETWEEN 1 AND 6 AND ${table.attitudePost} BETWEEN 1 AND 6 AND ${table.attention} BETWEEN 1 AND 4 AND ${table.fairness} BETWEEN 0 AND 10 AND ${table.learned} BETWEEN 0 AND 10`,
     ),
   ],
 );
