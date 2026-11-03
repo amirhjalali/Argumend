@@ -535,7 +535,7 @@ export function PasteClient({ lanes }: { lanes: PasteLanes }) {
 
   const lede = diagnosisOn
     ? "Paste a conversation, an article or your own draft. Argumend separates what the sides agree on from what they don’t, finds the question it turns on, and takes you to the map that lays out both sides’ best evidence."
-    : "Paste a conversation, an article or your own draft. Find a map with questions and evidence on each side, or write conversation notes with a guide built around three questions.";
+    : "Paste an argument to see which map covers it and the question it turns on.";
 
   return (
     <PageContainer width="default">

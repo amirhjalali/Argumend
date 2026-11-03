@@ -20,7 +20,7 @@ test("home paste reaches the result when session storage is blocked", async ({ p
     if (new URL(request.url()).pathname === "/api/analyze") submissions.push(request.method());
   });
   await page.goto("/");
-  const example = page.getByRole("button", { name: "Try an example" });
+  const example = page.getByRole("button", { name: "See an example" });
   await waitForHydration(example);
   await example.click();
   await page.getByRole("button", { name: "Find what it turns on" }).click();
