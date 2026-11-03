@@ -33,7 +33,7 @@ export const openWeightAiModelsData = {
         "Open weights can have their safety fine-tuning stripped, potentially uplifting malicious actors on bioweapon or cyberattack tasks. The crux is whether open models provide capability beyond what is already available via search engines, closed models, and existing literature.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Once weights are public, anyone can cheaply remove the safety guardrails and query the model with no monitoring for bioweapon synthesis, novel malware, or cyberattack planning. The restrictionist camp — Yoshua Bengio, Geoffrey Hinton, Dan Hendrycks — argues the dangerous-capability ceiling is rising fast: by April 2026 open models like DeepSeek V4-Pro were reported (lab-reported/illustrative figures) near ~3,206 Codeforces and ~80% on SWE-bench Verified, approaching superhuman cyber-coding. 'Elicitation attack' research shows actors can use a safeguarded closed model to uplift an unrestricted open model on dangerous tasks without ever directly requesting harmful information, collapsing the 'the closed model already knows this' defense.",
+        "Once weights are public, anyone can cheaply remove the safety guardrails and query the model with no monitoring for bioweapon synthesis, novel malware, or cyberattack planning. The restrictionist camp — Yoshua Bengio, Geoffrey Hinton, Dan Hendrycks — argues the dangerous-capability ceiling is rising fast: DeepSeek's model card for its April 2026 V4-Pro preview, released as downloadable MIT-licensed weights, reports a 3,206 Codeforces rating and 80.6% on SWE-bench Verified, in the range of the closed frontier models it lists, and NIST's CAISI, which measured the model lower in its own tests, still placed it only about eight months behind the U.S. frontier. 'Elicitation attack' research shows actors can use a safeguarded closed model to uplift an unrestricted open model on dangerous tasks without ever directly requesting harmful information, collapsing the 'the closed model already knows this' defense.",
       proponent_rebuttal:
         "Current biorisk evaluations do not show that open models give amateurs a qualitative uplift over Google search and existing literature — the bottleneck for bioweapons is tacit lab skill and physical materials, not text-based information. Epoch AI's review of lab biorisk evals concluded they 'do not provide strong evidence that LLMs can enable amateurs to develop bioweapons.' The marginal harm of a given open release is a function of how much new capability it adds beyond what is already public; for most current models that delta is small, and the elicitation-attack problem shows the real lever is RLHF safety training on closed models, not pretraining knowledge that open weights merely expose.",
       crux: {
@@ -119,35 +119,35 @@ export const openWeightAiModelsData = {
           id: "elicitation-attack",
           title: "Elicitation Attacks Use Closed Models to Uplift Open Models",
           description:
-            "Safety-research highlights from January 2026 describe 'elicitation attacks' in which an attacker uses a safeguarded frontier closed model to extract and refine knowledge that is then used to uplift an unrestricted open-weight model on dangerous tasks — without ever issuing a directly harmful prompt to the closed system. In the underlying work ('Eliciting Harmful Capabilities by Fine-Tuning On Safeguarded Outputs'), fine-tuning Llama 3.3 70B on benign chemistry responses from Claude 3.5 Sonnet recovered roughly 39% of the chemical-weapons-task performance gap to a jailbroken version of the model. This collapses the common pro-open argument that 'the closed model already knows this,' because the closed model knows it but refuses to say it, whereas the open model can be fine-tuned to comply.",
+            "A January 2026 paper, 'Eliciting Harmful Capabilities by Fine-Tuning On Safeguarded Outputs' (Kaunismaa, Griffin, Hughes, Knight, Sharma and Jones; ICLR 2026), describes 'elicitation attacks' in which an attacker uses a safeguarded frontier closed model to uplift an open-weight model on dangerous tasks without ever issuing a directly harmful prompt to the closed system: the attacker writes prompts in domains adjacent to the harmful task, collects the closed model's answers, and fine-tunes the open model on them. On hazardous chemical synthesis and processing tasks, fine-tuning Llama 3.3 70B this way recovered about 39% of the performance gap between the base model and a jailbroken Claude 3.5 Sonnet (roughly 40% across the paper's evaluations), and the attack grew stronger with a more capable frontier model and more fine-tuning data. This collapses the common pro-open argument that 'the closed model already knows this,' because the closed model knows it but refuses to say it, whereas the open model can be fine-tuned to comply.",
           side: "against" as const,
           weight: {
-            sourceReliability: 6,
+            sourceReliability: 8,
             independence: 6,
-            replicability: 6,
+            replicability: 7,
             directness: 7,
           },
-          source: "LessWrong: AI Safety at the Frontier — Paper Highlights of January 2026",
-          sourceUrl: "https://www.lesswrong.com/posts/JcAm6MFog6ssKooFN/ai-safety-at-the-frontier-paper-highlights-of-january-2026",
+          source: "J. Kaunismaa et al., 'Eliciting Harmful Capabilities by Fine-Tuning On Safeguarded Outputs' (arXiv:2601.13528, Jan 2026; ICLR 2026 poster)",
+          sourceUrl: "https://arxiv.org/abs/2601.13528",
           reasoning:
-            "This is a synthesis of recent technical papers rather than a single peer-reviewed result, so independence and reliability are moderate. It directly addresses a key counter-argument and reframes where the safety bottleneck actually sits — on closed-model RLHF rather than on the open weights themselves.",
+            "A peer-reviewed ML experiment with a stated metric (performance gap recovered), which makes it reproducible. Independence is moderate because some authors work at a frontier lab whose models were used, and the result covers one domain (chemical synthesis) and one measured gap. It directly addresses a key counter-argument and reframes where the safety bottleneck actually sits — on closed-model output safeguards rather than on the open weights themselves.",
         },
         {
           id: "open-model-capability-trajectory",
-          title: "Open Models Are Closing the Frontier Capability Gap",
+          title: "Open Models Trail the Closed Frontier by Months, Not Years",
           description:
-            "By April 2026, open-weight releases such as DeepSeek V4-Pro (reported as ~1.6T total / ~49B active parameters under a roughly Apache-2.0 license) were reported to be closing the gap with closed-frontier models on math, STEM, and coding. The specific 2026 figures cited for this trajectory — e.g., ~3,206 Codeforces for V4-Pro, and Alibaba's Qwen3.6-27B at ~77.2 on SWE-bench Verified versus a reported ~80.9 for a leading closed model (illustrated here against Claude 4.5 Opus) — are lab-reported/illustrative rather than independently verified, and are used to indicate direction, not as settled measurements. The restrictionist camp argues this trajectory means dangerous-capability thresholds that seemed comfortably distant for open models are now months away, not years.",
+            "DeepSeek's model card for the V4-Pro preview, released as open weights on April 24, 2026, lists 1.6T total / 49B active parameters under the MIT License and reports, for its maximum-reasoning mode, a 3,206 Codeforces rating and 80.6% on SWE-bench Verified, against 80.8% for Claude Opus 4.6 in the same table. Alibaba's Qwen3.6-27B model card (April 2026) reports 77.2 on SWE-bench Verified for a 27B-parameter model, against 80.9 for Claude Opus 4.5, the score reported at that model's November 2025 launch. These are developer-reported numbers. NIST's Center for AI Standards and Innovation (CAISI), testing V4-Pro itself, measured 74% on SWE-bench Verified (Claude Opus 4.6: 79%) and concluded that its capabilities lag the U.S. frontier by about 8 months. The restrictionist camp argues this trajectory means dangerous-capability thresholds that seemed comfortably distant for open models are now months away, not years.",
           side: "against" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
+            sourceReliability: 8,
+            independence: 7,
             replicability: 7,
             directness: 6,
           },
-          source: "MIT Technology Review; DeepSeek API docs; SWE-bench Verified leaderboard",
-          sourceUrl: "https://www.technologyreview.com/2026/04/24/1136422/why-deepseeks-v4-matters/",
+          source: "DeepSeek-V4-Pro and Qwen3.6-27B model cards (Hugging Face, April 2026); NIST CAISI, 'CAISI Evaluation of DeepSeek V4 Pro' (May 1, 2026)",
+          sourceUrl: "https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro",
           reasoning:
-            "Benchmark figures are partly self-reported by labs and measure coding/math rather than catastrophic misuse directly, lowering directness and independence. The trajectory is real and relevant to the misuse argument, but high coding ability does not automatically translate into bioweapon or mass-casualty uplift.",
+            "The headline benchmark figures are self-reported by the labs, but a U.S. government evaluator's independent test of V4-Pro confirms the trajectory at a somewhat lower level, which raises independence. The benchmarks measure coding, math and science rather than catastrophic misuse directly, which keeps directness down: high coding ability does not automatically translate into bioweapon or mass-casualty uplift.",
         },
       ],
     },
@@ -276,7 +276,7 @@ export const openWeightAiModelsData = {
       skeptic_premise:
         "Democratization is a genuine good, but it is not unconditional: distributing a dual-use capability also democratizes its misuse, and the benefits accrue mostly to legitimate actors while the worst tail risks are driven by a small number of malicious ones. Restrictionists note that much of the claimed safety-research benefit can be delivered through structured access — researcher API tiers, gated model-internals access, and staged release — without putting downloadable weights into every actor's hands. The strongest pro-open arguments rest on op-eds and venture-capital advocacy, while the catastrophic-risk case rests on a smaller but more peer-reviewed literature; a naive citation count flatters the safety camp, but the asymmetry of consequences favors caution.",
       proponent_rebuttal:
-        "Open-weight release is the only credible check on the concentration of AI power in a few well-capitalized labs. Yann LeCun argues no individual should have unilateral power over how AI affects society; Andrew Ng warns that incumbents may 'exploit safety rhetoric for regulatory capture' to entrench themselves. Open weights let startups, academics, and developing nations build on frontier capability without rent-seeking gatekeepers, and they give independent safety researchers the white-box access — activations, gradients, fine-tuning — that interpretability and alignment work require but that closed APIs structurally withhold.",
+        "Open-weight release is the only credible check on the concentration of AI power in a few well-capitalized labs. Yann LeCun argues no individual should have unilateral power over how AI affects society; Andrew Ng warns that 'there are definitely large tech companies that would rather not have to try to compete with open source, so they're creating fear of AI leading to human extinction.' Open weights let startups, academics, and developing nations build on frontier capability without rent-seeking gatekeepers, and they give independent safety researchers the white-box access — activations, gradients, fine-tuning — that interpretability and alignment work require but that closed APIs structurally withhold.",
       crux: {
         id: "structured-access-substitution-test",
         title: "The Structured-Access Substitution Test",
@@ -326,7 +326,7 @@ export const openWeightAiModelsData = {
           id: "regulatory-capture-concern",
           title: "Leading Researchers Warn of Safety-Rhetoric Regulatory Capture",
           description:
-            "Andrew Ng has long argued that large AI firms may exploit safety rhetoric to drive regulatory capture, and at the January 2026 World Economic Forum he urged India to anchor its AI strategy in open-source models, warning that 'if it's open, no one can mess with it' and that openness is the most efficient guarantee of access. Yann LeCun — now backing a $1B+ open-AI venture (AMI Labs) — frames open weights as the structural safeguard against any single entity holding unilateral power over a transformative technology. This camp treats concentration of AI control as itself a first-order risk.",
+            "Andrew Ng has long argued that large AI firms use extinction fears to win regulation that would shut out open-source competitors; in 2023 he told The Australian Financial Review that such fears have 'been a weapon for lobbyists to argue for legislation that would be very damaging to the open-source community.' In early 2026 he argued that sovereign AI does not require countries to build everything themselves: just as nations rely on Linux, Python and PyTorch, which no single nation controls, open-weight models let governments secure uninterrupted access, and joining the open-source ecosystem is the most cost-effective path to autonomy. Yann LeCun, whose world-model startup AMI Labs raised $1.03 billion in March 2026 and says it will publish papers and open-source much of its code, frames open weights as the structural safeguard against any single entity holding unilateral power over a transformative technology. This camp treats concentration of AI control as itself a first-order risk.",
           side: "for" as const,
           weight: {
             sourceReliability: 5,
@@ -334,8 +334,8 @@ export const openWeightAiModelsData = {
             replicability: 4,
             directness: 6,
           },
-          source: "AICerts (Andrew Ng, WEF January 2026); MIT Technology Review (Yann LeCun / AMI Labs)",
-          sourceUrl: "https://www.aicerts.ai/news/andrew-ng-backs-open-source-ai-for-indias-strategy/",
+          source: "Business Insider, 'Big Tech Is Inflating Fears About AI's Risk to Humanity: Google Brain Cofounder' (Oct 31, 2023); Business Today (Andrew Ng on sovereign AI, Feb 2, 2026); TechCrunch, 'Yann LeCun's AMI Labs raises $1.03B to build world models' (Mar 9, 2026)",
+          sourceUrl: "https://www.businesstoday.in/technology/news/story/america-first-policy-unintentionally-pushing-us-allies-toward-sovereign-ai-warns-coursera-co-founder-514265-2026-02-02",
           reasoning:
             "This is expert opinion and advocacy, not measured evidence — and from figures with direct commercial and reputational stakes in open AI, which is why independence and reliability are scored low. It shifts priors about the concentration risk but does not establish the magnitude of either the benefit or the offsetting tail risk.",
         },
@@ -343,7 +343,7 @@ export const openWeightAiModelsData = {
           id: "competition-china-decoupling",
           title: "Open Models Drive Competition and Counter Closed-Frontier Concentration",
           description:
-            "The rapid 2025-2026 cadence of capable open releases — DeepSeek V4, Alibaba's Qwen 3.6, Mistral 3 — has compressed the price and availability gap with closed frontier labs, letting downstream developers worldwide build on near-frontier capability without paying API rents. Stanford HAI's analysis of China's diverse open-weight ecosystem documents how openly released models have become a primary engine of global AI competition and diffusion.",
+            "The rapid 2025-2026 cadence of capable open releases — Mistral 3 (December 2025, Apache 2.0), DeepSeek V4 and Alibaba's Qwen 3.6 (both April 2026) — has compressed the price and availability gap with closed frontier labs, letting downstream developers worldwide build on near-frontier capability without paying API rents; NIST's CAISI found DeepSeek V4 more cost-efficient than the most cost-competitive U.S. reference model, GPT-5.4 mini, on 5 of 7 benchmarks. Stanford HAI's December 2025 issue brief on China's open-weight ecosystem finds that Chinese open-weight models 'seem to have caught up or even pulled ahead of their global counterparts' in capability and adoption, and that their 'widespread global adoption' may reshape global technology access and reliance patterns.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -351,7 +351,7 @@ export const openWeightAiModelsData = {
             replicability: 6,
             directness: 6,
           },
-          source: "Stanford HAI: Beyond DeepSeek — China's Diverse Open-Weight AI Ecosystem",
+          source: "Stanford HAI / DigiChina issue brief (Meinhardt, Nong, Webster, Hashimoto, Manning), 'Beyond DeepSeek: China's Diverse Open-Weight AI Ecosystem and Its Policy Implications' (Dec 16, 2025); Mistral AI, 'Introducing Mistral 3' (Dec 2, 2025)",
           sourceUrl: "https://hai.stanford.edu/policy/beyond-deepseek-chinas-diverse-open-weight-ai-ecosystem-and-its-policy-implications",
           reasoning:
             "Stanford HAI is an independent academic policy center, and the competitive dynamics it documents are observable in the market. It supports the democratization-and-competition benefit, though it does not quantify how much of that benefit specifically requires full open weights versus structured access.",
@@ -360,18 +360,18 @@ export const openWeightAiModelsData = {
           id: "benefit-tail-risk-asymmetry",
           title: "Diffuse Benefits Do Not Net Out Against Concentrated Catastrophic Tail Risk",
           description:
-            "The restrictionist literature — including the 'Open Technical Problems in Open-Weight AI Model Risk Management' paper (Casper, Bengio, Hendrycks et al.) and the 'Uncensorable, Unmonitorable, Uncontrollable' biosecurity report — argues that open-weight benefits are broadly distributed and incremental while the worst-case harms are low-probability, high-consequence, and irreversible. On this view, expected-value reasoning under heavy-tailed risk favors caution even when median outcomes from openness are positive.",
+            "'Open Technical Problems in Open-Weight AI Model Risk Management' (Stephen Casper and co-authors including Dan Hendrycks and Yoshua Bengio; Transactions on Machine Learning Research, 2026) grants that open weights 'allow for more open research and testing,' but finds their risks hard to manage because 'they can be modified arbitrarily, used without oversight, and spread irreversibly,' and notes there is 'limited research on safety tooling specific to open-weight models.' The April 2026 policy paper 'Uncensorable, Unmonitorable, Uncontrollable: U.S. Policy Options for Open-Weight Model Risk' (The Counterfactual) makes the biosecurity version concrete: once weights are downloaded, 'there is no API to monitor, no company to refuse the request, and no recourse once the weights are out.' Restrictionists draw the asymmetry from this: the benefits of openness are broad and incremental, while the worst harms are low-probability, high-consequence and cannot be recalled, so expected-value reasoning under heavy-tailed risk favors caution even when typical outcomes from openness are positive.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
             replicability: 5,
-            directness: 7,
+            directness: 6,
           },
-          source: "Open Technical Problems in Open-Weight AI Model Risk Management (SSRN 5705186); Uncensorable, Unmonitorable, Uncontrollable report",
-          sourceUrl: "https://dx.doi.org/10.2139/ssrn.5705186",
+          source: "S. Casper et al., 'Open Technical Problems in Open-Weight AI Model Risk Management,' TMLR (2026), arXiv:2608.07514; 'Uncensorable, Unmonitorable, Uncontrollable: U.S. Policy Options for Open-Weight Model Risk' (The Counterfactual, Apr 2026)",
+          sourceUrl: "https://arxiv.org/abs/2608.07514",
           reasoning:
-            "Authored by leading safety researchers including a Turing laureate, lending high source reliability, and it directly frames the benefit-vs-tail-risk tradeoff. Replicability is low because the core claim is a probabilistic risk judgment about unrealized catastrophic events rather than a reproducible measurement.",
+            "The technical paper is peer-reviewed and co-authored by leading safety researchers including a Turing laureate, lending high source reliability; it is a research agenda that weighs benefits and harms rather than an argument for restriction, so the benefit-versus-tail-risk inference is the restrictionist camp's reading of it, which lowers directness. Replicability is low because the core claim is a probabilistic risk judgment about unrealized catastrophic events rather than a reproducible measurement.",
         },
       ],
     },
@@ -421,18 +421,18 @@ export const openWeightAiModelsData = {
           id: "deepseek-v4-foreign-frontier",
           title: "Capable Open Models Already Ship From Outside U.S. Jurisdiction",
           description:
-            "In April 2026, China's DeepSeek released V4-Pro and V4-Flash under an Apache-2.0-style license, reported to lead prior open-weight models on math, STEM, and coding while approaching closed-frontier performance, with an R2 reasoning model expected to follow. Alibaba's Qwen 3.6 and France's Mistral 3 round out a fast-moving foreign open-weight pack. The specific 2026 model names and benchmark standings are lab-reported/illustrative, but the load-bearing point — that frontier-approaching open weights already ship from outside U.S. jurisdiction — holds regardless of U.S. policy.",
+            "On April 24, 2026, China's DeepSeek released previews of V4-Pro and V4-Flash with weights under the MIT License. By DeepSeek's own results V4-Pro matches Anthropic's Claude Opus 4.6, OpenAI's GPT-5.4 and Google's Gemini 3.1 and beats other open models such as Qwen 3.5 and GLM-5.1 on coding, math and STEM. NIST's Center for AI Standards and Innovation, testing the model independently, scored it lower, at about 8 months behind the U.S. frontier, but called it 'the most capable PRC AI model evaluated by CAISI to date.' Alibaba's Qwen 3.6 (April 2026, Apache 2.0) and France's Mistral 3 (December 2025, Apache 2.0) round out a fast-moving foreign open-weight pack. Whatever the exact standings, frontier-approaching open weights already ship from outside U.S. jurisdiction, and U.S. policy cannot change that.",
           side: "for" as const,
           weight: {
-            sourceReliability: 7,
-            independence: 6,
+            sourceReliability: 8,
+            independence: 7,
             replicability: 7,
             directness: 8,
           },
-          source: "MIT Technology Review; CNBC; DeepSeek API docs",
+          source: "MIT Technology Review, 'Three reasons why DeepSeek's new model matters' (Apr 24, 2026); DeepSeek-V4-Pro model card (Hugging Face); NIST CAISI, 'CAISI Evaluation of DeepSeek V4 Pro' (May 1, 2026)",
           sourceUrl: "https://www.technologyreview.com/2026/04/24/1136422/why-deepseeks-v4-matters/",
           reasoning:
-            "The existence and licensing of these foreign models are verifiable facts that directly support the enforceability argument. Independence is moderate because capability claims are partly lab-reported, but the core point — that the U.S. cannot prevent foreign open releases — is undisputed.",
+            "The existence and licensing of these foreign models are verifiable facts that directly support the enforceability argument. The capability claims are partly lab-reported, but an independent U.S. government evaluation places DeepSeek V4 within months of the frontier, and the core point — that the U.S. cannot prevent foreign open releases — is undisputed.",
         },
         {
           id: "ai-action-plan-china-strategic",
@@ -494,8 +494,16 @@ export const openWeightAiModelsData = {
       url: "https://www.ntia.gov/programs-and-initiatives/artificial-intelligence/open-model-weights-report/policy-approaches-recommendations/policy-approaches",
     },
     {
-      title: "Open Technical Problems in Open-Weight AI Model Risk Management (Casper, Bengio, Hendrycks et al.)",
-      url: "https://dx.doi.org/10.2139/ssrn.5705186",
+      title: "Open Technical Problems in Open-Weight AI Model Risk Management (Casper et al., TMLR 2026, arXiv 2608.07514)",
+      url: "https://arxiv.org/abs/2608.07514",
+    },
+    {
+      title: "Eliciting Harmful Capabilities by Fine-Tuning On Safeguarded Outputs (Kaunismaa et al., arXiv 2601.13528)",
+      url: "https://arxiv.org/abs/2601.13528",
+    },
+    {
+      title: "CAISI Evaluation of DeepSeek V4 Pro (NIST, May 2026)",
+      url: "https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro",
     },
     {
       title: "Tamper-Resistant Safeguards for Open-Weight LLMs (arXiv 2408.00761)",
