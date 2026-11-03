@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol pell stagnant naep nordhaus rosen vijan cutler tuition admin turner haircut helland marron tabarrok"
+    "keywords": "baumol pell stagnant naep nordhaus rosen vijan cutler admin tuition turner haircut helland marron tabarrok"
   },
   {
     "id": "moloch",
@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries theorem"
+    "keywords": "ostrom singleton malthusian axelrod hardin polycentric hanson tragedy montreal subsistence folk malthus nash fisheries theorem"
   },
   {
     "id": "ai-2027",
@@ -751,7 +751,7 @@
       "Do immigrants take jobs from Americans?",
       "Will deporting immigrants raise wages?"
     ],
-    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe elizabeth"
+    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens farmworkers diploma chloe elizabeth"
   },
   {
     "id": "open-borders",
@@ -1257,7 +1257,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "zuboff analytica amit brynjolfsson flurry goldberg kamepalli mehta shoshana shriver zingales rajan bauer collis emerita"
+    "keywords": "zuboff analytica amit flurry goldberg kamepalli mehta shoshana shriver zingales brynjolfsson rajan bauer collis emerita"
   },
   {
     "id": "cancel-culture",
@@ -1973,25 +1973,30 @@
   },
   {
     "id": "college-value-proposition",
-    "title": "The Value of a College Degree",
-    "question": "Is a four-year degree still worth it for most students who finish?",
-    "meta_claim": "For most students who complete it, a four-year degree still earns a strong financial return — but the payoff varies enormously by major, institution, and completion, so it is no longer a safe bet for everyone.",
-    "confidence_score": 61,
-    "balance": 61,
-    "weight": 64,
+    "title": "Is College Still Worth It?",
+    "question": "Is a four-year degree still worth the cost for most students?",
+    "meta_claim": "A four-year degree is still worth its cost for most students who finish it, even though the payoff varies widely by major, school and whether the student graduates.",
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 74,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "What share of school-and-major combinations pay off once you account for who enrolls?",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "What share of degree programs pay off once you account for who enrolls and how many finish?",
     "tags": [
       "economics"
     ],
-    "keywords": "attendees vocational apprenticeship bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper"
+    "aliases": [
+      "Is a four-year degree still worth it for most students who finish?",
+      "Is college worth the debt?",
+      "Should I go to college or learn a trade?"
+    ],
+    "keywords": "deitz abel electrician bootcamps cirr goodman hurwitz plumber vocational leavers placement arts chandar freopp preston"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2807,7 +2812,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters mammals morgans"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen chocolate crabs lobsters mammals morgans restrainer"
   },
   {
     "id": "immigration-national-identity",
@@ -2829,7 +2834,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam borjas retiree hunkering italians jews complementarity diploma dispersed norc resettlement refugee scandinavian"
+    "keywords": "putnam borjas retiree hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -3384,7 +3389,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch taxable chairman forgone peterson"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch taxable chairman peterson"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3613,7 +3618,7 @@
       "hiv",
       "harm-reduction"
     ],
-    "keywords": "prostitution indoor gonorrhea govt repressive christchurch cunningham dreher neumayer shah abel beehive brothel brunton fitzgerald"
+    "keywords": "prostitution indoor gonorrhea govt repressive christchurch cunningham dreher neumayer shah beehive brothel brunton fitzgerald goldenberg"
   },
   {
     "id": "congressional-term-limits",
