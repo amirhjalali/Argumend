@@ -200,7 +200,7 @@ describe("MapReplyClient", () => {
     submitExample(view);
 
     await waitFor(() => {
-      expect(view.getByText("No map, rather than the wrong map")).toBeTruthy();
+      expect(view.getByText("No map clearly fits, so we won't guess one")).toBeTruthy();
     });
     expect(view.getByText(noMatch.message)).toBeTruthy();
     expect(view.getByText("Closest maps")).toBeTruthy();

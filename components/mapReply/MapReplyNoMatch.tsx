@@ -19,7 +19,7 @@ import { Meter, percentLabel } from "./meters";
 const HEADLINE: Record<MapReplyNoMatchReason, string> = {
   no_turns: "There was no argument in there to route",
   no_candidates: "No map on the site came close",
-  low_confidence: "No map, rather than the wrong map",
+  low_confidence: "No map clearly fits, so we won't guess one",
   map_unavailable: "That map could not be loaded",
 };
 
