@@ -1589,7 +1589,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
+    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama nrel bloombergnef gallons greet argentina"
   },
   {
     "id": "factory-farming-ban",
@@ -2860,9 +2860,9 @@
     "title": "How the Russia-Ukraine War Should End",
     "question": "Would a deal freezing current lines end the war on acceptable terms?",
     "meta_claim": "A negotiated settlement that freezes the war along current lines — ratifying territorial reality, barring NATO membership, and lifting sanctions — would end the killing on acceptable terms, rather than rewarding aggression and inviting a future Russian attack.",
-    "confidence_score": 38,
-    "balance": 38,
-    "weight": 71,
+    "confidence_score": 36,
+    "balance": 36,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2870,12 +2870,17 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
-    "evidenceCount": 16,
+    "evidenceCount": 17,
     "firstCrux": "Can Ukraine realistically retake its 1991 borders, or is the front line effectively frozen?",
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian zelensky troops putin donetsk manpower rusi ceasefire facto moscow emboldens haass kupchan kyiv jamestown"
+    "aliases": [
+      "Should Ukraine give up land for peace?",
+      "Should Ukraine accept a ceasefire on the current front line?",
+      "Can Ukraine still win the war?"
+    ],
+    "keywords": "ukrainian zelensky moscow troops donetsk manpower rusi facto demilitarized embolden haass kremlin kupchan rutland lyman"
   },
   {
     "id": "trump-tariffs",
@@ -3108,7 +3113,7 @@
       "Is an assault weapons ban constitutional?",
       "Does the Second Amendment only protect militias?"
     ],
-    "keywords": "heller bruen emerson kavanaugh kopel rahimi saul marijuana mcdonald soldier wallace corpus baron hemani wolford"
+    "keywords": "heller bruen emerson kavanaugh kopel rahimi saul marijuana mcdonald wallace corpus soldier baron hemani wolford"
   },
   {
     "id": "self-driving-car-safety",
