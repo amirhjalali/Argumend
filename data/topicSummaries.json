@@ -641,7 +641,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad giovanni javier marielitos nonbudgetary reexamining benjamin birthplace"
+    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad javier marielitos nonbudgetary reexamining benjamin birthplace cuban"
   },
   {
     "id": "open-borders",
@@ -752,7 +752,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega clinton oklahoma whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega clinton oklahoma whoever"
   },
   {
     "id": "surveillance-public-safety",
@@ -1033,7 +1033,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva"
+    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked scarborough caries rivera satiety sugary andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -1297,7 +1297,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "gasoline technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel"
+    "keywords": "technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel hansen"
   },
   {
     "id": "ai-superintelligence-timeline",
@@ -1461,7 +1461,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
+    "keywords": "cobalt nickel recycled indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina tropical"
   },
   {
     "id": "factory-farming-ban",
@@ -2081,22 +2081,29 @@
     "title": "Inflation & Monetary Policy",
     "question": "Was post-pandemic inflation driven mainly by spending and money growth?",
     "meta_claim": "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply chain disruptions.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 77,
+    "confidence_score": 48,
+    "balance": 48,
+    "weight": 79,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 16,
     "firstCrux": "How much of the 2021–22 price rise did monetary and fiscal expansion cause, versus merely allow?",
     "tags": [
       "economics"
     ],
-    "keywords": "bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore advisors"
+    "aliases": [
+      "Did stimulus checks cause inflation?",
+      "Was inflation caused by supply chains or government spending?",
+      "Did money printing cause inflation?",
+      "Why are prices so high?",
+      "Should the Fed raise rates when oil prices spike?"
+    ],
+    "keywords": "drewry bernanke blanchard velocity supercore overheated atlanta louis jord kalemli nechio reyes silva t10yie walcl"
   },
   {
     "id": "global-housing-bubble",
@@ -2690,7 +2697,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters morgans restrainer"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen chocolate crabs lobsters morgans restrainer mammals"
   },
   {
     "id": "immigration-national-identity",
@@ -3043,7 +3050,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte dunn facetime"
+    "keywords": "comcast ante bittorrent briglauer cambini ctia gugler stocker memorandum secretly bona decree duarte dunn facetime"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3438,7 +3445,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest convincing kazda underdiagnosed barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
+    "keywords": "milder youngest convincing kazda underdiagnosed barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan skoglund underdiagnosis"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3519,7 +3526,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson powell raja rogowski thornton carroll jenkins"
+    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson raja rogowski thornton carroll jenkins powell"
   },
   {
     "id": "effective-altruism",
