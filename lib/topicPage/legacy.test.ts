@@ -45,7 +45,12 @@ describe("legacyTopicPage", () => {
     expect(page.hook?.source?.url).toBe(topic.keystone_fact!.sourceUrl);
     expect(page.sourceCount).toBe(countSources(topic));
     expect(page.reviewedOn).toBe(topic.last_updated);
-    expect(page.cruxLede).toBe(topic.simple_case!.join(" "));
+    // The simple case's "Both sides accept…" opener repeats the agreement
+    // block just above, so the lede starts where the sides split.
+    expect(topic.simple_case![0]).toMatch(/^Both sides accept/);
+    expect(page.cruxLede).toBe(
+      topic.simple_case!.slice(1).join(" ").replace(/^They\b/, "The two sides"),
+    );
     expect(page.diagramHref).toBe(`/topics/${topic.id}/map`);
     expect(page.embeddable).toBe(true);
 

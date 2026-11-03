@@ -18,6 +18,8 @@ import type { Evidence, Pillar, Topic } from "@/lib/schemas/topic";
 import { calculateEvidenceScore } from "@/lib/evidenceMetrics";
 import { mapDisplayTitle, sideWords, type SideWords } from "@/lib/mapNaming";
 import { namesIn, sentenceCaseTitle, type MapNames } from "./sentenceCase";
+import { stems } from "./settleContract";
+import { DISTINCT_FROM_AGREED_FACT } from "./agreedFacts.distinct";
 import {
   STANDING_CONDITION_LEAD,
   type CruxEntryData,
@@ -33,12 +35,24 @@ export interface LegacyEvidenceItem {
   description: string;
   source?: string;
   sourceUrl?: string;
+  /**
+   * The card states a fact both sides already agree on (one of the map's
+   * `common_ground` lines). It stays in the evidence list, but it is never
+   * offered as a side's best card: the other side does not dispute it.
+   */
+  restatesAgreement?: boolean;
 }
 
 export interface LegacyCrux extends CruxEntryData {
   pillarId: string;
   /** This pillar's evidence, strongest first on each side. No scores. */
   evidence: LegacyEvidenceItem[];
+  /**
+   * The strongest card on each side that is not an agreed fact, for "The
+   * other side's best card". Either can be missing; the reflection then shows
+   * neither (never one side alone).
+   */
+  bestCards: { for?: LegacyEvidenceItem; against?: LegacyEvidenceItem };
   /**
    * The crux's test, for the fold and for Researcher mode. The map's
    * `cost_to_verify` is not carried: it is an unsourced estimate.
@@ -167,9 +181,121 @@ export function cardTitler(topic: Topic): (title: string) => string {
   return (title) => sentenceCaseTitle(title.replace(/\.$/, ""), names);
 }
 
+// ---------------------------------------------------------------------------
+// Agreed facts the cards repeat
+// ---------------------------------------------------------------------------
+
+/** The framing that opens an agreed fact ("Both sides agree that…"); not part of the fact. */
+export const AGREEMENT_FRAME =
+  /^both (?:sides|camps|cases)(?:['’])?(?: own figures)? (?:agree|accept|concede)s?(?: that)?\s*/i;
+
+export const AGREED_FACT_THRESHOLDS = {
+  /**
+   * A card restates an agreed fact when the card carries this share of the
+   * fact's words, each weighted by how rare it is among the map's own cards.
+   * Most maps wrote their common ground from a card, so the shared words of
+   * a real restatement are the card's distinctive ones ("Hubble", "19.8"),
+   * while a card that only shares the topic's vocabulary ("tuition",
+   * "loans") stays under the line. Calibrated on the legacy maps in
+   * ./agreedFacts.test.ts.
+   */
+  card: 0.5,
+  /**
+   * An opening "Both sides accept…" paragraph of the simple case is dropped
+   * from the crux-sheet lede when this share of its words is in the agreed
+   * facts the page already lists (most maps open the simple case that way).
+   */
+  lede: 0.6,
+} as const;
+
+/** Content-word stems plus figures ("19.8", "2035"), without the agreement framing. */
+export function factTerms(text: string): Set<string> {
+  const terms = stems(text.replace(AGREEMENT_FRAME, ""));
+  for (const figure of text.match(/\d+(?:[.,]\d+)?/g) ?? []) {
+    if (figure.length >= 2) terms.add(`#${figure}`);
+  }
+  return terms;
+}
+
+/** Every agreed fact on the map: each crux's common ground, in pillar order. */
+export function agreedFacts(topic: Topic): string[] {
+  return topic.pillars.flatMap((pillar) => {
+    const ground = pillar.crux.falsification?.common_ground?.trim();
+    return ground ? [ground] : [];
+  });
+}
+
+/**
+ * How much of an agreed fact a card carries (0–1), with each of the fact's
+ * words weighted by its rarity among the map's cards (inverse document
+ * frequency), so the map's shared vocabulary counts for little.
+ */
+export function agreedFactScores(topic: Topic): Map<Evidence, number> {
+  const cards = topic.pillars.flatMap((p) => p.evidence ?? []);
+  const terms = cards.map((card) => factTerms(`${card.title}. ${card.description}`));
+  const frequency = new Map<string, number>();
+  for (const set of terms) for (const term of set) frequency.set(term, (frequency.get(term) ?? 0) + 1);
+  const rarity = (term: string) => Math.log((cards.length + 1) / ((frequency.get(term) ?? 0) + 1)) + 1;
+  const facts = agreedFacts(topic).map(factTerms);
+  const scores = new Map<Evidence, number>();
+  cards.forEach((card, index) => {
+    let best = 0;
+    for (const fact of facts) {
+      let carried = 0;
+      let total = 0;
+      for (const term of fact) {
+        total += rarity(term);
+        if (terms[index].has(term)) carried += rarity(term);
+      }
+      if (total > 0) best = Math.max(best, carried / total);
+    }
+    scores.set(card, best);
+  });
+  return scores;
+}
+
+/**
+ * The cards that restate an agreed fact (see AGREED_FACT_THRESHOLDS.card),
+ * less the ones a reader checked and found distinct (./agreedFacts.distinct.ts).
+ */
+export function agreedFactCards(topic: Topic): Set<Evidence> {
+  const cards = new Set<Evidence>();
+  for (const [card, score] of agreedFactScores(topic)) {
+    if (score < AGREED_FACT_THRESHOLDS.card) continue;
+    if (DISTINCT_FROM_AGREED_FACT[`${topic.id}/${card.id}`]) continue;
+    cards.add(card);
+  }
+  return cards;
+}
+
+/**
+ * The paragraph above the crux sheet: the map's simple case, without an
+ * opening "Both sides accept…" paragraph that only repeats the agreed facts
+ * listed just above it. The next paragraph's "They split over…" then names
+ * who "they" are. Otherwise the map's words, verbatim.
+ */
+function cruxLedeFor(topic: Topic, facts: string[]): string | undefined {
+  const paragraphs = topic.simple_case ?? [];
+  if (paragraphs.length === 0) return undefined;
+  const agreed = stems(facts.join(" "));
+  const repeatsAgreement = (paragraph: string) => {
+    if (!AGREEMENT_FRAME.test(paragraph)) return false;
+    const words = stems(paragraph);
+    let shared = 0;
+    for (const word of words) if (agreed.has(word)) shared += 1;
+    return words.size > 0 && shared / words.size >= AGREED_FACT_THRESHOLDS.lede;
+  };
+  if (facts.length === 0 || !repeatsAgreement(paragraphs[0])) return paragraphs.join(" ");
+  const rest = paragraphs.slice(1);
+  if (rest.length === 0) return undefined;
+  rest[0] = rest[0].replace(/^They\b/, "The two sides");
+  return rest.join(" ");
+}
+
 function evidenceItems(
   evidence: Evidence[] | undefined,
   titled: (title: string) => string,
+  agreed: ReadonlySet<Evidence>,
 ): LegacyEvidenceItem[] {
   const all = evidence ?? [];
   const ordered = [
@@ -183,11 +309,21 @@ function evidenceItems(
     description: e.description,
     source: e.source,
     sourceUrl: e.sourceUrl,
+    ...(agreed.has(e) ? { restatesAgreement: true } : {}),
   }));
 }
 
-function weighing(topic: Topic, titled: (title: string) => string): LegacyWeighing {
-  const all = topic.pillars.flatMap((p) => p.evidence ?? []);
+/** A side's strongest card that is not an agreed fact (the list is strongest first). */
+function bestCard(items: LegacyEvidenceItem[], side: "for" | "against"): LegacyEvidenceItem | undefined {
+  return items.find((item) => item.side === side && !item.restatesAgreement);
+}
+
+function weighing(
+  topic: Topic,
+  titled: (title: string) => string,
+  agreed: ReadonlySet<Evidence>,
+): LegacyWeighing {
+  const all = topic.pillars.flatMap((p) => p.evidence ?? []).filter((e) => !agreed.has(e));
   const top = (side: "for" | "against") => all.filter((e) => e.side === side).sort(byWeight)[0];
   const forCard = top("for");
   const againstCard = top("against");
@@ -230,6 +366,9 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
     }
   }
 
+  // Cards that only restate one of those facts are never a side's best card.
+  const agreedCards = agreedFactCards(topic);
+
   const cruxes: LegacyCrux[] = topic.pillars.map((pillar) => {
     const crux = pillar.crux;
     const f = crux.falsification;
@@ -256,6 +395,7 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
       ? [{ lead: STANDING_CONDITION_LEAD[standingKind], text: asSentence(condition) }]
       : [];
     const question = authored || live || crux.title;
+    const evidence = evidenceItems(pillar.evidence, titled, agreedCards);
     return {
       anchor: `crux-${pillar.id}`,
       pillarId: pillar.id,
@@ -277,7 +417,8 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
             skepticLead: words.noChangesMind,
           }
         : undefined,
-      evidence: evidenceItems(pillar.evidence, titled),
+      evidence,
+      bestCards: { for: bestCard(evidence, "for"), against: bestCard(evidence, "against") },
       test: {
         title: crux.title,
         methodology: crux.methodology,
@@ -305,7 +446,7 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
       : undefined,
     agreementHeading: "What both sides already agree on",
     agreement,
-    cruxLede: topic.simple_case?.length ? topic.simple_case.join(" ") : undefined,
+    cruxLede: cruxLedeFor(topic, agreedFacts(topic)),
     positionsHeading: "The two sides",
     positions: positionCards(topic.pillars, words),
     related,
@@ -316,7 +457,7 @@ export function legacyTopicPage(topic: Topic, related: RelatedMap[] = []): Legac
   return {
     page,
     cruxes,
-    weighing: weighing(topic, titled),
+    weighing: weighing(topic, titled, agreedCards),
     references: topic.references ?? [],
   };
 }

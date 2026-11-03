@@ -53,10 +53,10 @@ export function ReadModeView({
   const labels = evidenceLabels(topic);
   const cruxViews: CruxEntryView[] = cruxes.map((crux) => ({
     ...crux,
-    // The evidence is strongest first on each side (lib/topicPage/legacy.ts).
+    // Each side's strongest card that is not an agreed fact (lib/topicPage/legacy.ts).
     strongest: strongestPair(
-      strongestCard(crux.evidence, "for", labels),
-      strongestCard(crux.evidence, "against", labels),
+      strongestCard(crux.bestCards.for, labels),
+      strongestCard(crux.bestCards.against, labels),
     ),
     evidenceLabel:
       crux.evidence.length > 0 ? "Show the evidence on each side and the test" : "Show the test",
@@ -112,15 +112,13 @@ const SIDE = {
   against: { glyph: "−", className: "text-[#8B5A3C] dark:text-[#cfa88a]" },
 } as const;
 
-/** A side's first (strongest) card, in the reflection's shape. */
+/** A side's best card, in the reflection's shape. */
 function strongestCard(
-  evidence: LegacyEvidenceItem[],
-  side: "for" | "against",
+  item: LegacyEvidenceItem | undefined,
   labels: Record<"for" | "against", string>,
 ) {
-  const item = evidence.find((e) => e.side === side);
   if (!item) return undefined;
-  return { sideLabel: labels[side], title: item.title, source: item.source, sourceUrl: item.sourceUrl };
+  return { sideLabel: labels[item.side], title: item.title, source: item.source, sourceUrl: item.sourceUrl };
 }
 
 /** One pillar's evidence, grouped by side, strongest first. No score bars. */
