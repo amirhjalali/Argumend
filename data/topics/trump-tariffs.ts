@@ -104,7 +104,7 @@ export const trumpTariffsData = {
           id: "yale-household-incidence",
           title: "Yale Budget Lab: $760-$1,200 Per Household, Regressive Incidence",
           description:
-            "The Yale Budget Lab's April 8, 2026 analysis projected a household loss of $760 per year if Section 122 tariffs expire on schedule and $1,200 if extended, with the bottom income decile absorbing roughly three times the burden of the top decile. PIIE (Clausing & Lovely) independently estimated about $1,200 per household for the Canada-Mexico-China tariffs alone, and the Tax Foundation estimated roughly a $700 per-household tax increase in 2026.",
+            "The Yale Budget Lab's April 8, 2026 analysis projected a household loss of $760 per year if Section 122 tariffs expired on schedule (they did, on July 24, 2026) and $1,200 if extended, with the bottom income decile absorbing roughly three times the burden of the top decile. PIIE (Clausing & Lovely) independently estimated about $1,200 per household for the Canada-Mexico-China tariffs alone, and the Tax Foundation estimated roughly a $700 per-household tax increase in 2026.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -406,7 +406,7 @@ export const trumpTariffsData = {
           id: "scotus-ieepa-ruling",
           title: "Supreme Court Struck Down IEEPA 'Reciprocal' Tariffs (February 2026)",
           description:
-            "On February 20, 2026, the Supreme Court ruled 6-3 in Learning Resources, Inc. v. Trump that the International Emergency Economic Powers Act does not authorize the president to impose tariffs, terminating the IEEPA-based 'reciprocal' and trafficking tariffs on February 24. Trump replaced them with a flat 10% Section 122 balance-of-payments tariff capped at 150 days (expiring July 24, 2026), and USTR opened Section 301 investigations to rebuild a country-specific architecture on firmer legal ground.",
+            "On February 20, 2026, the Supreme Court ruled 6-3 in Learning Resources, Inc. v. Trump that the International Emergency Economic Powers Act does not authorize the president to impose tariffs, terminating the IEEPA-based 'reciprocal' and trafficking tariffs on February 24. Trump replaced them with a flat 10% Section 122 balance-of-payments tariff capped at 150 days, which expired on July 24, 2026, and USTR opened Section 301 investigations to rebuild a country-specific architecture on firmer legal ground.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -414,7 +414,7 @@ export const trumpTariffsData = {
             replicability: 9,
             directness: 7,
           },
-          source: "SCOTUSblog; Holland & Knight; White & Case",
+          source: "SCOTUSblog; Holland & Knight; White & Case; Sandler, Travis & Rosenberg (Section 122 expiry)",
           sourceUrl: "https://www.scotusblog.com/2026/02/a-breakdown-of-the-courts-tariff-decision/",
           reasoning:
             "A 6-3 Supreme Court ruling is an authoritative, independent legal judgment. It undermines the durability of the broad reciprocal-tariff approach by holding its primary legal basis invalid, forcing a retreat to time-limited and sector-specific authorities. This challenges the policy's legal foundation, though Section 232 and 301 tariffs survived.",
@@ -438,9 +438,9 @@ export const trumpTariffsData = {
         },
         {
           id: "ally-retaliation-costs",
-          title: "EU and Canada Retaliation Plus High-Stakes USMCA Renegotiation",
+          title: "EU and Canada Retaliation Plus a USMCA the US Declined to Renew",
           description:
-            "The EU reimposed €26 billion ($28B) of countermeasures on US goods (steel, aluminum, appliances, bourbon, motorcycles) before suspending them under a politically fragile framework agreement. Canada terminated IEEPA-related retaliation in September 2025 but kept retaliation on US autos and roughly C$15.6 billion of US steel and aluminum. The USMCA review beginning July 2026 is now expected to be a high-stakes renegotiation. Adam Tooze frames US strength as 'sustained by elevated asset prices and dollar centrality rather than a strategically coordinated state.'",
+            "The EU reimposed €26 billion ($28B) of countermeasures on US goods (steel, aluminum, appliances, bourbon, motorcycles) before suspending them under a politically fragile framework agreement. Canada terminated IEEPA-related retaliation in September 2025 but kept retaliation on US autos and roughly C$15.6 billion of US steel and aluminum. At the first USMCA joint review on July 1, 2026, the United States declined to renew the agreement in its current form, so it stays in force but now goes through annual joint reviews until the parties agree to renew it or it expires in 2036. Adam Tooze frames US strength as 'sustained by elevated asset prices and dollar centrality rather than a strategically coordinated state.'",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -448,7 +448,7 @@ export const trumpTariffsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "European Commission; CSIS; Brookings; Adam Tooze (Chartbook)",
+          source: "European Commission; CSIS; Brookings; Congressional Research Service (R48787, Sept 2026); Adam Tooze (Chartbook)",
           sourceUrl: "https://www.csis.org/analysis/usmca-review-2026",
           reasoning:
             "The retaliation figures and USMCA stakes are documented by official and institutional sources. They demonstrate concrete economic and diplomatic costs of tariff friction with major allies, supporting the alliance-damage critique, though proponents argue these costs are outweighed by extracted concessions and that some retaliation was climbed down.",

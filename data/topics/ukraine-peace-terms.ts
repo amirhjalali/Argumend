@@ -251,9 +251,9 @@ export const ukrainePeaceTermsData = {
         id: "russian-attrition-crossover",
         title: "The Attrition-Crossover Forecast",
         question:
-          "Can Russia sustain another year of attrition, or will its combat power materially degrade by late 2026?",
+          "Can Russia sustain another year of attrition, or will its combat power materially degrade within that year?",
         description:
-          "The highest-leverage empirical disagreement: can Russia sustain another year of offensive attrition, or does its combat power materially degrade in late 2026? If Russian armored stocks, recruitment, and fiscal capacity are genuinely crossing a depletion threshold, withholding sanctions relief and continuing to arm Ukraine extracts better terms. If Russian willingness dominates and the autocracy can outlast Ukrainian manpower, prolonging the war only raises the body count without improving the outcome.",
+          "The highest-leverage empirical disagreement: can Russia sustain another year of offensive attrition, or does its combat power materially degrade within the next twelve months? If Russian armored stocks, recruitment, and fiscal capacity are genuinely crossing a depletion threshold, withholding sanctions relief and continuing to arm Ukraine extracts better terms. If Russian willingness dominates and the autocracy can outlast Ukrainian manpower, prolonging the war only raises the body count without improving the outcome.",
         methodology:
           "Track three time series against each other: (1) Russian armored-vehicle availability — new build vs. refurbishment vs. depot drawdown (RUSI, satellite imagery of storage bases); (2) monthly Russian recruitment net of casualties (Janis Kluge's sign-up data, Mediazona confirmed KIA, Ukraine MoD high estimates, each with stated methodology); (3) Russian fiscal stress and real inflation (Bank of Russia data cross-checked against Sweden's MUST and BOFIT independent estimates). Identify whether the depletion threshold is crossed before Ukrainian manpower is exhausted.",
         verification_status: "theoretical" as const,
@@ -265,7 +265,7 @@ export const ukrainePeaceTermsData = {
           "$1-2M (Multi-source intelligence fusion and forecasting; the crossover date is a contested prediction that resolves only as it occurs)",
         falsification: {
           supporter_flip:
-            "If armored-vehicle availability, recruitment net of casualties and real fiscal stress all crossed a depletion threshold as RUSI projects for late 2026, withholding sanctions relief and continuing to arm Ukraine would extract better terms, and freezing the war now would give away leverage.",
+            "If armored-vehicle availability, recruitment net of casualties and real fiscal stress all crossed a depletion threshold within the next twelve months, withholding sanctions relief and continuing to arm Ukraine would extract better terms, and freezing the war now would give away leverage.",
           skeptic_flip:
             "If Ukraine's manpower problem kept worsening as Carnegie's March 2026 study describes, sanctions again failed to coerce Russia, and the attrition curve missed its projected crossing as earlier forecasts did, betting on Russian depletion would look unsafe.",
           common_ground:

@@ -262,9 +262,9 @@ export const alternativesToDemocracyData = {
         },
         {
           id: "democratic-backsliding-trend",
-          title: "V-Dem Institute Reports 15 Years of Continuous Democratic Backsliding",
+          title: "V-Dem Institute: 44 Countries Autocratizing, Only 18 Democratizing (2025)",
           description:
-            "The V-Dem Institute's annual democracy report documents 15 consecutive years of democratic backsliding globally as of 2024, with the number of countries becoming more autocratic exceeding those becoming more democratic each year. Elected leaders in Hungary, Turkey, India, and elsewhere have used democratic mandates to weaken independent courts, constrain press freedom, and entrench their own power. This trend suggests that democracy's self-correction mechanisms may be insufficient to prevent internal subversion.",
+            "The V-Dem Institute's Democracy Report 2026 counts 44 countries autocratizing at the end of 2025 against only 18 democratizing, finds that democracy for the average global citizen is back to 1978 levels, and reports that a record 41% of the world's population live in autocratizing countries. Elected leaders in Hungary, Turkey, India, and elsewhere have used democratic mandates to weaken independent courts, constrain press freedom, and entrench their own power. This trend suggests that democracy's self-correction mechanisms may be insufficient to prevent internal subversion.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -272,7 +272,7 @@ export const alternativesToDemocracyData = {
             replicability: 8,
             directness: 7,
           },
-          source: "V-Dem Institute; University of Gothenburg",
+          source: "V-Dem Institute, Democracy Report 2026: Unraveling the Democratic Era?; University of Gothenburg",
           sourceUrl: "https://www.v-dem.net/publications/democracy-reports/",
           reasoning:
             "V-Dem is the most comprehensive democracy measurement project in political science, with high reliability and independence. The backsliding trend directly challenges the error-correction thesis by showing that democratic systems can be subverted from within. However, some scholars argue backsliding represents democracies under stress rather than democracies failing — the correction may simply take longer.",
