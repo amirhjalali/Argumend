@@ -4,6 +4,9 @@ vi.mock("next/navigation", () => ({
   notFound: () => {
     throw new Error("NEXT_NOT_FOUND");
   },
+  permanentRedirect: (url: string) => {
+    throw new Error(`NEXT_PERMANENT_REDIRECT ${url}`);
+  },
 }));
 
 import TopicDiagramPage, { generateMetadata, generateStaticParams } from "./page";
@@ -32,11 +35,13 @@ describe("/topics/[id]/map — the diagram route", () => {
     }
   });
 
-  it("exists for legacy maps only; debate maps have no diagram", async () => {
+  it("exists for legacy maps only; a debate map's /map goes to its page", async () => {
     const ids = generateStaticParams().map((p) => p.id);
     expect(ids).toContain("nuclear-energy-safety");
     expect(ids).not.toContain("ai-mass-unemployment");
-    await expect(TopicDiagramPage(params("ai-mass-unemployment"))).rejects.toThrow("NEXT_NOT_FOUND");
+    await expect(TopicDiagramPage(params("ai-mass-unemployment"))).rejects.toThrow(
+      "NEXT_PERMANENT_REDIRECT /topics/ai-mass-unemployment",
+    );
     await expect(TopicDiagramPage(params("definitely-missing"))).rejects.toThrow("NEXT_NOT_FOUND");
   });
 

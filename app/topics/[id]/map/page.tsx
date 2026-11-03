@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { topicSummaries } from "@/data/topicIndex";
 import { loadTopicById } from "@/data/topicLoader";
 import { absoluteMediaUrl, getGeneratedMedia } from "@/data/generatedMedia";
@@ -8,6 +8,7 @@ import { AppShell } from "@/components/AppShell";
 import { buildDiagram } from "@/lib/diagram/model";
 import { TopicDiagram } from "./TopicDiagram";
 import { mapDisplayTitle } from "@/lib/mapNaming";
+import { argumentTopicIds } from "@/lib/argument/topicIds";
 
 /**
  * The diagram of a legacy map: the topic page's question, cruxes, sides and
@@ -15,7 +16,9 @@ import { mapDisplayTitle } from "@/lib/mapNaming";
  * own model). Desktop gets the React Flow canvas, phones the same tree as an
  * outline. No Scales tab, no Debate tab, no balance ring, no scores.
  *
- * New-model (ArgumentGraph) maps have no diagram; their page is the outline.
+ * New-model (ArgumentGraph) maps have no diagram; their page is the outline,
+ * so a /map link to one is a permanent redirect to it (the proxy answers it
+ * first, via diagramlessMapPath; the page repeats the rule). Unknown ids 404.
  * Not indexed: the topic page is the canonical reading of the same map.
  */
 
@@ -70,7 +73,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function TopicDiagramPage({ params }: PageProps) {
   const { id } = await params;
   const summary = topicSummaries.find((t) => t.id === id);
-  if (!summary) notFound();
+  if (!summary) {
+    if (argumentTopicIds.includes(id)) permanentRedirect(`/topics/${id}`);
+    notFound();
+  }
   const topic = await loadTopicById(summary.id);
   if (!topic) notFound();
 
