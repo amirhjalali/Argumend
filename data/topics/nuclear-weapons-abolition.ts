@@ -115,9 +115,9 @@ export const nuclearWeaponsAbolitionData = {
         },
         {
           id: "able-archer-1983",
-          title: "Able Archer 83: NATO Exercise Nearly Triggered Soviet Nuclear First Strike",
+          title: "Able Archer 83: A NATO Exercise Put Parts of Soviet Forces on Unusual Alert",
           description:
-            "In November 1983, NATO conducted Able Archer 83, a routine nuclear war simulation exercise. Declassified Soviet intelligence reports reveal that the KGB and GRU interpreted the exercise as potential cover for an actual first strike, placing Soviet nuclear forces on heightened alert. Soviet leader Yuri Andropov, influenced by the KGB's Operation RYAN (which sought indicators of Western attack preparations), seriously considered a preemptive nuclear strike. Only the cautious assessment of Soviet double-agent Oleg Gordievsky, relayed to British intelligence, alerted the West to the danger. A 1990 President's Foreign Intelligence Advisory Board (PFIAB) report — declassified in 2015 — concluded that Able Archer 83 'may have inadvertently placed our relations with the Soviet Union on a hair trigger,' and that US assessments at the time understated the risks.",
+            "In November 1983, NATO conducted Able Archer 83, a routine nuclear war simulation exercise. Soviet intelligence, primed by the KGB's Operation RYaN to look for signs of Western attack preparations, cabled its London station about alerts at US bases and speculated that NATO might be preparing a nuclear strike. A 1990 President's Foreign Intelligence Advisory Board (PFIAB) report, declassified in 2015, found that 'parts of the Soviet armed forces were moving to an unusual level of alert', including moving nuclear weapons from storage to delivery units, and concluded that the United States 'may have inadvertently placed our relations with the Soviet Union on a hair trigger'. It also found that 'the President was given assessments of Soviet attitudes and actions that understated the risks to the United States.' Oleg Gordievsky, a KGB officer working for British intelligence, revealed the Soviet reaction to the West. Soviet archives on the Politburo's response remain closed.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -125,10 +125,10 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 7,
             directness: 8,
           },
-          source: "National Security Archive, 'The Able Archer 83 Sourcebook'; CIA FOIA releases; Jones (2016), 'Able Archer 83'",
-          sourceUrl: "https://nsarchive.gwu.edu/project/able-archer-83-sourcebook",
+          source: "National Security Archive, 'The Soviet \"War Scare\" Declassified and For Real' (24 October 2015, PFIAB report); Chatham House, 'Too Close for Comfort' (2014)",
+          sourceUrl: "https://nsarchive2.gwu.edu/nukevault/ebb533-The-Able-Archer-War-Scare-Declassified-PFIAB-Report-Released/",
           reasoning:
-            "Declassified intelligence from both sides confirms the severity of the incident. Able Archer demonstrates that nuclear war can be triggered by misperception during routine activities, not just during crises. The fact that survival depended on the information from a single double-agent underscores the fragility of the deterrence system.",
+            "Declassified intelligence from both sides confirms the severity of the incident. Able Archer demonstrates that nuclear war can be triggered by misperception during routine activities, not just during crises. That the West learned of the Soviet reaction largely through a single double agent underscores the fragility of the deterrence system.",
         },
       ],
     },
@@ -193,9 +193,9 @@ export const nuclearWeaponsAbolitionData = {
         },
         {
           id: "nuclear-near-misses",
-          title: "At Least 13 Documented Near-Miss Nuclear Incidents Since 1945",
+          title: "Chatham House Documents 13 Cases of Near Nuclear Use, 1962-2002",
           description:
-            "Researchers have documented at least 13 incidents since 1945 where nuclear weapons were nearly launched due to technical malfunction, miscommunication, or miscalculation. Beyond the Cuban Missile Crisis and Able Archer, these include: the 1979 NORAD false alarm (training tape mistaken for Soviet attack), the 1980 NORAD computer chip failure (simulating 2,200 incoming missiles), the 1983 Soviet satellite false alarm (Stanislav Petrov correctly judged a satellite warning as false), and the 1995 Norwegian rocket incident (Boris Yeltsin activated the nuclear briefcase for the first time). A 2023 study in Science & Global Security estimated the cumulative probability of nuclear war from near-misses at approximately 1-2% per decade during the Cold War.",
+            "A 2014 Chatham House study examined 13 cases of near nuclear use between 1962 and 2002, arising from miscommunication, technical error, misperception and conflict escalation, and cautioned that they \"do not represent the full set of incidents.\" Beyond the Cuban Missile Crisis and Able Archer-83, they include the November 1979 NORAD alert (an exercise tape mistaken for reality), the June 1980 NORAD false alarm (a faulty computer chip reported first 220, then 2,200 incoming Soviet missiles), the September 1983 Serpukhov-15 alarm (Stanislav Petrov reported a satellite warning of five US missiles as false), and the January 1995 Black Brant scare (a Norwegian research rocket led to President Yeltsin being presented with a nuclear briefcase). The study's primary finding is that the probability of inadvertent nuclear use \"is not zero and is higher than had been widely considered.\"",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -203,10 +203,10 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 8,
             directness: 9,
           },
-          source: "Union of Concerned Scientists; Bulletin of the Atomic Scientists; Science & Global Security",
-          sourceUrl: "https://thebulletin.org/2023/01/timeline-of-close-calls/",
+          source: "Lewis, Williams, Pelopidas & Aghlani, 'Too Close for Comfort: Cases of Near Nuclear Use and Options for Policy', Chatham House (April 2014)",
+          sourceUrl: "https://www.chathamhouse.org/sites/default/files/field/field_document/20140428TooCloseforComfortNuclearUseLewisWilliamsPelopidasAghlani.pdf",
           reasoning:
-            "Each near-miss is documented from declassified sources. The cumulative probability argument is powerful: even a small annual risk of accidental nuclear war, compounded over decades, yields a substantial total risk. This directly challenges the meta-claim that nuclear deterrence makes the world safer — if deterrence works 99% of the time but fails once, the consequence is civilization-ending.",
+            "The cases are reconstructed from declassified records, testimony and memoirs. The cumulative probability argument is powerful: even a small annual risk of accidental nuclear war, compounded over decades, yields a substantial total risk. This directly challenges the meta-claim that nuclear deterrence makes the world safer — if deterrence works 99% of the time but fails once, the consequence is civilization-ending.",
         },
         {
           id: "chemical-biological-precedent",
@@ -359,8 +359,8 @@ export const nuclearWeaponsAbolitionData = {
       url: "https://wwnorton.com/books/9780393920109",
     },
     {
-      title: "Bulletin of the Atomic Scientists: Nuclear Close Calls Timeline",
-      url: "https://thebulletin.org/2023/01/timeline-of-close-calls/",
+      title: "Too Close for Comfort: Cases of Near Nuclear Use and Options for Policy — Chatham House (2014)",
+      url: "https://www.chathamhouse.org/sites/default/files/field/field_document/20140428TooCloseforComfortNuclearUseLewisWilliamsPelopidasAghlani.pdf",
     },
     {
       title: "ICRC Position on Nuclear Weapons",

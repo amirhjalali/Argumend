@@ -210,20 +210,20 @@ export const pandemicPreparednessData = {
           title:
             "CDC Botched Initial COVID-19 Test Kit, Delaying US Response by Weeks",
           description:
-            "In February 2020, the CDC distributed its internally developed SARS-CoV-2 diagnostic test to public health laboratories across the US. The test produced inconclusive results due to a contaminated reagent at the CDC's manufacturing facility. The FDA's regulatory framework prevented laboratories from developing their own tests without emergency use authorization, which was not granted until February 29. By the time testing was widely available in mid-March, the virus had been spreading undetected for weeks. A subsequent Government Accountability Office report found that the delay cost the US 4-6 weeks of surveillance capability during the critical early exponential growth phase.",
+            "In February 2020 the CDC shipped its own SARS-CoV-2 test kits to about 100 public health labs, the first arriving on 6 February. An internal CDC review obtained by NPR found that the first quality-control round used an incorrect procedure, and that when the correct protocol was run it showed 'the kit could fail 33% of the time', a result that 'did not result in a kit recall or a performance alert.' Lab leaders suspected contamination, though CDC and HHS officials disputed an FDA inspector's account of lab conditions. 'We waited another month before we had testing available,' said Jennifer Rakeman, director of New York City's Public Health Laboratory.",
           side: "against" as const,
           weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 9,
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
             directness: 9,
           },
           source:
-            "Government Accountability Office; House Select Subcommittee on the Coronavirus Crisis",
+            "NPR (Dina Temple-Raston), 'CDC Report: Officials Knew Coronavirus Test Was Flawed But Released It Anyway' (6 Nov 2020), via KQED, reporting an internal CDC root-cause review",
           sourceUrl:
-            "https://www.gao.gov/products/gao-21-191",
+            "https://www.kqed.org/science/1970862/cdc-report-officials-knew-coronavirus-test-was-flawed-but-released-it-anyway",
           reasoning:
-            "The GAO is Congress's nonpartisan investigative arm, and its findings are based on documentary evidence and official records. The testing failure is the single most consequential institutional failure of the US COVID response and is not disputed by any credible source. Directly demonstrates that institutional failure can negate preparedness investment.",
+            "The account rests on the CDC's own internal review, though the agency declined to discuss it on the record, and on named lab officials. The testing failure is the single most consequential institutional failure of the US COVID response and is not disputed by any credible source. Directly demonstrates that institutional failure can negate preparedness investment.",
         },
         {
           id: "strategic-national-stockpile-depletion",

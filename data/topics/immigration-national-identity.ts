@@ -74,8 +74,8 @@ export const immigrationNationalIdentityData = {
             replicability: 6,
             directness: 8,
           },
-          source: "Quarterly Journal of Economics; Harvard Kennedy School",
-          sourceUrl: "https://doi.org/10.1162/00335530360535135",
+          source: "Borjas, 'The Labor Demand Curve is Downward Sloping: Reexamining the Impact of Immigration on the Labor Market', Quarterly Journal of Economics 118(4) (2003); Harvard Kennedy School",
+          sourceUrl: "https://doi.org/10.1162/003355303322552810",
           reasoning:
             "Borjas is a leading labor economist at Harvard and his work is rigorously quantitative. However, his methodology and assumptions are actively contested by other leading economists (Card, Peri) who find smaller effects using different analytical approaches. The debate is fundamentally about whether immigrant and native workers are substitutes (Borjas) or complements (Card/Peri). Replicability is moderate because results are sensitive to methodological choices.",
         },

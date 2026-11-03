@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs arkansass blendon"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs propublica arkansass"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -823,7 +823,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg deferral"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral"
   },
   {
     "id": "standardized-testing-debate",
@@ -918,7 +918,7 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq memorandum tehran fordow"
+    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran memorandum fordow"
   },
   {
     "id": "epstein-files",
@@ -996,16 +996,16 @@
       "Should the US deport all illegal immigrants?",
       "Is mass deportation a good idea?"
     ],
-    "keywords": "trac southwest apprehensions patrol detained backlog marc rosenblum syracuse apprehended binational fy2023 asphyxia ians neck"
+    "keywords": "trac southwest apprehensions patrol detained backlog propublica marc rosenblum syracuse apprehended binational fy2023 asphyxia ians"
   },
   {
     "id": "social-media-elections",
     "title": "Social Media's Impact on Elections",
     "question": "Has social media fundamentally undermined democratic elections?",
     "meta_claim": "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 71,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1018,7 +1018,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "analytica bots extremist mueller persuasion aral hosseinmardi kalla untrustworthy vosoughi broockman cisa iranian personas watts"
+    "keywords": "persuasive analytica bots extremist mueller clintons aral hosseinmardi kalla untrustworthy vosoughi broockman cisa iranian personas"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -1040,7 +1040,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima norad waltz kenneth lewis submarine andropov"
+    "keywords": "chatham cuban detonation archer icrc pakistan famine arkhipov gaddis hiroshima norad pfiab waltz inadvertent kenneth"
   },
   {
     "id": "school-phone-bans",
@@ -1072,8 +1072,8 @@
     "title": "Pandemic Preparedness Investment",
     "question": "Should governments invest heavily in pandemic preparedness?",
     "meta_claim": "Governments should invest heavily in pandemic preparedness infrastructure",
-    "confidence_score": 67,
-    "balance": 67,
+    "confidence_score": 68,
+    "balance": 68,
     "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -1419,8 +1419,8 @@
     "title": "E/acc vs. Tech Regulation",
     "question": "Does rapid, unregulated technological progress do more good than harm?",
     "meta_claim": "Rapid, unregulated technological advancement creates more benefit than harm",
-    "confidence_score": 63,
-    "balance": 63,
+    "confidence_score": 64,
+    "balance": 64,
     "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -1626,7 +1626,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "livestock antibiotic cage sentience cattle runoff dietetics antimicrobial bacterial cafo manure vegetarian eggs grass guest"
+    "keywords": "livestock antibiotic cage sentience cattle runoff dietetics antimicrobial bacterial cafo manure vegetarian eggs grass hayek"
   },
   {
     "id": "organic-food-health",
@@ -1772,7 +1772,7 @@
       "Was COVID-19 engineered?",
       "Is the lab leak theory true?"
     ],
-    "keywords": "furin cleavage virus debarred coronaviruses insertions odni progenitor sago ecohealth subcommittee viruses huanan zoonosis virologists"
+    "keywords": "furin cleavage virus debarred coronaviruses insertions odni subcommittee progenitor sago ecohealth viruses huanan zoonosis virologists"
   },
   {
     "id": "ultra-processed-food",
@@ -1823,7 +1823,7 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo agonists tumor cyclic ebiomedicine harrison"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity fibrosis ebiomedicine grimage healthspan metformin cellular mayo agonists tumor cyclic"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -1895,7 +1895,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist comorbidities amgen"
+    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist amgen copay"
   },
   {
     "id": "fluoride-water-supplies",
@@ -1967,7 +1967,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
+    "keywords": "supermarket semaglutide regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
   },
   {
     "id": "loneliness-epidemic",
@@ -2206,9 +2206,9 @@
     "title": "The Four-Day Work Week",
     "question": "Should a four-day week with no pay cut be adopted broadly?",
     "meta_claim": "A four-day work week with no reduction in pay leads to equal or higher productivity, improved worker wellbeing, and should be adopted broadly across industries.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 62,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 61,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2221,7 +2221,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "burnout collar ambivalent cipd overtime qinglong shao chartered frontline salaried absenteeism aubry eurostat everybody insee"
+    "keywords": "burnout collar ambivalent cipd bambra overtime qinglong shao chartered frontline salaried absenteeism akers aubry detrimental"
   },
   {
     "id": "student-debt-forgiveness",
@@ -2529,7 +2529,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sebo introspection butlin seth cogitate workspace agnosticism sentience bski comsa dreksler figura gnwt hssc lindsey"
+    "keywords": "sebo introspective butlin seth cogitate workspace agnosticism sentience bski comsa dreksler figura gnwt hssc mcclelland"
   },
   {
     "id": "meaning-without-religion",
@@ -2640,7 +2640,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "chimeric airborne alphafold baric fouchiers h5n1 sars anthrax chapel coronaviruses influenza smallpox viruses affinities avian"
+    "keywords": "chimeric airborne alphafold baric fouchiers h5n1 sars anthrax chapel coronaviruses influenza virology virologist viruses virus"
   },
   {
     "id": "children-smartphone-age",
@@ -2821,7 +2821,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "hypersonic glide icbm petrov pentagon posture tracy bomber putin submarine altitude avangard brumfiel cameron continental"
+    "keywords": "hypersonic glide icbm petrov pentagon posture minuteman tracy bomber chatham putin submarine altitude avangard brumfiel"
   },
   {
     "id": "transgender-athletes-sports",
@@ -2888,7 +2888,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam borjas hunkering jews complementarity diploma italians norc resettlement dispersed refugee scandinavian"
+    "keywords": "borjas putnam hunkering jews complementarity diploma italians norc reexamining resettlement dispersed refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -3629,7 +3629,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest comorbidity kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan skoglund"
+    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan skoglund underdiagnosis"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3710,7 +3710,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson raja rogowski thornton carroll jenkins qualifications"
+    "keywords": "burkean caucus cawp lobbyists apollonio carey mclaughlin moncrief niemi olson raja rogowski thornton carroll jenkins"
   },
   {
     "id": "effective-altruism",

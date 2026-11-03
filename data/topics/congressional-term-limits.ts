@@ -118,9 +118,9 @@ export const congressionalTermLimitsData = {
         },
         {
           id: "term-limits-no-diversity-gain",
-          title: "Term Limits Did Not Increase Legislative Diversity",
+          title: "State Term Limits Did Not Increase the Number of Women Legislators (CAWP, 2005)",
           description:
-            "A Rutgers CAWP study (Carroll & Jenkins, 2005) found term limits did not produce consistent gains in the representation of women or minorities; in 1998 and 2000 more women were forced out by limits than were elected to the vacated seats, and most departing women's seats went to men.",
+            "A Rutgers CAWP study (Carroll & Jenkins, 2005) of state house elections found that 'more women state representatives were forced out of office by term limits in both 1998 and 2000 than were elected to seats vacated by term-limited incumbents,' and that term-limited women were replaced by other women in only about one-fourth of cases. Minorities fared differently: the number of minorities in term-limited state house seats increased after both elections, since most were replaced by members of the same racial or ethnic group.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -131,9 +131,9 @@ export const congressionalTermLimitsData = {
           source:
             "Carroll & Jenkins, 'Increasing Diversity or More of the Same? Term Limits and the Representation of Women, Minorities, and Minority Women in State Legislatures,' Center for American Women and Politics, Rutgers (2005)",
           sourceUrl:
-            "https://cawp.rutgers.edu/research-and-scholarship/increasing-diversity-or-more-same-term-limits-and-representation-women",
+            "https://cawp.rutgers.edu/sites/default/files/resources/termlimitsdiversity_0.pdf",
           reasoning:
-            "Rigorous comparative analysis from a non-partisan academic research center directly testing a core proponent promise (more diverse representation) and finding it unmet. Counts against the claim by undercutting an expected governance benefit.",
+            "Rigorous comparative analysis from a non-partisan academic research center directly testing a core proponent promise (more diverse representation) and finding it unmet for women, though not for minorities. Counts against the claim by undercutting an expected governance benefit.",
         },
       ],
     },
