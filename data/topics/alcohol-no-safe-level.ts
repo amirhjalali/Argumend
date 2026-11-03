@@ -98,6 +98,24 @@ export const alcoholNoSafeLevelData = {
           reasoning:
             "Large individual-participant pooled analysis, the gold standard for dose-response. Strong, tight confidence interval extending to light intake directly supports a no-threshold cancer effect for one major organ system.",
         },
+        {
+          id: "bagnardi-site-specific-light",
+          title: "Site-by-Site Meta-Analysis: Light Drinking Raised Some Cancers, Not Others",
+          description:
+            "Bagnardi et al. (British Journal of Cancer, 2015) pooled 572 studies with 486,538 cancer cases. At light drinking (12.5 g a day or less, about one drink), risk was raised for oral cavity and pharynx (RR 1.13, 95% CI 1.00-1.26), oesophageal squamous cell carcinoma (RR 1.26) and female breast (RR 1.04, 95% CI 1.01-1.07). Colorectal and laryngeal cancer rose with moderate and heavy drinking but not light drinking, and light drinking was inversely associated with kidney cancer (RR 0.92), thyroid cancer (RR 0.81) and non-Hodgkin's lymphoma (RR 0.88).",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Bagnardi et al., 'Alcohol consumption and site-specific cancer risk: a comprehensive dose-response meta-analysis', British Journal of Cancer (2015)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4453639/",
+          reasoning:
+            "The largest site-by-site pooling, and at about one drink a day it detects a rise for only a few cancers, which supports the skeptic's point that the no-threshold case rests on a handful of sites with small relative risks. A null at light doses can mean too little statistical power rather than a floor, the inverse associations are observational and unexplained, and the breast-cancer rise is still there, so directness is 6.",
+        },
       ],
     },
     {
@@ -266,6 +284,42 @@ export const alcoholNoSafeLevelData = {
           sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/26997174/",
           reasoning:
             "Weighted modestly because the authors' own conclusion is that this raw J-curve is largely artifactual — but the unadjusted effect is real, large, and decades-replicated, which is genuine (if contested) evidence against an absolute no-safe-level claim. Low directness: it speaks to apparent association, not established causation.",
+        },
+        {
+          id: "fillmore-misclassification",
+          title: "Studies That Kept Former Drinkers Out of the Abstainer Group Found No Protection",
+          description:
+            "Fillmore, Stockwell, Chikritzhs, Bostrom and Kerr (Annals of Epidemiology, 2007) meta-analysed prospective studies for one systematic error: contaminating 'the abstainer category with occasional or former drinkers.' In the few studies without that error, abstainers and light or moderate drinkers were at equal risk of all-cause and coronary heart disease death.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 6,
+            directness: 8,
+          },
+          source:
+            "Fillmore et al., 'Moderate alcohol use and reduced mortality risk: systematic error in prospective studies and new hypotheses', Annals of Epidemiology 17(5 Suppl): S16-S23 (2007)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/17478320/",
+          reasoning:
+            "This crux's own test, the J-curve rerun against a clean reference group, and the dip did not survive it. It rests on the few studies that met that standard, and its authors include Tim Stockwell, who led the 2016 meta-analysis on this map and whose group argues the J-curve is an artifact, so independence is 6.",
+        },
+        {
+          id: "nasem-2024-never-drinkers",
+          title: "National Academies: Moderate Drinkers Had Lower All-Cause Mortality Than Never Drinkers",
+          description:
+            "The National Academies' 'Review of Evidence on Alcohol and Health' (December 2024), requested by Congress to inform the Dietary Guidelines for Americans, concluded with moderate certainty that, compared with never drinking, moderate drinking (two drinks in a day for men, one for women) is associated with lower all-cause mortality: RR 0.84 (95% CI 0.81-0.87) in a meta-analysis of eight eligible studies. It also found moderate drinking associated with a higher risk of female breast cancer, and none of its conclusions reached high certainty.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "National Academies of Sciences, Engineering, and Medicine, 'Review of Evidence on Alcohol and Health' (2024), Finding 3-1 and Table 3-2",
+          sourceUrl: "https://www.nationalacademies.org/read/28582/chapter/5",
+          reasoning:
+            "A systematic review that compares drinkers with never drinkers, the clean reference group this crux turns on, and still finds a lower death rate. It pools eight observational studies, the committee rates the finding below high certainty, and people who never drink can differ in other ways that adjustment may miss, so replicability is 6.",
         },
       ],
     },

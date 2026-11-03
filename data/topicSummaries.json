@@ -41,7 +41,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr nasem ultrashort biomonitoring fluorochemical hfpo ulcerative colitis"
+    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian bostrom axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash fisheries"
+    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash fisheries theorem"
   },
   {
     "id": "ai-2027",
@@ -987,7 +987,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "sleeper sonnet bostrom leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger"
+    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger humean"
   },
   {
     "id": "ai-content-labeling",
@@ -2675,7 +2675,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "acip marion nestle prasad appointees toothpaste unqualified asthma faction inpatient makary aluminum cavity confirmatory gras"
+    "keywords": "acip marion nestle prasad appointees toothpaste unqualified asthma faction inpatient makary aluminum confirmatory gras cavity"
   },
   {
     "id": "doge-federal-cuts",
@@ -2999,7 +2999,7 @@
       "glyphosate",
       "biotechnology"
     ],
-    "keywords": "cotton herbicide weeds roundup efsa iarc bollworm sprays juries bayer benbrook hodgkin lymphoma monsanto mper"
+    "keywords": "cotton herbicide weeds roundup efsa iarc bollworm sprays juries bayer benbrook monsanto mper pink pmra"
   },
   {
     "id": "nuclear-fusion-timeline",
@@ -3419,9 +3419,9 @@
     "title": "Alcohol's Safe Level",
     "question": "Is any amount of drinking harmful to health?",
     "meta_claim": "There is no safe level of alcohol consumption for health.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 71,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3429,7 +3429,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 10,
     "firstCrux": "Does cancer risk rise from the first drink, or could a small threshold hide below what studies can detect?",
     "tags": [
       "science",
@@ -3439,7 +3439,7 @@
       "cardiovascular",
       "epidemiology"
     ],
-    "keywords": "drinkers iarc stockwell unadjusted zhao mendelian ionizing naimi asbestos"
+    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted zhao mendelian carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
   },
   {
     "id": "modern-monetary-theory",
