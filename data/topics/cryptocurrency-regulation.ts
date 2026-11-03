@@ -2,11 +2,11 @@ import type { TopicInput } from "@/lib/schemas/topic";
 
 export const cryptocurrencyRegulationData = {
   id: "cryptocurrency-regulation",
-  title: "Crypto Regulation: Wall Street's Rules or Its Own?",
+  title: "Crypto Regulation: A Rulebook of Its Own?",
   question:
     "Should crypto get its own lighter rulebook, or follow the same rules as stocks and banks?",
   meta_claim:
-    "Crypto should be held to the same rules as traditional finance: securities law for tokens sold as investments and bank-grade rules for anyone holding customers' money, not a lighter regime written for the industry.",
+    "Crypto should be held to the same rules as traditional finance: securities law for tokens sold as investments and bank-grade rules for stablecoins and exchanges that hold savers' funds, not a lighter regime written for the industry.",
   status: "contested" as const,
   category: "economics" as const,
   // As of 3 November 2026: the GENIUS Act (stablecoins) was signed on 18 July
@@ -32,7 +32,7 @@ export const cryptocurrencyRegulationData = {
     "Should crypto be regulated like traditional financial instruments?",
     "Should cryptocurrency be regulated like traditional finance?",
     "Is the CLARITY Act good for crypto investors?",
-    "Is the SEC going too easy on crypto?",
+    "Is the SEC going soft on crypto?",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=60",
@@ -79,7 +79,7 @@ export const cryptocurrencyRegulationData = {
       id: "q1",
       title: "Did the FTX collapse prove crypto needs regulation, or that existing oversight failed?",
       content:
-        "FTX held licences in the Bahamas, Japan and Australia and still lost over $8 billion of customer money after it was moved to its founder's trading firm, Alameda Research. One reading: crypto lacked the custody and segregation rules a US broker lives under. The other: FTX broke fraud laws that already existed, and its founder was convicted under them. Would bank-and-broker rules have stopped it, or only given customers a false sense of safety?",
+        "FTX held licences in the Bahamas, Japan and Australia and still lost over $8 billion of clients' money after it was moved to its founder's trading firm, Alameda Research. One reading: crypto lacked the custody and segregation rules a US broker lives under. The other: FTX broke fraud laws that already existed, and its founder was convicted under them. Would bank-and-broker rules have stopped it, or only given customers a false sense of safety?",
     },
     {
       id: "q2",
@@ -108,45 +108,45 @@ export const cryptocurrencyRegulationData = {
       id: "consumer-protection-vs-innovation",
       title: "The Losses: Would Ordinary Rules Have Stopped Them?",
       short_summary:
-        "FTX lost over $8 billion of customer money in 2022, Terra/Luna erased about $40 billion in a week, and thieves took more than $3.4 billion in 2025, $1.5 billion of it from one exchange, Bybit. One side says these are the harms securities and banking law exist to prevent. The other says licensing did not stop FTX and tough US rules only pushed builders to Dubai and Singapore.",
+        "FTX lost over $8 billion of clients' money in 2022, Terra/Luna erased about $40 billion in a week, and thieves took more than $3.4 billion in 2025, $1.5 billion of it from one exchange, Bybit. Critics of the industry say these are the harms securities and banking law exist to prevent. The other says licensing did not stop FTX and tough US rules only ended up driving builders to Dubai and Singapore.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "FTX is the case against, not for, more of the same rules. It held licences in the Bahamas, Japan and Australia, employed compliance staff and lobbied Washington for regulation, and it still collapsed, because its founder took customer money, a crime under laws that already existed and for which he was convicted. Licensing did not catch it. What US policy did do from 2021 to 2024 was sue first and explain later: the SEC brought 46 crypto actions in 2023 alone while refusing to say how a token exchange could register. Firms read the signal. Coinbase opened an international exchange in Bermuda, and Binance, OKX and Crypto.com took licences from Dubai's Virtual Assets Regulatory Authority, a regime written for crypto with anti-money-laundering rules and disclosures. The lesson is not that crypto needs no rules. It is that rules written for a stockbroker in 1934 fit a token network badly, and that builders move toward clear, tailored regimes like the EU's MiCA, not toward chaos.",
+        "FTX is the case against, not for, more of the same rules. It held licences in the Bahamas, Japan and Australia, employed compliance staff and lobbied Washington for regulation, and it still collapsed, because its founder took clients' money, a crime under laws that already existed and for which he was convicted. Licensing did not catch it. What US policy did do from 2021 to 2024 was sue first and explain later: the SEC brought 46 crypto actions in 2023 alone while refusing to say how a token exchange could register. Firms read the signal. Coinbase opened an international exchange in Bermuda, and Binance, OKX and Crypto.com took licences from Dubai's Virtual Assets Regulatory Authority, a regime written for crypto with anti-money-laundering rules and disclosures. The lesson is not that crypto needs no rules. It is that rules written for a stockbroker in 1934 fit a token network badly, and that builders move toward clear, tailored regimes like the EU's MiCA, not toward chaos.",
       proponent_rebuttal:
-        "The losses are not a mystery that needs new theory. FTX lost over $8 billion because it mixed customer money with its owner's trading firm, the exact thing US broker-dealer custody and segregation rules forbid. Terra's UST was sold to retail savers in South Korea and Southeast Asia as a stable dollar with a 20% yield, with no reserves behind it, and about $40 billion vanished in a week. Thieves took $3.8 billion in 2022 and more than $3.4 billion in 2025, $1.5 billion of it from a single exchange, Bybit, and North Korea's hackers took at least $2.02 billion of the 2025 total. Every one of these is a custody, disclosure or reserve failure, and every one has a rule in traditional finance aimed at it. The Securities Act of 1933 was written after a crash for the same reasons. 'Tailored rules' in practice has meant lighter rules, and a market that moves to whichever regulator asks least is running a race to the bottom, not finding the right balance.",
+        "The losses are not a mystery that needs new theory. FTX lost over $8 billion because it mixed clients' money with its owner's trading firm, the exact thing US broker-dealer custody and segregation rules forbid. Terra's UST was sold to retail savers in South Korea and Southeast Asia as a stable dollar with a 20% yield, with no reserves behind it, and about $40 billion vanished in a week. Thieves took a record $3.8 billion in 2022 and more than $3.4 billion in 2025, $1.5 billion of it from a single exchange, Bybit, and North Korea's hackers took at least $2.02 billion of the 2025 total. Every one of these is a custody, disclosure or reserve failure, and every one has a rule in traditional finance aimed at it. The Securities Act of 1933 was written after a crash for the same reasons. 'Tailored rules' in practice has meant lighter rules, and a market that moves to whichever regulator asks least is running a race to the bottom, not finding the right balance.",
       crux: {
         id: "regulation-innovation-tradeoff",
         title: "The Licensing Test",
         question:
-          "Do licensing and custody rules cut crypto customer losses, or just push the business offshore?",
+          "Do licensing and custody rules cut crypto investors' losses, or just push the business offshore?",
         description:
-          "If licensed regimes (MiCA in the EU, Singapore, Dubai's VARA) show lower customer losses per dollar held than unlicensed venues, and builders stay rather than leave, the case for holding crypto to ordinary financial rules is strong. If losses simply follow firms wherever they go, and the main effect of strict rules is to move the business abroad, the trade-off is real.",
+          "If licensed regimes (MiCA in the EU, Singapore, Dubai's VARA) show lower investor losses per dollar held than unlicensed venues, and builders stay rather than leave, the case for holding crypto to ordinary financial rules is strong. If losses simply follow firms wherever they go, and the main effect of strict rules is to move the business abroad, the trade-off is real.",
         methodology:
-          "Compare customer losses from fraud, insolvency and theft per dollar of customer assets across regimes: the US before and after 2025, the EU under MiCA (fully in force from December 2024), Singapore, Dubai and offshore venues with no licensing. Track developer counts, venture funding and new launches in the same places. Separate theft by state hackers, which licensing may not stop, from losses caused by a firm's own misuse of customer money, which custody rules target.",
+          "Compare investor losses from fraud, insolvency and theft per dollar of client assets across regimes: the US before and after 2025, the EU under MiCA (fully in force from December 2024), Singapore, Dubai and offshore venues with no licensing. Track developer counts, venture funding and new launches in the same places. Separate theft by state hackers, which licensing may not stop, from losses caused by a firm's own misuse of clients' money, which custody rules target.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Customer losses per dollar held, split into theft and a firm's own misuse of customer money, measured across MiCA, Singapore, Dubai, the US and unlicensed offshore venues, alongside developer and funding counts in each.",
+            "Investor losses per dollar held, split into theft and a firm's own misuse of clients' money, measured across MiCA, Singapore, Dubai, the US and unlicensed offshore venues, alongside developer and funding counts in each.",
         },
         cost_to_verify:
           "$500K-1.5M (multi-jurisdiction study; loss data from bankruptcy filings, Chainalysis and regulators)",
         falsification: {
           supporter_flip:
-            "If licensed venues under MiCA, Singapore and Dubai lost customers as much per dollar held as unlicensed ones, and the main effect of strict rules was to move developers and funding abroad, the case that ordinary financial rules protect crypto customers would weaken.",
+            "If licensed venues under MiCA, Singapore and Dubai lost investors as much per dollar held as unlicensed ones, and the main effect of strict rules was to move developers and funding abroad, the case that ordinary financial rules protect crypto customers would weaken.",
           skeptic_flip:
-            "If venues bound by custody and segregation rules lost far less customer money than unlicensed ones, and builders stayed in licensed markets rather than leaving, the claim that such rules mostly drive the business offshore would be hard to hold.",
+            "If venues bound by custody and segregation rules lost far less clients' money than unlicensed ones, and builders stayed in licensed markets rather than leaving, the claim that such rules mostly drive the business offshore would be hard to hold.",
           common_ground:
-            "Both sides agree crypto customers lost billions through FTX, Terra/Luna and hacks, that FTX held licences abroad when it failed, and that its founder was convicted under existing fraud law.",
+            "Both sides agree crypto investors lost billions through FTX, Terra/Luna and hacks, that FTX held licences abroad at the time it failed, and that its founder was convicted under existing fraud law.",
           live_disagreement:
-            "Whether the losses came from missing rules that traditional finance already has, or from crimes no licence would have caught, and so whether stricter rules protect customers or mostly move the business abroad.",
+            "Whether the losses came from missing rules that traditional finance already has, or from crimes no licence would have caught, and so whether stricter rules protect investors or mostly move the business abroad.",
         },
       },
       evidence: [
         {
           id: "ftx-collapse-losses",
-          title: "FTX lost over $8 billion of customer money despite licences in three countries (2022)",
+          title: "FTX lost over $8 billion of clients' money despite licences in three countries (2022)",
           description:
-            "In November 2022 FTX, then the third-largest crypto exchange, collapsed after customer funds were found to have been moved to Alameda Research, the trading firm controlled by its founder, Sam Bankman-Fried. Over $8 billion of customer money was missing. FTX held licences in the Bahamas, Japan and Australia and had lobbied Washington for crypto regulation. Bankman-Fried was convicted of fraud in 2023.",
+            "In November 2022 FTX, then the third-largest crypto exchange, collapsed after client funds were found to have been moved to Alameda Research, the trading firm controlled by its founder, Sam Bankman-Fried. Over $8 billion of clients' money was missing. FTX held licences in the Bahamas, Japan and Australia and had lobbied Washington for crypto regulation. Bankman-Fried was convicted of fraud in 2023.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -157,7 +157,7 @@ export const cryptocurrencyRegulationData = {
           source: "Congressional Research Service, 'FTX Collapse: A Summary'; U.S. Department of Justice; SEC",
           sourceUrl: "https://crsreports.congress.gov/product/pdf/IF/IF12301",
           reasoning:
-            "Shows the harm the same-rules side points to: mixing customer money with a house trading firm, which US broker custody rules forbid. It cuts both ways, which is why directness is 7: FTX was licensed abroad, and the fraud was caught and punished under laws that already existed.",
+            "Shows the harm the same-rules side points to: mixing clients' money with a house trading firm, which US broker custody rules forbid. It cuts both ways, which is why directness is 7: FTX was licensed abroad, and the fraud was caught and punished under laws that already existed.",
         },
         {
           id: "terra-luna-death-spiral",
@@ -242,7 +242,7 @@ export const cryptocurrencyRegulationData = {
           source: "Dubai VARA; Monetary Authority of Singapore",
           sourceUrl: "https://www.vara.ae/en/",
           reasoning:
-            "Shows firms choosing a regulated home rather than none: they want rules, just different ones. Whether those regimes protect customers as well as US rules would, or are simply more permissive, is what the crux asks, so directness is 6. Bybit, a VARA licensee, lost $1.5 billion to hackers in 2025.",
+            "Shows firms choosing a regulated home rather than none: they want rules, just different ones. Whether those regimes protect investors as well as US rules would, or are simply more permissive, is what the crux asks, so directness is 6. Bybit, a VARA licensee, lost $1.5 billion to hackers in 2025.",
         },
       ],
     },
@@ -437,7 +437,7 @@ export const cryptocurrencyRegulationData = {
           source: "Bank for International Settlements, Annual Economic Report 2025, Chapter III, 'The next-generation monetary and financial system' (29 June 2025)",
           sourceUrl: "https://www.bis.org/publ/arpdf/ar2025e3.htm",
           reasoning:
-            "The yield effect is a measured link between stablecoin growth and the Treasury market, the channel a run would travel. Independence is 6 because the BIS is the central banks' own body and the same chapter argues for tokenized central-bank money as the alternative; the yield estimate is about inflows, so the size of a run's effect is an extrapolation.",
+            "The yield effect is a measured link between stablecoin growth and the Treasury market, the channel a run would travel. Independence is 6 because the BIS is owned by national monetary authorities and the same chapter argues for tokenized reserves issued by monetary authorities instead; the yield estimate is about inflows, so the size of a run's effect is an extrapolation.",
         },
         {
           id: "genius-act-reserve-rules",
@@ -479,7 +479,7 @@ export const cryptocurrencyRegulationData = {
           id: "terrausd-collapse-contagion",
           title: "Terra's collapse brought down Three Arrows, Celsius and Voyager within weeks (2022)",
           description:
-            "The May 2022 collapse of TerraUSD set off a chain of failures inside crypto: Three Arrows Capital, a hedge fund with about $10 billion under management, became insolvent on its Luna exposure; Voyager Digital and Celsius Network froze customer withdrawals; and confidence in FTX eroded until it failed that November. The chain stayed largely inside crypto.",
+            "The May 2022 collapse of TerraUSD set off a chain of failures inside crypto: Three Arrows Capital, a hedge fund with about $10 billion under management, became insolvent on its Luna exposure; Voyager Digital and Celsius Network froze withdrawals; and confidence in FTX eroded until it failed that November. The chain stayed largely inside crypto.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -513,7 +513,7 @@ export const cryptocurrencyRegulationData = {
           id: "2022-crash-no-traditional-spillover",
           title: "Crypto lost about $2 trillion in 2022 with no measurable spillover into stocks or bonds",
           description:
-            "Crypto market value fell from about $2.9 trillion in November 2021 to under $800 billion by the end of 2022. Stock, bond, interbank and currency markets showed no crypto-driven disruption; the S&P 500's 2022 decline is attributed to inflation and Federal Reserve rate rises. Even the FTX collapse had no detectable effect on traditional asset prices.",
+            "Crypto market value fell from a peak of about $2.9 trillion in November 2021 to under $800 billion by the end of 2022. Stock, bond, interbank and currency markets showed no crypto-driven disruption; the S&P 500's 2022 decline is attributed to inflation and Federal Reserve rate rises. Even the FTX collapse had no detectable effect on traditional asset prices.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -541,7 +541,7 @@ export const cryptocurrencyRegulationData = {
       skeptic_premise:
         "The enforcement drop is a policy change voters chose, not a scandal. Cornerstone Research, which counted the fall from 33 SEC crypto actions in 2024 to 13 in 2025, attributes it to 'a shift in enforcement priorities', the same shift the new leadership announced. The dropped cases leaned on a theory, that tokens traded on exchanges are securities, on which federal judges had split, with Ripple rejecting it. The SEC chairman's case is that the old approach 'actively undermined capital formation' and pushed firms abroad, and the remedy is the rulebook it is now writing in public, with comment periods and audits. The CLARITY Act did not fail because the industry owns Congress: it passed the House 294–134, advanced through the Senate Banking Committee with two Democrats, and fell 11 votes short after Republicans offered divestment or blind trusts for officials, language the President approved. Clear rules written by Congress are the opposite of favours handed out case by case.",
       proponent_rebuttal:
-        "A lighter rulebook is being written while the people writing it profit from what it governs. In October 2025 the President pardoned Changpeng Zhao, Binance's founder, who had pleaded guilty to federal money-laundering charges in 2023; earlier that year Binance took a $2 billion investment paid in USD1, the stablecoin of the Trump family's World Liberty Financial, which CNBC reported had generated around $4.5 billion since the 2024 election. SEC crypto penalties in 2025 were under 3% of 2024's. When the CLARITY Act reached the Senate floor, its ethics rules covered only new tokens issued by officials, not existing ventures or ongoing memecoins, let officials keep trading crypto, expired on 20 January 2029, and gave enforcement only to a Justice Department run by the President's appointee. Eighteen state attorneys general warned it would 'embolden scammers' and strip their power to protect investors in a field where states have brought more than 330 anti-fraud actions since 2017. Same rules for everyone is the only answer that does not depend on trusting who is in charge.",
+        "A lighter rulebook is being written while the people writing it profit from what it governs. In October 2025 the President pardoned Changpeng Zhao, Binance's founder, who had pleaded guilty in 2023 to a federal money-laundering offence; earlier that year Binance took a $2 billion investment paid in USD1, the stablecoin of the Trump family's World Liberty Financial, which CNBC reported had generated around $4.5 billion since the 2024 election. SEC crypto penalties in 2025 were under 3% of 2024's. When the CLARITY Act reached the Senate floor, its ethics rules covered only new tokens issued by officials, not existing ventures or ongoing memecoins, let officials keep trading crypto, expired on 20 January 2029, and gave enforcement only to a Justice Department run by the President's appointee. Eighteen state attorneys general warned it would 'embolden scammers' and strip their power to protect investors in a field where states have brought more than 330 anti-fraud actions since 2017. Same rules for everyone is the only answer that does not depend on trusting whoever holds power.",
       crux: {
         id: "enforcement-retreat-merits",
         title: "The Dropped-Cases Test",
@@ -560,13 +560,13 @@ export const cryptocurrencyRegulationData = {
           "$50K-200K (court dockets, SEC releases and financial disclosures are public; ties between firms and officials need investigative reporting)",
         falsification: {
           supporter_flip:
-            "If the dropped cases mostly rested on the exchange-sales theory a federal judge had rejected in Ripple, and defendants with no ties to officials got the same treatment as those with ties, the charge that the rulebook was bent by money would weaken.",
+            "If the dropped cases mostly rested on the exchange-sales theory a federal judge had rejected in Ripple, and defendants with no ties to officials got the same treatment as those with ties, the claim that the rulebook was bent by money would weaken.",
           skeptic_flip:
             "If cases built on theories courts had upheld were dropped mid-stream, and firms with documented financial links to officials fared better than unlinked firms facing the same theory, the claim that the retreat corrected an overreach would be hard to hold.",
           common_ground:
             "Both sides agree SEC crypto enforcement fell sharply in 2025, that the President pardoned Binance's founder, and that the CLARITY Act stalled in the Senate over ethics rules for officials' crypto holdings.",
           live_disagreement:
-            "Whether the retreat from enforcement corrected cases that never fit the law, or eased the way for firms tied to those in power, and whether officials who profit from crypto should help write its rules at all.",
+            "Whether the retreat from enforcement corrected cases that never fit the law, or cleared the way for firms tied to those in power, and whether officials who profit from crypto should help write its rules at all.",
         },
       },
       evidence: [
@@ -592,7 +592,7 @@ export const cryptocurrencyRegulationData = {
           id: "cz-pardon-usd1",
           title: "Trump pardoned Binance founder Zhao in October 2025, after Binance took $2 billion in the family venture's stablecoin",
           description:
-            "On 23 October 2025 the White House said President Trump had pardoned Changpeng Zhao, Binance's founder, who 'pleaded guilty to federal money laundering charges in 2023', was sentenced to four months and was released in September 2024. Earlier in 2025 Binance received a $2 billion investment 'paid in USD1', the dollar stablecoin of World Liberty Financial, the Trump family's crypto business, with which Binance is involved. CNBC reported World Liberty 'has generated around $4.5 billion since last year's presidential election.' Trump said he did not believe he had met Zhao.",
+            "On 23 October 2025 the White House said President Trump had pardoned Changpeng Zhao, Binance's founder, who pleaded guilty in 2023 to a federal money-laundering offence, was sentenced to four months and was released in September 2024. Earlier in 2025 Binance received a $2 billion investment 'paid in USD1', the dollar stablecoin of World Liberty Financial, the Trump family's crypto business, with which Binance is involved. CNBC reported World Liberty 'has generated around $4.5 billion since last year's presidential election.' Trump said he did not believe he had met Zhao.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
