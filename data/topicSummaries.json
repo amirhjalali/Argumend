@@ -41,7 +41,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
+    "keywords": "pfoa pfos dupont genx antibody chemours corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -559,7 +559,7 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein molecular simplification treatable"
   },
   {
     "id": "gun-control-effectiveness",
@@ -702,7 +702,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
+    "keywords": "boxell fowler lachat selb leigh gentzkow uninformed dampen donkey faqs jesse anthony"
   },
   {
     "id": "reparations-slavery",
@@ -934,7 +934,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
+    "keywords": "maxwell redacted brunel conspirators palm beach acosta batch blackmail dershowitz perpetrators prostitution starr jean cvra"
   },
   {
     "id": "tiktok-ban",
@@ -1191,7 +1191,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "odgers braghieri comic coyne makarin jensen unfounded joiner michaeline sisyphean stockdale wertham zurcher candice historians"
+    "keywords": "odgers comic coyne makarin braghieri jensen twenge unfounded joiner michaeline sisyphean stockdale wertham zurcher candice"
   },
   {
     "id": "ai-risk",
@@ -1788,7 +1788,7 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison healthspan"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity cellular grimage metformin fibrosis mayo tumor cyclic ebiomedicine harrison healthspan"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -1920,29 +1920,34 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
+    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks"
   },
   {
     "id": "loneliness-epidemic",
-    "title": "Is Loneliness a Public Health Crisis?",
-    "question": "Is loneliness a public health crisis?",
-    "meta_claim": "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 72,
+    "title": "The Loneliness Epidemic: Real or Overblown?",
+    "question": "Is loneliness a public health crisis, or are we medicalizing a normal feeling?",
+    "meta_claim": "Loneliness has become widespread and harmful enough to health that it should be treated as a public health crisis, with governments and institutions acting to reduce it.",
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 78,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does loneliness itself cause early death, or is it a marker of existing disadvantage?",
+    "pillarCount": 4,
+    "evidenceCount": 15,
+    "firstCrux": "Do people report more loneliness than past generations did, or only spend more time alone?",
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs surkalim fibrinogen glaser suburban"
+    "aliases": [
+      "Is loneliness a public health crisis?",
+      "Is there really a loneliness epidemic?",
+      "Is loneliness as deadly as smoking 15 cigarettes a day?"
+    ],
+    "keywords": "lonely holt lunstad leyden walkable neighbourhoods galway luchetti masi allcott liang minister neighbours esteban kannan"
   },
   {
     "id": "remote-work-permanence",
@@ -2033,7 +2038,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus afghanistan funder opensecrets pakistan super theirs"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2635,7 +2640,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
+    "keywords": "monsoon pinatubo precipitation dioxide geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2929,7 +2934,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "pahlka fy2025 callers slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
+    "keywords": "pahlka fy2025 callers slaughter appraisal disinvestment executor humphreys kettl nextgov opms rehired forgo overruled ssas"
   },
   {
     "id": "open-weight-ai-models",
