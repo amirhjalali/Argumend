@@ -2,12 +2,10 @@
 
 import { useCallback, useId, useRef, useState } from "react";
 import { Bookmark } from "lucide-react";
-import { z } from "zod";
 
 import { useSavedTopics } from "@/hooks/useSavedTopics";
 import { buttonClasses } from "@/components/ui";
-
-const SavedTopicReceiptSchema = z.object({ success: z.literal(true) });
+import { isSuccessReceipt } from "@/lib/apiReceipt";
 
 interface SaveTopicButtonProps {
   topicId: string;
@@ -52,7 +50,7 @@ export function SaveTopicButton({ topicId, labelled = false }: SaveTopicButtonPr
 
       // Signed-out visitors still keep the successful device-local bookmark.
       if (response.status === 401) return;
-      if (!response.ok || !SavedTopicReceiptSchema.safeParse(await response.json()).success) {
+      if (!response.ok || !isSuccessReceipt(await response.json())) {
         setSyncError(unavailableMessage);
       }
     } catch {
