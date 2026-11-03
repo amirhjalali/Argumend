@@ -1,4 +1,5 @@
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -67,5 +68,29 @@ describe("performance contracts", () => {
     const file = path.join(process.cwd(), "public", phone![1]);
     expect(existsSync(file)).toBe(true);
     expect(statSync(file).size).toBeLessThan(50 * 1024);
+  });
+
+  it("ships sharp and its libvips library in the standalone build", () => {
+    // Without sharp, /_next/image silently serves every image at its original
+    // size and format (649KB JPEGs at w=384 in production). Next's docs ask
+    // standalone deployments to depend on sharp directly.
+    const pkg = JSON.parse(read("package.json")) as { dependencies: Record<string, string> };
+    expect(pkg.dependencies.sharp).toBeDefined();
+
+    // Next's tracer misses libvips for sharp >= 0.35, so next.config.js lists
+    // it. The glob has to point at real libvips files on this machine.
+    const config = createRequire(import.meta.url)("../next.config.js") as {
+      outputFileTracingIncludes: Record<string, string[]>;
+    };
+    const globs = Object.values(config.outputFileTracingIncludes)
+      .flat()
+      .filter((glob) => glob.includes("sharp-libvips-"));
+    expect(globs).toHaveLength(1);
+    const imgDir = path.join(process.cwd(), globs[0].split("/sharp-libvips-")[0]);
+    const libraries = readdirSync(imgDir)
+      .filter((name) => name.startsWith("sharp-libvips-"))
+      .flatMap((name) => readdirSync(path.join(imgDir, name, "lib")))
+      .filter((file) => file.startsWith("libvips-cpp"));
+    expect(libraries.length).toBeGreaterThan(0);
   });
 });
