@@ -3,6 +3,10 @@ export const schoolPhoneBansData = {
   title: "Should Schools Ban Smartphones?",
   question:
     "Do school phone bans improve students' learning and mental health?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "What happens in a school lockdown if every phone is locked away?",
+  ],
   meta_claim:
     "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
   status: "contested" as const,
@@ -150,7 +154,7 @@ export const schoolPhoneBansData = {
         question:
           "Can a ban that covers only the school day measurably improve students' mental health?",
         description:
-          "A school-hours ban could help students' mental health through less harassment and more face-to-face time during the day, or leave it unchanged while evening and weekend use continues. If outcomes do not move, the ban stands on its academic grounds alone, and other policies have to answer for the rest.",
+          "A school-hours ban could help students' mental health through less harassment and anxiety and more face-to-face time at lunch and during the day, or leave it unchanged while evening and weekend use continues. If outcomes do not move, the ban stands on its academic grounds alone, and other policies have to answer for the rest.",
         methodology:
           "Conduct a pre-registered cluster-randomized trial across 150 schools, measuring validated mental health instruments (PHQ-A for depression, GAD-7 for anxiety, UCLA Loneliness Scale) at baseline, mid-year, and end-of-year. Include a cyberbullying module and peer relationship assessment. Compare phone-ban schools against control schools and against schools implementing digital literacy programs without bans. Follow cohorts for 2 years to assess persistence of effects.",
         verification_status: "theoretical" as const,

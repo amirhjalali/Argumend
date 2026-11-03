@@ -31,6 +31,9 @@ export const argumentTopicIndex = [
       "Will AI destroy more white-collar jobs than it creates?",
       "Is AI automating jobs faster than creating new ones?",
       "Which white-collar jobs are most at risk from AI?",
+      // Words readers use for this question that the map's own text does not.
+      "Is AI replacing customer support, copywriters, translators, paralegals and junior analysts?",
+      "Are companies using AI to freeze hiring and not backfill roles?",
     ],
   },
   {
@@ -51,6 +54,9 @@ export const argumentTopicIndex = [
     aliases: [
       "United States Israel aid",
       "US military support arms sales Gaza Palestine conditional aid",
+      // Words readers use for this question that the map's own text does not.
+      "Should the US keep sending bombs to Netanyahu's government?",
+      "Has Gaza turned young Americans against arming Israel?",
     ],
   },
 ] as const;

@@ -48,6 +48,17 @@ describe("pasteTerms", () => {
   });
 });
 
+describe("contractions", () => {
+  it("drops a pronoun's contracted verb with the pronoun, so 'we'd' is not 'wedding'", () => {
+    expect(pasteTerms("we'd all pay more, you'll see, they're wrong")).toEqual(["pai", "wrong"]);
+    expect(pasteTerms("we'd")).not.toContain(pasteTerms("wedding")[0]);
+  });
+
+  it("reads ChatGPT as AI too", () => {
+    expect(pasteTerms("ChatGPT")).toEqual(["chatgpt", "ai"]);
+  });
+});
+
 describe("termPairs", () => {
   it("pairs adjacent terms, skipping a word repeated in place", () => {
     expect(termPairs(["data", "center", "center", "power"])).toEqual(["data_center", "center_power"]);

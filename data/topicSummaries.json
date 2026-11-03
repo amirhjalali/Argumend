@@ -895,6 +895,9 @@
     "tags": [
       "policy"
     ],
+    "aliases": [
+      "What happens in a school lockdown if every phone is locked away?"
+    ],
     "keywords": "yondr beland pouches murphy victoria ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom"
   },
   {
@@ -1203,7 +1206,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chatgpt khanmigo unaided mooc quiz bastani estudia kestin kosmyna kulik mindspark ruiperez unguarded valiente fletcher"
+    "keywords": "khanmigo unaided mooc quiz bastani estudia kestin kosmyna kulik mindspark ruiperez unguarded valiente fletcher reich"
   },
   {
     "id": "ai-regulation",
@@ -1335,7 +1338,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads chatgpt waiver"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver annonc"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1378,6 +1381,11 @@
     "firstCrux": "Does the falling carbon-isotope ratio in the air confirm that the added CO₂ comes from fossil fuels?",
     "tags": [
       "science"
+    ],
+    "aliases": [
+      "Is climate change a hoax or a scam?",
+      "Hasn't the climate always changed naturally, because of the sun?",
+      "Isn't CO2 just plant food?"
     ],
     "keywords": "arctic irradiance scripps eruption pinatubo stratosphere argo keeling acidification geophysical acrim albedo amsu ceres cmip6"
   },
@@ -1774,7 +1782,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden lockdowns putnam biobehavioral bowling cole kiecolt luchetti sage suburbs suburban surkalim fibrinogen glaser"
+    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs suburban surkalim fibrinogen glaser"
   },
   {
     "id": "remote-work-permanence",
@@ -1861,6 +1869,9 @@
     "firstCrux": "Does extreme wealth concentration cause declining social mobility, or do both share other causes?",
     "tags": [
       "economics"
+    ],
+    "aliases": [
+      "Is every billionaire a policy failure?"
     ],
     "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial pakistan theirs afghanistan funder opensecrets super"
   },
@@ -3340,6 +3351,10 @@
       "data-centers",
       "sustainability"
     ],
+    "aliases": [
+      "How much water does each ChatGPT query use?",
+      "Will AI data centers use as much electricity as whole countries?"
+    ],
     "keywords": "onsite freshwater gallons lbnl islam yang eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
   },
   {
@@ -3500,6 +3515,10 @@
       "cancer",
       "cardiovascular",
       "epidemiology"
+    ],
+    "aliases": [
+      "Is a glass of red wine a day good for your heart?",
+      "Is moderate drinking good for you?"
     ],
     "keywords": "drinkers iarc stockwell unadjusted zhao mendelian ionizing naimi asbestos"
   },

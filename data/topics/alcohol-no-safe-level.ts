@@ -2,6 +2,11 @@ export const alcoholNoSafeLevelData = {
   id: "alcohol-no-safe-level",
   title: "Alcohol's Safe Level",
   question: "Is any amount of drinking harmful to health?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "Is a glass of red wine a day good for your heart?",
+    "Is moderate drinking good for you?",
+  ],
   meta_claim:
     "There is no safe level of alcohol consumption for health.",
   status: "contested" as const,
