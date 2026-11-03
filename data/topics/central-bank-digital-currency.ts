@@ -2,61 +2,97 @@ import type { TopicInput } from "@/lib/schemas/topic";
 
 export const centralBankDigitalCurrencyData = {
   id: "central-bank-digital-currency",
-  title: "Central Bank Digital Currencies",
+  title: "Central Bank Digital Currencies: Digital Cash or Surveillance Tool?",
   question:
-    "Would central bank digital currencies enable unprecedented surveillance?",
+    "Would a digital dollar or digital euro let governments watch and control how people spend?",
   meta_claim:
     "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
   status: "contested" as const,
   category: "economics" as const,
-  // ── Stage 1: the wow fact shown above everything ──
+  // As of 3 November 2026: the US bars federal agencies from promoting a CBDC
+  // (Executive Order 14178, 23 January 2025) and the House passed the
+  // Anti-CBDC Surveillance State Act 219-210 on 17 July 2025; the ECB moved to
+  // the next phase of the digital euro on 30 October 2025 (pilot from mid-2027,
+  // possible first issuance in 2029), the Council set its position on 17
+  // December 2025 and Parliament authorised negotiations on 9 July 2026; China
+  // reclassified the e-CNY as deposit liabilities in January 2026; mBridge
+  // volume reached $55.49 billion (Atlantic Council, May 2026).
+  last_updated: "2026-11-03",
+  // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "China's digital yuan, the e-CNY, has been tested with stimulus money that expires and can be spent only in approved districts. Nigeria's eNaira, launched in October 2021, was actively used by fewer than 1% of Nigerians by 2023. Both sides accept both facts. The fight is over whether any central bank digital currency can be built so that surveillance is impossible by design, not just forbidden by rules.",
-    confidence: 88,
+      "In January 2025 an executive order barred US federal agencies from any action 'to establish, issue, or promote' a central bank digital currency, and in July the House voted 219–210 to ban one. Europe is going the other way: the ECB plans a digital euro pilot from mid-2027 and a possible first issuance in 2029, once EU lawmakers finish the law now in negotiation. The fight is over whether a central bank's digital money can be kept private, and whether anyone needs it.",
+    confidence: 92,
     source:
-      "People's Bank of China, via the Atlantic Council CBDC Tracker; IMF Working Paper WP/23/104, 'Nigeria's eNaira, One Year After' (2023)",
-    sourceUrl: "https://www.atlanticcouncil.org/cbdctracker/",
+      "White House, Executive Order 14178, 'Strengthening American Leadership in Digital Financial Technology' (23 January 2025); House Clerk, Roll Call 201 (17 July 2025); European Central Bank press release (30 October 2025)",
+    sourceUrl:
+      "https://www.ecb.europa.eu/press/pr/date/2025/html/ecb.pr251030~8c5b5beef0.en.html",
   },
-  // ── Stage 2: the honest 3-sentence case ──
   simple_case: [
-    "Both sides accept that the existing financial system is already heavily surveilled and that a CBDC's privacy depends on whether protections are built into the cryptography or only written into rules; that the unbanked are kept out mainly by poverty, missing ID and distrust rather than missing technology; and that the dollar dominates trade settlement, so any CBDC challenge to it would come gradually.",
-    "They split over whether any CBDC design, such as the ECB's digital euro, can make surveillance technically impossible; whether CBDCs reach people that mobile money like Kenya's M-Pesa does not; and whether cross-border platforms like mBridge can grow large enough to blunt US sanctions.",
+    "The answer bears on what a government could see of everyday spending, on whether Europeans get a public alternative to card networks and dollar stablecoins, and on whether China's digital yuan loosens the dollar's grip on trade.",
+  ],
+  aliases: [
+    "Would central bank digital currencies enable unprecedented surveillance?",
+    "Should central banks issue digital currency?",
+    "Is a digital dollar a good idea?",
+    "Is the digital euro a surveillance tool?",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=60",
   references: [
     {
+      title: "ECB moves to next phase of digital euro project — European Central Bank (30 Oct 2025)",
+      url: "https://www.ecb.europa.eu/press/pr/date/2025/html/ecb.pr251030~8c5b5beef0.en.html",
+    },
+    {
+      title: "Digital euro — European Parliament Legislative Train (updated 20 Sept 2026)",
+      url: "https://www.europarl.europa.eu/legislative-train/theme-an-economy-that-works-for-people/file-digital-euro",
+    },
+    {
+      title: "Strengthening American Leadership in Digital Financial Technology — Executive Order 14178 (23 Jan 2025)",
+      url: "https://www.whitehouse.gov/presidential-actions/2025/01/strengthening-american-leadership-in-digital-financial-technology/",
+    },
+    {
+      title: "Central Bank Digital Currency Tracker — Atlantic Council (May 2026)",
+      url: "https://www.atlanticcouncil.org/cbdctracker/",
+    },
+    {
+      title: "The next-generation monetary and financial system — BIS Annual Economic Report 2025, Chapter III",
+      url: "https://www.bis.org/publ/arpdf/ar2025e3.htm",
+    },
+    {
       title: "Central Bank Digital Currencies: Foundational Principles — Bank for International Settlements",
       url: "https://www.bis.org/publ/othp33.htm",
     },
     {
-      title: "Money and Payments: The U.S. Dollar in the Age of Digital Transformation — Federal Reserve",
-      url: "https://www.federalreserve.gov/publications/money-and-payments-discussion-paper.htm",
-    },
-    {
-      title: "The Rise of Digital Money — International Monetary Fund",
-      url: "https://www.imf.org/en/Publications/fintech-notes/Issues/2019/07/12/The-Rise-of-Digital-Money-47097",
+      title: "Nigeria's eNaira, One Year After — IMF Working Paper WP/23/104",
+      url: "https://www.elibrary.imf.org/view/journals/001/2023/104/article-A001-en.xml",
     },
   ],
   questions: [
     {
       id: "q1",
-      title: "Do CBDCs enable unprecedented financial surveillance and control?",
+      title: "Could a CBDC let a government freeze or restrict people's money?",
       content:
-        "Programmable money could expire, be restricted to certain merchants, or be frozen without due process. Central banks could theoretically implement negative interest rates on individual holdings, restrict purchases of disfavored goods, or cut off individuals from the financial system entirely. Is this a realistic threat or a paranoid misunderstanding of CBDC design?",
+        "Money issued by a central bank as code could, in principle, expire, be limited to certain shops or be frozen. China has tested digital-yuan stimulus that expires and can be spent only in set districts. Canada froze over 200 accounts during the 2022 convoy protests through ordinary banks. The ECB says a digital euro would have cash-like privacy for small offline payments. Is the risk built into the technology, or a choice each design can refuse?",
     },
     {
       id: "q2",
-      title: "Could CBDCs eliminate bank runs and improve monetary policy?",
+      title: "Why did the US ban a digital dollar while Europe builds a digital euro?",
       content:
-        "Direct central bank accounts would make bank runs structurally impossible and enable precise, targeted stimulus delivery — depositing money directly into citizen accounts during crises. Could CBDCs make the financial system fundamentally safer and monetary policy more effective?",
+        "Executive Order 14178 of 23 January 2025 prohibits US agencies from any action to 'establish, issue, or promote' a CBDC, and the House passed the Anti-CBDC Surveillance State Act 219–210 in July 2025; the US backs private dollar stablecoins under the GENIUS Act instead. The ECB plans a digital euro pilot from mid-2027 and possible issuance in 2029, arguing Europe needs public digital money of its own. Which bet protects people better?",
     },
     {
       id: "q3",
-      title: "Is the digital yuan a geopolitical weapon against dollar dominance?",
+      title: "Do CBDCs help the unbanked more than mobile money does?",
       content:
-        "China's e-CNY had on the order of 180 million personal wallets by mid-2024 (with cumulative transaction volume in the trillions of yuan) and is being integrated into cross-border payment systems. Could CBDC-to-CBDC settlement networks bypass SWIFT and enable sanctions evasion, threatening the US dollar's reserve currency status and America's most powerful geopolitical tool?",
+        "Kenya's M-Pesa and India's UPI brought hundreds of millions into digital payments without a CBDC. Nigeria's eNaira, launched in October 2021, was used by fewer than 1% of Nigerians by 2023. The Bahamas' SandDollar offers a wallet that needs no ID documents. Only three countries have fully launched a retail CBDC. Does a central bank's money reach people private systems miss?",
+    },
+    {
+      id: "q4",
+      title: "Is the digital yuan a threat to the dollar?",
+      content:
+        "mBridge, a cross-border platform for central-bank digital currencies, handled $55.49 billion of transactions by the Atlantic Council's May 2026 count, with the e-CNY over 95% of settlement. The dollar still dominates reserves, currency trading and trade invoicing. Could CBDC rails let countries trade around US sanctions?",
     },
   ],
   pillars: [
@@ -65,92 +101,110 @@ export const centralBankDigitalCurrencyData = {
     // =========================================================================
     {
       id: "surveillance-control",
-      title: "Financial Surveillance & Programmable Money",
+      title: "Can Digital Money From a Central Bank Be Private?",
       short_summary:
-        "CBDCs give central banks visibility into every transaction in the economy and the technical capability to program restrictions on money itself — expiration dates, merchant limitations, spending caps, and individual freezes. The question is whether adequate privacy safeguards can be designed and whether they will survive political pressure.",
+        "A CBDC would put a central bank's money in a digital wallet, and code can, in principle, make money expire, limit where it is spent or freeze it. China has tested exactly that with digital-yuan stimulus. The ECB promises cash-like privacy for small offline digital-euro payments, short of full anonymity. The dispute is whether privacy can be built into the system or only promised by rules a later government can change.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The surveillance fears are overblown and technologically illiterate. CBDC designs range from fully anonymous (like digital cash) to fully surveilled, and most serious proposals incorporate privacy protections. The European Central Bank's digital euro proposal includes offline payment capability with cash-like privacy for small in-person transactions, modeled on cash (though stopping short of full anonymity). The Federal Reserve's earlier research stated that any US CBDC would be designed to protect consumer privacy — and the political process has, if anything, prioritized privacy concerns: in January 2025 a US executive order (EO 14178) prohibited federal agencies from developing a CBDC, and the House passed an Anti-CBDC Surveillance State Act in 2025, meaning the United States is not building one. Moreover, the current financial system already offers near-total surveillance — banks report transactions to governments, credit card companies track every purchase, and the IRS can access any financial account. CBDCs would not introduce surveillance that does not already exist; they would merely change which institution has access.",
+        "The surveillance fears confuse what a CBDC could be with what democracies are building. Designs run from cash-like to fully traced, and the leading one protects privacy by design: the ECB's digital euro would offer offline payments where only payer and payee know the details, minimal identity checks for small amounts, and no way for the ECB to link payments to named people. The European Parliament's economic committee voted 43–14 in June 2026 to negotiate a digital euro that complements cash for online and offline payments. Where voters feared a CBDC, they stopped it: the US barred federal work on one in January 2025. And today's money is already watched. Banks report large and suspicious transactions to governments, card networks log every purchase, and Canada froze protesters' accounts in 2022 through ordinary banks with no CBDC at all. A well-designed CBDC moves who holds the data; it does not create surveillance that does not already exist.",
       proponent_rebuttal:
-        "The difference between current financial surveillance and CBDC surveillance is the difference between a government that can investigate you and a government that can control you. Current systems allow authorities to monitor transactions after the fact with legal process — CBDCs enable pre-emptive, automated restrictions built into the money itself. China's digital yuan has already been programmed with expiration dates (forcing spending by a deadline) and geographic restrictions (limiting spending to specific districts). The Bank of England's consultation paper explicitly discusses 'programmable money' that could restrict purchases. Privacy protections promised during the design phase will not survive a major terrorist attack, financial crisis, or public health emergency — governments will demand access, and CBDC architecture makes it trivially easy to comply. The only reliable privacy protection is architectural: systems designed so that surveillance is technically impossible, not merely prohibited by policy.",
+        "Today's system lets a government investigate you after the fact, with legal process and a bank in the middle. A CBDC lets it write rules into the money itself, ahead of time, with no one in between. China has already done it: digital-yuan stimulus with expiry dates to force spending, and money usable only in set districts or for approved categories. Canada's 2022 freeze of more than 200 accounts, under emergency powers and without court orders, shows how fast a democracy reaches for the tool in a crisis; a CBDC would make such freezes instant and precise. The ECB's own design stops short of anonymity even offline, citing money-laundering rules, and its online payments would be about as private as a card. A privacy promise written into law can be rewritten after a terrorist attack or a pandemic. The only protection that lasts is a system where watching is technically impossible, and no central bank has deployed one.",
       crux: {
         id: "privacy-architecture-test",
         title: "The Architectural Privacy Assessment",
         question:
           "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
         description:
-          "The crux is whether CBDC systems can be designed with privacy protections that are architecturally enforced (technically impossible to surveil) rather than merely policy-enforced (prohibited by rules that can be changed). If cryptographic techniques like zero-knowledge proofs can provide transaction privacy that not even the central bank can break, the surveillance concern is addressed. If all proposed designs retain the technical capability for surveillance, privacy protections are only as durable as political will.",
+          "If cryptographic designs, such as zero-knowledge proofs or offline bearer tokens, can give transaction privacy that even the central bank cannot break, the surveillance worry becomes a design choice rather than a property of CBDCs. If every design that meets anti-money-laundering law keeps the technical ability to see and block payments, privacy is only as durable as the next government's politics.",
         methodology:
-          "Convene a panel of cryptographers, central bank technologists, and privacy engineers to assess all proposed CBDC architectures. For each design, determine whether privacy is enforced cryptographically (making surveillance technically impossible) or by access controls (making surveillance policy-dependent). Test each architecture against threat scenarios: terrorist attack (government demands transaction data), pandemic (government wants to track spending patterns), political crisis (government targets opposition funding).",
+          "Have independent cryptographers and privacy engineers review each published CBDC design, starting with the ECB's digital euro rulebook and the e-CNY's tiered wallets. For each, record whether privacy is enforced by cryptography (the operator cannot see or link payments) or by access controls (it can, but rules say it must not). Test each against three scenarios: a government demand for all transaction data, a pandemic tracing order, and a political crisis targeting opposition funding.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "A cryptographic review of each proposed CBDC architecture, such as zero-knowledge designs, tested against scenarios like a government demand for transaction data, to see if privacy is enforced by the math or only by access controls.",
+            "An independent cryptographic review of the digital euro, the e-CNY and other published designs, tested against a government demand for payment records, recording whether the math blocks the operator or only an access rule does.",
         },
         cost_to_verify:
-          "$1-3M (Technical architecture review with cryptographic analysis and red team exercises)",
+          "$1-3M (technical review with red-team exercises; depends on central banks publishing their designs in full)",
         falsification: {
           supporter_flip:
-            "If a cryptographic review showed that a deployed CBDC architecture (e.g., one built on zero-knowledge proofs) makes transaction-level surveillance and selective freezing technically impossible even for the issuing central bank — not merely prohibited by policy — the 'unprecedented surveillance and control' charge would collapse to a design-choice problem rather than an inherent property.",
+            "If an independent review found a deployed CBDC design, such as offline bearer tokens built on zero-knowledge proofs, that left the issuing central bank unable to see or freeze individual payments, the claim that CBDCs mean unprecedented surveillance would become a claim about bad designs rather than about CBDCs.",
           skeptic_flip:
-            "If more CBDC pilots tested expiry dates and geographic spending limits as the e-CNY did, and privacy stayed a revocable policy promise rather than an architectural limit, Canada's 2022 freezes of 200+ accounts would look like a preview, and the fears would be hard to dismiss.",
+            "If every design that meets anti-money-laundering law, including the digital euro's offline mode, turned out to keep the operator's ability to see and block payments, and more pilots tested expiring or restricted money as the e-CNY did, the fears would be hard to dismiss.",
           common_ground:
-            "Both sides agree the existing financial system is already heavily surveilled, and that a CBDC's privacy depends entirely on whether protections are baked into the cryptography or merely written into rules.",
+            "Both sides agree today's financial system is already heavily watched, that China has tested programmable restrictions on digital-yuan stimulus, and that a CBDC's privacy depends on whether protections are built into the cryptography or only written into rules.",
           live_disagreement:
-            "Whether any proposed CBDC design actually makes surveillance cryptographically impossible rather than just administratively restricted — which a cryptographer red-team audit of each architecture against terrorist-attack, pandemic, and political-crisis threat scenarios could settle.",
+            "Whether any CBDC that obeys anti-money-laundering law can be built so the state cannot watch it, or whether privacy in any such design is a promise the next government can withdraw.",
         },
       },
       evidence: [
         {
           id: "china-digital-yuan-programmability",
-          title: "China's Digital Yuan Implements Programmable Restrictions",
+          title: "China's digital yuan has been tested with stimulus money that expires and works only in set districts",
           description:
-            "China's e-CNY (digital yuan) has been tested with programmable features including expiration dates on stimulus payments (forcing spending within a set period), geographic restrictions (limiting spending to specific districts or cities), and merchant category restrictions (directing government subsidies only to approved categories). While presented as tools for targeted stimulus, these capabilities demonstrate that CBDCs can restrict how, when, and where money is spent — capabilities that no previous form of money has offered a central authority.",
+            "China's e-CNY has been piloted with programmable features: stimulus payments with expiry dates that force spending within a set period, money usable only in specific districts or cities, and subsidies limited to approved merchant categories. By December 2025 the retail e-CNY had processed more than 3.4 billion transactions worth about 16.7 trillion renminbi (about $2.3 trillion), and in January 2026 the People's Bank of China reclassified it as deposit liabilities, the Atlantic Council reports.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
-            replicability: 8,
-            directness: 9,
+            independence: 6,
+            replicability: 7,
+            directness: 8,
           },
-          source: "People's Bank of China; Brookings Institution; Atlantic Council CBDC Tracker",
+          source: "Atlantic Council, Central Bank Digital Currency Tracker (updated May 2026); People's Bank of China pilot reports",
           sourceUrl: "https://www.atlanticcouncil.org/cbdctracker/",
           reasoning:
-            "The digital yuan's programmable features are well-documented and represent real-world implementation of the surveillance concerns, giving this evidence high directness. Source reliability is slightly lower because comprehensive information about the digital yuan's capabilities comes partly from Chinese state media, which may not disclose all features or limitations.",
+            "The one large CBDC in use has done what critics fear, so directness is high. Independence is 6 because much of what is known comes from Chinese official sources, and China is an authoritarian state whose choices say less about what a democracy's CBDC would do.",
         },
         {
           id: "ecb-digital-euro-privacy",
-          title: "ECB Digital Euro Proposal Includes Privacy Protections and Offline Payments",
+          title: "ECB's digital euro design: cash-like privacy for small offline payments, but not anonymity",
           description:
-            "The European Central Bank's digital euro proposal (2023) explicitly incorporates privacy protections, including 'cash-like' privacy for low-value offline transactions (where transaction details are known only to payer and payee), tiered identity verification (minimal data for small payments, full verification for large amounts), and a statement that the ECB would not be able to link payments to identified individuals. Notably, the proposal stops short of full anonymity even for offline payments — citing anti-money-laundering and counter-terrorist-financing requirements — and online payments retain a privacy level comparable to existing card payments rather than to cash.",
+            "The European Central Bank's digital euro design gives 'cash-like' privacy to low-value offline payments, where details are known only to payer and payee; tiered identity checks, with less data for small payments; and a commitment that the ECB could not link payments to identified people. It stops short of full anonymity even offline, citing anti-money-laundering and counter-terrorist-financing rules, and online payments would be about as private as card payments. The ECB says 'a digital euro will preserve Europeans' freedom of choice and privacy.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
-            independence: 6,
-            replicability: 7,
+            independence: 5,
+            replicability: 6,
             directness: 7,
           },
-          source: "European Central Bank",
+          source: "European Central Bank, digital euro pages and press release of 30 October 2025",
           sourceUrl: "https://www.ecb.europa.eu/euro/digital_euro/html/index.en.html",
           reasoning:
-            "The ECB's privacy proposal comes from a highly credible institution, but independence is lower because it is essentially the issuer's own promise about future behavior. The key uncertainty is whether these privacy commitments will survive pressure from law enforcement, tax authorities, and anti-money-laundering regulators who will push for greater access.",
+            "The most serious democratic design on the table, with privacy built in for offline use. Independence is 5 because it is the issuer describing its own future system; the law that would bind it is still being negotiated, and its online privacy rests on access rules, not cryptography.",
+        },
+        {
+          id: "ep-econ-digital-euro-2026",
+          title: "European Parliament committee voted 43–14 to negotiate a digital euro for online and offline use (June 2026)",
+          description:
+            "On 23 June 2026 the European Parliament's ECON committee adopted its position on the digital euro proposal 'by 43 votes to 14, with 1 abstention' and opened negotiations with EU governments, which had set their own position on 17 December 2025. The plenary endorsed starting talks on 9 July 2026. The committee's position treats the digital euro as complementary to cash for both online and offline payments. Holding limits had not yet been discussed at political level.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 7,
+            directness: 4,
+          },
+          source: "European Parliament, Legislative Train Schedule, 'Digital euro' (updated 20 September 2026)",
+          sourceUrl:
+            "https://www.europarl.europa.eu/legislative-train/theme-an-economy-that-works-for-people/file-digital-euro",
+          reasoning:
+            "Shows elected legislators, not only the central bank, setting the rules, which is the democratic check the other side doubts will hold. Directness is 4: a committee vote is not a privacy guarantee, and the final text, including any privacy safeguards, is not yet written.",
         },
         {
           id: "canada-trucker-convoy-financial-freeze",
-          title: "Canada Froze Bank Accounts During Trucker Convoy Protests (2022)",
+          title: "Canada froze more than 200 accounts linked to the 2022 convoy protests without court orders",
           description:
-            "During the 2022 Freedom Convoy protests, the Canadian government invoked the Emergencies Act and directed banks to freeze the accounts of individuals associated with the protests without court orders. Over 200 accounts were frozen. While this occurred through the existing banking system (not a CBDC), it demonstrated that governments will use financial system access as a tool of political control during crises — and that existing legal protections can be overridden under emergency powers. A CBDC would make such freezes instantaneous, automated, and far more granular.",
+            "During the 2022 Freedom Convoy protests, Canada invoked the Emergencies Act and directed banks to freeze the accounts of people linked to the protests without court orders. More than 200 financial products were frozen. This went through the existing banking system, not a CBDC.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 8,
-            directness: 7,
+            directness: 5,
           },
-          source: "Government of Canada; Reuters; Financial Times",
+          source: "Reuters (21 February 2022); Government of Canada",
           sourceUrl: "https://www.reuters.com/world/americas/canada-freeze-more-than-200-financial-products-linked-protests-2022-02-21/",
           reasoning:
-            "The Canadian account freezes are well-documented and demonstrate the political will to use financial system access for crowd control. While this happened through the existing banking system, it directly illustrates the kind of action that would be easier, faster, and more precise with a CBDC — making it relevant evidence for the surveillance concern.",
+            "Shows a democracy will use control over money against protesters in a crisis. Directness is 5 because it happened without a CBDC, which cuts both ways: it shows the danger, and that today's system already allows it.",
         },
       ],
     },
@@ -160,30 +214,30 @@ export const centralBankDigitalCurrencyData = {
     // =========================================================================
     {
       id: "financial-inclusion-efficiency",
-      title: "Financial Inclusion & Monetary Policy Efficiency",
+      title: "Does a CBDC Reach People Mobile Money Misses?",
       short_summary:
-        "1.4 billion adults globally lack access to basic financial services. CBDCs could provide universal account access, eliminate remittance fees, and enable direct stimulus delivery during crises. The question is whether these benefits require a CBDC or can be achieved through simpler means.",
+        "About 1.4 billion adults have no bank account. Supporters of CBDCs say a central bank wallet on a basic phone could reach them and cut remittance fees. But Kenya's M-Pesa and India's UPI brought hundreds of millions into digital payments without a CBDC, Nigeria's eNaira reached fewer than 1% of Nigerians, and only three countries have fully launched a retail CBDC.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "CBDCs could be transformative for the 1.4 billion unbanked adults worldwide. In developing countries, a CBDC accessible through a basic mobile phone would bypass the need for bank branches, credit histories, and minimum balance requirements. The World Bank estimates that remittance fees consume $48 billion annually from migrant workers — money sent home to developing nations at an average cost of 6.3%. CBDC-to-CBDC cross-border payments could reduce this to near-zero. During COVID-19, stimulus payments in the US took weeks to reach citizens and millions of unbanked individuals never received them. A CBDC could deliver payments to every citizen within seconds, enabling faster and more effective crisis response.",
+        "CBDCs could matter most to the 1.4 billion adults with no bank account. A central bank wallet on a basic phone needs no branch, no credit history and no minimum balance, and it is public money that cannot fail the way a private provider can. The Bahamas launched its SandDollar in October 2020 after banks closed branches on the outer islands, with a basic wallet that needs no identity documents at all, the barrier that keeps many poor people out of banking. The World Bank puts the average cost of sending a remittance at about 6%, and direct links between CBDCs could cut that sharply. When US COVID-19 relief went out in 2020, payments took weeks and millions of unbanked people waited longest or never got them; a public wallet could reach everyone in seconds.",
       proponent_rebuttal:
-        "The financial inclusion argument for CBDCs is a solution in search of a problem. Mobile money systems like M-Pesa in Kenya have already brought 96% of Kenyan adults into the financial system without any central bank digital currency — using simple SMS-based technology on basic feature phones. India's UPI (Unified Payments Interface) processes over 10 billion transactions per month through private payment apps built on public infrastructure, again without a CBDC. The existing technology for financial inclusion is proven, deployed, and does not require governments to rebuild the monetary system. The unbanked are not unbanked because of a lack of digital currency — they are unbanked because of poverty, lack of identification documents, and distrust of financial institutions. A CBDC does not solve any of these root causes.",
+        "The inclusion case for CBDCs is a solution looking for a problem. Kenya's M-Pesa runs on text messages from basic phones, and by 2016 'almost every single household in Kenya' used it; a study in Science (Suri and Jack, 2016) found that among households living on under $1.25 a day, nearly one in ten got enough of a boost to escape extreme poverty. India's UPI handles billions of payments a month through private apps on public rails. Neither needed a CBDC. Where CBDCs were launched for inclusion, people stayed away: Nigeria's eNaira was used by fewer than 1% of Nigerians by 2023 despite cash-withdrawal limits meant to push people onto it, and the SandDollar was less than 1% of Bahamian currency in circulation by 2023. Of 146 countries exploring a CBDC, only three have fully launched one. People are unbanked because of poverty, missing ID and distrust, and a central bank wallet fixes none of those while adding a state ledger of spending.",
       crux: {
         id: "cbdc-vs-existing-inclusion",
         title: "The CBDC vs. Existing Solutions Comparison",
         question:
           "Do CBDCs expand financial inclusion beyond what existing mobile-money systems already do?",
         description:
-          "The crux is whether a CBDC provides financial inclusion benefits that cannot be achieved through existing mobile money and digital payment systems. If a CBDC's unique characteristics (central bank backing, programmability, interoperability) provide measurable improvements in inclusion, access, and cost over existing alternatives, the case for CBDCs is strengthened. If existing systems already achieve comparable results, the CBDC adds risk without proportionate benefit.",
+          "If a CBDC's central-bank backing, light-ID wallets and interoperability reach people that mobile money and bank apps miss, at lower cost, the inclusion case is real. If countries with mature mobile-money systems reach the unbanked as well or better, a CBDC adds the surveillance risk without an offsetting benefit.",
         methodology:
-          "Conduct a comparative analysis of financial inclusion outcomes in countries with active CBDC pilots (Bahamas' Sand Dollar, Nigeria's eNaira, Jamaica's JAM-DEX) versus countries with advanced mobile money ecosystems (Kenya, India, Philippines). Measure: percentage of previously unbanked adults reached, transaction costs, remittance fees, crisis response speed, and user satisfaction. Control for pre-existing financial infrastructure and economic development level.",
+          "Compare inclusion outcomes in CBDC countries (the Bahamas' SandDollar, Nigeria's eNaira, Jamaica's JAM-DEX) with mobile-money leaders (Kenya, India, the Philippines): share of previously unbanked adults now using digital payments, transaction and remittance costs, and how fast emergency payments reach people. Control for income, ID coverage and prior infrastructure.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "A comparison of CBDC pilots (the Bahamas' Sand Dollar, Nigeria's eNaira, Jamaica's JAM-DEX) with mobile-money countries (Kenya, India, Philippines) on unbanked adults reached, transaction and remittance costs, and crisis payment speed.",
+            "A comparison of CBDC pilots (the Bahamas' SandDollar, Nigeria's eNaira, Jamaica's JAM-DEX) with mobile-money countries (Kenya, India, Philippines) on unbanked adults reached, transaction and remittance costs, and crisis payment speed.",
         },
         cost_to_verify:
-          "$500K-1.5M (Multi-country comparative financial inclusion study)",
+          "$500K-1.5M (multi-country comparative inclusion study)",
         falsification: {
           supporter_flip:
             "If a central-bank-backed, universally interoperable unit delivered crisis payments to every citizen in seconds, where private, fragmented mobile-money networks and weeks-late COVID checks fell short, the inclusion benefits would weigh against the surveillance worry.",
@@ -192,50 +246,50 @@ export const centralBankDigitalCurrencyData = {
           common_ground:
             "Both sides agree that financial inclusion is a real and valuable goal and that the unbanked are largely excluded by poverty, missing ID, and distrust rather than by a lack of digital-currency technology.",
           live_disagreement:
-            "Whether a CBDC's central-bank backing, programmability, and interoperability produce measurable inclusion gains over already-deployed mobile-money systems — which a like-for-like study of CBDC-pilot countries (eNaira, Sand Dollar) versus mobile-money leaders (Kenya, India), controlling for prior infrastructure, could resolve.",
+            "Whether a CBDC's central-bank backing, light-ID wallets and interoperability reach people that mobile money and bank apps miss, or only duplicate them while adding a state record of spending.",
         },
       },
       evidence: [
         {
           id: "mpesa-financial-inclusion",
-          title: "M-Pesa Achieved 96% Financial Inclusion in Kenya Without a CBDC",
+          title: "M-Pesa reached almost every Kenyan household by text message and lifted nearly 1 in 10 of the poorest out of extreme poverty, no CBDC needed",
           description:
-            "Safaricom's M-Pesa mobile money system, launched in 2007, brought financial services to 96% of Kenyan adults using simple SMS technology on basic feature phones. The system processes over $300 billion annually, has reduced poverty by an estimated 2% of GDP, and has been replicated across Africa, South Asia, and beyond. This demonstrates that transformative financial inclusion does not require a CBDC or even smartphone technology — it requires an accessible, trusted, interoperable payment platform.",
-          side: "against" as const,
+            "Safaricom's M-Pesa, launched in 2007, runs money transfers and savings over text messages on basic phones; NPR reported in 2016 that 'almost every single household in Kenya uses it.' In the study by Suri and Jack (Science, 2016), among households living on less than $1.25 a day, 'nearly 1 in 10 got enough of a boost to lift them out of extreme poverty', and women-led households with access to many M-Pesa agents 'set aside 22 percent more in savings between 2008 and 2014.'",
+          side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
-            replicability: 8,
-            directness: 8,
+            replicability: 7,
+            directness: 7,
           },
-          source: "NPR (Goats and Soda); Suri & Jack, Science 2016 (MIT/Georgetown)",
+          source: "NPR, Goats and Soda (9 December 2016); Suri & Jack, Science 354:1288 (2016)",
           sourceUrl: "https://www.npr.org/sections/goatsandsoda/2016/12/09/504540392/dial-m-for-money-can-mobile-banking-lift-people-out-of-poverty",
           reasoning:
-            "M-Pesa is the best-documented example of mobile financial inclusion, studied extensively by independent researchers. It directly challenges the claim that CBDCs are necessary for financial inclusion by showing that the private sector achieved comparable results with simpler technology.",
+            "The best-studied case of digital financial inclusion, and it needed no central bank money, which undercuts inclusion as a reason to accept a CBDC. Directness is 7 because Kenya had conditions (one dominant carrier, a large agent network) not every country shares.",
         },
         {
           id: "nigeria-enaira-adoption-struggles",
-          title: "Nigeria's eNaira CBDC Has Struggled with Adoption Despite Heavy Promotion",
+          title: "Nigeria's eNaira was used by fewer than 1% of Nigerians two years after launch (IMF, 2023)",
           description:
-            "Nigeria launched the eNaira in October 2021, making it one of the first major economies to deploy a CBDC. Despite aggressive promotion including restricting ATM cash withdrawals to push adoption, fewer than 1% of Nigerians actively used the eNaira by 2023. Citizens expressed distrust of government financial surveillance and preferred existing mobile money systems. The Nigerian experience suggests that the financial inclusion benefits of CBDCs may be more theoretical than practical when citizens do not trust the issuing government.",
-          side: "against" as const,
+            "Nigeria launched the eNaira in October 2021, one of the first CBDCs in a large economy. Despite heavy promotion, including limits on cash withdrawals meant to push people toward digital money, fewer than 1% of Nigerians were actively using it by 2023. People cited distrust of government and preferred existing mobile money.",
+          side: "for" as const,
           weight: {
             sourceReliability: 7,
             independence: 7,
             replicability: 7,
             directness: 8,
           },
-          source: "IMF Working Paper 2023/104; Central Bank of Nigeria",
+          source: "IMF Working Paper WP/23/104, 'Nigeria's eNaira, One Year After' (2023); Central Bank of Nigeria",
           sourceUrl: "https://www.elibrary.imf.org/view/journals/001/2023/104/article-A001-en.xml",
           reasoning:
-            "Nigeria's eNaira provides the strongest real-world counter-evidence to CBDC financial inclusion claims. The very low adoption rate despite government pressure directly demonstrates that a CBDC does not automatically solve financial inclusion. However, Nigeria's specific governance trust issues may not generalize to all countries.",
+            "The largest real test of a CBDC built for inclusion, and people stayed away even under pressure. Nigeria's particular trust problems may not generalize to every country.",
         },
         {
           id: "sanddollar-no-id-wallet",
-          title: "The Bahamas' SandDollar Offers a Wallet That Needs No ID Documents",
+          title: "The Bahamas' SandDollar offers a wallet that needs no ID documents",
           description:
             "Central Bank of The Bahamas staff (Branch, Ward and Wright, Intereconomics, 2023) write that after many international banks wound up their operations on the outer islands, \"leaving the residents there without access to banking services,\" the bank launched the SandDollar in October 2020 \"to provide a payments solution for those who do not have access to banking services.\" Its entry tier targets the missing-ID barrier directly: \"Tier 1, or basic wallet, does not require the user to submit any KYC documents,\" with holdings capped at 500 SandDollars. Uptake has been modest: \"just over 100,000 wallets\" by March 2023, while SandDollars \"still represent less than 1% of the total Bahamian dollars in circulation.\"",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 5,
             independence: 3,
@@ -249,6 +303,23 @@ export const centralBankDigitalCurrencyData = {
           reasoning:
             "The strongest concrete case for this side is a design feature, not a measured outcome: a central-bank wallet that a person without identity documents can open, aimed at islands that lost their bank branches. It is weighted low. The authors work for the issuing central bank, the article reports wallets rather than how many previously unbanked people now use one, adoption is under 1% of currency in circulation, and nothing in it shows a light-ID tier that a mobile-money provider could not offer.",
         },
+        {
+          id: "only-three-retail-launches",
+          title: "Of 146 countries exploring a CBDC, only three have fully launched one (Atlantic Council, May 2026)",
+          description:
+            "The Atlantic Council's tracker counts '146 countries & currency unions, representing over 98% of global GDP' exploring a CBDC and a record 77 in development, pilot or launch, with 41 pilot projects. Only three, the Bahamas, Jamaica and Nigeria, have fully launched one. The US is the only G20 country not exploring a CBDC.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 4,
+          },
+          source: "Atlantic Council, Central Bank Digital Currency Tracker (updated May 2026)",
+          sourceUrl: "https://www.atlanticcouncil.org/cbdctracker/",
+          reasoning:
+            "After a decade of research, few central banks have found a retail CBDC worth launching, and the three that did are small or struggling. Directness is 4: slow launches can reflect caution or politics rather than a lack of benefit, and 77 countries are still moving forward.",
+        },
       ],
     },
 
@@ -257,64 +328,64 @@ export const centralBankDigitalCurrencyData = {
     // =========================================================================
     {
       id: "geopolitical-dollar-threat",
-      title: "Geopolitical Implications & Dollar Dominance",
+      title: "Could the Digital Yuan Help Countries Trade Around the Dollar?",
       short_summary:
-        "Cross-border CBDC settlement systems like mBridge could enable countries to trade without using the US dollar or SWIFT, potentially undermining America's sanctions power and the dollar's reserve currency status. The question is whether this represents an existential threat to US financial hegemony or an incremental development.",
+        "mBridge, a platform linking central banks' digital currencies across borders, has grown from $22 million of pilot payments in 2022 to $55.49 billion, with the digital yuan over 95% of its settlement. Supporters of the dollar's position say that is a rounding error next to the trillions cleared through dollar channels every day; others say it is a working route around US sanctions.",
       icon_name: "Zap" as const,
       skeptic_premise:
-        "The de-dollarization narrative is vastly overstated. The US dollar accounts for roughly 58% of global foreign exchange reserves, around 88% of foreign exchange transactions (one side of nearly nine in ten trades), and is the invoicing currency for roughly half of global trade — a dominance built over 80 years of institutional trust, deep capital markets, rule of law, and military power. No CBDC can replicate these foundations. China's digital yuan is primarily used domestically for small retail transactions, not international trade settlement. The mBridge project is a pilot with limited participants, and even its full deployment would not change the fundamental reasons countries hold dollar reserves: US Treasury market depth, the legal enforceability of dollar-denominated contracts, and the Federal Reserve's role as global lender of last resort. CBDCs may nibble at the margins of dollar dominance, but the structural advantages of the dollar system are not technical — they are institutional.",
+        "The de-dollarization narrative is vastly overstated. The dollar makes up about 58% of global foreign-exchange reserves, sits on one side of nearly nine in ten currency trades and invoices about half of world trade, a position built over 80 years on deep Treasury markets, enforceable contracts, an open capital account and the Federal Reserve's role as lender of last resort. No CBDC copies those foundations. China keeps capital controls and a politically directed central bank, which is why the yuan's share of reserves stays small whatever technology carries it. mBridge's $55.49 billion of cumulative volume, as counted by the Atlantic Council, is small next to the trillions of dollars that move through SWIFT and dollar clearing every day, and the Bank for International Settlements left the project in October 2024. CBDCs may nibble at the edges of dollar dominance; the dollar's advantages are institutional, not technical.",
       proponent_rebuttal:
-        "CBDCs pose a genuine threat to dollar dominance. China's digital yuan had roughly 180 million personal wallets by mid-2024 and is being integrated into cross-border payment projects including mBridge — a multi-CBDC platform developed with the BIS that enables direct currency-to-currency settlement without routing through SWIFT or the dollar. If major trading partners can settle oil, commodity, and trade payments in digital yuan or through CBDC bridges, the US loses its most powerful geopolitical tool: the ability to exclude adversaries from the global financial system through sanctions. Russia's partial exclusion from SWIFT after invading Ukraine has accelerated interest in CBDC alternatives among countries that fear similar treatment, including India, Saudi Arabia, Brazil, and South Africa.",
+        "The trend matters more than the stock. mBridge, built with the BIS and the central banks of China, Hong Kong, Thailand and the UAE, settles payments between central banks without SWIFT or a US bank. It processed about $22 million in its 2022 pilot; by May 2026 the Atlantic Council counted $55.49 billion, a 2,500-fold rise, with the digital yuan over 95% of settlement volume. Saudi Arabia joined as a full participant in June 2024. Russia's partial exclusion from SWIFT after it invaded Ukraine showed every government that fears US sanctions why an alternative is worth building, and the BIS's exit in October 2024 left the platform under the governance of its member central banks, with China's the largest. Sanctions power rests on the dollar system being unavoidable. Each billion that settles outside it makes it less so.",
       crux: {
         id: "cbdc-sanctions-evasion-capacity",
         title: "The Sanctions Evasion Capacity Test",
         question:
           "Can cross-border CBDC payments grow large enough to meaningfully blunt US sanctions?",
         description:
-          "The crux is whether CBDC-based cross-border payment systems can provide a viable alternative to SWIFT and dollar settlement at sufficient scale to meaningfully reduce the effectiveness of US financial sanctions. If countries under sanctions can route significant trade volumes through CBDC bridges without using the dollar, US sanctions power is genuinely threatened. If CBDC bridges remain limited by network effects, liquidity constraints, and geopolitical risks, they represent marginal alternatives at best.",
+          "If CBDC platforms like mBridge can carry a meaningful share of trade between sanctioned and non-sanctioned countries without touching the dollar, US sanctions power is weakened. If they stay small, limited by liquidity, trust in China's governance and the dollar's network effects, they are a niche alternative.",
         methodology:
-          "Track the volume and value of transactions processed through CBDC-based cross-border settlement systems (mBridge, bilateral CBDC arrangements) over a 3-year period. Compare the growth trajectory against dollar-based SWIFT transactions. Analyze whether sanctioned countries (Russia, Iran, North Korea) are successfully using CBDC-based systems to circumvent sanctions. Assess the liquidity, settlement reliability, and counterparty risk of CBDC bridges compared to dollar settlement.",
+          "Track transaction volume and value through mBridge and bilateral CBDC links each year against dollar-based cross-border payments. Identify whether payments involving sanctioned states (Russia, Iran, North Korea) move through these platforms, using customs data, sanctions-enforcement cases and central-bank disclosures. Assess liquidity and settlement reliability against dollar channels.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
             "Three years of transaction volume through mBridge and bilateral CBDC links set against SWIFT, and whether Russia, Iran or North Korea actually settle sanctioned trade through them.",
         },
         cost_to_verify:
-          "$200K-600K (International financial flow analysis with sanctions evasion assessment)",
+          "$200K-600K (international payment-flow analysis with sanctions-evasion assessment)",
         falsification: {
           supporter_flip:
-            "If multi-year tracking showed CBDC bridges like mBridge plateauing at trivial volumes relative to SWIFT (which clears trillions of dollars daily) and failing to give sanctioned states (Russia, Iran) a usable workaround — constrained by liquidity, network effects, and counterparty risk — the 'geopolitical weapon against the dollar' claim would deflate to a marginal, incremental development.",
+            "If multi-year tracking showed CBDC bridges like mBridge plateauing at volumes trivial next to dollar clearing, and sanctioned states such as Russia and Iran finding no usable workaround through them, the 'geopolitical weapon against the dollar' claim would deflate to a marginal development.",
           skeptic_flip:
-            "If mBridge kept growing from its 2024 Minimum Viable Product with members like Saudi Arabia, and states shut out of SWIFT kept turning to CBDC rails, the trajectory rather than today's small volume would make de-dollarization hard to call overstated.",
+            "If mBridge kept growing at anything like its 2,500-fold pace since 2022, and payments involving states shut out of SWIFT turned up on CBDC rails, the trajectory rather than today's small volume would make de-dollarization hard to call overstated.",
           common_ground:
-            "Both sides agree the dollar currently dominates reserves and trade settlement by a wide margin, and that any CBDC challenge to it would unfold gradually rather than as a sudden displacement.",
+            "Both sides agree the dollar dominates reserves and trade settlement by a wide margin today, that mBridge volume has grown fast from a tiny base, and that any challenge to the dollar would come gradually rather than as a sudden displacement.",
           live_disagreement:
-            "Whether CBDC-based cross-border settlement can scale to volumes that meaningfully blunt US sanctions power — which tracking mBridge and bilateral-CBDC transaction value against SWIFT over a 3-year window, plus evidence of actual sanctions circumvention, could resolve.",
+            "Whether CBDC rails can grow from tens of billions to a share of trade large enough to blunt US sanctions, or will stay small because the dollar's advantages are institutional rather than technical.",
         },
       },
       evidence: [
         {
           id: "mbridge-cbdc-project",
-          title: "mBridge: Multi-CBDC Cross-Border Payment Platform in Development",
+          title: "mBridge volume rose 2,500-fold to $55.49 billion, with the digital yuan over 95% of settlement (2026)",
           description:
-            "The mBridge project, initiated by the BIS Innovation Hub with the central banks of China, Hong Kong, Thailand, and the UAE, developed a multi-CBDC platform for cross-border payments that settles transactions directly between central banks without routing through SWIFT or the dollar. After a 2022 pilot that processed 164 real-value transactions worth over $22 million, the platform reached Minimum Viable Product stage in mid-2024, with Saudi Arabia joining as a full participant in June 2024 — signaling interest from major oil-producing nations in dollar alternatives. Notably, the BIS withdrew from the project in October 2024, partly to avoid the perception that mBridge could be used to circumvent US sanctions; the platform has continued under its remaining central-bank participants.",
+            "mBridge was built by the BIS Innovation Hub with the central banks of China, Hong Kong, Thailand and the UAE to settle cross-border payments directly between central banks' digital currencies, without SWIFT or the dollar. Its 2022 pilot processed 164 payments worth over $22 million. It reached minimum viable product in mid-2024, Saudi Arabia joined in June 2024, and the BIS withdrew in October 2024. The Atlantic Council's May 2026 tracker calls it the fastest-growing CBDC project in the world: 'Transaction volume on the project surged to $55.49 billion,' a 2,500-fold increase since early 2022, with the e-CNY accounting for over 95% of settlement volume.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
+            sourceReliability: 7,
             independence: 7,
-            replicability: 7,
+            replicability: 6,
             directness: 7,
           },
-          source: "Bank for International Settlements; Atlantic Council",
-          sourceUrl: "https://www.bis.org/about/bisih/topics/cbdc/mcbdc_bridge.htm",
+          source: "Atlantic Council, Central Bank Digital Currency Tracker (updated May 2026); Bank for International Settlements, Project mBridge",
+          sourceUrl: "https://www.atlanticcouncil.org/cbdctracker/",
           reasoning:
-            "mBridge is the most advanced multi-CBDC cross-border project and is backed by major central banks. However, cumulative transaction volumes remain minuscule compared to daily SWIFT volumes (~$5 trillion+), and the BIS's October 2024 withdrawal — reportedly over sanctions-evasion optics — cuts both ways: it signals the project's geopolitical sensitivity but also removes its most credible neutral backer, leaving it more dependent on Chinese-led governance. Saudi Arabia's participation is significant but does not guarantee they will actually price oil in non-dollar currencies.",
+            "Shows a working, fast-growing payment route outside the dollar system, concentrated on the digital yuan. Volume is still small next to daily dollar clearing, and the figures do not show how much, if any, involves sanctioned trade, which is what the crux asks.",
         },
         {
           id: "dollar-structural-advantages",
-          title: "Dollar Dominance Rests on Institutional Foundations CBDCs Cannot Replicate",
+          title: "The dollar's reserve role rests on deep Treasury markets and open capital flows a CBDC cannot copy",
           description:
-            "The US dollar's reserve currency status is supported by factors that no CBDC can replicate: the depth and liquidity of US Treasury markets (roughly $28-30 trillion in marketable debt outstanding as of 2024-2025), the legal enforceability of dollar contracts under US courts, the Federal Reserve's role as global lender of last resort, 80 years of institutional trust, and the absence of capital controls. China's capital controls, opaque legal system, and politicized central bank make the digital yuan fundamentally unsuitable as a reserve currency regardless of its technical capabilities.",
+            "The dollar's reserve status rests on things no CBDC technology supplies: the depth and liquidity of the US Treasury market (roughly $28-30 trillion of marketable debt in 2024-2025), contracts enforceable in US courts, the Federal Reserve's role as global lender of last resort and the absence of capital controls. China's capital controls and politically directed central bank limit the yuan as a reserve currency whatever form it takes.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -322,10 +393,108 @@ export const centralBankDigitalCurrencyData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Brookings Institution (Ben S. Bernanke); BIS Quarterly Review",
+          source: "Brookings Institution (Ben S. Bernanke, 'The dollar's international role: An \"exorbitant privilege\"?'); BIS Quarterly Review",
           sourceUrl: "https://www.brookings.edu/articles/the-dollars-international-role-an-exorbitant-privilege-2/",
           reasoning:
-            "The structural analysis of dollar dominance is well-established in international economics literature. The institutional foundations — legal system, capital market depth, central bank credibility — are not technical capabilities that can be replicated by CBDC technology. However, the argument addresses current structural advantages, and long-term erosion through gradual diversification remains a possibility.",
+            "Standard international economics on why reserve status is institutional. It describes today's advantages; it does not rule out slow erosion at the edges, such as payments among countries that fear sanctions.",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 4: If not a CBDC, what? Public money or private stablecoins
+    // =========================================================================
+    {
+      id: "public-vs-private-digital-money",
+      title: "If Not a CBDC, What? Public Digital Money or Private Stablecoins",
+      short_summary:
+        "The US barred federal work on a CBDC in January 2025 and backed private dollar stablecoins under the GENIUS Act instead. The ECB argues Europe needs public digital money so payments do not depend on US card networks and dollar stablecoins. The Bank for International Settlements says stablecoins 'perform poorly' as the base of a monetary system. The dispute is which is the bigger risk: a state that can see your payments, or money run by private firms.",
+      icon_name: "Scale" as const,
+      skeptic_premise:
+        "Refusing a CBDC does not take the state out of digital payments; it hands them to private firms with less accountability. Dollar stablecoins are run by companies answerable to shareholders, not voters, and the Bank for International Settlements found in 2025 that stablecoins 'perform poorly' on the tests for sound money and have been 'the go-to choice for illicit use'. For Europe the stakes are sovereignty: if everyday digital payments run on US card networks and dollar stablecoins, the euro area's money depends on choices made in Washington and by American firms. That is why the ECB moved to the next phase of the digital euro in October 2025, why EU governments and the European Parliament's economic committee have both agreed negotiating positions, and why a pilot is planned for mid-2027. A public digital euro with offline, cash-like privacy, set by law and overseen by elected legislators, is more accountable than either a payment app's terms of service or a foreign stablecoin.",
+      proponent_rebuttal:
+        "The US chose the safer path. Executive Order 14178 of 23 January 2025 lists protecting 'Americans from the risks of Central Bank Digital Currencies' as policy and prohibits agencies 'from undertaking any action to establish, issue, or promote CBDCs', and the House voted 219–210 in July 2025 to ban one. Private digital dollars keep a layer between the state and the citizen: a bank or stablecoin issuer holds the records, the government has to go through it, and a customer can take money elsewhere. A central bank that issues the money and keeps the ledger has no such middle layer. The GENIUS Act, in force from January 2027, gives private stablecoins 100% reserves and holder-first bankruptcy rules, delivering most of what a CBDC promises on speed and cost without a single government database of what every citizen buys.",
+      crux: {
+        id: "private-alternative-sufficiency",
+        title: "The Private Alternative Test",
+        question:
+          "Do private stablecoins and instant bank payments deliver what a CBDC promises, without the state ledger?",
+        description:
+          "If regulated stablecoins and instant bank-payment systems give people fast, cheap, private digital payments, and keep holders safe in a crisis, a CBDC adds surveillance risk for little gain. If private alternatives fail on safety, privacy or reach, or leave a country's payments dependent on foreign firms, public digital money fills a real gap.",
+        methodology:
+          "Compare, from 2027, the US (GENIUS Act stablecoins, FedNow and private instant payments, no CBDC) with the euro area (digital euro pilot, instant euro payments) on: payment cost and speed, share of payments run by non-domestic firms, how often accounts or wallets are frozen and by what legal process, and how holders fare in any stablecoin or provider failure.",
+        verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "From 2027, side-by-side data from the US (GENIUS Act stablecoins, FedNow, no CBDC) and the euro area (digital euro pilot) on payment costs, freezes and the legal process behind them, foreign firms' share of payments, and holder losses in any failure.",
+        },
+        cost_to_verify:
+          "$200K-500K (comparative payments study; needs the digital euro pilot and GENIUS Act regime to run for a few years)",
+        falsification: {
+          supporter_flip:
+            "If private stablecoins and instant bank payments in the US proved costly, unsafe in a failure, or as easy for the state to watch and freeze as a CBDC would be, the case that skipping a CBDC protects people would weaken.",
+          skeptic_flip:
+            "If US stablecoins and instant payments matched the digital euro on cost, speed and safety, and freezes still needed court orders while the digital euro's privacy rules were loosened, the case for public digital money would weaken.",
+          common_ground:
+            "Both sides agree the US has barred federal work on a CBDC and chosen regulated private stablecoins, while the euro area is moving toward a digital euro pilot in 2027, so the two approaches can be compared.",
+          live_disagreement:
+            "Whether money run by private firms under a law like the GENIUS Act is safer for privacy and freedom than public digital money overseen by elected legislators, which turns on whom people trust more, the state or private intermediaries.",
+        },
+      },
+      evidence: [
+        {
+          id: "us-eo-14178-anti-cbdc",
+          title: "US executive order bars agencies from any action to 'establish, issue, or promote' a CBDC; House votes 219–210 for a ban (2025)",
+          description:
+            "Executive Order 14178, signed on 23 January 2025, makes it US policy to take 'measures to protect Americans from the risks of Central Bank Digital Currencies (CBDCs)' and states that, 'Except to the extent required by law', agencies 'are hereby prohibited from undertaking any action to establish, issue, or promote CBDCs'. It defines a CBDC as digital money 'denominated in the national unit of account' that 'is a direct liability of the central bank'. On 17 July 2025 the House passed the Anti-CBDC Surveillance State Act 219–210, the same day it passed the GENIUS Act for private stablecoins 308–122.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 4,
+            replicability: 8,
+            directness: 5,
+          },
+          source:
+            "White House, Executive Order 14178 (23 January 2025); House Clerk, Roll Calls 200 and 201 (17 July 2025)",
+          sourceUrl:
+            "https://www.whitehouse.gov/presidential-actions/2025/01/strengthening-american-leadership-in-digital-financial-technology/",
+          reasoning:
+            "Shows the world's largest economy treating a CBDC as a risk to citizens and choosing private stablecoins instead. Independence is 4 and directness 5: it is a political judgment, not evidence about what a CBDC would do, and the near-even House vote shows Congress split.",
+        },
+        {
+          id: "ecb-next-phase-2025",
+          title: "ECB moves to the next phase of the digital euro: pilot from mid-2027, possible issuance in 2029 (October 2025)",
+          description:
+            "On 30 October 2025 the ECB's Governing Council 'decided to move to the next phase of the digital euro project'. It said 'a pilot exercise and initial transactions could take place as of mid-2027' and the Eurosystem 'should then be ready for a potential first issuance of the digital euro during 2029', 'under the assumption that European co-legislators will adopt the Regulation' in 2026. The decision to issue 'will only be taken once the legislation has been adopted.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 5,
+            replicability: 6,
+            directness: 4,
+          },
+          source: "European Central Bank press release (30 October 2025)",
+          sourceUrl:
+            "https://www.ecb.europa.eu/press/pr/date/2025/html/ecb.pr251030~8c5b5beef0.en.html",
+          reasoning:
+            "Shows a major democratic central bank judging public digital money worth building, under a law legislators must pass. It is the issuer's own decision and a timeline, not evidence that the digital euro will be private or needed, so independence is 5 and directness 4.",
+        },
+        {
+          id: "bis-stablecoins-perform-poorly",
+          title: "BIS 2025: stablecoins 'perform poorly' as the base of a monetary system",
+          description:
+            "The Bank for International Settlements' Annual Economic Report of 29 June 2025 said 'stablecoins perform poorly when assessed against the three tests for serving as the mainstay of the monetary system': singleness (always worth face value), elasticity and integrity. 'Stablecoins also fare poorly on singleness and elasticity,' it wrote, and 'have been the go-to choice for illicit use to bypass integrity safeguards.' It proposed building on tokenised central bank reserves alongside tokenised bank deposits and government bonds.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 5,
+            replicability: 6,
+            directness: 5,
+          },
+          source: "Bank for International Settlements, Annual Economic Report 2025, Chapter III (29 June 2025)",
+          sourceUrl: "https://www.bis.org/publ/arpdf/ar2025e3.htm",
+          reasoning:
+            "An authoritative case that the private alternative is weaker as money. Independence is 5 because the BIS speaks for central banks, which would run any public alternative, and directness is 5 because its proposal is for wholesale tokenised reserves, not a retail CBDC.",
         },
       ],
     },
