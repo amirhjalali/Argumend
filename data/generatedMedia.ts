@@ -1205,6 +1205,54 @@ export const generatedMedia = [
     },
   },
   {
+    kind: "blog",
+    id: "what-the-ai-safety-evidence-of-2026-shows",
+    hero: {
+      src: "/images/generated/blog/what-the-ai-safety-evidence-of-2026-shows/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A teal network of nodes inside a cracked glass dome, one thread escaping through the crack and fanning into teal and rust paths, beside a metronome and an observation window.",
+      prompt: topicHeroPrompt(
+        "A glowing teal lattice of network nodes at the centre of a parchment chart with branching future paths fanning outward, one fine thread slipping out through a gap in the glass test enclosure around it, a one-way observation window and a brass metronome beside it, a small crimson crux aperture. No robots, no faces, no people.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "obamacare-subsidy-cliff-who-left-the-marketplace",
+    hero: {
+      src: "/images/generated/blog/obamacare-subsidy-cliff-who-left-the-marketplace/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A kitchen table at a cliff edge holding a ledger, a sieve, a folded umbrella and blank envelopes, a teal cloth running over the edge into a rust slope where envelopes drift down.",
+      prompt: topicHeroPrompt(
+        "A kitchen table at the edge of a stone cliff with a household ledger and a stack of blank insurance envelopes, a teal path of premium support running to the edge and dropping into a rust slope, a few envelopes drifting down, a sieve resting on the ledger and a half-closed umbrella, a small crimson crux mark. No people, no logos, no numbers.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "should-members-of-congress-trade-stocks",
+    hero: {
+      src: "/images/generated/blog/should-members-of-congress-trade-stocks/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A domed legislature with a ribbon of blank ticker tape running to a trading desk, a sealed glass box and an open ledger under a magnifying glass, teal and rust paths meeting at a crimson mark.",
+      prompt: topicHeroPrompt(
+        "A domed legislature drawn in architectural elevation with a ribbon of blank ticker tape running from its steps to a small brokerage desk, a sealed glass blind-trust box and an open disclosure ledger under a magnifying glass, teal and rust paths meeting at a small crimson crux mark. No people, no flags, no numbers, no logos.",
+      ),
+    },
+  },
+  {
+    kind: "blog",
+    id: "gerrymandering-redistricting-war-election-day",
+    hero: {
+      src: "/images/generated/blog/gerrymandering-redistricting-war-election-day/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A wooden ballot box beside an invented patchwork map whose dotted district lines are redrawn, with compasses, a pen and teal and rust ink pots at dawn.",
+      prompt: topicHeroPrompt(
+        "A wooden ballot box on a surveyor's table at dawn beside an invented patchwork territory whose dotted boundaries have been erased and redrawn, faint earlier lines ghosted beneath, compasses and a ruling pen, teal and rust ink pots, a small crimson crux mark. No real states or countries, no recognisable map outlines, no party symbols, no flags.",
+      ),
+    },
+  },
+  {
     kind: "topic",
     id: "ai-risk",
     hero: {
