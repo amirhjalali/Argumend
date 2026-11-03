@@ -12,7 +12,7 @@ export interface EvidenceCitationStats {
 }
 
 export const evidenceCitationStats: EvidenceCitationStats = Object.freeze({
-  withUrl: 1621,
-  total: 1637,
+  withUrl: 1625,
+  total: 1641,
   reviewedAt: CONTENT_LAST_UPDATED,
 });

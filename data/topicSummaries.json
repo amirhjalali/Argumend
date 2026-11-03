@@ -1599,11 +1599,11 @@
   {
     "id": "lab-leak-theory",
     "title": "COVID-19 Lab Leak Origin",
-    "question": "Did COVID-19 come from a Wuhan lab leak rather than natural spillover?",
+    "question": "Did COVID-19 come from a lab in Wuhan?",
     "meta_claim": "SARS-CoV-2 originated from a laboratory leak at the Wuhan Institute of Virology rather than natural zoonotic spillover.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 68,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 70,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1611,12 +1611,19 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 20,
+    "evidenceCount": 24,
     "firstCrux": "Is the outbreak's start in the same city as the Wuhan Institute of Virology a real signal, or coincidence?",
     "tags": [
       "science"
     ],
-    "keywords": "cleavage furin debarred insertion odni progenitor sago ecohealth subcommittee lineages huanan sarbecovirus coronaviruses biosafety virologists"
+    "aliases": [
+      "Did COVID-19 come from a Wuhan lab leak rather than natural spillover?",
+      "Did COVID come from a lab?",
+      "Where did COVID-19 come from?",
+      "Was COVID-19 engineered?",
+      "Is the lab leak theory true?"
+    ],
+    "keywords": "furin cleavage virus debarred coronaviruses odni insertions progenitor sago ecohealth subcommittee viruses huanan zoonosis virologists"
   },
   {
     "id": "ultra-processed-food",
@@ -1918,7 +1925,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs poliovirus entrepreneurial polio theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs poliovirus entrepreneurial polio afghanistan funder opensecrets pakistan super theirs"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2454,7 +2461,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "chimeric airborne alphafold baric fouchiers h5n1 sars anthrax chapel coronaviruses influenza smallpox viruses sparked affinities"
+    "keywords": "chimeric airborne alphafold baric fouchiers h5n1 sars anthrax chapel coronaviruses influenza smallpox viruses affinities avian"
   },
   {
     "id": "children-smartphone-age",
@@ -2702,7 +2709,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam retiree hunkering jews complementarity dispersed italians norc resettlement diploma refugee scandinavian"
+    "keywords": "putnam retiree hunkering jews complementarity italians norc resettlement diploma dispersed refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
