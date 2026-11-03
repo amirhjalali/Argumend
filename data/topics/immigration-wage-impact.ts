@@ -81,8 +81,8 @@ export const immigrationWageImpactData = {
             directness: 7,
           },
           source:
-            "George J. Borjas, 'The Labor Demand Curve Is Downward Sloping: Reexamining the Impact of Immigration on the Labor Market,' Quarterly Journal of Economics 118(4), 1335-1374 (2003)",
-          sourceUrl: "https://gborjas.scholars.harvard.edu/file_url/187",
+            "George J. Borjas, 'The Labor Demand Curve Is Downward Sloping: Reexamining the Impact of Immigration on the Labor Market,' Quarterly Journal of Economics 118(4), 1335-1374 (2003); NBER Working Paper 9755",
+          sourceUrl: "https://www.nber.org/papers/w9755",
           reasoning:
             "Peer-reviewed and national, so it avoids the problem that workers move between cities. The result depends on assuming that workers of different ages and education levels are poor substitutes for each other; other economists using different assumptions find smaller effects.",
         },
@@ -100,7 +100,7 @@ export const immigrationWageImpactData = {
           },
           source:
             "George J. Borjas, 'The Wage Impact of the Marielitos: A Reappraisal,' ILR Review, Vol. 70, No. 5 (2017), pp. 1077-1110 (NBER WP 21588)",
-          sourceUrl: "https://gborjas.scholars.harvard.edu/file_url/183",
+          sourceUrl: "https://www.nber.org/papers/w21588",
           reasoning:
             "Clemens and Hunt (2019) attribute the measured decline to a changing racial mix in small survey samples; Borjas (2019) disputes that explanation and reports recovery by 1990. Both papers are linked in further reading. A local subgroup estimate does not establish a permanent nationwide loss.",
         },
@@ -169,12 +169,12 @@ export const immigrationWageImpactData = {
       id: "removal-experiments",
       title: "When Immigrants Leave, Do Americans Gain?",
       short_summary:
-        "The US has run the experiment in reverse several times: the 1930s repatriations, the 1964 end of the bracero farmworker program, the 2008-13 Secure Communities deportations, and the 2025-26 crackdown. Most studies find little or no gain for US-born workers, with small gains in the lowest-paid jobs. Whether removal raises American pay, or removes jobs along with workers, is the second split.",
+        "The US has run the experiment in reverse several times: the 1930s repatriations, the 1964 end of the bracero farmworker program, the 2008-13 Secure Communities deportations, and the 2025-26 crackdown. Most studies find little or no gain for US-born workers overall, though the Congressional Research Service reads the 2004-14 programmes as raising wages in low-wage labour markets. Whether removal raises American pay, or removes jobs along with workers, is the second split.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "Every time the US has removed immigrant workers to help Americans, Americans did not get the jobs. When almost half a million Mexican bracero farmworkers were excluded in 1964 to improve conditions for US farmworkers, Michael Clemens and colleagues could not reject zero effect on domestic wages or employment. The 1930s repatriations of Mexicans and Mexican Americans brought no gain in native employment or wages, and possibly losses. Secure Communities, which led to hundreds of thousands of deportations from 2008, was followed by small declines in US-born employment and wages overall. And studying ICE arrest spikes from October 2023 to November 2025, Chloe East and Elizabeth Cox found employment fell among US-born workers too, with no increase in their wages: when undocumented framers leave a site, the electrician and the supervisor lose work as well.",
+        "Time and again when the US has removed immigrant workers to help Americans, Americans did not get the jobs. When almost half a million Mexican bracero farmworkers were excluded in 1964 to improve conditions for US farmworkers, Michael Clemens and colleagues could not reject zero effect on domestic wages or employment. The 1930s repatriations of Mexicans and Mexican Americans brought no gain in native employment or wages, and possibly losses. Secure Communities, which led to hundreds of thousands of deportations from 2008, was followed by small declines in US-born employment and wages overall. And studying ICE arrest spikes from October 2023 to November 2025, Chloe East and Elizabeth Cox found employment fell among US-born workers too, with no increase in their wages: when undocumented framers leave a site, the electrician and the supervisor lose work as well.",
       proponent_rebuttal:
-        "The removal studies measure short, disruptive shocks, not a settled policy of enforcing the law, and even they find gains where competition is closest. The Congressional Research Service's 2026 summary of seven studies notes that under Secure Communities, employment rose for US-born workers with a high school degree or less in the lowest-paid occupations, and that US-born employment rose in lower-skilled construction jobs. Those are exactly the workers this debate is about. In 2026 pay rose faster in construction and hotels than in the economy as a whole, as employers competed for fewer workers. Steven Camarota of the Center for Immigration Studies argues that over time a smaller immigrant population could draw Americans who have left the workforce back in, and that one year is too short to tell. Employers who mechanise instead of hiring Americans at higher pay are still raising productivity.",
+        "The removal studies measure short, disruptive shocks, not a settled policy of enforcing the law, and even they find gains where competition is closest. The Congressional Research Service's 2026 summary of seven studies concludes that the 2004-14 enforcement programmes 'were associated with increases in wages in low-wage labor markets', and notes that under Secure Communities employment rose for US-born workers with a high school degree or less in the lowest-paid occupations and in lower-skilled construction jobs. Those are exactly the workers this debate is about. In 2026 pay rose faster in construction and hotels than in the economy as a whole, as employers competed for fewer workers. Steven Camarota of the Center for Immigration Studies argues that over time a smaller immigrant population could draw Americans who have left the workforce back in, and that one year is too short to tell. Employers who mechanise instead of hiring Americans at higher pay are still raising productivity.",
       crux: {
         id: "removal-wage-effect",
         title: "The Reverse-Experiment Test",
@@ -204,9 +204,9 @@ export const immigrationWageImpactData = {
       evidence: [
         {
           id: "crs-enforcement-studies-2026",
-          title: "CRS 2026: Secure Communities Raised US-Born Employment Only in the Lowest-Paid Jobs",
+          title: "CRS 2026: Past Enforcement Raised Wages in Low-Wage Labor Markets, With Mixed Job Effects",
           description:
-            "A Congressional Research Service In Focus of March 2026 summarised seven quasi-experimental studies of the 287(g) and Secure Communities programmes. East et al. (2023) found Secure Communities 'was associated with small declines in employment and wages overall' for US-born workers, but employment rose for US-born workers with a high school degree or less in the lowest-paid occupations. Howard, Wang and Zhang (2025) found US-born employment rose in lower-skilled construction jobs, without fully replacing departing workers, and fell in higher-skilled ones; neither group saw higher wages. CRS describes 'mixed results on whether employment for U.S.-born people increased or decreased in low-wage labor markets.'",
+            "A Congressional Research Service In Focus of March 2026 summarised seven quasi-experimental studies of the 287(g) and Secure Communities programmes. Overall, it says, they 'find immigration enforcement programs implemented during 2004-2014 were associated with increases in wages in low-wage labor markets, and with mixed results on whether employment for U.S.-born people increased or decreased in low-wage labor markets', and generally with lower US-born employment in higher-wage labour markets. East et al. (2023) found Secure Communities 'was associated with small declines in employment and wages overall' for US-born workers, but employment rose for US-born workers with a high school degree or less in the lowest-paid occupations. Howard, Wang and Zhang (2025) found US-born employment rose in lower-skilled construction jobs, without fully replacing departing workers, and fell in higher-skilled ones; neither group saw higher wages.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -215,11 +215,11 @@ export const immigrationWageImpactData = {
             directness: 7,
           },
           source:
-            "Congressional Research Service, 'Measuring the Impact of Immigration Enforcement on Labor Markets,' In Focus IF13188 (12 March 2026)",
+            "Elizabeth Weber Handwerker, Congressional Research Service, 'Measuring the Impact of Immigration Enforcement on Labor Markets: Quasi-Experimental Studies of §287(g) Agreements and the Secure Communities Program,' In Focus IF13188 (12 March 2026)",
           sourceUrl:
-            "https://www.everycrsreport.com/files/2026-03-12_IF13188_3efdc81a4f88ccf0895850755d70f52974e7a964.html",
+            "https://www.congress.gov/crs-product/IF13188",
           reasoning:
-            "A neutral summary from Congress's research service. It supports a narrow version of the competition story, gains for the lowest-paid US-born workers, alongside losses for others, so both sides draw on it. The gains were in jobs, not wages.",
+            "A neutral summary from Congress's research service. It supports a narrow version of the competition story, wage gains in low-wage labour markets and job gains for the lowest-paid US-born workers, alongside job losses in better-paid ones, so both sides draw on it. The two Secure Communities studies it details found no wage gains for US-born workers.",
         },
         {
           id: "wages-rising-tight-trades-2026",
@@ -280,7 +280,7 @@ export const immigrationWageImpactData = {
           id: "ice-spikes-2023-2025",
           title: "East and Cox 2026: ICE Arrest Spikes Cut US-Born Employment, With No Wage Gain",
           description:
-            "Using data from October 2023 through November 2025, Chloe East and Elizabeth Cox of the University of Colorado Boulder compared places with sudden spikes in ICE arrests with places without them. Employment of likely undocumented immigrants who were not detained fell about 4% in sectors such as agriculture, construction, manufacturing and wholesale. 'Employment among U.S.-born workers also declined' in high-enforcement areas, with 'no increase in either employment or wages among U.S. citizens.'",
+            "Using data from October 2023 through November 2025, Chloe East and Elizabeth Cox of the University of Colorado Boulder compared places with sudden spikes in ICE arrests with places without them. In sectors such as agriculture, construction, manufacturing and wholesale, the employment rate of likely undocumented immigrants who were not detained fell about 4%. 'Employment among U.S.-born workers also declined' in high-enforcement areas, with 'no increase in either employment or wages among U.S. citizens.'",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -289,9 +289,9 @@ export const immigrationWageImpactData = {
             directness: 8,
           },
           source:
-            "Chloe N. East and Elizabeth Cox, 'When ICE ramped up enforcement, US-born workers didn't see any economic gains,' The Conversation, republished by Cobb County Courier (May 2026)",
+            "Chloe N. East and Elizabeth Cox, 'When ICE ramped up enforcement, US-born workers didn't see any economic gains,' The Conversation (29 May 2026)",
           sourceUrl:
-            "https://cobbcountycourier.com/2026/05/when-ice-ramped-up-enforcement-us-born-workers-didnt-see-any-economic-gains/",
+            "https://theconversation.com/when-ice-ramped-up-enforcement-us-born-workers-didnt-see-any-economic-gains-283011",
           reasoning:
             "The first direct evidence on the current crackdown, and it matches the earlier programmes. It covers only about two years, is summarised by the authors rather than published as a peer-reviewed paper, and 'likely undocumented' is inferred from survey answers.",
         },
@@ -422,7 +422,7 @@ export const immigrationWageImpactData = {
   references: [
     {
       title: "Measuring the Impact of Immigration Enforcement on Labor Markets - Congressional Research Service (12 March 2026)",
-      url: "https://www.everycrsreport.com/files/2026-03-12_IF13188_3efdc81a4f88ccf0895850755d70f52974e7a964.html",
+      url: "https://www.congress.gov/crs-product/IF13188",
     },
     {
       title: "Clemens and Hunt (2019): critique of Mariel sample composition",
