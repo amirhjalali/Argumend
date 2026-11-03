@@ -18,7 +18,7 @@ export const rfkHealthPolicyData = {
         "MAHA reframes the childhood vaccine schedule as inadequately tested as a whole and elevates 'vaccine injury' monitoring, while the medical establishment holds that the schedule's safety and efficacy are settled science and the restructuring endangers public health.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "The safety and efficacy of the routine childhood vaccine schedule are settled by decades of evidence — randomized component trials, the Vaccine Safety Datalink, and the 2011 Institute of Medicine review — and the schedule prevents thousands of pediatric deaths annually. RFK Jr's restructuring is built on a discredited foundation: he dismissed all 17 sitting ACIP members in June 2025 and replaced them with appointees a federal judge ruled mostly unqualified in March 2026, and the MAHA reports cited studies that did not exist. The absence of a whole-schedule randomized trial is an artifact of research ethics rather than an open question: withholding effective vaccines from a control group would expose children to preventable disease, and linked-database surveillance through the Vaccine Safety Datalink, together with the 2011 and 2013 IOM reviews, already answers the schedule-safety question. Demoting hepatitis B, rotavirus, and other vaccines from universal recommendation — prompting the American Academy of Pediatrics to break from the CDC schedule for the first time in history — invites the return of preventable disease, as measles outbreaks in 2025-2026 already demonstrate.",
+        "The safety and efficacy of the routine childhood vaccine schedule are settled by decades of evidence — randomized component trials, the Vaccine Safety Datalink, and the 2011 Institute of Medicine review — and the schedule prevents thousands of pediatric deaths annually. RFK Jr's restructuring is built on a discredited foundation: he dismissed all 17 sitting ACIP members in June 2025 and replaced them with appointees a federal judge, in a March 2026 preliminary ruling, found mostly 'distinctly unqualified,' and the MAHA reports cited studies that did not exist. The absence of a whole-schedule randomized trial is an artifact of research ethics rather than an open question: withholding effective vaccines from a control group would expose children to preventable disease, and linked-database surveillance through the Vaccine Safety Datalink, together with the 2011 and 2013 IOM reviews, already answers the schedule-safety question. Demoting hepatitis B, rotavirus, and other vaccines from universal recommendation — prompting the American Academy of Pediatrics to publish a 2026 schedule that splits from the CDC's for the first time in many years — invites the return of preventable disease, as measles outbreaks in 2025-2026 already demonstrate.",
       proponent_rebuttal:
         "Individual vaccines are well-studied, but no large modern randomized trial has ever compared the full current schedule against a lighter one — that combined regimen rests on observational data and committee judgment, not the gold-standard evidence the establishment claims. Past ACIP and recommendation bodies had documented industry ties, so demanding transparent, conflict-free benefit-harm review is reasonable governance, not anti-science. Elevating injury monitoring and reconsidering the timing and stacking of doses (e.g., universal hepatitis B at birth) is a defensible application of the precautionary principle. By April 2026, Kennedy himself affirmed in House testimony that MMR is 'safe and effective for most people,' signaling the agenda targets schedule design and oversight, not vaccination itself.",
       crux: {
@@ -68,9 +68,9 @@ export const rfkHealthPolicyData = {
         },
         {
           id: "court-blocks-acip-overhaul",
-          title: "Federal Judge Rules ACIP Appointees Unqualified and Freezes Vaccine Changes (March 2026)",
+          title: "Federal Judge Finds Most ACIP Appointees Unqualified and Halts Vaccine Changes (March 2026)",
           description:
-            "After Kennedy dismissed all 17 sitting ACIP members in June 2025 and the CDC's acting director bypassed ACIP in January 2026 to cut the childhood schedule from coverage of 18 diseases to 11, a federal judge in March 2026 declared most of the new appointees legally unqualified and froze ACIP's recent decisions, reverting the schedule to its pre-January 2026 state. The American Academy of Pediatrics responded by publishing its own 2026 schedule diverging from the CDC for the first time in agency history.",
+            "After Kennedy dismissed all 17 sitting ACIP members in June 2025, acting CDC director Jim O'Neill signed a decision memo on January 5, 2026, not an ACIP vote, cutting the diseases every child is recommended to be vaccinated against from 18 to 11 (some outlets counted the earlier schedule as 17). On March 16, 2026, U.S. District Judge Brian Murphy in Boston, in a preliminary ruling in American Academy of Pediatrics v. Kennedy, found most of the new appointees 'distinctly unqualified,' stayed the appointments of 13 of Kennedy's 15 appointees and every vote the reconstituted committee had taken, and stayed the January schedule memo. The American Academy of Pediatrics had already published its own 2026 schedule, still covering 18 diseases, splitting from the CDC's for the first time in many years. The government appealed only the part of the order on ACIP appointments; the First Circuit heard argument on October 6, 2026, and ACIP has not met since the ruling.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -78,10 +78,10 @@ export const rfkHealthPolicyData = {
             replicability: 9,
             directness: 8,
           },
-          source: "NPR; AJMC; The Hill",
+          source: "NPR; Reason; STAT; Contemporary Pediatrics; Healio",
           sourceUrl: "https://www.npr.org/2026/03/16/nx-s1-5749530/judge-blocks-rfk-jr-vaccine-changes",
           reasoning:
-            "A federal court ruling and the AAP's unprecedented break are verifiable institutional facts. They demonstrate that the restructuring's process was found legally deficient and that mainstream pediatrics regards the changes as dangerous, strongly supporting the skeptic position.",
+            "A federal court ruling and the AAP's break from the CDC schedule are verifiable institutional facts. The ruling is preliminary and under appeal, but it found the restructuring's process likely unlawful, and mainstream pediatrics treats the changes as dangerous, strongly supporting the skeptic position.",
         },
         {
           id: "aluminum-asthma-study",
@@ -130,9 +130,9 @@ export const rfkHealthPolicyData = {
         "MAHA's strongest ground: that ultra-processed food and food additives are major drivers of America's chronic-disease burden, and that the GRAS 'self-affirmation' loophole lets companies declare ingredients safe without FDA review. The disagreement is over how much causal weight the food system bears and whether MAHA's actions are binding policy or symbolism.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Chronic disease has many drivers — caloric surplus, sedentary lifestyle, genetics, and healthcare access — and the MAHA reports assign causal weight to ultra-processed food, glyphosate, and seed oils ahead of the evidence. The NOVA classification underpinning 'ultra-processed' is criticized as too coarse, and even Kevin Hall, whose inpatient trial MAHA cites, has warned against over-extrapolating it. Worse, MAHA's flagship food actions are weaker than advertised: the April 2025 'phase-out' of petroleum-based dyes was, per the Center for Science in the Public Interest, an industry 'understanding' rather than a binding ban, and food-system experts like Marion Nestle found 'no evidence of policy' in the September strategy report, noting two-thirds of dietary-guidelines reviewers had industry ties.",
+        "Chronic disease has many drivers — caloric surplus, sedentary lifestyle, genetics, and healthcare access — and the MAHA reports assign causal weight to ultra-processed food, glyphosate, and seed oils ahead of the evidence. The NOVA classification underpinning 'ultra-processed' is criticized as too coarse, and even Kevin Hall, whose inpatient trial MAHA cites, has warned against over-extrapolating it. Worse, MAHA's flagship food actions are weaker than advertised: the April 2025 'phase-out' of petroleum-based dyes was, per the Center for Science in the Public Interest, an industry 'understanding' rather than a binding ban, and food-system experts like Marion Nestle found the September 2025 strategy report 'short on specifics and weak on regulatory action,' and in January 2026 she noted that two-thirds of the panel behind the new dietary guidelines' scientific review had ties to industry.",
       proponent_rebuttal:
-        "On the food system, MAHA's diagnosis is corroborated by mainstream science. Kevin Hall's 2019 NIH inpatient randomized trial showed people ate roughly 500 extra calories per day and gained weight on an ultra-processed diet versus a minimally processed one with matched nutrients, and large prospective cohorts (NutriNet-Santé, Nurses' Health Study) link ultra-processed intake to cardiovascular and all-cause mortality. The GRAS self-affirmation loophole genuinely lets companies declare their own additives safe with no FDA review — a documented regulatory gap. Even skeptical food-policy reformers like Marion Nestle agree with MAHA on Big Food and the GRAS problem. Phasing out six petroleum-based dyes and proposing mandatory GRAS notification targets real, evidence-supported hazards regardless of enforcement mechanism.",
+        "On the food system, MAHA's diagnosis is corroborated by mainstream science. Kevin Hall's 2019 NIH inpatient randomized trial showed people ate roughly 500 extra calories per day and gained weight on an ultra-processed diet versus a minimally processed one with matched nutrients, and large prospective cohorts (NutriNet-Santé, Nurses' Health Study) link ultra-processed intake to cardiovascular and all-cause mortality. The GRAS self-affirmation loophole genuinely lets companies declare their own additives safe with no FDA review — a documented regulatory gap. Even skeptical food-policy reformers like Marion Nestle agree with MAHA on Big Food and the GRAS problem. Phasing out six petroleum-based dyes and the August 2026 proposed rule making GRAS notification mandatory target real, evidence-supported hazards regardless of enforcement mechanism.",
       crux: {
         id: "upf-causality-trial",
         title: "The Scaled Ultra-Processed Food Causality Trial",
@@ -182,7 +182,7 @@ export const rfkHealthPolicyData = {
           id: "gras-loophole",
           title: "GRAS Self-Affirmation Lets Companies Approve Their Own Food Additives",
           description:
-            "Under the 'Generally Recognized As Safe' self-affirmation pathway, companies can determine an ingredient is safe and add it to food without notifying or obtaining review from the FDA. MAHA-aligned reformers and independent food-safety advocates have long flagged this as a regulatory gap; the FDA's 2026 Human Foods Program priorities include a proposed rule requiring submission of all new GRAS notices, an attempt to close the loophole.",
+            "Under the 'Generally Recognized As Safe' self-affirmation pathway, companies can determine an ingredient is safe and add it to food without notifying or obtaining review from the FDA. MAHA-aligned reformers and independent food-safety advocates have long flagged this as a regulatory gap. The FDA's 2026 Human Foods Program priorities promised a proposed rule 'to require the submission to FDA of GRAS notices for all new substances claimed to be GRAS,' and the agency published it on August 11, 2026, with comments due December 9, 2026. As proposed, companies could keep marketing a substance without waiting for any FDA response to the notice, so the rule would require companies to tell the FDA but would not create premarket approval.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -190,7 +190,7 @@ export const rfkHealthPolicyData = {
             replicability: 8,
             directness: 8,
           },
-          source: "FDA Human Foods Program 2026 priorities; C&EN",
+          source: "FDA Human Foods Program 2026 priorities; Arnold & Porter (Aug 2026 advisory on the proposed rule)",
           sourceUrl: "https://www.fda.gov/about-fda/human-foods-program/human-foods-program-2026-priority-deliverables",
           reasoning:
             "The GRAS self-affirmation loophole is a documented feature of US food law acknowledged across the political spectrum, including by progressive food reformers. Targeting it is one of MAHA's most defensible, evidence-grounded positions.",
@@ -199,7 +199,7 @@ export const rfkHealthPolicyData = {
           id: "dye-phaseout-nonbinding",
           title: "April 2025 Food-Dye 'Phase-Out' Was an Industry Understanding, Not a Binding Ban",
           description:
-            "On April 22, 2025, HHS/FDA announced a phase-out of six petroleum-based synthetic dyes (Blue 1, Blue 2, Green 3, Red 40, Yellow 5, Yellow 6) by the end of 2026. The Center for Science in the Public Interest characterized the announcement as an industry 'understanding' rather than a binding regulation. State legislatures in Texas, West Virginia, and California moved faster with actual statutory bans, underscoring that the federal action lacked enforcement teeth.",
+            "On April 22, 2025, HHS/FDA announced a phase-out of six petroleum-based synthetic dyes (Blue 1, Blue 2, Green 3, Red 40, Yellow 5, Yellow 6) by the end of 2026, alongside steps to revoke authorization for two others, Citrus Red 2 and Orange B. The Center for Science in the Public Interest reported that Kennedy clarified there would be only an 'understanding' from industry, not a ban, and that the agency issued 'no rulemaking of any sort' for the six. States moved by statute: West Virginia's March 2025 law bars seven synthetic dyes from school meals from August 2025 and from all food sold in the state from January 2028, underscoring that the federal action lacked enforcement teeth.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -207,16 +207,16 @@ export const rfkHealthPolicyData = {
             replicability: 7,
             directness: 6,
           },
-          source: "Center for Science in the Public Interest; FDA press release; C&EN",
+          source: "Center for Science in the Public Interest; Covington & Burling summary of the FDA announcement (Apr 2025); Food Safety News",
           sourceUrl: "https://www.cspi.org/cspi-news/fdas-plan-remove-food-dyes-industry-understanding",
           reasoning:
             "CSPI is an independent food-safety advocate that broadly shares MAHA's goals, making its critique credible rather than partisan. It shows that even MAHA's strongest substantive area has delivered more announcement than binding policy, qualifying claims of effectiveness.",
         },
         {
           id: "nestle-no-policy",
-          title: "Food-Policy Expert Marion Nestle: MAHA Strategy Shows 'No Evidence of Policy'",
+          title: "Food-Policy Expert Marion Nestle on the MAHA Strategy: 'Where's the Policy?'",
           description:
-            "Marion Nestle, a leading food-policy scholar who agrees with MAHA's critique of Big Food and ultra-processed foods, reviewed the September 2025 MAHA Strategy report and concluded it offered 'no evidence of policy' — proposals without binding action. Her January 2026 series also flagged that roughly two-thirds of the MAHA dietary-guidelines reviewers had industry ties, turning MAHA's own regulatory-capture critique back on the project.",
+            "Marion Nestle, a leading food-policy scholar who agrees with MAHA's critique of Big Food and ultra-processed foods, said of the leaked August 2025 draft of the MAHA Strategy, 'There's no evidence of policy in this report.' Of the official September 2025 version she wrote that it 'has not changed much from the leaked version,' is 'short on specifics and weak on regulatory action,' and still carries the overriding message that more research is needed: 'What's still missing is regulation. So much of this is voluntary.' In January 2026 she listed the members' own disclosed ties to meat and dairy groups on the panel behind the new dietary guidelines' scientific review, and quoted health journalist Merrill Goozner that there is 'no evidence that this committee, two-thirds of whom have ties to industry, received vetting under the Federal Advisory Committee Act,' which turns MAHA's own regulatory-capture critique back on the project.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -224,8 +224,8 @@ export const rfkHealthPolicyData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Marion Nestle (Food Politics); PBS NewsHour",
-          sourceUrl: "https://www.foodpolitics.com/2026/01/the-maha-dietary-guidelines-iii-conflicts-of-interest/",
+          source: "Marion Nestle (Food Politics, Sep 10 2025 and Jan 12 2026); AgFunderNews (Aug 15 2025)",
+          sourceUrl: "https://www.foodpolitics.com/2025/09/the-official-maha-kids-health-strategy-report-the-leaked-draft-redux/",
           reasoning:
             "Nestle is an independent expert sympathetic to MAHA's food-system diagnosis, so her conclusion that the strategy lacks binding policy and carries its own conflicts of interest is a credible internal critique rather than tribal opposition.",
         },
@@ -242,7 +242,7 @@ export const rfkHealthPolicyData = {
         "MAHA moved to end the CDC's recommendation of community water fluoridation, citing neurodevelopmental risk and a shrinking dental benefit. The evidence links fluoride to harm only at concentrations roughly twice the US level, so the real dispute is about the margin of safety at the 0.7 mg/L US dose, where evidence is genuinely thin.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "Community water fluoridation at the US level of 0.7 mg/L is a long-standing, cost-effective public-health measure, and the evidence MAHA invokes does not apply to that dose. The 2024 National Toxicology Program monograph found neurodevelopmental harm only with 'moderate confidence' at exposures above 1.5 mg/L — more than double the US recommendation — and no US studies were in the IQ meta-analysis. Ending the recommendation risks reversing decades of cavity prevention, especially for low-income children with limited dental access. Even the acting CDC head walked back the messaging in March 2026 House testimony, calling fluoride 'essential for oral health.'",
+        "Community water fluoridation at the US level of 0.7 mg/L is a long-standing, cost-effective public-health measure, and the evidence MAHA invokes does not apply to that dose. The 2024 National Toxicology Program monograph found neurodevelopmental harm only with 'moderate confidence' at exposures above 1.5 mg/L — more than double the US recommendation — and no US studies were in the IQ meta-analysis. Ending the recommendation risks reversing decades of cavity prevention, especially for low-income children with limited dental access. Even the acting CDC head, Jay Bhattacharya, softened the message in March 2026 House testimony, saying fluoride is essential for oral health.",
       proponent_rebuttal:
         "The case for fluoridation rests on a margin of safety that has narrowed on both sides. The October 2024 Cochrane review found the cavity-prevention benefit has shrunk dramatically since fluoride toothpaste became widespread — post-1975 studies show only about 0.24 fewer decayed baby teeth per child, an effect compatible with no benefit. Meanwhile the NTP monograph and the January 2025 JAMA Pediatrics meta-analysis of 70+ studies establish a real inverse association between fluoride and child IQ at higher doses. With a smaller benefit and a documented dose-dependent risk, demanding fresh review of whether 0.7 mg/L still clears the benefit-harm line is sound precaution, and letting communities decide is reasonable federalism.",
       crux: {
@@ -309,9 +309,9 @@ export const rfkHealthPolicyData = {
         },
         {
           id: "cdc-walks-back-fluoride",
-          title: "Acting CDC Head Calls Fluoride 'Essential for Oral Health' (March 2026)",
+          title: "Acting CDC Head Tells House Fluoride Is Essential for Oral Health (March 2026)",
           description:
-            "After Kennedy directed the CDC in April 2025 to stop recommending community water fluoridation and Utah became the first state to ban it outright, the acting CDC director softened the messaging in March 2026 House testimony, calling fluoride 'essential for oral health' while flagging dose-dependent risks. The partial reversal signals that even within HHS the case for ending fluoridation at the US dose was not settled.",
+            "After Kennedy said in April 2025 that he would direct the CDC to stop recommending community water fluoridation, and Utah became the first state to ban it outright, Jay Bhattacharya, the NIH director serving as acting CDC director, softened the message at a March 17, 2026 House Labor-HHS appropriations oversight hearing. According to American Dental Association and Academy of General Dentistry accounts of the hearing, he said fluoride is essential for oral health while high exposures could have neurological and developmental effects, and that NIH's dental research institute would work to establish which exposure levels pose a risk. The partial walk-back signals that even within HHS the case for ending fluoridation at the US dose was not settled.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -320,10 +320,10 @@ export const rfkHealthPolicyData = {
             directness: 7,
           },
           source:
-            "Axios (Apr 2025 directive and Utah ban background); March 2026 House Appropriations NIH oversight hearing testimony coverage",
-          sourceUrl: "https://www.axios.com/2026/02/02/fluoride-ban-water-kennedy-rfk-epa",
+            "ADA News and Academy of General Dentistry accounts of the March 17, 2026 House Labor-HHS appropriations hearing; ADA News (Apr 2025 directive and Utah ban)",
+          sourceUrl: "https://adanews.ada.org/huddles/house-hearing-addresses-community-water-fluoridation",
           reasoning:
-            "An HHS official walking back the anti-fluoridation message in sworn testimony is a notable concession that the benefit-harm case at 0.7 mg/L remains contested even inside the administration, weighing against ending the recommendation outright.",
+            "The acting CDC head softening the anti-fluoridation message in House testimony is a notable concession that the benefit-harm case at 0.7 mg/L remains contested even inside the administration, weighing against ending the recommendation outright.",
         },
         {
           id: "fluoridation-equity",
@@ -355,9 +355,9 @@ export const rfkHealthPolicyData = {
         "MAHA's deepest claim is that the FDA, CDC, and NIH are captured by pharmaceutical and food-industry interests, justifying sweeping restructuring. Critics counter that bulk dismissal of expert panels, fabricated report citations, and internal contradictions over drug-approval standards have damaged the institutions without delivering coherent reform.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "US health agencies are staffed by career scientists, and their recommendations rest on transparent advisory processes and decades of peer-reviewed evidence; 'regulatory capture' is asserted far more than demonstrated. RFK Jr's restructuring has damaged institutional capacity without coherent reform: he dismissed all 17 ACIP members and installed appointees a court found unqualified, canceled roughly $500M in mRNA research, and published reports with AI-fabricated citations. The agenda is also internally contradictory — Vinay Prasad was brought in to tighten drug-approval standards but departed in April 2026 as FDA Commissioner Marty Makary moved to loosen them with 'one Phase 3 instead of two,' over-the-counter expansion, and priority-review vouchers, showing the coalition wants faster, not more rigorous, approvals.",
+        "US health agencies are staffed by career scientists, and their recommendations rest on transparent advisory processes and decades of peer-reviewed evidence; 'regulatory capture' is asserted far more than demonstrated. RFK Jr's restructuring has damaged institutional capacity without coherent reform: he dismissed all 17 ACIP members and installed appointees a court found mostly unqualified, wound down 22 BARDA mRNA vaccine projects worth nearly $500 million, and published reports with AI-fabricated citations. The agenda is also internally contradictory: Vinay Prasad, a longtime critic of approvals on weak evidence, ran the FDA's biologics center, yet in February 2026 he and Commissioner Marty Makary made one pivotal trial instead of two the default for approval, and Makary's priority vouchers promised decisions within two months. Prasad left at the end of April 2026 and Makary resigned in May, showing the coalition wants faster, not more rigorous, approvals and has not kept stable leadership.",
       proponent_rebuttal:
-        "Specific instances of industry influence over health agencies are documentable: the GRAS self-affirmation loophole, the revolving door between regulators and industry, accelerated-approval drugs that disproportionately fail their confirmatory trials yet stay on the market, and the industry-funding history of past advisory committees and dietary-guidelines panels. Demanding transparency, conflict-of-interest disclosure, and benefit-harm reweighing of long-standing recommendations is legitimate reform, not anti-science. Vinay Prasad's surrogate-endpoint research, showing weak correlation with hard outcomes in oncology, is mainstream methodological critique. That MAHA contains an internal tension between stricter-approval and faster-approval factions reflects a real coalition, not incoherence — and the underlying capture problem is genuine even where the remedies are contested.",
+        "Specific instances of industry influence over health agencies are documentable: the GRAS self-affirmation loophole, the revolving door between regulators and industry, accelerated-approval drugs that disproportionately fail their confirmatory trials yet stay on the market, and the industry-funding history of past advisory committees and dietary-guidelines panels. Demanding transparency, conflict-of-interest disclosure, and benefit-harm reweighing of long-standing recommendations is legitimate reform, not anti-science. Vinay Prasad's surrogate-endpoint research, showing weak correlation with hard outcomes in oncology, is mainstream methodological critique. That MAHA's FDA both added scrutiny for some vaccines and biotech drugs and sped approvals elsewhere reflects a real coalition, not incoherence — and the underlying capture problem is genuine even where the remedies are contested.",
       crux: {
         id: "capture-decision-distortion",
         title: "The Capture Decision-Distortion Test",
@@ -380,7 +380,7 @@ export const rfkHealthPolicyData = {
           skeptic_flip:
             "If audits extended Prasad's research on drugs approved on surrogate endpoints that fail or never finish confirmatory trials yet stay on the market, and tied that to the revolving door and GRAS self-affirmation, the capture charge would look concrete rather than unproven.",
           common_ground:
-            "Both sides agree transparency and conflict-of-interest disclosure are legitimate goals, and that MAHA contains competing factions: Prasad's push for stricter approvals and Makary's move to loosen them.",
+            "Both sides agree transparency and conflict-of-interest disclosure are legitimate goals, and that MAHA's FDA pulled in two directions: new warnings and study requirements for some vaccines and biotech drugs alongside a one-trial default and fast-track vouchers that speed approvals.",
           live_disagreement:
             "Whether documented industry ties distorted specific recommendations enough to justify dismissing expert panels wholesale, or whether the restructuring damaged institutional capacity without delivering coherent reform.",
         },
@@ -405,9 +405,9 @@ export const rfkHealthPolicyData = {
         },
         {
           id: "dietary-guidelines-conflicts",
-          title: "Two-Thirds of MAHA Dietary-Guidelines Reviewers Had Industry Ties",
+          title: "Panel Behind the MAHA Dietary Guidelines Disclosed Meat and Dairy Industry Ties",
           description:
-            "Marion Nestle's January 2026 analysis found that roughly two-thirds of the reviewers for the MAHA dietary guidelines had industry ties — the very conflict-of-interest problem MAHA invokes against prior committees. Combined with the documented industry-funding history of past advisory bodies, this shows that conflicts of interest in health-policy panels are real, but also that MAHA's own process replicated rather than cured them.",
+            "Marion Nestle's January 12, 2026 post, drawing on the members' own disclosures in the guidelines' Scientific Foundation report and on reporting by STAT, lists members of the panel behind the January 2026 dietary guidelines reporting financial ties to meat and dairy groups such as the National Cattlemen's Beef Association and the National Dairy Council; she called those ties 'startling' given Kennedy's own complaints about past committees. The post quotes health journalist Merrill Goozner, who counted six reviewers with corporate ties and wrote that there is 'no evidence that this committee, two-thirds of whom have ties to industry, received vetting under the Federal Advisory Committee Act' — the very conflict-of-interest problem Kennedy invoked against prior committees. Combined with the documented industry-funding history of past advisory bodies, this shows that conflicts of interest in health-policy panels are real, but also that MAHA's own process replicated rather than cured them.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -415,16 +415,16 @@ export const rfkHealthPolicyData = {
             replicability: 6,
             directness: 6,
           },
-          source: "Marion Nestle (Food Politics)",
+          source: "Marion Nestle, 'The MAHA Dietary Guidelines III: Conflicts of Interest' (Food Politics, Jan 12 2026)",
           sourceUrl: "https://www.foodpolitics.com/2026/01/the-maha-dietary-guidelines-iii-conflicts-of-interest/",
           reasoning:
             "Nestle's finding cuts both ways: it confirms MAHA's premise that industry ties pervade health-policy panels (supporting the capture critique) while also showing MAHA reproduced the problem, which is why it is weighted as legitimate-but-double-edged support.",
         },
         {
           id: "internal-contradiction-prasad-makary",
-          title: "MAHA's Approval-Standard Faction Lost: Prasad Out as Makary Loosens Rules",
+          title: "MAHA's FDA Lowered the Default Evidence Bar, Then Lost Both Its Top Officials (2026)",
           description:
-            "Vinay Prasad, brought in to lead the FDA's vaccine and gene-therapy division and known for demanding stricter approval evidence, was reported in early March 2026 to be leaving the agency at the end of April. Meanwhile FDA Commissioner Marty Makary moved to loosen approval standards — proposing a single Phase 3 trial instead of two, expanding over-the-counter access, and using priority-review vouchers. The trajectory shows the coalition favoring faster approvals prevailed over the stricter-evidence faction, contradicting MAHA's rigor rhetoric.",
+            "Vinay Prasad, a longtime critic of drug approvals on weak evidence, was put in charge of the FDA's biologics center in 2025. Yet in February 2026 he and Commissioner Marty Makary announced in the New England Journal of Medicine that one pivotal trial plus confirmatory evidence would be the new default for approval instead of the usual two, and Makary's national priority voucher program, launched in June 2025, promised decisions within two months rather than the standard 10 to 12. NPR reported that Prasad repeatedly joined Makary in announcing steps to make reviews faster and easier for companies, even as he imposed new warnings and study requirements on some vaccines and biotech drugs. Prasad left at the end of April 2026 and Makary resigned on May 12, 2026; in May, acting heads ran the agency and its biologics and drug centers, and the nominee to replace Makary, Heidi Overton, had her Senate hearing in September 2026.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -432,16 +432,16 @@ export const rfkHealthPolicyData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Washington Post; CBS News; BioPharma Dive",
-          sourceUrl: "https://www.washingtonpost.com/health/2026/03/06/fda-vaccine-regulator-prasad-out/",
+          source: "NPR (Mar and May 2026); AJMC on the NEJM one-trial default (Feb 2026); pharmaphorum; BioSpace",
+          sourceUrl: "https://www.npr.org/2026/05/12/nx-s1-5819722/fda-commissioner-makary-resigns",
           reasoning:
-            "The departure of the stricter-evidence advocate while approval standards loosened is a documented internal contradiction. It undercuts the claim that MAHA's institutional overhaul is coherent evidence-based reform rather than a deregulatory coalition.",
+            "MAHA's leading critic of weak approval evidence co-signed a lower default evidence bar, and the two officials who set these policies were gone about a year after taking office. That undercuts the claim that MAHA's institutional overhaul is coherent evidence-based reform rather than a push for faster approvals.",
         },
         {
           id: "expert-panel-dismissal-costs",
           title: "Bulk Panel Dismissals and Canceled mRNA Funding Damaged Institutional Capacity",
           description:
-            "Kennedy dismissed all 17 sitting ACIP members at once in June 2025, canceled roughly $500M in federal mRNA research funding in August 2025, and saw the childhood schedule change frozen by a court that found his replacement appointees unqualified. Critics argue these actions degraded scientific capacity and continuity without first demonstrating that the dismissed experts' decisions were distorted by capture, treating the precautionary remedy as more certain than the diagnosis.",
+            "Kennedy dismissed all 17 sitting ACIP members at once in June 2025 and, in August 2025, began winding down 22 BARDA mRNA vaccine projects that HHS said were worth nearly $500 million. In March 2026 a federal judge, in a preliminary ruling the government has appealed, found most of the replacement appointees 'distinctly unqualified' and stayed their appointments, their votes and the January 2026 schedule change; ACIP has not met since. Critics argue these actions degraded scientific capacity and continuity without first demonstrating that the dismissed experts' decisions were distorted by capture, treating the precautionary remedy as more certain than the diagnosis.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -449,10 +449,10 @@ export const rfkHealthPolicyData = {
             replicability: 8,
             directness: 7,
           },
-          source: "STAT; NPR; Science",
+          source: "STAT (Apr 2026); BioSpace (Aug 2025, BARDA mRNA wind-down); NPR",
           sourceUrl: "https://www.statnews.com/2026/04/09/new-acip-charter-cdc-vaccine-advisers-rfk-jr-address-legal-defeat/",
           reasoning:
-            "The scale of the dismissals and funding cancellations is documented, and a court found the replacements unqualified. This supports the critique that the restructuring imposed real institutional costs without establishing that capture justified them.",
+            "The scale of the dismissals and funding cancellations is documented, and a court preliminarily found most of the replacements unqualified. This supports the critique that the restructuring imposed real institutional costs without establishing that capture justified them.",
         },
       ],
     },
@@ -510,7 +510,7 @@ export const rfkHealthPolicyData = {
       id: "q4",
       title: "Is regulatory capture real enough to justify dismantling expert panels?",
       content:
-        "Specific industry ties — the GRAS loophole, the revolving door, accelerated approvals that fail confirmatory trials — are documentable. But MAHA's own dietary-guidelines reviewers had industry ties, its reports cited fabricated studies, and its approval-standards faction lost as the FDA loosened rules. Does demonstrated capture justify bulk dismissal of advisory committees, or has the remedy outrun the diagnosis?",
+        "Specific industry ties — the GRAS loophole, the revolving door, accelerated approvals that fail confirmatory trials — are documentable. But MAHA's own dietary-guidelines reviewers had industry ties, its reports cited fabricated studies, and its FDA lowered the default evidence bar for approvals before both its commissioner and its biologics chief left in spring 2026. Does demonstrated capture justify bulk dismissal of advisory committees, or has the remedy outrun the diagnosis?",
     },
   ],
 };
