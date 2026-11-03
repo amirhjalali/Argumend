@@ -70,7 +70,7 @@ export const usIranConflictData = {
           id: "iran-enrichment-escalation",
           title: "Iran Amasses 408 kg of 60% Enriched Uranium by 2025",
           description:
-            "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium — a roughly 50% increase since the February 2025 report. The IAEA had earlier detected particles enriched to 83.7% at Fordow in January 2023. Experts estimate Iran could produce weapons-grade material for up to 9 weapons within weeks of a political decision.",
+            "After the US withdrawal, Iran progressively exceeded JCPOA limits: breaching the 300 kg low-enriched uranium cap in 2019, enriching to 20% in January 2021, then 60% in April 2021. By May 2025, Iran had amassed 408.6 kg of 60% enriched uranium — a roughly 50% increase since the February 2025 report. The IAEA had earlier detected particles enriched to 83.7% at Fordow in January 2023. By the IAEA's yardstick, about 42 kg of 60% uranium is theoretically enough for one bomb if further enriched to 90%, so the May 2025 stockpile was enough in principle for about nine; IAEA chief Rafael Grossi said it was enough for 'several' bombs if Iran chose to make them.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -78,7 +78,7 @@ export const usIranConflictData = {
             replicability: 9,
             directness: 8,
           },
-          source: "IAEA GOV/2025/24; Arms Control Association; Bulletin of the Atomic Scientists",
+          source: "IAEA GOV/2025/24, Verification and Monitoring in the Islamic Republic of Iran (31 May 2025); Associated Press via PBS NewsHour (31 May 2025) for the 42 kg yardstick and Grossi's comment",
           sourceUrl: "https://www.iaea.org/sites/default/files/25/06/gov2025-24.pdf",
           reasoning:
             "IAEA data is the gold standard for nuclear monitoring. The rapid stockpiling represents a genuine proliferation threat that proponents cite as justification for military action. However, context matters: this escalation began only after the US withdrew from the deal.",
@@ -237,7 +237,7 @@ export const usIranConflictData = {
       skeptic_premise:
         "Maximum pressure has failed to weaken Iran's proxy network and may have strengthened it. Despite decades of sanctions, Hezbollah grew into the most heavily armed non-state actor in the world. The Houthis disrupted global shipping through the Red Sea in 2023-2024, costing billions. Iraqi militias conducted 170+ attacks on US bases between October 2023 and January 2024. Iran's 'Axis of Resistance' strategy was a direct response to US encirclement — 40,000+ troops and dozens of bases ringing Iran — making proxies a rational asymmetric deterrent rather than pure aggression.",
       proponent_rebuttal:
-        "Iran spends an estimated $700 million to $1 billion annually funding Hezbollah alone and arms the Houthis, Hamas, and Iraqi militias to destabilize the region. These groups have killed hundreds of Americans, launched thousands of rockets at Israel, and disrupted international shipping. The June 2025 war and February 2026 strikes significantly degraded Iran's ability to coordinate with proxies — notably, Hezbollah and the Houthis largely failed to come to Iran's defense during the 2026 strikes, exposing the fragility of the network. Without US pressure, Iran would project power unchecked across the Levant, Gulf, and Red Sea.",
+        "Iran spends an estimated $700 million to $1 billion annually funding Hezbollah alone and arms the Houthis, Hamas, and Iraqi militias to destabilize the region. These groups have killed hundreds of Americans, launched thousands of rockets at Israel, and disrupted international shipping. The June 2025 war and February 2026 strikes significantly degraded Iran's ability to coordinate with proxies — notably, Hezbollah's first salvo was small and the Houthis waited a month before joining, rather than the coordinated defense Tehran had threatened. Without US pressure, Iran would project power unchecked across the Levant, Gulf, and Red Sea.",
       crux: {
         id: "proxy-network-degradation",
         title: "The Proxy Network Capacity Assessment",
@@ -254,11 +254,11 @@ export const usIranConflictData = {
           supporter_flip:
             "If proxy metrics across 2015-2018, 2018-2024 and 2025-2026 — Hezbollah's rocket inventory, Houthi anti-ship launches, militia attacks on US bases — showed capacity growing under maximum pressure, the policy would have failed on its own terms.",
           skeptic_flip:
-            "If Iran's proxies again largely failed to mobilize when Iran itself came under attack, as during the February 2026 strikes when the Houthis held back and Hezbollah fired only limited salvos, the network would look fragile rather than strengthened.",
+            "If Iran's proxies again held back when Iran itself came under attack, as in the first weeks of the February 2026 strikes, when Hezbollah's first salvo was small and the Houthis waited a month to join, the network would look fragile rather than strengthened.",
           common_ground:
             "Both sides agree Iran funds Hezbollah at an estimated $700 million to $1 billion a year, and that its proxies struck hard in 2023-2024, with 170+ attacks on US bases and Red Sea attacks that rerouted global shipping.",
           live_disagreement:
-            "Whether maximum pressure and the 2025-2026 strikes have degraded Iran's proxy network, as its absence in February 2026 suggests, or whether the network grew under pressure as a rational deterrent to US encirclement.",
+            "Whether maximum pressure and the 2025-2026 strikes have degraded Iran's proxy network, as its slow, staggered entry into the 2026 war suggests, or whether the network grew under pressure as a rational deterrent to US encirclement.",
         },
       },
       evidence: [
@@ -298,9 +298,9 @@ export const usIranConflictData = {
         },
         {
           id: "proxy-failure-2026",
-          title: "Iran's Proxies Largely Sat Out the February 2026 Strikes",
+          title: "Iran's Proxies Held Back in the First Weeks of the February 2026 Strikes",
           description:
-            "During Operation Epic Fury in February 2026, Iran's proxy network largely failed to mobilize in Tehran's defense. The Houthis refrained from major action, partly to preserve a deal signed with Trump in May 2025. Hezbollah launched limited rocket salvos but did not open a full northern front against Israel. Iraqi militias issued threats but took no significant coordinated action. Foreign Policy assessed that Iran's proxies were 'out for themselves.'",
+            "When the US and Israel began Operation Epic Fury on 28 February 2026, Iran's proxy network did not mount the immediate, coordinated multi-front response Tehran had long threatened. Foreign Policy's 2 March assessment was headlined 'Iran's Proxies Are Out for Themselves for Now': Hezbollah's first barrage was small, Iraqi militias issued threats but held back, and the Houthis, with a May 2025 deal with Trump to protect, stayed out. The restraint was partial and temporary. Hezbollah's 2 March rocket and drone fire, its first claimed attack on Israel since the November 2024 ceasefire, drew Israeli strikes across Lebanon and a wider Lebanon war, and the Houthis joined the war on 28 March by firing ballistic missiles at Israel.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -308,10 +308,10 @@ export const usIranConflictData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Foreign Policy; Long War Journal",
+          source: "Foreign Policy, Anchal Vohra, 'Iran's Proxies Are Out for Themselves for Now' (2 March 2026); Al Jazeera (2 March 2026) on Hezbollah's fire; Bloomberg (28 March 2026) on the Houthis entering the war",
           sourceUrl: "https://foreignpolicy.com/2026/03/02/iran-war-hezbollah-lebabon-houthis-yemen-iraq-proxies/",
           reasoning:
-            "The failure of Iran's proxy network to coordinate a meaningful response during the 2026 strikes suggests that years of pressure — combined with the destruction of Hezbollah's leadership in 2024 and the Houthi deal — may have degraded the 'Axis of Resistance' as a cohesive force. However, this may also reflect self-interested calculations by proxy groups rather than a loss of capability.",
+            "The proxies' slow, staggered entry, rather than the coordinated response Tehran had threatened, suggests that years of pressure — combined with the destruction of Hezbollah's leadership in 2024 and the Houthi deal — may have degraded the 'Axis of Resistance' as a cohesive force. However, Hezbollah and the Houthis did enter the fighting within a month, so the evidence shows weakened coordination, not a network that stayed out; the early delay may also reflect self-interested calculations by proxy groups rather than a loss of capability.",
         },
         {
           id: "soleimani-assassination-proxy",

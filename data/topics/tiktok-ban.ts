@@ -233,7 +233,7 @@ export const tiktokBanData = {
           id: "creator-economic-impact",
           title: "7 Million Businesses and Creators Depend on TikTok for Income",
           description:
-            "Oxford Economics estimated that TikTok contributed $24.2 billion to US GDP in 2023 and supported over 224,000 jobs. An estimated 7 million US businesses use TikTok for marketing and sales, including many small businesses that cannot afford traditional advertising. TikTok's algorithm uniquely favors small creators over established accounts, making it the only major platform where a new user's content can reach millions organically.",
+            "A TikTok-commissioned Oxford Economics study estimated that small and mid-sized businesses' use of TikTok supported a $24.2 billion contribution to US GDP in 2023 and 224,000 jobs, with TikTok's own US operations adding a further $8.5 billion. TikTok says seven million US businesses are on the platform, including many small businesses that cannot afford traditional advertising. TikTok's algorithm uniquely favors small creators over established accounts, making it the only major platform where a new user's content can reach millions organically.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -241,8 +241,8 @@ export const tiktokBanData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Oxford Economics (commissioned by TikTok); Small Business Administration",
-          sourceUrl: "https://newsroom.tiktok.com/en-us/oxford-economics-report-us-2023",
+          source: "TikTok Newsroom, 'TikTok's economic impact on US small and mid-sized businesses' (13 March 2024), reporting the Oxford Economics study it commissioned",
+          sourceUrl: "https://newsroom.tiktok.com/tiktok-economic-impact-report-2024-smb?lang=en",
           reasoning:
             "The economic impact data comes from a TikTok-commissioned study, significantly lowering independence. However, the directional finding — that millions of businesses depend on the platform — is corroborated by independent surveys and SBA data. The unique algorithmic advantage for small creators is widely documented.",
         },
@@ -265,9 +265,9 @@ export const tiktokBanData = {
         },
         {
           id: "tiktok-brief-darkness-january-2025",
-          title: "TikTok Went Dark for 14 Hours Before Temporary Executive Extension (January 2025)",
+          title: "TikTok Went Dark in the US for About Half a Day Before an Executive Reprieve (January 2025)",
           description:
-            "On January 18, 2025 — one day after the Supreme Court upheld the ban — TikTok became unavailable in the United States for approximately 14 hours before incoming President Trump signaled he would issue an executive order granting a 90-day extension. During the blackout, 170 million American users lost access to the platform, small businesses lost their primary marketing channel, and creators saw their livelihoods vanish overnight. The brief shutdown demonstrated the concrete, immediate impact of a ban on speech and commerce, and illustrated how executive discretion — rather than settled law — was determining whether a major communication platform could operate.",
+            "On January 18, 2025 — one day after the Supreme Court upheld the ban — TikTok became unavailable in the United States for roughly half a day, from late on January 18 until January 19, when it began restoring service after incoming President Trump said he would issue an executive order delaying the ban. The order he signed on January 20 delayed enforcement by 75 days. During the blackout, 170 million American users lost access to the platform, small businesses lost their primary marketing channel, and creators saw their livelihoods vanish overnight. The brief shutdown demonstrated the concrete, immediate impact of a ban on speech and commerce, and illustrated how executive discretion — rather than settled law — was determining whether a major communication platform could operate.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -275,8 +275,8 @@ export const tiktokBanData = {
             replicability: 10,
             directness: 9,
           },
-          source: "The New York Times; The Washington Post; Reuters",
-          sourceUrl: "https://www.nytimes.com/2025/01/18/technology/tiktok-ban-shut-down.html",
+          source: "PBS NewsHour (AP), 'TikTok says it's restoring service to U.S. users based on Trump's promise after app went dark' (19 Jan 2025); PBS NewsHour, 'Trump signs executive order to suspend TikTok ban for 75 days' (20 Jan 2025)",
+          sourceUrl: "https://www.pbs.org/newshour/politics/americans-lose-access-to-tiktok-as-u-s-ban-takes-effect-and-app-goes-dark",
           reasoning:
             "The brief TikTok blackout is an undisputed, widely documented event. It provides the most direct evidence of what a ban actually looks like in practice — not theoretical harm, but real disruption to 170 million users. The reliance on executive whim rather than clear legal framework raises serious rule-of-law concerns regardless of one's position on TikTok's ownership.",
         },
@@ -375,7 +375,7 @@ export const tiktokBanData = {
           id: "forced-sale-preserves-competition",
           title: "Forced Divestiture Could Preserve TikTok While Removing Security Risk",
           description:
-            "The legislation does not mandate a ban — it requires ByteDance to sell TikTok's US operations to a non-adversary owner. After the law took effect, President Trump issued repeated 90-day extensions through 2025 while a deal was negotiated. In September 2025 Trump signed an executive order approving a US joint venture, and in December 2025 ByteDance signed a deal divesting roughly 80% of the US operation to an Oracle-led American investor group (with Silver Lake and Abu Dhabi's MGX), establishing a majority-American board; the entity was set up in January 2026. Rather than transferring the algorithm outright — which China's export controls restrict — Oracle takes a licensed copy retrained on US data. This shows divestiture preserving TikTok's user base and competitive pressure on Meta and Google was achievable, though critics question whether a relicensed, retrained algorithm fully severs the foreign-control concern.",
+            "The legislation does not mandate a ban — it requires ByteDance to sell TikTok's US operations to a non-adversary owner. After the law took effect, President Trump issued repeated enforcement delays through 2025 (the first two of 75 days each) while a deal was negotiated. In September 2025 Trump signed an executive order approving a US joint venture, and in December 2025 ByteDance signed a deal divesting roughly 80% of the US operation to an Oracle-led American investor group (with Silver Lake and Abu Dhabi's MGX), establishing a majority-American board; the entity was set up in January 2026. Rather than transferring the algorithm outright — which China's export controls restrict — Oracle takes a licensed copy retrained on US data. This shows divestiture preserving TikTok's user base and competitive pressure on Meta and Google was achievable, though critics question whether a relicensed, retrained algorithm fully severs the foreign-control concern.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,

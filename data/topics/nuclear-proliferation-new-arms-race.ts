@@ -66,7 +66,7 @@ export const nuclearProliferationNewArmsRaceData = {
           id: "new-start-suspended",
           title: "Russia Suspends New START Participation (February 2023)",
           description:
-            "In February 2023, President Putin announced Russia's suspension of participation in New START, the last remaining US-Russia nuclear arms control treaty. Russia ceased providing notification of missile tests, refused on-site inspections, and stopped data exchanges on nuclear force posture. New START had capped each side at 1,550 deployed strategic warheads and 700 deployed delivery systems. The treaty expired on February 5, 2026 with no successor agreement under negotiation. In September 2025 Putin offered to voluntarily observe the treaty's numerical warhead and missile limits for one additional year after expiration (without its verification measures) if the US reciprocated; President Trump called the idea reasonable but the US issued no formal commitment, and the treaty lapsed without an agreed framework. Any voluntary observance would be a partial, unverified, non-binding constraint rather than a treaty regime.",
+            "In February 2023, President Putin announced Russia's suspension of participation in New START, the last remaining US-Russia nuclear arms control treaty. Russia ceased providing notification of missile tests, refused on-site inspections, and stopped data exchanges on nuclear force posture. New START had capped each side at 1,550 deployed strategic warheads and 700 deployed delivery systems. The treaty expired on February 5, 2026 with no successor agreement under negotiation. In September 2025 Putin offered to voluntarily observe the treaty's numerical warhead and missile limits for one additional year after expiration (without its verification measures) if the US reciprocated; President Trump called the idea reasonable but never formally accepted it; as the treaty lapsed he called it 'a badly negotiated deal' and urged work on a 'new, improved, and modernized Treaty,' while Russia's Foreign Ministry said its ideas had been 'deliberately left unanswered.' Any voluntary observance would be a partial, unverified, non-binding constraint rather than a treaty regime.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -74,8 +74,8 @@ export const nuclearProliferationNewArmsRaceData = {
             replicability: 10,
             directness: 9,
           },
-          source: "Kremlin.ru; Arms Control Association; Reuters",
-          sourceUrl: "https://www.armscontrol.org/factsheets/NewSTART",
+          source: "NPR (Brumfiel & Maynes), 'For the first time in decades, the U.S. and Russia have no limits on nuclear weapons' (4 Feb 2026, via Connecticut Public); Arms Control Association, New START at a Glance",
+          sourceUrl: "https://www.ctpublic.org/2026-02-04/for-the-first-time-in-decades-the-u-s-and-russia-have-no-limits-on-nuclear-weapons",
           reasoning:
             "Russia's suspension and the treaty's subsequent expiration are undisputed facts with enormous strategic significance. For the first time since 1972, there are no limits on US or Russian nuclear arsenals and no bilateral verification mechanisms. This directly supports the claim of a new arms race.",
         },
@@ -128,7 +128,7 @@ export const nuclearProliferationNewArmsRaceData = {
       skeptic_premise:
         "Nuclear modernization is not the same as an arms race. The US nuclear arsenal is built on systems designed in the 1970s-1980s — the Minuteman III ICBM, Ohio-class submarines, and B-52 bomber. Replacing aging systems with modern equivalents maintains deterrent capability without expanding it. The US is not increasing its warhead count; it is replacing delivery systems that are literally older than the people operating them. China's arsenal expansion from ~300 to ~1,000 warheads brings it to rough parity with the US and Russia, which could actually stabilize deterrence by creating a more balanced tripolar structure. Modernization is what responsible nuclear states do to ensure their deterrent remains credible — a degraded deterrent is more dangerous than a modern one.",
       proponent_rebuttal:
-        "The scale and nature of current modernization goes far beyond maintenance. The US Sentinel ICBM program, Columbia-class submarine, B-21 Raider bomber, and Long-Range Standoff Weapon represent capabilities qualitatively different from their predecessors — greater accuracy, lower yield options for 'usable' nuclear weapons, and hypersonic delivery that compresses warning times. Russia's Sarmat heavy ICBM, Poseidon nuclear torpedo, and Burevestnik nuclear-powered cruise missile are designed specifically to defeat US missile defenses. China's rapid expansion — from roughly 200 warheads in 2019 to over 600 by 2025 (per the Pentagon's 2024 China Military Power report and SIPRI's 2025 Yearbook), with a projected 1,000+ by 2030 and possibly 1,500 by 2035 — is not 'reaching parity' but a multi-fold increase, accompanied by roughly 300 new ICBM silos under construction in western China. The 2023 Congressional Strategic Posture Commission concluded the US may need to increase its deployed warhead count for the first time since the Cold War to address simultaneous threats from Russia and China — a step the 2022 Nuclear Posture Review itself had explicitly declined to take.",
+        "The scale and nature of current modernization goes far beyond maintenance. The US Sentinel ICBM program, Columbia-class submarine, B-21 Raider bomber, and Long-Range Standoff Weapon represent capabilities qualitatively different from their predecessors — greater accuracy, lower yield options for 'usable' nuclear weapons, and hypersonic delivery that compresses warning times. Russia's Sarmat heavy ICBM, Poseidon nuclear torpedo, and Burevestnik nuclear-powered cruise missile are designed specifically to defeat US missile defenses. China's rapid expansion — from roughly 200 warheads in 2019 to over 600 by 2025 (per the Pentagon's 2024 China Military Power report and SIPRI's 2025 Yearbook), with a projected 1,000+ by 2030 — is not 'reaching parity' but a multi-fold increase, accompanied by roughly 300 new ICBM silos under construction in western China. The 2023 Congressional Strategic Posture Commission concluded the US may need to increase its deployed warhead count for the first time since the Cold War to address simultaneous threats from Russia and China — a step the 2022 Nuclear Posture Review itself had explicitly declined to take.",
       crux: {
         id: "warhead-count-trajectory",
         title: "The Global Warhead Trajectory Analysis",
@@ -172,9 +172,9 @@ export const nuclearProliferationNewArmsRaceData = {
         },
         {
           id: "china-warhead-tripling",
-          title: "China Projected to Triple Nuclear Warhead Stockpile by 2035",
+          title: "Pentagon Projects China's Nuclear Stockpile Will Pass 1,000 Warheads by 2030",
           description:
-            "The Pentagon's 2023 report on Chinese military power assessed that China's nuclear warhead stockpile exceeded 500 in 2023 (up from roughly 200 in 2019); the 2024 report and SIPRI's 2025 Yearbook put the stockpile at over 600 by 2025. The Pentagon projects it on track to surpass 1,000 by 2030 and possibly reach 1,500 by 2035. Satellite imagery has revealed roughly 300 new ICBM silos under construction in three locations in western China. This is the fastest nuclear expansion by any nation since the US and Soviet Union in the 1950s-1960s and represents a shift away from China's historical 'minimum deterrence' posture. (Note: the 2030/2035 figures are projections, not realized counts, and assume current trajectories hold.)",
+            "The Pentagon's 2023 report on Chinese military power assessed that China's nuclear warhead stockpile exceeded 500 in 2023 (up from roughly 200 in 2019). Its December 2025 report said the stockpile 'remained in the low 600s through 2024, reflecting a slower rate of production when compared to previous years,' but that China 'remains on track to have over 1,000 warheads by 2030'; the earlier projection of about 1,500 by 2035, from the 2022 report, has not been repeated since. China has built roughly 300 new ICBM silos in three fields in northern China, and the 2025 report judged it had likely loaded more than 100 of them with DF-31 class missiles. This is the fastest nuclear expansion by any nation since the US and Soviet Union in the 1950s-1960s and represents a shift away from China's historical 'minimum deterrence' posture. (Note: the 2030/2035 figures are projections, not realized counts, and assume current trajectories hold.)",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -182,10 +182,10 @@ export const nuclearProliferationNewArmsRaceData = {
             replicability: 7,
             directness: 9,
           },
-          source: "Department of Defense; Federation of American Scientists; CSIS",
-          sourceUrl: "https://media.defense.gov/2023/Oct/19/2003323409/-1/-1/1/2023-MILITARY-AND-SECURITY-DEVELOPMENTS-INVOLVING-THE-PEOPLES-REPUBLIC-OF-CHINA.PDF",
+          source: "Department of Defense, Military and Security Developments Involving the PRC (2023 and 23 Dec 2025 editions); Federation of American Scientists (Korda, 9 Jan 2026) on the 2025 report",
+          sourceUrl: "https://fas.org/publication/the-pentagons-slimmed-down-2025-china-military-power-report/",
           reasoning:
-            "The Pentagon report is based on intelligence assessments and satellite imagery. Independence is somewhat lower because US strategic interests may influence threat characterization. However, the satellite imagery of new silo fields has been independently verified by commercial satellite analysts (Federation of American Scientists, James Martin Center). The tripling of China's arsenal directly supports the arms race claim.",
+            "The Pentagon report is based on intelligence assessments and satellite imagery. Independence is somewhat lower because US strategic interests may influence threat characterization. However, the satellite imagery of new silo fields has been independently verified by commercial satellite analysts (Federation of American Scientists, James Martin Center). A roughly threefold rise from about 200 warheads in 2019 to the low 600s by 2024, with more than 1,000 projected by 2030, directly supports the arms race claim, though the 2025 report's note of slower production cuts slightly against it.",
         },
         {
           id: "global-stockpile-down-from-cold-war-peak",

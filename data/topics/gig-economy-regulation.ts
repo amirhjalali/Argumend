@@ -75,7 +75,7 @@ export const gigEconomyRegulationData = {
           id: "uk-tribunal-rulings",
           title: "UK Tribunals: 100,000+ Gig Drivers Classified as Workers",
           description:
-            "On 8 November 2024, a UK Employment Tribunal ruled that Bolt drivers are 'workers' (not employees) entitled to minimum wage, holiday pay, and other protections—a ruling potentially affecting over 100,000 drivers, with lawyers estimating compensation exceeding 200 million pounds. Around the same time, roughly 700 Addison Lee drivers were similarly ruled to be workers, with estimated compensation exceeding 20 million pounds. These rulings follow the Supreme Court's landmark 2021 Uber v Aslam ruling.",
+            "On 8 November 2024, a UK Employment Tribunal ruled that Bolt drivers are 'workers' (not employees) entitled to minimum wage, holiday pay, and other protections—a ruling covering all of the 100,000-plus drivers who work through the Bolt app, with Leigh Day estimating that compensation for its 15,000 claimants could exceed 200 million pounds. In January 2025 a tribunal ruled that Addison Lee drivers, about 700 of whom had brought claims, are workers whenever logged on to the company's app; after a March 2026 remedy ruling, with more than 900 drivers in the claim, Leigh Day estimated their compensation was likely to exceed 20 million pounds. These rulings follow the Supreme Court's landmark 2021 Uber v Aslam ruling.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -83,7 +83,7 @@ export const gigEconomyRegulationData = {
             replicability: 8,
             directness: 9,
           },
-          source: "UK Employment Tribunal rulings (Bolt, Nov 2024; Addison Lee, 2024) — Leigh Day",
+          source: "UK Employment Tribunal rulings (Bolt, 8 Nov 2024; Addison Lee, Jan 2025 and 19 Mar 2026), as reported by claimants' firm Leigh Day",
           sourceUrl: "https://www.leighday.co.uk/news/press-releases/2024-news/bolt-drivers-win-ruling-that-they-are-workers-in-legal-claim-believed-to-be-worth-more-than-200-million/",
           reasoning:
             "Judicial decisions based on detailed examination of actual working conditions. High directness because courts are specifically ruling on the classification question.",
