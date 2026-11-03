@@ -227,7 +227,7 @@ export const dogeFederalCutsData = {
           source: "National Parks Conservation Association (FY26 NPS budget explainer); Deseret News via KSL (Jan 2026); The Hill (Jan 2026); STAT via Boston Globe (Apr 2026)",
           sourceUrl: "https://www.bostonglobe.com/2026/04/09/business/trump-court-nih-research-overhead-costs/",
           reasoning:
-            "That Congress and the courts blocked the deepest cuts supports the proponent claim that institutional checks contained the harm. But it also concedes the original cuts were severe enough to require blocking, and the directness to the efficiency claim is moderate.",
+            "Read against the claim that DOGE cut waste, this counts against it: Congress and the courts rejected the deepest cuts as unlawful or unwanted rather than as savings worth keeping. Proponents read the same record the other way, as proof that institutional checks contained any harm, which is why directness to the efficiency claim is only moderate.",
         },
         {
           id: "ssa-oig-phone-recovery",
