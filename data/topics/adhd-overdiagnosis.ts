@@ -94,6 +94,24 @@ export const adhdOverdiagnosisData = {
           reasoning:
             "Authoritative US government surveillance data. Directness is limited because a diagnosed rate exceeding the ~5% community estimate is consistent with overdiagnosis but does not by itself prove the extra cases are false positives rather than previously-missed real cases — that inference is what the crux tests.",
         },
+        {
+          id: "ncs-r-adult-adhd-untreated",
+          title: "National survey: 4.4% of U.S. adults had current ADHD, and only 10.9% of them were treated for it",
+          description:
+            "The National Comorbidity Survey Replication screened a probability sample of 3,199 U.S. adults aged 18 to 44 for ADHD and calibrated the screen with follow-up clinical interviews of 154 respondents. Kessler and colleagues (American Journal of Psychiatry, 2006) estimated current adult ADHD prevalence at 4.4%, and found that 'only 10.9% of respondents with adult ADHD received treatment for ADHD' in the previous 12 months: 'The majority of cases are untreated, although many obtain treatment for other comorbid mental and substance disorders.' On this reading, the later rise in adult diagnoses is reaching a large pool of real, impairing cases that community sampling found two decades ago, rather than inventing new ones.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 6,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Kessler et al., 'The prevalence and correlates of adult ADHD in the United States: Results from the National Comorbidity Survey Replication', American Journal of Psychiatry 163(4):716-723 (2006)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2859678/",
+          reasoning:
+            "A nationally representative, clinically calibrated community sample, the kind of evidence the crux asks for, so directness is 6. It is two decades old and covers adults only, and the clinical calibration rests on 154 interviews, so replicability is 6. Independence is 6: the ADHD re-interviews were supported by 'an unrestricted educational grant from the Eli Lilly Company', a drugmaker, and one author worked at Lilly. It shows how many real adult cases went untreated then; it cannot show that today's diagnosed cases are those same cases rather than milder ones.",
+        },
       ],
     },
     {
