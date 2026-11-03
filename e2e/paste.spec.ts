@@ -202,7 +202,7 @@ test("AI equity and teacher-support arguments keep their own cruxes and audited 
     {
       text: "AI tutors could finally give low-income students the personal help wealthy families pay for. Others worry these tools will reach rich schools first and widen achievement gaps.",
       crux: "learning-outcomes",
-      sources: ["https://doi.org/10.3102/0034654315581420", "https://digitalpromise.org/wp-content/uploads/2024/09/SRM-Gates-Khanmigo-Report-Final.pdf"],
+      sources: ["https://blogs.worldbank.org/en/education/From-chalkboards-to-chatbots-Transforming-learning-in-Nigeria", "https://digitalpromise.org/wp-content/uploads/2024/09/SRM-Gates-Khanmigo-Report-Final.pdf"],
     },
     {
       text: "Schools are buying AI tools to reduce teacher workloads. I worry districts will use the savings to replace teachers rather than let them spend more time with students.",
