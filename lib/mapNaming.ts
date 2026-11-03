@@ -33,7 +33,8 @@ export function mapDescription(map: NamedMap, questionCount: number): string {
   // shorter tail, and only a question too long for either is cut (at a word).
   const full = `${title} Explore the ${questions} it turns on, evidence on each side, and what would change a mind.`;
   if (full.length <= META_DESCRIPTION_MAX) return full;
-  const short = `${title} The ${questions} it turns on, and what would change a mind.`;
+  const cruxes = questionCount === 1 ? "crux" : `${questionCount} cruxes`;
+  const short = `${title} Its ${cruxes}, evidence on each side, and what would change a mind.`;
   return fitMetaDescription(short);
 }
 
