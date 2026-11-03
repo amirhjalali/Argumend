@@ -29,7 +29,7 @@ export const foreignAidEffectivenessData = {
         "A few dollars buys an insecticide-treated bed net, and epidemiological modeling credits nets with averting millions of malaria deaths over the past two decades. Not all aid is this legible. Most of it is not.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Over $4.6 trillion in aid has been transferred to developing countries since 1960, yet many recipient countries remain poor. Aid creates dependency, funds corrupt governments, and distorts local markets by undercutting local producers. Dambisa Moyo's 'Dead Aid' argues that aid is the primary cause of Africa's poverty trap, not the solution.",
+        "Over $4.6 trillion in aid has been transferred to developing countries since 1960, yet many recipient countries remain poor. Aid creates dependency, funds corrupt governments, and distorts local markets by undercutting local producers. Dambisa Moyo's 'Dead Aid' argues that aid has kept much of Africa poor rather than lifting it out of poverty.",
       proponent_rebuttal:
         "Specific, well-targeted interventions work extraordinarily well. Insecticide-treated bed nets cost a few dollars each, and cost-effectiveness reviews put them well under $100 per DALY averted. Oral rehydration therapy, vaccines, and deworming have clear RCTs showing large impact. Under-5 child mortality has fallen by roughly 60% since 1990 (UN IGME), partly attributable to aid-funded health programs such as immunization and malaria control. The aggregate critique conflates bad aid with all aid.",
       crux: {
@@ -51,7 +51,7 @@ export const foreignAidEffectivenessData = {
           supporter_flip:
             "If a portfolio audit showed that RCT-backed, high-impact programs (bed nets, vaccines, ART, deworming, cash transfers) make up only a small slice of total aid flows — with most dollars going to categories that lack credible impact evidence — then \"aid works\" would shrink to \"a minority of aid works,\" weakening the case for aid as currently allocated.",
           skeptic_flip:
-            "If audited cost-effectiveness held up, testing GiveWell's ~$3,000-$8,000 per death averted for bed nets and PEPFAR's ~25 million lives saved, even a small effective fraction of aid would save enough lives to answer the $4.6 trillion-and-still-poor critique.",
+            "If audited cost-effectiveness held up, testing GiveWell's ~$3,000-$8,000 per death averted for bed nets and PEPFAR's reported ~26 million lives saved, even a small effective fraction of aid would save enough lives to answer the $4.6 trillion-and-still-poor critique.",
           common_ground:
             "Both sides agree that some targeted health interventions (bed nets, vaccines, ART) have strong causal evidence and that general budget support has much weaker evidence; they also agree aggregate aid-and-growth correlations are not, by themselves, causal.",
           live_disagreement:
@@ -95,9 +95,9 @@ export const foreignAidEffectivenessData = {
         },
         {
           id: "pepfar-hiv-outcomes",
-          title: "PEPFAR: 25 Million Lives Saved Through Targeted HIV/AIDS Aid",
+          title: "PEPFAR: An Estimated 26 Million Lives Saved Through Targeted HIV/AIDS Aid",
           description:
-            "The President's Emergency Plan for AIDS Relief is reported to have supported antiretroviral treatment for 20.6 million people (as of FY2024) and is estimated to have saved roughly 25-26 million lives since 2003. It has also helped 5.5 million babies be born HIV-free to mothers living with HIV. Widely considered one of the most successful US foreign aid programs in history. The lives-saved figure is a program estimate, not an experimental measurement.",
+            "The President's Emergency Plan for AIDS Relief supported antiretroviral treatment for 20.6 million people in FY2024, the last full year of reported data, and PEPFAR reports having saved an estimated 26 million lives since 2003. KFF's fact sheet (updated May 2026) also credits it with preventing 7.8 million babies from being born with HIV. Widely considered one of the most successful US foreign aid programs in history. The lives-saved figure is a program estimate, not an experimental measurement.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -105,7 +105,7 @@ export const foreignAidEffectivenessData = {
             replicability: 6,
             directness: 9,
           },
-          source: "PEPFAR / U.S. State Department; KFF PEPFAR fact sheet",
+          source: "KFF, 'The U.S. President's Emergency Plan for AIDS Relief (PEPFAR)' fact sheet (updated May 2026), citing PEPFAR program data",
           sourceUrl: "https://www.kff.org/global-health-policy/fact-sheet/the-u-s-presidents-emergency-plan-for-aids-relief-pepfar/",
           reasoning:
             "Massive, well-documented program with clear outcome metrics. Government-reported numbers may be slightly inflated. Replicability for other diseases is uncertain. Directness is high — lives saved is the most important outcome.",
@@ -138,7 +138,7 @@ export const foreignAidEffectivenessData = {
       skeptic_premise:
         "A meaningful share of every aid dollar is consumed before it reaches the intended recipient — through layered overhead, expatriate consultant fees, and, in weak-governance settings, outright leakage. Tied aid, which requires recipients to procure goods from the donor country, demonstrably raises costs and serves donor economic interests more than recipient needs. Aid conditionality has at times imposed harmful structural adjustment. And the aid industry itself sustains a large, well-paid professional class in donor countries, creating an institutional interest in aid volume rather than aid outcomes.",
       proponent_rebuttal:
-        "Cash transfer programs collapse most of the overhead and put money directly in the hands of the poor: GiveDirectly delivers roughly 90% of donated funds to recipients, and RCTs (Haushofer & Shapiro 2016; Egger et al. 2022) show transfers raise consumption, assets, and food security with large local spillovers. Where leakage is documented, it concentrates in specific weak-governance contexts rather than describing aid as a whole. Aid transparency has also improved since the 2000s under the IATI reporting standard. And 'better than nothing' is the wrong counterfactual — the real question is whether a given channel beats the alternatives.",
+        "Cash transfer programs collapse most of the overhead and put money directly in the hands of the poor: GiveDirectly reports that 87% of donations to its Poverty Relief programs reach recipients as cash, and RCTs (Haushofer & Shapiro 2016; Egger et al. 2022) show transfers raise consumption, assets, and food security with large local spillovers. Where leakage is documented, it concentrates in specific weak-governance contexts rather than describing aid as a whole. Aid transparency has also improved since the 2000s under the IATI reporting standard. And 'better than nothing' is the wrong counterfactual — the real question is whether a given channel beats the alternatives.",
       crux: {
         id: "delivery-mechanism-comparison",
         title: "Aid Delivery Mechanism Efficiency Comparison",
@@ -158,7 +158,7 @@ export const foreignAidEffectivenessData = {
           supporter_flip:
             "If a head-to-head tracer study found that direct cash transfers and lean NGO channels deliver no better cost-per-outcome than traditional project aid or budget support — once you account for spillovers, sustainability, and what cash can't buy (infrastructure, institutions) — the \"just give cash / cut the overhead\" case for efficiency would lose much of its force.",
           skeptic_flip:
-            "If new trials repeated the consumption and asset gains reported for GiveDirectly (Haushofer & Shapiro 2016; Egger et al. 2022), which delivers ~90% of funds to recipients, and diversion stayed confined to specific weak-governance settings, the leakage-and-overhead objection would cover less of aid.",
+            "If new trials repeated the consumption and asset gains reported for GiveDirectly (Haushofer & Shapiro 2016; Egger et al. 2022), which reports sending 87% of donations to recipients as cash, and diversion stayed confined to specific weak-governance settings, the leakage-and-overhead objection would cover less of aid.",
           common_ground:
             "Both sides agree that delivery channel matters enormously, that tied aid raises costs (OECD: 15-30%), and that leakage is real in weak-governance contexts; they also agree direct cash transfers have unusually low overhead.",
           live_disagreement:
@@ -168,9 +168,9 @@ export const foreignAidEffectivenessData = {
       evidence: [
         {
           id: "givedirectly-cash-transfers",
-          title: "GiveDirectly: Cash Transfers Deliver ~90% to Recipients with RCT-Backed Impact",
+          title: "GiveDirectly: Cash Transfers Deliver Most of Each Dollar to Recipients, with RCT-Backed Impact",
           description:
-            "GiveDirectly delivers roughly 90% of donated funds to recipients. Haushofer & Shapiro (2016, QJE) found large RCT increases in assets, consumption, food security, and psychological well-being among rural Kenyan recipients, with no increase in alcohol or tobacco spending. Egger et al. (2022, Econometrica) found large positive local spillovers and a transfer multiplier of ~2.5 with minimal price inflation; longer-run GiveDirectly follow-ups find consumption/asset gains sustained 5+ years after a lump-sum transfer.",
+            "GiveDirectly reports that 87% of donations to its Poverty Relief programs reach recipients as cash. Haushofer & Shapiro (2016, QJE) found large RCT increases in assets, consumption, food security, and psychological well-being among rural Kenyan recipients, with no increase in alcohol or tobacco spending. Egger et al. (2022, Econometrica) found large positive local spillovers and a transfer multiplier of ~2.5 with minimal price inflation, from one-time transfers of about $1,000 to over 10,500 households across 653 randomized villages.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -178,7 +178,7 @@ export const foreignAidEffectivenessData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Haushofer & Shapiro, QJE 131(4):1973-2042 (2016); Egger et al., Econometrica 90(6):2603-2643 (2022)",
+          source: "Haushofer & Shapiro, QJE 131(4):1973-2042 (2016); Egger et al., Econometrica 90(6):2603-2643 (2022); GiveDirectly financials page (87% figure)",
           sourceUrl: "https://academic.oup.com/qje/article-abstract/131/4/1973/2468874",
           reasoning:
             "Strong RCT evidence published in top economics journals (Egger et al. won the 2024 Frisch Medal). GiveDirectly is the implementer of the program being studied, modestly lowering independence. Replicability is good for cash transfers specifically but doesn't validate other aid modalities.",
@@ -187,7 +187,7 @@ export const foreignAidEffectivenessData = {
           id: "transparency-intl-corruption",
           title: "Corruption Diverts Public Funds in Weak-Governance Aid Recipients",
           description:
-            "Corruption diverts a significant share of public funds in the most corrupt aid-receiving countries, undermining aid effectiveness because aid is fungible. A high-profile case is Mozambique's 'tuna bond' scandal: about $2 billion in hidden, government-guaranteed loans (2013-2014), of which at least ~$200 million was diverted as bribes and kickbacks; its 2016 exposure led the IMF, World Bank and 14 partners to suspend roughly $265M/year in aid. Note: the tuna bonds were commercial loans, not donor aid, but illustrate how weak governance compromises the fiscal environment aid flows into.",
+            "Corruption diverts a significant share of public funds in the most corrupt aid-receiving countries, undermining aid effectiveness because aid is fungible. A high-profile case is Mozambique's 'tuna bond' scandal: about $2 billion in hidden, government-guaranteed loans (2013-2014), of which US prosecutors alleged at least $200 million was funneled as bribes and kickbacks; after the IMF uncovered the undisclosed loans in April 2016, the World Bank and 14 partner countries cut off aid totaling about $265M a year, and the IMF suspended part of a separate loan. Note: the tuna bonds were commercial loans, not donor aid, but illustrate how weak governance compromises the fiscal environment aid flows into.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -195,7 +195,7 @@ export const foreignAidEffectivenessData = {
             replicability: 5,
             directness: 6,
           },
-          source: "Spotlight on Corruption / Transparency International (CIP Mozambique) on the tuna bond scandal",
+          source: "Spotlight on Corruption, 'Mozambique and the Tuna Bond Scandal' (Feb 2021)",
           sourceUrl: "https://www.spotlightcorruption.org/mozambique-and-the-tuna-bond-scandal/",
           reasoning:
             "The specific Mozambique figures are documented by anti-corruption watchdogs and court proceedings. The earlier '20-30% of all aid is diverted' figure could not be tied to a specific verifiable source and has been dropped. Directness is moderate: the tuna bonds were not aid money, but illustrate the corruption environment in some recipients.",
