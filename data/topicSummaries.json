@@ -1510,22 +1510,22 @@
     "title": "Veganism for Environmental Impact",
     "question": "Would widespread vegan diets significantly reduce environmental damage?",
     "meta_claim": "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, including greenhouse gas emissions, land use, and water pollution.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 64,
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 6,
     "firstCrux": "How much of veganism's per-person footprint cut would hold at global scale, after land and rebound effects?",
     "tags": [
       "science"
     ],
-    "keywords": "grazing nemecek dietetics eutrophication mottet farmland micronutrients scarborough vegetarian livestock agric forage grassland grazers headey"
+    "keywords": "grazing nemecek dietetics eutrophication inedible mottet farmland micronutrients scarborough vegetarian livestock agric e10301 e10308 forage"
   },
   {
     "id": "psychedelics-mental-health",
@@ -1917,7 +1917,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "forked drawdowns hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto"
+    "keywords": "forked hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
   },
   {
     "id": "cryptocurrency-regulation",
