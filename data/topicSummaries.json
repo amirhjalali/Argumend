@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz outdoor"
+    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies misalignment sanders chronobiology clin fritz outdoor"
   },
   {
     "id": "tipping-culture",
@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol pell stagnant nordhaus rosen vijan cutler naep tuition admin turner haircut helland marron tabarrok"
+    "keywords": "baumol pell stagnant nordhaus rosen vijan admin cutler naep tuition turner haircut helland marron tabarrok"
   },
   {
     "id": "moloch",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs arkansass blendon"
+    "keywords": "nebraska arkansas snap sommers childless corinth leive prager pukelis zaki wherry arkansass blendon caretakers frail"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -505,7 +505,7 @@
       "Health insurance premiums 2026",
       "Extend the ACA tax credits"
     ],
-    "keywords": "enrollees paragon improper bronze r48290 phantom aspe kffs blase moreno maga planners sicker backfills bernie"
+    "keywords": "paragon improper bronze r48290 phantom aspe blase moreno maga planners sicker backfills bernie colleran dips"
   },
   {
     "id": "nuclear-energy-safety",
@@ -537,29 +537,31 @@
   {
     "id": "universal-healthcare",
     "title": "Universal Healthcare in the US",
-    "question": "Should the US replace employer-based insurance with universal healthcare?",
-    "meta_claim": "The United States should adopt a universal healthcare system, either single-payer or multi-payer, replacing the current employer-based model.",
-    "confidence_score": 71,
-    "balance": 71,
-    "weight": 76,
+    "question": "Should the US switch to universal healthcare, like Medicare for All?",
+    "meta_claim": "The United States should guarantee health coverage to everyone through a universal system, such as a single public plan, replacing most job-based and private insurance.",
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 85,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Would single-payer's projected administrative and drug savings survive a real US transition?",
+    "pillarCount": 4,
+    "evidenceCount": 17,
+    "firstCrux": "How much of the US health gap comes from how care is paid for, versus overdoses, violence and obesity?",
     "tags": [
       "policy"
     ],
     "aliases": [
+      "Should the US replace employer-based insurance with universal healthcare?",
       "Universal medical coverage",
+      "Medicare for All",
+      "Single-payer health care",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein simplification treatable"
+    "keywords": "concord knee mercatus overdoses blahous cihi papanicolas woskie wherry sanders allemani baicker cataract embolism generalist"
   },
   {
     "id": "gun-control-effectiveness",
@@ -656,8 +658,7 @@
     ],
     "aliases": [
       "Is the death penalty a justified punishment?",
-      "Does the death penalty deter murder?",
-      "Should capital punishment be abolished?"
+      "Does the death penalty deter murder?"
     ],
     "keywords": "shepherd exonerated glossip parker scalia oklahoma dezhbakhsh parkland rubin killers alarc armour brett dpic joanna"
   },
@@ -708,7 +709,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
+    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony commonwealth matthew"
   },
   {
     "id": "reparations-slavery",
@@ -969,7 +970,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight retrained upholds broadcast relicensed usds"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight upholds broadcast retrained relicensed usds"
   },
   {
     "id": "immigration-border-crisis",
@@ -1065,7 +1066,7 @@
     "aliases": [
       "What happens in a school lockdown if every phone is locked away?"
     ],
-    "keywords": "yondr beland pouches victoria ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom lockable"
+    "keywords": "yondr beland pouches victoria literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom lockable lockers"
   },
   {
     "id": "pandemic-preparedness",
@@ -1087,7 +1088,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "biosurveillance cutler wastewater cepi kariko replenished weissman warp sars biontech marani pfizer botched givewell h1n1"
+    "keywords": "biosurveillance mrna cutler wastewater cepi kariko replenished weissman warp sars biontech marani pfizer botched givewell"
   },
   {
     "id": "china-taiwan-invasion",
@@ -1794,7 +1795,7 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison healthspan"
+    "keywords": "senescent yamanaka rapamycin unity pulmonary grimage metformin cellular fibrosis mayo tumor cyclic ebiomedicine harrison healthspan"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -1860,7 +1861,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist amgen copay"
+    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist amgen cuisine"
   },
   {
     "id": "fluoride-water-supplies",
@@ -1904,7 +1905,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
+    "keywords": "linoleic aldehyde hexane frying blasbalg pufa sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid fats"
   },
   {
     "id": "obesity-personal-responsibility",
@@ -2039,7 +2040,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus funder afghanistan opensecrets pakistan super theirs"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2238,7 +2239,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia starter lopez metro airbnb batzer bearish"
+    "keywords": "rentals sellers belt lows fraser hmrc redfin tourist garcia starter lopez metro airbnb batzer bearish"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2663,7 +2664,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
+    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker bahamian interoperable outer payee"
   },
   {
     "id": "masculinity-crisis",
@@ -2911,7 +2912,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "acip marion nestle prasad makary appointees dairy confirmatory gras toothpaste unqualified asthma aluminum inpatient cavity"
+    "keywords": "acip marion nestle prasad makary appointees dairy confirmatory gras toothpaste unqualified mrna asthma aluminum inpatient"
   },
   {
     "id": "doge-federal-cuts",
@@ -3127,7 +3128,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla gode groves kusano paddock pe24031"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode groves kusano paddock"
   },
   {
     "id": "net-neutrality",
@@ -3266,7 +3267,7 @@
       "iter",
       "decarbonization"
     ],
-    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
+    "keywords": "tritium laser commonwealth livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma"
   },
   {
     "id": "vaccine-mandates",
