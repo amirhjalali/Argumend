@@ -892,18 +892,17 @@
     "title": "Should Nuclear Weapons Be Abolished?",
     "question": "Does nuclear deterrence keep the world safer than abolition would?",
     "meta_claim": "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
-    "confidence_score": 30,
-    "balance": 30,
-    "weight": 67,
+    "confidence_score": 37,
+    "balance": 37,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Did nuclear weapons cause the Long Peace, or would the superpowers have avoided war anyway?",
     "tags": [
       "policy"
