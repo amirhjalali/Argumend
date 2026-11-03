@@ -139,6 +139,10 @@ export const aiRegulationData = {
         methodology:
           "Compare innovation metrics in regulated vs. unregulated periods: (1) new drug approvals per decade before and after the 1962 Kefauver-Harris Amendment, (2) nuclear plant construction rates before and after the NRC's founding, (3) AI product deployment rates in the EU (under AI Act) vs. US (less regulated) vs. China for the same 24-month period. Measure both innovation output and safety incidents in each regime.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare model releases, startup formation and venture funding in the EU before and after the AI Act's obligations took effect with the US and UK over the same years, and count how often firms delay or withhold EU launches, using public release records and the European Commission's own reviews.",
+        },
         cost_to_verify:
           "$0 (FDA approval data, NRC records, and AI product launches are publicly available)",
         falsification: {
@@ -264,6 +268,10 @@ export const aiRegulationData = {
         methodology:
           "Track China's domestic AI governance actions independently from its international commitments. Compare: (1) actual enforcement of China's own AI regulations (Interim Measures for Generative AI, Deep Synthesis Provisions) against their stated scope, (2) compute investments and frontier model releases relative to Western-regulated counterparts, (3) military AI deployment pace. Use satellite imagery of Chinese AI data centers, patent filings, and compute procurement data to independently verify domestic activity versus international commitments.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Signed and ratified AI agreements that carry verification terms, such as compute reporting or outside model evaluations, and a record of whether Chinese labs actually submit to those checks at home, as reported by treaty bodies and independent monitors.",
+        },
         cost_to_verify:
           "$1-5M (Open-source intelligence analysis of Chinese AI development combining satellite imagery, patent data, and compute procurement analysis)",
         falsification: {

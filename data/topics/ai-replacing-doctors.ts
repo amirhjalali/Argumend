@@ -274,6 +274,10 @@ export const aiReplacingDoctorsData = {
         methodology:
           "Randomized controlled trial with three arms: AI-only triage and management, physician-only, and AI-assisted physician. Measure patient outcomes (mortality, morbidity, readmission), patient satisfaction, adherence to treatment plans, and detection of psychosocial factors over 2 years.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials that assign patients to AI-led or physician-led care for common primary-care and chronic conditions, tracking hospital admissions, missed diagnoses, deaths and patient satisfaction for a year or more, run by health systems and reviewed by regulators.",
+        },
         cost_to_verify: "$25M (multi-arm RCT across multiple healthcare systems)",
         falsification: {
           supporter_flip:

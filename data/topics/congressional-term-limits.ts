@@ -43,6 +43,10 @@ export const congressionalTermLimitsData = {
         methodology:
           "Use the natural experiment of the 15 states that adopted legislative term limits since the 1990s. Compare margins of victory, number of candidates, and winner characteristics in open seats created by term limits vs. comparable open and incumbent seats in non-term-limited control states, before and after limits took effect (difference-in-differences).",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare state legislatures before and after term limits took effect with similar states that never adopted them, counting contested primaries, general-election margins and the backgrounds of new members, from election returns and political scientists' long-running studies of term-limited states.",
+        },
         cost_to_verify: "$0 (existing election-returns data analysis)",
         falsification: {
           supporter_flip:

@@ -44,6 +44,10 @@ export const consciousnessHardProblemData = {
         methodology:
           "This is primarily a conceptual and philosophical test, but it can be informed empirically. Develop the most complete functional model of consciousness possible using current neuroscience (Global Workspace Theory, Integrated Information Theory, Predictive Processing). Present the model to a diverse panel of philosophers, neuroscientists, psychologists, and AI researchers. Survey whether they judge the functional account to be complete. If disagreement persists systematically along disciplinary lines (philosophers say no, neuroscientists say yes), this reveals the gap is partly a function of disciplinary assumptions rather than pure ontology.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "No experiment available today decides it, since no complete functional account exists. What would move both camps is a worked explanation of why people judge experience to be more than function (the meta-problem), and a check on whether experts who accept that explanation still find a question left over.",
+        },
         cost_to_verify:
           "$100K-300K (Structured expert elicitation study across disciplines)",
         falsification: {
@@ -152,6 +156,10 @@ export const consciousnessHardProblemData = {
         methodology:
           "Extend the Templeton adversarial collaboration methodology. Design experiments where GWT, IIT, Higher-Order Theory, and Predictive Processing make divergent predictions about: (1) consciousness in unusual states (split-brain, anesthesia, psychedelics), (2) the neural correlates of specific qualia, (3) whether specific artificial systems (large language models, neuromorphic chips) are conscious. If theories converge on predictions, they are empirically equivalent and the choice is metaphysical. If they diverge, experiments can discriminate.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Adversarial collaborations like the Templeton-funded test of integrated information and global workspace theories, where rival camps preregister opposing predictions before the data come in, repeated across labs and methods to count how often the theories' predictions diverge and which ones fail.",
+        },
         cost_to_verify:
           "$10-30M (Extended multi-theory adversarial collaboration with fMRI, EEG, and computational modeling)",
         falsification: {
@@ -243,6 +251,10 @@ export const consciousnessHardProblemData = {
         methodology:
           "This test cannot be fully resolved empirically with current knowledge, but can be constrained. (1) Build neuromorphic hardware that replicates biological neural dynamics at increasing levels of fidelity (ion channels, dendritic computation, glial interactions, neurotransmitter systems). (2) Test whether the system exhibits the same consciousness markers (PCI scores, behavioral indicators) as biological brains. (3) If a sufficiently faithful silicon replica shows identical consciousness markers, substrate independence is supported. If markers disappear despite functional equivalence, substrate matters.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Emulations and neuromorphic chips that copy brain dynamics at rising fidelity, checked for the markers that track consciousness in people, such as responses to magnetic stimulation, with both camps agreeing in advance which result would count against them.",
+        },
         cost_to_verify:
           "$50-200M (Neuromorphic hardware development with consciousness marker testing — requires decades of engineering progress)",
         falsification: {

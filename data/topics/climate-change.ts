@@ -96,6 +96,10 @@ export const climateChangeData = {
         equation:
           "\\delta^{13}C = \\left(\\frac{(^{13}C/^{12}C)_{sample}}{(^{13}C/^{12}C)_{standard}} - 1\\right) \\times 1000\\text{‰}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare the measured fall in carbon-13 in air, ice cores, tree rings and corals with the fall expected from the known tonnage of fossil fuel burned, and with the signatures of alternative sources such as volcanoes and the oceans, using NOAA and Scripps records.",
+        },
         cost_to_verify: "$50K (ice core analysis + mass spectrometry)",
         falsification: {
           supporter_flip:
@@ -204,6 +208,10 @@ export const climateChangeData = {
         equation:
           "y(t) = \\beta_1 X_{natural}(t) + \\beta_2 X_{anthropogenic}(t) + \\varepsilon(t)",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Rerun climate models with the actual ocean cycles, volcanic eruptions and solar output of those years fed in, check if they reproduce the slowdown, then compare later ocean heat content from Argo floats with what each explanation predicted.",
+        },
         cost_to_verify: "$500K (supercomputer time + multi-model ensemble)",
         falsification: {
           supporter_flip:
@@ -313,6 +321,10 @@ export const climateChangeData = {
           "Measure incoming solar radiation (satellites). Measure outgoing longwave radiation (satellites). Calculate ocean heat uptake (Argo floats). Sum all known natural forcings. Identify residual requiring anthropogenic explanation.",
         equation: "\\Delta Q = F - \\lambda \\Delta T",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Satellite measurements of the Earth's energy imbalance from CERES, ocean heat uptake from Argo floats and solar output records, checked for any gap between measured heating and the known forcings that an uncounted natural factor would have to fill.",
+        },
         cost_to_verify: "$2M (satellite data + Argo network analysis)",
         falsification: {
           supporter_flip:

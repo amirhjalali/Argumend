@@ -131,6 +131,10 @@ const covidOriginsData: TopicInput = {
         methodology:
           "Commission an independent international audit of the WIV's complete viral sample inventory, unpublished sequence data, laboratory notebooks, and biosafety incident logs from 2018-2020. Compare the full sequence library against SARS-CoV-2 to identify any closer progenitor than RaTG13. Cross-reference researcher health records with laboratory access logs.",
         verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Independent access to the Wuhan Institute of Virology's offline sequence database, sample records and lab notebooks, searched for any virus closer to SARS-CoV-2 than those published, alongside continued sampling of wild bats and market-animal supply chains for a closer natural relative.",
+        },
         cost_to_verify:
           "Requires Chinese government cooperation (currently withheld)",
         falsification: {
@@ -444,6 +448,10 @@ const covidOriginsData: TopicInput = {
         methodology:
           "Await completion of the NDAA-mandated declassification review. Evaluate the underlying intelligence sources and methods supporting each agency's assessment. Cross-reference declassified intelligence with publicly available scientific evidence. Assess whether the newly public information shifts the balance of evidence.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Release of the raw intelligence behind each agency's origin assessment, such as the reports of sick Wuhan researchers, with redactions limited to sources and methods, reviewed by independent scientists and analysts from both sides of the debate.",
+        },
         cost_to_verify:
           "$0 (Mandated by law; completion depends on executive branch compliance)",
         falsification: {
