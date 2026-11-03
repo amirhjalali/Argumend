@@ -140,6 +140,10 @@ export const fourDayWorkWeekData = {
         methodology:
           "Conduct a 5-year longitudinal study following workers who transitioned to four-day weeks, with annual assessments of burnout (Maslach Burnout Inventory), life satisfaction (SWLS), daily cortisol levels (salivary biomarker), and sleep quality (actigraphy). Include a matched control group of workers who remained on five-day schedules. Stratify by gender, parental status, job type, and whether the four-day week is compressed (4x10) or reduced (4x8).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow employees at firms from the 2022 UK pilot and later trials that kept the four-day schedule for three to five years, using the same validated burnout, sleep and job-satisfaction surveys, alongside matched firms that stayed on five days, as the trials' academic partners could.",
+        },
         cost_to_verify:
           "$3-5M (5-year longitudinal cohort study with biomarker collection and matched controls)",
         falsification: {
@@ -231,6 +235,10 @@ export const fourDayWorkWeekData = {
         methodology:
           "Use a computable general equilibrium (CGE) model calibrated to a mid-size open economy to simulate the macroeconomic effects of a universal 32-hour work week at current wage rates. Model three scenarios: (1) productivity increase fully absorbs lost hours, (2) 50% absorption with remainder as increased labor costs, (3) no productivity increase. Measure impacts on GDP, inflation, employment, sectoral output, and Gini coefficient. Validate against observed data from France (35-hour week), Iceland, and Belgium (right to four-day week, 2022).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Output per worker and unit labor costs taken from firm accounts, not self-report, across a broad mix of sectors including manufacturing, retail and health care that adopt a 32-hour week at full pay, compared with similar firms that do not, ideally with random assignment of which firms switch.",
+        },
         cost_to_verify:
           "$500K-1M (Macroeconomic modeling with sectoral detail, validated against existing natural experiments)",
         falsification: {

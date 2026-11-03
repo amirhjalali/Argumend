@@ -61,6 +61,10 @@ export const mediaBiasDemocracyData = {
         equation:
           "\\text{Bias Score} = \\frac{\\sum (\\text{Framing}_{i} + \\text{Source Selection}_{i} + \\text{Story Choice}_{i})}{N_{\\text{articles}}}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Apply several published bias measures, such as story-choice and wording comparisons against congressional speech, to the same outlets and years, and check if teams with different politics get the same rankings and direction.",
+        },
         cost_to_verify: "$150K (Large-scale content analysis)",
         falsification: {
           supporter_flip:

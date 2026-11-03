@@ -328,6 +328,10 @@ export const seedOilsHealthData = {
         methodology:
           "Randomize 5,000 adults to one of two dietary interventions for 5 years: (1) standard seed-oil-based diet (soybean/canola as primary cooking and added fats, ~8% calories from LA) vs (2) seed-oil-free diet (olive oil and butter as primary fats, ~2% calories from LA), with matched total fat and caloric intake. Measure primary endpoints: cardiovascular events, metabolic syndrome incidence, inflammatory biomarkers (CRP, IL-6), and body composition via DEXA. Track compliance with biomarker verification (red blood cell fatty acid profiles).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A long randomized trial swapping seed oils for other fats such as olive oil or butter, with total fat and calories held equal, tracking heart attacks, diabetes and inflammation markers, alongside recovered data from older trials like the Minnesota Coronary Experiment.",
+        },
         cost_to_verify:
           "$30-80M (5-year dietary intervention RCT with 5,000 participants and hard cardiovascular endpoints)",
         falsification: {

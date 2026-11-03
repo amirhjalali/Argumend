@@ -46,6 +46,10 @@ export const socialMediaMentalHealthData = {
         equation:
           "MH_{score} = \\beta_0 + \\beta_1 \\cdot \\text{hours} + \\beta_2 \\cdot \\text{hours}^2 + \\epsilon",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Large cohorts such as the UK Millennium Cohort Study and the US ABCD study, analyzed by hours of use and broken out by sex and age, looking for a sharp rise in depression at heavy use rather than a smooth shallow slope, under preregistered analysis plans.",
+        },
         cost_to_verify: "$5M (Longitudinal study with passive measurement)",
         falsification: {
           supporter_flip:
@@ -153,6 +157,10 @@ export const socialMediaMentalHealthData = {
         equation:
           "\\Delta MH = f(\\text{algorithm type}, \\text{baseline MH}, \\text{usage hours})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials, run with platform cooperation, that switch some users to chronological or user-chosen feeds while others keep engagement-ranked feeds, measuring depression and anxiety with clinical scales over several months.",
+        },
         cost_to_verify:
           "$10M (Requires platform cooperation or technical workaround)",
         falsification: {

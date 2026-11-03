@@ -99,6 +99,63 @@ function localIdf(total: number, count: number): number {
 }
 
 /**
+ * A qualifier this rare across the maps (about 20 of 150) can say which
+ * crux a word belongs to; "cost" or "rate" cannot.
+ */
+const MODIFIER_MIN_IDF = 2;
+
+/**
+ * Per paste term, the content word written right before it, one entry per
+ * occurrence (null when there is none): "waste storage" gives "storage" the
+ * modifier "waste". Filler, commas and sentence ends separate words, so a
+ * list ("coal, gas") is not a phrase.
+ */
+function pasteModifiers(text: string): Map<string, (string | null)[]> {
+  const modifiers = new Map<string, (string | null)[]>();
+  for (const clause of text.split(/[.!?;:,\n]+/)) {
+    const content = new Set(pasteTerms(clause));
+    const sequence = pasteTerms(clause, { keepStopwords: true });
+    sequence.forEach((term, at) => {
+      if (!content.has(term)) return;
+      const before = sequence[at - 1];
+      const list = modifiers.get(term) ?? [];
+      list.push(before !== undefined && before !== term && content.has(before) ? before : null);
+      modifiers.set(term, list);
+    });
+  }
+  return modifiers;
+}
+
+/**
+ * Whether the paste uses a word of this crux in another crux's sense: it
+ * always writes the word after another word this crux never uses, and at
+ * least once after a telling word (`MODIFIER_MIN_IDF`) of the question or
+ * title of a crux that never uses the word itself. The phrase then straddles
+ * the two cruxes, and its qualifier says which one it means. On the nuclear
+ * map, "waste storage" (and then "dry cask storage") is the safety crux's
+ * storage, not the firm-power crux's batteries; "battery storage", or
+ * "storage" on its own, stays the firm-power crux's.
+ */
+function otherSense(
+  term: string,
+  modifiers: readonly (string | null)[] | undefined,
+  frequencies: readonly ReadonlyMap<string, number>[],
+  names: readonly ReadonlySet<string>[],
+  position: number,
+  corpusIdf: (term: string) => number,
+): boolean {
+  if (!modifiers?.length) return false;
+  const own = frequencies[position];
+  // Used on its own, or after a word of this crux, the word is this crux's.
+  if (modifiers.some((word) => word === null || own.has(word))) return false;
+  return modifiers.some(
+    (word) =>
+      corpusIdf(word!) >= MODIFIER_MIN_IDF &&
+      names.some((name, other) => other !== position && name.has(word!) && !frequencies[other].has(term)),
+  );
+}
+
+/**
  * What each of the paste's words adds to each crux's score: the paste's
  * terms in order, and per crux (in the map's order) each term's share.
  */
@@ -145,11 +202,14 @@ function termContributions(
   const queryCount = new Map<string, number>();
   for (const term of pasteTerms(text)) queryCount.set(term, (queryCount.get(term) ?? 0) + 1);
 
-  const shares = frequencies.map((frequency) => {
+  const modifiers = pasteModifiers(text);
+  const names = tokenized.map((fields) => new Set(fields.name));
+  const shares = frequencies.map((frequency, position) => {
     const share = new Map<string, number>();
     for (const [term, count] of queryCount) {
       const tf = frequency.get(term);
       if (!tf) continue;
+      if (otherSense(term, modifiers.get(term), frequencies, names, position, corpusIdf)) continue;
       const weight =
         corpusIdf(term) * localIdf(cruxes.length, cruxCount.get(term) ?? 0) * (1 + Math.log(count));
       share.set(term, weight * (tf / (params.k1 + tf)));

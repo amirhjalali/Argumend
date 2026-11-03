@@ -65,6 +65,10 @@ export const scottCostDiseaseData = {
         equation:
           "\\Delta P_{sector} = s_L \\cdot \\Delta w_{econ} + \\underbrace{\\varepsilon}_{\\text{residual}}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Split each sector's real cost growth, from BLS and BEA data, into what economy-wide wage growth predicts given its labor share and what is left over, and see how large the leftover is in health care, education and construction.",
+        },
         cost_to_verify: "$0 (public BLS/BEA data; Helland–Tabarrok replication)",
         falsification: {
           supporter_flip:
@@ -83,7 +87,7 @@ export const scottCostDiseaseData = {
           title: "Helland & Tabarrok: Baumol carries the majority",
           description:
             "Their 2019 Mercatus study concludes the Baumol mechanism accounts for the bulk of real price growth in education and a substantial share in health care — the sectors that exploded are the least automatable.",
-          side: "for" as const,
+          side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
@@ -146,6 +150,24 @@ export const scottCostDiseaseData = {
           reasoning:
             "Strong, well-measured — but speaks to quantity/quality, not directly to the price mechanism.",
         },
+        {
+          id: "nordhaus-baumol-diseases",
+          title: "Nordhaus: Stagnant industries' relative prices rose, as Baumol predicted",
+          description:
+            "Using U.S. industry data for 1948–2001, William Nordhaus found that 'technologically stagnant sectors clearly have rising relative prices and declining relative real outputs', the pattern Baumol's theory predicts, and that the growing share of stagnant sectors slowed aggregate productivity growth in the second half of the twentieth century.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Nordhaus, 'Baumol's Diseases: A Macroeconomic Perspective', NBER Working Paper 12218 (2006); B.E. Journal of Macroeconomics (2008)",
+          sourceUrl: "https://www.nber.org/papers/w12218",
+          reasoning:
+            "An economy-wide test of the mechanism across all industries, not only the three in dispute, so it supports a large share for the no-villain explanation. It does not split health, education or construction into a Baumol part and a residual, which is this crux's test, so directness is 6.",
+        },
       ],
     },
     {
@@ -168,6 +190,10 @@ export const scottCostDiseaseData = {
         methodology:
           "Using OECD and Himmelstein et al. (2020) accounts, hold outcome measures (life expectancy, amenable mortality) roughly constant and attribute the residual administrative-spending gap between matched systems.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare billing and administrative spending per patient in the US and in single-payer Canada for similar care, using hospital accounts and insurer filings, and see how much of the total spending gap it covers.",
+        },
         cost_to_verify: "$0 (OECD + Annals of Internal Medicine 2020 data)",
         falsification: {
           supporter_flip:
@@ -255,6 +281,10 @@ export const scottCostDiseaseData = {
         equation:
           "\\frac{\\partial \\text{Tuition}}{\\partial \\text{Subsidy}} \\approx 0.60",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Measure how list and net prices change after sudden, rule-driven changes in aid or loan limits, such as changes to federal loan caps, comparing affected and unaffected schools or providers.",
+        },
         cost_to_verify: "$0 (NY Fed Staff Report No. 733)",
         falsification: {
           supporter_flip:
@@ -319,6 +349,25 @@ export const scottCostDiseaseData = {
           sourceUrl: "https://nces.ed.gov/pubs/web/96344han.asp",
           reasoning: "A genuine limit on the hypothesis's scope.",
         },
+        {
+          id: "turner-pell-incidence",
+          title: "Turner: Schools capture about 12 percent of Pell Grant aid",
+          description:
+            "Using regression-discontinuity and regression-kink designs on National Postsecondary Student Aid Study data, Lesley Turner estimated that institutions capture 12 percent of their students' Pell Grant aid through price discrimination. Capture varied by sector: public schools captured less than 5 percent on average, while at selective nonprofit schools cuts in institutional grant aid crowded out two-thirds of Pell aid.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 8,
+          },
+          source:
+            "Turner, 'The Road to Pell is Paved with Good Intentions: The Economic Incidence of Federal Student Grant Aid', University of Maryland working paper (August 2014)",
+          sourceUrl:
+            "https://www.econ.umd.edu/sites/www.econ.umd.edu/files/pubs/Turner_FedAidIncidence.pdf",
+          reasoning:
+            "A credibly identified estimate that most of a large federal grant reaches students rather than schools, so pass-through is not uniformly high. It covers grants rather than the subsidized loans the New York Fed studied and is a working paper, and its two-thirds figure at selective nonprofits shows capture where schools have pricing power, so it narrows the mechanism rather than dismissing it.",
+        },
       ],
     },
     {
@@ -341,6 +390,10 @@ export const scottCostDiseaseData = {
         methodology:
           "Use the Transit Costs Project database to pair comparable tunneling projects internationally; regress out wage and geological controls; the residual country multiple is the dysfunction estimate.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare per-kilometer costs of similar transit tunnels across countries, adjusting for wages and geology, using project databases like the Transit Costs Project, and look for a persistent US multiple.",
+        },
         cost_to_verify: "$0 (Transit Costs Project open database)",
         falsification: {
           supporter_flip:
@@ -405,6 +458,25 @@ export const scottCostDiseaseData = {
             "https://transitcosts.com/transit-costs-study-final-report/",
           reasoning: "A real caveat that trims, but does not close, the measured gap.",
         },
+        {
+          id: "eno-50-percent-premium",
+          title: "Eno: U.S. transit costs about 50 percent more, with New York driving the largest gap",
+          description:
+            "The Eno Center for Transportation analysed construction cost data from 180 domestic and international projects and found the United States pays 50 percent more to build transit for both primarily tunneled and primarily at-grade projects. 'When including the disproportionately expensive projects in New York City, the U.S. tunneling premium rises to 250 percent.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Eno Center for Transportation, 'Saving Time and Making Cents: A Blueprint for Building Transit Better' (July 2021), report release",
+          sourceUrl:
+            "https://enotrans.org/article/eno-releases-major-report-on-u-s-transit-costs-and-project-delivery/",
+          reasoning:
+            "A project-level comparison that puts the typical U.S. premium well below the several-fold multiples New York's projects produce, which trims how general the gap is. It still finds a real premium and does not itself hold wages or geology constant, so it narrows rather than closes the institutional-cost case.",
+        },
       ],
     },
     {
@@ -427,6 +499,10 @@ export const scottCostDiseaseData = {
         methodology:
           "Construct hedonic/outcome-denominated indices for each sector and compare their trend to the raw price trend. Divergence quantifies how much of 'cost disease' is unpriced quality.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Rebuild health, education and transport price series per unit of result, such as cost per healthy life-year or per test-score point, from government statistics, and check if they still rise over decades.",
+        },
         cost_to_verify: "$50K (hedonic index construction across sectors)",
         falsification: {
           supporter_flip:
@@ -455,6 +531,24 @@ export const scottCostDiseaseData = {
           source: "Synthesis / inference — broad historical quality adjustment across treatments",
           reasoning:
             "Clearly true for health care; the question is how much of the cost it justifies.",
+        },
+        {
+          id: "cutler-value-medical-spending",
+          title: "Cutler, Rosen & Vijan: medical spending since 1960 bought life-years at about $19,900 each",
+          description:
+            "Cutler, Rosen and Vijan (NEJM, 2006) set U.S. life-expectancy gains from 1960 to 2000 against the rise in medical spending, assuming half of the gains came from medical care. For a newborn the cost per year of life gained was $19,900; about $31,600 at age 15, $53,700 at 45 and $84,700 at 65. They concluded that 'on average, the increases in medical spending since 1960 have provided reasonable value.' The cost per life-year rose over time, from $7,400 in the 1970s to $36,300 in the 1990s, and at age 65 it was $121,000 in the 1980s and $145,000 in the 1990s.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Cutler, Rosen & Vijan, 'The Value of Medical Spending in the United States, 1960–2000', New England Journal of Medicine 355:920–927 (2006)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/16943404/",
+          reasoning:
+            "The outcome-denominated health measure this crux asks for: per life-year gained, the extra spending looks worth its price, which supports reading much of health care's cost rise as bought quality. It rests on the assumption that half of longevity gains came from medicine and stops at 2000, and its own rising cost per life-year, steepest for the elderly, is what the other side points to, so replicability is 6 and directness 7.",
         },
         {
           id: "naep-flat",

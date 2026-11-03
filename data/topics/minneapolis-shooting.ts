@@ -32,6 +32,10 @@ export const minneapolisShootingData = {
         equation:
           "P(\\text{excessive force}) = f(\\text{threat level}, \\text{response proportionality}, \\text{de-escalation attempts})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Release of all body-camera footage, dispatch audio and the agents' written reports from the time, synchronized with bystander video into one timeline and reviewed by an independent investigator, such as a state prosecutor, rather than the agency involved.",
+        },
         cost_to_verify: "$0 (Footage exists but access blocked)",
         falsification: {
           supporter_flip:
@@ -62,7 +66,7 @@ export const minneapolisShootingData = {
           sourceUrl:
             "https://www.npr.org/2026/01/25/nx-s1-5687875/minneapolis-shooting-minnesota-ice-alex-pretti-dhs-investigation",
           reasoning:
-            "Bystander video reviewed by NPR (and separately by Reuters, BBC, NYT, CNN, The Guardian) shows Pretti holding only a phone, contradicting the DHS account; multiple independent recordings can be cross-referenced.",
+            "Bystander video reviewed by NPR (and separately by Reuters, BBC, NYT, CNN, The Guardian) shows Pretti filming with his phone, not holding a gun, when agents pepper-sprayed him and took him to the ground, contradicting the DHS account; the same videos show an agent disarming him of a gun he was carrying. Multiple independent recordings can be cross-referenced.",
         },
         {
           id: "licensed-carrier",
@@ -134,7 +138,7 @@ export const minneapolisShootingData = {
       skeptic_premise:
         "Two incidents do not by themselves establish a pattern, and each turned on its own contested facts. Federal agents operate in volatile crowd situations and are authorized to use force when they reasonably perceive a threat; a surge in enforcement amid large protests predictably raises the number of confrontations. Officials say body-camera footage exists and that the agents' accounts should be weighed before judgment.",
       proponent_rebuttal:
-        'Two fatal shootings of U.S. citizens in roughly three weeks in one state — Renée Good on January 7 and Alex Pretti on January 24, 2026 — suggest possible systemic issues with training, rules of engagement, or supervision. Governor Tim Walz said Trump should "pull these 3,000 untrained agents out of Minnesota." More than 100 House Democrats co-sponsored a resolution to impeach Secretary Noem after the shooting (the count grew past 150).',
+        'Two fatal shootings of U.S. citizens in roughly three weeks in one state — Renée Good on January 7 and Alex Pretti on January 24, 2026 — suggest possible systemic issues with training, rules of engagement, or supervision. Governor Tim Walz said Trump should "pull these 3,000 untrained agents out of Minnesota." A resolution to impeach Secretary Noem, introduced on January 14, a week after Good\u2019s death, already had 100 House Democratic cosponsors by January 20; its sponsor, Rep. Robin Kelly, said 50 more Members joined after Pretti was killed, bringing it to 162 by January 27.',
       crux: {
         id: "training-standards",
         title: "Training and Rules of Engagement Audit",

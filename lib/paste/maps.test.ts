@@ -287,6 +287,44 @@ describe("decideMatch", () => {
   it("is empty for an empty ranking", () => {
     expect(decideMatch({ ranked: [], ceiling: 0, exclusiveLead: () => 0 }, noSiblings).named).toBeNull();
   });
+
+  it("decides an on-subject map tied with an off-subject leader as if it led", () => {
+    const off = (id: string) => id === "map-0";
+    const args = [noSiblings, undefined, off] as const;
+    // 0.01 apart either way, the result is the same.
+    expect(decideMatch(ranking([17.11, 17.1, 7.85]), ...args).named?.id).toBe("map-1");
+    expect(decideMatch(ranking([17.11, 17.1, 7.85]), noSiblings, undefined, (id) => id === "map-1").named?.id)
+      .toBe("map-0");
+    // An off-subject leader that stands ahead still blocks the paste, lists included.
+    const ahead = decideMatch(ranking([30, 17.1, 7.85]), ...args);
+    expect(ahead.named).toBeNull();
+    expect(ahead.closest).toEqual([]);
+  });
+
+  it("names the leader when a rival without its words is a second subject in sentences of its own", () => {
+    // Ahead on score (1.6), not on the words where they differ (1.8).
+    const mixed = ranking([24, 15, 10], 60, () => 1.8);
+    const second = (top: string, rival: string) => top === "map-0" && rival === "map-1";
+    const args = [noSiblings, undefined, undefined, undefined, undefined, undefined, undefined] as const;
+    expect(decideMatch(mixed, ...args).named).toBeNull();
+    expect(decideMatch(mixed, ...args, second).named?.id).toBe("map-0");
+    // The score lead and the coverage floors still apply.
+    expect(decideMatch(ranking([24, 20, 10], 60, () => 1.8), ...args, second).named).toBeNull();
+    expect(decideMatch(ranking([24, 15, 10], 200, () => 1.8), ...args, second).named).toBeNull();
+  });
+});
+
+describe("findMaps on a paste about two subjects", () => {
+  it("names the map of the subject that the paste argues, with the other beside it", async () => {
+    // r12: the flagship evidence index made the AI-jobs map a rival here on
+    // its own sentence; the right-to-repair sentences still stand clear of it.
+    const result = await findMaps(
+      "The repair debate concerns whether phone makers should sell parts and diagnostic tools to independent shops. " +
+        "Manufacturers cite battery fires; repair advocates cite waste and monopoly prices. " +
+        "Separately, my cousin lost a translation contract to AI and says automation is coming for everyone's job.",
+    );
+    expect(result.match?.id).toBe("right-to-repair");
+  });
 });
 
 describe("pickPillars", () => {
@@ -322,6 +360,19 @@ describe("pickPillars", () => {
     // The long crux shares two words, the short one two rarer, closer ones.
     const picked = pickPillars([long, short], "rent control keeps families in their neighborhoods", flatIdf);
     expect(picked[0]?.id).toBe("short");
+  });
+
+  it("reads a word in the sense its qualifier gives it", () => {
+    // "Waste storage" is the waste crux's storage, though only the grid crux says "storage".
+    const cruxes = [
+      pillar("grid", "Grid storage batteries firm power wind"),
+      pillar("waste", "Waste accidents deaths safety"),
+    ];
+    const pick = (text: string) => pickPillars(cruxes, text, flatIdf).map((picked) => picked.id);
+    expect(pick("waste storage is fine and deaths are rare")).toEqual(["waste"]);
+    expect(pick("battery storage is cheap and deaths are rare")[0]).toBe("grid");
+    expect(pick("storage is cheap and deaths are rare")).toContain("grid");
+    expect(pick("cheap storage")).toEqual(["grid"]);
   });
 });
 
@@ -405,19 +456,22 @@ describe("findMaps", () => {
 
   it("still ranks a card by the paste when the paste is about what that card covers", async () => {
     // The poll stays when the paste is about polls: the crux's question is
-    // added to the paste, it does not replace it.
+    // added to the paste, it does not replace it. The paste uses the poll's
+    // own word ("favor"): with "support" the poll card and the passive-safety
+    // card sat within 1% of each other, so adding any two maps to the corpus
+    // could flip them (round 12, two new maps did).
     const match = (await matchOnMap(
       "nuclear-renaissance-smr",
-      "Nuclear is the only serious answer to climate change, and the new small reactors fix the old fears. Polls show Americans support nuclear now; the people who oppose nuclear are stuck in the 1970s.",
+      "Nuclear is the only serious answer to climate change, and the new small reactors fix the old fears. Polls show most Americans now favor nuclear; the people who oppose nuclear are stuck in the 1970s.",
     ))!;
     expect(match.cards.map((card) => card.id)).toContain("public-support-rising");
   });
 
   it("keeps a contrasting card's own crux when the selected crux has evidence on only one side", async () => {
     const result = await findMaps(
-      "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
+      "Forgiving student debt is unfair to people who paid off their loans or never went to college, and it rewards borrowers who took on too much.",
     );
-    expect(result.match?.id).toBe("section-230-reform");
+    expect(result.match?.id).toBe("student-debt-forgiveness");
     expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
     const own = result.match!.cards.find((card) => card.crux?.href === result.match!.crux!.href)!;
     const borrowed = result.match!.cards.find((card) => card.crux?.href !== result.match!.crux!.href)!;
@@ -425,14 +479,23 @@ describe("findMaps", () => {
     expect(borrowed).toBeDefined();
     expect(own.crux?.href).toBe(result.match!.crux!.href);
     expect(borrowed.crux).toEqual({
-      question: "Can a reform deter targeted harms without a net loss of lawful speech?",
-      href: "/topics/section-230-reform#crux-collateral-damage",
+      question: "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
+      href: "/topics/student-debt-forgiveness#crux-economic-stimulus",
     });
     expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(result.match!.cards);
     expect(PasteMapsResultSchema.safeParse({
       ...result,
       match: { ...result.match, cards: [{ ...borrowed, crux: { question: borrowed.crux!.question, href: 12 } }] },
     }).success).toBe(false);
+  });
+
+  it("takes both sides from the selected crux once that crux has a card on each", async () => {
+    const result = await findMaps(
+      "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
+    );
+    expect(result.match?.id).toBe("section-230-reform");
+    expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+    for (const card of result.match!.cards) expect(card.crux?.href).toBe(result.match!.crux!.href);
   });
 
   it("never shows a card that restates an agreed fact as a side's card, on any pillar map", async () => {

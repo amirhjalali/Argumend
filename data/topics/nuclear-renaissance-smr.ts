@@ -96,6 +96,10 @@ export const nuclearRenaissanceSmrData = {
         equation:
           "LCOE_{SMR} = \\frac{\\sum_{t=1}^{T} \\frac{I_t + M_t + F_t + D_t}{(1+r)^t}}{\\sum_{t=1}^{T} \\frac{E_t}{(1+r)^t}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Final, audited construction and operating costs for the first several units of one small-reactor design, checked for falling costs from unit to unit, against renewables plus storage delivering round-the-clock power on the same grid.",
+        },
         cost_to_verify:
           "$10M (requires operational SMR cost data over 5+ year period)",
         falsification: {
@@ -206,6 +210,10 @@ export const nuclearRenaissanceSmrData = {
         methodology:
           "Conduct full-scale loss-of-coolant and station-blackout tests on operating SMR prototypes. Monitor core temperatures, containment integrity, and fission product release over 72+ hours with zero operator action or external power. Compare results to probabilistic risk assessments.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Full-scale integrated tests and regulator review of passive cooling under station blackout and loss-of-coolant scenarios, like the NRC's certification review of NuScale's design, followed by operating experience from the first plants.",
+        },
         cost_to_verify:
           "$200M (full-scale prototype testing with instrumentation)",
         falsification: {
@@ -318,6 +326,10 @@ export const nuclearRenaissanceSmrData = {
         methodology:
           "Monitor all announced Western SMR projects (NuScale, Rolls-Royce, X-energy, GE-Hitachi BWRX-300, TerraPower Natrium) against their stated timelines. Record construction start, fuel load, criticality, and grid connection dates. Compare to original schedule commitments.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Record each Western small-reactor project's committed grid-connection date and budget, then mark actual dates as they pass using regulator and utility filings, for projects such as Ontario's Darlington SMR and TVA's Clinch River.",
+        },
         cost_to_verify:
           "$0 (public record tracking of announced project milestones)",
         falsification: {

@@ -209,7 +209,7 @@ export const immigrationNationalIdentityData = {
           id: "gallup-immigration-polls",
           title: "55% of Americans Want Immigration Decreased — First Majority Since 2005 (Gallup, 2024)",
           description:
-            "Gallup's annual immigration survey found that 55% of Americans in 2024 wanted immigration to the US decreased — a 14-point jump from 41% in 2023 and up from a low of 28% in 2020. This was the first time a majority favored less immigration since 2005, and the largest share since a 58% reading in 2001. The 2024 swing was driven across party lines, including an 11-point rise among independents (to 50%) and a 10-point rise among Democrats (to 28%). The finding is consistent with polling from Pew Research Center and AP-NORC showing growing public concern about immigration levels. (Note: Gallup's 2025 follow-up showed this concern abating as the figure fell back toward 30%.)",
+            "Gallup's annual immigration survey found that 55% of Americans in 2024 wanted immigration to the US decreased — a 14-point jump from 41% in 2023 and up from a low of 28% in 2020. This was the first time a majority favored less immigration since 2005, and the largest share since a 58% reading in 2001. The 2024 swing was driven across party lines, including an 11-point rise among independents (to 50%) and a 10-point rise among Democrats (to 28%). The finding is consistent with polling from Pew Research Center and AP-NORC showing growing public concern about immigration levels. (Note: Gallup's June 2025 follow-up showed this concern abating as the figure fell to 30%, driven mostly by Republicans, whose share fell from 88% to 48%.)",
           side: "for" as const,
           weight: {
             sourceReliability: 9,

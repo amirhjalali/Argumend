@@ -44,6 +44,10 @@ export const minimumWageEffectsData = {
         equation:
           "\\epsilon = \\frac{\\%\\Delta \\text{Employment}}{\\%\\Delta \\text{Minimum Wage}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare employment and hours in low-wage regions that adopted a minimum wage high relative to local pay with similar regions that did not, counting both job losses and slower hiring, as studies of recent state and city increases can.",
+        },
         cost_to_verify: "$200K (Analysis of existing state/county employment data)",
         falsification: {
           supporter_flip:
@@ -154,6 +158,10 @@ export const minimumWageEffectsData = {
         equation:
           "\\text{Efficiency} = \\frac{\\Delta \\text{Poverty Rate}}{\\text{Total Cost to Economy}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Household survey and tax data, of the kind the Congressional Budget Office used in its 2019 estimates, showing what share of the extra pay from a minimum-wage increase reaches families below the poverty line, compared with the share for an EITC expansion of equal cost.",
+        },
         cost_to_verify: "$150K (Microsimulation using existing survey data)",
         falsification: {
           supporter_flip:

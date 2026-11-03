@@ -207,6 +207,10 @@ export const inflationMonetaryPolicyData = {
         equation:
           "\\pi_t = \\pi^{supply}_t + \\pi^{demand}_t + \\pi^{expectations}_t + \\varepsilon_t",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Decompose price changes category by category, as the San Francisco Fed does when it splits inflation into supply- and demand-driven parts, repeat it with other teams' methods, and read it with survey measures of expected inflation to see if the shares agree.",
+        },
         cost_to_verify:
           "$25K (econometric modeling with BLS microdata)",
         falsification: {

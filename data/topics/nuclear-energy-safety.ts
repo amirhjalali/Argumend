@@ -296,7 +296,7 @@ export const nuclearEnergySafetyData = {
       evidence: [
         {
           id: "firm-resources-lower-cost",
-          title: "Firm Low-Carbon Resources Cut Zero-Carbon Grid Costs 10-62%",
+          title: "Firm low-carbon resources cut zero-carbon grid costs 10-62%",
           description:
             "Sepulveda, Jenkins, de Sisternes and Lester (Joule, 2018) modeled 912 scenarios for a New England-like and a Texas-like US system. Having firm low-carbon resources (nuclear, gas with carbon capture, bioenergy) available reduced the cost of fully decarbonized electricity by 10% to 62%. Without them, costs rose rapidly as CO2 limits approached zero, and batteries and demand flexibility did not substitute for them.",
           side: "for" as const,

@@ -176,6 +176,10 @@ export const universalHealthcareData = {
         equation:
           "\\text{System Quality} = \\frac{\\sum \\text{Health Outcomes}_{\\text{adjusted}}}{\\text{Per Capita Spending}}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare US and peer-country deaths from causes timely medical care prevents, separately from deaths from violence, overdoses and obesity-related disease, using OECD and WHO data, and look at what happened to US groups when they gained coverage, such as at Medicare's age-65 threshold.",
+        },
         cost_to_verify: "$200K (International comparative analysis)",
         falsification: {
           supporter_flip:

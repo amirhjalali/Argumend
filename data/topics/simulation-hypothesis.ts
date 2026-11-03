@@ -88,6 +88,10 @@ export const simulationHypothesisData = {
         equation:
           "H(B_{sim}) \\approx H(B_{bio}) \\implies \\text{Substrate Independence}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A digital model of the C. elegans worm, built from its mapped wiring, that reproduces its full set of behaviors including learning, then the same test on fruit-fly and mouse connectomes, with both camps agreeing beforehand what such a result would mean for experience.",
+        },
         cost_to_verify: "$5M (OpenWorm project ongoing at openworm.org)",
         falsification: {
           supporter_flip:
@@ -199,6 +203,10 @@ export const simulationHypothesisData = {
         equation:
           "f_{sim} = \\frac{N \\cdot M}{N \\cdot M + B} \\to 1 \\text{ as } N \\to \\infty",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "No observation fixes the counts in the formula. What would move people is agreement on the reasoning rule, the self-sampling assumption that you should reason as if you were a random observer, tested on cases philosophers on both sides accept, such as the doomsday argument and the Sleeping Beauty problem.",
+        },
         cost_to_verify: "$0 (Philosophical analysis)",
         falsification: {
           supporter_flip:
@@ -310,6 +318,10 @@ export const simulationHypothesisData = {
         equation:
           "E_{GZK} \\approx 5 \\times 10^{19} \\text{ eV}; \\quad \\Delta\\theta < 0.1° \\text{ precision}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Search the arrival directions of the highest-energy cosmic rays from the Pierre Auger Observatory and Telescope Array for a pattern aligned with fixed axes in space, at the level lattice models predict, with the search plan published before the data are analyzed.",
+        },
         cost_to_verify: "$0 (Pierre Auger Observatory data is public)",
         falsification: {
           supporter_flip:

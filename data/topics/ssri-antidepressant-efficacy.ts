@@ -137,6 +137,10 @@ export const ssriAntidepressantEfficacyData = {
         methodology:
           "Re-score blinded trial data using single-item (depressed mood) versus full-scale outcomes; test whether the drug-placebo difference is symptom-specific and dose-dependent. Compare against active-placebo trials that reproduce side effects to isolate expectancy from pharmacology.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Item-level reanalysis of the trial data regulators hold, checking if the gap concentrates on depressed mood and rises with dose, run alongside trials that use active placebos mimicking side effects and that ask patients and raters to guess their assignment.",
+        },
         cost_to_verify: "$0 (item-level re-analysis of existing trials)",
         falsification: {
           supporter_flip:
@@ -208,6 +212,10 @@ export const ssriAntidepressantEfficacyData = {
         methodology:
           "Compare relapse rates under abrupt switch-to-placebo versus slow taper, and against patients never started on the drug; track symptom timing and type to separate withdrawal phenomena from genuine recurrence of depression. Use blinded gradual-discontinuation designs.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Discontinuation trials that taper the drug slowly over months rather than switching abruptly, and that score withdrawal symptoms and returning depression separately, compared with relapse rates after abrupt stops.",
+        },
         cost_to_verify: "$5M (randomized taper-vs-maintenance trial)",
         falsification: {
           supporter_flip:

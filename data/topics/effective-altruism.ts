@@ -42,6 +42,10 @@ export const effectiveAltruismData = {
         methodology:
           "Compare RCT effect estimates against (1) large-N replications and multi-site trials, (2) general-equilibrium / at-scale studies that capture spillovers and market effects, and (3) long-run follow-ups. Track whether updated meta-analyses converge or diverge from original headline figures.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare effect sizes from the original trials of cash transfers, deworming and bed nets with results when governments or large charities ran them at national scale, using long follow-ups such as the Kenya deworming cohort tracked into adulthood.",
+        },
         cost_to_verify: "$0 (analysis of published trials and meta-analyses)",
         falsification: {
           supporter_flip:

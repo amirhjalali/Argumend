@@ -42,6 +42,10 @@ export const psychedelicsMentalHealthData = {
         methodology:
           "Monitor Compass Pathways and Usona Institute Phase III trials. Evaluate primary endpoints (MADRS depression scale scores at 6 and 12 weeks), adverse events, and long-term follow-up data. Assess FDA advisory committee response.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Phase III trials with active placebos that cause noticeable effects, independent raters who do not know the assignment and a count of how many patients and therapists guessed correctly, reviewed by the FDA with the same scrutiny MDMA got in 2024.",
+        },
         cost_to_verify: "$0 (Trials are underway; monitor results)",
         falsification: {
           supporter_flip:
@@ -179,6 +183,10 @@ export const psychedelicsMentalHealthData = {
         methodology:
           "Track patient-reported outcomes, adverse events, and follow-up data from Oregon Psilocybin Services. Compare mental health outcomes for service center clients vs. matched controls receiving standard care.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Oregon's and Colorado's service-center data on adverse events, emergency visits and follow-up mental health scores, compared with matched people seeking other treatment, published by state health agencies or university evaluators.",
+        },
         cost_to_verify: "$1M (Prospective outcomes study of Oregon program)",
         falsification: {
           supporter_flip:
@@ -253,6 +261,10 @@ export const psychedelicsMentalHealthData = {
         methodology:
           "Conduct randomized controlled trials comparing: (1) the full MAPS/Compass protocol, (2) a reduced protocol with fewer preparation/integration sessions, (3) a group-facilitated format with 4-6 patients per therapist, and (4) a pharmacological-only condition (drug without structured therapy). Measure clinical outcomes, cost per remission, and patient satisfaction across all conditions. Also track the development of non-hallucinogenic neuroplasticity drugs that could provide the therapeutic mechanism without the psychedelic experience.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials that compare the full protocol head to head with group sessions, fewer therapist hours or non-hallucinogenic analogs, on the same depression or PTSD scales, with blinded raters and follow-up of a year or more.",
+        },
         cost_to_verify:
           "$15-30M (Multi-arm RCT comparing full vs. simplified protocols across multiple sites)",
         falsification: {

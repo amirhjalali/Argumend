@@ -75,7 +75,7 @@ describe("buildPasteSummary", () => {
   });
 
   it("keeps a borrowed card's evidence link without duplicating an already linked question", async () => {
-    const maps = await findMaps("Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.");
+    const maps = await findMaps("Forgiving student debt is unfair to people who paid off their loans or never went to college, and it rewards borrowers who took on too much.");
     const match = maps.match!;
     const borrowed = match.cards.find((card) => card.crux?.href !== match.crux?.href)!;
     const origin = borrowed.crux!;

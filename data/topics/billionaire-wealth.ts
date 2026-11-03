@@ -3,6 +3,10 @@ export const billionaireWealthData = {
   title: "Should Billionaires Exist?",
   question:
     "Should taxes or structural reform prevent billionaire-scale wealth?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "Is every billionaire a policy failure?",
+  ],
   meta_claim:
     "The concentration of extreme wealth in billionaires is harmful to society and should be prevented through taxation or structural reform.",
   status: "contested" as const,

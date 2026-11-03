@@ -28,10 +28,10 @@ export const fluorideWaterSuppliesData = {
       id: "dental-health-benefits",
       title: "Dental Health Benefits vs. Alternatives",
       short_summary:
-        "The CDC calls water fluoridation one of the ten great public health achievements of the 20th century, citing a 25% reduction in tooth decay. However, the updated 2024 Cochrane review found that benefits have shrunk markedly since fluoride toothpaste became widespread in the 1970s — to roughly a quarter of one tooth surface in baby teeth, with low certainty. Cavity rates have declined similarly in countries that never fluoridated their water, raising questions about whether systemic ingestion still provides meaningful incremental benefit beyond topical application.",
+        "The CDC calls water fluoridation one of the ten great public health achievements of the 20th century, citing a 25% reduction in tooth decay. However, the updated 2024 Cochrane review found that benefits have shrunk markedly since fluoride toothpaste became widespread in the 1970s — to roughly a quarter of one baby tooth per child, with low certainty. Cavity rates have declined similarly in countries that never fluoridated their water, raising questions about whether systemic ingestion still provides meaningful incremental benefit beyond topical application.",
       icon_name: "Microscope" as const,
       skeptic_premise:
-        "The original evidence for water fluoridation came from the 1940s-1950s Grand Rapids trial and similar studies conducted before fluoride toothpaste was widely available. Since the 1970s, fluoride toothpaste has become ubiquitous in developed nations, and cavity rates have declined dramatically in both fluoridated and non-fluoridated countries alike. The updated 2024 Cochrane Review — the gold standard of evidence synthesis — found that most studies supporting fluoridation predate 1975 and were at high risk of bias, and that contemporary (post-1975) studies show the benefit has shrunk to roughly a quarter of one decayed tooth surface in baby teeth, with low certainty of evidence. The review concluded there was insufficient evidence that water fluoridation reduces inequalities in dental health. European countries including Germany, the Netherlands, Sweden, and Switzerland ended water fluoridation decades ago without seeing increases in tooth decay. The mechanism of fluoride's benefit is now understood to be primarily topical (contact with tooth surfaces), not systemic (ingestion), undermining the rationale for adding it to drinking water.",
+        "The original evidence for water fluoridation came from the 1940s-1950s Grand Rapids trial and similar studies conducted before fluoride toothpaste was widely available. Since the 1970s, fluoride toothpaste has become ubiquitous in developed nations, and cavity rates have declined dramatically in both fluoridated and non-fluoridated countries alike. The updated 2024 Cochrane Review — the gold standard of evidence synthesis — found that most studies supporting fluoridation predate 1975 and were at high risk of bias, and that contemporary (post-1975) studies show the benefit has shrunk to roughly a quarter of one decayed, missing or filled baby tooth, with low certainty of evidence. The review concluded there was insufficient evidence that water fluoridation reduces inequalities in dental health. European countries including Germany, the Netherlands, Sweden, and Switzerland ended water fluoridation decades ago without seeing increases in tooth decay. The mechanism of fluoride's benefit is now understood to be primarily topical (contact with tooth surfaces), not systemic (ingestion), undermining the rationale for adding it to drinking water.",
       proponent_rebuttal:
         "The CDC estimates that community water fluoridation prevents approximately 25% of tooth decay across all age groups, including in the modern era of fluoride toothpaste availability. A 2018 systematic review in the Journal of Dental Research confirmed ongoing benefits even in countries with widespread toothpaste use. Water fluoridation is particularly important for low-income communities where access to dental care and consistent toothpaste use cannot be assumed — children from low-income families have 2-3x higher rates of untreated cavities. The Australian National Health and Medical Research Council's 2017 review found that fluoridation reduces cavities by 26-44% in children and 27% in adults. While European countries that stopped fluoridation often implemented other programs (school-based fluoride rinses, salt fluoridation), these require individual compliance and miss the most vulnerable populations. Water fluoridation remains the most equitable delivery mechanism precisely because it requires no individual action.",
       crux: {
@@ -44,6 +44,10 @@ export const fluorideWaterSuppliesData = {
         methodology:
           "Conduct a large-scale randomized controlled trial (or analyze natural experiments from communities that recently started or stopped fluoridation) comparing three groups: (1) fluoridated water + fluoride toothpaste, (2) non-fluoridated water + fluoride toothpaste, and (3) non-fluoridated water + non-fluoride toothpaste. Measure DMFT (decayed, missing, filled teeth) scores over 5-10 years across age groups and socioeconomic strata, controlling for diet, dental care access, and other fluoride sources. Compare the incremental benefit of group 1 over group 2 to assess whether systemic fluoride adds meaningful protection beyond topical use.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare cavity rates, from dental exams rather than self-report, in children who all use fluoride toothpaste but differ in whether their tap water is fluoridated, including before-and-after comparisons where fluoridation stopped, as in Calgary in 2011 and Utah in 2025.",
+        },
         cost_to_verify:
           "$5-15M (Multi-year longitudinal dental health study across multiple communities with different fluoridation statuses)",
         falsification: {
@@ -80,7 +84,7 @@ export const fluorideWaterSuppliesData = {
           id: "cochrane-review-2024",
           title: "2024 Cochrane Review: Fluoridation Benefit Has Shrunk in the Toothpaste Era",
           description:
-            "The Cochrane Collaboration's 2024 systematic review (an update of its 2015 review) examined 157 studies and found that most evidence supporting fluoridation predates 1975, was observational rather than experimental, and was at high risk of bias. Crucially, when the review restricted analysis to contemporary studies conducted after fluoride toothpaste became widespread (post-1975), the benefit shrank substantially: water fluoridation led to roughly a 0.24 reduction in decayed/missing/filled tooth surfaces in baby teeth — about a quarter of one tooth surface — with low certainty of evidence. The review found the effect on permanent teeth and on dental health inequalities to be small and uncertain.",
+            "The Cochrane Collaboration's 2024 systematic review (an update of its 2015 review) included 157 studies, all non-randomised, and downgraded the certainty of all of the evidence for risk of bias. Crucially, when it restricted analysis to contemporary studies conducted after fluoride toothpaste became widespread (post-1975), starting water fluoridation 'may lead to a slightly greater change in dmft' (decayed, missing or filled baby teeth) of 0.24, 'approximately one-quarter of a tooth in favour of CWF,' with low-certainty evidence and a confidence interval (-0.03 to 0.52) that 'includes the possibility of benefit and no benefit.' Contemporary gains in the share of caries-free children were 4 percentage points for baby teeth and 3 for permanent teeth, also low-certainty, and only one post-1975 study reported on socioeconomic disparities.",
           side: "against" as const,
           weight: {
             sourceReliability: 10,
@@ -153,6 +157,10 @@ export const fluorideWaterSuppliesData = {
         methodology:
           "Conduct a prospective birth cohort study in US communities with fluoridated (0.7 mg/L) and non-fluoridated water. Enroll 5,000+ pregnant women, measure urinary fluoride throughout pregnancy and early childhood, and assess child neurodevelopment at ages 1, 2, 4, and 6 using standardized IQ and neurodevelopmental batteries (Bayley Scales, WISC). Control for maternal education, income, lead exposure, iodine status, breastfeeding duration, and other known confounders. This would definitively determine whether fluoride at US-recommended levels affects neurodevelopment.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Prospective birth cohorts in communities at 0.7 mg/L that measure each mother's and child's urinary fluoride, adjust for other fluoride sources and for iodine and lead, and test children's IQ blind, run in more than one country with the data shared openly for pooled reanalysis.",
+        },
         cost_to_verify:
           "$20-50M (Multi-site longitudinal birth cohort study over 6-8 years)",
         falsification: {
@@ -261,6 +269,10 @@ export const fluorideWaterSuppliesData = {
         methodology:
           "Compare dental health outcomes (DMFT scores, untreated cavities, emergency dental visits) in low-income children across three policy environments: (1) communities with water fluoridation, (2) communities without water fluoridation but with active alternative programs (school-based fluoride rinses, dental sealant programs, targeted varnish), and (3) communities with neither fluoridation nor alternative programs. Control for income, dental insurance coverage, dental care access, and dietary factors. If alternative programs achieve parity with fluoridation in reaching low-income children, the consent argument strengthens; if significant gaps persist, the equity case for fluoridation is confirmed.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow cavity rates among low-income children, from school dental screenings, in places that end fluoridation and replace it with school toothbrushing, varnish or salt programs, against similar places that keep it; how much consent should weigh against any gap that remains is a value each side should state up front.",
+        },
         cost_to_verify:
           "$2-5M (Comparative cross-community dental health study across policy environments)",
         falsification: {

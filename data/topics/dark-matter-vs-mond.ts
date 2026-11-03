@@ -148,6 +148,10 @@ export const darkMatterVsMondData = {
         equation:
           "\\Omega_c h^2 \\approx 0.120, \\quad \\Omega_b h^2 \\approx 0.0224 \\;\\;(\\text{Planck 2018})",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Modified-gravity models with ordinary matter and neutrinos predicting the full cosmic microwave background spectrum, cluster lensing and large-scale clustering in advance, scored against Planck and upcoming survey data next to dark-matter models.",
+        },
         cost_to_verify: "$0 (Reanalysis of existing Planck/ACT/SPT data)",
         falsification: {
           supporter_flip:

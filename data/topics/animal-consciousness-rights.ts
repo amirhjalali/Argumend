@@ -44,6 +44,10 @@ export const animalConsciousnessRightsData = {
         methodology:
           "Develop and validate at least two independent consciousness detection paradigms that do not rely on behavioral similarity to humans. Candidates include perturbational complexity index (PCI) adapted for non-human brains, Integrated Information Theory (IIT) measurements of phi, and adversarial collaboration studies where proponents and skeptics of animal consciousness pre-register predictions about neural signatures in specific taxa. Test across mammals, birds, fish, cephalopods, and insects.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A marker battery validated where the answer is known, separating sleep, anesthesia and wakefulness in humans and well-studied animals, then applied blind to species such as octopuses, bees and fish, with labs that favor rival theories of consciousness comparing results.",
+        },
         cost_to_verify:
           "$10-30M (Multi-lab, multi-species neuroscience research program over 5-10 years)",
         falsification: {
@@ -204,6 +208,10 @@ export const animalConsciousnessRightsData = {
         methodology:
           "Convene an adversarial collaboration between leading animal rights philosophers (Singer, Nussbaum, Donaldson/Kymlicka) and critics (Scruton, Cohen, Hsiao) to identify a specific set of test cases and pre-register their framework predictions. Assess which framework handles the full range of cases (clear cases, borderline cases, and reductio cases) most coherently. Publish the results as a structured dialogue with transparently evaluated arguments.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "No experiment decides this. What would move people is a written framework tested against a list of hard cases both rights advocates and skeptics accept as fair (predation, pests, insects, medical research), showing which cases it handles without conclusions its own backers reject.",
+        },
         cost_to_verify:
           "$200K (Structured philosophical adversarial collaboration and publication)",
         falsification: {

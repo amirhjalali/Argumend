@@ -81,9 +81,9 @@ export const aiRegulationData = {
         },
         {
           id: "ai-capabilities-exponential-growth",
-          title: "AI Benchmark Performance Is Improving Exponentially (2020-2025)",
+          title: "AI Benchmark Scores Rose Steeply From 2023 to 2025",
           description:
-            "AI performance on standardized benchmarks has improved at exponential rates. GPT-4 (2023) scored in the 90th percentile on the bar exam, up from GPT-3.5's 10th percentile. On the MATH benchmark (competition-level mathematics), accuracy improved from 6.9% (GPT-3) to 52.9% (GPT-4) to 85%+ (Claude 3.5/GPT-4o, 2024). On coding benchmarks like SWE-bench, AI systems progressed from solving 1.4% of real GitHub issues (2023) to over 50% (2025). Autonomous AI agents can now browse the web, write and execute code, and operate computer interfaces.",
+            "AI performance on standardized benchmarks has improved very quickly. OpenAI reported that GPT-4 (2023) scored around the top 10% of test takers on a simulated bar exam, where GPT-3.5 scored around the bottom 10%. Stanford's AI Index 2025 reports that on SWE-bench, which asks models to resolve real GitHub issues, the best system at the end of 2023 solved just 4.4%, while by early 2025 OpenAI's o3 was reported to solve 71.7% of the Verified set; that AI systems are approaching near-perfect performance on the GSM8K and MATH mathematics benchmarks; and that scores on the then-new MMMU and GPQA benchmarks rose 18.8 and 48.9 percentage points in a single year. Autonomous AI agents can now browse the web, write and execute code, and operate computer interfaces.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -91,8 +91,8 @@ export const aiRegulationData = {
             replicability: 9,
             directness: 6,
           },
-          source: "Epoch AI; Stanford HAI AI Index 2025; arXiv benchmark papers",
-          sourceUrl: "https://hai.stanford.edu/ai-index",
+          source: "Stanford HAI, AI Index Report 2025, Chapter 2 (Technical Performance); OpenAI, GPT-4 Technical Report (2023)",
+          sourceUrl: "https://hai-production.s3.amazonaws.com/files/hai_ai-index-report-2025_chapter2_final.pdf",
           reasoning:
             "Benchmark improvements are independently verifiable and represent real capability gains. However, directness is lower because benchmark performance does not necessarily translate to the autonomous goal-seeking, strategic deception, or self-improvement capabilities that underpin catastrophic risk scenarios. The gap between 'very capable tool' and 'existential threat' remains large and poorly defined.",
         },
@@ -139,6 +139,10 @@ export const aiRegulationData = {
         methodology:
           "Compare innovation metrics in regulated vs. unregulated periods: (1) new drug approvals per decade before and after the 1962 Kefauver-Harris Amendment, (2) nuclear plant construction rates before and after the NRC's founding, (3) AI product deployment rates in the EU (under AI Act) vs. US (less regulated) vs. China for the same 24-month period. Measure both innovation output and safety incidents in each regime.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare model releases, startup formation and venture funding in the EU before and after the AI Act's obligations took effect with the US and UK over the same years, and count how often firms delay or withhold EU launches, using public release records and the European Commission's own reviews.",
+        },
         cost_to_verify:
           "$0 (FDA approval data, NRC records, and AI product launches are publicly available)",
         falsification: {
@@ -264,6 +268,10 @@ export const aiRegulationData = {
         methodology:
           "Track China's domestic AI governance actions independently from its international commitments. Compare: (1) actual enforcement of China's own AI regulations (Interim Measures for Generative AI, Deep Synthesis Provisions) against their stated scope, (2) compute investments and frontier model releases relative to Western-regulated counterparts, (3) military AI deployment pace. Use satellite imagery of Chinese AI data centers, patent filings, and compute procurement data to independently verify domestic activity versus international commitments.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Signed and ratified AI agreements that carry verification terms, such as compute reporting or outside model evaluations, and a record of whether Chinese labs actually submit to those checks at home, as reported by treaty bodies and independent monitors.",
+        },
         cost_to_verify:
           "$1-5M (Open-source intelligence analysis of Chinese AI development combining satellite imagery, patent data, and compute procurement analysis)",
         falsification: {

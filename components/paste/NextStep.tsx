@@ -116,7 +116,7 @@ export function NextStep({
 /** A short, previewable takeaway shared by paste results and map reflections. */
 export function QuestionTakeaway({
   question, href, scope, leadingAction, copyLabel = "Copy this question",
-  previewLabel = "Preview conversation starter", fallbackLabel = "Question to copy",
+  previewLabel = "Preview conversation starter", fallbackLabel = "Question to copy", stacked = false,
 }: {
   question: string;
   href: string;
@@ -125,6 +125,11 @@ export function QuestionTakeaway({
   copyLabel?: string;
   previewLabel?: string;
   fallbackLabel?: string;
+  /**
+   * Copy link always under the button. Two takeaways side by side otherwise
+   * disagree: a longer button label wraps one column's link and not the other's.
+   */
+  stacked?: boolean;
 }) {
   const starter = [
     "Could we start with this question?",
@@ -154,7 +159,7 @@ export function QuestionTakeaway({
 
   return (
     <div className="mt-3">
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+      <div className={stacked ? "flex flex-col items-start gap-y-1" : "flex flex-wrap items-center gap-x-5 gap-y-1"}>
         {leadingAction}
         <TextAction onClick={copy}>
           <span className="inline-grid">

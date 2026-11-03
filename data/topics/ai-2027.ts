@@ -65,6 +65,10 @@ export const ai2027Data = {
         equation:
           "H(t) = H_0 \\cdot 2^{\\,t / \\tau}, \\quad \\tau \\approx 7\\ \\text{months}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "METR's time-horizon measurements repeated on each new frontier model, on fresh tasks the models could not have trained on, plotted against the recent doubling trend to see if new models land on, above or below the line.",
+        },
         cost_to_verify:
           "$0 to track (METR maintains the series; the open question is extrapolation, not measurement)",
         falsification: {
@@ -170,6 +174,10 @@ export const ai2027Data = {
         equation:
           "C_{\\text{eff}}(t) = C_{\\text{hardware}}(t) \\cdot A(t), \\quad C \\sim 4\\text{–}5\\times/\\text{yr}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Track training compute, chip output, data-center power and algorithmic efficiency year by year, from sources such as Epoch AI and company disclosures, watching for a shortage of chips, power, data or capital that bends the combined curve before AI research is automated.",
+        },
         cost_to_verify: "$0 (public Epoch AI trend data; extrapolation is the contested step)",
         falsification: {
           supporter_flip:
@@ -277,6 +285,10 @@ export const ai2027Data = {
         equation:
           "\\text{Speedup}(f) = \\frac{1}{(1-f) + f/k}, \\quad k \\gg 1 \\Rightarrow \\text{fast takeoff}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Lab-reported and independently audited measures of research speedup as AI tools take over more research work, such as experiments run per researcher and efficiency gains per year, checked for steady growth or a sharp jump as automation deepens.",
+        },
         cost_to_verify:
           "Effectively only observable near the threshold; no clean pre-registration exists today",
         falsification: {
@@ -381,6 +393,10 @@ export const ai2027Data = {
         methodology:
           "Compile disclosed capex and headcount for capability vs. safety at frontier labs, monitor government compute/export actions and any international agreements, and test whether observed behavior tracks the 'race' prediction (spending accelerates, safety share shrinks) or the 'coordinate' prediction after each capability milestone.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A public ledger of commitments the leading labs and governments make, such as pre-deployment testing pledges and compute agreements, scored each year against what they actually did, alongside a record of frontier training runs slowing or speeding up after major capability jumps.",
+        },
         cost_to_verify:
           "$0 to monitor disclosures, but resolves only as the geopolitical situation unfolds",
         falsification: {
@@ -487,6 +503,10 @@ export const ai2027Data = {
         methodology:
           "Pre-register the scenario's concrete milestones with resolution dates and criteria, then compare against the METR task-horizon series, benchmark results, and observed lab behavior at each checkpoint. Aggregate hits and misses into a calibration score, and update the timeline distribution accordingly rather than treating 2027 as fixed.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A public scorecard of the scenario's dated milestones, each written in checkable form before its date and marked hit, early or late by forecasters from both camps, compared with how more conservative forecasts scored over the same years.",
+        },
         cost_to_verify: "$0, but resolves only with the passage of time",
         falsification: {
           supporter_flip:

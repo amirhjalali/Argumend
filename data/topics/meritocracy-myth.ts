@@ -72,6 +72,10 @@ export const meritocracyMythData = {
         equation:
           "\\log(Y_{child}) = \\alpha + \\beta \\log(Y_{parent}) + \\varepsilon",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Linked parent-child tax records like those used by Raj Chetty's Opportunity Insights team, measuring how closely children's income ranks follow their parents', repeated for later birth cohorts and in other countries' registries.",
+        },
         cost_to_verify:
           "$200K (longitudinal tax record analysis + statistical modeling)",
         falsification: {

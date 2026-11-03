@@ -41,6 +41,10 @@ export const gigEconomyRegulationData = {
         methodology:
           "Audit platform algorithms for: pricing control, route assignment, acceptance rate thresholds, deactivation criteria, and performance monitoring. Compare worker autonomy metrics to traditional employment and genuine independent contracting (e.g., freelance consultants).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Platform data, released to regulators or researchers, on how often drivers and couriers are penalized, deactivated or nudged for declining jobs or choosing their hours, compared with the discretion employees and true contractors have in similar work.",
+        },
         cost_to_verify: "$500K (Platform algorithm audit study—requires legal discovery or regulatory access)",
         falsification: {
           supporter_flip:
@@ -75,7 +79,7 @@ export const gigEconomyRegulationData = {
           id: "uk-tribunal-rulings",
           title: "UK Tribunals: 100,000+ Gig Drivers Classified as Workers",
           description:
-            "On 8 November 2024, a UK Employment Tribunal ruled that Bolt drivers are 'workers' (not employees) entitled to minimum wage, holiday pay, and other protections—a ruling potentially affecting over 100,000 drivers, with lawyers estimating compensation exceeding 200 million pounds. Around the same time, roughly 700 Addison Lee drivers were similarly ruled to be workers, with estimated compensation exceeding 20 million pounds. These rulings follow the Supreme Court's landmark 2021 Uber v Aslam ruling.",
+            "On 8 November 2024, a UK Employment Tribunal ruled that Bolt drivers are 'workers' (not employees) entitled to minimum wage, holiday pay, and other protections—a ruling covering all of the 100,000-plus drivers who work through the Bolt app, with Leigh Day estimating that compensation for its 15,000 claimants could exceed 200 million pounds. In January 2025 a tribunal ruled that Addison Lee drivers, about 700 of whom had brought claims, are workers whenever logged on to the company's app; after a March 2026 remedy ruling, with more than 900 drivers in the claim, Leigh Day estimated their compensation was likely to exceed 20 million pounds. These rulings follow the Supreme Court's landmark 2021 Uber v Aslam ruling.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -83,7 +87,7 @@ export const gigEconomyRegulationData = {
             replicability: 8,
             directness: 9,
           },
-          source: "UK Employment Tribunal rulings (Bolt, Nov 2024; Addison Lee, 2024) — Leigh Day",
+          source: "UK Employment Tribunal rulings (Bolt, 8 Nov 2024; Addison Lee, Jan 2025 and 19 Mar 2026), as reported by claimants' firm Leigh Day",
           sourceUrl: "https://www.leighday.co.uk/news/press-releases/2024-news/bolt-drivers-win-ruling-that-they-are-workers-in-legal-claim-believed-to-be-worth-more-than-200-million/",
           reasoning:
             "Judicial decisions based on detailed examination of actual working conditions. High directness because courts are specifically ruling on the classification question.",
@@ -127,6 +131,10 @@ export const gigEconomyRegulationData = {
         methodology:
           "Compare gig economy outcomes in jurisdictions with employee classification (post-EU directive) vs. independent contractor classification (US). Measure worker income (including benefits), hours worked, platform utilization, and consumer prices.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare pay, hours worked, number of active workers, prices and wait times before and after places reclassified gig workers, such as Spain under its 2021 rider law, against similar places that did not, using platform and tax data.",
+        },
         cost_to_verify: "$1M (Cross-jurisdictional comparative study after EU directive implementation)",
         falsification: {
           supporter_flip:

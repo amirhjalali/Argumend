@@ -42,6 +42,10 @@ export const spaceExplorationValueData = {
         equation:
           "\\text{ROI} = \\frac{\\sum_{t} (\\text{Spin-off Revenue}_t + \\Delta\\text{GDP}_{\\text{space sector},t})}{\\sum_{t} \\text{Government Investment}_t}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare the measured economic returns of past NASA programs, such as satellite services and spin-off technologies, with the returns of equal spending on other public research, using one accounting method for both, by bodies such as the National Academies or the CBO.",
+        },
         cost_to_verify: "$500K (Comprehensive economic analysis)",
         falsification: {
           supporter_flip:
@@ -147,6 +151,10 @@ export const spaceExplorationValueData = {
         equation:
           "\\frac{\\text{Science Output}_{\\text{human}}}{\\text{Cost}_{\\text{human}}} \\overset{?}{>} \\frac{\\text{Science Output}_{\\text{robotic}}}{\\text{Cost}_{\\text{robotic}}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Count science papers, discoveries and public engagement per dollar for crewed and robotic missions over decades; how much inspiration and national prestige should count on top of that is a value each side should state openly.",
+        },
         cost_to_verify: "$200K (Comparative meta-analysis)",
         falsification: {
           supporter_flip:

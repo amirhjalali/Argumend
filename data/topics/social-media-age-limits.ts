@@ -44,6 +44,10 @@ export const socialMediaAgeLimitsData = {
         equation:
           "\\Delta MH_{abstain} - \\Delta MH_{control} = \\tau_{causal}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials that pay adolescents to quit the platforms for six months or more, scored with clinical assessments, alongside psychiatric records for Australian under-16s since the December 2025 ban compared with peers in similar countries without one.",
+        },
         cost_to_verify: "$15M (Large-scale RCT with enforcement technology)",
         falsification: {
           supporter_flip:
@@ -140,7 +144,7 @@ export const socialMediaAgeLimitsData = {
         "Whether under-16s can actually be kept off platforms without either collecting IDs (a privacy and data-breach risk for all users) or relying on self-reported birthdays (which Ofcom finds roughly a fifth of teens already falsify).",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "Robust age verification forces every user, adult or child, to prove their age — via ID upload or biometric face scans — creating honeypots of sensitive data and chilling anonymous speech. Facial age estimation is imprecise right at the 16 cutoff and, per Australia's own trial, less accurate for darker skin tones, so it both wrongly blocks adults and misses teens. Teens still circumvent via VPNs, false birthdays, or borrowed accounts. And in many traditions deciding what a 15-year-old may access is a parental and free-expression question, not one for the state to settle with a blanket prohibition.",
+        "Robust age verification forces every user, adult or child, to prove their age — via ID upload or biometric face scans — creating honeypots of sensitive data and chilling anonymous speech. Australia's own trial found no single age-assurance method suits every use, and a Guardian analysis of the trial's data found facial age estimation less accurate for people of Indigenous or south-east Asian background, so it can both wrongly block adults and miss teens. Teens still circumvent via VPNs, false birthdays, or borrowed accounts. And in many traditions deciding what a 15-year-old may access is a parental and free-expression question, not one for the state to settle with a blanket prohibition.",
       proponent_rebuttal:
         "We already age-gate alcohol, driving, gambling, and voting. Imperfect enforcement doesn't mean we abandon the principle — underage drinking laws reduce teen alcohol use despite circumvention. Australia's government-commissioned trial concluded age assurance 'can be done,' with facial age estimation and device-level signals offering relatively privacy-preserving options (no need to store an ID), even though it found no single guaranteed method and flagged accuracy gaps near the 16-year boundary. The point of a law is to shift the default and give parents legal backing, since an individual parent can't enforce a rule when every peer is on the platform; it doesn't need to be airtight to change population-level behavior.",
       crux: {
@@ -155,6 +159,10 @@ export const socialMediaAgeLimitsData = {
         equation:
           "E_{compliance} = 1 - \\frac{N_{underage\\_active}}{N_{underage\\_total}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Independent audits of Australia's age checks counting how many under-16s still hold accounts, how many adults are wrongly blocked and what data is collected and kept, published by the eSafety Commissioner or outside researchers.",
+        },
         cost_to_verify: "$2M (Multi-platform audit study)",
         falsification: {
           supporter_flip:
@@ -172,7 +180,7 @@ export const socialMediaAgeLimitsData = {
           id: "australia-implementation",
           title: "Australia's Age Assurance Technology Trial",
           description:
-            "Australia's government-commissioned Age Assurance Technology Trial published its final report in September 2025, assessing 48 vendors and 60+ technologies. It concluded that age assurance, including facial age estimation, 'can be done in Australia' and is feasible for real-world use, but found no single guaranteed method and flagged reduced accuracy for users with darker skin tones and those aged 16-20. (The report did not publish a clean '95% of under-16s correctly identified' figure.)",
+            "Australia's government-commissioned Age Assurance Technology Trial published its final report in September 2025, assessing 48 vendors and 60+ technologies. It was 'unequivocal in its finding that age assurance can be done in Australia privately, efficiently and effectively,' but 'did not find a single ubiquitous solution that would suit all use cases.' The report stated there was 'no significant evidence of adverse impact or systemic disparity in error rates across skin tone groups'; a Guardian analysis of the trial's public data disputed this, finding the estimation software less accurate for people of Indigenous or south-east Asian background. (The report did not publish a clean '95% of under-16s correctly identified' figure.)",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -181,10 +189,10 @@ export const socialMediaAgeLimitsData = {
             directness: 6,
           },
           source:
-            "Age Assurance Technology Trial, Final Report (commissioned by the Australian Government, September 2025)",
+            "Age Assurance Technology Trial, Final Report (commissioned by the Australian Government, 31 Aug 2025); Biometric Update, 'Takeaways from the final report' and 'Age assurance trial's statement on bias called into question in data analysis' (Sept 2025), reporting the Guardian's analysis",
           sourceUrl: "https://ageassurance.com.au/",
           reasoning:
-            "Government-commissioned independent trial. The prior specific '95%' accuracy figure was unverifiable and was removed; the report's actual conclusion is 'feasible, with caveats,' including accuracy gaps near the 16-year boundary, so directness/replicability lowered.",
+            "Government-commissioned independent trial. The prior specific '95%' accuracy figure was unverifiable and was removed; the report's actual conclusion is 'feasible, with caveats': no single method suits every use, and its no-disparity finding on skin tone is disputed by an independent reading of its own data, so directness/replicability lowered.",
         },
         {
           id: "coppa-effectiveness",

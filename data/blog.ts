@@ -355,7 +355,7 @@ Notice what would settle it: a well-controlled US birth-cohort study measuring o
 
 Here's the part both camps tend to miss: even if fluoride at 0.7 mg/L is perfectly safe, the *benefit* is no longer what it was in 1955.
 
-The 2024 Cochrane review — the gold standard of evidence synthesis — found that water fluoridation does still reduce tooth decay, but the effect has shrunk dramatically since fluoride toothpaste became universal in the 1970s, down to roughly a quarter of one decayed tooth surface in baby teeth, with low certainty. Cavity rates fell similarly in countries that fluoridate their water and ones that never did. The likely reason: fluoride's main benefit is **topical** (contact with teeth), which toothpaste already delivers, not **systemic** (swallowing it).
+The 2024 Cochrane review — the gold standard of evidence synthesis — found that water fluoridation does still reduce tooth decay, but the effect has shrunk dramatically since fluoride toothpaste became universal in the 1970s, down to roughly a quarter of one decayed, missing or filled baby tooth, with low certainty. Cavity rates fell similarly in countries that fluoridate their water and ones that never did. The likely reason: fluoride's main benefit is **topical** (contact with teeth), which toothpaste already delivers, not **systemic** (swallowing it).
 
 That doesn't mean fluoridation is worthless — its strongest remaining case is **equity**, reaching low-income children who may lack consistent dental care or toothpaste access. But it does mean the cost-benefit calculus is genuinely closer than it was when the policy began, which is why thoughtful people can weigh it differently without either being anti-science.
 
@@ -3788,7 +3788,7 @@ Iran's network of armed proxy groups — Hezbollah in Lebanon, the Houthis in Ye
 
 The Houthis launched over 100 attacks on commercial shipping in the Red Sea, forcing global carriers to reroute around Africa at an estimated cost of $80 to $100 billion annually. Iran spends an estimated $700 million to $1 billion per year funding Hezbollah alone.
 
-Those who favor military pressure point to a notable development: during Operation Epic Fury in February 2026, Iran's proxy network largely failed to mobilize. Hezbollah launched limited rocket salvos but did not open a full northern front. The Houthis refrained from major action. Foreign Policy assessed that Iran's proxies were "out for themselves." Proponents argue this proves that sustained pressure — including the elimination of key Hezbollah leadership in 2024 — is degrading Iran's ability to project power through its proxy architecture.
+Those who favor military pressure point to a notable development: when Operation Epic Fury began on February 28, 2026, Iran's proxy network did not mount the coordinated response Tehran had threatened. Hezbollah's first salvo was small, the Houthis stayed out for a month before firing missiles at Israel on March 28, and Foreign Policy's March 2 headline read "Iran's Proxies Are Out for Themselves for Now." The restraint did not last: Hezbollah's fire drew a wider Lebanon war. Proponents argue this proves that sustained pressure — including the elimination of key Hezbollah leadership in 2024 — is degrading Iran's ability to project power through its proxy architecture.
 
 ### Diplomacy Has Been Tried
 

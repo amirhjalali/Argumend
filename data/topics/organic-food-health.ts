@@ -42,6 +42,10 @@ export const organicFoodHealthData = {
         methodology:
           "Large-scale prospective cohort study (50,000+ participants) comparing health outcomes over 10+ years between verified organic consumers and matched conventional food consumers, controlling for income, overall diet quality, exercise, and other confounders.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A randomized trial assigning households to organic or conventional versions of the same diet for years, measuring pesticide levels in urine and early disease markers, or cohorts that match organic and conventional buyers closely on income, exercise, smoking and diet.",
+        },
         cost_to_verify: "$50M (10-year prospective cohort study)",
         falsification: {
           supporter_flip:
@@ -149,6 +153,10 @@ export const organicFoodHealthData = {
         methodology:
           "Long-term (20+ year) prospective study tracking biomarkers of pesticide exposure, health outcomes (cancer incidence, neurological function, reproductive health), and organic vs. conventional dietary patterns in a large cohort, with dose-response modeling.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Lifetime animal studies dosing realistic mixtures of residues at dietary levels, plus birth cohorts that measure children's actual pesticide levels and track their development, run by agencies such as the EPA and EFSA.",
+        },
         cost_to_verify: "$100M (Multi-decade prospective epidemiological study)",
         falsification: {
           supporter_flip:

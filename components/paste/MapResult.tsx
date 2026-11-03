@@ -256,6 +256,7 @@ function CruxPanel({ match }: { match: PasteMapMatch }) {
                   copyLabel={`Copy the ${ordinal} question`}
                   previewLabel={`Preview the ${ordinal} takeaway`}
                   fallbackLabel={`${label} question to copy`}
+                  stacked
                 />
               </section>
             ))}

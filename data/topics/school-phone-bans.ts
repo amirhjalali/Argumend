@@ -3,6 +3,10 @@ export const schoolPhoneBansData = {
   title: "Should Schools Ban Smartphones?",
   question:
     "Do school phone bans improve students' learning and mental health?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "What happens in a school lockdown if every phone is locked away?",
+  ],
   meta_claim:
     "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
   status: "contested" as const,
@@ -46,6 +50,10 @@ export const schoolPhoneBansData = {
         methodology:
           "Randomly assign 200 schools (100 treatment, 100 control) across diverse socioeconomic contexts to implement a strict phone ban (phones locked in pouches at arrival) versus a permissive phone policy for a full academic year. Measure standardized test scores, classroom engagement (via trained observer coding), disciplinary incidents, and attendance. Include pre-treatment covariates to ensure balance. Stratify randomization by school socioeconomic status to analyze heterogeneous effects.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials that assign schools to adopt a phone ban or not, measuring test scores, attendance and wellbeing over at least a school year, alongside studies of statewide bans where every school changed at once.",
+        },
         cost_to_verify:
           "$3-8M (Multi-school randomized trial with assessment infrastructure, requiring school district cooperation)",
         falsification: {
@@ -150,7 +158,7 @@ export const schoolPhoneBansData = {
         question:
           "Can a ban that covers only the school day measurably improve students' mental health?",
         description:
-          "A school-hours ban could help students' mental health through less harassment and more face-to-face time during the day, or leave it unchanged while evening and weekend use continues. If outcomes do not move, the ban stands on its academic grounds alone, and other policies have to answer for the rest.",
+          "A school-hours ban could help students' mental health through less harassment and anxiety and more face-to-face time at lunch and during the day, or leave it unchanged while evening and weekend use continues. If outcomes do not move, the ban stands on its academic grounds alone, and other policies have to answer for the rest.",
         methodology:
           "Conduct a pre-registered cluster-randomized trial across 150 schools, measuring validated mental health instruments (PHQ-A for depression, GAD-7 for anxiety, UCLA Loneliness Scale) at baseline, mid-year, and end-of-year. Include a cyberbullying module and peer relationship assessment. Compare phone-ban schools against control schools and against schools implementing digital literacy programs without bans. Follow cohorts for 2 years to assess persistence of effects.",
         verification_status: "theoretical" as const,

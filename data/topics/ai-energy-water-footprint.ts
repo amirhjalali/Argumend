@@ -3,6 +3,11 @@ export const aiEnergyWaterFootprintData = {
   title: "AI's Energy & Water Footprint",
   question:
     "Is AI's energy and water use serious enough to warrant intervention?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "How much water does each ChatGPT query use?",
+    "Will AI data centers use as much electricity as whole countries?",
+  ],
   meta_claim:
     "AI's energy and water footprint is a serious environmental problem that warrants intervention.",
   status: "contested" as const,

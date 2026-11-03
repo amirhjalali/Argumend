@@ -95,6 +95,10 @@ export const usNationalDebtCrisisData = {
         equation:
           "\\Delta\\left(\\frac{D}{Y}\\right) = (r - g) \\cdot \\frac{D}{Y} + \\text{primary\\_deficit}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Track the average interest rate the Treasury pays on its debt against nominal GDP growth each year, from Treasury and CBO data, and compare with long historical records of how long such gaps lasted in the US and other rich countries.",
+        },
         cost_to_verify: "$0 (publicly available CBO/Treasury data)",
         falsification: {
           supporter_flip:
@@ -208,6 +212,10 @@ export const usNationalDebtCrisisData = {
         equation:
           "I_t = \\sum_{i} D_i \\cdot r_i(t) \\quad \\text{where } D_i \\text{ = principal of tranche } i, \\; r_i(t) \\text{ = rate at rollover}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Net interest as a share of GDP and of federal revenue, reported each year by the Treasury as low-rate debt matures and is refinanced, compared with CBO's earlier projections to see if costs level off or keep climbing.",
+        },
         cost_to_verify:
           "$0 (Treasury publishes full maturity schedule and auction results)",
         falsification: {
@@ -321,6 +329,10 @@ export const usNationalDebtCrisisData = {
         equation:
           "\\frac{d}{dt}\\left(\\frac{\\text{USD reserves}}{\\text{Total reserves}}\\right) = \\text{trend rate of erosion}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Quarterly data on the dollar's share of central-bank reserves from the IMF's COFER survey, of SWIFT payments and of trade invoicing, checked for steady drift or sudden drops after shocks such as sanctions or debt-ceiling standoffs.",
+        },
         cost_to_verify:
           "$0 (IMF COFER and SWIFT data are publicly available quarterly)",
         falsification: {

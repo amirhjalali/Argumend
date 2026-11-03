@@ -44,6 +44,10 @@ export const labGrownMeatData = {
         equation:
           "t_{\\text{parity}} = t_0 + \\frac{\\ln(C_{\\text{current}}/C_{\\text{target}})}{r_{\\text{cost reduction}}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Audited production costs per kilogram from working commercial-scale cultivated-meat plants, not projections, reported as plants grow in size, together with growth-media costs and contamination rates at each scale.",
+        },
         cost_to_verify: "$500K (Techno-economic analysis with industry data)",
         falsification: {
           supporter_flip:

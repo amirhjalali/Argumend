@@ -378,15 +378,15 @@ test("a borrowed evidence card names its own question and keeps that link in the
   await page.goto("/analyze");
   const input = page.getByRole("textbox", { name: "The argument to read" });
   await waitForHydration(input);
-  await input.fill("Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.");
+  await input.fill("Forgiving student debt is unfair to people who paid off their loans or never went to college, and it rewards borrowers who took on too much.");
   await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
   const result = page.getByRole("region", { name: "Result" });
-  const question = "Can a reform deter targeted harms without a net loss of lawful speech?";
+  const question = "Does forgiving student debt boost the economy more per dollar than other uses of the money?";
   const borrowedCard = result.getByText("From another question on this map", { exact: true }).locator("..").locator("..");
   const borrowedTitle = await borrowedCard.getByRole("heading", { level: 4 }).innerText();
   await expect(borrowedCard.getByText("From another question on this map", { exact: true })).toBeVisible();
   const origin = borrowedCard.getByRole("link", { name: question, exact: true });
-  const href = "/topics/section-230-reform#crux-collateral-damage";
+  const href = "/topics/student-debt-forgiveness#crux-economic-stimulus";
   await expect(origin).toHaveAttribute("href", href);
   const ownCard = result.getByRole("heading", { level: 4 }).locator("..").filter({ hasNotText: "From another question on this map" });
   await expect(ownCard).toHaveCount(1);
@@ -400,7 +400,7 @@ test("a borrowed evidence card names its own question and keeps that link in the
   await expect(preview).toContainText(`Related evidence: ${question} https://argumend.org${href}`);
   await origin.click();
   await expect(page).toHaveURL(new RegExp(`${href}$`));
-  const entry = page.locator("#crux-collateral-damage");
+  const entry = page.locator("#crux-economic-stimulus");
   await expect(entry.locator(":scope > details")).toHaveAttribute("open", "");
   await expect(entry.locator(":scope > details > summary")).toBeFocused();
   await entry.getByText("Show the evidence on each side and the test", { exact: true }).click();

@@ -140,6 +140,10 @@ export const standardizedTestingDebateData = {
         methodology:
           "Randomly assign students to admissions tracks using different assessment methods. Compare demographic diversity, academic outcomes, and graduation rates across methods. Account for Goodhart's Law effects (gaming of each metric).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare how well test scores, essays, portfolios and grades each predict college grades and graduation, broken out by family income, using admissions data from colleges that went test-optional and back, such as Dartmouth and MIT.",
+        },
         cost_to_verify: "$2M (Multi-institution experimental study)",
         falsification: {
           supporter_flip:

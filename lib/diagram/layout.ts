@@ -57,11 +57,28 @@ export const GAP = {
 export const MIN_CLEARANCE = 8;
 
 /**
- * How the canvas frames the tree: on load and from the "Fit to view" control,
- * the whole tree, never cropped. `maxZoom` stops a two-crux map from blowing
- * up past reading size; `minZoom` is the canvas's own floor.
+ * The strip along the canvas's bottom edge that the evidence key sits in
+ * (components/DesktopCanvas.tsx: 16px off the edge, about 36px tall), kept
+ * clear so the framed tree never runs under it.
  */
-export const FIT_VIEW = { padding: 0.05, minZoom: 0.25, maxZoom: 1.1 } as const;
+export const EVIDENCE_KEY_CLEARANCE = 64;
+
+type SidePadding = number | `${number}px`;
+export type FitPadding =
+  | SidePadding
+  | { top: SidePadding; right: SidePadding; bottom: SidePadding; left: SidePadding };
+
+/**
+ * How the canvas frames the tree: on load and from the "Fit to view" control,
+ * the whole tree, never cropped, and never under the evidence key. `maxZoom`
+ * stops a two-crux map from blowing up past reading size; `minZoom` is the
+ * canvas's own floor.
+ */
+export const FIT_VIEW = {
+  padding: { top: 0.05, right: 0.05, left: 0.05, bottom: `${EVIDENCE_KEY_CLEARANCE}px` },
+  minZoom: 0.25,
+  maxZoom: 1.1,
+} as const;
 
 const COLUMN_WIDTH = NODE_SIZE.side.width * 2 + GAP.betweenSides;
 
@@ -150,19 +167,27 @@ export function findCollisions(layout: DiagramLayout, clearance = MIN_CLEARANCE)
   return hits;
 }
 
+/** One side's padding in pixels, as @xyflow/system `parsePadding` reads it. */
+function sidePixels(padding: SidePadding, extent: number): number {
+  if (typeof padding === "number") return Math.floor((extent - extent / (1 + padding)) * 0.5);
+  return Math.floor(parseFloat(padding));
+}
+
 /**
  * The zoom React Flow's fitView lands on for these bounds in a viewport: the
- * whole tree in view. A numeric `padding` leaves `viewport / (1 + padding)`
- * for the tree (@xyflow/system `parsePadding`).
+ * whole tree in view. A numeric side padding leaves half of
+ * `viewport - viewport / (1 + padding)` on that side; a "px" one is taken as
+ * is (@xyflow/system `parsePaddings`).
  */
 export function fitZoom(
   bounds: Size,
   viewport: Size,
-  { padding, minZoom, maxZoom }: { padding: number; minZoom: number; maxZoom: number },
+  { padding, minZoom, maxZoom }: { padding: FitPadding; minZoom: number; maxZoom: number },
 ): number {
-  const zoom = Math.min(
-    viewport.width / (1 + padding) / bounds.width,
-    viewport.height / (1 + padding) / bounds.height,
-  );
+  const sides =
+    typeof padding === "object" ? padding : { top: padding, right: padding, bottom: padding, left: padding };
+  const width = viewport.width - sidePixels(sides.left, viewport.width) - sidePixels(sides.right, viewport.width);
+  const height = viewport.height - sidePixels(sides.top, viewport.height) - sidePixels(sides.bottom, viewport.height);
+  const zoom = Math.min(width / bounds.width, height / bounds.height);
   return Math.min(maxZoom, Math.max(minZoom, zoom));
 }

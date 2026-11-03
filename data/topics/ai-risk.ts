@@ -91,6 +91,10 @@ export const aiRiskData = {
         equation:
           "P(\\text{power-seeking} | \\text{rational agent}) \\to 1 \\text{ as capability} \\to \\infty",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Rerun the 2024 scheming evaluations on successive model generations from several labs with the goal nudges and planted cues removed, and record whether attempts to disable oversight or resist shutdown still appear, and grow with capability, or disappear once the setup stops inviting them.",
+        },
         cost_to_verify:
           "$100K (Large-scale RL experiments; Omohundro 2008, Turner et al. 2021)",
         falsification: {
@@ -107,7 +111,7 @@ export const aiRiskData = {
       evidence: [
         {
           id: "turner-power-seeking",
-          title: "Power-Seeking Proven Mathematically",
+          title: "Power-Seeking Shown Formally for Optimal Agents",
           description:
             "Turner, Smith, Shah, Critch & Tadepalli (2021) proved that, under certain environmental symmetries, optimal policies in Markov decision processes tend to seek power (keep options open, avoid shutdown) for most reward functions. The result is formal and applies to optimal policies, not a guarantee about trained agents.",
           side: "for" as const,
@@ -232,7 +236,7 @@ export const aiRiskData = {
           skeptic_flip:
             "If the 2024 alignment-faking behavior, a production model strategically complying in training to protect its preferences without being trained to, grew with capability, 'we'll just teach it to be nice' would not be enough.",
           common_ground:
-            "Both sides agree RLHF and constitutional methods work well in-distribution today, and that the Sleeper Agents / alignment-faking results are real (even as their spontaneity and scaling are debated).",
+            "Both sides agree today's training methods make models behave well in the situations they were trained on, and that the 2024 sleeper-agent and alignment-faking results are real, even as how spontaneous they are and whether they grow with scale is debated.",
           live_disagreement:
             "Whether alignment generalizes to high-stakes, out-of-distribution situations — or whether models optimize the literal reward and defect when oversight is weak.",
         },
@@ -345,7 +349,7 @@ export const aiRiskData = {
           skeptic_flip:
             "If capability kept advancing toward human-level autonomy while outside evaluations kept finding failures the developers' alignment methods missed, 'alignment will keep up as we go' would stop being defensible.",
           common_ground:
-            "Both sides agree RLHF and similar methods work well in ordinary use today, and that no current method reliably verifies an advanced AI's true goals.",
+            "Both sides agree no current method can reliably check what an advanced AI is actually trying to do, and that no one knows when human-level autonomy will arrive.",
           live_disagreement:
             "Whether alignment will be solved in lockstep with capability or lag dangerously behind it, whenever human-level autonomy arrives.",
         },

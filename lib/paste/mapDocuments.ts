@@ -102,9 +102,13 @@ async function flagshipDocument(entry: (typeof argumentTopicIndex)[number]): Pro
         ...meta.takeaways,
         ...ofType("claim").map(text),
       ]),
+      // An evidence node's summary is optional and the drafts leave it out,
+      // so its statement is read in its place, as the crux picker reads it
+      // (lib/paste/maps.ts, flagshipCruxText). Reading the summary alone left
+      // every flagship's evidence out of the index but its source titles.
       evidence: present(
         graph.nodes.flatMap((node) =>
-          node.type === "evidence" ? [node.summary, node.source.title] : [],
+          node.type === "evidence" ? [text(node), node.source.title] : [],
         ),
       ),
     },

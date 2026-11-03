@@ -529,6 +529,8 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   ],
   "rfk-health-policy": ["Will RFK Jr's Make America Healthy Again agenda improve US health?"],
   "doge-federal-cuts": ["Did DOGE actually cut government waste and make Washington leaner?"],
+  "medicaid-work-requirements": ["Do Medicaid work requirements actually get people working?"],
+  "data-centers-electricity-bills": ["Are data centers raising my electric bill?"],
 };
 
 // ============================================================================
