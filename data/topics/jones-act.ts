@@ -43,6 +43,19 @@ export const jonesActData = {
         "A 1920 law with few academic defenders and broad economist opposition persists because its benefits are concentrated on a small, organized coalition of shipyards and maritime unions while its costs are spread thinly across every consumer. That asymmetry is itself part of the argument.",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "The Jones Act, a 1920 law, requires cargo moving between U.S. ports to travel on ships that are U.S.-built, U.S.-flagged and U.S.-crewed, and U.S.-built ships cost several times the world price. The large oceangoing fleet that qualifies is down to under a hundred ships, from many hundreds at mid-century. Both sides accept those facts. The fight is over what repeal would actually save, and what it would cost.",
+    confidence: 85,
+    source:
+      "Congressional Research Service, R45725, on MARAD fleet statistics",
+    sourceUrl:
+      "https://www.congress.gov/crs-product/R45725",
+  },
+  simple_case: [
+    "The answer bears on what Puerto Rico, Hawaii, Alaska and Guam pay for goods shipped from the mainland, and on whether the U.S. would have the ships and crews it needs in a war.",
+  ],
   pillars: [
     {
       id: "cost-premium",

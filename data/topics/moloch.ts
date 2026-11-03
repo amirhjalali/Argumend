@@ -41,6 +41,19 @@ export const molochData = {
         "Alexander argues technology accelerates the race, dragging us toward a Malthusian future. Yet the Industrial Revolution is history's clearest case of technology bursting a Malthusian trap. Which pattern generalizes?",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Competitive fishing drove the Northern cod off Newfoundland to commercial collapse, and Canada closed the fishery in 1992. The 1987 Montreal Protocol went on to win near-universal ratification and phased out the chemicals thinning the ozone layer. Both cases are on the record. The argument is over which of them is the rule when the rivals are nations and AI labs rather than fishing fleets.",
+    confidence: 88,
+    source:
+      "Fisheries and Oceans Canada, Northern cod integrated fishery management plan; Montreal Protocol (1987) and WMO/UNEP ozone assessments",
+    sourceUrl:
+      "https://www.dfo-mpo.gc.ca/fisheries-peches/ifmp-gmp/cod-morue/2020/cod-atl-morue-2020-eng.html",
+  },
+  simple_case: [
+    "The answer decides whether treaties and locally made rules can restrain races like the one in AI, or whether it takes a coordinating power strong enough to override them, with the risks that kind of power carries.",
+  ],
   pillars: [
     {
       id: "game-theoretic-engine",

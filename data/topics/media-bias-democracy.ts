@@ -38,6 +38,19 @@ export const mediaBiasDemocracyData = {
       url: "https://www.pnas.org/doi/10.1073/pnas.2025334119",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Gallup's 2024 survey found 31% of Americans trust the mass media to report the news fully, accurately and fairly, a trend low. Worldwide, the Reuters Institute's 2024 report found 40% trust most news most of the time. Both sides accept those numbers. The fight is over whether bias in coverage drives that distrust and the divisions around it, or reflects them.",
+    confidence: 88,
+    source:
+      "Gallup, 'Americans' Trust in Media Remains at Trend Low' (2024); Reuters Institute, Digital News Report 2024",
+    sourceUrl:
+      "https://news.gallup.com/poll/651977/americans-trust-media-remains-trend-low.aspx",
+  },
+  simple_case: [
+    "The answer bears on what could rebuild trust in a shared set of facts: changing how newsrooms cover politics, or changes outside the newsroom.",
+  ],
   pillars: [
     {
       id: "existence-extent-bias",

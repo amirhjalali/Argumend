@@ -7,6 +7,19 @@ export const immigrationBorderCrisisData = {
     "The current approach to US immigration — combining border enforcement, asylum restrictions, and deportation — is the most effective way to manage immigration and protect national interests.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Southwest border encounters hit a record 2.47 million in fiscal 2023, then fell sharply after the asylum restrictions of 2023–2025. The immigration court backlog peaked near 3.7 million cases in fiscal 2024. Both sides accept those numbers. The fight is over what drove the drop, and whether enforcement and asylum limits are the best way to manage what comes next.",
+    confidence: 90,
+    source:
+      "U.S. Customs and Border Protection, Southwest Land Border Encounters; TRAC Immigration, Syracuse University",
+    sourceUrl:
+      "https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters",
+  },
+  simple_case: [
+    "The answer decides which border policies are worth keeping and at what cost, and how long people with asylum claims wait to learn their fate.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Border Security & Enforcement

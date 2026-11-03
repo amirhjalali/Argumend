@@ -42,6 +42,19 @@ export const scottCostDiseaseData = {
         "Haircuts and restaurants are just as labor-intensive as teaching, yet their real prices barely moved. The sectors that exploded — health, education, construction — share a second ingredient beyond low productivity growth.",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "New York's Second Avenue Subway cost roughly $2.5 billion a mile, several times what comparable lines cost in Europe and Asia. U.S. health-care administration ran about $2,497 a person in 2017, against about $551 in Canada. Neither figure is in dispute. The fight is over how much of the rise is the unavoidable price of work that can't be automated, and how much is waste that could be cut.",
+    confidence: 85,
+    source:
+      "Transit Costs Project, NYU Marron Institute; Himmelstein, Campbell & Woolhandler, Annals of Internal Medicine (2020)",
+    sourceUrl:
+      "https://transitcosts.com/",
+  },
+  simple_case: [
+    "The answer decides whether Americans should expect to keep paying more for the same schooling, care and transit, or whether reform could bring those prices down.",
+  ],
   pillars: [
     {
       id: "baumol-effect",

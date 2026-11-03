@@ -7,6 +7,19 @@ export const studentDebtForgivenessData = {
     "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Federal student loans totaled about $1.7 trillion across 42.8 million borrowers at the end of 2025. In 2023 the Supreme Court struck down the Biden administration's plan for broad cancellation, 6–3, in Biden v. Nebraska. Both sides accept those facts. The fight is over whether broad forgiveness is fair and worth its cost, and what it would do to future tuition.",
+    confidence: 90,
+    source:
+      "Federal Student Aid, FSA Data Center (March 2026, data as of 31 December 2025); Supreme Court of the United States, Biden v. Nebraska (2023)",
+    sourceUrl:
+      "https://fsapartners.ed.gov/knowledge-center/library/electronic-announcements/2026-03-13/federal-student-aid-posts-updated-reports-fsa-data-center",
+  },
+  simple_case: [
+    "The answer bears on what happens to existing balances, which repayment plans survive, and what today's students end up borrowing.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Economic Stimulus & Macroeconomic Effects

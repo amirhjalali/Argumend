@@ -9,6 +9,19 @@ export const sexWorkDecriminalizationData = {
   category: "policy" as const,
   last_updated: "2026-06-16",
   tags: ["sex-work", "public-health", "criminal-justice", "hiv", "harm-reduction"],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "New Zealand decriminalized sex work in 2003, and a government review in 2008 found the reform had safeguarded sex workers' rights without a rise in their numbers. A 2013 study of about 150 countries linked legal prostitution to larger reported trafficking inflows, though the UNODC warns its counts are not victim counts. The fight is over what full decriminalization does to safety and health, and whether its gains reach the coerced.",
+    confidence: 82,
+    source:
+      "Report of the Prostitution Law Review Committee (NZ Government, 2008); Cho, Dreher & Neumayer, World Development (2013)",
+    sourceUrl:
+      "https://www.beehive.govt.nz/release/act-helps-health-and-safety-sex-workers-report-says",
+  },
+  simple_case: [
+    "The answer bears on which model lawmakers choose, full decriminalization as in New Zealand or a licensed legal sector as in Germany, and on whether sex workers can report violence to police without risking arrest.",
+  ],
   pillars: [
     {
       id: "violence-and-policing",

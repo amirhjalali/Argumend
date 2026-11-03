@@ -42,6 +42,19 @@ export const ai2027Data = {
         "Forecasters — including the AI 2027 authors — have strong priors that AI arrives soon. History records both premature AI hype (the winters) and a recent run of expert predictions that proved far too conservative. Which base rate applies here is itself a measurable, resolvable question.",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "By METR's measure, the length of task frontier AI can complete alone has doubled about every seven months since 2019. Epoch AI tracks the compute used to train frontier models growing four to five times over each year. Both sides accept those trends. The fight is over whether they hold until AI can do AI research itself, and how fast things move once it can.",
+    confidence: 85,
+    source:
+      "METR, 'Measuring AI Ability to Complete Long Tasks' (2025); Epoch AI, Machine Learning Trends",
+    sourceUrl:
+      "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
+  },
+  simple_case: [
+    "The answer decides whether the next few years are the window in which decisions about superintelligence get made, or one stage of a longer transition with more time to prepare.",
+  ],
   pillars: [
     {
       id: "rnd-automation-loop",

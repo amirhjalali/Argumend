@@ -7,6 +7,19 @@ export const tiktokBanData = {
     "TikTok poses a genuine national security threat through Chinese government data access and algorithmic influence, justifying a government ban or forced sale.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In December 2025, under a law the Supreme Court had upheld unanimously, ByteDance signed a deal moving about 80% of TikTok's U.S. business to an Oracle-led investor group. Oracle runs a licensed copy of the algorithm, retrained on U.S. data. The fight is over whether that ends the risk of Chinese control, and whether forcing the sale was justified.",
+    confidence: 88,
+    source:
+      "TikTok Inc. v. Garland (2025); Reuters, The New York Times and Bloomberg on the divestiture deal",
+    sourceUrl:
+      "https://www.supremecourt.gov/opinions/24pdf/24-656_ca7d.pdf",
+  },
+  simple_case: [
+    "The answer sets the precedent for how far Washington can go against a foreign-owned app that millions of Americans use for speech, business and creative work.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Data Privacy & National Security

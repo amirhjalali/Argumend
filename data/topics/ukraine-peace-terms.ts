@@ -12,6 +12,16 @@ export const ukrainePeaceTermsData = {
   simple_case: [
     "The answers decide whether freezing the lines would end the killing on acceptable terms or only buy time before the next invasion.",
   ],
+  // ── The opening: the fact under the title ──
+  keystone_fact: {
+    statement:
+      "By the Institute for the Study of War's count, the front line barely moved through 2026: Russian forces lost a net 81 square kilometers in September and 27 in October. Some 3.47 million people live in the areas Russia occupies, by SWP's 2024 estimate, and a freeze would leave them there. The fight is over what a deal drawn along that line would buy.",
+    confidence: 85,
+    source:
+      "Institute for the Study of War / Critical Threats, Russian Offensive Campaign Assessments (October and November 2026); SWP Comment, 'Russia in the Occupied Territories of Ukraine' (Petrov, 2024)",
+    sourceUrl:
+      "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-1-2026",
+  },
   pillars: [
     // =========================================================================
     // PILLAR 1: Territorial Concessions vs. Sovereignty

@@ -7,6 +7,19 @@ export const immigrationNationalIdentityData = {
     "High levels of immigration fundamentally transform the cultural identity and social cohesion of receiving nations in ways that democratic majorities have not consented to and that integration policies cannot adequately address.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In Gallup's 2024 survey, 55% of Americans wanted immigration decreased, the first majority since 2005. Robert Putnam's 2007 study of 41 U.S. communities linked ethnic diversity to lower social trust in the short to medium term. Both sides accept those findings. The fight is over whether integration policy can carry trust through high immigration, and who decides how much immigration a country takes.",
+    confidence: 84,
+    source:
+      "Gallup (2024); Putnam, 'E Pluribus Unum', Scandinavian Political Studies (2007)",
+    sourceUrl:
+      "https://news.gallup.com/poll/647123/sharply-americans-curb-immigration.aspx",
+  },
+  simple_case: [
+    "The answer bears on how many people democracies admit and how they integrate them, and on whether voters come to trust that their say on it counts.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Economic Impact

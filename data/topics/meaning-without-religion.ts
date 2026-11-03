@@ -6,6 +6,19 @@ export const meaningWithoutReligionData = {
     "A meaningful, fulfilling human life is fully achievable without religious belief, and secular philosophical frameworks provide adequate foundations for purpose, ethics, and existential satisfaction.",
   status: "highly_speculative" as const,
   category: "philosophy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Finland, Denmark, Sweden and the Netherlands, among the most secular nations on Earth, consistently rank in the World Happiness Report's top 10. In the U.S., Pew finds that actively religious people report being happier than the unaffiliated. Both sides accept both findings. The fight is over what explains them: belief itself, or the community and support that can come with it.",
+    confidence: 82,
+    source:
+      "World Happiness Report 2024; Pew Research Center, 'Religion's Relationship to Happiness, Civic Engagement and Health Around the World' (2019)",
+    sourceUrl:
+      "https://www.worldhappiness.report/ed/2024/",
+  },
+  simple_case: [
+    "The answer bears on what people who leave religion, or never join one, can expect to find elsewhere, and on what secular societies need to provide in its place.",
+  ],
   pillars: [
     {
       id: "secular-meaning-frameworks",

@@ -7,6 +7,19 @@ export const nuclearProliferationNewArmsRaceData = {
     "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "New START, the last treaty capping U.S. and Russian nuclear arsenals, expired on 5 February 2026 with no successor under negotiation. The world's stockpile is still down about 83% from its 1986 peak, from roughly 70,300 warheads to about 12,000. Both sides accept those facts. The fight is over whether today's buildup is a race or the replacement of aging weapons, and how much it raises the risk of war.",
+    confidence: 88,
+    source:
+      "NPR, 'For the first time in decades, the U.S. and Russia have no limits on nuclear weapons' (February 2026); Arms Control Association; Federation of American Scientists, Status of World Nuclear Forces",
+    sourceUrl:
+      "https://www.ctpublic.org/2026-02-04/for-the-first-time-in-decades-the-u-s-and-russia-have-no-limits-on-nuclear-weapons",
+  },
+  simple_case: [
+    "The answer bears on whether Washington, Moscow and Beijing try to negotiate new limits, and on what the U.S. spends replacing its own arsenal, about $2 trillion over 30 years by the CBO's estimate.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Treaty Collapse

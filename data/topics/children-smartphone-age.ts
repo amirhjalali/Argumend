@@ -44,6 +44,19 @@ export const childrenSmartphoneAgeData = {
         "Is the problem the device itself, or specific features like algorithmic feeds, notifications, and social media? Would banning smartphones but allowing basic phones solve the problem? Should regulation target addictive design features rather than hardware ownership?",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In the CDC's youth survey, the share of U.S. high school girls reporting persistent sadness or hopelessness rose from 36% in 2011 to 57% in 2021. Australia's ban on social media accounts for under-16s took effect on 10 December 2025. Both sides accept those facts. The fight is over how much of that rise smartphones cause, and whether a legal age limit on owning one would help.",
+    confidence: 86,
+    source:
+      "CDC Youth Risk Behavior Survey; Online Safety Amendment (Social Media Minimum Age) Act 2024 (Cth) and Australian eSafety Commissioner",
+    sourceUrl:
+      "https://www.cdc.gov/healthyyouth/data/yrbs/index.htm",
+  },
+  simple_case: [
+    "The answer bears on what parents decide at a child's first phone, and on whether more governments follow Australia in setting age limits by law.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Harms From the Device Itself

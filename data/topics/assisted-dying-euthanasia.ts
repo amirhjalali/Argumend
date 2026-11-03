@@ -9,6 +9,19 @@ export const assistedDyingEuthanasiaData = {
   category: "philosophy" as const,
   last_updated: "2026-06-16",
   tags: ["bioethics", "autonomy", "end-of-life", "medicine", "rights"],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Of the 376 Oregonians who died under the state's Death with Dignity Act in 2024, 88.6% named losing autonomy as a concern and 42.0% named being a burden on others. Canada's Supreme Court struck down that country's blanket ban on assisted death in 2015. Both sides accept those facts. The fight is over whether such laws can honor the first concern without feeding the second.",
+    confidence: 90,
+    source:
+      "Oregon Health Authority, 2024 Death with Dignity Act Data Summary (2025); Carter v. Canada (Attorney General), 2015 SCC 5",
+    sourceUrl:
+      "https://www.oregon.gov/oha/PH/PROVIDERPARTNERRESOURCES/EVALUATIONRESEARCH/DEATHWITHDIGNITYACT/Documents/year27.pdf",
+  },
+  simple_case: [
+    "The answer bears on whether more states and countries allow assisted dying, and on how far such laws should reach beyond the terminally ill, as Canada's now does.",
+  ],
   pillars: [
     {
       id: "autonomy-and-rights",
