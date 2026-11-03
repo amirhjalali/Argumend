@@ -1336,9 +1336,9 @@
     "title": "Is Short-Form Video Causing Cognitive Decline?",
     "question": "Is habitual short-form video degrading attention and deep thinking?",
     "meta_claim": "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 65,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1346,12 +1346,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 13,
     "firstCrux": "Do heavy short-form video users show weaker sustained attention than matched non-users?",
     "tags": [
       "science"
     ],
-    "keywords": "pisa douyin circuitry anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen teng bytedance clips"
+    "keywords": "pisa douyin circuitry scrolling anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen supplementary teng"
   },
   {
     "id": "ai-replacing-doctors",
