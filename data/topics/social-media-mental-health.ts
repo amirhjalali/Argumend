@@ -18,14 +18,14 @@ export const socialMediaMentalHealthData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In 2013, 30% of US high school students said they had felt so sad or hopeless for two weeks that they stopped doing their usual activities. By 2021 it was 42%, and in 2023 it was 40%, including 53% of girls. The rise began as smartphones and social media spread. The fight is over whether social media caused it, or whether it is a small part of a story with many causes.",
+      "In 2013, 30% of US high schoolers said they had felt so sad or hopeless for two weeks that they stopped doing their usual activities. By 2021 it was 42%, and in 2023 it was 40%, including 53% of girls. The rise began as smartphones and social media spread. The fight is over whether social media caused it, or whether it is a small part of a story with many causes.",
     confidence: 85,
     source:
       "CDC, Youth Risk Behavior Survey Data Summary & Trends Report: 2013-2023 (6 August 2024)",
     sourceUrl: "https://www.cdc.gov/yrbs/dstr/index.html",
   },
   simple_case: [
-    "The answer drives policy already in force: Australia's under-16 social media ban, school phone bans in more than 30 US states, state laws on 'addictive feeds', and lawsuits against Meta and Snap. Those policies have their own maps; this one is about the science underneath them.",
+    "The answer drives policy already in force: Australia's under-16 social media ban, classroom phone bans in more than 30 US states, state laws on 'addictive feeds', and lawsuits against Meta and Snap. Those policies have their own maps; this one is about the science underneath them.",
     "Three questions carry it: how big the link between social media and teen distress is and who it concentrates in, whether experiments show social media causes the harm, and which features, if any, do the damage.",
   ],
   pillars: [
@@ -41,7 +41,7 @@ export const socialMediaMentalHealthData = {
         "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=60",
       icon_name: "Telescope" as const,
       skeptic_premise:
-        "The average link is too small to explain a crisis. Across three large datasets covering 355,358 adolescents, Amy Orben and Andrew Przybylski found digital technology use explained 'at most 0.4% of the variation in well-being', and concluded the effects were 'too small to warrant policy change.' The 2026 JAMA Pediatrics meta-analysis that supporters cite found correlations between social media and subsequent depression of about r = 0.09 to 0.21, which are small by any convention. In 2023 the National Academies reviewed the field and said its review 'did not support the conclusion that social media causes changes in adolescent health at the population level.' The timing fits other causes too: Candice Odgers points to the opioid epidemic, economic hardship after 2008, social isolation and a shortage of school psychologists. And the trend is not a one-way ratchet: the share of students reporting persistent sadness fell from 42% in 2021 to 40% in 2023, while phones stayed everywhere.",
+        "The average link is too small to explain a crisis. Across three large datasets covering 355,358 adolescents, Amy Orben and Andrew Przybylski found digital technology use explained 'at most 0.4% of the variation in well-being', and concluded the effects were 'too small to warrant policy change.' The 2026 JAMA Pediatrics meta-analysis that supporters cite found correlations between social media and subsequent depression of about r = 0.09 to 0.21, which are small by any convention. In 2023 the National Academies reviewed the field and said its review 'did not support the conclusion that social media causes changes in adolescent health at the population level.' The timing fits other causes too: Candice Odgers points to the opioid epidemic, economic hardship after 2008, social isolation and a shortage of school psychologists. And the trend is not a one-way ratchet: the share of teens reporting persistent sadness fell from 42% in 2021 to 40% in 2023, while phones stayed everywhere.",
       proponent_rebuttal:
         "A small average across all teens and all screen use is the wrong measure. The harm concentrates where the theory predicts: in girls, in early adolescence and in heavy users of social media rather than television or gaming. Orben's own 2022 work, with 84,011 participants, found 'windows of developmental sensitivity' when higher social media use predicted lower life satisfaction the following year: ages 11 to 13 for girls and 14 to 15 for boys. The 2026 JAMA Pediatrics meta-analysis of 153 studies found social media use 'consistently associated with risks' over time, including depression, self-harm thoughts and lower academic achievement, with stronger links in early adolescence. Correlations of 0.1 to 0.2 are in the range of many accepted public-health risks, and applied to millions of teens they mean many additional cases. The 2010s rise came in all the outcomes that do not depend on self-report, including emergency visits and self-harm, and in girls above all, which is where social media use grew fastest.",
       crux: {
@@ -77,7 +77,7 @@ export const socialMediaMentalHealthData = {
           id: "twenge-trends",
           title: "CDC 2024: Persistent Sadness Among US High Schoolers Rose From 30% in 2013 to 42% in 2021, Then 40% in 2023",
           description:
-            "The share of high school students who felt so sad or hopeless almost every day for two weeks that they stopped usual activities went from 30% in 2013 and 2015 to 31% in 2017, 37% in 2019, 42% in 2021 and 40% in 2023. In 2023 it was 53% of girls and 28% of boys. 'Nearly all indicators of poor mental health and suicidal thoughts and behaviors worsened from 2013 to 2023,' though from 2021 to 2023 'there were early signs that adolescent mental health is getting better.'",
+            "The share of high schoolers who felt so sad or hopeless almost every day for two weeks that they stopped usual activities went from 30% in 2013 and 2015 to 31% in 2017, 37% in 2019, 42% in 2021 and 40% in 2023. In 2023 it was 53% of girls and 28% of boys. 'Nearly all indicators of poor mental health and suicidal thoughts and behaviors worsened from 2013 to 2023,' though from 2021 to 2023 'there were early signs that adolescent mental health is getting better.'",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -372,7 +372,7 @@ export const socialMediaMentalHealthData = {
             directness: 7,
           },
           source:
-            "Witkin, Lim, Rausch & Haidt, 'The Many Lines of Evidence That Social Media is Not Safe For Teens' (2026), summarizing school districts' filings in MDL 3047 (N.D. Cal.)",
+            "Witkin, Lim, Rausch & Haidt, 'The Many Lines of Evidence That Social Media is Not Safe For Teens' (2026), summarizing plaintiffs' filings in MDL 3047 (N.D. Cal.)",
           sourceUrl:
             "https://www.stern.nyu.edu/experience-stern/about/departments-centers-initiatives/academic-departments/business-society-program/tech-and-society-lab/research-areas/many-lines-evidence-social-media-not-safe-teens",
           reasoning:

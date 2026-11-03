@@ -41,7 +41,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort biomonitoring nasem fluorochemical hfpo ulcerative colitis"
+    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort biomonitoring fluorochemical hfpo ulcerative colitis pharmacokinetic"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -471,7 +471,7 @@
       "Independent redistricting commissions",
       "Gerrymandering ban"
     ],
-    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom cements deadlocked kagan"
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki cements deadlocked kagan newsom"
   },
   {
     "id": "aca-enhanced-subsidies",
@@ -1159,24 +1159,29 @@
   {
     "id": "social-media-age-limits",
     "title": "Social Media Age Limits",
-    "question": "Should children under 16 be legally barred from social media?",
-    "meta_claim": "Children under 16 should be legally prohibited from using social media platforms.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 56,
+    "question": "Should kids under 16 be banned from social media?",
+    "meta_claim": "Governments should legally bar children under 16 from holding social media accounts, as Australia did in December 2025.",
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 59,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Do teens kept off social media end up with better mental health than teens who stay on?",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do children kept off social media end up better off than children who stay on?",
     "tags": [
       "technology"
     ],
-    "keywords": "yoti coppa circumvention ofcom murthy anglophone birthdate drama inman pinpoint tweens candice esafety penguin takeaways"
+    "aliases": [
+      "Should children under 16 be legally barred from social media?",
+      "Australia social media ban for under-16s",
+      "Should there be a minimum age for social media?"
+    ],
+    "keywords": "esafety netchoice yoti medianet muster tweens eleventh indonesia malaysia newsom cabinet floridians greeces rkiyes tjoflat"
   },
   {
     "id": "social-media-mental-health",
@@ -1203,7 +1208,7 @@
       "Is social media making teenagers depressed?",
       "Did smartphones cause the rise in teen anxiety?"
     ],
-    "keywords": "braghieri odgers thoughts detox makarin witkin mercury rausch allcott kaiser keyes rewiring thimm candice happiness"
+    "keywords": "braghieri odgers thoughts detox makarin witkin mercury rausch allcott candice kaiser keyes rewiring thimm happiness"
   },
   {
     "id": "ai-risk",
@@ -1291,7 +1296,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "metoo afraid boycotts brady eeoc kaufmann shor cspi tweeting censorship bavel chappelle civis cosby harvey"
+    "keywords": "metoo yougov afraid boycotts brady eeoc kaufmann shor cspi tweeting censorship bavel chappelle civis cosby"
   },
   {
     "id": "media-bias-democracy",
@@ -1587,7 +1592,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
+    "keywords": "cobalt nickel recycled gasoline catl indonesia argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
   },
   {
     "id": "factory-farming-ban",
@@ -1954,7 +1959,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs surkalim fibrinogen glaser suburban"
+    "keywords": "walkable surgeon leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs surkalim fibrinogen glaser"
   },
   {
     "id": "remote-work-permanence",
@@ -2603,7 +2608,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety commenced anglosphere assent babel scandinavia snapchat twitch undifferentiated abrahamsson kick pediatricians rausch reddit threads"
+    "keywords": "esafety commenced anglosphere assent babel scandinavia twitch undifferentiated abrahamsson kick pediatricians rausch reddit snapchat threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2691,7 +2696,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate ceos herself naep clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "keywords": "despair deaton anne tate ceos naep clearinghouse herself mens afflicting congregations fraternal hierarchies misogynistic sharper"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2740,7 +2745,7 @@
       "Should governments help people have the children they want?",
       "Do housing and childcare costs explain low fertility?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth"
+    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth yougov"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -3470,7 +3475,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking fosta netzdg aggravated taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
+    "keywords": "overblocking fosta netzdg aggravated taamneh ninth surgeon eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia"
   },
   {
     "id": "autonomous-weapons-ban",
