@@ -7,6 +7,19 @@ export const reparationsSlaveryData = {
     "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In the Federal Reserve's 2022 survey, the median white family held about $285,000 in wealth and the median Black family about $45,000. Leading estimates of what reparations would cost run roughly $10 trillion to $14 trillion. Both sides accept those figures. The fight is over how much of the gap traces to slavery and the policy that followed it, and whether any program could close it.",
+    confidence: 88,
+    source:
+      "Federal Reserve Board, FEDS Notes (2023), on the 2022 Survey of Consumer Finances; Craemer, Social Science Quarterly (2015); Darity & Mullen, From Here to Equality (2020)",
+    sourceUrl:
+      "https://www.federalreserve.gov/econres/notes/feds-notes/greater-wealth-greater-uncertainty-changes-in-racial-inequality-in-the-survey-of-consumer-finances-20231018.html",
+  },
+  simple_case: [
+    "The answers decide whether the federal government pays reparations to the descendants of enslaved people, and if so in what form, or addresses the gap through broader policy.",
+  ],
   pillars: [
     {
       id: "moral-historical-case",
