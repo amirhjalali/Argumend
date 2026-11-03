@@ -1934,7 +1934,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
+    "keywords": "semaglutide supermarket kcal regained microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
   },
   {
     "id": "loneliness-epidemic",
@@ -2887,9 +2887,9 @@
     "title": "Trump's Tariffs & Protectionist Trade Policy",
     "question": "Have Trump's tariffs revived US manufacturing and helped American workers?",
     "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
-    "confidence_score": 36,
-    "balance": 36,
-    "weight": 79,
+    "confidence_score": 34,
+    "balance": 34,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2897,12 +2897,17 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 4,
-    "evidenceCount": 18,
+    "evidenceCount": 19,
     "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc krugman truce usmca scattered alberto carmakers"
+    "aliases": [
+      "Who really pays Trump's tariffs?",
+      "Are tariffs bringing factory jobs back?",
+      "Are Trump's tariffs working?"
+    ],
+    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc krugman truce usmca ustr scattered alberto"
   },
   {
     "id": "rfk-health-policy",
@@ -3140,7 +3145,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla gode groves kusano paddock pe24031"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla gode kusano paddock pe24031 shladover"
   },
   {
     "id": "net-neutrality",
