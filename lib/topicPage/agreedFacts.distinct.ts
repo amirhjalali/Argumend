@@ -16,8 +16,6 @@ export const DISTINCT_FROM_AGREED_FACT: Record<string, string> = {
     "The card is the NAS finding on native wages; the agreed fact is about aggregate GDP and fiscal impact.",
   "adhd-overdiagnosis/milder-cases-harm":
     "The card says harms may outweigh benefits in milder cases; the agreed fact says that net effect is poorly studied.",
-  "alternatives-to-democracy/ireland-citizens-assembly":
-    "The card says the assembly resolved the deadlock; the agreed fact says its recommendation took effect only through a referendum.",
   "trump-tariffs/american-compass-stealth-boom":
     "The card argues a boom is visible in capex; the agreed fact is only that payrolls do not show one yet.",
   "student-debt-forgiveness/tuition-inflation-1200-percent":
