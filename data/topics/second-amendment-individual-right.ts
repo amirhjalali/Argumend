@@ -285,11 +285,10 @@ export const secondAmendmentIndividualRightData = {
           "The Court has agreed to decide in Viramontes v. Cook County and Grant v. Higgins whether bans on AR-15-style rifles violate the Second Amendment. The answer turns on whether these rifles are 'arms' in common use for lawful purposes, and whether founding-era and 19th-century laws on 'dangerous and unusual' weapons are analogues for a modern ban.",
         methodology:
           "Compare (1) evidence on how many AR-15-style rifles are owned and for what purposes (surveys, manufacturing data) with (2) the historical record of laws restricting particular weapons (Bowie knives, trap guns, machine guns under the 1934 National Firearms Act) and how courts treated them; and track the Court's decision, expected by June 2027.",
-        verification_status: "impossible" as const,
+        verification_status: "theoretical" as const,
         settle: {
           condition:
-            "The Supreme Court's decision in Viramontes v. Cook County and Grant v. Higgins, expected by June 2027, which will bind lower courts on the legal question; whether a weapon's popularity should protect it from a ban stays a question of values that no historical record settles.",
-          kind: "authority-allocation" as const,
+            "A full survey of 18th- and 19th-century laws restricting particular weapons, showing whether any banned a weapon commonly kept at home for self-defense, read alongside the Supreme Court's ruling in Viramontes v. Cook County and Grant v. Higgins, expected by June 2027.",
         },
         cost_to_verify: "$0 (the decision and briefs will be public)",
         falsification: {

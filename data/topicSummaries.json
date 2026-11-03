@@ -2972,7 +2972,7 @@
     "meta_claim": "The Second Amendment protects an individual right to keep and bear arms for self-defense, not merely a right tied to militia service, and that right limits what guns governments may ban and where they may ban carrying them.",
     "confidence_score": 55,
     "balance": 55,
-    "weight": 72,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
