@@ -220,7 +220,7 @@ export const vaccineMandatesData = {
             "US CDC, 'Measles Cases and Outbreaks' and 'History of Measles'",
           sourceUrl: "https://www.cdc.gov/measles/data-research/index.html",
           reasoning:
-            "Authoritative data on what high two-dose coverage achieved. The CDC credits the vaccination program, not school rules specifically; how much of that coverage the requirements produced is the inference the uptake question tests.
+            "Authoritative data on what high two-dose coverage achieved. The CDC credits the vaccination program, not school rules specifically; how much of that coverage the requirements produced is the inference the uptake question tests.",
         },
         {
           id: "vaccine-cuts-transmission",
