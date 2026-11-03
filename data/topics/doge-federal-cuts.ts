@@ -7,6 +7,18 @@ export const dogeFederalCutsData = {
     "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "The temporary DOGE organization ended on 4 July 2026; days earlier its website claimed $215 billion in savings. In August 2026 the Government Accountability Office reviewed the $110 billion of that claim listed against cancelled contracts, grants and leases, and found some of the estimates incorrect or lacking supporting evidence. The fight is over whether the cuts left a leaner government or a weaker one.",
+    confidence: 90,
+    source:
+      "Nextgov/FCW, 'As DOGE formally sunsets, its public record is still evolving' (2 July 2026); U.S. GAO, 'DOGE Wall of Receipts: More Transparency Needed on How Savings Are Derived from Contract, Grant, and Lease Terminations' (GAO-26-108615, 6 August 2026)",
+    sourceUrl: "https://www.gao.gov/products/gao-26-108615",
+  },
+  simple_case: [
+    "The answer bears on how future presidents cut the government, on waits at Social Security and the VA, and on what a president may do without Congress.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Claimed vs. Verified Savings

@@ -8,6 +8,18 @@ export const obesityPersonalResponsibilityData = {
     "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
   status: "contested" as const,
   category: "science" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "By the CDC's measurements, obesity among US adults aged 20 to 74 rose from 13.4% in 1960–62 to 42.8% in 2017–18, far faster than genes change. In the STEP 1 trial, adults given semaglutide alongside diet and exercise counselling lost 14.9% of their body weight over 68 weeks, against 2.4% on placebo. The fight is over what those facts say about how much of weight is chosen.",
+    confidence: 92,
+    source:
+      "CDC National Center for Health Statistics, NHANES Health E-Stat, 'Prevalence of Overweight, Obesity, and Severe Obesity Among Adults Aged 20 and Over: United States, 1960–1962 Through 2017–2018', Table 1; Wilding et al., New England Journal of Medicine (2021)",
+    sourceUrl: "https://www.cdc.gov/nchs/data/hestat/obesity-adult-17-18/obesity-adult.htm",
+  },
+  simple_case: [
+    "The answer bears on whether governments tax and regulate food, on who pays for weight-loss drugs, and on how doctors treat people with obesity.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Food Environment and Agency

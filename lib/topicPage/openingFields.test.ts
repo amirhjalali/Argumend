@@ -13,14 +13,7 @@ import { topics } from "@/data/topics";
  * Maps other round-13 work was editing while the openings were written.
  * Remove an id once its map has both fields.
  */
-const OPENING_PENDING = new Set([
-  "us-iran-conflict",
-  "transgender-athletes-sports",
-  "doge-federal-cuts",
-  "minneapolis-shooting",
-  "social-media-elections",
-  "obesity-personal-responsibility",
-]);
+const OPENING_PENDING = new Set(["minneapolis-shooting"]);
 
 describe("map openings", () => {
   it("every legacy map has a sourced opening fact and a crux-sheet lede", () => {
