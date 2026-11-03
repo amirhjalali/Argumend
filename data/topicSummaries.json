@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies misalignment sanders chronobiology clin fritz outdoor"
+    "keywords": "sunrise circadian doleac entrain kotchen indiana monday robberies misalignment sanders chronobiology clin fritz outdoor sandhu"
   },
   {
     "id": "tipping-culture",
@@ -218,7 +218,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dire wolf wolves colossal canid iucn resurrected woolly endangered lineage biosciences coyotes extant ghost latham"
+    "keywords": "dire wolf wolves colossal canid iucn resurrected endangered woolly lineage biosciences coyotes extant ghost latham"
   },
   {
     "id": "scott-cost-disease",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal mail factcheck unconfirmed"
+    "keywords": "hampshire heritage lieutenant schwab votebeat brennan cantoni pons kansass tenth tribal mail factcheck unconfirmed surprise"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -505,7 +505,7 @@
       "Health insurance premiums 2026",
       "Extend the ACA tax credits"
     ],
-    "keywords": "paragon improper bronze r48290 phantom aspe blase moreno maga planners sicker backfills bernie colleran dips"
+    "keywords": "paragon improper bronze r48290 phantom aspe blase moreno maga planners sicker backfills bernie colleran fumble"
   },
   {
     "id": "nuclear-energy-safety",
@@ -709,7 +709,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "boxell fowler lachat selb leigh gentzkow uninformed dampen donkey faqs jesse anthony commonwealth matthew"
+    "keywords": "boxell fowler lachat selb leigh uninformed dampen donkey faqs jesse anthony commonwealth"
   },
   {
     "id": "reparations-slavery",
@@ -1047,10 +1047,10 @@
     "id": "school-phone-bans",
     "title": "Should Schools Ban Smartphones?",
     "question": "Do school phone bans improve students' learning and mental health?",
-    "meta_claim": "Banning smartphones in schools significantly improves student academic performance, mental health, and social development.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 70,
+    "meta_claim": "Banning smartphones in schools for the whole school day measurably improves students' learning and mental health, enough to justify the costs of enforcing it.",
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1058,15 +1058,17 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 11,
+    "evidenceCount": 9,
     "firstCrux": "Are test-score gains after phone bans caused by the bans, or by differences between schools that adopt them?",
     "tags": [
       "policy"
     ],
     "aliases": [
-      "What happens in a school lockdown if every phone is locked away?"
+      "What happens in a school lockdown if every phone is locked away?",
+      "Should phones be banned in class?",
+      "Do Yondr pouches work?"
     ],
-    "keywords": "yondr beland pouches victoria literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom lockable lockers"
+    "keywords": "figlio suspension cellphone unexcused abrahamsson bullying bell beland baron duckworth jacob sara pings classroom goodyear"
   },
   {
     "id": "pandemic-preparedness",
@@ -1208,7 +1210,7 @@
       "Is social media making teenagers depressed?",
       "Did smartphones cause the rise in teen anxiety?"
     ],
-    "keywords": "braghieri odgers thoughts detox makarin witkin mercury rausch allcott candice kaiser keyes rewiring thimm happiness"
+    "keywords": "braghieri odgers thoughts detox makarin witkin mercury rausch schoolers candice kaiser keyes rewiring thimm happiness"
   },
   {
     "id": "ai-risk",
@@ -1318,7 +1320,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow regrets crowdsourced msnbc multipartisan unmoderated regretsreporter angry"
+    "keywords": "allsides groseclose milyo slant flaxman goel husz regrets crowdsourced msnbc multipartisan unmoderated regretsreporter angry haugen"
   },
   {
     "id": "space-colonization-feasibility",
@@ -1384,7 +1386,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "khanmigo unaided mooc quiz bastani estudia kestin kosmyna kulik mindspark ruiperez unguarded valiente fletcher reich"
+    "keywords": "khanmigo unaided unesco mooc quiz bastani estudia kestin kosmyna kulik mindspark ruiperez unguarded valiente fletcher"
   },
   {
     "id": "ai-regulation",
@@ -2003,7 +2005,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper"
+    "keywords": "apprenticeship attendees vocational bootcamp cirr electrician pipefitters plumbers steamfitters hvac leavers looney qualifications steeper handbook"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2293,7 +2295,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen teammates bamboohr ding bloom irvine sunk gloria pittsburgh uspto brucks frey gudith harrington junior"
+    "keywords": "allen teammates bamboohr ding bloom irvine sunk drain gloria pittsburgh uspto brucks frey gudith harrington"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2387,7 +2389,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace schurger vohs philpapers bourget brass compatibilism damasio e2904 e2913"
+    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace schurger vohs philpapers schooler bourget brass compatibilism damasio e2904"
   },
   {
     "id": "simulation-hypothesis",
@@ -2520,7 +2522,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "chetty dream abramitzky boustan duckworth dweck gatsby gregory grit hendren hubris hunter schmidt mindset sandel"
+    "keywords": "chetty dream abramitzky boustan dweck gatsby gregory grit hendren hubris hunter schmidt duckworth mindset sandel"
   },
   {
     "id": "consciousness-hard-problem",
@@ -2674,7 +2676,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker bahamian interoperable outer payee"
+    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
   },
   {
     "id": "masculinity-crisis",
@@ -2696,7 +2698,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate ceos naep clearinghouse herself mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "keywords": "despair deaton anne tate ceos naep clearinghouse herself mens afflicting congregations elementary fraternal hierarchies misogynistic"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -3025,7 +3027,7 @@
       "City center entry fees",
       "Motorist charges on central streets"
     ],
-    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass mayors wheels depreciation"
+    "keywords": "cordon stockholm tfls untolled roadways weekday eliasson inbound jonas roadworks unaudited zpass mayors wheels daytime"
   },
   {
     "id": "right-to-repair",
@@ -3111,7 +3113,7 @@
       "Is an assault weapons ban constitutional?",
       "Does the Second Amendment only protect militias?"
     ],
-    "keywords": "heller bruen emerson kavanaugh kopel rahimi saul marijuana mcdonald soldier wallace corpus baron hemani wolford"
+    "keywords": "heller bruen emerson kavanaugh kopel rahimi saul marijuana mcdonald soldier wallace corpus hemani wolford baron"
   },
   {
     "id": "self-driving-car-safety",
@@ -3223,7 +3225,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt metropolitan nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha"
+    "keywords": "frvt metropolitan nistir clare frte garvie grother hanaoka misidentification mugshot ngan nijeer passers porcha randal"
   },
   {
     "id": "gmo-crops-safety",
