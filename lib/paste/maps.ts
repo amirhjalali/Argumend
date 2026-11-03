@@ -22,6 +22,9 @@
  *      "wage", "jobs") is not a competing reading of the paste, while one
  *      that scored on words the top map lacks is;
  *    - and on the whole score (`minLead`), so a near tie is never named.
+ *    A rival whose words sit in sentences of their own is a second subject,
+ *    not a competing reading: then the first lead is measured on the top
+ *    map's own sentences instead (`onSeparateSentences`).
  * 2. Enough of the paste stands behind it: a score of at least `minScore`, or,
  *    for a short paste that cannot score high, at least `minCoverage` of its
  *    words accounted for with a score of at least `minShortScore`.
@@ -211,6 +214,7 @@ export function decideMatch(
   sharesName: (id: string) => boolean = () => true,
   introMapId?: string,
   usesAsMuch: (id: string, term: string, than: string) => boolean = () => false,
+  secondSubject: (topId: string, rivalId: string) => boolean = () => false,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -240,7 +244,16 @@ export function decideMatch(
   const enough =
     top.score >= MAP_MATCH.minScore ||
     (coverage >= MAP_MATCH.minCoverage && top.score >= MAP_MATCH.minShortScore);
-  const clear = lead >= MAP_MATCH.minLead && exclusiveLead >= MAP_MATCH.minExclusiveLead;
+  // A rival that scored on words the top map lacks is a competing reading of
+  // the paste, unless those words sit in sentences of their own: a paste that
+  // argues right to repair and then, separately, mentions losing a contract
+  // to AI is about two subjects, not one ambiguous one. Then the top map must
+  // stand clear of the rival on its own sentences instead, with the whole
+  // score lead and enough of the paste behind it as before.
+  const clear =
+    lead >= MAP_MATCH.minLead &&
+    (exclusiveLead >= MAP_MATCH.minExclusiveLead ||
+      (rival !== null && coverage >= MAP_MATCH.closestCoverage && secondSubject(top.id, rival.id)));
   const shown = (map: RankedMap) => map.score >= MAP_MATCH.shownShare * top.score;
   // A map beside the leader needs a telling name or configured subject cue:
   // one that scored on shared evidence and common words
@@ -815,6 +828,34 @@ function isOffSubject(
   return nameMatches(index, id, pasteTermSet).size === 0;
 }
 
+/**
+ * Whether the rival map is the subject of sentences of its own rather than a
+ * competing reading of the top map's sentences: most of the rival's score
+ * comes from sentences it outscores the top map on, and on the remaining
+ * sentences alone the top map stands clear of it (`minExclusiveLead`). Asked
+ * only when the top map leads on score but not on the words where the two
+ * differ, so the per-sentence rankings cost nothing on most pastes.
+ */
+function onSeparateSentences(index: MapIndex, text: string, topId: string, rivalId: string): boolean {
+  const sentences = text.split(/[.!?;:\n]+/).filter((sentence) => pasteTerms(sentence).length > 0);
+  if (sentences.length < 2) return false;
+  const topSentences: string[] = [];
+  let rivalOwn = 0;
+  let rivalShared = 0;
+  for (const sentence of sentences) {
+    const { ranked } = rankMaps(index, sentence);
+    const topScore = ranked.find((map) => map.id === topId)?.score ?? 0;
+    const rivalScore = ranked.find((map) => map.id === rivalId)?.score ?? 0;
+    if (rivalScore > topScore) rivalOwn += rivalScore;
+    else {
+      topSentences.push(sentence);
+      rivalShared += rivalScore;
+    }
+  }
+  if (topSentences.length === 0 || rivalOwn <= rivalShared) return false;
+  return rankMaps(index, topSentences.join(". ")).exclusiveLead(topId, rivalId) >= MAP_MATCH.minExclusiveLead;
+}
+
 export async function findMaps(text: string): Promise<PasteMapsResult> {
   const started = performance.now();
   const index = await getMapIndex();
@@ -863,6 +904,7 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
       const { k1 } = index.params;
       return own / (k1 + own) >= MAP_MATCH.siblingSharedWordShare * (other / (k1 + other));
     },
+    (topId, rivalId) => onSeparateSentences(index, text, topId, rivalId),
   );
   const matchedMs = performance.now() - indexed;
 
