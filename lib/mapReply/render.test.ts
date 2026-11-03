@@ -104,7 +104,7 @@ describe("renderMapReplyMarkdown", () => {
       unplacedCount: 3,
     };
     const markdown = renderMapReplyMarkdown(weak);
-    expect(markdown).toContain("This thread is probably arguing about **Supply Effects**");
+    expect(markdown).toContain("This thread is probably arguing about **The rental supply**");
     expect(markdown).toContain("no turn was placed on the map with confidence");
     expect(markdown).not.toContain("Most of this thread");
   });

@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz outdoor"
+    "keywords": "sunrise circadian indiana doleac entrain kotchen monday robberies misalignment sanders chronobiology clin fritz outdoor sandhu"
   },
   {
     "id": "tipping-culture",
@@ -107,7 +107,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "lynn bartenders waitstaff danny flsa meyers ushg customarily diner goodwill gratitude gratuity kitchen lucrative mccall"
+    "keywords": "lynn bartenders waitstaff danny flsa meyers ushg customarily goodwill gratitude gratuity kitchen lucrative mccall oews"
   },
   {
     "id": "ai-therapy-chatbots",
@@ -505,7 +505,7 @@
       "Health insurance premiums 2026",
       "Extend the ACA tax credits"
     ],
-    "keywords": "enrollees paragon improper bronze r48290 phantom aspe kffs blase moreno maga planners sicker backfills bernie"
+    "keywords": "enrollees paragon improper bronze r48290 phantom aspe kffs blase moreno maga planners sicker backfills colleran"
   },
   {
     "id": "nuclear-energy-safety",
@@ -593,22 +593,29 @@
     "title": "Raising the Minimum Wage",
     "question": "Would a $15 federal minimum wage help workers without costing many jobs?",
     "meta_claim": "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
-    "confidence_score": 61,
-    "balance": 61,
-    "weight": 63,
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 70,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does a minimum wage that is high relative to local wages, like $15 in a low-cost region, cost jobs?",
+    "pillarCount": 4,
+    "evidenceCount": 15,
+    "firstCrux": "Did the minimum-wage increases of the past 30 years cost low-wage jobs?",
     "tags": [
       "policy"
     ],
-    "keywords": "cengiz krueger eitc dube lindner oxfam zipperer bunching inwegen jardim neumark plotnick vigdor wascher wething"
+    "aliases": [
+      "Should the federal minimum wage be raised?",
+      "Does raising the minimum wage kill jobs?",
+      "Raise the Wage Act",
+      "Hawley-Welch $15 minimum wage bill",
+      "California $20 fast-food minimum wage"
+    ],
+    "keywords": "neumark krueger cengiz shirley sosinskiy wascher reich clemens oklahoma eitc preponderance bobby dube lindner meer"
   },
   {
     "id": "drug-decriminalization",
@@ -680,7 +687,7 @@
       "Should we defund the police?",
       "Does police reform reduce crime?"
     ],
-    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver feloniously cahoots louisville roland tanaya portland"
+    "keywords": "devi fryer lots vera chalfin unarmed campbell vacant denver feloniously cahoots louisville roland tanaya portland"
   },
   {
     "id": "mandatory-voting",
@@ -702,7 +709,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
+    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony"
   },
   {
     "id": "reparations-slavery",
@@ -751,7 +758,7 @@
       "Do immigrants take jobs from Americans?",
       "Will deporting immigrants raise wages?"
     ],
-    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe elizabeth"
+    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay diploma farmworkers clemens chloe elizabeth"
   },
   {
     "id": "open-borders",
@@ -795,7 +802,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "openresearch dividend kela stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee bartik"
+    "keywords": "openresearch dividend kela stockton roosevelt alaskas penn wharton manitoba mincome wives tanf denver givedirectly banerjee"
   },
   {
     "id": "wealth-tax",
@@ -817,7 +824,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg deferral"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg austria deferral"
   },
   {
     "id": "standardized-testing-debate",
@@ -861,7 +868,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega clinton oklahoma whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega clinton whoever oklahoma"
   },
   {
     "id": "surveillance-public-safety",
@@ -1147,7 +1154,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva brownell"
+    "keywords": "colchero tooth reformulation carious dommarco ounce popkin earmarked scarborough caries rivera satiety sugary andreyeva brownell"
   },
   {
     "id": "social-media-age-limits",
@@ -1411,7 +1418,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "gasoline technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel"
+    "keywords": "technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel rogue"
   },
   {
     "id": "ai-superintelligence-timeline",
@@ -1575,7 +1582,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel recycled gasoline indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina"
+    "keywords": "cobalt nickel recycled indonesia catl argonne redwood volvo atacama greet nrel bloombergnef gallons argentina tropical"
   },
   {
     "id": "factory-farming-ban",
@@ -1898,7 +1905,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
+    "keywords": "linoleic aldehyde hexane frying blasbalg pufa sydney solvent arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
   },
   {
     "id": "obesity-personal-responsibility",
@@ -1964,7 +1971,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "placer bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip"
+    "keywords": "placer bloom andy gibbs jassy mengel schoar shinde siemroth atkin downtown moodys boise ctrip gentrification"
   },
   {
     "id": "college-value-proposition",
@@ -2128,9 +2135,9 @@
     "title": "Housing Supply & Affordability",
     "question": "Would building more homes make housing affordable?",
     "meta_claim": "Building more homes, by loosening zoning and land-use rules and by public construction where the market will not build, is the main way to make housing affordable, including for lower-income renters.",
-    "confidence_score": 75,
-    "balance": 75,
-    "weight": 65,
+    "confidence_score": 73,
+    "balance": 73,
+    "weight": 68,
     "verdict": {
       "label": "Evidence clearly leans toward the claim",
       "quadrant": "moderate",
@@ -2138,13 +2145,21 @@
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does upzoning lower rents for median and lower-income renters within 5–10 years?",
+    "pillarCount": 3,
+    "evidenceCount": 11,
+    "firstCrux": "Do rules that limit building explain why housing costs rose so much more in some cities than others?",
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
+    "aliases": [
+      "Why is housing so expensive?",
+      "Is there a housing shortage?",
+      "YIMBY vs NIMBY",
+      "Does upzoning lower rents?",
+      "Does new luxury housing lower rents?",
+      "Should the government build public housing?"
+    ],
+    "keywords": "mast auckland bedroom gyourko rental vienna glaeser asquith louie mondragon wieland jchs backlog reed salary"
   },
   {
     "id": "four-day-work-week",
@@ -2166,7 +2181,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "burnout collar ambivalent cipd overtime qinglong shao salaried chartered frontline absenteeism aubry eurostat everybody insee"
+    "keywords": "burnout collar ambivalent cipd overtime qinglong shao chartered frontline salaried absenteeism aubry eurostat everybody insee"
   },
   {
     "id": "student-debt-forgiveness",
@@ -2188,29 +2203,36 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
+    "keywords": "tuition repayment deciles nebraska catherine bennett forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes mbas"
   },
   {
     "id": "inflation-monetary-policy",
     "title": "Inflation & Monetary Policy",
     "question": "Was post-pandemic inflation driven mainly by spending and money growth?",
     "meta_claim": "Post-pandemic inflation was primarily driven by excessive government spending and monetary expansion, not supply chain disruptions.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 77,
+    "confidence_score": 48,
+    "balance": 48,
+    "weight": 79,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 16,
     "firstCrux": "How much of the 2021–22 price rise did monetary and fiscal expansion cause, versus merely allow?",
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore advisors"
+    "aliases": [
+      "Did stimulus checks cause inflation?",
+      "Was inflation caused by supply chains or government spending?",
+      "Did money printing cause inflation?",
+      "Why are prices so high?",
+      "Should the Fed raise rates when oil prices spike?"
+    ],
+    "keywords": "drewry bernanke blanchard velocity supercore overheated jord kalemli nechio reyes shelter silva t10yie walcl yildirim"
   },
   {
     "id": "global-housing-bubble",
@@ -2232,29 +2254,35 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia starter lopez metro airbnb batzer bearish"
+    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia starter lopez airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
     "title": "Is the US National Debt a Ticking Time Bomb?",
     "question": "Will the US national debt cause a fiscal crisis within a generation?",
-    "meta_claim": "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability — though whether it triggers a genuine fiscal crisis within a generation, or proves manageable for a sovereign issuer of the world's reserve currency, is sharply contested.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 83,
+    "meta_claim": "The US national debt, now above $40 trillion, is on a path that risks a genuine fiscal crisis within a generation, rather than a burden a sovereign issuer of the world's reserve currency can carry indefinitely.",
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 82,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 17,
     "firstCrux": "Can the US keep its borrowing rate below its growth rate over decades?",
     "tags": [
       "economics"
     ],
-    "keywords": "brics reinhart rogoff refinanced herndon pollin comprises outlays rachel crfb cofer expansionary glut rags renminbi"
+    "aliases": [
+      "Is the national debt a ticking time bomb?",
+      "Can the US keep borrowing?",
+      "Interest on the debt now costs more than defense",
+      "Will the US default on its debt?"
+    ],
+    "keywords": "crfb fy2026 reinhart rogoffs outlays herndon pollin rachel brics renminbi moodys trustees refinanced cofer refund"
   },
   {
     "id": "return-to-office-productivity",
@@ -2303,30 +2331,33 @@
   {
     "id": "rent-control-effectiveness",
     "title": "Does Rent Control Help or Hurt Renters?",
-    "question": "Does rent control make housing less affordable in the long run?",
-    "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 49,
-    "balance": 49,
-    "weight": 63,
+    "question": "Does rent control end up hurting the renters it is meant to help?",
+    "meta_claim": "Rent control ends up hurting renters as a group: the protection it gives tenants who hold a capped lease is outweighed by the rentals it takes off the market and the higher rents and longer searches it leaves everyone else.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 71,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Can rent stabilization preserve both new construction and existing rental supply?",
+    "evidenceCount": 18,
+    "firstCrux": "Do rent caps shrink the stock of rentals, even when new buildings are exempt?",
     "tags": [
       "economics"
     ],
     "aliases": [
+      "Does rent control make housing less affordable in the long run?",
+      "Does rent control work?",
       "Limits on landlords' rent increases",
       "Caps on rent hikes",
       "Rent stabilization for tenants",
-      "Rent freezes"
+      "Rent freezes",
+      "Should New York freeze the rent?"
     ],
-    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm decontrol appreciation citywide luttmer yorker glaeser"
+    "keywords": "kholodilin mcquade qian diamond eviction ahern ambrosius collinson giacoletti luttmer palmer pathak citywide autor glaeser"
   },
   {
     "id": "degrowth-economics",
@@ -2348,7 +2379,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason biocapacity biophysical garment giorgos greek haberl"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason biocapacity biophysical garment giorgos haberl photovoltaic"
   },
   {
     "id": "free-will",
@@ -2795,7 +2826,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters mammals morgans"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen chocolate crabs lobsters mammals morgans restrainer"
   },
   {
     "id": "immigration-national-identity",
@@ -2817,7 +2848,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam borjas retiree hunkering italians jews complementarity diploma dispersed norc resettlement refugee scandinavian"
+    "keywords": "putnam borjas hunkering italians jews complementarity diploma dispersed norc resettlement refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2883,7 +2914,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc penn krugman truce usmca scattered alberto"
+    "keywords": "fence ieepa yard cavallo piie aluminum chris usitc penn reed wharton krugman truce usmca scattered"
   },
   {
     "id": "rfk-health-policy",
@@ -3008,7 +3039,7 @@
       "City center entry fees",
       "Motorist charges on central streets"
     ],
-    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass mayors wheels depreciation"
+    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass depreciation wheels mayors"
   },
   {
     "id": "right-to-repair",
@@ -3152,7 +3183,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona duarte dunn facetime gibson"
+    "keywords": "comcast ante bittorrent briglauer cambini ctia gugler stocker memorandum secretly bona duarte dunn facetime gibson"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3260,7 +3291,7 @@
       "iter",
       "decarbonization"
     ],
-    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
+    "keywords": "tritium laser livermore tokamaks sparc chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
   },
   {
     "id": "vaccine-mandates",
@@ -3291,7 +3322,7 @@
       "School vaccination requirements",
       "Required childhood immunizations"
     ],
-    "keywords": "osha measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel kraaijeveld"
+    "keywords": "osha austria measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel"
   },
   {
     "id": "ssri-antidepressant-efficacy",
@@ -3345,7 +3376,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "actuary trustees solvency crfb retirees oasdi payable taxable"
+    "keywords": "actuary trustees solvency crfb payable oasdi taxable"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3372,7 +3403,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch taxable chairman forgone"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch chairman forgone taxable"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3547,7 +3578,7 @@
       "mental-health",
       "neurodevelopment"
     ],
-    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan oldest skoglund"
+    "keywords": "milder youngest kazda underdiagnosed kessler barratt blais dalsgaard danish faraone hyperactivity larsson mcgeechan skoglund underdiagnosis"
   },
   {
     "id": "vaping-harm-reduction",
@@ -3628,7 +3659,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson raja rogowski thornton carroll jenkins powell"
+    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson raja rogowski thornton carroll jenkins qualifications"
   },
   {
     "id": "effective-altruism",
@@ -3740,6 +3771,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter rodrigues sparc astronomy acoustic mcgaugh tully fisher planck sigma davari kroupa lelli"
+    "keywords": "baryonic radial scatter rodrigues sparc astronomy acoustic mcgaugh tully fisher planck sigma bullet davari kroupa"
   }
 ]

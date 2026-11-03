@@ -150,7 +150,7 @@ test("everyday rent-policy wording finds the same map in all three search boxes"
   await expect(dialog.getByRole("option").first()).toContainText("Turns on: Can rent stabilization preserve both new construction and existing rental supply?");
   await expect(dialog.getByRole("option").filter({ hasText: "Do stricter gun laws" })).toHaveCount(0);
   await dialog.getByRole("combobox", { name: "Search Argumend" }).fill(query);
-  await expect(dialog.getByRole("option").first()).toContainText("Does rent control make housing less affordable in the long run?");
+  await expect(dialog.getByRole("option").first()).toContainText("Does rent control end up hurting the renters it is meant to help?");
   await dialog.getByRole("combobox", { name: "Search Argumend" }).press("Escape");
 
   await page.goto(`/questions?q=${encodeURIComponent(query)}`);
