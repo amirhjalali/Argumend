@@ -3278,7 +3278,9 @@ The housing crisis is real. The solutions are complicated. The first step toward
     readingTime: "12 min read",
     tags: ["gun-control", "policy", "research", "evidence", "violence"],
     category: "Analysis",
-    content: `## The Debate Where Everyone Claims the Data Supports Their Side
+    content: `**Update, 3 November 2026.** This review was written in March 2026, and some of its figures have since been revised or replaced. CDC counted 44,447 US gun deaths in 2024, and 62% of them were suicides: a record 27,593 gun suicides, against 15,364 gun homicides, which had fallen 27% from their 2021 peak. The Council on Criminal Justice found big-city homicide 21% lower in 2025 than in 2024, and 18% lower again in the first half of 2026, with no new federal gun restriction; its authors say there is no single or easy explanation. RAND's 2024 review of the research rates most gun laws' effects as limited or inconclusive, but finds its strongest grade of evidence that shall-issue carry and stand-your-ground laws are linked to more homicide, and that safe-storage laws cut youth gun suicides. Several study details below have been corrected against the [Gun Control Effectiveness](/topics/gun-control-effectiveness) map, which now splits the question into four cruxes: what drives the US gap, whether people in crisis switch methods when a gun is out of reach, which state laws move homicide, and whether the weapon matters in mass shootings.
+
+## The Debate Where Everyone Claims the Data Supports Their Side
 
 Few policy debates generate as much heat — or as little light — as gun control. After every mass shooting, proponents of stricter gun laws cite statistics showing the US has far more gun deaths than peer nations. After every defensive gun use, opponents cite statistics showing firearms save lives. Both sides claim "the research is clear." Both sides are oversimplifying.
 
@@ -3292,7 +3294,7 @@ None of this means the evidence is useless. It means you have to read it careful
 
 This is the single most cited natural experiment in gun policy research. After a mass shooting in Port Arthur, Tasmania, Australia banned semi-automatic rifles and shotguns and implemented a mandatory buyback program that removed approximately 650,000 firearms from circulation — roughly one-fifth of the country's total stock.
 
-The results, published in JAMA (2016) and the Annals of Public Health, are striking. In the 18 years before the buyback, Australia experienced 13 mass shootings. In the more than 25 years since, there have been zero mass shootings meeting the same definition (five or more victims). Firearm homicides declined by 42%. Firearm suicides declined by 57%. Total homicide and suicide rates also declined, suggesting limited substitution to other methods.
+The results, published in JAMA in 2016, are striking. In the 18 years before the buyback (1979 to 1996), Australia recorded 13 fatal mass shootings. From 1997 through May 2016, when the study ended, it recorded none. Total firearm deaths fell from an average of 3.6 to 1.2 per 100,000, and the decline that was already under way sped up. The authors are careful: because non-firearm deaths also fell over the period, they say they cannot determine whether the law caused the change.
 
 A 2010 study by Andrew Leigh and Christine Neill using a differences-in-differences design estimated the buyback reduced firearm homicides by 35-50% beyond the pre-existing trend. States with higher buyback rates saw larger declines, strengthening the causal inference.
 
@@ -3302,7 +3304,7 @@ Skeptics raise several legitimate objections. First, gun violence was already de
 
 Second, the US context is fundamentally different. Australia had approximately 3.2 million firearms at the time of the buyback. The US has an estimated 400 million — more guns than people. Buying back 20% of US firearms would mean purchasing 80 million guns, at a cost that could exceed $50 billion, and the remaining 320 million would still be in circulation. The logistical and constitutional barriers are incomparable.
 
-Third, mass shootings, while devastating, account for less than 1% of US gun deaths annually. The vast majority of gun deaths are suicides (approximately 55%) and individual homicides, often connected to domestic violence, gang activity, or interpersonal disputes. Policies designed to prevent mass shootings may have limited impact on these far more common causes of death.
+Third, mass shootings, while devastating, are a small share of US gun deaths: 510 of about 44,000 in 2024, even by the broadest count. The majority of gun deaths are suicides (62% in 2024) and individual homicides, often connected to domestic violence, gang activity, or interpersonal disputes. Policies designed to prevent mass shootings may have limited impact on these far more common causes of death.
 
 **What the evidence actually supports:** The Australian buyback very likely reduced gun deaths in Australia. Whether a similar policy would produce similar results in the US is a genuinely open question, given the vastly different scale, legal framework, and cultural context.
 
@@ -3320,7 +3322,7 @@ Lott's work has been replicated in various forms by other researchers, and 2023 
 
 In 2004, the National Research Council (NRC) convened a panel of experts to review Lott's work and the broader right-to-carry literature. Their conclusion was devastating for the "more guns, less crime" thesis: "With the current evidence it is not possible to determine that there is a causal link between the passage of right-to-carry laws and crime rates." The panel found that Lott's results were highly sensitive to model specification — small changes in the time period, control variables, or geographic scope produced dramatically different results, including some showing that concealed carry *increased* crime.
 
-A rigorous 2020 study by Stanford economist John Donohue, published in the *Journal of Empirical Legal Studies*, used synthetic control methods — a more sophisticated approach than Lott's panel data regressions — and found that right-to-carry laws were associated with 13-15% *higher* violent crime rates over a ten-year period. Donohue's methodology addressed many of the specification issues identified by the NRC.
+A rigorous 2019 study by Stanford economist John Donohue and colleagues, published in the *Journal of Empirical Legal Studies*, used synthetic control methods — a more sophisticated approach than Lott's panel data regressions — and found that right-to-carry laws were associated with 13-15% *higher* violent crime rates over a ten-year period. Donohue's methodology addressed many of the specification issues identified by the NRC.
 
 The fundamental problem with concealed carry research is that states adopting shall-issue laws differ systematically from those that do not. States that pass permissive gun laws tend to be more rural, more conservative, and have different baseline crime patterns. Disentangling the effect of the law from these pre-existing differences is methodologically treacherous.
 
@@ -3332,15 +3334,15 @@ The fundamental problem with concealed carry research is that states adopting sh
 
 The Brady Handgun Violence Prevention Act, enacted in 1993, required federally licensed firearms dealers to conduct background checks on purchasers. Between 1994 and 2023, the National Instant Criminal Background Check System (NICS) blocked over 4.3 million attempted purchases by prohibited persons — including convicted felons, domestic violence offenders, and individuals adjudicated as mentally ill.
 
-A 2019 study in the *Annals of Internal Medicine* found that Connecticut's 1995 adoption of a permit-to-purchase law requiring universal background checks was associated with a 40% reduction in firearm homicides over the following decade. Conversely, when Missouri repealed its permit-to-purchase law in 2007, firearm homicides increased by 23%, a finding published in the *Journal of Urban Health*.
+A 2015 study in the *American Journal of Public Health* found that Connecticut's 1995 handgun permit-to-purchase law was associated with a 40% reduction in firearm homicides over its first ten years, about 296 fewer firearm homicides from 1996 to 2005, with no matching drop in non-firearm homicides. Conversely, when Missouri repealed its permit-to-purchase law in 2007, firearm homicides increased by 23%, a finding published in the *Journal of Urban Health*.
 
-These two natural experiments — one state tightening its laws and seeing deaths fall, another loosening its laws and seeing deaths rise — provide some of the strongest evidence in the entire gun policy literature.
+These two natural experiments — one state tightening its laws and seeing deaths fall, another loosening its laws and seeing deaths rise — are among the most cited in the gun policy literature. They have critics: the Connecticut study's synthetic comparison state was 72% Rhode Island, and similar drops in gun murder happened in most other states over the same years. RAND's 2024 review rates the evidence on licensing and permitting laws mostly inconclusive, while finding moderate evidence that dealer background checks reduce firearm homicides.
 
 **The case against: Enforcement gaps and private sales**
 
 Currently, federal law only requires background checks for purchases from licensed dealers. Private sales, gun shows, and online transactions in many states require no background check. Estimates suggest 22% of gun acquisitions occur without a background check — the so-called "private sale loophole."
 
-But the counterargument is not just about the loophole. Critics note that 77% of mass shooters obtained their weapons legally or would have passed background checks. The Uvalde shooter, the Parkland shooter, and the Las Vegas shooter all purchased their firearms through legal channels with background checks. Universal background checks might prevent some impulsive gun purchases by prohibited persons, but they would not have stopped most of the high-profile mass shootings that drive the political debate.
+But the counterargument is not just about the loophole. In Mother Jones' database of US mass shootings since 1982, about 74% of the guns used were obtained legally, which implies most of the shooters passed, or would have passed, a background check. The Uvalde shooter, the Parkland shooter, and the Las Vegas shooter all purchased their firearms through legal channels with background checks. Universal background checks might prevent some impulsive gun purchases by prohibited persons, but they would not have stopped most of the high-profile mass shootings that drive the political debate.
 
 Additionally, enforcement of existing prohibitions is weak. Lying on a background check form (ATF Form 4473) is a federal crime, but prosecutions are exceedingly rare — in 2017, of approximately 112,000 denied purchases, only 12 cases were prosecuted.
 
@@ -3352,9 +3354,9 @@ Additionally, enforcement of existing prohibitions is weak. Lying on a backgroun
 
 Extreme Risk Protection Orders (ERPOs), commonly called "red flag laws," allow family members or law enforcement to petition a court to temporarily remove firearms from individuals deemed to be an imminent danger to themselves or others. As of 2026, 21 states and the District of Columbia have enacted some form of ERPO law.
 
-The strongest evidence comes from Indiana, which enacted the first red flag law in 2005, and Connecticut, which followed in 1999. A study published in *Psychiatric Services* found that for every 10-20 gun seizures under Indiana's law, one suicide was prevented. A separate study in the *Annals of Internal Medicine* estimated that Connecticut's law was associated with a 5-14% reduction in firearm suicides.
+The strongest evidence comes from Connecticut, which enacted the first red flag law in 1999, and Indiana, which followed in 2005. Studies of those early laws estimated about 13.7% fewer firearm suicides in Connecticut and about 7.5% fewer in Indiana. RAND rates this as limited evidence that the laws reduce firearm and total suicides, and notes some offsetting rise in suicides by other methods.
 
-Given that suicides account for approximately 55% of all US gun deaths — roughly 27,000 deaths per year — even a modest percentage reduction represents thousands of lives saved. Red flag laws are specifically designed to intervene during acute crisis periods, which aligns with research showing that suicidal crises are often temporary and that means restriction (reducing access to lethal methods during a crisis) is one of the most effective suicide prevention strategies.
+Given that suicides account for most US gun deaths — 62% in 2024, a record 27,593 deaths — even a modest percentage reduction represents thousands of lives saved. Red flag laws are specifically designed to intervene during acute crisis periods, which aligns with research showing that suicidal crises are often temporary and that means restriction (reducing access to lethal methods during a crisis) is one of the most effective suicide prevention strategies.
 
 **The case against: Due process concerns and implementation challenges**
 
@@ -3362,7 +3364,7 @@ Critics raise constitutional concerns about red flag laws. ERPOs can temporarily
 
 Implementation data supports some of these concerns. In states with red flag laws, usage varies enormously by county, suggesting inconsistent application. Some jurisdictions use ERPOs aggressively while neighboring counties use them rarely or not at all. There is also limited evidence that red flag laws reduce homicides, as opposed to suicides — the evidence base is primarily about self-harm prevention.
 
-**What the evidence actually supports:** Red flag laws appear to reduce firearm suicides, which is their primary measurable impact. The effect on homicides is less clear. Constitutional concerns about due process are legitimate and worth taking seriously, though similar civil restraining order mechanisms exist in domestic violence law without comparable controversy. The evidence supports ERPOs as a targeted, effective intervention for suicide prevention, with more limited evidence for other forms of gun violence.
+**What the evidence actually supports:** Red flag laws appear to reduce firearm suicides, which is their primary measurable impact. The effect on homicides is less clear. Constitutional concerns about due process are legitimate and worth taking seriously, though similar civil restraining order mechanisms exist in domestic violence law without comparable controversy. The evidence, which RAND rates as limited, points to ERPOs as a targeted intervention for suicide prevention, with even less evidence for other forms of gun violence.
 
 ## 5. International Comparisons: Are They Valid?
 
@@ -3390,7 +3392,7 @@ At Argumend, we try to identify the "crux" of every debate — the specific empi
 
 For the gun control debate, the crux is this: **Would implementing Australian-style gun restrictions in the US reduce firearm deaths by more than 20% within 10 years?**
 
-If the answer is yes — if comprehensive restrictions including mandatory buybacks, universal background checks, and bans on semi-automatic weapons would substantially reduce the approximately 48,000 annual US gun deaths — then the public health case for such restrictions is overwhelming, and the question becomes whether the constitutional and political costs are worth the lives saved.
+If the answer is yes — if comprehensive restrictions including mandatory buybacks, universal background checks, and bans on semi-automatic weapons would substantially reduce the roughly 44,000 annual US gun deaths — then the public health case for such restrictions is overwhelming, and the question becomes whether the constitutional and political costs are worth the lives saved.
 
 If the answer is no — if the unique characteristics of the US (400 million existing guns, constitutional protections, cultural factors, enforcement challenges) mean that such restrictions would have limited practical effect — then gun control advocates are proposing costly, divisive policies with minimal return, and resources would be better spent on targeted interventions like red flag laws, violence intervention programs, and mental health crisis services.
 
@@ -3400,7 +3402,7 @@ The honest answer is that we do not know. No country with remotely similar condi
 
 The gun control debate is uniquely difficult because it sits at the intersection of two frameworks that are both legitimate but fundamentally incompatible.
 
-**The public health framework** treats gun violence as an epidemic. From this perspective, firearms are a risk factor for death, just as cigarettes are a risk factor for lung cancer. The logical response is to reduce exposure to the risk factor through regulation, just as we regulate tobacco. Public health researchers point to 48,000 annual gun deaths — more than car accidents — and ask why we don't regulate guns at least as strictly as cars.
+**The public health framework** treats gun violence as an epidemic. From this perspective, firearms are a risk factor for death, just as cigarettes are a risk factor for lung cancer. The logical response is to reduce exposure to the risk factor through regulation, just as we regulate tobacco. Public health researchers point to more than 44,000 gun deaths in 2024 — and ask why we don't regulate guns at least as strictly as cars.
 
 **The constitutional rights framework** treats gun ownership as a fundamental individual right, enshrined in the Second Amendment and affirmed by the Supreme Court in *District of Columbia v. Heller* (2008). From this perspective, the right to keep and bear arms is not contingent on a cost-benefit analysis, just as the right to free speech is not contingent on whether speech produces net social benefits. Rights exist precisely to protect individuals against majoritarian calculations that their liberty should be sacrificed for the collective good.
 
@@ -5496,6 +5498,8 @@ Explore it: **[Assisted Dying & Euthanasia](/topics/assisted-dying-euthanasia)**
 This map is unusual because it is not primarily about gun-policy outcomes—it's about *interpretation*. Does the Second Amendment protect an individual right to bear arms, or a collective, militia-tied right? The Supreme Court answered "individual" in *District of Columbia v. Heller* (2008) and extended its logic in *NYSRPA v. Bruen* (2022). But serious historical and legal scholarship exists on both sides of what the text originally meant, and that scholarship is what the map steel-mans.
 
 **The crux:** the disagreement is about *constitutional and historical meaning*, not about whether guns are dangerous. Conflating "what does the Amendment protect" with "what gun policy is wise" is the single most common error in this debate—and they are different questions.
+
+**Update, 3 November 2026.** Since this was written the legal fight has moved from whether the right is individual to how far it reaches. Under *Bruen*, a gun law survives only if it fits the nation's historical tradition of firearm regulation. The Court upheld disarming people under domestic-violence restraining orders in *United States v. Rahimi* (2024, 8-1). In June 2026 it struck down Hawaii's default ban on carrying onto private property open to the public (*Wolford v. Lopez*, 6-3) and held one marijuana user's prosecution under the federal drug-user gun ban unconstitutional (*Hemani*). On 30 June 2026 it agreed to decide whether states may ban AR-15-style rifles, with a ruling expected by June 2027. The map now carries that third question, how far the right reaches today, alongside the text and the Court's holdings.
 
 Explore it: **[Second Amendment as an Individual Right](/topics/second-amendment-individual-right)**.
 
