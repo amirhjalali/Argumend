@@ -19,15 +19,15 @@ export const housingAffordabilityCrisisData = {
   // (17 June 2026): 22.7 million cost-burdened renter households in 2024,
   // median home price nearly five times median income, prices up 54% since
   // 2020. Freddie Mac 30-year rate 7.24% (week of 29 Oct 2026). Pew (18 Mar
-  // 2026) on Austin: 120,000 homes added 2015-2024, median rent down more
-  // than 16% from 2021 to 2026.
+  // 2026) on Austin: 120,000 homes added 2015-2024, median rent $1,546 (Dec
+  // 2021) to $1,296 (Jan 2026), down 16%.
   last_updated: "2026-11-03",
   keystone_fact: {
     statement:
-      "The typical US home now costs nearly five times the typical household's income, against about 3.2 times in the 1990s, and in 2024 a record 22.7 million renter households spent more than 30% of their income on housing. Austin added 120,000 homes from 2015 to 2024, and its median rent fell more than 16% from 2021 to 2026. The fight is over whether building more brings rents down for lower-income renters everywhere, how fast, and who has to do the building.",
+      "The typical US home now costs nearly five times the typical household's income, against about 3.2 times in the 1990s, and in 2024 a record 22.7 million renter households spent more than 30% of their income on housing. Austin added 120,000 homes from 2015 to 2024, and its median rent fell 16%, from $1,546 in December 2021 to $1,296 in January 2026. The fight is over whether building more brings rents down for lower-income renters everywhere, how fast, and who has to do the building.",
     confidence: 84,
     source:
-      "Harvard Joint Center for Housing Studies, The State of the Nation's Housing 2026, via Enterprise Community Partners (17 June 2026); Pew Charitable Trusts on Austin, via Smart Cities Dive (19 March 2026)",
+      "Harvard Joint Center for Housing Studies, The State of the Nation's Housing 2026, via Enterprise Community Partners (17 June 2026) and the National Low Income Housing Coalition (13 July 2026, for the record); Pew Charitable Trusts on Austin (18 March 2026)",
     sourceUrl:
       "https://www.enterprisecommunity.org/story/five-key-takeaways-2026-state-nations-housing-report",
   },
@@ -148,7 +148,7 @@ export const housingAffordabilityCrisisData = {
       skeptic_premise:
         "Upzoning mainly delivers market-rate apartments, not homes priced for low-income families. The famous US case is weaker than it looks: Minneapolis Fed economists found its slow rent growth after 2020 owed more to a drop in demand in the city than to new supply, with vacancies peaking at 9.5% in October 2020, and they say the data do not show whether the 2040 plan has worked. Moving chains break: a new apartment taken by someone leaving a parent's home, or by a second-home buyer, frees nothing, and landlords can leave units empty rather than cut rents. Even supportive researchers say benefits take two to five years to reach the poorest neighborhoods and cannot push rents below what a habitable home costs to run. Families facing eviction this year need vouchers, public housing or rent protections, not a promise.",
       proponent_rebuttal:
-        "New buildings lower rents nearby, and the effect travels down the income ladder. Asquith, Mast and Reed find large new apartment buildings in low-income areas cut rents in nearby units by about 6% and draw residents from low-income areas. Tracing 52,000 residents of new buildings back through their previous homes, Mast finds every 100 new market-rate units open the equivalent of 70 in below-median-income neighborhoods and 40 in the poorest. Auckland upzoned about three-quarters of its residential land in 2016; six years later rents for three-bedroom homes were 22 to 35% below a synthetic control. Austin grew its housing stock by 120,000 homes, 30%, from 2015 to 2024, and its median rent fell more than 16% from 2021 to 2026. Building does not work overnight, but it works at every scale it has been measured.",
+        "New buildings lower rents nearby, and the effect travels down the income ladder. Asquith, Mast and Reed find large new apartment buildings in low-income areas cut rents in nearby units by about 6% and draw residents from low-income areas. Tracing 52,000 residents of new buildings back through their previous homes, Mast finds every 100 new market-rate units open the equivalent of 70 in below-median-income neighborhoods and 40 in the poorest. Auckland upzoned about three-quarters of its residential land in 2016; six years later rents for three-bedroom homes were 22 to 35% below a synthetic control. Austin grew its housing stock by 120,000 homes, 30%, from 2015 to 2024, and its median rent fell 16% from December 2021 to January 2026. Building does not work overnight, but it works at every scale it has been measured.",
       crux: {
         id: "upzoning-affordability-impact",
         title: "The Upzoning Affordability Test",
@@ -201,7 +201,7 @@ export const housingAffordabilityCrisisData = {
           title:
             "Mast: every 100 new market-rate units open the equivalent of 70 in below-median-income neighborhoods and 40 in the poorest",
           description:
-            "Tracking 52,000 residents of new market-rate buildings in 12 large US cities back to their previous homes and through the chain of moves that followed, Evan Mast finds each 100 new market-rate units open the equivalent of 70 units in neighborhoods below the area's median income and 40 in the poorest. Mast notes the chain can break, through second homes or young adults leaving a parent's home, and that lower costs in the poorest neighborhoods take about two to five years to appear.",
+            "Tracking 52,000 residents of new market-rate buildings in 12 large US cities back to their previous homes and through the chain of moves that followed, Evan Mast finds each 100 new market-rate units open the equivalent of 70 units in neighborhoods below the area's median income and 40 in the poorest. The chain can break when families expand into second homes or landlords leave units empty rather than cut rents, and lower costs reach the lowest-income neighborhoods within two to five years.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -239,9 +239,9 @@ export const housingAffordabilityCrisisData = {
         {
           id: "austin-building-boom",
           title:
-            "Austin grew its housing stock 30% from 2015 to 2024, and its median rent fell more than 16% from 2021 to 2026 (Pew)",
+            "Austin grew its housing stock 30% from 2015 to 2024, and its median rent fell 16% from December 2021 to January 2026 (Pew)",
           description:
-            "Pew reported in March 2026 that Austin added 120,000 homes from 2015 to 2024, a 30% increase against 9% nationally, after rezoning, cutting parking minimums and loosening rules for accessory dwelling units. Median rent fell more than 16% from 2021 to 2026, and rents in buildings of 50 or more units dropped 7% from 2023 to 2024, the largest drop recorded in any large metro area.",
+            "Pew reported in March 2026 that Austin added 120,000 units to its housing stock from 2015 to 2024, a 30% increase against 9% nationally, after rezoning, cutting parking minimums and loosening rules for accessory dwelling units. Austin's median rent fell from $1,546 in December 2021, 15% above the US median, to $1,296 in January 2026, 4% below it, even as the city's population grew by 18,000 from 2022 to 2024. Rents in buildings of 50 or more units fell 7% from 2023 to 2024, the steepest decline in any large metro area, and about 11% in older non-luxury (Class C) buildings.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -249,8 +249,9 @@ export const housingAffordabilityCrisisData = {
             replicability: 6,
             directness: 6,
           },
-          source: "Pew Charitable Trusts (18 March 2026), as reported by Smart Cities Dive (19 March 2026)",
-          sourceUrl: "https://www.smartcitiesdive.com/news/austin-texas-housing-policy-reform-rent/815208/",
+          source: "Clifford, Rodnyansky & Su, 'Austin's Surge of New Housing Construction Drove Down Rents,' Pew Charitable Trusts (18 March 2026)",
+          sourceUrl:
+            "https://www.pew.org/en/research-and-analysis/articles/2026/03/18/austins-surge-of-new-housing-construction-drove-down-rents",
           reasoning:
             "The largest recent US case of building followed by falling rents. It is a before-and-after comparison, not a causal estimate; Austin's population boom also slowed, and the 2021 starting point was a peak.",
         },
@@ -341,7 +342,7 @@ export const housingAffordabilityCrisisData = {
           id: "us-public-housing-backlog",
           title: "US public housing carries a capital repair backlog of about $70 billion",
           description:
-            "Housing authorities told Congress the US public housing stock carries an estimated $70 billion capital repair backlog, built up over years in which appropriations fell short of what the buildings needed.",
+            "Housing authorities told Congress in 2021 that 'NAHRO estimates the backlog of needed repairs through our public housing stock is upwards of $70 billion,' and members cited the loss of about 10,000 public housing units a year to disrepair after years in which appropriations fell short.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -349,7 +350,7 @@ export const housingAffordabilityCrisisData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Congressional hearing record; National Association of Housing and Redevelopment Officials capital-needs estimate",
+          source: "House Financial Services hearing, 'Preserving a Lifeline: Examining Public Housing in a Pandemic' (117th Congress, 2021), citing the National Association of Housing and Redevelopment Officials (NAHRO) estimate",
           sourceUrl: "https://www.congress.gov/event/117th-congress/house-event/LC66633/text",
           reasoning:
             "The hearing record preserves the housing-authority estimate. It shows the US system's condition; whether that reflects public provision as such or decades of underfunding is the crux.",
@@ -358,7 +359,7 @@ export const housingAffordabilityCrisisData = {
           id: "section-8-voucher-limitations",
           title: "Three in four low-income renters who need federal rental assistance do not get it (CBPP)",
           description:
-            "CBPP's analysis of 2023 housing survey data and 2024 assistance records estimates that 76% of low-income renters needing federal rental assistance do not receive it. Need includes spending more than 30% of monthly income on housing or living in overcrowded or substandard housing.",
+            "CBPP estimates that about three in four low-income renters needing federal rental assistance do not receive it (77% in the version built on HUD's 2021 American Housing Survey tabulations and 2022 assistance records). Need includes spending more than 30% of monthly income on housing or living in overcrowded or substandard housing.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
