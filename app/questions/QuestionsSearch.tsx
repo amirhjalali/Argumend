@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { searchQuestions, type QuestionSearchItem } from "@/lib/questionSearch";
+import { useSearchAnalytics } from "@/hooks/useSearchAnalytics";
 
 type QuestionItem = QuestionSearchItem;
 
@@ -43,6 +44,8 @@ export function QuestionsSearch({
   }, [query]);
 
   const filtered = useMemo(() => searchQuestions(questions, query), [query, questions]);
+  // Counts a settled query and how many questions it found; never the query.
+  useSearchAnalytics("questions", query, filtered.length);
 
   const clearSearch = () => {
     setQuery("");

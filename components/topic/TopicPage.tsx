@@ -427,7 +427,7 @@ function CruxEntry({
               ))}
               {crux.afterRunIns}
               {crux.evidence && (
-                <details className="group/evidence">
+                <details className="group/evidence" data-evidence="">
                   <summary className={INLINE_SUMMARY}>
                     <span>{crux.evidenceLabel ?? "Show the evidence on each side"}</span>
                     <span
