@@ -745,7 +745,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton donald whoever"
   },
   {
     "id": "surveillance-public-safety",
@@ -847,7 +847,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle snowden divestiture upholds fisa forbes broadcast knight retrained revelations divest gorsuch"
+    "keywords": "bytedance cfius garland oracle snowden divestiture upholds fisa forbes knight broadcast retrained revelations divest gorsuch"
   },
   {
     "id": "immigration-border-crisis",
@@ -1099,7 +1099,7 @@
       "Could AI escape human control?",
       "Could a misaligned superintelligence wipe out humanity?"
     ],
-    "keywords": "apollo mythos kapoor narayanan amodei astra rlhf turner redwood sonnet circled opus sandbox boat deliberative"
+    "keywords": "apollo kapoor narayanan amodei astra rlhf turner redwood sonnet circled opus sandbox boat deliberative mini"
   },
   {
     "id": "ai-content-labeling",
@@ -1281,7 +1281,7 @@
       "Should states or Washington regulate AI?",
       "Should AI companies be allowed to police themselves?"
     ],
-    "keywords": "summit newsom seoul mythos globalist zhipu hinton thalidomide amodei multimodal tape calif hassabis kelsey knapp"
+    "keywords": "summit newsom seoul globalist hinton zhipu thalidomide amodei multimodal tape calif hassabis kelsey knapp noah"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1330,7 +1330,7 @@
       "Is AGI coming soon?",
       "When will AI be smarter than humans?"
     ],
-    "keywords": "astra mythos fable lecun amodei bricken dziri shazeer chollet hoffmann kaplan predecessor decoder opus harness"
+    "keywords": "astra lecun amodei fable bricken dziri shazeer chollet hoffmann kaplan predecessor decoder opus harness coder"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -2831,7 +2831,7 @@
     "id": "open-weight-ai-models",
     "title": "Releasing Open-Weight Frontier AI Models",
     "question": "Does publishing the weights of frontier AI models do more good than harm?",
-    "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm — democratizing access, accelerating safety research, and countering Chinese AI dominance outweighs the marginal uplift it gives malicious actors.",
+    "meta_claim": "Openly releasing the weights of powerful frontier AI models does more good than harm: wider access, outside safety research, self-hosted defence and competition with Chinese AI outweigh the extra help it gives malicious actors.",
     "confidence_score": 51,
     "balance": 51,
     "weight": 76,
@@ -2842,12 +2842,17 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 4,
-    "evidenceCount": 17,
+    "evidenceCount": 19,
     "firstCrux": "Do safety-stripped open models give bad actors real help on dangerous tasks beyond what search provides?",
     "tags": [
       "technology"
     ],
-    "keywords": "deepseek caisi ntia biorisk elicitation mistral opus qwen toner alibabas amateur bench apache restrictionist casper"
+    "aliases": [
+      "Should frontier AI models be released open-weight?",
+      "Should AI models be open source?",
+      "Are open-source AI models dangerous?"
+    ],
+    "keywords": "deepseek ntia caisi toner uplift biorisk licence casper kaunismaa amateur lecun mistral novice bioattack hendrycks"
   },
   {
     "id": "carbon-tax-effectiveness",
