@@ -563,8 +563,10 @@ export function TopicFolds({ folds }: { folds: TopicFold[] }) {
 
 /**
  * A map's authored questions and the context behind each, as the content of
- * a "Common questions" fold. They are also the page's FAQPage structured
- * data, which Google only accepts when the questions are visible on the page.
+ * a "Common questions" fold. Those whose context is more than the question
+ * restated are also the page's FAQPage structured data (answer = the context
+ * before its closing question; lib/topicPage/faqStructuredData.ts), which
+ * Google only accepts when the questions are visible on the page.
  */
 export function CommonQuestions({
   questions,

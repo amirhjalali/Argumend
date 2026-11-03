@@ -21,6 +21,7 @@ import {
 } from "@/lib/site";
 import { mapDescription, mapDisplayTitle } from "@/lib/mapNaming";
 import { getRelatedMaps } from "@/lib/relatedMaps";
+import { buildTopicFaqPage } from "@/lib/topicPage/faqStructuredData";
 
 // ---------------------------------------------------------------------------
 // Static Generation
@@ -217,6 +218,7 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
     ? absoluteMediaUrl(media.hero.src)
     : buildTopicOgUrl(topic.id);
   const related = await getRelatedMaps(topic.id);
+  const faqPage = buildTopicFaqPage(topic.questions);
 
   // Honest dates: published constant, modified from topic.last_updated if present.
   const datePublished = CONTENT_FIRST_PUBLISHED;
@@ -266,19 +268,10 @@ export default async function TopicPage({ params, searchParams }: PageProps) {
           ...(citations.length ? { citation: citations } : {}),
         }}
       />
-      {topic.questions?.length ? (
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: topic.questions.map((q) => ({
-              "@type": "Question",
-              name: q.title,
-              acceptedAnswer: { "@type": "Answer", text: q.content },
-            })),
-          } as unknown as Record<string, unknown>}
-        />
-      ) : null}
+      {/* Only questions whose context says something besides the question
+          itself; the answer is that context, cut before its closing question
+          (lib/topicPage/faqStructuredData.ts). */}
+      {faqPage ? <JsonLd data={faqPage} /> : null}
       {/* Server-rendered like the flagship maps: the same template, the same
           shell, and only the reflection and action buttons hydrate. */}
       <AppShell layout="reading">
