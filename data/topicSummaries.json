@@ -2918,17 +2918,17 @@
     "title": "The Right to Assisted Dying",
     "question": "Do terminally ill, competent adults have a right to assisted dying?",
     "meta_claim": "Terminally ill, mentally competent adults have a moral right to medically assisted dying.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 58,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 60,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does a competent adult's autonomy extend to choosing the timing of an inevitable death?",
     "firstCruxStanding": "value-difference",
     "tags": [
@@ -2939,7 +2939,7 @@
       "medicine",
       "rights"
     ],
-    "keywords": "dignity refractory palliative charter carter colburn arch crpd disrespects enjoyable grievous hastening hospice irremediable oregonians"
+    "keywords": "dignity refractory palliative charter carter colburn quill vacco prejudice arch comports crpd disrespects enjoyable grievous"
   },
   {
     "id": "second-amendment-individual-right",
