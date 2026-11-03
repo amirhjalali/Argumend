@@ -33,6 +33,7 @@ export const seedOilsHealthData = {
   // ── Stage 2: the honest case ──
   simple_case: [
     "The answer decides what goes in a frying pan, what restaurants fry in, and whether a family swapping canola for tallow is protecting itself or raising its saturated fat.",
+    "The two sides split over whether high omega-6 intake shifts inflammatory signalling in people, whether real diets deliver enough frying aldehydes to matter, whether swapping seed oils in particular changes heart and metabolic outcomes, and what should take their place.",
   ],
   references: [
     {

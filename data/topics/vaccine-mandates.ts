@@ -27,6 +27,7 @@ export const vaccineMandatesData = {
   },
   simple_case: [
     "The answer decides whether a parent can enroll an unvaccinated child in school, whether a hospital can make its nurses take a shot, and how far measles spreads before the next school year.",
+    "The two sides split over how much of the uptake after a requirement the requirement itself causes, whether a given vaccine protects other people enough and for long enough to justify compulsion, whether the trust lost outweighs the lives saved, and who may opt out.",
   ],
   pillars: [
     // =========================================================================

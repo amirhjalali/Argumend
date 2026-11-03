@@ -29,6 +29,7 @@ const covidOriginsData: TopicInput = {
   },
   simple_case: [
     "The answer bears on which virus research is allowed and where, on how closely the live-animal trade is watched, and on how much people trust the scientists and agencies who told them in 2020 which story to believe.",
+    "The two sides split over whether the outbreak starting in the lab's city is a signal or a coincidence, whether the virus's furin cleavage site could have arisen naturally, and whether the records China withholds would settle it.",
   ],
   references: [
     {

@@ -29,6 +29,7 @@ export const climateChangeData = {
   },
   simple_case: [
     "The answer bears on what the US government may regulate, on what the next decade of emissions is expected to cost, and on which claims about the sun, the models and the data a reader should take seriously.",
+    "What is argued about now is mostly size and speed: how much the world warms for each doubling of CO₂, whether some of the models run hotter than the thermometers, and whether natural variability is larger than the measured energy budget leaves room for.",
   ],
   imageUrl:
     "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=60",
