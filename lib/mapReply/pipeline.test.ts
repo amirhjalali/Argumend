@@ -39,7 +39,7 @@ describe("runMapReply on the recorded rent-control thread", () => {
     const first = result.turns[0];
     expect(first.speaker).toBe("marisol_k");
     expect(first.section).toBe("supply-effects");
-    expect(first.sectionTitle).toBe("Supply Effects");
+    expect(first.sectionTitle).toBe("The rental supply");
     expect(first.stance).toBe("for");
     expect(first.fallacy).toBeGreaterThan(0);
     expect(Object.keys(first.sectionProbabilities).length).toBeGreaterThan(1);
@@ -209,7 +209,7 @@ describe("runMapReply and the section confidence floor", () => {
     expect(result.sectionCounts.find((section) => section.id === "supply-effects")?.tentative).toBe(4);
     expect(result.dominantSection?.id).toBe("supply-effects");
     expect(result.dominantSection?.tentative).toBe(true);
-    expect(result.markdown).toContain("probably arguing about **Supply Effects**");
+    expect(result.markdown).toContain("probably arguing about **The rental supply**");
     expect(result.markdown).toContain("7 turns could not be placed on the map with confidence.");
     expect(result.markdown).not.toContain("Most of this thread");
   });

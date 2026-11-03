@@ -2023,7 +2023,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
+    "keywords": "auckland greenaway mcgrevy tokyo gyourko vienna glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
   },
   {
     "id": "four-day-work-week",
@@ -2182,30 +2182,33 @@
   {
     "id": "rent-control-effectiveness",
     "title": "Does Rent Control Help or Hurt Renters?",
-    "question": "Does rent control make housing less affordable in the long run?",
-    "meta_claim": "Rent control policies reduce housing affordability in the long run by discouraging new construction and reducing housing supply.",
-    "confidence_score": 49,
-    "balance": 49,
-    "weight": 63,
+    "question": "Does rent control end up hurting the renters it is meant to help?",
+    "meta_claim": "Rent control ends up hurting renters as a group: the protection it gives tenants who hold a capped lease is outweighed by the rentals it takes off the market and the higher rents and longer searches it leaves everyone else.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 71,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Can rent stabilization preserve both new construction and existing rental supply?",
+    "evidenceCount": 18,
+    "firstCrux": "Do rent caps shrink the stock of rentals, even when new buildings are exempt?",
     "tags": [
       "economics"
     ],
     "aliases": [
+      "Does rent control make housing less affordable in the long run?",
+      "Does rent control work?",
       "Limits on landlords' rent increases",
       "Caps on rent hikes",
       "Rent stabilization for tenants",
-      "Rent freezes"
+      "Rent freezes",
+      "Should New York freeze the rent?"
     ],
-    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm citywide decontrol appreciation luttmer yorker glaeser"
+    "keywords": "kholodilin mcquade qian citywide diamond eviction ahern ambrosius collinson giacoletti luttmer palmer pathak autor glaeser"
   },
   {
     "id": "degrowth-economics",
@@ -2763,7 +2766,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo chris piie reed aluminum usitc penn krugman truce usmca scattered alberto"
+    "keywords": "fence ieepa yard cavallo chris piie aluminum reed usitc penn krugman truce usmca scattered alberto"
   },
   {
     "id": "rfk-health-policy",
@@ -2888,7 +2891,7 @@
       "City center entry fees",
       "Motorist charges on central streets"
     ],
-    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas mayors roadworks unaudited zpass wheels depreciation"
+    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas roadworks unaudited zpass mayors wheels depreciation"
   },
   {
     "id": "right-to-repair",
