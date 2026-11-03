@@ -33,7 +33,7 @@ export const rentControlEffectivenessData = {
     sourceUrl: "https://www.amny.com/housing/rent-guidelines-board-approves-rent-freeze-06262026/",
   },
   simple_case: [
-    "The stakes are paid monthly. In 2024 a record 22.7 million US renter households, 49% of all renters, spent more than 30% of their income on housing, and 12.1 million spent more than half. A cap tells those tenants what next year's rent will be.",
+    "The stakes are paid monthly. In 2024, 22.7 million US renter households, nearly half of all renters, spent more than 30% of their income on housing, and 12.1 million spent more than half. A cap tells those tenants what next year's rent will be.",
     "The argument runs in three steps: whether caps shrink the supply of rentals, whether keeping today's tenants in place is worth what it costs the people still looking, and whether a cap buys time for new building or takes the pressure off it.",
   ],
   pillars: [
@@ -50,7 +50,7 @@ export const rentControlEffectivenessData = {
       skeptic_premise:
         "A cap only shrinks supply when it bites hard enough to make renting a loss, and modern caps are designed not to. Oregon's and California's 2019 laws exempt buildings for their first 15 years, and California's caps yearly increases at 5% plus inflation, never more than 10%; New Jersey's towns have run moderate local caps for decades, and Census comparisons found no significant effect on rents, quality or property values. San Francisco's losses came through specific exits, condo conversion and redevelopment, that a city can close with conversion limits. Berlin and St. Paul are the cautionary cases because they were blunt: Berlin froze rents outright and St. Paul capped new buildings at 3%. Even the broadest review of the literature concludes that caps are quite effective at lowering rents or slowing their growth. The design question is how to keep that effect without the exits.",
       proponent_rebuttal:
-        "The supply loss is the best-documented effect in the literature, and it showed up where the policy was supposed to be safe. San Francisco's 1994 expansion exempted new construction and let rents reset between tenants; covered landlords still cut their rental supply by 15%, mostly by converting to condos and owner-occupied homes, and the authors estimate that raised rents citywide by 5.1%. A review of 112 empirical studies counts 12 of 16 rental-supply studies finding less supply under control, and 14 of 17 finding higher rents in the uncontrolled sector. Berlin's 2020 freeze cut rents in listings and cut the number of listings with them. Closing the exits does not end the incentive: an owner who cannot convert can defer maintenance. A cap at inflation plus 5% that rarely binds does little harm, but it also does little; the caps that deliver large savings are the ones that produce these responses.",
+        "The supply loss is the best-documented effect in the literature, and it showed up where the policy was supposed to be safe. San Francisco's 1994 expansion exempted new construction and let rents reset between tenants; covered landlords still cut their rental supply by 15%, mostly by converting to condos and owner-occupied homes, and the authors estimate that raised rents citywide by 5.1%. A review of the empirical literature counts 12 of 16 rental-supply studies finding less supply under control, and 14 of 17 finding higher rents in the uncontrolled sector. Berlin's 2020 freeze cut rents in listings and cut the number of listings with them. Closing the exits does not end the incentive: an owner who cannot convert can defer maintenance. A cap at inflation plus 5% that rarely binds does little harm, but it also does little; the caps that deliver large savings are the ones that produce these responses.",
       crux: {
         id: "construction-response-test",
         title: "The Rental Supply Response Test",
@@ -86,7 +86,7 @@ export const rentControlEffectivenessData = {
           title:
             "San Francisco 1994: covered landlords cut rental supply 15%, raising citywide rents an estimated 5.1% (Diamond, McQuade & Qian)",
           description:
-            "In 1994 San Francisco voters extended rent control to small multifamily buildings built before 1980. Comparing those buildings with ones built just after 1980, Diamond, McQuade and Qian found that covered landlords reduced their rental supply by 15%, mainly by selling to owner-occupiers, converting to condos or tenancies in common, and redeveloping. The number of renters living in rent-controlled units fell 25%. The working-paper abstract estimates the lost supply caused a 5.1% citywide rent increase. The policy already exempted new construction and let rents reset between tenants.",
+            "In 1994 San Francisco voters extended rent control to small multifamily buildings built before 1980. Comparing those buildings with ones built just after 1980, Diamond, McQuade and Qian found that covered landlords reduced their rental supply by 15%, mainly by selling to owner-occupiers, converting to condos or tenancies in common, and redeveloping. The number of renters living in rent-controlled units fell by 25 percentage points relative to 1994 levels. The working-paper abstract estimates the lost supply caused a 5.1% citywide rent increase. The policy already exempted new construction and let rents reset between tenants.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -103,7 +103,7 @@ export const rentControlEffectivenessData = {
         {
           id: "kholodilin-review",
           title:
-            "Review of 112 empirical studies: 12 of 16 found less rental supply under rent control, 14 of 17 found higher uncontrolled rents (Kholodilin 2024)",
+            "Review of the empirical literature: 12 of 16 studies found less rental supply under rent control, 14 of 17 found higher uncontrolled rents (Kholodilin 2024)",
           description:
             "Konstantin Kholodilin of the German Institute for Economic Research (DIW) reviewed the empirical rent-control literature for the Journal of Housing Economics. Of 16 studies of rental supply, 12 found a negative effect, 3 none and 1 positive. Of 17 that tested spillovers, 14 found higher rents in the uncontrolled sector. Of 20 on housing quality, 15 found a negative effect and none a positive one. All 13 studies of misallocation found it. The same review concludes that rent controls are quite effective at lowering rents or slowing their growth for the units they cover.",
           side: "for" as const,
@@ -114,7 +114,7 @@ export const rentControlEffectivenessData = {
             directness: 7,
           },
           source:
-            "Kholodilin, 'Rent control effects through the lens of empirical research: An almost complete review of the literature,' Journal of Housing Economics (2024), as tallied by the Institute of Economic Affairs",
+            "Kholodilin, 'Rent control effects through the lens of empirical research: An almost complete review of the literature,' Journal of Housing Economics (2024), as tallied by the Institute of Economic Affairs (15 May 2024); conclusion quoted from the DIW Discussion Paper 2026 abstract",
           sourceUrl:
             "https://iea.org.uk/review-rent-control-effects-through-the-lens-of-empirical-research-an-almost-complete-review-of-the-literature-by-konstantin-kholodilin/",
           reasoning:
@@ -172,9 +172,9 @@ export const rentControlEffectivenessData = {
             directness: 6,
           },
           source:
-            "Oregon Legislative Information System, SB 608 (2019) enrolled text",
+            "Oregon Legislative Information System, SB 608 (2019) enrolled text, section 1(7)(a)",
           sourceUrl:
-            "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/SB608",
+            "https://olis.oregonlegislature.gov/liz/2019R1/Downloads/MeasureDocument/SB608/Enrolled",
           reasoning:
             "The exemption is in the statute. That it protects construction is an inference about incentives, not a measured result, so directness and replicability stay moderate.",
         },
@@ -443,7 +443,7 @@ export const rentControlEffectivenessData = {
         {
           id: "rent-burden-record-2024",
           title:
-            "A record 22.7 million US renter households were cost-burdened in 2024; 12.1 million paid more than half their income (Harvard JCHS 2026)",
+            "22.7 million US renter households, nearly half, were cost-burdened in 2024; 12.1 million paid more than half their income (Harvard JCHS 2026)",
           description:
             "Harvard's Joint Center for Housing Studies reported in June 2026 that 22.7 million renter households, nearly half of all renters, spent more than 30% of their income on housing in 2024, and 12.1 million spent more than half. Among renters earning under $30,000 a year, 83% were burdened and 67% severely burdened.",
           side: "against" as const,
@@ -465,7 +465,7 @@ export const rentControlEffectivenessData = {
           title:
             "Three in four low-income renters who need federal rental assistance do not get it (CBPP)",
           description:
-            "CBPP's analysis of 2023 housing survey data and 2024 assistance records estimates that 76% of low-income renters needing federal rental assistance do not receive it. Need includes spending more than 30% of monthly income on housing or living in overcrowded or substandard housing. This covers federal rental assistance broadly, rather than vouchers alone.",
+            "CBPP estimates that about three in four low-income renters needing federal rental assistance do not receive it (77% in the version built on HUD's 2021 American Housing Survey tabulations and 2022 assistance records). Need includes spending more than 30% of monthly income on housing or living in overcrowded or substandard housing. This covers federal rental assistance broadly, rather than vouchers alone.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -485,7 +485,7 @@ export const rentControlEffectivenessData = {
           title:
             "NYC froze stabilized rents in June 2026 after the board's own index put owners' costs up 5.3%",
           description:
-            "On 25 June 2026 New York's Rent Guidelines Board voted 7-1 to set 0% increases on one- and two-year renewals for nearly a million rent-stabilized homes, for terms starting 1 October 2026 through 30 September 2027. Mayor Zohran Mamdani had campaigned on the freeze. In April the board's Price Index of Operating Costs reported that costs for buildings with stabilized apartments rose 5.3%, with fuel up 11.0% and insurance up 10.5%. The Real Estate Board of New York said the freeze would mean less investment in maintenance and repairs, and board member Arpit Gupta, the lone vote against, said over 57,000 stabilized units sat vacant in 2025, up from about 49,000 in 2024.",
+            "On 25 June 2026 New York's Rent Guidelines Board voted 7-1 to set 0% increases on one- and two-year renewals for nearly a million rent-stabilized homes, for terms starting 1 October 2026 through 30 September 2027. Mayor Zohran Mamdani had campaigned on the freeze. In April the board's Price Index of Operating Costs reported that costs for buildings with stabilized apartments rose 5.3% from April 2025 to March 2026, with fuel up 11.0% and insurance up 10.5%. The Real Estate Board of New York's president said the decision 'will mean less investment in maintenance and repairs'; board member Arpit Gupta cast the lone vote against.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -494,7 +494,7 @@ export const rentControlEffectivenessData = {
             directness: 4,
           },
           source:
-            "amNY (25 June 2026) on the vote; PoliticsNY (9 April 2026) on the board's 2026 Price Index of Operating Costs; Insurance Journal (26 June 2026) on vacant stabilized units",
+            "amNY (25 June 2026) on the vote; NYC Rent Guidelines Board, 2026 Price Index of Operating Costs (April 2026)",
           sourceUrl:
             "https://www.amny.com/housing/rent-guidelines-board-approves-rent-freeze-06262026/",
           reasoning:
@@ -504,7 +504,7 @@ export const rentControlEffectivenessData = {
           id: "minneapolis-upzoning",
           title: "Minneapolis reformed zoning citywide in 2018 without a rent cap",
           description:
-            "Minneapolis adopted its 2040 comprehensive plan in 2018 and put it into effect in 2020, using zoning changes to allow more housing in more parts of the city, with no rent cap. The record shows the city chose supply reform alone; it does not by itself show how many homes the plan added or how rents changed against a credible comparison.",
+            "Minneapolis developed its 2040 comprehensive plan from 2016 to 2018 and put it into effect in 2020, using zoning changes to allow more housing in more parts of the city, with no rent cap. The record shows the city chose supply reform alone; it does not by itself show how many homes the plan added or how rents changed against a credible comparison.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -541,8 +541,8 @@ export const rentControlEffectivenessData = {
       url: "https://www.stpaul.gov/departments/safety-inspections/rent-buy-sell-property/renting-property/rent-stabilization",
     },
     {
-      title: "PoliticsNY: Rent Guidelines Board reports fuel competing cases for and against a rent freeze (9 April 2026)",
-      url: "https://politicsny.com/2026/04/09/new-rent-guidelines-board-reports-fuel-competing-cases-for-and-against-a-rent-freeze/",
+      title: "NYC Rent Guidelines Board: 2026 Price Index of Operating Costs (costs up 5.3%, April 2025 to March 2026)",
+      url: "https://rentguidelinesboard.cityofnewyork.us/wp-content/uploads/2026/04/2026-PIOC.pdf",
     },
     {
       title: "Ocean State Media: Massachusetts high court takes rent control off the 2026 ballot (24 June 2026)",
