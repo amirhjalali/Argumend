@@ -66,6 +66,42 @@ export const remoteWorkPermanenceData = {
             "Gold-standard randomized experiment at scale, but limited to one company and call-center work, and predates the pandemic shift. The original claim's '2022 follow-up confirmed no productivity loss' is removed as unverified.",
         },
         {
+          id: "gibbs-it-wfh-productivity",
+          title: "Indian IT Professionals: Productivity Fell 8-19% Working From Home",
+          description:
+            "Gibbs, Mengel and Siemroth used personnel and analytics data on more than 10,000 skilled professionals at an Indian technology company, before and during pandemic work from home. Hours worked rose, output declined slightly, and productivity fell 8% to 19%. They trace much of the drop to higher communication costs: more time spent on coordination, fewer uninterrupted work hours, smaller networks inside the firm and less one-to-one time with supervisors.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 5,
+          },
+          source:
+            "Gibbs, Mengel & Siemroth, \"Work from Home and Productivity: Evidence from Personnel and Analytics Data on Information Technology Professionals,\" Journal of Political Economy Microeconomics 1(1), 2023",
+          sourceUrl: "https://doi.org/10.1086/721803",
+          reasoning:
+            "Peer-reviewed, with objective firm data on skilled knowledge workers rather than call-center staff, which complements the Bloom study. But it is one firm, and the comparison is before versus during a sudden pandemic shift with schools and offices closed, not a randomized assignment or a settled hybrid arrangement. Productivity bears on permanence only indirectly: it gives employers a reason to mandate, but whether mandates stick is the crux, so directness is moderate.",
+        },
+        {
+          id: "atkin-data-entry-wfh-rct",
+          title: "Randomized Trial in India: Data-Entry Workers 18% Less Productive at Home",
+          description:
+            "Atkin, Schoar and Shinde randomly assigned data-entry workers in India to work from home or from an office. Workers assigned to home were 18% less productive; two-thirds of the gap appeared from the first day and the rest came from faster learning in the office. Workers who preferred home-based work were less productive at home than in the office (27% less, versus 13% less for workers who preferred the office), a pattern the authors partly attribute to workers who face more demands on their attention at home, such as those with children.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Atkin, Schoar & Shinde, \"Working from Home, Worker Sorting and Development,\" NBER Working Paper 31515, 2023",
+          sourceUrl: "https://doi.org/10.3386/w31515",
+          reasoning:
+            "A randomized trial, the same design strength as the Bloom study, pointing the other way. Source reliability is a notch lower because it is a working paper rather than a peer-reviewed article. Like Bloom it covers routine work in one setting and compares fully remote with full office attendance, not hybrid, so it speaks to the productivity case for mandates rather than to whether workers' demand for flexibility will outlast them.",
+        },
+        {
           id: "rto-mandate-outcomes",
           title: "Major Companies Mandating Return-to-Office",
           description:

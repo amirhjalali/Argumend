@@ -101,6 +101,24 @@ export const affirmativeActionMeritocracyData = {
             "A Supreme Court opinion is the highest legal authority in the US and is a matter of public record with perfect replicability. Independence is lower because the 6-3 ideological split and the overturning of recent precedent (Grutter was only 20 years old) reflect judicial philosophy as much as neutral legal analysis. The ruling provides strong legal support for the anti-affirmative-action position but does not resolve the empirical questions about whether race-neutral alternatives achieve comparable outcomes.",
         },
         {
+          id: "harvard-asian-american-penalty",
+          title: "Harvard Admissions Data: Asian American Applicants Penalized Relative to Similar White Applicants",
+          description:
+            "Using the admissions data made public in SFFA v. Harvard, Arcidiacono, Kinsler and Ransom estimate that typical Asian American applicants would see their average admit rate rise by 19%, about 1 percentage point, if they were treated as white applicants. They identify the personal rating as one channel of the penalty: including it cuts the estimated penalty by less than half. The authors acknowledge that identifying the causal effect of race from observational data is challenging, but argue the concern is limited because Asian American applicants are substantially stronger than white applicants on the observables tied to admission and the model predicts admissions extremely well.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 4,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Arcidiacono, Kinsler & Ransom, 'Asian American Discrimination in Harvard Admissions,' European Economic Review 144 (2022)",
+          sourceUrl: "https://doi.org/10.1016/j.euroecorev.2022.104079",
+          reasoning:
+            "Peer-reviewed and built on the public trial record of one of the most scrutinised admissions datasets in the country. Independence is scored low: the paper discloses that Arcidiacono served as SFFA's expert witness and Kinsler as a consultant for SFFA in the case, though SFFA did not fund the paper, and the paper itself notes that Harvard's expert reached a different conclusion on whether Asian Americans were discriminated against, a disagreement that turns largely on whether the personal rating belongs in the model as a control. It bears on the meta-claim by showing a cost of a race-conscious process to a group it did not aim to help, at one institution; it does not measure whether race-conscious admission widens opportunity for under-represented groups, so directness is moderate.",
+        },
+        {
           id: "racial-wealth-gap-data",
           title: "Racial Wealth Gap: White Families Hold 10x the Wealth of Black Families",
           description:
@@ -261,7 +279,7 @@ export const affirmativeActionMeritocracyData = {
       skeptic_premise:
         "Racial preferences generate resentment among non-beneficiary groups, fuel perceptions of unfairness, and stigmatize the very minorities they aim to help by creating doubt about whether they earned their positions. The 'mismatch hypothesis,' advanced by UCLA law professor Richard Sander, argues that affirmative action places students in academic environments where they are underprepared relative to peers, leading to higher dropout rates, lower GPAs, and fewer graduates in STEM fields. Public opinion leans against race-based preferences — a June 2023 Pew Research poll found 50% of Americans disapprove of considering race in admissions, against 33% who approve. International examples reinforce concerns: India's reservation system (quotas for Scheduled Castes, Scheduled Tribes, and Other Backward Classes covering up to 50% of seats) has been in place for 75 years but has not closed socioeconomic gaps and has generated persistent intercaste resentment.",
       proponent_rebuttal:
-        "The mismatch hypothesis has been extensively tested and largely refuted. A 2016 study by Arcidiacono and Lovenheim in the Annual Review of Economics found that while affirmative action admits attend more selective schools, their graduation rates and long-term outcomes are equal to or better than they would have been at less selective institutions — the 'fit' argument does not hold empirically. The stigma argument assumes that the alternative to affirmative action is a perception of pure merit, but in practice, legacy admits, donor children, and athletes face no equivalent stigma despite receiving larger admissions advantages. Research on diversity's benefits is substantial: diverse teams produce more innovative research (Freeman & Huang, 2015), diverse corporate boards improve financial performance (McKinsey, 2020), and students exposed to racial diversity in college show greater civic engagement and reduced prejudice (Gurin et al., 2002). Brazil's racial quotas, implemented in 2012, have increased Black and mixed-race enrollment at federal universities from 33% to 50% with no measurable decline in academic quality.",
+        "The strong version of the mismatch hypothesis has not held up. Reanalysing the same law-school data Sander used, Rothstein and Yoon (2008) found no evidence of mismatch effects on any students' employment outcomes or on the graduation or bar passage rates of Black students with moderate or strong entering credentials, and a 2016 Journal of Economic Literature review by Arcidiacono and Lovenheim describes that literature as contentious and frames the question as a trade-off between school quality and fit rather than a settled harm. The stigma argument assumes that the alternative to affirmative action is a perception of pure merit, but in practice, legacy admits, donor children, and athletes face no equivalent stigma despite receiving larger admissions advantages. Research on diversity's benefits is substantial: diverse teams produce more innovative research (Freeman & Huang, 2015), diverse corporate boards improve financial performance (McKinsey, 2020), and students exposed to racial diversity in college show greater civic engagement and reduced prejudice (Gurin et al., 2002). Brazil's racial quotas, implemented in 2012, have increased Black and mixed-race enrollment at federal universities from 33% to 50% with no measurable decline in academic quality.",
       crux: {
         id: "net-social-cohesion-effect",
         title: "The Social Cohesion Net Impact Assessment",
