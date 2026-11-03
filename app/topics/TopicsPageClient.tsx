@@ -118,9 +118,13 @@ export default function TopicsPageClient({
     ? paginate(filteredTopics, 1, TOPICS_PAGE_SIZE)
     : pagination;
   const paginationParams = useMemo(() => queryForTopicsState(state), [state]);
-  // Start here leads every page of the unfiltered library; the list below
-  // it then holds the other maps, and the count says so.
-  const startHere = showsStartHere(state, savedFilterOn);
+  // In the unfiltered library the new-model maps lead page 1 as "Start
+  // here", and the list holds the other maps. Later pages go straight to
+  // their list: repeating the group put the first row ~1000px down on a
+  // phone (r10 review #8). The count numbers Start here as the first rows.
+  const startHereMode = showsStartHere(state, savedFilterOn);
+  const startHere = startHereMode && visiblePage === 1;
+  const pinnedCount = startHereMode ? DEBATE_MAP_ENTRIES.length : 0;
 
   // Count per category, new-model maps included on their shelf.
   const categoryCounts = useMemo(() => {
@@ -256,8 +260,11 @@ export default function TopicsPageClient({
             { label: "Maps" },
           ]}
           title="Maps"
-          lede={`${LIBRARY_ENTRIES.length} contested questions. Each map sets out the strongest case on every side and the questions that would settle it.`}
-          className="!mb-8 sm:!mb-10"
+          lede={visiblePage === 1
+            ? `${LIBRARY_ENTRIES.length} contested questions. Each map sets out the strongest case on every side and the questions that would settle it.`
+            : undefined}
+          meta={visiblePage > 1 ? `Page ${visiblePage} of ${visiblePagination.pageCount}` : undefined}
+          className={visiblePage === 1 ? "!mb-8 sm:!mb-10" : "!mb-6"}
         />
 
         {startHere && <StartHere />}
@@ -351,10 +358,10 @@ export default function TopicsPageClient({
               <>
                 Showing{" "}
                 <span className="font-medium text-primary dark:text-stone-200">
-                  {`${visiblePagination.startIndex + 1}–${visiblePagination.endIndex}`}
+                  {`${startHere ? 1 : visiblePagination.startIndex + 1 + pinnedCount}–${visiblePagination.endIndex + pinnedCount}`}
                 </span>{" "}
-                {startHere
-                  ? `of ${filteredTopics.length} maps, plus the ${DEBATE_MAP_ENTRIES.length} above`
+                {startHereMode
+                  ? `of ${filteredTopics.length + pinnedCount} maps`
                   : `of ${filteredTopics.length} matching ${filteredTopics.length === 1 ? "map" : "maps"} (${LIBRARY_ENTRIES.length} total)`}
               </>
             )}

@@ -13,16 +13,17 @@ test("map pagination follows Next and Previous without retaining the old page", 
   await pagination.getByRole("link", { name: "Next" }).click();
   await expect(page).toHaveURL(/\/topics\?page=2$/);
   await expect(pagination.getByRole("link", { name: "Page 2", exact: true })).toHaveAttribute("aria-current", "page");
-  await expect(status).toContainText("Showing 25–48");
+  // Page 1 counts the three Start here maps as its first rows (1–27).
+  await expect(status).toContainText("Showing 28–51");
   const secondPageLinks = await main.locator('ul a[href^="/topics/"]').evaluateAll(
     (links) => links.map((link) => link.getAttribute("href")),
   );
-  // The three pinned Start here maps stay; every paginated row changes.
+  // Start here leads page 1 only; every row on page 2 is new.
   expect(secondPageLinks.filter((href) => !firstPageLinks.includes(href))).toHaveLength(24);
 
   await pagination.getByRole("link", { name: "Previous" }).click();
   await expect(page).toHaveURL(/\/topics$/);
-  await expect(status).toContainText("Showing 1–24");
+  await expect(status).toContainText("Showing 1–27");
   await expect(pagination.getByRole("link", { name: "Page 1", exact: true })).toHaveAttribute("aria-current", "page");
   expect(await main.locator('ul a[href^="/topics/"]').evaluateAll(
     (links) => links.map((link) => link.getAttribute("href")),
