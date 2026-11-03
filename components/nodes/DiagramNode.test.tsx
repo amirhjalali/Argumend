@@ -78,16 +78,27 @@ describe("DiagramNode", () => {
     }
   });
 
-  it("outlines the box whose detail is open", () => {
-    const [question] = NODES;
-    const idle = render(<DiagramNode {...props(question)} />);
-    expect(idle.container.innerHTML).not.toContain("border-deep/60");
+  it.each(NODES)("outlines the $kind box while its detail is open", (node) => {
+    // A border on the paper boxes; an outline on the filled question plate
+    // and the washed side boxes, whose own borders carry their colour.
+    const outlined = /\b(?:border|outline)-deep\/60\b/;
+    const idle = render(<DiagramNode {...props(node)} />);
+    expect(idle.container.innerHTML).not.toMatch(outlined);
     idle.unmount();
     const open = render(
-      <ActiveDiagramNode.Provider value={question.id}>
-        <DiagramNode {...props(question)} />
+      <ActiveDiagramNode.Provider value={node.id}>
+        <DiagramNode {...props(node)} />
       </ActiveDiagramNode.Provider>,
     );
-    expect(open.container.innerHTML).toContain("border-deep/60");
+    expect(open.container.innerHTML).toMatch(outlined);
+  });
+
+  it("says on the crux box how it could close, in the page's words", () => {
+    const crux = {
+      ...NODES[1],
+      settleLine: { text: "A test that can be run on evidence that exists.", tone: "testable" },
+    } as DiagramNodeModel;
+    const view = render(<DiagramNode {...props(crux)} />);
+    expect(view.container.textContent).toContain("A test that can be run on evidence that exists.");
   });
 });

@@ -24,7 +24,12 @@ import {
   type LegacyCrux,
   type LegacyEvidenceItem,
 } from "@/lib/topicPage/legacy";
-import type { RunInText, SettleView, TopicHook } from "@/lib/topicPage/model";
+import {
+  standingLineFor,
+  type RunInText,
+  type SettleView,
+  type TopicHook,
+} from "@/lib/topicPage/model";
 import { evidenceLabels } from "@/lib/mapNaming";
 
 export type DiagramSide = "supporters" | "skeptics";
@@ -52,6 +57,13 @@ export interface DiagramCruxNode {
   /** The pillar it belongs to (the page's kicker above the question). */
   kicker?: string;
   settle: SettleView;
+  /**
+   * The one line the box shows under the question: how this crux could close,
+   * in the page's own words (its testability note, or the first clause of its
+   * "nothing does" line). The tone colours it: teal when a test can be run on
+   * evidence that exists, brown when evidence cannot settle it, muted otherwise.
+   */
+  settleLine?: { text: string; tone: "testable" | "open" | "standing" };
   runIns: RunInText[];
   flips?: LegacyCrux["flips"];
   test: LegacyCrux["test"];
@@ -119,6 +131,7 @@ export function buildDiagram(topic: Topic): DiagramModel {
   const { page, cruxes } = legacyTopicPage(topic);
   const positions = new Map(page.positions.map((card) => [card.id, card]));
   const labels = evidenceLabels(topic);
+  const pillarStatus = new Map(topic.pillars.map((p) => [p.id, p.crux.verification_status]));
 
   const nodes: DiagramNode[] = [
     {
@@ -142,6 +155,7 @@ export function buildDiagram(topic: Topic): DiagramModel {
       label: crux.question,
       kicker: crux.kicker,
       settle: crux.settle,
+      settleLine: settleLine(crux, pillarStatus.get(crux.pillarId)),
       runIns: crux.runIns,
       flips: crux.flips,
       test: crux.test,
@@ -182,6 +196,19 @@ export function buildDiagram(topic: Topic): DiagramModel {
   });
 
   return { topicId: topic.id, title: page.title, nodes, evidenceLabels: labels };
+}
+
+function settleLine(
+  crux: LegacyCrux,
+  status: Topic["pillars"][number]["crux"]["verification_status"] | undefined,
+): DiagramCruxNode["settleLine"] {
+  if (crux.settle.mode === "standing") {
+    // "Nothing does — this is a standing value disagreement", without the
+    // clause about what the map holds.
+    return { text: standingLineFor(crux.settle.kind).split(";")[0], tone: "standing" };
+  }
+  if (!crux.settle.note) return undefined;
+  return { text: crux.settle.note, tone: status === "verified" ? "testable" : "open" };
 }
 
 /** A node's children, in model order. */
