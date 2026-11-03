@@ -11,10 +11,10 @@ export const tippingCultureData = {
   // ── Stage 1: the wow fact shown above everything ──
   keystone_fact: {
     statement:
-      "The federal cash wage for tipped workers has been frozen at $2.13 an hour since 1991, and inflation has cut its real value by roughly half. The median U.S. server earned about $16.23 an hour including tips in 2024. Both figures come from federal data. The fight is over whether replacing tips with service-included wages would leave servers with more take-home pay or less.",
+      "The federal cash wage for tipped workers has been frozen at $2.13 an hour since 1991, and inflation has pushed its purchasing power to record lows. The median U.S. server earned $16.94 an hour including tips in May 2025. Both figures come from federal data. The fight is over whether replacing tips with service-included wages would leave servers with more take-home pay or less.",
     confidence: 95,
     source:
-      "U.S. Dept. of Labor, history of federal minimum wage rates and FLSA tip-credit provisions; BLS Occupational Employment and Wage Statistics (May 2024)",
+      "U.S. Dept. of Labor, history of federal minimum wage rates and FLSA tip-credit provisions; Allegretto & Cooper, Economic Policy Institute (2014); BLS Occupational Outlook Handbook (May 2025 wage data)",
     sourceUrl: "https://www.dol.gov/agencies/whd/minimum-wage/history",
   },
   // ── Stage 2: the honest 3-sentence case ──
@@ -33,9 +33,9 @@ export const tippingCultureData = {
         "The federal cash wage for tipped workers has been frozen at $2.13 since 1991, and tipped workers in subminimum-wage states have markedly higher poverty rates. Abolitionists argue this is an indefensible, unstable, employer-subsidizing arrangement. Defenders counter that federal law already guarantees the full minimum when tips fall short, that the median server earns far above minimum wage including tips, and that many tipped workers oppose reform because flat wages would cut their pay.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "The $2.13 figure is real but misleading as a picture of what tipped workers earn. Federal law already requires that if a worker's tips plus the $2.13 cash wage do not reach the full $7.25 minimum in any week, the employer must make up the entire difference — so $2.13 is a floor on the employer's cash contribution, not on the worker's pay. In practice tipped workers earn well above the minimum: BLS data put the median U.S. server at about $16.23 an hour including tips in 2024, with bartenders similar, and top earners in busy restaurants make far more. This is precisely why many tipped workers fight reform: when Washington, D.C. began phasing out its tip credit, numerous servers reported their take-home pay fell as customers tipped less. The honest problem is enforcement of the existing make-up rule and the indefensible $2.13 headline number — not the existence of tips, which for skilled servers is a raise, not a wage cut.",
+        "The $2.13 figure is real but misleading as a picture of what tipped workers earn. Federal law already requires that if a worker's tips plus the $2.13 cash wage do not reach the full $7.25 minimum in any week, the employer must make up the entire difference — so $2.13 is a floor on the employer's cash contribution, not on the worker's pay. In practice tipped workers earn well above the minimum: BLS data put the median U.S. server at $16.94 an hour including tips in May 2025, with bartenders similar at $16.51, and top earners in busy restaurants make far more. This is precisely why many tipped workers fight reform: when Washington, D.C. began phasing out its tip credit, numerous servers reported their take-home pay fell as customers tipped less. The honest problem is enforcement of the existing make-up rule and the indefensible $2.13 headline number — not the existence of tips, which for skilled servers is a raise, not a wage cut.",
       proponent_rebuttal:
-        "Tipping outsources the employer's payroll obligation onto the customer and leaves workers' income at the mercy of weather, shift assignments, and customer whims. The federal cash wage for tipped workers has been stuck at $2.13 per hour since 1991 — Congress severed it from the regular minimum wage in a 1996 amendment to the Fair Labor Standards Act and has never raised it, so inflation has eroded roughly half its real value. The result is measurable hardship: poverty rates among waitstaff and bartenders run around 18% in states that allow the $2.13 subminimum, versus about 11% in the handful of states that pay tipped workers the full minimum wage, and tipped workers are more than twice as likely as non-tipped workers to live in poverty. A flat, predictable wage would end this volatility, stop wage theft (the make-up requirement is widely under-enforced), and let workers budget like everyone else.",
+        "Tipping outsources the employer's payroll obligation onto the customer and leaves workers' income at the mercy of weather, shift assignments, and customer whims. The federal cash wage for tipped workers has been stuck at $2.13 per hour since 1991 — Congress severed it from the regular minimum wage in a 1996 amendment to the Fair Labor Standards Act and has never raised it, so inflation has pushed its purchasing power to record lows. The result is measurable hardship: poverty rates among waitstaff and bartenders run around 18% in states that allow the $2.13 subminimum, versus about 10% in the handful of states that pay tipped workers the full minimum wage, and tipped workers are nearly twice as likely as non-tipped workers to live in poverty. A flat, predictable wage would end this volatility, stop wage theft (the make-up requirement is widely under-enforced), and let workers budget like everyone else.",
       crux: {
         id: "net-income-after-abolition",
         title: "The Net Take-Home Income Test",
@@ -56,7 +56,7 @@ export const tippingCultureData = {
           supporter_flip:
             "If rigorous difference-in-differences analysis showed that eliminating the tip credit reliably lowers total take-home pay for most front-of-house workers — because lost tips exceed the higher base wage, as many D.C. servers reported — the 'abolition helps workers' case would weaken to 'helps the lowest earners while hurting the median server.'",
           skeptic_flip:
-            "If enforcement data showed the make-up rule widely unenforced, and the gap in waitstaff poverty (about 18% in $2.13 states versus 11% in equal-wage states) held up with controls, the view that servers do fine under tipping would be hard to hold.",
+            "If enforcement data showed the make-up rule widely unenforced, and the gap in waitstaff poverty (about 18% in $2.13 states versus 10% in equal-wage states) held up with controls, the view that servers do fine under tipping would be hard to hold.",
           common_ground:
             "Both sides agree a $2.13 frozen cash wage is indefensible on its face and that the make-up requirement is poorly enforced; neither side defends $2.13 as the right number.",
           live_disagreement:
@@ -69,7 +69,7 @@ export const tippingCultureData = {
           title:
             "Federal Tipped Cash Wage Frozen at $2.13 Since 1991, Severed From Minimum Wage in 1996",
           description:
-            "Before 1991 the federal cash wage for tipped workers rose automatically as a fixed percentage of the regular minimum wage. A 1996 amendment to the Fair Labor Standards Act, backed by the restaurant industry, broke that link and froze the tipped cash wage at $2.13 per hour, where it has remained for over three decades. The employer's 'tip credit' — the gap it may count tips against — is the difference between the $7.25 federal minimum and the $2.13 cash wage, i.e., $5.12. Adjusted for inflation, $2.13 in 1991 is worth roughly half its original value today, so the real cash floor for tipped work has steadily eroded.",
+            "Until 1996 federal law required the tipped cash wage to remain a set percentage of the regular minimum wage; it last rose, to $2.13, in 1991. The Minimum Wage Increase Act of 1996 eliminated that provision, broke the link and froze the tipped cash wage at $2.13 per hour, where it has remained for over three decades. The employer's 'tip credit' — the gap it may count tips against — is the difference between the $7.25 federal minimum and the $2.13 cash wage, i.e., $5.12. The Economic Policy Institute noted in 2014 that inflation had already lowered its purchasing power 'to its lowest point ever,' and the restaurant industry has fought to keep the $2.13 floor in place.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -86,9 +86,9 @@ export const tippingCultureData = {
         {
           id: "poverty-gap-tipped-states",
           title:
-            "Poverty Rates for Waitstaff Run ~18% in $2.13 States vs ~11% in Equal-Wage States",
+            "Poverty Rates for Waitstaff Ran 18% in $2.13 States vs 10% in Equal-Wage States (EPI, 2014)",
           description:
-            "Analyses by the Economic Policy Institute and the One Fair Wage campaign find that in states allowing a subminimum tipped wage, the poverty rate among waitstaff and bartenders is roughly 18%, compared with about 11% in the seven states that have long required tipped workers be paid the full regular minimum wage before tips. Tipped workers overall are estimated to be more than twice as likely to live in poverty as non-tipped workers, and a majority of tipped restaurant workers are women, concentrating the income volatility on a group with less bargaining power.",
+            "An Economic Policy Institute analysis of Current Population Survey data for 2010-2012 (Allegretto & Cooper, 2014) found 18.0% of waitstaff and bartenders in poverty in states that follow the $2.13 federal subminimum, 14.4% in states with a higher but still partial tipped wage, and 10.2% in the seven 'equal treatment' states that pay tipped workers the full minimum wage. Tipped workers overall had a poverty rate of 12.8% against 6.5% for non-tipped workers, nearly twice as high, and women were 66.6% of tipped workers. EPI reports that non-tipped poverty barely differs across the three groups of states; the comparison is cross-sectional, not a controlled estimate.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -97,17 +97,17 @@ export const tippingCultureData = {
             directness: 8,
           },
           source:
-            "Economic Policy Institute; Restaurant Opportunities Centers United / One Fair Wage",
-          sourceUrl: "https://www.epi.org/publication/waiting-for-change-tipped-minimum-wage/",
+            "Allegretto, S. A. & Cooper, D., 'Twenty-Three Years and Still Waiting for Change: Why It's Time to Give Tipped Workers the Regular Minimum Wage,' Economic Policy Institute Briefing Paper #379 (July 10, 2014)",
+          sourceUrl: "https://files.epi.org/2014/EPI-CWED-BP379.pdf",
           reasoning:
             "EPI is a credible labor-economics research institute, but it is advocacy-aligned (union-funded) on this issue and One Fair Wage actively campaigns for abolition, lowering the independence score. The poverty-rate gap is real and replicated across several reports, but the comparison is partly confounded by cost-of-living and industry-mix differences between the two sets of states, so it is suggestive rather than dispositive of causation.",
         },
         {
           id: "median-server-earns-above-minimum",
           title:
-            "Median U.S. Server Earned About $16.23/Hour Including Tips in 2024 (BLS)",
+            "Median U.S. Server Earned $16.94/Hour Including Tips in May 2025 (BLS)",
           description:
-            "The Bureau of Labor Statistics' Occupational Employment and Wage Statistics program reported a median hourly wage for waiters and waitresses of $16.23 in May 2024 (bartenders were similar at about $16.12), with the top 10% of servers earning more than $30 an hour — figures that include tips. Surveys of tipped workers find tips make up roughly 55-60% of total earnings for waitstaff and bartenders. This is the core reason many experienced, high-volume servers oppose abolishing tips: a switch to a flat hourly wage can lower their take-home pay even as it raises the formal wage floor.",
+            "The Bureau of Labor Statistics' Occupational Employment and Wage Statistics program reported a median hourly wage for waiters and waitresses of $16.94 in May 2025 (bartenders were similar at $16.51), with the highest 10% of servers earning more than $31.12 an hour; BLS states that 'these wage data include tips.' This is the core reason many experienced, high-volume servers oppose abolishing tips: a switch to a flat hourly wage can lower their take-home pay even as it raises the formal wage floor.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -116,7 +116,7 @@ export const tippingCultureData = {
             directness: 9,
           },
           source:
-            "U.S. Bureau of Labor Statistics, Occupational Outlook Handbook / OEWS (May 2024)",
+            "U.S. Bureau of Labor Statistics, Occupational Outlook Handbook, Waiters and Waitresses (May 2025 wage data)",
           sourceUrl: "https://www.bls.gov/ooh/food-preparation-and-serving/waiters-and-waitresses.htm",
           reasoning:
             "BLS is the authoritative, nonpartisan source for U.S. occupational wages, and the median figure directly rebuts the impression that tipped workers earn $2.13. The main limitation is that medians hide volatility and a long left tail — low-volume servers and those in slow venues can earn far less — and tip income may be under-reported, which would push the true figure somewhat higher.",
@@ -155,7 +155,7 @@ export const tippingCultureData = {
       skeptic_premise:
         "The weak tip-quality correlation is real but proves less than abolitionists claim. Tips still give workers direct control over their income and a tangible reason to hustle — managers and customers both report that the prospect of a good tip changes behavior at the margin even if the average correlation is modest, and the alternative (a fixed wage) offers no service signal at all. On bias, the finding is genuinely troubling, but discrimination does not vanish under flat wages: it migrates into hiring, scheduling, promotion, and which sections a manager assigns — channels with far less transparency than a customer's tip. Abolitionists also overstate harassment as uniquely tip-driven; harassment is pervasive across low-wage service work regardless of pay model. The honest position is that tipping's incentive value is overstated by its defenders and its bias is real, but eliminating tips does not eliminate either problem; it relocates them.",
       proponent_rebuttal:
-        "The central justification for tipping — that it lets customers reward good service and discipline bad service — does not survive the evidence. Michael Lynn's meta-analysis of 14 studies covering 2,645 dining parties found the correlation between tip size and rated service quality averages only about 0.11, explaining a mere 1-5% of the variation in tips. What does predict tips is the server's identity: Lynn's 2008 research found white customers tipped Black servers roughly four percentage points less than otherwise-identical white servers, and Black servers saw essentially no tip increase for excellent versus mediocre service. Tipping also concentrates sexual harassment, because workers dependent on customer goodwill for income tolerate behavior they otherwise would not. A pay system that doesn't actually measure service and does encode racial and gender bias is not a meritocratic market — it is a discrimination machine with a customer-service veneer.",
+        "The central justification for tipping — that it lets customers reward good service and discipline bad service — does not survive the evidence. Michael Lynn's meta-analysis of 14 studies covering 2,645 dining parties found the correlation between tip size and rated service quality averages only about 0.11, which Lynn called 'quite small.' What does predict tips is the server's identity: a 2008 study by Lynn and colleagues found customers of both races tipped Black servers less than white servers after controlling for rated service, and Black servers' tips stayed at 16.6% of the bill whether service was rated perfect or not, while white servers' rose from 16.8% to 23.4%. Tipping also concentrates sexual harassment, because workers dependent on customer goodwill for income tolerate behavior they otherwise would not. A pay system that doesn't actually measure service and does encode racial and gender bias is not a meritocratic market — it is a discrimination machine with a customer-service veneer.",
       crux: {
         id: "does-abolition-reduce-bias",
         title: "The Discrimination-Reduction Test",
@@ -176,7 +176,7 @@ export const tippingCultureData = {
           supporter_flip:
             "If studies showed that race- and gender-based earnings gaps among front-of-house workers persist or even widen after tips are replaced by flat wages — because managers' hiring and scheduling biases simply replace customers' tipping bias — the claim that abolition fights discrimination would collapse.",
           skeptic_flip:
-            "If new studies confirmed that tip size tracks only about 1-5% of service-quality variance while server race predicts a tip gap of about 4 points, the 'tips reward good service' rationale would lose its footing, whatever happens to bias afterward.",
+            "If new studies confirmed that tip size correlates with rated service only around 0.11 while server race predicts a tip gap after controlling for service, the 'tips reward good service' rationale would lose its footing, whatever happens to bias afterward.",
           common_ground:
             "Both sides accept the empirical findings: tip size correlates weakly with service quality and meaningfully with server race and gender.",
           live_disagreement:
@@ -187,9 +187,9 @@ export const tippingCultureData = {
         {
           id: "lynn-weak-service-correlation",
           title:
-            "Tip Size Explains Only ~1-5% of Service-Quality Variation (Lynn Meta-Analysis)",
+            "Tips and Rated Service Correlate at Only About 0.11 (Lynn Meta-Analysis)",
           description:
-            "Cornell hospitality researcher Michael Lynn's meta-analysis combined 24 correlations from 14 studies (2,645 dining parties across 21 restaurants) between tip size and customers' rated service quality. The average correlation was only about 0.11 — statistically positive but very weak, accounting for just 1-5% of the variance in how much people tip. Lynn concluded the relationship is too weak to justify using tips to motivate servers, measure server performance, or flag dissatisfied customers, directly undercutting the standard 'tips reward good service' rationale.",
+            "Cornell hospitality researcher Michael Lynn's meta-analysis combined 24 correlations from 14 studies (2,645 dining parties across 21 restaurants) between tip size and customers' rated service quality. The mean correlation was only 0.11, statistically positive but, in Lynn's words, 'quite small.' Lynn concluded the relationship is too weak to justify using tips to motivate servers, measure server performance, or flag dissatisfied customers, directly undercutting the standard 'tips reward good service' rationale.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -198,7 +198,7 @@ export const tippingCultureData = {
             directness: 9,
           },
           source:
-            "Lynn & McCall, 'Gratitude and Gratuity' / 'Restaurant Tipping and Service Quality: A Tenuous Relationship,' Cornell School of Hotel Administration",
+            "Lynn, M., 'Restaurant Tipping and Service Quality: A Tenuous Relationship,' Cornell Hotel and Restaurant Administration Quarterly (February 2001)",
           sourceUrl: "https://ecommons.cornell.edu/items/042e8740-5c44-486e-ab28-00f05781d153",
           reasoning:
             "Lynn is the most-cited academic researcher on tipping, and a meta-analysis pooling 14 studies is robust and widely replicated. The finding directly addresses the core incentive justification for tipping. Score held just short of maximum because correlational survey data cannot fully rule out that tips exert a real marginal motivational effect that does not show up in aggregate service-quality ratings.",
@@ -206,9 +206,9 @@ export const tippingCultureData = {
         {
           id: "lynn-racial-tipping-bias",
           title:
-            "White Customers Tip Black Servers ~4 Percentage Points Less Than White Servers",
+            "Customers of Both Races Tipped Black Servers Less, Even Controlling for Rated Service",
           description:
-            "Lynn's 2008 study in the Journal of Applied Social Psychology, replicating and extending earlier work, found that white customers tipped Black servers roughly four percentage points less than otherwise-comparable white servers, even after controlling for rated service quality. Strikingly, white servers' tips rose from about 16.8% of the bill for less-than-perfect service to 23.4% for perfect service, while Black servers received about 16.6% regardless of whether their service was rated perfect or not — meaning Black servers were effectively unable to earn more through better service. This pattern makes tip income a vector for racial discrimination independent of performance.",
+            "A 2008 study by Lynn and colleagues in the Journal of Applied Social Psychology (140 dining-party observations), replicating and extending earlier work, found that 'consumers of both races discriminated against Black service providers by tipping them less than White service providers,' while statistically controlling for perceived service quality. Strikingly, white servers' tips rose from about 16.8% of the bill for less-than-perfect service to 23.4% for perfect service, while Black servers received about 16.6% regardless of whether their service was rated perfect or not — meaning Black servers were effectively unable to earn more through better service. This pattern makes tip income a vector for racial discrimination independent of performance.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -407,7 +407,7 @@ export const tippingCultureData = {
     {
       title:
         "Twenty-Three Years and Still Waiting for Change: The Tipped Minimum Wage — Economic Policy Institute",
-      url: "https://www.epi.org/publication/waiting-for-change-tipped-minimum-wage/",
+      url: "https://files.epi.org/2014/EPI-CWED-BP379.pdf",
     },
     {
       title:
@@ -421,14 +421,14 @@ export const tippingCultureData = {
       title:
         "Does abolishing tips raise or lower take-home pay for typical workers?",
       content:
-        "The federal cash wage for tipped workers has been frozen at $2.13 since 1991, and poverty rates run higher in subminimum-wage states — yet federal law already requires employers to top workers up to $7.25 when tips fall short, and the median U.S. server earned about $16.23 an hour including tips in 2024. When Washington, D.C. began phasing out its tip credit, many servers reported their take-home pay fell as customers tipped less. So would eliminating tips help the workers it targets, or redistribute income away from successful servers toward employers and the lowest earners?",
+        "The federal cash wage for tipped workers has been frozen at $2.13 since 1991, and poverty rates run higher in subminimum-wage states — yet federal law already requires employers to top workers up to $7.25 when tips fall short, and the median U.S. server earned $16.94 an hour including tips in May 2025. When Washington, D.C. began phasing out its tip credit, many servers reported their take-home pay fell as customers tipped less. So would eliminating tips help the workers it targets, or redistribute income away from successful servers toward employers and the lowest earners?",
     },
     {
       id: "q2",
       title:
         "Is tipping a service incentive or a discrimination machine — and does abolition fix it?",
       content:
-        "Michael Lynn's meta-analysis found tip size explains only 1-5% of the variation in service quality, while his 2008 research found white customers tipped Black servers roughly four percentage points less than identical white servers, regardless of how good the service was. That undercuts the 'tips reward merit' rationale and suggests tipping encodes racial and gender bias. But discrimination also operates through hiring, scheduling, and promotion under flat wages — so does abolishing tips actually shrink demographic earnings gaps, or merely move the bias from customers into managers?",
+        "Michael Lynn's meta-analysis found tip size correlates with rated service at only about 0.11, while a 2008 study he led found customers of both races tipped Black servers less than white servers after controlling for rated service, and Black servers' tips did not rise for perfect service. That undercuts the 'tips reward merit' rationale and suggests tipping encodes racial and gender bias. But discrimination also operates through hiring, scheduling, and promotion under flat wages — so does abolishing tips actually shrink demographic earnings gaps, or merely move the bias from customers into managers?",
     },
     {
       id: "q3",
