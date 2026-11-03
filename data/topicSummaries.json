@@ -1567,9 +1567,9 @@
     "title": "Psychedelics for Mental Health",
     "question": "Should psychedelics be approved to treat depression, PTSD and addiction?",
     "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 66,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1577,7 +1577,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
     "tags": [
       "science"
