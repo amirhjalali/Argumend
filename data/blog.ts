@@ -469,7 +469,9 @@ If you want to see the weighted evidence and the cruxes behind each of these que
       "policy",
     ],
     category: "Public Health",
-    content: `## The question is badly posed
+    content: `**Update, 3 November 2026.** The measles numbers below have been overtaken. By 22 October 2026 the CDC had confirmed 4,588 US measles cases this year, double the 2,289 of all 2025, with 479 hospitalisations and three deaths. Kindergarten MMR coverage has fallen from 95.2% in 2019-20 to 92.4% in 2025-26, and kindergarten exemptions reached a record 4.2%. The fight has also moved to who decides: Florida's health department has proposed dropping four vaccines (hepatitis B, chickenpox, Hib and pneumococcal) from its school requirements, and New York's Amish schools are asking the Supreme Court to review the state's removal of the religious exemption a second time. The [vaccine mandates map](/topics/vaccine-mandates), which now asks whether vaccines should be mandatory for school and work, adds that fourth question: who may opt out.
+
+## The question is badly posed
 
 "Are you for or against vaccine mandates?" is one of those questions that sounds like it has an answer and doesn't. A measles requirement for kids starting school and an emergency adult COVID mandate are wildly different policies — different diseases, different vaccines, different stakes — and lumping them together guarantees people talk past each other. The honest version of the question is narrower: *which* vaccine, for *which* disease, enforced *how*?
 
@@ -481,7 +483,7 @@ It would be strange to argue about whether mandates are justified if they didn't
 
 Where it has been measured with credible controls, announcing a mandate produces fast, large uptake gains. A difference-in-differences study across Canadian provinces and several European countries found mandate announcements were followed by more than a 60% jump in weekly first doses — millions of extra doses in Italy and France. And the century-old workhorse, school-entry requirements, pushed US childhood coverage above the ~95% threshold needed to keep measles from spreading.
 
-The honest caveat: coercion does the least where it matters most, among committed refusers. Austria enacted Europe's first general adult COVID mandate in 2022 and suspended it before levying a single fine; one controlled analysis found no discernible uptake bump there. Mandates can also push refusal into harder-to-police channels — after California tightened school exemptions, dubious medical exemptions tripled. So mandates work, but they are a blunt instrument that works better for some diseases and designs than others.
+The honest caveat: coercion does the least where it matters most, among committed refusers. Austria enacted Europe's first general adult COVID mandate in 2022 and suspended it before levying a single fine; one controlled analysis found no discernible uptake bump there. Mandates can also push refusal into harder-to-police channels — after California ended non-medical school exemptions in 2016, medical exemptions rose, though statewide kindergarten MMR coverage still rose 3.3 points against a synthetic control. So mandates work, but they are a blunt instrument that works better for some diseases and designs than others.
 
 ## Question 2: Do they protect *other* people? (This is the crux)
 
@@ -489,7 +491,7 @@ This is where the debate is really decided, because liberal societies generally 
 
 For measles, the answer is "enormously." Measles is staggeringly contagious and needs roughly 95% coverage to stop spreading; vaccination dramatically cuts transmission. When US coverage slipped below that line, measles came roaring back — 2025 saw the most US cases since 1992. The externality is real, large, and durable, which is exactly why school mandates for it have broad support.
 
-For COVID, the answer is "much less." Peer-reviewed data showed the vaccines cut onward transmission of variants like Delta only modestly, and that protection waned within weeks. The vaccines were excellent at protecting the *recipient* from severe disease — but a mandate justified by "protecting others" stands on far shakier ground when the transmission benefit is small and short-lived.
+For COVID, the answer is "much less." A large UK contact-tracing study found two doses cut onward transmission of Delta by about half at first, and that the protection waned substantially within about 12 weeks. The vaccines were excellent at protecting the *recipient* from severe disease — but a mandate justified by "protecting others" stands on far shakier ground when the transmission benefit is partial and short-lived.
 
 **This is the single fact that resolves most of the argument.** A mandate's ethical justification rises and falls with the size of the transmission externality — so "are mandates justified?" has different answers for measles and COVID, and pretending otherwise is the main reason the debate goes in circles. It's a textbook case of asking [what would actually change your mind](/blog/what-would-change-your-mind): name the transmission number, and the disagreement narrows fast.
 
@@ -497,9 +499,9 @@ For COVID, the answer is "much less." Peer-reviewed data showed the vaccines cut
 
 Even a mandate that works and protects others can backfire if it corrodes the public trust that public health depends on. This is the strongest version of the skeptic's case, and it deserves to be taken seriously.
 
-The legal picture is settled enough: mandates have been constitutional since *Jacobson v. Massachusetts* (1905), and courts have upheld well-scoped ones (the healthcare-worker rule) while striking overbroad ones (the OSHA vaccine-or-test rule for 80+ million workers). The limit is about *which body* acts and *how broadly*, not whether mandates can ever be justified.
+The legal picture is settled enough: mandates have been constitutional since *Jacobson v. Massachusetts* (1905), and courts have upheld well-scoped ones (the healthcare-worker rule) while blocking overbroad ones (the Supreme Court stayed the OSHA vaccine-or-test rule for 80+ million workers, and OSHA withdrew it). The limit is about *which body* acts and *how broadly*, not whether mandates can ever be justified.
 
-The trust question is genuinely unresolved. Some researchers argue mandates and passports deepen distrust and harden hesitancy — a cost that can outlast the short-term uptake gain. Others note this draws strong causal conclusions from thin evidence, and that pro-mandate governments were generally re-elected. What would settle it is longitudinal data on whether trust recovers; for now, reasonable people weigh the risk differently.
+The trust question is genuinely unresolved. Some researchers argue mandates and passports deepen distrust and harden hesitancy — a cost that can outlast the short-term uptake gain. Others note this draws strong causal conclusions from thin evidence, and that pro-mandate governments were generally re-elected; after Italy made ten infant vaccines compulsory in 2017, coverage rose and confidence in vaccine safety improved. What would settle it is longitudinal data on whether trust recovers; for now, reasonable people weigh the risk differently.
 
 ## So, are they justified?
 
