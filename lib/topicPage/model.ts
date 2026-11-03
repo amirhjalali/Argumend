@@ -101,6 +101,11 @@ export interface CruxEntryData {
   settle: SettleView;
   /** The claim is a hidden assumption nobody states out loud. */
   implicit?: boolean;
+  /**
+   * What this assumption is, in the map's own words. Without it the page
+   * falls back to HIDDEN_ASSUMPTION_NOTE, shown once a page.
+   */
+  implicitNote?: string;
   /** Folded prose, in order. */
   runIns: RunInText[];
   /**

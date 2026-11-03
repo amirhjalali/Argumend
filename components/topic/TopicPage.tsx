@@ -279,6 +279,10 @@ export function CruxSheet({ page, cruxes }: { page: TopicPageData; cruxes: CruxE
   const lede = page.cruxLede
     ? [page.cruxLede, page.cruxTally].filter(Boolean).join(" ")
     : undefined;
+  // The generic hidden-assumption line says the same thing for every crux, so
+  // it appears once a page: under the first implicit crux with no authored
+  // line. Later ones keep the tag alone rather than repeat it verbatim.
+  const firstGenericImplicit = cruxes.find((crux) => crux.implicit && !crux.implicitNote);
   return (
     <Section
       id="cruxes"
@@ -296,7 +300,12 @@ export function CruxSheet({ page, cruxes }: { page: TopicPageData; cruxes: CruxE
       )}
       <ol data-crux-sheet="" className={`${lede ? "mt-5" : ""} ${CRUX_SHEET}`}>
         {cruxes.map((crux, index) => (
-          <CruxEntry key={crux.anchor} crux={crux} index={index} />
+          <CruxEntry
+            key={crux.anchor}
+            crux={crux}
+            index={index}
+            genericNote={crux === firstGenericImplicit}
+          />
         ))}
       </ol>
     </Section>
@@ -306,7 +315,15 @@ export function CruxSheet({ page, cruxes }: { page: TopicPageData; cruxes: CruxE
 /** Long legacy crux statements drop a size so they don't dominate the sheet. */
 const LONG_QUESTION = 150;
 
-function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
+function CruxEntry({
+  crux,
+  index,
+  genericNote,
+}: {
+  crux: CruxEntryView;
+  index: number;
+  genericNote: boolean;
+}) {
   const { settle } = crux;
   const long = crux.question.length > LONG_QUESTION;
   const hasBody =
@@ -353,13 +370,20 @@ function CruxEntry({ crux, index }: { crux: CruxEntryView; index: number }) {
             )}
           </h3>
           {/* The question above is the assumption; the line says so without
-              claiming nobody ever states it (see commit ba28380). */}
+              claiming nobody ever states it (see commit ba28380). A map's own
+              line leads; the generic one shows once a page (see CruxSheet). */}
           {crux.implicit && (
             <span
               className={`${ENTRY_COLUMN} mb-2 mt-1.5 block font-serif text-[0.9375rem] italic leading-snug text-muted dark:text-stone-400`}
             >
-              <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption:</span>{" "}
-              {HIDDEN_ASSUMPTION_NOTE}
+              {crux.implicitNote || genericNote ? (
+                <>
+                  <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption:</span>{" "}
+                  {crux.implicitNote ?? HIDDEN_ASSUMPTION_NOTE}
+                </>
+              ) : (
+                <span className="label-caps !text-[0.75rem] not-italic">Hidden assumption</span>
+              )}
             </span>
           )}
           <span className={ENTRY_COLUMN}>

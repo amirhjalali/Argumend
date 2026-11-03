@@ -71,7 +71,13 @@ export interface ArgumentTopicMeta {
    */
   cruxNotes?: Record<
     string,
-    { question?: string; fight: string; soWhat: string }
+    {
+      question?: string;
+      fight: string;
+      soWhat: string;
+      /** For an implicit crux: the line after its "Hidden assumption" tag. */
+      assumption?: string;
+    }
   >;
 }
 
@@ -170,6 +176,8 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
             "Firm surveys already track AI use and staffing, and most users report augmenting tasks. The open question is when productivity gains lead to fewer hires, more output, or different jobs.",
           soWhat:
             "If it's “hire fewer,” the displacement case gains its mechanism. If it's “sell more,” the historical pattern holds and the jobs can come back somewhere else.",
+          assumption:
+            "The displacement forecasts assume firms take AI's gains as fewer hires; the “we've panicked before” case assumes they take them as more output. Each forecast rests on its answer without testing it.",
         },
         "c-targeted-programs-can-help": {
           fight:
@@ -182,6 +190,8 @@ const DRAFTS: Record<string, { meta: ArgumentTopicMeta; raw: unknown }> = {
             "Optimists assume displaced workers move on without lasting damage. The displacement data cuts against that — earnings still down 25% a decade later, and Black and non-degree workers 67% more likely to be displaced at all.",
           soWhat:
             "This assumption is doing silent work under every “the economy always adjusts” argument. If it's false, the aggregate story hides real, durable harm.",
+          assumption:
+            "“The economy always adjusts” counts the new jobs, not what moving into them costs. It takes for granted that displaced workers get there quickly and without a lasting pay cut.",
         },
         "c-mass-unemployment-definition-strict": {
           fight:

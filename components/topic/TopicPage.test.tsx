@@ -7,6 +7,7 @@ import { loadArgumentTopic } from "@/lib/argument/draftTopics";
 import { isPublicEntry } from "@/lib/argument/ledger";
 import { loadTopicById } from "@/data/topicLoader";
 import { withoutFalsification } from "@/test/fixtures/legacyTopics";
+import { HIDDEN_ASSUMPTION_NOTE } from "@/lib/topicPage/model";
 
 afterEach(() => {
   cleanup();
@@ -318,5 +319,42 @@ describe("the one-tap reflection", () => {
       }
     }
     expect(shown).toBe(true);
+  });
+});
+
+describe("the hidden-assumption line", () => {
+  function renderFlagship(id: string) {
+    const topic = loadArgumentTopic(id)!;
+    return render(
+      <DebateView
+        meta={topic.meta}
+        graph={topic.graph}
+        cruxes={topic.cruxes}
+        ledger={topic.ledger.filter(isPublicEntry)}
+      />,
+    ).container;
+  }
+
+  it("never repeats the generic line on a page", () => {
+    // Two implicit cruxes, neither with an authored line (r13 review).
+    const container = renderFlagship("capitalism-after-ai");
+    const tags = [...container.querySelectorAll("[data-crux-sheet] summary .label-caps")].filter(
+      (tag) => tag.textContent?.startsWith("Hidden assumption"),
+    );
+    expect(tags.length).toBeGreaterThan(1);
+    expect(container.textContent?.split(HIDDEN_ASSUMPTION_NOTE)).toHaveLength(2);
+  });
+
+  it("uses a map's own line where it has one", () => {
+    const topic = loadArgumentTopic("ai-mass-unemployment")!;
+    const container = renderFlagship("ai-mass-unemployment");
+    expect(container.textContent).not.toContain(HIDDEN_ASSUMPTION_NOTE);
+    for (const claim of topic.graph.nodes) {
+      if (claim.type !== "claim" || !claim.implicit) continue;
+      if (!topic.cruxes.some((crux) => crux.claimId === claim.id)) continue;
+      const assumption = topic.meta.cruxNotes?.[claim.id]?.assumption;
+      expect(assumption, claim.id).toBeTruthy();
+      expect(container.textContent).toContain(assumption!);
+    }
   });
 });
