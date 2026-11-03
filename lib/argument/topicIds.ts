@@ -44,6 +44,7 @@ export const argumentTopicIndex = [
     aliases: [
       "capitalism after artificial intelligence",
       "labor share wages markets ownership UBI",
+      "Should ordinary households own a share of the robots and their profits?",
     ],
   },
   {

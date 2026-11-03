@@ -3,6 +3,10 @@ export const autonomousWeaponsBanData = {
   title: "Banning Killer Robots",
   question:
     "Should lethal autonomous weapons be banned by international treaty?",
+  // Words readers use for this question that the map's own text does not.
+  aliases: [
+    "Will killer robots start an AI arms race?",
+  ],
   meta_claim:
     "Lethal autonomous weapons should be banned by international treaty.",
   status: "contested" as const,

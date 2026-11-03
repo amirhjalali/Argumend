@@ -1,7 +1,11 @@
 export const universalHealthcareData = {
   id: "universal-healthcare",
   title: "Universal Healthcare in the US",
-  aliases: ["Universal medical coverage"],
+  aliases: [
+    "Universal medical coverage",
+    // Words readers use for this question that the map's own text does not.
+    "Would universal healthcare mean waiting months to see a specialist?",
+  ],
   question:
     "Should the US replace employer-based insurance with universal healthcare?",
   meta_claim:
