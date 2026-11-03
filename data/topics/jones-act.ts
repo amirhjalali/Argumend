@@ -567,6 +567,24 @@ export const jonesActData = {
           reasoning:
             "A fair rebuttal on distributional grounds, though it concedes the aggregate cost and argues about who bears adjustment rather than about net welfare.",
         },
+        {
+          id: "pwc-maritime-contribution",
+          title: "Industry-commissioned study puts the Jones Act fleet's footprint at 650,000 jobs and $72 billion a year",
+          description:
+            "A 2019 study published by PricewaterhouseCoopers for the Transportation Institute, a non-profit that 'advocates and works for the U.S. flag maritime industry', credited the 'Jones Act-enabled maritime industry' with 'more than $154 billion in total economic output annually', '$41 billion in labor income for American workers each year' and '$72 billion annually' in value added, sustaining 'nearly 650,000 American jobs, with one shipyard job creating four jobs elsewhere in the economy.' Defenders read it as the gain side of the ledger, and the institute's president said it showed 'just how indispensable the Jones Act continues to be'. It measures the industry's gross activity, not what repeal would remove: much domestic shipping, towing and repair would continue under foreign-built or foreign-flagged competition.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 2,
+            replicability: 4,
+            directness: 3,
+          },
+          source:
+            "PricewaterhouseCoopers for the Transportation Institute (2019), as reported by Marine Log, 4 March 2019",
+          sourceUrl: "https://www.marinelog.com/news/transportation-institute-reports-growth-in-jones-act-generated-jobs/",
+          reasoning:
+            "The strongest quantified case for the gains side, and weighted low on purpose. Independence is 2: it was produced for a group that advocates for the U.S.-flag industry the Act protects. Directness is 3: an economic-contribution study counts all activity in the industry, including multiplier jobs, so it is not a net benefit and cannot be set against consumer-cost estimates on one ledger; a ledger would need only the gains that exist because of the Act. The full methodology is not public on the pages we could load, so replicability is 4.",
+        },
       ],
     },
   ],

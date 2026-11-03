@@ -310,6 +310,23 @@ export const tiktokBanData = {
           reasoning:
             "Leading constitutional scholars from multiple institutions provide independent, credentialed analysis. The content-neutrality argument is a well-established First Amendment framework, not a novel theory. However, the Supreme Court majority rejected this framing, and legal scholars disagreeing with a court ruling does not change the law — it indicates the precedent is contested within the legal community.",
         },
+        {
+          id: "india-creators-rebuilt-on-shorts-reels",
+          title: "After India's 2020 ban, many creators rebuilt their audiences on YouTube Shorts and Instagram Reels",
+          description:
+            "When India blocked TikTok in 2020, its biggest market outside China at 200 million users, YouTube launched a beta of Shorts there and Instagram pushed out Reels in August 2020. TIME reported in January 2025 that 'many Indian content creators found instant success with Shorts': one, Dushyant Kukreja, grew his YouTube following from 40,000 to over 6 million. India is now YouTube's biggest market, with almost 500 million monthly users, and Instagram's, with 362 million. For defenders of the US law, this is the closest real case of TikTok's speech moving to other platforms. The same report notes that most Indian TikTok clones folded, and Raman Jit Singh Chima warned that 'the ban has built a precedent that has allowed the Indian government to continue blocking access'.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 4,
+            directness: 5,
+          },
+          source: "Andrew R. Chow, 'Here's What Happened When India Banned TikTok in 2020', TIME (18 January 2025)",
+          sourceUrl: "https://time.com/7208112/what-happened-when-india-banned-tiktok",
+          reasoning:
+            "The best available case on whether creators can carry their speech elsewhere, and weighted modestly. It is journalism built on platform figures and individual success stories, not a tracked sample of creators, so it cannot show what share kept their reach or income, which is what the crux asks; replicability is 4. Directness is 5 because India differs from the US in its market, its creator economy and its law. Platform-wide growth also shows that viewers moved, not that each creator's audience did.",
+        },
       ],
     },
 

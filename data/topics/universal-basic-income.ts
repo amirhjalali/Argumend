@@ -388,6 +388,23 @@ export const universalBasicIncomeData = {
           reasoning:
             "CBPP, GAO, and Urban Institute are all highly credible nonpartisan policy organizations. The dramatic decline in TANF uptake (from 68% to 21%) despite persistent poverty directly supports the argument that means-testing creates barriers that a universal program would eliminate. The benefit cliff analysis is particularly relevant because UBI, by definition, has no phase-out cliff. However, this evidence supports the universality argument rather than proving UBI's specific efficacy.",
         },
+        {
+          id: "openresearch-guaranteed-income-health-null",
+          title: "$1,000 a Month for Three Years Did Not Improve Measured Health After the First Year",
+          description:
+            "In a U.S. randomized trial of unconditional cash, 1,000 low-income adults aged 21 to 40 received $1,000 a month from November 2020 to October 2023, against 2,000 controls receiving $50 a month. The NBER working paper by Miller, Rhodes, Bartik, Broockman, Krause and Vivalt (July 2024, revised August 2026) reports that the transfer 'produced large but short-lived improvements in stress and food security', but 'did not improve self-reported physical health, clinical biomarkers, or mental health after the first year, and we can rule out small effects on many outcomes.' It found no effects on the health of children in participants' households. For a transfer worth about $36,000 per person, the lasting gains on the outcomes targeted programs aim at were small.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
+          },
+          source: "Miller et al., 'Does Income Affect Health? Evidence from a Randomized Controlled Trial of a Guaranteed Income', NBER Working Paper 32711 (OpenResearch Unconditional Income Study)",
+          sourceUrl: "https://www.nber.org/papers/w32711",
+          reasoning:
+            "A large randomized trial by independent academic economists, with clinical biomarkers as well as self-reports, so reliability and independence are high. It is one trial in one period (partly during the pandemic), so replicability is moderate. Directness is held to 5: it tests unconditional cash against a $50 control, not against an equal-cost targeted program, so it shows cash fell short on health, not that SNAP, Medicaid or vouchers would have done better per dollar.",
+        },
       ],
     },
   ],

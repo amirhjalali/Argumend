@@ -285,6 +285,23 @@ export const encryptionBackdoorsData = {
           reasoning:
             "Authoritative, balanced, independent consensus study. Coded 'against' because its careful framing declines to endorse a mandate and emphasizes the unresolved security and governance costs, but it genuinely steelmans both sides — hence moderate directness.",
         },
+        {
+          id: "wiretap-report-judicial-authorization",
+          title: "Every U.S. criminal wiretap is authorized by a judge and counted in public: 2,297 in 2024",
+          description:
+            "The interception power proponents point to as a model is governed case by case and in public. The federal courts' annual Wiretap Report covers every wiretap 'reported properly to the Administrative Office of the U.S. Courts': 'A total of 2,297 wiretaps were reported as authorized in 2024', 1,290 by federal judges and 1,007 by state judges, with follow-up reports on outcomes ('As of December 31, 2024, a total of 5,463 persons had been arrested ... and 717 persons had been convicted'). Proponents argue a lawful-access mandate for encrypted services could sit inside the same machinery of per-case warrants and published counts. The report shows that oversight of use exists; it says nothing about whether the underlying capability stays safe from others, and the skeptics' counterexample is the 2024 Salt Typhoon campaign, in which, the FBI and CISA said on 13 November 2024, PRC-affiliated hackers carried out 'the copying of certain information that was subject to U.S. law enforcement requests pursuant to court orders'.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 3,
+          },
+          source: "Administrative Office of the U.S. Courts, Wiretap Report 2024; FBI and CISA joint statement on PRC targeting of commercial telecommunications (13 November 2024)",
+          sourceUrl: "https://www.uscourts.gov/data-news/reports/statistical-reports/wiretap-reports/wiretap-report-2024",
+          reasoning:
+            "Official court statistics, reliable and published every year. Directness is 3, and the weight is low on purpose: the crux asks whether a mandated capability can be kept from authoritarian governments and thieves, and a count of authorized intercepts shows only that legitimate use is supervised, not that the capability is contained. It is included as the strongest documented record of the governance model proponents propose; a record of containment (no copycat mandates, no theft) would need evidence this report does not contain.",
+        },
       ],
     },
   ],

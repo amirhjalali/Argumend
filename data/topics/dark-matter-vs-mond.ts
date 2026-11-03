@@ -124,6 +124,24 @@ export const darkMatterVsMondData = {
           reasoning:
             "A priori predictive success is epistemically valuable. Weighted moderately: the source is a review by a leading MOND advocate (lower independence), the Tully-Fisher relation was known beforehand with an uncertain slope, and predictive success of a formula does not establish the underlying mechanism.",
         },
+        {
+          id: "no-common-acceleration-scale",
+          title: "Galaxy-by-galaxy fits found no single acceleration scale (Rodrigues et al., Nature Astronomy 2018)",
+          description:
+            "Fitting the acceleration scale separately for each of 193 disk galaxies from the SPARC and THINGS samples with Bayesian inference, Rodrigues, Marra, del Popolo and Davari found 'the probability of existence of a fundamental acceleration that is common to all the galaxies is essentially zero'. They concluded that 'the acceleration scale unveiled by the Radial Acceleration Relation is of emergent nature, possibly caused by a complex interplay between baryons and dark matter', and that 'the MOND theory, or any other theory that behaves like it at galactic scales, is ruled out as a fundamental theory for galaxies at more than 10σ.' MOND researchers disputed it in the same journal: Kroupa and colleagues replied that 'to a large extent, this conclusion relies on galaxies with very uncertain distances and/or nearly edge-on orientations', and Li and colleagues' fits (on this map) found no detectable variation.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 4,
+            directness: 8,
+          },
+          source:
+            "Rodrigues, Marra, del Popolo and Davari, 'Absence of a fundamental acceleration scale in galaxies', Nature Astronomy 2, 668-672 (2018); reply: Kroupa et al., 'A common Milgromian acceleration scale in nature', Nature Astronomy (2018)",
+          sourceUrl: "https://arxiv.org/abs/1806.06803",
+          reasoning:
+            "Peer-reviewed in a leading journal and aimed squarely at the crux (directness 8): whether one acceleration scale holds galaxy by galaxy. Replicability is 4 because the result turns on how distance and inclination uncertainties are treated, Li et al.'s fits to the overlapping SPARC data gave the opposite answer, and the Kroupa et al. reply identifies the galaxies driving it. It is the strongest galaxy-scale evidence that the regularity is emergent rather than a law, and it remains contested.",
+        },
       ],
     },
     {
