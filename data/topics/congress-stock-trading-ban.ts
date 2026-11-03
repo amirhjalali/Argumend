@@ -8,7 +8,7 @@ export const congressStockTradingBanData = {
   category: "policy" as const,
   // As of 3 November 2026: the House passed the Stop Insider Trading Act
   // (H.R. 7008) 232-198 on 22 July 2026; the Senate fell short of the 60
-  // votes needed to begin debate on its version, 53-47, on 30 September
+  // votes needed to begin debate on the bill, 53-47, on 30 September
   // 2026. Congress is out until after the midterm election.
   last_updated: "2026-11-03",
   tags: ["congress", "stock-trading", "ethics", "insider-trading", "stock-act"],
@@ -22,7 +22,7 @@ export const congressStockTradingBanData = {
   // ── The lede: what happened this autumn, then what the fight is over ──
   keystone_fact: {
     statement:
-      "On July 22, 2026 the House passed the Stop Insider Trading Act, 232-198. It would bar members, their spouses and dependent children from buying individual stocks, but let them keep what they own and sell after public notice. On September 30 the Senate fell short of the 60 votes needed to take it up, 53-47; Democrats said it was too weak and objected to voter ID rules attached to it. The fight is over whether lawmakers trade on what their jobs tell them, whether disclosure under the 2012 STOCK Act is enough, and how far a ban should reach.",
+      "On July 22, 2026 the House passed the Stop Insider Trading Act, 232-198. It would bar members, their spouses and dependent children from buying individual stocks, but let them keep what they own and sell after public notice. On September 30 the Stop Insider Trading Act fell short in the Senate of the 60 votes needed to begin debate, 53-47; Democrats said it was too weak and objected to voter ID requirements in the bill the Senate took up. The fight is over whether lawmakers trade on what their jobs tell them, whether disclosure under the 2012 STOCK Act is enough, and how far a ban should reach.",
     confidence: 88,
     source:
       "Office of Rep. Zach Nunn, 'Nunn Secures House Passage of Congressional Stock Trading Ban' (July 22, 2026); Deseret News, 'Democrats shoot down stock trading ban' (September 30, 2026)",
@@ -77,7 +77,7 @@ export const congressStockTradingBanData = {
           id: "leaders-outperform",
           title: "NBER 2025: Members Who Became Leaders Then Beat Matched Peers by About 47 Points a Year",
           description:
-            "Using transaction-level data on congressional stock trades, Shang-Jin Wei and Yifan Zhou found that lawmakers who later become leaders trade about as well as matched peers before their promotion, and beat those peers by about 47 percentage points a year afterward. The gains were higher when the leader's party controlled the chamber, came with sales ahead of regulatory actions and purchases of firms that later won government contracts, and showed up in trades that predicted later corporate news.",
+            "Using transaction-level data on congressional stock trades, Shang-Jin Wei and Yifan Zhou found that lawmakers who later become leaders trade about as well as matched peers before their promotion, and beat those peers by about 47 percentage points a year afterward. The gains were higher when the leader's party controlled the chamber, came with sales ahead of regulatory actions and purchases of stocks in firms receiving more government contracts, and showed up in trades that predicted later corporate news.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -148,7 +148,7 @@ export const congressStockTradingBanData = {
           id: "tariff-pause-trades",
           title: "April 2025: Greene Bought Stocks on April 8-9, Hours Before the Tariff Pause Rally",
           description:
-            "Rep. Marjorie Taylor Greene disclosed purchases of about $21,000 to $315,000 in stocks on April 8 and 9, 2025, including Palantir and AMD, which later rose 19% and 21%. On the morning of April 9 President Trump posted \"THIS IS A GREAT TIME TO BUY!!!\" and about four hours later paused most tariffs, setting off large one-day gains. Greene told the Atlanta Journal-Constitution that a financial adviser trades for her and that she has no input on which companies are traded or when.",
+            "Rep. Marjorie Taylor Greene disclosed purchases of about $21,000 to $315,000 in stocks on April 8 and 9, 2025, including Palantir and AMD, which later rose 19% and 21%. On the morning of April 9 President Trump posted \"THIS IS A GREAT TIME TO BUY!!!\" and about four hours later paused most tariffs, setting off large one-day gains. Greene did not respond to a request for comment; when her trades were examined in the past, she told the Atlanta Journal-Constitution that she relies on a financial adviser to trade for her and has no input on which companies are traded or when.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -160,7 +160,7 @@ export const congressStockTradingBanData = {
           sourceUrl:
             "https://westhawaiitoday.com/2025/04/15/nation-world-news/greene-bought-market-dip-before-trump-paused-tariffs-profiting-from-the-rally",
           reasoning:
-            "The kind of case that drives public support for a ban: well-timed trades around a policy decision. One episode proves nothing about knowledge, many investors bought that dip, and Greene says an adviser made the trades; its weight is in showing why the appearance matters.",
+            "The kind of case that drives public support for a ban: well-timed trades around a policy decision. One episode proves nothing about knowledge, many investors bought that dip, and Greene has said an adviser makes her trades; its weight is in showing why the appearance matters.",
         },
         {
           id: "tracked-portfolios-2024",
@@ -277,7 +277,7 @@ export const congressStockTradingBanData = {
           id: "stock-act-violations",
           title: "78 Members of the 117th Congress Broke the STOCK Act's Reporting Rules; the Usual Fine Is $200",
           description:
-            "Business Insider's review of congressional disclosures found 78 members of the 117th Congress, 40 Republicans and 37 Democrats, violated the STOCK Act, which requires members to report trades by themselves, their spouses or dependent children within 45 days. The standard penalty is a $200 fine. Rep. Pat Fallon waited months to disclose up to $17 million in trades and Rep. Tom Suozzi filed late reports on nearly 300 transactions; the House Ethics Committee penalized neither, finding no \"clear evidence\" of \"knowing or willful\" violations.",
+            "Business Insider's review of congressional disclosures found 78 members of the 117th Congress, from both parties, violated the STOCK Act, which requires members to report trades by themselves, their spouses or dependent children within 45 days. The standard penalty is a $200 fine. Rep. Pat Fallon waited months to disclose up to $17 million in trades and Rep. Tom Suozzi filed late reports on nearly 300 transactions; the House Ethics Committee penalized neither, finding no \"clear evidence\" of \"knowing or willful\" violations.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
