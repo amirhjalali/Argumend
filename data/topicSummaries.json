@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries theorem"
+    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries leviathan"
   },
   {
     "id": "ai-2027",
@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming metr superhuman bench"
+    "keywords": "kokotajlos chinchilla alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming superhuman bench metr philanthropy"
   },
   {
     "id": "jones-act",
@@ -847,7 +847,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle snowden divestiture upholds fisa forbes knight retrained broadcast revelations divest gorsuch"
+    "keywords": "bytedance cfius garland oracle snowden divestiture upholds fisa forbes broadcast knight retrained revelations divest gorsuch"
   },
   {
     "id": "immigration-border-crisis",
@@ -1074,12 +1074,12 @@
   },
   {
     "id": "ai-risk",
-    "title": "Existential Risk from AGI",
-    "question": "Does AGI pose a real risk of human extinction within the next century?",
-    "meta_claim": "The development of Artificial General Intelligence (AGI) poses a non-negligible risk of human extinction in the next century.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 67,
+    "title": "Existential Risk from Advanced AI",
+    "question": "Is advanced AI a real threat to human survival?",
+    "meta_claim": "Advanced AI poses a real, non-negligible risk of human extinction or permanent loss of human control this century, because capable systems can end up misaligned, pursuing goals their makers did not intend, and safety methods may not keep pace.",
+    "confidence_score": 60,
+    "balance": 60,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1087,12 +1087,19 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does scheming-like behavior in AI tests reflect a deep drive to seek power, or artifacts of contrived setups?",
+    "evidenceCount": 17,
+    "firstCrux": "As AI models get more capable, do they dodge oversight and escape tests more often, even when the test doesn't invite it?",
     "tags": [
       "technology"
     ],
-    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger humean"
+    "aliases": [
+      "Does AGI pose a real risk of human extinction within the next century?",
+      "Could AI destroy humanity?",
+      "Is AI an existential risk?",
+      "Could AI escape human control?",
+      "Could a misaligned superintelligence wipe out humanity?"
+    ],
+    "keywords": "apollo mythos hugging metr amodei astra kapoor narayanan preview turner opus redwood sandbox sonnet circled"
   },
   {
     "id": "ai-content-labeling",
@@ -1224,7 +1231,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters consolidation"
+    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters scaffolding"
   },
   {
     "id": "ai-in-education",
@@ -1268,7 +1275,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu dario demis gavin godfather gsm8k hassabis kefauver"
+    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu demis gavin godfather gsm8k hassabis kefauver kelsey"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1312,7 +1319,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt kaplan mamba mirage multilingual openreview ouyang schaeffer shazeer"
+    "keywords": "compositionality bricken bubeck dictionary dziri fluency instructgpt mamba mirage multilingual openreview ouyang schaeffer shazeer smoothly"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1400,7 +1407,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "brave browser cookies encryption reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger"
+    "keywords": "brave cookies encryption browser reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger"
   },
   {
     "id": "climate-change",
@@ -1912,7 +1919,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan disappointing funder opensecrets pakistan"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2359,7 +2366,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "happiness nonreligious euthyphro atheist divine communist atrocities courtois edgell happiest unaffiliated unbelief zagonari cambodia flourishing"
+    "keywords": "happiness nonreligious euthyphro atheist divine communist atrocities courtois edgell flourishing happiest unaffiliated unbelief zagonari cambodia"
   },
   {
     "id": "meritocracy-myth",
@@ -2492,7 +2499,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion turkey"
+    "keywords": "famine amartya autocratizing technocratic montreal deadlock gothenburg maos subversion contentious defamation deliberative dissatisfied gerrymandering turkey"
   },
   {
     "id": "geoengineering-climate",
@@ -2829,7 +2836,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bench bengio restrictionist yoshua"
+    "keywords": "deepseek caisi ntia biorisk elicitation mistral opus qwen toner alibabas amateur apache bench restrictionist casper"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -3560,7 +3567,7 @@
       "Is a glass of red wine a day good for your heart?",
       "Is moderate drinking good for you?"
     ],
-    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted zhao mendelian carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
+    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted mendelian zhao carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
   },
   {
     "id": "modern-monetary-theory",
@@ -3615,6 +3622,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli schombert bullet phys priori"
+    "keywords": "baryonic radial scatter acoustic mcgaugh tully fisher sparc planck sigma lelli priori schombert bullet phys"
   }
 ]
