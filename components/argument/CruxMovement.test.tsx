@@ -242,10 +242,11 @@ describe("CruxMovementTrack", () => {
   it("shows one mark per entry and the latest status with its month", () => {
     const { container } = render(<CruxMovementTrack movement={claimMovement([opened, narrowed], "c2")} />);
     expect(container.querySelectorAll("[data-mark]")).toHaveLength(2);
-    expect(screen.getByText("Narrowed")).toBeTruthy();
+    // Says what narrowed, for a reader new to the ledger.
+    expect(screen.getByText("Disagreement narrowed")).toBeTruthy();
     expect(screen.getByText("Apr 2025").getAttribute("datetime")).toBe("2025-04-10");
     expect(screen.getByText(/Latest movement/).classList.contains("sr-only")).toBe(true);
-    // The first month is a source date, and says so to a screen reader.
+    // The first month is a source date, and says so on screen.
     const start = screen.getByText("May 2024");
     expect(start.getAttribute("datetime")).toBe("2024-05-01");
     expect(start.textContent).toBe("Evidence from May 2024");
