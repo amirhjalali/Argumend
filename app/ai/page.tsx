@@ -18,7 +18,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const TITLE = "The AI argument, on one page";
 const DESCRIPTION =
-  "What the fight over AI and work turns on now, what would settle each question, and the dated record of the evidence that has moved it. Across Argumend's AI maps; it never scores the sides.";
+  "What the fight over AI and work turns on now, what would settle each question, and the dated record of evidence that moved it. It never scores the sides.";
 const URL = `${SITE_URL}/ai`;
 const OG_IMAGE = buildGenericOgUrl({ title: TITLE, subtitle: "AI maps" });
 

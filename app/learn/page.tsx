@@ -20,7 +20,7 @@ const TITLE = "How to disagree better";
 const LEDE =
   "People who disagree usually share more facts than they think, and the fight turns on a question or two. Learn to find it, starting with the question that matters most: what would change your mind?";
 const DESCRIPTION =
-  "Argumend's library on disagreeing well: cruxes, steel-manning, evidence, fallacies and a glossary, with guides, essays and lesson plans. Start with what would change your mind.";
+  "Argumend's library on disagreeing well: cruxes, steel-manning, evidence, fallacies, a glossary, guides and essays. Start with what would change your mind.";
 const URL = `${SITE_URL}/learn`;
 const OG_IMAGE = buildGenericOgUrl({ title: TITLE, subtitle: "Learn" });
 

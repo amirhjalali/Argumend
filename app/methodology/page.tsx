@@ -115,7 +115,7 @@ export default function MethodologyPage() {
           "@type": "WebPage",
           name: "How maps are made",
           description:
-            "How Argumend maps are made: where positions and evidence come from, how each card is weighed and filed, how cruxes are found, and how their movement is recorded.",
+            "How Argumend maps are made: where the evidence comes from, how each card is weighed, how cruxes are found, what would settle them, and how moves are recorded.",
           url: "https://argumend.org/methodology",
           isPartOf: {
             "@type": "WebSite",

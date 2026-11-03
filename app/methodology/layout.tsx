@@ -3,7 +3,7 @@ import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 import { JsonLd } from "@/components/JsonLd";
 
 const DESCRIPTION =
-  "How Argumend maps are made: where positions and evidence come from, how each card is weighed on four measures and filed by what it shows, how cruxes are found and what would settle them, and how their movement is recorded.";
+  "How Argumend maps are made: where the evidence comes from, how each card is weighed, how cruxes are found, what would settle them, and how moves are recorded.";
 
 export const metadata: Metadata = {
   title: "How maps are made",

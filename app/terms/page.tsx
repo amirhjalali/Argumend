@@ -17,7 +17,7 @@ const OG_IMAGE = buildGenericOgUrl({ title: "Terms of Service", subtitle: "Legal
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms for using Argumend: what the service does and does not claim, acceptable use, what happens to text you submit, and the limits of what we warrant. Draft, pending legal review.",
+    "Terms for using Argumend: what it does and does not claim, acceptable use, what happens to text you submit, and what we warrant. Draft, pending legal review.",
   openGraph: {
     title: "Terms of Service | ARGUMEND",
     description:

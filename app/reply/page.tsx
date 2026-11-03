@@ -23,7 +23,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Reply with the map",
   description:
-    "Paste an argument and get the Argumend map it belongs to: which section the thread is arguing in, which cruxes it reached, and the strongest evidence on each side.",
+    "Paste an argument and get its Argumend map: which section the thread argues in, which cruxes it reached, and the strongest evidence on each side.",
   robots: { index: false, follow: false },
 };
 

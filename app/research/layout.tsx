@@ -4,7 +4,7 @@ import { DEFAULT_SOCIAL_IMAGE, DEFAULT_SOCIAL_IMAGE_URL } from "@/lib/og";
 export const metadata: Metadata = {
   title: "Research — The Science Behind Argument Mapping",
   description:
-    "Why Argumend exists: people on opposite sides usually disagree less than they think. The research on that perception gap, on polarization and misinformation, and on what helps, with a reading list.",
+    "Opposing sides usually disagree less than they think. The research on that perception gap, polarization, misinformation and what helps, with a reading list.",
   keywords: ["perception gap", "polarization research", "deliberative reasoning", "misinformation studies", "argument mapping research", "cognitive science"],
   openGraph: {
     title: "Research — The Science Behind Argument Mapping",

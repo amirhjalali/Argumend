@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | ARGUMEND",
   },
   description:
-    `Browse ${L} argument maps of contested questions, from AI and jobs to climate change: each side's strongest case, the evidence weighed, and the questions the argument turns on.`,
+    `${L} argument maps of contested questions, from AI and jobs to climate change: each side's strongest case, the evidence, and the questions it turns on.`,
   keywords: [
     "controversial topics",
     "argument mapping",

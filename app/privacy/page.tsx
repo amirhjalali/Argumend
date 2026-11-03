@@ -23,7 +23,7 @@ const OG_IMAGE = buildGenericOgUrl({ title: "Privacy Policy", subtitle: "Legal" 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "What Argumend collects, what happens to text you paste into the analysis tools, which AI providers receive it, and how long anything is kept. Draft, pending legal review.",
+    "What Argumend collects, what happens to text you paste, which AI providers receive it, and how long anything is kept. Draft, pending legal review.",
   openGraph: {
     title: "Privacy Policy | ARGUMEND",
     description:

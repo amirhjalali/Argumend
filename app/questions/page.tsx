@@ -33,7 +33,7 @@ const primaries = getPrimaryQuestionVariations(topics);
 const topicById = new Map(topics.map((topic) => [topic.id, topic]));
 
 const TITLE = "Questions, and what would settle them";
-const DESCRIPTION = `${primaries.length} contested questions, one per map. Each page says whether it is a question of fact or of value, what both sides already agree on, and what the disagreement turns on.`;
+const DESCRIPTION = `${primaries.length} contested questions, one per map. Each says if it is a question of fact or value, what both sides agree on, and what the fight turns on.`;
 const SOCIAL_IMAGE = buildGenericOgUrl({ title: "Questions", subtitle: "Fact or value? And what would settle it" });
 
 function parseCategory(value: SearchParamValue): TopicCategory | undefined {
