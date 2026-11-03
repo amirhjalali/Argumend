@@ -21,6 +21,20 @@ describe("firstSentence", () => {
     expect(firstSentence("The U.S. Senate voted. Then it did not.")).toBe(
       "The U.S. Senate voted.",
     );
+    // Case names and citations: the second-amendment map's "Says yes" was
+    // "In District of Columbia v." until 2026-11-02.
+    expect(firstSentence("In District of Columbia v. Heller (2008), the Court held so. Later cases followed.")).toBe(
+      "In District of Columbia v. Heller (2008), the Court held so.",
+    );
+    expect(firstSentence("A review (Platt et al. 2018) found this. It also found that.")).toBe(
+      "A review (Platt et al. 2018) found this.",
+    );
+  });
+
+  it("splits after a closing single quote", () => {
+    expect(firstSentence("Hawks warn of national 'bankruptcy.' Japan has run high debt.")).toBe(
+      "Hawks warn of national 'bankruptcy.'",
+    );
   });
 });
 
