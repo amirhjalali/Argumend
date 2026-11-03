@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hardin polycentric hanson montreal subsistence tragedy folk malthus nash fisheries leviathan"
+    "keywords": "singleton ostrom malthusian fisheries axelrod hardin polycentric hanson montreal subsistence tragedy folk malthus nash eddy"
   },
   {
     "id": "ai-2027",
@@ -437,7 +437,7 @@
       "Pelosi stock trades",
       "Congress insider trading"
     ],
-    "keywords": "belmont burr hoek sehgal hainmueller perlmutter schulp ziobrowski rally sacerdote eggers nancy yahoo maybe shouldnt"
+    "keywords": "belmont burr hoek sehgal hainmueller perlmutter schulp ziobrowski rally sacerdote nancy yahoo maybe shouldnt toomey"
   },
   {
     "id": "partisan-gerrymandering",
@@ -624,9 +624,9 @@
     "title": "Drug Decriminalization",
     "question": "Does decriminalizing drug use, with treatment, improve public health?",
     "meta_claim": "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 69,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -639,7 +639,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "overdose portugal recidivism emcdda spencer incarceration fentanyl nida zoorob hotline marijuana provisional toronto vera ticketed"
+    "keywords": "overdose cannabis portugal emcdda recidivism spencer incarceration karolinska decriminalisation fentanyl gabri galanti mackenzie magnusson marlowe"
   },
   {
     "id": "death-penalty-deterrence",
@@ -1022,7 +1022,7 @@
       "Should the US deport all illegal immigrants?",
       "Is mass deportation a good idea?"
     ],
-    "keywords": "trac patrol southwest apprehensions backlog migrant propublica marc rosenblum apprehended eoir paso syracuse ices montana"
+    "keywords": "trac patrol southwest apprehensions backlog migrant propublica marc rosenblum apprehended eoir paso syracuse ices quick"
   },
   {
     "id": "social-media-elections",
@@ -1066,7 +1066,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "chatham cuban detonation archer icrc pakistan famine arkhipov gaddis hiroshima norad pfiab waltz inadvertent kenneth"
+    "keywords": "pakistan chatham cuban archer submarine gaddis soot torpedo famine fishery arkhipov chari cheema crescent iqbal"
   },
   {
     "id": "school-phone-bans",
@@ -1141,7 +1141,7 @@
       "Would the US defend Taiwan?",
       "Would China blockade Taiwan instead of invading?"
     ],
-    "keywords": "amphibious cancian rhodium wargames himars kinmen rehearsed tsmcs unification aircraft submarine aukus darwin easton heginbotham"
+    "keywords": "amphibious cancian rhodium wargames aircraft himars kinmen rehearsed tsmcs unification submarine aukus darwin easton heginbotham"
   },
   {
     "id": "global-water-crisis",
@@ -1444,7 +1444,7 @@
       "Should states or Washington regulate AI?",
       "Should AI companies be allowed to police themselves?"
     ],
-    "keywords": "newsom summit seoul multimodal globalist hinton zhipu thalidomide altman amodei delhi tape calif hassabis knapp"
+    "keywords": "newsom summit seoul multimodal vetoed globalist hinton zhipu thalidomide altman amodei delhi tape calif hassabis"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1663,7 +1663,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "livestock antibiotic cage sentience cattle dietetics runoff antimicrobial bacterial cafo manure vegetarian eggs grass pasture"
+    "keywords": "antibiotic cage sentience cattle dietetics runoff antimicrobial bacterial cafo manure vegetarian eggs grass pasture hayek"
   },
   {
     "id": "organic-food-health",
@@ -1751,7 +1751,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "grazing nemecek dietetics eutrophication inedible mottet farmland micronutrients scarborough vegetarian livestock agric e10301 e10308 forage"
+    "keywords": "grazing nemecek dietetics eutrophication inedible mottet farmland micronutrients scarborough vegetarian agric e10301 e10308 forage grassland"
   },
   {
     "id": "psychedelics-mental-health",
@@ -2511,7 +2511,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "libet laplacian buttrick compatibilist indeterministic laplace schurger vohs philpapers schooler bourget brass compatibilism damasio e2904"
+    "keywords": "libet laplacian veto buttrick compatibilist indeterministic laplace schurger vohs philpapers schooler bourget brass compatibilism damasio"
   },
   {
     "id": "simulation-hypothesis",
@@ -2555,7 +2555,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dosimeters laser orion reflector astronaut echoed artemis retroreflectors allen astrophysical acquiescence dosimetry hubble jodrell crimean"
+    "keywords": "dosimeters laser orion reflector astronaut echoed artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell"
   },
   {
     "id": "minneapolis-shooting",
@@ -2688,7 +2688,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "lambs preterm thomsons biobag commodify nicu pups cohen gestation chop hastings neonatal nichd osaka procreate"
+    "keywords": "lambs preterm thomsons biobag commodify nicu pups gestation chop hastings neonatal nichd osaka procreate violinist"
   },
   {
     "id": "gain-of-function-research-ban",
@@ -2960,7 +2960,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen chocolate crabs lobsters mammals carl cephalopod"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon chocolate crabs lobsters mammals carl cephalopod crustaceans"
   },
   {
     "id": "immigration-national-identity",
@@ -3579,7 +3579,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 instantaneously lengthy saxton appreciated illiquid ranch forgone peterson unrealized"
+    "keywords": "kopczuk gravelle wojciech bequest deathbed if11812 jane saxton illiquid ranch forgone peterson unrealized"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3638,7 +3638,7 @@
       "security",
       "law-enforcement"
     ],
-    "keywords": "wiretap intercept calea rivest abelson bellovin cybertipline diffie doormats investigatory ncmec schneier telephony venetic cisa"
+    "keywords": "wiretap ncmecs intercept calea rivest abelson bellovin diffie doormats investigatory schneier telephony venetic cisa comms"
   },
   {
     "id": "section-230-reform",
@@ -3781,7 +3781,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised acetate bhadriraju glantz cessation blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
+    "keywords": "evali acetate mcneill hospitalised bhadriraju blount glantz hajek flavoured cessation bronchoalveolar cd010216 latinx lavage lindson"
   },
   {
     "id": "sex-work-decriminalization",
@@ -3835,7 +3835,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean caucus cawp lobbyists apollonio carey carroll mclaughlin moncrief niemi olson raja rogowski thornton jenkins"
+    "keywords": "burkean caucus cawp lobbyists apollonio carey carroll mclaughlin moncrief niemi olson raja rogowski rutgers thornton"
   },
   {
     "id": "effective-altruism",
@@ -3947,6 +3947,6 @@
       "modified gravity",
       "galaxy rotation curves"
     ],
-    "keywords": "baryonic radial scatter rodrigues sparc astronomy acoustic fisher mcgaugh tully planck sigma bullet davari kroupa"
+    "keywords": "baryonic radial mcgaugh scatter rodrigues sparc astronomy fisher tully planck sigma acoustic bertone bullet davari"
   }
 ]

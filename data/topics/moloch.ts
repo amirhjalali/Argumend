@@ -44,12 +44,11 @@ export const molochData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "Competitive fishing drove the Northern cod off Newfoundland to commercial collapse, and Canada closed the fishery in 1992. The 1987 Montreal Protocol went on to win near-universal ratification and phased out the chemicals thinning the ozone layer. Both cases are on the record. The argument is over which of them is the rule when the rivals are nations and AI labs rather than fishing fleets.",
+      "Northern cod off Newfoundland, fished by competing inshore and offshore fleets, collapsed to commercial extinction, and Canada closed the fishery in 1992; the moratorium lasted 32 years. The 1987 Montreal Protocol went on to win near-universal ratification and phased out the chemicals thinning the ozone layer. Both cases are on the record. The argument is over which of them is the rule when the rivals are nations and AI labs rather than fishing fleets.",
     confidence: 88,
     source:
-      "Fisheries and Oceans Canada, Northern cod integrated fishery management plan; Montreal Protocol (1987) and WMO/UNEP ozone assessments",
-    sourceUrl:
-      "https://www.dfo-mpo.gc.ca/fisheries-peches/ifmp-gmp/cod-morue/2020/cod-atl-morue-2020-eng.html",
+      "Hutchings & Myers, Canadian Journal of Fisheries and Aquatic Sciences 51(9) (1994); Fisheries and Oceans Canada, Rebuilding plan for Atlantic cod 2J3KL; Montreal Protocol (1987) and WMO/UNEP ozone assessments",
+    sourceUrl: "https://doi.org/10.1139/f94-214",
   },
   simple_case: [
     "The answer decides whether treaties and locally made rules can restrain races like the one in AI, or whether it takes a coordinating power strong enough to override them, with the risks that kind of power carries.",
@@ -206,7 +205,7 @@ export const molochData = {
           id: "cod-collapse",
           title: "The Grand Banks cod collapse",
           description:
-            "Competitive industrial fishing drove the Northern cod stock off Newfoundland to commercial extinction, forcing Canada to declare a moratorium in 1992 that put tens of thousands out of work; the stock has never fully recovered.",
+            "Hutchings and Myers (1994) found that a twofold fall in cod survival in the 1980s coincided with rising inshore and offshore fishing effort, rejected environmental explanations, and concluded 'that the collapse of northern cod can be attributed solely to overexploitation.' Canada declared a moratorium in 1992. Fisheries and Oceans Canada counts 24,400 harvesting and 21,000 processing jobs in the cod fishery before it and 9,200 and 6,200 in those sectors since. The moratorium was lifted in June 2024 with an 18,000-tonne catch limit, with the stock at about 12% of its 1960s biomass (Eddy and Robertson, The Conversation, July 2024). DFO's newer stock model attributes more of the collapse to natural mortality, and less to fishing, than earlier models did.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -214,11 +213,10 @@ export const molochData = {
             replicability: 7,
             directness: 7,
           },
-          source: "Collapse of the Atlantic northwest cod fishery (1992 moratorium)",
-          sourceUrl:
-            "https://www.dfo-mpo.gc.ca/fisheries-peches/ifmp-gmp/cod-morue/2020/cod-atl-morue-2020-eng.html",
+          source: "Hutchings & Myers, 'What Can Be Learned from the Collapse of a Renewable Resource? Atlantic Cod, Gadus morhua, of Newfoundland and Labrador', Canadian Journal of Fisheries and Aquatic Sciences 51(9): 2126-2146 (1994); Fisheries and Oceans Canada, 'Rebuilding plan for Atlantic Cod - NAFO Divisions 2J3KL' (2021); Eddy & Robertson, The Conversation (3 July 2024)",
+          sourceUrl: "https://doi.org/10.1139/f94-214",
           reasoning:
-            "A well-documented real-world race to the bottom in an ungoverned commons; a clean instance of the pattern.",
+            "A well-documented race to the bottom in a commons, and the peer-reviewed analysis behind it pins the collapse on overfishing. Directness is held at 7 because DFO's own later model shifts part of the blame to natural mortality, and because the fishery's 2024 reopening shows a collapsed commons can partly come back. An earlier version said the stock 'has never fully recovered' without noting the reopening.",
         },
         {
           id: "attention-economy",
@@ -458,7 +456,7 @@ export const molochData = {
           id: "singleton-totalitarian-risk",
           title: "A singleton is itself an existential hazard",
           description:
-            "A single top-level agency powerful enough to override all competition is also powerful enough to lock in catastrophic or totalitarian values permanently — a risk Bostrom himself flags. 'Solve Moloch with a singleton' may trade a slow decay for a fast, irreversible one.",
+            "A single top-level agency powerful enough to override all competition is also powerful enough to lock in catastrophic or totalitarian values permanently. Bostrom himself flags it: 'A major risk with creating a singleton is that it would turn out to be a bad singleton,' and in a bad singleton the protective checks of a plural world, such as rival states and emigration, 'would not operate.' 'Solve Moloch with a singleton' may trade a slow decay for a fast, irreversible one.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -466,7 +464,7 @@ export const molochData = {
             replicability: 4,
             directness: 6,
           },
-          source: "Value lock-in / singleton-risk arguments (Bostrom)",
+          source: "Bostrom, 'What is a Singleton?', Linguistic and Philosophical Investigations 5(2): 48-54 (2006)",
           sourceUrl: "https://nickbostrom.com/fut/singleton",
           reasoning:
             "A serious internal objection: the proposed cure carries a failure mode at least as bad as the disease, undercutting 'only a singleton' as a desirable solution.",
@@ -564,9 +562,9 @@ export const molochData = {
         },
         {
           id: "nuclear-arms-control",
-          title: "Arms-control treaties reversed a race",
+          title: "Arms-control treaties helped reverse a race",
           description:
-            "Cold War nuclear arsenals grew through a classic arms race, but treaties (NPT, and the successive START agreements) later cut deployed warheads by large margins — evidence that even the sharpest competitive races can be partially wound back by negotiated coordination.",
+            "Cold War nuclear arsenals grew through a classic arms race to a peak of approximately 70,300 warheads in 1986; the Federation of American Scientists estimates the nine nuclear states held roughly 12,200 at the start of 2026. Negotiated agreements (INF, the START treaties, New START) capped and verified much of that drawdown between the US and Russia, though FAS notes that 'the overwhelming portion of the reduction happened in the 1990s', after the Cold War ended. New START, the last treaty limiting US and Russian strategic forces, expired in February 2026 with no successor.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -574,10 +572,10 @@ export const molochData = {
             replicability: 6,
             directness: 6,
           },
-          source: "Nuclear Non-Proliferation Treaty (1968); START treaties",
-          sourceUrl: "https://legal.un.org/avl/ha/tnpt/tnpt.html",
+          source: "Federation of American Scientists, 'Status of World Nuclear Forces' (2026)",
+          sourceUrl: "https://fas.org/initiative/status-world-nuclear-forces/",
           reasoning:
-            "A real reversal of a race to the bottom, tempered by the fact that the underlying rivalry and breakout risk never fully disappeared.",
+            "A real reversal of a race, tempered three ways: the cuts tracked the end of the Cold War as much as the treaties, the underlying rivalry and breakout risk never disappeared, and the treaty framework lapsed in 2026. An earlier version credited the NPT with cutting warheads, which it did not do, and linked only the NPT text.",
         },
         {
           id: "pinker-violence-decline",
@@ -600,7 +598,7 @@ export const molochData = {
           id: "climate-coordination-failure",
           title: "Climate coordination has largely stalled",
           description:
-            "Unlike ozone, greenhouse-gas coordination — where abatement is costly and free-riding is easy — has repeatedly fallen short of its targets, showing that the sphere of successful cooperation stops exactly where the incentive structure turns hostile.",
+            "Unlike ozone, greenhouse-gas coordination, where abatement is costly and free-riding is easy, has repeatedly fallen short of its targets. UNEP's Emissions Gap Report 2025 ('Off Target') projects warming this century of 2.3-2.5°C if national pledges are fully implemented and 2.8°C under current policies, against the Paris goal of well below 2°C, and finds that the new pledges 'have barely moved the needle.' On the Moloch reading, the sphere of successful cooperation stops where the incentive structure turns hostile.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -608,8 +606,8 @@ export const molochData = {
             replicability: 5,
             directness: 6,
           },
-          source: "Record of international climate agreements (Kyoto, Paris) vs. emissions",
-          sourceUrl: "https://www.unep.org/resources/emissions-gap-report",
+          source: "UNEP, Emissions Gap Report 2025: Off Target (2025)",
+          sourceUrl: "https://www.unep.org/resources/emissions-gap-report-2025",
           reasoning:
             "A pointed rebuttal to the optimistic case: it shows cooperation tracks payoff structure, which is the Moloch thesis rather than its refutation.",
         },
