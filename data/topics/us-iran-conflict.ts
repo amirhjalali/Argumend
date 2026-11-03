@@ -17,12 +17,12 @@ export const usIranConflictData = {
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "The US-Israeli war on Iran, begun on 28 February 2026, has outlasted a ceasefire and a memorandum; as of 3 November there is no settlement. On 27 October the IAEA's chief told the UN Security Council it had seen no rebuilding at Iran's bombed nuclear sites, but could not verify the 440 kg of highly enriched uranium Iran held before the attacks. The fight is over what the pressure and the war have bought, and at what cost.",
+      "The US-Israeli war on Iran, begun on 28 February 2026, has outlasted a ceasefire and a memorandum; as of 3 November there is no settlement. On 27 October the IAEA's chief told the UN Security Council it had seen no sign of rebuilding at Iran's bombed nuclear sites, but still could not verify Iran's declared stock of 440 kg of highly enriched uranium. The fight is over what the pressure and the war have bought, and at what cost.",
     confidence: 88,
     source:
-      "La Voce di New York, 'IAEA Cannot Verify Status of Iran's 440kg Uranium Stockpile' (29 October 2026), on Rafael Grossi's Security Council briefing of 27 October 2026",
+      "UN News, 'World News in Brief: ‘No safe place in Ukraine’, IAEA calls for Iran nuclear inspections, Kenya hosts thousands of Ethiopians fleeing clashes' (27 October 2026), on Rafael Grossi's Security Council briefing that day",
     sourceUrl:
-      "https://lavocedinewyork.com/en/un/2026/10/29/iaea-cannot-verify-status-of-irans-440kg-uranium-stockpile/",
+      "https://news.un.org/en/story/2026/10/1168682",
   },
   simple_case: [
     "The answer bears on whether the US lifts its blockade for a reopened Strait of Hormuz, on oil prices, and on whether inspectors reach Iran's uranium.",
@@ -110,7 +110,7 @@ export const usIranConflictData = {
           id: "no-rebuilding-2026",
           title: "IAEA Has Seen No Rebuilding at Iran's Bombed Nuclear Sites (27 October 2026)",
           description:
-            "Speaking to the UN Security Council on 27 October 2026, IAEA Director General Rafael Grossi said the agency had not identified any repair or rebuilding at the facilities damaged in the 2025 and 2026 attacks, including Fordow, Natanz and several Isfahan sites. The 2026 war widened the damage beyond enrichment: in March 2026 strikes hit the Khondab heavy water complex near Arak and a yellowcake facility in Yazd (Al Jazeera, 28 March 2026). Grossi also cautioned that monitoring from outside cannot establish the actual situation without inspectors on the ground.",
+            "Briefing the UN Security Council on 27 October 2026, IAEA Director General Rafael Grossi said the agency 'has seen no sign of work to repair or rebuild' the 'sites hit by Israeli airstrikes in June 2025 and joint Israeli and US attacks in early 2026' (UN News). The 2026 war widened the damage beyond enrichment: in March 2026 strikes hit the Khondab heavy water complex near Arak and a yellowcake facility in Yazd (Al Jazeera, 28 March 2026). Grossi also cautioned that 'satellite monitoring is no substitute for access on the ground.'",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -119,11 +119,11 @@ export const usIranConflictData = {
             directness: 6,
           },
           source:
-            "La Voce di New York, 'IAEA Cannot Verify Status of Iran's 440kg Uranium Stockpile' (29 October 2026), on Grossi's Security Council briefing of 27 October 2026; Al Jazeera (28 March 2026) on the Arak and Yazd strikes",
+            "UN News (27 October 2026) on Grossi's Security Council briefing that day; Al Jazeera (28 March 2026) on the Arak and Yazd strikes",
           sourceUrl:
-            "https://lavocedinewyork.com/en/un/2026/10/29/iaea-cannot-verify-status-of-irans-440kg-uranium-stockpile/",
+            "https://news.un.org/en/story/2026/10/1168682",
           reasoning:
-            "Proponents read months without visible reconstruction as proof that force did what the JCPOA could not: it stopped the program physically. Directness is moderate because the IAEA says itself that no rebuilding seen from outside is not the same as verification, and the same briefing said the agency could not account for Iran's highly enriched uranium.",
+            "Proponents read months without visible reconstruction as proof that force did what the JCPOA could not: it stopped the program physically. Directness is moderate because the IAEA says itself that satellite monitoring is no substitute for inspectors on the ground, and the same briefing said the agency still could not confirm that none of Iran's safeguarded material had been diverted.",
         },
         {
           id: "inspector-expulsion",
@@ -189,7 +189,7 @@ export const usIranConflictData = {
           id: "iaea-stockpile-unknown-2026",
           title: "IAEA Cannot Say How Much 60% Uranium Iran Has or Where It Is (June 2026)",
           description:
-            "In its first quarterly report after the war began, sent to member states in June 2026, the IAEA said it 'cannot provide any information on the current size, composition or whereabouts of the stockpile of enriched uranium in Iran or whether Iran has suspended all enrichment-related activities,' and that it was unable to discharge its safeguards responsibilities. Iran had not told the agency what became of its stocks, which the IAEA last estimated at about 440 kg of 60% uranium. On 27 October 2026 Grossi told the UN Security Council the material still had to be verified and that inspectors had been available to return for many months.",
+            "In its first quarterly report after the war began, sent to member states in June 2026, the IAEA said it 'cannot provide any information on the current size, composition or whereabouts of the stockpile of enriched uranium in Iran or whether Iran has suspended all enrichment-related activities,' and that it was unable to discharge its safeguards responsibilities. Iran had not told the agency what became of its stocks, which the IAEA last estimated at about 440 kg of 60% uranium. On 27 October 2026 Grossi told the UN Security Council that, 'more than a year after Israeli and US military strikes cut off inspectors' access', the agency 'still cannot confirm that none of Iran's safeguarded nuclear material has been diverted', and that 'Iran has not provided the information and access needed to verify previously declared nuclear material' (UN News).",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -198,7 +198,7 @@ export const usIranConflictData = {
             directness: 6,
           },
           source:
-            "IAEA quarterly report on Iran (June 2026), as reported by the Associated Press via JNS (5 June 2026); La Voce di New York (29 October 2026) on Grossi's Security Council briefing",
+            "IAEA quarterly report on Iran (June 2026), as reported by the Associated Press via JNS (5 June 2026); UN News (27 October 2026) on Grossi's Security Council briefing",
           sourceUrl:
             "https://www.jns.org/news/world/iaea-cant-provide-any-information-on-tehrans-enriched-uranium",
           reasoning:
@@ -848,8 +848,12 @@ export const usIranConflictData = {
       url: "https://al-monitor.com/originals/2026/09/iaea-board-passes-resolution-reporting-iran-un-security-council",
     },
     {
-      title: "IAEA Cannot Verify Status of Iran's 440kg Uranium Stockpile - La Voce di New York (29 October 2026)",
-      url: "https://lavocedinewyork.com/en/un/2026/10/29/iaea-cannot-verify-status-of-irans-440kg-uranium-stockpile/",
+      title: "World News in Brief: IAEA calls for Iran nuclear inspections - UN News (27 October 2026)",
+      url: "https://news.un.org/en/story/2026/10/1168682",
+    },
+    {
+      title: "Holding Debate over Iran Sanctions, Security Council Contests Expiry Status, Continuing Nuclear Programme - UN Meetings Coverage SC/16491 (27 October 2026)",
+      url: "https://press.un.org/en/2026/sc16491.doc.htm",
     },
     {
       title: "After six months of war, what have US, Iran gained and lost? - Al Jazeera (28 August 2026)",
