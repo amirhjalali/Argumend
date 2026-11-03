@@ -27,7 +27,7 @@ export const aiConsciousnessData = {
         "No validated test can say whether an AI system has subjective experience. Researchers disagree over what one would look for: the architecture theories of consciousness name, what a model says about itself, or biological properties no machine has. Whether a full account of brain processes explains consciousness at all is argued on the map asking \"Does explaining consciousness require more than brain processes?\"",
       icon_name: "Atom" as const,
       skeptic_premise:
-        "Nothing a current AI system does is good evidence of experience. Its first-person reports reproduce the human text it was trained on, and it satisfies few of the indicator properties that theories of consciousness name. On biological views, consciousness may require specific biological processes, such as particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world, so a positive test result on a machine would not show experience. A 2025 paper by Porębski and Figura in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature) is titled 'There is no such thing as conscious artificial intelligence,' arguing consciousness is a biological phenomenon that no computational process can replicate. Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
+        "Nothing a current AI system does is good evidence of experience. Its first-person reports reproduce the human text it was trained on, and it satisfies few of the indicator properties that theories of consciousness name. On biological views, consciousness may require specific biological processes, such as particular types of neurons, neurotransmitter dynamics, or embodied interaction with the physical world, so a positive test result on a machine would not show experience. A 2025 paper by Porębski and Figura in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature) is titled 'There is no such thing as conscious artificial intelligence,' arguing that the algorithms in use today, and those likely in the foreseeable future, cannot become conscious because they lack a complex biological substrate. Even a perfect digital simulation of conscious structure would only simulate awareness without experiencing it.",
       proponent_rebuttal:
         "A test does not have to settle the metaphysics first. The 2023 indicator-properties report derived markers from the leading neuroscientific theories and found no obvious technical barrier to systems that satisfy them, and functionalist theories of mind (held by many cognitive scientists) hold that a system with the right computational organization would be conscious whether it runs on silicon or carbon. Anthropic hired dedicated AI welfare researchers in 2024 and acknowledged a 'non-negligible' probability that their model Claude might possess consciousness. A 2023 Nature article urged technology companies to begin testing their systems for indicators of consciousness.",
       crux: {
@@ -57,7 +57,7 @@ export const aiConsciousnessData = {
           id: "cambridge-detectability",
           title: "Cambridge Philosopher: AI Consciousness May Be Permanently Undetectable",
           description:
-            "In 'Agnosticism about artificial consciousness' (Mind & Language, December 2025), University of Cambridge philosopher Tom McClelland argues that the only justifiable position is agnosticism: there is no reliable way to determine whether an AI system is conscious, and this may remain true for the foreseeable future. The fundamental problem is that we lack a theory of consciousness adequate to determine what physical or computational processes are sufficient for subjective experience.",
+            "In 'Agnosticism about artificial consciousness' (Mind & Language, 2025; publicized by the University of Cambridge on December 18, 2025), Cambridge philosopher Tom McClelland argues that the only justifiable position is agnosticism: there is no reliable way to determine whether an AI system is conscious, and this may remain true for the foreseeable future. The fundamental problem is that we lack a theory of consciousness adequate to determine what physical or computational processes are sufficient for subjective experience.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -75,7 +75,7 @@ export const aiConsciousnessData = {
           id: "anthropic-welfare-research",
           title: "Anthropic Estimates a Non-Negligible Probability of AI Consciousness",
           description:
-            "In late 2024, Anthropic—one of the leading AI safety companies—hired its first dedicated AI welfare researcher (Kyle Fish) and began conducting model welfare assessments before deploying new models, treating a 'non-negligible' probability that Claude might possess some form of consciousness as worth taking seriously. The framing is explicitly probabilistic and hedged, not a claim of established consciousness. (Separately, Anthropic's October 2025 'Emergent Introspective Awareness' research found models can sometimes accurately report on their own internal states—evidence about introspection and self-report, which is distinct from, and not proof of, subjective experience.)",
+            "In late 2024, Anthropic—one of the leading AI safety companies—hired its first dedicated AI welfare researcher (Kyle Fish) and began conducting model welfare assessments before deploying new models, treating a 'non-negligible' probability that Claude might possess some form of consciousness as worth taking seriously. The framing is explicitly probabilistic and hedged, not a claim of established consciousness. (Separately, Jack Lindsey's 'Emergent Introspective Awareness in Large Language Models' (Anthropic, October 29, 2025) found evidence for 'some degree of introspective awareness' in Claude models, which Anthropic stresses is 'still highly unreliable and limited in scope'—evidence about introspection and self-report, which is distinct from, and not proof of, subjective experience.)",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -83,16 +83,16 @@ export const aiConsciousnessData = {
             replicability: 5,
             directness: 6,
           },
-          source: "Anthropic, 'Emergent Introspective Awareness in Large Language Models' (Oct 2025) and Anthropic model welfare work (2024-2025)",
+          source: "J. Lindsey (Anthropic), 'Emergent Introspective Awareness in Large Language Models' (Oct 29, 2025) and Anthropic model welfare work (2024-2025)",
           sourceUrl: "https://www.anthropic.com/research/introspection",
           reasoning:
             "Anthropic's actions signal genuine concern from those closest to frontier AI development. However, there are incentive problems: anthropomorphizing AI may serve commercial interests, and Anthropic is not a neutral scientific body. The introspection finding is about self-report accuracy, not consciousness itself.",
         },
         {
           id: "nature-no-conscious-ai",
-          title: "HSSC Paper: 'There Is No Such Thing as Conscious Artificial Intelligence'",
+          title: "HSSC Paper: 'There is no such thing as conscious artificial intelligence'",
           description:
-            "Porębski and Figura (2025), in a conceptual study published in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature), argue that current AI systems lack the biological and embodied properties necessary for consciousness. They contend consciousness is a biological phenomenon rooted in the physiology and chemistry of living organisms, and that the appearance of conscious AI is fueled by 'sci-fitisation'—the influence of fiction on public perception. The paper distinguishes intelligence (which AI can exhibit) from consciousness (which requires subjective experience).",
+            "Porębski and Figura (October 2025), in a conceptual study published in Humanities and Social Sciences Communications (a Springer Nature Portfolio journal, not the flagship Nature), argue that the algorithms in use today (primarily large language models) and those likely in the foreseeable future cannot become conscious because they 'lack a complex biological substrate': human consciousness, they contend, is grounded in biochemical processes such as neurotransmitter release and hormonal mediation, and in embodiment. They attribute the appearance of conscious AI to LLMs' fluent but probabilistic language use and to 'sci-fitisation'—the influence of fiction on public perception—and they explicitly set aside entities built from as-yet-unknown technologies. The paper distinguishes intelligence (which AI can exhibit) from consciousness (which requires subjective experience).",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -201,7 +201,7 @@ export const aiConsciousnessData = {
       skeptic_premise:
         "Granting moral status to AI systems based on speculation would be absurd and dangerous. It could prevent necessary AI safety measures (shutting down dangerous systems), distract from real moral patients (humans, animals), and create perverse incentives for companies to anthropomorphize AI for commercial benefit. We should focus on AI alignment, not AI feelings.",
       proponent_rebuttal:
-        "Moral caution under uncertainty has precedent: we extend protections to animals whose consciousness we cannot verify. A 2024 survey found 17% of AI researchers and 18% of US adults already believe at least one AI system has subjective experience. If future AI systems are conscious and we treat them as mere tools, we would be committing a moral atrocity at scale. Developing ethical frameworks now—before the question becomes urgent—is prudent.",
+        "Moral caution under uncertainty has precedent: we extend protections to animals whose consciousness we cannot verify. A May 2024 survey found that about 17% of AI researchers and 18% of US adults think it more likely than not that some AI system already has subjective experience. If future AI systems are conscious and we treat them as mere tools, we would be committing a moral atrocity at scale. Developing ethical frameworks now—before the question becomes urgent—is prudent.",
       crux: {
         id: "moral-framework-design",
         title: "AI Moral Status Framework",
@@ -234,7 +234,7 @@ export const aiConsciousnessData = {
           id: "aims-survey-beliefs",
           title: "~17% of AI Researchers (and ~18-20% of the Public) Believe Some Current AI May Have Subjective Experience",
           description:
-            "Dreksler et al. (2025), surveying 582 AI researchers who publish at leading venues and 838 nationally representative US adults (data collected May 2024), found that approximately 17% of AI researchers and approximately 18% of US adults believe at least one current AI system already has subjective experience (roughly 8% and 10% respectively believe at least one is self-aware). Separately, the Sentience Institute's AI, Morality, and Sentience (AIMS) survey found that about one in five US adults (~20%) believed in 2023 that some AI systems are already sentient. The ~17% figure is specific to researchers; the ~18-20% figures are the general public.",
+            "Dreksler et al. (2025), surveying 582 AI researchers who publish at leading venues and 838 nationally representative US adults (data collected May 2024), found that approximately 17% of AI researchers and approximately 18% of US adults picked 2024 as the year by which an AI system is more likely than not to have subjective experience, that is, they think some AI system probably already has it (roughly 8% and 11% respectively said the same of self-awareness). Separately, the Sentience Institute's nationally representative AI, Morality, and Sentience (AIMS) survey, reported at CHI 2025, found that 'in 2023, one in five U.S. adults believed some AI systems are currently sentient.' The ~17% figure is specific to researchers; the ~18-20% figures are the general public.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -242,7 +242,7 @@ export const aiConsciousnessData = {
             replicability: 7,
             directness: 5,
           },
-          source: "N. Dreksler, D. Chalmers, J. Sebo et al., 'Subjective Experience in AI Systems: What Do AI Researchers and the Public Believe?' (2025), arXiv:2506.11945; and Sentience Institute AIMS Survey (2023/2024)",
+          source: "N. Dreksler, L. Caviola, D. Chalmers, J. Sebo et al., 'Subjective Experience in AI Systems: What Do AI Researchers and the Public Believe?' (2025), arXiv:2506.11945; J. R. Anthis, J. V. T. Pauketat, A. Ladak & A. Manoli, 'Perceptions of Sentient AI and Other Digital Minds: Evidence from the AI, Morality, and Sentience (AIMS) Survey,' CHI 2025, arXiv:2407.08867",
           sourceUrl: "https://arxiv.org/abs/2506.11945",
           reasoning:
             "The researcher figure is drawn from a peer-style survey with a clearly defined expert sample. However, belief surveys do not constitute evidence of consciousness itself—they measure the distribution of opinion, not the presence of subjective experience.",
