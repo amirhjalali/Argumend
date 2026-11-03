@@ -229,6 +229,24 @@ export const congressionalTermLimitsData = {
           reasoning:
             "Peer-reviewed study in a top journal using large-scale roll-call panel data with replication archive. Directly rebuts a central governance benefit proponents claim (reduced partisanship) and finds the reverse, with transparent and reproducible methods.",
         },
+        {
+          id: "apollonio-laraja-contributions",
+          title: "Term Limits Cut Contributions to Incumbents and Weakened Caucus Leaders",
+          description:
+            "Apollonio and La Raja (Legislative Studies Quarterly, 2006) used campaign contributions as a measure of legislators' influence in four term-limited states (Arizona, California, Florida and Maine) and four without limits (Iowa, Massachusetts, Washington and Wisconsin), before and after the limits took effect. 'The results indicate that term limits diffuse power in state legislatures, both by decreasing average contributions to incumbents and by reducing the power of party caucus leaders relative to other members.' The fall in contributions was smaller in upper chambers, which the authors read as a shift of power toward the senate in term-limited states.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 5,
+          },
+          source:
+            "Apollonio & La Raja, 'Term Limits, Campaign Contributions, and the Distribution of Power in State Legislatures', Legislative Studies Quarterly 31(2) (2006)",
+          sourceUrl: "https://escholarship.org/uc/item/6wp1731j",
+          reasoning:
+            "Peer-reviewed support for the proponents' claim that turnover dilutes concentrated, seniority-based power: donors gave less to incumbents and less to caucus leaders once limits bit. It covers eight states, measures influence only through money, and says nothing about governors or agencies; lower giving is also what the skeptic would predict if term-limited legislators simply matter less, so directness is 5.",
+        },
       ],
     },
     {
@@ -285,6 +303,23 @@ export const congressionalTermLimitsData = {
           sourceUrl: "https://supreme.justia.com/cases/federal/us/514/779/",
           reasoning:
             "The controlling, verifiable primary legal authority. It does not say limits would worsen governance; rather it raises the feasibility cost so high that 'would improve governance' becomes largely hypothetical absent a constitutional amendment — a real strike against the practical claim.",
+        },
+        {
+          id: "house-1995-majority-vote",
+          title: "The House Voted 227-204 for a Term-Limits Amendment (1995)",
+          description:
+            "On 29 March 1995 the House voted on passage of H.J.Res. 73, the Term Limits Constitutional Amendment, under the two-thirds rule for amendments (roll call 277). It received 227 ayes to 204 noes, with one member voting present and three not voting: Republicans split 189-40 in favour and Democrats 38-163 against. A majority of the members who would have been limited voted to limit themselves, but the measure fell short of two-thirds.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 8,
+            directness: 3,
+          },
+          source: "Clerk of the U.S. House of Representatives, Final Vote Results for Roll Call 277, H.J.Res. 73 (104th Congress), 29 March 1995",
+          sourceUrl: "https://clerk.house.gov/evs/1995/roll277",
+          reasoning:
+            "The proponents' best evidence that the gatekeepers are not a solid wall: a majority of one chamber once voted for the amendment. Directness is low because the vote fell about 60 short of two-thirds of those voting, it is three decades old, it split along party lines, and it is the high-water mark: no term-limits amendment has cleared two-thirds of either chamber, and no Article V convention has ever been called.",
         },
       ],
     },

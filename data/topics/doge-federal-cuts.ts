@@ -227,7 +227,25 @@ export const dogeFederalCutsData = {
           source: "National Parks Conservation Association (FY26 NPS budget explainer); Deseret News via KSL (Jan 2026); The Hill (Jan 2026); STAT via Boston Globe (Apr 2026)",
           sourceUrl: "https://www.bostonglobe.com/2026/04/09/business/trump-court-nih-research-overhead-costs/",
           reasoning:
-            "That Congress and the courts blocked the deepest cuts supports the proponent claim that institutional checks contained the harm. But it also concedes the original cuts were severe enough to require blocking, and the directness to the efficiency claim is moderate.",
+            "Read against the claim that DOGE cut waste, this counts against it: Congress and the courts rejected the deepest cuts as unlawful or unwanted rather than as savings worth keeping. Proponents read the same record the other way, as proof that institutional checks contained any harm, which is why directness to the efficiency claim is only moderate.",
+        },
+        {
+          id: "ssa-oig-phone-recovery",
+          title: "SSA Says Its Inspector General Confirmed Phone Service Improved in FY2025",
+          description:
+            "On 22 December 2025 the Social Security Administration said an audit by its inspector general found that 'SSA's publicly reported national 800-number telephone metrics were accurate' and that 'overall telephone service performance improved in FY 2025', 'reducing the average wait time from 30 minutes in January 2025 to 7 minutes in September 2025' while serving 65 percent more callers than the year before. SSA also reported the backlog of pending initial disability claims down 33% from its all-time high of 1.26 million in June 2024. The same audit, Nextgov/FCW reported, found that the metric counts callers who immediately request a callback as waiting zero minutes; those callers waited an average of one hour and 51 minutes to be called back.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Social Security Administration press release, 'Inspector General Report Confirms Significant Customer Service Improvements at Social Security' (22 Dec 2025), on SSA OIG audit 032517; Nextgov/FCW (Natalie Alms, 22 Dec 2025)",
+          sourceUrl: "https://content.govdelivery.com/accounts/USSSA/bulletins/4010bfd",
+          reasoning:
+            "This is the transitional reading's best case: on the agency that lost about 7,500 staff, the phone metric worsened early in 2025 and recovered within the year, and the inspector general rather than the agency vouched for the numbers. It is weighted down because the summary is SSA's own, the headline wait leaves out the long callback waits, the disability backlog is measured from a peak that predates DOGE, and phone service is one channel; the field-office and processing backlogs on the other card are not covered.",
         },
       ],
     },
@@ -452,6 +470,24 @@ export const dogeFederalCutsData = {
           sourceUrl: "https://www.healio.com/news/infectious-disease/20251015/cdc-staffers-fired-due-to-glitch-are-reinstated",
           reasoning:
             "The repeated threat to disease-surveillance and weather-forecasting staff is concrete and directly relevant to the forward-looking capacity crux, though the EIS cuts were reversed and the Weather Service had to be cleared to hire back, which cuts both ways. Whether these losses prove decisive depends on future events (a pandemic, extreme-weather season), which tempers replicability.",
+        },
+        {
+          id: "opm-appraisal-rule-2026",
+          title: "OPM Rewrote the Federal Performance-Appraisal Rules, Not Just Headcount (2026)",
+          description:
+            "A final rule from the Office of Personnel Management, published on 7 July 2026, changes the appraisal process for General Schedule and prevailing-rate employees rather than their number. In OPM's words it 'eliminates unnecessary summary level patterns; removes the prohibition of a forced, or standardized, distribution of performance rating levels; eliminates mandatory review of Level 1 ratings; removes the option to grieve a rating of record; requires a supervisory critical element for all supervisors covered under this subpart'. Agencies must comply with the rating-distribution provisions from 1 January 2027. OPM says earlier non-regulatory efforts to curb rating inflation had not worked.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 4,
+            replicability: 5,
+            directness: 5,
+          },
+          source:
+            "Office of Personnel Management, 'Performance Appraisal for General Schedule, Prevailing Rate, and Certain Other Employees', final rule, RIN 3206-AP06, Federal Register document 2026-13715 (7 July 2026)",
+          sourceUrl: "https://public-inspection.federalregister.gov/2026-13715.pdf",
+          reasoning:
+            "Evidence that the administration changed a procedure this crux names, the appraisal system behind inflated ratings, and not only headcount. The rule's text is authoritative on what changed, but its account of why is OPM's own, so independence is 4. It is an OPM rule rather than DOGE's work, it takes full effect only in 2027, and nothing yet measures the cycle times or output per employee that would settle the crux, so directness is 5.",
         },
       ],
     },

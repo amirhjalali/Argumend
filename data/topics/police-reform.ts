@@ -7,6 +7,19 @@ export const policeReformData = {
     "American policing requires fundamental structural reform — including significant reallocation of funding to social services — to improve public safety outcomes.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "U.S. police killed more than 1,200 people in 2023; Mapping Police Violence counted 1,329, its highest annual count. In Denver's 2020 pilot, unarmed STAR teams answered 748 calls with no arrests and no police backup. Both sides accept those numbers. The fight is over whether changes like these can work at the scale of Chicago or Detroit.",
+    confidence: 85,
+    source:
+      "Mapping Police Violence / Campaign Zero, 2023 Police Violence Report; Dee & Pyne, Science Advances (2022)",
+    sourceUrl:
+      "https://policeviolencereport.org/2023/",
+  },
+  simple_case: [
+    "The answer shapes how cities spend public-safety money: who gets sent to a mental-health or homelessness call, and what police are held to when they use force.",
+  ],
   pillars: [
     {
       id: "use-of-force-accountability",

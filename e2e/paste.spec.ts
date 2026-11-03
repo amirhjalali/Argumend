@@ -65,7 +65,7 @@ test("a limited search keeps a usable draft and conversation notes while browsin
   await page.keyboard.press("Tab");
   await expect(recovery.getByRole("button", { name: "Try again", exact: true })).toBeFocused();
   await expect(recovery.getByRole("alert")).toContainText("This connection has reached the limit for map searches. Try again after");
-  await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "No map clearly fits, so we won’t guess one" })).toHaveCount(0);
   await expect(input).toHaveValue(draft);
   await recovery.getByText("Work through it yourself", { exact: true }).click();
   const condition = page.getByLabel("You would think again if…");
@@ -136,7 +136,7 @@ test("common policy names find maps while a hairstyle dispute stays unmapped", a
   await page.getByRole("button", { name: "Edit", exact: true }).click();
   await input.fill("My sister wants me to braid her hair for a wedding. I prefer loose curls because braids pull too tightly.");
   await submit.click();
-  await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "No map clearly fits, so we won’t guess one" })).toBeVisible();
   await expect(match).toHaveCount(0);
   await expect(page.getByLabel("You would think again if…")).toBeVisible();
 });
@@ -153,7 +153,7 @@ test("uncovered family and school arguments stay unmapped while vaccine requirem
   ]) {
     await input.fill(text);
     await submit.click();
-    await expect(result.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+    await expect(result.getByRole("heading", { name: "No map clearly fits, so we won’t guess one" })).toBeVisible();
     await expect(result.locator('a[href^="/topics/"]')).toHaveCount(0);
     await expect(page.getByLabel("You would think again if…")).toBeVisible();
     await page.getByRole("button", { name: "Edit", exact: true }).click();
@@ -232,7 +232,7 @@ test("health products and voting dates stay unmapped while AI diagnosis keeps it
   ]) {
     await input.fill(text);
     await page.getByRole("button", { name: "Find what it turns on", exact: true }).click();
-    await expect(result.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+    await expect(result.getByRole("heading", { name: "No map clearly fits, so we won’t guess one" })).toBeVisible();
     await expect(result.locator('a[href^="/topics/"]')).toHaveCount(0);
     await page.getByRole("button", { name: "Edit", exact: true }).click();
   }
@@ -314,7 +314,7 @@ test("an unmapped personal argument becomes conversation notes without another r
   await waitForHydration(input);
   await input.fill("My partner wants us to spend our savings on a holiday. I want to keep the money for emergencies. They say we never do anything fun, and I say we cannot afford to take the risk.");
   await page.getByRole("button", { name: "Find what it turns on" }).click();
-  await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "No map clearly fits, so we won’t guess one" })).toBeVisible();
   const firstNote = page.getByLabel("You would think again if…");
   const screensBeforeWriting = await firstNote.evaluate((input) => {
     const result = document.querySelector('section[aria-label="Result"]')!;
@@ -548,7 +548,7 @@ test("reanalyzing unchanged text keeps conversation notes", async ({ page }) => 
   await note.fill("we kept an emergency fund");
   await page.getByRole("button", { name: "Edit", exact: true }).click();
   await page.getByRole("button", { name: "Find what it turns on" }).click();
-  await expect(page.getByRole("heading", { name: "No map, rather than the wrong map" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "No map clearly fits, so we won’t guess one" })).toBeVisible();
   await expect(note).toHaveValue("we kept an emergency fund");
   await expect(page.getByRole("button", { name: "Copy your notes" })).toBeVisible();
 });

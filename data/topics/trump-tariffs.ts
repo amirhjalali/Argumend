@@ -7,6 +7,19 @@ export const trumpTariffsData = {
     "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
   status: "contested" as const,
   category: "economics" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In February 2026 the Supreme Court ruled 6–3 that the emergency-powers law behind Trump's 'reciprocal' tariffs does not authorize tariffs, and duties under other laws replaced them. Both sides' own figures put most of the cost on U.S. consumers and importers, and federal payroll data do not yet show a manufacturing jobs boom. The fight is over whether the tariffs that remain will bring factory work back, and at what price.",
+    confidence: 86,
+    source:
+      "SCOTUSblog on Learning Resources, Inc. v. Trump (February 2026); Federal Reserve Bank of New York (2025); Bureau of Labor Statistics payroll data",
+    sourceUrl:
+      "https://www.scotusblog.com/2026/02/a-breakdown-of-the-courts-tariff-decision/",
+  },
+  simple_case: [
+    "The answer bears on what American households pay for imported goods, on which factories get built here, and on relations with allies and with China.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Consumer Prices & Inflation Pass-Through

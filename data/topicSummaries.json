@@ -19,7 +19,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "helpline wagered bettors sportsbook gamblers ncaa intimate murphy upset earmarked arnesen balthrop geocomply if12761 kotter"
+    "keywords": "helpline wagered bettors sportsbook gamblers ncaa intimate upset earmarked arnesen balthrop geocomply if12761 kotter matsuzawa"
   },
   {
     "id": "pfas-forever-chemicals",
@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment autumn chronobiology clin fritz"
+    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz outdoor"
   },
   {
     "id": "tipping-culture",
@@ -307,7 +307,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding waiver ikenson manak shipyard surcharge underdeveloped"
+    "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding ikenson manak shipyard surcharge underdeveloped usitc"
   },
   {
     "id": "medicaid-work-requirements",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful propublica"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful heard"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -369,7 +369,40 @@
       "Data center electricity costs",
       "Do data centers raise power bills"
     ],
-    "keywords": "pjms ohio megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe"
+    "keywords": "pjms megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
+  },
+  {
+    "id": "proof-of-citizenship-voting",
+    "title": "Proof of Citizenship to Register",
+    "question": "Should voters have to show documentary proof of citizenship to register to vote?",
+    "meta_claim": "Requiring people to show a document proving U.S. citizenship, such as a passport, birth certificate or naturalization certificate, when they register to vote is sound policy: it closes a gap that sworn attestation leaves open, without keeping significant numbers of eligible citizens off the rolls.",
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 23,
+    "firstCrux": "Do sworn attestation and the record checks states already run keep all but a handful of noncitizens off the rolls?",
+    "tags": [
+      "policy",
+      "voting",
+      "elections",
+      "voter-registration",
+      "citizenship",
+      "save-act"
+    ],
+    "aliases": [
+      "SAVE America Act",
+      "SAVE Act proof of citizenship",
+      "documentary proof of citizenship to vote",
+      "noncitizen voter registration"
+    ],
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat affidavit louisiana turnout brennan cantoni kansass pons campuses tenth"
   },
   {
     "id": "nuclear-energy-safety",
@@ -492,9 +525,9 @@
     "title": "The Death Penalty",
     "question": "Is the death penalty a justified punishment?",
     "meta_claim": "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
-    "confidence_score": 17,
-    "balance": 17,
-    "weight": 56,
+    "confidence_score": 25,
+    "balance": 25,
+    "weight": 57,
     "verdict": {
       "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
@@ -502,12 +535,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Without proof that it deters, can possible deterrence plus retribution still justify the death penalty?",
     "tags": [
       "policy"
     ],
-    "keywords": "exonerated dezhbakhsh rubin shepherd plea alarcon baldus arthur dietzel ehrhard kemp loyola madeira mccleskey mcveigh"
+    "keywords": "scalia exonerated dezhbakhsh rubin shepherd plea alarcon baldus marsh guilt kansas antonin arthur coleman dietzel"
   },
   {
     "id": "police-reform",
@@ -529,7 +562,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "denver star cahoots vera ariel politifact pyne rialto sutherland farrar portland eugene fy2021 siepr unarmed"
+    "keywords": "denver star cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed"
   },
   {
     "id": "mandatory-voting",
@@ -551,7 +584,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "turnout boxell fowler lachat selb gentzkow leigh king uninformed dampen donkey faqs jesse anthony matthew"
+    "keywords": "turnout boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
   },
   {
     "id": "reparations-slavery",
@@ -706,7 +739,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta chamber gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton whoever donald"
   },
   {
     "id": "surveillance-public-safety",
@@ -733,29 +766,31 @@
   {
     "id": "us-iran-conflict",
     "title": "The US-Iran Conflict",
-    "question": "Has US pressure on Iran made the Middle East safer and served US interests?",
-    "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 30,
-    "balance": 30,
-    "weight": 75,
+    "question": "Has US pressure on Iran, up to the 2026 war, made the Middle East safer and served the US?",
+    "meta_claim": "US policy toward Iran — maximum-pressure sanctions, covert operations, the June 2025 strikes and the war the US and Israel began on 28 February 2026 — has made the Middle East safer and advanced American strategic interests.",
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 80,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 5,
-    "evidenceCount": 19,
-    "firstCrux": "Did Iran's nuclear escalation result from the US leaving the nuclear deal, or would it have happened anyway?",
+    "evidenceCount": 30,
+    "firstCrux": "Did the strikes set Iran's nuclear program back for good, or push its 60% uranium out of inspectors' sight?",
     "tags": [
       "policy"
     ],
     "aliases": [
       "Is Military Action Against Iran Justified?",
-      "Should the US strike Iran?"
+      "Should the US strike Iran?",
+      "Has US pressure on Iran made the Middle East safer and served US interests?",
+      "Was the Iran war worth it?",
+      "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "jcpoa hezbollahs houthis iranian iraq fordow soleimani assassination militia amasses centrifuge grossi irgc isfahan lebanon"
+    "keywords": "houthis jcpoa jazeera hezbollahs lebanon iranian grossi hormuz ceasefire blockade israeli fordow iraq memorandum tehran"
   },
   {
     "id": "epstein-files",
@@ -777,7 +812,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators beach palm acosta blackmail dershowitz batch perpetrators prostitution starr cvra ghislaine"
+    "keywords": "maxwell redacted brunel conspirators beach palm acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
   },
   {
     "id": "tiktok-ban",
@@ -835,9 +870,9 @@
     "title": "Social Media's Impact on Elections",
     "question": "Has social media fundamentally undermined democratic elections?",
     "meta_claim": "Social media platforms have fundamentally undermined democratic elections through algorithmic amplification of misinformation, foreign interference, and micro-targeted political advertising.",
-    "confidence_score": 69,
-    "balance": 69,
-    "weight": 70,
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -845,12 +880,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Do engagement algorithms drive election misinformation, or would human biases spread it on any platform?",
     "tags": [
       "policy"
     ],
-    "keywords": "analytica mueller persuasion aral cisa extremist kalla untrustworthy vosoughi broockman iranian personas whistleblower boasting brad"
+    "keywords": "analytica bots extremist mueller persuasion aral cisa hosseinmardi kalla untrustworthy vosoughi broockman iranian personas watts"
   },
   {
     "id": "nuclear-weapons-abolition",
@@ -898,7 +933,7 @@
     "aliases": [
       "What happens in a school lockdown if every phone is locked away?"
     ],
-    "keywords": "yondr beland pouches victoria murphy ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom"
+    "keywords": "yondr beland pouches victoria ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom lockable"
   },
   {
     "id": "pandemic-preparedness",
@@ -942,7 +977,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "amphibious rhodium tsmc afghanistan pacific navy cancian wargames battle fabs indo strait buildup chairman aircraft"
+    "keywords": "amphibious rhodium tsmc afghanistan pacific cancian navy wargames fabs indo buildup chairman strait aircraft submarine"
   },
   {
     "id": "global-water-crisis",
@@ -986,7 +1021,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin rivera earmarked scarborough sugary caries satiety allcott"
+    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -1140,7 +1175,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow chamber regrets crowdsourced msnbc multipartisan unmoderated missouri"
+    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow regrets crowdsourced msnbc multipartisan unmoderated missouri regretsreporter"
   },
   {
     "id": "space-colonization-feasibility",
@@ -1184,7 +1219,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chicken taste aleph steak unwilling nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters"
+    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters consolidation"
   },
   {
     "id": "ai-in-education",
@@ -1338,7 +1373,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver annonc"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads annonc ayers"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1510,22 +1545,22 @@
     "title": "Veganism for Environmental Impact",
     "question": "Would widespread vegan diets significantly reduce environmental damage?",
     "meta_claim": "Widespread adoption of vegan diets would significantly reduce humanity's environmental footprint, including greenhouse gas emissions, land use, and water pollution.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 64,
+    "confidence_score": 54,
+    "balance": 54,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 6,
     "firstCrux": "How much of veganism's per-person footprint cut would hold at global scale, after land and rebound effects?",
     "tags": [
       "science"
     ],
-    "keywords": "grazing nemecek dietetics eutrophication mottet farmland micronutrients scarborough vegetarian livestock agric forage grassland grazers headey"
+    "keywords": "grazing nemecek dietetics eutrophication inedible mottet farmland micronutrients scarborough vegetarian livestock agric e10301 e10308 forage"
   },
   {
     "id": "psychedelics-mental-health",
@@ -1598,7 +1633,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome appraisal chassaing gastroenterology gibney monteiro moss neltner"
+    "keywords": "nova upfs overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing gastroenterology gibney monteiro moss neltner rauber"
   },
   {
     "id": "longevity-science",
@@ -1744,23 +1779,22 @@
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "question": "Is obesity mainly a matter of personal choice?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
-    "confidence_score": 24,
-    "balance": 24,
-    "weight": 66,
+    "confidence_score": 31,
+    "balance": 31,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "Do price, marketing and access override individual choice for most people?",
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regained kcal microbiota supermarket junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks"
+    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
   },
   {
     "id": "loneliness-epidemic",
@@ -1873,7 +1907,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial pakistan theirs afghanistan funder opensecrets super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -1917,7 +1951,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "forked drawdowns hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto"
+    "keywords": "forked hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -1984,7 +2018,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy vienna tokyo gyourko glaeser upzoning backlog phillips shelters charitable duplexes dwelling huds"
+    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable duplexes dwelling huds"
   },
   {
     "id": "four-day-work-week",
@@ -2117,7 +2151,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding irvine sunk bloom gloria pittsburgh uspto lease yang brucks frey gudith klocke"
+    "keywords": "allen bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks frey gudith klocke"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2262,9 +2296,9 @@
     "title": "Minneapolis ICE Shooting",
     "question": "Did federal agents use excessive force in the fatal Minneapolis shooting?",
     "meta_claim": "Whether federal agents used excessive force in the fatal shooting of Alex Pretti in Minneapolis on January 24, 2026 is disputed: independent video and eyewitness accounts conflict sharply with the federal self-defense account.",
-    "confidence_score": 86,
-    "balance": 86,
-    "weight": 49,
+    "confidence_score": 72,
+    "balance": 72,
+    "weight": 55,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2272,12 +2306,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 4,
+    "evidenceCount": 6,
     "firstCrux": "Does the full sequence of events back the federal self-defense account, or the bystander video and witnesses?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "scene ohara superintendent apprehension bystanders patrol evans handgun"
+    "keywords": "deportation scene chokeholds ohara probation superintendent apprehension bystanders carotid patrol evans fleeing handgun sworn undercount"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2388,7 +2422,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "bodily lambs preterm thomsons biobag commodify nicu pups cohen gestation chop hastings neonatal nichd osaka"
+    "keywords": "lambs preterm thomsons biobag commodify nicu pups cohen gestation chop hastings neonatal nichd osaka procreate"
   },
   {
     "id": "gain-of-function-research-ban",
@@ -2476,7 +2510,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide eruption rainfall tons geomip intercomparison celsius geophysical hydrological shells precipitation britain dimming"
+    "keywords": "monsoon pinatubo dioxide eruption rainfall tons geomip intercomparison celsius geophysical hydrological shells precipitation dimming fairbrother"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2598,9 +2632,9 @@
     "title": "Transgender Athletes in Competitive Sports",
     "question": "Should transgender women on hormone therapy compete in women's sports?",
     "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
-    "confidence_score": 36,
-    "balance": 36,
-    "weight": 66,
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2608,12 +2642,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 10,
     "firstCrux": "After two-plus years on hormones, do retained advantages exceed normal variation among women in that sport?",
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa cisgender skeletal hemoglobin swimming devolved collegiate ahrendt ball biomechanics coventry genital harper hematocrit"
+    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2636,7 +2670,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters restrainer morgans"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters morgans restrainer"
   },
   {
     "id": "immigration-national-identity",
@@ -2658,7 +2692,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam retiree hunkering italians jews norc complementarity dispersed resettlement diploma refugee scandinavian"
+    "keywords": "putnam retiree hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2703,7 +2737,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian zelensky putin donetsk manpower moscow rusi ceasefire emboldens haass jamestown kupchan kyiv facto refurbished"
+    "keywords": "ukrainian zelensky putin donetsk manpower rusi ceasefire moscow emboldens haass jamestown kupchan kyiv facto refurbished"
   },
   {
     "id": "trump-tariffs",
@@ -2755,23 +2789,22 @@
     "title": "DOGE & Federal Spending Cuts",
     "question": "Did DOGE's cuts eliminate waste and make government more effective?",
     "meta_claim": "The Department of Government Efficiency's mass workforce cuts, contract terminations, and spending freezes have eliminated waste, fraud, and abuse and made the federal government leaner and more effective.",
-    "confidence_score": 25,
-    "balance": 25,
+    "confidence_score": 32,
+    "balance": 32,
     "weight": 78,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 4,
-    "evidenceCount": 16,
+    "evidenceCount": 18,
     "firstCrux": "How much of DOGE's claimed savings survives a line-by-line reconciliation?",
     "tags": [
       "policy"
     ],
-    "keywords": "pahlka slaughter executor humphreys kettl rehired disinvestment forgo overruled fy2025 opms probationary tigta usaspending caller"
+    "keywords": "pahlka callers fy2025 slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
   },
   {
     "id": "open-weight-ai-models",
@@ -3072,7 +3105,7 @@
       "glyphosate",
       "biotechnology"
     ],
-    "keywords": "cotton herbicide weeds roundup iarc bollworm juries sprays bayer benbrook monsanto mper pink pmra qaim"
+    "keywords": "cotton herbicide weeds roundup iarc bollworm sprays juries bayer benbrook monsanto mper pink pmra qaim"
   },
   {
     "id": "nuclear-fusion-timeline",
@@ -3297,7 +3330,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth clerk eifert abetted anhaltspunkte antiterrorism backpages belegen copia"
+    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3324,7 +3357,7 @@
       "international-law",
       "warfare"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus governmental milder unoda"
+    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible primer abstentions atrocities belarus governmental milder unoda"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3443,9 +3476,9 @@
     "title": "Congressional Term Limits",
     "question": "Would congressional term limits improve American governance?",
     "meta_claim": "Congressional term limits would improve American governance.",
-    "confidence_score": 33,
-    "balance": 33,
-    "weight": 71,
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3453,7 +3486,7 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 10,
     "firstCrux": "Do forced open seats bring more competitive races and new kinds of legislators, or reshuffle similar ones?",
     "tags": [
       "policy",
@@ -3463,7 +3496,7 @@
       "reform",
       "incumbency"
     ],
-    "keywords": "burkean lobbyists carey mclaughlin moncrief niemi olson powell rogowski thornton carroll jenkins qualifications rutgers beholden"
+    "keywords": "burkean caucus lobbyists apollonio carey mclaughlin moncrief niemi olson powell raja rogowski thornton carroll jenkins"
   },
   {
     "id": "effective-altruism",
@@ -3547,7 +3580,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "latin buffer fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats"
+    "keywords": "latin fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats countercyclical"
   },
   {
     "id": "dark-matter-vs-mond",

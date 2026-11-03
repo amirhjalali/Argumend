@@ -58,6 +58,7 @@ import { ai2027Data } from "./topics/ai-2027";
 import { jonesActData } from "./topics/jones-act";
 import { medicaidWorkRequirementsData } from "./topics/medicaid-work-requirements";
 import { dataCentersElectricityBillsData } from "./topics/data-centers-electricity-bills";
+import { proofOfCitizenshipVotingData } from "./topics/proof-of-citizenship-voting";
 import { chinaTaiwanInvasionData } from "./topics/china-taiwan-invasion";
 import { returnToOfficeProductivityData } from "./topics/return-to-office-productivity";
 import { nuclearRenaissanceSmrData } from "./topics/nuclear-renaissance-smr";
@@ -346,6 +347,9 @@ export const jonesAct = buildTopic(jonesActData);
 export const medicaidWorkRequirements = buildTopic(medicaidWorkRequirementsData);
 export const dataCentersElectricityBills = buildTopic(dataCentersElectricityBillsData);
 
+// New maps (2026-11, round 13)
+export const proofOfCitizenshipVoting = buildTopic(proofOfCitizenshipVotingData);
+
 export const topics: Topic[] = [
   // --- New (2026-06-23, net-new initiative) ---
   sportsBettingLegalization,
@@ -368,6 +372,9 @@ export const topics: Topic[] = [
   // --- New maps (2026-11, round 12) ---
   medicaidWorkRequirements,
   dataCentersElectricityBills,
+
+  // --- New maps (2026-11, round 13) ---
+  proofOfCitizenshipVoting,
 
   // --- Policy & Governance ---
   nuclearEnergySafety,

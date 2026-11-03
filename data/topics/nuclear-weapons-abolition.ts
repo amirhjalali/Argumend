@@ -7,6 +7,19 @@ export const nuclearWeaponsAbolitionData = {
     "Nuclear deterrence has prevented major wars between great powers, and complete nuclear abolition would make the world less safe rather than more.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Nuclear-armed great powers have not fought each other directly since 1945, the longest such stretch in modern history. No nuclear-armed state has joined the Treaty on the Prohibition of Nuclear Weapons, which entered into force in 2021. Both sides accept those facts. The fight is over whether the bomb kept that peace, and whether a world without it could be verified and kept safe.",
+    confidence: 88,
+    source:
+      "Gaddis, 'The Long Peace' (1987); Our World in Data, 'War and Peace' (Correlates of War Project); UNODA treaty database (TPNW)",
+    sourceUrl:
+      "https://ourworldindata.org/war-and-peace",
+  },
+  simple_case: [
+    "The answer decides whether the wiser course is to keep deterrence and manage its risks, or to work toward giving the weapons up.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: The Long Peace & Deterrence Theory

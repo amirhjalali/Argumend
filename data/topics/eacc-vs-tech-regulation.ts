@@ -7,6 +7,19 @@ export const eaccVsTechRegulationData = {
     "Rapid, unregulated technological advancement creates more benefit than harm",
   status: "contested" as const,
   category: "technology" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Lead was added to U.S. gasoline from 1923 and not phased out until 1996, despite early warnings from public-health scientists. A new drug now takes 10–15 years and about $2.6 billion to bring to market under FDA rules. Both sides accept the record at each end. The fight is over which of those costs is the bigger danger, with AI as the case at hand.",
+    confidence: 86,
+    source:
+      "PNAS (2022) on leaded gasoline; DiMasi, Grabowski & Hansen, Journal of Health Economics (2016), Tufts Center for the Study of Drug Development",
+    sourceUrl:
+      "https://www.pnas.org/doi/10.1073/pnas.2118631119",
+  },
+  simple_case: [
+    "The answer bears on how governments handle AI and whatever comes after it: wait for harm and respond, or set rules before the harm is known.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Innovation Speed vs. Safety

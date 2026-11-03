@@ -6,6 +6,19 @@ export const cancelCultureData = {
     "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
   status: "contested" as const,
   category: "technology" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In a 2020 Cato/YouGov survey, 62% of Americans said the political climate keeps them from sharing things they believe. J.K. Rowling, Dave Chappelle and Joe Rogan all kept their platforms after campaigns to cancel them. Both sides accept those facts. The fight is over what the fear costs public debate, and who pays when the target is not famous.",
+    confidence: 82,
+    source:
+      "Cato Institute / YouGov, 'Poll: 62% of Americans Say They Have Political Views They're Afraid to Share' (2020)",
+    sourceUrl:
+      "https://www.cato.org/survey-reports/poll-62-americans-say-they-have-political-views-theyre-afraid-share",
+  },
+  simple_case: [
+    "The answer shapes how employers, universities and platforms respond to the next online pile-on, and how freely people speak while they decide.",
+  ],
   pillars: [
     {
       id: "free-expression-accountability",

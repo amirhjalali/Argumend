@@ -9,6 +9,19 @@ export const secondAmendmentIndividualRightData = {
   category: "policy" as const,
   last_updated: "2026-06-16",
   tags: ["second-amendment", "constitutional-law", "gun-rights", "originalism"],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In Heller (2008) and McDonald (2010), the Supreme Court held 5–4 that the Second Amendment protects an individual right to keep and bear arms, binding on the states. For decades after Miller (1939), federal appeals courts mostly read the right as tied to militia service. Both sides accept that history. The fight is over what the text meant when it was written.",
+    confidence: 92,
+    source:
+      "District of Columbia v. Heller, 554 U.S. 570 (2008); McDonald v. City of Chicago, 561 U.S. 742 (2010); United States v. Miller, 307 U.S. 174 (1939)",
+    sourceUrl:
+      "https://www.law.cornell.edu/supremecourt/text/07-290.ZS.html",
+  },
+  simple_case: [
+    "The answer bears on how far courts let the right reach when they review gun laws, and on whether a future Court revisits Heller.",
+  ],
   pillars: [
     {
       id: "supreme-court-holding",

@@ -7,6 +7,19 @@ export const rfkHealthPolicyData = {
     "Robert F. Kennedy Jr's 'Make America Healthy Again' overhaul of US health institutions — restructuring vaccine policy, targeting food additives and fluoridation, and challenging regulatory capture — will improve American health outcomes.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In June 2025 Robert F. Kennedy Jr. dismissed all 17 members of the CDC's vaccine advisory committee; in March 2026 a federal judge halted the schedule changes that followed. Companies can still approve their own food additives through the 'GRAS' pathway without FDA review, a concern Kennedy shares with critics such as Marion Nestle. The fight is over which parts of his agenda will leave Americans healthier.",
+    confidence: 86,
+    source:
+      "NPR (16 March 2026); FDA Human Foods Program 2026 priority deliverables",
+    sourceUrl:
+      "https://www.npr.org/2026/03/16/nx-s1-5749530/judge-blocks-rfk-jr-vaccine-changes",
+  },
+  simple_case: [
+    "The answer bears on which vaccines children get and on what schedule, on what goes into food, and on whether towns keep fluoridating their water.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Vaccine Policy & Schedule Safety

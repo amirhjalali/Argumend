@@ -188,6 +188,23 @@ export const deathPenaltyDeterrenceData = {
             "Exoneration count is from DPIC's database (not the Innocence Project, whose DNA work is broader). The 4.1% PNAS estimate uses rigorous survival analysis and is framed by its authors as a conservative lower bound on the false-conviction rate among those sentenced to death.",
         },
         {
+          id: "scalia-marsh-no-clear-case",
+          title: "Justice Scalia: No Case Shown in Which It Is 'Clear' an Innocent Person Was Executed (2006)",
+          description:
+            "Concurring in Kansas v. Marsh (2006), Justice Antonin Scalia wrote that the dissent 'does not discuss a single case—not one—in which it is clear that a person was executed for a crime he did not commit,' and that 'in every case of an executed defendant of which I am aware, that technology has confirmed guilt,' citing the DNA retest that confirmed the guilt of Roger Coleman, executed in Virginia. He argued that 'Capital cases are given especially close scrutiny at every level, which is why in most cases many years elapse before the sentence is executed.'",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 5,
+            replicability: 4,
+            directness: 6,
+          },
+          source: "Kansas v. Marsh, 548 U.S. 163 (2006), Scalia, J., concurring",
+          sourceUrl: "https://www.law.cornell.edu/supct/html/04-1170.ZC.html",
+          reasoning:
+            "The safeguards side's case at its strongest: the errors found so far were caught before execution, and at the time of writing none of the executed had been shown in court to be innocent. It is a judge's argument, not a study. 'Clear' is a bar that execution itself makes hard to meet, since courts seldom hear an innocence claim once the prisoner is dead, and the opinion predates the 2014 estimate that at least 4.1% of the death-sentenced are falsely convicted.",
+        },
+        {
           id: "dp-racial-disparity",
           title: "Death Penalty Racial Disparity Studies",
           description:

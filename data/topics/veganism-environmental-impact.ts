@@ -112,6 +112,24 @@ export const veganismEnvironmentalData = {
           reasoning:
             "Valid point about land suitability, verified: FAO data put permanent pasture at ~two-thirds of agricultural land, and Mottet et al. quantify ~57% of feed land as non-arable (note: '57% of feed land' is a narrower figure than the broad 'two-thirds of all grazing land' framing). Directness lowered slightly: the Poore & Nemecek analysis already accounts for land convertibility, so this caveat trims rather than overturns the 76% land-reduction estimate.",
         },
+        {
+          id: "white-hall-2017-us-system",
+          title: "Removing Animals From US Agriculture Cut Total US Emissions by Only 2.6 Points in One Model",
+          description:
+            "White and Hall (PNAS, 2017) modeled the extreme case of eliminating animals from US agriculture. Agricultural greenhouse-gas emissions fell by 28%, less than the 49% the model attributes to animals, because fertilizer has to be synthesized to replace manure, inedible byproducts once fed to animals must be disposed of, and more crops are grown on land animals used. Taking agriculture as 9% of US emissions, the authors estimate the change would 'decrease total US emissions by an estimated 2.6 percentage units.' The plants-only system produced 23% more food but, in their least-cost diets, more nutrient deficiencies.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 5,
+            directness: 7,
+          },
+          source:
+            "White & Hall, 'Nutritional and greenhouse gas impacts of removing animals from US agriculture', PNAS 114(48): E10301-E10308 (2017)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5715743/",
+          reasoning:
+            "A whole-system model of the kind this crux asks for, and it shows a per-person cut shrinking once replacement fertilizer and a whole economy's emissions are counted. It is one model of one country: it assumes freed farmland grows crops rather than returning to forest or grassland, so it credits none of the carbon drawdown that the Poore and Nemecek scenario counts, and the 2.6-point figure rests on its own assumption that agriculture is 9% of US emissions. Replicability is 5.",
+        },
       ],
     },
     {

@@ -167,6 +167,44 @@ export const minneapolisShootingData = {
             "Whether two deaths in three weeks reflect gaps in federal training, rules of engagement or supervision, or the predictable result of more confrontations in volatile crowds, each turning on its own contested facts.",
         },
       },
+      evidence: [
+        {
+          id: "cnn-ice-training-comparison",
+          title: "CNN: ICE Deportation Officers Get Less Academy Training Than Almost Any Other Federal Agents",
+          description:
+            "A CNN analysis (27 February 2026) of academy training requirements for roughly 30 sworn roles at the 20 largest federal law enforcement agencies found that only US Court probation officers and federal prison guards require fewer training days than ICE deportation officers. Deportation officers previously had to complete 20 weeks, or roughly 100 days, of training; under the Trump administration ICE cut this to 42 days. ICE told CNN no content was removed, that instruction now runs 12 hours a day, and that overall training is 56 days with pre-employment courses. CNN also reported that the cut was not a factor in the two Minneapolis deaths: Renée Good was killed by a deportation officer with years of experience who would have received the longer training, and Alex Pretti was shot by two CBP employees, whose training programs are significantly longer.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 7,
+            directness: 4,
+          },
+          source:
+            "CNN, 'ICE deportation officers receive less training than almost any other federal agents' (27 Feb 2026)",
+          sourceUrl: "https://www.cnn.com/2026/02/27/us/ice-deportation-officers-training-agents-invs",
+          reasoning:
+            "The nearest thing to the comparison this crux asks for: a cross-agency review of training requirements from public documents, with ICE's objections reported. It compares ICE with other federal agencies rather than with local police, and, by CNN's own account, the cut it documents did not apply to the agents in either Minneapolis shooting, so it bears on the system more than on these two deaths. Directness is 4.",
+        },
+        {
+          id: "gao-dhs-force-policy-doj",
+          title: "GAO: DHS Aligned Its Use-of-Force Policy With the Justice Department's in 2023",
+          description:
+            "The Government Accountability Office reported in July 2023 that in February 2023 DHS 'amended its use of force policy to align with the Department of Justice's (DOJ) policy', adding limits on chokeholds and carotid restraints. GAO reviewed how four DHS agencies, including CBP and ICE, report force under it. As CBS reported in January 2026, it allows deadly force only when an officer reasonably believes the subject 'poses an imminent threat of death or serious bodily injury', bars it against someone fleeing who poses no serious threat, and limits shooting at moving vehicles. GAO also found that the force data agencies submitted to DHS 'undercount the frequency that officers used force against subjects.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 4,
+          },
+          source:
+            "GAO, 'Law Enforcement: DHS Should Strengthen Use of Force Data Collection and Analysis', GAO-23-105927 (24 July 2023); CBS Minnesota (7 Jan 2026) on the policy's terms",
+          sourceUrl: "https://www.gao.gov/products/gao-23-105927",
+          reasoning:
+            "The skeptic's strongest documentary point: on paper, the rules CBP and ICE work under match the Justice Department's standard rather than falling below it. That speaks to written rules, not to training or practice, it compares with DOJ rather than local police, it predates the 2025-26 enforcement surge, and GAO's own finding that force is undercounted means the record cannot yet show whether the rules are followed. Directness is 4.",
+        },
+      ],
     },
   ],
 };

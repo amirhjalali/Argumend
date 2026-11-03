@@ -48,6 +48,19 @@ export const artificialReproductionEthicsData = {
         "Current legal frameworks assume pregnancy occurs inside a person. Ectogenesis breaks every existing model for parental rights, consent, and state interest in fetal life. How should law adapt to reproduction that requires no pregnancy?",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In U.S. academic hospitals, only about 30% of infants actively treated at 22 weeks of gestation survive. In 2023, researchers in Osaka produced live mouse pups from eggs made from male skin cells. Both sides accept those facts. The fight is over how soon tools like these reach human reproduction, and what rules should govern them when they do.",
+    confidence: 86,
+    source:
+      "Bell et al., NICHD Neonatal Research Network, JAMA (2022); Murakami, Hayashi et al., Nature (2023)",
+    sourceUrl:
+      "https://doi.org/10.1001/jama.2021.23580",
+  },
+  simple_case: [
+    "The answer bears on how extremely premature babies are cared for, on who can become a genetic parent, and on what limits to set on embryo screening.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Medical Necessity

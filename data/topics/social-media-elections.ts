@@ -103,7 +103,7 @@ export const socialMediaElectionsData = {
           id: "youtube-radicalization-pipeline",
           title: "YouTube's Algorithm Creates 'Radicalization Pipeline' to Extremist Content (2019-2024)",
           description:
-            "Research by the Mozilla Foundation, New York University, and independent journalists documented that YouTube's recommendation algorithm systematically promoted increasingly extreme political content. A Mozilla study found that 71% of videos volunteers flagged as regrettable were recommended by the algorithm, not actively searched for. NYU researcher Mark Ledwich found the algorithm recommended right-wing content to users who watched mainstream conservative content. YouTube's own internal report, leaked in 2022, acknowledged that 'borderline content' was the most engaging and that the algorithm optimized for this engagement until explicit policy changes were made.",
+            "Research by the Mozilla Foundation, New York University, and independent journalists documented that YouTube's recommendation algorithm systematically promoted increasingly extreme political content. A Mozilla study found that 71% of videos volunteers flagged as regrettable were recommended by the algorithm, not actively searched for. A 2020 study by Mark Ledwich and Anna Zaitsev (First Monday) reached the opposite conclusion, that the recommendation algorithm 'actively discourages viewers from visiting radicalizing or extremist content.' YouTube's own internal report, leaked in 2022, acknowledged that 'borderline content' was the most engaging and that the algorithm optimized for this engagement until explicit policy changes were made.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -115,6 +115,24 @@ export const socialMediaElectionsData = {
           sourceUrl: "https://foundation.mozilla.org/en/youtube/findings/",
           reasoning:
             "Mozilla's RegretsReporter study used a volunteer methodology that may not be representative. The NYU findings are more systematic but debate exists about whether the algorithm causes radicalization or simply reflects user preferences. YouTube has since made significant changes to its recommendation system, complicating current applicability.",
+        },
+        {
+          id: "youtube-counterfactual-bots",
+          title: "Counterfactual-Bot Study: YouTube's Recommender Made Viewing Less Partisan, Not More (2024)",
+          description:
+            "Hosseinmardi, Watts and colleagues (PNAS, 2024) separated the algorithm's effect from users' own choices by comparing bots that replayed real users' YouTube viewing with 'counterfactual' bots that followed only the recommendations. They found that 'relying exclusively on the YouTube recommender results in less partisan consumption, where the effect is most pronounced for heavy partisan consumers,' and that the sidebar recommender 'forgets' a partisan preference within roughly 30 videos once a user switches to moderate content. They conclude that, 'at least since the algorithm changes that YouTube implemented in 2019, individual consumption patterns mostly reflect individual preferences, where algorithmic recommendations play, if anything, a moderating role.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Hosseinmardi, Ghasemian, Rivera-Lanas, Horta Ribeiro, West & Watts, 'Causally estimating the effect of YouTube's recommender system using counterfactual bots', PNAS 121(8) (2024)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/38349876/",
+          reasoning:
+            "A causal design built for this crux's question, whether the algorithm or the person drives what gets consumed, and its answer is the person. It covers one platform after its 2019 changes and measures partisan viewing rather than election misinformation, and bots replaying histories are not people reacting to what they see, so directness and replicability are 6.",
         },
       ],
     },

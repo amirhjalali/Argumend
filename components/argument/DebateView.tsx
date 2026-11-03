@@ -196,6 +196,7 @@ export function DebateView({ meta, graph, cruxes, ledger = [], related = [] }: D
         settle: { mode, kind, condition, resolved: isResolved },
         strongest: claimStrongest(claim, graph, nodesById),
         implicit: claim.implicit,
+        implicitNote: claim.implicit ? note?.assumption : undefined,
         runIns,
         track: movement.length > 0 ? <CruxMovementTrack movement={movement} /> : undefined,
         afterRunIns: (
