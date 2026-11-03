@@ -29,7 +29,9 @@ const WRONG_SIDE_OPENINGS: [id: string, pillar: number, opening: string][] = [
   ["facial-recognition-policing", 1, "Every documented wrongful arrest is a failure of police procedure"],
   ["alcohol-no-safe-level", 0, "A statistically detectable relative-risk increase is not the same"],
   ["alcohol-no-safe-level", 1, "The strongest bias-corrected observational meta-analysis"],
-  ["alcohol-no-safe-level", 2, "Even in a meta-analysis built by the leading abstainer-bias critics"],
+  // Pillar 2 was rewritten as the guidelines pillar on 2026-11-03; the old
+  // J-curve pillar's text now lives in pillar 1, so the row pins the new one.
+  ["alcohol-no-safe-level", 2, "Telling everyone that any drink is harmful"],
   ["us-national-debt-crisis", 0, "Japan has maintained gross debt-to-GDP above 200%"],
   ["us-national-debt-crisis", 1, "Nominal interest payments are misleading without context"],
   ["tipping-culture", 0, "The $2.13 figure is real but misleading"],

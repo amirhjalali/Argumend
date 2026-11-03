@@ -24,11 +24,11 @@
   {
     "id": "pfas-forever-chemicals",
     "title": "PFAS \"Forever Chemicals\"",
-    "question": "Are PFAS causing enough harm to justify costly bans and water cleanup?",
+    "question": "Do forever chemicals do enough harm to justify the cost of cleaning up our water?",
     "meta_claim": "PFAS are causing widespread human health harm and warrant aggressive, costly bans and water cleanup",
-    "confidence_score": 68,
-    "balance": 68,
-    "weight": 70,
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -36,12 +36,22 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Do PFAS links to kidney and other cancers hold up in studies that separate cause from effect?",
+    "evidenceCount": 15,
+    "firstCrux": "Do the links between PFAS and kidney cancer and cholesterol hold up once kidney function is accounted for?",
     "tags": [
-      "science"
+      "science",
+      "pfas",
+      "drinking-water",
+      "chemicals",
+      "regulation",
+      "cancer"
     ],
-    "keywords": "pfoa pfos dupont genx antibody chemours corteva atsdr ultrashort biomonitoring fluorochemical hfpo ulcerative colitis pharmacokinetic"
+    "aliases": [
+      "Are PFAS causing enough harm to justify costly bans and water cleanup?",
+      "Are forever chemicals in tap water dangerous?",
+      "Should PFAS be banned?"
+    ],
+    "keywords": "pfoa pfos genx testicular atsdr dupont chemours hfpo pfhxs pfna wilmington rescind corteva perfluorooctanoic antibody"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -107,7 +117,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "lynn bartenders flsa meyers waitstaff danny allegretto ushg waiters waitresses dining customarily goodwill lucrative patrons"
+    "keywords": "lynn bartenders flsa waitstaff danny meyers allegretto ushg waiters waitresses dining customarily goodwill lucrative patrons"
   },
   {
     "id": "ai-therapy-chatbots",
@@ -284,7 +294,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming serial superhuman untenable besiroglu"
+    "keywords": "chinchilla kokotajlos alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann serial untenable looming superhuman besiroglu"
   },
   {
     "id": "jones-act",
@@ -403,7 +413,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire heritage lieutenant schwab votebeat affidavit brennan cantoni pons kansass tribal mail unconfirmed factcheck surprise"
+    "keywords": "hampshire heritage lieutenant schwab votebeat affidavit brennan cantoni pons kansass tribal mail factcheck surprise unconfirmed"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -822,7 +832,7 @@
       "Does universal basic income work?",
       "UBI"
     ],
-    "keywords": "roosevelt marinescu openresearch wives alaskas denver penn wharton manitoba mincome stockton tanf unemployed banerjee bartik"
+    "keywords": "roosevelt marinescu openresearch wives denver penn wharton manitoba mincome stockton tanf unemployed banerjee bartik duncan"
   },
   {
     "id": "wealth-tax",
@@ -1197,7 +1207,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero tooth reformulation carious dommarco ounce popkin earmarked scarborough caries satiety sugary andreyeva brownell devote"
+    "keywords": "colchero tooth reformulation carious dommarco popkin earmarked ounce scarborough caries satiety sugary andreyeva brownell devote"
   },
   {
     "id": "social-media-age-limits",
@@ -1412,7 +1422,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "taste chicken humbird aleph markus rolland steak bioengineering nahmias tastier batch burger reassess dutch bioreactors"
+    "keywords": "taste chicken humbird aleph markus rolland steak bioengineering nahmias tastier batch burger bioreactors bryant e0231176"
   },
   {
     "id": "ai-in-education",
@@ -1488,7 +1498,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "gdpr technocratic crispr moores sadness dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel"
+    "keywords": "gdpr gasoline technocratic crispr moores sadness dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman"
   },
   {
     "id": "ai-superintelligence-timeline",
@@ -1515,7 +1525,7 @@
       "Is AGI coming soon?",
       "When will AI be smarter than humans?"
     ],
-    "keywords": "astra lecun amodei fable sooner bricken dziri harness shazeer chollet decoder hoffmann predecessor opus coder"
+    "keywords": "astra lecun amodei fable sooner bricken dziri harness shazeer chollet decoder hoffmann opus predecessor coder"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1662,7 +1672,7 @@
       "Are EVs clearly greener than gas cars once mining is counted?",
       "Are electric vehicles still better for the environment once lithium mining is counted?"
     ],
-    "keywords": "cobalt nickel poland icct congo amnesty argonne ember factcheck indonesias redwood volvo halmahera payback phosphate"
+    "keywords": "cobalt nickel poland icct gasoline congo amnesty argonne ember factcheck indonesias redwood volvo halmahera payback"
   },
   {
     "id": "factory-farming-ban",
@@ -1707,7 +1717,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "metabolite antioxidant chamacos organophosphate milk prenatal pufa bara bahlai cadmium guelph hyland newcastle oates rednicka"
+    "keywords": "metabolite prenatal antioxidant chamacos organophosphate milk pufa bara bahlai cadmium guelph hyland newcastle oates rednicka"
   },
   {
     "id": "gene-editing-embryos",
@@ -1751,7 +1761,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "asteroid dart debris spinoff spacex spin planetary landsat modis mars collisions fy2024 irreplaceable mckinsey perseverance"
+    "keywords": "asteroid dart debris spinoff spacex planetary spin landsat modis mars collisions deflection fy2024 irreplaceable mckinsey"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1910,16 +1920,16 @@
       "Should minors receive gender-affirming care?",
       "Are puberty blockers safe for children?"
     ],
-    "keywords": "nonbinary trevor tavistock cass plastic appleby dutch regret skrmetti finnish mcmaster psychotherapy bustos congruence ruuska"
+    "keywords": "bone nonbinary trevor tavistock cass plastic appleby regret skrmetti finnish mcmaster psychotherapy bustos congruence ruuska"
   },
   {
     "id": "microplastics-health-crisis",
-    "title": "The Microplastics Health Crisis",
-    "question": "Are microplastics in our bodies a health crisis on the scale of lead?",
+    "title": "Microplastics in Our Bodies",
+    "question": "Are the microplastics in our bodies making us sick?",
     "meta_claim": "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public health crisis comparable to lead exposure, not merely an environmental nuisance.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 72,
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1927,12 +1937,22 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Do microplastics in arteries drive heart disease, or are they bystanders in already-diseased tissue?",
+    "evidenceCount": 11,
+    "firstCrux": "Do reported plastic levels in human blood, placentas and brains hold up under blank controls and a second method?",
     "tags": [
-      "science"
+      "science",
+      "microplastics",
+      "plastics",
+      "environmental-health",
+      "cardiovascular",
+      "chemicals"
     ],
-    "keywords": "plastic recycling phthalate polyethylene sperm tons polymers micrometers micrograms testicular rats arterial butyl interleukin plaque"
+    "aliases": [
+      "Are microplastics in our bodies a health crisis on the scale of lead?",
+      "Is there a spoonful of plastic in my brain?",
+      "Do microplastics cause heart attacks?"
+    ],
+    "keywords": "polyethylene recycled pyrolysis micrograms phthalate landfills plaque rauert frontline artery chromatography malforms millilitre nano dementia"
   },
   {
     "id": "glp1-weight-loss-drugs",
@@ -1958,12 +1978,12 @@
   },
   {
     "id": "fluoride-water-supplies",
-    "title": "Fluoride in Water Supplies",
-    "question": "Is fluoridating community water safe and effective?",
-    "meta_claim": "Community water fluoridation is a safe and effective public health measure",
-    "confidence_score": 33,
-    "balance": 33,
-    "weight": 72,
+    "title": "Fluoride in Tap Water",
+    "question": "Should towns keep adding fluoride to tap water?",
+    "meta_claim": "Adding fluoride to community water at the US target of 0.7 mg/L is safe and still worth doing.",
+    "confidence_score": 38,
+    "balance": 38,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1971,12 +1991,22 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
+    "evidenceCount": 13,
+    "firstCrux": "In children who already use fluoride toothpaste, does fluoridated water still mean fewer cavities?",
     "tags": [
-      "science"
+      "science",
+      "fluoride",
+      "public-health",
+      "dental-health",
+      "drinking-water",
+      "children"
     ],
-    "keywords": "cavity toothpaste bashash tooth prenatal calgary dmft nhmrc nuffield unreasonable breastfed edmonton fluorosis mildest nuremberg"
+    "aliases": [
+      "Is fluoridating community water safe and effective?",
+      "Does fluoride in water lower children's IQ?",
+      "Why did Utah and Florida ban fluoride?"
+    ],
+    "keywords": "tooth calgary urine toothpaste nuffield caries unreasonable juneau choi edmonton fluorosis mclaren swallowed tablets brigham"
   },
   {
     "id": "seed-oils-health",
@@ -2026,7 +2056,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "supermarket semaglutide kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks endocrinology"
+    "keywords": "supermarket semaglutide kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh elks endocrinology taillie"
   },
   {
     "id": "loneliness-epidemic",
@@ -2107,7 +2137,7 @@
       "Is college worth the debt?",
       "Should I go to college or learn a trade?"
     ],
-    "keywords": "glass deitz abel electrician bootcamps cirr goodman hurwitz plumber vocational leavers arts chandar freopp preston"
+    "keywords": "deitz abel electrician bootcamps cirr goodman hurwitz plumber vocational leavers arts chandar freopp preston underemployed"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2206,7 +2236,7 @@
       "Is cryptocurrency a good investment?",
       "Is Bitcoin just digital tulips?"
     ],
-    "keywords": "coingecko etfs terra luna marketscreener coinmarketcap fantasized glassnode hashrate linh litecoin nakamoto widest forfeited outflow"
+    "keywords": "coingecko etfs terra luna marketscreener coinmarketcap fantasized glassnode hashrate linh litecoin nakamoto forfeited outflow soared"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -2388,7 +2418,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sellers fraser hmrc redfin tourist garcia starter metro airbnb batzer bearish cmas cmhc fhfa jacksonville"
+    "keywords": "sellers fraser hmrc redfin tourist starter garcia metro airbnb batzer bearish cmas cmhc fhfa jacksonville"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2491,7 +2521,7 @@
       "Rent freezes",
       "Should New York freeze the rent?"
     ],
-    "keywords": "kholodilin mcquade qian diamond eviction ahern ambrosius collinson giacoletti luttmer palmer pathak citywide autor glaeser"
+    "keywords": "kholodilin mcquade qian eviction ahern ambrosius collinson giacoletti luttmer palmer pathak citywide autor glaeser hahn"
   },
   {
     "id": "degrowth-economics",
@@ -2601,7 +2631,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa castro julio cbps nonfatal patrol footage superintendent venturella spokesperson sues shooters"
+    "keywords": "celis hennepin scene sosa julio castro cbps nonfatal patrol footage superintendent venturella spokesperson sues shooters"
   },
   {
     "id": "consciousness-ai-systems",
@@ -3006,7 +3036,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam borjas hunkering jews complementarity italians norc reexamining resettlement scandinavian"
+    "keywords": "putnam borjas hunkering jews complementarity italians norc reexamining resettlement"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -3110,7 +3140,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "acip marion nestle prasad makary appointees dairy confirmatory gras toothpaste unqualified mrna asthma aluminum inpatient"
+    "keywords": "acip marion nestle prasad makary dairy confirmatory gras toothpaste unqualified mrna asthma aluminum inpatient cavity"
   },
   {
     "id": "doge-federal-cuts",
@@ -3257,7 +3287,7 @@
       "e-waste",
       "cybersecurity"
     ],
-    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas luyi sheep workshop cyberattack"
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas luyi refrigerators sheep workshop"
   },
   {
     "id": "assisted-dying-euthanasia",
@@ -3455,7 +3485,7 @@
       "glyphosate",
       "biotechnology"
     ],
-    "keywords": "cotton herbicide weeds roundup iarc bollworm sprays bayer benbrook monsanto mper pink pmra qaim halo"
+    "keywords": "cotton herbicide weeds roundup pesticide bollworm sprays subtle bayer benbrook monsanto mper pink pmra qaim"
   },
   {
     "id": "nuclear-fusion-timeline",
@@ -3522,7 +3552,7 @@
       "No jab, no job",
       "Should parents be able to opt out of school vaccines?"
     ],
-    "keywords": "osha reactance amish jacobson compulsory mcmaster waned interdisciplinary passports mahmoud polio justia remand activists arie"
+    "keywords": "osha reactance amish jacobson compulsory mcmaster waned interdisciplinary passports mahmoud polio remand justia activists arie"
   },
   {
     "id": "ssri-antidepressant-efficacy",
@@ -3639,7 +3669,7 @@
       "Government licenses to work in a trade",
       "Licenses for hair braiding and beauty salons"
     ],
-    "keywords": "midwifery dept kleiner dentist soltas barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher"
+    "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher"
   },
   {
     "id": "encryption-backdoors",
@@ -3893,12 +3923,12 @@
   },
   {
     "id": "alcohol-no-safe-level",
-    "title": "Alcohol's Safe Level",
-    "question": "Is any amount of drinking harmful to health?",
+    "title": "Alcohol: Is Any Amount Safe?",
+    "question": "Is even one drink a day bad for your health?",
     "meta_claim": "There is no safe level of alcohol consumption for health.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 77,
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3906,8 +3936,8 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Does cancer risk rise from the first drink, or could a small threshold hide below what studies can detect?",
+    "evidenceCount": 13,
+    "firstCrux": "Does cancer risk rise from the first daily drink, or only above some small amount?",
     "tags": [
       "science",
       "alcohol",
@@ -3917,10 +3947,12 @@
       "epidemiology"
     ],
     "aliases": [
+      "Is any amount of drinking harmful to health?",
       "Is a glass of red wine a day good for your heart?",
-      "Is moderate drinking good for you?"
+      "Is moderate drinking good for you?",
+      "Is there a safe level of alcohol?"
     ],
-    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted mendelian carcinoma chikritzhs colorectal ionizing laryngeal naimi oesophageal pharynx"
+    "keywords": "drinkers stockwell minimises bagnardi fillmore kassaw larynx naimi bowel continuum carcinoma chikritzhs colorectal dyae046 hypp"
   },
   {
     "id": "modern-monetary-theory",
