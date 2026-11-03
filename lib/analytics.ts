@@ -132,6 +132,7 @@ function config(): AnalyticsConfig | null {
 export function setAnalyticsConfigForTesting(next: AnalyticsConfig | null | undefined) {
   configOverride = next;
   queue.length = 0;
+  lastPageViewPath = null;
 }
 
 export function analyticsEnabled(): boolean {
@@ -223,15 +224,22 @@ export function trackEvent(event: AnalyticsEvent) {
   });
 }
 
+let lastPageViewPath: string | null = null;
+
 /**
  * A client-side navigation. GA needs one sent by hand (its config sets
  * send_page_view: false); Plausible and Umami count navigations themselves.
  */
 export function trackPageView(pathname: string, search: string) {
   if (typeof window === "undefined" || config()?.provider !== "ga") return;
+  const path = sanitizeAnalyticsPath(pathname, search);
+  // The library and /questions rewrite ?q= on every keystroke. With the query
+  // stripped, that is the same page again, not a new view.
+  if (path === lastPageViewPath) return;
+  lastPageViewPath = path;
   send({
     kind: "page_view",
-    path: sanitizeAnalyticsPath(pathname, search),
+    path,
     href: sanitizeAnalyticsUrl(window.location.href),
     referrer: cleanReferrer(),
   });

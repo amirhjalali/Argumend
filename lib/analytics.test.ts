@@ -87,6 +87,21 @@ describe("with Google Analytics", () => {
     expect(params.page_path).toBe("/topics?category=politics");
     expect(JSON.stringify(params)).not.toContain("voted");
   });
+
+  it("counts one page view while a search box rewrites ?q= on each keystroke", () => {
+    const gtag = vi.fn();
+    window.gtag = gtag;
+    for (const q of ["", "q=n", "q=nu", "q=nuclear"]) trackPageView("/topics", q);
+    trackPageView("/topics", "page=2");
+    trackPageView("/topics/a", "");
+    trackPageView("/topics", "");
+    expect(gtag.mock.calls.map((call) => call[2].page_path)).toEqual([
+      "/topics",
+      "/topics?page=2",
+      "/topics/a",
+      "/topics",
+    ]);
+  });
 });
 
 describe("with a cookieless provider", () => {

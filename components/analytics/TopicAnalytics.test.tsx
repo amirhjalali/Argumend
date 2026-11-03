@@ -148,6 +148,27 @@ describe("TopicAnalytics", () => {
     expect(depths).toEqual([25, 50, 75, 100]);
   });
 
+  it("counts the first crux once when a jump scrolls straight past it", async () => {
+    const frames: FrameRequestCallback[] = [];
+    vi.stubGlobal("requestAnimationFrame", (fn: FrameRequestCallback) => frames.push(fn));
+    vi.stubGlobal("cancelAnimationFrame", () => {});
+    Object.defineProperty(window, "innerHeight", { configurable: true, value: 800 });
+    const { container } = await renderLegacy();
+    const first = container.querySelector(`${CRUX_SHEET_SELECTOR} > li`)!;
+    let top = 1200; // below the fold
+    first.getBoundingClientRect = () => ({ top, bottom: top + 300 }) as DOMRect;
+    const scroll = () => {
+      window.dispatchEvent(new Event("scroll"));
+      for (const frame of frames.splice(0)) frame(0);
+    };
+    scroll();
+    expect(events().some(([name]) => name === "first_crux_seen")).toBe(false);
+    top = -2000; // an anchor link or a fling carried the page past it
+    scroll();
+    scroll();
+    expect(events().filter(([name]) => name === "first_crux_seen")).toHaveLength(1);
+  });
+
   it("attaches nothing and sends nothing when analytics is off", async () => {
     setAnalyticsConfigForTesting(null);
     const add = vi.spyOn(document, "addEventListener");

@@ -14,7 +14,7 @@
  *
  * Events, once per page view each (lib/analytics.ts has the types):
  *   topic_view       on mount
- *   first_crux_seen  half of the first crux entered the viewport
+ *   first_crux_seen  the first crux reached the top three quarters of the viewport
  *   crux_open        a crux opened (per crux)
  *   evidence_expand  a crux's evidence opened (per crux)
  *   scroll_depth     25 / 50 / 75 / 100 % of the page scrolled past
@@ -33,6 +33,8 @@ export const CRUX_SHEET_SELECTOR = "[data-crux-sheet]";
 export const EVIDENCE_ATTRIBUTE = "data-evidence";
 
 const MILESTONES: readonly ScrollMilestone[] = [25, 50, 75, 100];
+/** The viewport minus its bottom quarter: a crux peeking in at the very bottom is not yet "seen". */
+const CRUX_ROOT_MARGIN = "0px 0px -25% 0px";
 
 /** Which crux (1-based) and which disclosure a toggled <details> is, if any. */
 export function classifyDisclosure(
@@ -62,19 +64,28 @@ export function TopicAnalytics({ topicId, topicKind }: { topicId: string; topicK
     trackEvent({ action: "topic_view", topicId, topicKind });
     const cleanups: Array<() => void> = [];
 
-    // First crux in view.
+    // First crux in view: any part of it inside the top three quarters of the
+    // viewport. Not a share of the element: an opened crux is taller than two
+    // screens, so "half of it visible" can never happen. A jump that skips
+    // past it (a fling, an anchor link) is caught by the scroll check below.
     const first = document.querySelector(CRUX_SHEET_SELECTOR)?.querySelector(":scope > li");
+    let cruxSeen = !first;
+    let observer: IntersectionObserver | null = null;
+    const seeCrux = () => {
+      if (cruxSeen) return;
+      cruxSeen = true;
+      observer?.disconnect();
+      trackEvent({ action: "first_crux_seen", topicId });
+    };
     if (first && typeof IntersectionObserver === "function") {
-      const observer = new IntersectionObserver(
+      observer = new IntersectionObserver(
         (entries) => {
-          if (!entries.some((entry) => entry.isIntersecting)) return;
-          observer.disconnect();
-          trackEvent({ action: "first_crux_seen", topicId });
+          if (entries.some((entry) => entry.isIntersecting)) seeCrux();
         },
-        { threshold: 0.5 },
+        { threshold: 0, rootMargin: CRUX_ROOT_MARGIN },
       );
       observer.observe(first);
-      cleanups.push(() => observer.disconnect());
+      cleanups.push(() => observer?.disconnect());
     }
 
     // Crux and evidence disclosures. `toggle` does not bubble, so listen in
@@ -98,6 +109,7 @@ export function TopicAnalytics({ topicId, topicKind }: { topicId: string; topicK
     let frame = 0;
     const measure = () => {
       frame = 0;
+      if (!cruxSeen && first && first.getBoundingClientRect().top < window.innerHeight * 0.75) seeCrux();
       const percent = scrolledPercent();
       for (const milestone of MILESTONES) {
         // 100 allows for sub-pixel rounding at the very bottom.
@@ -107,7 +119,7 @@ export function TopicAnalytics({ topicId, topicKind }: { topicId: string; topicK
           trackEvent({ action: "scroll_depth", topicId, percent: milestone });
         }
       }
-      if (reached.size === MILESTONES.length) window.removeEventListener("scroll", onScroll);
+      if (cruxSeen && reached.size === MILESTONES.length) window.removeEventListener("scroll", onScroll);
     };
     const onScroll = () => {
       if (!frame) frame = window.requestAnimationFrame(measure);

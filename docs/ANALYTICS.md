@@ -64,7 +64,7 @@ timers.
 | --- | --- | --- | --- |
 | `page_view` (GA only) | `page_path`, `page_location`, `page_referrer`, each with the query reduced to allow-listed parameters | `components/GAPageView.tsx` | Every client-side navigation, including the landing page. Plausible and Umami count page views themselves. |
 | `topic_view` | `topicId`, `topicKind` (`flagship` / `legacy`) | `components/analytics/TopicAnalytics.tsx`, mounted by `app/topics/[id]/page.tsx` | A map page mounts |
-| `first_crux_seen` | `topicId` | same | Half of the first crux entry enters the viewport (IntersectionObserver). Once per page view. |
+| `first_crux_seen` | `topicId` | same | Any part of the first crux enters the top three quarters of the viewport (IntersectionObserver), or a scroll carries the page past it. Once per page view. Not a share of the element: an opened crux can be taller than two screens. |
 | `crux_open` | `topicId`, `cruxIndex` (1-based) | same | A crux's disclosure opens. Once per crux per page view. This includes a crux opened by a `#crux` link. |
 | `evidence_expand` | `topicId`, `cruxIndex` | same | A crux's "evidence on each side" disclosure (`details[data-evidence]`) opens. Once per crux per page view. |
 | `scroll_depth` | `topicId`, `percent` (25 / 50 / 75 / 100) | same | The bottom of the viewport passes that share of the document. Measured on scroll only, so landing on a page is not counted as reading it. |
