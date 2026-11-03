@@ -192,7 +192,7 @@ If you are in an argument right now, [paste it in](/analyze): the paste tool doe
     slug: "did-covid-come-from-a-lab",
     title: "Did COVID Come From a Lab? Why the Honest Answer Is 'We Can't Tell'",
     description:
-      "Five years on, COVID's origin is still unresolved — and the reason isn't a missing experiment. It's missing data. Here's what each side's strongest evidence actually is, and what would settle it.",
+      "More than six years on, COVID's origin is still unresolved — and the reason isn't a missing experiment. It's missing data. Here's what each side's strongest evidence actually is, and what would settle it.",
     author: "Argumend Team",
     publishedAt: "2026-06-22T21:00:00Z",
     readingTime: "8 min read",
@@ -204,7 +204,9 @@ If you are in an argument right now, [paste it in](/analyze): the paste tool doe
       "uncertainty",
     ],
     category: "Science",
-    content: `## The most politicized scientific question of the decade
+    content: `**Update, 3 November 2026.** Two details below have been corrected against the [COVID origins map](/topics/lab-leak-theory): three US agencies, not two, lean toward a lab accident (the CIA joined the FBI and the Department of Energy in January 2025), and the 2023 declassified intelligence report found no indication that the Wuhan researchers who fell ill in autumn 2019 were hospitalised with COVID-like symptoms. Since this was written, the director of national intelligence released 391 pages of documents in June 2026; an analysis in Lawfare found they contain no intelligence assessment concluding that US-funded research started the pandemic. The structure of the argument is unchanged: no infected market animal and no progenitor virus in the lab has been found, and the records China withholds are still withheld.
+
+## The most politicized scientific question of the decade
 
 Few questions have been dragged through the culture war as thoroughly as where SARS-CoV-2 came from. Depending on which feed you read, the lab-leak hypothesis is either obvious common sense or debunked conspiracy. Both framings are wrong, and the reason they're wrong is the most important — and least satisfying — fact about the whole debate: **the honest answer is that we don't know, and we may never, because the decisive evidence has been withheld.**
 
@@ -221,7 +223,7 @@ This is why both the lab-leak and natural-origin cases rest on *circumstantial* 
 The mainstream scientific position leans toward zoonotic spillover — a virus jumping from animals to humans, as SARS did in 2002 and as most novel coronaviruses do. The strongest points:
 
 - **Expert assessment leans this way.** A 2024 survey of 168 virologists and epidemiologists put zoonosis at roughly 77% likely versus about 21% for a lab leak. After a multi-year review, the WHO's SAGO panel concluded in 2025 that the weight of available evidence favors zoonosis.
-- **The early cases cluster on the market.** Spatial analyses of the earliest known COVID-19 cases center on the Huanan Seafood Market, where live wildlife was sold — not on the WIV campus 30 km away. Raccoon-dog and other susceptible-animal DNA was found co-located with viral RNA in market stalls.
+- **The early cases cluster on the market.** Spatial analyses of the earliest known COVID-19 cases center on the Huanan Seafood Market, where live wildlife was sold — not on the WIV campus. Raccoon-dog and other susceptible-animal DNA was found co-located with viral RNA in market stalls.
 - **It fits the base rate.** Natural spillover is simply how most of these viruses have emerged historically.
 
 ## The strongest case for a lab leak
@@ -229,8 +231,8 @@ The mainstream scientific position leans toward zoonotic spillover — a virus j
 The lab-leak hypothesis is not a fringe position — it's taken seriously by several US intelligence agencies and many scientists. Its strongest points are circumstantial but real:
 
 - **The geographic coincidence.** The outbreak began in the one city housing the world's leading bat-coronavirus lab, which held the closest known relatives of SARS-CoV-2 and conducted gain-of-function research, rather than in the rural regions where those bat viruses are found.
-- **Specific anomalies.** The database going offline in 2019; reports of WIV researchers hospitalized with COVID-like symptoms in late 2019; and a 2018 EcoHealth/WIV grant proposal (DEFUSE) that explicitly proposed inserting furin cleavage sites into bat coronaviruses — the very feature that makes SARS-CoV-2 unusually infectious.
-- **The intelligence split.** The FBI and Department of Energy lean lab-leak (at "low confidence"); China's sustained obstruction is itself, proponents argue, telling.
+- **Specific anomalies.** The database going offline in September 2019; a 2021 State Department statement that three WIV researchers sought hospital care in November 2019 with symptoms consistent with COVID-19 or a seasonal illness (the declassified 2023 intelligence report found no indication any were hospitalised for COVID-like symptoms, and says the illnesses neither support nor refute either origin); and a 2018 EcoHealth/WIV grant proposal (DEFUSE) that explicitly proposed inserting furin cleavage sites into bat coronaviruses — the very feature that makes SARS-CoV-2 unusually infectious. DARPA declined to fund it; no one has shown whether the work was done another way.
+- **The intelligence split.** The CIA, FBI and Department of Energy lean lab-leak, the CIA and the Energy Department at "low confidence" and the FBI at "moderate confidence"; four other agencies lean the other way or are undecided. China's sustained obstruction is itself, proponents argue, telling.
 
 ## What would actually change minds
 
