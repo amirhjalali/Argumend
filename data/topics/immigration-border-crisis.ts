@@ -70,7 +70,7 @@ export const immigrationBorderCrisisData = {
           id: "encounters-drop-post-restrictions",
           title: "Encounters Dropped Sharply After Asylum Restrictions in 2023-2025",
           description:
-            "Following the Biden administration's asylum transit ban (June 2023) and the June 2024 'Securing the Border' rule, encounters at the southwest border dropped significantly. Under the Trump administration's reinstated Remain in Mexico policy, expanded expedited removal, and shutdown of the CBP One app in early 2025, monthly Border Patrol apprehensions between ports of entry fell below 10,000 by February 2025 — the lowest monthly totals in over 25 years of available data and an extraordinary decline from the FY2023 peaks (when monthly encounters exceeded 200,000). Proponents cite this as proof that enforcement and policy restrictions deter crossings.",
+            "Following the Biden administration's asylum transit ban (June 2023) and the June 2024 'Securing the Border' rule, encounters at the southwest border dropped significantly. Under the Trump administration's reinstated Remain in Mexico policy, expanded expedited removal, and shutdown of the CBP One app in early 2025, Border Patrol apprehended 8,347 people between ports of entry at the southwest border in February 2025, down 94% from 140,641 in February 2024, and CBP called the roughly 330 daily apprehensions nationwide 'the lowest nationwide average apprehensions in CBP history' — an extraordinary decline from the FY2023 peaks (when monthly encounters exceeded 200,000). Proponents cite this as proof that enforcement and policy restrictions deter crossings.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -78,8 +78,8 @@ export const immigrationBorderCrisisData = {
             replicability: 8,
             directness: 7,
           },
-          source: "CBP; Reuters; Migration Policy Institute",
-          sourceUrl: "https://www.migrationpolicy.org/programs/us-immigration-policy-program",
+          source: "CBP, 'CBP releases February 2025 monthly update'; House Homeland Security Committee Border Brief (14 Mar 2025) for the February 2024 comparison",
+          sourceUrl: "https://www.cbp.gov/newsroom/national-media-release/cbp-releases-february-2025-monthly-update",
           reasoning:
             "The temporal correlation between restrictive policies and declining encounters is strong. However, Mexico simultaneously increased its own enforcement under US diplomatic pressure, and economic conditions shifted in key origin countries. Attributing the decline solely to US enforcement overstates the causal claim.",
         },
