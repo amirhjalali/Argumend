@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric montreal tragedy subsistence folk malthus nash fisheries leviathan"
+    "keywords": "singleton ostrom malthusian fisheries axelrod hanson hardin polycentric montreal tragedy subsistence folk malthus nash eddy"
   },
   {
     "id": "ai-2027",
@@ -622,9 +622,9 @@
     "title": "Drug Decriminalization",
     "question": "Does decriminalizing drug use, with treatment, improve public health?",
     "meta_claim": "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
-    "confidence_score": 58,
-    "balance": 58,
-    "weight": 69,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -637,7 +637,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "overdose portugal recidivism emcdda spencer incarceration fentanyl nida zoorob hotline marijuana provisional vera ticketed toronto"
+    "keywords": "overdose cannabis portugal emcdda incarceration recidivism spencer karolinska decriminalisation fentanyl gabri galanti mackenzie magnusson marlowe"
   },
   {
     "id": "death-penalty-deterrence",
@@ -2080,7 +2080,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs poliovirus polio afghanistan disappointing opensecrets pakistan super theirs"
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs poliovirus polio afghanistan disappointing opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
