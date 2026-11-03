@@ -4,9 +4,9 @@ export const centralBankDigitalCurrencyData = {
   id: "central-bank-digital-currency",
   title: "Central Bank Digital Currencies: Digital Cash or Surveillance Tool?",
   question:
-    "Would a digital dollar or digital euro let governments watch and control how people spend?",
+    "Is a digital dollar or digital euro a surveillance tool, or digital cash worth having?",
   meta_claim:
-    "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
+    "Central bank digital currencies are a threat rather than a needed tool: at home they would let governments watch and program how citizens spend, abroad China's digital yuan is a lever against the dollar, and they offer little that mobile money and private digital payments do not already provide.",
   status: "contested" as const,
   category: "economics" as const,
   // As of 3 November 2026: the US bars federal agencies from promoting a CBDC
@@ -30,9 +30,11 @@ export const centralBankDigitalCurrencyData = {
   },
   simple_case: [
     "The answer bears on what a government could see of everyday spending, on whether Europeans get a public alternative to card networks and dollar stablecoins, and on whether China's digital yuan loosens the dollar's grip on trade.",
+    "Both sides accept that today's payments are already watched and that a CBDC's privacy depends on how it is built. They split over whether any design can stay private under political pressure, and whether public digital money offers anything private money does not.",
   ],
   aliases: [
     "Would central bank digital currencies enable unprecedented surveillance?",
+    "Would a digital dollar or digital euro let governments watch and control how people spend?",
     "Should central banks issue digital currency?",
     "Is a digital dollar a good idea?",
     "Is the digital euro a surveillance tool?",
@@ -74,7 +76,7 @@ export const centralBankDigitalCurrencyData = {
       id: "q1",
       title: "Could a CBDC let a government freeze or restrict people's money?",
       content:
-        "Money issued by a central bank as code could, in principle, expire, be limited to certain shops or be frozen. China has tested digital-yuan stimulus that expires and can be spent only in set districts. Canada froze over 200 accounts during the 2022 convoy protests through ordinary banks. The ECB says a digital euro would have cash-like privacy for small offline payments. Is the risk built into the technology, or a choice each design can refuse?",
+        "Money issued by a central bank as code could, in principle, expire, be limited to certain shops or be frozen. China has tested digital-yuan stimulus that expires and can be spent only in set districts. Canada froze about 280 financial products during the 2022 convoy protests through ordinary banks, without court orders. The ECB says a digital euro would have cash-like privacy for small offline payments. Is the risk built into the technology, or a choice each design can refuse?",
     },
     {
       id: "q2",
@@ -108,7 +110,7 @@ export const centralBankDigitalCurrencyData = {
       skeptic_premise:
         "The surveillance fears confuse what a CBDC could be with what democracies are building. Designs run from cash-like to fully traced, and the leading one protects privacy by design: the ECB's digital euro would offer offline payments where only payer and payee know the details, minimal identity checks for small amounts, and no way for the ECB to link payments to named people. The European Parliament's economic committee voted 43–14 in June 2026 to negotiate a digital euro that complements cash for online and offline payments. Where voters feared a CBDC, they stopped it: the US barred federal work on one in January 2025. And today's money is already watched. Banks report large and suspicious transactions to governments, card networks log every purchase, and Canada froze protesters' accounts in 2022 through ordinary banks with no CBDC at all. A well-designed CBDC moves who holds the data; it does not create surveillance that does not already exist.",
       proponent_rebuttal:
-        "Today's system lets a government investigate you after the fact, with legal process and a bank in the middle. A CBDC lets it write rules into the money itself, ahead of time, with no one in between. China has already done it: digital-yuan stimulus with expiry dates to force spending, and money usable only in set districts or for approved categories. Canada's 2022 freeze of more than 200 accounts, under emergency powers and without court orders, shows how fast a democracy reaches for the tool in a crisis; a CBDC would make such freezes instant and precise. The ECB's own design stops short of anonymity even offline, citing money-laundering rules, and its online payments would be about as private as a card. A privacy promise written into law can be rewritten after a terrorist attack or a pandemic. The only protection that lasts is a system where watching is technically impossible, and no central bank has deployed one.",
+        "Today's system lets a government investigate you after the fact, with legal process and a bank in the middle. A CBDC lets it write rules into the money itself, ahead of time, with no one in between. China has already done it: digital-yuan stimulus with expiry dates to force spending, and money usable only in set districts or for approved categories. Canada's 2022 freeze of about 280 financial products, under emergency powers and without court orders, shows how fast a democracy reaches for the tool in a crisis; a CBDC would make such freezes instant and precise. The ECB's own design stops short of anonymity even offline, citing money-laundering rules, and its online payments would be about as private as a card. A privacy promise written into law can be rewritten after a terrorist attack or a pandemic. The only protection that lasts is a system where watching is technically impossible, and no central bank has deployed one.",
       crux: {
         id: "privacy-architecture-test",
         title: "The Architectural Privacy Assessment",
@@ -152,7 +154,7 @@ export const centralBankDigitalCurrencyData = {
           source: "Atlantic Council, Central Bank Digital Currency Tracker (updated May 2026); People's Bank of China pilot reports",
           sourceUrl: "https://www.atlanticcouncil.org/cbdctracker/",
           reasoning:
-            "The one large CBDC in use has done what critics fear, so directness is high. Independence is 6 because much of what is known comes from Chinese official sources, and China is an authoritarian state whose choices say less about what a democracy's CBDC would do.",
+            "The one large CBDC in use has done what opponents fear, so directness is high. Independence is 6 because much of what is known comes from Chinese official sources, and China is an authoritarian state whose choices say less about what a democracy's CBDC would do.",
         },
         {
           id: "ecb-digital-euro-privacy",
@@ -191,20 +193,20 @@ export const centralBankDigitalCurrencyData = {
         },
         {
           id: "canada-trucker-convoy-financial-freeze",
-          title: "Canada froze more than 200 accounts linked to the 2022 convoy protests without court orders",
+          title: "Canada froze about 280 financial products worth about $8 million in the 2022 convoy protests, without court orders",
           description:
-            "During the 2022 Freedom Convoy protests, Canada invoked the Emergencies Act and directed banks to freeze the accounts of people linked to the protests without court orders. More than 200 financial products were frozen. This went through the existing banking system, not a CBDC.",
+            "During the 2022 Freedom Convoy protests Canada invoked the Emergencies Act, and its Emergency Economic Measures Order let banks and other providers freeze protesters' funds 'without the need for a court order'. Deputy Prime Minister Chrystia Freeland told Parliament on 14 June 2022 that the measures led to 'the freezing of approximately 280 financial products' as of 21 February, 'for a total of approximately $8,000,000, including $3,800,000 from a payment processor.' This went through the existing banking system, not a CBDC.",
           side: "for" as const,
           weight: {
-            sourceReliability: 8,
-            independence: 8,
+            sourceReliability: 9,
+            independence: 6,
             replicability: 8,
             directness: 5,
           },
-          source: "Reuters (21 February 2022); Government of Canada",
-          sourceUrl: "https://www.reuters.com/world/americas/canada-freeze-more-than-200-financial-products-linked-protests-2022-02-21/",
+          source: "Department of Finance Canada, remarks by the Deputy Prime Minister and Minister of Finance (14 June 2022)",
+          sourceUrl: "https://www.canada.ca/en/department-finance/news/2022/06/remarks-by-the-deputy-prime-minister-and-minister-of-finance.html",
           reasoning:
-            "Shows a democracy will use control over money against protesters in a crisis. Directness is 5 because it happened without a CBDC, which cuts both ways: it shows the danger, and that today's system already allows it.",
+            "The government's own account of a democracy freezing protesters' money without a judge. Independence is 6 because it is the government describing its own action, and directness is 5 because it happened without a CBDC, which cuts both ways: it shows the danger, and that today's system already allows it.",
         },
       ],
     },
@@ -219,7 +221,7 @@ export const centralBankDigitalCurrencyData = {
         "About 1.4 billion adults have no bank account. Supporters of CBDCs say a central bank wallet on a basic phone could reach them and cut remittance fees. But Kenya's M-Pesa and India's UPI brought hundreds of millions into digital payments without a CBDC, Nigeria's eNaira reached fewer than 1% of Nigerians, and only three countries have fully launched a retail CBDC.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "CBDCs could matter most to the 1.4 billion adults with no bank account. A central bank wallet on a basic phone needs no branch, no credit history and no minimum balance, and it is public money that cannot fail the way a private provider can. The Bahamas launched its SandDollar in October 2020 after banks closed branches on the outer islands, with a basic wallet that needs no identity documents at all, the barrier that keeps many poor people out of banking. The World Bank puts the average cost of sending a remittance at about 6%, and direct links between CBDCs could cut that sharply. When US COVID-19 relief went out in 2020, payments took weeks and millions of unbanked people waited longest or never got them; a public wallet could reach everyone in seconds.",
+        "CBDCs could matter most to the 1.4 billion adults with no bank account. A central bank wallet on a basic phone needs no branch, no credit history and no minimum balance, and it is public money that cannot fail the way a private provider can. The Bahamas launched its SandDollar in October 2020 after banks closed branches on the outer islands, with a basic wallet that needs no identity documents at all, the barrier that keeps many poor people out of banking. The World Bank puts the average cost of sending a remittance at about 6%, and direct links between CBDCs could improve on that sharply. When US COVID-19 relief went out in 2020, payments took weeks and millions of unbanked people waited longest or never got them; a public wallet could reach everyone in seconds.",
       proponent_rebuttal:
         "The inclusion case for CBDCs is a solution looking for a problem. Kenya's M-Pesa runs on text messages from basic phones, and by 2016 'almost every single household in Kenya' used it; a study in Science (Suri and Jack, 2016) found that among households living on under $1.25 a day, nearly one in ten got enough of a boost to escape extreme poverty. India's UPI handles billions of payments a month through private apps on public rails. Neither needed a CBDC. Where CBDCs were launched for inclusion, people stayed away: Nigeria's eNaira was used by fewer than 1% of Nigerians by 2023 despite cash-withdrawal limits meant to push people onto it, and the SandDollar was less than 1% of Bahamian currency in circulation by 2023. Of 146 countries exploring a CBDC, only three have fully launched one. People are unbanked because of poverty, missing ID and distrust, and a central bank wallet fixes none of those while adding a state ledger of spending.",
       crux: {
