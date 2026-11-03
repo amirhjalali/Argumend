@@ -11,8 +11,8 @@
  *   sources for this study, so the texts paraphrase.
  * - No winner. Neither text tells the reader which side is right.
  * - Length matched to what arm (a) shows before anything is expanded: within
- *   ±15% of the visible word count of the topic page (ARM_A_VISIBLE_WORDS,
- *   measured on 3 Nov 2026 with Playwright inside /study).
+ *   ±15% of the visible word count of the topic page (ARM_A_VISIBLE_WORDS;
+ *   how each was measured is noted there).
  * - chatbot: written the way a capable general chatbot answers "give me both
  *   sides of X": a framing line, bolded pro and con bullets, "key points of
  *   contention", a hedged bottom line and an offer to go deeper.
@@ -51,16 +51,25 @@ export interface ArticleStimulus {
 }
 
 /**
- * Visible words of arm (a) as the study renders it (the topic page without
- * its "Keep exploring" links), every fold closed, 3 Nov 2026: the innerText
- * of `[data-study-stimulus=map] article`, split on whitespace. It includes
- * the page's labels and its repeated crux questions, so it overstates what
- * there is to read a little. Re-measure if a map's page changes before the
- * study runs.
+ * Visible words of arm (a), every fold closed: the page as /study renders it
+ * (the topic page without its "Keep exploring" links).
+ *
+ * - gun-control-effectiveness, immigration-border-crisis: re-measured 3 Nov
+ *   2026 after both maps were rewritten and the r15/design template landed,
+ *   without a browser (no dev server under the light-compute rules): the
+ *   text of a server render of ReadModeView with closed <details> reduced to
+ *   their summaries. That undercounted the Playwright figure by about 8% on
+ *   the old trans page, so treat these as estimates.
+ * - transgender-athletes-sports: still the Playwright count (innerText of
+ *   `[data-study-stimulus=map] article`) from before its rewrite, which is in
+ *   progress; refresh with it.
+ *
+ * All three must be re-measured in a browser on the final map versions at
+ * the freeze (docs/plans/2026-11-03-study-plan.md, "Stimuli").
  */
 export const ARM_A_VISIBLE_WORDS: Record<StudyTopic, number> = {
-  "gun-control-effectiveness": 570,
-  "immigration-border-crisis": 592,
+  "gun-control-effectiveness": 758,
+  "immigration-border-crisis": 690,
   "transgender-athletes-sports": 664,
 };
 
@@ -70,37 +79,44 @@ const h = (text: string): StudyBlock => ({ kind: "heading", text });
 const p = (text: string): StudyBlock => ({ kind: "paragraph", text });
 
 // ---------------------------------------------------------------------------
-// Gun laws
+// Gun laws (rebuilt 3 Nov 2026 against the rewritten map, commit 5c073e6)
 // ---------------------------------------------------------------------------
 
 const gunChatbot: ChatbotStimulus = {
   arm: "chatbot",
   topic: "gun-control-effectiveness",
-  prompt:
-    "Give me both sides of the gun control debate. Do stricter gun laws actually reduce gun violence and mass shootings?",
+  prompt: "Give me both sides of the gun control debate. Do stricter gun laws actually save lives?",
   blocks: [
     p(
-      "This is one of the most polarized questions in American politics, and the research is less settled than either side often suggests. Here's a balanced overview.",
+      "This is one of the most polarized questions in American politics, and the research is more mixed than either side usually admits. Here's a balanced overview.",
     ),
-    h("The case that stricter gun laws reduce violence"),
+    h("The case that stricter gun laws save lives"),
     {
       kind: "list",
       items: [
         {
-          lead: "International comparisons.",
-          text: "The US firearm death rate (homicides, suicides and accidents combined) was about 12.8 per 100,000 in 2024, according to the CDC, or roughly 44,000 deaths. That is an order of magnitude higher than in wealthy democracies such as the UK and Japan, which pair strict laws with some of the lowest firearm death rates in the world.",
+          lead: "The US is an outlier.",
+          text: "The CDC counted 44,447 gun deaths in 2024. Pew, using global estimates for 2023, puts the US gun death rate at 13.2 per 100,000, far above other rich democracies, with about 10,000 more gun deaths than Brazil, the country with the next-highest total.",
+        },
+        {
+          lead: "Suicide and access.",
+          text: "Most US gun deaths are suicides: 27,593 of 44,447 in 2024, a record. Many attempts come during a short crisis, and 90% of people who survive an attempt do not go on to die by suicide. A study following 26.3 million Californians found that men who acquired handguns were eight times as likely as other men to die by gun suicide, with no higher rate of suicide by other methods.",
+        },
+        {
+          lead: "Some laws have strong evidence.",
+          text: "RAND's 2024 review gives its highest rating to child-access (safe-storage) laws for reducing youth gun suicides, and finds moderate evidence that dealer background checks reduce gun homicides. Connecticut's 1995 permit-to-purchase law was associated with a 40% fall in gun homicides over ten years.",
         },
         {
           lead: "Australia.",
-          text: "After Australia's 1996 National Firearms Agreement, which banned semiautomatic rifles and bought back about 650,000 guns, the country went from 13 fatal mass shootings in 1979–1996 to none from 1997 through May 2016. Total firearm deaths fell from an average of 3.6 to 1.2 per 100,000.",
+          text: "After its 1996 buyback of about 650,000 guns, Australia went from 13 fatal mass shootings in 18 years to none for two decades.",
         },
         {
           lead: "Weapon type.",
-          text: "Everytown, a gun-control advocacy group, found that US mass shootings involving assault weapons from 2015 to 2022 averaged 11.5 people killed, against 5.1 for shootings with other guns.",
+          text: "In high-fatality mass shootings from 1990 to 2017, attacks with large-capacity magazines had a 62% higher average death toll. Everytown, a gun-control group, found assault-weapon mass shootings from 2015 to 2022 averaged 11.5 killed, against 5.1 with other guns.",
         },
         {
-          lead: "Targeted laws.",
-          text: "Studies of red flag laws estimated firearm-suicide reductions of about 7.5% in Indiana and 13.7% in Connecticut. Supporters also argue that the objection that criminals ignore laws applies to every law.",
+          lead: "Carry laws.",
+          text: "RAND also gives its highest rating to findings that stand-your-ground laws increase gun homicides and shall-issue carry laws increase total homicides, and one study estimated violent crime 13% to 15% higher ten years after a state adopted right-to-carry.",
         },
       ],
     },
@@ -109,24 +125,32 @@ const gunChatbot: ChatbotStimulus = {
       kind: "list",
       items: [
         {
-          lead: "The US is different.",
-          text: "There are an estimated 393 million civilian guns in the US, about 120 for every 100 residents. New restrictions on sales barely reach that existing stockpile.",
+          lead: "Violence is concentrated.",
+          text: "In 2024 Mississippi's gun death rate was 28.0 per 100,000 and Hawaii's 3.7. The US gun homicide rate (6.2 in 2023) was below more than two dozen countries and territories, many of them with strict laws.",
         },
         {
-          lead: "Most mass shooters buy legally.",
-          text: "In Mother Jones' database of mass shootings since 1982, about 74% of the guns used were obtained legally, so background checks alone would not have stopped most of these attackers.",
+          lead: "The stockpile.",
+          text: "There are about 400 million guns in private hands and no national registry, so new sales laws reach existing guns slowly. And about 74% of mass shooters' guns were obtained legally, so most would pass a background check.",
         },
         {
           lead: "Defensive use.",
-          text: "Guns are also used to defend against crime. Estimates vary enormously: the National Crime Victimization Survey suggests roughly 60,000–120,000 defensive uses a year, while some surveys put the number in the millions.",
+          text: "A 2021 survey of 16,708 gun owners estimated about 1.67 million defensive uses a year, most without a shot fired. Government crime surveys find far fewer, roughly 60,000 to 120,000.",
         },
         {
           lead: "Substitution.",
-          text: "Determined attackers may turn to other weapons, such as vehicles or bombs.",
+          text: "Criminologist Gary Kleck's 2019 review concluded that gun prevalence affects gun suicides but not total suicides.",
         },
         {
-          lead: "Comparisons can mislead.",
-          text: "Switzerland has high gun ownership and comparatively low violence, and US violence is concentrated in specific areas.",
+          lead: "Contested studies.",
+          text: "Critics note that the Connecticut study's comparison group was 72% Rhode Island, and that similar drops happened in most other states.",
+        },
+        {
+          lead: "Weak evidence for headline laws.",
+          text: "RAND rates the evidence on assault-weapon bans, licensing and most other measures as inconclusive, and a Justice Department-funded evaluation of the 1994 ban concluded that its effects, if renewed, were likely to be small.",
+        },
+        {
+          lead: "Murder is falling anyway.",
+          text: "Big-city homicide fell 21% in 2025 and another 18% in the first half of 2026, with no new federal gun restriction.",
         },
       ],
     },
@@ -136,123 +160,144 @@ const gunChatbot: ChatbotStimulus = {
       items: [
         {
           lead: "Causation.",
-          text: "Even the Australian study's authors say they can't prove the law caused the decline, since deaths not involving guns also fell. How much of the US rate comes from guns and gun laws rather than other factors, like drug markets, concentrated violence and mental health, is the core empirical dispute.",
+          text: "Even the Australian study's authors say they can't prove the law caused the decline, since deaths by other means fell too. How much of the US rate comes from gun availability and laws, rather than concentrated violence, despair and drug markets, is the core dispute.",
         },
         {
-          lead: "Which laws.",
-          text: "RAND's review of the research found that for most gun laws the rigorous evidence is limited or inconclusive. Its strongest findings are that safe-storage laws reduce youth firearm deaths and that stand-your-ground laws are linked to more homicides.",
+          lead: "Suicide.",
+          text: "Whether limiting access to guns lowers total suicides, or only changes the method.",
         },
         {
-          lead: "Values.",
-          text: "The debate also involves constitutional protections for gun ownership, self-defense, and how to weigh individual rights against public safety.",
+          lead: "Rights and costs.",
+          text: "About 24.6 million Americans have owned AR-15-style rifles. Opponents see bans and red-flag laws as burdens on law-abiding owners; supporters see narrow laws aimed at the largest group of deaths.",
         },
       ],
     },
     h("Bottom line"),
     p(
-      "Both sides can point to real evidence. The answer may depend on the specific law, and on how you weigh rights, risks and uncertain evidence. If you'd like, I can go deeper on a particular policy, such as background checks or assault weapons bans.",
+      "Both sides can point to real evidence, and the answer likely depends on the specific law: safe-storage, carry and background-check rules have more research behind them than assault-weapon bans. If you'd like, I can go deeper on any one policy.",
     ),
   ],
   sourceIds: [
     "international-rates",
+    "handgun-owner-suicide-cohort",
+    "rand-cap-supportive",
+    "rand-shall-issue-syg",
+    "connecticut-ptp",
     "australia-buyback",
-    "assault-weapon-casualties",
-    "red-flag-laws",
+    "lcm-ban-study",
     "existing-guns",
-    "background-check-pass",
     "defensive-gun-use",
-    "substitute-methods",
+    "kleck-total-suicide",
+    "koper-awb-1994",
+    "homicide-decline-2025-26",
+    "ar15-ownership-common",
     "natural-experiment",
-    "assault-weapon-lethality",
+    "suicide-substitution",
   ],
 };
 
 const gunArticle: ArticleStimulus = {
   arm: "article",
   topic: "gun-control-effectiveness",
-  headline: "Do stricter gun laws reduce gun violence? What the research shows",
-  dek: "The US has far more guns and gun deaths than other rich democracies. Researchers still disagree about how much gun laws can change that.",
+  headline: "Do stricter gun laws save lives? What the research shows",
+  dek: "Most US gun deaths are suicides, and murder is falling fast. Researchers still disagree about which laws, if any, make a difference.",
   blocks: [
     p(
-      "About 44,000 people died from gunshot wounds in the United States in 2024, a rate of 12.8 per 100,000 people, according to the Centers for Disease Control and Prevention. The figure includes homicides, suicides and accidents. It is an order of magnitude higher than in other wealthy democracies such as Britain and Japan.",
+      "About 44,400 Americans died by gunfire in 2024, according to the Centers for Disease Control and Prevention. Most of them, 62%, were suicides. Gun suicides reached a record 27,593 that year, even as gun homicides fell 27% from their 2021 peak.",
     ),
     p(
-      "Whether stricter laws would bring that number down is one of the most contested questions in American politics. The research offers fewer firm answers than the debate suggests.",
+      "Whether stricter laws would bring those numbers down is one of the most contested questions in American politics, and states are passing and repealing laws on permits to buy, safe storage, red flags and permitless carry.",
     ),
-    h("What the evidence says"),
+    h("How the US compares"),
     p(
-      "The RAND Corporation, which reviewed thousands of studies on gun policy, found that for most gun laws the rigorous evidence on cause and effect is limited or inconclusive. Its strongest findings were that safe-storage laws reduce firearm deaths among young people and that stand-your-ground laws are linked to more homicides.",
-    ),
-    p(
-      "RAND rated the evidence on extreme-risk protection orders, known as red flag laws, as limited. Studies of early laws estimated drops in firearm suicides of about 7.5% in Indiana and 13.7% in Connecticut, with some offsetting rise in suicides by other means.",
-    ),
-    h("The Australian example"),
-    p(
-      "Supporters of stricter laws often point to Australia. After a 1996 national agreement that banned semiautomatic rifles and bought back about 650,000 firearms, the country recorded no fatal mass shootings from 1997 through May 2016, compared with 13 in the previous 18 years. Total firearm deaths fell from an average of 3.6 to 1.2 per 100,000 people.",
+      "Using global estimates for 2023, the Pew Research Center reports a US gun death rate of 13.2 per 100,000 people, far above other rich democracies. The US had about 10,000 more gun deaths than Brazil, the country with the next-highest total.",
     ),
     p(
-      "The authors of a 2016 study of those figures cautioned that they could not determine whether the law caused the change, because deaths not involving firearms also declined.",
-    ),
-    h("Why the US may differ"),
-    p(
-      "Opponents of stricter laws say comparisons with other countries overlook what makes the United States unusual. Americans hold an estimated 393 million civilian firearms, about 120 for every 100 residents, according to the Small Arms Survey. New restrictions on sales do not directly reach those guns.",
+      "Within the country the range is wide. In 2024 the rate was 3.7 per 100,000 in Hawaii, which requires a permit to buy any gun, and 28.0 in Mississippi, which requires no permit to carry one. Opponents of stricter laws note that the US gun homicide rate, 6.2 per 100,000 in 2023, was below that of more than two dozen countries and territories, many with strict gun laws.",
     ),
     p(
-      "They also note that in a Mother Jones database of mass shootings since 1982, about 74% of the guns used were obtained legally, which suggests that expanding background checks alone would not have stopped most of those attackers.",
+      "Americans hold about 400 million guns and there is no national registry, so a new law on sales reaches the existing stockpile slowly.",
     ),
     p(
-      "Guns are also used in self-defense, though estimates of how often vary widely. The National Crime Victimization Survey suggests roughly 60,000 to 120,000 defensive uses a year. Other surveys have produced estimates in the millions, which RAND has questioned.",
+      "Supporters of stricter laws often cite Australia, which banned semi-automatic rifles and bought back about 650,000 guns after 1996 and then went two decades without a fatal mass shooting. The study's authors cautioned that they could not show the law caused the change, because deaths by other means also fell.",
     ),
-    h("Assault weapons"),
+    h("The suicide question"),
     p(
-      "Gun-control advocates argue that the type of weapon matters. Everytown, an advocacy group, found that mass shootings involving assault weapons from 2015 to 2022 killed an average of 11.5 people, compared with 5.1 in shootings with other guns. RAND rates the evidence on whether assault weapon bans reduce deaths as inconclusive, and opponents argue that attackers could switch to other weapons.",
+      "Much of the research now focuses on suicide. A study that followed 26.3 million Californians from 2004 to 2016 found that men who acquired handguns were eight times as likely as other men to die by gun suicide, and women 35 times as likely, with no higher rate of suicide by other methods. Supporters of access laws note that many attempts come during a short crisis, and that 90% of people who survive an attempt do not go on to die by suicide.",
     ),
     p(
-      "For now, both supporters and opponents of stricter laws can point to research that backs their case.",
+      "The RAND Corporation's 2024 review of gun research gives its highest rating to child-access prevention laws, which require safe storage, for reducing youth gun suicides. It rates the evidence on red-flag laws, which let families ask a judge to pause a person's access to guns, as limited.",
+    ),
+    p(
+      "Criminologist Gary Kleck has argued that the soundest research shows gun prevalence affects gun suicides but not total suicides.",
+    ),
+    h("State laws and homicide"),
+    p(
+      "RAND gives the same highest rating to findings that stand-your-ground laws are associated with more gun homicides, and finds moderate evidence that dealer background checks reduce them. A study of Connecticut's 1995 permit-to-purchase law associated it with a 40% fall in gun homicides over ten years. Critics noted that the study's comparison group was 72% Rhode Island and that similar drops occurred in most other states. A separate study of right-to-carry laws estimated violent crime 13% to 15% higher ten years after adoption.",
+    ),
+    p(
+      "Homicide has since fallen sharply without any new federal restriction. The Council on Criminal Justice found big-city homicide rates 21% lower in 2025 than in 2024, and 18% lower again in the first half of 2026.",
+    ),
+    h("Mass shootings"),
+    p(
+      "Mass shootings are a small share of gun deaths but drive much of the debate. One study found that high-fatality mass shootings from 1990 to 2017 involving large-capacity magazines had a 62% higher average death toll. A Justice Department-funded evaluation of the 1994 assault weapons ban concluded that its effects, if renewed, were likely to be small. Everytown, a gun-control advocacy group, found that mass shootings involving assault weapons from 2015 to 2022 killed an average of 11.5 people, against 5.1 with other guns. Opponents of bans note that about 24.6 million Americans have owned AR-15-style rifles, among the most common guns in the country, and that in a Mother Jones database of mass shootings since 1982 about 74% of the guns were obtained legally.",
+    ),
+    p(
+      "Guns are also used in self-defense. A 2021 survey of gun owners estimated about 1.67 million defensive uses a year; government crime surveys produce far lower estimates.",
     ),
   ],
   sourceIds: [
     "international-rates",
-    "red-flag-laws",
-    "australia-buyback",
     "existing-guns",
+    "handgun-owner-suicide-cohort",
+    "rand-cap-supportive",
+    "red-flag-laws",
+    "kleck-total-suicide",
+    "rand-shall-issue-syg",
+    "connecticut-ptp",
+    "ct-synthetic-critique",
+    "homicide-decline-2025-26",
+    "lcm-ban-study",
+    "koper-awb-1994",
     "background-check-pass",
     "defensive-gun-use",
-    "assault-weapon-casualties",
-    "substitute-methods",
   ],
 };
 
 // ---------------------------------------------------------------------------
-// Immigration and the border
+// Immigration and the border (rebuilt 3 Nov 2026 against the rewritten map, commit 5aa76e4)
 // ---------------------------------------------------------------------------
 
 const immigrationChatbot: ChatbotStimulus = {
   arm: "chatbot",
   topic: "immigration-border-crisis",
   prompt:
-    "Give me both sides of the immigration debate. Is the current approach of border enforcement plus asylum limits the best way to manage US immigration?",
+    "Give me both sides of the immigration debate. Are a closed border and mass deportations the right way to handle illegal immigration?",
   blocks: [
-    p("This is a complex and contentious question. Here's an overview of the main arguments on each side."),
-    h("Arguments for enforcement and asylum limits"),
+    p("This is one of the most contentious questions in US politics right now. Here's an overview of the strongest arguments on each side."),
+    h("Arguments for the current approach"),
     {
       kind: "list",
       items: [
         {
-          lead: "The 2023 surge.",
-          text: "Encounters at the southwest border hit a record 2.47 million in fiscal 2023, according to US Customs and Border Protection. Supporters argue that a system seen as permissive creates a pull factor, and that barriers combined with sensors, drones and surveillance towers channel crossings to areas that can be watched.",
+          lead: "The border has largely closed.",
+          text: "Border Patrol apprehensions at the southwest border fell from 2.05 million in fiscal 2023 to 98,708 in fiscal 2026, the lowest on record; fiscal 2025 had already been the lowest year since 1970. In fiscal 2026 Border Patrol released no one it apprehended into the country.",
         },
         {
-          lead: "The policies coincided with a sharp drop.",
-          text: "After the Biden administration's asylum restrictions in 2023 and 2024, and the Trump administration's return to Remain in Mexico and expanded expedited removal in 2025, crossings fell dramatically. In February 2025, Border Patrol apprehended 8,347 people between ports of entry at the southwest border, down 94% from February 2024.",
+          lead: "Enforcement deters.",
+          text: "Supporters say the collapse came when everyone caught was detained or returned: after releases ended in January 2025, monthly apprehensions fell below 10,000 and stayed there. The government also reports an estimated 80% fall in migrant deaths, and fewer crossings starve smuggling cartels of their fees.",
         },
         {
-          lead: "Asylum claims.",
-          text: "In fiscal 2023, immigration judges granted asylum in about 14% of cases decided on the merits. Supporters say this shows many claims don't meet the legal standard, and that smugglers, who charge $5,000 to $15,000 a person, coach migrants to claim asylum.",
+          lead: "The law applies to everyone.",
+          text: "About 980,000 deportations were carried out in the first 18 months of President Trump's second term, including about 190,000 of people convicted of crimes. Most deportations, 69%, were of people caught at the border. Interior removals have risen from 8,000 a month to 19,000 as the system scales, and supporters argue that a law no one enforces invites the next surge.",
         },
         {
-          lead: "Wages.",
-          text: "Economist George Borjas estimated that immigration between 1980 and 2000 cut wages for native-born workers without a high school diploma by 7.4%.",
+          lead: "Asylum was a back door.",
+          text: "Even before 2025, judges granted asylum in only about 14% of cases decided in fiscal 2023, and the court backlog had reached 3.7 million cases.",
+        },
+        {
+          lead: "Congress funded it.",
+          text: "The July 2025 reconciliation act added $170.7 billion for enforcement, including money to hire 10,000 more ICE officers.",
         },
       ],
     },
@@ -261,20 +306,24 @@ const immigrationChatbot: ChatbotStimulus = {
       kind: "list",
       items: [
         {
-          lead: "Decades of enforcement.",
-          text: "The American Immigration Council puts federal enforcement spending at roughly $333 billion from 1986 through the early 2020s, and Border Patrol grew from about 3,700 agents in 1992 to about 19,500 in 2023. Crossings still surged repeatedly, which critics say shows enforcement alone doesn't produce lasting deterrence.",
+          lead: "Much of the drop came earlier.",
+          text: "Monthly apprehensions fell from 249,740 in December 2023 to 47,324 in December 2024, after a Biden-era asylum rule and stepped-up enforcement by Mexico.",
         },
         {
-          lead: "Human cost.",
-          text: "CBP recorded about 890 migrant deaths in southwest border sectors in fiscal 2022, the deadliest year on record. Research suggests enforcement pushes people onto more remote, dangerous routes. At least 200 people have died in ICE custody since 2004, and DHS's own Inspector General has documented overcrowding and inadequate medical care in detention.",
+          lead: "Who is being removed.",
+          text: "Only 20% of the 980,000 deportations were of people convicted of a crime. Of those deported after two or more years in the US, 71% had never been convicted, and of those deported after ten or more years, 61%. In July 2026, 70.6% of people in ICE detention had no criminal conviction.",
         },
         {
-          lead: "Economic contributions.",
-          text: "The Congressional Budget Office projected in 2024 that the recent immigration surge would add $7 trillion to US GDP over a decade. Unauthorized immigrants paid an estimated $96.7 billion in taxes in 2022.",
+          lead: "Asylum is being shut.",
+          text: "The asylum grant rate fell to 5.5% in June 2026 after 279 immigration judges were fired or resigned, and three-quarters of the long-serving judges who stayed raised their denial rates. Applicants now pay a $100 fee, plus $100 for each year a case is pending.",
         },
         {
-          lead: "Asylum obligations.",
-          text: "Critics argue the restrictions conflict with US obligations under the 1951 Refugee Convention, and note that asylum grant rates range from under 5% to over 90% depending on the judge.",
+          lead: "Human costs.",
+          text: "A record 29 people died in ICE custody in the first half of fiscal 2026, and agents detained at least 170 US citizens in the early months of the drive. Closing asylum at the border also pushes people toward remote desert crossings, where deaths peaked at about 890 in fiscal 2022.",
+        },
+        {
+          lead: "Enforcement hasn't lasted before.",
+          text: "Roughly $333 billion was spent on enforcement from 1986 into the early 2020s, and crossings still surged repeatedly. The 2025 act adds $45 billion for detention centers, a 308% annual increase in ICE's detention budget, mostly for people with no criminal record.",
         },
       ],
     },
@@ -283,37 +332,39 @@ const immigrationChatbot: ChatbotStimulus = {
       kind: "numbered",
       items: [
         {
-          lead: "What caused the drop?",
-          text: "Mexico increased its own enforcement over the same period, and conditions changed in the countries migrants come from, so it's hard to isolate the effect of US policy. Supporters counter that past surges would have been worse without enforcement.",
+          lead: "What closed the border?",
+          text: "US policy, Mexico's enforcement and conditions in origin countries all changed, so it's hard to separate their effects, or to know whether the fall will last.",
         },
         {
-          lead: "Who bears the costs?",
-          text: "Even if immigration benefits the economy overall, people disagree about the effects on low-wage workers and border communities. Borjas's findings have been challenged by other economists, including David Card.",
+          lead: "Who should be deported?",
+          text: "Whether removing long-settled people with no criminal record is fair enforcement of the law, or a cost the country shouldn't impose.",
         },
         {
-          lead: "The backlog.",
-          text: "The immigration court backlog peaked near 3.7 million cases in fiscal 2024. Both sides see that as a problem, but they disagree on whether the fix is more judges or fewer claims.",
+          lead: "Asylum.",
+          text: "Whether the low grant rate shows weak claims, or a system remade to say no.",
         },
       ],
     },
     h("Bottom line"),
     p(
-      "Recent restrictions coincided with far fewer crossings, but there are real questions about cause, cost and humanitarian impact. Where you land often depends on how you weigh border control against economic and humanitarian considerations. Let me know if you'd like more detail on any specific policy.",
+      "The numbers on crossings and deportations are not really in dispute; the argument is over what caused them and what they cost. Where people land often depends on how they weigh border control against humanitarian and economic concerns. Let me know if you'd like more detail on any part.",
     ),
   ],
   sourceIds: [
-    "record-encounters-fy2023",
     "encounters-drop-post-restrictions",
+    "record-encounters-fy2023",
+    "decline-began-under-biden",
+    "mpi-980k-deportations",
+    "mpi-long-resident-no-conviction",
     "asylum-grant-rate-14-percent",
-    "borjas-wage-depression",
-    "enforcement-spending-333-billion",
-    "migrant-death-toll-record",
+    "asylum-grant-rate-2026",
+    "dhs-funding-reconciliation",
+    "trac-detention-no-conviction",
     "ice-custody-deaths",
-    "cbo-7-trillion-gdp",
-    "unauthorized-immigrant-taxes",
-    "court-backlog-3-7-million",
+    "citizens-detained-propublica",
+    "enforcement-spending-333-billion",
     "enforcement-deterrence-causation",
-    "wage-impact-analysis",
+    "deportation-targets",
     "asylum-grant-rate-analysis",
   ],
 };
@@ -321,51 +372,59 @@ const immigrationChatbot: ChatbotStimulus = {
 const immigrationArticle: ArticleStimulus = {
   arm: "article",
   topic: "immigration-border-crisis",
-  headline: "Border crossings fell sharply after asylum limits. Why the debate isn't over",
-  dek: "Encounters at the southwest border hit a record in 2023, then dropped. What drove the decline, and at what cost, remain in dispute.",
+  headline: "The border is nearly closed and deportations are up. Is it working?",
+  dek: "Apprehensions at the southwest border hit a record low in fiscal 2026. What caused the drop, and who is being deported, remain in dispute.",
   blocks: [
     p(
-      "Encounters at the US-Mexico border reached a record 2.47 million in fiscal 2023, according to US Customs and Border Protection. That included about 2.05 million people stopped between official ports of entry and 420,000 at them. In peak months, CBP was processing more than 10,000 encounters a day.",
+      "Border Patrol made 98,708 arrests at the southwest border in the year to September 2026, the fewest on record, according to preliminary Department of Homeland Security figures. In fiscal 2023 it had made 2.05 million, and fiscal 2025, at 237,565, had already been the lowest year since 1970. Nationwide encounters in fiscal 2026 were 379,243. Fiscal 2026 was the first year in which Border Patrol released none of the migrants it apprehended at the border.",
     ),
     p(
-      "Then the numbers fell steeply. Asylum restrictions came in under President Biden in June 2023 and June 2024. In early 2025 the Trump administration reinstated the Remain in Mexico policy, expanded expedited removal and shut down the CBP One app. In February 2025, Border Patrol apprehended 8,347 people between ports of entry at the southwest border, down 94% from 140,641 a year earlier.",
+      "Inside the country, the government carried out about 980,000 deportations between January 2025 and July 2026, according to an estimate by the Migration Policy Institute, which said the figure was consistent with the department's public statements.",
     ),
-    h("What drove the decline"),
+    h("What closed the border"),
     p(
-      "Supporters of the current approach say the drop shows that enforcement and asylum limits deter crossings. Critics point out that Mexico stepped up its own enforcement over the same period, under pressure from Washington, and that economic conditions shifted in key countries of origin. It is difficult to separate those effects.",
-    ),
-    p(
-      "Skeptics of enforcement also cite history. The American Immigration Council estimates that federal immigration enforcement cost roughly $333 billion from 1986 through the early 2020s, and Border Patrol grew from about 3,700 agents in 1992 to about 19,500 by 2023. Crossings still surged in the late 1990s, the mid-2000s, 2019 and 2021-2023.",
-    ),
-    h("The human toll"),
-    p(
-      "CBP recorded about 890 migrant deaths in southwest border sectors in fiscal 2022, the deadliest year on record by that count. Researchers at the University of Arizona have documented how enforcement in urban areas has pushed crossings into remote, more dangerous terrain since 1994. Supporters of enforcement argue that fewer crossings will ultimately mean fewer deaths.",
-    ),
-    h("A backlogged system"),
-    p(
-      "The immigration court backlog reached about 3.7 million pending cases at the end of fiscal 2024, up from about 1.1 million in 2019, before easing to about 3.4 million during fiscal 2025, according to TRAC, a research center at Syracuse University. Roughly 600 to 700 immigration judges handle the caseload, and TRAC put the average wait at about 636 days as of March 2025.",
+      "Supporters of the administration's approach credit enforcement. After the new administration ended releases and CBP One appointments in January 2025, monthly apprehensions fell below 10,000 from February and stayed there. DHS also reports about 250 miles of new barrier since January 2025 and an estimated 80% fall in migrant deaths.",
     ),
     p(
-      "In fiscal 2023, judges granted asylum in about 14% of cases decided on the merits. Supporters of restrictions say that shows many claims lack merit, and that smugglers, who charge $5,000 to $15,000 a person, coach migrants to claim asylum as a way in. Others note that grant rates range from under 5% to over 90% depending on the judge, and that applicants with lawyers are five times as likely to win.",
-    ),
-    h("The economic picture"),
-    p(
-      "The Congressional Budget Office projected in 2024 that the recent immigration surge would add $7 trillion to US economic output and $1 trillion to federal revenue over the next decade. The Institute on Taxation and Economic Policy estimated that unauthorized immigrants paid $96.7 billion in taxes in 2022.",
+      "Critics point out that much of the decline came earlier. Monthly apprehensions fell from 249,740 in December 2023 to 47,324 in December 2024, after a June 2024 Biden administration rule limiting asylum between ports of entry and stepped-up enforcement by Mexico. Of the 237,565 apprehensions in fiscal 2025, 72% came before January 20.",
     ),
     p(
-      "Some economists see costs falling on particular groups. Harvard economist George Borjas found that immigration from 1980 to 2000 cut wages for native-born workers without a high school diploma by 7.4%, a finding other economists dispute.",
+      "Skeptics of enforcement also cite history: roughly $333 billion was spent on immigration enforcement from 1986 into the early 2020s, and crossings still surged in the late 1990s, the mid-2000s, 2019 and 2021 to 2023. Supporters reply that a law no one enforces invites the next surge, and that fewer crossings starve smuggling cartels of their fees.",
+    ),
+    h("Who is being deported"),
+    p(
+      "About 190,000 of the deportations, or 20%, were of people convicted of a crime, according to the institute. Most, 69%, were of people first stopped at the border. Of those deported after living in the US for two years or more, 71%, about 280,000 people, had no criminal conviction. Interior deportations rose from 8,000 a month in the first three months to 19,000 a month in May to July 2026.",
+    ),
+    p(
+      "Detention has reached record levels. ICE held 65,765 people in July 2026, according to TRAC, a research center at Syracuse University, and 70.6% of them had no criminal conviction. NPR reported that 29 people died in ICE custody in the first half of fiscal 2026, a record.",
+    ),
+    p(
+      "The July 2025 reconciliation act added $170.7 billion for immigration and border enforcement, including $45 billion for new detention centers and money to hire 10,000 more ICE officers.",
+    ),
+    h("Asylum"),
+    p(
+      "Immigration judges granted asylum in about 14% of cases decided on the merits in fiscal 2023. The rate had been over 50% early in the Biden administration and 32% at its end. By June 2026 it had fallen to 5.5%, the lowest TRAC has recorded. In fiscal 2025 and 2026, 279 immigration judges were fired or resigned, and three-quarters of the long-serving judges who stayed raised their denial rates. Asylum seekers must now pay a $100 fee to apply, plus $100 for each year their case is pending.",
+    ),
+    p(
+      "Supporters say asylum had become a route for economic migration and that faster decisions serve genuine refugees better; the court backlog fell from 3.7 million cases at the end of fiscal 2024 to about 3.4 million during fiscal 2025. Critics say the falling grant rate reflects a remade bench rather than weaker claims, noting that grant rates have always varied widely by judge.",
+    ),
+    p(
+      "There have also been mistakes. ProPublica found that agents detained at least 170 US citizens in the early months of the enforcement drive.",
     ),
   ],
   sourceIds: [
-    "record-encounters-fy2023",
     "encounters-drop-post-restrictions",
-    "enforcement-spending-333-billion",
-    "migrant-death-toll-record",
-    "court-backlog-3-7-million",
+    "record-encounters-fy2023",
+    "mpi-980k-deportations",
+    "decline-began-under-biden",
+    "mpi-long-resident-no-conviction",
+    "trac-detention-no-conviction",
+    "ice-custody-deaths",
+    "dhs-funding-reconciliation",
     "asylum-grant-rate-14-percent",
-    "cbo-7-trillion-gdp",
-    "unauthorized-immigrant-taxes",
-    "borjas-wage-depression",
+    "asylum-grant-rate-2026",
+    "backlog-falling-2025",
+    "citizens-detained-propublica",
   ],
 };
 
