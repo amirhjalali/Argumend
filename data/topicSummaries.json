@@ -369,7 +369,40 @@
       "Data center electricity costs",
       "Do data centers raise power bills"
     ],
-    "keywords": "pjms ohio megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe"
+    "keywords": "pjms megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe profeta"
+  },
+  {
+    "id": "proof-of-citizenship-voting",
+    "title": "Proof of Citizenship to Register",
+    "question": "Should voters have to show documentary proof of citizenship to register to vote?",
+    "meta_claim": "Requiring people to show a document proving U.S. citizenship, such as a passport, birth certificate or naturalization certificate, when they register to vote is sound policy: it closes a gap that sworn attestation leaves open, without keeping significant numbers of eligible citizens off the rolls.",
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 73,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 23,
+    "firstCrux": "Do sworn attestation and the record checks states already run keep all but a handful of noncitizens off the rolls?",
+    "tags": [
+      "policy",
+      "voting",
+      "elections",
+      "voter-registration",
+      "citizenship",
+      "save-act"
+    ],
+    "aliases": [
+      "SAVE America Act",
+      "SAVE Act proof of citizenship",
+      "documentary proof of citizenship to vote",
+      "noncitizen voter registration"
+    ],
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat affidavit louisiana turnout brennan cantoni kansass pons campuses tenth"
   },
   {
     "id": "nuclear-energy-safety",
@@ -529,7 +562,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "denver star cahoots vera ariel politifact pyne rialto sutherland farrar portland eugene fy2021 siepr unarmed"
+    "keywords": "denver star cahoots vera ariel pyne rialto sutherland farrar politifact portland eugene fy2021 siepr unarmed"
   },
   {
     "id": "mandatory-voting",
@@ -1184,7 +1217,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chicken taste aleph steak unwilling nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters"
+    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters consolidation"
   },
   {
     "id": "ai-in-education",
@@ -3072,7 +3105,7 @@
       "glyphosate",
       "biotechnology"
     ],
-    "keywords": "cotton herbicide weeds roundup iarc bollworm juries sprays bayer benbrook monsanto mper pink pmra qaim"
+    "keywords": "cotton herbicide weeds roundup iarc bollworm sprays juries bayer benbrook monsanto mper pink pmra qaim"
   },
   {
     "id": "nuclear-fusion-timeline",
@@ -3297,7 +3330,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth clerk eifert abetted anhaltspunkte antiterrorism backpages belegen copia"
+    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia"
   },
   {
     "id": "autonomous-weapons-ban",

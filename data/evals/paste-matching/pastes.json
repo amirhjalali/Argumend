@@ -848,6 +848,14 @@
       "expected": ["data-centers-electricity-bills"],
       "related": ["ai-energy-water-footprint"],
       "note": "Added 2026-11-03 with the map (round 12)."
+    },
+    {
+      "id": "proof-of-citizenship-registration",
+      "form": "conversation",
+      "text": "A: Why is it controversial to make people show a birth certificate or passport when they register? Only citizens can vote. B: Because millions of citizens don't have those papers handy, and Kansas blocked over 30,000 people when it tried this. A: And how do we know noncitizens aren't registering when all you do is check a box?",
+      "expected": ["proof-of-citizenship-voting"],
+      "related": [],
+      "note": "Added 2026-11-03 with the map (round 13). Uses neither 'SAVE Act' nor the map's own name."
     }
   ]
 }

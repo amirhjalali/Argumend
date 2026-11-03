@@ -19,6 +19,7 @@ const topicModuleLoaders = {
   "jones-act": () => import("./topics/jones-act"),
   "medicaid-work-requirements": () => import("./topics/medicaid-work-requirements"),
   "data-centers-electricity-bills": () => import("./topics/data-centers-electricity-bills"),
+  "proof-of-citizenship-voting": () => import("./topics/proof-of-citizenship-voting"),
   "nuclear-energy-safety": () => import("./topics/nuclear-energy-safety"),
   "universal-healthcare": () => import("./topics/universal-healthcare"),
   "gun-control-effectiveness": () => import("./topics/gun-control-effectiveness"),

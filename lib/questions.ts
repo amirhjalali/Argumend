@@ -531,6 +531,7 @@ const TOPIC_QUESTIONS: Record<string, string[]> = {
   "doge-federal-cuts": ["Did DOGE actually cut government waste and make Washington leaner?"],
   "medicaid-work-requirements": ["Do Medicaid work requirements actually get people working?"],
   "data-centers-electricity-bills": ["Are data centers raising my electric bill?"],
+  "proof-of-citizenship-voting": ["Should you have to prove you are a citizen to register to vote?"],
 };
 
 // ============================================================================
