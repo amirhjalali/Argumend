@@ -128,6 +128,24 @@ export const section230ReformData = {
           reasoning:
             "The text directly documents a proposal. Its desired policy effects remain claims to evaluate, rather than outcomes established by the bill.",
         },
+        {
+          id: "twitter-taamneh",
+          title: "Twitter v. Taamneh: Recommendation Claims Failed on the Underlying Statute (2023)",
+          description:
+            "On May 18, 2023, a unanimous Supreme Court held that allegations that Facebook, Twitter and Google aided and abetted ISIS fail to state a claim under the Antiterrorism Act, 18 U.S.C. 2333(d)(2). The opinion called the companies' recommendation algorithms 'merely part of that infrastructure' through which all content on the platforms is filtered, and said that, as presented, they 'appear agnostic as to the nature of the content.' The opinion decides the claim under that statute and does not address Section 230.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 10,
+            independence: 9,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "Twitter, Inc. v. Taamneh, No. 21-1496, 598 U.S. ___ (May 18, 2023), syllabus and opinion of the Court",
+          sourceUrl: "https://www.supremecourt.gov/opinions/22pdf/21-1496_d18f.pdf",
+          reasoning:
+            "A unanimous holding on the underlying liability rule: these recommendation claims failed on their merits without any immunity defense, so removing immunity would not by itself make such claims succeed. It concerns aiding-and-abetting liability under one federal statute and the allegations before the Court, not product-design or negligence claims, so directness is held at 5.",
+        },
       ],
     },
     {
@@ -220,6 +238,24 @@ export const section230ReformData = {
           reasoning:
             "The statutory text defines distinct protections and exceptions. Application depends on the claim and relevant precedent, not a general category of worst conduct.",
         },
+        {
+          id: "netzdg-evaluation",
+          title: "Germany's NetzDG Evaluation: No Evidence of Systematic Overblocking (2020)",
+          description:
+            "Germany's Network Enforcement Act (NetzDG) makes social networks liable to fines for systemic failures in handling complaints about unlawful content. The evaluation commissioned by the Federal Ministry of Justice (Eifert et al., 2020) concluded that overblocking 'lässt sich empirisch nicht belegen' (cannot be shown empirically) and found 'keine Anhaltspunkte' (no indications) of systematic overblocking. The same report says that whether the fines push platforms to delete more under their own community standards cannot be clarified with the available material, and that the overblocking question has not had a comprehensive evaluation of the removed content.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 5,
+            directness: 3,
+          },
+          source:
+            "Eifert et al., 'Evaluation des NetzDG', legal opinion commissioned by the German Federal Ministry of Justice (2020), pp. 53-54 and 63",
+          sourceUrl: "https://kripoz.de/wp-content/uploads/2020/09/090920_Juristisches_Gutachten_Netz.pdf",
+          reasoning:
+            "One case where a legal duty on platforms was reviewed for loss of lawful speech and none was demonstrated. It is a ministry-commissioned review of a different legal system and duty (complaint handling under German criminal law, not civil liability under Section 230), based on surveys and reports rather than an audit of removed posts, and it leaves deletions under community standards open. It shows such a duty need not produce measurable over-removal, not that a U.S. reform would avoid it.",
+        },
       ],
     },
     {
@@ -278,6 +314,24 @@ export const section230ReformData = {
           reasoning:
             "The article documents its publisher’s economic argument. It does not independently validate the underlying models or isolate liability law from other investment differences.",
         },
+        {
+          id: "dsa-vlop-tier",
+          title: "EU Digital Services Act Reserves Its Heaviest Duties for Platforms With 45M+ Users",
+          description:
+            "Under the EU's Digital Services Act, the European Commission designates platforms and search engines with more than 45 million monthly users in the EU as very large online platforms or search engines. Those services must also assess the systemic risks linked to their services, be audited by an independent auditor at least once a year, give vetted researchers access to platform data, keep a public advertisement repository and offer a recommender option not based on profiling. The Commission justifies the tier by 'their size and the potential impact they can have on society.'",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 8,
+            directness: 3,
+          },
+          source:
+            "European Commission, 'DSA: Very large online platforms and search engines' (Shaping Europe's digital future)",
+          sourceUrl: "https://digital-strategy.ec.europa.eu/en/policies/dsa-vlops",
+          reasoning:
+            "Documents a working legal design that puts its heaviest costs on the largest services rather than on small ones, the mechanism reform supporters say a liability change can use. It is a set of due-diligence duties in another legal system, not a change to U.S. immunity, and an official description of obligations is not evidence of their effect on entry, investment or safety, so directness is 3.",
+        },
       ],
     },
   ],
@@ -290,5 +344,8 @@ export const section230ReformData = {
     { title: "GAO-21-385, Sex Trafficking: Online Platforms and Federal Prosecutions (2021)", url: "https://www.gao.gov/products/gao-21-385" },
     { title: "S. 3546, introduced-in-Senate text (December 17, 2025)", url: "https://www.govinfo.gov/content/pkg/BILLS-119s3546is/html/BILLS-119s3546is.htm" },
     { title: "Disruptive Competition Project, An Economic Case for Section 230 (2019), advocacy source", url: "https://project-disco.org/innovation/090619-an-economic-case-for-section-230/" },
+    { title: "Twitter, Inc. v. Taamneh, Supreme Court opinion (2023)", url: "https://www.supremecourt.gov/opinions/22pdf/21-1496_d18f.pdf" },
+    { title: "Eifert et al., Evaluation des NetzDG, commissioned by the German Federal Ministry of Justice (2020)", url: "https://kripoz.de/wp-content/uploads/2020/09/090920_Juristisches_Gutachten_Netz.pdf" },
+    { title: "European Commission, DSA: Very large online platforms and search engines", url: "https://digital-strategy.ec.europa.eu/en/policies/dsa-vlops" },
   ],
 };

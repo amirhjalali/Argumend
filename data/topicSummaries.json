@@ -41,7 +41,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr nasem ultrashort biomonitoring fluorochemical hfpo ulcerative colitis"
+    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -225,31 +225,31 @@
     "title": "The Cost Disease",
     "question": "Have US health, school and infrastructure costs soared without matching gains?",
     "meta_claim": "Since roughly 1960, the real (inflation-adjusted) cost of U.S. health care, K–12 and higher education, and infrastructure has risen several-fold with little or no matching gain in measured output — a genuine 'cost disease' — and it is produced by a stack of reinforcing causes rather than any single villain.",
-    "confidence_score": 85,
-    "balance": 85,
-    "weight": 81,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 84,
     "verdict": {
-      "label": "Evidence largely converges on the claim",
-      "quadrant": "settled"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 5,
-    "evidenceCount": 16,
+    "evidenceCount": 20,
     "firstCrux": "How much of the cost rise is just rising wages in work that can't be automated?",
     "tags": [
       "economics"
     ],
-    "keywords": "baumol naep tuition admin haircut helland marron tabarrok ginsberg liscow subway dulls himmelstein lucca nadauld"
+    "keywords": "baumol pell stagnant nordhaus rosen vijan cutler naep tuition admin turner haircut helland marron tabarrok"
   },
   {
     "id": "moloch",
     "title": "Meditations on Moloch",
     "question": "Does competition erode human values unless strong coordination stops it?",
     "meta_claim": "Competition and coordination failure — Scott Alexander's 'Moloch' — systematically push civilization toward equilibria that sacrifice human values for competitive advantage, and durably escaping those multipolar traps requires a coordination mechanism strong enough to override the incentives that create them.",
-    "confidence_score": 46,
-    "balance": 46,
-    "weight": 72,
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -257,12 +257,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 5,
-    "evidenceCount": 18,
+    "evidenceCount": 21,
     "firstCrux": "Is a given rivalry a one-off game where defecting pays, or a repeated one where cooperation can last?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "singleton malthusian ostrom bostrom axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash theorem"
+    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric montreal subsistence tragedy folk malthus nash fisheries theorem"
   },
   {
     "id": "ai-2027",
@@ -369,7 +369,7 @@
       "Data center electricity costs",
       "Do data centers raise power bills"
     ],
-    "keywords": "pjms ohio auditors megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati"
+    "keywords": "pjms ohio megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati peskoe"
   },
   {
     "id": "nuclear-energy-safety",
@@ -1052,7 +1052,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "sleeper sonnet bostrom leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger"
+    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger humean"
   },
   {
     "id": "ai-content-labeling",
@@ -1074,7 +1074,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers maryland chegini conspicuous ecfr"
+    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers chegini conspicuous ecfr iptc"
   },
   {
     "id": "big-tech-antitrust",
@@ -2569,7 +2569,7 @@
       "Should governments help people have the children they want?",
       "Do housing and childcare costs explain low fertility?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer desa pcap fieldwork totl ninth yougov"
+    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth yougov"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2748,7 +2748,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "acip marion nestle prasad appointees toothpaste unqualified asthma faction inpatient makary aluminum cavity confirmatory gras"
+    "keywords": "acip marion nestle prasad appointees toothpaste unqualified asthma faction inpatient makary aluminum confirmatory gras cavity"
   },
   {
     "id": "doge-federal-cuts",
@@ -2940,9 +2940,9 @@
     "title": "Self-Driving Car Safety",
     "question": "Are self-driving cars already safer than humans and ready for broad use?",
     "meta_claim": "Autonomous vehicles are already safer than human drivers and should be deployed broadly.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 67,
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2950,7 +2950,7 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 10,
     "firstCrux": "Does self-driving cars' safety edge survive a truly like-for-like, independently audited comparison?",
     "tags": [
       "technology",
@@ -2960,7 +2960,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "nhtsa swiss pedestrian rider cruise geofenced tesla driverless gode kalra kusano paddock pe24031 victor phoenix"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode groves kusano paddock"
   },
   {
     "id": "net-neutrality",
@@ -3072,7 +3072,7 @@
       "glyphosate",
       "biotechnology"
     ],
-    "keywords": "cotton herbicide weeds roundup efsa iarc bollworm juries sprays bayer benbrook hodgkin lymphoma monsanto mper"
+    "keywords": "cotton herbicide weeds roundup efsa iarc bollworm juries sprays bayer benbrook monsanto mper pink pmra"
   },
   {
     "id": "nuclear-fusion-timeline",
@@ -3184,7 +3184,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "solvency crfb oasdi payable trustees actuarial longevity taxable"
+    "keywords": "solvency crfb oasdi payable trustees actuarial taxable"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3277,17 +3277,17 @@
     "title": "Reforming Section 230",
     "question": "Should Section 230 be significantly reformed or repealed?",
     "meta_claim": "Section 230 should be significantly reformed or repealed.",
-    "confidence_score": 53,
-    "balance": 53,
-    "weight": 61,
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 11,
     "firstCrux": "Is a platform's ranking choice legally distinct conduct that causes a specific, provable injury?",
     "tags": [
       "technology",
@@ -3297,7 +3297,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "aggravated fosta anderson ninth clerk backpages copia nera netchoice reconsideration subsection disincentives myanmar remanded restitution"
+    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth clerk eifert abetted anhaltspunkte antiterrorism backpages belegen copia"
   },
   {
     "id": "autonomous-weapons-ban",
@@ -3389,9 +3389,9 @@
     "title": "Vaping as Harm Reduction",
     "question": "Is vaping an effective and acceptable way to reduce smoking's harm?",
     "meta_claim": "E-cigarettes are an effective and acceptable harm-reduction tool for smokers.",
-    "confidence_score": 52,
-    "balance": 52,
-    "weight": 65,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3399,7 +3399,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 6,
+    "evidenceCount": 8,
     "firstCrux": "Does vaping's quit-rate advantage in trials hold up in the real-world market of flavored disposables?",
     "tags": [
       "science",
@@ -3409,7 +3409,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised acetate blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350 pub8 pulvers summarised"
+    "keywords": "evali hospitalised wang acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
   },
   {
     "id": "sex-work-decriminalization",
@@ -3496,9 +3496,9 @@
     "title": "Alcohol's Safe Level",
     "question": "Is any amount of drinking harmful to health?",
     "meta_claim": "There is no safe level of alcohol consumption for health.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 71,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3506,7 +3506,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 10,
     "firstCrux": "Does cancer risk rise from the first drink, or could a small threshold hide below what studies can detect?",
     "tags": [
       "science",
@@ -3520,7 +3520,7 @@
       "Is a glass of red wine a day good for your heart?",
       "Is moderate drinking good for you?"
     ],
-    "keywords": "drinkers iarc stockwell unadjusted zhao mendelian ionizing naimi asbestos"
+    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted zhao mendelian carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
   },
   {
     "id": "modern-monetary-theory",

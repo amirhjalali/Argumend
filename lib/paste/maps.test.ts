@@ -456,9 +456,9 @@ describe("findMaps", () => {
 
   it("keeps a contrasting card's own crux when the selected crux has evidence on only one side", async () => {
     const result = await findMaps(
-      "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
+      "Forgiving student debt is unfair to people who paid off their loans or never went to college, and it rewards borrowers who took on too much.",
     );
-    expect(result.match?.id).toBe("section-230-reform");
+    expect(result.match?.id).toBe("student-debt-forgiveness");
     expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
     const own = result.match!.cards.find((card) => card.crux?.href === result.match!.crux!.href)!;
     const borrowed = result.match!.cards.find((card) => card.crux?.href !== result.match!.crux!.href)!;
@@ -466,14 +466,23 @@ describe("findMaps", () => {
     expect(borrowed).toBeDefined();
     expect(own.crux?.href).toBe(result.match!.crux!.href);
     expect(borrowed.crux).toEqual({
-      question: "Can a reform deter targeted harms without a net loss of lawful speech?",
-      href: "/topics/section-230-reform#crux-collateral-damage",
+      question: "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
+      href: "/topics/student-debt-forgiveness#crux-economic-stimulus",
     });
     expect(PasteMapsResultSchema.parse(result).match!.cards).toEqual(result.match!.cards);
     expect(PasteMapsResultSchema.safeParse({
       ...result,
       match: { ...result.match, cards: [{ ...borrowed, crux: { question: borrowed.crux!.question, href: 12 } }] },
     }).success).toBe(false);
+  });
+
+  it("takes both sides from the selected crux once that crux has a card on each", async () => {
+    const result = await findMaps(
+      "Platforms want it both ways. They curate and algorithmically promote content like a publisher but claim they're just a neutral bulletin board when someone sues. Strip their immunity and watch how fast they moderate.",
+    );
+    expect(result.match?.id).toBe("section-230-reform");
+    expect(new Set(result.match?.cards.map((card) => card.side))).toEqual(new Set(["for", "against"]));
+    for (const card of result.match!.cards) expect(card.crux?.href).toBe(result.match!.crux!.href);
   });
 
   it("never shows a card that restates an agreed fact as a side's card, on any pillar map", async () => {

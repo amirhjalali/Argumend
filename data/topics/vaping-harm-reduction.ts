@@ -118,6 +118,24 @@ export const vapingHarmReductionData = {
           reasoning:
             "Authoritative national medical bodies endorsing the acceptability of harm reduction — directly on the 'acceptable tool' half of the claim. Weighted down because the headline '95%' figure derives partly from an expert-elicitation estimate that critics (e.g. in The Lancet) argued rested on weak sourcing, so replicability is limited.",
         },
+        {
+          id: "wang-consumer-ecig-quitting",
+          title: "Meta-Analysis: Consumer E-Cigarette Use Not Associated With Quitting",
+          description:
+            "Wang, Bhadriraju and Glantz (American Journal of Public Health, 2021) analysed 64 papers: 55 observational studies and 9 randomised trials. In the observational studies, e-cigarette consumer product use by adult smokers was not associated with quitting (OR 0.947, 95% CI 0.772-1.160). In the trials, smokers given free e-cigarettes quit more often than those on conventional therapy (RR 1.555, 95% CI 1.173-2.061). The authors concluded that e-cigarettes 'should not be approved as consumer products but may warrant consideration as a prescription therapy.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 7,
+          },
+          source:
+            "Wang, Bhadriraju & Glantz, 'E-Cigarette Use and Adult Cigarette Smoking Cessation: A Meta-Analysis', American Journal of Public Health (2021)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/33351653/",
+          reasoning:
+            "On this crux's exact question, whether the trial edge survives the consumer market: the same review finds the edge in trials and loses it in real-world use. Observational studies of who vapes are open to confounding (smokers who find quitting hardest may be likelier to try e-cigarettes), so replicability is 6 and it does not overturn the trial evidence.",
+        },
       ],
     },
     {
@@ -158,6 +176,24 @@ export const vapingHarmReductionData = {
         },
       },
       evidence: [
+        {
+          id: "levy-deaths-averted-model",
+          title: "Model: Replacing Cigarettes With Vaping Would Avert 1.6 to 6.6 Million U.S. Premature Deaths",
+          description:
+            "Levy and colleagues (Tobacco Control, 2018) modelled U.S. cigarette smoking being replaced by e-cigarette use over a 10-year period, with outcomes compared from 2016 to 2100. Their Optimistic Scenario yields 6.6 million fewer premature deaths and 86.7 million fewer life-years lost; under the Pessimistic Scenario, 1.6 million premature deaths are averted with 20.8 million fewer life-years lost.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Levy et al., 'Potential deaths averted in USA by replacing cigarettes with e-cigarettes', Tobacco Control 27(1): 18-25 (2018)",
+          sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/28970328/",
+          reasoning:
+            "A published estimate of the switchers' side of this crux's balance, and even its pessimistic case is large. It is a projection that assumes smokers replace cigarettes with e-cigarettes; it does not measure how many switch completely rather than dual use, so it cannot settle the net balance on its own, and replicability and directness are held low.",
+        },
         {
           id: "dual-use-cardiovascular",
           title: "Dual Use Carries Smoking-Level Cardiovascular Risk",
