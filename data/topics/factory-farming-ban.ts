@@ -159,6 +159,10 @@ export const factoryFarmingBanData = {
         equation:
           "\\text{True Cost} = \\text{Market Price} + \\sum (\\text{GHG Damage} + \\text{Health Costs} + \\text{Pollution Costs} + \\text{Pandemic Risk})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A full cost tally of emissions, antibiotic resistance, water pollution and pandemic risk from intensive farming, set against modeled results of a ban, a tax and targeted rules by agencies such as the FAO; how much animal suffering should weigh on top is a value each side would need to state.",
+        },
         cost_to_verify: "$2M (Multi-disciplinary externality study)",
         falsification: {
           supporter_flip:

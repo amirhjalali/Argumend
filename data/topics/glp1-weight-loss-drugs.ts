@@ -157,6 +157,10 @@ export const glp1WeightLossDrugsData = {
         methodology:
           "Conduct a comprehensive health economics analysis using claims data from insurers who have implemented GLP-1 coverage. Compare total healthcare costs (drug costs + hospitalizations + comorbidity management + lost productivity) for matched cohorts of GLP-1 users vs. non-users over 5+ years. Model population-level scenarios for 10%, 25%, and 50% uptake among eligible adults. Use QALY (Quality-Adjusted Life Year) calculations to determine cost per QALY gained.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Long-run claims data from insurers and Medicare comparing total spending, hospital stays and complications for matched patients who stay on GLP-1 drugs and patients who do not, over five to ten years, using the price actually paid after rebates.",
+        },
         cost_to_verify:
           "$5-10M (Large-scale health economics study with multi-year claims data analysis)",
         falsification: {

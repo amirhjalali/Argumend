@@ -44,6 +44,10 @@ export const fluorideWaterSuppliesData = {
         methodology:
           "Conduct a large-scale randomized controlled trial (or analyze natural experiments from communities that recently started or stopped fluoridation) comparing three groups: (1) fluoridated water + fluoride toothpaste, (2) non-fluoridated water + fluoride toothpaste, and (3) non-fluoridated water + non-fluoride toothpaste. Measure DMFT (decayed, missing, filled teeth) scores over 5-10 years across age groups and socioeconomic strata, controlling for diet, dental care access, and other fluoride sources. Compare the incremental benefit of group 1 over group 2 to assess whether systemic fluoride adds meaningful protection beyond topical use.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare cavity rates, from dental exams rather than self-report, in children who all use fluoride toothpaste but differ in whether their tap water is fluoridated, including before-and-after comparisons where fluoridation stopped, as in Calgary in 2011 and Utah in 2025.",
+        },
         cost_to_verify:
           "$5-15M (Multi-year longitudinal dental health study across multiple communities with different fluoridation statuses)",
         falsification: {
@@ -153,6 +157,10 @@ export const fluorideWaterSuppliesData = {
         methodology:
           "Conduct a prospective birth cohort study in US communities with fluoridated (0.7 mg/L) and non-fluoridated water. Enroll 5,000+ pregnant women, measure urinary fluoride throughout pregnancy and early childhood, and assess child neurodevelopment at ages 1, 2, 4, and 6 using standardized IQ and neurodevelopmental batteries (Bayley Scales, WISC). Control for maternal education, income, lead exposure, iodine status, breastfeeding duration, and other known confounders. This would definitively determine whether fluoride at US-recommended levels affects neurodevelopment.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Prospective birth cohorts in communities at 0.7 mg/L that measure each mother's and child's urinary fluoride, adjust for other fluoride sources and for iodine and lead, and test children's IQ blind, run in more than one country with the data shared openly for pooled reanalysis.",
+        },
         cost_to_verify:
           "$20-50M (Multi-site longitudinal birth cohort study over 6-8 years)",
         falsification: {
@@ -261,6 +269,10 @@ export const fluorideWaterSuppliesData = {
         methodology:
           "Compare dental health outcomes (DMFT scores, untreated cavities, emergency dental visits) in low-income children across three policy environments: (1) communities with water fluoridation, (2) communities without water fluoridation but with active alternative programs (school-based fluoride rinses, dental sealant programs, targeted varnish), and (3) communities with neither fluoridation nor alternative programs. Control for income, dental insurance coverage, dental care access, and dietary factors. If alternative programs achieve parity with fluoridation in reaching low-income children, the consent argument strengthens; if significant gaps persist, the equity case for fluoridation is confirmed.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow cavity rates among low-income children, from school dental screenings, in places that end fluoridation and replace it with school toothbrushing, varnish or salt programs, against similar places that keep it; how much consent should weigh against any gap that remains is a value each side should state up front.",
+        },
         cost_to_verify:
           "$2-5M (Comparative cross-community dental health study across policy environments)",
         falsification: {

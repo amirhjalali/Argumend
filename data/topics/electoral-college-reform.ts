@@ -41,6 +41,10 @@ export const electoralCollegeReformData = {
         methodology:
           "Track state-level NPVIC legislation. Analyze political feasibility in remaining states needed to reach 270 EVs. Model legal challenges that would follow enactment.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Bill votes on the compact in the states it still needs, especially swing and Republican-led legislatures, tracked session by session along with any state that joins or withdraws, as recorded by the National Conference of State Legislatures.",
+        },
         cost_to_verify: "$0 (Monitor state legislative actions)",
         falsification: {
           supporter_flip:
@@ -132,6 +136,10 @@ export const electoralCollegeReformData = {
         methodology:
           "Track NPVIC enactment progress and any resulting legal challenges through federal courts to the Supreme Court.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A court ruling on the compact once it nears 270 votes or, before that, the Supreme Court's reasoning in related cases on interstate compacts and state control of electors, such as the 2020 faithless-elector decision, read by constitutional scholars on both sides.",
+        },
         cost_to_verify: "$0 (Monitor legal proceedings if/when NPVIC activates)",
         falsification: {
           supporter_flip:
