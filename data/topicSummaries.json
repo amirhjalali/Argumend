@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric tragedy montreal subsistence folk malthus nash fisheries leviathan"
+    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric montreal tragedy subsistence folk malthus nash fisheries leviathan"
   },
   {
     "id": "ai-2027",
@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming superhuman bench metr philanthropy"
+    "keywords": "kokotajlos chinchilla alphatensor amdahls aschenbrenner christiano latency leaderboard bench davidson hoffmann looming superhuman metr philanthropy"
   },
   {
     "id": "jones-act",
@@ -457,7 +457,7 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix simplification treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein conceal phoenix treatable"
   },
   {
     "id": "gun-control-effectiveness",
@@ -767,7 +767,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "detroit smartlink medell montevideo buolamwini farrington lineup munyo piza rossi shades welsh zhan gebru wrongfully"
+    "keywords": "detroit smartlink medell montevideo buolamwini farrington gebru lineup munyo piza rossi shades welsh zhan wrongfully"
   },
   {
     "id": "us-iran-conflict",
@@ -796,7 +796,7 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "houthis jcpoa jazeera hezbollahs lebanon iranian grossi hormuz ceasefire blockade israeli fordow iraq memorandum tehran"
+    "keywords": "houthis jcpoa jazeera hezbollahs lebanon iranian grossi hormuz ceasefire blockade iraq israeli fordow memorandum tehran"
   },
   {
     "id": "epstein-files",
@@ -1099,7 +1099,7 @@
       "Could AI escape human control?",
       "Could a misaligned superintelligence wipe out humanity?"
     ],
-    "keywords": "apollo mythos hugging metr amodei astra kapoor narayanan preview turner opus redwood sandbox sonnet circled"
+    "keywords": "apollo mythos metr amodei astra kapoor narayanan turner opus redwood sonnet circled sandbox boat dario"
   },
   {
     "id": "ai-content-labeling",
@@ -1121,7 +1121,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers chegini conspicuous ecfr iptc"
+    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan zauderer artists trustworthy writers chegini conspicuous ecfr iptc"
   },
   {
     "id": "big-tech-antitrust",
@@ -1257,25 +1257,31 @@
   },
   {
     "id": "ai-regulation",
-    "title": "Should AI Be Regulated Like Drugs or Nuclear Energy?",
-    "question": "Should AI be regulated like drugs or nuclear energy?",
-    "meta_claim": "Artificial intelligence development poses existential-level risks that require immediate government regulation comparable to pharmaceutical or nuclear oversight.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 75,
+    "title": "Binding Safety Rules for Powerful AI",
+    "question": "Should the most powerful AI models face binding government safety rules?",
+    "meta_claim": "The most capable AI models should face binding government safety rules, such as required testing, incident reporting and the power to halt a dangerous model, rather than rely on voluntary commitments from the companies that make them.",
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 79,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Will AI capabilities keep scaling toward catastrophe-relevant thresholds, or plateau?",
+    "pillarCount": 4,
+    "evidenceCount": 22,
+    "firstCrux": "Can today's most powerful AI models do enough damage, in cyberattacks or bioweapons, to justify binding rules now?",
     "tags": [
       "technology"
     ],
-    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu demis gavin godfather gsm8k hassabis kefauver kelsey"
+    "aliases": [
+      "Should AI be regulated like drugs or nuclear energy?",
+      "Should AI be regulated by the government?",
+      "Should states or Washington regulate AI?",
+      "Should AI companies be allowed to police themselves?"
+    ],
+    "keywords": "summit newsom mythos seoul globalist zhipu amodei hinton thalidomide altman multimodal tape calif fable hassabis"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1297,7 +1303,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "gasoline technocratic crispr linux moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel"
+    "keywords": "gasoline technocratic crispr moores dimasi grabowski kesler kummer seatbelt tufts w25248 w30028 wagman waldfogel hansen"
   },
   {
     "id": "ai-superintelligence-timeline",
@@ -1407,7 +1413,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "brave cookies encryption browser reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger"
+    "keywords": "brave cookies encryption reauthorized fingerprinting carpenter whatsapp adppa aguiar clearview duckduckgo inria kagal karger liccardi"
   },
   {
     "id": "climate-change",
@@ -1963,7 +1969,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "forked hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
+    "keywords": "forked hashrate moat terra luna glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -2074,7 +2080,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
+    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates bard disbursed forgave fullwiler"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2499,7 +2505,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock gothenburg maos subversion contentious defamation deliberative dissatisfied gerrymandering turkey"
+    "keywords": "famine amartya autocratizing montreal technocratic deadlock gothenburg maos subversion contentious defamation deliberative dissatisfied gerrymandering turkey"
   },
   {
     "id": "geoengineering-climate",
@@ -2565,7 +2571,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate ceos herself naep clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "keywords": "despair deaton anne tate herself naep ceos clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2587,7 +2593,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa tape deloitte schiff hampshire politicians robocall kramer leica nikon hollywood adobe bueno crying liars"
+    "keywords": "c2pa deloitte schiff tape hampshire politicians robocall kramer leica nikon hollywood adobe bueno crying liars"
   },
   {
     "id": "declining-birth-rates",
@@ -2836,7 +2842,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "deepseek caisi ntia biorisk elicitation mistral opus qwen toner alibabas amateur apache bench restrictionist casper"
+    "keywords": "deepseek caisi ntia biorisk elicitation mistral opus qwen toner alibabas amateur bench apache restrictionist casper"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -3003,7 +3009,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode groves kusano paddock"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla dragged phoenix gode groves kusano"
   },
   {
     "id": "net-neutrality",
@@ -3370,7 +3376,7 @@
     "aliases": [
       "Will killer robots start an AI arms race?"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible primer abstentions atrocities belarus governmental milder unoda"
+    "keywords": "icrc preemptive lamberth scharre sparrow dumb if11150 if11294 impermissible governmental primer abstentions atrocities belarus milder"
   },
   {
     "id": "ai-energy-water-footprint",
