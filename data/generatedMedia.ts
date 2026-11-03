@@ -490,6 +490,42 @@ export const generatedMedia = [
   },
   {
     kind: "topic",
+    id: "congress-stock-trading-ban",
+    hero: {
+      src: "/images/generated/topics/congress-stock-trading-ban/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A domed legislature behind a small trading desk spilling blank ticker tape, opposite a glass blind-trust box holding a sealed envelope and an open disclosure ledger.",
+      prompt: topicHeroPrompt(
+        "A domed legislature drawn in architectural elevation beside a small brokerage desk with a ticker-tape ribbon of blank paper curling off it, a glass blind trust box with a sealed envelope inside and an open ledger of disclosures, teal and rust paths meeting at a small crimson crux mark. No people, no flags, no numbers, no logos.",
+      ),
+    },
+  },
+  {
+    kind: "topic",
+    id: "partisan-gerrymandering",
+    hero: {
+      src: "/images/generated/topics/partisan-gerrymandering/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "An invented patchwork of dotted-line districts on a survey table, where compasses and a ruling pen draw one boundary into a long winding shape beside a faint even grid, with ink pots and a ballot box.",
+      prompt: topicHeroPrompt(
+        "An abstract invented patchwork territory on a surveyor's table, its blank regions bounded by dotted lines, a pair of compasses and a ruling pen redrawing one boundary into a long winding shape, a fair even grid drawn faintly beside it, teal and rust ink pots and a wooden ballot box, a small crimson crux mark. No real states or countries, no recognisable map outlines, no party symbols, no flags.",
+      ),
+    },
+  },
+  {
+    kind: "topic",
+    id: "aca-enhanced-subsidies",
+    hero: {
+      src: "/images/generated/topics/aca-enhanced-subsidies/hero.jpg",
+      ...IMAGE_DIMENSIONS,
+      alt: "A kitchen table with a budget ledger, insurance envelopes, a clinic card and a small teal umbrella, before a landscape where a teal path ends abruptly at a cliff above a rust slope.",
+      prompt: topicHeroPrompt(
+        "A kitchen table with a household budget ledger, a stack of blank insurance envelopes and a clinic appointment card, a stone cliff edge drawn across the page where a teal premium-support path suddenly drops into a rust slope, a small umbrella resting on the ledger, a small crimson crux mark. No people, no logos, no numbers.",
+      ),
+    },
+  },
+  {
+    kind: "topic",
     id: "nuclear-energy-safety",
     hero: {
       src: "/images/generated/topics/nuclear-energy-safety/hero.jpg",
