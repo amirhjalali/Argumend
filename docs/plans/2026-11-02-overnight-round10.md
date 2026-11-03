@@ -111,4 +111,4 @@ Decisions (nothing merged; main deploys on merge):
 
 Content follow-ups: the US-China truce card (recheck after 2026-11-10); ukraine
 recruitment and Sweden MUST claims still NEEDS LIVE CHECK; GLP-1 "40% Ozempic price
-cut in 2024" unverified; Ukraine nuclear paste cruxes don't cover intermittency.
+cut in 2024" unverified; the nuclear-power map has no crux on grid intermittency, which pro-nuclear pastes often argue.
