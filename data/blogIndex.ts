@@ -36,6 +36,16 @@ export interface ArticleSummary {
 /** Pre-computed summaries — no `content`, so importing this stays lightweight. */
 export const articleSummaries: ArticleSummary[] = [
   {
+    slug: "obamacare-subsidy-cliff-who-left-the-marketplace",
+    title: "The Obamacare Subsidy Cliff: Who Actually Left the Marketplace?",
+    description:
+      "The enhanced ACA premium credits expired at the end of 2025, and in 2026 KFF and the HHS planning office read the fall in enrollment in opposite ways: eligible buyers priced out, or improper enrollees removed. Here is what both sides accept, why their numbers differ, what the subsidy buys for about $350 billion, and what would settle it.",
+    tags: ["affordable care act", "obamacare", "health insurance", "premiums", "federal budget", "crux"],
+    category: "Analysis",
+    publishedAt: "2026-11-03T14:00:00Z",
+    readingTime: "9 min read",
+  },
+  {
     slug: "should-members-of-congress-trade-stocks",
     title: "Should Members of Congress Trade Stocks? What the Fight Is Actually About",
     description:

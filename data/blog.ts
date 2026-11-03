@@ -12,6 +12,88 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // The Obamacare Subsidy Cliff: Who Actually Left the Marketplace?
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "obamacare-subsidy-cliff-who-left-the-marketplace",
+    title: "The Obamacare Subsidy Cliff: Who Actually Left the Marketplace?",
+    description:
+      "The enhanced ACA premium credits expired at the end of 2025, and in 2026 KFF and the HHS planning office read the fall in enrollment in opposite ways: eligible buyers priced out, or improper enrollees removed. Here is what both sides accept, why their numbers differ, what the subsidy buys for about $350 billion, and what would settle it.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-03T14:00:00Z",
+    readingTime: "9 min read",
+    tags: ["affordable care act", "obamacare", "health insurance", "premiums", "federal budget", "crux"],
+    category: "Analysis",
+    content: `## The subsidy ended. Then two agencies told two stories.
+
+The extra premium help Congress created for Affordable Care Act marketplace plans in 2021 expired at the end of 2025. The American Rescue Plan had introduced it as a pandemic measure, and a 2022 law extended it through 2025. It removed the old income ceiling of 400% of the poverty line, so households above it could get help for the first time, and it cut what everyone below paid. When it lapsed, the House passed a three-year extension 230-196 on January 8, 2026, with 17 Republicans joining every Democrat. The Senate had rejected a three-year extension the month before and has not passed one since.
+
+What happened next is not in dispute in its broad shape. Fewer people bought marketplace coverage in 2026, and the people who stayed paid more. What is in dispute is who left and why, and two careful-sounding analyses give opposite answers. KFF, the health policy research group, finds the steepest losses among middle-income buyers who lost all help at the cliff. The planning office of the Department of Health and Human Services (ASPE) attributes the fall in enrollment to removing people who were improperly or fraudulently enrolled.
+
+Our map, [Should Congress bring back the expanded Obamacare subsidies?](/topics/aca-enhanced-subsidies), lays out three questions under that disagreement. Here is the short version.
+
+## What both sides accept
+
+- **The enhanced credits lowered costs and widened eligibility.** A household at 200% of the poverty line paid 2% of its income toward a benchmark plan in 2025; without the enhancement, the Congressional Research Service calculated, it would pay 6.6% in 2026.
+- **Subsidized enrollment more than doubled while they ran,** from 9.2 million in 2020 to 21.8 million in 2025, according to CRS.
+- **Some of that growth was improper.** The Centers for Medicare & Medicaid Services (CMS) says that in 2025 it ended subsidy payments or coverage for "nearly 1.5 million people" who were ineligible for help or enrolled without their consent.
+- **Costs rose sharply in 2026.** KFF found the average monthly premium enrollees paid rose 58%, from $113 to $178, and the average deductible rose 37%, from $2,759 to $3,786, the steepest increase since the marketplaces launched in 2014.
+- **Another increase is coming.** Insurers have proposed a median 15% premium increase for 2027, after a finalized median of 20% for 2026.
+
+## Crux one: priced out or purged?
+
+[The first crux](/topics/aca-enhanced-subsidies#crux-who-left) asks: of those who left the marketplace in 2026, how many were improper enrollees and how many were eligible buyers priced out?
+
+**The KFF reading.** Plan sign-ups fell by over a million to 23.1 million, the sharpest one-year drop since the marketplaces opened. Sign-ups count people who chose a plan or were automatically renewed, not people who paid, so KFF also projects paid enrollment falling from 22.3 million in 2025 to about 17.5 million in 2026, and possibly to 16.5 million. The strongest part of KFF's case is the pattern of who left. People with incomes of 400% to 500% of the poverty line, who lost all premium help at the cliff, made up 3% of 2025 sign-ups but 27% of the drop; their sign-ups fell 44%, by over 321,000 people. Everyone above the cliff together was 7% of 2025 enrollment but 48% of the decline. That matters because the improper enrollment both sides describe was concentrated in zero-premium plans at low incomes, not among middle-income buyers who paid premiums. In New Mexico, which used state money to replace the lost federal help in full, sign-ups rose 18%, while they fell in 41 states.
+
+A KFF survey of 1,117 people who had marketplace coverage in 2025, fielded February 12 to March 2, 2026, adds the human side: "About one in 10 (9%) of those who had Marketplace coverage in 2025 have dropped it entirely and are now uninsured." Among those who switched or dropped plans, 71% said expense was a "major reason." A survey reaches real people, so the uninsured it finds are by definition not phantom sign-ups.
+
+**The ASPE reading.** The HHS brief, published June 26, 2026, estimates that "improper, phantom and fraudulent enrollment peaked at 5.6 million people in 2025," and that an estimated 2.9 million improperly enrolled people have been removed, about 1.5 million by CMS and 1.4 million through other measures. It treats the gap between February 2025 and February 2026 paid enrollment as those removals, and estimates 2.6 million potentially improper enrollments remain. It notes that the roughly 19.2 million people still enrolled is "higher than every year prior to 2024." The Paragon Health Institute, a think tank that argued against extension, separately estimates that "approximately 6.2 million exchange sign-ups in 2026 were improper," about 27% of all sign-ups.
+
+**Why they disagree.** The two analyses are not measuring the same thing. KFF counts who left, by income band and state, without checking anyone's eligibility. ASPE infers improper enrollment as the gap between observed enrollment, estimated moves from other coverage and a 2019 baseline, rather than from checks of individual people, and its brief does not discuss subsidy expiration as a cause of the decline at all. Paragon compares sign-ups in the lowest-income band with Census estimates of how many people could be eligible, which can overstate fraud if surveys undercount low-income people. Each method could be right about part of the picture. Both could be true at once: many improper enrollees removed and many eligible buyers priced out.
+
+**What would settle it:** an audit of a random sample of people enrolled in 2025 but not 2026, checking each person's income and identity against IRS and Social Security records and recording whether they were removed, stopped paying after a premium increase, or found other coverage, broken out by income band. CMS and the IRS hold the records. No agency has published such a study.
+
+## Crux two: what does the money buy?
+
+[The second crux](/topics/aca-enhanced-subsidies#crux-what-the-money-buys) asks how many more people the subsidy keeps insured, and how much goes to people who would have had coverage anyway.
+
+The score both sides start from is the Congressional Budget Office's. With the Joint Committee on Taxation, CBO estimated that a permanent extension would raise spending by nearly $296 billion and cut revenues by more than $54 billion over 2026-2035, about $350 billion in all. In return, "the number of people with health insurance would increase by 3.6 million in 2030 and by 3.8 million in 2035," and gross benchmark premiums would be about 7.6% lower each year, because healthier people would stay in the pool. The three-year extension the House passed was scored at about $80.6 billion over ten years for about 4 million more insured by 2028.
+
+Supporters read that as coverage plus lower premiums for everyone in the market, and point to the 2027 filings: insurers cite "the expiration of enhanced premium tax credits at the end of 2025" and "a related increase in the risk pool's morbidity" among the reasons for their increases. KFF adds the caveat in the same review: "rising healthcare prices—as in prior years—remain the primary driver of 2027 premium increases."
+
+Critics read the same score as a high price per person covered, and argue that much of the money went to people who had other options. ASPE estimated that about 6 million people moved into the exchanges from other coverage between 2019 and 2026, from Medicaid, small-employer plans and off-exchange individual plans; its own breakdown does not fully add up to its total. Paragon reported that in 2024, "35 percent of exchange enrollees had no medical claims during their enrollment period," a sign, it argues, of people enrolled without knowing it. The counter is that healthy people who never use their insurance are how insurance works, and part-year enrollees inflate that share.
+
+**What would settle it:** linked 2026 tax and coverage records for people subsidized in 2025, showing how many became uninsured and how many moved to other coverage, alongside the prior claims of those who left. Those records, and the Census Bureau's 2026 survey data, are expected in 2027.
+
+## Crux three: who should get help?
+
+[The third crux](/topics/aca-enhanced-subsidies#crux-who-should-get-help) is the one numbers will not close: should federal premium help reach middle-income buyers above 400% of poverty, and be permanent rather than temporary?
+
+The case for restoring it rests on affordability and on breadth of support. KFF's poll fielded October 27 to November 2, 2025 found 74% of the public favored extension. The House vote drew 17 Republicans, many from closely divided districts. And the group hit hardest, people just above the cliff, is exactly the group the enhanced credits were designed to reach.
+
+The case against rests on cost and targeting. The credits were written as temporary. Republican support in KFF's polling fell from 59% in September 2025 to 50% by early November. Even senators open to a deal wanted it narrower: a bipartisan group discussed a two-year extension that would cap help for households above 700% of the poverty line and require a $5 minimum monthly payment, so that no plan is free. Sen. Bernie Moreno said the group was in the "red zone," but warned that it "could mean a 95-yard fumble." No deal passed.
+
+The map marks this as a difference in values. Coverage, cost and improper payments by income band can all be measured. How much of their income middle-income families should pay before taxpayers help is a judgment about fairness and the budget. Two people can agree on every number in this post and still disagree here.
+
+## What would change minds
+
+- **Supporters of extension** would lose their main support if a verified sample showed most 2026 leavers were improperly enrolled or found other coverage, or if linked records showed most people who left moved to other insurance rather than becoming uninsured. Some would accept a cap or phase-out if help above 400% of poverty went mostly to households that kept coverage without it.
+- **Opponents** would see the fraud-cleanup reading fail if the sample showed most leavers were verified eligible buyers who stopped paying after their premiums rose, and the "redundant coverage" reading fail if the 2026 Census data showed the uninsured rate rising by millions. If minimum payments ended improper zero-premium enrollment without cutting help, the case for letting the credits lapse would rest on budget priorities alone.
+
+Both sides already agree on more than the shouting suggests: improper zero-premium enrollment should be stopped, buyers just above the old cliff faced the sharpest increases, and any extension costs tens of billions of dollars.
+
+## What to watch next
+
+- **Open enrollment for 2027.** It opened on November 1. On HealthCare.gov, enrolling by December 15 gets coverage from January 1, and open enrollment ends January 15. Sign-ups this winter, by income band, are the next test of the cliff pattern.
+- **Final 2027 premiums,** against the median 15% insurers proposed.
+- **Paid enrollment for 2026.** KFF notes that CMS data reflecting the late-March payment grace period may not be available for another year; the paid figure, not sign-ups, is what tells you how many people actually kept coverage.
+- **The 2026 Census and IRS data,** expected in 2027, which speak directly to crux two.
+- **Congress.** Whether any extension, full or capped, passes the Senate after the election.
+
+The useful thing about this fight is that the factual part of it is answerable with records the government already holds. Until someone publishes that audit, the honest reading is that both a cleanup and a price shock are visible in the data, and their relative size is the open question. The [full map](/topics/aca-enhanced-subsidies) keeps the evidence for each reading side by side. If you are in an argument about it right now, [paste it in](/analyze) to see which of the three questions it turns on.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // Should Members of Congress Trade Stocks? What the Fight Is Actually About
   // ──────────────────────────────────────────────────────────────────────────
   {
