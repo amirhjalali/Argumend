@@ -2107,7 +2107,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers lows belt hmrc redfin tourist fraser garcia lopez starter metro airbnb batzer bearish"
+    "keywords": "rentals lows sellers belt hmrc redfin tourist fraser garcia lopez starter metro airbnb batzer bearish"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2744,18 +2744,17 @@
     "title": "Trump's Tariffs & Protectionist Trade Policy",
     "question": "Have Trump's tariffs revived US manufacturing and helped American workers?",
     "meta_claim": "Trump's protectionist trade policy — broad reciprocal tariffs, Section 232 metals duties, and layered tariffs on China — has revived American manufacturing, reduced strategic dependence on rivals, and rebalanced trade in favor of US workers.",
-    "confidence_score": 29,
-    "balance": 29,
-    "weight": 78,
+    "confidence_score": 36,
+    "balance": 36,
+    "weight": 79,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 4,
-    "evidenceCount": 16,
+    "evidenceCount": 18,
     "firstCrux": "How much of the tariff cost do US consumers and importers pay, versus foreign exporters?",
     "tags": [
       "economics"
