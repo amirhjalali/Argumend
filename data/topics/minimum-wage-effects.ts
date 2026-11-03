@@ -16,7 +16,9 @@ export const minimumWageEffectsData = {
   category: "policy" as const,
   // As of 3 November 2026: the federal minimum is still $7.25 (since 24 July
   // 2009). The Labor Department's state table (updated 1 July 2026) lists 17
-  // states at $15 or more and 17 paying $7.25 or relying on it. Oklahoma
+  // states at $15 or more and 20 where $7.25 is the working floor: 13 set
+  // $7.25 (Oklahoma for larger employers), Georgia and Wyoming set $5.15, and
+  // five have no state minimum. Oklahoma
   // voters rejected a $15-by-2029 question on 16 June 2026. Two federal bills
   // sit in committee: Hawley-Welch ($15, indexed, June 2025) and the Raise the
   // Wage Act ($17 by 2030, April 2025). Clemens et al.'s two-year estimate
@@ -24,7 +26,7 @@ export const minimumWageEffectsData = {
   last_updated: "2026-11-03",
   keystone_fact: {
     statement:
-      "The federal minimum wage has been $7.25 an hour since 24 July 2009. Prices have risen 56% since then, so it buys what $4.63 did that summer. As of July 2026, 17 states still pay $7.25 or rely on it, while 17 others pay $15 or more, up to $17.13 in Washington. A $15 national floor would mean $7.75 more an hour, about $16,000 a year for a full-time worker. The fight is over how many of those jobs would survive it where pay is lowest.",
+      "The federal minimum wage has been $7.25 an hour since 24 July 2009. Prices have risen 56% since then, so it buys what $4.63 did that summer. As of July 2026, 20 states still pay $7.25 or rely on it, while 17 others pay $15 or more, up to $17.13 in Washington. A $15 national floor would mean $7.75 more an hour, about $16,000 a year for a full-time worker. The fight is over how many of those jobs would survive it where pay is lowest.",
     confidence: 90,
     source:
       "US Department of Labor, State Minimum Wage Laws (updated 1 July 2026) and federal minimum wage history; BLS CPI-U via FRED (July 2009 to September 2026)",
@@ -111,7 +113,7 @@ export const minimumWageEffectsData = {
             "Neumark & Wascher, NBER Working Paper 5224 (1995); published as 'Comment,' American Economic Review 90(5): 1362-1396 (2000)",
           sourceUrl: "https://www.nber.org/papers/w5224",
           reasoning:
-            "Better data on hours and staff than a phone survey. Card and Krueger's reply traced the gap to a small set of restaurants owned by one franchisee, so the sample is contested; like the original, it covers one modest raise.",
+            "Better data on hours and staff than a phone survey. Card and Krueger's reply, using BLS payroll data for far more restaurants, found no relative job loss, so the sample is contested; like the original, it covers one modest raise.",
         },
         {
           id: "cengiz-dube-bunching-analysis",
@@ -162,12 +164,12 @@ export const minimumWageEffectsData = {
       id: "employment-effects",
       title: "Jobs at $15 where pay is lowest",
       short_summary:
-        "A $15 floor would barely touch Seattle and would more than double pay in rural Mississippi. The closest tests of a high minimum are Seattle's step to $13 in 2016 and California's $20 fast-food wage in 2024, and both are disputed. The Congressional Budget Office's estimate for $15 spans roughly zero to 3.7 million jobs lost.",
+        "A $15 floor would barely touch Seattle and would more than double pay in rural Mississippi. The closest tests of a high minimum are Seattle's step to $13 in 2016 and California's $20 fast-food wage in 2024, and both are disputed. The Congressional Budget Office's likely range for $15 spans roughly zero to 2.7 million jobs lost.",
       icon_name: "Users" as const,
       skeptic_premise:
         "The high-minimum experiments have not produced the collapse that was predicted. California raised fast-food pay to $20 in April 2024, 69% of the state's median full-time wage; Reich and Sosinskiy found average weekly wages for covered workers rose 10 to 11% with no reduction in employment, and prices rose 2.1%, about 8 cents on a $4 item. In Seattle, the University of Washington team's own method finds an effect of zero on restaurant employment, the sector most earlier studies used. Seventeen states have gone to $15 or more on their own. A federal floor phased in over several years gives employers in low-wage states time to adjust.",
       proponent_rebuttal:
-        "Low-wage places are where $15 bites, and the evidence from high minimums points to losses. Using administrative data on hours, the University of Washington team found Seattle's step to $13 in 2016 raised hourly wages in low-wage jobs by about 3% but cut hours by 6 to 7%, lowering pay for those jobs by an average of $74 a month. Clemens, Edwards, Meer and Nguyen estimate California's $20 fast-food wage cut employment in the sector by about 3% after one year and about 3.5% after two, relative to the rest of the country. CBO's median estimate for $15 by 2025 was 1.4 million fewer jobs. A rural diner in Mississippi cannot raise prices like a burger chain in Los Angeles; it cuts shifts, or it closes.",
+        "Low-wage places are where $15 bites, and the evidence from high minimums points to losses. Using administrative data on hours, the University of Washington team found Seattle's step to $13 in 2016 raised hourly wages in low-wage jobs by about 3% but cut hours by 6 to 7%, lowering pay for those jobs by an average of $74 a month. Clemens, Edwards, Meer and Nguyen estimate California's $20 fast-food wage cut employment in the sector by about 3% after one year and about 3.5% after two, relative to the rest of the country. CBO's average estimate for $15 by 2025 was 1.4 million fewer jobs. A rural diner in Mississippi cannot raise prices like a burger chain in Los Angeles; it cuts shifts, or it closes.",
       crux: {
         id: "employment-elasticity-measurement",
         title: "Employment Elasticity at High Minimum Wage Levels",
@@ -221,7 +223,7 @@ export const minimumWageEffectsData = {
           title:
             "California's $20 fast-food wage: employment about 3% below the counterfactual after one year, 3.5% after two (Clemens et al.)",
           description:
-            "California raised the minimum for large fast-food chains from $16 to $20 an hour in April 2024. Comparing limited-service restaurant employment with the rest of the country, Clemens, Edwards, Meer and Nguyen estimate a median decline of 3% after one year in the Quarterly Census of Employment and Wages and 1.5% in the Quarterly Workforce Indicators, and about 3.5% in both after two years. An earlier version put the one-year loss at about 18,000 jobs.",
+            "California raised the minimum for large fast-food chains from $16 to $20 an hour in April 2024. Comparing limited-service restaurant employment with the rest of the country, Clemens, Edwards, Meer and Nguyen estimate a median decline of 3% after one year in the Quarterly Census of Employment and Wages and 1.5% in the Quarterly Workforce Indicators, and about 3.5% in both after two years.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -230,7 +232,7 @@ export const minimumWageEffectsData = {
             directness: 7,
           },
           source:
-            "Clemens, Edwards, Meer & Nguyen, 'Did California's Fast Food Minimum Wage Reduce Employment?', NBER Working Paper 34033 (July 2025, revised October 2026)",
+            "Clemens, Edwards, Meer & Nguyen, 'Employment Effects of California's Fast Food Minimum Wage: Evidence from the QCEW and QWI,' NBER Working Paper 34033 (July 2025, revised October 2026; first circulated as 'Did California's Fast Food Minimum Wage Reduce Employment?')",
           sourceUrl: "https://www.nber.org/papers/w34033",
           reasoning:
             "Uses official employment counts and two-year horizons. It is a working paper; the result depends on comparing California with the rest of the US over a period when California's economy and population grew slowly, which the Berkeley authors dispute.",
@@ -258,9 +260,9 @@ export const minimumWageEffectsData = {
         {
           id: "cbo-15-minimum-analysis",
           title:
-            "CBO 2021: $15 by 2025 would raise pay for 17 million, lift 0.9 million out of poverty, and cut 1.4 million jobs (range: about 0 to 3.7 million)",
+            "CBO 2021: $15 by 2025 would directly affect 17 million workers, lift 0.9 million out of poverty, and cut 1.4 million jobs on average (likely range: about 0 to 2.7 million)",
           description:
-            "The Congressional Budget Office's February 2021 analysis of the Raise the Wage Act of 2021 (the federal minimum to $15 by June 2025) estimated it would directly raise wages for 17 million workers and lift 0.9 million people out of poverty, but reduce employment by 1.4 million workers in its median estimate. CBO judged a two-thirds chance the employment change would fall between roughly zero and 3.7 million jobs lost.",
+            "The Congressional Budget Office's February 2021 analysis of the Raise the Wage Act of 2021 (the federal minimum to $15 by June 2025) estimated that in 2025 it would directly affect 17 million workers whose wages would otherwise be below $15 and reduce the number of people in poverty by 0.9 million, but reduce employment by 1.4 million workers in its average estimate (its median was 1.0 million). CBO put a one-third chance on a loss between about zero and 1.0 million and another one-third chance on a loss between 1.0 million and 2.7 million.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -289,7 +291,7 @@ export const minimumWageEffectsData = {
       skeptic_premise:
         "A minimum wage is a poor anti-poverty tool. Only 1.0% of hourly workers were paid $7.25 or less in 2024, and 43% of them were under 25. A higher wage does nothing for a poor household with no one in work, and it reaches teenagers in comfortable homes as readily as parents in poor ones. The earned income tax credit targets families by income and size, rewards work, and puts no cost on employers or customers. Part of a higher wage comes back as higher prices, which low-income families pay too, and part is lost as shorter hours.",
       proponent_rebuttal:
-        "The $7.25 count understates who would get a raise: the Economic Policy Institute estimates a $17 floor by 2030 would raise pay for about 22 million workers. They work in an economy where pay has not kept up with output: from 1979 to 2019, net productivity grew about 60% and typical hourly compensation about 16%. The EITC and the minimum wage work together, and a tax credit alone lets employers pay less, knowing taxpayers will make up the difference. CBO's own estimate put 0.9 million people out of poverty at $15.",
+        "The $7.25 count understates who would get a raise: the Economic Policy Institute estimates a $17 floor by 2030 would raise pay for about 22 million workers. They work in an economy where pay has not kept up with output: from 1979 to 2024, net productivity grew about 83% and typical hourly compensation about 29%. The EITC and the minimum wage work together, and a tax credit alone lets employers pay less, knowing taxpayers will make up the difference. CBO's own estimate put 0.9 million people out of poverty at $15.",
       crux: {
         id: "poverty-reduction-efficiency",
         title: "Minimum Wage vs. EITC Poverty Reduction Efficiency",
@@ -360,9 +362,9 @@ export const minimumWageEffectsData = {
         {
           id: "productivity-wage-divergence",
           title:
-            "EPI: from 1979 to 2019 net productivity grew about 60%, typical hourly pay about 16%",
+            "EPI: from 1979 to 2024 net productivity grew about 83%, typical hourly pay about 29%",
           description:
-            "Economic Policy Institute analysis of BLS and BEA data finds that from 1979 to 2019 net productivity grew about 59.7% while the typical worker's hourly compensation grew about 15.8%, productivity rising roughly 3.5 times as fast as pay. EPI argues that had the minimum wage tracked productivity since the late 1960s it would be far above $7.25.",
+            "The Economic Policy Institute's productivity-pay tracker (updated 3 September 2025), built from BLS and BEA data, shows net productivity of the total economy about 83% higher in 2024 than in 1979, and hourly compensation of private-sector production and nonsupervisory workers about 29% higher, so productivity rose nearly three times as fast as typical pay (annual averages of EPI's quarterly chart data, Argumend's arithmetic).",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -371,7 +373,7 @@ export const minimumWageEffectsData = {
             directness: 4,
           },
           source:
-            "Economic Policy Institute, 'The Productivity–Pay Gap' (updated through 2019)",
+            "Economic Policy Institute, 'The Productivity–Pay Gap' (updated 3 September 2025; data to 2025)",
           sourceUrl: "https://www.epi.org/productivity-pay-gap/",
           reasoning:
             "Built on government data by an advocacy think tank; the size of the gap depends on which price index and pay measure are used. It is an argument about fairness, not evidence about jobs or poverty at $15.",
@@ -379,9 +381,9 @@ export const minimumWageEffectsData = {
         {
           id: "eitc-comparison-effectiveness",
           title:
-            "CBPP: the EITC lifted about 5.6 million people, including 3 million children, out of poverty in 2018",
+            "CBPP: the EITC lifted about 4.4 million people, including 2.3 million children, above the poverty line in 2024",
           description:
-            "Per the Center on Budget and Policy Priorities, the Earned Income Tax Credit lifted about 5.6 million people out of poverty in 2018, including roughly 3 million children. Unlike the minimum wage, the EITC targets benefits by family income and size, places no cost on employers, and rewards work. Some economists argue it reduces poverty more efficiently per dollar than a minimum-wage increase; many favor both.",
+            "Per the Center on Budget and Policy Priorities, Census data show the Earned Income Tax Credit lifted about 4.4 million people above the Supplemental Poverty Measure's poverty line in 2024, including 2.3 million children, and 23 million working families and individuals received it in the 2023 tax year. Unlike the minimum wage, the EITC targets benefits by family income and size, places no cost on employers, and rewards work. Some economists argue it reduces poverty more efficiently per dollar than a minimum-wage increase; many favor both.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -390,7 +392,7 @@ export const minimumWageEffectsData = {
             directness: 6,
           },
           source:
-            "Center on Budget and Policy Priorities, 'Policy Basics: The Earned Income Tax Credit' (2018 data)",
+            "Center on Budget and Policy Priorities, 'Policy Basics: The Earned Income Tax Credit' (updated 19 December 2025)",
           sourceUrl:
             "https://www.cbpp.org/research/policy-basics-the-earned-income-tax-credit",
           reasoning:
@@ -406,12 +408,12 @@ export const minimumWageEffectsData = {
       id: "national-or-local-floor",
       title: "One floor for the whole country?",
       short_summary:
-        "Washington pays $17.13; 17 states pay $7.25 or rely on it. A national $15 would leave the high-wage states untouched and remake pay in the low-wage South. Congress has two bills, Hawley-Welch at $15 and Raise the Wage at $17, and neither has moved; voters keep deciding it state by state, and in June 2026 Oklahoma said no.",
+        "Washington pays $17.13; 20 states pay $7.25 or rely on it. A national $15 would leave the high-wage states untouched and remake pay in the low-wage South. Congress has two bills, Hawley-Welch at $15 and Raise the Wage at $17, and neither has moved; voters keep deciding it state by state, and in June 2026 Oklahoma said no.",
       icon_name: "Gavel" as const,
       skeptic_premise:
         "States are already setting their own floors, and the results fit their economies. Seventeen states pay $15 or more; others chose not to, and when Oklahoma voters were asked in June 2026 to go to $15 by 2029, with automatic inflation increases after that, 55% said no. A single national number cannot be right for both Seattle and rural Alabama: what is a modest floor in one is close to what a typical job pays in the other. The federal floor can stay low as a backstop while states and cities set the real level, or Congress can index it regionally rather than pick one figure.",
       proponent_rebuttal:
-        "A national floor exists because the workers with the least bargaining power often live in the states least likely to raise it. Since July 2009 the federal $7.25 has lost 36% of its buying power, so standing still has been a pay cut every year for workers in the 17 states that use it. A $15 floor phased in over years, then indexed, is what both a Republican senator, Josh Hawley, and a Democrat, Peter Welch, proposed in June 2025. Lower living costs in the South are real, but a full-time job at $7.25 pays $15,080 a year before tax anywhere.",
+        "A national floor exists because the workers with the least bargaining power often live in the states least likely to raise it. Since July 2009 the federal $7.25 has lost 36% of its buying power, so standing still has been a pay cut every year for workers in the 20 states that use it. A $15 floor, then indexed to inflation, is what both a Republican senator, Josh Hawley, and a Democrat, Peter Welch, proposed in June 2025. Lower living costs in the South are real, but a full-time job at $7.25 pays $15,080 a year before tax anywhere.",
       crux: {
         id: "one-floor-or-many",
         title: "The National-Floor Test",
@@ -463,9 +465,9 @@ export const minimumWageEffectsData = {
         {
           id: "state-minimums-2026",
           title:
-            "July 2026: 17 states and DC pay $15 or more; 17 states pay $7.25 or have no minimum of their own",
+            "July 2026: 17 states and DC pay $15 or more; in 20 states the federal $7.25 is the working floor",
           description:
-            "The Labor Department's state table, updated 1 July 2026, lists 17 states at $15 or more, led by Washington at $17.13, Connecticut at $16.94 and California at $16.90, plus the District of Columbia at $18.40. Twelve states set $7.25 and five (Alabama, Louisiana, Mississippi, South Carolina and Tennessee) have no state minimum, so the federal $7.25 applies.",
+            "The Labor Department's state table, updated 1 July 2026, lists 17 states at $15 or more, led by Washington at $17.13, Connecticut at $16.94 and California at $16.90, plus the District of Columbia at $18.40. Thirteen states set $7.25 (Oklahoma for larger employers), Georgia and Wyoming set $5.15, and five (Alabama, Louisiana, Mississippi, South Carolina and Tennessee) have no state minimum, so in all 20 the federal $7.25 applies to jobs the federal law covers.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -505,7 +507,7 @@ export const minimumWageEffectsData = {
       url: "https://www.dol.gov/agencies/whd/minimum-wage/history/chart",
     },
     {
-      title: "S. 2013, Higher Wages for American Workers Act of 2025 (Hawley, Welch): $15, then indexed to inflation",
+      title: "S. 2013, Higher Wages for American Workers Act of 2025 (Hawley, Welch): $15 from the January after enactment, then indexed to CPI-W",
       url: "https://www.govinfo.gov/bulkdata/BILLS/119/1/s/BILLS-119s2013is.xml",
     },
     {
