@@ -284,7 +284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming superhuman bench metr"
+    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann looming superhuman metr philanthropy"
   },
   {
     "id": "jones-act",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful propublica"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs alabamas arkansass"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -578,7 +578,7 @@
       "Should we defund the police?",
       "Does police reform reduce crime?"
     ],
-    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver feloniously cahoots louisville roland tanaya portland"
+    "keywords": "devi fryer vera chalfin unarmed vacant lots campbell denver feloniously star cahoots louisville roland tanaya"
   },
   {
     "id": "mandatory-voting",
@@ -644,7 +644,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sparber azoulay boatlift peri mariel miranda diploma chad giovanni javier marielitos nonbudgetary reexamining birthplace cuban"
+    "keywords": "borjas boatlift sparber azoulay peri mariel diploma miranda chad giovanni javier marielitos nonbudgetary reexamining birthplace"
   },
   {
     "id": "open-borders",
@@ -666,7 +666,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular countercyclical"
+    "keywords": "carens remittances clemens borjas bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular"
   },
   {
     "id": "universal-basic-income",
@@ -711,7 +711,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid propublica infrequently slacalek tokuoka luxembourg deferral richest"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg deferral richest"
   },
   {
     "id": "standardized-testing-debate",
@@ -862,11 +862,11 @@
   {
     "id": "immigration-border-crisis",
     "title": "The US Immigration & Border Crisis",
-    "question": "Is enforcement plus asylum limits the best way to manage US immigration?",
-    "meta_claim": "The current approach to US immigration — combining border enforcement, asylum restrictions, and deportation — is the most effective way to manage immigration and protect national interests.",
-    "confidence_score": 40,
-    "balance": 40,
-    "weight": 69,
+    "question": "Are a closed border and mass deportations the right way to handle illegal immigration?",
+    "meta_claim": "The approach the US has taken since January 2025 (shutting off asylum at the border, record detention and a large-scale deportation drive) is the right way to handle illegal immigration.",
+    "confidence_score": 42,
+    "balance": 42,
+    "weight": 76,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -874,12 +874,17 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Did border crossings fall because of enforcement, or because of other factors?",
+    "evidenceCount": 14,
+    "firstCrux": "Did border crossings fall because of US enforcement, or because of other factors, and will the fall last?",
     "tags": [
       "policy"
     ],
-    "keywords": "fy2023 southwest trac syracuse fy2022 backlog binational venezuelan apprehensions boatlift mariel patrol neglect afghans aics"
+    "aliases": [
+      "Is enforcement plus asylum limits the best way to manage US immigration?",
+      "Should the US deport all illegal immigrants?",
+      "Is mass deportation a good idea?"
+    ],
+    "keywords": "trac southwest apprehensions patrol detained backlog marc rosenblum syracuse apprehended binational fy2023 asphyxia ians neck"
   },
   {
     "id": "social-media-elections",
@@ -1853,7 +1858,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "placer bloom andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip gentrification"
+    "keywords": "placer bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip"
   },
   {
     "id": "college-value-proposition",
@@ -2121,7 +2126,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
+    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia lopez starter metro airbnb batzer bearish"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2480,7 +2485,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
+    "keywords": "esafety commenced anglosphere assent babel rausch scandinavia snapchat twitch undifferentiated abrahamsson kick pediatricians reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2706,7 +2711,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam retiree hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
+    "keywords": "putnam borjas retiree hunkering italians jews complementarity diploma dispersed norc resettlement refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2751,7 +2756,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian zelensky putin donetsk manpower rusi ceasefire moscow emboldens haass jamestown kupchan kyiv facto refurbished"
+    "keywords": "ukrainian zelensky troops putin donetsk manpower rusi ceasefire facto moscow emboldens haass jamestown kupchan kyiv"
   },
   {
     "id": "trump-tariffs",
@@ -2817,7 +2822,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "pahlka callers fy2025 slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
+    "keywords": "pahlka fy2025 callers slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
   },
   {
     "id": "open-weight-ai-models",
@@ -2839,7 +2844,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bench bengio restrictionist yoshua"
+    "keywords": "deepseek caisi ntia biorisk mistral opus qwen toner alibabas amateur apache bengio restrictionist yoshua casper"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -3091,7 +3096,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha randal"
+    "keywords": "frvt metropolitan nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha"
   },
   {
     "id": "gmo-crops-safety",
@@ -3203,7 +3208,7 @@
       "medicine",
       "placebo"
     ],
-    "keywords": "remission relapse hamilton kirsch amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine reuptake"
+    "keywords": "remission relapse hamilton kirsch star amitriptyline cipriani e063095 geddes hieronymus jakobsen monotherapy pigott prespecified reboxetine"
   },
   {
     "id": "social-security-retirement-age",

@@ -2,346 +2,432 @@ export const immigrationBorderCrisisData = {
   id: "immigration-border-crisis",
   title: "The US Immigration & Border Crisis",
   question:
-    "Is enforcement plus asylum limits the best way to manage US immigration?",
+    "Are a closed border and mass deportations the right way to handle illegal immigration?",
   meta_claim:
-    "The current approach to US immigration — combining border enforcement, asylum restrictions, and deportation — is the most effective way to manage immigration and protect national interests.",
+    "The approach the US has taken since January 2025 (shutting off asylum at the border, record detention and a large-scale deportation drive) is the right way to handle illegal immigration.",
   status: "contested" as const,
   category: "policy" as const,
+  // As of 3 November 2026: Border Patrol recorded 98,708 southwest border
+  // apprehensions in fiscal 2026 (DHS, preliminary); MPI estimates about
+  // 980,000 deportations from 20 Jan 2025 to 31 Jul 2026; TRAC counted 65,765
+  // people in ICE detention on 11 July 2026; the asylum grant rate in
+  // immigration court fell to 5.5% in June 2026. The July 2025 reconciliation
+  // act added $170.7 billion for enforcement.
+  last_updated: "2026-11-03",
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "Southwest border encounters hit a record 2.47 million in fiscal 2023, then fell sharply after the asylum restrictions of 2023–2025. The immigration court backlog peaked near 3.7 million cases in fiscal 2024. Both sides accept those numbers. The fight is over what drove the drop, and whether enforcement and asylum limits are the best way to manage what comes next.",
-    confidence: 90,
+      "Border Patrol made 98,708 arrests at the southwest border in the year to September 2026, the fewest on record, down from 2.05 million in 2023. Inside the country, the government carried out about 980,000 deportations in the first 18 months of President Trump's second term, by the Migration Policy Institute's count. The fight is over whether that is the right way to handle illegal immigration: what closed the border, who is being removed, and at what cost.",
+    confidence: 85,
     source:
-      "U.S. Customs and Border Protection, Southwest Land Border Encounters; TRAC Immigration, Syracuse University",
+      "DHS preliminary fiscal 2026 figures, reported 16 October 2026; KSL (7 October 2025) for fiscal 2023; Migration Policy Institute fact sheet (October 2026)",
     sourceUrl:
-      "https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters",
+      "https://www.migrationpolicy.org/system/files/2026-10/mpi-deportations-fact-sheet-2026-final.pdf",
   },
   simple_case: [
-    "The answer decides which border policies are worth keeping and at what cost, and how long people with asylum claims wait to learn their fate.",
+    "The answer bears on the millions of people living in the US without legal status, on the families and employers around them, and on whether people fleeing persecution can still ask for asylum at the border.",
+    "Congress has funded the drive for years to come: the July 2025 reconciliation act added $170.7 billion for enforcement, including $45 billion for new detention centers.",
   ],
   pillars: [
     // =========================================================================
-    // PILLAR 1: Border Security & Enforcement
+    // PILLAR 1: What closed the border?
     // =========================================================================
     {
       id: "border-security-enforcement",
-      title: "Border Security & Enforcement",
+      title: "What Closed the Border?",
       short_summary:
-        "The US-Mexico border saw record encounters exceeding 2.4 million in FY2023 before dropping sharply in FY2024-2025 following executive actions and policy changes. The debate centers on whether enforcement-first approaches actually deter unauthorized crossings or simply redirect migration flows while expanding humanitarian crises.",
+        "Apprehensions peaked at 249,740 in December 2023, fell to 47,324 by December 2024 under Biden-era limits and Mexican enforcement, then to under 10,000 a month from February 2025. Fiscal 2026 ended with 98,708, the lowest ever. Who and what deserves the credit, and whether it lasts, is the first split.",
       icon_name: "Shield" as const,
       skeptic_premise:
-        "Enforcement-only approaches have failed for decades despite massive spending. The US spent over $333 billion on immigration enforcement between 1986 and 2023 according to the American Immigration Council. Border walls are circumvented through tunnels, ladders, and remote crossings. Increased enforcement pushes migrants into more dangerous routes, raising death tolls — over 890 migrants died crossing the border in FY2022, the deadliest year on record. The sharp decline in encounters in late 2024 and 2025 correlates more closely with Mexico's own enforcement cooperation and Biden/Trump-era asylum restrictions than with any wall or barrier. Enforcement without addressing root causes — violence, poverty, climate disruption in Central America and beyond — is an expensive treadmill.",
+        "Most of the fall came before January 2025, and the rest came from shutting the door on asylum seekers, not from walls. Monthly Border Patrol apprehensions dropped from 249,740 in December 2023 to 47,324 in December 2024, after Mexico stepped up its own enforcement and the June 2024 Biden rule limited asylum between ports of entry. Enforcement spending has climbed for four decades, roughly $333 billion from 1986 into the early 2020s by one estimate, and crossings surged anyway in the late 1990s, mid-2000s, 2019 and 2021 to 2023. Closing the border to asylum pushes people to wait in dangerous Mexican border towns or cross in remote desert, where deaths peaked at about 890 in fiscal 2022. And migration responds to conditions in Venezuela, Central America and Mexico that US policy does not control; a future crisis there could reopen the flow.",
       proponent_rebuttal:
-        "The record-shattering encounters of FY2023 — 2.47 million at the southwest border — demonstrated that perceived permissiveness creates a pull factor. When the Biden administration implemented asylum transit bans in June 2023 and the Trump administration reinstated Remain in Mexico and expanded expedited removal in 2025, encounters dropped by over 60%. Physical barriers combined with technology (sensors, drones, surveillance towers) channel crossings to monitored areas. Operation Lone Star, Texas's state-level enforcement initiative, showed that visible deterrence reduces crossings in targeted sectors. Without credible enforcement, asylum and legal immigration systems are overwhelmed by those who bypass them, undermining public support for all immigration.",
+        "When the US enforces the law without exceptions, people stop coming. Apprehensions fell from 2.05 million in fiscal 2023 to 237,565 in fiscal 2025 and 98,708 in fiscal 2026, the lowest since records began, and in fiscal 2026 Border Patrol released no one it apprehended into the country, the first such year in its history. After the new administration ended releases and CBP One appointments in January 2025, monthly apprehensions fell below 10,000 from February and stayed there. The Biden rule of 2024 helped, but it still allowed tens of thousands of crossings a month; the collapse came when everyone caught was detained or returned. The government reported about 250 miles of new barrier since January 2025 and an estimated 80% fall in migrant deaths. Fewer crossings also starve the smuggling cartels of their fees.",
       crux: {
         id: "enforcement-deterrence-causation",
-        title: "The Enforcement-Deterrence Correlation Test",
+        title: "The Deterrence Test",
         question:
-          "Did border crossings fall because of enforcement, or because of other factors?",
+          "Did border crossings fall because of US enforcement, or because of other factors, and will the fall last?",
         description:
-          "If enforcement is the primary driver of border crossing reductions, we should see sharp declines correlated with specific enforcement actions (wall construction, policy changes, troop deployments) rather than external factors (economic conditions in origin countries, Mexican enforcement cooperation, seasonal patterns). A rigorous causal analysis can distinguish enforcement effects from confounding variables.",
+          "Separate the effect of specific US policies (the June 2024 asylum rule, the January 2025 end of releases and CBP One, detention of everyone caught, new barrier) from Mexican enforcement and conditions in origin countries, and check whether the low numbers hold if conditions abroad worsen.",
         methodology:
-          "Conduct a multivariate regression analysis correlating monthly encounter data with: (1) enforcement spending and personnel levels, (2) miles of new barrier construction, (3) specific policy implementations with exact dates, (4) economic indicators in top origin countries (Guatemala, Honduras, El Salvador, Venezuela, Cuba), (5) Mexican enforcement cooperation metrics, and (6) seasonal patterns. Use interrupted time-series analysis to isolate the causal impact of each enforcement action from background trends.",
+          "Interrupted time-series analysis of monthly encounters by nationality against exact policy dates, alongside Mexican apprehension data, origin-country economic and violence indicators and seasonal patterns, extended through any new surge in departures from Venezuela, Central America or elsewhere.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Interrupted time-series analysis of monthly encounter data against exact policy dates, barrier miles and enforcement spending, alongside Mexican enforcement cooperation, origin-country economic indicators and seasonal patterns.",
+            "Interrupted time-series analysis of monthly encounters by nationality against exact policy dates, barrier miles and enforcement spending, alongside Mexican enforcement cooperation, origin-country economic indicators and seasonal patterns.",
         },
         cost_to_verify:
           "$200K-500K (Econometric analysis requiring CBP microdata and origin-country economic data)",
         falsification: {
           supporter_flip:
-            "If a multivariate analysis of monthly encounters found the drops after 2023 tracking Mexican enforcement cooperation, origin-country economic conditions and seasonal patterns more closely than U.S. policy dates or barrier construction, the claim that U.S. enforcement drives deterrence would weaken.",
+            "If a monthly analysis by nationality found the drops tracking Mexican enforcement and conditions abroad more closely than US policy dates, or crossings rose again when a crisis hit an origin country despite the same US rules, the claim that US enforcement closed the border would weaken.",
           skeptic_flip:
-            "If a multivariate analysis tied the 60%+ fall in encounters after FY2023's record 2.47 million to the June 2023 asylum transit ban, the 2025 return of Remain in Mexico and expanded expedited removal, more than to other factors, 'an expensive treadmill' would describe enforcement poorly.",
+            "If the analysis tied the fall below 10,000 a month to the January 2025 end of releases and asylum access, and the numbers held through a new crisis abroad, the view that enforcement is an expensive treadmill would be hard to hold.",
           common_ground:
-            "Both sides agree encounters hit a record 2.47 million in FY2023 and then fell sharply after the asylum restrictions of 2023-2025.",
+            "Both sides agree apprehensions fell from a record 2.05 million in fiscal 2023 to 98,708 in fiscal 2026, and that a large part of the drop came before January 2025.",
           live_disagreement:
-            "How much of the decline U.S. enforcement caused, versus Mexico's own enforcement and conditions in origin countries — and whether enforcement deters crossings durably or redirects them onto more dangerous routes.",
+            "How much of the decline US enforcement caused, versus Mexico's own enforcement and conditions in origin countries, and whether closing asylum at the border is a lawful and humane way to get there.",
         },
       },
       evidence: [
         {
-          id: "record-encounters-fy2023",
-          title: "Southwest Border Encounters Hit Record 2.47 Million in FY2023",
+          id: "encounters-drop-post-restrictions",
+          title: "DHS: 98,708 Southwest Border Apprehensions in Fiscal 2026, the Lowest on Record",
           description:
-            "US Customs and Border Protection recorded 2.47 million encounters at the southwest border in FY2023, the highest number in recorded history. This included 2.05 million between ports of entry (illegal crossings) and 420,000 at ports of entry. The top nationalities were Venezuelan, Mexican, Guatemalan, Honduran, and Colombian. CBP was processing over 10,000 encounters per day during peak months, overwhelming detention capacity and immigration courts.",
+            "The Department of Homeland Security reported 98,708 Border Patrol apprehensions at the southwest border in the fiscal year ending 30 September 2026, preliminary figures it called a 95% decline from the Biden-era annual average of more than 1.8 million. Nationwide encounters were 379,243. It was the first fiscal year with no Border Patrol releases of apprehended migrants at the border. DHS also reported about 250 miles of new barrier since 20 January 2025 and an approximately 80% decline in migrant deaths. Fiscal 2025 had already been the lowest year since 1970, at 237,565.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 7,
+            directness: 7,
+          },
+          source:
+            "DHS preliminary fiscal 2026 figures, as reported by IANS via Social News XYZ (16 October 2026); KSL (7 October 2025) for fiscal 2025",
+          sourceUrl: "https://www.socialnews.xyz/2026/10/16/us-reports-record-low-border-apprehensions/",
+          reasoning:
+            "The fall is real and large, and border apprehension counts are hard to fake. Independence is low because these are the administration's own preliminary figures, released without the September monthly data, and the death figure came without a full historical series.",
+        },
+        {
+          id: "record-encounters-fy2023",
+          title: "Border Patrol Apprehended 2.05 Million at the Southwest Border in Fiscal 2023",
+          description:
+            "US Customs and Border Protection recorded 2.47 million encounters at the southwest border in FY2023, the highest number in recorded history. This included 2.05 million Border Patrol apprehensions between ports of entry and 420,000 at ports of entry. CBP was processing over 10,000 encounters per day during peak months, overwhelming detention capacity and immigration courts.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
             independence: 8,
             replicability: 10,
-            directness: 8,
+            directness: 6,
           },
           source: "US Customs and Border Protection; Migration Policy Institute",
           sourceUrl: "https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters",
           reasoning:
-            "CBP encounter data is official government statistics published monthly. The record numbers support the argument that a crisis exists requiring enforcement action. However, encounters include asylum seekers presenting themselves to authorities — not solely people evading detection — complicating the framing.",
+            "Official statistics that show the scale of the crisis the policy responded to. Encounters include asylum seekers who presented themselves to agents, not only people evading capture.",
         },
         {
-          id: "encounters-drop-post-restrictions",
-          title: "Encounters Dropped Sharply After Asylum Restrictions in 2023-2025",
+          id: "decline-began-under-biden",
+          title: "Apprehensions Fell 81% Under Biden, From 249,740 (Dec 2023) to 47,324 (Dec 2024)",
           description:
-            "Following the Biden administration's asylum transit ban (June 2023) and the June 2024 'Securing the Border' rule, encounters at the southwest border dropped significantly. Under the Trump administration's reinstated Remain in Mexico policy, expanded expedited removal, and shutdown of the CBP One app in early 2025, Border Patrol apprehended 8,347 people between ports of entry at the southwest border in February 2025, down 94% from 140,641 in February 2024, and CBP called the roughly 330 daily apprehensions nationwide 'the lowest nationwide average apprehensions in CBP history' — an extraordinary decline from the FY2023 peaks (when monthly encounters exceeded 200,000). Proponents cite this as proof that enforcement and policy restrictions deter crossings.",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 8,
-            independence: 7,
-            replicability: 8,
-            directness: 7,
-          },
-          source: "CBP, 'CBP releases February 2025 monthly update'; House Homeland Security Committee Border Brief (14 Mar 2025) for the February 2024 comparison",
-          sourceUrl: "https://www.cbp.gov/newsroom/national-media-release/cbp-releases-february-2025-monthly-update",
-          reasoning:
-            "The temporal correlation between restrictive policies and declining encounters is strong. However, Mexico simultaneously increased its own enforcement under US diplomatic pressure, and economic conditions shifted in key origin countries. Attributing the decline solely to US enforcement overstates the causal claim.",
-        },
-        {
-          id: "enforcement-spending-333-billion",
-          title: "Hundreds of Billions Spent on Immigration Enforcement Since 1986 with Recurring Crises",
-          description:
-            "The American Immigration Council has estimated cumulative federal immigration-enforcement spending in the hundreds of billions of dollars since 1986 — a frequently cited figure of roughly $333 billion covers the period through the early 2020s — with enforcement-agency budgets continuing to climb (AIC's more recent tallies put spending on enforcement agencies since the 2003 creation of DHS alone at well over $300 billion). Border Patrol staffing grew from about 3,700 agents in 1992 to roughly 19,500 by 2023. Despite this massive investment, unauthorized border crossings surged repeatedly — in the late 1990s, mid-2000s, 2019, and 2021-2023 — suggesting that enforcement spending alone does not produce durable deterrence.",
+            "Monthly Border Patrol apprehensions at the southwest border peaked at 249,740 in December 2023 and had fallen to 47,324 by December 2024, the last full month of President Biden's term, after the June 2024 rule limiting asylum between ports of entry and stepped-up enforcement by Mexico. They fell further to 29,107 in January 2025 and 8,353 in February 2025, and stayed below 10,000 a month after that. Of the 237,565 apprehensions in fiscal 2025, 72% occurred before 20 January 2025.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
+            replicability: 9,
+            directness: 7,
+          },
+          source: "U.S. Border Patrol monthly figures, as reported by KSL (7 October 2025)",
+          sourceUrl: "https://www.ksl.com/article/51386604",
+          reasoning:
+            "Shows that most of the drop from the peak predates the current policy, which undercuts any single-cause story. It also shows a second, sharp break in early 2025, which supporters credit to ending releases. The data cannot separate US policy from Mexico's enforcement on their own.",
+        },
+        {
+          id: "enforcement-spending-333-billion",
+          title: "About $333 Billion Spent on Enforcement Since 1986, With Repeated Surges",
+          description:
+            "The American Immigration Council has estimated cumulative federal immigration-enforcement spending at roughly $333 billion from 1986 into the early 2020s. Border Patrol staffing grew from about 3,700 agents in 1992 to roughly 19,500 by 2023. Unauthorized crossings surged repeatedly anyway: in the late 1990s, mid-2000s, 2019 and 2021-2023.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 6,
             replicability: 8,
-            directness: 8,
+            directness: 6,
           },
           source: "American Immigration Council; Congressional Research Service; DHS Budget Data",
           sourceUrl: "https://www.americanimmigrationcouncil.org/research/the-cost-of-immigration-enforcement-and-border-security",
           reasoning:
-            "The spending data is drawn from official budget documents and is independently verifiable. The recurring nature of border surges despite decades of escalating enforcement directly challenges the claim that enforcement is effective. However, proponents argue that surges would have been worse without enforcement investment.",
+            "From an immigrant-advocacy group, drawing on budget data. Repeated surges despite rising spending argue that money alone does not deter. Supporters reply that spending without a policy of detaining everyone caught was never a real test.",
         },
         {
           id: "migrant-death-toll-record",
-          title: "Record ~890 Migrant Deaths at the Border in FY2022",
+          title: "Record ~890 Migrant Deaths at the Border in Fiscal 2022",
           description:
-            "US Customs and Border Protection recorded approximately 890 migrant deaths in the southwest border sectors in FY2022, the deadliest year on record by that count; the International Organization for Migration's Missing Migrants Project separately documented at least 686 deaths and disappearances on the US-Mexico border in calendar 2022 and called it the world's deadliest land migration route (counts differ by methodology and coverage). Causes include dehydration, drowning in the Rio Grande, heat exposure in remote desert areas, and suffocation in smuggling vehicles. Research from the University of Arizona's Binational Migration Institute shows that increased enforcement in urban crossing areas has pushed migrants into more remote, deadly terrain — a phenomenon documented since Operation Gatekeeper in 1994.",
+            "US Customs and Border Protection recorded approximately 890 migrant deaths in the southwest border sectors in FY2022, the deadliest year on record by that count; the International Organization for Migration's Missing Migrants Project separately documented at least 686 deaths and disappearances on the US-Mexico border in calendar 2022 and called it the world's deadliest land migration route. Research from the University of Arizona's Binational Migration Institute shows that increased enforcement in urban crossing areas has pushed migrants into more remote, deadly terrain, a pattern documented since Operation Gatekeeper in 1994.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
-            directness: 7,
+            directness: 5,
           },
           source: "US Customs and Border Protection (Southwest Border deaths); International Organization for Migration Missing Migrants Project; University of Arizona Binational Migration Institute",
           sourceUrl: "https://missingmigrants.iom.int/region/americas",
           reasoning:
-            "IOM is the authoritative independent body for migrant death tracking, and academic research on the 'funnel effect' of enforcement is peer-reviewed. This evidence challenges the moral legitimacy of enforcement-first approaches but does not directly address their effectiveness in reducing crossings. Proponents argue that fewer crossings ultimately means fewer deaths.",
+            "Shows the human cost of pushing crossings into remote terrain. It predates the current policy, and supporters argue that far fewer crossings mean far fewer deaths, as DHS reported for fiscal 2026.",
         },
       ],
     },
 
     // =========================================================================
-    // PILLAR 2: Economic Impact
-    // =========================================================================
-    {
-      id: "economic-impact",
-      title: "Economic Impact of Immigration",
-      short_summary:
-        "Immigrants — including unauthorized immigrants — generate substantial economic activity, pay billions in taxes, and fill critical labor shortages. But critics argue unauthorized immigration depresses wages in low-skill sectors and strains public services in border communities.",
-      icon_name: "Scale" as const,
-      skeptic_premise:
-        "Immigration is a net economic positive at virtually every level of analysis. The Congressional Budget Office estimated in 2024 that the recent immigration surge would add $7 trillion to US GDP and $1 trillion in federal revenue over the next decade. Immigrants start businesses at higher rates than native-born Americans — 25.5% of US entrepreneurs are immigrants despite being 14% of the population. Unauthorized immigrants paid an estimated $96.7 billion in federal, state, and local taxes in 2022 according to the Institute on Taxation and Economic Policy. Sectors like agriculture, construction, hospitality, and meatpacking face severe labor shortages that immigrant workers fill. Mass deportation would cause economic disruption estimated at $1.1 trillion by the American Immigration Lawyers Association.",
-      proponent_rebuttal:
-        "Aggregate GDP growth masks distributional effects. Harvard economist George Borjas's research shows that immigration between 1980 and 2000 reduced wages for native-born workers without a high school diploma by 7.4%. The National Academy of Sciences' 2017 comprehensive study found that while immigration is positive for the overall economy, first-generation immigrants — especially those with low education — impose net fiscal costs on state and local governments of approximately $1,600 per person per year. Communities near the border bear disproportionate costs for emergency healthcare, education, and law enforcement while the economic benefits accrue nationally. A rational immigration system should prioritize skills-based admission like Canada and Australia rather than tolerating a chaotic unauthorized system.",
-      crux: {
-        id: "wage-impact-analysis",
-        title: "The Distributional Wage Impact Assessment",
-        question:
-          "Does immigration meaningfully depress wages for low-skill native-born workers?",
-        description:
-          "If immigration primarily depresses wages for native-born low-skill workers, enforcement and restriction are economically justified for protecting vulnerable American workers. If wage effects are negligible or offset by complementary economic benefits (lower consumer prices, business creation, social security contributions), the economic case for restriction collapses.",
-        methodology:
-          "Replicate and extend the Borjas (2003) and Card (2005) methodologies using 2015-2025 data from the Current Population Survey and American Community Survey. Compare wage trajectories in high-immigration metropolitan areas versus low-immigration areas, controlling for cost of living, industry composition, and education levels. Separately analyze effects on native-born workers without a high school diploma, with a high school diploma, and with a college degree. Include analysis of consumer price effects and business creation rates.",
-        verification_status: "theoretical" as const,
-        settle: {
-          condition:
-            "Replications of the Borjas and Card methods on 2015 to 2025 Current Population Survey and American Community Survey data, comparing wages in high- and low-immigration metro areas for native-born workers without a high school diploma.",
-        },
-        cost_to_verify:
-          "$0 (Census microdata and CPS data are publicly available for analysis)",
-        falsification: {
-          supporter_flip:
-            "If replicating the Borjas and Card methods on 2015-2025 data found negligible wage effects for native-born workers without a high school diploma, or effects offset by lower prices and business creation, the economic case for restriction as protection for vulnerable workers would collapse.",
-          skeptic_flip:
-            "If studies on recent data replicated Borjas's estimate of a 7.4% wage cut for native-born workers without a high school diploma, and the National Academy of Sciences' estimate of about $1,600 a year in net state and local costs per low-education first-generation immigrant, 'a net positive at every level' would be hard to hold.",
-          common_ground:
-            "Both sides agree immigration is positive for the economy as a whole; the CBO projects the recent surge will add $7 trillion to US GDP over the next decade.",
-          live_disagreement:
-            "Whether those gains come at a meaningful cost to low-skill native-born workers and border communities, or whether wage effects are small and offset by lower prices, new businesses and tax contributions.",
-        },
-      },
-      evidence: [
-        {
-          id: "cbo-7-trillion-gdp",
-          title: "CBO Projects Immigration Surge Adds $7 Trillion to GDP Over Decade",
-          description:
-            "In February 2024, the nonpartisan Congressional Budget Office projected that the recent surge in immigration (2022-2026) would increase US GDP by $7 trillion and federal revenue by $1 trillion over the 2024-2034 period. The CBO attributed this to a larger labor force, increased consumer spending, and higher tax receipts. The report noted that immigration would also increase federal spending on services, but the net fiscal impact would be positive at the federal level.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 9,
-            replicability: 8,
-            directness: 8,
-          },
-          source: "Congressional Budget Office",
-          sourceUrl: "https://www.cbo.gov/publication/59946",
-          reasoning:
-            "The CBO is Congress's nonpartisan economic analysis office with maximum institutional credibility. The $7 trillion GDP projection directly challenges the claim that current immigration harms national interests. However, the CBO analysis examines aggregate effects, not distributional impacts on specific communities or worker categories.",
-        },
-        {
-          id: "borjas-wage-depression",
-          title: "Borjas Research: Immigration Reduced Low-Skill Native Wages by 7.4%",
-          description:
-            "Harvard labor economist George Borjas, the most cited scholar arguing that immigration depresses wages, found that immigration between 1980 and 2000 reduced wages for native-born Americans without a high school diploma by 7.4%, while increasing wages for college graduates by 3.5%. His 2015 paper on the Mariel boatlift reanalysis suggested larger negative effects than David Card's famous 1990 study found. However, Borjas's methodology has been challenged by multiple economists, and his Mariel boatlift reanalysis was contested by Clemens and Hunt (2018).",
-          side: "for" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 6,
-            directness: 8,
-          },
-          source: "George Borjas, Harvard Kennedy School; Quarterly Journal of Economics",
-          sourceUrl: "https://scholar.harvard.edu/borjas/publications/immigration-economics",
-          reasoning:
-            "Borjas is a credentialed labor economist publishing in top journals. However, replicability is lower because his results are sensitive to methodological choices (skill groupings, time periods) and are disputed by other leading economists including David Card (Nobel laureate). The academic debate itself is evidence that the wage effect is uncertain, not settled.",
-        },
-        {
-          id: "unauthorized-immigrant-taxes",
-          title: "Unauthorized Immigrants Paid $96.7 Billion in Taxes in 2022",
-          description:
-            "The Institute on Taxation and Economic Policy estimated that unauthorized immigrants paid $96.7 billion in federal, state, and local taxes in 2022, including $25.7 billion in Social Security taxes and $6.4 billion in Medicare taxes — benefits they are largely ineligible to collect. At the state and local level, unauthorized immigrants paid $37.3 billion in sales, excise, income, and property taxes. The average effective tax rate for unauthorized immigrants was 26.2%, higher than the rate paid by the top 1% of earners.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 7,
-            independence: 7,
-            replicability: 7,
-            directness: 7,
-          },
-          source: "Institute on Taxation and Economic Policy",
-          sourceUrl: "https://itep.org/undocumented-immigrants-taxes-2024/",
-          reasoning:
-            "ITEP is a respected nonpartisan tax policy organization, though some critics question its methodology for estimating unauthorized immigrant incomes. The finding that unauthorized immigrants are net contributors to Social Security and Medicare — programs they cannot access — directly challenges the 'burden on taxpayers' narrative.",
-        },
-      ],
-    },
-
-    // =========================================================================
-    // PILLAR 3: Humanitarian Concerns
+    // PILLAR 2: Asylum: refuge or back door?
     // =========================================================================
     {
       id: "humanitarian-concerns",
-      title: "Humanitarian Concerns & Asylum",
+      title: "Asylum: Refuge or Back Door?",
       short_summary:
-        "The US immigration court backlog peaked near 3.7 million cases at the end of FY2024 before declining to roughly 3.4 million during FY2025 — the first drop in over a decade — with long multi-year waits for many pending cases. Asylum restrictions may violate international law obligations, while the lack of processing capacity leaves genuine refugees in limbo and incentivizes unauthorized crossings.",
+        "Immigration judges granted asylum in 5.5% of decisions in June 2026, down from over 50% early in Biden's term and 32% at its end. Over the same period 279 judges were fired or resigned. Whether the low rate shows weak claims or a changed bench, and whether the backlog of about 3.4 million cases can be cleared fairly, is the second split.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "The US has binding obligations under the 1951 Refugee Convention and the 1967 Protocol not to return refugees to countries where they face persecution. Asylum restrictions — including transit bans, Remain in Mexico, and expedited removal — violate these obligations by denying asylum seekers access to the process. The immigration court backlog of 3.7 million cases with 4+ year wait times is a policy choice, not an inevitability — Congress could fund more immigration judges but has chronically underfunded the courts while expanding enforcement. Detention conditions have been condemned by DHS's own Inspector General, with documented overcrowding, inadequate medical care, and at least 200 deaths in ICE custody since 2004. The separation of families, including children, represents a moral catastrophe regardless of its deterrent effect.",
+        "The US promised in the 1967 Refugee Protocol not to return refugees to persecution, and the new system is built to say no. The asylum grant rate in immigration court fell to 5.5% in June 2026, the lowest TRAC has recorded, after 279 judges, about 38% of the 735 on the bench at the end of fiscal 2024, were fired or resigned. Of the judges who stayed, three-quarters raised their denial rates in fiscal 2026, by an average of 33 percentage points: the same kinds of cases, decided differently. Asylum seekers now pay a $100 fee to apply and $100 more for each year their case is pending. Grant rates have always varied from under 5% to over 90% depending on the judge, and people with lawyers win far more often, which means outcomes measure the system as much as the claims. Detention conditions have deteriorated too: 29 people died in ICE custody in the first half of fiscal 2026 alone, a record.",
       proponent_rebuttal:
-        "The asylum system has been exploited by economic migrants coached to claim credible fear at the border. In FY2023, only 14% of completed asylum cases resulted in a grant of asylum, suggesting that the vast majority of claimants do not meet the legal standard for persecution. Smuggling organizations charge $5,000-$15,000 per person and instruct migrants to claim asylum as a strategy for entry. Without enforcement consequences, the asylum system becomes a de facto open border — anyone who arrives and claims fear gets released into the US with a court date years away. The Remain in Mexico policy and safe third country agreements restore the integrity of the system by requiring applicants to wait in safe locations rather than being released into the US interior.",
+        "Asylum is protection from persecution, not a route to a better job, and for years it was used as the second. Even before 2025, judges granted asylum in only about 14% of cases decided in fiscal 2023. Claiming fear at the border meant release and a court date years away, whatever the merits. The backlog reached 3.7 million cases at the end of fiscal 2024, so long that the system protected no one quickly. Under the new policy the backlog fell to about 3.4 million by late fiscal 2025, the first sustained fall in over a decade, and asylum decisions are at record levels. As Matt O'Brien, a former immigration judge now at the Federation for American Immigration Reform, put it, the share granted 'should be lower' because asylum is discretionary relief. Genuine refugees are better served by a system that decides claims in months than one that waits years.",
       crux: {
         id: "asylum-grant-rate-analysis",
-        title: "The Asylum Merits Assessment",
+        title: "The Asylum Merits Test",
         question:
           "Would most asylum seekers at the southern border qualify for protection under fair adjudication?",
         description:
           "If the majority of asylum seekers at the southern border have legitimate persecution claims that would be granted under fair adjudication, then restrictions are denying protection to refugees. If most claims lack merit and would be denied even under generous adjudication, the system is being used as a backdoor for economic migration.",
         methodology:
-          "Analyze a stratified random sample of 5,000 asylum cases from FY2020-2025, including cases decided on the merits and those dismissed for procedural reasons (failure to appear, missed deadlines). For each case, have independent immigration law experts assess the strength of the claim on its merits, controlling for quality of legal representation, judge assignment (asylum grant rates vary from 5% to 90% by judge), and whether the applicant was detained or free. This would reveal how many claims would succeed under fair, uniform adjudication.",
+          "Analyse a stratified random sample of 5,000 asylum cases from FY2020-2026, including cases decided on the merits and those dismissed for procedural reasons, and have independent immigration law experts assess the strength of each claim, controlling for legal representation, judge assignment and detention status, and comparing decisions before and after the 2025-26 changes to the bench.",
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Independent immigration-law experts rating the merits of a stratified sample of 5,000 asylum cases from FY2020 to 2025, including those dismissed on procedure, controlling for legal representation and judge assignment.",
+            "Independent immigration-law experts rating the merits of a stratified sample of 5,000 asylum cases from FY2020 to 2026, including those dismissed on procedure, controlling for legal representation and judge assignment, and comparing like cases decided before and after the 2025-26 changes to the bench.",
         },
         cost_to_verify:
           "$1-3M (Large-scale legal case review requiring immigration law expertise and court record access)",
         falsification: {
           supporter_flip:
-            "If independent experts reviewing a stratified sample of 5,000 asylum cases — controlling for legal representation and judge assignment — found most claims strong on the merits, restrictions would be denying protection to refugees, and the enforcement-first approach would fail on its own legal terms.",
+            "If independent experts reviewing a stratified sample of asylum cases, controlling for representation and judge, found most claims strong on the merits, restrictions would be denying protection to refugees, and the current approach would fail on its own legal terms.",
           skeptic_flip:
-            "If an independent review of sampled cases upheld the low grant rate, about 14% of merits decisions in FY2023, and smugglers charging $5,000-$15,000 were found coaching migrants to claim asylum as an entry route, restrictions would look less like shutting out refugees.",
+            "If an independent review rated most sampled claims weak on the merits, under judges appointed by both parties, the low grant rate would look less like a changed bench and more like the law applied as written.",
           common_ground:
-            "Both sides agree the immigration court backlog is enormous — about 3.7 million cases at its FY2024 peak — and that multi-year waits serve neither genuine refugees nor enforcement.",
+            "Both sides agree the immigration court backlog peaked at about 3.7 million cases at the end of fiscal 2024, that asylum grant rates vary widely by judge and representation, and that multi-year waits served neither refugees nor enforcement.",
           live_disagreement:
-            "Whether most claimants at the southern border have real persecution claims that restrictions wrongly block, or whether low grant rates show asylum being used as a route for economic migration — given that grant rates vary widely by judge and representation.",
+            "Whether most claimants at the southern border have real persecution claims that the new system wrongly rejects, or whether the low grant rate shows asylum had become a route for economic migration, given that the rate fell as the bench was remade.",
         },
       },
       evidence: [
         {
-          id: "court-backlog-3-7-million",
-          title: "Immigration Court Backlog Peaked Near 3.7 Million Cases",
-          description:
-            "Per TRAC (Syracuse University) data, the immigration court backlog reached an all-time high of roughly 3.7 million pending cases at the end of FY2024 — up from about 1.1 million in 2019 — before declining to approximately 3.4 million during FY2025, the first sustained decrease since at least 2012. Many pending cases still face multi-year waits (TRAC reported an average wait around 636 days as of March 2025, with some individual cases and jurisdictions extending far longer). There are roughly 600-700 immigration judges handling this caseload — comparable in number to the federal district judges handling all civil and criminal cases in the entire federal system. The chronic underfunding of immigration courts relative to enforcement spending (ICE and CBP budgets dwarf EOIR's) is a structural choice.",
-          side: "against" as const,
-          weight: {
-            sourceReliability: 9,
-            independence: 8,
-            replicability: 9,
-            directness: 8,
-          },
-          source: "TRAC Immigration, Syracuse University; Executive Office for Immigration Review",
-          sourceUrl: "https://trac.syr.edu/immigration/reports/judgereports/",
-          reasoning:
-            "TRAC is an independent academic research center that obtains data through FOIA requests and is widely cited by all sides. The massive backlog directly undermines the functioning of any immigration policy — neither enforcement nor asylum processing can work when cases take 4-7 years to resolve. This supports the argument that the crisis is one of capacity, not border security.",
-        },
-        {
           id: "asylum-grant-rate-14-percent",
-          title: "Only 14% of Completed Asylum Cases Granted in FY2023",
+          title: "TRAC: Only About 14% of Asylum Cases Decided in Fiscal 2023 Were Granted",
           description:
-            "TRAC data shows that immigration judges granted asylum in approximately 14% of cases decided on the merits in FY2023. Denial rates exceeded 70%, with the remainder being other dispositions (administrative closure, voluntary departure). However, grant rates vary enormously by judge (from under 5% to over 90%), by nationality (Venezuelans, Chinese, and Afghans have higher grant rates; Central Americans lower), and by whether the applicant has legal representation (represented applicants are 5x more likely to win asylum).",
+            "TRAC data show immigration judges granted asylum in approximately 14% of cases decided on the merits in FY2023. Denial rates exceeded 70%, with the remainder being other dispositions (administrative closure, voluntary departure). Grant rates vary enormously by judge (from under 5% to over 90%), by nationality, and by whether the applicant has legal representation.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 8,
-            directness: 7,
+            directness: 6,
           },
           source: "TRAC Immigration, Syracuse University",
           sourceUrl: "https://trac.syr.edu/phptools/immigration/asylum/",
           reasoning:
-            "The low grant rate supports the argument that many claims lack merit. However, the extreme variation by judge and representation status suggests the low rate partly reflects systemic inequities (lack of counsel, judge bias) rather than uniformly weak claims. Directness is lower because the grant rate alone does not tell us how many denied cases had genuine merit.",
+            "A low grant rate before the current administration supports the view that many claims did not meet the legal standard. The wide variation by judge and representation means the rate is not a clean measure of merit.",
+        },
+        {
+          id: "backlog-falling-2025",
+          title: "Court Backlog Fell From 3.7 Million to About 3.4 Million During Fiscal 2025",
+          description:
+            "The immigration court backlog reached an all-time high of 3.7 million cases at the end of fiscal 2024 and had dropped to 3.4 million, a decrease of about 8%, with one month remaining in fiscal 2025, according to TRAC data reported by Roll Call. The average wait for cases in the backlog was 636 days as of March 2025. TRAC reported in 2026 that asylum case dispositions had risen to record levels after several hundred new judges were hired.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 8,
+            directness: 5,
+          },
+          source: "Roll Call (20 October 2025), citing TRAC; TRAC, asylum decisions update (August 2026)",
+          sourceUrl: "https://tracreports.org/tracatwork/detail/A6140.html",
+          reasoning:
+            "The first sustained fall in the backlog in over a decade, which supporters read as a system working again. Faster is not the same as fairer, and part of the fall reflects cases closed by removal orders and voluntary departures.",
+        },
+        {
+          id: "asylum-grant-rate-2026",
+          title: "TRAC 2026: Asylum Grant Rate Fell to 5.5% After 279 Judges Were Fired or Resigned",
+          description:
+            "In June 2026 the asylum grant rate in immigration court had fallen to 5.5% and the denial rate had risen to 94.1%; 771 people were granted asylum that month. The grant rate had been over 50% early in the Biden administration and 32% at its end. In fiscal 2025 and 2026, 279 immigration judges were fired or resigned, about 38% of the 735 employed at the end of fiscal 2024. Of the 130 judges who decided asylum cases in every year from fiscal 2021 to 2026, three-fourths raised their denial rates in fiscal 2026, by an average of 33 percentage points.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
+            directness: 7,
+          },
+          source: "TRAC Immigration, Syracuse University, asylum decisions update (31 August 2026)",
+          sourceUrl: "https://tracreports.org/whatsnew/email.260831.html",
+          reasoning:
+            "Judges who stayed on the bench deciding similar caseloads became much stricter, which suggests the change reflects pressure or policy, not only weaker claims. TRAC cautions that caseload, representation and nationality all affect the rates, and supporters argue the earlier rates were too lenient.",
         },
         {
           id: "ice-custody-deaths",
-          title: "200+ Deaths in ICE Custody Since 2004 with Documented Medical Neglect",
+          title: "29 Deaths in ICE Custody in the First Half of Fiscal 2026, a Record",
           description:
-            "At least 200 people have died in ICE custody since 2004, according to the ACLU and government records obtained through FOIA. DHS's own Inspector General has documented overcrowding, inadequate medical care, use of solitary confinement, and failure to follow medical recommendations. In 2019, the IG found conditions 'representing immediate risks or egregious violations' at multiple facilities. Reports of children separated from parents, detainees denied medication, and lack of mental health care have been documented by Human Rights Watch, Physicians for Human Rights, and congressional investigations.",
+            "By 17 April 2026, 29 people had died in ICE custody since October 2025, passing the previous record of 28 in 2004, with about 60,000 people in detention. Initial ICE reports listed causes including suicide, alcohol withdrawal and liver and kidney failure. The El Paso County medical examiner ruled one death at Camp East Montana a homicide, citing 'asphyxia due to neck and torso compression,' and the FBI is investigating. DHS said 'death rates in custody under the Trump administration are 0.009 percent of the detained population.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 7,
+            directness: 5,
+          },
+          source: "NPR via MPR News, 'Deaths of migrants in ICE custody hit record high under Trump' (17 April 2026)",
+          sourceUrl: "https://www.mprnews.org/story/2026/04/17/npr-deaths-of-migrants-in-ice-custody-hit-record-high-under-trump",
+          reasoning:
+            "A record count of deaths is a direct humanitarian cost of mass detention. DHS's point that the rate is low relative to a record detained population is also true, so the count alone does not show conditions worsened per person.",
+        },
+      ],
+    },
+
+    // =========================================================================
+    // PILLAR 3: Mass deportation: who is removed, and at what cost?
+    // =========================================================================
+    {
+      id: "interior-deportations",
+      title: "Mass Deportation: Who Is Being Removed?",
+      short_summary:
+        "About 980,000 deportations in 18 months, most of them people caught at the border. Of those removed after two or more years in the US, 71% had never been convicted of a crime. Detention reached a record 65,765 in July 2026. Whether that is enforcing the law or uprooting settled families, and whether it is worth $170.7 billion, is the third split.",
+      icon_name: "Gavel" as const,
+      skeptic_premise:
+        "The promise was to deport criminals; the practice is deporting neighbours. Of the 980,000 deportations from January 2025 to July 2026, just 20% were of people convicted of a crime, and only 31% of formal removals, against an average of 44% in fiscal 2009-2021. Of those deported after at least two years in the country, 71%, about 280,000 people, had never been convicted of anything. In July 2026, 70.6% of the 65,765 people in ICE detention had no criminal conviction. Agents detained at least 170 US citizens in the first months of the drive, about 20 of them children. The 2025 reconciliation act spends $170.7 billion, including $45 billion for detention, a 308% annual increase in the detention budget, on removing people most of whom have no criminal record. A fair system would separate the dangerous from the settled.",
+      proponent_rebuttal:
+        "Immigration law applies to everyone who broke it, not only to those who also committed other crimes, and a law no one enforces invites the next surge. The government has carried out about 980,000 deportations in 18 months, in line with its public statements, and about 190,000 of them were people convicted of crimes. Most deportations, 69%, were of people caught at the border, which is how deterrence works: arrivals who know they will be sent back stop coming. Interior removals have risen from 8,000 a month to 19,000 as the system scales, and Congress, the elected branch, chose in July 2025 to fund 10,000 more ICE officers. Voluntary departure, which MPI counts in 170,000 of the deportations, lets people leave without detention. Mistaken detentions of citizens are wrong and should be fixed, but they are a small share of hundreds of thousands of arrests.",
+      crux: {
+        id: "deportation-targets",
+        title: "The Who-Is-Removed Test",
+        question:
+          "Are deportations mainly removing threats to public safety, or workers and families who have lived here for years?",
+        description:
+          "Measure, for people deported from inside the country, their criminal records (by offense severity), years of US residence, work history and US-citizen children, and compare with the stated priorities and with earlier administrations.",
+        methodology:
+          "Analyse ICE arrest, detention and removal records released under FOIA (for example through the Deportation Data Project) by conviction type, years in the US and family ties; compare removal 'criminality rates' across fiscal 2009-2026 using consistent definitions; and track wrongful detentions of citizens and lawful residents.",
+        verification_status: "verified" as const,
+        settle: {
+          condition:
+            "ICE arrest and removal records released under FOIA, broken down by conviction severity, years of US residence and US-citizen children, compared year by year from fiscal 2009 to 2026 using the same definitions, plus a count of citizens and lawful residents wrongly detained.",
+        },
+        cost_to_verify: "$50K-$200K (FOIA data already partly public)",
+        falsification: {
+          supporter_flip:
+            "If records showed most interior removals were of people with no record beyond immigration violations who had lived in the US for many years with citizen children, and wrongful detentions of citizens ran into the thousands, the case that the drive targets threats to public safety would fail.",
+          skeptic_flip:
+            "If records showed most interior removals were of people with serious criminal convictions or recent arrivals with final orders, and wrongful detentions were rare and quickly corrected, the charge that the drive mainly uproots settled families would be hard to hold.",
+          common_ground:
+            "Both sides agree the government has carried out close to a million deportations since January 2025, that most were of people first caught at the border, and that detention reached record levels in 2026.",
+          live_disagreement:
+            "Whether removing long-settled people with no criminal record is fair enforcement of the law or a cost the country should not impose, and whether $170.7 billion buys more security spent this way than on courts, ports of entry or legal pathways.",
+        },
+      },
+      evidence: [
+        {
+          id: "mpi-980k-deportations",
+          title: "MPI 2026: About 980,000 Deportations in 18 Months, 190,000 of People With Convictions",
+          description:
+            "Using DHS data posted in FOIA reading rooms and released by the Deportation Data Project, former DHS statistics chief Marc Rosenblum estimated that ICE and CBP completed about 980,000 deportations between 20 January 2025 and 31 July 2026, 'a figure in line with the department's public statements.' Deportations are up from the Biden and first Trump administrations but 'remain well below the levels routinely observed in the early 2000s.' About 190,000 were of people convicted of a crime. Interior deportations rose from 8,000 a month in the first three months to 19,000 a month in May-July 2026.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Marc R. Rosenblum, 'U.S. Deportations and \"Self-Deportations\" in the First 18 Months of the Second Trump Term,' Migration Policy Institute fact sheet (October 2026)",
+          sourceUrl:
+            "https://www.migrationpolicy.org/system/files/2026-10/mpi-deportations-fact-sheet-2026-final.pdf",
+          reasoning:
+            "An independent count confirming the administration is delivering removals at scale, including tens of thousands of people with convictions. It counts deportations, not whether they made anyone safer, and the same report supplies the skeptic's key figures.",
+        },
+        {
+          id: "dhs-funding-reconciliation",
+          title: "2025 Reconciliation Act: $170.7 Billion for Enforcement, 10,000 More ICE Officers",
+          description:
+            "H.R. 1, signed on 4 July 2025, provides $170.7 billion in additional funding for immigration and border enforcement, including $45 billion to build new detention centers, bringing ICE's detention budget to at least $14 billion a year (a 308% annual increase over fiscal 2024), $46.6 billion for border wall construction, and money to hire 10,000 more ICE officers within five years. Asylum applicants must pay a $100 fee plus $100 for each year their case is pending.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 6,
+            replicability: 9,
+            directness: 3,
+          },
+          source: "American Immigration Council, 'What's in the Big Beautiful Bill? Immigration and Border Security Unpacked'",
+          sourceUrl: "https://www.americanimmigrationcouncil.org/fact-sheet/big-beautiful-bill-immigration-border-security/",
+          reasoning:
+            "Shows that Congress, not only the executive, chose this approach and funded it for years. It says nothing about results, and the same figures are the skeptics' measure of cost. The summary comes from an immigrant-advocacy group, but the figures are from the enacted law.",
+        },
+        {
+          id: "mpi-long-resident-no-conviction",
+          title: "MPI 2026: 71% of Those Deported After Two-Plus Years in the US Had No Conviction",
+          description:
+            "Of deportations of people with two or more years of US residence, 71% (about 280,000) were of people never convicted of a crime; of those with ten or more years of residence, 61% (57,000). Overall, 20% of the 980,000 deportations were of people convicted of a crime, and 31% of formal removals, compared with an average of 44% in fiscal 2009-2021. Sixty-nine percent of all deportations were of people first intercepted at the border.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 8,
+          },
+          source:
+            "Marc R. Rosenblum, Migration Policy Institute fact sheet (October 2026)",
+          sourceUrl:
+            "https://www.migrationpolicy.org/system/files/2026-10/mpi-deportations-fact-sheet-2026-final.pdf",
+          reasoning:
+            "The most direct evidence on who is being removed, from public DHS data analysed by the department's former statistics chief. 'No conviction' does not mean no pending charges or prior removal orders, which supporters note.",
+        },
+        {
+          id: "trac-detention-no-conviction",
+          title: "TRAC, July 2026: 65,765 in ICE Detention, 70.6% With No Criminal Conviction",
+          description:
+            "Immigration and Customs Enforcement held 65,765 people in detention according to data current as of 11 July 2026; 46,436 of them, 70.6%, had no criminal conviction. In June 2026, 43,138 people were booked into ICE detention, and 183,181 were monitored through Alternatives to Detention.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 8,
             directness: 7,
           },
-          source: "DHS Office of Inspector General; ACLU; Human Rights Watch",
-          sourceUrl: "https://www.oig.dhs.gov/reports/2019/management-alert-dhs-needs-address-dangerous-overcrowding-and-prolonged-detention-children-and-adults-rio-grande-valley/oig-19-51-jul19",
+          source: "TRAC Immigration, Syracuse University, Quick Facts (data current as of 11 July 2026)",
+          sourceUrl: "https://tracreports.org/immigration/quickfacts/",
           reasoning:
-            "DHS's own Inspector General findings carry high credibility because they are internal government oversight. The documented conditions raise serious humanitarian and legal concerns. Directness is somewhat lower because detention conditions are a consequence of enforcement policy, not a direct measure of its effectiveness in managing immigration.",
+            "ICE's own detention data, compiled by an independent research centre. It shows most people held have no conviction, though some have pending charges; it is a snapshot, not a measure of who is ultimately removed.",
+        },
+        {
+          id: "citizens-detained-propublica",
+          title: "ProPublica 2025: At Least 170 US Citizens Detained by Immigration Agents",
+          description:
+            "ProPublica found that federal immigration agents had detained at least 170 US citizens in the early months of the enforcement drive, including about 20 children, two of them with cancer. The government does not track how often its agents detain citizens, and the reporters said the figure is likely an undercount.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 5,
+            directness: 4,
+          },
+          source: "ProPublica, as reported by NPR's Here & Now via Arkansas Public Media (16 October 2025)",
+          sourceUrl:
+            "https://www.apr.org/2025-10-16/u-s-citizens-arrested-by-ice-have-been-kicked-dragged-and-detained-for-days-propublica-reports",
+          reasoning:
+            "Wrongful detention of citizens is a cost no side defends. It is a small number set against hundreds of thousands of arrests, and a reporting count rather than a full tally, so directness for the overall policy is low.",
         },
       ],
     },
   ],
+  aliases: [
+    "Is enforcement plus asylum limits the best way to manage US immigration?",
+    "Should the US deport all illegal immigrants?",
+    "Is mass deportation a good idea?",
+  ],
   references: [
     {
-      title: "Southwest Land Border Encounters — US Customs and Border Protection",
+      title: "U.S. Deportations and \"Self-Deportations\" in the First 18 Months of the Second Trump Term - Migration Policy Institute (October 2026)",
+      url: "https://www.migrationpolicy.org/system/files/2026-10/mpi-deportations-fact-sheet-2026-final.pdf",
+    },
+    {
+      title: "Southwest Land Border Encounters - US Customs and Border Protection",
       url: "https://www.cbp.gov/newsroom/stats/southwest-land-border-encounters",
     },
     {
-      title: "The Demographic and Economic Impacts of Immigration — Congressional Budget Office (2024)",
-      url: "https://www.cbo.gov/publication/59946",
+      title: "TRAC Immigration Quick Facts - Syracuse University",
+      url: "https://tracreports.org/immigration/quickfacts/",
     },
     {
-      title: "Immigration Court Backlog Tool — TRAC, Syracuse University",
-      url: "https://trac.syr.edu/phptools/immigration/court_backlog/",
+      title: "What's in the Big Beautiful Bill? Immigration and Border Security Unpacked - American Immigration Council",
+      url: "https://www.americanimmigrationcouncil.org/fact-sheet/big-beautiful-bill-immigration-border-security/",
     },
     {
-      title: "The Cost of Immigration Enforcement — American Immigration Council",
-      url: "https://www.americanimmigrationcouncil.org/research/the-cost-of-immigration-enforcement-and-border-security",
-    },
-    {
-      title: "Missing Migrants Project: Americas — International Organization for Migration",
+      title: "Missing Migrants Project: Americas - International Organization for Migration",
       url: "https://missingmigrants.iom.int/region/americas",
     },
   ],
@@ -350,19 +436,19 @@ export const immigrationBorderCrisisData = {
       id: "q1",
       title: "Does enforcement actually deter unauthorized crossings?",
       content:
-        "The US has spent hundreds of billions of dollars on immigration enforcement since 1986 (a commonly cited estimate is roughly $333 billion through the early 2020s), yet unauthorized crossings have surged repeatedly. Encounters then fell sharply after 2023-2025 restrictions, but was this due to US enforcement, Mexican cooperation, economic shifts, or all three? Can enforcement-only approaches produce durable results without addressing root causes?",
+        "Apprehensions fell from 249,740 in December 2023 to 47,324 in December 2024, then below 10,000 a month from February 2025, and to 98,708 for all of fiscal 2026. How much was US enforcement, how much Mexico's, and how much conditions in origin countries? Will the low numbers survive the next crisis abroad?",
     },
     {
       id: "q2",
-      title: "Who bears the economic costs and benefits of immigration?",
+      title: "Who is being deported, and is it fair?",
       content:
-        "The CBO projects a $7 trillion GDP boost from recent immigration, and unauthorized immigrants paid $96.7 billion in taxes in 2022. But Borjas's research suggests low-skill native wages fell 7.4%, and border communities bear disproportionate service costs. Is immigration a net positive with inequitable distribution, or a genuinely divisive economic force?",
+        "About 980,000 deportations in 18 months, 20% of them of people with criminal convictions, and 71% of those removed after two or more years in the US had none. Is enforcing immigration law against everyone who broke it fair, or should removal be reserved for people who are dangerous?",
     },
     {
       id: "q3",
-      title: "Can the asylum system function without fundamental reform?",
+      title: "Can the asylum system work fairly and fast?",
       content:
-        "With a backlog that peaked near 3.7 million cases in FY2024 (since easing to roughly 3.4 million), multi-year waits for many cases, and grant rates ranging from 5% to 90% depending on the judge, the asylum system satisfies neither enforcement advocates nor refugee protection advocates. Is the crisis a result of too many frivolous claims, chronic underfunding of courts, or a system designed in 1980 that cannot handle modern migration patterns?",
+        "The court backlog peaked near 3.7 million cases and is now falling, while the asylum grant rate fell to 5.5% in June 2026 after more than a third of immigration judges were fired or resigned. Is the system finally applying the law, or rejecting refugees it should protect?",
     },
   ],
 };
