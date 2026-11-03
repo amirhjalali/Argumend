@@ -176,11 +176,13 @@ const ABBREVIATIONS: Readonly<Record<string, string>> = {
   // The maps say "children"; "kids" is how readers say it.
   kid: "children",
   kids: "children",
+  // The maps say "AI"; readers name the product. The name is kept too.
+  chatgpt: "chatgpt ai",
 };
 
 /** One pass over the text for every short form, plural "s" included where one is used. */
 const ABBREVIATION_PATTERN =
-  /\b(?:evs?|ubi|smrs?|agi|asi|llms?|gmos?|rto|wfh|dst|cbdcs?|mmt|ssris?|glp-1|nukes?|2a|co2|ww3|wwiii|kids?)\b|\btrans\b(?![- ]?(?:fat|ocean))|\bu\.s\.(?=\s|$|[,;:)])/g;
+  /\b(?:evs?|ubi|smrs?|agi|asi|llms?|gmos?|rto|wfh|dst|cbdcs?|mmt|ssris?|glp-1|nukes?|2a|co2|ww3|wwiii|kids?|chatgpt)\b|\btrans\b(?![- ]?(?:fat|ocean))|\bu\.s\.(?=\s|$|[,;:)])/g;
 
 export function expandAbbreviations(lowered: string): string {
   return lowered.replace(

@@ -64,7 +64,9 @@ export function pasteTerms(text: string, options: { keepStopwords?: boolean } = 
   const terms: string[] = [];
   for (const raw of lowered.split(/[^a-z0-9']+/)) {
     // Possessives and quote marks go; contractions collapse ("don't" to "dont").
-    const token = raw.replace(/'s$/, "").replace(/'/g, "");
+    // A pronoun's contracted verb goes with it ("we'd" to "we", a stopword),
+    // so "we'd" never reads as "wed", the stem of "wedding".
+    const token = raw.replace(/'s$/, "").replace(/'(?:d|ll|re|ve|m)$/, "").replace(/'/g, "");
     const keepNumber = options.keepStopwords && /^\d$/.test(token);
     if ((!keepNumber && token.length < 2) || (!options.keepStopwords && isStopword(token))) continue;
     const stemmed = stemOf(token);
