@@ -184,7 +184,7 @@ export const organicFoodHealthData = {
           id: "uc-berkeley-chamacos",
           title: "UC Berkeley CHAMACOS: Prenatal Pesticide Exposure Linked to Developmental Harm",
           description:
-            "The UC Berkeley CHAMACOS longitudinal study in California's Salinas Valley found that children with the highest prenatal organophosphate exposure scored about 7 IQ points lower at age 7 than those with the lowest exposure (each tenfold increase in prenatal markers ~5.5 points). The cohort is an agricultural-community sample, so exposures exceed typical dietary-only levels.",
+            "The UC Berkeley CHAMACOS longitudinal study in California's Salinas Valley found that children whose mothers were in the highest fifth (quintile) of prenatal organophosphate metabolite levels scored about 7 IQ points lower at age 7 than those in the lowest fifth (each tenfold increase in prenatal markers ~5.6 points). The cohort is an agricultural-community sample, so exposures exceed typical dietary-only levels.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -196,7 +196,7 @@ export const organicFoodHealthData = {
             "Bouchard, Eskenazi et al. (CHAMACOS, UC Berkeley), 'Prenatal Exposure to Organophosphate Pesticides and IQ in 7-Year-Old Children,' Environmental Health Perspectives 119(8):1189-1195 (2011)",
           sourceUrl: "https://doi.org/10.1289/ehp.1003185",
           reasoning:
-            "Rigorous longitudinal design from a leading university; the 7-point IQ gap (highest vs lowest exposure) is verified. Directness lowered because exposures were higher than typical dietary-only exposure (farmworker community, including drift and take-home dust), limiting direct applicability to organic-vs-conventional food choice. It demonstrates developing-brain vulnerability to these chemicals.",
+            "Rigorous longitudinal design from a leading university; the 7-point IQ gap (highest vs lowest quintile of maternal metabolite levels) is verified. Directness lowered because exposures were higher than typical dietary-only exposure (farmworker community, including drift and take-home dust), limiting direct applicability to organic-vs-conventional food choice. It demonstrates developing-brain vulnerability to these chemicals.",
         },
         {
           id: "organic-diet-intervention",
