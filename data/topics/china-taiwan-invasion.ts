@@ -59,6 +59,19 @@ export const chinaTaiwanInvasionData = {
         "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "The Pentagon counts China's navy as the world's largest by hull count, with more than 370 ships and submarines. China has not fought a contested amphibious landing since its failed assault on Kinmen in 1949, and a crossing of the Taiwan Strait would be among the most complex ever attempted. The fight is over whether Beijing will judge the attempt worth making before 2030.",
+    confidence: 85,
+    source:
+      "U.S. Department of Defense, Military and Security Developments Involving the PRC (2024); CSIS, 'The First Battle of the Next War' (Cancian et al., 2023)",
+    sourceUrl:
+      "https://media.defense.gov/2024/Dec/18/2003615520/-1/-1/0/MILITARY-AND-SECURITY-DEVELOPMENTS-INVOLVING-THE-PEOPLES-REPUBLIC-OF-CHINA-2024.PDF",
+  },
+  simple_case: [
+    "The answer bears on how fast Taiwan, the U.S. and their allies arm, and on the chip supply chains that run through Taiwan's fabs.",
+  ],
   pillars: [
     {
       id: "military-capability-window",

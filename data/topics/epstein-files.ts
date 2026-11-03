@@ -62,6 +62,19 @@ export const epsteinFilesData = {
         "The Epstein Victims' Compensation Program paid over $121 million to approximately 150 survivors. JPMorgan Chase settled for $290 million and Deutsche Bank for $75 million over their roles in facilitating Epstein's finances. Prince Andrew settled with Virginia Giuffre for an undisclosed sum. Yet many survivors say financial settlements are not justice without criminal accountability for the individuals who participated in or facilitated the abuse. Does financial restitution constitute meaningful accountability when no additional perpetrators face prosecution?",
     },
   ],
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "The Epstein Files Transparency Act passed the House 427–1 in November 2025, and the Justice Department has since released 3.5 million pages. Ghislaine Maxwell is serving 20 years; no one else has been criminally convicted in the U.S. Both sides accept those facts. The fight is over what the redactions protect, and whether anyone named in the files will be prosecuted.",
+    confidence: 90,
+    source:
+      "Congress.gov, H.R. 4405 (Epstein Files Transparency Act); NPR on the Maxwell trial (2021)",
+    sourceUrl:
+      "https://www.congress.gov/bill/119th-congress/house-bill/4405",
+  },
+  simple_case: [
+    "The answer bears on whether the release closes the case or opens a new round of investigations, and on how far the public trusts the institutions that handled it.",
+  ],
   pillars: [
     // =========================================================================
     // Pillar 1: Institutional Failure & the 2007 Deal

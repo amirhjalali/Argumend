@@ -6,6 +6,19 @@ export const openBordersData = {
     "Significantly relaxing or eliminating immigration restrictions would produce large economic gains and is morally justified.",
   status: "highly_speculative" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "Remittances sent home by migrants to low- and middle-income countries reached about $626 billion in 2022, roughly three times all official foreign aid. Estimates that open borders could add 50–150% to world GDP are extrapolations from far smaller moves, as both sides grant. The fight is over how much of that gain would survive fiscal, wage and transition costs, and whether a state has the right to keep people out.",
+    confidence: 85,
+    source:
+      "World Bank, 'Remittances Remain Resilient but Likely to Slow' (June 2023); OECD ODA statistics (2022)",
+    sourceUrl:
+      "https://www.worldbank.org/en/news/press-release/2023/06/13/remittances-remain-resilient-likely-to-slow",
+  },
+  simple_case: [
+    "The answer bears on how many people rich countries admit, and on whether turning someone away is the default or a choice that has to be justified.",
+  ],
   pillars: [
     {
       id: "economic-arguments",
