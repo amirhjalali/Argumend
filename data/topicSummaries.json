@@ -2451,9 +2451,9 @@
     "title": "Smartphone Age Restrictions for Children",
     "question": "Should children under 14 be barred from owning smartphones?",
     "meta_claim": "Children under 14 should be prohibited from owning smartphones, as the harms of a personal, always-connected device in childhood outweigh the benefits of access and safety.",
-    "confidence_score": 68,
-    "balance": 68,
-    "weight": 55,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 58,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -2461,12 +2461,12 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 6,
+    "evidenceCount": 7,
     "firstCrux": "Do children with a smartphone fare worse than children with a basic phone or no phone?",
     "tags": [
       "technology"
     ],
-    "keywords": "commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson esafety pediatricians reddit threads"
+    "keywords": "esafety commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
