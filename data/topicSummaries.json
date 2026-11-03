@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz outdoor"
+    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen robberies sanders misalignment monday chronobiology clin fritz outdoor"
   },
   {
     "id": "tipping-culture",
@@ -129,7 +129,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "therabot facct nedas woebot sycophancy tessa bots dartmouth psychotherapy roleplay heinz moore ckiger darcy fitzpatrick"
+    "keywords": "therabot facct nedas woebot sycophancy tessa bots psychotherapy dartmouth roleplay heinz moore ckiger darcy fitzpatrick"
   },
   {
     "id": "carbon-capture-viability",
@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol pell stagnant nordhaus rosen vijan cutler naep tuition admin turner haircut helland marron tabarrok"
+    "keywords": "baumol stagnant pell nordhaus rosen vijan cutler naep admin tuition turner haircut helland marron tabarrok"
   },
   {
     "id": "moloch",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful heard"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful propublica"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -508,23 +508,22 @@
     "title": "Drug Decriminalization",
     "question": "Does decriminalizing drug use, with treatment, improve public health?",
     "meta_claim": "Decriminalizing personal drug use, paired with treatment investment, can improve public health outcomes compared to criminalization — though results depend heavily on implementation.",
-    "confidence_score": 75,
-    "balance": 75,
-    "weight": 65,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 69,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 11,
     "firstCrux": "How much of Portugal's improvement came from decriminalization versus treatment investment?",
     "tags": [
       "policy"
     ],
-    "keywords": "portugal recidivism emcdda overdose incarceration marijuana provisional hotline vera ticketed czech decriminalisation euda fentanyl greenwald"
+    "keywords": "overdose portugal recidivism emcdda spencer incarceration fentanyl marijuana nida zoorob hotline provisional vera ticketed toronto"
   },
   {
     "id": "death-penalty-deterrence",
@@ -575,44 +574,44 @@
     "title": "Mandatory Voting",
     "question": "Should more democracies make voting compulsory?",
     "meta_claim": "Compulsory voting, as practiced in Australia and other countries, produces more representative democracy and should be adopted more widely.",
-    "confidence_score": 72,
-    "balance": 72,
-    "weight": 51,
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 56,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 9,
     "firstCrux": "Do the extra voters compulsion brings make policy more representative, or just add noise?",
     "tags": [
       "policy"
     ],
-    "keywords": "turnout boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
+    "keywords": "turnout boxell cepaluni fowler hidalgo hoffman lachat lombardi selb gentzkow leigh uninformed dampen donkey faqs"
   },
   {
     "id": "reparations-slavery",
     "title": "Reparations for Slavery",
     "question": "Should the US provide reparations to descendants of enslaved Black Americans?",
     "meta_claim": "The United States federal government should provide reparations to descendants of enslaved Black Americans to address the lasting economic and social effects of slavery and Jim Crow.",
-    "confidence_score": 78,
-    "balance": 78,
-    "weight": 61,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 11,
     "firstCrux": "How much of today's racial wealth gap traces to slavery, Jim Crow and discriminatory policy?",
     "tags": [
       "policy"
     ],
-    "keywords": "darity mullen rothstein hamilton conyers craemer kirsten naomi sheila zewde holocaust lineage ayanna darrick heirs"
+    "keywords": "darity mullen evanston sacerdote rothstein repaid grandchildren slaves hamilton bruce conyers craemer kirsten naomi sheila"
   },
   {
     "id": "immigration-wage-impact",
@@ -707,44 +706,44 @@
     "title": "Standardized Testing Value",
     "question": "Should tests like the SAT and ACT stay central to college admissions?",
     "meta_claim": "Standardized tests like the SAT and ACT are valid, fair measures of academic ability that should remain a core component of college admissions and educational assessment.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 56,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 10,
     "firstCrux": "Did going test-optional raise diversity without losing the ability to spot talented students?",
     "tags": [
       "policy"
     ],
-    "keywords": "dartmouth coaching prep briggs nacac derek sttf chetty deming gazette ibisworld overlooking princetonian sats technavio"
+    "keywords": "dartmouth pell galla coaching gpas prep allensworth alvero briggs nacac christopher derek sttf chetty deming"
   },
   {
     "id": "electoral-college-reform",
     "title": "Electoral College Reform",
     "question": "Should a national popular vote replace the Electoral College?",
     "meta_claim": "The Electoral College should be replaced with a national popular vote for electing the President of the United States.",
-    "confidence_score": 68,
-    "balance": 68,
-    "weight": 58,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 9,
     "firstCrux": "Can the National Popular Vote compact realistically reach 270 electoral votes?",
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "compact morley npvic chiafalo trifecta gore infirmities framers inadvertent gift abigail ashley cabal faithless foleys"
   },
   {
     "id": "surveillance-public-safety",
@@ -817,7 +816,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators beach palm acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
+    "keywords": "maxwell redacted brunel conspirators beach palm acosta blackmail dershowitz batch perpetrators prostitution starr cvra ghislaine"
   },
   {
     "id": "tiktok-ban",
@@ -1003,7 +1002,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination groundwater wastewater brine cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1025,7 +1024,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva"
+    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked scarborough caries rivera satiety sugary andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -1098,9 +1097,9 @@
     "title": "Mandatory AI Content Labeling",
     "question": "Should the law require labels or watermarks on AI-generated content?",
     "meta_claim": "AI-generated content should be required by law to carry visible labels or watermarks identifying it as AI-created.",
-    "confidence_score": 74,
-    "balance": 74,
-    "weight": 56,
+    "confidence_score": 62,
+    "balance": 62,
+    "weight": 63,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1108,12 +1107,12 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 11,
     "firstCrux": "Can watermarks survive real-world edits and deliberate removal at usable rates?",
     "tags": [
       "technology"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers chegini conspicuous ecfr iptc"
+    "keywords": "parody synthid altay bonta feizi forged gilardi kohls hesitate dathathri farid nightingale omnibus saberi sadasivan"
   },
   {
     "id": "big-tech-antitrust",
@@ -1142,53 +1141,53 @@
     "title": "Cancel Culture",
     "question": "Does cancel culture do more harm than good to public discourse?",
     "meta_claim": "Cancel culture — public shaming and professional consequences for controversial speech — does more harm than good to public discourse.",
-    "confidence_score": 64,
-    "balance": 64,
-    "weight": 53,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 58,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 10,
     "firstCrux": "Does fear of online backlash measurably narrow what people are willing to say in public?",
     "tags": [
       "technology"
     ],
-    "keywords": "metoo yougov afraid boycotts brady eeoc kaufmann shor cspi tweeting censorship bavel chappelle civis cosby"
+    "keywords": "metoo yougov undeserving censorship afraid boycotts brady eeoc kaufmann shor cspi tweeting ceos aguirre bavel"
   },
   {
     "id": "media-bias-democracy",
     "title": "Media Bias and Democracy",
     "question": "Is mainstream media bias a significant threat to democracy?",
     "meta_claim": "Systemic bias in mainstream media is a significant threat to democratic discourse and informed citizenship.",
-    "confidence_score": 79,
-    "balance": 79,
-    "weight": 62,
+    "confidence_score": 55,
+    "balance": 55,
+    "weight": 69,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 11,
     "firstCrux": "Can media bias be measured reliably, and which direction does it run?",
     "tags": [
       "technology"
     ],
-    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow regrets crowdsourced msnbc multipartisan unmoderated missouri regretsreporter"
+    "keywords": "slant allsides goel budak crowdsourced groseclose milyo nyhan flaxman husz gentzkow regrets ceren fifteen incivility"
   },
   {
     "id": "space-colonization-feasibility",
     "title": "Space Colonization Feasibility",
     "question": "Can we build self-sustaining colonies on Mars or the Moon within 50 years?",
     "meta_claim": "Establishing permanent, self-sustaining human colonies on Mars or the Moon is technically and economically feasible within the next 50 years.",
-    "confidence_score": 55,
-    "balance": 55,
-    "weight": 53,
+    "confidence_score": 46,
+    "balance": 46,
+    "weight": 61,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
@@ -1196,34 +1195,34 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 8,
     "firstCrux": "Will Starship-class transport, with orbital refueling and Mars landings, be demonstrated this decade?",
     "tags": [
       "technology"
     ],
-    "keywords": "starship spacex biosphere moxie aboard colonists isru kingdon payload lunar artemis aiaa barbara booster energetic"
+    "keywords": "spacex starship payloads biosphere moxie artemis brine settler lander refueling suffocate processor aboard colonists isru"
   },
   {
     "id": "lab-grown-meat-adoption",
     "title": "Lab-Grown Meat Adoption",
     "question": "Will lab-grown meat be cost-competitive and widely adopted in 15 years?",
     "meta_claim": "Cultivated (lab-grown) meat will become cost-competitive with conventional meat and achieve significant market adoption within the next 15 years.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 49,
+    "confidence_score": 43,
+    "balance": 43,
+    "weight": 56,
     "verdict": {
-      "label": "Evidence roughly balanced — moderately evidenced",
+      "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "technology",
     "pillarCount": 2,
-    "evidenceCount": 5,
+    "evidenceCount": 8,
     "firstCrux": "Is lab-grown meat's cost gap a scale-up problem that shrinks with volume, or a hard floor?",
     "tags": [
       "technology"
     ],
-    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters consolidation"
+    "keywords": "taste chicken humbird aleph markus rolland steak bioengineering burger nahmias tastier batch reassess beef dutch"
   },
   {
     "id": "ai-in-education",
@@ -1355,7 +1354,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pisa douyin circuitry scrolling anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen supplementary teng"
+    "keywords": "pisa douyin circuitry scrolling anterior dopamine geng gnambs goldfish lorenz maybin spreen supplementary teng wood"
   },
   {
     "id": "ai-replacing-doctors",
@@ -1542,7 +1541,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars perseverance collisions irreplaceable constellation didymos dimorphoss"
+    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars collisions irreplaceable perseverance constellation didymos dimorphoss"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1776,7 +1775,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent sydney arachidonic cytotoxic cd011737 chemists csallany eliraz farvid"
+    "keywords": "linoleic aldehyde hexane frying blasbalg pufa solvent arachidonic cytotoxic cd011737 chemists csallany eliraz farvid fats"
   },
   {
     "id": "obesity-personal-responsibility",
@@ -1911,7 +1910,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2022,7 +2021,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable dwelling huds livable"
+    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips charitable shelters dwelling huds livable"
   },
   {
     "id": "four-day-work-week",
@@ -2066,7 +2065,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
+    "keywords": "tuition repayment deciles nebraska catherine cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes mbas"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2110,7 +2109,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals lows sellers belt hmrc redfin tourist fraser garcia lopez starter airbnb batzer bearish cmas"
+    "keywords": "rentals lows sellers belt hmrc redfin tourist fraser garcia starter lopez airbnb batzer bearish cmas"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2154,7 +2153,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen teammates bamboohr ding bloom irvine sunk gloria pittsburgh uspto brucks frey gudith harrington junior"
+    "keywords": "allen teammates bamboohr ding bloom irvine sunk gloria uspto pittsburgh brucks frey gudith harrington junior"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2292,7 +2291,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "belts dosimeters orion laser astronaut reflector artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell"
+    "keywords": "belts dosimeters orion laser reflector astronaut artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell"
   },
   {
     "id": "minneapolis-shooting",
@@ -2469,7 +2468,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "esafety commenced anglosphere assent babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson pediatricians reddit threads"
+    "keywords": "esafety commenced anglosphere babel kick rausch scandinavia snapchat twitch undifferentiated abrahamsson assent pediatricians reddit threads"
   },
   {
     "id": "alternatives-to-democracy",
@@ -2557,7 +2556,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate ceos herself naep clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
+    "keywords": "despair deaton anne tate herself naep ceos clearinghouse mens afflicting congregations fraternal hierarchies misogynistic sharper"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2606,7 +2605,7 @@
       "Should governments help people have the children they want?",
       "Do housing and childcare costs explain low fertility?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl ninth yougov"
+    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl yougov"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2673,7 +2672,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters morgans restrainer"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen chocolate crabs lobsters morgans restrainer mammals"
   },
   {
     "id": "immigration-national-identity",
@@ -2913,7 +2912,7 @@
       "e-waste",
       "cybersecurity"
     ],
-    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas laptops luyi monopolize owens"
+    "keywords": "nixing nhtsa pirg telematics ftcs aftermarket counterfeit cungen dortz eggman haas laptops luyi monopolize sheep"
   },
   {
     "id": "assisted-dying-euthanasia",
@@ -3025,7 +3024,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte dunn facetime"
+    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona decree duarte facetime isps"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3331,7 +3330,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
+    "keywords": "overblocking aggravated fosta netzdg taamneh eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch isis"
   },
   {
     "id": "autonomous-weapons-ban",
