@@ -98,7 +98,7 @@ export const trumpTariffsData = {
         },
         {
           id: "japan-car-export-price-cuts",
-          title: "Japanese Carmakers Cut Dollar Prices on Cars Shipped to the US by About 22% (2025)",
+          title: "Dollar Unit Prices of Japanese Cars Shipped to the US Fell About 22% Year on Year (mid-2025)",
           description:
             "After the 25% US tariff on imported cars took effect in April 2025, the Japan Center for Economic Research traced Japan's customs data on exports to the United States. Export volume held up while the yen price per unit fell, a decline that began in March 2025 and widened in later months. Passenger cars, 24.3% of Japan's export value to the US in June 2025, showed the largest year-on-year fall in the exchange-rate-adjusted (dollar-terms) export unit price: 22.0% in the latest month of data. The Bank of Japan's fixed-basket export price index for cars sent to North America fell too, so the drop was not a shift toward cheaper models. JCER's Jun Saito concludes that 'exporting firms are absorbing the impact of higher tariff by reducing export unit price in yen-terms.' The US later cut the tariff on Japanese cars to 15% under the July 2025 agreement.",
           side: "for" as const,

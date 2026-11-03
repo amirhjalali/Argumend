@@ -228,7 +228,7 @@ export const surveillancePublicSafetyData = {
           id: "detroit-frt-settlement-guardrails",
           title: "Detroit's Court-Enforced Face-Recognition Rules After a Wrongful Arrest (2024)",
           description:
-            "Settling Williams v. City of Detroit in June 2024, after police wrongfully arrested Robert Williams on a facial recognition match, the Detroit Police Department accepted rules the federal court can enforce for four years. A face-recognition lead, even combined with a lineup identification, 'may never be a sufficient basis for seeking an arrest warrant'; detectives must document independent evidence and get sign-off from two supervisors; lineups may not reuse the photo the software flagged; and the department must audit every case since 2017 in which facial recognition was used to obtain an arrest warrant. The ACLU, which litigated the case and calls police use of the technology 'deeply problematic,' describes the rules as 'best-in-the-nation practices' for agencies that keep using it. Department data reported to the Board of Police Commissioners showed nine facial recognition searches in violent-crime investigations in 2025, against about 100 in 2023.",
+            "Settling Williams v. City of Detroit in June 2024, after police wrongfully arrested Robert Williams on a facial recognition match, the Detroit Police Department accepted rules the federal court can enforce for four years. A face-recognition lead, even combined with a lineup identification, 'may never be a sufficient basis for seeking an arrest warrant'; detectives must document independent evidence and get sign-off from two supervisors; lineups may not reuse the photo the software flagged; and the department must audit every case since 2017 in which facial recognition was used to obtain an arrest warrant. The ACLU, which litigated the case and calls police use of the technology 'deeply problematic,' describes the rules as 'best-in-the-nation practices' for agencies that keep using it. BridgeDetroit reported in April 2026 that, by the department's reports to the Board of Police Commissioners, police used facial recognition to identify possible violent-crime suspects nine times in 2025, a 91% drop from 2023.",
           side: "for" as const,
           weight: {
             sourceReliability: 6,
@@ -237,7 +237,7 @@ export const surveillancePublicSafetyData = {
             directness: 4,
           },
           source:
-            "ACLU, 'Summary of Detroit Facial Recognition Settlement Agreement (Williams v. City of Detroit)' (June 2024); ID Tech, 'Detroit Police Facial Recognition Use Drops 91 Percent After Settlement Tightens Policy' (27 Apr 2026)",
+            "ACLU, 'Summary of Detroit Facial Recognition Settlement Agreement (Williams v. City of Detroit)' (June 2024); Kayleigh Lickliter, 'Detroit's use of facial recognition for violent crime probes is down. Here's why', BridgeDetroit (27 Apr 2026)",
           sourceUrl:
             "https://assets.aclu.org/live/uploads/2024/06/williams_settlement_one-pager_june_24-1.pdf",
           reasoning:
