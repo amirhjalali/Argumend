@@ -307,7 +307,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "marine sealift marad oceangoing grabow hurricane maria shipyard turbo shipbuilding ikenson manak pricewaterhousecoopers surcharge underdeveloped"
+    "keywords": "marine sealift marad oceangoing grabow hurricane maria shipbuilding shipyard turbo ikenson manak pricewaterhousecoopers surcharge underdeveloped"
   },
   {
     "id": "medicaid-work-requirements",
@@ -702,7 +702,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
+    "keywords": "boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony"
   },
   {
     "id": "reparations-slavery",
@@ -1094,22 +1094,28 @@
     "title": "Will China Invade Taiwan Before 2030?",
     "question": "Will China invade Taiwan before 2030?",
     "meta_claim": "China will attempt military reunification with Taiwan within this decade, fundamentally reshaping the global order.",
-    "confidence_score": 47,
-    "balance": 47,
-    "weight": 67,
+    "confidence_score": 41,
+    "balance": 41,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "highly_speculative",
     "category": "policy",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does China have the sealift to carry and supply forces across a contested Taiwan Strait?",
+    "pillarCount": 4,
+    "evidenceCount": 19,
+    "firstCrux": "Are China's drills around Taiwan rehearsals for an invasion this decade, or pressure meant to make one unnecessary?",
     "tags": [
       "policy"
     ],
-    "keywords": "amphibious rhodium tsmc afghanistan pacific cancian navy wargames fabs indo buildup strait aircraft chairman submarine"
+    "aliases": [
+      "Will China take Taiwan by force?",
+      "Is 2027 the year China invades Taiwan?",
+      "Would the US defend Taiwan?",
+      "Would China blockade Taiwan instead of invading?"
+    ],
+    "keywords": "amphibious cancian rhodium wargames defence himars kinmen rehearsed tsmcs unification aircraft chairman minister submarine aukus"
   },
   {
     "id": "global-water-crisis",
@@ -1131,7 +1137,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse arbitration gerd glacier hindu indus kush"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1219,7 +1225,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner aamas beams boat coastrunners critch faulty hubinger humean"
+    "keywords": "sleeper sonnet leibo motivationally respawning apollo turner aamas beams coastrunners critch faulty hubinger humean lagoon"
   },
   {
     "id": "ai-content-labeling",
@@ -1241,7 +1247,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers chegini conspicuous ecfr iptc"
+    "keywords": "feizi forged farid nightingale saberi sadasivan trustworthy zauderer artists writers chegini conspicuous ecfr iptc kumar"
   },
   {
     "id": "big-tech-antitrust",
@@ -1395,7 +1401,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu dario demis godfather gsm8k hassabis kefauver mmmu"
+    "keywords": "seoul summit bletchley thalidomide newsom nonproliferation turing baidu dario demis godfather gsm8k hassabis kefauver mmmu"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1743,7 +1749,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "cleavage furin debarred insertion odni progenitor sago ecohealth subcommittee lineages huanan sarbecovirus coronaviruses biosafety virologists"
+    "keywords": "cleavage furin debarred insertion progenitor sago ecohealth subcommittee lineages huanan sarbecovirus coronaviruses biosafety virologists wray"
   },
   {
     "id": "ultra-processed-food",
@@ -2216,7 +2222,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl m2sl breakeven larry admirably ambitious supercore advisors"
+    "keywords": "fred bernanke blanchard velocity overheating drewry t10yie walcl m2sl breakeven larry ambitious supercore admirably advisors"
   },
   {
     "id": "global-housing-bubble",
@@ -2420,7 +2426,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "belts dosimeters orion laser astronaut reflector artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell"
+    "keywords": "belts dosimeters orion laser astronaut reflector artemis retroreflectors allen astrophysical acquiescence dosimetry hubble jodrell crimean"
   },
   {
     "id": "minneapolis-shooting",
@@ -2486,7 +2492,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "happiness nonreligious euthyphro atheist divine communist atrocities courtois edgell happiest unaffiliated unbelief zagonari cambodia flourishing"
+    "keywords": "happiness nonreligious euthyphro atheist divine atrocities communist courtois edgell happiest unaffiliated unbelief zagonari cambodia flourishing"
   },
   {
     "id": "meritocracy-myth",
@@ -2663,7 +2669,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
+    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge yuan convoy pesa intereconomics nigerian trucker ward bahamian interoperable"
   },
   {
     "id": "masculinity-crisis",
@@ -2707,7 +2713,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "c2pa tape deloitte schiff hampshire robocall politicians kramer leica nikon hollywood adobe bueno crying liars"
+    "keywords": "c2pa tape deloitte schiff hampshire robocall kramer leica nikon hollywood adobe bueno crying liars vall"
   },
   {
     "id": "declining-birth-rates",
@@ -2867,7 +2873,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "ukrainian zelensky troops putin donetsk manpower rusi ceasefire facto moscow emboldens haass jamestown kupchan kyiv"
+    "keywords": "ukrainian zelensky troops putin donetsk manpower rusi ceasefire facto moscow emboldens haass kupchan kyiv jamestown"
   },
   {
     "id": "trump-tariffs",
