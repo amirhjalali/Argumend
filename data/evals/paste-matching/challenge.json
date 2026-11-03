@@ -352,6 +352,84 @@
       "expected": [],
       "related": [],
       "note": "Independent parent browser probe found irrelevant rent-control, housing and standardized-testing closest cards."
+    },
+    {
+      "id": "challenge-datacenter-coop-hike",
+      "form": "reply",
+      "text": "Our co-op just announced a 14% rate hike and the board flat out said it's because of the two hyperscale campuses they're hooking up out by the interstate. So my retired parents are subsidizing Microsoft's servers now? Make them pay for their own substations.",
+      "expected": [
+        "data-centers-electricity-bills"
+      ],
+      "related": [
+        "ai-energy-water-footprint"
+      ],
+      "note": "Added 2026-11-03 (r14) for the round-12 map; label fixed before running the matcher. Never says 'data center' or 'AI'. Missed on first run (the map never said hyperscale, server or rate hike); named after the r14 alias with those words, so it is no longer an unseen case."
+    },
+    {
+      "id": "challenge-datacenter-not-water",
+      "form": "conversation",
+      "text": "A: Everyone's mad about AI drinking water but what actually hit me was my power bill. B: That's natural gas prices, not server farms. A: The utility's own filing says the capacity auction cleared at a record because of data center load, and residential customers eat that cost.",
+      "expected": [
+        "data-centers-electricity-bills"
+      ],
+      "related": [
+        "ai-energy-water-footprint"
+      ],
+      "note": "Added 2026-11-03 (r14); label fixed before running. Neighbour trap: opens on AI water use, which is the AI footprint map's subject, then argues bills."
+    },
+    {
+      "id": "challenge-datacenter-ohio-tariff",
+      "form": "reply",
+      "text": "Ohio made the big data center companies commit to paying for 85% of the capacity they ask for whether they use it or not. That's how you keep grid upgrades off regular ratepayers. Every state with a server farm boom should copy it.",
+      "expected": [
+        "data-centers-electricity-bills"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r14); label fixed before running. Grid and ratepayer vocabulary shared with the energy maps."
+    },
+    {
+      "id": "challenge-medicaid-portal",
+      "form": "conversation",
+      "text": "A: My cousin lost her coverage last month because the state portal didn't save her hours. She works at a daycare! B: Nobody's against asking able-bodied adults to work or volunteer in exchange for free health insurance. A: She DOES work. The rule kicked her off over a form, not for not working.",
+      "expected": [
+        "medicaid-work-requirements"
+      ],
+      "related": [
+        "universal-healthcare"
+      ],
+      "note": "Added 2026-11-03 (r14) for the round-12 map; label fixed before running. Neighbour trap: coverage and health-insurance words are the universal-healthcare map's too; never says 'Medicaid'."
+    },
+    {
+      "id": "challenge-medicaid-able-bodied",
+      "form": "rant",
+      "text": "If you're 30, healthy, no kids, and on taxpayer-funded Medicaid, I don't think 20 hours a week of work, school or volunteering is too much to ask. That's how welfare reform worked in the 90s and employment went up.",
+      "expected": [
+        "medicaid-work-requirements"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r14); label fixed before running. Work and welfare words shared with UBI and minimum-wage maps."
+    },
+    {
+      "id": "challenge-citizenship-maiden-name",
+      "form": "reply",
+      "text": "I changed my name when I got married, so my birth certificate doesn't match my license, and I've never had a passport. Under this bill I'd have to dig up my marriage certificate just to register. Millions of women are in the same boat.",
+      "expected": [
+        "proof-of-citizenship-voting"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r14) for the round-13 map; label fixed before running. Never says 'citizenship' or 'vote'."
+    },
+    {
+      "id": "challenge-citizenship-audits",
+      "form": "conversation",
+      "text": "A: With millions of illegal immigrants in the country, of course some of them are voting. B: Every audit finds a handful. Georgia checked 8 million registrations and found 20 noncitizens. A: That's the ones they caught. Ticking a box under penalty of perjury isn't a real check.",
+      "expected": [
+        "proof-of-citizenship-voting"
+      ],
+      "related": [
+        "immigration-border-crisis"
+      ],
+      "note": "Added 2026-11-03 (r14); label fixed before running. Neighbour trap: opens on illegal immigration, the border map's subject."
     }
   ]
 }
