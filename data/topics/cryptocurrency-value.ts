@@ -23,6 +23,7 @@ export const cryptocurrencyValueData = {
   },
   simple_case: [
     "The answer bears on savers who now hold bitcoin through ETFs and pension funds, on companies that borrowed to buy it, and on whether the US government's bitcoin reserve is a hedge or a gamble.",
+    "Both sides accept that the 21 million cap is enforced and that bitcoin swings far more than gold. They split over whether those swings will shrink as it matures, and whether its new institutional holders steady the price or sell into falls.",
   ],
   aliases: [
     "Are Bitcoin and major coins a store of value like gold or real estate?",

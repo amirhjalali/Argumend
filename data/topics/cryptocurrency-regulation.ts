@@ -27,6 +27,7 @@ export const cryptocurrencyRegulationData = {
   },
   simple_case: [
     "The answer bears on whether a saver who buys a token gets the disclosures a stock buyer gets, whether a dollar stablecoin is as safe as a bank deposit, and whether America's crypto business stays onshore.",
+    "Both sides accept that FTX, Terra and hacks cost savers billions and that suing firms without a rulebook helped no one. They split over whether crypto needs rules of its own, and whether the officials writing them have too much riding on the answer.",
   ],
   aliases: [
     "Should crypto be regulated like traditional financial instruments?",
