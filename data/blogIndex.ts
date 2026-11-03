@@ -48,7 +48,7 @@ export const articleSummaries: ArticleSummary[] = [
   {
     slug: "did-covid-come-from-a-lab",
     title: "Did COVID Come From a Lab? Why the Honest Answer Is 'We Can't Tell'",
-    description: "Five years on, COVID's origin is still unresolved — and the reason isn't a missing experiment. It's missing data. Here's what each side's strongest evidence actually is, and what would settle it.",
+    description: "More than six years on, COVID's origin is still unresolved — and the reason isn't a missing experiment. It's missing data. Here's what each side's strongest evidence actually is, and what would settle it.",
     tags: [
       "covid origins",
       "lab leak",
