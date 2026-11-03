@@ -287,6 +287,10 @@ export const microplasticsHealthCrisisData = {
         methodology:
           "Conduct systematic in vitro and in vivo testing of the 25 most common plastic polymers at sizes ranging from 100 nanometers to 500 micrometers, measuring: (1) inflammatory cytokine release from human macrophages and epithelial cells, (2) translocation across intestinal epithelium (Caco-2 cell models) and blood-brain barrier models, (3) tissue accumulation in rodent models over 12-month chronic exposure, and (4) chemical desorption rates for adsorbed pollutants under physiological conditions. Compare against the same endpoints for naturally occurring mineral and biological particles of equivalent size as controls.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Controlled animal studies at realistic doses and human cohorts measuring plastic particles in tissue, testing for inflammation and disease with blank controls to rule out lab contamination, following up studies like the 2024 New England Journal of Medicine report on plastics in artery plaque.",
+        },
         cost_to_verify:
           "$8-15M (Comprehensive polymer toxicology screening program with standardized protocols across multiple particle sizes and polymer types)",
         falsification: {

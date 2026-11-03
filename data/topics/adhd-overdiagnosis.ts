@@ -116,6 +116,10 @@ export const adhdOverdiagnosisData = {
         methodology:
           "Within large administrative cohorts, compare ADHD diagnosis and medication rates for children born just before vs. just after the school-entry cutoff (same grade, ~1 year apart in age). Quantify the youngest-vs-oldest relative risk and test whether the excess cases persist as ADHD at long-term follow-up.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare diagnosis and medication rates for children born just before and just after school-entry cutoff dates, using national health registries from several countries, and check if the gap shrinks when teachers rate children against classmates of the same age.",
+        },
         cost_to_verify: "$0 (registry data analysis)",
         falsification: {
           supporter_flip:

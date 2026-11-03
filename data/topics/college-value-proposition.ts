@@ -44,6 +44,10 @@ export const collegeValuePropositionData = {
         equation:
           "ROI = \\frac{\\sum_{t=1}^{20} (E_{degree,t} - E_{no\\_degree,t})}{\\text{Total Cost} + \\text{Opportunity Cost}}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Earnings records by school and major from the College Scorecard and state tax data, compared with similar students who were narrowly rejected or admitted but chose not to attend, so the payoff reflects the degree and not who enrolls.",
+        },
         cost_to_verify: "$100K (Analysis of existing federal data)",
         falsification: {
           supporter_flip:
@@ -149,6 +153,10 @@ export const collegeValuePropositionData = {
         equation:
           "\\text{Career Value}_{t} = \\int_{0}^{t} (E(s) + S(s) + M(s)) \\, ds",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow matched cohorts from degrees, apprenticeships, trade programs and bootcamps for ten years or more using tax and unemployment-insurance records, comparing earnings, promotions and job loss in recessions.",
+        },
         cost_to_verify: "$5M (10-year longitudinal cohort study)",
         falsification: {
           supporter_flip:

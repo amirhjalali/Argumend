@@ -29,6 +29,10 @@ export const openBordersData = {
         equation:
           "\\Delta\\text{GDP}_{\\text{world}} = \\sum_{i,j} (\\text{MPL}_j - \\text{MPL}_i) \\times \\Delta L_{i \\to j} - \\text{Transition Costs}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare the gains seen when large migration barriers actually fell, such as EU enlargement in 2004, with what global models predicted for a move of that size, counting fiscal costs, wage effects and how quickly migrants' earnings rose.",
+        },
         cost_to_verify: "$5M (Global economic modeling)",
         falsification: {
           supporter_flip:

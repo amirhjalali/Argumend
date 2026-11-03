@@ -135,6 +135,10 @@ export const obesityPersonalResponsibilityData = {
         methodology:
           "Conduct long-term (5+ year) metabolic studies tracking individuals who achieve significant weight loss through behavioral intervention alone (diet and exercise). Measure resting metabolic rate, leptin, ghrelin, insulin, thyroid hormones, and gut microbiome composition at baseline, post-weight-loss, and annually for 5 years. Calculate the percentage of participants who maintain >10% weight loss at 5 years and characterize the biological predictors of success and failure. Compare against pharmacological intervention cohorts (GLP-1 agonists) to quantify the biological resistance that behavioral interventions must overcome.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Long-term follow-up of people who lose weight by diet alone, measuring metabolic slowing, hunger hormones and regain over five years or more, broken out by genetic risk scores and compared with people who lose weight on GLP-1 drugs.",
+        },
         cost_to_verify:
           "$10-25M (Multi-year longitudinal metabolic study with comprehensive biomarker tracking across behavioral and pharmacological cohorts)",
         falsification: {

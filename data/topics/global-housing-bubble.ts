@@ -329,6 +329,10 @@ export const globalHousingBubbleData = {
         equation:
           "\\Delta P_{monthly} = L \\times \\left(\\frac{r_{new}}{12} - \\frac{r_{old}}{12}\\right) \\times \\frac{(1+r_{new}/12)^n}{(1+r_{new}/12)^n - 1}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Track mortgage arrears, forced sales and new listings in markets where loans reset every few years, such as Canada, the UK and Australia, as large blocks of low-rate mortgages come up for renewal, using central-bank and lender data.",
+        },
         cost_to_verify: "$100K (central bank data + household financial modeling)",
         falsification: {
           supporter_flip:

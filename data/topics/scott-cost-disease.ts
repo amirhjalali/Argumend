@@ -65,6 +65,10 @@ export const scottCostDiseaseData = {
         equation:
           "\\Delta P_{sector} = s_L \\cdot \\Delta w_{econ} + \\underbrace{\\varepsilon}_{\\text{residual}}",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Split each sector's real cost growth, from BLS and BEA data, into what economy-wide wage growth predicts given its labor share and what is left over, and see how large the leftover is in health care, education and construction.",
+        },
         cost_to_verify: "$0 (public BLS/BEA data; Helland–Tabarrok replication)",
         falsification: {
           supporter_flip:
@@ -186,6 +190,10 @@ export const scottCostDiseaseData = {
         methodology:
           "Using OECD and Himmelstein et al. (2020) accounts, hold outcome measures (life expectancy, amenable mortality) roughly constant and attribute the residual administrative-spending gap between matched systems.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare billing and administrative spending per patient in the US and in single-payer Canada for similar care, using hospital accounts and insurer filings, and see how much of the total spending gap it covers.",
+        },
         cost_to_verify: "$0 (OECD + Annals of Internal Medicine 2020 data)",
         falsification: {
           supporter_flip:
@@ -273,6 +281,10 @@ export const scottCostDiseaseData = {
         equation:
           "\\frac{\\partial \\text{Tuition}}{\\partial \\text{Subsidy}} \\approx 0.60",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Measure how list and net prices change after sudden, rule-driven changes in aid or loan limits, such as changes to federal loan caps, comparing affected and unaffected schools or providers.",
+        },
         cost_to_verify: "$0 (NY Fed Staff Report No. 733)",
         falsification: {
           supporter_flip:
@@ -378,6 +390,10 @@ export const scottCostDiseaseData = {
         methodology:
           "Use the Transit Costs Project database to pair comparable tunneling projects internationally; regress out wage and geological controls; the residual country multiple is the dysfunction estimate.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare per-kilometer costs of similar transit tunnels across countries, adjusting for wages and geology, using project databases like the Transit Costs Project, and look for a persistent US multiple.",
+        },
         cost_to_verify: "$0 (Transit Costs Project open database)",
         falsification: {
           supporter_flip:
@@ -483,6 +499,10 @@ export const scottCostDiseaseData = {
         methodology:
           "Construct hedonic/outcome-denominated indices for each sector and compare their trend to the raw price trend. Divergence quantifies how much of 'cost disease' is unpriced quality.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Rebuild health, education and transport price series per unit of result, such as cost per healthy life-year or per test-score point, from government statistics, and check if they still rise over decades.",
+        },
         cost_to_verify: "$50K (hedonic index construction across sectors)",
         falsification: {
           supporter_flip:

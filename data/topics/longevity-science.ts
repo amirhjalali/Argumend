@@ -286,6 +286,10 @@ export const longevityScienceData = {
         methodology:
           "The TAME trial is designed as a double-blind, placebo-controlled, multi-site trial of ~1,500 mg/day metformin in roughly 3,000 participants aged 65-79 with 1-2 age-related chronic conditions, run over ~6 years. The primary endpoint is time to first occurrence of a composite of major age-related events (myocardial infarction, stroke, cancer, dementia, death). Secondary endpoints include biological age biomarkers. As of 2026 the trial remains only partially funded and has not enrolled; full funding and execution are prerequisites before any outcome can be read.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "A large placebo-controlled trial such as TAME, with a combined outcome of heart disease, cancer, dementia and death, plus reanalysis of existing trials of drugs like metformin and GLP-1s for effects across several age-related diseases at once.",
+        },
         cost_to_verify:
           "$45-70M (Estimated TAME trial budget per AFAR; partially funded by the American Federation for Aging Research and NIA, with a substantial funding gap remaining as of 2026)",
         falsification: {

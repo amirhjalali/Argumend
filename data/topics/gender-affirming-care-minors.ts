@@ -275,6 +275,10 @@ export const genderAffirmingCareMinorsData = {
         methodology:
           "Establish a prospective, multi-site, international cohort of 5,000 adolescents presenting at gender clinics, stratified by treatment pathway (puberty blockers, hormones, psychosocial support only, no treatment). Follow for 20 years with annual assessments of: mental health (validated instruments), gender identity stability, treatment satisfaction/regret, bone density (DEXA scans), cardiovascular markers, fertility outcomes, cognitive function, and quality of life. Pre-register the protocol to prevent outcome switching. Fund independently of pharmaceutical companies and advocacy organizations.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow adolescents assessed at gender clinics for ten years or more, comparing those who received medical treatment with those who received psychosocial support only on mental health, regret, detransition and physical health, using national registries such as Finland's and Sweden's to limit loss to follow-up.",
+        },
         cost_to_verify:
           "$50-100M (20-year prospective multi-site international cohort study)",
         falsification: {

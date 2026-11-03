@@ -43,6 +43,10 @@ export const drugDecriminalizationData = {
         methodology:
           "Difference-in-differences analysis comparing drug use surveys, emergency room data, and mortality statistics across matched jurisdictions with and without decriminalization, over 10+ year windows.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare jurisdictions that changed one thing at a time, decriminalizing with slow treatment rollout or expanding treatment without decriminalizing, with Portugal, which did both, on overdose deaths, HIV infections and problem drug use, with the timing of each change lined up.",
+        },
         cost_to_verify: "$500K (Multi-jurisdiction longitudinal analysis of existing data)",
         falsification: {
           supporter_flip:
@@ -151,6 +155,10 @@ export const drugDecriminalizationData = {
         methodology:
           "Randomized controlled trial assigning drug offenders to either traditional drug court (coerced treatment) or decriminalized referral system (voluntary treatment with outreach) and tracking sobriety, employment, and recidivism at 1, 3, and 5 years.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare relapse, re-arrest and overdose over two or more years for people sent to treatment by drug courts and similar people referred voluntarily, using lottery-style assignment where courts allow it, and set the difference against the harms of arrest itself.",
+        },
         cost_to_verify: "$10M (Multi-site 5-year RCT)",
         falsification: {
           supporter_flip:

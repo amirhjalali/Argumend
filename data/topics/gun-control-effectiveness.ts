@@ -44,6 +44,10 @@ export const gunControlEffectivenessData = {
           "Compare gun death rates before/after policy changes (Australia 1996, Connecticut 1995, Missouri 2007 repeal) using synthetic control methods.",
         equation: "\\Delta_{violence} = \\beta \\cdot \\Delta_{policy} + \\epsilon",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Before-and-after studies of major gun law changes, such as Australia's 1996 buyback and state permit-to-purchase laws, using synthetic comparison groups, read alongside RAND's ongoing review of which law types have consistent evidence.",
+        },
         cost_to_verify: "$100K (Econometric analysis of existing data)",
         falsification: {
           supporter_flip:

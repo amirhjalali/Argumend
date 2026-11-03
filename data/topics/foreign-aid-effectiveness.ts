@@ -149,6 +149,10 @@ export const foreignAidEffectivenessData = {
         methodology:
           "Track $1 of aid from donor commitment through to measurable outcome (health, education, income) across different delivery mechanisms in the same country contexts. Include all overhead, administrative costs, and leakage at each stage.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials that give comparable villages cash transfers or a traditional aid program of equal cost, as GiveDirectly and USAID have run, measuring income, health and assets several years later rather than when the program ends.",
+        },
         cost_to_verify: "$5M (Multi-country tracer study with outcome measurement)",
         falsification: {
           supporter_flip:

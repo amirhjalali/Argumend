@@ -41,6 +41,10 @@ export const gigEconomyRegulationData = {
         methodology:
           "Audit platform algorithms for: pricing control, route assignment, acceptance rate thresholds, deactivation criteria, and performance monitoring. Compare worker autonomy metrics to traditional employment and genuine independent contracting (e.g., freelance consultants).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Platform data, released to regulators or researchers, on how often drivers and couriers are penalized, deactivated or nudged for declining jobs or choosing their hours, compared with the discretion employees and true contractors have in similar work.",
+        },
         cost_to_verify: "$500K (Platform algorithm audit study—requires legal discovery or regulatory access)",
         falsification: {
           supporter_flip:
@@ -127,6 +131,10 @@ export const gigEconomyRegulationData = {
         methodology:
           "Compare gig economy outcomes in jurisdictions with employee classification (post-EU directive) vs. independent contractor classification (US). Measure worker income (including benefits), hours worked, platform utilization, and consumer prices.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare pay, hours worked, number of active workers, prices and wait times before and after places reclassified gig workers, such as Spain under its 2021 rider law, against similar places that did not, using platform and tax data.",
+        },
         cost_to_verify: "$1M (Cross-jurisdictional comparative study after EU directive implementation)",
         falsification: {
           supporter_flip:

@@ -27,6 +27,10 @@ export const meaningWithoutReligionData = {
         methodology:
           "Recruit matched cohorts of committed secular humanists and committed religious practitioners. Measure meaning in life (MLQ), life satisfaction (SWLS), psychological resilience, social connectedness, and coping with adversity over a 10-year period. Control for income, education, health, and social network size.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow committed secular and committed religious adults over many years with the same measures of meaning, resilience and loneliness, matched on income and on how active they are in a community, using large panels such as the Global Flourishing Study.",
+        },
         cost_to_verify: "$3M (10-year longitudinal cohort study)",
         falsification: {
           supporter_flip:

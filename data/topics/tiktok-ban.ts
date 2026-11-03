@@ -323,6 +323,10 @@ export const tiktokBanData = {
         methodology:
           "Track social media market concentration using the Herfindahl-Hirschman Index (HHI) across key metrics: monthly active users, digital ad revenue share, creator monetization rates, and algorithmic recommendation innovation. Compare 12-month pre-ban and post-ban periods. Simultaneously track lobbying expenditures by Meta and Google to correlate industry advocacy with legislative outcomes.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Time spent, user counts and short-video ad revenue by platform before and after TikTok became unavailable in a country, as in India since 2020, tracked by market-research firms and competition authorities to see where users and advertisers moved.",
+        },
         cost_to_verify:
           "$100K-300K (Market analysis using publicly available financial data and lobbying disclosures)",
         falsification: {

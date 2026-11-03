@@ -42,6 +42,10 @@ export const surveillancePublicSafetyData = {
         methodology:
           "Randomly assign surveillance technology deployment (CCTV, facial recognition, license plate readers) across matched neighborhoods. Measure crime rates in treated and control areas, including adjacent areas (to detect displacement). Track false positive rates, arrests based on surveillance, and community surveys on trust.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized rollouts of cameras or license-plate readers across matched neighborhoods, counting crime inside the covered areas and in the surrounding blocks for at least a year, with police data audited by outside researchers.",
+        },
         cost_to_verify: "$5M (Multi-city randomized evaluation)",
         falsification: {
           supporter_flip:

@@ -157,6 +157,24 @@ describe("settle-line contract", () => {
     }
   });
 
+  it("shows a test under the heading, not the crux's argument again", () => {
+    // Round 12: 116 legacy cruxes had no settle line, so the page showed the
+    // description, and 31 of those opened "If X, then the case is…": an
+    // argument, not a test. A rendered line never opens on "If"; an authored
+    // one never just copies the description.
+    const problems: string[] = [];
+    for (const topic of topics) {
+      for (const pillar of topic.pillars) {
+        const key = `${topic.id}/${pillar.id}`;
+        const authored = pillar.crux.settle?.condition?.trim();
+        const rendered = authored ?? pillar.crux.description.trim();
+        if (/^if\s/i.test(rendered)) problems.push(`${key}: opens "If"`);
+        if (authored && authored === pillar.crux.description.trim()) problems.push(`${key}: copies the description`);
+      }
+    }
+    expect(problems).toEqual([]);
+  });
+
   it("marks a crux nothing empirical settles as impossible to test, and says why", () => {
     for (const topic of topics) {
       for (const pillar of topic.pillars) {

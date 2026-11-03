@@ -208,6 +208,10 @@ export const freeWillData = {
         equation:
           "\\tau_{decoherence} > \\tau_{neural} \\implies \\text{Quantum Effects Possible}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Measurements of how long quantum coherence survives in microtubules and other neural structures at body temperature, set against the time scales on which neurons fire and choices form, plus tests of whether disrupting that coherence changes decisions in ways classical brain models do not predict.",
+        },
         cost_to_verify: "$5M (Quantum biology lab experiments)",
         falsification: {
           supporter_flip:

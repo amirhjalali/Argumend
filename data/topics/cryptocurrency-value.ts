@@ -45,6 +45,10 @@ export const cryptocurrencyValueData = {
           "Track: major protocol bugs, 51% attacks, quantum computing threats, regulatory bans. Each year of survival without existential threat increases confidence.",
         equation: "E[\\text{lifespan}_{future}] \\propto \\text{age}_{current}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Track Bitcoin's share of total crypto market value, settlement volume and developer activity over the next decade against newer protocols, and how often users, exchanges and institutions move holdings elsewhere after a rival ships features Bitcoin lacks.",
+        },
         cost_to_verify: "$0 (Time will tell)",
         falsification: {
           supporter_flip:
@@ -134,6 +138,10 @@ export const cryptocurrencyValueData = {
           "Calculate rolling 1-year volatility since 2011. Fit trend line. Compare to gold's historical volatility trajectory after price discovery.",
         equation: "\\sigma_{annual} = f(\\text{market cap}, \\text{adoption rate}, t)",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Rolling one-year volatility of Bitcoin's price, computed from public exchange data and compared decade by decade with gold and major stock indexes, checked for continued decline in calm years and stress years alike.",
+        },
         cost_to_verify: "$0 (Historical data analysis)",
         falsification: {
           supporter_flip:

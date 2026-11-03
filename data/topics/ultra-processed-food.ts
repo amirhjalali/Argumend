@@ -44,6 +44,10 @@ export const ultraProcessedFoodData = {
         methodology:
           "Conduct a large-scale (n>500) randomized crossover trial where participants consume isocaloric UPF and unprocessed diets for 4+ weeks each, with strict caloric control (not ad libitum). Measure body composition via DEXA, resting metabolic rate, gut microbiome composition, postprandial insulin and ghrelin responses, and inflammatory markers. Compare outcomes when caloric intake is identical versus when eating is ad libitum.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Inpatient feeding trials like the NIH's 2019 Hall study, repeated with ultra-processed and minimally processed menus matched for energy density, palatability and eating speed, so that only processing differs, measuring how much people choose to eat.",
+        },
         cost_to_verify:
           "$5-10M (Large-scale metabolic ward study with strict dietary control and biomarker monitoring)",
         falsification: {
@@ -248,6 +252,10 @@ export const ultraProcessedFoodData = {
         methodology:
           "Conduct a natural experiment comparing health outcomes in countries with UPF regulations (Chile, Colombia, Mexico, UK) against matched controls without them, using difference-in-differences methodology. Track UPF consumption, obesity prevalence, type 2 diabetes incidence, and cardiovascular disease rates at 5, 10, and 15-year intervals. Control for GDP, healthcare spending, demographic shifts, and other confounders using synthetic control methods.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Compare obesity and diet-related disease trends in countries that adopted front-of-pack warnings, junk-food taxes or ad limits, such as Chile and Mexico, with similar countries that did not, over five to ten years, using national health surveys.",
+        },
         cost_to_verify:
           "$1-3M (Multi-country longitudinal epidemiological comparison using existing health surveillance data)",
         falsification: {

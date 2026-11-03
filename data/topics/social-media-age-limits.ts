@@ -44,6 +44,10 @@ export const socialMediaAgeLimitsData = {
         equation:
           "\\Delta MH_{abstain} - \\Delta MH_{control} = \\tau_{causal}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Randomized trials that pay adolescents to quit the platforms for six months or more, scored with clinical assessments, alongside psychiatric records for Australian under-16s since the December 2025 ban compared with peers in similar countries without one.",
+        },
         cost_to_verify: "$15M (Large-scale RCT with enforcement technology)",
         falsification: {
           supporter_flip:
@@ -155,6 +159,10 @@ export const socialMediaAgeLimitsData = {
         equation:
           "E_{compliance} = 1 - \\frac{N_{underage\\_active}}{N_{underage\\_total}}",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Independent audits of Australia's age checks counting how many under-16s still hold accounts, how many adults are wrongly blocked and what data is collected and kept, published by the eSafety Commissioner or outside researchers.",
+        },
         cost_to_verify: "$2M (Multi-platform audit study)",
         falsification: {
           supporter_flip:

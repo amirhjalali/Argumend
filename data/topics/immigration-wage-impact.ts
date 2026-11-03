@@ -44,6 +44,10 @@ export const immigrationWageImpactData = {
         methodology:
           "Instrumental variable regressions exploiting exogenous immigration shocks (refugee resettlement, visa lotteries) to measure causal wage effects on native workers in the same skill cell (education x experience), controlling for local demand shocks.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Reanalyses of sudden-arrival episodes such as the Mariel boatlift by teams with opposing priors, using the same data and definitions agreed in advance of which native workers compete with the newcomers, repeated on new episodes as they occur.",
+        },
         cost_to_verify: "$300K (Econometric analysis of existing Census and ACS data)",
         falsification: {
           supporter_flip:
@@ -170,6 +174,10 @@ export const immigrationWageImpactData = {
         methodology:
           "General equilibrium modeling with heterogeneous agents calibrated to US data, tracing how immigration-driven GDP growth is distributed across native workers by skill level, region, and over 1, 5, 10, and 30 year horizons.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Follow low-skilled native workers in high- and low-immigration regions for ten to twenty years using tax and census records, tracking earnings, job changes and moves, and set the losses in the first years against any later gains.",
+        },
         cost_to_verify: "$2M (Multi-year modeling project with panel data)",
         falsification: {
           supporter_flip:

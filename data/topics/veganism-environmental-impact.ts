@@ -44,6 +44,10 @@ export const veganismEnvironmentalData = {
         equation:
           "\\Delta E = \\sum_{i} (E_{\\text{current},i} - E_{\\text{vegan},i}) \\times P(\\text{adoption}_i)",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Compare global food-system models from several independent teams, such as the EAT-Lancet commission and the FAO, on the same diet-shift scenarios, checking how much per-person savings shrink once land use, price changes and extra consumption are counted.",
+        },
         cost_to_verify: "$500K (Meta-analysis and modeling of existing datasets)",
         falsification: {
           supporter_flip:
@@ -130,6 +134,10 @@ export const veganismEnvironmentalData = {
         methodology:
           "Longitudinal cohort study following 100,000+ vegans and matched omnivore controls over 20+ years. Measure all-cause mortality, cardiovascular events, cancer rates, bone density, and micronutrient status.",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Long-term cohorts of vegans who take supplements, such as EPIC-Oxford and the Adventist Health Study-2, compared with similar omnivores on deaths, fractures and chronic disease, with blood levels checked for deficiencies.",
+        },
         cost_to_verify: "$10M (Long-term epidemiological cohort study)",
         falsification: {
           supporter_flip:

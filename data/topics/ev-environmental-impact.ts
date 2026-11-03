@@ -43,6 +43,10 @@ export const evEnvironmentalImpactData = {
         methodology:
           "Cradle-to-grave lifecycle assessment comparing matched EV and ICE vehicles, including mining, manufacturing, fuel/electricity production, driving, maintenance, and end-of-life recycling, parameterized by regional grid carbon intensity.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Lifecycle studies of matched EV and gasoline models that use measured battery-factory emissions and the actual grid where cars charge, reporting breakeven mileage by region, as the IEA and Argonne National Laboratory publish, checked against how far cars are really driven.",
+        },
         cost_to_verify: "$200K (Comprehensive LCA with sensitivity analysis)",
         falsification: {
           supporter_flip:
@@ -166,6 +170,10 @@ export const evEnvironmentalImpactData = {
         methodology:
           "Parametric lifecycle model varying grid intensity from 0 to 1000 gCO2/kWh, comparing EVs to both average ICE and best-in-class hybrids. Include grid trajectory projections to determine when currently-dirty grids will cross the threshold.",
         verification_status: "verified" as const,
+        settle: {
+          condition:
+            "Year-by-year carbon intensity of electricity in the regions where EVs are sold, from grid operators and the IEA, weighted by when cars actually charge, compared with the intensity at which an EV stops beating a hybrid.",
+        },
         cost_to_verify: "$100K (Modeling with published grid data)",
         falsification: {
           supporter_flip:
@@ -296,6 +304,10 @@ export const evEnvironmentalImpactData = {
         methodology:
           "Conduct a comparative externality assessment across three time horizons (2024, 2030, 2035) evaluating: (1) water consumption per GWh of battery capacity for brine extraction, hard rock mining, and direct lithium extraction technologies; (2) hectares of habitat disturbed per GWh for nickel laterite vs. sulfide deposits; (3) documented child labor and unsafe working conditions in cobalt supply chains before and after due diligence regulations (EU Battery Regulation, US Uyghur Forced Labor Prevention Act); (4) adoption rates of cobalt-free (LFP) and lithium-free (sodium-ion) chemistries. Compare these trajectories against equivalent externality trends for oil and gas (deepwater drilling, tar sands, fracking expansion).",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Audited, mine-level figures on water use, land cleared and labor abuses per tonne of lithium, cobalt and nickel, tracked year by year through supply-chain disclosure rules such as the EU Battery Regulation's due-diligence duties, alongside the share of batteries using chemistries that need less of those metals.",
+        },
         cost_to_verify:
           "$500K-1M (Multi-country field research, supply chain auditing, and satellite imagery analysis)",
         falsification: {

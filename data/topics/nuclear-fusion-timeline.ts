@@ -143,6 +143,10 @@ export const nuclearFusionTimelineData = {
         equation:
           "\\text{TBR} = \\frac{\\text{tritium atoms bred}}{\\text{tritium atoms consumed}} > 1",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Measured tritium output from breeding-blanket test modules, first in ITER's test blanket program and then from a full blanket on a working reactor, compared with the tritium burned plus what is lost in handling.",
+        },
         cost_to_verify: "$500M+ (integrated breeding-blanket test facility)",
         falsification: {
           supporter_flip:

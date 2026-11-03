@@ -180,6 +180,10 @@ export const remoteWorkPermanenceData = {
         equation:
           "T_{adapt} = f(\\text{vacancy rate}, \\text{conversion cost}, \\text{zoning flexibility})",
         verification_status: "theoretical" as const,
+        settle: {
+          condition:
+            "Track office vacancy, completed office-to-residential conversions, downtown foot traffic and city tax revenue year by year in major cities, using local government and real-estate data, comparing cities with and without rezoning or conversion incentives.",
+        },
         cost_to_verify: "$1M (Multi-city longitudinal economic study)",
         falsification: {
           supporter_flip:
