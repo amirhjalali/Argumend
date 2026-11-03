@@ -212,6 +212,25 @@ export const generativeAiArtCopyrightData = {
           reasoning:
             "Quasi-experimental, peer-reviewed labor-market evidence is stronger than surveys for causation. Directness is moderate because it measures exposure to AI tools/outputs generally, not to unlicensed training specifically, and effects are short-run.",
         },
+        {
+          id: "kadrey-no-market-harm-record",
+          title: "Kadrey v. Meta: Thirteen Authors Offered No Evidence That Training Hurt Their Sales (2025)",
+          description:
+            "Granting Meta summary judgment on fair use on 25 June 2025, Judge Vince Chhabria (N.D. Cal.) found that \"The plaintiffs presented no empirical evidence to the contrary—no evidence that the copying has already caused market harm, and no evidence that the copying is likely to cause market harm in the future.\" He held that \"Llama is not capable of generating enough text from the plaintiffs’ books to matter, and the plaintiffs are not entitled to the market for licensing their works as AI training data,\" and noted that the right comparison for market dilution \"isn’t to a world with no LLMs, but to a world where LLMs weren’t trained on copyrighted books.\" He also called dilution \"the potentially winning argument\" and wrote that the ruling \"stands only for the proposition that these plaintiffs made the wrong arguments and failed to develop a record in support of the right one.\"",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 5,
+            directness: 6,
+          },
+          source:
+            "Kadrey v. Meta Platforms, Inc., No. 23-cv-03417-VC, Dkt. 598 (N.D. Cal. June 25, 2025), order on cross-motions for partial summary judgment",
+          sourceUrl:
+            "https://storage.courtlistener.com/recap/gov.uscourts.cand.415175/gov.uscourts.cand.415175.598.0.pdf",
+          reasoning:
+            "A full court record in which plaintiffs had to show that training, not AI generally, cost them sales, and produced no such evidence; the court also drew the crux's own line between harm from training and harm from AI's existence. Weighted moderately: it is a district-court ruling for thirteen novelists against a text model, not visual artists; a missing record is not proof of no harm; and the same judge wrote that training on copyrighted books \"would seem, in most circumstances,\" to make a model better able to dilute those books' market.",
+        },
       ],
     },
     {

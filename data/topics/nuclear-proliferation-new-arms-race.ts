@@ -320,6 +320,25 @@ export const nuclearProliferationNewArmsRaceData = {
           reasoning:
             "The Petrov incident is a well-documented historical case that directly illustrates the tension between automated systems and human judgment in nuclear command. Its relevance to AI integration is strong but indirect — it demonstrates the importance of human judgment in a pre-AI era, not the specific risks of AI-enabled systems.",
         },
+        {
+          id: "glide-slower-than-ballistic",
+          title: "Modelling: Glide Vehicles Arrive Later Than Depressed-Trajectory Ballistic Missiles",
+          description:
+            "Physicists Cameron Tracy and David Wright modelled hypersonic boost-glide flight in Science & Global Security (2020). Testing proponents' claims \"that these weapons outperform existing missiles in terms of delivery time and evasion of early warning systems,\" they found that the gliders \"travel intercontinental distances more slowly than comparable ballistic missiles flying depressed trajectories, and that they remain visible to existing space-based sensors for the majority of flight.\" They conclude that the physics of low-altitude atmospheric flight makes hypersonic missiles \"an evolutionary--not revolutionary--advancement over established ballistic missile technologies.\"",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Tracy & Wright, 'Modelling the Performance of Hypersonic Boost-Glide Missiles,' Science & Global Security 28(3):135–170 (2020)",
+          sourceUrl:
+            "https://scienceandglobalsecurity.org/archive/2020/12/modelling_the_performance.html",
+          reasoning:
+            "Peer-reviewed, open modelling from outside the weapons programs, and it goes to the heart of the timeline worry: if gliders are no faster than ballistic missiles that already exist and stay visible to warning satellites, they do not by themselves shorten decision time below what leaders have faced for decades. Weighted moderately: it covers intercontinental ranges, not the shorter regional flights where warning is least, a 2022 reanalysis in the same journal by Candler and Leyva found gliders' infrared signatures significantly lower than Tracy and Wright predicted (below legacy DSP satellites' threshold, though still detectable by the newer SBIRS sensors), and it says nothing about AI in warning or command systems.",
+        },
       ],
     },
   ],

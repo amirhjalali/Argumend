@@ -1027,7 +1027,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety andreyeva"
+    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -1342,9 +1342,9 @@
     "title": "Is Short-Form Video Causing Cognitive Decline?",
     "question": "Is habitual short-form video degrading attention and deep thinking?",
     "meta_claim": "Habitual consumption of short-form video content (TikTok, Reels, Shorts) is measurably degrading attention spans, reading comprehension, and deep thinking capacity.",
-    "confidence_score": 63,
-    "balance": 63,
-    "weight": 65,
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1352,12 +1352,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 13,
     "firstCrux": "Do heavy short-form video users show weaker sustained attention than matched non-users?",
     "tags": [
       "science"
     ],
-    "keywords": "pisa douyin circuitry anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen teng bytedance clips"
+    "keywords": "pisa douyin circuitry scrolling anterior dopamine geng gnambs goldfish lorenz maybin multistate spreen supplementary teng"
   },
   {
     "id": "ai-replacing-doctors",
@@ -1573,9 +1573,9 @@
     "title": "Psychedelics for Mental Health",
     "question": "Should psychedelics be approved to treat depression, PTSD and addiction?",
     "meta_claim": "Psilocybin and other psychedelics are effective treatments for depression, PTSD, and addiction, and should be approved for clinical use.",
-    "confidence_score": 54,
-    "balance": 54,
-    "weight": 66,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1583,7 +1583,7 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "How much of the improvement is the drug itself, versus expectations and the therapy bundled with it?",
     "tags": [
       "science"
@@ -1624,9 +1624,9 @@
     "title": "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
     "question": "Are ultra-processed foods the main driver of obesity and chronic disease?",
     "meta_claim": "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 66,
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1634,12 +1634,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Do people overeat because food is processed, or because of its energy density, taste and eating speed?",
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing gastroenterology gibney monteiro moss neltner rauber"
+    "keywords": "nova upfs unprocessed overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing cream gastroenterology gibney monteiro moss"
   },
   {
     "id": "longevity-science",
@@ -2053,23 +2053,22 @@
     "title": "Student Debt Forgiveness",
     "question": "Is broad student debt forgiveness justified and economically beneficial?",
     "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
-    "confidence_score": 70,
-    "balance": 70,
-    "weight": 71,
+    "confidence_score": 64,
+    "balance": 64,
+    "weight": 72,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment nebraska bennett cent forbearance crfb alleviates catherine disbursed forgave fullwiler heroes mbas miscounting"
+    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2142,22 +2141,22 @@
     "title": "Does Return-to-Office Actually Improve Productivity?",
     "question": "Do return-to-office mandates improve productivity and innovation?",
     "meta_claim": "Mandating return-to-office improves collaboration, innovation, and productivity compared to remote work arrangements.",
-    "confidence_score": 27,
-    "balance": 27,
-    "weight": 64,
+    "confidence_score": 33,
+    "balance": 33,
+    "weight": 66,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 12,
+    "evidenceCount": 13,
     "firstCrux": "Does fully remote work lower total output once coordination and knowledge transfer are counted?",
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks frey gudith klocke"
+    "keywords": "allen teammates bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks emanuel frey"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2391,8 +2390,8 @@
     "title": "The Hard Problem of Consciousness",
     "question": "Does explaining consciousness require more than brain processes?",
     "meta_claim": "Consciousness — subjective experience or 'what it is like' to be something — cannot be fully explained by physical brain processes alone and may require new fundamental theories of reality.",
-    "confidence_score": 65,
-    "balance": 65,
+    "confidence_score": 61,
+    "balance": 61,
     "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
@@ -2401,12 +2400,12 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "After a complete functional account, is 'why does it feel like something?' a real question left over?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical illusionism"
+    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical"
   },
   {
     "id": "artificial-reproduction-ethics",
@@ -2494,7 +2493,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering hungary subversion"
+    "keywords": "famine amartya autocratizing technocratic montreal deadlock deliberative gothenburg maos contentious defamation dissatisfied gerrymandering subversion turkey"
   },
   {
     "id": "geoengineering-climate",
@@ -2523,22 +2522,22 @@
     "title": "Central Bank Digital Currencies",
     "question": "Would central bank digital currencies enable unprecedented surveillance?",
     "meta_claim": "Central Bank Digital Currencies (CBDCs) represent the most significant expansion of government financial surveillance in history, enabling programmable money that can restrict how, when, and where citizens spend.",
-    "confidence_score": 43,
-    "balance": 43,
+    "confidence_score": 47,
+    "balance": 47,
     "weight": 61,
     "verdict": {
-      "label": "Evidence leans toward the counterclaim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Can any CBDC design make surveillance technically impossible, not just restricted by rules?",
     "tags": [
       "economics"
     ],
-    "keywords": "enaira nigeria mbridge convoy pesa nigerian trucker interoperable payee safaricoms suri bernanke goats instantaneous thailand"
+    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
   },
   {
     "id": "masculinity-crisis",
@@ -2616,9 +2615,9 @@
     "title": "The New Nuclear Arms Race",
     "question": "Has a new arms race made nuclear war likelier than at any time since 1962?",
     "meta_claim": "The collapse of Cold War-era arms control treaties and simultaneous nuclear modernization by the US, Russia, and China has initiated a new nuclear arms race that makes nuclear conflict more likely than at any point since 1962.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 71,
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 72,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2626,12 +2625,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Can satellites and signals intelligence replace lost treaty inspections, or does losing them fuel buildups?",
     "tags": [
       "policy"
     ],
-    "keywords": "icbm hypersonic petrov pentagon posture bomber putin submarine avangard brumfiel continental denuclearizing glide hgvs kazakhstan"
+    "keywords": "hypersonic glide icbm petrov pentagon posture tracy bomber putin submarine altitude avangard brumfiel cameron continental"
   },
   {
     "id": "transgender-athletes-sports",
@@ -2858,7 +2857,7 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth profession jazeera"
+    "keywords": "bbeling hildebrandt stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera profession"
   },
   {
     "id": "congestion-pricing",
@@ -2925,17 +2924,17 @@
     "title": "The Right to Assisted Dying",
     "question": "Do terminally ill, competent adults have a right to assisted dying?",
     "meta_claim": "Terminally ill, mentally competent adults have a moral right to medically assisted dying.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 58,
+    "confidence_score": 51,
+    "balance": 51,
+    "weight": 60,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
+      "label": "Evidence roughly balanced — moderately evidenced",
       "quadrant": "moderate"
     },
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "Does a competent adult's autonomy extend to choosing the timing of an inevitable death?",
     "firstCruxStanding": "value-difference",
     "tags": [
@@ -2946,7 +2945,7 @@
       "medicine",
       "rights"
     ],
-    "keywords": "dignity refractory palliative charter carter colburn arch crpd disrespects enjoyable grievous hastening hospice irremediable oregonians"
+    "keywords": "dignity refractory palliative charter carter colburn quill vacco prejudice arch comports crpd disrespects enjoyable grievous"
   },
   {
     "id": "second-amendment-individual-right",
@@ -3037,9 +3036,9 @@
     "title": "AI Training & Copyright",
     "question": "Should training AI on copyrighted work without permission be unlawful?",
     "meta_claim": "Training generative AI on copyrighted works without permission is unfair and should be unlawful.",
-    "confidence_score": 65,
-    "balance": 65,
-    "weight": 67,
+    "confidence_score": 59,
+    "balance": 59,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3047,7 +3046,7 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "Is the wrong in how training data was acquired, or in training on it at all?",
     "tags": [
       "technology",
@@ -3057,7 +3056,7 @@
       "intellectual-property",
       "law"
     ],
-    "keywords": "bartz ross pirated freelancer thomson verbatim kadrey regurgitate reshef shutterstock guild memorization bibas bookseller corps"
+    "keywords": "kadrey bartz ross pirated freelancer thomson verbatim regurgitate reshef shutterstock guild memorization thirteen bibas bookseller"
   },
   {
     "id": "facial-recognition-policing",
@@ -3336,7 +3335,7 @@
       "platform-liability",
       "internet-policy"
     ],
-    "keywords": "overblocking aggravated fosta netzdg taamneh anderson ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia"
+    "keywords": "overblocking aggravated fosta netzdg taamneh ninth eifert clerk abetted anhaltspunkte antiterrorism backpages belegen copia empirisch"
   },
   {
     "id": "autonomous-weapons-ban",

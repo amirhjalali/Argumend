@@ -321,6 +321,24 @@ export const ultraProcessedFoodData = {
           reasoning:
             "Internal industry documents are primary sources that reveal intent. The addiction framework published in a peer-reviewed journal adds scientific credibility. However, the addiction analogy remains contested — many neuroscientists argue food does not produce the same compulsive use patterns as drugs — and the evidence for deliberate engineering of overconsumption, while suggestive, does not by itself prove that regulation would be effective.",
         },
+        {
+          id: "cochrane-sugar-food-tax",
+          title: "Cochrane Review Found No Study Measuring Whether Taxing Sugary Foods Cut Obesity (2020)",
+          description:
+            "A 2020 Cochrane systematic review of taxes on unprocessed sugar and sugar-added foods (sweets, ice cream, confectionery and bakery products, mostly what NOVA classes as ultra-processed) found a single eligible study: an interrupted time series of Hungary's 2011 public health product tax, in which consumption of taxed sugar-added foods fell 4.0%, rated very low certainty. It found no study of such taxes that measured overweight, obesity or other health outcomes. The authors concluded: \"Despite the reported reduction in consumption of taxed sugar‐added foods, we are uncertain whether taxing unprocessed sugar or sugar‐added foods has an effect on reducing their consumption and preventing obesity or other adverse health outcomes.\"",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "Pfinder et al., 'Taxation of unprocessed sugar or sugar-added foods for reducing their consumption and preventing obesity or other adverse health outcomes,' Cochrane Database of Systematic Reviews 2020(4):CD012333 (9 April 2020)",
+          sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7141932/",
+          reasoning:
+            "A Cochrane review is the most rigorous kind of evidence summary, and it shows how little the case for food taxes rests on measured health outcomes. Directness is moderate: it covers taxes on sugar and sugar-added foods, not labels, ad limits or a UPF-wide tax; its search predates newer evaluations; and an absence of studies is a gap in evidence, not proof that such taxes fail.",
+        },
       ],
     },
   ],
