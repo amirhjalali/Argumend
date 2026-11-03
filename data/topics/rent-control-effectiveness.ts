@@ -59,7 +59,7 @@ export const rentControlEffectivenessData = {
         description:
           "Count both sides of the rental ledger under a cap: new rentals built, and existing rentals lost to condo conversion, owner move-in, demolition or withdrawal. A cap that exempts new construction can still shrink the stock if owners of covered buildings sell, convert or let units sit. The test applies to each design separately: Oregon's and California's 2019 laws (new buildings exempt for 15 years), St. Paul's 3% cap before and after it exempted new construction, Berlin's 2020 freeze, and New York's 2026 freeze.",
         methodology:
-          "Compare permits, completed rentals, conversions to owner occupancy, demolitions, and net rental stock against matched jurisdictions using a difference-in-differences design. Control for zoning, financing costs, population growth, and construction costs. Track the actual policy periods in Oregon and California from 2019 and in St. Paul separately before and after its amendments effective in 2023 and 2025; do not treat its original 2021 ordinance as a new-construction-exempt policy.",
+          "Compare permits, completed rentals, conversions to owner occupancy, demolitions, and net rental stock against matched jurisdictions using a difference-in-differences design. Control for zoning, financing costs, population growth, and construction costs. Track the actual policy periods in Oregon and California from 2019 and in St. Paul separately before and after its changes effective in 2023 and 2025; do not treat its original 2021 ordinance as a new-construction-exempt policy.",
         equation:
           "\\Delta_{rental_stock} = \\beta_0 + \\beta_1 \\cdot RentControl_i + \\beta_2 \\cdot X_i + \\varepsilon_i",
         verification_status: "theoretical" as const,
@@ -424,7 +424,7 @@ export const rentControlEffectivenessData = {
         verification_status: "theoretical" as const,
         settle: {
           condition:
-            "Counts of zoning and permitting reforms passed and carried out after a rent cap was adopted, and low-income displacement and eviction rates over the same years, against matched places without a cap, tracked for 5-10 years; plus repair violations and distressed-building counts in New York's stabilized stock during the 2026-2027 freeze.",
+            "Counts of zoning and permitting reforms passed and carried out after a rent cap was adopted, and low-income displacement and eviction rates over the same years, against matched places without a cap, tracked for 5-10 years; plus housing-code complaints and distressed-building counts in New York's stabilized stock during the 2026-2027 freeze.",
         },
         cost_to_verify:
           "Requires multi-market policy and displacement data over several years; no study budget is established.",
@@ -537,7 +537,7 @@ export const rentControlEffectivenessData = {
       url: "https://econpapers.repec.org/RePEc:diw:diwwpp:dp2026",
     },
     {
-      title: "Saint Paul: Rent Stabilization ordinance and amendment timeline",
+      title: "Saint Paul: Rent Stabilization ordinance and timeline of changes",
       url: "https://www.stpaul.gov/departments/safety-inspections/rent-buy-sell-property/renting-property/rent-stabilization",
     },
     {
@@ -559,7 +559,7 @@ export const rentControlEffectivenessData = {
       id: "q1",
       title: "Will New York's 2026 rent freeze hurt the buildings it covers?",
       content:
-        "The freeze applies to leases starting between October 2026 and September 2027, after the board's index put owners' costs up 5.3%. Critics expect deferred repairs and more distressed buildings; supporters expect tenants to keep money they need and owners to absorb a year. Repair violations, building sales and hardship applications over the next two years will show which.",
+        "The freeze applies to leases starting between October 2026 and September 2027, after the board's index put owners' costs up 5.3%. Critics expect deferred repairs and more distressed buildings; supporters expect tenants to keep money they need and owners to absorb a year. Housing-code complaints, building sales and hardship applications over the next two years will show which.",
     },
     {
       id: "q2",

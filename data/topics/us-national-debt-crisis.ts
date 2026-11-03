@@ -595,7 +595,7 @@ export const usNationalDebtCrisisData = {
             "US Treasury, Monthly Treasury Statement Table 9, fiscal year to 30 September 2026, via Fiscal Data",
           sourceUrl: MTS_FY2026,
           reasoning:
-            "The ledger both sides argue from. Read as a revenue gap, it supports the view that the problem is a political choice that taxes could close; read as a spending trend, it supports the other side. It settles nothing about which.",
+            "The ledger both sides argue from. Read as a revenue gap, it supports the reading that the problem is a political choice that taxes could close; read as a spending trend, it supports the other side. It settles nothing about which.",
         },
       ],
     },

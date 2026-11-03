@@ -202,7 +202,7 @@ export const minimumWageEffectsData = {
           title:
             "Seattle 2016: the step to $13 cut hours in low-wage jobs 6-7% and pay per job by $74 a month (University of Washington)",
           description:
-            "The University of Washington team used Washington's administrative records, which report hours. Seattle's second increase, to $13 in 2016, raised hourly wages in low-wage jobs by about 3% but cut hours worked in those jobs by 6 to 7%, so pay to low-wage jobs fell by an average of $74 a month per job. The first increase had more modest effects. Limited to restaurants, the sector earlier studies used, their method estimates an effect of zero.",
+            "The University of Washington team used Washington's administrative records, which report hours. Seattle's second increase, to $13 in 2016, raised hourly wages in low-wage jobs by about 3% but cut hours worked in those jobs by 6 to 7%, so pay to low-wage jobs fell by an average of $74 a month per job. The earlier step had more modest effects. Limited to restaurants, the sector earlier studies used, their method estimates an effect of zero.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -513,7 +513,7 @@ export const minimumWageEffectsData = {
       url: "https://www.jstor.org/stable/2118030",
     },
     {
-      title: "KQED: California's $20 fast-food minimum wage sees no job loss, slight price hikes (first Reich-Sosinskiy estimate, 3.7% prices)",
+      title: "KQED: California's $20 fast-food minimum wage sees no job loss, slight price hikes (earlier Reich-Sosinskiy estimate, 3.7% prices)",
       url: "https://www.kqed.org/news/12007150/californias-20-fast-food-minimum-wage-sees-no-job-loss-slight-price-hikes",
     },
   ],

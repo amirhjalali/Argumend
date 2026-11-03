@@ -412,7 +412,7 @@ export const inflationMonetaryPolicyData = {
           source: 'Lawrence H. Summers, "The Biden stimulus is admirably ambitious, but it brings some big risks, too," The Washington Post, Feb. 4, 2021',
           sourceUrl: "https://www.washingtonpost.com/opinions/2021/02/04/larry-summers-biden-covid-stimulus/",
           reasoning:
-            "A credible warning that proved right on direction. It is a forecast, not evidence of cause; one correct prediction does not show the stimulus was the main driver.",
+            "A credible warning that proved correct on direction. It is a forecast, not evidence of cause; one correct prediction does not show the stimulus was the main driver.",
         },
         {
           id: "taylor-rule-divergence",
