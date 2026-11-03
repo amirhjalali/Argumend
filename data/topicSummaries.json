@@ -492,9 +492,9 @@
     "title": "The Death Penalty",
     "question": "Is the death penalty a justified punishment?",
     "meta_claim": "The death penalty is justified as criminal justice and may deter murder — though whether it actually deters is empirically unresolved.",
-    "confidence_score": 17,
-    "balance": 17,
-    "weight": 56,
+    "confidence_score": 25,
+    "balance": 25,
+    "weight": 57,
     "verdict": {
       "label": "Evidence leans toward the counterclaim — moderately evidenced",
       "quadrant": "moderate"
@@ -502,12 +502,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Without proof that it deters, can possible deterrence plus retribution still justify the death penalty?",
     "tags": [
       "policy"
     ],
-    "keywords": "exonerated dezhbakhsh rubin shepherd plea alarcon baldus arthur dietzel ehrhard kemp loyola madeira mccleskey mcveigh"
+    "keywords": "scalia exonerated dezhbakhsh rubin shepherd plea alarcon baldus kansas marsh guilt antonin arthur coleman dietzel"
   },
   {
     "id": "police-reform",
