@@ -3762,9 +3762,11 @@ The microplastics question is not settled. Anyone who tells you the science is c
     readingTime: "9 min read",
     tags: ["Iran war evidence", "Iran nuclear threat analysis", "Iran military action pros and cons", "US foreign policy", "Middle East conflict"],
     category: "Geopolitics",
-    content: `## The Question No One Can Afford to Get Wrong
+    content: `**Update, 3 November 2026.** This article was written in March 2026, a month into the war, and its evidence sections describe the case as it stood then. Much has happened since. The US-Israeli strikes that began on 28 February 2026 killed Ayatollah Ali Khamenei on the first day, and his son Mojtaba Khamenei succeeded him. Hezbollah's fire on 2 March drew Lebanon into the war, and the Houthis joined on 28 March. A two-week ceasefire on 7 April was followed by failed talks in Islamabad and a US naval blockade of Iranian ports; a 14-point memorandum agreed in June broke down by 8 July, when Iranian attacks on shipping in the Strait of Hormuz drew new US strikes. In June 2026 the IAEA said it could not provide any information on the size or whereabouts of Iran's enriched uranium stockpile, and in September its Board reported Iran to the UN Security Council. As of 3 November, Qatar and Pakistan are mediating again and no settlement is in place. The question is no longer whether to use force but what the war achieved and what should follow; the [US-Iran Conflict](/topics/us-iran-conflict) map tracks that argument with current sources.
 
-The United States and Iran are closer to a full-scale war than at any point since the 1979 hostage crisis. Following the June 2025 strikes on Iranian nuclear facilities and Operation Epic Fury in February 2026, the rhetoric has hardened, the diplomatic channels have narrowed, and the pressure to escalate is building on both sides.
+## The Question No One Can Afford to Get Wrong
+
+When this was written in March 2026, the United States and Iran were already at war. Following the June 2025 strikes on Iranian nuclear facilities and the start of Operation Epic Fury on 28 February 2026, the rhetoric had hardened, the diplomatic channels had narrowed, and the pressure to escalate was building on both sides.
 
 If you have been following this crisis through cable news or social media, you have probably been exposed to two competing narratives. One says Iran is months away from a nuclear weapon and that only military force can stop it. The other says we are sleepwalking into another Iraq — manufacturing a threat to justify a war that will destabilize the entire Middle East for a generation.
 

@@ -19,7 +19,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "helpline wagered bettors sportsbook gamblers ncaa intimate murphy upset earmarked arnesen balthrop geocomply if12761 kotter"
+    "keywords": "helpline wagered bettors sportsbook gamblers ncaa intimate upset earmarked arnesen balthrop geocomply if12761 kotter matsuzawa"
   },
   {
     "id": "pfas-forever-chemicals",
@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment autumn chronobiology clin fritz"
+    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz outdoor"
   },
   {
     "id": "tipping-culture",
@@ -307,7 +307,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding waiver ikenson manak shipyard surcharge underdeveloped"
+    "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding ikenson manak shipyard surcharge underdeveloped usitc"
   },
   {
     "id": "medicaid-work-requirements",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful propublica"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful heard"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -584,7 +584,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "turnout boxell fowler lachat selb gentzkow leigh king uninformed dampen donkey faqs jesse anthony matthew"
+    "keywords": "turnout boxell fowler lachat selb gentzkow leigh uninformed dampen donkey faqs jesse anthony matthew"
   },
   {
     "id": "reparations-slavery",
@@ -739,7 +739,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta chamber gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton whoever donald"
   },
   {
     "id": "surveillance-public-safety",
@@ -766,29 +766,31 @@
   {
     "id": "us-iran-conflict",
     "title": "The US-Iran Conflict",
-    "question": "Has US pressure on Iran made the Middle East safer and served US interests?",
-    "meta_claim": "US policy toward Iran — combining maximum-pressure sanctions, covert operations, and military deterrence — has made the Middle East safer and advanced American strategic interests.",
-    "confidence_score": 30,
-    "balance": 30,
-    "weight": 75,
+    "question": "Has US pressure on Iran, up to the 2026 war, made the Middle East safer and served the US?",
+    "meta_claim": "US policy toward Iran — maximum-pressure sanctions, covert operations, the June 2025 strikes and the war the US and Israel began on 28 February 2026 — has made the Middle East safer and advanced American strategic interests.",
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 80,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
     "pillarCount": 5,
-    "evidenceCount": 19,
-    "firstCrux": "Did Iran's nuclear escalation result from the US leaving the nuclear deal, or would it have happened anyway?",
+    "evidenceCount": 30,
+    "firstCrux": "Did the strikes set Iran's nuclear program back for good, or push its 60% uranium out of inspectors' sight?",
     "tags": [
       "policy"
     ],
     "aliases": [
       "Is Military Action Against Iran Justified?",
-      "Should the US strike Iran?"
+      "Should the US strike Iran?",
+      "Has US pressure on Iran made the Middle East safer and served US interests?",
+      "Was the Iran war worth it?",
+      "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "jcpoa hezbollahs houthis iranian iraq fordow soleimani assassination militia amasses centrifuge grossi irgc isfahan lebanon"
+    "keywords": "houthis jcpoa jazeera hezbollahs lebanon iranian grossi hormuz ceasefire blockade israeli fordow iraq memorandum tehran"
   },
   {
     "id": "epstein-files",
@@ -810,7 +812,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators beach palm acosta blackmail dershowitz batch perpetrators prostitution starr cvra ghislaine"
+    "keywords": "maxwell redacted brunel conspirators beach palm acosta batch blackmail dershowitz perpetrators prostitution starr cvra ghislaine"
   },
   {
     "id": "tiktok-ban",
@@ -931,7 +933,7 @@
     "aliases": [
       "What happens in a school lockdown if every phone is locked away?"
     ],
-    "keywords": "yondr beland pouches victoria murphy ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom"
+    "keywords": "yondr beland pouches victoria ward literacy lorenzo abrahamsson bullying classroom adrian cgms cyberbullying dexcom lockable"
   },
   {
     "id": "pandemic-preparedness",
@@ -975,7 +977,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "amphibious rhodium tsmc afghanistan pacific navy cancian wargames battle fabs indo strait buildup chairman aircraft"
+    "keywords": "amphibious rhodium tsmc afghanistan pacific cancian navy wargames fabs indo buildup chairman strait aircraft submarine"
   },
   {
     "id": "global-water-crisis",
@@ -1019,7 +1021,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety andreyeva"
+    "keywords": "colchero philadelphias tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -1173,7 +1175,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow chamber regrets crowdsourced msnbc multipartisan unmoderated missouri"
+    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow regrets crowdsourced msnbc multipartisan unmoderated missouri regretsreporter"
   },
   {
     "id": "space-colonization-feasibility",
@@ -1371,7 +1373,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver annonc"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads annonc ayers"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1905,7 +1907,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial pakistan theirs afghanistan funder opensecrets super"
+    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2016,7 +2018,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "auckland greenaway mcgrevy vienna tokyo gyourko glaeser upzoning backlog phillips shelters charitable duplexes dwelling huds"
+    "keywords": "auckland greenaway mcgrevy tokyo vienna gyourko glaeser upzoning backlog phillips shelters charitable duplexes dwelling huds"
   },
   {
     "id": "four-day-work-week",
@@ -2149,7 +2151,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding irvine sunk bloom gloria pittsburgh uspto lease yang brucks frey gudith klocke"
+    "keywords": "allen bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks frey gudith klocke"
   },
   {
     "id": "lab-diamonds-ethics",
@@ -2508,7 +2510,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide eruption rainfall tons geomip intercomparison celsius geophysical hydrological shells precipitation britain dimming"
+    "keywords": "monsoon pinatubo dioxide eruption rainfall tons geomip intercomparison celsius geophysical hydrological shells precipitation dimming fairbrother"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2690,7 +2692,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam retiree hunkering italians jews norc complementarity dispersed resettlement diploma refugee scandinavian"
+    "keywords": "putnam retiree hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -3355,7 +3357,7 @@
       "international-law",
       "warfare"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus governmental milder unoda"
+    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible primer abstentions atrocities belarus governmental milder unoda"
   },
   {
     "id": "ai-energy-water-footprint",
@@ -3578,7 +3580,7 @@
       "inflation",
       "macroeconomics"
     ],
-    "keywords": "latin buffer fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats"
+    "keywords": "latin fraught hyperinflation sebasti tcherneva peru caricature hoover misdescribe mmts neednt pcepilfe tymoigne coats countercyclical"
   },
   {
     "id": "dark-matter-vs-mond",
