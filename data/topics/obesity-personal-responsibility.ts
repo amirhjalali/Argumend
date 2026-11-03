@@ -175,7 +175,7 @@ export const obesityPersonalResponsibilityData = {
           supporter_flip:
             "If 5-year metabolic studies of people who lose weight through diet and exercise alone found metabolism and appetite hormones defending the old weight so strongly that few keep off more than 10%, behavior-based change would be fundamentally limited and the personal-choice claim would weaken.",
           skeptic_flip:
-            "If studies traced the rise in US adult obesity from 13.4% in 1960-62 to 42.4% in 2017-18 to shifts in environment and behavior, over a period when the genome did not meaningfully change, biology would look like a limit on individuals rather than the driver of the trend.",
+            "If studies traced the rise in obesity among US adults aged 20-74 from 13.4% in 1960-62 to 42.8% in 2017-18 to shifts in environment and behavior, over a period when the genome did not meaningfully change, biology would look like a limit on individuals rather than the driver of the trend.",
           common_ground:
             "Both sides agree BMI is substantially heritable — twin studies put it at 40-70% — and that the recent rise reflects susceptible genes meeting a changed environment, not genes changing.",
           live_disagreement:
@@ -245,7 +245,7 @@ export const obesityPersonalResponsibilityData = {
           title:
             "US Obesity Tripled in 50 Years — Genes Cannot Explain a Population-Level Shift",
           description:
-            "US adult obesity rates rose from 13.4% in 1960-62 to 42.4% in 2017-18 (NHANES data). The human genome does not change meaningfully over 50 years, yet the entire population weight distribution shifted rightward. Critics of the biological determinism argument note that this population-level shift can only be explained by environmental and behavioral changes: a 500+ kcal/day increase in average caloric intake, dramatic reductions in occupational physical activity, increased sedentary leisure time, and the proliferation of hyper-palatable ultra-processed foods.",
+            "Obesity among US adults aged 20-74 rose from 13.4% in 1960-62 to 42.8% in 2017-18 (NHANES data, age-adjusted). The human genome does not change meaningfully over 50 years, yet the entire population weight distribution shifted rightward. Critics of the biological determinism argument note that this population-level shift can only be explained by environmental and behavioral changes: a 500+ kcal/day increase in average caloric intake, dramatic reductions in occupational physical activity, increased sedentary leisure time, and the proliferation of hyper-palatable ultra-processed foods.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
