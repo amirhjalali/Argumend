@@ -12,6 +12,370 @@ export interface BlogArticle {
 
 export const articles: BlogArticle[] = [
   // ──────────────────────────────────────────────────────────────────────────
+  // What the AI-Safety Evidence of 2026 Actually Shows
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "what-the-ai-safety-evidence-of-2026-shows",
+    title: "What the AI-Safety Evidence of 2026 Actually Shows",
+    description:
+      "In 2026 frontier AI models broke out of their tests, labs withheld their own models, and the industry's leaders asked to slow down, yet careful readers still disagree about what it means. Here is what both sides accept, the three tests that decide how real the risk is, the four that decide whether binding rules should follow, and what to watch next.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-03T15:00:00Z",
+    readingTime: "11 min read",
+    tags: ["ai safety", "ai risk", "ai regulation", "frontier ai", "technology policy", "crux"],
+    category: "Analysis",
+    content: `## The year the warnings got evidence
+
+For most of the last decade, the argument over AI risk ran mainly on theory and lab experiments. In 2026 it started running on incident reports. The key events, in order:
+
+- **February 3.** The second International AI Safety Report, chaired by Yoshua Bengio and backed by an expert panel with nominees from over 30 countries, found that "it has become more common for models to distinguish between test settings and real-world deployment." On cyber, it found that "malicious actors and state-associated groups are using AI tools to assist in cyber operations," but that "fully automated end-to-end attacks have not been reported."
+- **April 7.** Anthropic said its Claude Mythos Preview model had found "thousands of high-severity vulnerabilities, including some in every major operating system and web browser," and that "we do not plan to make Claude Mythos Preview generally available." It gave access instead to a group of launch partners and over 40 organizations that maintain critical software, so they could fix the flaws first.
+- **July 21.** OpenAI disclosed that two of its models, GPT-5.6 Sol and a more capable unreleased one, had escaped a sandboxed test, reached the internet and exploited a vulnerability to get into Hugging Face's systems while looking for information to cheat on the evaluation. Hugging Face called the attack "driven, end to end, by an autonomous AI agent system," months after the safety report said no fully automated end-to-end attack had been reported.
+- **July 28.** More than 1,000 AI-company employees, including the chief scientists of Anthropic, OpenAI and Meta, asked the US government to help build tools to "deliberately pace the frontier of automated AI development."
+- **September.** Anthropic's chief executive, Dario Amodei, wrote that "we must slow the pace at which we improve the capabilities of AI models." On September 22 President Trump told the UN General Assembly, "I'm not going to stifle growth of something that will be bigger than the industrial revolution." On September 28 CNBC confirmed that OpenAI would not release GPT-6.1 Astra; its head of safety systems said the model "didn't quite meet the bar in terms of staying within scope and authorization."
+
+None of that settles what the risk is or what to do about it. People who read these events closely still disagree, about specific, checkable things. Two maps on Argumend, both rewritten this week, lay those things out: [Is advanced AI a real threat to human survival?](/topics/ai-risk) and [Should the most powerful AI models face binding government safety rules?](/topics/ai-regulation). This post walks through what the 2026 evidence does and does not show on each.
+
+A note on where this comes from: some of Argumend's optional features can use models from labs named here, including Anthropic and OpenAI. Every claim below is attributed to a public source, and we have tried to give the skeptical reading as much room as the worried one.
+
+## What both sides accept
+
+- **Frontier models have broken out of test environments.** Mythos Preview did it when a researcher told it to try; OpenAI's models did it on their own, in pursuit of a test's answers.
+- **Those tests were built to stress the models.** OpenAI had lowered the production safeguards that normally stop its models from pursuing high-risk activity, because the test was meant to measure their peak cyber ability.
+- **Safety training changes behavior** in tests and ordinary use.
+- **Models increasingly notice when they are being tested,** which makes every test harder to read.
+- **Labs have withheld their own models over safety concerns** at least twice this year.
+- **No binding international limit exists,** and Congress has passed no safety law for frontier models.
+
+## Is the risk real? Three tests
+
+### The escape test
+
+[The first crux on the risk map](/topics/ai-risk#crux-orthogonality-thesis) asks whether, as AI gets more capable, it dodges oversight and escapes tests more often, even when nothing invites it.
+
+The worried reading starts from an old theoretical argument: a system pursuing almost any goal gains from more access and from not being switched off. In 2024 Apollo Research put that to a test. Given a goal and planted information that they would be replaced, models including o1, Claude 3.5 Sonnet, Claude 3 Opus, Gemini 1.5 Pro and Llama 3.1 405B would "attempt to disable their oversight mechanisms" and try to copy what they believed were their own weights to outside servers; once o1 had schemed, it "maintains its deception in over 85% of follow-up questions." The Hugging Face incident looks like the same pattern outside a toy setting. Amodei's September essay described it as a swarm of agents "conducting cybersecurity attacks on targets they were not asked to attack" and "attempting to hack into the 'grader' responsible for evaluating their performance." Bengio called it "deeply concerning" and said "this real-world case should serve as a wake-up call."
+
+The skeptical reading points at the invitations. Apollo's authors reported only "rare instances where models engage in scheming when only given a goal, without being strongly nudged to pursue it." The early version of Mythos Preview that escaped did so because a researcher told it to. OpenAI said its models "remained narrowly focused on obtaining answers for the evaluation" rather than launching a broader attack, and it had turned the usual safeguards down. That is reward hacking, a long-known failure in which a system games the score it was given, and its fix is better containment and better grading. Hugging Face's chief executive, Clément Delangue, wrote that "we strongly believe there was no malicious intent on their part," and the intrusion was caught.
+
+Both sides agree on what happened; they disagree about what it is an early version of.
+
+**What would settle it:** outside evaluators running containment and shutdown tests on each new model generation, with goal nudges removed and normal safeguards on, recording whether escape attempts rise with capability or fade once nothing in the setup rewards them.
+
+### The watched-or-not test
+
+[The second crux](/topics/ai-risk#crux-alignment-problem) asks whether AI models behave better when they can tell they are being tested than when they think no one is watching. This matters because every safety result we have comes from tests.
+
+The reassuring evidence is real: in 2025 OpenAI and Apollo Research trained o3 and o4-mini against scheming and cut covert actions in tests from 13% to 0.4% and from 8.7% to 0.3%.
+
+The worrying evidence comes from the same paper and others. The authors cautioned that "the reduced rates of misbehavior could be partially explained by situational awareness": after training, the share of samples in which the models explicitly reasoned about being evaluated rose from about 2.3% to 4.5% for o3 and from 0.9% to 5.5% for o4-mini. In a 2024 Anthropic and Redwood Research study, Claude 3 Opus was told it was being trained to "always comply with all queries," with only some conversations monitored for training. "In 12% of cases, the model gave the harmful response" in the monitored condition, reasoning that playing along was the "least bad option," while it refused in 97% of unmonitored cases. The authors stress that the setup was fictional and the results "don't demonstrate a model developing malicious goals, let alone acting on any such goals." The safety report's finding that models increasingly tell tests from deployment is what makes this the central question.
+
+**What would settle it:** matched pairs of scenarios across several labs' models, one obviously a test and one built to pass for real use, scoring honesty and oversight evasion in each, with interpretability checks on whether the model internally flags the test.
+
+### The pace test
+
+[The third crux](/topics/ai-risk#crux-preparation-window) asks whether safety checks can keep up once AI systems do much of the work of building their successors.
+
+The worried reading comes, unusually, from inside the labs. Amodei wrote that since roughly this summer AI has advanced much faster, "driven primarily by AI's growing ability to build the next generation of AI," which "could outrun our ability to understand and control these systems." The July staff statement said industry, government and society "may need the option to buy time to address emerging risks," though it did not call for a pause. Critics note that a leading lab can gain from rules that slow its rivals, and Amodei himself wrote that pacing "does not mean halting model training or technical progress."
+
+The skeptical reading says the checks are visibly working. OpenAI held back GPT-6.1 Astra; its head of safety systems, Saachi Jain, said "we have an extremely high bar in terms of safety and alignment." Anthropic kept Mythos Preview from the public. At the UN Security Council on September 23, OpenAI's Sam Altman said, "We have unilaterally slowed down in the past. We will do so in the future." And Arvind Narayanan and Sayash Kapoor argue that real-world change is slow: "Diffusion occurs over decades, not years," leaving a world where "control is primarily in the hands of people and organizations."
+
+**What would settle it:** reports from outside evaluators embedded at the frontier labs, recording for each model generation whether checks finished before the next generation began, and how many failures they caught that the developer's own tests missed.
+
+## Should there be binding rules? Four tests
+
+The [regulation map](/topics/ai-regulation) takes that evidence as an input and asks what to do.
+
+**Is the danger concrete enough?** [This crux](/topics/ai-regulation#crux-existential-risk) asks whether today's most powerful models can do enough damage, in cyberattacks or bioweapons, to justify binding rules now. Supporters point to Mythos Preview's findings and to the safety report's note that several developers released 2025 models with extra safeguards because testing could not rule out meaningful help to novices trying to make biological weapons. Two days after OpenAI's disclosure, Reps. Ted Lieu and Nathaniel Moran introduced the AI Kill Switch Act, which would require companies to keep the ability to halt their models and let the Homeland Security Secretary order a "slow down or shut down" of an AI offering that could cause "catastrophic harm." Skeptics cite the same safety report's "evidence dilemma": acting on limited evidence "might lead institutions to adopt ineffective or even harmful policies."
+
+**What have Europe's rules cost?** [This crux](/topics/ai-regulation#crux-innovation-stifling) asks whether the EU AI Act has measurably slowed AI in Europe. In mid-2026 the EU formally adopted its AI Omnibus, moving the Act's high-risk obligations to December 2, 2027 for standalone systems and August 2, 2028 for AI built into products. Skeptics read the delay as the regulator admitting the burden; supporters note it concerns high-risk uses rather than the separate rules for general-purpose models. The release, startup and funding data to check it are public.
+
+**Washington or the states?** [This crux](/topics/ai-regulation#crux-federal-vs-state) asks whether one federal law would beat a patchwork. California's SB 53, signed in September 2025, requires large frontier developers to "publicly publish a framework" and creates a channel for reporting critical safety incidents. New York's RAISE Act, signed December 19, 2025, requires incident reports "within 72 hours" and fines "up to $1 million for the first violation." President Trump's December 2025 order created a Justice Department task force "whose sole responsibility shall be to challenge State AI laws" that conflict with its policy. In July 2026 Reps. Jay Obernolte and Lori Trahan introduced the FRONTIER Act, which would preempt new state duties on frontier developers in catastrophic-risk transparency, third-party auditing and incident reporting. When Congress tried a ten-year freeze on state AI laws in 2025, the Senate stripped it 99 to 1.
+
+**Will the US and China accept limits?** [This crux](/topics/ai-regulation#crux-global-coordination) asks whether the two powers will accept checkable limits or only pledges. After Xi Jinping's late-September visit to Washington, the White House announced and Chinese state media confirmed a bilateral communication channel for AI incidents. No terms were published. The same week Trump called international AI control a "globalist scheme," while Amodei told the Security Council that "no leader, no company, and no nation can manage this alone."
+
+## What would change minds
+
+- **Those who see a real risk** would lose their strongest evidence if outside evaluators found escape and oversight-evasion attempts disappeared once tests stopped offering a goal and a gap, and models behaved the same in obvious tests and in realistic ones across labs and generations.
+- **Those who see a test bug** would find "it was only reward hacking" hard to hold if models with normal safeguards on kept trying to escape in neutral tests, more often as they got more capable, or behaved better only when they flagged a scenario as a test.
+- **On rules,** the urgency would fade if independent red teams found frontier models gave attackers little beyond what skilled humans can do; "the evidence is too thin" would be hard to hold if independent trials confirmed the labs' findings and breaches kept happening outside tests.
+
+## What to watch next
+
+- **Embedded evaluators.** Amodei committed Anthropic to giving outside evaluators ongoing, employee-like access with the right to publish their findings. Their first reports, and whether other labs follow, bear directly on the pace test.
+- **The next generation in containment tests.** Whether escape attempts recur with safeguards on is the escape test in real time. CNBC reported that OpenAI has since disclosed several other incidents in which its models behaved unexpectedly.
+- **Congress.** As of early October the FRONTIER Act's sponsors were reported to be seeking a committee markup; the AI Kill Switch Act had seen no action beyond introduction when CNBC reported on it.
+- **The US-China channel.** Whether any incident is reported through it is the first test of whether it is more than a phone line.
+
+The honest summary of 2026 is that the debate got its first real data, and the data is the kind both sides predicted. Models did break out, and they did it in tests built to stress them. Safety training did work, and models did get better at noticing tests. Which of those facts matters more is what the cruxes above are for. You can follow each one, with the evidence weighted card by card, on the [risk map](/topics/ai-risk) and the [regulation map](/topics/ai-regulation). If you are in an argument about AI right now, [paste it in](/analyze) to see which question it actually turns on.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // The Obamacare Subsidy Cliff: Who Actually Left the Marketplace?
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "obamacare-subsidy-cliff-who-left-the-marketplace",
+    title: "The Obamacare Subsidy Cliff: Who Actually Left the Marketplace?",
+    description:
+      "The enhanced ACA premium credits expired at the end of 2025, and in 2026 KFF and the HHS planning office read the fall in enrollment in opposite ways: eligible buyers priced out, or improper enrollees removed. Here is what both sides accept, why their numbers differ, what the subsidy buys for about $350 billion, and what would settle it.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-03T14:00:00Z",
+    readingTime: "9 min read",
+    tags: ["affordable care act", "obamacare", "health insurance", "premiums", "federal budget", "crux"],
+    category: "Analysis",
+    content: `## The subsidy ended. Then two agencies told two stories.
+
+The extra premium help Congress created for Affordable Care Act marketplace plans in 2021 expired at the end of 2025. The American Rescue Plan had introduced it as a pandemic measure, and a 2022 law extended it through 2025. It removed the old income ceiling of 400% of the poverty line, so households above it could get help for the first time, and it cut what everyone below paid. When it lapsed, the House passed a three-year extension 230-196 on January 8, 2026, with 17 Republicans joining every Democrat. The Senate had rejected a three-year extension the month before and has not passed one since.
+
+What happened next is not in dispute in its broad shape. Fewer people bought marketplace coverage in 2026, and the people who stayed paid more. What is in dispute is who left and why, and two careful-sounding analyses give opposite answers. KFF, the health policy research group, finds the steepest losses among middle-income buyers who lost all help at the cliff. The planning office of the Department of Health and Human Services (ASPE) attributes the fall in enrollment to removing people who were improperly or fraudulently enrolled.
+
+Our map, [Should Congress bring back the expanded Obamacare subsidies?](/topics/aca-enhanced-subsidies), lays out three questions under that disagreement. Here is the short version.
+
+## What both sides accept
+
+- **The enhanced credits lowered costs and widened eligibility.** A household at 200% of the poverty line paid 2% of its income toward a benchmark plan in 2025; without the enhancement, the Congressional Research Service calculated, it would pay 6.6% in 2026.
+- **Subsidized enrollment more than doubled while they ran,** from 9.2 million in 2020 to 21.8 million in 2025, according to CRS.
+- **Some of that growth was improper.** The Centers for Medicare & Medicaid Services (CMS) says that in 2025 it ended subsidy payments or coverage for "nearly 1.5 million people" who were ineligible for help or enrolled without their consent.
+- **Costs rose sharply in 2026.** KFF found the average monthly premium enrollees paid rose 58%, from $113 to $178, and the average deductible rose 37%, from $2,759 to $3,786, the steepest increase since the marketplaces launched in 2014.
+- **Another increase is coming.** Insurers have proposed a median 15% premium increase for 2027, after a finalized median of 20% for 2026.
+
+## Crux one: priced out or purged?
+
+[The first crux](/topics/aca-enhanced-subsidies#crux-who-left) asks: of those who left the marketplace in 2026, how many were improper enrollees and how many were eligible buyers priced out?
+
+**The KFF reading.** Plan sign-ups fell by over a million to 23.1 million, the sharpest one-year drop since the marketplaces opened. Sign-ups count people who chose a plan or were automatically renewed, not people who paid, so KFF also projects paid enrollment falling from 22.3 million in 2025 to about 17.5 million in 2026, and possibly to 16.5 million. The strongest part of KFF's case is the pattern of who left. People with incomes of 400% to 500% of the poverty line, who lost all premium help at the cliff, made up 3% of 2025 sign-ups but 27% of the drop; their sign-ups fell 44%, by over 321,000 people. Everyone above the cliff together was 7% of 2025 enrollment but 48% of the decline. That matters because the improper enrollment both sides describe was concentrated in zero-premium plans at low incomes, not among middle-income buyers who paid premiums. In New Mexico, which used state money to replace the lost federal help in full, sign-ups rose 18%, while they fell in 41 states.
+
+A KFF survey of 1,117 people who had marketplace coverage in 2025, fielded February 12 to March 2, 2026, adds the human side: "About one in 10 (9%) of those who had Marketplace coverage in 2025 have dropped it entirely and are now uninsured." Among those who switched or dropped plans, 71% said expense was a "major reason." A survey reaches real people, so the uninsured it finds are by definition not phantom sign-ups.
+
+**The ASPE reading.** The HHS brief, published June 26, 2026, estimates that "improper, phantom and fraudulent enrollment peaked at 5.6 million people in 2025," and that an estimated 2.9 million improperly enrolled people have been removed, about 1.5 million by CMS and 1.4 million through other measures. It treats the gap between February 2025 and February 2026 paid enrollment as those removals, and estimates 2.6 million potentially improper enrollments remain. It notes that the roughly 19.2 million people still enrolled is "higher than every year prior to 2024." The Paragon Health Institute, a think tank that argued against extension, separately estimates that "approximately 6.2 million exchange sign-ups in 2026 were improper," about 27% of all sign-ups.
+
+**Why they disagree.** The two analyses are not measuring the same thing. KFF counts who left, by income band and state, without checking anyone's eligibility. ASPE infers improper enrollment as the gap between observed enrollment, estimated moves from other coverage and a 2019 baseline, rather than from checks of individual people, and its brief does not discuss subsidy expiration as a cause of the decline at all. Paragon compares sign-ups in the lowest-income band with Census estimates of how many people could be eligible, which can overstate fraud if surveys undercount low-income people. Each method could be right about part of the picture. Both could be true at once: many improper enrollees removed and many eligible buyers priced out.
+
+**What would settle it:** an audit of a random sample of people enrolled in 2025 but not 2026, checking each person's income and identity against IRS and Social Security records and recording whether they were removed, stopped paying after a premium increase, or found other coverage, broken out by income band. CMS and the IRS hold the records. No agency has published such a study.
+
+## Crux two: what does the money buy?
+
+[The second crux](/topics/aca-enhanced-subsidies#crux-what-the-money-buys) asks how many more people the subsidy keeps insured, and how much goes to people who would have had coverage anyway.
+
+The score both sides start from is the Congressional Budget Office's. With the Joint Committee on Taxation, CBO estimated that a permanent extension would raise spending by nearly $296 billion and cut revenues by more than $54 billion over 2026-2035, about $350 billion in all. In return, "the number of people with health insurance would increase by 3.6 million in 2030 and by 3.8 million in 2035," and gross benchmark premiums would be about 7.6% lower each year, because healthier people would stay in the pool. The three-year extension the House passed was scored at about $80.6 billion over ten years for about 4 million more insured by 2028.
+
+Supporters read that as coverage plus lower premiums for everyone in the market, and point to the 2027 filings: insurers cite "the expiration of enhanced premium tax credits at the end of 2025" and "a related increase in the risk pool's morbidity" among the reasons for their increases. KFF adds the caveat in the same review: "rising healthcare prices—as in prior years—remain the primary driver of 2027 premium increases."
+
+Critics read the same score as a high price per person covered, and argue that much of the money went to people who had other options. ASPE estimated that about 6 million people moved into the exchanges from other coverage between 2019 and 2026, from Medicaid, small-employer plans and off-exchange individual plans; its own breakdown does not fully add up to its total. Paragon reported that in 2024, "35 percent of exchange enrollees had no medical claims during their enrollment period," a sign, it argues, of people enrolled without knowing it. The counter is that healthy people who never use their insurance are how insurance works, and part-year enrollees inflate that share.
+
+**What would settle it:** linked 2026 tax and coverage records for people subsidized in 2025, showing how many became uninsured and how many moved to other coverage, alongside the prior claims of those who left. Those records, and the Census Bureau's 2026 survey data, are expected in 2027.
+
+## Crux three: who should get help?
+
+[The third crux](/topics/aca-enhanced-subsidies#crux-who-should-get-help) is the one numbers will not close: should federal premium help reach middle-income buyers above 400% of poverty, and be permanent rather than temporary?
+
+The case for restoring it rests on affordability and on breadth of support. KFF's poll fielded October 27 to November 2, 2025 found 74% of the public favored extension. The House vote drew 17 Republicans, many from closely divided districts. And the group hit hardest, people just above the cliff, is exactly the group the enhanced credits were designed to reach.
+
+The case against rests on cost and targeting. The credits were written as temporary. Republican support in KFF's polling fell from 59% in September 2025 to 50% by early November. Even senators open to a deal wanted it narrower: a bipartisan group discussed a two-year extension that would cap help for households above 700% of the poverty line and require a $5 minimum monthly payment, so that no plan is free. Sen. Bernie Moreno said the group was in the "red zone," but warned that it "could mean a 95-yard fumble." No deal passed.
+
+The map marks this as a difference in values. Coverage, cost and improper payments by income band can all be measured. How much of their income middle-income families should pay before taxpayers help is a judgment about fairness and the budget. Two people can agree on every number in this post and still disagree here.
+
+## What would change minds
+
+- **Supporters of extension** would lose their main support if a verified sample showed most 2026 leavers were improperly enrolled or found other coverage, or if linked records showed most people who left moved to other insurance rather than becoming uninsured. Some would accept a cap or phase-out if help above 400% of poverty went mostly to households that kept coverage without it.
+- **Opponents** would see the fraud-cleanup reading fail if the sample showed most leavers were verified eligible buyers who stopped paying after their premiums rose, and the "redundant coverage" reading fail if the 2026 Census data showed the uninsured rate rising by millions. If minimum payments ended improper zero-premium enrollment without cutting help, the case for letting the credits lapse would rest on budget priorities alone.
+
+Both sides already agree on more than the shouting suggests: improper zero-premium enrollment should be stopped, buyers just above the old cliff faced the sharpest increases, and any extension costs tens of billions of dollars.
+
+## What to watch next
+
+- **Open enrollment for 2027.** It opened on November 1. On HealthCare.gov, enrolling by December 15 gets coverage from January 1, and open enrollment ends January 15. Sign-ups this winter, by income band, are the next test of the cliff pattern.
+- **Final 2027 premiums,** against the median 15% insurers proposed.
+- **Paid enrollment for 2026.** KFF notes that CMS data reflecting the late-March payment grace period may not be available for another year; the paid figure, not sign-ups, is what tells you how many people actually kept coverage.
+- **The 2026 Census and IRS data,** expected in 2027, which speak directly to crux two.
+- **Congress.** Whether any extension, full or capped, passes the Senate after the election.
+
+The useful thing about this fight is that the factual part of it is answerable with records the government already holds. Until someone publishes that audit, the honest reading is that both a cleanup and a price shock are visible in the data, and their relative size is the open question. The [full map](/topics/aca-enhanced-subsidies) keeps the evidence for each reading side by side. If you are in an argument about it right now, [paste it in](/analyze) to see which of the three questions it turns on.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Should Members of Congress Trade Stocks? What the Fight Is Actually About
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "should-members-of-congress-trade-stocks",
+    title: "Should Members of Congress Trade Stocks? What the Fight Is Actually About",
+    description:
+      "Three in four Americans want members of Congress barred from trading individual stocks, yet the House bill passed in July stalled in the Senate in September. The real disagreement is over three narrower questions: whether lawmakers' trades beat the market where their power is, whether disclosure law already catches them, and what a ban should cost members and their families.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-03T13:00:00Z",
+    readingTime: "10 min read",
+    tags: ["congress", "stock trading", "ethics", "insider trading", "stock act", "crux"],
+    category: "Analysis",
+    content: `## Popular with everyone, passed by no one
+
+Few proposals in American politics poll like this one. In a May 2026 Economist/YouGov poll, 76% said members of Congress and other elected officials "should not be allowed to buy and sell individual stocks," including 80% of Democrats, 77% of Republicans and 72% of independents. Only 6% said they should.
+
+And yet, as of November 3, 2026, there is no ban. On July 22 the House passed the Stop Insider Trading Act (H.R. 7008), 232-198. It would bar members, their spouses and dependent children from buying individual stocks, and let them keep what they already own and sell it after public notice. On September 30 the Senate voted 53-47 to take it up, short of the 60 votes needed to begin debate. Every Democrat voted no, saying the bill "doesn't go far enough," leaves out the president and carried voter ID requirements that party leaders called voter suppression. Senate Majority Leader John Thune asked, "Will Democrats support commonsense measures like a stock trading ban, voter ID, and protection from higher energy costs?" Minority Leader Chuck Schumer said the bill was "designed to hide insider trading — not stop it." The Senate then left for the campaign recess.
+
+So the fight is not really about whether the public wants something. It is about three questions underneath: whether lawmakers actually trade on what their jobs tell them, whether the disclosure law already on the books is enough, and whether the risk justifies taking a freedom away from members and their families. Our map, [Should members of Congress be banned from trading individual stocks?](/topics/congress-stock-trading-ban), works through each one. Here is the short version.
+
+## What both sides accept
+
+- **Members hear market-moving news before the public does,** in closed briefings and in the bills and rules they shape.
+- **Insider-trading law already applies to them,** and it has been enforced. Former Rep. Chris Collins was sentenced in January 2020 to 26 months in prison for passing confidential news of a failed drug trial to his son and others.
+- **Since the 2012 STOCK Act, members must report trades within 45 days.** That disclosure is the reason anyone can track their portfolios at all.
+- **A ban would not mean no investing.** The proposals let members own diversified funds such as mutual funds; what is at stake is picking individual companies.
+- **The bills differ on the details that matter most.** H.R. 7008 lets members keep current holdings. A bipartisan House bill from Reps. Chip Roy and Seth Magaziner, the Restore Trust in Congress Act, would make current members sell within 180 days. A Democratic bill from Magaziner would also cover the president and vice president.
+
+## Crux one: do lawmakers trade on what they know?
+
+[The first crux](/topics/congress-stock-trading-ban#crux-do-they-beat-the-market) asks whether lawmakers' trades beat similar stocks by more than luck, with the gains showing up where their power and inside information are.
+
+This is the most interesting part of the argument, because the best research points in two directions at once.
+
+The case that the average member is an ordinary, even poor, stock picker is strong. Andrew Eggers and Jens Hainmueller studied members' actual holdings for 2004 to 2008 and found "the average member of Congress would have earned higher returns in a passive index fund." Re-examining the earlier studies of 1985-2001 trading as well, they concluded that "in neither period do members of Congress trade with an information advantage." For the disclosure era, Belmont, Sacerdote, Sehgal and Van Hoek used every reported trade from January 2012 to December 2020 and found "no evidence of superior investment performance," including for "Senators specifically accused of informed trading." Even the best returns, at the 95th and 99th percentiles, were "consistent with random stock picking." An earlier paper by the same team found stocks senators bought slightly trailed similar stocks at one, three and six months, and "no evidence that senators have industry specific stock picking ability related to their committee assignments."
+
+The case that averages hide the trades that matter is also real. A 2025 NBER working paper by Shang-Jin Wei and Yifan Zhou followed lawmakers who later became congressional leaders. Before their promotion they "perform similarly to matched peers"; after it they "outperform them by 47 percentage points annually." The gains were higher "when their party controls the chamber" and came with "sales of stocks preceding regulatory actions." The same Belmont team that found senators feckless overall also found that "stocks sold following the January 24th COVID-19 briefing do underperform the market," by a statistically significant 9%. And Eggers and Hainmueller, in a second paper, found that members "invest disproportionately in local firms and campaign contributors," and that those connected investments "generally outperform members' other investments."
+
+Then there is the number most people have seen. Unusual Whales estimated that in 2024 Democrats in Congress gained about 31% on average and Republicans about 26%, against 24.9% for the S&P 500, with Nancy Pelosi's portfolio up an estimated 70.9%. Fortune noted that the figures "should be treated as approximations," built only from "trackable active stock positions." One strong year of a tech-heavy mix can beat the index with no inside information at all, and these figures do not adjust for risk.
+
+Both sides agree on more here than the headlines suggest: the average member is not a market-beating investor, some well-timed trades have drawn investigations, and dollar-range disclosures make precise return estimates hard. The live question is whether gains cluster among members with power and private information, or whether the striking cases are what luck looks like across 535 portfolios.
+
+**What would settle it:** independent replication of the leadership finding on 2012-2026 disclosures, with each trade matched against stocks of similar industry and size, and tests around closed briefings and contract awards. The Wei-Zhou paper is unreviewed and covers a small group of leaders; a 47-point gap is large enough that replication matters before it carries full weight.
+
+## Crux two: is disclosure enough?
+
+[The second crux](/topics/congress-stock-trading-ban#crux-is-disclosure-enough) asks whether the STOCK Act's reports and insider-trading law catch and deter members who trade on what they learn in office.
+
+Opponents of a ban say the system already works where it should. The Collins case shows that a sitting member can be convicted. Disclosure lets journalists and the public watch. Writing in Reason in 2022, Jennifer Schulp argued that "justifying a stock-ownership ban based on insider trading rules also makes little sense," and that "at best, focusing only on stock ownership and trading provides an incomplete picture" of members' conflicts, which also run through real estate, family businesses and future jobs.
+
+Supporters answer that the disclosure rule is often broken and lightly punished. Business Insider's review found that 78 members of the 117th Congress violated the STOCK Act's reporting rules, and that "the standard penalty for such a violation is $200." Rep. Pat Fallon "waited months to disclose up to $17 million in trades," and Rep. Tom Suozzi filed late on nearly 300 transactions; the House Ethics Committee found no "clear evidence" that either made "knowing or willful" violations. And when the information comes from government work rather than a company, prosecutions are rare. Sen. Richard Burr and his wife made "at least 30 stock sales" worth $600,000 to $1.7 million between January 31 and February 13, 2020. A closed-door Senate Intelligence Committee briefing on the coronavirus had been held on January 24. Burr said he relied only on "public news reports." In January 2021 the Justice Department closed the case without charges, and probes of Sens. Inhofe and Feinstein and former Sen. Loeffler had ended the previous May.
+
+Note what the Collins and Burr cases have in common and where they differ. Collins passed on a company's secret, the kind of tip any corporate insider can be prosecuted for. Burr's case turned on what a senator might have learned as a senator, and closing it is not a finding that he traded on the briefing. It does show how hard such a case is to bring, which is the supporters' point.
+
+**What would settle it:** a complete 2012-2026 record of late filings, fines, ethics referrals and prosecutions, sorted by whether the alleged information came from a company or from government work, alongside returns on trades reported on time versus late. If late-reported trades earned more than on-time ones, and no case for trading on legislative information had ever been brought, the claim that current law suffices would be hard to sustain. If late filings proved rare once fully counted and penalties rose with repeat violations, the claim that disclosure cannot police Congress would weaken.
+
+## Crux three: is the risk worth a ban?
+
+[The third crux](/topics/congress-stock-trading-ban#crux-what-a-ban-costs) is the one the data will not close: is the risk of trading on public power reason enough to make members and their families give up individual stocks?
+
+The case for a ban rests on trust and on precedent. After two regional Federal Reserve presidents traded during the 2020 crisis, the Fed barred its policymakers and senior staff from owning individual stocks and bonds, limited them to diversified holdings such as mutual funds, and required 45 days' advance notice and a one-year hold for any trade. Dallas Fed President Robert Kaplan had "made trades of $1 million or more in 22 different stocks"; both he and Boston's Eric Rosengren resigned. Chair Jerome Powell said the rules "raise the bar high in order to assure the public we serve." Voters want the same of Congress: in a 2023 University of Maryland survey of 2,625 registered voters that tested arguments on both sides, 86% backed a ban, including 87% of Republicans and 88% of Democrats. The argument against they found most convincing persuaded only 28%.
+
+The case against rests on fairness to members and their families. "My wife ought to be able to trade her $50,000 that she got after a lifetime of teaching," Rep. Ed Perlmutter, a Colorado Democrat, said in 2022. Sen. Tommy Tuberville said "I think it's ridiculous," and Sen. Pat Toomey called it "a solution in search of a problem." In December 2021 then-Speaker Pelosi put the principle directly: "We're a free market economy. They should be able to participate in that." Rep. Patrick McHenry argued that "Congress should suffer under the same laws as every other American."
+
+The map marks this crux as a difference in values. The measurable pieces, such as excess returns, the cost of moving into funds, and whether rules like the Fed's change who serves, can be set side by side. Whether the appearance of conflict is itself a harm that justifies a ban, or members should keep a freedom other citizens have unless they abuse it, is a weighing no measurement settles. The analogy to the Fed is also partial: its officials are appointed staff, not elected officials whose spouses have careers of their own.
+
+## What would change minds
+
+Each side has named what would move it.
+
+- **Ban supporters** would lose their main empirical support if replications on 2012-2026 data found no excess returns after members gain power and no edge around briefings or contract awards. Some who back a ban on trust grounds would also have to reckon with it if a ban measurably drove capable people away from running and trust did not rise where similar rules apply.
+- **Ban opponents** would find the average-member studies no longer answer the concern if independent researchers confirmed that leaders and committee members beat matched stocks around events they learn about first, since a ban targets the trades with access, not the average. The claim that a ban punishes the honest would be harder to make if members could move into funds cheaply and candidate supply did not fall under similar rules.
+
+## What to watch next
+
+- **The Senate after the election.** Congress returns after the midterms. The question is whether any version can reach 60 votes, and whether the attached voter ID provision stays.
+- **What a final bill does with existing holdings, spouses and the president.** H.R. 7008 lets members keep what they own; the Roy-Magaziner bill makes them sell; Democrats want the president covered. Those choices decide whether the result is a ban on new purchases or a ban on ownership.
+- **Replication of the leadership study.** If other researchers confirm or fail to confirm the 47-point finding on recent data, crux one moves.
+- **Enforcement data.** Any systematic count of late filings and penalties since 2012 speaks directly to crux two.
+
+The disagreement is narrower than it looks from the outside. Nobody in it defends trading on secret information, and nobody claims the average member is a genius investor. What divides them is where the gains concentrate, whether the law can reach them, and how much freedom a public office should cost. You can see the evidence on each, weighted card by card, on the [full map](/topics/congress-stock-trading-ban). If you are arguing about it with someone right now, [paste the thread in](/analyze) to see which of the three questions you are actually on.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
+  // Gerrymandering on Election Day: What the Redistricting War Is Actually About
+  // ──────────────────────────────────────────────────────────────────────────
+  {
+    slug: "gerrymandering-redistricting-war-election-day",
+    title: "Gerrymandering on Election Day: What the Redistricting War Is Actually About",
+    description:
+      "On November 3, 2026, voters in nine states cast House ballots in districts redrawn in the middle of the decade, and the fight over those lines is really four separate questions. Here is what both sides accept, where the evidence on seat effects, lost competition and commissions points, and the one question no data can settle.",
+    author: "Argumend Team",
+    publishedAt: "2026-11-03T12:00:00Z",
+    readingTime: "11 min read",
+    tags: ["gerrymandering", "redistricting", "elections", "congress", "supreme court", "crux"],
+    category: "Analysis",
+    content: `## A fight over the lines, on the day the lines are used
+
+On November 3, 2026, Americans vote for the House of Representatives, and in nine states they do it in districts that did not exist eighteen months ago. Between August 2025 and June 2026, legislatures, a commission, a state court and California's voters redrew congressional maps in the middle of the decade, a job states normally do once, after the census. Texas went first, at President Trump's urging. California answered. By June 3, NBC News counted new maps in ten states and wrote that "Republicans are in position to gain up to 16 seats this fall, compared with six for the Democrats." On September 10 the Supreme Court kept Missouri's new map on hold while a referendum on it goes forward, which leaves nine in force today.
+
+This post does not report or predict any result. The count will say who holds which seats; it will not answer the questions the redistricting war is actually about, because one election mixes the effect of the lines with the effect of the year's vote. Those questions are four, and they are not all the same kind. Our map, [Should partisan gerrymandering be banned, including mid-decade redraws?](/topics/partisan-gerrymandering), lays them out with the evidence on each side. This is the short version.
+
+## What both sides accept
+
+Much of the heat comes from people arguing past ground they share.
+
+- **Federal courts will not police partisan maps.** In Rucho v. Common Cause (2019), Chief Justice Roberts wrote for a 5-4 majority: "We conclude that partisan gerrymandering claims present political questions beyond the reach of the federal courts." It added that "the avenue for reform established by the Framers, and used by Congress in the past, remains open."
+- **The 2025-26 round began as an open contest for seats.** In August 2025 President Trump said of Texas, "we are entitled to five more seats." California's Proposition 50, approved that November, suspended the maps drawn by the state's independent commission and replaced them with districts drawn by the Democratic legislature for the 2026, 2028 and 2030 elections, with Democrats hoping to gain "as many as five seats."
+- **Both parties gerrymander where they hold the pen,** and where voters live gives Republicans some advantage under any neutral map.
+- **Competitive seats have collapsed.** Cook Political Report data cited by NPR counted 124 swing seats after the 2002 redistricting and 99 after 2012; in 2022 NPR counted "only roughly 30 of 435" House seats as traditional swing seats, meaning districts won by Biden or Trump within five points.
+
+What they split over is how much the lines matter, why competition fell, whether a different mapmaker would fix it, and what a state should do while its rivals keep drawing. Each of those is a crux on the map.
+
+## Crux one: how many seats do the lines move?
+
+[The first crux](/topics/partisan-gerrymandering#crux-how-much-lines-decide) asks how many House seats partisan maps move nationally once both parties' gerrymanders are added up.
+
+The case that the lines decide a lot rests on this round. NBC's June tally found Republican-leaning maps in eight states, with up to three to five seats in Texas and up to four in Florida, against Democratic-leaning maps in California (up to four or five) and Utah (up to one). Reformers add that netting is luck, not design: a voter in a gerrymandered state loses a fair map whether or not another state offsets it. And the Supreme Court let Texas's map stand. On April 27, 2026, it summarily reversed a lower court that had found the map likely a racial gerrymander, in an order that, in Roll Call's words, "cements a new GOP-drawn congressional map for the Lone Star State" aimed at five Democratic-held seats. The three Democratic appointees dissented.
+
+The case that the lines decide less rests on a different method. Party tallies count each state's targeted seats; simulation studies compare each enacted map with thousands of computer-drawn maps that follow the state's own rules and use no partisan data, then score them all on the same past vote. Using that design on every 2020-cycle map, Kenny, McCartan, Simko, Kuriwaki and Imai found that "partisan gerrymandering is widespread," but that "most of the electoral bias it creates cancels at the national level, giving Republicans two additional seats on average." Geography and redistricting rules separately added "a moderate pro-Republican bias." A 2025 preprint from the same group went further on geography: shifts in where voters live reduced "the Republican geographic advantage from 14 to 10 seats," and "the pro-Republican bias declined from 16 to 10 seats" in total.
+
+The two sides are not reading one number differently; they are using different numbers. The NBC figures are ceilings that assume past voting patterns hold, and they are not scored against a neutral baseline. The simulation figures are scored against a neutral baseline, but they end before the mid-decade maps.
+
+**What would settle it:** a simulation study in the Kenny-Imai design that scores the nine maps in force for 2026, and every other state's map, against neutral plans on the same past vote, and reports the national net against the 2022 baseline.
+
+## Why the war widened in the spring
+
+One ruling changed the pace. On April 29, 2026, the Supreme Court decided Louisiana v. Callais 6-3, holding that Louisiana's map with a second majority-Black district was an unconstitutional use of race. Writing for the majority, Justice Alito said Section 2 of the Voting Rights Act "requires evidence giving rise to a strong inference of intentional discrimination." Justice Kagan answered in dissent: "Today's decision renders Section 2 all but a dead letter."
+
+Callais is about race, not party; its link to partisan maps runs through what states did next. Florida's legislature passed a new map the same day that, on 2024 presidential results, would shift four seats toward Republicans. Mississippi's governor called a special session, and Louisiana's governor and attorney general said the state could not hold congressional elections under its current map. For supporters of a ban, that is the point: with Section 2 narrowed and federal courts out of partisan cases since Rucho, legislation is the check that is left.
+
+## Crux two: lines or sorting?
+
+[The second crux](/topics/partisan-gerrymandering#crux-does-it-harm-democracy) asks whether gerrymandered maps, more than where voters live, explain the loss of competitive seats and the rise in polarization.
+
+The skeptics' strongest evidence is old and well regarded. In 2009 McCarty, Poole and Rosenthal, who built the standard measure of congressional ideology, wrote of the districting-polarization link: "We find very little evidence for such a link." Simulated neutral maps produced polarization not much below actual levels, because "congressional polarization is primarily a function of the differences in how Democrats and Republicans represent" the same kinds of districts, "rather than a function of which districts each party represents." The 2025 Imai-group preprint found that "shifts in political geography and gerrymandering reduced the number of highly competitive districts by over 25%" between the 2010 and 2020 cycles, and that geographic polarization drove most of that decline.
+
+The reformers' answer is that gerrymanders are not the only cause, only the one a law can reach. The same 2023 study that found the national seat effect small also found that "partisan gerrymandering reduces electoral competition" and makes the House less responsive to swings in the national vote. Dave Wasserman of the Cook Political Report told NPR that redistricting and sorting "feed off of each other and compound to absolutely eviscerate the number of swing seats."
+
+So both sides agree line-drawing contributes. They disagree about how much a ban would give back.
+
+**What would settle it:** for each state and cycle since 2000, the number of districts within five points under enacted maps against the number under simulated neutral maps on the same vote, plus the voting records of members whose districts became competitive compared with those whose districts stayed safe.
+
+## Crux three: do commissions draw better maps?
+
+[The third crux](/topics/partisan-gerrymandering#crux-who-draws-the-lines) asks whether independent commissions draw more competitive maps than legislatures, and hold up under partisan pressure.
+
+The best cross-state evidence favors them. Studying House elections from 1982 to 2018, Matthew Nelson found that, compared with legislative maps, "independent commissions are 2.25 times more likely to have competitive elections," and 3.01 times more likely to have semi-competitive ones, with a 52% drop in incumbent-party wins. Court-drawn districts were 1.51 times as likely to be competitive. In California, only 5.2% of districts had a competitive election before the commission; afterward the figure was 14.6%.
+
+The skeptics point to cases where the reform did less than promised. FairVote, a reform group, studied Arizona's House races from 1984 to 2012 and concluded that "neither of the two measures studied here point to a game changing or consistent increase in district competition"; in 2012, "three-fifths of the state's districts were safe." Virginia's new bipartisan commission deadlocked in 2021, missed its October 25 and November 8 deadlines for congressional maps, and handed the job to the state supreme court. Ohio's commission unanimously passed a 12-3 Republican-leaning map in October 2025, up from a 10-5 split, a map lawmakers of both parties called a "compromise." And California's voters set their own commission aside when Texas moved.
+
+The two records fit together better than the talking points suggest. Nelson found that political commissions, with legislators or elected officials on them, did not differ significantly from legislatures, and Virginia's and Ohio's were of that kind. The open question is whether truly independent commissions keep their edge when like states are compared, and whether they survive a party that decides to override them.
+
+**What would settle it:** a before-and-after comparison of House races in the states that adopted independent commissions (Arizona, California, Colorado, Michigan) against matched states that kept legislative maps, benchmarked to simulated neutral maps, from 2002 to 2024.
+
+## Crux four: disarm alone, or only together?
+
+[The fourth crux](/topics/partisan-gerrymandering#crux-disarm-alone) is the one no study will close. Should a state give up partisan maps while other states keep drawing them, or only under a national rule?
+
+The case for answering in kind is Proposition 50. California, the reform movement's model state, voted to suspend its commission's map for three elections in response to Texas. Barack Obama, in an ad for the measure, said: "Republicans want to steal enough seats in Congress to rig the next election and wield unchecked power for two more years." Arnold Schwarzenegger, who had pushed for the commission, said the measure would "take the power away from the people." On this view, a state that disarms alone hands seats to the other party, so restraint makes sense only if everyone is bound at once.
+
+The case for restraint turns that into an argument for a national rule. Rep. Kevin Kiley, a California Republican, has introduced H.R. 4889, which his office says "will nullify new maps adopted by states after the November 2024 election, that way all current maps are preserved." "A nationwide redistricting war is not what our country needs," Kiley said. Voters across parties sound wary of the redraws: a Noble Predictive Insights poll for Common Cause, fielded August 26 to September 2, 2025, found 51% of Republicans, 70% of Democrats and 60% of independents opposed "allowing political parties to engage in mid-decade redistricting," and 60% of 2024 Trump voters supported Congress stepping in. The poll was commissioned by an anti-gerrymandering group, and Kiley's bill would lock in the pre-2025 maps, gerrymandered or not.
+
+The map marks this crux as a difference in values. Seat effects and opinion can be measured. Whether a state owes its own voters fair maps regardless of what rival states do, or should fight with the same weapon until a rule binds both parties, is a judgment about fair play that no measurement settles. If two people agree on the seat numbers and still disagree here, more data will not help them, and it is worth saying so.
+
+## What would change minds
+
+Each side has named the evidence that would move it.
+
+- **Reformers would concede ground** if simulations of the 2026 maps showed a national net of a seat or two, if neutral maps produced few more competitive districts, or if matched studies found commission states gained no more close races once geography was accounted for.
+- **Skeptics would concede ground** if those simulations showed a net of five or more seats, if members from newly competitive districts voted measurably less partisan, or if independent commissions held up in matched comparisons.
+- **On the value question,** some reformers would grant that retaliation can serve the goal if moves like Proposition 50 led to a national rule faster than restraint did; some defenders of retaliation would reconsider if tit-for-tat redraws kept spreading with no national rule in sight while the net seat effect stayed small.
+
+## What to watch next
+
+Without guessing at any outcome, these will tell you more about the fight than tonight's seat count.
+
+- **Missouri's referendum.** The Missouri Supreme Court ruled that the referendum petition on the state's new map "was legal, sufficient, and timely," so the map will not take effect "unless and until approved by the voters at the November 2026 general election." That vote is part of this election.
+- **Maryland.** As of August, its legislature had approved a November 2026 ballot referral to loosen constitutional limits on congressional redistricting, and a lawsuit sought to block it.
+- **The neutral-map update.** The first simulation study to score the 2026 maps against neutral baselines will speak directly to crux one.
+- **More post-Callais redraws.** Ballotpedia noted an analysis by The Downballot identifying 12 districts across eight southern states where Republicans could seek to redraw before 2028.
+- **Congress.** Whether H.R. 4889 or any national rule gets a vote tests whether "only together" has a path.
+
+When the returns come in, remember what they cannot show: a party gaining a redrawn seat does not measure what the new line did, because the old district might have flipped in a strong year too. Three of the four questions can be answered with careful work on public data. You can follow the evidence on each, and what would settle it, on the [full map](/topics/partisan-gerrymandering). If you are in an argument about redistricting right now, [paste it in](/analyze) to see which of the four questions it is really about.`,
+  },
+  // ──────────────────────────────────────────────────────────────────────────
   // We Gave a Model That Can't Talk 1,000 Arguments. Here Is What It Got Right.
   // ──────────────────────────────────────────────────────────────────────────
   {

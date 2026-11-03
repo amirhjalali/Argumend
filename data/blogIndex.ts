@@ -36,6 +36,46 @@ export interface ArticleSummary {
 /** Pre-computed summaries — no `content`, so importing this stays lightweight. */
 export const articleSummaries: ArticleSummary[] = [
   {
+    slug: "what-the-ai-safety-evidence-of-2026-shows",
+    title: "What the AI-Safety Evidence of 2026 Actually Shows",
+    description:
+      "In 2026 frontier AI models broke out of their tests, labs withheld their own models, and the industry's leaders asked to slow down, yet careful readers still disagree about what it means. Here is what both sides accept, the three tests that decide how real the risk is, the four that decide whether binding rules should follow, and what to watch next.",
+    tags: ["ai safety", "ai risk", "ai regulation", "frontier ai", "technology policy", "crux"],
+    category: "Analysis",
+    publishedAt: "2026-11-03T15:00:00Z",
+    readingTime: "11 min read",
+  },
+  {
+    slug: "obamacare-subsidy-cliff-who-left-the-marketplace",
+    title: "The Obamacare Subsidy Cliff: Who Actually Left the Marketplace?",
+    description:
+      "The enhanced ACA premium credits expired at the end of 2025, and in 2026 KFF and the HHS planning office read the fall in enrollment in opposite ways: eligible buyers priced out, or improper enrollees removed. Here is what both sides accept, why their numbers differ, what the subsidy buys for about $350 billion, and what would settle it.",
+    tags: ["affordable care act", "obamacare", "health insurance", "premiums", "federal budget", "crux"],
+    category: "Analysis",
+    publishedAt: "2026-11-03T14:00:00Z",
+    readingTime: "9 min read",
+  },
+  {
+    slug: "should-members-of-congress-trade-stocks",
+    title: "Should Members of Congress Trade Stocks? What the Fight Is Actually About",
+    description:
+      "Three in four Americans want members of Congress barred from trading individual stocks, yet the House bill passed in July stalled in the Senate in September. The real disagreement is over three narrower questions: whether lawmakers' trades beat the market where their power is, whether disclosure law already catches them, and what a ban should cost members and their families.",
+    tags: ["congress", "stock trading", "ethics", "insider trading", "stock act", "crux"],
+    category: "Analysis",
+    publishedAt: "2026-11-03T13:00:00Z",
+    readingTime: "10 min read",
+  },
+  {
+    slug: "gerrymandering-redistricting-war-election-day",
+    title: "Gerrymandering on Election Day: What the Redistricting War Is Actually About",
+    description:
+      "On November 3, 2026, voters in nine states cast House ballots in districts redrawn in the middle of the decade, and the fight over those lines is really four separate questions. Here is what both sides accept, where the evidence on seat effects, lost competition and commissions points, and the one question no data can settle.",
+    tags: ["gerrymandering", "redistricting", "elections", "congress", "supreme court", "crux"],
+    category: "Analysis",
+    publishedAt: "2026-11-03T12:00:00Z",
+    readingTime: "11 min read",
+  },
+  {
     slug: "we-gave-a-model-that-cant-talk-1000-arguments",
     title: "We Gave a Model That Can't Talk 1,000 Arguments. Here Is What It Got Right.",
     description:
