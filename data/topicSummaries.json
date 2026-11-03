@@ -1618,9 +1618,9 @@
     "title": "Are Ultra-Processed Foods Driving the Obesity Epidemic?",
     "question": "Are ultra-processed foods the main driver of obesity and chronic disease?",
     "meta_claim": "Ultra-processed foods are the primary driver of the global obesity and chronic disease epidemic, and their regulation would significantly improve public health outcomes.",
-    "confidence_score": 62,
-    "balance": 62,
-    "weight": 66,
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1628,12 +1628,12 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Do people overeat because food is processed, or because of its energy density, taste and eating speed?",
     "tags": [
       "science"
     ],
-    "keywords": "nova upfs overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing gastroenterology gibney monteiro moss neltner rauber"
+    "keywords": "nova upfs unprocessed overconsumption petition carboxymethylcellulose emulsifier umbrella microbiome chassaing cream gastroenterology gibney monteiro moss"
   },
   {
     "id": "longevity-science",
