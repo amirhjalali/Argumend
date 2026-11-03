@@ -65,7 +65,7 @@ export const veganismEnvironmentalData = {
           id: "oxford-nature-food-2023",
           title: "Oxford Study: Vegan Diets Have ~75% Less Environmental Impact",
           description:
-            "Scarborough et al. at Oxford linked dietary data for 55,504 UK adults (vegans, vegetarians, fish-eaters, meat-eaters) to environmental impact databases drawn from a review of 570 life-cycle assessments. Published in Nature Food (2023), the study found vegans' dietary impacts were ~25% of high-meat-eaters' for greenhouse gas emissions (i.e. ~75% lower) and ~25% for land use, with vegans at 27.0% for eutrophication, 34.3% for biodiversity, and 46.4% for water use relative to high-meat-eaters. (Note: the water-use figure is ~54% lower, not 73%.)",
+            "Scarborough et al. at Oxford linked dietary data for 55,504 UK adults (vegans, vegetarians, fish-eaters, meat-eaters) to environmental impact databases drawn from a review of 570 life-cycle assessments. Published in Nature Food (2023), the study found vegans' dietary impacts were ~25% of high-meat-eaters' for greenhouse gas emissions (i.e. ~75% lower) and ~25% for land use, with vegans at 27.0% for eutrophication, 34.3% for biodiversity, and 46.4% for water use relative to high-meat-eaters (so water use was ~54% lower). The uncertainty intervals are wide, for land use 7.1% to 44.5%.",
           side: "for" as const,
           weight: {
             sourceReliability: 10,
@@ -190,7 +190,7 @@ export const veganismEnvironmentalData = {
           id: "developing-nation-access",
           title: "Animal-Source Foods Critical in Food-Insecure Regions",
           description:
-            "The FAO and WHO recognize that in low-income countries, animal-source foods provide essential micronutrients (iron, zinc, B12, vitamin A) that are difficult to obtain from available plant foods alone. In sub-Saharan Africa and South Asia, where dietary diversity is limited and supplement distribution is poor, removing animal products could worsen malnutrition.",
+            "Headey, Hirvonen and Hoddinott analyzed 130,432 children aged 6-23 months in 49 countries and found strong associations between stunting and low consumption of animal-sourced foods (dairy, meat/fish and eggs), with multiple animal-sourced foods more advantageous than any single one. Fresh milk and eggs are a very expensive source of calories in low-income countries, and their prices strongly predict children's consumption. Where diets are already short of these foods, pushing them lower could worsen child undernutrition.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -199,10 +199,10 @@ export const veganismEnvironmentalData = {
             directness: 7,
           },
           source:
-            "Headey, Hirvonen & Hoddinott, Am. J. Agric. Econ. 100(5):1302–1319 (2018); FAO (2023)",
+            "Headey, Hirvonen & Hoddinott, 'Animal Sourced Foods and Child Stunting', Am. J. Agric. Econ. 100(5):1302–1319 (2018)",
           sourceUrl: "https://onlinelibrary.wiley.com/doi/full/10.1093/ajae/aay053",
           reasoning:
-            "Legitimate concern for global applicability. Headey et al. (2018) analyzed ~130,000 children across 49 low-income countries and found animal-source food consumption strongly associated with reduced child stunting. (Citation corrected: the study appeared in the American Journal of Agricultural Economics, not Global Food Security.) The environmental case for veganism is strongest in wealthy nations where dietary choices are unconstrained.",
+            "Legitimate concern for global applicability, from a large multi-country analysis. The associations are observational, not causal estimates. The environmental case for veganism is strongest in wealthy nations where dietary choices are unconstrained.",
         },
       ],
     },
