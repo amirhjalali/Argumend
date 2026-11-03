@@ -55,6 +55,8 @@
     { "query": "smrs", "expected": ["nuclear-renaissance-smr"], "kind": "abbreviation" },
     { "query": "nuclear deterrence", "expected": ["nuclear-weapons-abolition"], "kind": "keyword" },
     { "query": "abolition of nuclear weapons", "expected": ["nuclear-weapons-abolition"], "kind": "phrase" },
+    { "query": "climate", "expected": ["climate-change"], "kind": "keyword", "note": "r10 follow-up (2026-11-02): the library listed the carbon-tax map first because its tags include 'climate'; the header search already put the climate-change map first." },
+    { "query": "ai", "expected": ["ai-mass-unemployment"], "kind": "keyword", "note": "r10 follow-up (2026-11-02): the library listed two maps tagged 'ai' (energy footprint, autonomous weapons) above the flagship AI map." },
     { "query": "abortion", "expected": [], "maxMaps": 0, "kind": "no-map", "note": "r6 live review #4: returned the nuclear-deterrence map (abortion~abolition), then every map whose question says 'about' (abort~about)." },
     { "query": "abortion rights", "expected": [], "maxMaps": 3, "kind": "no-map", "note": "No map on abortion; maps on other rights may be listed, a few at most." },
     { "query": "gay marriage", "expected": [], "maxMaps": 0, "kind": "no-map", "note": "Was gain-of-function first: 'gay' stems to 'gai', which starts 'gain'." },

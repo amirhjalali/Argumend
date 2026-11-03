@@ -1,5 +1,7 @@
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { MAP_COUNT } from "@/data/topicIndex";
+import { MAP_COUNT, topicSummaries } from "@/data/topicIndex";
+import { loadTopicById } from "@/data/topicLoader";
+import { agreedFactCards, agreedFacts } from "@/lib/topicPage/legacy";
 import { EXAMPLE_ANALYSIS_TEXT } from "@/lib/constants";
 import { DISAGREEMENT_EXAMPLE_SOURCE } from "@/lib/disagreement/constants";
 import type { Pillar } from "@/lib/schemas/topic";
@@ -432,6 +434,28 @@ describe("findMaps", () => {
       match: { ...result.match, cards: [{ ...borrowed, crux: { question: borrowed.crux!.question, href: 12 } }] },
     }).success).toBe(false);
   });
+
+  it("never shows a card that restates an agreed fact as a side's card, on any pillar map", async () => {
+    // r10 follow-up (2026-11-02): the topic page never offers such a card as
+    // a side's best card (lib/topicPage/legacy.ts, restatesAgreement); the
+    // paste result did. Pasting the agreed fact itself is the hardest case:
+    // the card that restates it shares the most words with the paste.
+    const shown: string[] = [];
+    for (const { id } of topicSummaries) {
+      const topic = await loadTopicById(id);
+      if (!topic) continue;
+      const agreed = new Set([...agreedFactCards(topic)].map((card) => `${card.id}|${card.description}`));
+      if (agreed.size === 0) continue;
+      const pastes = [...agreedFacts(topic), ...topic.pillars.map((pillar) => pillar.crux.question ?? pillar.title)];
+      for (const paste of pastes) {
+        const match = await matchOnMap(id, paste);
+        for (const card of match?.cards ?? []) {
+          if (agreed.has(`${card.id}|${card.description}`)) shown.push(`${id}/${card.id} for “${paste.slice(0, 60)}”`);
+        }
+      }
+    }
+    expect(shown, shown.join("\n")).toEqual([]);
+  }, 60_000);
 
   it("surfaces the scoped GAO evidence for a FOSTA argument while keeping its question and a contrasting side", async () => {
     const result = await findMaps("FOSTA changed Section 230. Did it actually deter trafficking, or did liability cause platforms to remove lawful speech and useful safety tools?");

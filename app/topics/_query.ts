@@ -154,19 +154,20 @@ export const queryForTopicsMetadata = queryForTopicsState;
  * The maps that answer a search, best first, by map id. Built on first use
  * and kept: the server page and the client list both call it. Hyphens read
  * as spaces, so an old tag URL (/topics/tag/public-health, redirected to
- * ?q=public-health) finds the maps tagged "public-health" first.
+ * ?q=public-health) finds the maps tagged "public-health".
+ *
+ * The order is the header search's, untouched. The ranking already lists
+ * every map carrying a tag the query names (lib/siteSearch.ts reads an exact
+ * tag as an answer), so the library no longer lifts tagged maps over better
+ * name matches: until 2026-11-02 "climate" listed the carbon-tax map (tagged
+ * "climate") above the climate-change map, and "ai" put the flagship AI map
+ * third.
  */
 let librarySearch: ((query: string) => { mapId: string }[]) | undefined;
 
 export function rankLibrarySearch(search: string): string[] {
   librarySearch ??= createSiteSearch(MAP_SEARCH_ITEMS);
-  const ranked = librarySearch(search.replace(/-+/g, " ")).map((item) => item.mapId);
-  // A search that is exactly a tag lists every map carrying it first.
-  const tag = search.trim().toLowerCase();
-  const tagged = new Set(topicSummaries.filter((topic) => topic.tags.includes(tag)).map((t) => t.id));
-  if (tagged.size === 0) return ranked;
-  const rest = ranked.filter((id) => !tagged.has(id));
-  return [...ranked.filter((id) => tagged.has(id)), ...[...tagged].filter((id) => !ranked.includes(id)), ...rest];
+  return librarySearch(search.replace(/-+/g, " ")).map((item) => item.mapId);
 }
 
 /**
