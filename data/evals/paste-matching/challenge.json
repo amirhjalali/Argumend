@@ -430,6 +430,74 @@
         "immigration-border-crisis"
       ],
       "note": "Added 2026-11-03 (r14); label fixed before running. Neighbour trap: opens on illegal immigration, the border map's subject."
+    },
+    {
+      "id": "challenge-stock-ban-pelosi-calls",
+      "form": "rant",
+      "text": "Funny how a congressman's spouse always buys the call options a few weeks before the bill passes. They sit in closed briefings we never hear about. Make them hold index funds like the rest of us have in our 401k, or don't run for office.",
+      "expected": [
+        "congress-stock-trading-ban"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r15); label fixed before running."
+    },
+    {
+      "id": "challenge-stock-ban-already-illegal",
+      "form": "conversation",
+      "text": "A: Insider trading is already illegal, for senators too. Why pass a whole new ban? B: Because the fine for filing a trade late is $200 and nobody has ever been charged for trading on a committee briefing. A: So enforce the law we have instead of telling a senator's wife she can't own Apple.",
+      "expected": [
+        "congress-stock-trading-ban"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r15); label fixed before running. Neighbour trap: none of the map's title words (Congress, stocks) appear."
+    },
+    {
+      "id": "challenge-gerrymander-texas-prop50",
+      "form": "conversation",
+      "text": "A: Texas redrew its districts in the middle of the decade just to grab five seats because Trump asked. B: And California did the exact same thing with Prop 50. A: Which is why the only fix is a national rule so nobody gets to draw lines for their own party.",
+      "expected": [
+        "partisan-gerrymandering"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r15); label fixed before running. Neighbour trap: Trump and party vocabulary shared with election maps."
+    },
+    {
+      "id": "challenge-gerrymander-sorting",
+      "form": "reply",
+      "text": "People blame gerrymandering for polarization but voters just live near people who vote like them now. Rural counties go 80-20 one way and cities 80-20 the other no matter how you draw the lines. An independent commission won't make many more districts competitive.",
+      "expected": [
+        "partisan-gerrymandering"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r15); label fixed before running."
+    },
+    {
+      "id": "challenge-aca-premium-jump",
+      "form": "rant",
+      "text": "My marketplace premium went from about $90 a month to almost $600 in January because the extra tax credits expired. I'm 58, I make a bit over 400% of poverty, and now I'm on a bronze plan with a $7,000 deductible. Congress just let it lapse.",
+      "expected": [
+        "aca-enhanced-subsidies"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r15); label fixed before running. Neighbour trap: health-insurance vocabulary shared with universal-healthcare and medicaid-work-requirements."
+    },
+    {
+      "id": "challenge-aca-phantom-enrollees",
+      "form": "conversation",
+      "text": "A: Millions of people dropped their Obamacare plans this year. That's the subsidy cliff. B: A lot of those were phantom enrollees that brokers signed up for zero-premium plans without telling them. A: Then go after the brokers, don't jack up premiums for everyone who actually uses their insurance.",
+      "expected": [
+        "aca-enhanced-subsidies"
+      ],
+      "related": [],
+      "note": "Added 2026-11-03 (r15); label fixed before running."
+    },
+    {
+      "id": "challenge-neg-ranked-choice",
+      "form": "conversation",
+      "text": "A: Ranked-choice voting would end the spoiler problem in our primaries. B: It confuses voters and the count takes weeks. A: Alaska and Maine manage fine, and candidates have to court each other's supporters.",
+      "expected": [],
+      "related": [],
+      "note": "Added 2026-11-03 (r15); label fixed before running. Off-library negative near the new redistricting map's election vocabulary."
     }
   ]
 }
