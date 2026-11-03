@@ -133,6 +133,43 @@ export const drugDecriminalizationData = {
           reasoning:
             "Highly reliable mortality data showing criminalization has coincided with record harm. Low directness: correlation, not causation — rising deaths are driven primarily by the fentanyl supply shift, not the choice between criminalization and decriminalization. The prior '50-fold increase since 1979' framing was dropped as it overstated a clean causal story.",
         },
+        {
+          id: "bc-decrim-pilot-ended-2026",
+          title: "British Columbia Let Its Three-Year Decriminalization Pilot Lapse on 31 January 2026, Saying It Had Not Delivered",
+          description:
+            "British Columbia decriminalized possession of small amounts of opioids, cocaine, methamphetamine and MDMA for adults under a Health Canada exemption launched in 2023. A 2024 amendment had already limited legal possession to private homes, places where homeless people are legally sheltering, and designated health and overdose-response sites. On 14 January 2026 Health Minister Josie Osborne said the province would not seek a renewal because the pilot 'hasn't delivered the results' officials hoped for (The Canadian Press), even though it ran alongside supervised consumption and safer supply. The provincial government's page states: 'The exemption expired on Jan. 31, 2026 and will not be renewed.' Safer-supply distribution, supervised consumption sites and drug checking continue. As of November 2026, both North American jurisdictions that removed criminal penalties for possession, Oregon and British Columbia, have restored them.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 5,
+            replicability: 5,
+            directness: 4,
+          },
+          source:
+            "Government of British Columbia, 'Decriminalization in B.C.'; The Canadian Press via National Newswatch, 'B.C. ending its 3-year drug decriminalization pilot project' (14 Jan 2026)",
+          sourceUrl: "https://www2.gov.bc.ca/gov/content/overdose/decriminalization",
+          reasoning:
+            "A second jurisdiction, with a funded harm-reduction system, chose to end decriminalization, which is real evidence that the Portugal result does not travel easily. But it is a political judgment, not an outcome study: the government's page reports no evaluation results, the federally funded third-party study is not summarized, and B.C.'s deaths over the pilot moved with a continent-wide fentanyl supply. Directness is held to 4 for that reason, and independence to 5 because the source is the government that made the decision.",
+        },
+        {
+          id: "spencer-oregon-synthetic-control",
+          title: "Spencer (2022): Synthetic-Control Estimate Put Oregon's Extra Overdose Deaths in 2021 at 181, a 23% Rise, a Result Later Studies Dispute",
+          description:
+            "University of Toronto economist Noah Spencer used the synthetic control method to compare Oregon after Measure 110 with a weighted blend of states that did not decriminalize. His working paper (29 November 2022) reports that decriminalization 'caused 181 additional drug overdose deaths during the remainder of 2021', which 'represents a 23% increase over the number of drug overdose deaths predicted if Oregon had not decriminalized drugs.' He notes the policy came without substantial public-health investment. A September 2024 JAMA Network Open cohort study by Zoorob, Park, Kral, Lambdin and del Pozo replicated the positive association, then added each state's fentanyl exposure; the decriminalization estimate fell to 0.09 (SE 0.11) for Oregon and was no longer significant.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 7,
+            replicability: 3,
+            directness: 5,
+          },
+          source:
+            "Spencer, 'Does drug decriminalization cause more drug overdose deaths? Evidence from Oregon Measure 110', University of Toronto Working Paper tecipa-745 (2022); rebuttal: Zoorob et al., JAMA Network Open 2024;7(9):e2431612",
+          sourceUrl:
+            "https://www.economics.utoronto.ca/index.php/index/research/workingPaperDetails/745",
+          reasoning:
+            "The strongest quantitative case that decriminalization without treatment raised deaths, from an independent academic. Weighted low on purpose: the effect disappears once fentanyl's arrival in Oregon is measured (Zoorob et al., 2024), and other peer-reviewed models found no effect, so replicability is 3. It is kept because it is the estimate critics cite, and showing it next to the replication lets a reader see why it does not settle the question.",
+        },
       ],
     },
     {
@@ -227,6 +264,24 @@ export const drugDecriminalizationData = {
           sourceUrl: "https://www.antoniocasella.eu/archila/Marlowe_drug_courts_2010.pdf",
           reasoning:
             "Strong evidence that criminal-justice-linked treatment can work, supporting the case for maintaining criminal entry points. The '~5% of eligible' figure was softened to a qualitative 'small share' as it could not be pinned to a single authoritative source. Limited by selection bias (motivated participants).",
+        },
+        {
+          id: "nida-legal-pressure-outcomes",
+          title: "NIDA: People Who Enter Treatment Under Legal Pressure Do as Well as Voluntary Patients",
+          description:
+            "The National Institute on Drug Abuse's 'Principles of Drug Addiction Treatment: A Research-Based Guide' (third edition, January 2014, revised January 2018) lists as principle 11: 'Treatment does not need to be voluntary to be effective. Sanctions or enticements from family, employment settings, and/or the criminal justice system can significantly increase treatment entry, retention rates, and the ultimate success of drug treatment interventions.' Its criminal-justice section adds: 'Research has demonstrated that individuals who enter treatment under legal pressure have outcomes as favorable as those who enter treatment voluntarily,' and 'Individuals under legal coercion tend to stay in treatment longer and do as well as or better than those not under legal pressure.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 6,
+            directness: 5,
+          },
+          source:
+            "National Institute on Drug Abuse, 'Principles of Drug Addiction Treatment: A Research-Based Guide (Third Edition)', NIH (2014, revised 2018)",
+          sourceUrl: "https://www.nida.nih.gov/sites/default/files/podat-3rdEd-508.pdf",
+          reasoning:
+            "The federal research institute's summary view, which cuts against the claim that coerced treatment fails. Directness is 5: 'as favorable as' voluntary entry shows legal pressure does not spoil treatment, but it does not show arrest is needed to get people there, which is the crux. 'Sanctions or enticements' also covers family and employer pressure, and a Portuguese dissuasion commission is itself a form of non-criminal pressure. The guide is a narrative summary rather than a new meta-analysis, so replicability is 6.",
         },
         {
           id: "incarceration-cost-data",
