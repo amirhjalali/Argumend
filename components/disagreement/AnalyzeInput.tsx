@@ -1,8 +1,11 @@
 "use client";
 
-import { useId } from "react";
+import { useId, useLayoutEffect, useRef } from "react";
 import { PASTE_LIMITS } from "@/lib/paste/limits";
 import type { DisagreementContentType } from "@/types/disagreement";
+
+/** The tallest the box grows before it scrolls, in CSS pixels. */
+const MAX_HEIGHT = 420;
 
 const TYPE_LABEL: Record<DisagreementContentType, string> = {
   conversation: "Conversation",
@@ -14,6 +17,10 @@ const TYPE_LABEL: Record<DisagreementContentType, string> = {
  * The paste box. The content type is a quiet segmented control rather than
  * three filled pills, so the only filled shape above the fold is the submit
  * button.
+ *
+ * Empty, the box is four lines tall, so the submit button stays on the first
+ * screen of a phone (390×844) and a laptop (1440×900); it grows with what is
+ * pasted, up to `MAX_HEIGHT`, then scrolls (r10 live review #3).
  */
 export function AnalyzeInput({
   content,
@@ -32,6 +39,19 @@ export function AnalyzeInput({
   label?: string;
 }) {
   const limitId = useId();
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  useLayoutEffect(() => {
+    const element = textareaRef.current;
+    if (!element) return;
+    // Measured from its natural height each time, so it shrinks again when
+    // text is deleted. `rows` sets the floor.
+    element.style.height = "auto";
+    if (element.scrollHeight > element.clientHeight) {
+      element.style.height = `${Math.min(element.scrollHeight + 2, MAX_HEIGHT)}px`;
+    } else {
+      element.style.height = "";
+    }
+  }, [content]);
   const tooLong = content.length > PASTE_LIMITS.maxCharacters;
   const characterLimit = PASTE_LIMITS.maxCharacters.toLocaleString("en-US");
   return (
@@ -68,13 +88,14 @@ export function AnalyzeInput({
       <label className="block">
         <span className="sr-only">{label}</span>
         <textarea
+          ref={textareaRef}
           value={content}
           disabled={disabled}
           onChange={(event) => onContentChange(event.target.value)}
-          rows={11}
+          rows={4}
           aria-invalid={tooLong || undefined}
           aria-describedby={tooLong ? limitId : undefined}
-          className="w-full resize-y rounded-lg border border-[var(--border-default)] bg-[var(--bg-input)] p-4 font-sans text-base leading-relaxed text-[var(--text-primary)] placeholder:font-serif placeholder:text-lg placeholder:italic placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-focus disabled:opacity-60"
+          className="w-full resize-y overflow-y-auto rounded-lg border border-[var(--border-default)] bg-[var(--bg-input)] p-4 font-sans text-base leading-relaxed text-[var(--text-primary)] placeholder:font-serif placeholder:text-lg placeholder:italic placeholder:text-[var(--text-muted)] focus:border-deep focus:outline-none focus:ring-2 focus:ring-focus disabled:opacity-60"
           placeholder="Paste a conversation, article, or argument."
         />
       </label>
