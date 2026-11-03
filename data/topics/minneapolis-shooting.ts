@@ -26,7 +26,7 @@ export const minneapolisShootingData = {
   // ── The opening: the fact under the title ──
   keystone_fact: {
     statement:
-      "Federal immigration agents shot Alex Pretti, a 37-year-old ICU nurse, on a Minneapolis street on 24 January 2026, and the Hennepin County medical examiner classed his death a homicide caused by multiple gunshot wounds. Nine months later no one has been charged, and the county attorney says federal agencies are withholding evidence she needs to decide whether to charge. The fight is over what the agents' body cameras and the bystander videos show.",
+      "Federal immigration agents shot Alex Pretti, a 37-year-old intensive-care nurse at the Minneapolis VA, on a Minneapolis street on 24 January 2026, and the Hennepin County medical examiner classed his death a homicide caused by multiple gunshot wounds. Nine months later no one has been charged, and the Hennepin County Attorney says the federal government is obstructing her office's investigation and wrongly withholding evidence. The fight is over what the agents' body cameras and the bystander videos show.",
     confidence: 95,
     source:
       "Hennepin County Medical Examiner, public data form for ME no. 2026-00537 (released 2 February 2026); ABC News, 'Alex Pretti's parents seek answers from federal government 9 months after son's killing' (27 October 2026)",
