@@ -81,7 +81,7 @@ export const socialMediaElectionsData = {
           id: "haugen-facebook-files",
           title: "Facebook Whistleblower Reveals Internal Research on Algorithmic Harm (2021)",
           description:
-            "In October 2021, former Facebook product manager Frances Haugen disclosed thousands of internal documents showing that Facebook's own researchers had concluded the platform's algorithms amplified divisive content. Internal presentations stated: 'Our algorithms exploit the human brain's attraction to divisiveness,' and that a 2018 algorithm change prioritizing 'meaningful social interactions' instead boosted outrage-inducing content. Internal research found that 10% of political content on the platform was misinformation, and that the company repeatedly chose growth over safety when the two conflicted.",
+            "In 2021, former Facebook product manager Frances Haugen disclosed thousands of internal documents, published by the Wall Street Journal as the Facebook Files, showing that Facebook's own researchers had found that a 2018 ranking change prioritizing 'meaningful social interactions' instead boosted outrage-inducing content. Haugen told the US Senate in October 2021 that the company's leadership put profits before people when the two conflicted. An earlier Journal report (May 2020) had described a 2018 internal slide warning that Facebook's algorithms 'exploit the human brain's attraction to divisiveness'; Facebook's integrity chief said that story 'willfully ignored critical facts that undermined its narrative.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -89,7 +89,7 @@ export const socialMediaElectionsData = {
             replicability: 7,
             directness: 9,
           },
-          source: "The Facebook Files — Wall Street Journal; US Senate Commerce Committee testimony",
+          source: "The Facebook Files — Wall Street Journal (September 2021); US Senate Commerce Committee testimony (5 October 2021); AFP, 'Facebook denies sidelining research on site's divisiveness' (28 May 2020)",
           sourceUrl: "https://www.wsj.com/articles/the-facebook-files-11631713039",
           reasoning:
             "Internal company documents are uniquely valuable because they represent Meta's own conclusions about its platform. Frances Haugen testified under oath before the US Senate. However, the documents were selectively disclosed and may not represent the full picture of internal debate. Meta contested Haugen's interpretations of the research.",
@@ -306,9 +306,9 @@ export const socialMediaElectionsData = {
         },
         {
           id: "kalla-broockman-meta-analysis",
-          title: "Meta-Analysis of 49 Experiments: Average Persuasion Effect of Political Ads Near Zero (2018)",
+          title: "49 Field Experiments: Average Persuasive Effect of Campaign Contact in General Elections Is Zero (2018)",
           description:
-            "Political scientists Joshua Kalla and David Broockman analyzed 49 pre-registered field experiments on the persuasion effects of political campaign contact, including advertising. They found that the average effect of campaign advertising on vote choice was statistically indistinguishable from zero in general elections, though effects were larger in primaries and for lesser-known candidates. The study concluded that the massive spending on political advertising — over $10 billion in 2020 — mostly reinforces existing preferences rather than changing minds.",
+            "Political scientists Joshua Kalla and David Broockman combined a meta-analysis of 40 existing field experiments with nine original ones on the persuasive effects of campaign contact and advertising. They argue that 'the best estimate of the effects of campaign contact and advertising on Americans' candidates choices in general elections is zero': both the meta-analysis and their own experiments averaged zero. Persuasion appeared only in two rare circumstances: when candidates took unusually unpopular positions and campaigns invested heavily in finding persuadable voters, and when voters were contacted long before election day and measured immediately, an effect that decayed.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -316,8 +316,8 @@ export const socialMediaElectionsData = {
             replicability: 9,
             directness: 8,
           },
-          source: "Kalla & Broockman, American Political Science Review (2018)",
-          sourceUrl: "https://www.cambridge.org/core/journals/american-political-science-review/article/minimal-persuasive-effects-of-campaign-contact-in-general-elections/034E3F4DA3A42E55B40B262BD0B0B05A",
+          source: "Kalla & Broockman, 'The Minimal Persuasive Effects of Campaign Contact in General Elections: Evidence from 49 Field Experiments', American Political Science Review 112(1) (2018)",
+          sourceUrl: "https://doi.org/10.1017/S0003055417000363",
           reasoning:
             "Published in the top political science journal, this meta-analysis is the most comprehensive evidence on political advertising effectiveness. The finding that persuasion effects are near zero is striking and well-supported. However, the analysis includes mostly traditional campaign contacts — the specific effects of AI-powered micro-targeting with individually customized messages have not been tested at this scale.",
         },

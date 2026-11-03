@@ -115,9 +115,9 @@ export const nuclearWeaponsAbolitionData = {
         },
         {
           id: "able-archer-1983",
-          title: "Able Archer 83: NATO Exercise Nearly Triggered Soviet Nuclear First Strike",
+          title: "Able Archer 83: A NATO Exercise Put Parts of Soviet Forces on Unusual Alert",
           description:
-            "In November 1983, NATO conducted Able Archer 83, a routine nuclear war simulation exercise. Declassified Soviet intelligence reports reveal that the KGB and GRU interpreted the exercise as potential cover for an actual first strike, placing Soviet nuclear forces on heightened alert. Soviet leader Yuri Andropov, influenced by the KGB's Operation RYAN (which sought indicators of Western attack preparations), seriously considered a preemptive nuclear strike. Only the cautious assessment of Soviet double-agent Oleg Gordievsky, relayed to British intelligence, alerted the West to the danger. A 1990 President's Foreign Intelligence Advisory Board (PFIAB) report — declassified in 2015 — concluded that Able Archer 83 'may have inadvertently placed our relations with the Soviet Union on a hair trigger,' and that US assessments at the time understated the risks.",
+            "In November 1983, NATO conducted Able Archer 83, a routine nuclear war simulation exercise. Soviet intelligence, primed by the KGB's Operation RYaN to look for signs of Western attack preparations, cabled its London station about alerts at US bases and speculated that NATO might be preparing a nuclear strike. A 1990 President's Foreign Intelligence Advisory Board (PFIAB) report, declassified in 2015, found that 'parts of the Soviet armed forces were moving to an unusual level of alert', including moving nuclear weapons from storage to delivery units, and concluded that the United States 'may have inadvertently placed our relations with the Soviet Union on a hair trigger'. It also found that 'the President was given assessments of Soviet attitudes and actions that understated the risks to the United States.' Oleg Gordievsky, a KGB officer working for British intelligence, revealed the Soviet reaction to the West. Soviet archives on the Politburo's response remain closed.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -125,10 +125,10 @@ export const nuclearWeaponsAbolitionData = {
             replicability: 7,
             directness: 8,
           },
-          source: "National Security Archive, 'The Able Archer 83 Sourcebook'; CIA FOIA releases; Jones (2016), 'Able Archer 83'",
-          sourceUrl: "https://nsarchive.gwu.edu/project/able-archer-83-sourcebook",
+          source: "National Security Archive, 'The Soviet \"War Scare\" Declassified and For Real' (24 October 2015, PFIAB report); Chatham House, 'Too Close for Comfort' (2014)",
+          sourceUrl: "https://nsarchive2.gwu.edu/nukevault/ebb533-The-Able-Archer-War-Scare-Declassified-PFIAB-Report-Released/",
           reasoning:
-            "Declassified intelligence from both sides confirms the severity of the incident. Able Archer demonstrates that nuclear war can be triggered by misperception during routine activities, not just during crises. The fact that survival depended on the information from a single double-agent underscores the fragility of the deterrence system.",
+            "Declassified intelligence from both sides confirms the severity of the incident. Able Archer demonstrates that nuclear war can be triggered by misperception during routine activities, not just during crises. That the West learned of the Soviet reaction largely through a single double agent underscores the fragility of the deterrence system.",
         },
       ],
     },
