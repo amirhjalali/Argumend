@@ -85,7 +85,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies sanders misalignment chronobiology clin fritz outdoor"
+    "keywords": "sunrise recreation circadian indiana doleac entrain kotchen monday robberies misalignment sanders chronobiology clin fritz outdoor"
   },
   {
     "id": "tipping-culture",
@@ -107,7 +107,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "lynn bartenders waitstaff danny flsa meyers ushg customarily diner goodwill gratitude gratuity kitchen lucrative mccall"
+    "keywords": "lynn bartenders waitstaff danny flsa meyers ushg customarily goodwill gratitude gratuity kitchen lucrative mccall oews"
   },
   {
     "id": "ai-therapy-chatbots",
@@ -403,7 +403,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat louisiana turnout brennan cantoni kansass pons tenth tribal campuses"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat turnout brennan cantoni kansass pons tenth tribal campuses mail"
   },
   {
     "id": "nuclear-energy-safety",
@@ -486,22 +486,29 @@
     "title": "Raising the Minimum Wage",
     "question": "Would a $15 federal minimum wage help workers without costing many jobs?",
     "meta_claim": "Raising the federal minimum wage to $15/hour or higher would significantly benefit low-wage workers without causing substantial job losses.",
-    "confidence_score": 61,
-    "balance": 61,
-    "weight": 63,
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 70,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "Does a minimum wage that is high relative to local wages, like $15 in a low-cost region, cost jobs?",
+    "pillarCount": 4,
+    "evidenceCount": 15,
+    "firstCrux": "Did the minimum-wage increases of the past 30 years cost low-wage jobs?",
     "tags": [
       "policy"
     ],
-    "keywords": "cengiz krueger eitc dube lindner oxfam zipperer bunching inwegen jardim neumark plotnick vigdor wascher wething"
+    "aliases": [
+      "Should the federal minimum wage be raised?",
+      "Does raising the minimum wage kill jobs?",
+      "Raise the Wage Act",
+      "Hawley-Welch $15 minimum wage bill",
+      "California $20 fast-food minimum wage"
+    ],
+    "keywords": "neumark krueger cengiz shirley sosinskiy wascher oklahoma reich eitc preponderance bobby dube lindner meer nguyen"
   },
   {
     "id": "drug-decriminalization",
@@ -656,7 +663,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular countercyclical"
+    "keywords": "carens remittances bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular countercyclical emigration"
   },
   {
     "id": "universal-basic-income",
@@ -745,7 +752,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "npvic compact trifecta gore hillary mega oklahoma clinton whoever donald"
+    "keywords": "npvic compact trifecta gore hillary mega clinton oklahoma whoever donald"
   },
   {
     "id": "surveillance-public-safety",
@@ -2067,7 +2074,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes"
+    "keywords": "tuition repayment deciles nebraska catherine bennett forbearance crfb yannelis alleviates disbursed forgave fullwiler heroes mbas"
   },
   {
     "id": "inflation-monetary-policy",

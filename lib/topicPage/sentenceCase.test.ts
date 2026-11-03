@@ -117,7 +117,7 @@ describe("every older map's card titles", () => {
     const after = (topic: string, start: string) =>
       all.find((t) => t.topic === topic && t.before.startsWith(start))?.after;
     expect(after("minimum-wage-effects", "Cengiz et al.")).toBe(
-      "Cengiz et al.: Minimum wage hikes don't shrink low-wage jobs",
+      "Cengiz et al. 2019: after 138 state increases, the number of low-wage jobs was unchanged five years later",
     );
     expect(after("nuclear-energy-safety", "France Decarbonized")).toBe(
       "France decarbonized its grid rapidly via nuclear",
