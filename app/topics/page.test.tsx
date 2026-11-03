@@ -101,6 +101,30 @@ describe("/topics: no scoreboard", () => {
   });
 });
 
+describe("/topics: category tabs on a phone", () => {
+  beforeEach(() => window.history.replaceState({}, "", "/topics"));
+  afterEach(cleanup);
+
+  it("fades the edge where more tabs are hidden, and clears the fade at the end", () => {
+    // r10 review #7: at 390px the row stopped at "Sci" with no sign it scrolls.
+    const view = render(<TopicsPageClient initialState={defaultState} />);
+    const nav = view.getByRole("navigation", { name: "Map categories" });
+    const strip = nav.querySelector("div.overflow-x-auto") as HTMLDivElement;
+    Object.defineProperty(strip, "clientWidth", { configurable: true, value: 358 });
+    Object.defineProperty(strip, "scrollWidth", { configurable: true, value: 900 });
+    act(() => { fireEvent.scroll(strip); });
+    expect(view.getByTestId("tabs-fade-right")).toBeTruthy();
+    expect(view.queryByTestId("tabs-fade-left")).toBeNull();
+
+    act(() => {
+      strip.scrollLeft = 542;
+      fireEvent.scroll(strip);
+    });
+    expect(view.queryByTestId("tabs-fade-right")).toBeNull();
+    expect(view.getByTestId("tabs-fade-left")).toBeTruthy();
+  });
+});
+
 describe("/topics: Start here", () => {
   beforeEach(() => window.history.replaceState({}, "", "/topics"));
   afterEach(cleanup);

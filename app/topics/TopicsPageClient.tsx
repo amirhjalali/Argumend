@@ -211,6 +211,34 @@ export default function TopicsPageClient({
     return out;
   }, [grouped, visiblePagination]);
 
+  // Which edges of the category strip hide tabs, for the fades over them.
+  const tabStripRef = useRef<HTMLDivElement>(null);
+  const [tabOverflow, setTabOverflow] = useState({ left: false, right: false });
+  const measureTabOverflow = () => {
+    const strip = tabStripRef.current;
+    if (!strip) return;
+    const left = strip.scrollLeft > 1;
+    const right = strip.scrollLeft + strip.clientWidth < strip.scrollWidth - 1;
+    setTabOverflow((current) =>
+      current.left === left && current.right === right ? current : { left, right },
+    );
+  };
+  useEffect(() => {
+    const strip = tabStripRef.current;
+    if (!strip) return;
+    // A chosen category past the cut edge (?category=science on a phone) is
+    // scrolled into the strip, not left hidden behind the fade.
+    const active = strip.querySelector<HTMLElement>('[aria-current="page"]');
+    if (active) {
+      const overRight = active.offsetLeft + active.offsetWidth - (strip.scrollLeft + strip.clientWidth);
+      if (overRight > 0) strip.scrollLeft += overRight + 48;
+      else if (active.offsetLeft < strip.scrollLeft) strip.scrollLeft = Math.max(0, active.offsetLeft - 48);
+    }
+    measureTabOverflow();
+    window.addEventListener("resize", measureTabOverflow);
+    return () => window.removeEventListener("resize", measureTabOverflow);
+  }, [activeCategory]);
+
   const tabClass = (active: boolean) =>
     `relative inline-flex min-h-11 shrink-0 items-center gap-1 whitespace-nowrap px-1 text-sm transition-colors after:absolute after:inset-x-0 after:-bottom-px after:h-0.5 after:rounded-full ${
       active
@@ -236,9 +264,20 @@ export default function TopicsPageClient({
 
         {/* Category tabs: one quiet row at every width. On phones it scrolls
             sideways inside its own strip instead of wrapping into a wall of
-            pills. */}
-        <nav aria-label="Map categories" className="-mx-4 border-b border-stone-300/70 px-4 dark:border-divider sm:mx-0 sm:px-0">
-          <div className="flex gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            pills, and a fade at the cut edge says there is more (r10 #7):
+            at 390px the row stopped at "Sci" with nothing to show it scrolls. */}
+        <nav aria-label="Map categories" className="relative -mx-4 border-b border-stone-300/70 px-4 dark:border-divider sm:mx-0 sm:px-0">
+          {tabOverflow.left ? (
+            <span aria-hidden="true" data-testid="tabs-fade-left" className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[var(--bg-canvas)] to-transparent" />
+          ) : null}
+          {tabOverflow.right ? (
+            <span aria-hidden="true" data-testid="tabs-fade-right" className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[var(--bg-canvas)] to-transparent" />
+          ) : null}
+          <div
+            ref={tabStripRef}
+            onScroll={measureTabOverflow}
+            className="relative flex gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
             <Link
               href="/topics"
               onClick={(event) => { event.preventDefault(); chooseCategory("all"); }}
