@@ -173,7 +173,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "ammonia aviation grey stegra wheel mill steam electrolyzer refueling shell haul electrolytic furnace hybrit insideevs"
+    "keywords": "ammonia aviation grey stegra wheel steam electrolyzer mill refueling shell haul electrolytic furnace hybrit insideevs"
   },
   {
     "id": "vertical-farming-viability",
@@ -1823,9 +1823,9 @@
     "title": "The Future of Remote Work",
     "question": "Will remote and hybrid work permanently replace the five-day office week?",
     "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 64,
-    "balance": 64,
-    "weight": 57,
+    "confidence_score": 57,
+    "balance": 57,
+    "weight": 59,
     "verdict": {
       "label": "Evidence leans toward the claim — moderately evidenced",
       "quadrant": "moderate"
@@ -1833,12 +1833,12 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 9,
     "firstCrux": "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
     "tags": [
       "economics"
     ],
-    "keywords": "bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin boise ctrip gentrification nashville"
+    "keywords": "placer bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip"
   },
   {
     "id": "college-value-proposition",
@@ -2151,7 +2151,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "allen bamboohr ding irvine bloom sunk gloria pittsburgh uspto lease yang brucks frey gudith klocke"
+    "keywords": "allen bamboohr ding irvine bloom sunk gloria pittsburgh uspto yang brucks frey gudith klocke levav"
   },
   {
     "id": "lab-diamonds-ethics",
