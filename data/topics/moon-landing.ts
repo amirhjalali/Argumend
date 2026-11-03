@@ -177,6 +177,46 @@ export const moonLandingData = {
           reasoning:
             "True statement of optics, but not evidence of fakery: Hubble's diffraction limit makes a few-meter object unresolvable at 384,000 km. Orbiters like LRO image the sites instead.",
         },
+        {
+          id: "lunokhod-1-found",
+          title: "A Lost Moon Reflector Echoed Only Once Its Exact Spot Was Known",
+          description:
+            "The reflector on the Soviet Lunokhod 1 rover went unranged for decades because its position was known only to within miles, and a laser search covers one football-field-sized region at a time. In April 2010, after Lunar Reconnaissance Orbiter images placed it within 100 meters, a UC San Diego team at Apache Point got about 2,000 return photons on their first try.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 8,
+            directness: 8,
+          },
+          source:
+            "University of California, San Diego, \"Physicists locate long lost Soviet reflector on moon\" (ScienceDaily, 27 April 2010)",
+          sourceUrl: "https://www.sciencedaily.com/releases/2010/04/100426203545.htm",
+          reasoning:
+            "This is the crux's test run on a reflector Apollo did not place: two years of occasional searching around the old estimate found nothing, and a strong echo came only from the hardware's imaged position. It bears on whether echoes need placed hardware, not on who placed the Apollo arrays.",
+        },
+        {
+          // The skeptic side's strongest real point on this crux: an echo
+          // from the Moon was obtained before anyone could have placed a
+          // reflector. Weighed low: it bears on whether the Moon reflects
+          // light, not on the sharp returns from the surveyed Apollo sites.
+          id: "surface-echoes-1962",
+          title: "Lasers Echoed off the Bare Moon in 1962, Before Apollo",
+          description:
+            "In 1962, seven years before Apollo 11, an MIT team (Smullin and Fiocco) observed laser pulses reflected from the Moon's surface, and a Soviet team at the Crimean Astrophysical Observatory obtained similar returns the same year. Skeptics cite this to argue that an echo from the Moon does not by itself require a reflector left by astronauts.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 7,
+            replicability: 6,
+            directness: 2,
+          },
+          source:
+            "Wikipedia: Lunar Laser Ranging experiment (history: the 1962 MIT and Crimean Astrophysical Observatory returns)",
+          sourceUrl: "https://en.wikipedia.org/wiki/Lunar_Laser_Ranging_experiment",
+          reasoning:
+            "The 1962 returns are real, so the Moon's surface does send some laser light back. The same source notes that retroreflectors give a much more precise range because their reflected signal is far less spread in time, and the crux's test turns on exactly that difference: a sharp, timed echo only at the surveyed Apollo coordinates versus a smeared one from bare ground. The pre-Apollo echoes do not show which of those the observatories now record.",
+        },
       ],
     },
     {
@@ -293,6 +333,45 @@ export const moonLandingData = {
             "https://history.nasa.gov/wp-content/uploads/static/history/alsj/WOTM/WOTM-Radiation.html",
           reasoning:
             "The figures are direct instrument measurements summarized by NASA and match the mission radiation-protection record. Independence is not maximal because NASA operated the missions, but the readings are quantitative, mission-specific, and physically consistent with short transit through lower-intensity regions.",
+        },
+        {
+          id: "artemis-belt-dosimetry",
+          title: "Artemis I Measured Its Belt Crossing with NASA, ESA and DLR Dosimeters",
+          description:
+            "On the uncrewed Artemis I flight in November 2022, instruments from NASA, the European Space Agency and the German Aerospace Center (DLR) inside Orion recorded its passage through the inner proton belt, which took about 30 minutes. Over the 25-day mission most of the dose came from galactic cosmic rays; the inner belt contributed up to 23% of the total at one detector.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 7,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "George et al., \"Space radiation measurements during the Artemis I lunar mission\", Nature (2024)",
+          sourceUrl: "https://www.nature.com/articles/s41586-024-07927-7",
+          reasoning:
+            "Peer-reviewed, with European instruments alongside NASA's, on the same kind of crossing the Orion video discussed. It measures a modern, more heavily shielded capsule on a different route, not Apollo, so it bears on whether a fast belt crossing gives a modest dose rather than on Apollo's own readings.",
+        },
+        {
+          // The skeptic side's most-cited modern quote on the belts. The
+          // quote is real; weighed low because it is about Orion's
+          // electronics and long missions, not Apollo's recorded doses.
+          id: "orion-belt-quote",
+          title: "NASA's 2014 Orion Video Called the Belts a Challenge to Solve Before Sending People",
+          description:
+            "Before Orion's uncrewed 2014 test flight, NASA engineer Kelly Smith said in a NASA video that radiation in the Van Allen belts \"could harm the guidance systems, on-board computers or other electronics on Orion\" and that \"we must solve these challenges before we send people through this region of space.\" Skeptics cite the remark as NASA admitting no crew had crossed the belts.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 7,
+            replicability: 5,
+            directness: 2,
+          },
+          source:
+            "Michael Rundle, \"NASA 'Admitted To Apollo Hoax' In Orion Video, Say Obviously Mistaken Conspiracy Theorists\", HuffPost UK, 4 December 2014",
+          sourceUrl: "https://www.huffingtonpost.co.uk/2014/12/04/nasa-orion-apollo-hoax-va_n_6268704.html",
+          reasoning:
+            "The quote is accurate, but in the video it is about Orion's guidance computers and electronics, far more complex than Apollo's, and about a spacecraft built for missions of up to 21 days. It says nothing about the doses Apollo's crews recorded, which is what the crux turns on; the same article notes the Apollo crews were not in the belts long enough for the exposure to matter.",
         },
       ],
     },

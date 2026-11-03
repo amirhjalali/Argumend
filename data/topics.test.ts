@@ -222,7 +222,12 @@ describe("weight calibration anchors (spec §2.2)", () => {
   // and kept its old side, though it points to yes. Labelled by what it
   // shows, the map is 7 for + 1 against (the telescope limit both sides
   // accept), balance 88, and earns "settled" on its evidence without the pin.
-  // The map is still shallow on the skeptic side; a deeper map is the fix.
+  // That left the skeptic side with no card of its own, so neither crux could
+  // show a card from each side. Since 2026-11-03 each crux carries the
+  // strongest real skeptic point (the 1962 bare-surface laser echoes, the
+  // 2014 Orion belt quote), weighed low, and a matching independent yes card
+  // (the Lunokhod 1 reflector found in 2010, the Artemis I belt dosimetry):
+  // 9 for + 3 against, balance 80, still settled without the pin.
   it("moon-landing earns settled on its evidence once the dosimeter card is on its own side", () => {
     expect(moonLanding?.status).toBe("settled");
     expect(moonLanding?.verdict.quadrant).toBe("settled");

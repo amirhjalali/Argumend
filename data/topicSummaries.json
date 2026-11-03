@@ -1097,7 +1097,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "starship spacex biosphere moxie aboard colonists isru kingdon payload artemis lunar aiaa barbara booster energetic"
+    "keywords": "starship spacex biosphere moxie aboard colonists isru kingdon payload lunar artemis aiaa barbara booster energetic"
   },
   {
     "id": "lab-grown-meat-adoption",
@@ -1778,7 +1778,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas rays alumni midwestern peabody charitable"
+    "keywords": "medlin nheri cardus gaither kunzman neglect cogan crhe gpas alumni midwestern peabody charitable"
   },
   {
     "id": "billionaire-wealth",
@@ -2167,8 +2167,8 @@
     "title": "The Moon Landing",
     "question": "Did the Moon landings happen?",
     "meta_claim": "The Apollo missions successfully landed 12 humans on the lunar surface between 1969 and 1972.",
-    "confidence_score": 88,
-    "balance": 88,
+    "confidence_score": 80,
+    "balance": 80,
     "weight": 82,
     "verdict": {
       "label": "Evidence largely converges on the claim",
@@ -2177,12 +2177,12 @@
     "status": "settled",
     "category": "science",
     "pillarCount": 2,
-    "evidenceCount": 8,
+    "evidenceCount": 12,
     "firstCrux": "Do laser echoes from the Moon need astronaut-placed reflectors, or could natural features explain them?",
     "tags": [
       "science"
     ],
-    "keywords": "dosimeters astronaut retroreflectors acquiescence dosimetry hubble jodrell allen mcdonald laser luna reconnaissance arrays astromaterials bounced"
+    "keywords": "dosimeters orion laser astronaut reflector artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell crimean"
   },
   {
     "id": "minneapolis-shooting",
@@ -2653,7 +2653,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence yard ieepa piie cavallo chris aluminum usitc krugman truce usmca scattered aerospace conditionalist decile"
+    "keywords": "fence yard ieepa piie cavallo chris aluminum usitc krugman truce usmca scattered conditionalist decile hawley"
   },
   {
     "id": "rfk-health-policy",

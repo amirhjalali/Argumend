@@ -67,8 +67,8 @@ export function ReadModeView({
     {
       id: "weighing",
       title: "How the evidence weighs",
-      // Only promise a pair when there is one: on some maps (moon landing) a
-      // side's only cards restate an agreed fact and are never shown as its best.
+      // Only promise a pair when there is one: on a map where a side's only
+      // cards restate an agreed fact, they are never shown as its best.
       hint: weighing.strongest
         ? "One strong card from each side, and how every card is weighed."
         : "How every card on this map is weighed.",
