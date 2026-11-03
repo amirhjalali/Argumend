@@ -40,6 +40,10 @@ export const aiConsciousnessData = {
         methodology:
           "Extend neuroscientific theories of consciousness (IIT, GNW, HOT) to develop substrate-independent indicators. Test these indicators against systems with known consciousness status (humans, animals) and then apply to AI systems.",
         verification_status: "impossible" as const,
+        settle: {
+          condition:
+            "Theory-derived indicators (global workspace, higher-order, integrated information) that pre-registered tests confirm in people awake, asleep, under anesthesia and with disorders of consciousness, then run on matched AI systems built with and without those features, with the rival theories giving the same reading of each machine.",
+        },
         cost_to_verify: "$0 (Fundamentally unclear if this is solvable—the 'hard problem' of consciousness may prevent any test from being definitive)",
         falsification: {
           supporter_flip:
