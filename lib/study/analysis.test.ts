@@ -5,6 +5,7 @@ import {
   analyseStudy,
   armsCsv,
   exclusionReason,
+  healthSummary,
   holm,
   normalCdf,
   olsHc2,
@@ -169,5 +170,29 @@ describe("the primary analysis", () => {
     const arms = armsCsv(report).trim().split("\n");
     expect(arms).toHaveLength(4);
     expect(arms[0].split(",")[0]).toBe("arm");
+  });
+});
+
+describe("the blind health check", () => {
+  it("counts drop-out, exclusions and timing per arm without any outcome", () => {
+    const assignments = [
+      ...Array(4).fill({ arm: "map" }),
+      ...Array(2).fill({ arm: "chatbot" }),
+    ] as { arm: StudyArm }[];
+    const rows = [
+      row("gun-control-effectiveness", "map", "democrat", { totalSeconds: 600 }),
+      row("gun-control-effectiveness", "map", "democrat", { attention: 4, totalSeconds: 200 }),
+      row("gun-control-effectiveness", "chatbot", "republican"),
+    ];
+    const cells = healthSummary(assignments, rows);
+    expect(cells.find((c) => c.arm === "map")).toMatchObject({
+      assigned: 4,
+      completed: 2,
+      dropOut: 0.5,
+      failedAttention: 1,
+      tooFast: 1,
+      medianTotalSeconds: 400,
+    });
+    expect(Object.keys(cells[0]).join(" ")).not.toMatch(/gap|crux|charity|perceived/);
   });
 });

@@ -389,6 +389,43 @@ export function analyseStudy(rows: StudyRow[]): StudyReport {
   return { totalRows: rows.length, excluded, analysed, arms, primary, secondary, h1 };
 }
 
+// ── Health check (blind) ─────────────────────────────────────────────────────
+
+export interface HealthCell {
+  arm: StudyArm;
+  assigned: number;
+  completed: number;
+  /** Share of assigned participants with no stored response. */
+  dropOut: number;
+  failedAttention: number;
+  tooFast: number;
+  medianTotalSeconds: number;
+}
+
+/**
+ * The interim check the plan allows during data collection: counts, drop-out,
+ * exclusions and timing per arm. It computes no outcome, so looking at it
+ * cannot tempt anyone to stop early on a result.
+ */
+export function healthSummary(
+  assignments: { arm: StudyArm }[],
+  rows: Pick<StudyRow, "arm" | "attention" | "totalSeconds" | "version">[],
+): HealthCell[] {
+  return STUDY_ARMS.map((arm) => {
+    const assigned = assignments.filter((a) => a.arm === arm).length;
+    const done = rows.filter((r) => r.arm === arm);
+    return {
+      arm,
+      assigned,
+      completed: done.length,
+      dropOut: assigned ? Math.max(0, assigned - done.length) / assigned : NaN,
+      failedAttention: done.filter((r) => r.attention !== ATTENTION_CORRECT).length,
+      tooFast: done.filter((r) => r.totalSeconds < MIN_TOTAL_SECONDS).length,
+      medianTotalSeconds: done.length ? median(done.map((r) => r.totalSeconds)) : NaN,
+    };
+  });
+}
+
 // ── CSV ──────────────────────────────────────────────────────────────────────
 
 function csvCell(value: unknown): string {

@@ -13,6 +13,9 @@
  * --study        only rows from one Prolific study id (the pilot is analysed
  *                separately and never pooled with the main study).
  * --input        a JSON array of rows in the StudyRow shape, instead of the database.
+ * --health       the blind interim check: counts, drop-out, exclusions and
+ *                timing per arm, no outcome. The only view allowed while data
+ *                collection is open.
  * --check-pids   a Prolific submissions export (or one id per line): prints
  *                which participants have a stored response, for approving
  *                submissions. Hashes each id with STUDY_PID_SECRET; prints counts
@@ -23,7 +26,14 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { config } from "dotenv";
-import { analyseStudy, armsCsv, responsesCsv, type StudyReport, type StudyRow } from "../lib/study/analysis";
+import {
+  analyseStudy,
+  armsCsv,
+  healthSummary,
+  responsesCsv,
+  type StudyReport,
+  type StudyRow,
+} from "../lib/study/analysis";
 
 config({ path: ".env.local" });
 
@@ -120,9 +130,51 @@ async function checkPids(file: string) {
   }
 }
 
+async function health(study: string | undefined) {
+  if (!process.env.DATABASE_URL?.trim()) {
+    console.log("study-report --health needs DATABASE_URL.");
+    return;
+  }
+  const [{ getDb }, schema, { eq }] = await Promise.all([
+    import("../lib/db"),
+    import("../lib/db/schema"),
+    import("drizzle-orm"),
+  ]);
+  const db = getDb();
+  const assignmentsQuery = db.select({ arm: schema.studyAssignments.arm }).from(schema.studyAssignments);
+  const responsesQuery = db
+    .select({
+      arm: schema.studyResponses.arm,
+      attention: schema.studyResponses.attention,
+      totalSeconds: schema.studyResponses.totalSeconds,
+      version: schema.studyResponses.version,
+    })
+    .from(schema.studyResponses);
+  const [assignments, responses] = await Promise.all([
+    study ? assignmentsQuery.where(eq(schema.studyAssignments.prolificStudyId, study)) : assignmentsQuery,
+    study ? responsesQuery.where(eq(schema.studyResponses.prolificStudyId, study)) : responsesQuery,
+  ]);
+  console.log("Blind health check: no outcome is computed here.\n");
+  console.log("arm       assigned  completed  drop-out  failed attention  under 4 min  median minutes");
+  for (const cell of healthSummary(assignments, responses)) {
+    console.log(
+      [
+        cell.arm.padEnd(8),
+        String(cell.assigned).padStart(9),
+        String(cell.completed).padStart(10),
+        `${fmt(cell.dropOut * 100, 0)}%`.padStart(9),
+        String(cell.failedAttention).padStart(17),
+        String(cell.tooFast).padStart(12),
+        fmt(cell.medianTotalSeconds / 60, 1).padStart(15),
+      ].join(" "),
+    );
+  }
+}
+
 async function main() {
   const pidsFile = argValue("--check-pids");
   if (pidsFile) return checkPids(pidsFile);
+  if (process.argv.includes("--health")) return health(argValue("--study"));
 
   const study = argValue("--study");
   const rows = await loadRows(study);
