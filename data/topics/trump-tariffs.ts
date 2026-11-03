@@ -15,12 +15,12 @@ export const trumpTariffsData = {
       id: "inflation-passthrough",
       title: "Consumer Prices & Inflation Pass-Through",
       short_summary:
-        "Trump claimed foreign exporters would pay the tariffs, but the empirical question is who actually bears the cost. The mainstream finding is that tariff pass-through to US importers and consumers is high — the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. The ~20% figure from Cavallo et al. is a short-run retail pass-through measured by September 2025 that the same literature shows rising over time; HBS puts the consumer share near 43%, and the Federal Reserve estimated tariffs raised core goods prices by about 3.1%.",
+        "Trump claimed foreign exporters would pay the tariffs, but the empirical question is who actually bears the cost. The mainstream finding is that tariff pass-through to US importers and consumers is high — the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. Cavallo et al.'s short-run retail pass-through estimate rose from 20% by September 2025 to 24% by October 2025; the HBS Pricing Lab puts the consumer share of the burden at up to 43%, with US companies bearing the rest, and Federal Reserve Board economists estimated tariffs raised core goods prices by about 3.1%.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Tariffs are a tax paid by Americans, not by foreign exporters. The 'China pays the tariff' claim is empirically false: the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. Federal Reserve analysis indicated that, absent tariffs, inflation would plausibly have returned to its 2% target during 2025; the CBO estimated tariffs added roughly 0.4 percentage points to annual inflation and left the price level about 0.9% higher by the end of 2026. The Yale Budget Lab projects a $760-$1,200 annual loss per household, with the bottom income decile absorbing roughly three times the burden of the top decile. This is a regressive consumption tax dressed up as trade policy.",
+        "Tariffs are a tax paid by Americans, not by foreign exporters. The 'China pays the tariff' claim is empirically false: the New York Fed estimated roughly 90% of the 2025 tariff burden fell on US firms and consumers, with foreign exporters absorbing only about 6-14%. Federal Reserve Board economists found that tariffs explain the entirety of excess core goods inflation since January 2025 relative to pre-pandemic rates, adding about 0.8% to core PCE prices; the CBO projected in June 2025 that tariffs would add roughly 0.4 percentage points a year to inflation in 2025 and 2026, leaving the price level about 0.9% higher by 2026. The Yale Budget Lab puts the cost of current-law tariffs at about $1,100 per household a year, and its spring 2026 analysis found the bottom income decile bearing roughly three times the burden of the top decile as a share of income. This is a regressive consumption tax dressed up as trade policy.",
       proponent_rebuttal:
-        "Pass-through is partial, not total — and that is the point. The Harvard Business School analysis found foreign exporters absorbed roughly 20% of the burden and importing firms compressed margins to absorb more, meaning the policy does shift real costs onto trading partners. Effective tariff rates near 11.8% are far below the deadweight catastrophe critics predicted, and core inflation effects have been a one-time price-level adjustment, not a sustained inflationary spiral. Tariff revenue — $171-207 billion in FY2026 — can fund offsetting tax cuts that change the net distributional picture, especially if structured progressively.",
+        "Pass-through is partial, not total — and that is the point. The HBS Pricing Lab found consumers bore up to 43% of the burden, with US companies absorbing the rest in their margins, and the New York Fed found the share absorbed by foreign exporters rising from about 6% to about 14% over the course of 2025, so part of the cost does land on trading partners. An average statutory tariff rate of about 11% is far below the deadweight catastrophe critics predicted, and Fed economists themselves found pass-through largely complete, which makes the core goods effect a one-time price-level adjustment rather than a sustained inflationary spiral. Tariff revenue — about $173 billion in net customs duties in FY2026, after refunds of the struck-down IEEPA duties — can fund offsetting tax cuts that change the net distributional picture, especially if structured progressively.",
       crux: {
         id: "tariff-incidence-split",
         title: "The Tariff Incidence Split Test",
@@ -39,11 +39,11 @@ export const trumpTariffsData = {
           "$0 (Retail scanner data, BLS price indices, and published academic decompositions are available)",
         falsification: {
           supporter_flip:
-            "If product-level price-matching studies converged on the New York Fed's estimate of foreign exporters absorbing only about 6-14%, rather than the roughly 20% Harvard Business School found, and tariff revenue were not used to offset the cost, the claim that tariffs shift real costs onto trading partners would fail.",
+            "If product-level price-matching studies found the foreign-exporter share stuck at the low end of the New York Fed's 6-14% range rather than rising, and tariff revenue were not used to offset the cost, the claim that tariffs shift real costs onto trading partners would fail.",
           skeptic_flip:
-            "If studies kept finding foreign exporters absorbing part of the cost, and $171-207 billion in FY2026 tariff revenue funded progressive offsetting tax cuts, the 'pure tax on Americans' view would no longer capture the net distributional picture.",
+            "If studies kept finding foreign exporters absorbing a growing part of the cost, and the roughly $173 billion in net FY2026 customs duties funded progressive offsetting tax cuts, the 'pure tax on Americans' view would no longer capture the net distributional picture.",
           common_ground:
-            "Both sides' own figures put most of the tariff cost on US consumers and importing firms, with foreign exporters absorbing somewhere between about 6% and 20%.",
+            "Both sides' own figures put most of the tariff cost on US consumers and importing firms, with the New York Fed putting the foreign-exporter share at about 6% to 14% during 2025.",
           live_disagreement:
             "How large the foreign-exporter share really is and whether it holds over time — and whether a one-time price-level bump, partly offset by tariff revenue, is a cost worth paying or a regressive consumption tax.",
         },
@@ -51,9 +51,9 @@ export const trumpTariffsData = {
       evidence: [
         {
           id: "cavallo-passthrough",
-          title: "Cavallo et al. Find ~20% Retail Pass-Through by September 2025",
+          title: "Cavallo et al. Find 20-24% Retail Pass-Through by Fall 2025",
           description:
-            "Cavallo, Llamas, and Vazquez (Harvard/MIT) matched daily retail prices to product-level tariff rates and country-of-origin, finding a roughly 20% retail pass-through by September 2025 and a cumulative contribution of about 0.7 percentage points to all-items CPI. The Federal Reserve's March 2026 FEDS Note 'The Slow Climb' independently estimated retail goods price levels were 3.1% higher because of tariffs alone.",
+            "Alberto Cavallo (Harvard) with Paola Llamas and Franco Vazquez matched daily prices from major US retailers to product-level tariff rates and countries of origin. Their November 2025 NBER working paper estimated retail tariff pass-through of 20%, a cumulative contribution of about 0.7 percentage points to the all-items CPI by September 2025; a January 2026 update with data through October 1, 2025 put pass-through at 24% and the CPI contribution at about 0.76 points. A March 2026 Federal Reserve FEDS Note, 'The Slow Climb,' independently found prices of goods imported from China up 8.5% year over year by December 2025, implying tariff pass-through to consumers of at least 30% for those goods.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -61,33 +61,33 @@ export const trumpTariffsData = {
             replicability: 9,
             directness: 9,
           },
-          source: "Cavallo, Llamas & Vazquez (SSRN); Federal Reserve FEDS Notes",
-          sourceUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5795728",
+          source: "Cavallo, Llamas & Vazquez (NBER Working Paper 34496); Federal Reserve FEDS Notes ('The Slow Climb,' Mar 2026)",
+          sourceUrl: "https://www.nber.org/papers/w34496",
           reasoning:
             "This is the empirical anchor of the inflation debate, using high-frequency retail scanner data matched to tariff schedules. The convergence with independent Federal Reserve estimates makes it highly replicable. It directly refutes the claim that foreign exporters bear the tariff, though the partial (not total) pass-through leaves room for the proponent reading.",
         },
         {
           id: "hbs-burden-split",
-          title: "HBS Finds Consumers Absorb 43% of the Tariff Burden",
+          title: "Consumers Bore Up to 43% of the Burden as Exporters' Share Grew",
           description:
-            "A Harvard Business School analysis of the seven months of sweeping 2025 tariffs found the burden split roughly: consumers absorbing about 43%, importing firms about 37% through compressed margins, and foreign exporters about 20%. This shows the cost is shared rather than borne entirely by any one party, complicating both the 'China pays' claim and the 'tariffs are a pure consumer tax' claim. Note that the ~20% foreign-exporter share is at the high end of the literature: the New York Fed estimated foreign exporters absorbed only about 6-14% of the 2025 burden, with roughly 90% falling on US firms and consumers.",
+            "The Harvard Business School Pricing Lab's tariff tracker, updated with data through February 27, 2026, estimates that US consumers absorbed up to 43% of the tariff burden in the seven months after the sweeping 2025 tariffs, with US companies bearing the rest, and that retail prices leveled off after rising with each levy. Alberto Cavallo: 'Most of the pass-through has likely already occurred, assuming tariffs do not increase further.' Separately, the New York Fed estimated the share absorbed by foreign exporters at 6% in January-August 2025, 8% in September-October and 14% in November, concluding that 'a larger share of the tariff incidence was borne by foreign exporters by the end of the year,' though US firms and consumers still bore the bulk. Proponents read this as a shared, plateauing cost rather than an open-ended tax on households.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
             independence: 8,
             replicability: 6,
-            directness: 8,
+            directness: 7,
           },
-          source: "Harvard Business School Working Knowledge; New York Fed (Liberty Street Economics)",
+          source: "Harvard Business School Working Knowledge (HBS Pricing Lab, Apr 27, 2026); New York Fed (Liberty Street Economics, Feb 12, 2026)",
           sourceUrl: "https://www.library.hbs.edu/working-knowledge/tariffs-leave-consumers-and-companies-splitting-the-tab",
           reasoning:
-            "Proponents cite the ~20% foreign-exporter share as evidence the policy shifts real costs abroad. The analysis is methodologically credible and independent, but the consumer share (43%) is the largest single component, and the New York Fed's independent estimate puts the foreign-exporter share lower still (~6-14%) — so the strongest version of 'China pays' remains false even on this favorable reading. Replicability is downgraded because the foreign-exporter share is the most contested component across studies.",
+            "Proponents cite the partial consumer share and the exporters' rising share as evidence the burden is shared rather than landing wholly on households. Both sources are credible and independent, but the HBS split puts the non-consumer share on US companies, not foreigners, and the New York Fed's exporter share tops out near 14%, so the strong version of 'China pays' remains false even on this reading. Replicability is downgraded because the foreign-exporter share is the most contested component across studies.",
         },
         {
           id: "fed-inflation-counterfactual",
-          title: "Federal Reserve: Without Tariffs, Inflation Would Have Hit 2% in 2025",
+          title: "Fed Economists: Tariffs Explain All Excess Core Goods Inflation Since 2025",
           description:
-            "A 2026 Federal Reserve FEDS Note estimated tariffs raised retail goods price levels by about 3.1% and indicated that, absent tariffs, inflation would plausibly have returned to the Fed's 2% target during 2025 — an explicitly counterfactual inference rather than a direct measurement. The CBO separately estimated tariffs added about 0.4 percentage points to annual inflation across 2025-2026, leaving the price level roughly 0.9% higher by the end of 2026.",
+            "An April 8, 2026 FEDS Note by Federal Reserve Board economists Robert Minton, Madeleine Ray and Mariano Somale estimated that tariffs implemented through November 2025 raised core goods PCE prices by 3.1% through February 2026, 'explaining the entirety of excess inflation in the core goods category relative to pre-pandemic inflation rates and contributing to a 0.8 percent boost in core PCE prices as a whole.' The authors found pass-through slower and lower than in 2018-19 but largely complete, and note that a smaller alternative specification would leave room for other causes. The CBO, in a June 2025 projection of the tariffs imposed through May 13, 2025, estimated they would raise inflation by roughly 0.4 percentage points a year over 2025 and 2026, leaving the PCE price level 0.9% higher by 2026.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -95,16 +95,16 @@ export const trumpTariffsData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Federal Reserve FEDS Notes (Apr 2026); CBO Publication 61389",
+          source: "Federal Reserve FEDS Notes ('Detecting Tariff Effects on Consumer Prices in Real Time – Part II,' Apr 8, 2026); CBO, 'Budgetary and Economic Effects of Increases in Tariffs Implemented Between January 6 and May 13, 2025' (Publication 61389, Jun 4, 2025)",
           sourceUrl: "https://www.federalreserve.gov/econres/notes/feds-notes/detecting-tariff-effects-on-consumer-prices-in-real-time-part-II-20260408.html",
           reasoning:
-            "The Federal Reserve and CBO are authoritative, independent institutions with no stake in the trade debate. Their convergent estimates make this strong evidence that tariffs raised consumer prices. The counterfactual claim is an inference, but it is grounded in the same real-time price data as the pass-through studies.",
+            "The Federal Reserve and CBO are authoritative, independent institutions with no stake in the trade debate. Their convergent estimates make this strong evidence that tariffs raised consumer prices. Attributing all excess core goods inflation to tariffs is a model-based inference rather than a direct measurement, and the CBO figure is a 2025 projection, but both point the same way as the real-time pass-through studies.",
         },
         {
           id: "yale-household-incidence",
-          title: "Yale Budget Lab: $760-$1,200 Per Household, Regressive Incidence",
+          title: "Yale Budget Lab: About $1,100 Per Household, Regressive Incidence",
           description:
-            "The Yale Budget Lab's April 8, 2026 analysis projected a household loss of $760 per year if Section 122 tariffs expired on schedule (they did, on July 24, 2026) and $1,200 if extended, with the bottom income decile absorbing roughly three times the burden of the top decile. PIIE (Clausing & Lovely) independently estimated about $1,200 per household for the Canada-Mexico-China tariffs alone, and the Tax Foundation estimated roughly a $700 per-household tax increase in 2026.",
+            "The Yale Budget Lab's April 2, 2026 report projected an average household loss of about $650-$780 a year if the Section 122 tariffs expired on schedule and $1,130-$1,340 if they were made permanent, with the bottom income decile's burden, as a share of income, about three times the top decile's. Section 122 did lapse on July 24, 2026, but it was replaced the same day by new Section 301 tariffs, and the Budget Lab's August 24, 2026 update puts household costs under current law at about $1,100 a year. The Tax Foundation estimates tariffs raised taxes by an average of $1,000 per household in 2025 and will raise them by about $820 in 2026, and PIIE's Kimberly Clausing and Mary Lovely estimated in February 2025 that the tariffs then announced on Canada, Mexico and China alone would cost the typical household more than $1,200 a year.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -112,10 +112,10 @@ export const trumpTariffsData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Yale Budget Lab; PIIE; Tax Foundation",
-          sourceUrl: "https://budgetlab.yale.edu/research/state-us-tariffs-april-8-2026",
+          source: "Yale Budget Lab (State of U.S. Tariffs, Apr 2 and Aug 24, 2026); Tax Foundation Tariff Tracker; PIIE (Clausing & Lovely, Feb 2025)",
+          sourceUrl: "https://budgetlab.yale.edu/research/state-us-tariffs",
           reasoning:
-            "Three independent modeling shops (Yale, PIIE, Tax Foundation) land within a half-order-of-magnitude of each other, strengthening confidence in the household cost. The regressive distribution directly challenges the working-class rationale for the policy, though tariff-funded tax cuts could in principle offset the net incidence.",
+            "Three independent modeling shops (Yale, PIIE, Tax Foundation) land in the same general range, from several hundred dollars to about $1,300 a year depending on which tariffs each modeled, strengthening confidence in the household cost. The regressive distribution directly challenges the working-class rationale for the policy, though tariff-funded tax cuts could in principle offset the net incidence.",
         },
       ],
     },
@@ -130,7 +130,7 @@ export const trumpTariffsData = {
         "The central justification for tariffs is reviving American manufacturing. Critics point to flat BLS payroll data and net-negative employment effects once downstream input-cost shocks and retaliation are counted; hawks point to capex commitments and greenfield announcements as evidence of a 'stealth boom' not yet visible in headcount.",
       icon_name: "Users" as const,
       skeptic_premise:
-        "The promised reshoring boom has not arrived in the data. The 2023 USITC Section 232/301 study found that steel and aluminum tariffs created modest jobs in protected sectors but destroyed roughly equivalent or greater jobs in steel- and aluminum-using industries downstream. CRS reports consistently find Section 232 effects net-negative for total manufacturing employment. The Yale Budget Lab projects manufacturing output up only modestly long-run, total employment down 0.3 percentage points, and unemployment up 0.3 points by the end of 2026. 'Liberation Day' tariffs were supposed to revive manufacturing; so far they have not.",
+        "The promised reshoring boom has not arrived in the data. The 2023 USITC Section 232/301 study found that steel and aluminum tariffs created modest jobs in protected sectors but destroyed roughly equivalent or greater jobs in steel- and aluminum-using industries downstream. CRS reports consistently find Section 232 effects net-negative for total manufacturing employment. The Yale Budget Lab's April 2026 modeling has long-run manufacturing output up only 0.7%, gains it says are more than crowded out by losses elsewhere (construction down 2.0%, mining down 0.8%), with GDP persistently smaller and unemployment about 0.1 percentage point higher by the end of 2026. 'Liberation Day' tariffs were supposed to revive manufacturing; so far they have not.",
       proponent_rebuttal:
         "Headcount in BLS payrolls is the wrong metric and the wrong timeframe. The reshoring response shows up first in capital expenditure commitments and greenfield-plant announcements — capital-intensive semiconductor fabs, aerospace, and metals capacity — that take years to convert into payroll. American Compass's 'Tariff Tally' documents a stealth manufacturing buildout in capex and investment announcements that lagging payroll data cannot yet capture. The relevant question is not aggregate headcount but the rebuilding of strategic industrial capacity and the reversal of three decades of working-class wage stagnation, which requires patient measurement over a decade, not seven months.",
       crux: {
@@ -180,9 +180,9 @@ export const trumpTariffsData = {
         },
         {
           id: "yale-employment-projection",
-          title: "Yale Budget Lab: Total Employment Down 0.3pp, Unemployment Up 0.3pp",
+          title: "Yale Budget Lab: Manufacturing Gains Crowded Out Elsewhere",
           description:
-            "The Yale Budget Lab's 2026 modeling projected that durable-goods manufacturing output expands only modestly in the long run, while total employment falls 0.3 percentage points and unemployment rises 0.3 percentage points by the end of 2026, once downstream input-cost shocks are counted. Academic critics characterized the 2025 'Liberation Day' tariffs as having failed to deliver on their manufacturing-revival promise.",
+            "The Yale Budget Lab's April 2, 2026 report found that in the long run 'tariffs present a trade-off': US manufacturing output expands by 0.7%, led by durable goods, 'but these gains are more than crowded out by other sectors,' with construction output down 2.0% and mining down 0.8%. It estimated the economy persistently 0.10-0.16% smaller in the long run and the unemployment rate 0.12-0.16 percentage point higher at the end of 2026, depending on whether the Section 122 tariffs lapsed or were extended.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -190,10 +190,10 @@ export const trumpTariffsData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Yale Budget Lab",
-          sourceUrl: "https://budgetlab.yale.edu/research/tracking-economic-effects-tariffs",
+          source: "Yale Budget Lab (State of U.S. Tariffs: April 2, 2026)",
+          sourceUrl: "https://budgetlab.yale.edu/sites/default/files/page_to_pdf/1425/publication_1425.pdf",
           reasoning:
-            "The Yale Budget Lab is a credible, independent fiscal-modeling shop. The projection of net-negative employment directly contradicts the reshoring promise, though it is a model-based forecast rather than realized data, leaving room for the proponent argument that effects are lagged.",
+            "The Yale Budget Lab is a credible, independent fiscal-modeling shop. Its finding that manufacturing gains are small and outweighed by losses in other sectors cuts against the claim that tariffs help workers overall, though it concedes some manufacturing expansion and is a model-based forecast rather than realized data, leaving room for the proponent argument that effects are lagged.",
         },
         {
           id: "american-compass-stealth-boom",
@@ -244,7 +244,7 @@ export const trumpTariffsData = {
       skeptic_premise:
         "Broad tariffs are the wrong tool for the real national-security problem. Chris Miller and the 'Chip War' school argue that targeted export controls on dual-use technology — advanced semiconductors, EUV lithography, AI accelerators — are specific, effective, and multilateralizable, whereas sweeping reciprocal tariffs are a 'scattered fence, no yard' that hits allies and gives Beijing license to retaliate symmetrically. Tariffs accelerate China's 'Made in China 2025' import-substitution and indigenous-innovation drive; Beijing now mirrors the US with its own 'small yard, high fence,' a sign the broad tariff regime accelerated the very decoupling-against-the-US it meant to manage.",
       proponent_rebuttal:
-        "Export controls alone are insufficient; tariffs add economic friction that compounds the cost of strategic dependence. Even if China indigenizes faster under pressure, it still indigenizes more slowly than it would in the absence of pressure — and the years of delay bought matter enormously for the Taiwan, AI, and military balance. Layered tariffs on China (25% baseline, 50% on semiconductors, 100% on EVs) raise the cost of Chinese market access and incentivize 'friend-shoring' to allied and domestic suppliers. The November 2025 truce holding rates at 10%-on-10% shows tariffs created leverage that produced a negotiated, monitored equilibrium rather than uncontrolled escalation.",
+        "Export controls alone are insufficient; tariffs add economic friction that compounds the cost of strategic dependence. Even if China indigenizes faster under pressure, it still indigenizes more slowly than it would in the absence of pressure — and the years of delay bought matter enormously for the Taiwan, AI, and military balance. Layered tariffs on China (25% on most goods on the 2018-19 Section 301 lists, 50% on semiconductors, 100% on EVs), which survived the Supreme Court's IEEPA ruling, raise the cost of Chinese market access and incentivize 'friend-shoring' to allied and domestic suppliers. The November 2025 truce holding rates at 10%-on-10% shows tariffs created leverage that produced a negotiated, monitored equilibrium rather than uncontrolled escalation.",
       crux: {
         id: "decoupling-tool-effectiveness",
         title: "The Decoupling Instrument Test",
@@ -265,7 +265,7 @@ export const trumpTariffsData = {
           supporter_flip:
             "If comparing controlled and broadly tariffed sectors showed that targeted export controls did the work of slowing Chinese technology gains while broad tariffs mainly drew symmetric retaliation and faster indigenization, the broad-tariff instrument would be counterproductive on its own national-security terms.",
           skeptic_flip:
-            "If layered duties on China (a 25% baseline, 50% on semiconductors, 100% on EVs) measurably pushed supply toward allies, and bilateral rates held near the November 2025 truce's 10% rather than escalating, broad tariffs would look like a useful complement to export controls.",
+            "If layered duties on China (25% on most of the 2018-19 Section 301 lists, 50% on semiconductors, 100% on EVs) measurably pushed supply toward allies, and bilateral rates held near the November 2025 truce's 10% rather than escalating, broad tariffs would look like a useful complement to export controls.",
           common_ground:
             "Both sides agree export controls on dual-use technology such as advanced semiconductors belong in the toolkit, and that China is working to indigenize that technology.",
           live_disagreement:
@@ -275,9 +275,9 @@ export const trumpTariffsData = {
       evidence: [
         {
           id: "china-effective-rate",
-          title: "Effective China Tariff Rate Reached 31.6% Under Layered Duties",
+          title: "China Still Faces the Highest Effective US Tariff Rate",
           description:
-            "By February 2026, the effective US tariff rate on Chinese goods reached 31.6% (Penn Wharton), built from layered Section 301 duties: a 25% baseline on most goods, 50% on semiconductors, 100% on EVs, and stacked rates exceeding 100% on some categories. These China-specific tariffs survived the February 2026 Supreme Court ruling that struck down the IEEPA-based 'reciprocal' tariffs, because they rest on more durable Section 301 legal authority.",
+            "Penn Wharton Budget Model, measuring duties collected as a share of imports, put the effective US tariff rate on Chinese goods at 31.6% in February 2026, the highest of any major trading partner. After the Supreme Court struck down the IEEPA tariffs that month, the rate fell, but at 22.8% in July 2026 China still faced the highest rate. What survived rests on statutes the ruling did not touch: the Section 301 duties of 2018-19 (25% on Lists 1-3, 7.5% on List 4A), raised after the 2024 four-year review to 100% on Chinese EVs and 50% on semiconductors from 2025; Section 232 sectoral tariffs; and, since July 24, 2026, a new 12.5% Section 301 tariff that also applies to China.",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -285,10 +285,10 @@ export const trumpTariffsData = {
             replicability: 9,
             directness: 7,
           },
-          source: "Penn Wharton Budget Model; CRS R48549",
-          sourceUrl: "https://budgetmodel.wharton.upenn.edu/p/2026-04-15-effective-tariff-rates-and-revenues-updated-april-15-2026/",
+          source: "Penn Wharton Budget Model (Effective Tariff Rates and Revenues, Apr 15 and Sep 9, 2026); USTR Section 301 four-year review (2024); Reed Smith Trump 2.0 tariff tracker",
+          sourceUrl: "https://budgetmodel.wharton.upenn.edu/p/2026-09-09-effective-tariff-rates-and-revenues-updated-september-9-2026/",
           reasoning:
-            "Penn Wharton's effective-rate calculations are rigorous and replicable. The high, durable China-specific rate is what proponents cite as the real mechanism for raising the cost of strategic dependence, though the rate alone does not establish whether it slows or accelerates Chinese indigenization.",
+            "Penn Wharton's effective-rate calculations are rigorous and replicable. The high, legally durable China-specific rate is what proponents cite as the real mechanism for raising the cost of strategic dependence, though the rate has fallen since February 2026, and the rate alone does not establish whether it slows or accelerates Chinese indigenization.",
         },
         {
           id: "miller-scattered-fence",
@@ -354,9 +354,9 @@ export const trumpTariffsData = {
         "Trump frames the trade deficit as proof America is 'being ripped off' and tariffs as the remedy. Economists counter that bilateral deficits reflect savings-investment imbalances, not unfair trade, and that tariff friction with allies imposes geopolitical costs — lost cooperation on China, defense burden-sharing, and dollar centrality.",
       icon_name: "Gavel" as const,
       skeptic_premise:
-        "The trade-deficit rationale rests on an accounting error. Bilateral trade deficits reflect macroeconomic savings-investment imbalances and the dollar's reserve-currency status, not unfair foreign practices, so tariffs cannot durably close them — they merely reshuffle which countries run the surplus. 'We're being ripped off' is never operationally defined (deficit? IP theft? subsidies? non-tariff barriers?), letting the same rhetoric justify whichever instrument the speaker prefers. Meanwhile, tariff friction with allies — the EU's €26 billion countermeasures, Canada's retained auto and metals retaliation, a high-stakes USMCA renegotiation — imposes real costs on the coalition the US needs to contain China.",
+        "The trade-deficit rationale rests on an accounting error. Bilateral trade deficits reflect macroeconomic savings-investment imbalances and the dollar's reserve-currency status, not unfair foreign practices, so tariffs cannot durably close them — they merely reshuffle which countries run the surplus. 'We're being ripped off' is never operationally defined (deficit? IP theft? subsidies? non-tariff barriers?), letting the same rhetoric justify whichever instrument the speaker prefers. Meanwhile, tariff friction with allies — the EU's €26 billion countermeasures, Canada's retained auto and metals retaliation and its 2026 counter-tariffs, a high-stakes USMCA renegotiation — imposes real costs on the coalition the US needs to contain China.",
       proponent_rebuttal:
-        "Persistent deficits are not benign accounting; they reflect structural offshoring of productive capacity and the hollowing-out of communities, externalities that orthodox trade models systematically under-price. Tariffs are a credible threat that extracted real concessions — bilateral reciprocal deals were closed with Indonesia, El Salvador, Argentina, Guatemala, Bangladesh, and Taiwan, and allies made commitments on LNG offtake and defense spending. Europe was free-riding on US security anyway, and 'alliance damage' is a vapor metric that has not produced the predicted collapse: the EU suspended its countermeasures after a framework agreement, and most allies negotiated rather than retaliated. The $171-207 billion in tariff revenue is the largest tax shift toward consumption since 1993, funding domestic priorities.",
+        "Persistent deficits are not benign accounting; they reflect structural offshoring of productive capacity and the hollowing-out of communities, externalities that orthodox trade models systematically under-price. Tariffs are a credible threat that extracted real concessions — about 20 partners, from the EU, Japan and South Korea to Indonesia, Argentina and Taiwan, announced reciprocal trade agreements or frameworks, and allies made commitments on LNG offtake and defense spending. Europe was free-riding on US security anyway, and 'alliance damage' is a vapor metric that has not produced the predicted collapse: the EU suspended its countermeasures after a framework agreement, and most allies negotiated rather than retaliated. Even after refunds of the struck-down IEEPA duties, customs receipts netted about $173 billion in FY2026, revenue that funds domestic priorities.",
       crux: {
         id: "deficit-causation-and-alliance-cost",
         title: "The Deficit-Causation and Alliance-Cost Test",
@@ -377,9 +377,9 @@ export const trumpTariffsData = {
           supporter_flip:
             "If the aggregate US trade deficit stayed flat under tariffs and merely shifted to other surplus countries, and the documented costs of retaliation and lost cooperation with allies outweighed the deals signed, both halves of the trade-deficit rationale would weaken.",
           skeptic_flip:
-            "If tariff threats kept producing reciprocal deals like those with Indonesia, El Salvador, Argentina, Guatemala, Bangladesh and Taiwan, and allies such as the EU kept suspending countermeasures rather than escalating, the deficit rationale would look like more than an accounting error.",
+            "If tariff threats kept producing reciprocal deals like those announced with the EU, Japan, South Korea, Indonesia, Argentina and Taiwan, and allies such as the EU kept suspending countermeasures rather than escalating, the deficit rationale would look like more than an accounting error.",
           common_ground:
-            "Both sides accept that reciprocal deals were closed with six trading partners by April 2026, and that allies also retaliated: the EU imposed €26 billion of countermeasures before suspending them under a framework agreement.",
+            "Both sides accept that about 20 partners announced reciprocal trade agreements or frameworks while the IEEPA tariffs were in force, and that allies also retaliated: the EU imposed €26 billion of countermeasures before suspending them under a framework agreement.",
           live_disagreement:
             "Whether bilateral deficits come from unfair foreign practices tariffs can fix or from a savings-investment gap they cannot, and whether the concessions extracted outweigh the cost of friction with the allies needed to contain China.",
         },
@@ -389,7 +389,7 @@ export const trumpTariffsData = {
           id: "savings-investment-identity",
           title: "Bilateral Deficits Reflect Savings-Investment Imbalances, Not Unfair Trade",
           description:
-            "Orthodox trade economists (PIIE, Krugman, Mankiw) argue the trade deficit is determined by the national savings-investment gap and the dollar's reserve-currency role, meaning tariffs cannot durably close it — they reshuffle which countries run surpluses. The 2018 round of Trump tariffs is the natural test case: the aggregate US trade deficit did not shrink and in fact widened alongside the savings-investment gap, with the China bilateral deficit largely reallocating to Vietnam, Mexico, and other partners rather than disappearing. Krugman has called the 2025 tariff structure 'the second coming of Smoot-Hawley,' while critics note the analogy is overdrawn given the current ~11.8% effective rate versus Smoot-Hawley's ~59% on dutiable imports.",
+            "Orthodox trade economists (PIIE, Krugman, Mankiw) argue the trade deficit is determined by the national savings-investment gap and the dollar's reserve-currency role, meaning tariffs cannot durably close it — they reshuffle which countries run surpluses. The 2018 round of Trump tariffs is the natural test case: the aggregate US trade deficit did not shrink and in fact widened alongside the savings-investment gap, with the China bilateral deficit largely reallocating to Vietnam, Mexico, and other partners rather than disappearing. Krugman has called the 2025 tariff structure 'the second coming of Smoot-Hawley,' while critics note the analogy is overdrawn given an average statutory US tariff rate of about 11% in August 2026 (Yale Budget Lab), or 6.7% in duties collected as a share of imports in July 2026 (Penn Wharton), versus Smoot-Hawley's ~59% on dutiable imports.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -406,7 +406,7 @@ export const trumpTariffsData = {
           id: "scotus-ieepa-ruling",
           title: "Supreme Court Struck Down IEEPA 'Reciprocal' Tariffs (February 2026)",
           description:
-            "On February 20, 2026, the Supreme Court ruled 6-3 in Learning Resources, Inc. v. Trump that the International Emergency Economic Powers Act does not authorize the president to impose tariffs, terminating the IEEPA-based 'reciprocal' and trafficking tariffs on February 24. Trump replaced them with a flat 10% Section 122 balance-of-payments tariff capped at 150 days, which expired on July 24, 2026, and USTR opened Section 301 investigations to rebuild a country-specific architecture on firmer legal ground.",
+            "On February 20, 2026, the Supreme Court ruled 6-3 in Learning Resources, Inc. v. Trump that the International Emergency Economic Powers Act does not authorize the president to impose tariffs, and customs stopped collecting the IEEPA-based 'reciprocal' and trafficking tariffs on February 24. Trump replaced them with a 10% global Section 122 balance-of-payments tariff, which the statute caps at 150 days; in May the Court of International Trade also declared that proclamation unlawful, and the government appealed. When Section 122 expired on July 24, 2026, USTR replaced it the same day with new Section 301 'forced labor' tariffs of 10% or 12.5% on imports from about 60 economies. As the struck-down IEEPA duties were refunded, customs refunds reached about $145 billion in FY2026 (against $7.5 billion the year before), leaving net customs receipts of about $173 billion out of $318 billion collected.",
           side: "against" as const,
           weight: {
             sourceReliability: 9,
@@ -414,16 +414,16 @@ export const trumpTariffsData = {
             replicability: 9,
             directness: 7,
           },
-          source: "SCOTUSblog; Holland & Knight; White & Case; Sandler, Travis & Rosenberg (Section 122 expiry)",
+          source: "SCOTUSblog; Reed Smith Trump 2.0 tariff tracker; Penn Wharton Budget Model (Sep 9, 2026); Yale Budget Lab (Jul 24, 2026); US Treasury Monthly Treasury Statement (Sep 2026)",
           sourceUrl: "https://www.scotusblog.com/2026/02/a-breakdown-of-the-courts-tariff-decision/",
           reasoning:
-            "A 6-3 Supreme Court ruling is an authoritative, independent legal judgment. It undermines the durability of the broad reciprocal-tariff approach by holding its primary legal basis invalid, forcing a retreat to time-limited and sector-specific authorities. This challenges the policy's legal foundation, though Section 232 and 301 tariffs survived.",
+            "A 6-3 Supreme Court ruling is an authoritative, independent legal judgment. It undermines the durability of the broad reciprocal-tariff approach by holding its primary legal basis invalid, forcing a retreat first to a time-limited authority and then to Section 301. This challenges the policy's legal foundation, though Section 232 and 301 tariffs survived and the administration has rebuilt a broad tariff on them, which proponents read as evidence the policy outlasted the ruling.",
         },
         {
           id: "bilateral-deals-signed",
-          title: "Reciprocal Trade Deals Closed With Six Trading Partners",
+          title: "About Twenty Partners Struck Reciprocal Deals or Frameworks",
           description:
-            "By April 2026, bilateral reciprocal trade deals had been closed with Indonesia, El Salvador, Argentina, Guatemala, Bangladesh, and Taiwan. Proponents argue this demonstrates that the credible threat of tariffs extracted real concessions and that many trading partners chose to negotiate rather than retaliate, validating tariffs as a leverage instrument rather than a purely destructive tax.",
+            "While the IEEPA reciprocal tariffs were in effect, the administration announced agreements or frameworks for reciprocal trade with about 20 partners, including the EU, Japan, the UK, South Korea, Switzerland, India and Vietnam; full agreement texts were released with Cambodia and Malaysia (October 2025) and with El Salvador, Guatemala, Argentina, Bangladesh, Taiwan and Indonesia (January-February 2026). The deals outlasted the Supreme Court ruling in part: the Section 301 tariffs that replaced Section 122 in July 2026 exempt certain goods from 13 partners, nearly all of them deal partners, and cap the combined rate for the EU, Japan, South Korea and Switzerland. Proponents argue this shows the credible threat of tariffs extracted real concessions and that most trading partners chose to negotiate rather than retaliate.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -431,16 +431,16 @@ export const trumpTariffsData = {
             replicability: 6,
             directness: 7,
           },
-          source: "Trade Compliance Resource Hub (Trump 2.0 Tariff Tracker)",
+          source: "Reed Smith, Trump 2.0 tariff tracker (Trade Compliance Resource Hub, updated Sep 10, 2026)",
           sourceUrl: "https://www.tradecomplianceresourcehub.com/2026/04/19/trump-2-0-tariff-tracker/",
           reasoning:
-            "The signed deals are verifiable and support the leverage argument. However, the partners that capitulated are largely smaller economies with limited retaliatory leverage, while larger blocs (EU, Canada) retaliated — consistent with the conditional framing that allies with leverage retaliate and those without capitulate.",
+            "The announced deals are verifiable and support the leverage argument, and they include large economies, not just small ones. However, many are frameworks rather than finished agreements, their terms were negotiated under tariffs the Supreme Court later held unlawful, and the partners with the most leverage (the EU, Canada, China) also retaliated, consistent with the conditional framing that allies with leverage both bargain and hit back.",
         },
         {
           id: "ally-retaliation-costs",
           title: "EU and Canada Retaliation Plus a USMCA the US Declined to Renew",
           description:
-            "The EU reimposed €26 billion ($28B) of countermeasures on US goods (steel, aluminum, appliances, bourbon, motorcycles) before suspending them under a politically fragile framework agreement. Canada terminated IEEPA-related retaliation in September 2025 but kept retaliation on US autos and roughly C$15.6 billion of US steel and aluminum. At the first USMCA joint review on July 1, 2026, the United States declined to renew the agreement in its current form, so it stays in force but now goes through annual joint reviews until the parties agree to renew it or it expires in 2036. Adam Tooze frames US strength as 'sustained by elevated asset prices and dollar centrality rather than a strategically coordinated state.'",
+            "The EU reimposed €26 billion ($28B) of countermeasures on US goods (steel, aluminum, appliances, bourbon, motorcycles) before suspending them under a politically fragile framework agreement. Canada terminated IEEPA-related retaliation in September 2025 but kept retaliation on US autos and roughly C$15.6 billion of US steel and aluminum. The dispute escalated in 2026: the US imposed 50% Section 338 tariffs on certain Canadian motor vehicles, alcohol and dairy products from August 22, and Canada answered with counter-tariffs on $27.6 billion of US products from September 8. At the first USMCA joint review on July 1, 2026, the United States declined to renew the agreement in its current form, so it stays in force but now goes through annual joint reviews until the parties agree to renew it or it expires in 2036. Adam Tooze frames US strength as 'sustained by elevated asset prices and dollar centrality rather than a strategically coordinated state.'",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -448,7 +448,7 @@ export const trumpTariffsData = {
             replicability: 7,
             directness: 7,
           },
-          source: "European Commission; CSIS; Brookings; Congressional Research Service (R48787, Sept 2026); Adam Tooze (Chartbook)",
+          source: "European Commission; CSIS; Brookings; Congressional Research Service (R48787, Sept 2026); Reed Smith Trump 2.0 tariff tracker (Section 338, Sept 2026); Adam Tooze (Chartbook)",
           sourceUrl: "https://www.csis.org/analysis/usmca-review-2026",
           reasoning:
             "The retaliation figures and USMCA stakes are documented by official and institutional sources. They demonstrate concrete economic and diplomatic costs of tariff friction with major allies, supporting the alliance-damage critique, though proponents argue these costs are outweighed by extracted concessions and that some retaliation was climbed down.",
@@ -462,12 +462,12 @@ export const trumpTariffsData = {
       url: "https://www.scotusblog.com/2026/02/a-breakdown-of-the-courts-tariff-decision/",
     },
     {
-      title: "Tracking the Short-Run Price Impact of US Tariffs - Cavallo, Llamas & Vazquez (SSRN)",
-      url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5795728",
+      title: "Tracking the Short-Run Price Impact of U.S. Tariffs - Cavallo, Llamas & Vazquez (NBER Working Paper 34496)",
+      url: "https://www.nber.org/papers/w34496",
     },
     {
-      title: "State of US Tariffs: April 8, 2026 - Yale Budget Lab",
-      url: "https://budgetlab.yale.edu/research/state-us-tariffs-april-8-2026",
+      title: "The State of U.S. Tariffs - Yale Budget Lab",
+      url: "https://budgetlab.yale.edu/research/state-us-tariffs",
     },
     {
       title: "Economic Impact of Section 232 and 301 Tariffs on US Industries - USITC Publication 5405",
@@ -487,13 +487,13 @@ export const trumpTariffsData = {
       id: "q1",
       title: "Who actually pays Trump's tariffs?",
       content:
-        "Trump claimed foreign exporters would pay, but the New York Fed estimates ~90% of the 2025 burden fell on US firms and consumers (only ~6-14% on foreign exporters); Cavallo finds a ~20% short-run retail pass-through rising over time, HBS puts the consumer share near 43%, and the Federal Reserve estimates tariffs raised goods prices by about 3.1%. The strongest version of 'China pays' — that some burden falls on exporters — is true but small; the campaign-rally version is a category error. Does the partial pass-through vindicate the policy as cost-shifting, or refute it as a domestic consumption tax?",
+        "Trump claimed foreign exporters would pay, but the New York Fed estimates ~90% of the 2025 burden fell on US firms and consumers (only ~6-14% on foreign exporters); Cavallo finds short-run retail pass-through rising from 20% to 24% through fall 2025, HBS puts the consumer share at up to 43%, and Federal Reserve Board economists estimate tariffs raised core goods prices by about 3.1%. The strongest version of 'China pays' — that some burden falls on exporters — is true but small; the campaign-rally version is a category error. Does the partial pass-through vindicate the policy as cost-shifting, or refute it as a domestic consumption tax?",
     },
     {
       id: "q2",
       title: "Have tariffs revived American manufacturing?",
       content:
-        "The USITC and Yale Budget Lab find net-negative manufacturing employment effects once downstream input-cost losses and retaliation are counted, while American Compass points to capex commitments and greenfield announcements as a 'stealth boom' invisible in lagging BLS payrolls. Is the reshoring response real but lagged, or is the promised boom simply not materializing?",
+        "The USITC finds net-negative manufacturing employment effects once downstream input-cost losses are counted, and the Yale Budget Lab projects small manufacturing output gains more than crowded out by losses in other sectors, while American Compass points to capex commitments and greenfield announcements as a 'stealth boom' invisible in lagging BLS payrolls. Is the reshoring response real but lagged, or is the promised boom simply not materializing?",
     },
     {
       id: "q3",

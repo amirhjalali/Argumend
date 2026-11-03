@@ -20,12 +20,12 @@ export const ukrainePeaceTermsData = {
       id: "territorial-concessions",
       title: "Territorial Concessions vs. Sovereignty",
       short_summary:
-        "The Trump-brokered peace framework would freeze the front line and treat Crimea, Luhansk, and Donetsk as de facto Russian, while Ukraine insists any concession rewards aggression and requires a national referendum. The dispute turns on whether ratifying battlefield reality buys durable peace or merely buys time before the next invasion.",
+        "The original US 28-point plan would have treated Crimea, Luhansk, and Donetsk as de facto Russian; the later 20-point draft would instead freeze the current line of contact, with any special zone subject to Ukraine's parliament or a referendum. Critics say any concession rewards aggression. The dispute turns on whether ratifying battlefield reality buys durable peace or merely buys time before the next invasion.",
       icon_name: "Scale" as const,
       skeptic_premise:
-        "Ceding territory under duress rewards aggression and sets a catastrophic precedent. The original 28-point plan recognized Crimea, Luhansk, and Donetsk as 'de facto Russian, including by the United States' and demanded Ukraine withdraw from unoccupied parts of Donetsk it still holds — handing Russia land it never conquered. Roughly 4 million Ukrainians live in occupied territories that would be surrendered. Zelensky has said any territorial settlement requires a national referendum because no leader can constitutionally sign away sovereign land. An unjust peace is also an existential threat to Poland and the Baltics, who see themselves as the next dominoes.",
+        "Ceding territory under duress rewards aggression and sets a catastrophic precedent. The original 28-point plan recognized Crimea, Luhansk, and Donetsk as 'de facto Russian, including by the United States' and demanded Ukraine withdraw from the part of Donetsk Oblast it still holds — about 2,500 square miles Russia had not captured, by CSIS's count. The Kremlin still wants that land: in October 2026 ISW described it as 'repeatedly demanding that Ukraine cede territory, including areas which Russian forces do not currently control.' SWP estimated in 2024 that around 3.47 million people live in the areas Russia occupies, and a freeze would leave them there. Zelensky has said any territorial settlement requires a national referendum because no leader can constitutionally sign away sovereign land. An unjust peace is also an existential threat to Poland and the Baltics, who see themselves as the next dominoes.",
       proponent_rebuttal:
-        "The front line has barely moved in months and Ukraine cannot realistically retake Crimea or the Donbas by force on any feasible time horizon — the maps make this plain. Continuing to fight for territory that cannot be liberated only adds to the 80,000-110,000 Ukrainian dead and the acute manpower crisis. Ratifying de facto control without de jure recognition of Russian sovereignty — the Korea-style armistice model — stops the killing while preserving Ukraine's legal claim. The December 2025 Florida (Mar-a-Lago) revisions stripped the most overtly pro-Russian provisions, including the forced withdrawal from unoccupied Donetsk, converting the plan into a more balanced 20-point framework.",
+        "The front line moves only marginally: ISW measured net changes of 80.81 square kilometers in September 2026 and 27.29 in October, both slightly in Ukraine's favor, so Ukraine cannot realistically retake Crimea or the Donbas by force on any feasible time horizon — the maps make this plain. Continuing to fight for territory that cannot be liberated only adds to the 80,000-110,000 Ukrainian dead and the acute manpower crisis. Ratifying de facto control without de jure recognition of Russian sovereignty — the Korea-style armistice model — stops the killing while preserving Ukraine's legal claim. The 20-point draft that US and Ukrainian negotiators agreed in December 2025 replaced the 28-point plan's forced withdrawal from unoccupied Donetsk with a freeze at the current line of contact and a working group on force redeployment, with any special zone needing approval by Ukraine's parliament or a referendum.",
       crux: {
         id: "line-of-contact-feasibility",
         title: "The Battlefield Reversibility Test",
@@ -46,9 +46,9 @@ export const ukrainePeaceTermsData = {
           supporter_flip:
             "If ISW terrain data over a rolling 12 months showed Russian offensive capacity genuinely collapsing — net territorial change turning in Ukraine's favor as Russian casualties and equipment losses outran replacement — holding out for better terms would be rational and a freeze at current lines would look premature.",
           skeptic_flip:
-            "If the front line kept barely moving, as ISW describes, with Russia's spring 2026 offensive judged underwhelming, and a Korea-style armistice ratified de facto control while preserving Ukraine's legal claim, 'a reward for aggression' would describe a freeze poorly.",
+            "If the front line kept moving only marginally, as ISW's 2026 monthly tallies show, and a Korea-style armistice ratified de facto control while preserving Ukraine's legal claim, 'a reward for aggression' would describe a freeze poorly.",
           common_ground:
-            "Both sides agree the front line has barely moved in recent months, and that any freeze would leave roughly 4 million Ukrainians in territory Russia now occupies.",
+            "Both sides agree the front line has moved little in 2026, and that any freeze would leave millions of Ukrainians in territory Russia now occupies.",
           live_disagreement:
             "Whether ratifying battlefield reality without formal recognition buys a durable peace or only time before the next invasion — and whether any leader can cede territory without the national referendum Zelensky says the constitution requires.",
         },
@@ -56,9 +56,9 @@ export const ukrainePeaceTermsData = {
       evidence: [
         {
           id: "isw-front-line-2026",
-          title: "ISW records a front line moving in small increments through 2026",
+          title: "ISW records a front line moving only marginally through 2026",
           description:
-            "ISW's daily campaign assessments have described a front line moving in small increments for most of 2026. Its assessment of 5 October 2026 records Russian offensive operations in the northern Sumy, Kupyansk, Lyman, Slovyansk and Kostiantynivka directions with no confirmed advances on 4-5 October, Ukrainian forces clearing about 10 square kilometres of forest northeast of Vovchansk, and Russian occupation officials claiming captures that ISW says do not reflect battlefield realities. The Russian spring 2026 offensive that Western planners had feared produced a heavy assault tempo and high Russian casualties for little operationally meaningful terrain.",
+            "ISW's daily and monthly campaign assessments describe a front line moving only marginally through 2026. By ISW's count, Russian forces lost control of almost 300 square kilometers between March and September 2026, a period that included Ukraine's Operation Vivaldi north of Lyman. In September they seized 175.54 square kilometers but lost 256.35, a net loss of 80.81; in October they seized 139.85 and lost 167.14, a net loss of 27.29, or -0.88 square kilometers a day. On a typical day such as 4-5 October, ISW recorded Russian attacks in the Sumy, Kupyansk, Lyman, Slovyansk and Kostyantynivka directions that 'did not advance,' and Russian Defense Ministry flag-raising claims of new captures that 'do not reflect battlefield realities.' ISW judges that 'the Russian war effort is currently failing to achieve its operational and strategic objectives.'",
           side: "for" as const,
           weight: {
             sourceReliability: 9,
@@ -67,17 +67,17 @@ export const ukrainePeaceTermsData = {
             directness: 8,
           },
           source:
-            "Institute for the Study of War / Critical Threats, Russian Offensive Campaign Assessment (5 October 2026)",
+            "Institute for the Study of War / Critical Threats, Russian Offensive Campaign Assessments (1, 5 and 16 October and 1 November 2026)",
           sourceUrl:
-            "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-october-5-2026",
+            "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-1-2026",
           reasoning:
-            "ISW's control-of-terrain assessments are the gold-standard, independently reproducible daily record of the front. A front that moves this slowly supports the proponent claim that ratifying de facto lines reflects military reality. But the same data is cited by hawks as proof Russia 'cannot break through,' so it is genuinely double-edged.",
+            "ISW's control-of-terrain assessments are the gold-standard, independently reproducible daily record of the front, and its monthly square-kilometer tallies make the pace checkable. A front that moves this little supports the proponent claim that neither side can change the territorial outcome by force and that ratifying de facto lines reflects military reality. But since September the small net movement has run in Ukraine's favor, which the pressure camp reads as Russia's offensive capacity faltering, so the same data is genuinely double-edged.",
         },
         {
           id: "28-point-plan-recognition",
           title: "Original 28-Point Plan Recognized Occupied Territory as 'De Facto Russian'",
           description:
-            "The November 2025 Witkoff-Dmitriev 28-point plan recognized Crimea, Luhansk, and Donetsk as 'de facto Russian, including by the United States,' froze Kherson and Zaporizhzhia along the line of contact, and required Ukraine to withdraw from unoccupied parts of Donetsk it still controls. This would have surrendered land Russia never conquered and that roughly 4 million Ukrainians inhabit, which skeptics cite as proof the framework rewards aggression.",
+            "The November 2025 US 28-point plan, drafted by envoy Steve Witkoff with Russian input reportedly led by Kirill Dmitriev, said 'Crimea, Luhansk, and Donetsk will be recognized as de facto Russian, including by the United States,' froze Kherson and Zaporizhzhia along the line of contact, and said 'Ukrainian forces will withdraw from the part of Donetsk Oblast that they currently control,' which would become a demilitarized buffer zone 'internationally recognized as territory belonging to the Russian Federation.' CSIS put that land, which Russia had not captured, at about 2,500 square miles. Skeptics cite this as proof the framework rewards aggression, and the demand has outlived the plan: in October 2026 ISW described the Kremlin as 'repeatedly demanding that Ukraine cede territory, including areas which Russian forces do not currently control.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -85,7 +85,7 @@ export const ukrainePeaceTermsData = {
             replicability: 8,
             directness: 9,
           },
-          source: "CNN; NBC News; CSIS provision-by-provision analysis",
+          source: "CSIS provision-by-provision analysis (Cancian and Snegovaya, 24 November 2025), quoting the plan text published by the AP; ISW (16 October 2026)",
           sourceUrl: "https://www.csis.org/analysis/unfinished-plan-peace-ukraine-provision-provision",
           reasoning:
             "The plan text is a primary document, and CSIS's provision-by-provision walkthrough is an independent expert analysis. The demand to cede unoccupied Donetsk directly substantiates the 'rewarding aggression' critique. Weighted slightly down on independence because the leaked plan was framed differently by pro-Russia and pro-Ukraine channels.",
@@ -109,20 +109,20 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "miami-revisions-20-point",
-          title: "December 2025 Florida Talks Stripped Most Pro-Russian Provisions",
+          title: "December 2025: A 20-Point Draft Replaced the Forced Donetsk Withdrawal With a Freeze",
           description:
-            "After the December 2025 Zelensky-Trump meeting in Florida (Mar-a-Lago), Ukraine succeeded in stripping the most overtly pro-Russian provisions from the 28-point plan — including the forced withdrawal from unoccupied Donetsk — and converting it into a 20-point framework. European, US, and Ukrainian officials subsequently described the deal as '90 percent complete,' suggesting a settlement that ratifies de facto control without the most punitive terms is negotiable.",
+            "After Ukraine rejected the 28-point plan, US and Ukrainian negotiators reworked it into a 20-point draft that Zelensky described point by point on 24 December 2025, saying it had been agreed between Kyiv's and Washington's negotiators and sent to Moscow. In it, 'the line of troop deployment as of the date of this agreement is de facto recognized as the line of contact' in Donetsk, Luhansk, Zaporizhzhia and Kherson; a working group would settle force redeployments and any special economic zones, and such a zone 'will require special approval by the Ukrainian parliament or a referendum.' Zelensky called the draft 'about 90% ready' before meeting Trump at Mar-a-Lago on 28 December and said afterwards that the two were 90% agreed, though both called the Donbas a 'very tough question.' Proponents read this as evidence that a settlement ratifying de facto control without the most punitive terms is negotiable.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
-            independence: 7,
+            independence: 6,
             replicability: 6,
             directness: 7,
           },
-          source: "CSIS; NPR; CNN",
-          sourceUrl: "https://www.csis.org/analysis/will-trumps-peace-plan-ukraine-succeed",
+          source: "The Moscow Times (translated transcript of Zelensky's 24 December 2025 briefing); CBS News (26-28 December 2025)",
+          sourceUrl: "https://www.themoscowtimes.com/2025/12/24/zelensky-reveals-new-20-point-plan-to-end-ukraine-war-a91532",
           reasoning:
-            "CSIS analysis of the revised framework is independent and credible. The successful removal of the worst provisions supports the proponent claim that a balanced deal exists. Weighted down on replicability because '90 percent complete' is an official characterization that the Kremlin's maximalist demands contradict.",
+            "The terms come from Zelensky's own description of a draft he helped negotiate, so independence is limited; the full text was not published. The removal of the forced withdrawal supports the proponent claim that a more balanced deal can be drafted. Weighted down on replicability because '90%' is a party's characterization, the Donbas was left unresolved, and Russia has not accepted the draft: in October 2026 ISW assessed that the Kremlin still refuses any territorial concessions of its own.",
         },
       ],
     },
@@ -134,12 +134,12 @@ export const ukrainePeaceTermsData = {
       id: "security-guarantees-nato",
       title: "Security Guarantees & NATO",
       short_summary:
-        "Any settlement must answer what stops Russia from attacking again. The Paris talks floated a UK-French 'coalition of the willing' tripwire force, but Russia flatly rejects any NATO troops in Ukraine — producing a security-guarantee paradox: guarantees weak enough for Russia to accept won't deter, and guarantees strong enough to deter won't be accepted.",
+        "Any settlement must answer what stops Russia from attacking again. At the January 2026 Paris talks the UK and France pledged to deploy forces in Ukraine after a ceasefire as part of a 'coalition of the willing' multinational force, but Russia flatly rejects any NATO troops in Ukraine — producing a security-guarantee paradox: guarantees weak enough for Russia to accept won't deter, and guarantees strong enough to deter won't be accepted.",
       icon_name: "Shield" as const,
       skeptic_premise:
         "A permanent NATO bar plus a capped Ukrainian military leaves Ukraine defenseless against a regime that has shown it will re-attack. Putin's Foreign Ministry has flatly ruled out NATO troops in Ukraine, and any guarantee Russia will accept is by definition too weak to deter. Without a credible Western tripwire, an armistice becomes a rearm-and-relaunch runway: Russia uses the pause to reconstitute its forces and invades again in five years, exactly as it did between 2014 and 2022. A deal Russia rejects is better than a deal Ukraine cannot survive.",
       proponent_rebuttal:
-        "Permanent NATO membership for Ukraine was always a core driver of Russian security fears and is not worth a nuclear confrontation; ruling it out removes Moscow's central casus belli. Credible deterrence does not require NATO Article 5 — the January 2026 Paris coalition-of-the-willing offers UK and French 'military hubs' and a 15,000-20,000 European tripwire force, plus heavy continued Western armament of unoccupied Ukraine. This is the Korea model: no formal alliance membership, but a forward-deployed deterrent and an indefinitely armed Ukraine. A deal structured with credible tripwires and a Russian sanctions-relief incentive can be made to hold.",
+        "Permanent NATO membership for Ukraine was always a core driver of Russian security fears and is not worth a nuclear confrontation; ruling it out removes Moscow's central casus belli. Credible deterrence does not require NATO Article 5 — at the January 2026 Paris talks the coalition of the willing pledged UK and French 'military hubs' across Ukraine after a ceasefire and a multinational force that European officials put at 15,000-20,000 troops, plus heavy continued Western armament of unoccupied Ukraine. This is the Korea model: no formal alliance membership, but a forward-deployed deterrent and an indefinitely armed Ukraine. A deal structured with credible tripwires and a Russian sanctions-relief incentive can be made to hold.",
       crux: {
         id: "security-guarantee-paradox",
         title: "The Security-Guarantee Paradox",
@@ -160,7 +160,7 @@ export const ukrainePeaceTermsData = {
           supporter_flip:
             "If mapping every proposed guarantee — bilateral arms, a European tripwire force, NATO membership, Article 5 — against Russia's stated red lines and military-balance analysis found no option both acceptable to Russia and strong enough to deter, no settlement could be both durable and signable, and the case for a deal would fail.",
           skeptic_flip:
-            "If the January 2026 Paris offer held, with UK and French military hubs, a 15,000-20,000 European tripwire force and continued heavy armament of unoccupied Ukraine, deterrence on the Korea model without NATO membership would look like more than a rearm-and-relaunch runway.",
+            "If the January 2026 Paris offer held, with UK and French military hubs, a multinational force European officials put at 15,000-20,000 troops and continued heavy armament of unoccupied Ukraine, deterrence on the Korea model without NATO membership would look like more than a rearm-and-relaunch runway.",
           common_ground:
             "Both sides agree any deal must answer what stops Russia from attacking again, and that Russia has so far rejected any NATO troops in Ukraine.",
           live_disagreement:
@@ -170,9 +170,9 @@ export const ukrainePeaceTermsData = {
       evidence: [
         {
           id: "paris-tripwire-force",
-          title: "Paris Talks: UK-France Commit to Military Hubs and a 15-20K Tripwire Force",
+          title: "Paris Talks: UK and France Pledge Military Hubs; Officials Float a 15-20K Force",
           description:
-            "The January 2026 Paris talks added a coalition-of-the-willing security-guarantee layer. The UK and France committed to establishing 'military hubs' in Ukraine, with France's Camille Grand floating a 15,000-20,000-strong European tripwire force deployed in unoccupied Ukraine. Proponents cite this as a credible non-NATO deterrent that could make a settlement durable without triggering Russian objections to alliance membership.",
+            "At the 6 January 2026 Paris meeting of the 35-country coalition of the willing, Keir Starmer and Emmanuel Macron signed a declaration of intent to put British and French forces in Ukraine in the event of a peace deal. 'Following a ceasefire, the UK and France will establish military hubs across Ukraine and build protected facilities for weapons and military equipment,' Starmer said. The coalition's statement promised a US-led ceasefire monitoring mechanism, a multinational force for Ukraine, and 'binding commitments to support Ukraine in the case of a future armed attack by Russia.' It gave no troop numbers, but European officials told RFE/RL that the figure 'floating around in various European capitals' was 15,000-20,000 troops, with others hoping for closer to 30,000. Proponents cite this as a credible deterrent that could make a settlement durable without NATO membership.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
@@ -180,16 +180,16 @@ export const ukrainePeaceTermsData = {
             replicability: 6,
             directness: 8,
           },
-          source: "NPR; CNN",
+          source: "CNN (6 January 2026); RFE/RL (Rikard Jozwiak, 6 January 2026)",
           sourceUrl: "https://www.cnn.com/2026/01/06/europe/uk-france-troops-ukraine-russia-peace-deal-latam-intl",
           reasoning:
-            "Reported by multiple independent outlets covering the Paris talks. It directly addresses how a settlement could be deterrence-backed without NATO membership. Weighted down on replicability because a floated troop number is a negotiating proposal, not a deployed force, and remains contingent on Russian acceptance.",
+            "Reported by multiple independent outlets covering the Paris talks. It directly addresses how a settlement could be deterrence-backed without NATO membership. Weighted down on replicability because the troop figure is an unofficial number from European officials, not a committed or deployed force, the deployment depends on a ceasefire first, and the Kremlin has repeatedly said it will not accept foreign troops in Ukraine.",
         },
         {
           id: "russia-rejects-nato-troops",
           title: "Russia Flatly Rejects Any NATO Troops in Ukraine",
           description:
-            "Russia's Foreign Ministry has stated that NATO troops in Ukraine are unacceptable, and Putin has personally ruled out any such deployment. Because the UK-French tripwire force is precisely the kind of guarantee strong enough to deter, its categorical rejection by Moscow substantiates the skeptic claim that no deterrent-grade guarantee is signable — the security-guarantee paradox in operation.",
+            "Russia's Foreign Ministry has stated that NATO troops in Ukraine are unacceptable, and Putin has personally ruled out any such deployment. Because the UK-French multinational force is precisely the kind of guarantee strong enough to deter, its categorical rejection by Moscow substantiates the skeptic claim that no deterrent-grade guarantee is signable — the security-guarantee paradox in operation.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -206,7 +206,7 @@ export const ukrainePeaceTermsData = {
           id: "conversation-guarantee-paradox",
           title: "Analysts Formalize the 'Security-Guarantee Paradox'",
           description:
-            "Independent analysis summarized the structural dilemma: guarantees weak enough for Russia to accept won't protect Ukraine, while guarantees robust enough to deter won't be accepted by Russia. This framing captures why the security question, not territory, may be the binding constraint on any durable deal — and why both the tripwire and the NATO bar are individually insufficient.",
+            "In an August 2025 analysis for The Conversation, Wesleyan University's Peter Rutland summarized the structural dilemma: if too weak, security guarantees 'provide no real deterrence to future Russian aggression; too stringent, and they will never be accepted by Moscow in the first place.' This framing captures why the security question, not territory, may be the binding constraint on any durable deal — and why both the tripwire and the NATO bar are individually insufficient.",
           side: "against" as const,
           weight: {
             sourceReliability: 7,
@@ -214,7 +214,7 @@ export const ukrainePeaceTermsData = {
             replicability: 7,
             directness: 8,
           },
-          source: "The Conversation",
+          source: "The Conversation (Peter Rutland, Wesleyan University, 22 August 2025)",
           sourceUrl: "https://theconversation.com/the-security-guarantee-paradox-too-weak-and-it-wont-protect-ukraine-too-robust-and-russia-wont-accept-it-263518",
           reasoning:
             "An independent academic-press analysis that articulates the logical structure of the dispute rather than advocating a side. High independence. It is coded 'against' because it undercuts the proponent claim that a workable middle-ground guarantee readily exists.",
@@ -318,7 +318,7 @@ export const ukrainePeaceTermsData = {
           id: "willingness-dominates-capability",
           title: "Restraint Camp: Russian Willingness Outlasts Ukrainian Manpower",
           description:
-            "The restraint camp counters that Russia's autocracy can absorb pain Ukraine cannot, making willingness — not capability — the dominant variable. Carnegie's March 2026 study described Ukraine's manpower problem as 'increasingly acute': frontline shortages, plummeting voluntary recruitment, record AWOL rates, and public weariness. Ukraine needs roughly 30,000 conscripts per month to hold the line, and Zelensky has resisted lowering the draft age to 18. If Ukrainian manpower fails first, prolonging the war worsens Ukraine's position.",
+            "The restraint camp counters that Russia's autocracy can absorb pain Ukraine cannot, making willingness — not capability — the dominant variable. Carnegie's March 2026 study opens: 'Ukraine is facing an increasingly acute military manpower challenge,' citing severe shortages in frontline units, reduced voluntary recruitment, fatigue among long-serving personnel, record rates of absence without leave, and growing public unease with mobilization practices. In August 2026 Kyrylo Budanov, head of Ukraine's Presidential Office, said 'we cannot mobilise fewer than 30,000 people a month. This is the minimum number needed to maintain what we have.' Zelensky has refused to lower the mobilization age to 18: 'I do not believe that we should mobilize people from the age of 18,' he said in June 2025. If Ukrainian manpower fails first, prolonging the war worsens Ukraine's position.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -326,10 +326,10 @@ export const ukrainePeaceTermsData = {
             replicability: 7,
             directness: 8,
           },
-          source: "Carnegie Endowment for International Peace",
+          source: "Carnegie Endowment for International Peace (Kevliuk, Favorska and Zagorodnyuk, 17 March 2026); Ukrainska Pravda (28 August 2026); Kyiv Independent (10 June 2025)",
           sourceUrl: "https://carnegieendowment.org/research/2026/03/ukraine-military-russia-war-manpower-recruitment",
           reasoning:
-            "Carnegie's manpower study is independent and rigorous, directly addressing the symmetric question of whether Ukraine can outlast Russia. It substantiates the negotiate-now claim that time is not on Ukraine's side, balancing the RUSI/Kluge attrition evidence.",
+            "Carnegie's manpower study is independent and rigorous, directly addressing the symmetric question of whether Ukraine can outlast Russia; the 30,000 figure and the age-18 position are Ukrainian officials' own statements. It substantiates the negotiate-now claim that time is not on Ukraine's side, balancing the RUSI/Kluge attrition evidence, though Carnegie itself argues the strain is 'not evidence of a collapse in Ukraine's national will to fight' and says strategy and force design are the key to solving it.",
         },
         {
           id: "sweden-faked-data",
@@ -445,9 +445,9 @@ export const ukrainePeaceTermsData = {
         },
         {
           id: "putin-stalling-jamestown",
-          title: "Jamestown: Putin Is Stalling a '90%-Complete' Deal With Maximalist Demands",
+          title: "Jamestown: Putin Is Stalling a Nearly Finished Deal With Maximalist Demands",
           description:
-            "In April 2026, Jamestown Foundation analysts argued Putin — not Zelensky — is stalling a deal described as '90 percent complete,' fabricating a Ukrainian drone attack on his residence and weaponizing a Ukrainian corruption scandal to delegitimize Kyiv. Putin's stated demands at that point were maximalist: full withdrawal from all four claimed oblasts, a permanent NATO bar, a capped Ukrainian military, and sanctions relief. This supports the skeptic claim that Russia would not honor a freeze at current lines.",
+            "In April 2026, Jamestown Foundation analysts argued Putin — not Zelensky — is stalling a deal Zelensky had called 'about 90% ready,' fabricating a Ukrainian drone attack on his residence and weaponizing a Ukrainian corruption scandal to delegitimize Kyiv. Putin's stated demands at that point were maximalist: full withdrawal from all four claimed oblasts, a permanent NATO bar, a capped Ukrainian military, and sanctions relief. This supports the skeptic claim that Russia would not honor a freeze at current lines.",
           side: "against" as const,
           weight: {
             sourceReliability: 6,
@@ -465,12 +465,24 @@ export const ukrainePeaceTermsData = {
   ],
   references: [
     {
-      title: "Russian Offensive Campaign Assessment — Institute for the Study of War / Critical Threats",
-      url: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-april-19-2026",
+      title: "Russian Offensive Campaign Assessment, November 1, 2026 — Institute for the Study of War / Critical Threats",
+      url: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-1-2026",
+    },
+    {
+      title: "Russian Offensive Campaign Assessment, October 16, 2026 — Institute for the Study of War / Critical Threats",
+      url: "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-october-16-2026",
+    },
+    {
+      title: "Zelensky Reveals New 20-Point Plan to End Ukraine War — The Moscow Times",
+      url: "https://www.themoscowtimes.com/2025/12/24/zelensky-reveals-new-20-point-plan-to-end-ukraine-war-a91532",
     },
     {
       title: "The Unfinished Plan for Peace in Ukraine: Provision by Provision — CSIS",
       url: "https://www.csis.org/analysis/unfinished-plan-peace-ukraine-provision-provision",
+    },
+    {
+      title: "Russia in the Occupied Territories of Ukraine — SWP Comment (Nikolay Petrov, September 2024)",
+      url: "https://www.swp-berlin.org/publications/products/comments/2024C38_OccupiedTerritoriesUkraine.pdf",
     },
     {
       title: "Russian Military Objectives and Capacity in Ukraine Through 2024 — RUSI (Watling & Reynolds)",
@@ -506,13 +518,13 @@ export const ukrainePeaceTermsData = {
       id: "q1",
       title: "Can Ukraine plausibly retake its lost territory by force?",
       content:
-        "ISW assessments show a front line that has barely moved in months, and Russia's 2026 spring offensive was 'underwhelming.' Proponents of a freeze argue Crimea and the Donbas cannot be liberated on any feasible time horizon, so refusing to ratify de facto control only prolongs the killing. Skeptics counter that Russia's stored Soviet-era armor is running down (a 2024 RUSI forecast had most of it exhausted by 2026) and its recruitment is strained, making patience rational. Which trajectory is the war actually on?",
+        "ISW assessments show a front line that moved only marginally through 2026, with Russia losing a net 80.81 square kilometers in September and 27.29 in October. Proponents of a freeze argue Crimea and the Donbas cannot be liberated on any feasible time horizon, so refusing to ratify de facto control only prolongs the killing. Skeptics counter that Russia's stored Soviet-era armor is running down (a 2024 RUSI forecast had most of it exhausted by 2026) and its recruitment is strained, making patience rational. Which trajectory is the war actually on?",
     },
     {
       id: "q2",
       title: "Is there any security guarantee that is both deterrent-grade and acceptable to Russia?",
       content:
-        "The Paris talks floated a 15,000-20,000 European tripwire force, but Russia has flatly rejected any NATO troops in Ukraine. This is the security-guarantee paradox: guarantees weak enough for Russia to accept won't deter, and guarantees strong enough to deter won't be accepted. The 2014-2022 precedent shows weak guarantees failed to prevent a larger war. Does a workable middle ground exist, or does this dilemma make a durable deal unsignable?",
+        "At the January 2026 Paris talks European officials floated a 15,000-20,000-strong multinational force, but Russia has flatly rejected any NATO troops in Ukraine. This is the security-guarantee paradox: guarantees weak enough for Russia to accept won't deter, and guarantees strong enough to deter won't be accepted. The 2014-2022 precedent shows weak guarantees failed to prevent a larger war. Does a workable middle ground exist, or does this dilemma make a durable deal unsignable?",
     },
     {
       id: "q3",
