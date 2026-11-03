@@ -120,6 +120,12 @@ export const MAP_MATCH = {
   /** …and the paste must use at least this many words of its name that the top map's name lacks. */
   siblingNameMargin: 2,
   /**
+   * A word of the top map's name that the sibling's own text uses at least
+   * this share as strongly (saturated frequency) is shared vocabulary, not a
+   * word of the top map's name that tells the two apart.
+   */
+  siblingSharedWordShare: 0.5,
+  /**
    * A map on another subject is listed beside the answer, or as a closest
    * map, only when the paste uses a word of its name (any of its names)
    * that at most this many maps use: "nuclear", "Medicare", "billionaire"
@@ -204,6 +210,7 @@ export function decideMatch(
   ownNameWord: (id: string) => boolean = () => false,
   sharesName: (id: string) => boolean = () => true,
   introMapId?: string,
+  usesAsMuch: (id: string, term: string, than: string) => boolean = () => false,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
@@ -252,11 +259,18 @@ export function decideMatch(
     // a rent-control paste opens the rent-control map, while a nuclear-power
     // article that mentions small modular reactors stays on the nuclear map
     // (it uses "climate", which only the nuclear map's name has).
+    // A word of the top map's name tells it from the sibling only when the
+    // sibling's own text barely uses it: "reactors" is in the small-reactor
+    // map's name, but the nuclear-power map discusses reactors throughout,
+    // so a nuclear-for-climate rant that says "reactors" and never "small"
+    // or "modular" opens the nuclear-power map (r10 live review #1).
     const topName = nameMatch(top.id);
     const contenders = siblings.filter((map) => {
       if (map.score < MAP_MATCH.siblingNameShare * top.score) return false;
       const siblingName = nameMatch(map.id);
-      const topOnly = [...topName].filter((term) => !siblingName.has(term)).length;
+      const topOnly = [...topName].filter(
+        (term) => !siblingName.has(term) && !usesAsMuch(map.id, term, top.id),
+      ).length;
       const siblingOnly = [...siblingName].filter((term) => !topName.has(term)).length;
       return topOnly === 0 && siblingOnly >= MAP_MATCH.siblingNameMargin;
     });
@@ -808,6 +822,12 @@ export async function findMaps(text: string): Promise<PasteMapsResult> {
       return Boolean(anchors?.length && fitsMapSubject(anchors, subjectTermSet));
     },
     introMapId,
+    (id, term, than) => {
+      const own = index.byId.get(id)?.weightedFrequency.get(term) ?? 0;
+      const other = index.byId.get(than)?.weightedFrequency.get(term) ?? 0;
+      const { k1 } = index.params;
+      return own / (k1 + own) >= MAP_MATCH.siblingSharedWordShare * (other / (k1 + other));
+    },
   );
   const matchedMs = performance.now() - indexed;
 
