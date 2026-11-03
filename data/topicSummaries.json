@@ -310,6 +310,68 @@
     "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding waiver ikenson manak shipyard surcharge underdeveloped"
   },
   {
+    "id": "medicaid-work-requirements",
+    "title": "Medicaid Work Requirements",
+    "question": "Do Medicaid work requirements promote work without costing eligible people their coverage?",
+    "meta_claim": "Requiring working-age adults in Medicaid's expansion group to log 80 hours a month of work, training, school or community service is sound policy: it moves people toward jobs and targets coverage to those it is meant for, without large coverage losses among people who qualify.",
+    "confidence_score": 33,
+    "balance": 33,
+    "weight": 67,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "policy",
+    "pillarCount": 3,
+    "evidenceCount": 14,
+    "firstCrux": "Will the requirement move a meaningful number of Medicaid enrollees into jobs?",
+    "tags": [
+      "policy",
+      "medicaid",
+      "health-insurance",
+      "work-requirements",
+      "safety-net",
+      "welfare"
+    ],
+    "aliases": [
+      "Medicaid community engagement requirements",
+      "Medicaid 80-hour rule"
+    ],
+    "keywords": "nebraska arkansas enrollees snap sommers paperwork childless corinth leive prager pukelis wherry zaki beautiful kffs"
+  },
+  {
+    "id": "data-centers-electricity-bills",
+    "title": "Data Centers and Power Bills",
+    "question": "Are AI data centers driving up household electricity bills?",
+    "meta_claim": "The AI data-center build-out is raising household electricity bills, through wholesale and capacity prices and grid costs spread across all customers, and under current rules households will keep paying for power and wires built for tech companies.",
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 69,
+    "verdict": {
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
+    },
+    "status": "contested",
+    "category": "economics",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "Have data centers raised household electricity rates so far, or held them down?",
+    "tags": [
+      "economics",
+      "data-centers",
+      "electricity-prices",
+      "utilities",
+      "ai",
+      "ratepayers"
+    ],
+    "aliases": [
+      "Data center electricity costs",
+      "Do data centers raise power bills"
+    ],
+    "keywords": "pjms ohio auditors megawatts norris subscribed gigawatts bistline blanford calvin cowie echeverri epri haskell pati"
+  },
+  {
     "id": "nuclear-energy-safety",
     "title": "Nuclear Energy for Climate",
     "question": "Should nuclear power be expanded to help decarbonize electricity?",
@@ -578,7 +640,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "dividend unconditional kela openresearch stockton roosevelt alaskas penn manitoba mincome tanf wives denver givedirectly yangs"
+    "keywords": "dividend kela openresearch stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly yangs banerjee"
   },
   {
     "id": "wealth-tax",
@@ -744,7 +806,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius oracle garland snowden divestiture upholds fisa forbes knight retrained broadcast revelations divest gorsuch"
+    "keywords": "bytedance cfius garland oracle snowden divestiture upholds fisa forbes knight retrained broadcast revelations divest gorsuch"
   },
   {
     "id": "immigration-border-crisis",
@@ -1009,7 +1071,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists maryland writers chegini conspicuous ecfr"
+    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers maryland chegini conspicuous ecfr"
   },
   {
     "id": "big-tech-antitrust",
@@ -1031,7 +1093,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "zuboff analytica amit brynjolfsson flurry goldberg kamepalli mehta shoshana shriver zingales rajan marketplace bauer collis"
+    "keywords": "zuboff analytica amit brynjolfsson flurry goldberg kamepalli mehta shoshana shriver zingales rajan bauer collis emerita"
   },
   {
     "id": "cancel-culture",
@@ -1075,7 +1137,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow chamber regrets crowdsourced msnbc multipartisan unmoderated vetted"
+    "keywords": "allsides groseclose milyo slant flaxman goel husz gentzkow chamber regrets crowdsourced msnbc multipartisan unmoderated missouri"
   },
   {
     "id": "space-colonization-feasibility",
@@ -1163,7 +1225,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "summit seoul bletchley thalidomide newsom goldman nonproliferation turing baidu dario demis gavin godfather hassabis kefauver"
+    "keywords": "summit seoul bletchley thalidomide newsom nonproliferation turing baidu dario demis gavin godfather hassabis kefauver kelsey"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1273,7 +1335,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads waiver chatgpt"
+    "keywords": "radiologists burnout dermatologist sepsis telemedicine clinicians jamainternmed kung mammography odyssey usmle lesions rads chatgpt waiver"
   },
   {
     "id": "privacy-vs-convenience",
@@ -1866,7 +1928,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd sued contagion luna cftc chainalysis gensler silvergate"
+    "keywords": "coinbase stablecoin mica ripple dubai defi fit21 terrausd contagion luna sued cftc chainalysis gensler silvergate"
   },
   {
     "id": "gig-economy-regulation",
@@ -3197,7 +3259,7 @@
       "security",
       "law-enforcement"
     ],
-    "keywords": "calea rivest intercept abelson bellovin cybertipline diffie doormats inventor investigatory ncmec schneier telephony venetic anderson"
+    "keywords": "calea rivest intercept abelson bellovin cybertipline diffie doormats inventor investigatory ncmec schneier telephony venetic comms"
   },
   {
     "id": "section-230-reform",
@@ -3278,7 +3340,7 @@
       "data-centers",
       "sustainability"
     ],
-    "keywords": "lbnl onsite freshwater gallons islam yang eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
+    "keywords": "onsite freshwater gallons lbnl islam yang eesi gco2e hyperscaler masley offsite shehabi thermoelectric thirsty cubic"
   },
   {
     "id": "adhd-overdiagnosis",
