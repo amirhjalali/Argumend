@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs beautiful heard"
+    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs heard propublica"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -1850,7 +1850,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "placer bloom andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip gentrification"
+    "keywords": "placer bloom andy gibbs jassy mengel schoar shinde siemroth atkin downtown moodys boise ctrip gentrification"
   },
   {
     "id": "college-value-proposition",
@@ -2096,7 +2096,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fred bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore"
+    "keywords": "bernanke blanchard velocity overheating louis drewry t10yie walcl larry m2sl breakeven admirably ambitious supercore advisors"
   },
   {
     "id": "global-housing-bubble",
@@ -2124,23 +2124,29 @@
     "id": "us-national-debt-crisis",
     "title": "Is the US National Debt a Ticking Time Bomb?",
     "question": "Will the US national debt cause a fiscal crisis within a generation?",
-    "meta_claim": "The US national debt, exceeding $37 trillion, poses a serious threat to economic stability — though whether it triggers a genuine fiscal crisis within a generation, or proves manageable for a sovereign issuer of the world's reserve currency, is sharply contested.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 83,
+    "meta_claim": "The US national debt, now above $40 trillion, is on a path that risks a genuine fiscal crisis within a generation, rather than a burden a sovereign issuer of the world's reserve currency can carry indefinitely.",
+    "confidence_score": 58,
+    "balance": 58,
+    "weight": 82,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 17,
     "firstCrux": "Can the US keep its borrowing rate below its growth rate over decades?",
     "tags": [
       "economics"
     ],
-    "keywords": "brics reinhart rogoff refinanced herndon pollin comprises outlays rachel crfb cofer expansionary glut rags renminbi"
+    "aliases": [
+      "Is the national debt a ticking time bomb?",
+      "Can the US keep borrowing?",
+      "Interest on the debt now costs more than defense",
+      "Will the US default on its debt?"
+    ],
+    "keywords": "crfb fy2026 reinhart rogoffs outlays herndon pollin rachel brics renminbi moodys trustees refinanced cofer refund"
   },
   {
     "id": "return-to-office-productivity",
@@ -2237,7 +2243,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason sight biocapacity biophysical garment giorgos greek"
+    "keywords": "hickel kallis yellow vest austerity scotland groundswell irena jason sight biocapacity biophysical garment giorgos haberl"
   },
   {
     "id": "free-will",
@@ -2706,7 +2712,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam retiree hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
+    "keywords": "putnam hunkering italians jews complementarity dispersed norc resettlement diploma refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -3145,7 +3151,7 @@
       "iter",
       "decarbonization"
     ],
-    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
+    "keywords": "tritium laser livermore tokamaks sparc chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
   },
   {
     "id": "vaccine-mandates",
@@ -3230,7 +3236,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "actuary trustees solvency crfb retirees oasdi payable taxable"
+    "keywords": "actuary trustees solvency crfb payable oasdi taxable"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3257,7 +3263,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated chairman illiquid instantaneously ranch taxable forgone"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated chairman illiquid instantaneously ranch forgone taxable"
   },
   {
     "id": "occupational-licensing-reform",
