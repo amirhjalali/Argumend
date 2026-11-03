@@ -222,7 +222,7 @@ export const animalConsciousnessRightsData = {
           id: "singer-animal-liberation",
           title: "Peter Singer's 'Animal Liberation' Argument: Equal Suffering Deserves Equal Consideration (1975)",
           description:
-            "In 'Animal Liberation' (1975), philosopher Peter Singer argued that the capacity for suffering — not species membership — is the morally relevant criterion for moral consideration. Singer coined the term 'speciesism' to describe the arbitrary privileging of human interests over animal interests analogous to racism or sexism. His utilitarian framework holds that the suffering of a pig in a factory farm deserves equal moral weight to equivalent suffering in a human, and that most animal agriculture and experimentation cannot be justified by the benefits to humans. The book has been called 'the bible of the animal rights movement' and has sold over 3 million copies.",
+            "In 'Animal Liberation' (1975), philosopher Peter Singer argued that the capacity for suffering — not species membership — is the morally relevant criterion for moral consideration. Singer popularized the term 'speciesism', coined by the psychologist Richard Ryder, for the arbitrary privileging of human interests over animal interests, by analogy with racism or sexism. His utilitarian framework holds that the suffering of a pig in a factory farm deserves equal moral weight to equivalent suffering in a human, and that most animal agriculture and experimentation cannot be justified by the benefits to humans. In the 1973 New York Review of Books essay that first set out the argument, he wrote: 'If a being suffers, there can be no moral justification for refusing to take that suffering into consideration, and, indeed, to count it equally with the like suffering (if rough comparisons can be made) of any other being.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -230,8 +230,8 @@ export const animalConsciousnessRightsData = {
             replicability: 8,
             directness: 8,
           },
-          source: "Animal Liberation, Peter Singer (HarperCollins/Ecco, 1975)",
-          sourceUrl: "https://en.wikipedia.org/wiki/Animal_Liberation_(book)",
+          source: "Peter Singer, Animal Liberation (1975); Peter Singer, 'Animal Liberation,' The New York Review of Books, April 5, 1973",
+          sourceUrl: "https://www.nybooks.com/articles/1973/04/05/animal-liberation/",
           reasoning:
             "Singer is among the most cited living philosophers, and his argument has withstood 50 years of criticism while remaining influential. The utilitarian framework is logically coherent but rests on premises (that suffering is the primary moral currency, that interspecies comparisons of suffering are meaningful) that not all moral philosophers accept. Independence is moderate because Singer is an advocate, not a neutral analyst.",
         },
@@ -265,9 +265,27 @@ export const animalConsciousnessRightsData = {
             directness: 8,
           },
           source: "The Edge of Sentience, Jonathan Birch; Oxford University Press",
-          sourceUrl: "https://en.wikipedia.org/wiki/The_Edge_of_Sentience",
+          sourceUrl: "https://doi.org/10.1093/9780191966729.001.0001",
           reasoning:
             "Directly addresses the strongest skeptic objection (irresolvable uncertainty and arbitrary line-drawing) by reframing the decision as one of risk management rather than metaphysical certainty, from the same author whose evidence review shaped UK law. It is a normative framework rather than an empirical finding, so it cannot be 'replicated'; critics can reasonably argue that 'proportionate precaution' still smuggles in contested value judgments about how much weight to give uncertain suffering, and that the principle could expand obligations without clear limit.",
+        },
+        {
+          id: "cohen-rights-require-claims",
+          title: "Cohen (NEJM, 1986): Rights Are Claims Animals Cannot Make",
+          description:
+            "In 'The Case for the Use of Animals in Biomedical Research' (New England Journal of Medicine, 1986), philosopher Carl Cohen argued that the two grounds on which animal research is widely condemned are both unsound: the rights objection 'relies on a mistaken understanding of rights' and the suffering objection 'relies on a mistaken calculation of consequences.' On his account, 'a right, properly understood, is a claim, or potential claim, that one party may exercise against another,' and on that basis he argued that animals have no rights.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 6,
+            replicability: 4,
+            directness: 5,
+          },
+          source:
+            "Carl Cohen, 'The Case for the Use of Animals in Biomedical Research,' New England Journal of Medicine 315(14):865-870 (1986)",
+          sourceUrl: "https://doi.org/10.1056/NEJM198610023151405",
+          reasoning:
+            "A clear statement of the claims-based view of rights that the skeptic premise relies on, published in a leading medical journal. It is a philosophical argument rather than evidence, so it cannot be replicated, and it is weighted low: it is an advocacy piece for animal research, it addresses rights rather than the scientific question of consciousness, and the proponents' reply that the same test would exclude human infants and severely cognitively disabled people is the standard objection to it.",
         },
       ],
     },
@@ -373,11 +391,11 @@ export const animalConsciousnessRightsData = {
     },
     {
       title: "The Edge of Sentience — Jonathan Birch (Oxford University Press, 2024)",
-      url: "https://en.wikipedia.org/wiki/The_Edge_of_Sentience",
+      url: "https://doi.org/10.1093/9780191966729.001.0001",
     },
     {
-      title: "Animal Liberation — Peter Singer (1975)",
-      url: "https://en.wikipedia.org/wiki/Animal_Liberation_(book)",
+      title: "Animal Liberation — Peter Singer (The New York Review of Books essay, 1973; book, 1975)",
+      url: "https://www.nybooks.com/articles/1973/04/05/animal-liberation/",
     },
     {
       title: "FDA Modernization Act 2.0 — Congress.gov",

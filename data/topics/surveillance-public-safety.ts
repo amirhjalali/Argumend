@@ -74,6 +74,42 @@ export const surveillancePublicSafetyData = {
             "Peer-reviewed with a large sample. But this is an observational difference-in-differences design, not an experiment: cities that adopt facial recognition may differ in other policing investments, so causal claims are weaker than the headline implies. The 'no racial disparity in arrests' finding is a single study and warrants independent replication, which is why replicability and directness are scored conservatively.",
         },
         {
+          id: "montevideo-police-cameras",
+          title: "Montevideo: Police-Monitored Cameras Cut Crime About 20%, No Displacement Found",
+          description:
+            "Munyo and Rossi used the location and installation date of police-monitored surveillance cameras in Montevideo, Uruguay, together with street-segment data on every reported crime. They found that introducing the cameras reduced crime by about 20 percent in monitored areas relative to a control group outside the city, and when they looked for displacement to other areas they did not find evidence of it.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 8,
+          },
+          source:
+            "Munyo & Rossi, 'Police-Monitored Cameras and Crime,' Scandinavian Journal of Economics 122(3) (2020)",
+          sourceUrl: "https://doi.org/10.1111/sjoe.12375",
+          reasoning:
+            "Peer-reviewed, uses fine-grained street-segment data and the staggered timing of installation, and tests directly for the displacement the crux turns on, so directness is high. It is still one city, with cameras that were actively monitored by police, so it speaks to monitored CCTV rather than facial recognition or license plate readers, and a single quasi-experiment in Uruguay may not carry over to other settings; replicability is scored accordingly.",
+        },
+        {
+          id: "medellin-camera-deterrence",
+          title: "Medellín: Quasi-Random Camera Placement Lowered Crime With No Displacement Detected",
+          description:
+            "Gómez, Mejía and Tobón studied a camera installation program in Medellín, Colombia, and found that the quasi-random allocation of cameras led to a decrease in crimes and arrests. Because monitoring capacity did not increase and footage could not be used in prosecution, the authors read the result as deterrence rather than incapacitation. They tested for spillovers and found no evidence of crime displacement to, or diffusion of benefits to, surrounding locations.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 8,
+          },
+          source:
+            "Gómez, Mejía & Tobón, 'The Deterrent Effect of Surveillance Cameras on Crime,' Journal of Policy Analysis and Management 40(2) (2021)",
+          sourceUrl: "https://doi.org/10.1002/pam.22280",
+          reasoning:
+            "Peer-reviewed, with quasi-random placement and an explicit spillover test, which bears directly on the prevent-or-displace question. Limits: one city in a developing economy, a camera program rather than the wider surveillance stack, and a design that is quasi-random rather than a true randomized trial. Together with the Montevideo study it narrows the displacement worry for cameras in these settings without settling it for facial recognition or predictive policing.",
+        },
+        {
           id: "false-arrest-cases",
           title: "Facial Recognition Has Caused False Arrests of Innocent People",
           description:

@@ -249,7 +249,7 @@ It is genuinely uncomfortable to sit with uncertainty on a question this charged
 - Asserting **"definitely a lab leak"** overreads circumstantial evidence and ignores that the early-case and expert-opinion data lean the other way.
 - Asserting **"definitely natural, case closed"** ignores the genuine anomalies and treats the absence of withheld evidence as if it were evidence of absence.
 
-The defensible position is calibrated: natural origin is somewhat more likely on current evidence, a lab leak is a real and unrefuted possibility, and a confident verdict awaits data that China controls. Holding that position isn't fence-sitting — it's accuracy.
+The defensible position is calibrated: both a natural spillover and a lab leak remain live possibilities, neither has been refuted, and a confident verdict awaits data that China controls. Holding that position isn't fence-sitting — it's accuracy.
 
 You can explore the full weighted evidence, the intelligence assessments, and the specific cruxes on the [lab-leak map](/topics/lab-leak-theory). And if you are in an argument about it right now, [paste it in](/analyze) to see what that argument actually turns on.`,
   },
@@ -2451,7 +2451,7 @@ Given genuine scientific uncertainty, here is an evidence-informed approach:
 
 ## The Honest Answer
 
-The honest answer is that we are running a population-scale experiment on children's brains and we will not have definitive results for another decade. The precautionary principle suggests erring on the side of caution with developing minds. The liberty principle suggests parents should decide, not governments. The collective action problem suggests individual family decisions are insufficient.
+The honest answer is that we are running a population-scale experiment on children's brains and we will not have definitive results for another decade. Precaution advocates argue that uncertainty about developing minds is itself the reason to err on the side of caution; skeptics reply that restrictions carry their own costs and should wait for clearer evidence of harm. The liberty principle suggests parents should decide, not governments. The collective action problem suggests individual family decisions are insufficient.
 
 All of these principles point in different directions, which is why this debate is so hard and so important.
 
@@ -2504,7 +2504,7 @@ Mice are useful models because they share most of our genes and age rapidly (all
 
 A drug that extends a two-year mouse lifespan by six months is impressive. Whether it can extend an eighty-year human lifespan by even one year is a completely different question. The biological complexity increases nonlinearly with the organism's size and lifespan.
 
-**The TAME trial** (Targeting Aging with Metformin) represents the gold standard of what rigorous longevity science looks like. It is testing whether metformin — a cheap, well-understood diabetes drug with promising observational associations with longevity — can delay the onset of age-related diseases in 3,000 humans. It is expected to take six years and cost $75 million. This is what real evidence looks like: slow, expensive, and uncertain.
+**The TAME trial** (Targeting Aging with Metformin) represents the gold standard of what rigorous longevity science looks like. It is designed to test whether metformin — a cheap, well-understood diabetes drug with promising observational associations with longevity — can delay the onset of age-related diseases in about 3,000 people aged 65 to 79, over six years at 14 research institutions. It is still not fully funded: as of mid-2026, the American Federation for Aging Research was still raising the money to launch it. This is what real evidence looks like: slow, expensive, and uncertain.
 
 ## The Societal Questions Nobody Is Asking
 
@@ -2774,9 +2774,9 @@ Perhaps the most troubling aspect of geoengineering is not the science but the p
 
 **For both:** The moral hazard question is empirically testable. Do countries that invest in geoengineering reduce their emissions efforts? Early evidence is mixed. If geoengineering and emissions reduction prove complementary rather than substitutive, the strongest objection weakens.
 
-## The Honest Position
+## Where That Leaves the Debate
 
-The honest position is uncomfortable: **we probably need geoengineering AND aggressive emissions reduction, and we are not prepared for either.** Dismissing geoengineering as a dangerous distraction is irresponsible given the severity of climate impacts already occurring. Embracing geoengineering as an alternative to emissions reduction is equally irresponsible given the risks.
+The crux is uncomfortable for both camps. **Proponents argue geoengineering is a necessary backstop if warming outruns emissions cuts; critics argue that having a backstop weakens the pressure to make those cuts.** Both sides accept that cutting emissions is the lower-risk path and that no adequate international framework exists to govern deployment. What divides them is whether preparing the backstop makes the cuts more or less likely to happen.
 
 The debate is not "geoengineering vs. emissions reduction." It is "how do we manage the risks of both doing it and not doing it?" That requires exactly the kind of evidence-weighted, both-sides analysis that most of the discourse is missing.
 
@@ -3694,7 +3694,7 @@ The analytical methodology itself introduces uncertainty. A 2025 validation stud
 
 The dose question is critical. The human body routinely encounters foreign particles — mineral dust, plant fibers, volcanic ash, carbon particles from cooking — without systemic harm. The immune system has evolved sophisticated mechanisms for sequestering and clearing particulate matter. The question is not whether microplastics are present but whether they are present at concentrations that overwhelm these defenses. Many laboratory studies demonstrating cellular harm from microplastics use concentrations far exceeding what has been measured in human tissue. When you expose cells to orders-of-magnitude higher particle loads than real-world exposure, you can make almost any substance look toxic.
 
-The sperm count decline, while alarming, is a multifactorial trend that coincides with rising obesity (adipose tissue converts testosterone to estrogen), increased sedentary behavior, dietary changes, chronic stress, and exposure to hundreds of non-plastic industrial chemicals. A 2024 review in *The Lancet* noted that countries with the steepest sperm count declines do not consistently have the highest plastic exposure, while some high-exposure populations show less severe declines. Isolating the specific contribution of plastic-derived endocrine disruptors from dozens of concurrent environmental and lifestyle changes is methodologically challenging to the point of being currently impossible.
+The sperm count decline, while alarming, is a multifactorial trend that coincides with rising obesity (adipose tissue converts testosterone to estrogen), increased sedentary behavior, dietary changes, chronic stress, and exposure to hundreds of non-plastic industrial chemicals. A 2024 review in *Current Opinion in Urology* (Daniels and Berger Eberhardt) concluded that "the etiology of the decline in male fertility over the past decades is yet unknown," listing heat stress from climate change, particle pollution, microplastics and endocrine-disrupting chemicals as proposed contributors rather than established causes. Isolating the specific contribution of plastic-derived endocrine disruptors from dozens of concurrent environmental and lifestyle changes is methodologically challenging to the point of being currently impossible.
 
 Perhaps most importantly, humans have been heavily exposed to microplastics for decades. If microplastics at current exposure levels caused dramatic health effects, we would expect to see a clear epidemiological signal by now — a detectable increase in specific diseases correlated with the exponential growth in plastic production since the 1950s. While some trends (declining sperm counts, rising certain cancers) are consistent with microplastic harm, they are equally consistent with many other environmental and lifestyle changes occurring over the same period. The absence of a clear, specific epidemic attributable to microplastics — despite 70 years of escalating exposure — is not proof of safety, but it is evidence against an acute health crisis.
 

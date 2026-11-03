@@ -2156,7 +2156,7 @@
   {
    "id": "e-fairwork-cloudwork-2025",
    "type": "evidence",
-   "finding": "Fairwork's 2025 cloudwork report evaluates 16 global cloudwork platforms, including data-annotation services, framing the sector as involving millions of workers in AI supply chains; Appen separately reports maintaining a global crowd of more than 1 million contributors across 235+ languages.",
+   "finding": "Fairwork's 2025 cloudwork report evaluates 16 global cloudwork platforms, including data-annotation services, framing the sector as involving millions of workers in AI supply chains.",
    "source": {
     "title": "Cloudwork Report 2025",
     "url": "https://web.archive.org/web/20260413141801/https://fair.work/en/fw/publications/cloudwork-report-2025/",
@@ -2172,7 +2172,31 @@
    },
    "createdAt": "2026-08-11T00:00:00Z",
    "modelVersion": 2,
-   "statement": "Fairwork's 2025 cloudwork report evaluates 16 global cloudwork platforms, including data-annotation services, framing the sector as involving millions of workers in AI supply chains; Appen separately reports maintaining a global crowd of more than 1 million contributors across 235+ languages."
+   "statement": "Fairwork's 2025 cloudwork report evaluates 16 global cloudwork platforms, including data-annotation services, framing the sector as involving millions of workers in AI supply chains."
+  },
+  {
+   "id": "e-appen-crowd-2022",
+   "type": "evidence",
+   "finding": "Appen says it works with more than one million contributors labeling data in over 235 languages.",
+   "source": {
+    "title": "A Day in the Life of an Appen Crowd Contributor: Hediye Cengiz",
+    "url": "https://www.appen.com/blog/day-in-the-life-of-an-appen-crowd-contributor-hediye-cengiz",
+    "author": "Melissa Pardo",
+    "institution": "Appen",
+    "kind": "industry",
+    "interest": "Appen sells AI training data produced by its contributor crowd; the figure is company-stated in a 2022 promotional blog post, not an audited headcount, and does not say how many contributors are active at once.",
+    "verification": "verified-live",
+    "publishedAt": "2022-09-23",
+    "verifiedAt": "2026-11-02"
+   },
+   "relevance": "Gives one company's own count of its annotation crowd, which bears on the scale of the workforce; as a self-reported registry figure it does not measure hours, earnings or how many contributors work regularly.",
+   "provenance": {
+    "origin": "curator",
+    "sourceRef": "round 10 citation audit: Appen figure split from the Fairwork node"
+   },
+   "createdAt": "2026-11-02T00:00:00Z",
+   "modelVersion": 2,
+   "statement": "Appen says it works with more than one million contributors labeling data in over 235 languages."
   },
   {
    "id": "e-oxford-econ-annotation-market",
@@ -4218,6 +4242,13 @@
    "to": "c-ai-increases-output-per-worker",
    "type": "evidences",
    "polarity": "qualifying"
+  },
+  {
+   "id": "edge-159",
+   "from": "e-appen-crowd-2022",
+   "to": "c-annotation-is-ai-production",
+   "type": "evidences",
+   "polarity": "supporting"
   }
  ]
 }

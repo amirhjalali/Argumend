@@ -38,6 +38,18 @@ export const geoengineeringClimateData = {
       title: "Geoengineering the Climate: Science, Governance, and Uncertainty — Royal Society",
       url: "https://royalsociety.org/topics-policy/publications/2009/geoengineering-climate/",
     },
+    {
+      title: "Asymmetric forcing from stratospheric aerosols impacts Sahelian rainfall — Haywood et al., Nature Climate Change (2013)",
+      url: "https://doi.org/10.1038/nclimate1857",
+    },
+    {
+      title: "The impact of abrupt suspension of solar radiation management (termination effect) in GeoMIP experiment G2 — Jones et al., JGR Atmospheres (2013)",
+      url: "https://doi.org/10.1002/jgrd.50762",
+    },
+    {
+      title: "Potentially dangerous consequences for biodiversity of solar geoengineering implementation and termination — Trisos et al., Nature Ecology & Evolution (2018)",
+      url: "https://doi.org/10.1038/s41559-017-0431-0",
+    },
   ],
   questions: [
     {
@@ -148,7 +160,7 @@ export const geoengineeringClimateData = {
         "Solar geoengineering affects global weather systems, meaning unilateral deployment by one nation could harm others. No international governance framework exists for interventions that affect the entire planet. The risks include altered monsoon patterns affecting billions, ozone depletion, and termination shock if interventions are suddenly stopped.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Solar radiation management would introduce entirely new categories of global risk. Climate models show that stratospheric aerosol injection would reduce rainfall in monsoon regions that support billions of people in South and Southeast Asia and sub-Saharan Africa. A 2024 Nature study found that SRM sufficient to cool the Northern Hemisphere by 1 degree Celsius could reduce rainfall in the Sahel by up to 10%, threatening food security for hundreds of millions. The 'termination shock' problem is equally severe: if aerosol injection were stopped abruptly (due to war, economic crisis, or political change), temperatures would spike by 2-4 degrees Celsius within a decade — faster than any natural warming — devastating ecosystems and agriculture. No international governance framework exists, meaning any nation could unilaterally deploy SRM, affecting every other nation without consent.",
+        "Solar radiation management would introduce entirely new categories of global risk. Climate models show that stratospheric aerosol injection would reduce rainfall in monsoon regions that support billions of people in South and Southeast Asia and sub-Saharan Africa. A 2013 Nature Climate Change modelling study (Haywood et al.) found that stratospheric aerosol loadings concentrated in the Northern Hemisphere are a precursor of drought in the Sahel, while loadings concentrated in the Southern Hemisphere induce a greening of the Sahel, so where aerosols are injected could decide which vulnerable region gains and which loses rain. The 'termination shock' problem is equally severe: if aerosol injection were stopped abruptly (due to war, economic crisis, or political change), the warming it had masked would return rapidly. The 11 climate models of a 2013 intercomparison agreed on a rapid rise in global-mean temperature after termination, and a 2018 Nature Ecology & Evolution study found sudden termination would push the speeds at which species must move to track climate to more than double those of recent and projected climate change in biodiversity hotspots. No international governance framework exists, meaning any nation could unilaterally deploy SRM, affecting every other nation without consent.",
       proponent_rebuttal:
         "The unintended consequences argument applies equally to the unmitigated climate change it seeks to prevent. Unchecked warming of 3-4 degrees Celsius will cause far more devastating monsoon disruption, agricultural failure, and ecosystem collapse than any geoengineering side effect. The question is not 'geoengineering vs. a stable climate' but 'geoengineering vs. catastrophic unmanaged warming.' Climate models do show regional precipitation changes from SRM, but they also show these effects are smaller and more manageable than the effects of unmitigated warming. Termination shock is a governance challenge, not a physical law — adequate international agreements with redundant deployment systems and gradual phase-down protocols can prevent abrupt cessation. The governance gap is an argument for building governance, not for abandoning research.",
       crux: {
