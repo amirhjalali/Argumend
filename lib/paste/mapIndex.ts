@@ -141,14 +141,28 @@ export function buildMapIndex(
   }
 
   const documentFrequency = new Map<string, number>();
+  // A flagship map's evidence scores pastes but stays out of its profile.
+  // The drafts file 30 to 60 long evidence statements per map, several times
+  // a pillar map's evidence, and in the profile they pulled every work-related
+  // map (return to office, remote work) within `siblingSimilarity` of the
+  // AI-jobs map, so a paste about AI and hiring opened the return-to-office
+  // map as its "sibling". The sibling threshold was set on profiles without
+  // them (lib/paste/maps.ts).
+  const profileFrequencies = new Map<string, Map<string, number>>();
   const maps: IndexedMap[] = tokenized.map(({ document, perField, pairsPerField }) => {
     const weightedFrequency = new Map<string, number>();
+    const profileFrequency = new Map<string, number>();
+    profileFrequencies.set(document.id, profileFrequency);
     for (const field of FIELDS) {
       const terms = perField[field];
       if (terms.length === 0) continue;
       const norm = 1 - params.b[field] + (params.b[field] * terms.length) / averageLength[field];
       const scale = params.weights[field] / norm;
-      for (const term of terms) weightedFrequency.set(term, (weightedFrequency.get(term) ?? 0) + scale);
+      const inProfile = field !== "evidence" || document.kind !== "flagship";
+      for (const term of terms) {
+        weightedFrequency.set(term, (weightedFrequency.get(term) ?? 0) + scale);
+        if (inProfile) profileFrequency.set(term, (profileFrequency.get(term) ?? 0) + scale);
+      }
       for (const pair of pairsPerField[field]) {
         weightedFrequency.set(pair, (weightedFrequency.get(pair) ?? 0) + scale);
       }
@@ -163,10 +177,10 @@ export function buildMapIndex(
   // score them (saturated field-weighted frequency times IDF), unit length.
   const total = maps.length;
   const profiles = new Map<string, Map<string, number>>();
-  for (const { document, weightedFrequency } of maps) {
+  for (const { document } of maps) {
     const vector = new Map<string, number>();
     let norm = 0;
-    for (const [term, frequency] of weightedFrequency) {
+    for (const [term, frequency] of profileFrequencies.get(document.id)!) {
       if (term.includes("_")) continue;
       const value =
         (frequency / (params.k1 + frequency)) * idf(total, documentFrequency.get(term) ?? 0);
