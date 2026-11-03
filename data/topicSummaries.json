@@ -41,7 +41,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
+    "keywords": "pfoa pfos dupont genx antibody chemours corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -63,7 +63,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids lowe"
+    "keywords": "adherence isocaloric catenacci sutton trepanowski timet hba1c appendicular etrf feast hamsho prediabetes regimen lipids glycemic"
   },
   {
     "id": "daylight-saving-time-abolition",
@@ -218,7 +218,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dire wolf wolves colossal canid iucn resurrected woolly lineage biosciences coyotes extant ghost latham multiplex"
+    "keywords": "dire wolf wolves colossal canid gray iucn resurrected woolly lineage biosciences coyotes extant ghost latham"
   },
   {
     "id": "scott-cost-disease",
@@ -240,7 +240,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "baumol stagnant pell nordhaus rosen vijan admin cutler naep tuition turner haircut helland marron tabarrok"
+    "keywords": "baumol stagnant pell naep nordhaus rosen vijan admin cutler turner haircut helland marron tabarrok ginsberg"
   },
   {
     "id": "moloch",
@@ -262,7 +262,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "ostrom singleton malthusian axelrod hanson hardin polycentric montreal tragedy subsistence folk malthus nash fisheries leviathan"
+    "keywords": "ostrom singleton malthusian axelrod hardin polycentric hanson montreal tragedy subsistence folk malthus nash fisheries leviathan"
   },
   {
     "id": "ai-2027",
@@ -307,7 +307,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "marine sealift marad oceangoing grabow maria shipbuilding shipyard turbo hurricane ikenson manak pricewaterhousecoopers surcharge underdeveloped"
+    "keywords": "marine sealift marad oceangoing grabow shipbuilding shipyard turbo hurricane maria ikenson manak pricewaterhousecoopers surcharge underdeveloped"
   },
   {
     "id": "medicaid-work-requirements",
@@ -338,7 +338,7 @@
       "Medicaid community engagement requirements",
       "Medicaid 80-hour rule"
     ],
-    "keywords": "nebraska arkansas enrollees snap sommers childless corinth leive prager pukelis wherry zaki kffs propublica arkansass"
+    "keywords": "nebraska arkansas enrollees snap sommers corinth leive prager pukelis wherry zaki childless gray kffs propublica"
   },
   {
     "id": "data-centers-electricity-bills",
@@ -561,7 +561,7 @@
       "Universal medical coverage",
       "Would universal healthcare mean waiting months to see a specialist?"
     ],
-    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein treatable"
+    "keywords": "concord galvani allemani biopharmaceutical phrma himmelstein treatable molecular"
   },
   {
     "id": "gun-control-effectiveness",
@@ -710,7 +710,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "boxell cepaluni fowler hidalgo hoffman lachat lombardi selb gentzkow leigh uninformed dampen donkey faqs jesse"
+    "keywords": "boxell cepaluni fowler hidalgo hoffman lachat lombardi selb leigh gentzkow uninformed dampen donkey faqs jesse"
   },
   {
     "id": "reparations-slavery",
@@ -759,7 +759,7 @@
       "Do immigrants take jobs from Americans?",
       "Will deporting immigrants raise wages?"
     ],
-    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay diploma farmworkers clemens elizabeth chloe"
+    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay farmworkers clemens diploma elizabeth chloe"
   },
   {
     "id": "open-borders",
@@ -926,7 +926,7 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran barrels memorandum"
+    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran barrels fordow"
   },
   {
     "id": "epstein-files",
@@ -948,7 +948,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "maxwell redacted brunel conspirators palm beach acosta blackmail dershowitz batch perpetrators prostitution starr cvra ghislaine"
+    "keywords": "maxwell redacted brunel conspirators palm beach acosta blackmail dershowitz starr batch perpetrators prostitution jean cvra"
   },
   {
     "id": "tiktok-ban",
@@ -977,7 +977,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture forbes fisa knight upholds broadcast retrained relicensed subsidiaries"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture forbes fisa knight retrained upholds broadcast relicensed subsidiaries"
   },
   {
     "id": "immigration-border-crisis",
@@ -1211,7 +1211,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "odgers braghieri comic coyne makarin jensen unfounded joiner michaeline sisyphean stockdale wertham zurcher candice historians"
+    "keywords": "odgers comic coyne makarin braghieri jensen twenge unfounded joiner michaeline sisyphean stockdale wertham zurcher candice"
   },
   {
     "id": "ai-risk",
@@ -1284,7 +1284,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "zuboff analytica amit brynjolfsson flurry goldberg kamepalli mehta shoshana shriver zingales rajan gatekeepers bauer collis"
+    "keywords": "zuboff analytica amit flurry goldberg kamepalli mehta shoshana shriver zingales brynjolfsson rajan gatekeepers bauer collis"
   },
   {
     "id": "cancel-culture",
@@ -1475,7 +1475,7 @@
       "Is AGI coming soon?",
       "When will AI be smarter than humans?"
     ],
-    "keywords": "astra lecun sooner amodei fable bricken dziri harness shazeer chollet hoffmann predecessor decoder kaplan opus"
+    "keywords": "astra lecun amodei fable sooner bricken dziri harness shazeer chollet hoffmann predecessor decoder kaplan opus"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -1842,7 +1842,7 @@
       "Is anti-aging medicine real?",
       "Will we be able to live to 150?"
     ],
-    "keywords": "senescent yamanaka pulmonary rapamycin unity fibrosis ebiomedicine grimage healthspan metformin cellular mayo agonists tumor cyclic"
+    "keywords": "senescent yamanaka pulmonary rapamycin unity fibrosis cellular ebiomedicine grimage healthspan metformin mayo agonists tumor cyclic"
   },
   {
     "id": "gender-affirming-care-minors",
@@ -1914,7 +1914,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist amgen copay"
+    "keywords": "semaglutide regain wegovy novo pharmacy nordisk quadrupled novocare substudy dieters pharmacotherapy reclassification waist endocrinology amgen"
   },
   {
     "id": "fluoride-water-supplies",
@@ -1986,73 +1986,88 @@
     "tags": [
       "science"
     ],
-    "keywords": "supermarket semaglutide kcal regained microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
+    "keywords": "supermarket semaglutide kcal regained microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks"
   },
   {
     "id": "loneliness-epidemic",
-    "title": "Is Loneliness a Public Health Crisis?",
-    "question": "Is loneliness a public health crisis?",
-    "meta_claim": "Social isolation and loneliness have reached epidemic levels and pose health risks comparable to smoking 15 cigarettes a day.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 72,
+    "title": "The Loneliness Epidemic: Real or Overblown?",
+    "question": "Is loneliness a public health crisis, or are we medicalizing a normal feeling?",
+    "meta_claim": "Loneliness has become widespread and harmful enough to health that it should be treated as a public health crisis, with governments and institutions acting to reduce it.",
+    "confidence_score": 52,
+    "balance": 52,
+    "weight": 78,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does loneliness itself cause early death, or is it a marker of existing disadvantage?",
+    "pillarCount": 4,
+    "evidenceCount": 15,
+    "firstCrux": "Do people report more loneliness than past generations did, or only spend more time alone?",
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole glaser kiecolt luchetti sage surkalim fibrinogen suburbs suburban"
+    "aliases": [
+      "Is loneliness a public health crisis?",
+      "Is there really a loneliness epidemic?",
+      "Is loneliness as deadly as smoking 15 cigarettes a day?"
+    ],
+    "keywords": "holt lunstad leyden walkable galway luchetti masi allcott liang esteban kannan ortiz ospina veazie diaries"
   },
   {
     "id": "remote-work-permanence",
-    "title": "The Future of Remote Work",
-    "question": "Will remote and hybrid work permanently replace the five-day office week?",
-    "meta_claim": "Remote and hybrid work models will permanently replace traditional 5-day office work for knowledge workers.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 59,
+    "title": "Is Remote Work Here to Stay?",
+    "question": "Is remote work here to stay, or is the five-day office week coming back?",
+    "meta_claim": "Remote and hybrid work will permanently replace the five-day office week for most knowledge workers, whatever employers mandate.",
+    "confidence_score": 56,
+    "balance": 56,
+    "weight": 69,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 9,
-    "firstCrux": "Will workers' demand for remote and hybrid work outlast employers' office mandates?",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "Has remote work leveled off at a new normal, or is it still sliding back toward the office?",
     "tags": [
       "economics"
     ],
-    "keywords": "placer bloom andy gibbs jassy mengel schoar shinde siemroth atkin downtown moodys boise ctrip gentrification"
+    "aliases": [
+      "Will remote and hybrid work permanently replace the five-day office week?",
+      "Is hybrid work permanent?",
+      "Are return-to-office mandates winning?"
+    ],
+    "keywords": "placer swaa workdays kastle moodys bloom gibbs mengel siemroth teleworked liang smallest andy jassy lila"
   },
   {
     "id": "college-value-proposition",
-    "title": "The Value of a College Degree",
-    "question": "Is a four-year degree still worth it for most students who finish?",
-    "meta_claim": "For most students who complete it, a four-year degree still earns a strong financial return — but the payoff varies enormously by major, institution, and completion, so it is no longer a safe bet for everyone.",
-    "confidence_score": 61,
-    "balance": 61,
-    "weight": 64,
+    "title": "Is College Still Worth It?",
+    "question": "Is a four-year degree still worth the cost for most students?",
+    "meta_claim": "A four-year degree is still worth its cost for most students who finish it, even though the payoff varies widely by major, school and whether the student graduates.",
+    "confidence_score": 45,
+    "balance": 45,
+    "weight": 74,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 2,
-    "evidenceCount": 8,
-    "firstCrux": "What share of school-and-major combinations pay off once you account for who enrolls?",
+    "pillarCount": 3,
+    "evidenceCount": 13,
+    "firstCrux": "What share of degree programs pay off once you account for who enrolls and how many finish?",
     "tags": [
       "economics"
     ],
-    "keywords": "apprenticeship attendees vocational bootcamp cirr placement electrician pipefitters plumbers steamfitters hvac looney qualifications steeper handbook"
+    "aliases": [
+      "Is a four-year degree still worth it for most students who finish?",
+      "Is college worth the debt?",
+      "Should I go to college or learn a trade?"
+    ],
+    "keywords": "deitz abel electrician bootcamps cirr goodman hurwitz plumber vocational leavers placement arts chandar freopp preston"
   },
   {
     "id": "homeschooling-effectiveness",
@@ -2262,7 +2277,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "tuition repayment deciles nebraska catherine forbearance crfb alleviates bard disbursed forgave fullwiler heroes mbas miscounting"
+    "keywords": "repayment deciles nebraska catherine forbearance crfb alleviates bard disbursed forgave fullwiler heroes mbas miscounting ruetschlin"
   },
   {
     "id": "inflation-monetary-policy",
@@ -2313,7 +2328,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers lows hmrc redfin tourist fraser garcia starter airbnb batzer bearish cmas cmhc fhfa"
+    "keywords": "rentals sellers hmrc redfin tourist fraser garcia starter metro airbnb batzer bearish cmas cmhc fhfa"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2615,7 +2630,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal cortical"
+    "keywords": "qualia workspace dennett cogitate nagel dehaene templeton zombie broadcast baars frankish phenomenal thompson parietal irreducibility"
   },
   {
     "id": "artificial-reproduction-ethics",
@@ -2729,7 +2744,7 @@
       "Is solar geoengineering now a necessary complement to cutting emissions?",
       "Should we dim the sun to fight climate change?"
     ],
-    "keywords": "geomip pinatubo advisors britain outdoor dioxide precipitation aria fairbrother monsoon forster hydrological rainfall tons unpriced"
+    "keywords": "geomip pinatubo advisors britain outdoor precipitation dioxide aria fairbrother monsoon forster hydrological rainfall tons unpriced"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2755,12 +2770,12 @@
   },
   {
     "id": "masculinity-crisis",
-    "title": "The Modern Masculinity Crisis",
-    "question": "Are young men in a crisis that neither left nor right adequately addresses?",
-    "meta_claim": "Young men are experiencing a crisis of identity, purpose, and mental health driven by economic displacement, educational underperformance, and the collapse of traditional masculine roles, which neither progressive nor conservative frameworks adequately address.",
-    "confidence_score": 59,
-    "balance": 59,
-    "weight": 70,
+    "title": "Boys and Men: Is There a Crisis?",
+    "question": "Are boys and young men in a crisis that needs help aimed at them?",
+    "meta_claim": "Boys and young men are falling behind in school, work, health and friendship in ways that amount to a crisis, and it needs policies and programs aimed at them, not only general help for the poor or the economy.",
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2768,12 +2783,17 @@
     "status": "contested",
     "category": "philosophy",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Are men's worse outcomes driven by gender itself, or by class and economic factors that hit more men?",
+    "evidenceCount": 13,
+    "firstCrux": "Do men's gaps in school, work and health persist among men and women from the same class and race?",
     "tags": [
       "philosophy"
     ],
-    "keywords": "despair deaton anne tate herself naep clearinghouse mens afflicting congregations fraternal hierarchies misogynistic proficiency sharper"
+    "aliases": [
+      "Are young men in a crisis that neither left nor right adequately addresses?",
+      "Is there a masculinity crisis?",
+      "Is there a boy crisis?"
+    ],
+    "keywords": "tate anne deaton despair nces brothers extradition guryan juvenile lns11300061 loneliest ludwig midlife pollack angus"
   },
   {
     "id": "ai-deepfakes-truth-collapse",
@@ -2799,30 +2819,32 @@
   },
   {
     "id": "declining-birth-rates",
-    "title": "The Global Fertility Collapse",
-    "question": "Is falling fertility an existential crisis that demands policy action?",
-    "meta_claim": "The global decline in birth rates below replacement level represents an existential demographic crisis that will cause economic collapse, pension system failure, and civilizational decline unless proactively addressed through policy intervention.",
-    "confidence_score": 60,
-    "balance": 60,
-    "weight": 60,
+    "title": "The Birth-Rate Decline",
+    "question": "Are falling birth rates a crisis that governments should try to fix?",
+    "meta_claim": "Falling birth rates are a serious problem for rich countries, driven largely by costs and barriers that stop people having the children they want, and governments should act to raise them.",
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 73,
     "verdict": {
-      "label": "Evidence leans toward the claim — moderately evidenced",
-      "quadrant": "moderate"
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 7,
-    "firstCrux": "Is there a fertility level below which falling income per person becomes self-reinforcing?",
+    "pillarCount": 4,
+    "evidenceCount": 14,
+    "firstCrux": "Will low birth rates push down living standards, or can aging countries adjust without more babies?",
     "tags": [
       "economics"
     ],
     "aliases": [
+      "Is falling fertility an existential crisis that demands policy action?",
       "Falling birth rates and family policy",
       "Should governments help people have the children they want?",
-      "Do housing and childcare costs explain low fertility?"
+      "Do housing and childcare costs explain low fertility?",
+      "Do baby bonuses work?"
     ],
-    "keywords": "unfpa childbearing kenyan duflo dupas kremer pcap desa fieldwork totl"
+    "keywords": "milligan unfpa hungarian kearney lutz pardue sobotka zeman quebecs childbirth conjecture iussp nvsr pcap pmozgalom"
   },
   {
     "id": "nuclear-proliferation-new-arms-race",
@@ -2866,7 +2888,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa cisgender rapporteur skeletal medals swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "keywords": "olympic ncaa cisgender rapporteur skeletal medals swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics chromosome"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2911,7 +2933,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "borjas putnam hunkering jews complementarity diploma dispersed italians norc reexamining resettlement refugee scandinavian"
+    "keywords": "putnam borjas hunkering jews complementarity dispersed italians norc reexamining resettlement diploma refugee scandinavian"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -3031,7 +3053,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "fy2025 pahlka callers slaughter appraisal executor humphreys kettl nextgov opms rehired disinvestment forgo overruled ssas"
+    "keywords": "fy2025 pahlka callers slaughter appraisal disinvestment executor humphreys kettl nextgov opms rehired forgo overruled ssas"
   },
   {
     "id": "open-weight-ai-models",
@@ -3235,7 +3257,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla dragged gode kusano paddock pe24031"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla gode kusano paddock pe24031 shladover"
   },
   {
     "id": "net-neutrality",
@@ -3266,7 +3288,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast ante bittorrent briglauer cambini ctia gugler stocker memorandum secretly bona duarte facetime isps loper"
+    "keywords": "comcast ante bittorrent briglauer cambini ctia gugler stocker secretly bona duarte facetime isps loper madison"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3468,7 +3490,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "actuary trustees solvency crfb oasdi payable"
+    "keywords": "actuary trustees solvency crfb oasdi payable insolvent"
   },
   {
     "id": "estate-inheritance-tax",
@@ -3495,7 +3517,7 @@
       "taxation",
       "fiscal-policy"
     ],
-    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated forgone illiquid instantaneously ranch"
+    "keywords": "kopczuk wojciech bequest deathbed if11812 lengthy saxton appreciated illiquid instantaneously ranch forgone peterson"
   },
   {
     "id": "occupational-licensing-reform",
@@ -3527,7 +3549,7 @@
       "Government licenses to work in a trade",
       "Licenses for hair braiding and beauty salons"
     ],
-    "keywords": "midwifery dept kleiner soltas dentist barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher"
+    "keywords": "midwifery dept kleiner dentist soltas barbers manicurists noghanibehambari sweetland whitening yelp carpenter desist fletcher"
   },
   {
     "id": "encryption-backdoors",
@@ -3724,7 +3746,7 @@
       "hiv",
       "harm-reduction"
     ],
-    "keywords": "prostitution indoor gonorrhea govt repressive christchurch cunningham dreher neumayer shah abel beehive brothel brunton fitzgerald"
+    "keywords": "prostitution indoor gonorrhea govt repressive christchurch cunningham dreher neumayer shah beehive brothel brunton fitzgerald goldenberg"
   },
   {
     "id": "congressional-term-limits",
@@ -3777,7 +3799,7 @@
       "global-health",
       "longtermism"
     ],
-    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory maertens miguel pryce utilitas haushofer kremer bankman"
+    "keywords": "deworming acemoglu bednets neglects berkey croke daron hamory kremer maertens miguel pryce utilitas haushofer bankman"
   },
   {
     "id": "alcohol-no-safe-level",

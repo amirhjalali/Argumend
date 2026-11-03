@@ -303,7 +303,7 @@ test("a family-policy argument keeps audited birth-rate evidence without unrelat
   await expect(result.getByRole("link", { name: "Open the map at this crux", exact: true }))
     .toHaveAttribute("href", "/topics/declining-birth-rates#crux-choice-theory");
   await expect(result.locator('a[href="https://www.unfpa.org/sites/default/files/pub-pdf/EN_State%20of%20World%20Population%20report%202025.pdf"]')).toBeVisible();
-  await expect(result.locator('a[href="https://doi.org/10.1257/aer.20121607"]')).toBeVisible();
+  await expect(result.locator('a[href="https://www.pewresearch.org/social-trends/2024/07/25/the-experiences-of-u-s-adults-who-dont-have-children/"]')).toBeVisible();
 });
 
 test("an unmapped personal argument becomes conversation notes without another request", async ({ page }) => {
