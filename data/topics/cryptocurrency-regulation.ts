@@ -464,6 +464,25 @@ export const cryptocurrencyRegulationData = {
           reasoning:
             "The SEC release directly documents the Coinbase dismissal, the Crypto Task Force, and the Commission's stated move away from expressing crypto policy primarily through enforcement. The broader durability claim remains an inference, and the new approach's long-term results are still developing.",
         },
+        {
+          id: "terraform-rakoff-existing-law",
+          title: "Judge Rakoff: securities law already reaches 'novel devices' like crypto-assets (SEC v. Terraform, 2023)",
+          description:
+            "Denying Terraform Labs' and Do Kwon's motion to dismiss on 31 July 2023, Judge Jed Rakoff of the Southern District of New York rejected the argument that crypto needed Congress to speak first. The SEC's move against the tokens, he wrote, 'aligns, in fact, with Congress's expectations that the SEC is to regulate \"virtually any instrument that might be sold as an investment\"', 'including novel devices like the digital assets at issue here', and 'there is no indication that Congress intended to hamstring the SEC's ability to resolve new and difficult questions posed by emerging technologies'. He also rejected the Ripple ruling's line between institutional and secondary-market buyers: 'But Howey makes no such distinction between purchasers.' The ruling came at the pleading stage, with the SEC's allegations taken as true, and it openly split from a colleague's ruling in the same courthouse.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 5,
+            directness: 7,
+          },
+          source:
+            "SEC v. Terraform Labs Pte. Ltd. and Do Hyeong Kwon, No. 23-cv-1346 (JSR), Opinion and Order (S.D.N.Y. 31 July 2023), ECF 51",
+          sourceUrl:
+            "https://storage.courtlistener.com/recap/gov.uscourts.nysd.594150/gov.uscourts.nysd.594150.51.0.pdf",
+          reasoning:
+            "A federal court opinion, so reliability and independence are high, and it speaks directly to whether existing securities law can govern tokens without crypto-specific rules (directness 7). Replicability is 5 because the courts split: Judge Torres in Ripple drew the opposite line on secondary-market sales, the ruling decided only that the SEC's allegations were plausible, and since 2025 the SEC itself has moved toward bespoke crypto rules, so this is one strong judicial reading rather than settled law.",
+        },
       ],
     },
   ],
