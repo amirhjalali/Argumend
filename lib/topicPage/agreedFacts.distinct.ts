@@ -18,8 +18,6 @@ export const DISTINCT_FROM_AGREED_FACT: Record<string, string> = {
     "The card says harms may outweigh benefits in milder cases; the agreed fact says that net effect is poorly studied.",
   "trump-tariffs/american-compass-stealth-boom":
     "The card argues a boom is visible in capex; the agreed fact is only that payrolls do not show one yet.",
-  "student-debt-forgiveness/tuition-inflation-1200-percent":
-    "The card is the size of the tuition rise; the agreed fact is that guaranteed loans removed price discipline.",
 };
 
 /**
