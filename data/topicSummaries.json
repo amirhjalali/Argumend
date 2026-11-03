@@ -151,7 +151,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation cement mothballed mammoth dioxide amine beneath orca wgiii"
+    "keywords": "climeworks petra ieefa sleipner nova saskpower aviation mothballed mammoth dioxide amine beneath orca wgiii barrel"
   },
   {
     "id": "hydrogen-economy-viability",
@@ -173,7 +173,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "ammonia aviation grey stegra wheel steam electrolyzer mill refueling shell haul electrolytic furnace hybrit insideevs"
+    "keywords": "ammonia aviation grey stegra wheel steam electrolyzer refueling shell haul mill electrolytic furnace hybrit insideevs"
   },
   {
     "id": "vertical-farming-viability",
@@ -471,7 +471,7 @@
       "Independent redistricting commissions",
       "Gerrymandering ban"
     ],
-    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom cements deadlocked kagan"
+    "keywords": "imai kenny mccartan simko fairvote kiley rucho brennan callais jasny kuriwaki newsom deadlocked kagan ajps"
   },
   {
     "id": "aca-enhanced-subsidies",
@@ -2662,7 +2662,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker ward bahamian interoperable outer"
+    "keywords": "sanddollar enaira nigeria wallet bahamas mbridge convoy pesa intereconomics nigerian trucker froze ward bahamian interoperable"
   },
   {
     "id": "masculinity-crisis",
@@ -2959,19 +2959,19 @@
   {
     "id": "carbon-tax-effectiveness",
     "title": "Carbon Tax Effectiveness",
-    "question": "Is a carbon tax an effective, efficient way to cut emissions?",
-    "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions.",
-    "confidence_score": 57,
-    "balance": 57,
-    "weight": 73,
+    "question": "Does a carbon tax cut emissions cheaply enough to be worth the backlash?",
+    "meta_claim": "A carbon tax is an effective and efficient policy for reducing greenhouse-gas emissions, worth the political cost of keeping it.",
+    "confidence_score": 47,
+    "balance": 47,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
-    "pillarCount": 3,
-    "evidenceCount": 9,
+    "pillarCount": 4,
+    "evidenceCount": 13,
     "firstCrux": "How much of the observed emission cuts did carbon taxes actually cause?",
     "tags": [
       "economics",
@@ -2980,7 +2980,11 @@
       "emissions",
       "policy"
     ],
-    "keywords": "bbeling hildebrandt jessica stern stiglitz dividends abbott ahmadi andersson ecoscope kabore tco2 yamazaki degrowth jazeera"
+    "aliases": [
+      "Is a carbon tax an effective, efficient way to cut emissions?",
+      "Does a carbon tax reduce emissions?"
+    ],
+    "keywords": "stern stiglitz rebate bbeling hildebrandt jessica dividends abbott ahmadi aluminium andersson darcangelo ecoscope kabore kruse"
   },
   {
     "id": "congestion-pricing",
