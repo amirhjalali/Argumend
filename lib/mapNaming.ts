@@ -8,9 +8,11 @@
  * alt text fallbacks), never as the name a reader sees next to a heading that
  * asks something else.
  *
- * Data-only, no imports: safe for client components, the route proxy and
- * server code alike.
+ * Data-only; its one import (lib/seoText) has none of its own: safe for
+ * client components, the route proxy and server code alike.
  */
+
+import { META_DESCRIPTION_MAX, fitMetaDescription } from "@/lib/seoText";
 
 /** Anything that carries a map's title and, maybe, its question. */
 export interface NamedMap {
@@ -26,7 +28,13 @@ export function mapDisplayTitle(map: NamedMap): string {
 /** Public descriptions frame the question, rather than assert one side's claim. */
 export function mapDescription(map: NamedMap, questionCount: number): string {
   const questions = questionCount === 1 ? "question" : `${questionCount} questions`;
-  return `${mapDisplayTitle(map)} Explore the ${questions} it turns on, evidence on each side, and what would change a mind.`;
+  const title = mapDisplayTitle(map);
+  // Within the length a search result shows: a long question gets the
+  // shorter tail, and only a question too long for either is cut (at a word).
+  const full = `${title} Explore the ${questions} it turns on, evidence on each side, and what would change a mind.`;
+  if (full.length <= META_DESCRIPTION_MAX) return full;
+  const short = `${title} The ${questions} it turns on, and what would change a mind.`;
+  return fitMetaDescription(short);
 }
 
 /**

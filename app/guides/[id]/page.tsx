@@ -13,6 +13,7 @@ import { getGuideTrack } from "@/lib/guideMeta";
 import { pickNextMap } from "@/lib/learn/nextStep";
 import { leadSentences } from "@/lib/learn/summary";
 import { getGuideFallbackOgUrl } from "./_config";
+import { fitMetaDescription } from "@/lib/seoText";
 import {
   CONTENT_FIRST_PUBLISHED,
   CONTENT_LAST_UPDATED,
@@ -46,16 +47,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : getGuideFallbackOgUrl(guide.title);
   // The root layout's template adds the brand once.
   const title = `${guide.title} — Guide`;
+  const description = fitMetaDescription(guide.description);
 
   return {
     title,
-    description: guide.description.slice(0, 160),
+    description,
     alternates: {
       canonical: `https://argumend.org/guides/${guide.id}`,
     },
     openGraph: {
       title,
-      description: guide.description.slice(0, 160),
+      description,
       url: `https://argumend.org/guides/${guide.id}`,
       type: "article",
       siteName: SITE_NAME,
@@ -71,7 +73,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: "summary_large_image",
       title,
-      description: guide.description.slice(0, 160),
+      description,
       images: [ogImageUrl],
     },
   };

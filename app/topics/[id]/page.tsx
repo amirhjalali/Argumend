@@ -22,6 +22,7 @@ import {
 import { mapDescription, mapDisplayTitle } from "@/lib/mapNaming";
 import { getRelatedMaps } from "@/lib/relatedMaps";
 import { buildTopicFaqPage } from "@/lib/topicPage/faqStructuredData";
+import { fitMetaDescription, templatedTitle } from "@/lib/seoText";
 
 // ---------------------------------------------------------------------------
 // Static Generation
@@ -60,14 +61,15 @@ export async function generateMetadata({
     // The question alone; the layout's title template adds "| ARGUMEND".
     const pageTitle = argumentTopic.meta.title;
     const url = `https://argumend.org/topics/${argumentTopic.meta.id}`;
+    const description = fitMetaDescription(argumentTopic.meta.tagline);
     return {
-      title: pageTitle,
-      description: argumentTopic.meta.tagline,
+      title: templatedTitle(pageTitle),
+      description,
       alternates: { canonical: url },
       openGraph: {
         type: "article",
         title: `${pageTitle} | ARGUMEND`,
-        description: argumentTopic.meta.tagline,
+        description,
         url,
         siteName: "ARGUMEND",
         images: [{ url: ogImage, width: 1200, height: 630, alt: argumentTopic.meta.title }],
@@ -75,7 +77,7 @@ export async function generateMetadata({
       twitter: {
         card: "summary_large_image",
         title: pageTitle,
-        description: argumentTopic.meta.tagline,
+        description,
         images: [ogImage],
       },
     };
@@ -100,8 +102,10 @@ export async function generateMetadata({
   // otherwise the short label.
   return {
     // The map's headline alone, as on the flagship maps: the /topics layout's
-    // template adds "| ARGUMEND", like every other page title on the site.
-    title: pageTitle,
+    // template adds "| ARGUMEND", like every other page title on the site,
+    // unless the question is long enough that the suffix would push it past
+    // what a search result shows (templatedTitle).
+    title: templatedTitle(pageTitle),
     description,
     keywords: [
       topic.title,
