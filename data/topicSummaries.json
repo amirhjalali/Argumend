@@ -1226,7 +1226,7 @@
       "Could AI escape human control?",
       "Could a misaligned superintelligence wipe out humanity?"
     ],
-    "keywords": "apollo kapoor narayanan amodei astra rlhf turner redwood sonnet circled opus sandbox boat deliberative mini"
+    "keywords": "apollo kapoor narayanan amodei astra rlhf opus turner hyperfocused redwood sonnet circled sandbox boat deliberative"
   },
   {
     "id": "ai-content-labeling",
@@ -1385,7 +1385,7 @@
       "Should AI be used in schools?",
       "Is ChatGPT bad for students?"
     ],
-    "keywords": "schoolwork bastani khanmigo kulik ruip valiente fletcher reich unaided muralidharan nfer learners delhi estudia kestin"
+    "keywords": "bastani khanmigo kulik ruip schoolwork valiente fletcher nigeria reich unaided muralidharan nfer learners delhi chalkboards"
   },
   {
     "id": "ai-regulation",
@@ -1394,7 +1394,7 @@
     "meta_claim": "The most capable AI models should face binding government safety rules, such as required testing, incident reporting and the power to halt a dangerous model, rather than rely on voluntary commitments from the companies that make them.",
     "confidence_score": 49,
     "balance": 49,
-    "weight": 79,
+    "weight": 80,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1412,7 +1412,7 @@
       "Should states or Washington regulate AI?",
       "Should AI companies be allowed to police themselves?"
     ],
-    "keywords": "summit newsom seoul globalist hinton zhipu thalidomide amodei multimodal tape calif hassabis knapp vocabulary kelsey"
+    "keywords": "newsom summit seoul multimodal globalist hinton zhipu thalidomide amodei delhi tape calif hassabis knapp vocabulary"
   },
   {
     "id": "eacc-vs-tech-regulation",
@@ -1461,7 +1461,7 @@
       "Is AGI coming soon?",
       "When will AI be smarter than humans?"
     ],
-    "keywords": "astra lecun sooner amodei fable bricken dziri shazeer chollet hoffmann predecessor decoder kaplan opus harness"
+    "keywords": "astra lecun sooner amodei fable bricken dziri harness shazeer chollet hoffmann predecessor decoder kaplan opus"
   },
   {
     "id": "nuclear-renaissance-smr",
@@ -2085,7 +2085,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs poliovirus polio afghanistan disappointing opensecrets pakistan super theirs"
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs poliovirus polio afghanistan disappointing opensecrets pakistan theirs"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -2226,7 +2226,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "burnout collar ambivalent cipd bambra overtime qinglong shao chartered frontline salaried absenteeism akers aubry detrimental"
+    "keywords": "burnout collar ambivalent cipd bambra overtime qinglong shao frontline salaried absenteeism akers aubry detrimental eurostat"
   },
   {
     "id": "student-debt-forgiveness",
@@ -3034,7 +3034,7 @@
       "Should AI models be open source?",
       "Are open-source AI models dangerous?"
     ],
-    "keywords": "deepseek ntia caisi toner uplift biorisk licence casper kaunismaa amateur lecun mistral novice bioattack hendrycks"
+    "keywords": "deepseek ntia caisi mistral uplift biorisk toner licence casper kaunismaa amateur lecun novice nonproliferation whoever"
   },
   {
     "id": "carbon-tax-effectiveness",
@@ -3153,7 +3153,7 @@
       "medicine",
       "rights"
     ],
-    "keywords": "dignity refractory palliative charter carter colburn quill vacco prejudice arch comports crpd disrespects enjoyable grievous"
+    "keywords": "dignity refractory palliative carter colburn quill vacco prejudice arch comports crpd disrespects enjoyable grievous hastening"
   },
   {
     "id": "second-amendment-individual-right",

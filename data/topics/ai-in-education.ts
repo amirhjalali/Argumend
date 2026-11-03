@@ -7,18 +7,18 @@ export const aiInEducationData = {
   status: "contested" as const,
   category: "technology" as const,
   // As of 3 November 2026: Pew's autumn-2025 survey (published February
-  // 2026) found about 54% of US teens use AI chatbots for schoolwork; the
+  // 2026) found about 54% of US teens have used AI chatbots for schoolwork; the
   // strongest trials are still short and single-site (Bastani et al. 2025,
   // Kestin et al. 2025, the World Bank's Nigeria trial).
   last_updated: "2026-11-03",
   // ── The opening: the fact under the title, then what rides on it ──
   keystone_fact: {
     statement:
-      "In a Pew survey in autumn 2025, about 54% of US teens said they use AI chatbots for schoolwork, and one in ten said they do all or most of it with AI's help. The best trials so far point both ways. In a Turkish high school, students given an open GPT-4 chatbot for practice later scored 17% lower on exams taken without it. In Nigeria, a six-week after-school programme pairing an AI chatbot tutor with teachers raised learning by about 0.3 standard deviations. The fight is over which of those the ordinary classroom will look like.",
+      "In a Pew survey in autumn 2025, 54% of US teens said they have used AI chatbots to get help with schoolwork, and one in ten said they do all or most of their schoolwork with chatbots' help. The best trials so far point both ways. In a Turkish high school, students given an open GPT-4 chatbot for practice later scored 17% lower on exams taken without it. In Nigeria, a six-week after-school programme pairing an AI chatbot tutor with teachers raised learning by about 0.3 standard deviations. The fight is over which of those the ordinary classroom will look like.",
     confidence: 82,
     source:
-      "Pew Research Center survey of US teens (25 September to 9 October 2025), as reported by GovTech (26 February 2026); Bastani et al., PNAS (2025); World Bank (2025)",
-    sourceUrl: "https://www.govtech.com/education/k-12/survey-finds-54-of-u-s-teens-use-ai-for-schoolwork",
+      "Pew Research Center, 'How Teens Use and View AI' (24 February 2026; survey of US teens, 25 September to 9 October 2025); Bastani et al., PNAS (2025); World Bank (2025)",
+    sourceUrl: "https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/",
   },
   simple_case: [
     "The answer shapes what millions of children do with their homework tonight: whether schools give every student an AI tutor, keep chatbots out of assignments, or change tests so the work has to be the student's own.",
@@ -40,7 +40,7 @@ export const aiInEducationData = {
         "AI can give each student feedback, or do the assignment for them. In the best trial so far, an open chatbot raised practice scores and lowered later exam scores taken without it, while a tutor built to give hints avoided the loss. The dispute is whether schools can make the second kind the normal one.",
       icon_name: "AlertTriangle" as const,
       skeptic_premise:
-        "Finishing homework with AI is not the same as learning to do it. In Bastani and colleagues' trial with nearly 1,000 Turkish high-school maths students, those given an open GPT-4 chatbot did better during practice but scored 17% lower than classmates without it on the later exams taken unaided. A tutor built to give hints avoided that loss, but did not produce a measurable gain. Students are not waiting for the well-designed version: in Pew's autumn-2025 survey about 54% of US teens said they use chatbots for schoolwork, one in ten said they do all or most of it with AI's help, and 59% said cheating with AI has become a regular part of student life. A small MIT preprint found people writing essays with ChatGPT showed weaker brain connectivity and could barely quote what they had written. When the easy path is to let the tool think, most students will take it.",
+        "Finishing homework with AI is not the same as learning to do it. In Bastani and colleagues' trial with nearly 1,000 Turkish high-school maths students, those given an open GPT-4 chatbot did better during practice but scored 17% lower than classmates without it on the later exams taken unaided. A tutor built to give hints avoided that loss, but did not produce a measurable gain. Students are not waiting for the well-designed version: in Pew's autumn-2025 survey 54% of US teens said they have used chatbots to help with schoolwork, one in ten said they do all or most of it with chatbots' help, and 59% said using AI to cheat is a regular occurrence at their school. A small MIT preprint found people writing essays with ChatGPT showed weaker brain connectivity and could barely quote what they had written. When the easy path is to let the tool think, most students will take it.",
       proponent_rebuttal:
         "A tutor that guides is a different tool from a chatbot that answers, and the guided kind works. In Kestin and colleagues' randomized trial with 194 Harvard physics students, a purpose-built AI tutor produced higher post-lesson quiz scores than the university's own in-class active learning. In the Turkish trial the skeptics cite, the hint-giving tutor avoided the exam loss entirely; the harm came from handing students an unrestricted chatbot. The lesson is design, not abstinence: ask students to explain, critique and revise what AI gives them, then assess them without it. Banning AI would not stop the 54% of teens already using it; it would only stop schools from teaching them to use it well.",
       crux: {
@@ -108,9 +108,9 @@ export const aiInEducationData = {
         },
         {
           id: "pew-teens-schoolwork-2026",
-          title: "Pew 2026: 54% of US teens use AI chatbots for schoolwork; one in ten do all or most of it with AI",
+          title: "Pew 2026: 54% of US teens have used AI chatbots for schoolwork; one in ten do all or most of it with them",
           description:
-            "In Pew Research Center's survey of US teens aged 13 to 17, conducted from 25 September to 9 October 2025 and published in February 2026, about 54% said they use AI chatbots to help with schoolwork. One in ten said they do all or most of their schoolwork with AI's help, and 59% said cheating with AI has become a regular feature of student life.",
+            "In Pew Research Center's survey of 1,458 US teens aged 13 to 17, conducted from 25 September to 9 October 2025 and published on 24 February 2026, 54% said they have used chatbots to get help with schoolwork. 'One-in-ten teens say they do all or most of their schoolwork with chatbots' help,' and 'A majority of teens (59%) think using AI to cheat is a regular occurrence at their school.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -118,8 +118,8 @@ export const aiInEducationData = {
             replicability: 7,
             directness: 3,
           },
-          source: "Pew Research Center, as reported by GovTech, 'Survey finds 54% of U.S. teens use AI for schoolwork' (26 February 2026)",
-          sourceUrl: "https://www.govtech.com/education/k-12/survey-finds-54-of-u-s-teens-use-ai-for-schoolwork",
+          source: "Pew Research Center, 'How Teens Use and View AI' (24 February 2026)",
+          sourceUrl: "https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/",
           reasoning:
             "A national survey showing how widely students already use AI and how normal heavy reliance has become. It measures use and perceptions, not whether students learn less, so it bears on the crux only indirectly.",
         },
@@ -153,9 +153,9 @@ export const aiInEducationData = {
         "The hope is a personal tutor for every child, not just those whose parents can pay. A six-week AI tutoring programme in Nigeria raised scores, with girls gaining more. Closing gaps is a separate claim from raising averages: it depends on which students can use the tools, how much each group learns, and whether gains last.",
       icon_name: "Target" as const,
       skeptic_premise:
-        "Students cannot benefit from tools they cannot reliably reach. UNESCO's 2023 report put school internet connections at 40% of primary, 50% of lower-secondary and 65% of upper-secondary schools worldwide. A two-school Khanmigo pilot in Puerto Rico ran into unreliable devices, internet and power. The World Bank's own Nigeria team lists intermittent internet and inconsistent electricity as obstacles to scaling, and says it cannot isolate the chatbot's effect from the teachers and structure around it. Online learning has a history here: Harvard and MIT's free courses drew learners mostly from affluent countries. Higher average scores among students who use a tool do not show that disadvantaged students gain most, or that gaps narrow across a whole school system.",
+        "Students cannot benefit from tools they cannot reliably reach. UNESCO's 2023 report put school internet connections at 40% of primary, 50% of lower-secondary and 65% of upper-secondary schools worldwide. A two-school Khanmigo pilot in Puerto Rico ran into unreliable devices, internet and power. The World Bank's own Nigeria team reports that 'Frequent power and internet outages' disrupted its sessions, and its programme paired the chatbot with teachers who guided every session, so the trial does not isolate the chatbot's own effect. Online learning has a history here: Harvard and MIT's free courses drew learners mostly from affluent countries. Higher average scores among students who use a tool do not show that disadvantaged students gain most, or that gaps narrow across a whole school system.",
       proponent_rebuttal:
-        "Cheap AI tutoring is already lifting students in places that have never had tutors. In a World Bank randomized trial in Edo State, Nigeria, secondary students who took a six-week after-school programme with an AI chatbot tutor and teacher support gained about 0.3 standard deviations overall, the programme helped all students and not just the top achievers, and girls, who had started behind boys, seemed to gain even more. The more sessions students attended, the more they gained. Earlier adaptive tutoring points the same way: Kulik and Fletcher's review of 50 evaluations found a median effect of 0.66 standard deviations, and in India the Mindspark after-school programme raised maths scores by 0.37 standard deviations in four and a half months. Private tutoring has always been for families who can pay; the Nigeria team reports 'a low marginal cost per student.'",
+        "Cheap AI tutoring is already lifting students in places that have never had tutors. In a World Bank randomized trial in Edo State, Nigeria, secondary students who took a six-week after-school programme with an AI chatbot tutor and teacher support gained about 0.3 standard deviations overall, the programme helped all students and not just the top achievers, and girls, who had started behind boys, seemed to gain even more. The more sessions students attended, the more they gained. Earlier adaptive tutoring points the same way: Kulik and Fletcher's review of 50 evaluations found a median effect of 0.66 standard deviations, and in India the Mindspark after-school programme raised maths scores by 0.37 standard deviations in four and a half months. Private tutoring has always been for families who can pay; the Nigeria team says the 'program's low cost and tailored design make it easier to scale than subscription-based software.'",
       crux: {
         id: "ai-achievement-gap-rct",
         title: "The At-Scale Achievement Gap Trial",
@@ -188,7 +188,7 @@ export const aiInEducationData = {
           id: "world-bank-nigeria-rct",
           title: "World Bank, Nigeria 2024: six weeks of AI chatbot tutoring with teachers raised learning by about 0.3 SD",
           description:
-            "In a randomized trial in Edo State in June and July 2024, public secondary students were randomly assigned to a six-week after-school programme, twice a week, using a generative AI chatbot with teacher support, or to a control group. The World Bank team reports 'overall learning gains amounting to approximately 0.3 standard deviation and 0.24 in English'. Girls, who had trailed boys, 'seemed to gain even more', and gains rose with the number of sessions attended. The authors say they 'cannot isolate the effect of the chatbot alone' and do not know whether effects last 'beyond the six-week window.'",
+            "In June and July 2024, 800 first-year senior secondary students in Edo State attended after-school English classes in computer labs twice a week for six weeks, using Microsoft Copilot with teachers guiding each session. In the World Bank's randomized evaluation, students assigned to the programme outperformed those who were not in English, AI knowledge and digital skills; the gains were 'about 0.3 standard deviations,' the programme 'benefited all students, not just the highest achievers,' and girls, who had trailed boys, 'seemed to gain even more.' 'The more sessions students attended, the greater their gains.' The team lists the long-term effects as an open question.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,
@@ -196,10 +196,10 @@ export const aiInEducationData = {
             replicability: 6,
             directness: 7,
           },
-          source: "World Bank blogs, 'From chalkboards to chatbots' (9 January 2025) and 'Addressing the learning crisis with generative AI' (25 June 2025)",
+          source: "World Bank blogs, 'From chalkboards to chatbots: Transforming learning in Nigeria, one prompt at a time' (9 January 2025) and 'From chalkboards to chatbots in Nigeria: 7 lessons to pioneer generative AI for education' (18 September 2024)",
           sourceUrl: "https://blogs.worldbank.org/en/education/From-chalkboards-to-chatbots-Transforming-learning-in-Nigeria",
           reasoning:
-            "A randomized trial of an LLM tutor in a low-income setting, the case that matters most for the gap question. It bundles the chatbot with teachers, lasts six weeks, and is reported by the evaluating team in working-paper form.",
+            "A randomized trial of an LLM tutor in a low-income setting, the case that matters most for the gap question. It bundles the chatbot with teachers, lasts six weeks, and was reported by the evaluating team before formal publication.",
         },
         {
           id: "its-meta-analysis-2024",
@@ -381,8 +381,8 @@ export const aiInEducationData = {
       url: "https://blogs.worldbank.org/en/education/From-chalkboards-to-chatbots-Transforming-learning-in-Nigeria",
     },
     {
-      title: "Survey finds 54% of U.S. teens use AI for schoolwork (GovTech, on Pew Research Center, February 2026)",
-      url: "https://www.govtech.com/education/k-12/survey-finds-54-of-u-s-teens-use-ai-for-schoolwork",
+      title: "How Teens Use and View AI (Pew Research Center, 24 February 2026)",
+      url: "https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/",
     },
     {
       title: "Your Brain on ChatGPT (Kosmyna et al., arXiv:2506.08872v2, 2025 preprint)",
@@ -436,7 +436,7 @@ export const aiInEducationData = {
       id: "q2",
       title: "How should assessment change in the age of AI?",
       content:
-        "A polished take-home answer may not show what a student can do alone, and in Pew's 2025 survey 59% of US teens said cheating with AI has become a regular part of student life. Oral explanations, documented drafts, portfolios and unaided tasks are different ways to assess learning. Their workload, accessibility and fairness need testing; no single format settles every use of AI.",
+        "A polished take-home answer may not show what a student can do alone, and in Pew's 2025 survey 59% of US teens said using AI to cheat is a regular occurrence at their school. Oral explanations, documented drafts, portfolios and unaided tasks are different ways to assess learning. Their workload, accessibility and fairness need testing; no single format settles every use of AI.",
     },
     {
       id: "q3",
