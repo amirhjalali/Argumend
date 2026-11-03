@@ -986,7 +986,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety allcott"
+    "keywords": "philadelphias colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough sugary caries satiety andreyeva"
   },
   {
     "id": "social-media-age-limits",
@@ -1744,23 +1744,22 @@
     "title": "Is Obesity a Personal Choice or a Systemic Failure?",
     "question": "Is obesity mainly a matter of personal choice?",
     "meta_claim": "The obesity epidemic is primarily caused by individual lifestyle choices, and framing it as a disease or systemic issue undermines personal responsibility.",
-    "confidence_score": 24,
-    "balance": 24,
-    "weight": 66,
+    "confidence_score": 31,
+    "balance": 31,
+    "weight": 68,
     "verdict": {
-      "label": "Evidence clearly leans toward the counterclaim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 9,
+    "evidenceCount": 10,
     "firstCrux": "Do price, marketing and access override individual choice for most people?",
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide regained kcal microbiota supermarket junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh colonizing elks"
+    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
   },
   {
     "id": "loneliness-epidemic",

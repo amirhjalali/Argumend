@@ -109,6 +109,24 @@ export const obesityPersonalResponsibilityData = {
           reasoning:
             "Cross-national prevalence figures are real and publicly available, but as evidence for the 'personal choice' thesis they are weak. Directness lowered substantially from the prior draft (false-balance correction): the data show a between-country difference, not that individual willpower rather than systemic factors drives it. Japan and South Korea have extensive food regulation, mandatory school lunch programs, and walkable infrastructure — themselves systemic solutions — and BMI is measured with different cutoffs and methods across these countries, so the comparison cannot support the inference that personal choice dominates.",
         },
+        {
+          id: "allcott-food-deserts-demand",
+          title: "Same Stores, Same Prices: Supply Explained Only 9% of the Rich-Poor Diet Gap",
+          description:
+            "Allcott, Diamond, Dubé, Handbury, Rahkovsky and Schnell (NBER working paper 24094; published as 'Food Deserts and the Causes of Nutritional Inequality' in the Quarterly Journal of Economics, 2019) used supermarket openings, household moves to healthier neighborhoods, and the purchases of households facing identical local supply. They 'reject that neighborhood environments contribute meaningfully to nutritional inequality', and their demand model finds that giving low-income households 'the same products and prices available to high-income households reduces nutritional inequality by only nine percent, while the remaining 91 percent is driven by differences in demand.' The same model predicts that means-tested subsidies for healthy food could eliminate the gap at about 15% of SNAP's annual budget.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 8,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "Allcott et al., 'Food Deserts and the Causes of Nutritional Inequality', Quarterly Journal of Economics (2019); NBER Working Paper 24094",
+          sourceUrl: "https://www.nber.org/papers/w24094",
+          reasoning:
+            "The best test of this crux's 'neighbors facing the same stores' arm: households with identical access bought very differently, which supports the view that what people choose matters more than what is on the shelf. It measures the healthfulness of grocery purchases rather than weight, the 'demand' it identifies includes habits and preferences that education and marketing shape rather than willpower alone, and its own model says price subsidies could close the gap, which cuts toward the systemic side. Directness is 5.",
+        },
       ],
     },
 
