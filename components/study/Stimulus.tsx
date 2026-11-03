@@ -26,8 +26,8 @@ function ListItem({ item }: { item: StudyListItem }) {
 function Blocks({ blocks, variant }: { blocks: StudyBlock[]; variant: "chat" | "article" }) {
   const heading =
     variant === "chat"
-      ? "mt-5 font-sans text-base font-semibold text-primary"
-      : "mt-8 font-serif text-2xl leading-snug text-primary";
+      ? "mt-5 font-sans text-base font-semibold text-primary dark:text-stone-200"
+      : "mt-8 font-serif text-2xl leading-snug text-primary dark:text-stone-200";
   return (
     <>
       {blocks.map((block, index) => {
@@ -75,18 +75,18 @@ export function ChatbotView({ stimulus }: { stimulus: ChatbotStimulus }) {
     <div data-study-stimulus="chatbot" className="mx-auto w-full max-w-[44rem] px-4 sm:px-6">
       <div className="rounded-2xl border border-stone-200/70 bg-card p-3 shadow-card sm:p-5 dark:border-divider">
         <div className="flex justify-end">
-          <p className="max-w-[85%] rounded-2xl rounded-br-md bg-subtle px-4 py-3 font-sans text-[0.9375rem] leading-relaxed text-primary">
+          <p className="max-w-[85%] rounded-2xl rounded-br-md bg-subtle px-4 py-3 font-sans text-[0.9375rem] leading-relaxed text-primary dark:text-stone-200">
             {stimulus.prompt}
           </p>
         </div>
         <div className="mt-4 flex gap-3">
           <span
             aria-hidden="true"
-            className="mt-1 flex h-7 w-7 flex-none items-center justify-center rounded-full bg-stone-200 font-sans text-xs font-semibold text-secondary dark:bg-stone-700"
+            className="mt-1 flex h-7 w-7 flex-none items-center justify-center rounded-full bg-stone-200 font-sans text-xs font-semibold text-secondary dark:text-stone-400 dark:bg-stone-700"
           >
             AI
           </span>
-          <div className="min-w-0 font-sans text-[0.9375rem] leading-relaxed text-primary">
+          <div className="min-w-0 font-sans text-[0.9375rem] leading-relaxed text-primary dark:text-stone-200">
             <Blocks blocks={stimulus.blocks} variant="chat" />
           </div>
         </div>
@@ -99,11 +99,11 @@ export function ArticleView({ stimulus }: { stimulus: ArticleStimulus }) {
   return (
     <article data-study-stimulus="article" className="mx-auto w-full max-w-[44rem] px-4 sm:px-6">
       <p className="label-caps">Explainer</p>
-      <h2 className="mt-2 font-serif text-[2rem] leading-[1.15] text-primary sm:text-[2.5rem]">
+      <h2 className="mt-2 font-serif text-[2rem] leading-[1.15] text-primary dark:text-stone-200 sm:text-[2.5rem]">
         {stimulus.headline}
       </h2>
-      <p className="mt-3 font-serif text-xl leading-snug text-secondary">{stimulus.dek}</p>
-      <div className="mt-6 border-t border-stone-200/70 pt-2 font-serif text-[1.1875rem] leading-[1.6] text-primary dark:border-divider">
+      <p className="mt-3 font-serif text-xl leading-snug text-secondary dark:text-stone-400">{stimulus.dek}</p>
+      <div className="mt-6 border-t border-stone-200/70 pt-2 font-serif text-[1.1875rem] leading-[1.6] text-primary dark:text-stone-200 dark:border-divider">
         <Blocks blocks={stimulus.blocks} variant="article" />
       </div>
     </article>
