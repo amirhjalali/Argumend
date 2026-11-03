@@ -218,7 +218,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dire wolf wolves colossal canid iucn resurrected woolly endangered lineage biosciences coyotes extant ghost latham"
+    "keywords": "dire wolf wolves colossal canid iucn resurrected woolly lineage biosciences coyotes extant ghost latham multiplex"
   },
   {
     "id": "scott-cost-disease",
@@ -307,7 +307,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "mariner sealift marad oceangoing grabow hurricane maria turbo shipbuilding ikenson manak shipyard surcharge underdeveloped usitc"
+    "keywords": "mariner sealift marad oceangoing grabow maria turbo hurricane shipbuilding ikenson manak shipyard surcharge underdeveloped usitc"
   },
   {
     "id": "medicaid-work-requirements",
@@ -913,7 +913,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima lewis norad waltz kenneth submarine andropov"
+    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima norad waltz kenneth lewis submarine andropov"
   },
   {
     "id": "school-phone-bans",
@@ -1416,8 +1416,8 @@
     },
     "status": "settled",
     "category": "science",
-    "pillarCount": 3,
-    "evidenceCount": 12,
+    "pillarCount": 4,
+    "evidenceCount": 16,
     "firstCrux": "Does the falling carbon-isotope ratio in the air confirm that the added CO₂ comes from fossil fuels?",
     "tags": [
       "science"
@@ -1427,7 +1427,7 @@
       "Hasn't the climate always changed naturally, because of the sun?",
       "Isn't CO2 just plant food?"
     ],
-    "keywords": "arctic irradiance scripps eruption pinatubo stratosphere argo keeling acidification geophysical acrim albedo amsu ceres cmip6"
+    "keywords": "scripps outgassing arctic maunder pmel rantanen pinatubos volcanoes stratosphere argo ceres forster hotter keeling mauritsen"
   },
   {
     "id": "ev-environmental-impact",
@@ -2224,7 +2224,7 @@
       "Rent stabilization for tenants",
       "Rent freezes"
     ],
-    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm citywide decontrol appreciation luttmer yorker glaeser"
+    "keywords": "rental mcquade palmer pathak qian autor diamond queue citywide decontrol appreciation luttmer yorker glaeser broadened"
   },
   {
     "id": "degrowth-economics",
@@ -2533,7 +2533,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
+    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed celsius geophysical hydrological intercomparison irvine"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2693,7 +2693,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters morgans restrainer"
+    "keywords": "sentience birch singer rats reflexes nociceptors octopuses sneddon cohen companions chocolate crabs lobsters restrainer mammals"
   },
   {
     "id": "immigration-national-identity",
@@ -2782,7 +2782,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "fence ieepa yard cavallo chris piie reed aluminum usitc penn krugman truce usmca scattered alberto"
+    "keywords": "fence ieepa yard cavallo piie reed aluminum chris usitc penn krugman truce usmca scattered alberto"
   },
   {
     "id": "rfk-health-policy",
@@ -2907,7 +2907,7 @@
       "City center entry fees",
       "Motorist charges on central streets"
     ],
-    "keywords": "cordon stockholm tfls untolled weekday roadways eliasson inbound jonas mayors roadworks unaudited zpass wheels depreciation"
+    "keywords": "cordon tfls untolled weekday roadways eliasson inbound jonas mayors roadworks unaudited zpass wheels depreciation"
   },
   {
     "id": "right-to-repair",
