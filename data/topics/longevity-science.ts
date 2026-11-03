@@ -101,7 +101,7 @@ export const longevityScienceData = {
           id: "unity-ubx0101-failure",
           title: "Unity Biotechnology's Senolytic Drug Fails Phase 2 Trial (2020)",
           description:
-            "Unity Biotechnology's UBX0101, a senolytic targeting p53-dependent senescent cells, failed its Phase 2 clinical trial for moderate-to-severe knee osteoarthritis in August 2020. The drug showed no statistically significant improvement over placebo (change in WOMAC-A pain score) at any dose in the 183-patient trial. Unity's stock fell roughly 50% on the announcement. The failure raised questions about whether clearing senescent cells in a specific joint compartment could produce clinically meaningful improvement, and whether the senolytic approach had been prematurely overhyped.",
+            "Unity Biotechnology's UBX0101, a senolytic targeting p53-dependent senescent cells, failed its Phase 2 clinical trial for moderate-to-severe knee osteoarthritis in August 2020. The drug showed no statistically significant improvement over placebo (change in WOMAC-A pain score) at any dose in the 183-patient trial. Unity said it did not \"anticipate progressing UBX0101 into pivotal studies\" and narrowed its near-term focus to eye and neurological disease programs. The failure raised questions about whether clearing senescent cells in a specific joint compartment could produce clinically meaningful improvement, and whether the senolytic approach had been prematurely overhyped.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
@@ -109,8 +109,8 @@ export const longevityScienceData = {
             replicability: 8,
             directness: 7,
           },
-          source: "Unity Biotechnology SEC filing; STAT News; Nature Biotechnology",
-          sourceUrl: "https://ir.unitybiotechnology.com/news-releases",
+          source: "UNITY Biotechnology press release, '12-week data from UBX0101 Phase 2 Clinical Study in Patients with Painful Osteoarthritis of the Knee' (17 Aug 2020), SEC Form 8-K Exhibit 99.1",
+          sourceUrl: "https://www.sec.gov/Archives/edgar/data/1463361/000119312520222493/d28349dex991.htm",
           reasoning:
             "Phase 2 trial failure is clear and independently verifiable through SEC filings. This is the most advanced senolytic trial to report negative results. However, the failure was for a specific drug targeting a specific condition — it does not invalidate the broader senolytic thesis. Osteoarthritis may involve mechanisms beyond senescence, and the local injection approach may not have cleared enough cells.",
         },

@@ -98,20 +98,20 @@ export const eaccVsTechRegulationData = {
         },
         {
           id: "ai-safety-report-2024",
-          title: "International AI Safety Report: Current Governance Frameworks Inadequate for Frontier AI",
+          title: "International AI Safety Report (2025) Describes an 'Evidence Dilemma' for Regulators",
           description:
-            "The 2024 International AI Safety Report, produced by an expert panel commissioned by 30 nations following the Bletchley Park AI Safety Summit, concluded that frontier AI systems pose risks including large-scale disinformation, autonomous cyber-attacks, biological weapon design assistance, and potential loss of human control. The report stated that 'current governance frameworks are not equipped to manage these risks' and recommended mandatory safety evaluations, incident reporting requirements, and international coordination on compute governance. The panel included both industry researchers and independent scientists.",
+            "The first International AI Safety Report (January 2025, after an interim report in May 2024) was mandated by the nations at the Bletchley Park AI Safety Summit and written by 96 experts, including an advisory panel nominated by 30 countries, the OECD, the EU and the UN. It sorts general-purpose AI risks into malicious use (harmful fake content, manipulation of public opinion, cyber offence, biological and chemical attacks), malfunctions, and systemic risks. It describes an 'evidence dilemma': risks can emerge 'in leaps', early mitigation 'might prove unnecessary', but 'waiting for conclusive evidence could leave society vulnerable to risks that emerge rapidly.' On loss of control it reports 'broad consensus that current general-purpose AI lacks the capabilities to pose this risk', while expert views on the next several years vary greatly. The report states that it 'does not recommend specific policies.'",
           side: "against" as const,
           weight: {
             sourceReliability: 8,
             independence: 7,
             replicability: 6,
-            directness: 9,
+            directness: 7,
           },
-          source: "International AI Safety Report; UK AI Safety Institute",
-          sourceUrl: "https://www.gov.uk/government/publications/international-ai-safety-report-2025",
+          source: "International AI Safety Report (January 2025), arXiv:2501.17805",
+          sourceUrl: "https://arxiv.org/abs/2501.17805",
           reasoning:
-            "The report carries significant institutional weight as a multinational expert consensus document. Independence is slightly lower because several panelists had affiliations with AI labs, though the panel also included independent academics. Replicability is limited because AI risk assessment involves forecasting rather than measurement. Directness is high because it directly addresses the question of whether unregulated AI development is safe.",
+            "The report carries significant institutional weight as a multinational expert synthesis. Independence is slightly lower because several contributors had affiliations with AI labs, though the panel also included independent academics. Replicability is limited because AI risk assessment involves forecasting rather than measurement. Directness is moderate: the report frames why waiting for proof is costly, which cuts against a pure accelerationist stance, but it deliberately recommends no policy, so it does not settle how much regulation is warranted.",
         },
         {
           id: "moores-law-unregulated-progress",
