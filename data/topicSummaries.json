@@ -2867,9 +2867,9 @@
     "title": "Self-Driving Car Safety",
     "question": "Are self-driving cars already safer than humans and ready for broad use?",
     "meta_claim": "Autonomous vehicles are already safer than human drivers and should be deployed broadly.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 67,
+    "confidence_score": 49,
+    "balance": 49,
+    "weight": 73,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2877,7 +2877,7 @@
     "status": "contested",
     "category": "technology",
     "pillarCount": 3,
-    "evidenceCount": 7,
+    "evidenceCount": 10,
     "firstCrux": "Does self-driving cars' safety edge survive a truly like-for-like, independently audited comparison?",
     "tags": [
       "technology",
@@ -2887,7 +2887,7 @@
       "waymo",
       "transportation"
     ],
-    "keywords": "nhtsa swiss pedestrian rider cruise geofenced tesla driverless gode kalra kusano paddock pe24031 victor phoenix"
+    "keywords": "driverless cruise nhtsa rider pedestrian kalra swiss uber geofenced tesla phoenix gode groves kusano paddock"
   },
   {
     "id": "net-neutrality",

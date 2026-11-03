@@ -116,6 +116,24 @@ export const selfDrivingCarSafetyData = {
           reasoning:
             "Uses Swiss Re's independent insurance-claims dataset rather than Waymo's own crash logs, raising independence to 8. Replicability is 6 because the human exposure database is proprietary to Swiss Re and not fully open for outside re-analysis.",
         },
+        {
+          id: "chen-shladover-sf",
+          title: "San Francisco Comparison: Driverless Cruise Crashed More Per Mile Than Uber Drivers",
+          description:
+            "Chen and Shladover (2024 preprint) compared crashes per million miles on San Francisco streets, freeways excluded, across Uber human driving (CPUC 2020 report), supervised AV testing (California DMV, Dec 2020 to Nov 2022) and driverless Waymo and Cruise operations (Mar 2022 to Aug 2023). Driverless Waymo had a lower rate than Uber human driving; driverless Cruise had a higher one. The authors write that the data samples are 'not yet large enough to support conclusions' about whether the systems are more or less safe than human drivers there.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 6,
+            independence: 8,
+            replicability: 7,
+            directness: 6,
+          },
+          source:
+            "Chen & Shladover, 'Initial Indications of Safety of Driverless Automated Driving Systems', arXiv:2403.14648 (Feb 2024)",
+          sourceUrl: "https://arxiv.org/abs/2403.14648",
+          reasoning:
+            "Built by outside researchers on public CPUC and DMV records, with exposure held roughly constant by keeping to one city's surface streets. It cuts against reading one operator's record as 'self-driving cars are safer': the result split by operator, and the authors say the driverless samples were too small to settle the question. A preprint whose driverless mileage is far smaller than Waymo's later datasets, so reliability and directness are held down.",
+        },
       ],
     },
     {
@@ -191,6 +209,23 @@ export const selfDrivingCarSafetyData = {
           reasoning:
             "Primary government investigation document drives high reliability and independence. The 2026 escalation and fatality details are post-cutoff and reported rather than adjudicated, so they are kept attributed and directness is held at 7; FSD is also a supervised (Level 2) system, distinct from driverless robotaxis.",
         },
+        {
+          id: "waymo-serious-injury-tier",
+          title: "Waymo: 95% Fewer Serious-Injury-or-Worse Crashes Over 271M Miles",
+          description:
+            "Waymo's safety impact data, through June 2026, covers 271.3 million rider-only miles in Phoenix, San Francisco, Los Angeles, Austin and Atlanta. Against an average human driver over the same distance in those cities, it reports 95% fewer serious-injury-or-worse crashes (55 fewer), 93% fewer pedestrian crashes with injuries and 86% fewer cyclist crashes with injuries. Waymo states there is not enough mileage yet to detect statistical significance for fatal crashes on their own.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 4,
+            replicability: 7,
+            directness: 7,
+          },
+          source: "Waymo Safety Impact data hub (rider-only miles through June 2026)",
+          sourceUrl: "https://waymo.com/safety/impact/",
+          reasoning:
+            "Speaks to the severity tier this crux asks about, not all crashes: in the serious-injury band, where tail failures would show, the rate is lower rather than higher. It is the operator's own analysis (independence 4), and fatal crashes are still too rare to measure, so it bounds a catastrophic failure mode rather than ruling one out.",
+        },
       ],
     },
     {
@@ -265,6 +300,24 @@ export const selfDrivingCarSafetyData = {
           sourceUrl: "https://waymo.com/blog/2024/05/fleet-response/",
           reasoning:
             "Establishes the real limit on 'broadly' — narrow geofenced domains plus human-in-the-loop backstops. The remote-agent role comes from Waymo's own disclosure (so independence is lowered to 5), corroborated by Senate hearing testimony rather than a primary safety dataset; it constrains the deployment claim without proving cars are unsafe.",
+        },
+        {
+          id: "rand-cost-of-waiting",
+          title: "RAND: Waiting for Near-Perfect Self-Driving Cars Could Cost Lives",
+          description:
+            "RAND's 'The Enemy of the Good' (Kalra & Groves, 2017) estimated road deaths under hundreds of plausible futures. It found that allowing wide use of autonomous vehicles once they are 10 percent better than current American drivers could prevent thousands of road fatalities over 15 years, and possibly hundreds of thousands over 30 years, compared with waiting until they are 75 or 90 percent better.",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 5,
+            directness: 6,
+          },
+          source:
+            "Kalra & Groves, 'The Enemy of the Good: Estimating the Cost of Waiting for Nearly Perfect Autonomous Vehicles', RAND Corporation (2017); RAND news release, Nov 7, 2017",
+          sourceUrl: "https://www.eurekalert.org/news-releases/805563",
+          reasoning:
+            "Independent RAND modelling aimed at this crux's value question, the price of delay. It is a model, not a measurement, and it assumes the 10 percent edge is known, which RAND's own 'Driving to Safety' says road miles alone cannot prove soon; the release also notes that even vehicles safer than the average driver would still crash. It argues that waiting has a cost, not that today's fleets have cleared the bar.",
         },
       ],
     },
