@@ -3196,9 +3196,9 @@
     "title": "Raising the Retirement Age",
     "question": "Is raising the retirement age a fair, necessary fix for Social Security?",
     "meta_claim": "Raising the retirement age is a necessary and fair way to keep Social Security solvent.",
-    "confidence_score": 43,
-    "balance": 43,
-    "weight": 72,
+    "confidence_score": 50,
+    "balance": 50,
+    "weight": 75,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3206,7 +3206,7 @@
     "status": "contested",
     "category": "economics",
     "pillarCount": 2,
-    "evidenceCount": 7,
+    "evidenceCount": 8,
     "firstCrux": "How much of Social Security's funding gap would raising the retirement age close, versus revenue options?",
     "tags": [
       "economics",
@@ -3216,7 +3216,7 @@
       "aging",
       "inequality"
     ],
-    "keywords": "solvency crfb retirees oasdi payable trustees actuarial taxable"
+    "keywords": "actuary trustees solvency crfb retirees oasdi payable taxable"
   },
   {
     "id": "estate-inheritance-tax",
