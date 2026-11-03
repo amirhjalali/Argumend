@@ -2949,7 +2949,7 @@ This means the birth rate debate is inseparable from the [AI and jobs debate](/t
 
 The honest answer is that nobody knows whether declining birth rates will be remembered as a crisis or a transition. The evidence for concern is real. The evidence for optimism is also real. What matters is that we make decisions based on evidence rather than panic on one side or complacency on the other.
 
-Explore the full argument map at our [Global Fertility Collapse](/topics/declining-birth-rates) topic, and see how it connects to the [housing affordability crisis](/topics/housing-affordability-crisis), [immigration and identity](/topics/immigration-border-crisis) debates, and the question of [AI job displacement](/topics/ai-mass-unemployment).`,
+Explore the full argument map at our [Global Fertility Collapse](/topics/declining-birth-rates) topic, and see how it connects to the [housing affordability crisis](/topics/housing-affordability-crisis), [immigration and identity](/topics/immigration-national-identity) debates, and the question of [AI job displacement](/topics/ai-mass-unemployment).`,
   },
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -6922,6 +6922,8 @@ So where do reasonable, informed people actually split? Not on whether immigrati
 **How much weight should we put on concentrated short-run losses to specific groups, versus diffuse long-run gains spread across everyone?**
 
 The same body of evidence supports both "immigration is an economic positive" (if you focus on aggregate output, long-run fiscal effects, and average wages) and "immigration harms vulnerable workers" (if you focus on low-skill wage competition, short-run local fiscal strain, and the distribution of costs). The disagreement is partly empirical — *how large* is the loss to low-skill natives, the very point on which Card and Borjas read the Mariel data differently — and partly a value judgment about whose losses count for how much.
+
+**Update, 3 November 2026.** Since this was written, the United States has started running the experiment in reverse. By AEI and Brookings estimates, net migration may have been negative in 2025 for the first time in at least 50 years, as arrivals collapsed and deportations rose. If immigrants hold down the pay of the workers they compete with, those workers should now be gaining. Most of the studies so far find little or no gain for US-born workers: a 2026 study by Chloe East and Elizabeth Cox found that places with sudden spikes in ICE arrests saw employment of US-born workers decline too, with no rise in their wages; a Congressional Research Service review of earlier enforcement programs found mixed results, with small employment gains only in the lowest-paid jobs; and a study of the 1930s Mexican repatriations found no gain in native jobs. The [wage-impact map](/topics/immigration-wage-impact) now treats these removal studies as their own step in the argument, between what happens when immigrants arrive and who shares the long-run gains.
 
 That structure is identical to the [minimum wage debate](/blog/minimum-wage-both-sides), where a similar fight comes down to how large the disemployment effect is and how to weigh a few lost jobs against many raised wages. In both cases, "who bears the cost and who reaps the gain" does more work than any headline number.
 
