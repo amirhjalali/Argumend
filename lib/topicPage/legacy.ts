@@ -313,9 +313,20 @@ function evidenceItems(
   }));
 }
 
+/**
+ * Whether a card may stand as a side's card: not one that restates an agreed
+ * fact, which the other side does not dispute. Every surface that picks a
+ * card for a side uses this (the topic page's best cards here, the paste
+ * result's "Points to" cards in lib/paste/maps.ts). There is no fallback: a
+ * side whose only cards are agreed facts shows no card.
+ */
+export function canStandForSide(item: LegacyEvidenceItem): boolean {
+  return !item.restatesAgreement;
+}
+
 /** A side's strongest card that is not an agreed fact (the list is strongest first). */
 function bestCard(items: LegacyEvidenceItem[], side: "for" | "against"): LegacyEvidenceItem | undefined {
-  return items.find((item) => item.side === side && !item.restatesAgreement);
+  return items.find((item) => item.side === side && canStandForSide(item));
 }
 
 function weighing(

@@ -40,7 +40,7 @@
  */
 import { loadTopicById } from "@/data/topicLoader";
 import type { Pillar, Topic } from "@/lib/schemas/topic";
-import { legacyTopicPage, type LegacyCrux, type LegacyEvidenceItem } from "@/lib/topicPage/legacy";
+import { canStandForSide, legacyTopicPage, type LegacyCrux, type LegacyEvidenceItem } from "@/lib/topicPage/legacy";
 import { standingLineFor } from "@/lib/topicPage/model";
 import type { ArgumentGraph, Claim, Evidence as GraphEvidence } from "@/types/argument";
 import { pickCruxes, type CruxText } from "./cruxChoice";
@@ -449,8 +449,10 @@ function cardsFrom(
     evidence: [],
   });
   const query = cardQuery(text, question);
-  const own = evidenceForPaste(items, query, corpusIdf, fields);
-  const other = evidenceForPaste(others, query, corpusIdf, fields);
+  // A card restating an agreed fact is never a side's card, as on the topic
+  // page (lib/topicPage/legacy.ts); it stays in the map's evidence list.
+  const own = evidenceForPaste(items.filter(canStandForSide), query, corpusIdf, fields);
+  const other = evidenceForPaste(others.filter(canStandForSide), query, corpusIdf, fields);
   const picked = (["for", "against"] as const)
     .map((side) => own.find((item) => item.side === side) ?? other.find((item) => item.side === side))
     .filter((item): item is LegacyEvidenceItem => Boolean(item));
