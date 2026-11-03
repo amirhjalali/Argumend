@@ -116,9 +116,9 @@ export const longevityScienceData = {
         },
         {
           id: "mouse-to-human-translation",
-          title: "Over 90% of Drugs That Extend Mouse Lifespan Fail in Human Trials",
+          title: "No Drug That Extends Mouse Lifespan Has Yet Been Shown to Extend Human Lifespan",
           description:
-            "A systematic review of the Interventions Testing Program (ITP) — the gold-standard NIH-funded program testing longevity interventions in genetically diverse mice — found that of the compounds showing lifespan extension in mice, none have yet been proven to extend human lifespan. Rapamycin, the most promising ITP compound (extending mouse lifespan by 9-14%), has significant immunosuppressive side effects in humans at clinical doses. The broader drug development pipeline shows that 90-95% of drugs succeeding in animal models fail human trials. Aging research may face even worse translation rates because human aging occurs over decades, not months.",
+            "The Interventions Testing Program (ITP), the NIH-funded program testing longevity interventions in genetically diverse mice, has identified several compounds that extend mouse lifespan, but none has yet been proven to extend human lifespan. Rapamycin, the most promising ITP compound (extending mouse lifespan by 9-14%), has significant immunosuppressive side effects in humans at clinical doses. Across drug development generally, most drugs that succeed in animal models fail in human trials. Aging research may face even worse translation rates because human aging occurs over decades, not months.",
           side: "against" as const,
           weight: {
             sourceReliability: 8,

@@ -101,7 +101,7 @@ export const animalConsciousnessRightsData = {
           id: "new-york-declaration-2024",
           title: "New York Declaration on Animal Consciousness (2024)",
           description:
-            "The 2024 New York Declaration on Animal Consciousness — launched with 39 founding signatories and since signed by hundreds of researchers in neuroscience, philosophy, and animal behavior — goes further than the Cambridge Declaration by asserting 'strong scientific support' for consciousness in all mammals and birds, and 'at least a realistic possibility' of conscious experience in all vertebrates (including reptiles, amphibians, and fish) and many invertebrates (at minimum cephalopod molluscs, decapod crustaceans, and insects). Its central principle is that where consciousness is a realistic possibility, 'it is irresponsible to ignore that possibility in decisions affecting that animal.'",
+            "The 2024 New York Declaration on Animal Consciousness — signed by more than 600 people as of November 2026, many of them researchers in neuroscience, philosophy, and animal behavior — goes further than the Cambridge Declaration by asserting 'strong scientific support' for consciousness in all mammals and birds, and 'at least a realistic possibility' of conscious experience in all vertebrates (including reptiles, amphibians, and fish) and many invertebrates (at minimum cephalopod molluscs, decapod crustaceans, and insects). Its central principle is that where consciousness is a realistic possibility, 'it is irresponsible to ignore that possibility in decisions affecting that animal.'",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

@@ -67,7 +67,7 @@ export const fourDayWorkWeekData = {
           id: "iceland-trial",
           title: "Iceland's Public Sector Trials: 2,500 Workers Maintained Productivity on Shorter Hours (2015-2019)",
           description:
-            "Between 2015 and 2019, Iceland conducted two large-scale trials of reduced working hours (from 40 to 35-36 hours/week) involving over 2,500 public sector workers — approximately 1% of Iceland's entire working population. Participants included office workers, hospital staff, police officers, and social service workers. Productivity was maintained or improved across nearly all workplaces. The trials led to permanent changes: by 2024, 86% of Iceland's workforce had either moved to shorter hours or gained the right to negotiate them. Worker wellbeing improved significantly across stress, burnout, and work-life balance measures.",
+            "Between 2015 and 2019, Iceland conducted two large-scale trials of reduced working hours (from 40 to 35-36 hours/week) involving over 2,500 public sector workers — approximately 1% of Iceland's entire working population. Participants included office workers, hospital staff, police officers, and social service workers. Productivity was maintained or improved across nearly all workplaces. The trials fed into permanent changes: by June 2021, 86% of Iceland's working population had either moved to shorter hours or gained the right to shorten their hours. Worker wellbeing improved significantly across stress, burnout, and work-life balance measures.",
           side: "for" as const,
           weight: {
             sourceReliability: 8,

@@ -83,7 +83,7 @@ export const rightToRepairData = {
         },
         {
           id: "ftc-no-justification",
-          title: "FTC: Repair Restrictions 'Not Supported by the Record'",
+          title: "FTC: Most Justifications for Repair Restrictions 'Not Supported by the Record'",
           description:
             "The FTC's 2021 report to Congress, 'Nixing the Fix,' concluded after a public record and workshop that manufacturers limit repair in numerous ways and that 'there is scant evidence to support manufacturers' justifications for repair restrictions.'",
           side: "for" as const,

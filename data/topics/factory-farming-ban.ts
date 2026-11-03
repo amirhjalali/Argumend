@@ -85,7 +85,7 @@ export const factoryFarmingBanData = {
           id: "cambridge-declaration-consciousness",
           title: "Cambridge Declaration on Consciousness (2012)",
           description:
-            "A group of neuroscientists signed the Cambridge Declaration on Consciousness (July 7, 2012), concluding that 'humans are not unique in possessing the neurological substrates that generate consciousness' and that 'non-human animals, including all mammals and birds,' possess these substrates. This covers all major farmed species. It was proclaimed at the Francis Crick Memorial Conference at Churchill College, University of Cambridge, with Stephen Hawking as guest of honor.",
+            "A group of neuroscientists signed the Cambridge Declaration on Consciousness (July 7, 2012), concluding that 'humans are not unique in possessing the neurological substrates that generate consciousness' and that 'non-human animals, including all mammals and birds,' possess these substrates. This covers all major farmed species. It was proclaimed at the Francis Crick Memorial Conference at Churchill College, University of Cambridge, and signed that evening in the presence of Stephen Hawking.",
           side: "for" as const,
           weight: {
             sourceReliability: 7,
