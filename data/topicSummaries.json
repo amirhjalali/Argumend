@@ -195,7 +195,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro hannah plenty strawberries ritchie aerofarms appharvest bowery leafy"
+    "keywords": "lettuce surrey horticultural milo cereal eaves gargaro plenty strawberries hannah ritchie aerofarms appharvest bowery leafy"
   },
   {
     "id": "de-extinction-species",
@@ -627,24 +627,29 @@
   {
     "id": "immigration-wage-impact",
     "title": "Immigration and Wages",
-    "question": "Does large-scale immigration significantly cut low-skilled native wages?",
+    "question": "Does immigration push down wages for low-paid American workers?",
     "meta_claim": "Large-scale immigration significantly depresses wages for native-born low-skilled workers.",
     "confidence_score": 41,
     "balance": 41,
-    "weight": 67,
+    "weight": 77,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
     },
     "status": "contested",
     "category": "policy",
-    "pillarCount": 2,
-    "evidenceCount": 9,
+    "pillarCount": 3,
+    "evidenceCount": 14,
     "firstCrux": "Does immigration barely move the wages of directly competing workers, or cut them meaningfully?",
     "tags": [
       "policy"
     ],
-    "keywords": "borjas boatlift sparber azoulay peri mariel diploma miranda chad giovanni javier marielitos nonbudgetary reexamining birthplace"
+    "aliases": [
+      "Does large-scale immigration significantly cut low-skilled native wages?",
+      "Do immigrants take jobs from Americans?",
+      "Will deporting immigrants raise wages?"
+    ],
+    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe elizabeth"
   },
   {
     "id": "open-borders",
@@ -928,7 +933,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima lewis norad waltz kenneth submarine andropov"
+    "keywords": "archer cuban detonation icrc pakistan famine arkhipov gaddis hiroshima norad waltz kenneth lewis submarine andropov"
   },
   {
     "id": "school-phone-bans",
@@ -1609,7 +1614,7 @@
       "Does psychedelic therapy actually work?",
       "Are the claims about psychedelic therapy exaggerated?"
     ],
-    "keywords": "mdma mapp2 psychopharmacology colorado hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005"
+    "keywords": "mdma mapp2 psychopharmacology hopkins gukasyan lykos madrs nasdaq antidepressant unblinding remission agrawal carhart comp005 comp006"
   },
   {
     "id": "lab-leak-theory",
@@ -1927,7 +1932,7 @@
     "aliases": [
       "Is every billionaire a policy failure?"
     ],
-    "keywords": "piketty gilens oligarchy malaria eradication pacs polio poliovirus entrepreneurial theirs afghanistan funder opensecrets pakistan super"
+    "keywords": "piketty gilens oligarchy malaria entrepreneurial eradication pacs polio poliovirus theirs afghanistan funder opensecrets pakistan super"
   },
   {
     "id": "foreign-aid-effectiveness",
@@ -3464,7 +3469,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised wang acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
+    "keywords": "evali hospitalised acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350 pub8"
   },
   {
     "id": "sex-work-decriminalization",

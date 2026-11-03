@@ -61,7 +61,7 @@ describe("buildPasteSummary", () => {
 
     // Named by the map's question, as its page heading is; sides by the answer.
     expect(summary).toContain(
-      "A map to explore: Does large-scale immigration significantly cut low-skilled native wages?",
+      "A map to explore: Does immigration push down wages for low-paid American workers?",
     );
     expect(summary).not.toContain("Immigration and Wages");
     expect(summary).not.toContain(maps.match!.claim);
