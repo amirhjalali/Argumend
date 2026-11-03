@@ -1459,7 +1459,7 @@
       "Can small modular reactors deliver clean power at scale within a decade?",
       "Are SMRs always ten years away?"
     ],
-    "keywords": "nuscale bwrx darlington lazard unsubsidized akademik basemat idaho licence lomonosov uamps fukushima vogtle aalo doice"
+    "keywords": "nuscale bwrx darlington lazard unsubsidized akademik basemat idaho lomonosov uamps licence fukushima vogtle aalo doice"
   },
   {
     "id": "tiktok-brain-rot",
@@ -2418,7 +2418,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "belts dosimeters orion laser astronaut reflector artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell"
+    "keywords": "belts dosimeters laser astronaut orion reflector artemis retroreflectors allen astrophysical reconnaissance acquiescence dosimetry hubble jodrell"
   },
   {
     "id": "minneapolis-shooting",
@@ -2639,7 +2639,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
+    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison geophysical hydrological irvine shells"
   },
   {
     "id": "central-bank-digital-currency",
@@ -3242,10 +3242,10 @@
   {
     "id": "nuclear-fusion-timeline",
     "title": "Fusion Power Within Two Decades",
-    "question": "Will fusion power be a meaningful part of the energy mix within 20 years?",
+    "question": "Will fusion plants be putting real power on the grid by the mid-2040s?",
     "meta_claim": "Commercial fusion power will be a meaningful part of the energy mix within the next two decades.",
-    "confidence_score": 47,
-    "balance": 47,
+    "confidence_score": 54,
+    "balance": 54,
     "weight": 59,
     "verdict": {
       "label": "Evidence roughly balanced — moderately evidenced",
@@ -3254,8 +3254,8 @@
     "status": "highly_speculative",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 9,
-    "firstCrux": "Can a complete fusion plant put out more electricity than it consumes?",
+    "evidenceCount": 11,
+    "firstCrux": "Can a complete fusion plant put out more electricity than it draws from the grid?",
     "tags": [
       "science",
       "fusion",
@@ -3264,7 +3264,11 @@
       "iter",
       "decarbonization"
     ],
-    "keywords": "tritium laser livermore tokamaks sparc breeding chesterfield delaporte deuterium inertial mathurin nifs superconducting plasma fivefold"
+    "aliases": [
+      "Will fusion power be a meaningful part of the energy mix within 20 years?",
+      "Is fusion always 30 years away?"
+    ],
+    "keywords": "helion laser tritium sparc deuterium breeding polaris orion plasma arcs livermore llnl nifs chesterfield delaporte"
   },
   {
     "id": "vaccine-mandates",
