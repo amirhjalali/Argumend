@@ -7,6 +7,19 @@ export const affirmativeActionMeritocracyData = {
     "Race-conscious admissions and hiring policies are necessary to achieve genuine equality of opportunity.",
   status: "contested" as const,
   category: "policy" as const,
+  // ── The opening: the fact under the title, then what rides on it ──
+  keystone_fact: {
+    statement:
+      "In 2023 the Supreme Court ruled race-conscious admissions at Harvard and the University of North Carolina unlawful. After California banned affirmative action in 1996, minority enrollment fell at the most selective University of California campuses. Both sides accept those facts. The fight is over whether race-neutral tools can match the diversity those policies produced, and what test scores really measure.",
+    confidence: 90,
+    source:
+      "Supreme Court of the United States, SFFA v. Harvard (2023); Bleemer, Quarterly Journal of Economics (2022)",
+    sourceUrl:
+      "https://www.supremecourt.gov/opinions/22pdf/20-1199_hgdj.pdf",
+  },
+  simple_case: [
+    "The answer bears on how colleges pursue diversity after the ruling, on hiring programs that consider race, and on preferences such as legacy admissions.",
+  ],
   pillars: [
     // =========================================================================
     // PILLAR 1: Systemic Disadvantage vs. Individual Merit
