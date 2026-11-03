@@ -2598,9 +2598,9 @@
     "title": "Transgender Athletes in Competitive Sports",
     "question": "Should transgender women on hormone therapy compete in women's sports?",
     "meta_claim": "Transgender women who have undergone hormone therapy should be permitted to compete in women's sports categories, as hormonal transition sufficiently reduces any physiological advantages from male puberty.",
-    "confidence_score": 36,
-    "balance": 36,
-    "weight": 66,
+    "confidence_score": 39,
+    "balance": 39,
+    "weight": 67,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -2608,12 +2608,12 @@
     "status": "contested",
     "category": "policy",
     "pillarCount": 3,
-    "evidenceCount": 8,
+    "evidenceCount": 10,
     "firstCrux": "After two-plus years on hormones, do retained advantages exceed normal variation among women in that sport?",
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa cisgender skeletal hemoglobin swimming devolved collegiate ahrendt ball biomechanics coventry genital harper hematocrit"
+    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
   },
   {
     "id": "animal-consciousness-rights",
@@ -3324,7 +3324,7 @@
       "international-law",
       "warfare"
     ],
-    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus governmental milder unoda"
+    "keywords": "icrc lamberth scharre sparrow dumb if11150 if11294 impermissible abstentions primer atrocities belarus favour governmental milder"
   },
   {
     "id": "ai-energy-water-footprint",

@@ -178,6 +178,24 @@ export const transgenderAthletesSportsData = {
           reasoning:
             "The Olympic competition record is a verifiable, high-reliability fact. The absence of transgender Olympic medalists despite two decades of eligibility is significant evidence against the 'domination' narrative. However, directness is moderate because the small number of transgender elite athletes means the sample is too small for statistical conclusions, and the absence of domination at the Olympic level does not necessarily apply to sub-elite or youth competition.",
         },
+        {
+          id: "un-rapporteur-medals-count",
+          title: "UN Rapporteur's Report Cites Over 890 Medals Lost by Female Athletes (2024)",
+          description:
+            "A report to the UN General Assembly by the Special Rapporteur on violence against women and girls, Reem Alsalem (A/79/325, 27 August 2024), puts a number on the competitive side of this crux: 'According to information received, by 30 March 2024, over 600 female athletes in more than 400 competitions have lost more than 890 medals in 29 different sports.' Its footnote attributes the count to submissions from the Women's Liberation Front, the International Consortium on Female Sport and Lavender Patch. The report concludes that 'males must not compete in the female categories of sport.'",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 5,
+            independence: 3,
+            replicability: 4,
+            directness: 7,
+          },
+          source:
+            "UN General Assembly, 'Violence against women and girls in sports', report of the Special Rapporteur on violence against women and girls, its causes and consequences, A/79/325 (27 August 2024), para. 11",
+          sourceUrl: "https://documents.un.org/api/symbol/access?s=A/79/325&l=en&t=pdf",
+          reasoning:
+            "The one attempt in an official document to count the competitive harm this crux weighs, which is why it is here. It is weak as a measurement: the figure comes from submissions by groups that campaign against inclusion, the report does not list the competitions, their level or how each case was counted, and no independent audit has checked it, so independence and replicability are low. A medal tally also says nothing about the size of the harm set against it, the mental-health effects of exclusion, so it informs the comparison rather than settling it.",
+        },
       ],
     },
 
@@ -254,7 +272,7 @@ export const transgenderAthletesSportsData = {
           source: "International Olympic Committee",
           sourceUrl: "https://www.olympics.com/ioc/news/international-olympic-committee-announces-new-policy-on-the-protection-of-the-female-women-s-category-in-olympic-sport",
           reasoning:
-            "Both the 2021 framework and the 2026 reversal are authoritative, verifiable IOC policy statements. The 2026 policy materially changes the empirical landscape this map describes: the highest-level Olympic body has now adopted categorical exclusion from the female category rather than devolved, sport-by-sport inclusion. Side is coded 'for' (i.e., favouring the meta-claim's opponents) because the governing body's current position weighs against open hormone-based inclusion; the superseded 2021 framework is retained for historical context. Independence is moderate because the IOC faces intense lobbying and political pressure from all directions, and the genetic-screening mechanism itself is scientifically and ethically contested.",
+            "Both the 2021 framework and the 2026 reversal are authoritative, verifiable IOC policy statements. The 2026 policy materially changes the empirical landscape this map describes: the highest-level Olympic body has now adopted categorical exclusion from the female category rather than devolved, sport-by-sport inclusion. Side is coded 'against' because the governing body's current position weighs against open hormone-based inclusion; the superseded 2021 framework is retained for historical context. Independence is moderate because the IOC faces intense lobbying and political pressure from all directions, and the genetic-screening mechanism itself is scientifically and ethically contested.",
         },
         {
           id: "ncaa-2025-policy",
@@ -271,7 +289,24 @@ export const transgenderAthletesSportsData = {
           source: "NCAA; CBS News",
           sourceUrl: "https://www.ncaa.org/news/2025/2/6/media-center-ncaa-announces-transgender-student-athlete-participation-policy-change.aspx",
           reasoning:
-            "The NCAA decision is a verifiable, authoritative policy change governing the largest body of US collegiate athletics. Side is coded 'for' (favouring the meta-claim's opponents) because the policy excludes hormone-based inclusion from the female category. Independence is lower because the change was adopted under direct federal political pressure rather than as an independent evidence assessment, and its legality under Title IX is unresolved. It is included to keep the institutional landscape current: as of 2025–2026, the dominant trend among elite and collegiate governing bodies is toward exclusion, which the map's earlier inclusion-leaning framing should not obscure.",
+            "The NCAA decision is a verifiable, authoritative policy change governing the largest body of US collegiate athletics. Side is coded 'against' because the policy excludes hormone-based inclusion from the female category. Independence is lower because the change was adopted under direct federal political pressure rather than as an independent evidence assessment, and its legality under Title IX is unresolved. It is included to keep the institutional landscape current: as of 2025–2026, the dominant trend among elite and collegiate governing bodies is toward exclusion, which the map's earlier inclusion-leaning framing should not obscure.",
+        },
+        {
+          id: "world-aquatics-open-no-entries",
+          title: "World Aquatics' Open-Category Pilot Drew No Entries (2023)",
+          description:
+            "After restricting elite women's events in 2022, World Aquatics created a pilot open category of 50m and 100m races in every stroke for its Swimming World Cup meet in Berlin, 6-8 October 2023. When registration closed it said that 'no entries have been received for the Open Category events', adding: 'Even if there is no current demand at the elite level, the working group is planning to look at the possibility of including Open Category races at Masters events in the future.'",
+          side: "for" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 7,
+            replicability: 4,
+            directness: 7,
+          },
+          source: "Reuters via ESPN, 'World Aquatics: No entries in \"open category\" at Berlin event' (3 October 2023)",
+          sourceUrl: "https://www.espn.com/olympics/story/_/id/38554503/world-aquatics-no-entries-open-category-berlin-event",
+          reasoning:
+            "The only open category a major federation has actually run as a pilot, and it failed this crux's first test, that transgender athletes take part in meaningful numbers. That fits the inclusion side's claim that an open category is not a pathway athletes want. It is one meet at elite level, where very few transgender swimmers compete in any case, so an empty field may say more about numbers than about rejection of the model, and World Aquatics kept the idea open for Masters events; replicability is 4.",
         },
       ],
     },
