@@ -81,3 +81,34 @@ webp (was the 649KB JPEG) and 308s flagship `/map` URLs to the topic page.
 **04:05 UTC, wave 3.** Follow-ups (library tag ordering, paste agreed-fact cards,
 yes/no summaries) and sources (miscited RUSI card in ukraine-peace-terms, Starship,
 robotaxi cities, GLP-1 prices), plus a visual QA pass on the local build.
+
+**04:40 UTC, wave 3 integrated.** typecheck, lint, 4,333 tests, `bun run build` and
+`bun run smoke:standalone` green. Visual QA on the local standalone build (390/1440,
+light/dark): axe 0 violations on the map, paste and library pages; no console
+errors; blog hero 778KB JPEG → 42–57KB webp. QA polish fixed by Claude (weighing
+hint, evidence key alignment, related-list spacing, label colon).
+- followups: the library search now uses the header ranking ("climate", "ai" right
+  first; dev 53→55/55); the paste tool and yes/no summaries never use an agreed fact
+  as a side's case (137 paste cards, 12 of 298 summaries changed); splitter no
+  longer cuts at "v." / "et al.".
+- sources: the RUSI ~80% refurbishment card now cites the 2024 report the figures
+  come from, dated as a forecast; Starship (orbit on Flight 14, Sept 28 2026),
+  Waymo (14 cities, freeways), GLP-1 prices and Medicare Bridge updated with quotes.
+
+## For the founder
+
+Decisions (nothing merged; main deploys on merge):
+1. Merge the PR. After the Coolify deploy, check
+   `curl -sI "https://argumend.org/_next/image?url=%2Fimages%2Fgenerated%2Ftopics%2Fai-risk%2Fhero.jpg&w=384&q=75" -H "Accept: image/webp"`
+   returns image/webp (Linux was not testable here).
+2. Sitemap expansion: kept as its own merge commit; revert it to keep the pruned sitemap.
+3. Home "One pilot test" aside (trans-athletes debate, 88 of 114 turns) is the first
+   claim visitors read; a reviewer found it jargon-heavy and score-like. Left as is.
+4. Cloudflare: http→https is a 307 (301 is better); Cloudflare's managed robots.txt
+   blocks ClaudeBot/GPTBot/Google-Extended while llms.txt invites AI citation.
+5. Moon landing's skeptic side now has no non-agreed card, so its first crux shows no
+   pair; the map reads "settled" on its evidence after the dosimeter card moved.
+
+Content follow-ups: the US-China truce card (recheck after 2026-11-10); ukraine
+recruitment and Sweden MUST claims still NEEDS LIVE CHECK; GLP-1 "40% Ozempic price
+cut in 2024" unverified; Ukraine nuclear paste cruxes don't cover intermittency.
