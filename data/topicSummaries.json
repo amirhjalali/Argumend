@@ -2047,23 +2047,22 @@
     "title": "Student Debt Forgiveness",
     "question": "Is broad student debt forgiveness justified and economically beneficial?",
     "meta_claim": "Broad student loan forgiveness is justified, economically beneficial, and the fairest approach to addressing the student debt crisis.",
-    "confidence_score": 70,
-    "balance": 70,
-    "weight": 71,
+    "confidence_score": 64,
+    "balance": 64,
+    "weight": 72,
     "verdict": {
-      "label": "Evidence clearly leans toward the claim",
-      "quadrant": "moderate",
-      "fragile": true
+      "label": "Well-mapped, evidence still divided",
+      "quadrant": "contested"
     },
     "status": "contested",
     "category": "economics",
     "pillarCount": 3,
-    "evidenceCount": 10,
+    "evidenceCount": 11,
     "firstCrux": "Does forgiving student debt boost the economy more per dollar than other uses of the money?",
     "tags": [
       "economics"
     ],
-    "keywords": "tuition discharge repayment nebraska bennett cent forbearance crfb alleviates catherine disbursed forgave fullwiler heroes mbas"
+    "keywords": "tuition repayment discharge deciles nebraska catherine bennett cent forbearance crfb yannelis alleviates disbursed forgave fullwiler"
   },
   {
     "id": "inflation-monetary-policy",

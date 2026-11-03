@@ -75,7 +75,7 @@ describe("buildPasteSummary", () => {
   });
 
   it("keeps a borrowed card's evidence link without duplicating an already linked question", async () => {
-    const maps = await findMaps("Forgiving student debt is unfair to people who paid off their loans or never went to college, and it rewards borrowers who took on too much.");
+    const maps = await findMaps("Banning TikTok violates the First Amendment rights of the millions of Americans who use the app to speak and share their views.");
     const match = maps.match!;
     const borrowed = match.cards.find((card) => card.crux?.href !== match.crux?.href)!;
     const origin = borrowed.crux!;

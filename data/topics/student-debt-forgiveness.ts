@@ -208,6 +208,24 @@ export const studentDebtForgivenessData = {
           reasoning:
             "Tuition inflation data comes from authoritative, independent sources and is indisputable. This directly addresses the 'personal responsibility' argument by showing that the system itself created unaffordable costs that were not present for prior generations. However, directness is somewhat lower because high tuition does not automatically justify forgiveness as opposed to other remedies (price controls, increased state funding, income-driven repayment).",
         },
+        {
+          id: "forgiveness-regressive-present-value",
+          title: "Forgiving Balances Would Give the Top Earners as Much as the Bottom Three Deciles",
+          description:
+            "Catherine and Yannelis (NBER working paper, December 2020; Journal of Financial Economics, 2023) valued student debt forgiveness in present-value terms, accounting for how much borrowers at each earnings level would actually have repaid. They found that \"Full or partial forgiveness is regressive because high earners took larger loans, but also because, for low earners, balances greatly overstate present values,\" so that forgiveness \"would benefit the top decile as much as the bottom three deciles combined.\" Enrolling households who would benefit from income-driven repayment was \"the least expensive and most progressive policy we consider.\"",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 8,
+            replicability: 6,
+            directness: 6,
+          },
+          source:
+            "Catherine & Yannelis, 'The Distributional Effects of Student Loan Forgiveness,' NBER Working Paper 28175 (2020), published in Journal of Financial Economics 147(2) (2023)",
+          sourceUrl: "https://www.nber.org/papers/w28175",
+          reasoning:
+            "Peer-reviewed work that measures who would gain, which is the fairness half of this crux: much of a balance-based write-off would go to people who were on course to repay anyway. It does not test moral hazard, whether expected forgiveness raises future borrowing, and it models across-the-board forgiveness, so plans that cap eligibility by income or target low earners would be less skewed. The present-value results also depend on the authors' projections of each borrower's repayment.",
+        },
       ],
     },
 
