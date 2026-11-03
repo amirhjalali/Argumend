@@ -144,6 +144,11 @@ export const MAP_MATCH = {
    */
   siblingTieShare: 0.98,
   siblingWordLead: 1.05,
+  /**
+   * An on-subject map scoring at least this share of an off-subject leader
+   * is tied with it and decided first (`leaderOnSubject`).
+   */
+  leaderTieShare: 0.98,
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -202,6 +207,28 @@ export interface MapDecision {
 }
 
 /**
+ * An on-subject map that ties an off-subject leader (`leaderTieShare`),
+ * moved first; null when there is none. An off-subject leader that stands
+ * ahead blocks the paste (a paste borrowing one map's words is no map's
+ * paste), but a dead tie says nothing about which of the two comes first: a
+ * paste about AI tutors and achievement gaps scored 17.11 on the testing map,
+ * which it never names, and 17.10 on the AI-education map, and the 0.01
+ * decided whether any map was named (r12 merge). Ranked second, an
+ * off-subject map is already no rival; tied, it is not the leader either.
+ */
+function leaderOnSubject(
+  ranked: readonly RankedMap[],
+  offSubject: (id: string) => boolean,
+): RankedMap[] | null {
+  const [first] = ranked;
+  if (!first || !offSubject(first.id)) return null;
+  const tied = ranked.find(
+    (map) => map.score >= MAP_MATCH.leaderTieShare * first.score && !offSubject(map.id),
+  );
+  return tied ? [tied, ...ranked.filter((map) => map !== tied)] : null;
+}
+
+/**
  * Pure: decides from a ranking and a sibling test. `isSibling` is asked only
  * about the top map and the maps just below it.
  */
@@ -215,6 +242,33 @@ export function decideMatch(
   introMapId?: string,
   usesAsMuch: (id: string, term: string, than: string) => boolean = () => false,
   secondSubject: (topId: string, rivalId: string) => boolean = () => false,
+): MapDecision {
+  const decide = (ranked: readonly RankedMap[]) =>
+    decideOn(
+      { ...ranking, ranked: [...ranked] },
+      isSibling, nameMatch, offSubject, ownNameWord, sharesName, introMapId, usesAsMuch, secondSubject,
+    );
+  // Tied with an off-subject leader, the on-subject map is decided first. If
+  // it is not named, the paste is read as before, with the off-subject
+  // leader's caution on what is listed.
+  const reordered = leaderOnSubject(ranking.ranked, offSubject);
+  if (reordered) {
+    const decision = decide(reordered);
+    if (decision.named) return decision;
+  }
+  return decide(ranking.ranked);
+}
+
+function decideOn(
+  ranking: Pick<MapRanking, "ranked" | "ceiling" | "exclusiveLead">,
+  isSibling: (a: string, b: string) => boolean,
+  nameMatch: (id: string) => ReadonlySet<string>,
+  offSubject: (id: string) => boolean,
+  ownNameWord: (id: string) => boolean,
+  sharesName: (id: string) => boolean,
+  introMapId: string | undefined,
+  usesAsMuch: (id: string, term: string, than: string) => boolean,
+  secondSubject: (topId: string, rivalId: string) => boolean,
 ): MapDecision {
   const [top, ...rest] = ranking.ranked;
   if (!top) {
