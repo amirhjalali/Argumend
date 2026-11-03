@@ -134,6 +134,24 @@ export const reparationsSlaveryData = {
           reasoning:
             "Legitimate practical concern, but framed here as general commentary rather than a specific cited study, so source-reliability and independence are scored conservatively. The difficulty of implementation does not negate the moral case — many complex government programs (Social Security, Medicare) require identity verification.",
         },
+        {
+          id: "sacerdote-two-generation-catch-up",
+          title: "Sacerdote (2005): Descendants of the Enslaved Caught Up With Descendants of Free Black Americans in About Two Generations",
+          description:
+            "Dartmouth economist Bruce Sacerdote compared former slaves and their children and grandchildren with Black Americans who were free before 1865 and their descendants, on literacy, school attendance, household structure and two measures of adult occupation, using the 1880 and 1920 census samples and families linked back to the full 1880 Census. 'Using a variety of different comparisons, (e.g. within versus across regions) I find that it took roughly two generations for the descendants of slaves to catch up to the descendants of free black men and women.' He reads the convergence as consistent with modern estimates of how strongly status passes from father to son.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 8,
+            independence: 9,
+            replicability: 6,
+            directness: 4,
+          },
+          source:
+            "Bruce Sacerdote, 'Slavery and the Intergenerational Transmission of Human Capital', Review of Economics and Statistics 87(2), May 2005 (NBER Working Paper 9227, 2002)",
+          sourceUrl: "https://www.nber.org/papers/w9227",
+          reasoning:
+            "Peer-reviewed census-linkage evidence that the gap specific to having enslaved ancestors faded by 1920, which cuts against a direct slavery-to-today causal chain and against lineage as the test of who was harmed. Directness is held to 4 because the comparison group, free Black Americans, faced the same Jim Crow and later federal exclusions, so the study says nothing about how much of today's gap those post-1865 policies caused, which is half the crux. It measures schooling and occupation, not wealth.",
+        },
       ],
     },
     {
@@ -246,6 +264,44 @@ export const reparationsSlaveryData = {
           sourceUrl: "https://portal.ct.gov/ott/ct-baby-bonds/overview",
           reasoning:
             "Promising mechanism with some real-world pilot data. Directness is limited because baby bonds are race-neutral by design (though they disproportionately benefit Black families) and the wealth-gap-closure figures are projections, not observed at scale. Corrected eligibility (Medicaid/HUSKY, not 'under $75K') and attributed the gap-closure estimate to Zewde's simulation.",
+        },
+        {
+          id: "evanston-doj-equal-protection-suit",
+          title: "The First US Reparations Program, Evanston's $25,000 Housing Grants, Faces a Federal Equal-Protection Suit the Justice Department Joined in June 2026",
+          description:
+            "Evanston, Illinois adopted its Local Reparations Restorative Housing Program in 2019: $25,000 in cash or housing assistance for Black people who lived in the city as adults between 1919 and 1969 and their children, grandchildren or great-grandchildren. The Justice Department says the city has paid 'over $5 million' so far. A class action filed in May 2024 by Judicial Watch on behalf of non-Black residents' descendants (Flinn v. City of Evanston, N.D. Ill. No. 1:24-cv-04269) survived the city's motion to dismiss in March 2026. On 16 June 2026 the Civil Rights Division moved to intervene, arguing the program violates the Equal Protection Clause and the Fair Housing Act because race determines eligibility and recipients need not show past discrimination; Assistant Attorney General Harmeet Dhillon called it 'race discrimination, pure and simple.' As of that filing there was no ruling on the merits.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 7,
+            independence: 4,
+            replicability: 5,
+            directness: 6,
+          },
+          source:
+            "U.S. Department of Justice, Office of Public Affairs, 'U.S. Justice Department Moves to Intervene in Race Discrimination Lawsuit Challenging Reparations' (16 June 2026); Patch Evanston (18 June 2026)",
+          sourceUrl:
+            "https://www.justice.gov/opa/pr/us-justice-department-moves-intervene-race-discrimination-lawsuit-challenging-reparations",
+          reasoning:
+            "Shows the legal exposure of a race-keyed design after the 2023 Students for Fair Admissions ruling, in the one program actually paying out. Independence is 4 because the source is a litigant, and the outcome is undecided, so this is a risk, not a holding. It bears less on Darity and Mullen's lineage-based federal design, which a court could treat differently from a city's race-based grant, and Evanston ties eligibility to a documented period of housing discrimination. Payment totals differ across reports (Patch gives 137 recipients and more than $3 million).",
+        },
+        {
+          id: "pew-2021-reparations-support",
+          title: "Pew (2021): 30% of US Adults Say Descendants of the Enslaved Should Be Repaid; 68% Say They Should Not",
+          description:
+            "In Pew Research Center's October 2021 surveys, 'Three-in-ten U.S. adults say descendants of people enslaved in the U.S. should be repaid in some way', such as land or money, and 'About seven-in-ten (68%) say these descendants should not be repaid.' Views split sharply by race: 77% of Black adults favor repayment against 18% of White adults. Democrats and Democratic-leaning independents were themselves split, 48% in favor and 49% against.",
+          side: "against" as const,
+          weight: {
+            sourceReliability: 9,
+            independence: 9,
+            replicability: 7,
+            directness: 5,
+          },
+          source:
+            "Pew Research Center, 'Black and White Americans are far apart in their views of reparations for slavery' (28 Nov 2022, surveys of Oct 2021)",
+          sourceUrl:
+            "https://www.pewresearch.org/short-reads/2022/11/28/black-and-white-americans-are-far-apart-in-their-views-of-reparations-for-slavery/",
+          reasoning:
+            "A large, methodologically strong national survey, and political viability is part of the crux question. Directness is 5: support measures the politics of a design, not whether it would work or is owed, and opinion can shift: 45% of adults under 30 favored repayment, against 18% of those 65 and older. The survey is from 2021; no newer Pew measure was found as of November 2026.",
         },
       ],
     },
