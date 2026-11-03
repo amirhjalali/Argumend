@@ -24,11 +24,11 @@
   {
     "id": "pfas-forever-chemicals",
     "title": "PFAS \"Forever Chemicals\"",
-    "question": "Are PFAS causing enough harm to justify costly bans and water cleanup?",
+    "question": "Do forever chemicals do enough harm to justify the cost of cleaning up our water?",
     "meta_claim": "PFAS are causing widespread human health harm and warrant aggressive, costly bans and water cleanup",
-    "confidence_score": 68,
-    "balance": 68,
-    "weight": 70,
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 71,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -36,12 +36,22 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Do PFAS links to kidney and other cancers hold up in studies that separate cause from effect?",
+    "evidenceCount": 15,
+    "firstCrux": "Do the links between PFAS and kidney cancer and cholesterol hold up once kidney function is accounted for?",
     "tags": [
-      "science"
+      "science",
+      "pfas",
+      "drinking-water",
+      "chemicals",
+      "regulation",
+      "cancer"
     ],
-    "keywords": "pfoa pfos dupont genx chemours antibody corteva atsdr ultrashort nasem biomonitoring fluorochemical hfpo ulcerative colitis"
+    "aliases": [
+      "Are PFAS causing enough harm to justify costly bans and water cleanup?",
+      "Are forever chemicals in tap water dangerous?",
+      "Should PFAS be banned?"
+    ],
+    "keywords": "pfoa pfos genx testicular atsdr dupont chemours hfpo pfhxs pfna wilmington rescind corteva perfluorooctanoic keck"
   },
   {
     "id": "intermittent-fasting-efficacy",
@@ -284,7 +294,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann superhuman looming metr philanthropy"
+    "keywords": "kokotajlos chinchilla slowdown alphatensor amdahls aschenbrenner christiano latency leaderboard davidson hoffmann serial superhuman untenable looming"
   },
   {
     "id": "jones-act",
@@ -403,7 +413,7 @@
       "documentary proof of citizenship to vote",
       "noncitizen voter registration"
     ],
-    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tenth tribal campuses mail factcheck"
+    "keywords": "hampshire kansas heritage lieutenant schwab votebeat brennan cantoni kansass pons tribal campuses tenth mail factcheck"
   },
   {
     "id": "congress-stock-trading-ban",
@@ -751,7 +761,7 @@
       "Do immigrants take jobs from Americans?",
       "Will deporting immigrants raise wages?"
     ],
-    "keywords": "peri mexican borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe elizabeth"
+    "keywords": "mexican peri borjas mariel repatriations boatlift bracero sparber yasenov azoulay clemens diploma farmworkers chloe elizabeth"
   },
   {
     "id": "open-borders",
@@ -773,7 +783,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "carens remittances clemens borjas bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann circular"
+    "keywords": "carens remittances clemens borjas eastern bier isil milton sidewalk clemenss feudal kahanec peasant zaiceva zimmermann"
   },
   {
     "id": "universal-basic-income",
@@ -795,7 +805,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "openresearch dividend kela stockton roosevelt alaskas penn manitoba mincome wives tanf denver givedirectly banerjee bartik"
+    "keywords": "openresearch dividend kela stockton roosevelt penn manitoba mincome wives tanf denver givedirectly banerjee bartik dauphin"
   },
   {
     "id": "wealth-tax",
@@ -817,7 +827,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg deferral"
+    "keywords": "berg ostry tsangarides carroll forbes illiquid infrequently slacalek tokuoka luxembourg austria deferral"
   },
   {
     "id": "standardized-testing-debate",
@@ -912,7 +922,7 @@
       "Was the Iran war worth it?",
       "Should the US make a deal with Iran or resume strikes?"
     ],
-    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq memorandum tehran fordow"
+    "keywords": "hezbollahs jazeera houthis jcpoa lebanon iranian grossi hormuz ceasefire israeli blockade iraq tehran fordow islamabad"
   },
   {
     "id": "epstein-files",
@@ -963,7 +973,7 @@
       "Is it right for governments to ban apps?",
       "Do government platform bans protect citizens?"
     ],
-    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight retrained upholds broadcast relicensed usds"
+    "keywords": "bytedance cfius garland oracle reels snowden divestiture fisa forbes knight retrained broadcast upholds relicensed usds"
   },
   {
     "id": "immigration-border-crisis",
@@ -990,7 +1000,7 @@
       "Should the US deport all illegal immigrants?",
       "Is mass deportation a good idea?"
     ],
-    "keywords": "trac southwest apprehensions patrol detained backlog marc rosenblum syracuse apprehended binational fy2023 asphyxia ians neck"
+    "keywords": "trac southwest apprehensions patrol detained backlog marc rosenblum syracuse apprehended binational fy2023 asphyxia ians nprs"
   },
   {
     "id": "social-media-elections",
@@ -1125,7 +1135,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse abeyance arbitration gerd glacier hindu indus"
+    "keywords": "desalination brine groundwater wastewater cubic feet irrigation pacific reuse arbitration gerd glacier hindu indus kush"
   },
   {
     "id": "sugar-tax-effectiveness",
@@ -1147,7 +1157,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "colchero tooth reformulation carious dommarco ounce popkin earmarked rivera scarborough caries satiety sugary andreyeva brownell"
+    "keywords": "colchero tooth reformulation carious dommarco popkin earmarked ounce rivera scarborough caries satiety sugary andreyeva brownell"
   },
   {
     "id": "social-media-age-limits",
@@ -1235,7 +1245,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan trustworthy zauderer artists writers chegini conspicuous ecfr iptc"
+    "keywords": "feizi forged hesitate farid nightingale saberi sadasivan zauderer artists trustworthy writers chegini conspicuous ecfr iptc"
   },
   {
     "id": "big-tech-antitrust",
@@ -1345,7 +1355,7 @@
     "tags": [
       "technology"
     ],
-    "keywords": "chicken taste aleph steak nahmias reassess beef barnett bryant inexpensive litre queen tangential tasters consolidation"
+    "keywords": "chicken taste aleph steak nahmias beef barnett bryant inexpensive litre queen tangential tasters filtration consolidation"
   },
   {
     "id": "ai-in-education",
@@ -1548,7 +1558,7 @@
       "Hasn't the climate always changed naturally, because of the sun?",
       "Isn't CO2 just plant food?"
     ],
-    "keywords": "arctic irradiance scripps eruption pinatubo stratosphere argo keeling acidification geophysical acrim albedo amsu ceres cmip6"
+    "keywords": "arctic irradiance scripps pinatubo eruption stratosphere argo keeling acidification geophysical acrim albedo amsu ceres cmip6"
   },
   {
     "id": "ev-environmental-impact",
@@ -1620,7 +1630,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "antioxidant chamacos prenatal metabolites bara milk pufa bahlai cadmium curl guelph hyland intraspecies oates organophosphate"
+    "keywords": "prenatal antioxidant chamacos metabolites bara milk pufa bahlai cadmium curl guelph hyland intraspecies oates organophosphate"
   },
   {
     "id": "gene-editing-embryos",
@@ -1664,7 +1674,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars perseverance collisions irreplaceable constellation didymos dimorphoss"
+    "keywords": "dart asteroid debris spinoff spacex spin landsat modis mars perseverance collisions deflection irreplaceable constellation didymos"
   },
   {
     "id": "veganism-environmental-impact",
@@ -1810,16 +1820,16 @@
     "tags": [
       "science"
     ],
-    "keywords": "regret cass dysphoria detransition nonbinary tordoff dutch bustos congruence psychotherapeutic skrmetti trevor vries wpath plastic"
+    "keywords": "regret cass dysphoria detransition nonbinary tordoff dutch bustos congruence psychotherapeutic pubertal skrmetti trevor vries wpath"
   },
   {
     "id": "microplastics-health-crisis",
-    "title": "The Microplastics Health Crisis",
-    "question": "Are microplastics in our bodies a health crisis on the scale of lead?",
+    "title": "Microplastics in Our Bodies",
+    "question": "Are the microplastics in our bodies making us sick?",
     "meta_claim": "Microplastic and nanoplastic contamination of human blood, organs, and placentas represents a major emerging public health crisis comparable to lead exposure, not merely an environmental nuisance.",
-    "confidence_score": 66,
-    "balance": 66,
-    "weight": 72,
+    "confidence_score": 63,
+    "balance": 63,
+    "weight": 65,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1827,12 +1837,22 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Do microplastics in arteries drive heart disease, or are they bystanders in already-diseased tissue?",
+    "evidenceCount": 11,
+    "firstCrux": "Do reported plastic levels in human blood, placentas and brains hold up under blank controls and a second method?",
     "tags": [
-      "science"
+      "science",
+      "microplastics",
+      "plastics",
+      "environmental-health",
+      "cardiovascular",
+      "chemicals"
     ],
-    "keywords": "plastic recycling phthalate polyethylene sperm tons polymers micrograms micrometers testicular rats arterial butyl interleukin plaque"
+    "aliases": [
+      "Are microplastics in our bodies a health crisis on the scale of lead?",
+      "Is there a spoonful of plastic in my brain?",
+      "Do microplastics cause heart attacks?"
+    ],
+    "keywords": "polyethylene recycled micrograms pyrolysis phthalate landfills plaque rauert frontline artery chromatography malforms millilitre nano dementia"
   },
   {
     "id": "glp1-weight-loss-drugs",
@@ -1858,12 +1878,12 @@
   },
   {
     "id": "fluoride-water-supplies",
-    "title": "Fluoride in Water Supplies",
-    "question": "Is fluoridating community water safe and effective?",
-    "meta_claim": "Community water fluoridation is a safe and effective public health measure",
-    "confidence_score": 33,
-    "balance": 33,
-    "weight": 72,
+    "title": "Fluoride in Tap Water",
+    "question": "Should towns keep adding fluoride to tap water?",
+    "meta_claim": "Adding fluoride to community water at the US target of 0.7 mg/L is safe and still worth doing.",
+    "confidence_score": 38,
+    "balance": 38,
+    "weight": 68,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -1871,12 +1891,22 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 12,
-    "firstCrux": "Does swallowed fluoride add meaningful benefit beyond fluoride toothpaste?",
+    "evidenceCount": 13,
+    "firstCrux": "In children who already use fluoride toothpaste, does fluoridated water still mean fewer cavities?",
     "tags": [
-      "science"
+      "science",
+      "fluoride",
+      "public-health",
+      "dental-health",
+      "drinking-water",
+      "children"
     ],
-    "keywords": "cavity toothpaste bashash tooth prenatal calgary dmft nhmrc nuffield unreasonable breastfed edmonton fluorosis hygiene mildest"
+    "aliases": [
+      "Is fluoridating community water safe and effective?",
+      "Does fluoride in water lower children's IQ?",
+      "Why did Utah and Florida ban fluoride?"
+    ],
+    "keywords": "tooth calgary urine toothpaste nuffield caries ninth unreasonable juneau choi edmonton fluorosis mclaren swallowed tablets"
   },
   {
     "id": "seed-oils-health",
@@ -1920,7 +1950,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott colonizing"
+    "keywords": "semaglutide supermarket regained kcal microbiota junk microbiome dastidar fothergill germ ghosh ridaura turnbaugh allcott elks"
   },
   {
     "id": "loneliness-epidemic",
@@ -1942,7 +1972,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole kiecolt luchetti sage suburbs surkalim fibrinogen glaser suburban"
+    "keywords": "walkable leyden putnam lockdowns biobehavioral bowling cole fibrinogen kiecolt luchetti sage suburbs surkalim glaser suburban"
   },
   {
     "id": "remote-work-permanence",
@@ -1964,7 +1994,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "placer bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown boise ctrip"
+    "keywords": "placer bloom metros andy gibbs jassy mengel moodys schoar shinde siemroth atkin downtown indeed boise"
   },
   {
     "id": "college-value-proposition",
@@ -2077,7 +2107,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "forked hashrate terra luna moat glassnode issuance asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto coinbase"
+    "keywords": "forked hashrate terra luna moat glassnode issuance trough asymptotically bitstamp coingecko coinmarketcap inception litecoin nakamoto"
   },
   {
     "id": "cryptocurrency-regulation",
@@ -2099,7 +2129,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "coinbase stablecoin ripple mica dubai defi fit21 terraform terrausd contagion luna cftc chainalysis gensler rakoff"
+    "keywords": "coinbase stablecoin ripple mica dubai defi fit21 terraform terrausd clarity contagion luna cftc chainalysis gensler"
   },
   {
     "id": "gig-economy-regulation",
@@ -2232,7 +2262,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser garcia starter lopez metro airbnb batzer bearish"
+    "keywords": "rentals sellers belt lows hmrc redfin tourist fraser starter garcia lopez metro airbnb batzer bearish"
   },
   {
     "id": "us-national-debt-crisis",
@@ -2298,7 +2328,7 @@
     "tags": [
       "economics"
     ],
-    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost ring beers debswana"
+    "keywords": "botswana kimberley carat polished catoca artisanal angolas excavations knot leone sierra trucost beers debswana foundry"
   },
   {
     "id": "rent-control-effectiveness",
@@ -2326,7 +2356,7 @@
       "Rent stabilization for tenants",
       "Rent freezes"
     ],
-    "keywords": "rental mcquade palmer pathak qian autor diamond queue stockholm decontrol appreciation citywide luttmer yorker glaeser"
+    "keywords": "rental mcquade palmer pathak qian autor queue stockholm decontrol appreciation citywide luttmer yorker glaeser broadened"
   },
   {
     "id": "degrowth-economics",
@@ -2436,7 +2466,7 @@
     "tags": [
       "philosophy"
     ],
-    "keywords": "celis hennepin scene sosa deportation castro julio cbps nonfatal patrol footage spokesperson superintendent venturella shooters"
+    "keywords": "celis hennepin scene sosa deportation julio castro cbps nonfatal patrol footage spokesperson superintendent venturella shooters"
   },
   {
     "id": "consciousness-ai-systems",
@@ -2635,7 +2665,7 @@
     "tags": [
       "science"
     ],
-    "keywords": "monsoon pinatubo dioxide precipitation geomip eruption rainfall tons cyclone dimmed intercomparison celsius geophysical hydrological irvine"
+    "keywords": "monsoon pinatubo dioxide precipitation geomip rainfall eruption tons cyclone dimmed intercomparison celsius geophysical hydrological intergovernmental"
   },
   {
     "id": "central-bank-digital-currency",
@@ -2772,7 +2802,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "olympic ncaa rapporteur cisgender medals skeletal swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics coventry"
+    "keywords": "olympic ncaa rapporteur cisgender medals skeletal aquatics swimming hemoglobin devolved collegiate ahrendt alsalem ball biomechanics"
   },
   {
     "id": "animal-consciousness-rights",
@@ -2817,7 +2847,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "putnam borjas retiree hunkering italians jews complementarity diploma dispersed norc resettlement refugee scandinavian"
+    "keywords": "putnam borjas retiree hunkering italians jews complementarity diploma dispersed norc resettlement refugee"
   },
   {
     "id": "affirmative-action-meritocracy",
@@ -2839,7 +2869,7 @@
     "tags": [
       "policy"
     ],
-    "keywords": "sffa arcidiacono quotas disapprove campuses reanalyses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler"
+    "keywords": "sffa arcidiacono quotas disapprove campuses aucejo bleemer deshpande freeman gurin hotz huang kasman kinsler klasik"
   },
   {
     "id": "ukraine-peace-terms",
@@ -3152,7 +3182,7 @@
       "Internet fast lanes and paid prioritization",
       "Internet providers blocking or slowing competing websites and video services"
     ],
-    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante memorandum secretly bona duarte dunn facetime gibson"
+    "keywords": "comcast bittorrent briglauer cambini ctia gugler stocker ante secretly bona duarte dunn facetime gibson isps"
   },
   {
     "id": "generative-ai-art-copyright",
@@ -3206,7 +3236,7 @@
       "civil-liberties",
       "ai-bias"
     ],
-    "keywords": "frvt metropolitan nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha"
+    "keywords": "frvt nistir clare frte garvie grother hanaoka jacobs misidentification mugshot ngan nijeer passers porcha randal"
   },
   {
     "id": "gmo-crops-safety",
@@ -3233,7 +3263,7 @@
       "glyphosate",
       "biotechnology"
     ],
-    "keywords": "cotton herbicide weeds roundup iarc bollworm sprays bayer benbrook monsanto mper pink pmra qaim halo"
+    "keywords": "cotton herbicide weeds roundup pesticide bollworm sprays bayer benbrook monsanto mper pink pmra qaim halo"
   },
   {
     "id": "nuclear-fusion-timeline",
@@ -3291,7 +3321,7 @@
       "School vaccination requirements",
       "Required childhood immunizations"
     ],
-    "keywords": "osha measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel kraaijeveld"
+    "keywords": "osha austria measles jacobson waned arie bardosh bendavid bnt162b2 e008684 eyre figueiredo hotez karaivanov karpel"
   },
   {
     "id": "ssri-antidepressant-efficacy",
@@ -3574,7 +3604,7 @@
       "public-health",
       "nicotine"
     ],
-    "keywords": "evali hospitalised acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350 pub8"
+    "keywords": "evali lung hospitalised acetate bhadriraju glantz blount bronchoalveolar cd010216 latinx lavage lindson mcneill nnal pmc7101350"
   },
   {
     "id": "sex-work-decriminalization",
@@ -3658,12 +3688,12 @@
   },
   {
     "id": "alcohol-no-safe-level",
-    "title": "Alcohol's Safe Level",
-    "question": "Is any amount of drinking harmful to health?",
+    "title": "Alcohol: Is Any Amount Safe?",
+    "question": "Is even one drink a day bad for your health?",
     "meta_claim": "There is no safe level of alcohol consumption for health.",
-    "confidence_score": 51,
-    "balance": 51,
-    "weight": 77,
+    "confidence_score": 61,
+    "balance": 61,
+    "weight": 74,
     "verdict": {
       "label": "Well-mapped, evidence still divided",
       "quadrant": "contested"
@@ -3671,8 +3701,8 @@
     "status": "contested",
     "category": "science",
     "pillarCount": 3,
-    "evidenceCount": 10,
-    "firstCrux": "Does cancer risk rise from the first drink, or could a small threshold hide below what studies can detect?",
+    "evidenceCount": 13,
+    "firstCrux": "Does cancer risk rise from the first daily drink, or only above some small amount?",
     "tags": [
       "science",
       "alcohol",
@@ -3682,10 +3712,12 @@
       "epidemiology"
     ],
     "aliases": [
+      "Is any amount of drinking harmful to health?",
       "Is a glass of red wine a day good for your heart?",
-      "Is moderate drinking good for you?"
+      "Is moderate drinking good for you?",
+      "Is there a safe level of alcohol?"
     ],
-    "keywords": "drinkers stockwell iarc bagnardi fillmore unadjusted mendelian zhao carcinoma chikritzhs colorectal ionizing kerr laryngeal naimi"
+    "keywords": "drinkers stockwell minimises bagnardi fillmore kassaw larynx naimi bowel continuum zhao carcinoma chikritzhs colorectal dyae046"
   },
   {
     "id": "modern-monetary-theory",
